@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetMasterAccountRequest, GetMasterAccountResponse } from "../models/models_0";
+import { GetMasterAccountRequest, GetMasterAccountResponse } from "../models/models_1";
 import { de_GetMasterAccountCommand, se_GetMasterAccountCommand } from "../protocols/Aws_restJson1";
 
 /**

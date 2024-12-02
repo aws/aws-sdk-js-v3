@@ -188,6 +188,30 @@ export class AccessDeniedException extends __BaseException {
  * <p>Contains information about the access keys.</p>
  * @public
  */
+export interface AccessKey {
+  /**
+   * <p>Principal ID of the user.</p>
+   * @public
+   */
+  PrincipalId?: string | undefined;
+
+  /**
+   * <p>Name of the user.</p>
+   * @public
+   */
+  UserName?: string | undefined;
+
+  /**
+   * <p>Type of the user.</p>
+   * @public
+   */
+  UserType?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the access keys.</p>
+ * @public
+ */
 export interface AccessKeyDetails {
   /**
    * <p>The access key ID of the user.</p>
@@ -212,6 +236,24 @@ export interface AccessKeyDetails {
    * @public
    */
   UserType?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the account.</p>
+ * @public
+ */
+export interface Account {
+  /**
+   * <p>ID of the member's Amazon Web Services account</p>
+   * @public
+   */
+  Uid: string | undefined;
+
+  /**
+   * <p>Name of the member's Amazon Web Services account.</p>
+   * @public
+   */
+  Name?: string | undefined;
 }
 
 /**
@@ -1132,6 +1174,113 @@ export interface Action {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const MfaStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type MfaStatus = (typeof MfaStatus)[keyof typeof MfaStatus];
+
+/**
+ * <p>Contains information about the authenticated session.</p>
+ * @public
+ */
+export interface Session {
+  /**
+   * <p>The unique identifier of the session.</p>
+   * @public
+   */
+  Uid?: string | undefined;
+
+  /**
+   * <p>Indicates whether or not multi-factor authencation (MFA) was used during authentication.</p>
+   *          <p>In Amazon Web Services CloudTrail, you can find this value as <code>userIdentity.sessionContext.attributes.mfaAuthenticated</code>.</p>
+   * @public
+   */
+  MfaStatus?: MfaStatus | undefined;
+
+  /**
+   * <p>The timestamp for when the session was created.</p>
+   *          <p>In Amazon Web Services CloudTrail, you can find this value as <code>userIdentity.sessionContext.attributes.creationDate</code>.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>Identifier of the session issuer.</p>
+   *          <p>In Amazon Web Services CloudTrail, you can find this value as <code>userIdentity.sessionContext.sessionIssuer.arn</code>.</p>
+   * @public
+   */
+  Issuer?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the user involved in the attack sequence.</p>
+ * @public
+ */
+export interface User {
+  /**
+   * <p>The name of the user.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The unique identifier of the user.</p>
+   * @public
+   */
+  Uid: string | undefined;
+
+  /**
+   * <p>The type of the user.</p>
+   * @public
+   */
+  Type: string | undefined;
+
+  /**
+   * <p>The credentials of the user ID.</p>
+   * @public
+   */
+  CredentialUid?: string | undefined;
+
+  /**
+   * <p>Contains information about the Amazon Web Services account.</p>
+   * @public
+   */
+  Account?: Account | undefined;
+}
+
+/**
+ * <p>Information about the actors involved in an attack sequence.</p>
+ * @public
+ */
+export interface Actor {
+  /**
+   * <p>ID of the threat actor.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>Contains information about the user credentials used by the threat actor.</p>
+   * @public
+   */
+  User?: User | undefined;
+
+  /**
+   * <p>Contains information about the user session where the activity initiated.</p>
+   * @public
+   */
+  Session?: Session | undefined;
+}
+
+/**
  * <p>Information about the installed EKS add-on (GuardDuty security agent).</p>
  * @public
  */
@@ -1360,6 +1509,25 @@ export const AutoEnableMembers = {
  * @public
  */
 export type AutoEnableMembers = (typeof AutoEnableMembers)[keyof typeof AutoEnableMembers];
+
+/**
+ * <p>Contains information about the Autonomous System (AS) associated with the network
+ *        endpoints involved in an attack sequence.</p>
+ * @public
+ */
+export interface AutonomousSystem {
+  /**
+   * <p>Name associated with the Autonomous System (AS).</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The unique number that identifies the Autonomous System (AS).</p>
+   * @public
+   */
+  Number: number | undefined;
+}
 
 /**
  * <p>Contains information on the current bucket policies for the S3 bucket.</p>
@@ -4565,6 +4733,823 @@ export interface Destination {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const NetworkDirection = {
+  INBOUND: "INBOUND",
+  OUTBOUND: "OUTBOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkDirection = (typeof NetworkDirection)[keyof typeof NetworkDirection];
+
+/**
+ * <p>Contains information about the network connection.</p>
+ * @public
+ */
+export interface NetworkConnection {
+  /**
+   * <p>The direction in which the network traffic is flowing.</p>
+   * @public
+   */
+  Direction: NetworkDirection | undefined;
+}
+
+/**
+ * <p>Contains information about network endpoint location.</p>
+ * @public
+ */
+export interface NetworkGeoLocation {
+  /**
+   * <p>The name of the city.</p>
+   * @public
+   */
+  City: string | undefined;
+
+  /**
+   * <p>The name of the country.</p>
+   * @public
+   */
+  Country: string | undefined;
+
+  /**
+   * <p>The latitude information of the endpoint location.</p>
+   * @public
+   */
+  Latitude: number | undefined;
+
+  /**
+   * <p>The longitude information of the endpoint location.</p>
+   * @public
+   */
+  Longitude: number | undefined;
+}
+
+/**
+ * <p>Contains information about network endpoints that were observed in the attack sequence.</p>
+ * @public
+ */
+export interface NetworkEndpoint {
+  /**
+   * <p>The ID of the network endpoint.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The IP address associated with the network endpoint.</p>
+   * @public
+   */
+  Ip?: string | undefined;
+
+  /**
+   * <p>The domain information for the network endpoint.</p>
+   * @public
+   */
+  Domain?: string | undefined;
+
+  /**
+   * <p>The port number associated with the network endpoint.</p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>Information about the location of the network endpoint.</p>
+   * @public
+   */
+  Location?: NetworkGeoLocation | undefined;
+
+  /**
+   * <p>The Autonomous System (AS) of the network endpoint.</p>
+   * @public
+   */
+  AutonomousSystem?: AutonomousSystem | undefined;
+
+  /**
+   * <p>Information about the network connection.</p>
+   * @public
+   */
+  Connection?: NetworkConnection | undefined;
+}
+
+/**
+ * <p>Contains information about the EC2 instance profile.</p>
+ * @public
+ */
+export interface IamInstanceProfile {
+  /**
+   * <p>The profile ARN of the EC2 instance.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The profile ID of the EC2 instance.</p>
+   * @public
+   */
+  Id?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the product code for the EC2 instance.</p>
+ * @public
+ */
+export interface ProductCode {
+  /**
+   * <p>The product code information.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>The product code type.</p>
+   * @public
+   */
+  ProductType?: string | undefined;
+}
+
+/**
+ * <p>Details about the potentially impacted Amazon EC2 instance resource.</p>
+ * @public
+ */
+export interface Ec2Instance {
+  /**
+   * <p>The availability zone of the Amazon EC2 instance. For more information, see
+   *        <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones">Availability zones</a>
+   *        in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The image description of the Amazon EC2 instance.</p>
+   * @public
+   */
+  ImageDescription?: string | undefined;
+
+  /**
+   * <p>The state of the Amazon EC2 instance. For more information, see
+   *        <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Amazon EC2 instance state changes</a>
+   *        in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  InstanceState?: string | undefined;
+
+  /**
+   * <p>Contains information about the EC2 instance profile.</p>
+   * @public
+   */
+  IamInstanceProfile?: IamInstanceProfile | undefined;
+
+  /**
+   * <p>Type of the Amazon EC2 instance.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost. This shows applicable Amazon Web Services Outposts instances.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>The platform of the Amazon EC2 instance.</p>
+   * @public
+   */
+  Platform?: string | undefined;
+
+  /**
+   * <p>The product code of the Amazon EC2 instance.</p>
+   * @public
+   */
+  ProductCodes?: ProductCode[] | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  Ec2NetworkInterfaceUids?: string[] | undefined;
+}
+
+/**
+ * <p>Contains other private IP address information of the EC2 instance.</p>
+ * @public
+ */
+export interface PrivateIpAddressDetails {
+  /**
+   * <p>The private DNS name of the EC2 instance.</p>
+   * @public
+   */
+  PrivateDnsName?: string | undefined;
+
+  /**
+   * <p>The private IP address of the EC2 instance.</p>
+   * @public
+   */
+  PrivateIpAddress?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the security groups associated with the EC2 instance.</p>
+ * @public
+ */
+export interface SecurityGroup {
+  /**
+   * <p>The security group ID of the EC2 instance.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * <p>The security group name of the EC2 instance.</p>
+   * @public
+   */
+  GroupName?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the elastic network interface of the Amazon EC2 instance.</p>
+ * @public
+ */
+export interface Ec2NetworkInterface {
+  /**
+   * <p>A list of IPv6 addresses for the Amazon EC2 instance.</p>
+   * @public
+   */
+  Ipv6Addresses?: string[] | undefined;
+
+  /**
+   * <p>Other private IP address information of the Amazon EC2 instance.</p>
+   * @public
+   */
+  PrivateIpAddresses?: PrivateIpAddressDetails[] | undefined;
+
+  /**
+   * <p>The public IP address of the Amazon EC2 instance.</p>
+   * @public
+   */
+  PublicIp?: string | undefined;
+
+  /**
+   * <p>The security groups associated with the Amazon EC2 instance.</p>
+   * @public
+   */
+  SecurityGroups?: SecurityGroup[] | undefined;
+
+  /**
+   * <p>The subnet ID of the Amazon EC2 instance.</p>
+   * @public
+   */
+  SubNetId?: string | undefined;
+
+  /**
+   * <p>The VPC ID of the Amazon EC2 instance.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PublicAccessStatus = {
+  ALLOWED: "ALLOWED",
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type PublicAccessStatus = (typeof PublicAccessStatus)[keyof typeof PublicAccessStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PublicAclIgnoreBehavior = {
+  IGNORED: "IGNORED",
+  NOT_IGNORED: "NOT_IGNORED",
+} as const;
+
+/**
+ * @public
+ */
+export type PublicAclIgnoreBehavior = (typeof PublicAclIgnoreBehavior)[keyof typeof PublicAclIgnoreBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const PublicBucketRestrictBehavior = {
+  NOT_RESTRICTED: "NOT_RESTRICTED",
+  RESTRICTED: "RESTRICTED",
+} as const;
+
+/**
+ * @public
+ */
+export type PublicBucketRestrictBehavior =
+  (typeof PublicBucketRestrictBehavior)[keyof typeof PublicBucketRestrictBehavior];
+
+/**
+ * <p>Describes public access policies that apply to the Amazon S3 bucket.</p>
+ *          <p>For information about each of the following settings, see
+ *        <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html">Blocking public access to your Amazon S3 storage</a> in the <i>Amazon S3 User Guide</i>.</p>
+ * @public
+ */
+export interface PublicAccessConfiguration {
+  /**
+   * <p>Indicates whether or not there is a setting that allows public access to the Amazon S3 buckets through access
+   *        control lists (ACLs).</p>
+   * @public
+   */
+  PublicAclAccess?: PublicAccessStatus | undefined;
+
+  /**
+   * <p>Indicates whether or not there is a setting that allows public access to the Amazon S3 bucket policy.</p>
+   * @public
+   */
+  PublicPolicyAccess?: PublicAccessStatus | undefined;
+
+  /**
+   * <p>Indicates whether or not there is a setting that ignores all public access control lists (ACLs)
+   *        on the Amazon S3 bucket and the objects that it contains.</p>
+   * @public
+   */
+  PublicAclIgnoreBehavior?: PublicAclIgnoreBehavior | undefined;
+
+  /**
+   * <p>Indicates whether or not there is a setting that restricts access to the bucket with specified policies.</p>
+   * @public
+   */
+  PublicBucketRestrictBehavior?: PublicBucketRestrictBehavior | undefined;
+}
+
+/**
+ * <p>Contains information about the Amazon S3 bucket policies and encryption.</p>
+ * @public
+ */
+export interface S3Bucket {
+  /**
+   * <p>The owner ID of the associated S3Amazon S3bucket.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the Amazon S3 bucket was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The type of encryption used for the Amazon S3 buckets and its objects. For more information,
+   *        see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html">Protecting data with server-side encryption</a>
+   *        in the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  EncryptionType?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the encryption key that is used to encrypt the Amazon S3 bucket and its objects.</p>
+   * @public
+   */
+  EncryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>Describes the effective permissions on this S3 bucket, after factoring all the attached policies.</p>
+   * @public
+   */
+  EffectivePermission?: string | undefined;
+
+  /**
+   * <p>Indicates whether or not the public read access is allowed for an Amazon S3 bucket.</p>
+   * @public
+   */
+  PublicReadAccess?: PublicAccessStatus | undefined;
+
+  /**
+   * <p>Indicates whether or not the public write access is allowed for an Amazon S3 bucket.</p>
+   * @public
+   */
+  PublicWriteAccess?: PublicAccessStatus | undefined;
+
+  /**
+   * <p>Contains information about the public access policies that apply to the Amazon S3 bucket at the account level.</p>
+   * @public
+   */
+  AccountPublicAccess?: PublicAccessConfiguration | undefined;
+
+  /**
+   * <p>Contains information about public access policies that apply to the Amazon S3 bucket.</p>
+   * @public
+   */
+  BucketPublicAccess?: PublicAccessConfiguration | undefined;
+
+  /**
+   * <p>Represents a list of Amazon S3 object identifiers.</p>
+   * @public
+   */
+  S3ObjectUids?: string[] | undefined;
+}
+
+/**
+ * <p>Contains information about the Amazon S3 object.</p>
+ * @public
+ */
+export interface S3Object {
+  /**
+   * <p>The entity tag is a hash of the Amazon S3 object. The ETag reflects changes only to the
+   *        contents of an object, and not its metadata.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+
+  /**
+   * <p>The key of the Amazon S3 object.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The version Id of the Amazon S3 object.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the Amazon Web Services resource that is associated with the activity that prompted
+ *        GuardDuty to generate a finding.</p>
+ * @public
+ */
+export interface ResourceData {
+  /**
+   * <p>Contains information about the Amazon S3 bucket.</p>
+   * @public
+   */
+  S3Bucket?: S3Bucket | undefined;
+
+  /**
+   * <p>Contains information about the Amazon EC2 instance.</p>
+   * @public
+   */
+  Ec2Instance?: Ec2Instance | undefined;
+
+  /**
+   * <p>Contains information about the IAM access key details of a user that involved in the GuardDuty finding.</p>
+   * @public
+   */
+  AccessKey?: AccessKey | undefined;
+
+  /**
+   * <p>Contains information about the elastic network interface of the Amazon EC2 instance.</p>
+   * @public
+   */
+  Ec2NetworkInterface?: Ec2NetworkInterface | undefined;
+
+  /**
+   * <p>Contains information about the Amazon S3 object.</p>
+   * @public
+   */
+  S3Object?: S3Object | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingResourceType = {
+  ACCESS_KEY: "ACCESS_KEY",
+  EC2_INSTANCE: "EC2_INSTANCE",
+  EC2_NETWORK_INTERFACE: "EC2_NETWORK_INTERFACE",
+  S3_BUCKET: "S3_BUCKET",
+  S3_OBJECT: "S3_OBJECT",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingResourceType = (typeof FindingResourceType)[keyof typeof FindingResourceType];
+
+/**
+ * <p>Contains information about a tag key-value pair.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>Describes the key associated with the tag.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>Describes the value associated with the tag key.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the Amazon Web Services resource that is associated with the GuardDuty finding.</p>
+ * @public
+ */
+export interface ResourceV2 {
+  /**
+   * <p>The unique identifier of the resource.</p>
+   * @public
+   */
+  Uid: string | undefined;
+
+  /**
+   * <p>The name of the resource.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID to which the resource belongs.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The type of the Amazon Web Services resource.</p>
+   * @public
+   */
+  ResourceType: FindingResourceType | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the resource belongs.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services service of the resource.</p>
+   * @public
+   */
+  Service?: string | undefined;
+
+  /**
+   * <p>The cloud partition within the Amazon Web Services Region to which the resource belongs.</p>
+   * @public
+   */
+  CloudPartition?: string | undefined;
+
+  /**
+   * <p>Contains information about the tags associated with the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Contains information about the Amazon Web Services resource associated with the activity that prompted
+   *        GuardDuty to generate a finding.</p>
+   * @public
+   */
+  Data?: ResourceData | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IndicatorType = {
+  ATTACK_TACTIC: "ATTACK_TACTIC",
+  ATTACK_TECHNIQUE: "ATTACK_TECHNIQUE",
+  HIGH_RISK_API: "HIGH_RISK_API",
+  MALICIOUS_IP: "MALICIOUS_IP",
+  SUSPICIOUS_NETWORK: "SUSPICIOUS_NETWORK",
+  SUSPICIOUS_USER_AGENT: "SUSPICIOUS_USER_AGENT",
+  TOR_IP: "TOR_IP",
+  UNUSUAL_API_FOR_ACCOUNT: "UNUSUAL_API_FOR_ACCOUNT",
+  UNUSUAL_ASN_FOR_ACCOUNT: "UNUSUAL_ASN_FOR_ACCOUNT",
+  UNUSUAL_ASN_FOR_USER: "UNUSUAL_ASN_FOR_USER",
+} as const;
+
+/**
+ * @public
+ */
+export type IndicatorType = (typeof IndicatorType)[keyof typeof IndicatorType];
+
+/**
+ * <p>Contains information about the indicators that include a set of
+ *        signals observed in an attack sequence.</p>
+ * @public
+ */
+export interface Indicator {
+  /**
+   * <p>Specific indicator keys observed in the attack sequence.</p>
+   * @public
+   */
+  Key: IndicatorType | undefined;
+
+  /**
+   * <p>Values associated with each indicator key. For example, if the indicator key is
+   *         <code>SUSPICIOUS_NETWORK</code>, then the value will be the name of the network. If
+   *         the indicator key is <code>ATTACK_TACTIC</code>, then the value will be one of the MITRE tactics. </p>
+   *          <p>For more information about the
+   *       values associated with the key, see GuardDuty Extended Threat Detection in the
+   *       <i>GuardDuty User Guide.</i>
+   *          </p>
+   * @public
+   */
+  Values?: string[] | undefined;
+
+  /**
+   * <p>Title describing the indicator.</p>
+   * @public
+   */
+  Title?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SignalType = {
+  CLOUD_TRAIL: "CLOUD_TRAIL",
+  FINDING: "FINDING",
+  S3_DATA_EVENTS: "S3_DATA_EVENTS",
+} as const;
+
+/**
+ * @public
+ */
+export type SignalType = (typeof SignalType)[keyof typeof SignalType];
+
+/**
+ * <p>Contains information about the signals involved in the attack sequence.</p>
+ * @public
+ */
+export interface Signal {
+  /**
+   * <p>The unique identifier of the signal.</p>
+   * @public
+   */
+  Uid: string | undefined;
+
+  /**
+   * <p>The type of the signal used to identify an attack sequence.</p>
+   *          <p>Signals can be GuardDuty findings or activities observed in data sources that GuardDuty monitors. For
+   *        more information, see
+   *        <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_data-sources.html">Foundational data sources</a> in the
+   *      <i>GuardDuty User Guide</i>.</p>
+   *          <p>A signal type can be one of the valid values listed in this API. Here are the related descriptions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FINDING</code> - Individually generated GuardDuty finding.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CLOUD_TRAIL</code> - Activity observed from CloudTrail logs</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3_DATA_EVENTS</code> - Activity observed from CloudTrail data events for S3. Activities associated
+   *            with this type will show up only when
+   *            you have enabled GuardDuty S3 Protection feature in your account. For more information about S3 Protection and
+   *            steps to enable it, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html">S3 Protection</a> in the
+   *            <i>GuardDuty User Guide</i>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type: SignalType | undefined;
+
+  /**
+   * <p>The description of the signal.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The name of the signal. For example, when signal type is <code>FINDING</code>,
+   *        the signal name is the name of the finding.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The timestamp when the first finding or activity related to this signal was observed.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when this signal was last observed.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the first finding or activity related to this signal was observed.</p>
+   * @public
+   */
+  FirstSeenAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the last finding or activity related to this signal was observed.</p>
+   * @public
+   */
+  LastSeenAt: Date | undefined;
+
+  /**
+   * <p>The severity associated with the signal. For more information about severity, see
+   *        <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-severity.html">Findings severity levels</a>
+   *      in the <i>GuardDuty User Guide</i>.</p>
+   * @public
+   */
+  Severity?: number | undefined;
+
+  /**
+   * <p>The number of times this signal was observed.</p>
+   * @public
+   */
+  Count: number | undefined;
+
+  /**
+   * <p>Information about the unique identifiers of the resources involved in the signal.</p>
+   * @public
+   */
+  ResourceUids?: string[] | undefined;
+
+  /**
+   * <p>Information about the IDs of the threat actors involved in the signal.</p>
+   * @public
+   */
+  ActorIds?: string[] | undefined;
+
+  /**
+   * <p>Information about the endpoint IDs associated with this signal.</p>
+   * @public
+   */
+  EndpointIds?: string[] | undefined;
+
+  /**
+   * <p>Contains information about the indicators associated with the signals.</p>
+   * @public
+   */
+  SignalIndicators?: Indicator[] | undefined;
+}
+
+/**
+ * <p>Contains information about the GuardDuty attack sequence finding.</p>
+ * @public
+ */
+export interface Sequence {
+  /**
+   * <p>Unique identifier of the attack sequence.</p>
+   * @public
+   */
+  Uid: string | undefined;
+
+  /**
+   * <p>Description of the attack sequence.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>Contains information about the actors involved in the attack sequence.</p>
+   * @public
+   */
+  Actors?: Actor[] | undefined;
+
+  /**
+   * <p>Contains information about the resources involved in the attack sequence.</p>
+   * @public
+   */
+  Resources?: ResourceV2[] | undefined;
+
+  /**
+   * <p>Contains information about the network endpoints that were used in the attack sequence.</p>
+   * @public
+   */
+  Endpoints?: NetworkEndpoint[] | undefined;
+
+  /**
+   * <p>Contains information about the signals involved in the attack sequence.</p>
+   * @public
+   */
+  Signals: Signal[] | undefined;
+
+  /**
+   * <p>Contains information about the indicators observed in the attack sequence.</p>
+   * @public
+   */
+  SequenceIndicators?: Indicator[] | undefined;
+}
+
+/**
  * <p>Contains information about the detected behavior.</p>
  * @public
  */
@@ -4575,6 +5560,12 @@ export interface Detection {
    * @public
    */
   Anomaly?: Anomaly | undefined;
+
+  /**
+   * <p>The details about the attack sequence.</p>
+   * @public
+   */
+  Sequence?: Sequence | undefined;
 }
 
 /**
@@ -5018,24 +6009,6 @@ export interface EbsVolumeScanDetails {
 }
 
 /**
- * <p>Contains information about a tag key-value pair.</p>
- * @public
- */
-export interface Tag {
-  /**
-   * <p>Describes the key associated with the tag.</p>
-   * @public
-   */
-  Key?: string | undefined;
-
-  /**
-   * <p>Describes the value associated with the tag key.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
  * <p>Represents a pre-existing file or directory on the host machine that the volume maps
  *       to.</p>
  * @public
@@ -5305,60 +6278,6 @@ export const Feedback = {
 export type Feedback = (typeof Feedback)[keyof typeof Feedback];
 
 /**
- * <p>Contains information about the EC2 instance profile.</p>
- * @public
- */
-export interface IamInstanceProfile {
-  /**
-   * <p>The profile ARN of the EC2 instance.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The profile ID of the EC2 instance.</p>
-   * @public
-   */
-  Id?: string | undefined;
-}
-
-/**
- * <p>Contains other private IP address information of the EC2 instance.</p>
- * @public
- */
-export interface PrivateIpAddressDetails {
-  /**
-   * <p>The private DNS name of the EC2 instance.</p>
-   * @public
-   */
-  PrivateDnsName?: string | undefined;
-
-  /**
-   * <p>The private IP address of the EC2 instance.</p>
-   * @public
-   */
-  PrivateIpAddress?: string | undefined;
-}
-
-/**
- * <p>Contains information about the security groups associated with the EC2 instance.</p>
- * @public
- */
-export interface SecurityGroup {
-  /**
-   * <p>The security group ID of the EC2 instance.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>The security group name of the EC2 instance.</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-}
-
-/**
  * <p>Contains information about the elastic network interface of the EC2 instance.</p>
  * @public
  */
@@ -5422,24 +6341,6 @@ export interface NetworkInterface {
    * @public
    */
   VpcId?: string | undefined;
-}
-
-/**
- * <p>Contains information about the product code for the EC2 instance.</p>
- * @public
- */
-export interface ProductCode {
-  /**
-   * <p>The product code information.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>The product code type.</p>
-   * @public
-   */
-  ProductType?: string | undefined;
 }
 
 /**
@@ -5879,7 +6780,7 @@ export interface RdsLimitlessDbDetails {
   DbClusterIdentifier?: string | undefined;
 
   /**
-   * <p>Information about the tag-key value pair.</p>
+   * <p>Information about the tag key-value pair.</p>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -6728,6 +7629,12 @@ export interface Finding {
    * @public
    */
   UpdatedAt: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) associated with the attack sequence finding.</p>
+   * @public
+   */
+  AssociatedAttackSequenceArn?: string | undefined;
 }
 
 /**
@@ -7250,641 +8157,6 @@ export interface GetInvitationsCountResponse {
 }
 
 /**
- * @public
- */
-export interface GetIPSetRequest {
-  /**
-   * <p>The unique ID of the detector that is associated with the IPSet.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>The unique ID of the IPSet to retrieve.</p>
-   * @public
-   */
-  IpSetId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const IpSetStatus = {
-  ACTIVATING: "ACTIVATING",
-  ACTIVE: "ACTIVE",
-  DEACTIVATING: "DEACTIVATING",
-  DELETED: "DELETED",
-  DELETE_PENDING: "DELETE_PENDING",
-  ERROR: "ERROR",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type IpSetStatus = (typeof IpSetStatus)[keyof typeof IpSetStatus];
-
-/**
- * @public
- */
-export interface GetIPSetResponse {
-  /**
-   * <p>The user-friendly name for the IPSet.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The format of the file that contains the IPSet.</p>
-   * @public
-   */
-  Format: IpSetFormat | undefined;
-
-  /**
-   * <p>The URI of the file that contains the IPSet.</p>
-   * @public
-   */
-  Location: string | undefined;
-
-  /**
-   * <p>The status of IPSet file that was uploaded.</p>
-   * @public
-   */
-  Status: IpSetStatus | undefined;
-
-  /**
-   * <p>The tags of the IPSet resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMalwareProtectionPlanRequest {
-  /**
-   * <p>A unique identifier associated with Malware Protection plan resource.</p>
-   * @public
-   */
-  MalwareProtectionPlanId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MalwareProtectionPlanStatus = {
-  ACTIVE: "ACTIVE",
-  ERROR: "ERROR",
-  WARNING: "WARNING",
-} as const;
-
-/**
- * @public
- */
-export type MalwareProtectionPlanStatus =
-  (typeof MalwareProtectionPlanStatus)[keyof typeof MalwareProtectionPlanStatus];
-
-/**
- * <p>Information about the issue code and message associated to the status of
- *       your Malware Protection plan.</p>
- * @public
- */
-export interface MalwareProtectionPlanStatusReason {
-  /**
-   * <p>Issue code.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>Issue message that specifies the reason. For information
-   *       about potential troubleshooting steps, see
-   *       <a href="https://docs.aws.amazon.com/guardduty/latest/ug/troubleshoot-s3-malware-protection-status-errors.html">Troubleshooting Malware Protection for S3 status issues</a> in the
-   *       <i>GuardDuty User Guide</i>.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMalwareProtectionPlanResponse {
-  /**
-   * <p>Amazon Resource Name (ARN) of the protected resource.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>Amazon Resource Name (ARN) of the IAM role that includes the permissions to scan and
-   *       add tags to the associated protected resource.</p>
-   * @public
-   */
-  Role?: string | undefined;
-
-  /**
-   * <p>Information about the protected resource that is associated with the created
-   *       Malware Protection plan. Presently, <code>S3Bucket</code> is the only supported
-   *       protected resource.</p>
-   * @public
-   */
-  ProtectedResource?: CreateProtectedResource | undefined;
-
-  /**
-   * <p>Information about whether the tags will be added to the S3 object after scanning.</p>
-   * @public
-   */
-  Actions?: MalwareProtectionPlanActions | undefined;
-
-  /**
-   * <p>The timestamp when the Malware Protection plan resource was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>Malware Protection plan status.</p>
-   * @public
-   */
-  Status?: MalwareProtectionPlanStatus | undefined;
-
-  /**
-   * <p>Information about the issue code and message associated to the status of
-   *     your Malware Protection plan.</p>
-   * @public
-   */
-  StatusReasons?: MalwareProtectionPlanStatusReason[] | undefined;
-
-  /**
-   * <p>Tags added to the Malware Protection plan resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMalwareScanSettingsRequest {
-  /**
-   * <p>The unique ID of the detector that is associated with this scan.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ScanCriterionKey = {
-  EC2_INSTANCE_TAG: "EC2_INSTANCE_TAG",
-} as const;
-
-/**
- * @public
- */
-export type ScanCriterionKey = (typeof ScanCriterionKey)[keyof typeof ScanCriterionKey];
-
-/**
- * <p>Represents the <code>key:value</code> pair to be matched against given resource property.</p>
- * @public
- */
-export interface ScanConditionPair {
-  /**
-   * <p>Represents the <b>key</b> in the map condition.</p>
-   * @public
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>Represents optional <b>value</b> in the map
-   *       condition. If not specified, only the <b>key</b> will be
-   *       matched.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>Contains information about the condition.</p>
- * @public
- */
-export interface ScanCondition {
-  /**
-   * <p>Represents an <i>mapEqual</i>
-   *             <b></b> condition to be applied
-   *       to a single field when triggering for malware scan.</p>
-   * @public
-   */
-  MapEquals: ScanConditionPair[] | undefined;
-}
-
-/**
- * <p>Contains information about criteria used to filter resources before triggering malware
- *       scan.</p>
- * @public
- */
-export interface ScanResourceCriteria {
-  /**
-   * <p>Represents condition that when matched will allow a malware scan for a certain
-   *       resource.</p>
-   * @public
-   */
-  Include?: Partial<Record<ScanCriterionKey, ScanCondition>> | undefined;
-
-  /**
-   * <p>Represents condition that when matched will prevent a malware scan for a certain
-   *       resource.</p>
-   * @public
-   */
-  Exclude?: Partial<Record<ScanCriterionKey, ScanCondition>> | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMalwareScanSettingsResponse {
-  /**
-   * <p>Represents the criteria to be used in the filter for scanning resources.</p>
-   * @public
-   */
-  ScanResourceCriteria?: ScanResourceCriteria | undefined;
-
-  /**
-   * <p>An enum value representing possible snapshot preservation settings.</p>
-   * @public
-   */
-  EbsSnapshotPreservation?: EbsSnapshotPreservation | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMasterAccountRequest {
-  /**
-   * <p>The unique ID of the detector of the GuardDuty member account.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-}
-
-/**
- * <p>Contains information about the administrator account and invitation.</p>
- * @public
- */
-export interface Master {
-  /**
-   * <p>The ID of the account used as the administrator account.</p>
-   * @public
-   */
-  AccountId?: string | undefined;
-
-  /**
-   * <p>The value used to validate the administrator account to the member account.</p>
-   * @public
-   */
-  InvitationId?: string | undefined;
-
-  /**
-   * <p>The status of the relationship between the administrator and member accounts.</p>
-   * @public
-   */
-  RelationshipStatus?: string | undefined;
-
-  /**
-   * <p>The timestamp when the invitation was sent.</p>
-   * @public
-   */
-  InvitedAt?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMasterAccountResponse {
-  /**
-   * <p>The administrator account details.</p>
-   * @public
-   */
-  Master: Master | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMemberDetectorsRequest {
-  /**
-   * <p>The detector ID for the administrator account.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>A list of member account IDs.</p>
-   * @public
-   */
-  AccountIds: string[] | undefined;
-}
-
-/**
- * <p>Information about the additional configuration for the member account.</p>
- * @public
- */
-export interface MemberAdditionalConfigurationResult {
-  /**
-   * <p>Indicates the name of the additional configuration that is set for the member
-   *       account.</p>
-   * @public
-   */
-  Name?: OrgFeatureAdditionalConfiguration | undefined;
-
-  /**
-   * <p>Indicates the status of the additional configuration that is set for the member
-   *       account.</p>
-   * @public
-   */
-  Status?: FeatureStatus | undefined;
-
-  /**
-   * <p>The timestamp at which the additional configuration was set for the member account. This
-   *       is in UTC format.</p>
-   * @public
-   */
-  UpdatedAt?: Date | undefined;
-}
-
-/**
- * <p>Contains information about the features for the member account.</p>
- * @public
- */
-export interface MemberFeaturesConfigurationResult {
-  /**
-   * <p>Indicates the name of the feature that is enabled for the detector.</p>
-   * @public
-   */
-  Name?: OrgFeature | undefined;
-
-  /**
-   * <p>Indicates the status of the feature that is enabled for the detector.</p>
-   * @public
-   */
-  Status?: FeatureStatus | undefined;
-
-  /**
-   * <p>The timestamp at which the feature object was updated.</p>
-   * @public
-   */
-  UpdatedAt?: Date | undefined;
-
-  /**
-   * <p>Indicates the additional configuration of the feature that is configured for the member
-   *       account.</p>
-   * @public
-   */
-  AdditionalConfiguration?: MemberAdditionalConfigurationResult[] | undefined;
-}
-
-/**
- * <p>Contains information on which data sources are enabled for a member account.</p>
- * @public
- */
-export interface MemberDataSourceConfiguration {
-  /**
-   * <p>The account ID for the member account.</p>
-   * @public
-   */
-  AccountId: string | undefined;
-
-  /**
-   * @deprecated
-   *
-   * <p>Contains information on the status of data sources for the account.</p>
-   * @public
-   */
-  DataSources?: DataSourceConfigurationsResult | undefined;
-
-  /**
-   * <p>Contains information about the status of the features for the member account.</p>
-   * @public
-   */
-  Features?: MemberFeaturesConfigurationResult[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMemberDetectorsResponse {
-  /**
-   * <p>An object that describes which data sources are enabled for a member account.</p>
-   * @public
-   */
-  MemberDataSourceConfigurations: MemberDataSourceConfiguration[] | undefined;
-
-  /**
-   * <p>A list of member account IDs that were unable to be processed along with an explanation
-   *       for why they were not processed.</p>
-   * @public
-   */
-  UnprocessedAccounts: UnprocessedAccount[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMembersRequest {
-  /**
-   * <p>The unique ID of the detector of the GuardDuty account whose members you want to
-   *       retrieve.</p>
-   *          <p>To find the <code>detectorId</code> in the current Region, see the
-   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>A list of account IDs of the GuardDuty member accounts that you want to describe.</p>
-   * @public
-   */
-  AccountIds: string[] | undefined;
-}
-
-/**
- * <p>Contains information about the member account. </p>
- * @public
- */
-export interface Member {
-  /**
-   * <p>The ID of the member account.</p>
-   * @public
-   */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The detector ID of the member account.</p>
-   * @public
-   */
-  DetectorId?: string | undefined;
-
-  /**
-   * <p>The administrator account ID.</p>
-   * @public
-   */
-  MasterId: string | undefined;
-
-  /**
-   * <p>The email address of the member account.</p>
-   * @public
-   */
-  Email: string | undefined;
-
-  /**
-   * <p>The status of the relationship between the member and the administrator.</p>
-   * @public
-   */
-  RelationshipStatus: string | undefined;
-
-  /**
-   * <p>The timestamp when the invitation was sent.</p>
-   * @public
-   */
-  InvitedAt?: string | undefined;
-
-  /**
-   * <p>The last-updated timestamp of the member.</p>
-   * @public
-   */
-  UpdatedAt: string | undefined;
-
-  /**
-   * <p>The administrator account ID.</p>
-   * @public
-   */
-  AdministratorId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMembersResponse {
-  /**
-   * <p>A list of members.</p>
-   * @public
-   */
-  Members: Member[] | undefined;
-
-  /**
-   * <p>A list of objects that contain the unprocessed account and a result string that explains
-   *       why it was unprocessed.</p>
-   * @public
-   */
-  UnprocessedAccounts: UnprocessedAccount[] | undefined;
-}
-
-/**
- * <p>Information about the coverage
- *       statistic for the additional
- *     configuration of the feature.</p>
- * @public
- */
-export interface OrganizationFeatureStatisticsAdditionalConfiguration {
-  /**
-   * <p>Name of the additional configuration within a feature.</p>
-   * @public
-   */
-  Name?: OrgFeatureAdditionalConfiguration | undefined;
-
-  /**
-   * <p>Total number of accounts that have enabled the additional
-   *       configuration.</p>
-   * @public
-   */
-  EnabledAccountsCount?: number | undefined;
-}
-
-/**
- * <p>Information about the number of accounts
- *       that have enabled a specific feature.</p>
- * @public
- */
-export interface OrganizationFeatureStatistics {
-  /**
-   * <p>Name of the feature.</p>
-   * @public
-   */
-  Name?: OrgFeature | undefined;
-
-  /**
-   * <p>Total number of accounts that have enabled a specific
-   *       feature.</p>
-   * @public
-   */
-  EnabledAccountsCount?: number | undefined;
-
-  /**
-   * <p>Name of the additional configuration.</p>
-   * @public
-   */
-  AdditionalConfiguration?: OrganizationFeatureStatisticsAdditionalConfiguration[] | undefined;
-}
-
-/**
- * <p>Information about the coverage statistics of the
- *       features for the entire
- *       Amazon Web Services organization.</p>
- *          <p>When you create a new Amazon Web Services organization, it might
- *       take up to 24 hours to
- *       generate the statistics summary for this organization.</p>
- * @public
- */
-export interface OrganizationStatistics {
-  /**
-   * <p>Total number of accounts in your Amazon Web Services organization.</p>
-   * @public
-   */
-  TotalAccountsCount?: number | undefined;
-
-  /**
-   * <p>Total number of accounts in your Amazon Web Services organization
-   *       that are associated with GuardDuty.</p>
-   * @public
-   */
-  MemberAccountsCount?: number | undefined;
-
-  /**
-   * <p>Total number of active accounts in your Amazon Web Services
-   *       organization that are associated with GuardDuty.</p>
-   * @public
-   */
-  ActiveAccountsCount?: number | undefined;
-
-  /**
-   * <p>Total number of accounts that have enabled GuardDuty.</p>
-   * @public
-   */
-  EnabledAccountsCount?: number | undefined;
-
-  /**
-   * <p>Retrieves the coverage
-   *       statistics for each feature.</p>
-   * @public
-   */
-  CountByFeature?: OrganizationFeatureStatistics[] | undefined;
-}
-
-/**
  * @internal
  */
 export const AccountDetailFilterSensitiveLog = (obj: AccountDetail): any => ({
@@ -8001,6 +8273,47 @@ export const PrivateIpAddressDetailsFilterSensitiveLog = (obj: PrivateIpAddressD
 /**
  * @internal
  */
+export const Ec2NetworkInterfaceFilterSensitiveLog = (obj: Ec2NetworkInterface): any => ({
+  ...obj,
+  ...(obj.PrivateIpAddresses && {
+    PrivateIpAddresses: obj.PrivateIpAddresses.map((item) => PrivateIpAddressDetailsFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ResourceDataFilterSensitiveLog = (obj: ResourceData): any => ({
+  ...obj,
+  ...(obj.Ec2NetworkInterface && {
+    Ec2NetworkInterface: Ec2NetworkInterfaceFilterSensitiveLog(obj.Ec2NetworkInterface),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ResourceV2FilterSensitiveLog = (obj: ResourceV2): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SequenceFilterSensitiveLog = (obj: Sequence): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectionFilterSensitiveLog = (obj: Detection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
   ...obj,
   ...(obj.PrivateIpAddress && { PrivateIpAddress: SENSITIVE_STRING }),
@@ -8049,20 +8362,4 @@ export const FindingFilterSensitiveLog = (obj: Finding): any => ({
 export const GetFindingsResponseFilterSensitiveLog = (obj: GetFindingsResponse): any => ({
   ...obj,
   ...(obj.Findings && { Findings: obj.Findings.map((item) => FindingFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const MemberFilterSensitiveLog = (obj: Member): any => ({
-  ...obj,
-  ...(obj.Email && { Email: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetMembersResponseFilterSensitiveLog = (obj: GetMembersResponse): any => ({
-  ...obj,
-  ...(obj.Members && { Members: obj.Members.map((item) => MemberFilterSensitiveLog(item)) }),
 });

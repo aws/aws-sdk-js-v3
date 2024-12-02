@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import {
   AccountFreeTrialInfo,
   AdminAccount,
@@ -6,8 +8,10 @@ import {
   CoverageFilterCriteria,
   CoverageResource,
   CoverageSortCriteria,
+  CreateProtectedResource,
   DataSource,
   DataSourceConfigurations,
+  DataSourceConfigurationsResult,
   Destination,
   DestinationProperties,
   DetectorFeatureConfiguration,
@@ -17,18 +21,650 @@ import {
   FilterAction,
   FindingCriteria,
   FindingPublishingFrequency,
+  IpSetFormat,
   MalwareProtectionPlanActions,
-  Member,
-  MemberFilterSensitiveLog,
-  OrganizationStatistics,
   OrgFeature,
   OrgFeatureAdditionalConfiguration,
   OrgFeatureStatus,
-  ScanResourceCriteria,
   SortCriteria,
   ThreatIntelSetFormat,
   UnprocessedAccount,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetIPSetRequest {
+  /**
+   * <p>The unique ID of the detector that is associated with the IPSet.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The unique ID of the IPSet to retrieve.</p>
+   * @public
+   */
+  IpSetId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IpSetStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  DEACTIVATING: "DEACTIVATING",
+  DELETED: "DELETED",
+  DELETE_PENDING: "DELETE_PENDING",
+  ERROR: "ERROR",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type IpSetStatus = (typeof IpSetStatus)[keyof typeof IpSetStatus];
+
+/**
+ * @public
+ */
+export interface GetIPSetResponse {
+  /**
+   * <p>The user-friendly name for the IPSet.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The format of the file that contains the IPSet.</p>
+   * @public
+   */
+  Format: IpSetFormat | undefined;
+
+  /**
+   * <p>The URI of the file that contains the IPSet.</p>
+   * @public
+   */
+  Location: string | undefined;
+
+  /**
+   * <p>The status of IPSet file that was uploaded.</p>
+   * @public
+   */
+  Status: IpSetStatus | undefined;
+
+  /**
+   * <p>The tags of the IPSet resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMalwareProtectionPlanRequest {
+  /**
+   * <p>A unique identifier associated with Malware Protection plan resource.</p>
+   * @public
+   */
+  MalwareProtectionPlanId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MalwareProtectionPlanStatus = {
+  ACTIVE: "ACTIVE",
+  ERROR: "ERROR",
+  WARNING: "WARNING",
+} as const;
+
+/**
+ * @public
+ */
+export type MalwareProtectionPlanStatus =
+  (typeof MalwareProtectionPlanStatus)[keyof typeof MalwareProtectionPlanStatus];
+
+/**
+ * <p>Information about the issue code and message associated to the status of
+ *       your Malware Protection plan.</p>
+ * @public
+ */
+export interface MalwareProtectionPlanStatusReason {
+  /**
+   * <p>Issue code.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>Issue message that specifies the reason. For information
+   *       about potential troubleshooting steps, see
+   *       <a href="https://docs.aws.amazon.com/guardduty/latest/ug/troubleshoot-s3-malware-protection-status-errors.html">Troubleshooting Malware Protection for S3 status issues</a> in the
+   *       <i>GuardDuty User Guide</i>.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMalwareProtectionPlanResponse {
+  /**
+   * <p>Amazon Resource Name (ARN) of the protected resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the IAM role that includes the permissions to scan and
+   *       add tags to the associated protected resource.</p>
+   * @public
+   */
+  Role?: string | undefined;
+
+  /**
+   * <p>Information about the protected resource that is associated with the created
+   *       Malware Protection plan. Presently, <code>S3Bucket</code> is the only supported
+   *       protected resource.</p>
+   * @public
+   */
+  ProtectedResource?: CreateProtectedResource | undefined;
+
+  /**
+   * <p>Information about whether the tags will be added to the S3 object after scanning.</p>
+   * @public
+   */
+  Actions?: MalwareProtectionPlanActions | undefined;
+
+  /**
+   * <p>The timestamp when the Malware Protection plan resource was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>Malware Protection plan status.</p>
+   * @public
+   */
+  Status?: MalwareProtectionPlanStatus | undefined;
+
+  /**
+   * <p>Information about the issue code and message associated to the status of
+   *     your Malware Protection plan.</p>
+   * @public
+   */
+  StatusReasons?: MalwareProtectionPlanStatusReason[] | undefined;
+
+  /**
+   * <p>Tags added to the Malware Protection plan resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMalwareScanSettingsRequest {
+  /**
+   * <p>The unique ID of the detector that is associated with this scan.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ScanCriterionKey = {
+  EC2_INSTANCE_TAG: "EC2_INSTANCE_TAG",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanCriterionKey = (typeof ScanCriterionKey)[keyof typeof ScanCriterionKey];
+
+/**
+ * <p>Represents the <code>key:value</code> pair to be matched against given resource property.</p>
+ * @public
+ */
+export interface ScanConditionPair {
+  /**
+   * <p>Represents the <b>key</b> in the map condition.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>Represents optional <b>value</b> in the map
+   *       condition. If not specified, only the <b>key</b> will be
+   *       matched.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the condition.</p>
+ * @public
+ */
+export interface ScanCondition {
+  /**
+   * <p>Represents an <i>mapEqual</i>
+   *             <b></b> condition to be applied
+   *       to a single field when triggering for malware scan.</p>
+   * @public
+   */
+  MapEquals: ScanConditionPair[] | undefined;
+}
+
+/**
+ * <p>Contains information about criteria used to filter resources before triggering malware
+ *       scan.</p>
+ * @public
+ */
+export interface ScanResourceCriteria {
+  /**
+   * <p>Represents condition that when matched will allow a malware scan for a certain
+   *       resource.</p>
+   * @public
+   */
+  Include?: Partial<Record<ScanCriterionKey, ScanCondition>> | undefined;
+
+  /**
+   * <p>Represents condition that when matched will prevent a malware scan for a certain
+   *       resource.</p>
+   * @public
+   */
+  Exclude?: Partial<Record<ScanCriterionKey, ScanCondition>> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMalwareScanSettingsResponse {
+  /**
+   * <p>Represents the criteria to be used in the filter for scanning resources.</p>
+   * @public
+   */
+  ScanResourceCriteria?: ScanResourceCriteria | undefined;
+
+  /**
+   * <p>An enum value representing possible snapshot preservation settings.</p>
+   * @public
+   */
+  EbsSnapshotPreservation?: EbsSnapshotPreservation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMasterAccountRequest {
+  /**
+   * <p>The unique ID of the detector of the GuardDuty member account.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+}
+
+/**
+ * <p>Contains information about the administrator account and invitation.</p>
+ * @public
+ */
+export interface Master {
+  /**
+   * <p>The ID of the account used as the administrator account.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The value used to validate the administrator account to the member account.</p>
+   * @public
+   */
+  InvitationId?: string | undefined;
+
+  /**
+   * <p>The status of the relationship between the administrator and member accounts.</p>
+   * @public
+   */
+  RelationshipStatus?: string | undefined;
+
+  /**
+   * <p>The timestamp when the invitation was sent.</p>
+   * @public
+   */
+  InvitedAt?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMasterAccountResponse {
+  /**
+   * <p>The administrator account details.</p>
+   * @public
+   */
+  Master: Master | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMemberDetectorsRequest {
+  /**
+   * <p>The detector ID for the administrator account.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>A list of member account IDs.</p>
+   * @public
+   */
+  AccountIds: string[] | undefined;
+}
+
+/**
+ * <p>Information about the additional configuration for the member account.</p>
+ * @public
+ */
+export interface MemberAdditionalConfigurationResult {
+  /**
+   * <p>Indicates the name of the additional configuration that is set for the member
+   *       account.</p>
+   * @public
+   */
+  Name?: OrgFeatureAdditionalConfiguration | undefined;
+
+  /**
+   * <p>Indicates the status of the additional configuration that is set for the member
+   *       account.</p>
+   * @public
+   */
+  Status?: FeatureStatus | undefined;
+
+  /**
+   * <p>The timestamp at which the additional configuration was set for the member account. This
+   *       is in UTC format.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Contains information about the features for the member account.</p>
+ * @public
+ */
+export interface MemberFeaturesConfigurationResult {
+  /**
+   * <p>Indicates the name of the feature that is enabled for the detector.</p>
+   * @public
+   */
+  Name?: OrgFeature | undefined;
+
+  /**
+   * <p>Indicates the status of the feature that is enabled for the detector.</p>
+   * @public
+   */
+  Status?: FeatureStatus | undefined;
+
+  /**
+   * <p>The timestamp at which the feature object was updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Indicates the additional configuration of the feature that is configured for the member
+   *       account.</p>
+   * @public
+   */
+  AdditionalConfiguration?: MemberAdditionalConfigurationResult[] | undefined;
+}
+
+/**
+ * <p>Contains information on which data sources are enabled for a member account.</p>
+ * @public
+ */
+export interface MemberDataSourceConfiguration {
+  /**
+   * <p>The account ID for the member account.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * @deprecated
+   *
+   * <p>Contains information on the status of data sources for the account.</p>
+   * @public
+   */
+  DataSources?: DataSourceConfigurationsResult | undefined;
+
+  /**
+   * <p>Contains information about the status of the features for the member account.</p>
+   * @public
+   */
+  Features?: MemberFeaturesConfigurationResult[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMemberDetectorsResponse {
+  /**
+   * <p>An object that describes which data sources are enabled for a member account.</p>
+   * @public
+   */
+  MemberDataSourceConfigurations: MemberDataSourceConfiguration[] | undefined;
+
+  /**
+   * <p>A list of member account IDs that were unable to be processed along with an explanation
+   *       for why they were not processed.</p>
+   * @public
+   */
+  UnprocessedAccounts: UnprocessedAccount[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMembersRequest {
+  /**
+   * <p>The unique ID of the detector of the GuardDuty account whose members you want to
+   *       retrieve.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>A list of account IDs of the GuardDuty member accounts that you want to describe.</p>
+   * @public
+   */
+  AccountIds: string[] | undefined;
+}
+
+/**
+ * <p>Contains information about the member account. </p>
+ * @public
+ */
+export interface Member {
+  /**
+   * <p>The ID of the member account.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The detector ID of the member account.</p>
+   * @public
+   */
+  DetectorId?: string | undefined;
+
+  /**
+   * <p>The administrator account ID.</p>
+   * @public
+   */
+  MasterId: string | undefined;
+
+  /**
+   * <p>The email address of the member account.</p>
+   * @public
+   */
+  Email: string | undefined;
+
+  /**
+   * <p>The status of the relationship between the member and the administrator.</p>
+   * @public
+   */
+  RelationshipStatus: string | undefined;
+
+  /**
+   * <p>The timestamp when the invitation was sent.</p>
+   * @public
+   */
+  InvitedAt?: string | undefined;
+
+  /**
+   * <p>The last-updated timestamp of the member.</p>
+   * @public
+   */
+  UpdatedAt: string | undefined;
+
+  /**
+   * <p>The administrator account ID.</p>
+   * @public
+   */
+  AdministratorId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMembersResponse {
+  /**
+   * <p>A list of members.</p>
+   * @public
+   */
+  Members: Member[] | undefined;
+
+  /**
+   * <p>A list of objects that contain the unprocessed account and a result string that explains
+   *       why it was unprocessed.</p>
+   * @public
+   */
+  UnprocessedAccounts: UnprocessedAccount[] | undefined;
+}
+
+/**
+ * <p>Information about the coverage
+ *       statistic for the additional
+ *     configuration of the feature.</p>
+ * @public
+ */
+export interface OrganizationFeatureStatisticsAdditionalConfiguration {
+  /**
+   * <p>Name of the additional configuration within a feature.</p>
+   * @public
+   */
+  Name?: OrgFeatureAdditionalConfiguration | undefined;
+
+  /**
+   * <p>Total number of accounts that have enabled the additional
+   *       configuration.</p>
+   * @public
+   */
+  EnabledAccountsCount?: number | undefined;
+}
+
+/**
+ * <p>Information about the number of accounts
+ *       that have enabled a specific feature.</p>
+ * @public
+ */
+export interface OrganizationFeatureStatistics {
+  /**
+   * <p>Name of the feature.</p>
+   * @public
+   */
+  Name?: OrgFeature | undefined;
+
+  /**
+   * <p>Total number of accounts that have enabled a specific
+   *       feature.</p>
+   * @public
+   */
+  EnabledAccountsCount?: number | undefined;
+
+  /**
+   * <p>Name of the additional configuration.</p>
+   * @public
+   */
+  AdditionalConfiguration?: OrganizationFeatureStatisticsAdditionalConfiguration[] | undefined;
+}
+
+/**
+ * <p>Information about the coverage statistics of the
+ *       features for the entire
+ *       Amazon Web Services organization.</p>
+ *          <p>When you create a new Amazon Web Services organization, it might
+ *       take up to 24 hours to
+ *       generate the statistics summary for this organization.</p>
+ * @public
+ */
+export interface OrganizationStatistics {
+  /**
+   * <p>Total number of accounts in your Amazon Web Services organization.</p>
+   * @public
+   */
+  TotalAccountsCount?: number | undefined;
+
+  /**
+   * <p>Total number of accounts in your Amazon Web Services organization
+   *       that are associated with GuardDuty.</p>
+   * @public
+   */
+  MemberAccountsCount?: number | undefined;
+
+  /**
+   * <p>Total number of active accounts in your Amazon Web Services
+   *       organization that are associated with GuardDuty.</p>
+   * @public
+   */
+  ActiveAccountsCount?: number | undefined;
+
+  /**
+   * <p>Total number of accounts that have enabled GuardDuty.</p>
+   * @public
+   */
+  EnabledAccountsCount?: number | undefined;
+
+  /**
+   * <p>Retrieves the coverage
+   *       statistics for each feature.</p>
+   * @public
+   */
+  CountByFeature?: OrganizationFeatureStatistics[] | undefined;
+}
 
 /**
  * <p>Information about GuardDuty coverage statistics for members
@@ -2151,6 +2787,22 @@ export interface UpdateThreatIntelSetRequest {
  * @public
  */
 export interface UpdateThreatIntelSetResponse {}
+
+/**
+ * @internal
+ */
+export const MemberFilterSensitiveLog = (obj: Member): any => ({
+  ...obj,
+  ...(obj.Email && { Email: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetMembersResponseFilterSensitiveLog = (obj: GetMembersResponse): any => ({
+  ...obj,
+  ...(obj.Members && { Members: obj.Members.map((item) => MemberFilterSensitiveLog(item)) }),
+});
 
 /**
  * @internal

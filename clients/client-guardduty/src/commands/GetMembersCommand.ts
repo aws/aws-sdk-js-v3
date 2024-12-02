@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetMembersRequest, GetMembersResponse, GetMembersResponseFilterSensitiveLog } from "../models/models_0";
+import { GetMembersRequest, GetMembersResponse, GetMembersResponseFilterSensitiveLog } from "../models/models_1";
 import { de_GetMembersCommand, se_GetMembersCommand } from "../protocols/Aws_restJson1";
 
 /**
