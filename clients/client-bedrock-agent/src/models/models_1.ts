@@ -13,16 +13,724 @@ import {
   FlowDefinition,
   FlowValidation,
   FlowValidationFilterSensitiveLog,
-  KnowledgeBase,
-  KnowledgeBaseConfiguration,
   KnowledgeBaseState,
-  KnowledgeBaseStatus,
   PromptInferenceConfiguration,
   PromptTemplateConfiguration,
   PromptTemplateConfigurationFilterSensitiveLog,
   PromptTemplateType,
-  StorageConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface AssociateAgentKnowledgeBaseRequest {
+  /**
+   * <p>The unique identifier of the agent with which you want to associate the knowledge base.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>The version of the agent with which you want to associate the knowledge base.</p>
+   * @public
+   */
+  agentVersion: string | undefined;
+
+  /**
+   * <p>The unique identifier of the knowledge base to associate with the agent.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>A description of what the agent should use the knowledge base for.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>Specifies whether to use the knowledge base or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
+   * @public
+   */
+  knowledgeBaseState?: KnowledgeBaseState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateAgentKnowledgeBaseResponse {
+  /**
+   * <p>Contains details about the knowledge base that has been associated with the agent.</p>
+   * @public
+   */
+  agentKnowledgeBase: AgentKnowledgeBase | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const KnowledgeBaseType = {
+  VECTOR: "VECTOR",
+} as const;
+
+/**
+ * @public
+ */
+export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EmbeddingDataType = {
+  BINARY: "BINARY",
+  FLOAT32: "FLOAT32",
+} as const;
+
+/**
+ * @public
+ */
+export type EmbeddingDataType = (typeof EmbeddingDataType)[keyof typeof EmbeddingDataType];
+
+/**
+ * <p>The vector configuration details for the Bedrock embeddings model.</p>
+ * @public
+ */
+export interface BedrockEmbeddingModelConfiguration {
+  /**
+   * <p>The dimensions details for the vector configuration used on the Bedrock embeddings model.</p>
+   * @public
+   */
+  dimensions?: number | undefined;
+
+  /**
+   * <p>The data type for the vectors when using a model to convert text into vector
+   *       embeddings. The model must support the specified data type for vector embeddings.
+   *       Floating-point (float32) is the default data type, and is supported by most models
+   *       for vector embeddings. See <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html">Supported embeddings
+   *         models</a> for information on the available models and their vector data types.</p>
+   * @public
+   */
+  embeddingDataType?: EmbeddingDataType | undefined;
+}
+
+/**
+ * <p>The configuration details for the embeddings model.</p>
+ * @public
+ */
+export interface EmbeddingModelConfiguration {
+  /**
+   * <p>The vector configuration details on the Bedrock embeddings model.</p>
+   * @public
+   */
+  bedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration | undefined;
+}
+
+/**
+ * <p>Contains details about the model used to create vector embeddings for the knowledge base.</p>
+ * @public
+ */
+export interface VectorKnowledgeBaseConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model or inference profile used to create vector embeddings for the knowledge base.</p>
+   * @public
+   */
+  embeddingModelArn: string | undefined;
+
+  /**
+   * <p>The embeddings model configuration details for the vector model used in Knowledge Base.</p>
+   * @public
+   */
+  embeddingModelConfiguration?: EmbeddingModelConfiguration | undefined;
+}
+
+/**
+ * <p>Contains details about the vector embeddings configuration of the knowledge base.</p>
+ * @public
+ */
+export interface KnowledgeBaseConfiguration {
+  /**
+   * <p>The type of data that the data source is converted into for the knowledge base.</p>
+   * @public
+   */
+  type: KnowledgeBaseType | undefined;
+
+  /**
+   * <p>Contains details about the model that's used to convert the data source into vector embeddings.</p>
+   * @public
+   */
+  vectorKnowledgeBaseConfiguration?: VectorKnowledgeBaseConfiguration | undefined;
+}
+
+/**
+ * <p>Contains the names of the fields to which to map information about the vector store.</p>
+ * @public
+ */
+export interface MongoDbAtlasFieldMapping {
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
+   * @public
+   */
+  vectorField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
+   * @public
+   */
+  textField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
+   * @public
+   */
+  metadataField: string | undefined;
+}
+
+/**
+ * <p>Contains details about the storage configuration of the knowledge base in MongoDB Atlas. </p>
+ * @public
+ */
+export interface MongoDbAtlasConfiguration {
+  /**
+   * <p>The endpoint URL of your MongoDB Atlas cluster for your knowledge base.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>The database name in your MongoDB Atlas cluster for your knowledge base.</p>
+   * @public
+   */
+  databaseName: string | undefined;
+
+  /**
+   * <p>The collection name of the knowledge base in MongoDB Atlas.</p>
+   * @public
+   */
+  collectionName: string | undefined;
+
+  /**
+   * <p>The name of the MongoDB Atlas vector search index.</p>
+   * @public
+   */
+  vectorIndexName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that contains user credentials for your MongoDB Atlas cluster.</p>
+   * @public
+   */
+  credentialsSecretArn: string | undefined;
+
+  /**
+   * <p>Contains the names of the fields to which to map information about the vector store.</p>
+   * @public
+   */
+  fieldMapping: MongoDbAtlasFieldMapping | undefined;
+
+  /**
+   * <p>The name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.</p>
+   * @public
+   */
+  endpointServiceName?: string | undefined;
+}
+
+/**
+ * <p>Contains the names of the fields to which to map information about the vector store.</p>
+ * @public
+ */
+export interface OpenSearchServerlessFieldMapping {
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
+   * @public
+   */
+  vectorField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
+   * @public
+   */
+  textField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
+   * @public
+   */
+  metadataField: string | undefined;
+}
+
+/**
+ * <p>Contains details about the storage configuration of the knowledge base in Amazon OpenSearch Service. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html">Create a vector index in Amazon OpenSearch Service</a>.</p>
+ * @public
+ */
+export interface OpenSearchServerlessConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OpenSearch Service vector store.</p>
+   * @public
+   */
+  collectionArn: string | undefined;
+
+  /**
+   * <p>The name of the vector store.</p>
+   * @public
+   */
+  vectorIndexName: string | undefined;
+
+  /**
+   * <p>Contains the names of the fields to which to map information about the vector store.</p>
+   * @public
+   */
+  fieldMapping: OpenSearchServerlessFieldMapping | undefined;
+}
+
+/**
+ * <p>Contains the names of the fields to which to map information about the vector store.</p>
+ * @public
+ */
+export interface PineconeFieldMapping {
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
+   * @public
+   */
+  textField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
+   * @public
+   */
+  metadataField: string | undefined;
+}
+
+/**
+ * <p>Contains details about the storage configuration of the knowledge base in Pinecone. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-pinecone.html">Create a vector index in Pinecone</a>.</p>
+ * @public
+ */
+export interface PineconeConfiguration {
+  /**
+   * <p>The endpoint URL for your index management page.</p>
+   * @public
+   */
+  connectionString: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that is linked to your Pinecone API key.</p>
+   * @public
+   */
+  credentialsSecretArn: string | undefined;
+
+  /**
+   * <p>The namespace to be used to write new data to your database.</p>
+   * @public
+   */
+  namespace?: string | undefined;
+
+  /**
+   * <p>Contains the names of the fields to which to map information about the vector store.</p>
+   * @public
+   */
+  fieldMapping: PineconeFieldMapping | undefined;
+}
+
+/**
+ * <p>Contains the names of the fields to which to map information about the vector store.</p>
+ * @public
+ */
+export interface RdsFieldMapping {
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the ID for each entry.</p>
+   * @public
+   */
+  primaryKeyField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
+   * @public
+   */
+  vectorField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
+   * @public
+   */
+  textField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
+   * @public
+   */
+  metadataField: string | undefined;
+}
+
+/**
+ * <p>Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html">Create a vector index in Amazon RDS</a>.</p>
+ * @public
+ */
+export interface RdsConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the vector store.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that is linked to your Amazon RDS database.</p>
+   * @public
+   */
+  credentialsSecretArn: string | undefined;
+
+  /**
+   * <p>The name of your Amazon RDS database.</p>
+   * @public
+   */
+  databaseName: string | undefined;
+
+  /**
+   * <p>The name of the table in the database.</p>
+   * @public
+   */
+  tableName: string | undefined;
+
+  /**
+   * <p>Contains the names of the fields to which to map information about the vector store.</p>
+   * @public
+   */
+  fieldMapping: RdsFieldMapping | undefined;
+}
+
+/**
+ * <p>Contains the names of the fields to which to map information about the vector store.</p>
+ * @public
+ */
+export interface RedisEnterpriseCloudFieldMapping {
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
+   * @public
+   */
+  vectorField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
+   * @public
+   */
+  textField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
+   * @public
+   */
+  metadataField: string | undefined;
+}
+
+/**
+ * <p>Contains details about the storage configuration of the knowledge base in Redis Enterprise Cloud. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html">Create a vector index in Redis Enterprise Cloud</a>.</p>
+ * @public
+ */
+export interface RedisEnterpriseCloudConfiguration {
+  /**
+   * <p>The endpoint URL of the Redis Enterprise Cloud database.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>The name of the vector index.</p>
+   * @public
+   */
+  vectorIndexName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that is linked to your Redis Enterprise Cloud database.</p>
+   * @public
+   */
+  credentialsSecretArn: string | undefined;
+
+  /**
+   * <p>Contains the names of the fields to which to map information about the vector store.</p>
+   * @public
+   */
+  fieldMapping: RedisEnterpriseCloudFieldMapping | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const KnowledgeBaseStorageType = {
+  MONGO_DB_ATLAS: "MONGO_DB_ATLAS",
+  OPENSEARCH_SERVERLESS: "OPENSEARCH_SERVERLESS",
+  PINECONE: "PINECONE",
+  RDS: "RDS",
+  REDIS_ENTERPRISE_CLOUD: "REDIS_ENTERPRISE_CLOUD",
+} as const;
+
+/**
+ * @public
+ */
+export type KnowledgeBaseStorageType = (typeof KnowledgeBaseStorageType)[keyof typeof KnowledgeBaseStorageType];
+
+/**
+ * <p>Contains the storage configuration of the knowledge base.</p>
+ * @public
+ */
+export interface StorageConfiguration {
+  /**
+   * <p>The vector store service in which the knowledge base is stored.</p>
+   * @public
+   */
+  type: KnowledgeBaseStorageType | undefined;
+
+  /**
+   * <p>Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.</p>
+   * @public
+   */
+  opensearchServerlessConfiguration?: OpenSearchServerlessConfiguration | undefined;
+
+  /**
+   * <p>Contains the storage configuration of the knowledge base in Pinecone.</p>
+   * @public
+   */
+  pineconeConfiguration?: PineconeConfiguration | undefined;
+
+  /**
+   * <p>Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.</p>
+   * @public
+   */
+  redisEnterpriseCloudConfiguration?: RedisEnterpriseCloudConfiguration | undefined;
+
+  /**
+   * <p>Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html">Create a vector index in Amazon RDS</a>.</p>
+   * @public
+   */
+  rdsConfiguration?: RdsConfiguration | undefined;
+
+  /**
+   * <p>Contains the storage configuration of the knowledge base in MongoDB Atlas.</p>
+   * @public
+   */
+  mongoDbAtlasConfiguration?: MongoDbAtlasConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateKnowledgeBaseRequest {
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A name for the knowledge base.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the knowledge base.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>Contains details about the embeddings model used for the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseConfiguration: KnowledgeBaseConfiguration | undefined;
+
+  /**
+   * <p>Contains details about the configuration of the vector database used for the knowledge base.</p>
+   * @public
+   */
+  storageConfiguration: StorageConfiguration | undefined;
+
+  /**
+   * <p>Specify the key-value pairs for the tags that you want to attach to your knowledge base in this object.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const KnowledgeBaseStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETE_UNSUCCESSFUL: "DELETE_UNSUCCESSFUL",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type KnowledgeBaseStatus = (typeof KnowledgeBaseStatus)[keyof typeof KnowledgeBaseStatus];
+
+/**
+ * <p>Contains information about a knowledge base.</p>
+ * @public
+ */
+export interface KnowledgeBase {
+  /**
+   * <p>The unique identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the knowledge base.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The description of the knowledge base.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>Contains details about the embeddings configuration of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseConfiguration: KnowledgeBaseConfiguration | undefined;
+
+  /**
+   * <p>Contains details about the storage configuration of the knowledge base.</p>
+   * @public
+   */
+  storageConfiguration: StorageConfiguration | undefined;
+
+  /**
+   * <p>The status of the knowledge base. The following statuses are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATING – The knowledge base is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>ACTIVE – The knowledge base is ready to be queried.</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETING – The knowledge base is being deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>UPDATING – The knowledge base is being updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>FAILED – The knowledge base API operation failed.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  status: KnowledgeBaseStatus | undefined;
+
+  /**
+   * <p>The time the knowledge base was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The time the knowledge base was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>A list of reasons that the API operation on the knowledge base failed.</p>
+   * @public
+   */
+  failureReasons?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateKnowledgeBaseResponse {
+  /**
+   * <p>Contains details about the knowledge base.</p>
+   * @public
+   */
+  knowledgeBase: KnowledgeBase | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseRequest {
+  /**
+   * <p>The unique identifier of the knowledge base to delete.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseResponse {
+  /**
+   * <p>The unique identifier of the knowledge base that was deleted.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The status of the knowledge base and whether it has been successfully deleted.</p>
+   * @public
+   */
+  status: KnowledgeBaseStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateAgentKnowledgeBaseRequest {
+  /**
+   * <p>The unique identifier of the agent from which to disassociate the knowledge base.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>The version of the agent from which to disassociate the knowledge base.</p>
+   * @public
+   */
+  agentVersion: string | undefined;
+
+  /**
+   * <p>The unique identifier of the knowledge base to disassociate.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateAgentKnowledgeBaseResponse {}
 
 /**
  * @public

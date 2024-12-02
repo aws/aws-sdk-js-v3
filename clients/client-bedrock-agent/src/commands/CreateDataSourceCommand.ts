@@ -33,7 +33,7 @@ export interface CreateDataSourceCommandInput extends CreateDataSourceRequest {}
 export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a data source connector for a knowledge base.</p>
+ * <p>Connects a knowledge base to a data source. You specify the configuration for the specific data source service in the <code>dataSourceConfiguration</code> field.</p>
  *          <important>
  *             <p>You can't change the <code>chunkingConfiguration</code> after you create the data source connector.</p>
  *          </important>
@@ -49,7 +49,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   dataSourceConfiguration: { // DataSourceConfiguration
- *     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT", // required
+ *     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM", // required
  *     s3Configuration: { // S3DataSourceConfiguration
  *       bucketArn: "STRING_VALUE", // required
  *       inclusionPrefixes: [ // S3Prefixes
@@ -219,7 +219,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * //     status: "AVAILABLE" || "DELETING" || "DELETE_UNSUCCESSFUL", // required
  * //     description: "STRING_VALUE",
  * //     dataSourceConfiguration: { // DataSourceConfiguration
- * //       type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT", // required
+ * //       type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM", // required
  * //       s3Configuration: { // S3DataSourceConfiguration
  * //         bucketArn: "STRING_VALUE", // required
  * //         inclusionPrefixes: [ // S3Prefixes

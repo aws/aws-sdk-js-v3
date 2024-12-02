@@ -91,6 +91,10 @@ import {
   DeleteKnowledgeBaseCommandInput,
   DeleteKnowledgeBaseCommandOutput,
 } from "./commands/DeleteKnowledgeBaseCommand";
+import {
+  DeleteKnowledgeBaseDocumentsCommandInput,
+  DeleteKnowledgeBaseDocumentsCommandOutput,
+} from "./commands/DeleteKnowledgeBaseDocumentsCommand";
 import { DeletePromptCommandInput, DeletePromptCommandOutput } from "./commands/DeletePromptCommand";
 import {
   DisassociateAgentKnowledgeBaseCommandInput,
@@ -113,7 +117,15 @@ import { GetFlowCommandInput, GetFlowCommandOutput } from "./commands/GetFlowCom
 import { GetFlowVersionCommandInput, GetFlowVersionCommandOutput } from "./commands/GetFlowVersionCommand";
 import { GetIngestionJobCommandInput, GetIngestionJobCommandOutput } from "./commands/GetIngestionJobCommand";
 import { GetKnowledgeBaseCommandInput, GetKnowledgeBaseCommandOutput } from "./commands/GetKnowledgeBaseCommand";
+import {
+  GetKnowledgeBaseDocumentsCommandInput,
+  GetKnowledgeBaseDocumentsCommandOutput,
+} from "./commands/GetKnowledgeBaseDocumentsCommand";
 import { GetPromptCommandInput, GetPromptCommandOutput } from "./commands/GetPromptCommand";
+import {
+  IngestKnowledgeBaseDocumentsCommandInput,
+  IngestKnowledgeBaseDocumentsCommandOutput,
+} from "./commands/IngestKnowledgeBaseDocumentsCommand";
 import {
   ListAgentActionGroupsCommandInput,
   ListAgentActionGroupsCommandOutput,
@@ -130,6 +142,10 @@ import { ListFlowAliasesCommandInput, ListFlowAliasesCommandOutput } from "./com
 import { ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
 import { ListFlowVersionsCommandInput, ListFlowVersionsCommandOutput } from "./commands/ListFlowVersionsCommand";
 import { ListIngestionJobsCommandInput, ListIngestionJobsCommandOutput } from "./commands/ListIngestionJobsCommand";
+import {
+  ListKnowledgeBaseDocumentsCommandInput,
+  ListKnowledgeBaseDocumentsCommandOutput,
+} from "./commands/ListKnowledgeBaseDocumentsCommand";
 import { ListKnowledgeBasesCommandInput, ListKnowledgeBasesCommandOutput } from "./commands/ListKnowledgeBasesCommand";
 import { ListPromptsCommandInput, ListPromptsCommandOutput } from "./commands/ListPromptsCommand";
 import {
@@ -199,6 +215,7 @@ export type ServiceInputTypes =
   | DeleteFlowCommandInput
   | DeleteFlowVersionCommandInput
   | DeleteKnowledgeBaseCommandInput
+  | DeleteKnowledgeBaseDocumentsCommandInput
   | DeletePromptCommandInput
   | DisassociateAgentKnowledgeBaseCommandInput
   | GetAgentActionGroupCommandInput
@@ -212,7 +229,9 @@ export type ServiceInputTypes =
   | GetFlowVersionCommandInput
   | GetIngestionJobCommandInput
   | GetKnowledgeBaseCommandInput
+  | GetKnowledgeBaseDocumentsCommandInput
   | GetPromptCommandInput
+  | IngestKnowledgeBaseDocumentsCommandInput
   | ListAgentActionGroupsCommandInput
   | ListAgentAliasesCommandInput
   | ListAgentKnowledgeBasesCommandInput
@@ -223,6 +242,7 @@ export type ServiceInputTypes =
   | ListFlowVersionsCommandInput
   | ListFlowsCommandInput
   | ListIngestionJobsCommandInput
+  | ListKnowledgeBaseDocumentsCommandInput
   | ListKnowledgeBasesCommandInput
   | ListPromptsCommandInput
   | ListTagsForResourceCommandInput
@@ -267,6 +287,7 @@ export type ServiceOutputTypes =
   | DeleteFlowCommandOutput
   | DeleteFlowVersionCommandOutput
   | DeleteKnowledgeBaseCommandOutput
+  | DeleteKnowledgeBaseDocumentsCommandOutput
   | DeletePromptCommandOutput
   | DisassociateAgentKnowledgeBaseCommandOutput
   | GetAgentActionGroupCommandOutput
@@ -280,7 +301,9 @@ export type ServiceOutputTypes =
   | GetFlowVersionCommandOutput
   | GetIngestionJobCommandOutput
   | GetKnowledgeBaseCommandOutput
+  | GetKnowledgeBaseDocumentsCommandOutput
   | GetPromptCommandOutput
+  | IngestKnowledgeBaseDocumentsCommandOutput
   | ListAgentActionGroupsCommandOutput
   | ListAgentAliasesCommandOutput
   | ListAgentKnowledgeBasesCommandOutput
@@ -291,6 +314,7 @@ export type ServiceOutputTypes =
   | ListFlowVersionsCommandOutput
   | ListFlowsCommandOutput
   | ListIngestionJobsCommandOutput
+  | ListKnowledgeBaseDocumentsCommandOutput
   | ListKnowledgeBasesCommandOutput
   | ListPromptsCommandOutput
   | ListTagsForResourceCommandOutput

@@ -70,6 +70,10 @@ import {
   DeleteKnowledgeBaseCommandInput,
   DeleteKnowledgeBaseCommandOutput,
 } from "../commands/DeleteKnowledgeBaseCommand";
+import {
+  DeleteKnowledgeBaseDocumentsCommandInput,
+  DeleteKnowledgeBaseDocumentsCommandOutput,
+} from "../commands/DeleteKnowledgeBaseDocumentsCommand";
 import { DeletePromptCommandInput, DeletePromptCommandOutput } from "../commands/DeletePromptCommand";
 import {
   DisassociateAgentKnowledgeBaseCommandInput,
@@ -92,7 +96,15 @@ import { GetFlowCommandInput, GetFlowCommandOutput } from "../commands/GetFlowCo
 import { GetFlowVersionCommandInput, GetFlowVersionCommandOutput } from "../commands/GetFlowVersionCommand";
 import { GetIngestionJobCommandInput, GetIngestionJobCommandOutput } from "../commands/GetIngestionJobCommand";
 import { GetKnowledgeBaseCommandInput, GetKnowledgeBaseCommandOutput } from "../commands/GetKnowledgeBaseCommand";
+import {
+  GetKnowledgeBaseDocumentsCommandInput,
+  GetKnowledgeBaseDocumentsCommandOutput,
+} from "../commands/GetKnowledgeBaseDocumentsCommand";
 import { GetPromptCommandInput, GetPromptCommandOutput } from "../commands/GetPromptCommand";
+import {
+  IngestKnowledgeBaseDocumentsCommandInput,
+  IngestKnowledgeBaseDocumentsCommandOutput,
+} from "../commands/IngestKnowledgeBaseDocumentsCommand";
 import {
   ListAgentActionGroupsCommandInput,
   ListAgentActionGroupsCommandOutput,
@@ -109,6 +121,10 @@ import { ListFlowAliasesCommandInput, ListFlowAliasesCommandOutput } from "../co
 import { ListFlowsCommandInput, ListFlowsCommandOutput } from "../commands/ListFlowsCommand";
 import { ListFlowVersionsCommandInput, ListFlowVersionsCommandOutput } from "../commands/ListFlowVersionsCommand";
 import { ListIngestionJobsCommandInput, ListIngestionJobsCommandOutput } from "../commands/ListIngestionJobsCommand";
+import {
+  ListKnowledgeBaseDocumentsCommandInput,
+  ListKnowledgeBaseDocumentsCommandOutput,
+} from "../commands/ListKnowledgeBaseDocumentsCommand";
 import { ListKnowledgeBasesCommandInput, ListKnowledgeBasesCommandOutput } from "../commands/ListKnowledgeBasesCommand";
 import { ListPromptsCommandInput, ListPromptsCommandOutput } from "../commands/ListPromptsCommand";
 import {
@@ -163,8 +179,8 @@ import {
   AnyToolChoice,
   APISchema,
   AutoToolChoice,
-  BedrockEmbeddingModelConfiguration,
   BedrockFoundationModelConfiguration,
+  ByteContentDoc,
   ChatPromptTemplateConfiguration,
   ChunkingConfiguration,
   CollectorFlowNodeConfiguration,
@@ -175,12 +191,17 @@ import {
   ConfluenceSourceConfiguration,
   ContentBlock,
   CrawlFilterConfiguration,
+  CustomContent,
+  CustomDocumentIdentifier,
   CustomOrchestration,
+  CustomS3Location,
   CustomTransformationConfiguration,
   DataSource,
   DataSourceConfiguration,
   DataSourceSummary,
-  EmbeddingModelConfiguration,
+  DocumentContent,
+  DocumentIdentifier,
+  DocumentMetadata,
   FixedSizeChunkingConfiguration,
   FlowAliasRoutingConfigurationListItem,
   FlowAliasSummary,
@@ -206,22 +227,21 @@ import {
   IngestionJobFilter,
   IngestionJobSortBy,
   IngestionJobSummary,
+  InlineContent,
   InputFlowNodeConfiguration,
   IntermediateStorage,
   InternalServerException,
   IteratorFlowNodeConfiguration,
-  KnowledgeBase,
-  KnowledgeBaseConfiguration,
+  KnowledgeBaseDocument,
+  KnowledgeBaseDocumentDetail,
   KnowledgeBaseFlowNodeConfiguration,
   LambdaFunctionFlowNodeConfiguration,
   LexFlowNodeConfiguration,
   MemoryConfiguration,
   MemoryType,
   Message,
-  MongoDbAtlasConfiguration,
-  MongoDbAtlasFieldMapping,
-  OpenSearchServerlessConfiguration,
-  OpenSearchServerlessFieldMapping,
+  MetadataAttribute,
+  MetadataAttributeValue,
   OrchestrationExecutor,
   OutputFlowNodeConfiguration,
   ParameterDetail,
@@ -229,8 +249,6 @@ import {
   ParsingPrompt,
   PatternObjectFilter,
   PatternObjectFilterConfiguration,
-  PineconeConfiguration,
-  PineconeFieldMapping,
   PromptConfiguration,
   PromptFlowNodeConfiguration,
   PromptFlowNodeInlineConfiguration,
@@ -241,14 +259,11 @@ import {
   PromptModelInferenceConfiguration,
   PromptOverrideConfiguration,
   PromptTemplateConfiguration,
-  RdsConfiguration,
-  RdsFieldMapping,
-  RedisEnterpriseCloudConfiguration,
-  RedisEnterpriseCloudFieldMapping,
   ResourceNotFoundException,
   RetrievalFlowNodeConfiguration,
   RetrievalFlowNodeS3Configuration,
   RetrievalFlowNodeServiceConfiguration,
+  S3Content,
   S3DataSourceConfiguration,
   S3Identifier,
   S3Location,
@@ -263,11 +278,11 @@ import {
   SharePointDataSourceConfiguration,
   SharePointSourceConfiguration,
   SpecificToolChoice,
-  StorageConfiguration,
   StorageFlowNodeConfiguration,
   StorageFlowNodeS3Configuration,
   StorageFlowNodeServiceConfiguration,
   SystemContentBlock,
+  TextContentDoc,
   TextPromptTemplateConfiguration,
   ThrottlingException,
   Tool,
@@ -281,19 +296,34 @@ import {
   UrlConfiguration,
   ValidationException,
   VectorIngestionConfiguration,
-  VectorKnowledgeBaseConfiguration,
   WebCrawlerConfiguration,
   WebCrawlerLimits,
   WebDataSourceConfiguration,
   WebSourceConfiguration,
 } from "../models/models_0";
 import {
+  BedrockEmbeddingModelConfiguration,
+  EmbeddingModelConfiguration,
+  KnowledgeBase,
+  KnowledgeBaseConfiguration,
   KnowledgeBaseSummary,
+  MongoDbAtlasConfiguration,
+  MongoDbAtlasFieldMapping,
+  OpenSearchServerlessConfiguration,
+  OpenSearchServerlessFieldMapping,
+  PineconeConfiguration,
+  PineconeFieldMapping,
   PromptAgentResource,
   PromptGenAiResource,
   PromptMetadataEntry,
   PromptSummary,
   PromptVariant,
+  RdsConfiguration,
+  RdsFieldMapping,
+  RedisEnterpriseCloudConfiguration,
+  RedisEnterpriseCloudFieldMapping,
+  StorageConfiguration,
+  VectorKnowledgeBaseConfiguration,
 } from "../models/models_1";
 
 /**
@@ -771,6 +801,31 @@ export const se_DeleteKnowledgeBaseCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteKnowledgeBaseDocumentsCommand
+ */
+export const se_DeleteKnowledgeBaseDocumentsCommand = async (
+  input: DeleteKnowledgeBaseDocumentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/documents/deleteDocuments");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("dataSourceId", () => input.dataSourceId!, "{dataSourceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      documentIdentifiers: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeletePromptCommand
  */
 export const se_DeletePromptCommand = async (
@@ -995,6 +1050,30 @@ export const se_GetKnowledgeBaseCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetKnowledgeBaseDocumentsCommand
+ */
+export const se_GetKnowledgeBaseDocumentsCommand = async (
+  input: GetKnowledgeBaseDocumentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/documents/getDocuments");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("dataSourceId", () => input.dataSourceId!, "{dataSourceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      documentIdentifiers: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetPromptCommand
  */
 export const se_GetPromptCommand = async (
@@ -1010,6 +1089,31 @@ export const se_GetPromptCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1IngestKnowledgeBaseDocumentsCommand
+ */
+export const se_IngestKnowledgeBaseDocumentsCommand = async (
+  input: IngestKnowledgeBaseDocumentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/documents");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("dataSourceId", () => input.dataSourceId!, "{dataSourceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      documents: (_) => se_KnowledgeBaseDocuments(_, context),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -1238,6 +1342,31 @@ export const se_ListIngestionJobsCommand = async (
       maxResults: [],
       nextToken: [],
       sortBy: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListKnowledgeBaseDocumentsCommand
+ */
+export const se_ListKnowledgeBaseDocumentsCommand = async (
+  input: ListKnowledgeBaseDocumentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/documents");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("dataSourceId", () => input.dataSourceId!, "{dataSourceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2166,6 +2295,27 @@ export const de_DeleteKnowledgeBaseCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteKnowledgeBaseDocumentsCommand
+ */
+export const de_DeleteKnowledgeBaseDocumentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteKnowledgeBaseDocumentsCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    documentDetails: (_) => de_KnowledgeBaseDocumentDetails(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeletePromptCommand
  */
 export const de_DeletePromptCommand = async (
@@ -2463,6 +2613,27 @@ export const de_GetKnowledgeBaseCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetKnowledgeBaseDocumentsCommand
+ */
+export const de_GetKnowledgeBaseDocumentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetKnowledgeBaseDocumentsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    documentDetails: (_) => de_KnowledgeBaseDocumentDetails(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetPromptCommand
  */
 export const de_GetPromptCommand = async (
@@ -2487,6 +2658,27 @@ export const de_GetPromptCommand = async (
     updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     variants: (_) => de_PromptVariantList(_, context),
     version: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1IngestKnowledgeBaseDocumentsCommand
+ */
+export const de_IngestKnowledgeBaseDocumentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<IngestKnowledgeBaseDocumentsCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    documentDetails: (_) => de_KnowledgeBaseDocumentDetails(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2706,6 +2898,28 @@ export const de_ListIngestionJobsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     ingestionJobSummaries: (_) => de_IngestionJobSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListKnowledgeBaseDocumentsCommand
+ */
+export const de_ListKnowledgeBaseDocumentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListKnowledgeBaseDocumentsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    documentDetails: (_) => de_KnowledgeBaseDocumentDetails(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -3328,6 +3542,16 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_BedrockFoundationModelConfiguration omitted.
 
 /**
+ * serializeAws_restJson1ByteContentDoc
+ */
+const se_ByteContentDoc = (input: ByteContentDoc, context: __SerdeContext): any => {
+  return take(input, {
+    data: context.base64Encoder,
+    mimeType: [],
+  });
+};
+
+/**
  * serializeAws_restJson1ChatPromptTemplateConfiguration
  */
 const se_ChatPromptTemplateConfiguration = (input: ChatPromptTemplateConfiguration, context: __SerdeContext): any => {
@@ -3357,11 +3581,53 @@ const se_ChatPromptTemplateConfiguration = (input: ChatPromptTemplateConfigurati
 
 // se_CrawlFilterConfiguration omitted.
 
+/**
+ * serializeAws_restJson1CustomContent
+ */
+const se_CustomContent = (input: CustomContent, context: __SerdeContext): any => {
+  return take(input, {
+    customDocumentIdentifier: _json,
+    inlineContent: (_) => se_InlineContent(_, context),
+    s3Location: _json,
+    sourceType: [],
+  });
+};
+
+// se_CustomDocumentIdentifier omitted.
+
 // se_CustomOrchestration omitted.
+
+// se_CustomS3Location omitted.
 
 // se_CustomTransformationConfiguration omitted.
 
 // se_DataSourceConfiguration omitted.
+
+/**
+ * serializeAws_restJson1DocumentContent
+ */
+const se_DocumentContent = (input: DocumentContent, context: __SerdeContext): any => {
+  return take(input, {
+    custom: (_) => se_CustomContent(_, context),
+    dataSourceType: [],
+    s3: _json,
+  });
+};
+
+// se_DocumentIdentifier omitted.
+
+// se_DocumentIdentifiers omitted.
+
+/**
+ * serializeAws_restJson1DocumentMetadata
+ */
+const se_DocumentMetadata = (input: DocumentMetadata, context: __SerdeContext): any => {
+  return take(input, {
+    inlineAttributes: (_) => se_MetadataAttributes(_, context),
+    s3Location: _json,
+    type: [],
+  });
+};
 
 // se_EmbeddingModelConfiguration omitted.
 
@@ -3487,6 +3753,17 @@ const se_InferenceConfiguration = (input: InferenceConfiguration, context: __Ser
 
 // se_IngestionJobSortBy omitted.
 
+/**
+ * serializeAws_restJson1InlineContent
+ */
+const se_InlineContent = (input: InlineContent, context: __SerdeContext): any => {
+  return take(input, {
+    byteContent: (_) => se_ByteContentDoc(_, context),
+    textContent: _json,
+    type: [],
+  });
+};
+
 // se_InputFlowNodeConfiguration omitted.
 
 // se_IntermediateStorage omitted.
@@ -3494,6 +3771,27 @@ const se_InferenceConfiguration = (input: InferenceConfiguration, context: __Ser
 // se_IteratorFlowNodeConfiguration omitted.
 
 // se_KnowledgeBaseConfiguration omitted.
+
+/**
+ * serializeAws_restJson1KnowledgeBaseDocument
+ */
+const se_KnowledgeBaseDocument = (input: KnowledgeBaseDocument, context: __SerdeContext): any => {
+  return take(input, {
+    content: (_) => se_DocumentContent(_, context),
+    metadata: (_) => se_DocumentMetadata(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1KnowledgeBaseDocuments
+ */
+const se_KnowledgeBaseDocuments = (input: KnowledgeBaseDocument[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_KnowledgeBaseDocument(entry, context);
+    });
+};
 
 // se_KnowledgeBaseFlowNodeConfiguration omitted.
 
@@ -3506,6 +3804,40 @@ const se_InferenceConfiguration = (input: InferenceConfiguration, context: __Ser
 // se_Message omitted.
 
 // se_Messages omitted.
+
+/**
+ * serializeAws_restJson1MetadataAttribute
+ */
+const se_MetadataAttribute = (input: MetadataAttribute, context: __SerdeContext): any => {
+  return take(input, {
+    key: [],
+    value: (_) => se_MetadataAttributeValue(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1MetadataAttributes
+ */
+const se_MetadataAttributes = (input: MetadataAttribute[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_MetadataAttribute(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1MetadataAttributeValue
+ */
+const se_MetadataAttributeValue = (input: MetadataAttributeValue, context: __SerdeContext): any => {
+  return take(input, {
+    booleanValue: [],
+    numberValue: __serializeFloat,
+    stringListValue: _json,
+    stringValue: [],
+    type: [],
+  });
+};
 
 // se_MongoDbAtlasConfiguration omitted.
 
@@ -3703,6 +4035,8 @@ const se_PromptVariantList = (input: PromptVariant[], context: __SerdeContext): 
 
 // se_RetrievalFlowNodeServiceConfiguration omitted.
 
+// se_S3Content omitted.
+
 // se_S3DataSourceConfiguration omitted.
 
 // se_S3Identifier omitted.
@@ -3745,11 +4079,15 @@ const se_PromptVariantList = (input: PromptVariant[], context: __SerdeContext): 
 
 // se_StorageFlowNodeServiceConfiguration omitted.
 
+// se_StringListValue omitted.
+
 // se_SystemContentBlock omitted.
 
 // se_SystemContentBlocks omitted.
 
 // se_TagsMap omitted.
+
+// se_TextContentDoc omitted.
 
 // se_TextPromptTemplateConfiguration omitted.
 
@@ -4149,6 +4487,8 @@ const de_ChatPromptTemplateConfiguration = (output: any, context: __SerdeContext
 
 // de_CrawlFilterConfiguration omitted.
 
+// de_CustomDocumentIdentifier omitted.
+
 // de_CustomOrchestration omitted.
 
 // de_CustomTransformationConfiguration omitted.
@@ -4202,6 +4542,8 @@ const de_DataSourceSummary = (output: any, context: __SerdeContext): DataSourceS
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
+
+// de_DocumentIdentifier omitted.
 
 // de_DuplicateConditionExpressionFlowValidationDetails omitted.
 
@@ -4534,6 +4876,32 @@ const de_KnowledgeBase = (output: any, context: __SerdeContext): KnowledgeBase =
 };
 
 // de_KnowledgeBaseConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1KnowledgeBaseDocumentDetail
+ */
+const de_KnowledgeBaseDocumentDetail = (output: any, context: __SerdeContext): KnowledgeBaseDocumentDetail => {
+  return take(output, {
+    dataSourceId: __expectString,
+    identifier: _json,
+    knowledgeBaseId: __expectString,
+    status: __expectString,
+    statusReason: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1KnowledgeBaseDocumentDetails
+ */
+const de_KnowledgeBaseDocumentDetails = (output: any, context: __SerdeContext): KnowledgeBaseDocumentDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_KnowledgeBaseDocumentDetail(entry, context);
+    });
+  return retVal;
+};
 
 // de_KnowledgeBaseFlowNodeConfiguration omitted.
 

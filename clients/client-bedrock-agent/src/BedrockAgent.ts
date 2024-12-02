@@ -88,6 +88,11 @@ import {
   DeleteKnowledgeBaseCommandOutput,
 } from "./commands/DeleteKnowledgeBaseCommand";
 import {
+  DeleteKnowledgeBaseDocumentsCommand,
+  DeleteKnowledgeBaseDocumentsCommandInput,
+  DeleteKnowledgeBaseDocumentsCommandOutput,
+} from "./commands/DeleteKnowledgeBaseDocumentsCommand";
+import {
   DeletePromptCommand,
   DeletePromptCommandInput,
   DeletePromptCommandOutput,
@@ -144,7 +149,17 @@ import {
   GetKnowledgeBaseCommandInput,
   GetKnowledgeBaseCommandOutput,
 } from "./commands/GetKnowledgeBaseCommand";
+import {
+  GetKnowledgeBaseDocumentsCommand,
+  GetKnowledgeBaseDocumentsCommandInput,
+  GetKnowledgeBaseDocumentsCommandOutput,
+} from "./commands/GetKnowledgeBaseDocumentsCommand";
 import { GetPromptCommand, GetPromptCommandInput, GetPromptCommandOutput } from "./commands/GetPromptCommand";
+import {
+  IngestKnowledgeBaseDocumentsCommand,
+  IngestKnowledgeBaseDocumentsCommandInput,
+  IngestKnowledgeBaseDocumentsCommandOutput,
+} from "./commands/IngestKnowledgeBaseDocumentsCommand";
 import {
   ListAgentActionGroupsCommand,
   ListAgentActionGroupsCommandInput,
@@ -187,6 +202,11 @@ import {
   ListIngestionJobsCommandInput,
   ListIngestionJobsCommandOutput,
 } from "./commands/ListIngestionJobsCommand";
+import {
+  ListKnowledgeBaseDocumentsCommand,
+  ListKnowledgeBaseDocumentsCommandInput,
+  ListKnowledgeBaseDocumentsCommandOutput,
+} from "./commands/ListKnowledgeBaseDocumentsCommand";
 import {
   ListKnowledgeBasesCommand,
   ListKnowledgeBasesCommandInput,
@@ -284,6 +304,7 @@ const commands = {
   DeleteFlowAliasCommand,
   DeleteFlowVersionCommand,
   DeleteKnowledgeBaseCommand,
+  DeleteKnowledgeBaseDocumentsCommand,
   DeletePromptCommand,
   DisassociateAgentKnowledgeBaseCommand,
   GetAgentCommand,
@@ -297,7 +318,9 @@ const commands = {
   GetFlowVersionCommand,
   GetIngestionJobCommand,
   GetKnowledgeBaseCommand,
+  GetKnowledgeBaseDocumentsCommand,
   GetPromptCommand,
+  IngestKnowledgeBaseDocumentsCommand,
   ListAgentActionGroupsCommand,
   ListAgentAliasesCommand,
   ListAgentKnowledgeBasesCommand,
@@ -308,6 +331,7 @@ const commands = {
   ListFlowsCommand,
   ListFlowVersionsCommand,
   ListIngestionJobsCommand,
+  ListKnowledgeBaseDocumentsCommand,
   ListKnowledgeBasesCommand,
   ListPromptsCommand,
   ListTagsForResourceCommand,
@@ -635,6 +659,23 @@ export interface BedrockAgent {
   ): void;
 
   /**
+   * @see {@link DeleteKnowledgeBaseDocumentsCommand}
+   */
+  deleteKnowledgeBaseDocuments(
+    args: DeleteKnowledgeBaseDocumentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKnowledgeBaseDocumentsCommandOutput>;
+  deleteKnowledgeBaseDocuments(
+    args: DeleteKnowledgeBaseDocumentsCommandInput,
+    cb: (err: any, data?: DeleteKnowledgeBaseDocumentsCommandOutput) => void
+  ): void;
+  deleteKnowledgeBaseDocuments(
+    args: DeleteKnowledgeBaseDocumentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteKnowledgeBaseDocumentsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeletePromptCommand}
    */
   deletePrompt(args: DeletePromptCommandInput, options?: __HttpHandlerOptions): Promise<DeletePromptCommandOutput>;
@@ -811,6 +852,23 @@ export interface BedrockAgent {
   ): void;
 
   /**
+   * @see {@link GetKnowledgeBaseDocumentsCommand}
+   */
+  getKnowledgeBaseDocuments(
+    args: GetKnowledgeBaseDocumentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetKnowledgeBaseDocumentsCommandOutput>;
+  getKnowledgeBaseDocuments(
+    args: GetKnowledgeBaseDocumentsCommandInput,
+    cb: (err: any, data?: GetKnowledgeBaseDocumentsCommandOutput) => void
+  ): void;
+  getKnowledgeBaseDocuments(
+    args: GetKnowledgeBaseDocumentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetKnowledgeBaseDocumentsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetPromptCommand}
    */
   getPrompt(args: GetPromptCommandInput, options?: __HttpHandlerOptions): Promise<GetPromptCommandOutput>;
@@ -819,6 +877,23 @@ export interface BedrockAgent {
     args: GetPromptCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPromptCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link IngestKnowledgeBaseDocumentsCommand}
+   */
+  ingestKnowledgeBaseDocuments(
+    args: IngestKnowledgeBaseDocumentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<IngestKnowledgeBaseDocumentsCommandOutput>;
+  ingestKnowledgeBaseDocuments(
+    args: IngestKnowledgeBaseDocumentsCommandInput,
+    cb: (err: any, data?: IngestKnowledgeBaseDocumentsCommandOutput) => void
+  ): void;
+  ingestKnowledgeBaseDocuments(
+    args: IngestKnowledgeBaseDocumentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: IngestKnowledgeBaseDocumentsCommandOutput) => void
   ): void;
 
   /**
@@ -973,6 +1048,23 @@ export interface BedrockAgent {
     args: ListIngestionJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListIngestionJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListKnowledgeBaseDocumentsCommand}
+   */
+  listKnowledgeBaseDocuments(
+    args: ListKnowledgeBaseDocumentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListKnowledgeBaseDocumentsCommandOutput>;
+  listKnowledgeBaseDocuments(
+    args: ListKnowledgeBaseDocumentsCommandInput,
+    cb: (err: any, data?: ListKnowledgeBaseDocumentsCommandOutput) => void
+  ): void;
+  listKnowledgeBaseDocuments(
+    args: ListKnowledgeBaseDocumentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListKnowledgeBaseDocumentsCommandOutput) => void
   ): void;
 
   /**

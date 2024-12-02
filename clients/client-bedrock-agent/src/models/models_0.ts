@@ -2906,6 +2906,7 @@ export interface SharePointDataSourceConfiguration {
  */
 export const DataSourceType = {
   CONFLUENCE: "CONFLUENCE",
+  CUSTOM: "CUSTOM",
   S3: "S3",
   SALESFORCE: "SALESFORCE",
   SHAREPOINT: "SHAREPOINT",
@@ -8439,499 +8440,71 @@ export interface StopIngestionJobResponse {
 }
 
 /**
+ * <p>Contains information about the identifier of the document to ingest into a custom data source.</p>
  * @public
  */
-export interface AssociateAgentKnowledgeBaseRequest {
+export interface CustomDocumentIdentifier {
   /**
-   * <p>The unique identifier of the agent with which you want to associate the knowledge base.</p>
+   * <p>The identifier of the document to ingest into a custom data source.</p>
    * @public
    */
-  agentId: string | undefined;
+  id: string | undefined;
+}
 
+/**
+ * @public
+ * @enum
+ */
+export const ContentDataSourceType = {
+  CUSTOM: "CUSTOM",
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentDataSourceType = (typeof ContentDataSourceType)[keyof typeof ContentDataSourceType];
+
+/**
+ * <p>Contains information that identifies the document.</p>
+ * @public
+ */
+export interface DocumentIdentifier {
   /**
-   * <p>The version of the agent with which you want to associate the knowledge base.</p>
+   * <p>The type of data source connected to the knowledge base that contains the document.</p>
    * @public
    */
-  agentVersion: string | undefined;
+  dataSourceType: ContentDataSourceType | undefined;
 
   /**
-   * <p>The unique identifier of the knowledge base to associate with the agent.</p>
+   * <p>Contains information that identifies the document in an S3 data source.</p>
+   * @public
+   */
+  s3?: S3Location | undefined;
+
+  /**
+   * <p>Contains information that identifies the document in a custom data source.</p>
+   * @public
+   */
+  custom?: CustomDocumentIdentifier | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseDocumentsRequest {
+  /**
+   * <p>The unique identifier of the knowledge base that is connected to the data source.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>A description of what the agent should use the knowledge base for.</p>
+   * <p>The unique identifier of the data source that contains the documents.</p>
    * @public
    */
-  description: string | undefined;
+  dataSourceId: string | undefined;
 
-  /**
-   * <p>Specifies whether to use the knowledge base or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
-   * @public
-   */
-  knowledgeBaseState?: KnowledgeBaseState | undefined;
-}
-
-/**
- * @public
- */
-export interface AssociateAgentKnowledgeBaseResponse {
-  /**
-   * <p>Contains details about the knowledge base that has been associated with the agent.</p>
-   * @public
-   */
-  agentKnowledgeBase: AgentKnowledgeBase | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const KnowledgeBaseType = {
-  VECTOR: "VECTOR",
-} as const;
-
-/**
- * @public
- */
-export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];
-
-/**
- * @public
- * @enum
- */
-export const EmbeddingDataType = {
-  BINARY: "BINARY",
-  FLOAT32: "FLOAT32",
-} as const;
-
-/**
- * @public
- */
-export type EmbeddingDataType = (typeof EmbeddingDataType)[keyof typeof EmbeddingDataType];
-
-/**
- * <p>The vector configuration details for the Bedrock embeddings model.</p>
- * @public
- */
-export interface BedrockEmbeddingModelConfiguration {
-  /**
-   * <p>The dimensions details for the vector configuration used on the Bedrock embeddings model.</p>
-   * @public
-   */
-  dimensions?: number | undefined;
-
-  /**
-   * <p>The data type for the vectors when using a model to convert text into vector
-   *       embeddings. The model must support the specified data type for vector embeddings.
-   *       Floating-point (float32) is the default data type, and is supported by most models
-   *       for vector embeddings. See <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html">Supported embeddings
-   *         models</a> for information on the available models and their vector data types.</p>
-   * @public
-   */
-  embeddingDataType?: EmbeddingDataType | undefined;
-}
-
-/**
- * <p>The configuration details for the embeddings model.</p>
- * @public
- */
-export interface EmbeddingModelConfiguration {
-  /**
-   * <p>The vector configuration details on the Bedrock embeddings model.</p>
-   * @public
-   */
-  bedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration | undefined;
-}
-
-/**
- * <p>Contains details about the model used to create vector embeddings for the knowledge base.</p>
- * @public
- */
-export interface VectorKnowledgeBaseConfiguration {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model or inference profile used to create vector embeddings for the knowledge base.</p>
-   * @public
-   */
-  embeddingModelArn: string | undefined;
-
-  /**
-   * <p>The embeddings model configuration details for the vector model used in Knowledge Base.</p>
-   * @public
-   */
-  embeddingModelConfiguration?: EmbeddingModelConfiguration | undefined;
-}
-
-/**
- * <p>Contains details about the vector embeddings configuration of the knowledge base.</p>
- * @public
- */
-export interface KnowledgeBaseConfiguration {
-  /**
-   * <p>The type of data that the data source is converted into for the knowledge base.</p>
-   * @public
-   */
-  type: KnowledgeBaseType | undefined;
-
-  /**
-   * <p>Contains details about the model that's used to convert the data source into vector embeddings.</p>
-   * @public
-   */
-  vectorKnowledgeBaseConfiguration?: VectorKnowledgeBaseConfiguration | undefined;
-}
-
-/**
- * <p>Contains the names of the fields to which to map information about the vector store.</p>
- * @public
- */
-export interface MongoDbAtlasFieldMapping {
-  /**
-   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
-   * @public
-   */
-  vectorField: string | undefined;
-
-  /**
-   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
-   * @public
-   */
-  textField: string | undefined;
-
-  /**
-   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
-   * @public
-   */
-  metadataField: string | undefined;
-}
-
-/**
- * <p>Contains details about the storage configuration of the knowledge base in MongoDB Atlas. </p>
- * @public
- */
-export interface MongoDbAtlasConfiguration {
-  /**
-   * <p>The endpoint URL of your MongoDB Atlas cluster for your knowledge base.</p>
-   * @public
-   */
-  endpoint: string | undefined;
-
-  /**
-   * <p>The database name in your MongoDB Atlas cluster for your knowledge base.</p>
-   * @public
-   */
-  databaseName: string | undefined;
-
-  /**
-   * <p>The collection name of the knowledge base in MongoDB Atlas.</p>
-   * @public
-   */
-  collectionName: string | undefined;
-
-  /**
-   * <p>The name of the MongoDB Atlas vector search index.</p>
-   * @public
-   */
-  vectorIndexName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that contains user credentials for your MongoDB Atlas cluster.</p>
-   * @public
-   */
-  credentialsSecretArn: string | undefined;
-
-  /**
-   * <p>Contains the names of the fields to which to map information about the vector store.</p>
-   * @public
-   */
-  fieldMapping: MongoDbAtlasFieldMapping | undefined;
-
-  /**
-   * <p>The name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.</p>
-   * @public
-   */
-  endpointServiceName?: string | undefined;
-}
-
-/**
- * <p>Contains the names of the fields to which to map information about the vector store.</p>
- * @public
- */
-export interface OpenSearchServerlessFieldMapping {
-  /**
-   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
-   * @public
-   */
-  vectorField: string | undefined;
-
-  /**
-   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
-   * @public
-   */
-  textField: string | undefined;
-
-  /**
-   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
-   * @public
-   */
-  metadataField: string | undefined;
-}
-
-/**
- * <p>Contains details about the storage configuration of the knowledge base in Amazon OpenSearch Service. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html">Create a vector index in Amazon OpenSearch Service</a>.</p>
- * @public
- */
-export interface OpenSearchServerlessConfiguration {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the OpenSearch Service vector store.</p>
-   * @public
-   */
-  collectionArn: string | undefined;
-
-  /**
-   * <p>The name of the vector store.</p>
-   * @public
-   */
-  vectorIndexName: string | undefined;
-
-  /**
-   * <p>Contains the names of the fields to which to map information about the vector store.</p>
-   * @public
-   */
-  fieldMapping: OpenSearchServerlessFieldMapping | undefined;
-}
-
-/**
- * <p>Contains the names of the fields to which to map information about the vector store.</p>
- * @public
- */
-export interface PineconeFieldMapping {
-  /**
-   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
-   * @public
-   */
-  textField: string | undefined;
-
-  /**
-   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
-   * @public
-   */
-  metadataField: string | undefined;
-}
-
-/**
- * <p>Contains details about the storage configuration of the knowledge base in Pinecone. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-pinecone.html">Create a vector index in Pinecone</a>.</p>
- * @public
- */
-export interface PineconeConfiguration {
-  /**
-   * <p>The endpoint URL for your index management page.</p>
-   * @public
-   */
-  connectionString: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that is linked to your Pinecone API key.</p>
-   * @public
-   */
-  credentialsSecretArn: string | undefined;
-
-  /**
-   * <p>The namespace to be used to write new data to your database.</p>
-   * @public
-   */
-  namespace?: string | undefined;
-
-  /**
-   * <p>Contains the names of the fields to which to map information about the vector store.</p>
-   * @public
-   */
-  fieldMapping: PineconeFieldMapping | undefined;
-}
-
-/**
- * <p>Contains the names of the fields to which to map information about the vector store.</p>
- * @public
- */
-export interface RdsFieldMapping {
-  /**
-   * <p>The name of the field in which Amazon Bedrock stores the ID for each entry.</p>
-   * @public
-   */
-  primaryKeyField: string | undefined;
-
-  /**
-   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
-   * @public
-   */
-  vectorField: string | undefined;
-
-  /**
-   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
-   * @public
-   */
-  textField: string | undefined;
-
-  /**
-   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
-   * @public
-   */
-  metadataField: string | undefined;
-}
-
-/**
- * <p>Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html">Create a vector index in Amazon RDS</a>.</p>
- * @public
- */
-export interface RdsConfiguration {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the vector store.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that is linked to your Amazon RDS database.</p>
-   * @public
-   */
-  credentialsSecretArn: string | undefined;
-
-  /**
-   * <p>The name of your Amazon RDS database.</p>
-   * @public
-   */
-  databaseName: string | undefined;
-
-  /**
-   * <p>The name of the table in the database.</p>
-   * @public
-   */
-  tableName: string | undefined;
-
-  /**
-   * <p>Contains the names of the fields to which to map information about the vector store.</p>
-   * @public
-   */
-  fieldMapping: RdsFieldMapping | undefined;
-}
-
-/**
- * <p>Contains the names of the fields to which to map information about the vector store.</p>
- * @public
- */
-export interface RedisEnterpriseCloudFieldMapping {
-  /**
-   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
-   * @public
-   */
-  vectorField: string | undefined;
-
-  /**
-   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
-   * @public
-   */
-  textField: string | undefined;
-
-  /**
-   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
-   * @public
-   */
-  metadataField: string | undefined;
-}
-
-/**
- * <p>Contains details about the storage configuration of the knowledge base in Redis Enterprise Cloud. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html">Create a vector index in Redis Enterprise Cloud</a>.</p>
- * @public
- */
-export interface RedisEnterpriseCloudConfiguration {
-  /**
-   * <p>The endpoint URL of the Redis Enterprise Cloud database.</p>
-   * @public
-   */
-  endpoint: string | undefined;
-
-  /**
-   * <p>The name of the vector index.</p>
-   * @public
-   */
-  vectorIndexName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that is linked to your Redis Enterprise Cloud database.</p>
-   * @public
-   */
-  credentialsSecretArn: string | undefined;
-
-  /**
-   * <p>Contains the names of the fields to which to map information about the vector store.</p>
-   * @public
-   */
-  fieldMapping: RedisEnterpriseCloudFieldMapping | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const KnowledgeBaseStorageType = {
-  MONGO_DB_ATLAS: "MONGO_DB_ATLAS",
-  OPENSEARCH_SERVERLESS: "OPENSEARCH_SERVERLESS",
-  PINECONE: "PINECONE",
-  RDS: "RDS",
-  REDIS_ENTERPRISE_CLOUD: "REDIS_ENTERPRISE_CLOUD",
-} as const;
-
-/**
- * @public
- */
-export type KnowledgeBaseStorageType = (typeof KnowledgeBaseStorageType)[keyof typeof KnowledgeBaseStorageType];
-
-/**
- * <p>Contains the storage configuration of the knowledge base.</p>
- * @public
- */
-export interface StorageConfiguration {
-  /**
-   * <p>The vector store service in which the knowledge base is stored.</p>
-   * @public
-   */
-  type: KnowledgeBaseStorageType | undefined;
-
-  /**
-   * <p>Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.</p>
-   * @public
-   */
-  opensearchServerlessConfiguration?: OpenSearchServerlessConfiguration | undefined;
-
-  /**
-   * <p>Contains the storage configuration of the knowledge base in Pinecone.</p>
-   * @public
-   */
-  pineconeConfiguration?: PineconeConfiguration | undefined;
-
-  /**
-   * <p>Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.</p>
-   * @public
-   */
-  redisEnterpriseCloudConfiguration?: RedisEnterpriseCloudConfiguration | undefined;
-
-  /**
-   * <p>Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html">Create a vector index in Amazon RDS</a>.</p>
-   * @public
-   */
-  rdsConfiguration?: RdsConfiguration | undefined;
-
-  /**
-   * <p>Contains the storage configuration of the knowledge base in MongoDB Atlas.</p>
-   * @public
-   */
-  mongoDbAtlasConfiguration?: MongoDbAtlasConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateKnowledgeBaseRequest {
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
@@ -8940,215 +8513,601 @@ export interface CreateKnowledgeBaseRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>A name for the knowledge base.</p>
+   * <p>A list of objects, each of which contains information to identify a document to delete.</p>
    * @public
    */
-  name: string | undefined;
-
-  /**
-   * <p>A description of the knowledge base.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.</p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>Contains details about the embeddings model used for the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseConfiguration: KnowledgeBaseConfiguration | undefined;
-
-  /**
-   * <p>Contains details about the configuration of the vector database used for the knowledge base.</p>
-   * @public
-   */
-  storageConfiguration: StorageConfiguration | undefined;
-
-  /**
-   * <p>Specify the key-value pairs for the tags that you want to attach to your knowledge base in this object.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
+  documentIdentifiers: DocumentIdentifier[] | undefined;
 }
 
 /**
  * @public
  * @enum
  */
-export const KnowledgeBaseStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETE_UNSUCCESSFUL: "DELETE_UNSUCCESSFUL",
+export const DocumentStatus = {
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
   DELETING: "DELETING",
   FAILED: "FAILED",
-  UPDATING: "UPDATING",
+  IGNORED: "IGNORED",
+  INDEXED: "INDEXED",
+  IN_PROGRESS: "IN_PROGRESS",
+  METADATA_PARTIALLY_INDEXED: "METADATA_PARTIALLY_INDEXED",
+  METADATA_UPDATE_FAILED: "METADATA_UPDATE_FAILED",
+  NOT_FOUND: "NOT_FOUND",
+  PARTIALLY_INDEXED: "PARTIALLY_INDEXED",
+  PENDING: "PENDING",
+  STARTING: "STARTING",
 } as const;
 
 /**
  * @public
  */
-export type KnowledgeBaseStatus = (typeof KnowledgeBaseStatus)[keyof typeof KnowledgeBaseStatus];
+export type DocumentStatus = (typeof DocumentStatus)[keyof typeof DocumentStatus];
 
 /**
- * <p>Contains information about a knowledge base.</p>
+ * <p>Contains the details for a document that was ingested or deleted.</p>
  * @public
  */
-export interface KnowledgeBase {
+export interface KnowledgeBaseDocumentDetail {
   /**
-   * <p>The unique identifier of the knowledge base.</p>
+   * <p>The identifier of the knowledge base that the document was ingested into or deleted from.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The name of the knowledge base.</p>
+   * <p>The identifier of the data source connected to the knowledge base that the document was ingested into or deleted from.</p>
    * @public
    */
-  name: string | undefined;
+  dataSourceId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The description of the knowledge base.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.</p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>Contains details about the embeddings configuration of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseConfiguration: KnowledgeBaseConfiguration | undefined;
-
-  /**
-   * <p>Contains details about the storage configuration of the knowledge base.</p>
-   * @public
-   */
-  storageConfiguration: StorageConfiguration | undefined;
-
-  /**
-   * <p>The status of the knowledge base. The following statuses are possible:</p>
+   * <p>The ingestion status of the document. The following statuses are possible:</p>
    *          <ul>
    *             <li>
-   *                <p>CREATING – The knowledge base is being created.</p>
+   *                <p>STARTED – You submitted the ingestion job containing the document.</p>
    *             </li>
    *             <li>
-   *                <p>ACTIVE – The knowledge base is ready to be queried.</p>
+   *                <p>PENDING – The document is waiting to be ingested.</p>
    *             </li>
    *             <li>
-   *                <p>DELETING – The knowledge base is being deleted.</p>
+   *                <p>IN_PROGRESS – The document is being ingested.</p>
    *             </li>
    *             <li>
-   *                <p>UPDATING – The knowledge base is being updated.</p>
+   *                <p>INDEXED – The document was successfully indexed.</p>
    *             </li>
    *             <li>
-   *                <p>FAILED – The knowledge base API operation failed.</p>
+   *                <p>PARTIALLY_INDEXED – The document was partially indexed.</p>
+   *             </li>
+   *             <li>
+   *                <p>METADATA_PARTIALLY_INDEXED – You submitted metadata for an existing document and it was partially indexed.</p>
+   *             </li>
+   *             <li>
+   *                <p>METADATA_UPDATE_FAILED – You submitted a metadata update for an existing document but it failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>FAILED – The document failed to be ingested.</p>
+   *             </li>
+   *             <li>
+   *                <p>NOT_FOUND – The document wasn't found.</p>
+   *             </li>
+   *             <li>
+   *                <p>IGNORED – The document was ignored during ingestion.</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETING – You submitted the delete job containing the document.</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETE_IN_PROGRESS – The document is being deleted.</p>
    *             </li>
    *          </ul>
    * @public
    */
-  status: KnowledgeBaseStatus | undefined;
+  status: DocumentStatus | undefined;
 
   /**
-   * <p>The time the knowledge base was created.</p>
+   * <p>Contains information that identifies the document.</p>
    * @public
    */
-  createdAt: Date | undefined;
+  identifier: DocumentIdentifier | undefined;
 
   /**
-   * <p>The time the knowledge base was last updated.</p>
+   * <p>The reason for the status. Appears alongside the status <code>IGNORED</code>.</p>
    * @public
    */
-  updatedAt: Date | undefined;
+  statusReason?: string | undefined;
 
   /**
-   * <p>A list of reasons that the API operation on the knowledge base failed.</p>
+   * <p>The date and time at which the document was last updated.</p>
    * @public
    */
-  failureReasons?: string[] | undefined;
+  updatedAt?: Date | undefined;
 }
 
 /**
  * @public
  */
-export interface CreateKnowledgeBaseResponse {
+export interface DeleteKnowledgeBaseDocumentsResponse {
   /**
-   * <p>Contains details about the knowledge base.</p>
+   * <p>A list of objects, each of which contains information about the documents that were deleted.</p>
    * @public
    */
-  knowledgeBase: KnowledgeBase | undefined;
+  documentDetails?: KnowledgeBaseDocumentDetail[] | undefined;
 }
 
 /**
  * @public
  */
-export interface DeleteKnowledgeBaseRequest {
+export interface GetKnowledgeBaseDocumentsRequest {
   /**
-   * <p>The unique identifier of the knowledge base to delete.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteKnowledgeBaseResponse {
-  /**
-   * <p>The unique identifier of the knowledge base that was deleted.</p>
+   * <p>The unique identifier of the knowledge base that is connected to the data source.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The status of the knowledge base and whether it has been successfully deleted.</p>
+   * <p>The unique identifier of the data source that contains the documents.</p>
    * @public
    */
-  status: KnowledgeBaseStatus | undefined;
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>A list of objects, each of which contains information to identify a document for which to retrieve information.</p>
+   * @public
+   */
+  documentIdentifiers: DocumentIdentifier[] | undefined;
 }
 
 /**
  * @public
  */
-export interface DisassociateAgentKnowledgeBaseRequest {
+export interface GetKnowledgeBaseDocumentsResponse {
   /**
-   * <p>The unique identifier of the agent from which to disassociate the knowledge base.</p>
+   * <p>A list of objects, each of which contains information about the documents that were retrieved.</p>
    * @public
    */
-  agentId: string | undefined;
+  documentDetails?: KnowledgeBaseDocumentDetail[] | undefined;
+}
 
+/**
+ * <p>Contains information about content defined inline in bytes.</p>
+ * @public
+ */
+export interface ByteContentDoc {
   /**
-   * <p>The version of the agent from which to disassociate the knowledge base.</p>
+   * <p>The MIME type of the content. For a list of MIME types, see <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. The following MIME types are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>text/plain</p>
+   *             </li>
+   *             <li>
+   *                <p>text/html</p>
+   *             </li>
+   *             <li>
+   *                <p>text/csv</p>
+   *             </li>
+   *             <li>
+   *                <p>text/vtt</p>
+   *             </li>
+   *             <li>
+   *                <p>message/rfc822</p>
+   *             </li>
+   *             <li>
+   *                <p>application/xhtml+xml</p>
+   *             </li>
+   *             <li>
+   *                <p>application/pdf</p>
+   *             </li>
+   *             <li>
+   *                <p>application/msword</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.ms-word.document.macroenabled.12</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.ms-word.template.macroenabled.12</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.ms-excel</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.ms-excel.addin.macroenabled.12</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.ms-excel.sheet.macroenabled.12</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.ms-excel.template.macroenabled.12</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.ms-excel.sheet.binary.macroenabled.12</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.ms-spreadsheetml</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.openxmlformats-officedocument.spreadsheetml.template</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.openxmlformats-officedocument.wordprocessingml.document</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.openxmlformats-officedocument.wordprocessingml.template</p>
+   *             </li>
+   *          </ul>
    * @public
    */
-  agentVersion: string | undefined;
+  mimeType: string | undefined;
 
   /**
-   * <p>The unique identifier of the knowledge base to disassociate.</p>
+   * <p>The base64-encoded string of the content.</p>
+   * @public
+   */
+  data: Uint8Array | undefined;
+}
+
+/**
+ * <p>Contains information about content defined inline in text.</p>
+ * @public
+ */
+export interface TextContentDoc {
+  /**
+   * <p>The text of the content.</p>
+   * @public
+   */
+  data: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InlineContentType = {
+  BYTE: "BYTE",
+  TEXT: "TEXT",
+} as const;
+
+/**
+ * @public
+ */
+export type InlineContentType = (typeof InlineContentType)[keyof typeof InlineContentType];
+
+/**
+ * <p>Contains information about content defined inline to ingest into a data source. Choose a <code>type</code> and include the field that corresponds to it.</p>
+ * @public
+ */
+export interface InlineContent {
+  /**
+   * <p>The type of inline content to define.</p>
+   * @public
+   */
+  type: InlineContentType | undefined;
+
+  /**
+   * <p>Contains information about content defined inline in bytes.</p>
+   * @public
+   */
+  byteContent?: ByteContentDoc | undefined;
+
+  /**
+   * <p>Contains information about content defined inline in text.</p>
+   * @public
+   */
+  textContent?: TextContentDoc | undefined;
+}
+
+/**
+ * <p>Contains information about the Amazon S3 location of the file containing the content to ingest into a knowledge base connected to a custom data source.</p>
+ * @public
+ */
+export interface CustomS3Location {
+  /**
+   * <p>The S3 URI of the file containing the content to ingest.</p>
+   * @public
+   */
+  uri: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Web Services account that owns the S3 bucket containing the content to ingest.</p>
+   * @public
+   */
+  bucketOwnerAccountId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomSourceType = {
+  IN_LINE: "IN_LINE",
+  S3_LOCATION: "S3_LOCATION",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomSourceType = (typeof CustomSourceType)[keyof typeof CustomSourceType];
+
+/**
+ * <p>Contains information about the content to ingest into a knowledge base connected to a custom data source. Choose a <code>sourceType</code> and include the field that corresponds to it.</p>
+ * @public
+ */
+export interface CustomContent {
+  /**
+   * <p>A unique identifier for the document.</p>
+   * @public
+   */
+  customDocumentIdentifier: CustomDocumentIdentifier | undefined;
+
+  /**
+   * <p>The source of the data to ingest.</p>
+   * @public
+   */
+  sourceType: CustomSourceType | undefined;
+
+  /**
+   * <p>Contains information about the Amazon S3 location of the file from which to ingest data.</p>
+   * @public
+   */
+  s3Location?: CustomS3Location | undefined;
+
+  /**
+   * <p>Contains information about content defined inline to ingest into a knowledge base.</p>
+   * @public
+   */
+  inlineContent?: InlineContent | undefined;
+}
+
+/**
+ * <p>Contains information about the content to ingest into a knowledge base connected to an Amazon S3 data source.</p>
+ * @public
+ */
+export interface S3Content {
+  /**
+   * <p>The S3 location of the file containing the content to ingest.</p>
+   * @public
+   */
+  s3Location: S3Location | undefined;
+}
+
+/**
+ * <p>Contains information about the content of a document. Choose a <code>dataSourceType</code> and include the field that corresponds to it.</p>
+ * @public
+ */
+export interface DocumentContent {
+  /**
+   * <p>The type of data source that is connected to the knowledge base to which to ingest this document.</p>
+   * @public
+   */
+  dataSourceType: ContentDataSourceType | undefined;
+
+  /**
+   * <p>Contains information about the content to ingest into a knowledge base connected to a custom data source.</p>
+   * @public
+   */
+  custom?: CustomContent | undefined;
+
+  /**
+   * <p>Contains information about the content to ingest into a knowledge base connected to an Amazon S3 data source</p>
+   * @public
+   */
+  s3?: S3Content | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MetadataValueType = {
+  BOOLEAN: "BOOLEAN",
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+  STRING_LIST: "STRING_LIST",
+} as const;
+
+/**
+ * @public
+ */
+export type MetadataValueType = (typeof MetadataValueType)[keyof typeof MetadataValueType];
+
+/**
+ * <p>Contains the value of the metadata attribute. Choose a <code>type</code> and include the field that corresponds to it.</p>
+ * @public
+ */
+export interface MetadataAttributeValue {
+  /**
+   * <p>The type of the metadata attribute.</p>
+   * @public
+   */
+  type: MetadataValueType | undefined;
+
+  /**
+   * <p>The value of the numeric metadata attribute.</p>
+   * @public
+   */
+  numberValue?: number | undefined;
+
+  /**
+   * <p>The value of the Boolean metadata attribute.</p>
+   * @public
+   */
+  booleanValue?: boolean | undefined;
+
+  /**
+   * <p>The value of the string metadata attribute.</p>
+   * @public
+   */
+  stringValue?: string | undefined;
+
+  /**
+   * <p>An array of strings that define the value of the metadata attribute.</p>
+   * @public
+   */
+  stringListValue?: string[] | undefined;
+}
+
+/**
+ * <p>Contains information about a metadata attribute.</p>
+ * @public
+ */
+export interface MetadataAttribute {
+  /**
+   * <p>The key of the metadata attribute.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>Contains the value of the metadata attribute.</p>
+   * @public
+   */
+  value: MetadataAttributeValue | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MetadataSourceType = {
+  IN_LINE_ATTRIBUTE: "IN_LINE_ATTRIBUTE",
+  S3_LOCATION: "S3_LOCATION",
+} as const;
+
+/**
+ * @public
+ */
+export type MetadataSourceType = (typeof MetadataSourceType)[keyof typeof MetadataSourceType];
+
+/**
+ * <p>Contains information about the metadata associate with the content to ingest into a knowledge base. Choose a <code>type</code> and include the field that corresponds to it.</p>
+ * @public
+ */
+export interface DocumentMetadata {
+  /**
+   * <p>The type of the source source from which to add metadata.</p>
+   * @public
+   */
+  type: MetadataSourceType | undefined;
+
+  /**
+   * <p>An array of objects, each of which defines a metadata attribute to associate with the content to ingest. You define the attributes inline.</p>
+   * @public
+   */
+  inlineAttributes?: MetadataAttribute[] | undefined;
+
+  /**
+   * <p>The Amazon S3 location of the file containing metadata to associate with the content to ingest.</p>
+   * @public
+   */
+  s3Location?: CustomS3Location | undefined;
+}
+
+/**
+ * <p>Contains information about a document to ingest into a knowledge base and metadata to associate with it.</p>
+ * @public
+ */
+export interface KnowledgeBaseDocument {
+  /**
+   * <p>Contains the metadata to associate with the document.</p>
+   * @public
+   */
+  metadata?: DocumentMetadata | undefined;
+
+  /**
+   * <p>Contains the content of the document.</p>
+   * @public
+   */
+  content: DocumentContent | undefined;
+}
+
+/**
+ * @public
+ */
+export interface IngestKnowledgeBaseDocumentsRequest {
+  /**
+   * <p>The unique identifier of the knowledge base to ingest the documents into.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source connected to the knowledge base that you're adding documents to.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A list of objects, each of which contains information about the documents to add.</p>
+   * @public
+   */
+  documents: KnowledgeBaseDocument[] | undefined;
 }
 
 /**
  * @public
  */
-export interface DisassociateAgentKnowledgeBaseResponse {}
+export interface IngestKnowledgeBaseDocumentsResponse {
+  /**
+   * <p>A list of objects, each of which contains information about the documents that were ingested.</p>
+   * @public
+   */
+  documentDetails?: KnowledgeBaseDocumentDetail[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListKnowledgeBaseDocumentsRequest {
+  /**
+   * <p>The unique identifier of the knowledge base that is connected to the data source.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source that contains the documents.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListKnowledgeBaseDocumentsResponse {
+  /**
+   * <p>A list of objects, each of which contains information about the documents that were retrieved.</p>
+   * @public
+   */
+  documentDetails: KnowledgeBaseDocumentDetail[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * @internal
@@ -9764,4 +9723,93 @@ export const UpdateFlowRequestFilterSensitiveLog = (obj: UpdateFlowRequest): any
 export const UpdateFlowResponseFilterSensitiveLog = (obj: UpdateFlowResponse): any => ({
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ByteContentDocFilterSensitiveLog = (obj: ByteContentDoc): any => ({
+  ...obj,
+  ...(obj.data && { data: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TextContentDocFilterSensitiveLog = (obj: TextContentDoc): any => ({
+  ...obj,
+  ...(obj.data && { data: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InlineContentFilterSensitiveLog = (obj: InlineContent): any => ({
+  ...obj,
+  ...(obj.byteContent && { byteContent: ByteContentDocFilterSensitiveLog(obj.byteContent) }),
+  ...(obj.textContent && { textContent: TextContentDocFilterSensitiveLog(obj.textContent) }),
+});
+
+/**
+ * @internal
+ */
+export const CustomContentFilterSensitiveLog = (obj: CustomContent): any => ({
+  ...obj,
+  ...(obj.inlineContent && { inlineContent: InlineContentFilterSensitiveLog(obj.inlineContent) }),
+});
+
+/**
+ * @internal
+ */
+export const DocumentContentFilterSensitiveLog = (obj: DocumentContent): any => ({
+  ...obj,
+  ...(obj.custom && { custom: CustomContentFilterSensitiveLog(obj.custom) }),
+});
+
+/**
+ * @internal
+ */
+export const MetadataAttributeValueFilterSensitiveLog = (obj: MetadataAttributeValue): any => ({
+  ...obj,
+  ...(obj.numberValue && { numberValue: SENSITIVE_STRING }),
+  ...(obj.stringValue && { stringValue: SENSITIVE_STRING }),
+  ...(obj.stringListValue && { stringListValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MetadataAttributeFilterSensitiveLog = (obj: MetadataAttribute): any => ({
+  ...obj,
+  ...(obj.key && { key: SENSITIVE_STRING }),
+  ...(obj.value && { value: MetadataAttributeValueFilterSensitiveLog(obj.value) }),
+});
+
+/**
+ * @internal
+ */
+export const DocumentMetadataFilterSensitiveLog = (obj: DocumentMetadata): any => ({
+  ...obj,
+  ...(obj.inlineAttributes && {
+    inlineAttributes: obj.inlineAttributes.map((item) => MetadataAttributeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseDocumentFilterSensitiveLog = (obj: KnowledgeBaseDocument): any => ({
+  ...obj,
+  ...(obj.metadata && { metadata: DocumentMetadataFilterSensitiveLog(obj.metadata) }),
+  ...(obj.content && { content: DocumentContentFilterSensitiveLog(obj.content) }),
+});
+
+/**
+ * @internal
+ */
+export const IngestKnowledgeBaseDocumentsRequestFilterSensitiveLog = (
+  obj: IngestKnowledgeBaseDocumentsRequest
+): any => ({
+  ...obj,
+  ...(obj.documents && { documents: obj.documents.map((item) => KnowledgeBaseDocumentFilterSensitiveLog(item)) }),
 });

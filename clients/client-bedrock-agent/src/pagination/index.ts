@@ -10,5 +10,6 @@ export * from "./ListFlowAliasesPaginator";
 export * from "./ListFlowVersionsPaginator";
 export * from "./ListFlowsPaginator";
 export * from "./ListIngestionJobsPaginator";
+export * from "./ListKnowledgeBaseDocumentsPaginator";
 export * from "./ListKnowledgeBasesPaginator";
 export * from "./ListPromptsPaginator";
