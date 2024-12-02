@@ -40,7 +40,7 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  *       constraints are: a minimum value of -9,223,372,036,854,775,808 and a maximum value of
  *       9,223,372,036,854,775,807.</p>
  *          <note>
- *             <p>PutEvents will only process nested JSON up to 1100 levels deep.</p>
+ *             <p>PutEvents will only process nested JSON up to 1000 levels deep.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

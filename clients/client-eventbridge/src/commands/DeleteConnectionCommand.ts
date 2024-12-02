@@ -42,7 +42,7 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * const response = await client.send(command);
  * // { // DeleteConnectionResponse
  * //   ConnectionArn: "STRING_VALUE",
- * //   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
+ * //   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING" || "ACTIVE" || "FAILED_CONNECTIVITY",
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastModifiedTime: new Date("TIMESTAMP"),
  * //   LastAuthorizedTime: new Date("TIMESTAMP"),

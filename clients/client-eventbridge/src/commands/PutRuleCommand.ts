@@ -67,6 +67,9 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  *       budgeting, which alerts you when charges exceed your specified limit. For more information,
  *       see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html">Managing Your Costs with
  *         Budgets</a>.</p>
+ *          <p>To create a rule that filters for management events from Amazon Web Services services, see
+ *       <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event-cloudtrail.html#eb-service-event-cloudtrail-management">Receiving read-only management events from Amazon Web Services services</a> in the
+ *       <i>EventBridge User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

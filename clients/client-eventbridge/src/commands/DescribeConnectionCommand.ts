@@ -48,7 +48,13 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * //   ConnectionArn: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
  * //   Description: "STRING_VALUE",
- * //   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
+ * //   InvocationConnectivityParameters: { // DescribeConnectionConnectivityParameters
+ * //     ResourceParameters: { // DescribeConnectionResourceParameters
+ * //       ResourceConfigurationArn: "STRING_VALUE", // required
+ * //       ResourceAssociationArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING" || "ACTIVE" || "FAILED_CONNECTIVITY",
  * //   StateReason: "STRING_VALUE",
  * //   AuthorizationType: "BASIC" || "OAUTH_CLIENT_CREDENTIALS" || "API_KEY",
  * //   SecretArn: "STRING_VALUE",
@@ -111,6 +117,12 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * //           IsValueSecret: true || false,
  * //         },
  * //       ],
+ * //     },
+ * //     ConnectivityParameters: {
+ * //       ResourceParameters: {
+ * //         ResourceConfigurationArn: "STRING_VALUE", // required
+ * //         ResourceAssociationArn: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   },
  * //   CreationTime: new Date("TIMESTAMP"),

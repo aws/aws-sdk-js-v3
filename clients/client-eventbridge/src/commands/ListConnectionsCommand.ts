@@ -37,7 +37,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * const client = new EventBridgeClient(config);
  * const input = { // ListConnectionsRequest
  *   NamePrefix: "STRING_VALUE",
- *   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
+ *   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING" || "ACTIVE" || "FAILED_CONNECTIVITY",
  *   NextToken: "STRING_VALUE",
  *   Limit: Number("int"),
  * };
@@ -48,7 +48,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * //     { // Connection
  * //       ConnectionArn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
- * //       ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
+ * //       ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING" || "ACTIVE" || "FAILED_CONNECTIVITY",
  * //       StateReason: "STRING_VALUE",
  * //       AuthorizationType: "BASIC" || "OAUTH_CLIENT_CREDENTIALS" || "API_KEY",
  * //       CreationTime: new Date("TIMESTAMP"),

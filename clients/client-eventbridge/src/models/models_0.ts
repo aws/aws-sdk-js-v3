@@ -4,6 +4,26 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { EventBridgeServiceException as __BaseException } from "./EventBridgeServiceException";
 
 /**
+ * <p>You do not have the necessary permissons for this action.</p>
+ * @public
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
+}
+
+/**
  * @public
  */
 export interface ActivateEventSourceRequest {
@@ -596,7 +616,7 @@ export type ConnectionAuthorizationType =
   (typeof ConnectionAuthorizationType)[keyof typeof ConnectionAuthorizationType];
 
 /**
- * <p>Contains the API key authorization parameters for the connection.</p>
+ * <p>The API key authorization parameters for the connection.</p>
  * @public
  */
 export interface CreateConnectionApiKeyAuthRequestParameters {
@@ -632,6 +652,30 @@ export interface CreateConnectionBasicAuthRequestParameters {
 }
 
 /**
+ * <p>The Amazon Resource Name (ARN) of the resource configuration for the resource endpoint.</p>
+ * @public
+ */
+export interface ConnectivityResourceConfigurationArn {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource configuration for the resource endpoint.</p>
+   * @public
+   */
+  ResourceConfigurationArn: string | undefined;
+}
+
+/**
+ * <p>The parameters for EventBridge to use when invoking the resource endpoint.</p>
+ * @public
+ */
+export interface ConnectivityResourceParameters {
+  /**
+   * <p>The parameters for EventBridge to use when invoking the resource endpoint.</p>
+   * @public
+   */
+  ResourceParameters: ConnectivityResourceConfigurationArn | undefined;
+}
+
+/**
  * <p>Additional parameter included in the body. You can include up to 100 additional body
  *       parameters per request. An event payload cannot exceed 64 KB.</p>
  * @public
@@ -650,7 +694,7 @@ export interface ConnectionBodyParameter {
   Value?: string | undefined;
 
   /**
-   * <p>Specified whether the value is secret.</p>
+   * <p>Specifies whether the value is secret.</p>
    * @public
    */
   IsValueSecret?: boolean | undefined;
@@ -675,14 +719,14 @@ export interface ConnectionHeaderParameter {
   Value?: string | undefined;
 
   /**
-   * <p>Specified whether the value is a secret.</p>
+   * <p>Specifies whether the value is a secret.</p>
    * @public
    */
   IsValueSecret?: boolean | undefined;
 }
 
 /**
- * <p>Additional query string parameter for the connection. You can include up to 100 additional
+ * <p>Any additional query string parameter for the connection. You can include up to 100 additional
  *       query string parameters per request. Each additional parameter counts towards the event
  *       payload size, which cannot exceed 64 KB.</p>
  * @public
@@ -708,31 +752,31 @@ export interface ConnectionQueryStringParameter {
 }
 
 /**
- * <p>Contains additional parameters for the connection.</p>
+ * <p>Any additional parameters for the connection.</p>
  * @public
  */
 export interface ConnectionHttpParameters {
   /**
-   * <p>Contains additional header parameters for the connection.</p>
+   * <p>Any additional header parameters for the connection.</p>
    * @public
    */
   HeaderParameters?: ConnectionHeaderParameter[] | undefined;
 
   /**
-   * <p>Contains additional query string parameters for the connection.</p>
+   * <p>Any additional query string parameters for the connection.</p>
    * @public
    */
   QueryStringParameters?: ConnectionQueryStringParameter[] | undefined;
 
   /**
-   * <p>Contains additional body string parameters for the connection.</p>
+   * <p>Any additional body string parameters for the connection.</p>
    * @public
    */
   BodyParameters?: ConnectionBodyParameter[] | undefined;
 }
 
 /**
- * <p>Contains the Basic authorization parameters to use for the connection.</p>
+ * <p>The Basic authorization parameters to use for the connection.</p>
  * @public
  */
 export interface CreateConnectionOAuthClientRequestParameters {
@@ -771,8 +815,7 @@ export type ConnectionOAuthHttpMethod = (typeof ConnectionOAuthHttpMethod)[keyof
  */
 export interface CreateConnectionOAuthRequestParameters {
   /**
-   * <p>A <code>CreateConnectionOAuthClientRequestParameters</code> object that contains the
-   *       client parameters for OAuth authorization.</p>
+   * <p>The client parameters for OAuth authorization.</p>
    * @public
    */
   ClientParameters: CreateConnectionOAuthClientRequestParameters | undefined;
@@ -791,7 +834,7 @@ export interface CreateConnectionOAuthRequestParameters {
   HttpMethod: ConnectionOAuthHttpMethod | undefined;
 
   /**
-   * <p>A <code>ConnectionHttpParameters</code> object that contains details about the additional
+   * <p>Details about the additional
    *       parameters to use for the connection.</p>
    * @public
    */
@@ -799,39 +842,49 @@ export interface CreateConnectionOAuthRequestParameters {
 }
 
 /**
- * <p>Contains the authorization parameters for the connection.</p>
+ * <p>The authorization parameters for the connection.</p>
+ *          <p>You must include only authorization parameters for the <code>AuthorizationType</code> you specify.</p>
  * @public
  */
 export interface CreateConnectionAuthRequestParameters {
   /**
-   * <p>A <code>CreateConnectionBasicAuthRequestParameters</code> object that contains the Basic
+   * <p>The Basic
    *       authorization parameters to use for the connection.</p>
    * @public
    */
   BasicAuthParameters?: CreateConnectionBasicAuthRequestParameters | undefined;
 
   /**
-   * <p>A <code>CreateConnectionOAuthRequestParameters</code> object that contains the OAuth
+   * <p>The OAuth
    *       authorization parameters to use for the connection.</p>
    * @public
    */
   OAuthParameters?: CreateConnectionOAuthRequestParameters | undefined;
 
   /**
-   * <p>A <code>CreateConnectionApiKeyAuthRequestParameters</code> object that contains the API
+   * <p>The API
    *       key authorization parameters to use for the connection.</p>
    * @public
    */
   ApiKeyAuthParameters?: CreateConnectionApiKeyAuthRequestParameters | undefined;
 
   /**
-   * <p>A <code>ConnectionHttpParameters</code> object that contains the API key authorization
+   * <p>The API key authorization
    *       parameters to use for the connection. Note that if you include additional parameters for the
    *       target of a rule via <code>HttpParameters</code>, including query strings, the parameters
    *       added for the connection take precedence.</p>
    * @public
    */
   InvocationHttpParameters?: ConnectionHttpParameters | undefined;
+
+  /**
+   * <p>If you specify a private OAuth endpoint, the parameters for EventBridge to use when authenticating against the endpoint.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html">Authorization methods for connections</a> in the <i>
+   *                <i>Amazon EventBridge User Guide</i>
+   *             </i>.</p>
+   * @public
+   */
+  ConnectivityParameters?: ConnectivityResourceParameters | undefined;
 }
 
 /**
@@ -860,11 +913,21 @@ export interface CreateConnectionRequest {
   AuthorizationType: ConnectionAuthorizationType | undefined;
 
   /**
-   * <p>A <code>CreateConnectionAuthRequestParameters</code> object that contains the
+   * <p>The
    *       authorization parameters to use to authorize with the endpoint. </p>
+   *          <p>You must include only authorization parameters for the <code>AuthorizationType</code> you specify.</p>
    * @public
    */
   AuthParameters: CreateConnectionAuthRequestParameters | undefined;
+
+  /**
+   * <p>For connections to private resource endpoints, the parameters to use for invoking the resource endpoint.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-private.html">Connecting to private resources</a> in the <i>
+   *                <i>Amazon EventBridge User Guide</i>
+   *             </i>.</p>
+   * @public
+   */
+  InvocationConnectivityParameters?: ConnectivityResourceParameters | undefined;
 }
 
 /**
@@ -872,12 +935,14 @@ export interface CreateConnectionRequest {
  * @enum
  */
 export const ConnectionState = {
+  ACTIVE: "ACTIVE",
   AUTHORIZED: "AUTHORIZED",
   AUTHORIZING: "AUTHORIZING",
   CREATING: "CREATING",
   DEAUTHORIZED: "DEAUTHORIZED",
   DEAUTHORIZING: "DEAUTHORIZING",
   DELETING: "DELETING",
+  FAILED_CONNECTIVITY: "FAILED_CONNECTIVITY",
   UPDATING: "UPDATING",
 } as const;
 
@@ -913,6 +978,26 @@ export interface CreateConnectionResponse {
    * @public
    */
   LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * <p>This request cannot be completed due to throttling issues.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
 }
 
 /**
@@ -1128,8 +1213,7 @@ export interface CreateEndpointResponse {
 /**
  * <p>Configuration details of the Amazon SQS queue for EventBridge to use as a
  *       dead-letter queue (DLQ).</p>
- *          <p>For more information, see <a href="eventbridge/latest/userguide/eb-rule-dlq.html">Event
- *         retry policy and using dead-letter queues</a> in the <i>EventBridge User
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-event-delivery.html#eb-rule-dlq">Using dead-letter queues to process undelivered events</a> in the <i>EventBridge User
  *         Guide</i>.</p>
  * @public
  */
@@ -1228,8 +1312,7 @@ export interface CreateEventBusRequest {
   /**
    * <p>Configuration details of the Amazon SQS queue for EventBridge to use as a
    *       dead-letter queue (DLQ).</p>
-   *          <p>For more information, see <a href="eventbridge/latest/userguide/eb-rule-dlq.html">Event
-   *         retry policy and using dead-letter queues</a> in the <i>EventBridge User
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-event-delivery.html#eb-rule-dlq">Using dead-letter queues to process undelivered events</a> in the <i>EventBridge User
    *         Guide</i>.</p>
    * @public
    */
@@ -1269,8 +1352,7 @@ export interface CreateEventBusResponse {
   /**
    * <p>Configuration details of the Amazon SQS queue for EventBridge to use as a
    *       dead-letter queue (DLQ).</p>
-   *          <p>For more information, see <a href="eventbridge/latest/userguide/eb-rule-dlq.html">Event
-   *         retry policy and using dead-letter queues</a> in the <i>EventBridge User
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-event-delivery.html#eb-rule-dlq">Using dead-letter queues to process undelivered events</a> in the <i>EventBridge User
    *         Guide</i>.</p>
    * @public
    */
@@ -1736,7 +1818,7 @@ export interface ConnectionApiKeyAuthResponseParameters {
 }
 
 /**
- * <p>Contains the authorization parameters for the connection if Basic is specified as the
+ * <p>The authorization parameters for the connection if Basic is specified as the
  *       authorization type.</p>
  * @public
  */
@@ -1749,7 +1831,40 @@ export interface ConnectionBasicAuthResponseParameters {
 }
 
 /**
- * <p>Contains the client response parameters for the connection when OAuth is specified as the
+ * <p>The parameters for EventBridge to use when invoking the resource endpoint.</p>
+ * @public
+ */
+export interface DescribeConnectionResourceParameters {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource configuration for the private API.</p>
+   * @public
+   */
+  ResourceConfigurationArn: string | undefined;
+
+  /**
+   * <p>For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.</p>
+   * @public
+   */
+  ResourceAssociationArn: string | undefined;
+}
+
+/**
+ * <p>If the connection uses a private OAuth endpoint, the parameters for EventBridge to use when authenticating against the endpoint.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html">Authorization methods for connections</a> in the <i>
+ *                <i>Amazon EventBridge User Guide</i>
+ *             </i>.</p>
+ * @public
+ */
+export interface DescribeConnectionConnectivityParameters {
+  /**
+   * <p>The parameters for EventBridge to use when invoking the resource endpoint.</p>
+   * @public
+   */
+  ResourceParameters: DescribeConnectionResourceParameters | undefined;
+}
+
+/**
+ * <p>The client response parameters for the connection when OAuth is specified as the
  *       authorization type.</p>
  * @public
  */
@@ -1762,13 +1877,12 @@ export interface ConnectionOAuthClientResponseParameters {
 }
 
 /**
- * <p>Contains the response parameters when OAuth is specified as the authorization type.</p>
+ * <p>The response parameters when OAuth is specified as the authorization type.</p>
  * @public
  */
 export interface ConnectionOAuthResponseParameters {
   /**
-   * <p>A <code>ConnectionOAuthClientResponseParameters</code> object that contains details about
-   *       the client parameters returned when OAuth is specified as the authorization type.</p>
+   * <p>Details about the client parameters returned when OAuth is specified as the authorization type.</p>
    * @public
    */
   ClientParameters?: ConnectionOAuthClientResponseParameters | undefined;
@@ -1793,7 +1907,7 @@ export interface ConnectionOAuthResponseParameters {
 }
 
 /**
- * <p>Contains the authorization parameters to use for the connection.</p>
+ * <p>Tthe authorization parameters to use for the connection.</p>
  * @public
  */
 export interface ConnectionAuthResponseParameters {
@@ -1821,6 +1935,15 @@ export interface ConnectionAuthResponseParameters {
    * @public
    */
   InvocationHttpParameters?: ConnectionHttpParameters | undefined;
+
+  /**
+   * <p>For private OAuth authentication endpoints. The parameters EventBridge uses to authenticate against the endpoint.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html">Authorization methods for connections</a> in the <i>
+   *                <i>Amazon EventBridge User Guide</i>
+   *             </i>.</p>
+   * @public
+   */
+  ConnectivityParameters?: DescribeConnectionConnectivityParameters | undefined;
 }
 
 /**
@@ -1844,6 +1967,15 @@ export interface DescribeConnectionResponse {
    * @public
    */
   Description?: string | undefined;
+
+  /**
+   * <p>For connections to private resource endpoints. The parameters EventBridge uses to invoke the resource endpoint.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-private.html">Connecting to private resources</a> in the <i>
+   *                <i>Amazon EventBridge User Guide</i>
+   *             </i>.</p>
+   * @public
+   */
+  InvocationConnectivityParameters?: DescribeConnectionConnectivityParameters | undefined;
 
   /**
    * <p>The state of the connection retrieved.</p>
@@ -2043,8 +2175,7 @@ export interface DescribeEventBusResponse {
   /**
    * <p>Configuration details of the Amazon SQS queue for EventBridge to use as a
    *       dead-letter queue (DLQ).</p>
-   *          <p>For more information, see <a href="eventbridge/latest/userguide/eb-rule-dlq.html">Event
-   *         retry policy and using dead-letter queues</a> in the <i>EventBridge User
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-event-delivery.html#eb-rule-dlq">Using dead-letter queues to process undelivered events</a> in the <i>EventBridge User
    *         Guide</i>.</p>
    * @public
    */
@@ -2436,7 +2567,10 @@ export interface ListApiDestinationsRequest {
   ConnectionArn?: string | undefined;
 
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * <p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2453,14 +2587,17 @@ export interface ListApiDestinationsRequest {
  */
 export interface ListApiDestinationsResponse {
   /**
-   * <p>An array of <code>ApiDestination</code> objects that include information about an API
+   * <p>An array that includes information about each API
    *       destination.</p>
    * @public
    */
   ApiDestinations?: ApiDestination[] | undefined;
 
   /**
-   * <p>A token you can use in a subsequent request to retrieve the next set of results.</p>
+   * <p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2490,7 +2627,10 @@ export interface ListArchivesRequest {
   State?: ArchiveState | undefined;
 
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * <p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2513,7 +2653,10 @@ export interface ListArchivesResponse {
   Archives?: Archive[] | undefined;
 
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * <p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2537,7 +2680,10 @@ export interface ListConnectionsRequest {
   ConnectionState?: ConnectionState | undefined;
 
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * <p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2617,7 +2763,10 @@ export interface ListConnectionsResponse {
   Connections?: Connection[] | undefined;
 
   /**
-   * <p>A token you can use in a subsequent request to retrieve the next set of results.</p>
+   * <p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2643,11 +2792,10 @@ export interface ListEndpointsRequest {
   HomeRegion?: string | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of
-   *         <code>nextToken</code> is a unique pagination token for each page. Make the call again using
-   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each
-   *       pagination token expires after 24 hours. Using an expired pagination token will return an HTTP
-   *       400 InvalidToken error.</p>
+   * <p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2764,11 +2912,10 @@ export interface ListEndpointsResponse {
   Endpoints?: Endpoint[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of
-   *         <code>nextToken</code> is a unique pagination token for each page. Make the call again using
-   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each
-   *       pagination token expires after 24 hours. Using an expired pagination token will return an HTTP
-   *       400 InvalidToken error.</p>
+   * <p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2786,7 +2933,10 @@ export interface ListEventBusesRequest {
   NamePrefix?: string | undefined;
 
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * <p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2859,7 +3009,10 @@ export interface ListEventBusesResponse {
   EventBuses?: EventBus[] | undefined;
 
   /**
-   * <p>A token you can use in a subsequent operation to retrieve the next set of results.</p>
+   * <p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2877,7 +3030,10 @@ export interface ListEventSourcesRequest {
   NamePrefix?: string | undefined;
 
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * <p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2950,7 +3106,10 @@ export interface ListEventSourcesResponse {
   EventSources?: EventSource[] | undefined;
 
   /**
-   * <p>A token you can use in a subsequent operation to retrieve the next set of results.</p>
+   * <p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2967,8 +3126,10 @@ export interface ListPartnerEventSourceAccountsRequest {
   EventSourceName: string | undefined;
 
   /**
-   * <p>The token returned by a previous call to this operation. Specifying this retrieves the
-   *       next set of results.</p>
+   * <p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3027,7 +3188,10 @@ export interface ListPartnerEventSourceAccountsResponse {
   PartnerEventSourceAccounts?: PartnerEventSourceAccount[] | undefined;
 
   /**
-   * <p>A token you can use in a subsequent operation to retrieve the next set of results.</p>
+   * <p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3045,8 +3209,10 @@ export interface ListPartnerEventSourcesRequest {
   NamePrefix: string | undefined;
 
   /**
-   * <p>The token returned by a previous call to this operation. Specifying this retrieves the
-   *       next set of results.</p>
+   * <p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3091,7 +3257,10 @@ export interface ListPartnerEventSourcesResponse {
   PartnerEventSources?: PartnerEventSource[] | undefined;
 
   /**
-   * <p>A token you can use in a subsequent operation to retrieve the next set of results.</p>
+   * <p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3121,7 +3290,10 @@ export interface ListReplaysRequest {
   EventSourceArn?: string | undefined;
 
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * <p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3206,7 +3378,10 @@ export interface ListReplaysResponse {
   Replays?: Replay[] | undefined;
 
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * <p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3230,7 +3405,10 @@ export interface ListRuleNamesByTargetRequest {
   EventBusName?: string | undefined;
 
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * <p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3253,8 +3431,10 @@ export interface ListRuleNamesByTargetResponse {
   RuleNames?: string[] | undefined;
 
   /**
-   * <p>Indicates whether there are additional results to retrieve. If there are no more results,
-   *       the value is null.</p>
+   * <p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3278,7 +3458,10 @@ export interface ListRulesRequest {
   EventBusName?: string | undefined;
 
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * <p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3399,8 +3582,10 @@ export interface ListRulesResponse {
   Rules?: Rule[] | undefined;
 
   /**
-   * <p>Indicates whether there are additional results to retrieve. If there are no more results,
-   *       the value is null.</p>
+   * <p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3446,7 +3631,10 @@ export interface ListTargetsByRuleRequest {
   EventBusName?: string | undefined;
 
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * <p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -4251,7 +4439,7 @@ export interface Target {
   DeadLetterConfig?: DeadLetterConfig | undefined;
 
   /**
-   * <p>The <code>RetryPolicy</code> object that contains the retry policy configuration to use
+   * <p>The retry policy configuration to use
    *       for the dead-letter queue.</p>
    * @public
    */
@@ -4276,8 +4464,10 @@ export interface ListTargetsByRuleResponse {
   Targets?: Target[] | undefined;
 
   /**
-   * <p>Indicates whether there are additional results to retrieve. If there are no more results,
-   *       the value is null.</p>
+   * <p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>
+   *          <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using
+   *       the returned token. Keep all other arguments unchanged.</p>
+   *          <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -5343,14 +5533,14 @@ export interface UpdateConnectionApiKeyAuthRequestParameters {
   ApiKeyName?: string | undefined;
 
   /**
-   * <p>The value associated with teh API key to use for authorization.</p>
+   * <p>The value associated with the API key to use for authorization.</p>
    * @public
    */
   ApiKeyValue?: string | undefined;
 }
 
 /**
- * <p>Contains the Basic authorization parameters for the connection.</p>
+ * <p>The Basic authorization parameters for the connection.</p>
  * @public
  */
 export interface UpdateConnectionBasicAuthRequestParameters {
@@ -5368,7 +5558,7 @@ export interface UpdateConnectionBasicAuthRequestParameters {
 }
 
 /**
- * <p>Contains the OAuth authorization parameters to use for the connection.</p>
+ * <p>The OAuth authorization parameters to use for the connection.</p>
  * @public
  */
 export interface UpdateConnectionOAuthClientRequestParameters {
@@ -5386,12 +5576,12 @@ export interface UpdateConnectionOAuthClientRequestParameters {
 }
 
 /**
- * <p>Contains the OAuth request parameters to use for the connection.</p>
+ * <p>The OAuth request parameters to use for the connection.</p>
  * @public
  */
 export interface UpdateConnectionOAuthRequestParameters {
   /**
-   * <p>A <code>UpdateConnectionOAuthClientRequestParameters</code> object that contains the
+   * <p>The
    *       client parameters to use for the connection when OAuth is specified as the authorization
    *       type.</p>
    * @public
@@ -5424,32 +5614,41 @@ export interface UpdateConnectionOAuthRequestParameters {
  */
 export interface UpdateConnectionAuthRequestParameters {
   /**
-   * <p>A <code>UpdateConnectionBasicAuthRequestParameters</code> object that contains the
+   * <p>The
    *       authorization parameters for Basic authorization.</p>
    * @public
    */
   BasicAuthParameters?: UpdateConnectionBasicAuthRequestParameters | undefined;
 
   /**
-   * <p>A <code>UpdateConnectionOAuthRequestParameters</code> object that contains the
+   * <p>The
    *       authorization parameters for OAuth authorization.</p>
    * @public
    */
   OAuthParameters?: UpdateConnectionOAuthRequestParameters | undefined;
 
   /**
-   * <p>A <code>UpdateConnectionApiKeyAuthRequestParameters</code> object that contains the
+   * <p>The
    *       authorization parameters for API key authorization.</p>
    * @public
    */
   ApiKeyAuthParameters?: UpdateConnectionApiKeyAuthRequestParameters | undefined;
 
   /**
-   * <p>A <code>ConnectionHttpParameters</code> object that contains the additional parameters to
+   * <p>The additional parameters to
    *       use for the connection.</p>
    * @public
    */
   InvocationHttpParameters?: ConnectionHttpParameters | undefined;
+
+  /**
+   * <p>If you specify a private OAuth endpoint, the parameters for EventBridge to use when authenticating against the endpoint.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html">Authorization methods for connections</a> in the <i>
+   *                <i>Amazon EventBridge User Guide</i>
+   *             </i>.</p>
+   * @public
+   */
+  ConnectivityParameters?: ConnectivityResourceParameters | undefined;
 }
 
 /**
@@ -5479,6 +5678,15 @@ export interface UpdateConnectionRequest {
    * @public
    */
   AuthParameters?: UpdateConnectionAuthRequestParameters | undefined;
+
+  /**
+   * <p>For connections to private resource endpoints, the parameters to use for invoking the resource endpoint.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-private.html">Connecting to private resources</a> in the <i>
+   *                <i>Amazon EventBridge User Guide</i>
+   *             </i>.</p>
+   * @public
+   */
+  InvocationConnectivityParameters?: ConnectivityResourceParameters | undefined;
 }
 
 /**
@@ -5672,8 +5880,7 @@ export interface UpdateEventBusRequest {
   /**
    * <p>Configuration details of the Amazon SQS queue for EventBridge to use as a
    *       dead-letter queue (DLQ).</p>
-   *          <p>For more information, see <a href="eventbridge/latest/userguide/eb-rule-dlq.html">Event
-   *         retry policy and using dead-letter queues</a> in the <i>EventBridge User
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-event-delivery.html#eb-rule-dlq">Using dead-letter queues to process undelivered events</a> in the <i>EventBridge User
    *         Guide</i>.</p>
    * @public
    */
@@ -5713,8 +5920,7 @@ export interface UpdateEventBusResponse {
   /**
    * <p>Configuration details of the Amazon SQS queue for EventBridge to use as a
    *       dead-letter queue (DLQ).</p>
-   *          <p>For more information, see <a href="eventbridge/latest/userguide/eb-rule-dlq.html">Event
-   *         retry policy and using dead-letter queues</a> in the <i>EventBridge User
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-event-delivery.html#eb-rule-dlq">Using dead-letter queues to process undelivered events</a> in the <i>EventBridge User
    *         Guide</i>.</p>
    * @public
    */
