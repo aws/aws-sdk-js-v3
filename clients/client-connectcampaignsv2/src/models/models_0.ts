@@ -753,10 +753,22 @@ export interface Schedule {
 }
 
 /**
+ * Event trigger of the campaign
+ * @public
+ */
+export interface EventTrigger {
+  /**
+   * Amazon Resource Names(ARN)
+   * @public
+   */
+  customerProfilesDomainArn?: string | undefined;
+}
+
+/**
  * Source of the campaign
  * @public
  */
-export type Source = Source.CustomerProfilesSegmentArnMember | Source.$UnknownMember;
+export type Source = Source.CustomerProfilesSegmentArnMember | Source.EventTriggerMember | Source.$UnknownMember;
 
 /**
  * @public
@@ -768,6 +780,17 @@ export namespace Source {
    */
   export interface CustomerProfilesSegmentArnMember {
     customerProfilesSegmentArn: string;
+    eventTrigger?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Event trigger of the campaign
+   * @public
+   */
+  export interface EventTriggerMember {
+    customerProfilesSegmentArn?: never;
+    eventTrigger: EventTrigger;
     $unknown?: never;
   }
 
@@ -776,17 +799,20 @@ export namespace Source {
    */
   export interface $UnknownMember {
     customerProfilesSegmentArn?: never;
+    eventTrigger?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     customerProfilesSegmentArn: (value: string) => T;
+    eventTrigger: (value: EventTrigger) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: Source, visitor: Visitor<T>): T => {
     if (value.customerProfilesSegmentArn !== undefined)
       return visitor.customerProfilesSegmentArn(value.customerProfilesSegmentArn);
+    if (value.eventTrigger !== undefined) return visitor.eventTrigger(value.eventTrigger);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2450,6 +2476,141 @@ export interface PutOutboundRequestBatchResponse {
    * @public
    */
   failedRequests?: FailedRequest[] | undefined;
+}
+
+/**
+ * Information about a profile outbound request
+ * @public
+ */
+export interface ProfileOutboundRequest {
+  /**
+   * Client provided parameter used for idempotency. Its value must be unique for each request.
+   * @public
+   */
+  clientToken: string | undefined;
+
+  /**
+   * Identifier of the customer profile
+   * @public
+   */
+  profileId: string | undefined;
+
+  /**
+   * Timestamp with no UTC offset or timezone
+   * @public
+   */
+  expirationTime?: Date | undefined;
+}
+
+/**
+ * The request for PutProfileOutboundRequestBatch API
+ * @public
+ */
+export interface PutProfileOutboundRequestBatchRequest {
+  /**
+   * Identifier representing a Campaign
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * List of profile outbound requests
+   * @public
+   */
+  profileOutboundRequests: ProfileOutboundRequest[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProfileOutboundRequestFailureCode = {
+  /**
+   * The specified resource conflicts with another resource
+   */
+  CONFLICT: "Conflict",
+  /**
+   * The request failed to satisfy the constraints specified by the service
+   */
+  INVALID_INPUT: "InvalidInput",
+  /**
+   * Request throttled due to large number of requests
+   */
+  REQUEST_THROTTLED: "RequestThrottled",
+  /**
+   * The specified resource was not found
+   */
+  RESOURCE_NOT_FOUND: "ResourceNotFound",
+  /**
+   * Unexpected error during processing of request
+   */
+  UNKNOWN_ERROR: "UnknownError",
+} as const;
+
+/**
+ * @public
+ */
+export type ProfileOutboundRequestFailureCode =
+  (typeof ProfileOutboundRequestFailureCode)[keyof typeof ProfileOutboundRequestFailureCode];
+
+/**
+ * Failure details for a profile outbound request
+ * @public
+ */
+export interface FailedProfileOutboundRequest {
+  /**
+   * Client provided parameter used for idempotency. Its value must be unique for each request.
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * Identifier of the profile outbound request
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * Predefined code indicating the error that caused the failure
+   * @public
+   */
+  failureCode?: ProfileOutboundRequestFailureCode | undefined;
+}
+
+/**
+ * Success details for a profile outbound request
+ * @public
+ */
+export interface SuccessfulProfileOutboundRequest {
+  /**
+   * Client provided parameter used for idempotency. Its value must be unique for each request.
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * Identifier of the profile outbound request
+   * @public
+   */
+  id?: string | undefined;
+}
+
+/**
+ * The response for PutProfileOutboundRequestBatch API
+ * @public
+ */
+export interface PutProfileOutboundRequestBatchResponse {
+  /**
+   * List of successful profile outbound requests
+   * @public
+   */
+  successfulRequests?: SuccessfulProfileOutboundRequest[] | undefined;
+
+  /**
+   * List of failed profile outbound requests
+   * @public
+   */
+  failedRequests?: FailedProfileOutboundRequest[] | undefined;
 }
 
 /**

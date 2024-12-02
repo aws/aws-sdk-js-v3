@@ -357,6 +357,14 @@ PutOutboundRequestBatch
 </details>
 <details>
 <summary>
+PutProfileOutboundRequestBatch
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/PutProfileOutboundRequestBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/PutProfileOutboundRequestBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/PutProfileOutboundRequestBatchCommandOutput/)
+
+</details>
+<details>
+<summary>
 ResumeCampaign
 </summary>
 

@@ -43,6 +43,9 @@ export interface UpdateCampaignSourceCommandOutput extends __MetadataBearer {}
  *   id: "STRING_VALUE", // required
  *   source: { // Source Union: only one key present
  *     customerProfilesSegmentArn: "STRING_VALUE",
+ *     eventTrigger: { // EventTrigger
+ *       customerProfilesDomainArn: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new UpdateCampaignSourceCommand(input);

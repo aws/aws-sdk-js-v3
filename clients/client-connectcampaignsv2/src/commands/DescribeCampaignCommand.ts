@@ -100,6 +100,9 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * //     },
  * //     source: { // Source Union: only one key present
  * //       customerProfilesSegmentArn: "STRING_VALUE",
+ * //       eventTrigger: { // EventTrigger
+ * //         customerProfilesDomainArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //     connectCampaignFlowArn: "STRING_VALUE",
  * //     schedule: { // Schedule

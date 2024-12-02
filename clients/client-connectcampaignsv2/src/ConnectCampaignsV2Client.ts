@@ -111,6 +111,10 @@ import {
   PutOutboundRequestBatchCommandInput,
   PutOutboundRequestBatchCommandOutput,
 } from "./commands/PutOutboundRequestBatchCommand";
+import {
+  PutProfileOutboundRequestBatchCommandInput,
+  PutProfileOutboundRequestBatchCommandOutput,
+} from "./commands/PutProfileOutboundRequestBatchCommand";
 import { ResumeCampaignCommandInput, ResumeCampaignCommandOutput } from "./commands/ResumeCampaignCommand";
 import { StartCampaignCommandInput, StartCampaignCommandOutput } from "./commands/StartCampaignCommand";
 import {
@@ -179,6 +183,7 @@ export type ServiceInputTypes =
   | PauseCampaignCommandInput
   | PutConnectInstanceIntegrationCommandInput
   | PutOutboundRequestBatchCommandInput
+  | PutProfileOutboundRequestBatchCommandInput
   | ResumeCampaignCommandInput
   | StartCampaignCommandInput
   | StartInstanceOnboardingJobCommandInput
@@ -216,6 +221,7 @@ export type ServiceOutputTypes =
   | PauseCampaignCommandOutput
   | PutConnectInstanceIntegrationCommandOutput
   | PutOutboundRequestBatchCommandOutput
+  | PutProfileOutboundRequestBatchCommandOutput
   | ResumeCampaignCommandOutput
   | StartCampaignCommandOutput
   | StartInstanceOnboardingJobCommandOutput

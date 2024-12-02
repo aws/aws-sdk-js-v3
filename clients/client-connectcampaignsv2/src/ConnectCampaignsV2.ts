@@ -98,6 +98,11 @@ import {
   PutOutboundRequestBatchCommandOutput,
 } from "./commands/PutOutboundRequestBatchCommand";
 import {
+  PutProfileOutboundRequestBatchCommand,
+  PutProfileOutboundRequestBatchCommandInput,
+  PutProfileOutboundRequestBatchCommandOutput,
+} from "./commands/PutProfileOutboundRequestBatchCommand";
+import {
   ResumeCampaignCommand,
   ResumeCampaignCommandInput,
   ResumeCampaignCommandOutput,
@@ -180,6 +185,7 @@ const commands = {
   PauseCampaignCommand,
   PutConnectInstanceIntegrationCommand,
   PutOutboundRequestBatchCommand,
+  PutProfileOutboundRequestBatchCommand,
   ResumeCampaignCommand,
   StartCampaignCommand,
   StartInstanceOnboardingJobCommand,
@@ -500,6 +506,23 @@ export interface ConnectCampaignsV2 {
     args: PutOutboundRequestBatchCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutOutboundRequestBatchCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutProfileOutboundRequestBatchCommand}
+   */
+  putProfileOutboundRequestBatch(
+    args: PutProfileOutboundRequestBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutProfileOutboundRequestBatchCommandOutput>;
+  putProfileOutboundRequestBatch(
+    args: PutProfileOutboundRequestBatchCommandInput,
+    cb: (err: any, data?: PutProfileOutboundRequestBatchCommandOutput) => void
+  ): void;
+  putProfileOutboundRequestBatch(
+    args: PutProfileOutboundRequestBatchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutProfileOutboundRequestBatchCommandOutput) => void
   ): void;
 
   /**

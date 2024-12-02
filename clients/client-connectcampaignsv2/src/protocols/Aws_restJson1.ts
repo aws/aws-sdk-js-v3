@@ -88,6 +88,10 @@ import {
   PutOutboundRequestBatchCommandInput,
   PutOutboundRequestBatchCommandOutput,
 } from "../commands/PutOutboundRequestBatchCommand";
+import {
+  PutProfileOutboundRequestBatchCommandInput,
+  PutProfileOutboundRequestBatchCommandOutput,
+} from "../commands/PutProfileOutboundRequestBatchCommand";
 import { ResumeCampaignCommandInput, ResumeCampaignCommandOutput } from "../commands/ResumeCampaignCommand";
 import { StartCampaignCommandInput, StartCampaignCommandOutput } from "../commands/StartCampaignCommand";
 import {
@@ -145,6 +149,7 @@ import {
   EmailOutboundConfig,
   EmailOutboundMode,
   EncryptionConfig,
+  EventTrigger,
   EventType,
   InstanceIdFilter,
   IntegrationConfig,
@@ -157,6 +162,7 @@ import {
   OpenHours,
   OutboundRequest,
   PredictiveConfig,
+  ProfileOutboundRequest,
   ProgressiveConfig,
   QConnectIntegrationConfig,
   QConnectIntegrationIdentifier,
@@ -543,6 +549,29 @@ export const se_PutOutboundRequestBatchCommand = async (
   body = JSON.stringify(
     take(input, {
       outboundRequests: (_) => se_OutboundRequestList(_, context),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutProfileOutboundRequestBatchCommand
+ */
+export const se_PutProfileOutboundRequestBatchCommand = async (
+  input: PutProfileOutboundRequestBatchCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/campaigns/{id}/profile-outbound-requests");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      profileOutboundRequests: (_) => se_ProfileOutboundRequestList(_, context),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -1193,6 +1222,28 @@ export const de_PutOutboundRequestBatchCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1PutProfileOutboundRequestBatchCommand
+ */
+export const de_PutProfileOutboundRequestBatchCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutProfileOutboundRequestBatchCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    failedRequests: _json,
+    successfulRequests: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ResumeCampaignCommand
  */
 export const de_ResumeCampaignCommand = async (
@@ -1713,6 +1764,8 @@ const se_EmailChannelSubtypeConfig = (input: EmailChannelSubtypeConfig, context:
 
 // se_EncryptionConfig omitted.
 
+// se_EventTrigger omitted.
+
 // se_InstanceIdFilter omitted.
 
 // se_IntegrationConfig omitted.
@@ -1756,6 +1809,28 @@ const se_PredictiveConfig = (input: PredictiveConfig, context: __SerdeContext): 
   return take(input, {
     bandwidthAllocation: __serializeFloat,
   });
+};
+
+/**
+ * serializeAws_restJson1ProfileOutboundRequest
+ */
+const se_ProfileOutboundRequest = (input: ProfileOutboundRequest, context: __SerdeContext): any => {
+  return take(input, {
+    clientToken: [],
+    expirationTime: __serializeDateTime,
+    profileId: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1ProfileOutboundRequestList
+ */
+const se_ProfileOutboundRequestList = (input: ProfileOutboundRequest[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ProfileOutboundRequest(entry, context);
+    });
 };
 
 /**
@@ -1937,9 +2012,15 @@ const de_EmailChannelSubtypeConfig = (output: any, context: __SerdeContext): Ema
 
 // de_EncryptionConfig omitted.
 
+// de_EventTrigger omitted.
+
 // de_FailedCampaignStateResponse omitted.
 
 // de_FailedCampaignStateResponseList omitted.
+
+// de_FailedProfileOutboundRequest omitted.
+
+// de_FailedProfileOutboundRequestList omitted.
 
 // de_FailedRequest omitted.
 
@@ -2018,6 +2099,10 @@ const de_SmsChannelSubtypeConfig = (output: any, context: __SerdeContext): SmsCh
 // de_SuccessfulCampaignStateResponse omitted.
 
 // de_SuccessfulCampaignStateResponseList omitted.
+
+// de_SuccessfulProfileOutboundRequest omitted.
+
+// de_SuccessfulProfileOutboundRequestList omitted.
 
 // de_SuccessfulRequest omitted.
 

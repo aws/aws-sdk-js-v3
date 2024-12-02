@@ -92,6 +92,9 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *   },
  *   source: { // Source Union: only one key present
  *     customerProfilesSegmentArn: "STRING_VALUE",
+ *     eventTrigger: { // EventTrigger
+ *       customerProfilesDomainArn: "STRING_VALUE",
+ *     },
  *   },
  *   connectCampaignFlowArn: "STRING_VALUE",
  *   schedule: { // Schedule

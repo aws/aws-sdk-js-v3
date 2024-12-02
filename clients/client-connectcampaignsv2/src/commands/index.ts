@@ -18,6 +18,7 @@ export * from "./ListTagsForResourceCommand";
 export * from "./PauseCampaignCommand";
 export * from "./PutConnectInstanceIntegrationCommand";
 export * from "./PutOutboundRequestBatchCommand";
+export * from "./PutProfileOutboundRequestBatchCommand";
 export * from "./ResumeCampaignCommand";
 export * from "./StartCampaignCommand";
 export * from "./StartInstanceOnboardingJobCommand";
