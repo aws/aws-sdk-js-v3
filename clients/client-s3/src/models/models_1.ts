@@ -106,9 +106,9 @@ export interface PutBucketPolicyRequest {
   /**
    * <p>The name of the bucket.</p>
    *          <p>
-   *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i>
-   *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Availability Zone. Bucket names must also follow the format <code>
-   *                <i>bucket_base_name</i>--<i>az_id</i>--x-s3</code> (for example, <code>
+   *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
+   *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code>
+   *                <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code>
    *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
    *          </p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
@@ -625,7 +625,7 @@ export interface PutObjectOutput {
    *             <code>rule-id</code> key-value pairs that provide information about object expiration.
    *          The value of the <code>rule-id</code> is URL-encoded.</p>
    *          <note>
-   *             <p>This functionality is not supported for directory buckets.</p>
+   *             <p>Object expiration information is not returned in directory buckets and this header returns the value "<code>NotImplemented</code>" in all responses for directory buckets.</p>
    *          </note>
    * @public
    */
@@ -816,8 +816,8 @@ export interface PutObjectRequest {
    *          <p>
    *             <b>Directory buckets</b> -
    *          When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
-   *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
-   *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
+   *                <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format <code>
+   *                <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code>
    *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -2363,7 +2363,13 @@ export interface OutputSerialization {
 }
 
 /**
- * <p>Describes the parameters for Select job types.</p>
+ * <important>
+ *             <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
+ *             </p>
+ *          </important>
+ *          <p>Describes the parameters for Select job types.</p>
+ *          <p>Learn <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">How to optimize querying your data in Amazon S3</a>  using
+ *          <a href="https://docs.aws.amazon.com/athena/latest/ug/what-is.html">Amazon Athena</a>, <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">S3 Object Lambda</a>, or client-side filtering.</p>
  * @public
  */
 export interface SelectParameters {
@@ -2380,7 +2386,11 @@ export interface SelectParameters {
   ExpressionType: ExpressionType | undefined;
 
   /**
-   * <p>The expression that is used to query the object.</p>
+   * <important>
+   *             <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
+   *             </p>
+   *          </important>
+   *          <p>The expression that is used to query the object.</p>
    * @public
    */
   Expression: string | undefined;
@@ -2427,7 +2437,11 @@ export interface RestoreRequest {
   GlacierJobParameters?: GlacierJobParameters | undefined;
 
   /**
-   * <p>Type of restore request.</p>
+   * <important>
+   *             <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
+   *             </p>
+   *          </important>
+   *          <p>Type of restore request.</p>
    * @public
    */
   Type?: RestoreRequestType | undefined;
@@ -2445,7 +2459,11 @@ export interface RestoreRequest {
   Description?: string | undefined;
 
   /**
-   * <p>Describes the parameters for Select job types.</p>
+   * <important>
+   *             <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
+   *             </p>
+   *          </important>
+   *          <p>Describes the parameters for Select job types.</p>
    * @public
    */
   SelectParameters?: SelectParameters | undefined;
@@ -2796,7 +2814,11 @@ export interface ScanRange {
 }
 
 /**
- * <p>Request to filter the contents of an Amazon S3 object based on a simple Structured Query
+ * <note>
+ *             <p>Learn Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
+ *             </p>
+ *          </note>
+ *          <p>Request to filter the contents of an Amazon S3 object based on a simple Structured Query
  *          Language (SQL) statement. In the request, along with the SQL expression, you must specify a
  *          data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data
  *          into records. It returns only records that match the specified SQL expression. You must
@@ -3025,8 +3047,8 @@ export interface UploadPartRequest {
    *          <p>
    *             <b>Directory buckets</b> -
    *          When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
-   *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
-   *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
+   *                <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format <code>
+   *                <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code>
    *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -3318,13 +3340,16 @@ export interface UploadPartCopyRequest {
   /**
    * <p>The bucket name.</p>
    *          <p>
-   *             <b>Directory buckets</b> -
-   *          When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
-   *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
-   *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
+   *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
+   *                <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format <code>
+   *                <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code>
    *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>Copying objects across different Amazon Web Services Regions isn't supported when the source or destination bucket is in Amazon Web Services Local Zones. The source and destination buckets must have the same parent Amazon Web Services Region. Otherwise,
+   *          you get an HTTP <code>400 Bad Request</code> error with the error code <code>InvalidRequest</code>.</p>
+   *          </note>
    *          <p>
    *             <b>Access points</b> - When you use this action with an access point, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>

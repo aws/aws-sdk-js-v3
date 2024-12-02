@@ -73,7 +73,7 @@ export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
  *             <dt>HTTP Host header syntax</dt>
  *             <dd>
  *                <p>
- *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>s3express-control.<i>region</i>.amazonaws.com</code>.</p>
+ *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>s3express-control.<i>region-code</i>.amazonaws.com</code>.</p>
  *             </dd>
  *          </dl>
  *          <p>The following operations are related to <code>DeleteBucketEncryption</code>:</p>
