@@ -29,6 +29,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
 
 /**
  * <p>Describes one or more of your clusters.</p>
+ *          <p> For CLI examples, see <a href="https://github.com/aws/aws-cli/blob/develop/awscli/examples/ecs/describe-clusters.rst">describe-clusters.rst</a> on GitHub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

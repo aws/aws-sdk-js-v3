@@ -803,7 +803,18 @@ export type ClusterSettingName = (typeof ClusterSettingName)[keyof typeof Cluste
 
 /**
  * <p>The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container
+ * 			Insights with enhanced observability or CloudWatch Container
  * 			Insights for a cluster.</p>
+ *          <p>Container Insights with enhanced observability provides all the Container Insights metrics,
+ * 			plus additional task and container metrics. This version supports enhanced observability
+ * 			for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure
+ * 			Container Insights with enhanced observability on Amazon ECS, Container Insights
+ * 			auto-collects detailed infrastructure telemetry from the cluster level down to the container
+ * 			level in your environment and displays these critical performance data in curated
+ * 			dashboards removing the heavy lifting in observability set-up. </p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">Monitor
+ * 				Amazon ECS containers using Container Insights with enhanced observability</a> in the
+ * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @public
  */
 export interface ClusterSetting {
@@ -814,12 +825,14 @@ export interface ClusterSetting {
   name?: ClusterSettingName | undefined;
 
   /**
-   * <p>The value to set for the cluster setting. The supported values are <code>enabled</code> and
-   * 				<code>disabled</code>. </p>
-   *          <p>If you set <code>name</code> to <code>containerInsights</code> and <code>value</code> to
-   * 				<code>enabled</code>, CloudWatch Container Insights will be on for the cluster, otherwise it will be off
-   * 			unless the <code>containerInsights</code> account setting is turned on. If a cluster value is
-   * 			specified, it will override the <code>containerInsights</code> value set with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html">PutAccountSetting</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html">PutAccountSettingDefault</a>.</p>
+   * <p>The value to set for the cluster setting. The supported values are <code>enhanced</code>,
+   * 				<code>enabled</code>, and <code>disabled</code>. </p>
+   *          <p>To use Container Insights with enhanced observability, set the
+   * 				<code>containerInsights</code> account setting to <code>enhanced</code>.</p>
+   *          <p>To use Container Insights, set the <code>containerInsights</code> account setting to
+   * 				<code>enabled</code>.</p>
+   *          <p>If a cluster value is specified, it will override the <code>containerInsights</code> value
+   * 			set with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html">PutAccountSetting</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html">PutAccountSettingDefault</a>.</p>
    * @public
    */
   value?: string | undefined;
@@ -1660,7 +1673,7 @@ export interface AwsVpcConfiguration {
 
   /**
    * <p>Whether the task's elastic network interface receives a public IP address. The default value is
-   * 				<code>DISABLED</code>.</p>
+   * 				<code>ENABLED</code>.</p>
    * @public
    */
   assignPublicIp?: AssignPublicIp | undefined;
@@ -6307,8 +6320,9 @@ export interface ContainerDefinition {
  */
 export interface EphemeralStorage {
   /**
-   * <p>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is
-   * 				<code>20</code> GiB and the maximum supported value is <code>200</code> GiB.</p>
+   * <p>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported
+   * 			value is <code>21</code> GiB and the maximum supported value is <code>200</code>
+   * 			GiB.</p>
    * @public
    */
   sizeInGiB: number | undefined;
@@ -8569,8 +8583,8 @@ export type TaskField = (typeof TaskField)[keyof typeof TaskField];
 export interface DescribeTasksRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks to describe.
-   * 			If you do not specify a cluster, the default cluster is assumed. This parameter is required if the task or tasks you are describing were
-   * 			launched in any cluster other than the default cluster.</p>
+   * 			If you do not specify a cluster, the default cluster is assumed. This parameter is required. If you do not specify a value, the
+   * 				<code>default</code> cluster is used.</p>
    * @public
    */
   cluster?: string | undefined;
@@ -10152,8 +10166,11 @@ export interface ListServiceDeploymentsRequest {
   service: string | undefined;
 
   /**
-   * <p>The cluster that hosts the service. This can either be the cluster name or ARN. Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performanceIf you don't
-   * 			specify a cluster, <code>deault</code> is used.</p>
+   * <p>The cluster that hosts the service. This can either be the cluster name or ARN. Starting
+   * 			April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic
+   * 			Inference (EI), and will help current customers migrate their workloads to options that
+   * 			offer better price and performanceIf you don't specify a cluster, <code>default</code>
+   * 			is used.</p>
    * @public
    */
   cluster?: string | undefined;
@@ -10806,12 +10823,20 @@ export interface PutAccountSettingRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>containerInsights</code> - When modified, the default setting indicating whether Amazon Web Services
-   * 					CloudWatch Container Insights is turned on for your clusters is changed. If
-   * 						<code>containerInsights</code> is turned on, any new clusters that are created will have
-   * 					Container Insights turned on unless you disable it during cluster creation. For more
-   * 					information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">CloudWatch Container
-   * 						Insights</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   *                   <code>containerInsights</code> - Container Insights with enhanced observability provides
+   * 					all the Container Insights metrics, plus additional task and container metrics.
+   * 					This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2
+   * 					and Fargate launch types. After you configure Container Insights with enhanced
+   * 					observability on Amazon ECS, Container Insights auto-collects detailed infrastructure
+   * 					telemetry from the cluster level down to the container level in your environment and
+   * 					displays these critical performance data in curated dashboards removing the
+   * 					heavy lifting in observability set-up. </p>
+   *                <p>To use Container Insights with enhanced observability, set the
+   * 						<code>containerInsights</code> account setting to
+   * 					<code>enhanced</code>.</p>
+   *                <p>To use Container Insights, set the <code>containerInsights</code> account setting to
+   * 						<code>enabled</code>.</p>
+   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">Monitor Amazon ECS containers using Container Insights with enhanced observability</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10853,10 +10878,11 @@ export interface PutAccountSettingRequest {
   name: SettingName | undefined;
 
   /**
-   * <p>The account setting value for the specified principal ARN. Accepted values are <code>enabled</code>,
-   * 				<code>disabled</code>, <code>on</code>, and <code>off</code>.</p>
-   *          <p>When you specify <code>fargateTaskRetirementWaitPeriod</code> for the <code>name</code>, the
-   * 			following are the valid values:</p>
+   * <p>The account setting value for the specified principal ARN. Accepted values are
+   * 				<code>enabled</code>, <code>disabled</code>, <code>enhanced</code>,
+   * 				<code>on</code>, and <code>off</code>.</p>
+   *          <p>When you specify <code>fargateTaskRetirementWaitPeriod</code> for the
+   * 				<code>name</code>, the following are the valid values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -10950,12 +10976,20 @@ export interface PutAccountSettingDefaultRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>containerInsights</code> - When modified, the default setting indicating whether Amazon Web Services
-   * 					CloudWatch Container Insights is turned on for your clusters is changed. If
-   * 						<code>containerInsights</code> is turned on, any new clusters that are created will have
-   * 					Container Insights turned on unless you disable it during cluster creation. For more
-   * 					information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">CloudWatch Container
-   * 						Insights</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   *                   <code>containerInsights</code> - Container Insights with enhanced observability provides
+   * 					all the Container Insights metrics, plus additional task and container metrics.
+   * 					This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2
+   * 					and Fargate launch types. After you configure Container Insights with enhanced
+   * 					observability on Amazon ECS, Container Insights auto-collects detailed infrastructure
+   * 					telemetry from the cluster level down to the container level in your environment and
+   * 					displays these critical performance data in curated dashboards removing the
+   * 					heavy lifting in observability set-up. </p>
+   *                <p>To use Container Insights with enhanced observability, set the
+   * 						<code>containerInsights</code> account setting to
+   * 					<code>enhanced</code>.</p>
+   *                <p>To use Container Insights, set the <code>containerInsights</code> account
+   * 					setting to <code>enabled</code>.</p>
+   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">Monitor Amazon ECS containers using Container Insights with enhanced observability</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -11002,10 +11036,11 @@ export interface PutAccountSettingDefaultRequest {
   name: SettingName | undefined;
 
   /**
-   * <p>The account setting value for the specified principal ARN. Accepted values are <code>enabled</code>,
-   * 				<code>disabled</code>, <code>on</code>, and <code>off</code>.</p>
-   *          <p>When you specify <code>fargateTaskRetirementWaitPeriod</code> for the <code>name</code>, the
-   * 			following are the valid values:</p>
+   * <p>The account setting value for the specified principal ARN. Accepted values are
+   * 				<code>enabled</code>, <code>disabled</code>, <code>on</code>, <code>enhanced</code>,
+   * 			and <code>off</code>.</p>
+   *          <p>When you specify <code>fargateTaskRetirementWaitPeriod</code> for the
+   * 				<code>name</code>, the following are the valid values:</p>
    *          <ul>
    *             <li>
    *                <p>

@@ -31,7 +31,7 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * <p>Deletes the specified capacity provider.</p>
  *          <note>
  *             <p>The <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers are reserved and can't
- * 				be deleted. You can disassociate them from a cluster using either <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProviderProviders.html">PutCapacityProviderProviders</a> or by deleting the cluster.</p>
+ * 				be deleted. You can disassociate them from a cluster using either <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a> or by deleting the cluster.</p>
  *          </note>
  *          <p>Prior to a capacity provider being deleted, the capacity provider must be removed from the capacity
  * 			provider strategy from all services. The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a> API can be used to
