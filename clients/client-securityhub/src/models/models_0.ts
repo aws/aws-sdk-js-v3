@@ -1043,6 +1043,168 @@ export interface ActionTarget {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ActorSessionMfaStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ActorSessionMfaStatus = (typeof ActorSessionMfaStatus)[keyof typeof ActorSessionMfaStatus];
+
+/**
+ * <p>
+ *             Contains information about the authenticated session used by the threat actor identified in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ * 				must have GuardDuty and GuardDuty S3 Protection enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.</p>
+ * @public
+ */
+export interface ActorSession {
+  /**
+   * <p>
+   *             Unique identifier of the session.
+   *         </p>
+   * @public
+   */
+  Uid?: string | undefined;
+
+  /**
+   * <p>
+   *             Indicates whether multi-factor authentication (MFA) was used for authentication during the session.</p>
+   *          <p>In CloudTrail, you can find this value as <code>userIdentity.sessionContext.attributes.mfaAuthenticated</code>.</p>
+   * @public
+   */
+  MfaStatus?: ActorSessionMfaStatus | undefined;
+
+  /**
+   * <p>The timestamp for when the session was created.
+   *         </p>
+   *          <p>In CloudTrail, you can find this value as <code>userIdentity.sessionContext.attributes.creationDate</code>.</p>
+   * @public
+   */
+  CreatedTime?: number | undefined;
+
+  /**
+   * <p>
+   *             The issuer of the session.
+   *         </p>
+   *          <p>In CloudTrail, you can find this value as <code>userIdentity.sessionContext.sessionIssuer.arn</code>.</p>
+   * @public
+   */
+  Issuer?: string | undefined;
+}
+
+/**
+ * <p>
+ *             Provides Amazon Web Services account information of the user involved in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ * 				must have GuardDuty and GuardDuty S3 Protection enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
+ *         </p>
+ * @public
+ */
+export interface UserAccount {
+  /**
+   * <p>
+   *             The unique identifier of the user account involved in the attack sequence.
+   *         </p>
+   * @public
+   */
+  Uid?: string | undefined;
+
+  /**
+   * <p>
+   *             The name of the user account involved in the attack sequence.
+   *         </p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * <p>
+ *             Contains information about the credentials used by the threat actor identified in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ * 				must have GuardDuty and GuardDuty S3 Protection enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.</p>
+ * @public
+ */
+export interface ActorUser {
+  /**
+   * <p>
+   *             The name of the threat actor.
+   *         </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>
+   *             The unique identifier of the threat actor.
+   *         </p>
+   * @public
+   */
+  Uid?: string | undefined;
+
+  /**
+   * <p>
+   *             The type of user.
+   *         </p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>
+   *             Unique identifier of the threat actor’s user credentials.
+   *         </p>
+   * @public
+   */
+  CredentialUid?: string | undefined;
+
+  /**
+   * <p>
+   *             The account of the threat actor.
+   *         </p>
+   * @public
+   */
+  Account?: UserAccount | undefined;
+}
+
+/**
+ * <p>
+ *             Information about the threat actor identified in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ * 				must have GuardDuty and GuardDuty S3 Protection enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.</p>
+ * @public
+ */
+export interface Actor {
+  /**
+   * <p>
+   *             The ID of the threat actor.
+   *         </p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>
+   *             Contains information about the user credentials used by the threat actor.</p>
+   * @public
+   */
+  User?: ActorUser | undefined;
+
+  /**
+   * <p>
+   *             Contains information about the user session where the activity initiated.</p>
+   * @public
+   */
+  Session?: ActorSession | undefined;
+}
+
+/**
  * <p>An adjustment to the CVSS metric.</p>
  * @public
  */
@@ -13355,176 +13517,4 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
    * @public
    */
   Protocol?: string | undefined;
-}
-
-/**
- * <p>The private repository authentication credentials to use.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails {
-  /**
-   * <p>The ARN of the secret that contains the private repository credentials.</p>
-   * @public
-   */
-  CredentialsParameter?: string | undefined;
-}
-
-/**
- * <p>A resource to assign to a container.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails {
-  /**
-   * <p>The type of resource to assign to a container. Valid values are <code>GPU</code> or <code>InferenceAccelerator</code>.</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p>The value for the specified resource type.</p>
-   *          <p>For <code>GPU</code>, the value is the number of physical GPUs the Amazon ECS container agent
-   *          reserves for the container.</p>
-   *          <p>For <code>InferenceAccelerator</code>, the value should match the <code>DeviceName</code>
-   *          attribute of an entry in <code>InferenceAccelerators</code>.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>A secret to pass to the container.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails {
-  /**
-   * <p>The name of the secret.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The secret to expose to the container. The value is either the full ARN of the Secrets Manager
-   *          secret or the full ARN of the parameter in the Systems Manager Parameter Store.</p>
-   * @public
-   */
-  ValueFrom?: string | undefined;
-}
-
-/**
- * <p>A namespaced kernel parameter to set in the container.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails {
-  /**
-   * <p>The namespaced kernel parameter for which to set a value.</p>
-   * @public
-   */
-  Namespace?: string | undefined;
-
-  /**
-   * <p>The value of the parameter.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>A ulimit to set in the container.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
-  /**
-   * <p>The hard limit for the ulimit type.</p>
-   * @public
-   */
-  HardLimit?: number | undefined;
-
-  /**
-   * <p>The type of the ulimit. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>core</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>cpu</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>data</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fsize</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>locks</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>memlock</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>msgqueue</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nice</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nofile</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nproc</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rss</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rtprio</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>rttime</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sigpending</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>stack</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The soft limit for the ulimit type.</p>
-   * @public
-   */
-  SoftLimit?: number | undefined;
 }

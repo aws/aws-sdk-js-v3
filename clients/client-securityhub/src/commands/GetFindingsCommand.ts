@@ -4498,6 +4498,87 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //       },
  * //       ProcessedAt: "STRING_VALUE",
  * //       AwsAccountName: "STRING_VALUE",
+ * //       Detection: { // Detection
+ * //         Sequence: { // Sequence
+ * //           Uid: "STRING_VALUE",
+ * //           Actors: [ // ActorsList
+ * //             { // Actor
+ * //               Id: "STRING_VALUE",
+ * //               User: { // ActorUser
+ * //                 Name: "STRING_VALUE",
+ * //                 Uid: "STRING_VALUE",
+ * //                 Type: "STRING_VALUE",
+ * //                 CredentialUid: "STRING_VALUE",
+ * //                 Account: { // UserAccount
+ * //                   Uid: "STRING_VALUE",
+ * //                   Name: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //               Session: { // ActorSession
+ * //                 Uid: "STRING_VALUE",
+ * //                 MfaStatus: "ENABLED" || "DISABLED",
+ * //                 CreatedTime: Number("long"),
+ * //                 Issuer: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           ],
+ * //           Endpoints: [ // NetworkEndpointsList
+ * //             { // NetworkEndpoint
+ * //               Id: "STRING_VALUE",
+ * //               Ip: "STRING_VALUE",
+ * //               Domain: "STRING_VALUE",
+ * //               Port: Number("int"),
+ * //               Location: { // NetworkGeoLocation
+ * //                 City: "STRING_VALUE",
+ * //                 Country: "STRING_VALUE",
+ * //                 Lat: Number("double"),
+ * //                 Lon: Number("double"),
+ * //               },
+ * //               AutonomousSystem: { // NetworkAutonomousSystem
+ * //                 Name: "STRING_VALUE",
+ * //                 Number: Number("int"),
+ * //               },
+ * //               Connection: { // NetworkConnection
+ * //                 Direction: "INBOUND" || "OUTBOUND",
+ * //               },
+ * //             },
+ * //           ],
+ * //           Signals: [ // SignalsList
+ * //             { // Signal
+ * //               Type: "STRING_VALUE",
+ * //               Id: "STRING_VALUE",
+ * //               Title: "STRING_VALUE",
+ * //               ProductArn: "STRING_VALUE",
+ * //               ResourceIds: "<NonEmptyStringList>",
+ * //               SignalIndicators: [ // IndicatorsList
+ * //                 { // Indicator
+ * //                   Key: "STRING_VALUE",
+ * //                   Values: "<NonEmptyStringList>",
+ * //                   Title: "STRING_VALUE",
+ * //                   Type: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //               Name: "STRING_VALUE",
+ * //               CreatedAt: Number("long"),
+ * //               UpdatedAt: Number("long"),
+ * //               FirstSeenAt: Number("long"),
+ * //               LastSeenAt: Number("long"),
+ * //               Severity: Number("double"),
+ * //               Count: Number("int"),
+ * //               ActorIds: "<NonEmptyStringList>",
+ * //               EndpointIds: "<NonEmptyStringList>",
+ * //             },
+ * //           ],
+ * //           SequenceIndicators: [
+ * //             {
+ * //               Key: "STRING_VALUE",
+ * //               Values: "<NonEmptyStringList>",
+ * //               Title: "STRING_VALUE",
+ * //               Type: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

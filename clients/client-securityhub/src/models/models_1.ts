@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import {
+  Actor,
   AssociatedStandard,
   AvailabilityZone,
   AwsEcsContainerDetails,
@@ -13,14 +14,181 @@ import {
   AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails,
   AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails,
   AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails,
   RelatedFinding,
   SeverityLabel,
 } from "./models_0";
+
+/**
+ * <p>The private repository authentication credentials to use.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails {
+  /**
+   * <p>The ARN of the secret that contains the private repository credentials.</p>
+   * @public
+   */
+  CredentialsParameter?: string | undefined;
+}
+
+/**
+ * <p>A resource to assign to a container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails {
+  /**
+   * <p>The type of resource to assign to a container. Valid values are <code>GPU</code> or <code>InferenceAccelerator</code>.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The value for the specified resource type.</p>
+   *          <p>For <code>GPU</code>, the value is the number of physical GPUs the Amazon ECS container agent
+   *          reserves for the container.</p>
+   *          <p>For <code>InferenceAccelerator</code>, the value should match the <code>DeviceName</code>
+   *          attribute of an entry in <code>InferenceAccelerators</code>.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>A secret to pass to the container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails {
+  /**
+   * <p>The name of the secret.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The secret to expose to the container. The value is either the full ARN of the Secrets Manager
+   *          secret or the full ARN of the parameter in the Systems Manager Parameter Store.</p>
+   * @public
+   */
+  ValueFrom?: string | undefined;
+}
+
+/**
+ * <p>A namespaced kernel parameter to set in the container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails {
+  /**
+   * <p>The namespaced kernel parameter for which to set a value.</p>
+   * @public
+   */
+  Namespace?: string | undefined;
+
+  /**
+   * <p>The value of the parameter.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>A ulimit to set in the container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
+  /**
+   * <p>The hard limit for the ulimit type.</p>
+   * @public
+   */
+  HardLimit?: number | undefined;
+
+  /**
+   * <p>The type of the ulimit. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>core</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cpu</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>data</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fsize</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>locks</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>memlock</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>msgqueue</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nice</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nofile</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nproc</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>rss</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>rtprio</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>rttime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sigpending</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>stack</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The soft limit for the ulimit type.</p>
+   * @public
+   */
+  SoftLimit?: number | undefined;
+}
 
 /**
  * <p>A data volume to mount from another container.</p>
@@ -9979,7 +10147,7 @@ export type ComplianceStatus = (typeof ComplianceStatus)[keyof typeof Compliance
 export interface StatusReason {
   /**
    * <p>A code that represents a reason for the control status. For the list of status reason
-   *          codes and their meanings, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff">Standards-related information in the ASFF</a> in the
+   *          codes and their meanings, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-asff-compliance">Compliance details for control findings</a> in the
    *             <i>Security Hub User Guide</i>. </p>
    * @public
    */
@@ -10072,6 +10240,445 @@ export interface Compliance {
    * @public
    */
   SecurityControlParameters?: SecurityControlParameter[] | undefined;
+}
+
+/**
+ * <p>
+ *             Contains information about the Autonomous System (AS) of the network
+ *             endpoints involved in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ * 				must have GuardDuty and GuardDuty S3 Protection enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
+ *         </p>
+ * @public
+ */
+export interface NetworkAutonomousSystem {
+  /**
+   * <p>
+   *             The name associated with the AS.
+   *         </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>
+   *             The unique number that identifies the AS.
+   *         </p>
+   * @public
+   */
+  Number?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionDirection = {
+  INBOUND: "INBOUND",
+  OUTBOUND: "OUTBOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionDirection = (typeof ConnectionDirection)[keyof typeof ConnectionDirection];
+
+/**
+ * <p>
+ *             Contains information about the network connection involved in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ * 				must have GuardDuty and GuardDuty S3 Protection enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
+ *         </p>
+ * @public
+ */
+export interface NetworkConnection {
+  /**
+   * <p>
+   *             The direction in which the network traffic is flowing.
+   *         </p>
+   * @public
+   */
+  Direction?: ConnectionDirection | undefined;
+}
+
+/**
+ * <p>
+ *             Contains information about the location of a network endpoint involved in an Amazon GuardDuty Extended Threat Detection attack sequence.
+ * GuardDuty generates an attack
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ * 				must have GuardDuty and GuardDuty S3 Protection enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
+ *         </p>
+ * @public
+ */
+export interface NetworkGeoLocation {
+  /**
+   * <p>
+   *             The name of the city.
+   *         </p>
+   * @public
+   */
+  City?: string | undefined;
+
+  /**
+   * <p>
+   *             The name of the country.
+   *         </p>
+   * @public
+   */
+  Country?: string | undefined;
+
+  /**
+   * <p>
+   *             The latitude information of the endpoint location.
+   *         </p>
+   * @public
+   */
+  Lat?: number | undefined;
+
+  /**
+   * <p>
+   *             The longitude information of the endpoint location.
+   *         </p>
+   * @public
+   */
+  Lon?: number | undefined;
+}
+
+/**
+ * <p>
+ *             Contains information about network endpoints involved in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ * 				must have GuardDuty and GuardDuty S3 Protection enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
+ *         </p>
+ *          <p>This field can provide information about the network endpoints associated with the resource in the attack sequence finding,
+ * or about a specific network endpoint used for the attack.</p>
+ * @public
+ */
+export interface NetworkEndpoint {
+  /**
+   * <p>
+   *             The identifier of the network endpoint involved in the attack sequence.
+   *         </p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>
+   *             The IP address used in the network endpoint.
+   *         </p>
+   * @public
+   */
+  Ip?: string | undefined;
+
+  /**
+   * <p>
+   *             The domain information for the network endpoint.
+   *         </p>
+   * @public
+   */
+  Domain?: string | undefined;
+
+  /**
+   * <p>
+   *             The port number associated with the network endpoint.
+   *         </p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>
+   *             Information about the location of the network endpoint.
+   *         </p>
+   * @public
+   */
+  Location?: NetworkGeoLocation | undefined;
+
+  /**
+   * <p>
+   *             The Autonomous System Number (ASN) of the network endpoint.
+   *         </p>
+   * @public
+   */
+  AutonomousSystem?: NetworkAutonomousSystem | undefined;
+
+  /**
+   * <p>
+   *             Information about the network connection.
+   *         </p>
+   * @public
+   */
+  Connection?: NetworkConnection | undefined;
+}
+
+/**
+ * <p>
+ *             Contains information about the indicators observed in an Amazon GuardDuty Extended Threat Detection attack sequence.
+ *             Indicators include a set of signals, which can be API activities or findings that GuardDuty uses to detect an attack sequence finding. GuardDuty
+ *             generates an attack sequence finding when multiple signals align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ *             must have GuardDuty and GuardDuty S3 Protection enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
+ *         </p>
+ * @public
+ */
+export interface Indicator {
+  /**
+   * <p>
+   *             The name of the indicator that’s present in the attack sequence finding.
+   *         </p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>Values associated with each indicator key. For example, if the indicator key is
+   *             <code>SUSPICIOUS_NETWORK</code>, then the value will be the name of the network. If
+   *             the indicator key is <code>ATTACK_TACTIC</code>, then the value will be one of the MITRE tactics.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+
+  /**
+   * <p>
+   *             The title describing the indicator.
+   *         </p>
+   * @public
+   */
+  Title?: string | undefined;
+
+  /**
+   * <p>
+   *             The type of indicator.
+   *         </p>
+   * @public
+   */
+  Type?: string | undefined;
+}
+
+/**
+ * <p>
+ *             Contains information about the signals involved in an Amazon GuardDuty Extended Threat Detection attack sequence. An attack sequence is a
+ * type of threat detected by GuardDuty. GuardDuty generates an attack sequence finding when multiple events, or
+ * signals, align to a potentially suspicious activity. When GuardDuty and Security Hub are integrated, GuardDuty
+ * sends attack sequence findings to Security Hub.</p>
+ *          <p>A signal can be an API activity or a finding that GuardDuty uses to detect an attack sequence finding.</p>
+ * @public
+ */
+export interface Signal {
+  /**
+   * <p>
+   *             The type of the signal used to identify an attack sequence.
+   *         </p>
+   *          <p>Signals can be GuardDuty findings or activities observed in data sources that GuardDuty monitors.
+   *             For
+   *             more information, see
+   *             <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_data-sources.html">GuardDuty foundational data sources</a> in the
+   *             <i>Amazon GuardDuty User Guide</i>.</p>
+   *          <p>A signal type can be one of the following values. Here are the related descriptions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FINDING</code> - Individually generated GuardDuty finding.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CLOUD_TRAIL</code> - Activity observed from CloudTrail logs</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3_DATA_EVENTS</code> - Activity observed from CloudTrail data events for Amazon Simple Storage Service (S3).
+   *                     Activities associated
+   *                     with this type will show up only when
+   *                     you have enabled GuardDuty S3 Protection feature in your account. For more information about
+   *                     S3 Protection and the
+   *                     steps to enable it, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html">S3 Protection</a> in the
+   *                     <i>Amazon GuardDuty User Guide</i>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>
+   *             The identifier of the signal.
+   *         </p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>
+   *             The description of the GuardDuty finding.
+   *         </p>
+   * @public
+   */
+  Title?: string | undefined;
+
+  /**
+   * <p>
+   *             The Amazon Resource Name (ARN) of the product that generated the signal.
+   *         </p>
+   * @public
+   */
+  ProductArn?: string | undefined;
+
+  /**
+   * <p>
+   *             The ARN or ID of the Amazon Web Services resource associated with the signal.
+   *         </p>
+   * @public
+   */
+  ResourceIds?: string[] | undefined;
+
+  /**
+   * <p>
+   *             Contains information about the indicators associated with the signals in this attack sequence finding. The values for
+   *             <code>SignalIndicators</code> are a subset of the values for <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Sequence.html">SequenceIndicators</a>, but the values for
+   *             these fields don't always match 1:1.
+   *         </p>
+   * @public
+   */
+  SignalIndicators?: Indicator[] | undefined;
+
+  /**
+   * <p>
+   *             The name of the GuardDuty signal. For example, when signal type is <code>FINDING</code>,
+   *             the signal name is the name of the finding.
+   *         </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>
+   *             The timestamp when the first finding or activity related to this signal was observed.
+   *         </p>
+   * @public
+   */
+  CreatedAt?: number | undefined;
+
+  /**
+   * <p>
+   *             The timestamp when this signal was last observed.
+   *         </p>
+   * @public
+   */
+  UpdatedAt?: number | undefined;
+
+  /**
+   * <p>
+   *             The timestamp when the first finding or activity related to this signal was observed.
+   *         </p>
+   * @public
+   */
+  FirstSeenAt?: number | undefined;
+
+  /**
+   * <p>
+   *             The timestamp when the last finding or activity related to this signal was observed.
+   *         </p>
+   * @public
+   */
+  LastSeenAt?: number | undefined;
+
+  /**
+   * <p>The severity associated with the signal. For more information about severity, see
+   *             <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-severity.html">Findings severity levels</a>
+   *             in the <i>Amazon GuardDuty User Guide</i>.</p>
+   * @public
+   */
+  Severity?: number | undefined;
+
+  /**
+   * <p>
+   *             The number of times this signal was observed.
+   *         </p>
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * <p>
+   *             The IDs of the threat actors involved in the signal.
+   *         </p>
+   * @public
+   */
+  ActorIds?: string[] | undefined;
+
+  /**
+   * <p>Information about the endpoint IDs associated with this signal.</p>
+   * @public
+   */
+  EndpointIds?: string[] | undefined;
+}
+
+/**
+ * <p>
+ *             Contains information about an Amazon GuardDuty Extended Threat Detection attack sequence finding. GuardDuty generates an attack
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ * 				must have GuardDuty and GuardDuty S3 Protection enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
+ *         </p>
+ * @public
+ */
+export interface Sequence {
+  /**
+   * <p>
+   *             Unique identifier of the attack sequence.
+   *         </p>
+   * @public
+   */
+  Uid?: string | undefined;
+
+  /**
+   * <p>
+   *             Provides information about the actors involved in the attack sequence.
+   *         </p>
+   * @public
+   */
+  Actors?: Actor[] | undefined;
+
+  /**
+   * <p>
+   *             Contains information about the network endpoints that were used in the attack sequence.
+   *         </p>
+   * @public
+   */
+  Endpoints?: NetworkEndpoint[] | undefined;
+
+  /**
+   * <p>
+   *             Contains information about the signals involved in the attack sequence.
+   *         </p>
+   * @public
+   */
+  Signals?: Signal[] | undefined;
+
+  /**
+   * <p>
+   *             Contains information about the indicators observed in the attack sequence. The values for
+   *             <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Signal.html">SignalIndicators</a> are a subset of the values for <code>SequenceIndicators</code>, but the values for
+   *             these fields don't always match 1:1.</p>
+   * @public
+   */
+  SequenceIndicators?: Indicator[] | undefined;
+}
+
+/**
+ * <p>
+ *             A top-level object field that provides details about an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ * 				must have GuardDuty and GuardDuty S3 Protection enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.</p>
+ * @public
+ */
+export interface Detection {
+  /**
+   * <p>
+   *             Provides details about an attack sequence.
+   *         </p>
+   * @public
+   */
+  Sequence?: Sequence | undefined;
 }
 
 /**
@@ -11519,515 +12126,4 @@ export interface AwsStepFunctionStateMachineLoggingConfigurationDestinationsDeta
   CloudWatchLogsLogGroup?:
     | AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails
     | undefined;
-}
-
-/**
- * <p>
- *             The <code>LoggingConfiguration</code> data type is used to set CloudWatch Logs options.
- *         </p>
- * @public
- */
-export interface AwsStepFunctionStateMachineLoggingConfigurationDetails {
-  /**
-   * <p>
-   *             An array of objects that describes where your execution history events will be logged.
-   *         </p>
-   * @public
-   */
-  Destinations?: AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails[] | undefined;
-
-  /**
-   * <p>
-   *             Determines whether execution data is included in your log. When set to false, data is excluded.
-   *         </p>
-   * @public
-   */
-  IncludeExecutionData?: boolean | undefined;
-
-  /**
-   * <p>
-   *             Defines which category of execution history events are logged.
-   *         </p>
-   * @public
-   */
-  Level?: string | undefined;
-}
-
-/**
- * <p>
- *             Specifies whether X-Ray tracing is enabled.
- *         </p>
- * @public
- */
-export interface AwsStepFunctionStateMachineTracingConfigurationDetails {
-  /**
-   * <p>
-   *             When set to true, X-Ray tracing is enabled.
-   *         </p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-}
-
-/**
- * <p>
- *             Provides details about an Step Functions state machine, which is a workflow consisting of a series of event-
- *             driven steps.
- *         </p>
- * @public
- */
-export interface AwsStepFunctionStateMachineDetails {
-  /**
-   * <p>
-   *             A user-defined or an auto-generated string that identifies a <code>Map</code> state. This parameter is present only if
-   *             the <code>stateMachineArn</code> specified in input is a qualified state machine ARN.
-   *         </p>
-   * @public
-   */
-  Label?: string | undefined;
-
-  /**
-   * <p>
-   *             Used to set CloudWatch Logs options.
-   *         </p>
-   * @public
-   */
-  LoggingConfiguration?: AwsStepFunctionStateMachineLoggingConfigurationDetails | undefined;
-
-  /**
-   * <p>
-   *             The name of the state machine.
-   *         </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the IAM role used when creating this state machine.
-   *         </p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p>
-   *             The ARN that identifies the state machine.
-   *         </p>
-   * @public
-   */
-  StateMachineArn?: string | undefined;
-
-  /**
-   * <p>
-   *             The current status of the state machine.
-   *         </p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>
-   *             Specifies whether X-Ray tracing is enabled.
-   *         </p>
-   * @public
-   */
-  TracingConfiguration?: AwsStepFunctionStateMachineTracingConfigurationDetails | undefined;
-
-  /**
-   * <p>
-   *             The type of the state machine (STANDARD or EXPRESS).
-   *         </p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>A match predicate. A predicate might look for characteristics such as specific IP addresses, geographic locations, or sizes.</p>
- * @public
- */
-export interface AwsWafRateBasedRuleMatchPredicate {
-  /**
-   * <p>The unique identifier for the predicate.</p>
-   * @public
-   */
-  DataId?: string | undefined;
-
-  /**
-   * <p>If set to <code>true</code>, then the rule actions are performed on requests that match the predicate settings.</p>
-   *          <p>If set to <code>false</code>, then the rule actions are performed on all requests except those that match the predicate settings.
-   *       </p>
-   * @public
-   */
-  Negated?: boolean | undefined;
-
-  /**
-   * <p>The type of predicate. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ByteMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>GeoMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IPMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RegexMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SizeConstraint</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SqlInjectionMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>XssMatch</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Details about a rate-based rule for global resources. A rate-based rule provides settings to indicate when to allow, block, or count a request. Rate-based rules include the number of requests that arrive over a specified period of time.</p>
- * @public
- */
-export interface AwsWafRateBasedRuleDetails {
-  /**
-   * <p>The name of the metrics for the rate-based rule.</p>
-   * @public
-   */
-  MetricName?: string | undefined;
-
-  /**
-   * <p>The name of the rate-based rule.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The field that WAF uses to determine whether requests are likely arriving from single source and are subject to rate monitoring.</p>
-   * @public
-   */
-  RateKey?: string | undefined;
-
-  /**
-   * <p>The maximum number of requests that have an identical value for the field specified in <code>RateKey</code> that are allowed within a five-minute period. If the number of requests exceeds <code>RateLimit</code> and the other predicates specified in the rule are met, WAF triggers the action for the rule.</p>
-   * @public
-   */
-  RateLimit?: number | undefined;
-
-  /**
-   * <p>The unique identifier for the rate-based rule.</p>
-   * @public
-   */
-  RuleId?: string | undefined;
-
-  /**
-   * <p>The predicates to include in the rate-based rule.</p>
-   * @public
-   */
-  MatchPredicates?: AwsWafRateBasedRuleMatchPredicate[] | undefined;
-}
-
-/**
- * <p>Details for a match predicate. A predicate might look for characteristics such as specific IP addresses, geographic locations, or sizes.</p>
- * @public
- */
-export interface AwsWafRegionalRateBasedRuleMatchPredicate {
-  /**
-   * <p>The unique identifier for the predicate.</p>
-   * @public
-   */
-  DataId?: string | undefined;
-
-  /**
-   * <p>If set to <code>true</code>, then the rule actions are performed on requests that match the predicate settings.</p>
-   *          <p>If set to <code>false</code>, then the rule actions are performed on all requests except those that match the predicate settings.</p>
-   * @public
-   */
-  Negated?: boolean | undefined;
-
-  /**
-   * <p>The type of predicate. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ByteMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>GeoMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IPMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RegexMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SizeConstraint</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SqlInjectionMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>XssMatch</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>contains details about a rate-based rule for Regional resources. A rate-based rule provides settings to indicate when to allow, block, or count a request. Rate-based rules include the number of requests that arrive over a specified period of time.</p>
- * @public
- */
-export interface AwsWafRegionalRateBasedRuleDetails {
-  /**
-   * <p>The name of the metrics for the rate-based rule.</p>
-   * @public
-   */
-  MetricName?: string | undefined;
-
-  /**
-   * <p>The name of the rate-based rule.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The field that WAF uses to determine whether requests are likely arriving from single source and are subject to rate monitoring.</p>
-   * @public
-   */
-  RateKey?: string | undefined;
-
-  /**
-   * <p>The maximum number of requests that have an identical value for the field specified in <code>RateKey</code> that are allowed within a five-minute period. If the number of requests exceeds <code>RateLimit</code> and the other predicates specified in the rule are met, WAF triggers the action for the rule.</p>
-   * @public
-   */
-  RateLimit?: number | undefined;
-
-  /**
-   * <p>The unique identifier for the rate-based rule.</p>
-   * @public
-   */
-  RuleId?: string | undefined;
-
-  /**
-   * <p>The predicates to include in the rate-based rule.</p>
-   * @public
-   */
-  MatchPredicates?: AwsWafRegionalRateBasedRuleMatchPredicate[] | undefined;
-}
-
-/**
- * <p>Provides details about the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
- *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and, for each object, indicates whether you want to negate the settings.
- *       </p>
- * @public
- */
-export interface AwsWafRegionalRulePredicateListDetails {
-  /**
-   * <p>A unique identifier for a predicate in a rule, such as <code>ByteMatchSetId</code> or <code>IPSetId</code>.
-   *       </p>
-   * @public
-   */
-  DataId?: string | undefined;
-
-  /**
-   * <p>Specifies if you want WAF to allow, block, or count requests based on the settings in the
-   *          <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
-   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, or <code>SizeConstraintSet</code>.
-   *       </p>
-   * @public
-   */
-  Negated?: boolean | undefined;
-
-  /**
-   * <p>The type of predicate in a rule, such as <code>ByteMatch</code> or <code>IPSet</code>.
-   *       </p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Provides information about an WAF Regional rule. This rule identifies the web requests that you want to allow, block, or count. </p>
- * @public
- */
-export interface AwsWafRegionalRuleDetails {
-  /**
-   * <p>A name for the metrics for the rule.
-   *       </p>
-   * @public
-   */
-  MetricName?: string | undefined;
-
-  /**
-   * <p>A descriptive name for the rule.
-   *       </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>,
-   *             <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>, <code>RegexMatchSet</code>,
-   *             <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to
-   *          add to a rule and, for each object, indicates whether you want to negate the settings. </p>
-   * @public
-   */
-  PredicateList?: AwsWafRegionalRulePredicateListDetails[] | undefined;
-
-  /**
-   * <p>The ID of the rule.
-   *       </p>
-   * @public
-   */
-  RuleId?: string | undefined;
-}
-
-/**
- * <p>Describes the action that WAF should take on a web request when it matches the criteria defined in the rule.
- *       </p>
- * @public
- */
-export interface AwsWafRegionalRuleGroupRulesActionDetails {
-  /**
-   * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>, <code>RegexMatchSet</code>,
-   * <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and, for each object, indicates whether you want to negate the settings.</p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Provides information about the rules attached to a rule group
- *       </p>
- * @public
- */
-export interface AwsWafRegionalRuleGroupRulesDetails {
-  /**
-   * <p>The action that WAF should take on a web request when it matches the criteria defined in the rule. </p>
-   * @public
-   */
-  Action?: AwsWafRegionalRuleGroupRulesActionDetails | undefined;
-
-  /**
-   * <p>If you define more than one rule in a web ACL, WAF evaluates each request against the rules in
-   *          order based on the value of <code>Priority</code>. </p>
-   * @public
-   */
-  Priority?: number | undefined;
-
-  /**
-   * <p>The ID for a rule.
-   *       </p>
-   * @public
-   */
-  RuleId?: string | undefined;
-
-  /**
-   * <p>The type of rule in the rule group.
-   *       </p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Provides information about an WAF Regional rule group. The rule group is a collection of rules for inspecting and controlling web
- *          requests. </p>
- * @public
- */
-export interface AwsWafRegionalRuleGroupDetails {
-  /**
-   * <p>A name for the metrics for this rule group.
-   *       </p>
-   * @public
-   */
-  MetricName?: string | undefined;
-
-  /**
-   * <p>The descriptive name of the rule group.
-   *       </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The ID of the rule group.
-   *       </p>
-   * @public
-   */
-  RuleGroupId?: string | undefined;
-
-  /**
-   * <p>Provides information about the rule statements used to identify the web requests that you want to allow, block, or
-   * count.
-   *       </p>
-   * @public
-   */
-  Rules?: AwsWafRegionalRuleGroupRulesDetails[] | undefined;
-}
-
-/**
- * <p>The action that WAF takes when a web request matches all conditions in the
- *          rule, such as allow, block, or count the request. </p>
- * @public
- */
-export interface AwsWafRegionalWebAclRulesListActionDetails {
-  /**
-   * <p>For actions that are associated with a rule, the action that WAF takes when a web request matches all conditions in a rule.
-   *       </p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Provides details about the action to use in the place of the action that results from the rule group
- * evaluation.
- *       </p>
- * @public
- */
-export interface AwsWafRegionalWebAclRulesListOverrideActionDetails {
-  /**
-   * <p>Overrides the rule evaluation result in the rule group.
-   *       </p>
-   * @public
-   */
-  Type?: string | undefined;
 }

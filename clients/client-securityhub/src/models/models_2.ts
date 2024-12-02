@@ -116,15 +116,10 @@ import {
   AwsSnsTopicDetails,
   AwsSqsQueueDetails,
   AwsSsmPatchComplianceDetails,
-  AwsStepFunctionStateMachineDetails,
-  AwsWafRateBasedRuleDetails,
-  AwsWafRegionalRateBasedRuleDetails,
-  AwsWafRegionalRuleDetails,
-  AwsWafRegionalRuleGroupDetails,
-  AwsWafRegionalWebAclRulesListActionDetails,
-  AwsWafRegionalWebAclRulesListOverrideActionDetails,
+  AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails,
   Compliance,
   DataClassificationDetails,
+  Detection,
   FindingProviderFields,
   GeneratorDetails,
   Malware,
@@ -138,6 +133,517 @@ import {
 } from "./models_1";
 
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
+
+/**
+ * <p>
+ *             The <code>LoggingConfiguration</code> data type is used to set CloudWatch Logs options.
+ *         </p>
+ * @public
+ */
+export interface AwsStepFunctionStateMachineLoggingConfigurationDetails {
+  /**
+   * <p>
+   *             An array of objects that describes where your execution history events will be logged.
+   *         </p>
+   * @public
+   */
+  Destinations?: AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails[] | undefined;
+
+  /**
+   * <p>
+   *             Determines whether execution data is included in your log. When set to false, data is excluded.
+   *         </p>
+   * @public
+   */
+  IncludeExecutionData?: boolean | undefined;
+
+  /**
+   * <p>
+   *             Defines which category of execution history events are logged.
+   *         </p>
+   * @public
+   */
+  Level?: string | undefined;
+}
+
+/**
+ * <p>
+ *             Specifies whether X-Ray tracing is enabled.
+ *         </p>
+ * @public
+ */
+export interface AwsStepFunctionStateMachineTracingConfigurationDetails {
+  /**
+   * <p>
+   *             When set to true, X-Ray tracing is enabled.
+   *         </p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+}
+
+/**
+ * <p>
+ *             Provides details about an Step Functions state machine, which is a workflow consisting of a series of event-
+ *             driven steps.
+ *         </p>
+ * @public
+ */
+export interface AwsStepFunctionStateMachineDetails {
+  /**
+   * <p>
+   *             A user-defined or an auto-generated string that identifies a <code>Map</code> state. This parameter is present only if
+   *             the <code>stateMachineArn</code> specified in input is a qualified state machine ARN.
+   *         </p>
+   * @public
+   */
+  Label?: string | undefined;
+
+  /**
+   * <p>
+   *             Used to set CloudWatch Logs options.
+   *         </p>
+   * @public
+   */
+  LoggingConfiguration?: AwsStepFunctionStateMachineLoggingConfigurationDetails | undefined;
+
+  /**
+   * <p>
+   *             The name of the state machine.
+   *         </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>
+   *             The Amazon Resource Name (ARN) of the IAM role used when creating this state machine.
+   *         </p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>
+   *             The ARN that identifies the state machine.
+   *         </p>
+   * @public
+   */
+  StateMachineArn?: string | undefined;
+
+  /**
+   * <p>
+   *             The current status of the state machine.
+   *         </p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>
+   *             Specifies whether X-Ray tracing is enabled.
+   *         </p>
+   * @public
+   */
+  TracingConfiguration?: AwsStepFunctionStateMachineTracingConfigurationDetails | undefined;
+
+  /**
+   * <p>
+   *             The type of the state machine (STANDARD or EXPRESS).
+   *         </p>
+   * @public
+   */
+  Type?: string | undefined;
+}
+
+/**
+ * <p>A match predicate. A predicate might look for characteristics such as specific IP addresses, geographic locations, or sizes.</p>
+ * @public
+ */
+export interface AwsWafRateBasedRuleMatchPredicate {
+  /**
+   * <p>The unique identifier for the predicate.</p>
+   * @public
+   */
+  DataId?: string | undefined;
+
+  /**
+   * <p>If set to <code>true</code>, then the rule actions are performed on requests that match the predicate settings.</p>
+   *          <p>If set to <code>false</code>, then the rule actions are performed on all requests except those that match the predicate settings.
+   *       </p>
+   * @public
+   */
+  Negated?: boolean | undefined;
+
+  /**
+   * <p>The type of predicate. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ByteMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GeoMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RegexMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SizeConstraint</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SqlInjectionMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XssMatch</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type?: string | undefined;
+}
+
+/**
+ * <p>Details about a rate-based rule for global resources. A rate-based rule provides settings to indicate when to allow, block, or count a request. Rate-based rules include the number of requests that arrive over a specified period of time.</p>
+ * @public
+ */
+export interface AwsWafRateBasedRuleDetails {
+  /**
+   * <p>The name of the metrics for the rate-based rule.</p>
+   * @public
+   */
+  MetricName?: string | undefined;
+
+  /**
+   * <p>The name of the rate-based rule.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The field that WAF uses to determine whether requests are likely arriving from single source and are subject to rate monitoring.</p>
+   * @public
+   */
+  RateKey?: string | undefined;
+
+  /**
+   * <p>The maximum number of requests that have an identical value for the field specified in <code>RateKey</code> that are allowed within a five-minute period. If the number of requests exceeds <code>RateLimit</code> and the other predicates specified in the rule are met, WAF triggers the action for the rule.</p>
+   * @public
+   */
+  RateLimit?: number | undefined;
+
+  /**
+   * <p>The unique identifier for the rate-based rule.</p>
+   * @public
+   */
+  RuleId?: string | undefined;
+
+  /**
+   * <p>The predicates to include in the rate-based rule.</p>
+   * @public
+   */
+  MatchPredicates?: AwsWafRateBasedRuleMatchPredicate[] | undefined;
+}
+
+/**
+ * <p>Details for a match predicate. A predicate might look for characteristics such as specific IP addresses, geographic locations, or sizes.</p>
+ * @public
+ */
+export interface AwsWafRegionalRateBasedRuleMatchPredicate {
+  /**
+   * <p>The unique identifier for the predicate.</p>
+   * @public
+   */
+  DataId?: string | undefined;
+
+  /**
+   * <p>If set to <code>true</code>, then the rule actions are performed on requests that match the predicate settings.</p>
+   *          <p>If set to <code>false</code>, then the rule actions are performed on all requests except those that match the predicate settings.</p>
+   * @public
+   */
+  Negated?: boolean | undefined;
+
+  /**
+   * <p>The type of predicate. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ByteMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GeoMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IPMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RegexMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SizeConstraint</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SqlInjectionMatch</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XssMatch</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type?: string | undefined;
+}
+
+/**
+ * <p>contains details about a rate-based rule for Regional resources. A rate-based rule provides settings to indicate when to allow, block, or count a request. Rate-based rules include the number of requests that arrive over a specified period of time.</p>
+ * @public
+ */
+export interface AwsWafRegionalRateBasedRuleDetails {
+  /**
+   * <p>The name of the metrics for the rate-based rule.</p>
+   * @public
+   */
+  MetricName?: string | undefined;
+
+  /**
+   * <p>The name of the rate-based rule.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The field that WAF uses to determine whether requests are likely arriving from single source and are subject to rate monitoring.</p>
+   * @public
+   */
+  RateKey?: string | undefined;
+
+  /**
+   * <p>The maximum number of requests that have an identical value for the field specified in <code>RateKey</code> that are allowed within a five-minute period. If the number of requests exceeds <code>RateLimit</code> and the other predicates specified in the rule are met, WAF triggers the action for the rule.</p>
+   * @public
+   */
+  RateLimit?: number | undefined;
+
+  /**
+   * <p>The unique identifier for the rate-based rule.</p>
+   * @public
+   */
+  RuleId?: string | undefined;
+
+  /**
+   * <p>The predicates to include in the rate-based rule.</p>
+   * @public
+   */
+  MatchPredicates?: AwsWafRegionalRateBasedRuleMatchPredicate[] | undefined;
+}
+
+/**
+ * <p>Provides details about the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
+ *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and, for each object, indicates whether you want to negate the settings.
+ *       </p>
+ * @public
+ */
+export interface AwsWafRegionalRulePredicateListDetails {
+  /**
+   * <p>A unique identifier for a predicate in a rule, such as <code>ByteMatchSetId</code> or <code>IPSetId</code>.
+   *       </p>
+   * @public
+   */
+  DataId?: string | undefined;
+
+  /**
+   * <p>Specifies if you want WAF to allow, block, or count requests based on the settings in the
+   *          <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
+   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, or <code>SizeConstraintSet</code>.
+   *       </p>
+   * @public
+   */
+  Negated?: boolean | undefined;
+
+  /**
+   * <p>The type of predicate in a rule, such as <code>ByteMatch</code> or <code>IPSet</code>.
+   *       </p>
+   * @public
+   */
+  Type?: string | undefined;
+}
+
+/**
+ * <p>Provides information about an WAF Regional rule. This rule identifies the web requests that you want to allow, block, or count. </p>
+ * @public
+ */
+export interface AwsWafRegionalRuleDetails {
+  /**
+   * <p>A name for the metrics for the rule.
+   *       </p>
+   * @public
+   */
+  MetricName?: string | undefined;
+
+  /**
+   * <p>A descriptive name for the rule.
+   *       </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>,
+   *             <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>, <code>RegexMatchSet</code>,
+   *             <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to
+   *          add to a rule and, for each object, indicates whether you want to negate the settings. </p>
+   * @public
+   */
+  PredicateList?: AwsWafRegionalRulePredicateListDetails[] | undefined;
+
+  /**
+   * <p>The ID of the rule.
+   *       </p>
+   * @public
+   */
+  RuleId?: string | undefined;
+}
+
+/**
+ * <p>Describes the action that WAF should take on a web request when it matches the criteria defined in the rule.
+ *       </p>
+ * @public
+ */
+export interface AwsWafRegionalRuleGroupRulesActionDetails {
+  /**
+   * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>, <code>RegexMatchSet</code>,
+   * <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and, for each object, indicates whether you want to negate the settings.</p>
+   * @public
+   */
+  Type?: string | undefined;
+}
+
+/**
+ * <p>Provides information about the rules attached to a rule group
+ *       </p>
+ * @public
+ */
+export interface AwsWafRegionalRuleGroupRulesDetails {
+  /**
+   * <p>The action that WAF should take on a web request when it matches the criteria defined in the rule. </p>
+   * @public
+   */
+  Action?: AwsWafRegionalRuleGroupRulesActionDetails | undefined;
+
+  /**
+   * <p>If you define more than one rule in a web ACL, WAF evaluates each request against the rules in
+   *          order based on the value of <code>Priority</code>. </p>
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * <p>The ID for a rule.
+   *       </p>
+   * @public
+   */
+  RuleId?: string | undefined;
+
+  /**
+   * <p>The type of rule in the rule group.
+   *       </p>
+   * @public
+   */
+  Type?: string | undefined;
+}
+
+/**
+ * <p>Provides information about an WAF Regional rule group. The rule group is a collection of rules for inspecting and controlling web
+ *          requests. </p>
+ * @public
+ */
+export interface AwsWafRegionalRuleGroupDetails {
+  /**
+   * <p>A name for the metrics for this rule group.
+   *       </p>
+   * @public
+   */
+  MetricName?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the rule group.
+   *       </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The ID of the rule group.
+   *       </p>
+   * @public
+   */
+  RuleGroupId?: string | undefined;
+
+  /**
+   * <p>Provides information about the rule statements used to identify the web requests that you want to allow, block, or
+   * count.
+   *       </p>
+   * @public
+   */
+  Rules?: AwsWafRegionalRuleGroupRulesDetails[] | undefined;
+}
+
+/**
+ * <p>The action that WAF takes when a web request matches all conditions in the
+ *          rule, such as allow, block, or count the request. </p>
+ * @public
+ */
+export interface AwsWafRegionalWebAclRulesListActionDetails {
+  /**
+   * <p>For actions that are associated with a rule, the action that WAF takes when a web request matches all conditions in a rule.
+   *       </p>
+   * @public
+   */
+  Type?: string | undefined;
+}
+
+/**
+ * <p>Provides details about the action to use in the place of the action that results from the rule group
+ * evaluation.
+ *       </p>
+ * @public
+ */
+export interface AwsWafRegionalWebAclRulesListOverrideActionDetails {
+  /**
+   * <p>Overrides the rule evaluation result in the rule group.
+   *       </p>
+   * @public
+   */
+  Type?: string | undefined;
+}
 
 /**
  * <p>A combination of <code>ByteMatchSet</code>, <code>IPSet</code>, and/or <code>SqlInjectionMatchSet</code>
@@ -3140,6 +3646,16 @@ export interface AwsSecurityFinding {
    * @public
    */
   AwsAccountName?: string | undefined;
+
+  /**
+   * <p>
+   *             Provides details about an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
+   *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+   * 				must have GuardDuty and GuardDuty S3 Protection enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
+   *         </p>
+   * @public
+   */
+  Detection?: Detection | undefined;
 }
 
 /**

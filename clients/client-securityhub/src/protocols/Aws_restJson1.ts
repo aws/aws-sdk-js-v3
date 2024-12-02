@@ -273,6 +273,9 @@ import {
   ActionLocalPortDetails,
   ActionRemoteIpDetails,
   ActionRemotePortDetails,
+  Actor,
+  ActorSession,
+  ActorUser,
   Adjustment,
   AssociatedStandard,
   AssociationFilters,
@@ -510,11 +513,6 @@ import {
   AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails,
   AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails,
   AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails,
   AwsMountPoint,
   CidrBlockAssociation,
   City,
@@ -543,6 +541,7 @@ import {
   RouteSetDetails,
   SeverityUpdate,
   StringFilter,
+  UserAccount,
   VpcInfoCidrBlockSetDetails,
   VpcInfoIpv6CidrBlockSetDetails,
   VpcInfoPeeringOptionsDetails,
@@ -551,6 +550,11 @@ import {
 import {
   _Record,
   AwsEcsTaskDefinitionContainerDefinitionsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails,
   AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails,
   AwsEcsTaskDefinitionDetails,
   AwsEcsTaskDefinitionInferenceAcceleratorsDetails,
@@ -770,22 +774,8 @@ import {
   AwsSsmComplianceSummary,
   AwsSsmPatch,
   AwsSsmPatchComplianceDetails,
-  AwsStepFunctionStateMachineDetails,
   AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails,
   AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails,
-  AwsStepFunctionStateMachineLoggingConfigurationDetails,
-  AwsStepFunctionStateMachineTracingConfigurationDetails,
-  AwsWafRateBasedRuleDetails,
-  AwsWafRateBasedRuleMatchPredicate,
-  AwsWafRegionalRateBasedRuleDetails,
-  AwsWafRegionalRateBasedRuleMatchPredicate,
-  AwsWafRegionalRuleDetails,
-  AwsWafRegionalRuleGroupDetails,
-  AwsWafRegionalRuleGroupRulesActionDetails,
-  AwsWafRegionalRuleGroupRulesDetails,
-  AwsWafRegionalRulePredicateListDetails,
-  AwsWafRegionalWebAclRulesListActionDetails,
-  AwsWafRegionalWebAclRulesListOverrideActionDetails,
   Cell,
   ClassificationResult,
   ClassificationStatus,
@@ -794,6 +784,7 @@ import {
   CustomDataIdentifiersDetections,
   CustomDataIdentifiersResult,
   DataClassificationDetails,
+  Detection,
   FindingProviderFields,
   FindingProviderSeverity,
   FirewallPolicyDetails,
@@ -801,9 +792,14 @@ import {
   FirewallPolicyStatelessCustomActionsDetails,
   FirewallPolicyStatelessRuleGroupReferencesDetails,
   GeneratorDetails,
+  Indicator,
   LoadBalancerState,
   Malware,
   Network,
+  NetworkAutonomousSystem,
+  NetworkConnection,
+  NetworkEndpoint,
+  NetworkGeoLocation,
   NetworkHeader,
   NetworkPathComponent,
   NetworkPathComponentDetails,
@@ -838,6 +834,8 @@ import {
   SecurityControlParameter,
   SensitiveDataDetections,
   SensitiveDataResult,
+  Sequence,
+  Signal,
   StatelessCustomActionDefinition,
   StatelessCustomPublishMetricAction,
   StatelessCustomPublishMetricActionDimension,
@@ -847,8 +845,22 @@ import {
   AwsSecurityFinding,
   AwsSecurityFindingFilters,
   AwsSecurityFindingIdentifier,
+  AwsStepFunctionStateMachineDetails,
+  AwsStepFunctionStateMachineLoggingConfigurationDetails,
+  AwsStepFunctionStateMachineTracingConfigurationDetails,
+  AwsWafRateBasedRuleDetails,
+  AwsWafRateBasedRuleMatchPredicate,
+  AwsWafRegionalRateBasedRuleDetails,
+  AwsWafRegionalRateBasedRuleMatchPredicate,
+  AwsWafRegionalRuleDetails,
+  AwsWafRegionalRuleGroupDetails,
+  AwsWafRegionalRuleGroupRulesActionDetails,
+  AwsWafRegionalRuleGroupRulesDetails,
+  AwsWafRegionalRulePredicateListDetails,
   AwsWafRegionalWebAclDetails,
+  AwsWafRegionalWebAclRulesListActionDetails,
   AwsWafRegionalWebAclRulesListDetails,
+  AwsWafRegionalWebAclRulesListOverrideActionDetails,
   AwsWafRuleDetails,
   AwsWafRuleGroupDetails,
   AwsWafRuleGroupRulesActionDetails,
@@ -4488,6 +4500,14 @@ const se_ActionRemoteIpDetails = (input: ActionRemoteIpDetails, context: __Serde
 
 // se_ActionRemotePortDetails omitted.
 
+// se_Actor omitted.
+
+// se_ActorSession omitted.
+
+// se_ActorsList omitted.
+
+// se_ActorUser omitted.
+
 // se_Adjustment omitted.
 
 // se_AdjustmentList omitted.
@@ -6086,6 +6106,7 @@ const se_AwsSecurityFinding = (input: AwsSecurityFinding, context: __SerdeContex
     CreatedAt: [],
     Criticality: [],
     Description: [],
+    Detection: (_) => se_Detection(_, context),
     FindingProviderFields: _json,
     FirstObservedAt: [],
     GeneratorDetails: _json,
@@ -6439,6 +6460,15 @@ const se_CvssList = (input: Cvss[], context: __SerdeContext): any => {
 
 // se_DateRange omitted.
 
+/**
+ * serializeAws_restJson1Detection
+ */
+const se_Detection = (input: Detection, context: __SerdeContext): any => {
+  return take(input, {
+    Sequence: (_) => se_Sequence(_, context),
+  });
+};
+
 // se_DisabledSecurityControlIdentifierList omitted.
 
 // se_DnsRequestAction omitted.
@@ -6485,6 +6515,10 @@ const se_GeoLocation = (input: GeoLocation, context: __SerdeContext): any => {
 
 // se_IcmpTypeCode omitted.
 
+// se_Indicator omitted.
+
+// se_IndicatorsList omitted.
+
 // se_IntegerList omitted.
 
 // se_IpFilter omitted.
@@ -6513,6 +6547,10 @@ const se_GeoLocation = (input: GeoLocation, context: __SerdeContext): any => {
 
 // se_Network omitted.
 
+// se_NetworkAutonomousSystem omitted.
+
+// se_NetworkConnection omitted.
+
 /**
  * serializeAws_restJson1NetworkConnectionAction
  */
@@ -6524,6 +6562,44 @@ const se_NetworkConnectionAction = (input: NetworkConnectionAction, context: __S
     Protocol: [],
     RemoteIpDetails: (_) => se_ActionRemoteIpDetails(_, context),
     RemotePortDetails: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1NetworkEndpoint
+ */
+const se_NetworkEndpoint = (input: NetworkEndpoint, context: __SerdeContext): any => {
+  return take(input, {
+    AutonomousSystem: _json,
+    Connection: _json,
+    Domain: [],
+    Id: [],
+    Ip: [],
+    Location: (_) => se_NetworkGeoLocation(_, context),
+    Port: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1NetworkEndpointsList
+ */
+const se_NetworkEndpointsList = (input: NetworkEndpoint[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_NetworkEndpoint(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1NetworkGeoLocation
+ */
+const se_NetworkGeoLocation = (input: NetworkGeoLocation, context: __SerdeContext): any => {
+  return take(input, {
+    City: [],
+    Country: [],
+    Lat: __serializeFloat,
+    Lon: __serializeFloat,
   });
 };
 
@@ -6948,6 +7024,19 @@ const se_SecurityHubPolicy = (input: SecurityHubPolicy, context: __SerdeContext)
 // se_SensitiveDataResultList omitted.
 
 /**
+ * serializeAws_restJson1Sequence
+ */
+const se_Sequence = (input: Sequence, context: __SerdeContext): any => {
+  return take(input, {
+    Actors: _json,
+    Endpoints: (_) => se_NetworkEndpointsList(_, context),
+    SequenceIndicators: _json,
+    Signals: (_) => se_SignalsList(_, context),
+    Uid: [],
+  });
+};
+
+/**
  * serializeAws_restJson1Severity
  */
 const se_Severity = (input: Severity, context: __SerdeContext): any => {
@@ -6968,6 +7057,40 @@ const se_SeverityUpdate = (input: SeverityUpdate, context: __SerdeContext): any 
     Normalized: [],
     Product: __serializeFloat,
   });
+};
+
+/**
+ * serializeAws_restJson1Signal
+ */
+const se_Signal = (input: Signal, context: __SerdeContext): any => {
+  return take(input, {
+    ActorIds: _json,
+    Count: [],
+    CreatedAt: [],
+    EndpointIds: _json,
+    FirstSeenAt: [],
+    Id: [],
+    LastSeenAt: [],
+    Name: [],
+    ProductArn: [],
+    ResourceIds: _json,
+    Severity: __serializeFloat,
+    SignalIndicators: _json,
+    Title: [],
+    Type: [],
+    UpdatedAt: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1SignalsList
+ */
+const se_SignalsList = (input: Signal[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_Signal(entry, context);
+    });
 };
 
 // se_SoftwarePackage omitted.
@@ -7055,6 +7178,8 @@ const se_UpdateAutomationRulesRequestItemsList = (
       return se_UpdateAutomationRulesRequestItem(entry, context);
     });
 };
+
+// se_UserAccount omitted.
 
 // se_VolumeMount omitted.
 
@@ -7165,6 +7290,14 @@ const de_ActionRemoteIpDetails = (output: any, context: __SerdeContext): ActionR
 // de_ActionTarget omitted.
 
 // de_ActionTargetList omitted.
+
+// de_Actor omitted.
+
+// de_ActorSession omitted.
+
+// de_ActorsList omitted.
+
+// de_ActorUser omitted.
 
 // de_Adjustment omitted.
 
@@ -8826,6 +8959,7 @@ const de_AwsSecurityFinding = (output: any, context: __SerdeContext): AwsSecurit
     CreatedAt: __expectString,
     Criticality: __expectInt32,
     Description: __expectString,
+    Detection: (_: any) => de_Detection(_, context),
     FindingProviderFields: _json,
     FirstObservedAt: __expectString,
     GeneratorDetails: _json,
@@ -9310,6 +9444,15 @@ const de_CvssList = (output: any, context: __SerdeContext): Cvss[] => {
 
 // de_DateRange omitted.
 
+/**
+ * deserializeAws_restJson1Detection
+ */
+const de_Detection = (output: any, context: __SerdeContext): Detection => {
+  return take(output, {
+    Sequence: (_: any) => de_Sequence(_, context),
+  }) as any;
+};
+
 // de_DisabledSecurityControlIdentifierList omitted.
 
 // de_DnsRequestAction omitted.
@@ -9410,6 +9553,10 @@ const de_GeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
 // de_ImportFindingsError omitted.
 
 // de_ImportFindingsErrorList omitted.
+
+// de_Indicator omitted.
+
+// de_IndicatorsList omitted.
 
 /**
  * deserializeAws_restJson1Insight
@@ -9526,6 +9673,10 @@ const de_MemberList = (output: any, context: __SerdeContext): Member[] => {
 
 // de_Network omitted.
 
+// de_NetworkAutonomousSystem omitted.
+
+// de_NetworkConnection omitted.
+
 /**
  * deserializeAws_restJson1NetworkConnectionAction
  */
@@ -9537,6 +9688,45 @@ const de_NetworkConnectionAction = (output: any, context: __SerdeContext): Netwo
     Protocol: __expectString,
     RemoteIpDetails: (_: any) => de_ActionRemoteIpDetails(_, context),
     RemotePortDetails: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1NetworkEndpoint
+ */
+const de_NetworkEndpoint = (output: any, context: __SerdeContext): NetworkEndpoint => {
+  return take(output, {
+    AutonomousSystem: _json,
+    Connection: _json,
+    Domain: __expectString,
+    Id: __expectString,
+    Ip: __expectString,
+    Location: (_: any) => de_NetworkGeoLocation(_, context),
+    Port: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1NetworkEndpointsList
+ */
+const de_NetworkEndpointsList = (output: any, context: __SerdeContext): NetworkEndpoint[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_NetworkEndpoint(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1NetworkGeoLocation
+ */
+const de_NetworkGeoLocation = (output: any, context: __SerdeContext): NetworkGeoLocation => {
+  return take(output, {
+    City: __expectString,
+    Country: __expectString,
+    Lat: __limitedParseDouble,
+    Lon: __limitedParseDouble,
   }) as any;
 };
 
@@ -10078,6 +10268,19 @@ const de_SecurityHubPolicy = (output: any, context: __SerdeContext): SecurityHub
 // de_SensitiveDataResultList omitted.
 
 /**
+ * deserializeAws_restJson1Sequence
+ */
+const de_Sequence = (output: any, context: __SerdeContext): Sequence => {
+  return take(output, {
+    Actors: _json,
+    Endpoints: (_: any) => de_NetworkEndpointsList(_, context),
+    SequenceIndicators: _json,
+    Signals: (_: any) => de_SignalsList(_, context),
+    Uid: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Severity
  */
 const de_Severity = (output: any, context: __SerdeContext): Severity => {
@@ -10098,6 +10301,41 @@ const de_SeverityUpdate = (output: any, context: __SerdeContext): SeverityUpdate
     Normalized: __expectInt32,
     Product: __limitedParseDouble,
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Signal
+ */
+const de_Signal = (output: any, context: __SerdeContext): Signal => {
+  return take(output, {
+    ActorIds: _json,
+    Count: __expectInt32,
+    CreatedAt: __expectLong,
+    EndpointIds: _json,
+    FirstSeenAt: __expectLong,
+    Id: __expectString,
+    LastSeenAt: __expectLong,
+    Name: __expectString,
+    ProductArn: __expectString,
+    ResourceIds: _json,
+    Severity: __limitedParseDouble,
+    SignalIndicators: _json,
+    Title: __expectString,
+    Type: __expectString,
+    UpdatedAt: __expectLong,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SignalsList
+ */
+const de_SignalsList = (output: any, context: __SerdeContext): Signal[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Signal(entry, context);
+    });
+  return retVal;
 };
 
 // de_SoftwarePackage omitted.
@@ -10280,6 +10518,8 @@ const de_StandardsControls = (output: any, context: __SerdeContext): StandardsCo
 // de_UnprocessedStandardsControlAssociationUpdate omitted.
 
 // de_UnprocessedStandardsControlAssociationUpdates omitted.
+
+// de_UserAccount omitted.
 
 // de_VolumeMount omitted.
 
