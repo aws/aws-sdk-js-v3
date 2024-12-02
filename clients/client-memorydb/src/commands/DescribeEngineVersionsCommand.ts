@@ -28,7 +28,7 @@ export interface DescribeEngineVersionsCommandInput extends DescribeEngineVersio
 export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the available engine versions.</p>
+ * <p>Returns a list of the available Redis OSS engine versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

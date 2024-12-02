@@ -28,7 +28,7 @@ export interface DescribeServiceUpdatesCommandInput extends DescribeServiceUpdat
 export interface DescribeServiceUpdatesCommandOutput extends DescribeServiceUpdatesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns details of the service updates</p>
+ * <p>Returns details of the service updates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

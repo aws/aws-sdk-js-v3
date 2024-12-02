@@ -66,6 +66,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * //           },
  * //         ],
  * //       },
+ * //       MultiRegionClusterName: "STRING_VALUE",
  * //       NumberOfShards: Number("int"),
  * //       Shards: [ // ShardList
  * //         { // Shard

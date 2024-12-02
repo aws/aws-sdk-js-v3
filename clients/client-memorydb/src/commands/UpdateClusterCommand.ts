@@ -81,6 +81,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * //         },
  * //       ],
  * //     },
+ * //     MultiRegionClusterName: "STRING_VALUE",
  * //     NumberOfShards: Number("int"),
  * //     Shards: [ // ShardList
  * //       { // Shard

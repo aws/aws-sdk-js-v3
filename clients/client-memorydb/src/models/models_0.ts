@@ -420,6 +420,12 @@ export interface Cluster {
   PendingUpdates?: ClusterPendingUpdates | undefined;
 
   /**
+   * <p>The name of the multi-Region cluster that this cluster belongs to.</p>
+   * @public
+   */
+  MultiRegionClusterName?: string | undefined;
+
+  /**
    * <p>The number of shards in the cluster</p>
    * @public
    */
@@ -450,20 +456,19 @@ export interface Cluster {
   NodeType?: string | undefined;
 
   /**
-   * <p>
-   *          The Redis OSS or Valkey engine used by the cluster.</p>
+   * <p>The name of the engine used by the cluster.</p>
    * @public
    */
   Engine?: string | undefined;
 
   /**
-   * <p>The Redis engine version used by the cluster</p>
+   * <p>The Redis OSS engine version used by the cluster</p>
    * @public
    */
   EngineVersion?: string | undefined;
 
   /**
-   * <p>The engine patch version used by the cluster</p>
+   * <p>The Redis OSS engine patch version used by the cluster</p>
    * @public
    */
   EnginePatchVersion?: string | undefined;
@@ -779,13 +784,13 @@ export interface ClusterConfiguration {
   NodeType?: string | undefined;
 
   /**
-   * <p>The configuration for the Redis OSS or Valkey engine used by the cluster.</p>
+   * <p>The name of the engine used by the cluster configuration.</p>
    * @public
    */
   Engine?: string | undefined;
 
   /**
-   * <p>The engine version used by the cluster</p>
+   * <p>The Redis OSS engine version used by the cluster</p>
    * @public
    */
   EngineVersion?: string | undefined;
@@ -849,6 +854,18 @@ export interface ClusterConfiguration {
    * @public
    */
   Shards?: ShardDetail[] | undefined;
+
+  /**
+   * <p>The name of the multi-Region parameter group associated with the cluster configuration.</p>
+   * @public
+   */
+  MultiRegionParameterGroupName?: string | undefined;
+
+  /**
+   * <p>The name for the multi-Region cluster associated with the cluster configuration.</p>
+   * @public
+   */
+  MultiRegionClusterName?: string | undefined;
 }
 
 /**
@@ -1202,6 +1219,12 @@ export interface CreateClusterRequest {
   NodeType: string | undefined;
 
   /**
+   * <p>The name of the multi-Region cluster to be created.</p>
+   * @public
+   */
+  MultiRegionClusterName?: string | undefined;
+
+  /**
    * <p>The name of the parameter group associated with the cluster.</p>
    * @public
    */
@@ -1349,13 +1372,13 @@ export interface CreateClusterRequest {
   ACLName: string | undefined;
 
   /**
-   * <p>The name of the engine to be used for the nodes in this cluster. The value must be set to either Redis or Valkey.</p>
+   * <p>The name of the engine to be used for the cluster.</p>
    * @public
    */
   Engine?: string | undefined;
 
   /**
-   * <p>The version number of the engine to be used for the cluster.</p>
+   * <p>The version number of the Redis OSS engine to be used for the cluster.</p>
    * @public
    */
   EngineVersion?: string | undefined;
@@ -1446,6 +1469,26 @@ export class InvalidCredentialsException extends __BaseException {
 }
 
 /**
+ * <p>The requested operation cannot be performed on the multi-Region cluster in its current state.</p>
+ * @public
+ */
+export class InvalidMultiRegionClusterStateFault extends __BaseException {
+  readonly name: "InvalidMultiRegionClusterStateFault" = "InvalidMultiRegionClusterStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidMultiRegionClusterStateFault, __BaseException>) {
+    super({
+      name: "InvalidMultiRegionClusterStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidMultiRegionClusterStateFault.prototype);
+  }
+}
+
+/**
  * <p></p>
  * @public
  */
@@ -1462,6 +1505,26 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidVPCNetworkStateFault.prototype);
+  }
+}
+
+/**
+ * <p>The specified multi-Region cluster does not exist.</p>
+ * @public
+ */
+export class MultiRegionClusterNotFoundFault extends __BaseException {
+  readonly name: "MultiRegionClusterNotFoundFault" = "MultiRegionClusterNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MultiRegionClusterNotFoundFault, __BaseException>) {
+    super({
+      name: "MultiRegionClusterNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MultiRegionClusterNotFoundFault.prototype);
   }
 }
 
@@ -1562,6 +1625,218 @@ export class SubnetGroupNotFoundFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, SubnetGroupNotFoundFault.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateMultiRegionClusterRequest {
+  /**
+   * <p>A suffix to be added to the multi-Region cluster name.</p>
+   * @public
+   */
+  MultiRegionClusterNameSuffix: string | undefined;
+
+  /**
+   * <p>A description for the multi-Region cluster.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The name of the engine to be used for the multi-Region cluster.</p>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>The version of the engine to be used for the multi-Region cluster.</p>
+   * @public
+   */
+  EngineVersion?: string | undefined;
+
+  /**
+   * <p>The node type to be used for the multi-Region cluster.</p>
+   * @public
+   */
+  NodeType: string | undefined;
+
+  /**
+   * <p>The name of the multi-Region parameter group to be associated with the cluster.</p>
+   * @public
+   */
+  MultiRegionParameterGroupName?: string | undefined;
+
+  /**
+   * <p>The number of shards for the multi-Region cluster.</p>
+   * @public
+   */
+  NumShards?: number | undefined;
+
+  /**
+   * <p>Whether to enable TLS encryption for the multi-Region cluster.</p>
+   * @public
+   */
+  TLSEnabled?: boolean | undefined;
+
+  /**
+   * <p>A list of tags to be applied to the multi-Region cluster.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Represents a Regional cluster</p>
+ * @public
+ */
+export interface RegionalCluster {
+  /**
+   * <p>The name of the Regional cluster</p>
+   * @public
+   */
+  ClusterName?: string | undefined;
+
+  /**
+   * <p>The Region the current Regional cluster is assigned to.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The status of the Regional cluster.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) the Regional cluster</p>
+   * @public
+   */
+  ARN?: string | undefined;
+}
+
+/**
+ * <p>Represents a multi-Region cluster.</p>
+ * @public
+ */
+export interface MultiRegionCluster {
+  /**
+   * <p>The name of the multi-Region cluster.</p>
+   * @public
+   */
+  MultiRegionClusterName?: string | undefined;
+
+  /**
+   * <p>The description of the multi-Region cluster.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The current status of the multi-Region cluster.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The node type used by the multi-Region cluster.</p>
+   * @public
+   */
+  NodeType?: string | undefined;
+
+  /**
+   * <p>The name of the engine used by the multi-Region cluster.</p>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>The version of the engine used by the multi-Region cluster.</p>
+   * @public
+   */
+  EngineVersion?: string | undefined;
+
+  /**
+   * <p>The number of shards in the multi-Region cluster.</p>
+   * @public
+   */
+  NumberOfShards?: number | undefined;
+
+  /**
+   * <p>The clusters in this multi-Region cluster.</p>
+   * @public
+   */
+  Clusters?: RegionalCluster[] | undefined;
+
+  /**
+   * <p>The name of the multi-Region parameter group associated with the cluster.</p>
+   * @public
+   */
+  MultiRegionParameterGroupName?: string | undefined;
+
+  /**
+   * <p>Indiciates if the multi-Region cluster is TLS enabled.</p>
+   * @public
+   */
+  TLSEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the multi-Region cluster.</p>
+   * @public
+   */
+  ARN?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMultiRegionClusterResponse {
+  /**
+   * <p>Details about the newly created multi-Region cluster.</p>
+   * @public
+   */
+  MultiRegionCluster?: MultiRegionCluster | undefined;
+}
+
+/**
+ * <p>A multi-Region cluster with the specified name already exists.</p>
+ * @public
+ */
+export class MultiRegionClusterAlreadyExistsFault extends __BaseException {
+  readonly name: "MultiRegionClusterAlreadyExistsFault" = "MultiRegionClusterAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MultiRegionClusterAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "MultiRegionClusterAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MultiRegionClusterAlreadyExistsFault.prototype);
+  }
+}
+
+/**
+ * <p>The specified multi-Region parameter group does not exist.</p>
+ * @public
+ */
+export class MultiRegionParameterGroupNotFoundFault extends __BaseException {
+  readonly name: "MultiRegionParameterGroupNotFoundFault" = "MultiRegionParameterGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MultiRegionParameterGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "MultiRegionParameterGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MultiRegionParameterGroupNotFoundFault.prototype);
   }
 }
 
@@ -1884,7 +2159,7 @@ export interface SubnetGroup {
  */
 export interface CreateSubnetGroupResponse {
   /**
-   * <p>The newly-created subnet group</p>
+   * <p>The newly-created subnet group.</p>
    * @public
    */
   SubnetGroup?: SubnetGroup | undefined;
@@ -2190,7 +2465,7 @@ export class UserQuotaExceededFault extends __BaseException {
  */
 export interface DeleteACLRequest {
   /**
-   * <p>The name of the Access Control List to delete</p>
+   * <p>The name of the Access Control List to delete.</p>
    * @public
    */
   ACLName: string | undefined;
@@ -2218,6 +2493,12 @@ export interface DeleteClusterRequest {
   ClusterName: string | undefined;
 
   /**
+   * <p>The name of the multi-Region cluster to be deleted.</p>
+   * @public
+   */
+  MultiRegionClusterName?: string | undefined;
+
+  /**
    * <p>The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.</p>
    * @public
    */
@@ -2229,10 +2510,32 @@ export interface DeleteClusterRequest {
  */
 export interface DeleteClusterResponse {
   /**
-   * <p>The cluster object that has been deleted</p>
+   * <p>The cluster object that has been deleted.</p>
    * @public
    */
   Cluster?: Cluster | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMultiRegionClusterRequest {
+  /**
+   * <p>The name of the multi-Region cluster to be deleted.</p>
+   * @public
+   */
+  MultiRegionClusterName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMultiRegionClusterResponse {
+  /**
+   * <p>Details about the deleted multi-Region cluster.</p>
+   * @public
+   */
+  MultiRegionCluster?: MultiRegionCluster | undefined;
 }
 
 /**
@@ -2262,7 +2565,7 @@ export interface DeleteParameterGroupResponse {
  */
 export interface DeleteSnapshotRequest {
   /**
-   * <p>The name of the snapshot to delete</p>
+   * <p>The name of the snapshot to delete.</p>
    * @public
    */
   SnapshotName: string | undefined;
@@ -2284,7 +2587,7 @@ export interface DeleteSnapshotResponse {
  */
 export interface DeleteSubnetGroupRequest {
   /**
-   * <p>The name of the subnet group to delete</p>
+   * <p>The name of the subnet group to delete.</p>
    * @public
    */
   SubnetGroupName: string | undefined;
@@ -2368,7 +2671,7 @@ export class InvalidUserStateFault extends __BaseException {
  */
 export interface DescribeACLsRequest {
   /**
-   * <p>The name of the ACL</p>
+   * <p>The name of the ACL.</p>
    * @public
    */
   ACLName?: string | undefined;
@@ -2391,7 +2694,7 @@ export interface DescribeACLsRequest {
  */
 export interface DescribeACLsResponse {
   /**
-   * <p>The list of ACLs</p>
+   * <p>The list of ACLs.</p>
    * @public
    */
   ACLs?: ACL[] | undefined;
@@ -2408,7 +2711,7 @@ export interface DescribeACLsResponse {
  */
 export interface DescribeClustersRequest {
   /**
-   * <p>The name of the cluster</p>
+   * <p>The name of the cluster.</p>
    * @public
    */
   ClusterName?: string | undefined;
@@ -2454,13 +2757,13 @@ export interface DescribeClustersResponse {
  */
 export interface DescribeEngineVersionsRequest {
   /**
-   * <p>The engine version to return. Valid values are either valkey or redis.</p>
+   * <p>The name of the engine for which to list available versions.</p>
    * @public
    */
   Engine?: string | undefined;
 
   /**
-   * <p>The engine version.</p>
+   * <p>The Redis OSS engine version</p>
    * @public
    */
   EngineVersion?: string | undefined;
@@ -2491,12 +2794,12 @@ export interface DescribeEngineVersionsRequest {
 }
 
 /**
- * <p>Provides details of the engine version.</p>
+ * <p>Provides details of the Redis OSS engine version</p>
  * @public
  */
 export interface EngineVersionInfo {
   /**
-   * <p>The version of the Redis OSS or Valkey engine used by the cluster.</p>
+   * <p>The name of the engine for which version information is provided.</p>
    * @public
    */
   Engine?: string | undefined;
@@ -2652,6 +2955,52 @@ export interface DescribeEventsResponse {
    * @public
    */
   Events?: Event[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeMultiRegionClustersRequest {
+  /**
+   * <p>The name of a specific multi-Region cluster to describe.</p>
+   * @public
+   */
+  MultiRegionClusterName?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token to specify where to start paginating.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Details about the multi-Region cluster.</p>
+   * @public
+   */
+  ShowClusterDetails?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeMultiRegionClustersResponse {
+  /**
+   * <p>A token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of multi-Region clusters.</p>
+   * @public
+   */
+  MultiRegionClusters?: MultiRegionCluster[] | undefined;
 }
 
 /**
@@ -3085,13 +3434,13 @@ export interface DescribeServiceUpdatesRequest {
   ServiceUpdateName?: string | undefined;
 
   /**
-   * <p>The list of cluster names to identify service updates to apply</p>
+   * <p>The list of cluster names to identify service updates to apply.</p>
    * @public
    */
   ClusterNames?: string[] | undefined;
 
   /**
-   * <p>The status(es) of the service updates to filter on</p>
+   * <p>The status(es) of the service updates to filter on.</p>
    * @public
    */
   Status?: ServiceUpdateStatus[] | undefined;
@@ -3164,7 +3513,7 @@ export interface ServiceUpdate {
   Type?: ServiceUpdateType | undefined;
 
   /**
-   * <p>The MemoryDB engine to which the update applies. The values are either Redis or Valkey.</p>
+   * <p>The name of the engine for which a service update is available.</p>
    * @public
    */
   Engine?: string | undefined;
@@ -3320,7 +3669,7 @@ export interface Filter {
  */
 export interface DescribeUsersRequest {
   /**
-   * <p>The name of the user</p>
+   * <p>The name of the user.</p>
    * @public
    */
   UserName?: string | undefined;
@@ -3386,13 +3735,13 @@ export class APICallRateForCustomerExceededFault extends __BaseException {
  */
 export interface FailoverShardRequest {
   /**
-   * <p>The cluster being failed over</p>
+   * <p>The cluster being failed over.</p>
    * @public
    */
   ClusterName: string | undefined;
 
   /**
-   * <p>The name of the shard</p>
+   * <p>The name of the shard.</p>
    * @public
    */
   ShardName: string | undefined;
@@ -3403,7 +3752,7 @@ export interface FailoverShardRequest {
  */
 export interface FailoverShardResponse {
   /**
-   * <p>The cluster being failed over</p>
+   * <p>The cluster being failed over.</p>
    * @public
    */
   Cluster?: Cluster | undefined;
@@ -3472,6 +3821,34 @@ export class TestFailoverNotAvailableFault extends __BaseException {
 /**
  * @public
  */
+export interface ListAllowedMultiRegionClusterUpdatesRequest {
+  /**
+   * <p>The name of the multi-Region cluster.</p>
+   * @public
+   */
+  MultiRegionClusterName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAllowedMultiRegionClusterUpdatesResponse {
+  /**
+   * <p>The node types that the cluster can be scaled up to.</p>
+   * @public
+   */
+  ScaleUpNodeTypes?: string[] | undefined;
+
+  /**
+   * <p>The node types that the cluster can be scaled down to.</p>
+   * @public
+   */
+  ScaleDownNodeTypes?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListAllowedNodeTypeUpdatesRequest {
   /**
    * <p>The name of the cluster you want to scale. MemoryDB uses the cluster name to identify the current node type being used by this cluster, and from that to create a list of node types
@@ -3523,7 +3900,7 @@ export class InvalidARNFault extends __BaseException {
  */
 export interface ListTagsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which you want the list of tags</p>
+   * <p>The Amazon Resource Name (ARN) of the resource for which you want the list of tags.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -3659,7 +4036,7 @@ export interface ResetParameterGroupResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to which the tags are to be added</p>
+   * <p>The Amazon Resource Name (ARN) of the resource to which the tags are to be added.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -3707,13 +4084,13 @@ export class TagNotFoundFault extends __BaseException {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to which the tags are to be removed</p>
+   * <p>The Amazon Resource Name (ARN) of the resource to which the tags are to be removed.</p>
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The list of keys of the tags that are to be removed</p>
+   * <p>The list of keys of the tags that are to be removed.</p>
    * @public
    */
   TagKeys: string[] | undefined;
@@ -3724,7 +4101,7 @@ export interface UntagResourceRequest {
  */
 export interface UntagResourceResponse {
   /**
-   * <p>The list of tags removed</p>
+   * <p>The list of tags removed.</p>
    * @public
    */
   TagList?: Tag[] | undefined;
@@ -3735,19 +4112,19 @@ export interface UntagResourceResponse {
  */
 export interface UpdateACLRequest {
   /**
-   * <p>The name of the Access Control List</p>
+   * <p>The name of the Access Control List.</p>
    * @public
    */
   ACLName: string | undefined;
 
   /**
-   * <p>The list of users to add to the Access Control List</p>
+   * <p>The list of users to add to the Access Control List.</p>
    * @public
    */
   UserNamesToAdd?: string[] | undefined;
 
   /**
-   * <p>The list of users to remove from the Access Control List</p>
+   * <p>The list of users to remove from the Access Control List.</p>
    * @public
    */
   UserNamesToRemove?: string[] | undefined;
@@ -3758,7 +4135,7 @@ export interface UpdateACLRequest {
  */
 export interface UpdateACLResponse {
   /**
-   * <p>The updated Access Control List</p>
+   * <p>The updated Access Control List.</p>
    * @public
    */
   ACL?: ACL | undefined;
@@ -3833,19 +4210,19 @@ export interface ShardConfigurationRequest {
  */
 export interface UpdateClusterRequest {
   /**
-   * <p>The name of the cluster to update</p>
+   * <p>The name of the cluster to update.</p>
    * @public
    */
   ClusterName: string | undefined;
 
   /**
-   * <p>The description of the cluster to update</p>
+   * <p>The description of the cluster to update.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The SecurityGroupIds to update</p>
+   * <p>The SecurityGroupIds to update.</p>
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
@@ -3900,7 +4277,7 @@ export interface UpdateClusterRequest {
   MaintenanceWindow?: string | undefined;
 
   /**
-   * <p>The SNS topic ARN to update</p>
+   * <p>The SNS topic ARN to update.</p>
    * @public
    */
   SnsTopicArn?: string | undefined;
@@ -3912,7 +4289,7 @@ export interface UpdateClusterRequest {
   SnsTopicStatus?: string | undefined;
 
   /**
-   * <p>The name of the parameter group to update</p>
+   * <p>The name of the parameter group to update.</p>
    * @public
    */
   ParameterGroupName?: string | undefined;
@@ -3936,7 +4313,7 @@ export interface UpdateClusterRequest {
   NodeType?: string | undefined;
 
   /**
-   * <p>The name of the engine to be used for the nodes in this cluster. The value must be set to either Redis or Valkey.</p>
+   * <p>The name of the engine to be used for the cluster.</p>
    * @public
    */
   Engine?: string | undefined;
@@ -3948,19 +4325,19 @@ export interface UpdateClusterRequest {
   EngineVersion?: string | undefined;
 
   /**
-   * <p>The number of replicas that will reside in each shard</p>
+   * <p>The number of replicas that will reside in each shard.</p>
    * @public
    */
   ReplicaConfiguration?: ReplicaConfigurationRequest | undefined;
 
   /**
-   * <p>The number of shards in the cluster</p>
+   * <p>The number of shards in the cluster.</p>
    * @public
    */
   ShardConfiguration?: ShardConfigurationRequest | undefined;
 
   /**
-   * <p>The Access Control List that is associated with the cluster</p>
+   * <p>The Access Control List that is associated with the cluster.</p>
    * @public
    */
   ACLName?: string | undefined;
@@ -3971,10 +4348,82 @@ export interface UpdateClusterRequest {
  */
 export interface UpdateClusterResponse {
   /**
-   * <p>The updated cluster</p>
+   * <p>The updated cluster.</p>
    * @public
    */
   Cluster?: Cluster | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateStrategy = {
+  COORDINATED: "coordinated",
+  UNCOORDINATED: "uncoordinated",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateStrategy = (typeof UpdateStrategy)[keyof typeof UpdateStrategy];
+
+/**
+ * @public
+ */
+export interface UpdateMultiRegionClusterRequest {
+  /**
+   * <p>The name of the multi-Region cluster to be updated.</p>
+   * @public
+   */
+  MultiRegionClusterName: string | undefined;
+
+  /**
+   * <p>The new node type to be used for the multi-Region cluster.</p>
+   * @public
+   */
+  NodeType?: string | undefined;
+
+  /**
+   * <p>A new description for the multi-Region cluster.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The new engine version to be used for the multi-Region cluster.</p>
+   * @public
+   */
+  EngineVersion?: string | undefined;
+
+  /**
+   * <p>A request to configure the sharding properties of a cluster</p>
+   * @public
+   */
+  ShardConfiguration?: ShardConfigurationRequest | undefined;
+
+  /**
+   * <p>The new multi-Region parameter group to be associated with the cluster.</p>
+   * @public
+   */
+  MultiRegionParameterGroupName?: string | undefined;
+
+  /**
+   * <p>Whether to force the update even if it may cause data loss.</p>
+   * @public
+   */
+  UpdateStrategy?: UpdateStrategy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMultiRegionClusterResponse {
+  /**
+   * <p>The status of updating the multi-Region cluster.</p>
+   * @public
+   */
+  MultiRegionCluster?: MultiRegionCluster | undefined;
 }
 
 /**

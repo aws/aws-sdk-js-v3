@@ -81,6 +81,8 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  * //             SnapshotCreationTime: new Date("TIMESTAMP"),
  * //           },
  * //         ],
+ * //         MultiRegionParameterGroupName: "STRING_VALUE",
+ * //         MultiRegionClusterName: "STRING_VALUE",
  * //       },
  * //       DataTiering: "true" || "false",
  * //     },

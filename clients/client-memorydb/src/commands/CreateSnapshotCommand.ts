@@ -81,6 +81,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * //           SnapshotCreationTime: new Date("TIMESTAMP"),
  * //         },
  * //       ],
+ * //       MultiRegionParameterGroupName: "STRING_VALUE",
+ * //       MultiRegionClusterName: "STRING_VALUE",
  * //     },
  * //     DataTiering: "true" || "false",
  * //   },

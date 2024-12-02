@@ -67,6 +67,7 @@ export interface BatchUpdateClusterCommandOutput extends BatchUpdateClusterRespo
  * //           },
  * //         ],
  * //       },
+ * //       MultiRegionClusterName: "STRING_VALUE",
  * //       NumberOfShards: Number("int"),
  * //       Shards: [ // ShardList
  * //         { // Shard

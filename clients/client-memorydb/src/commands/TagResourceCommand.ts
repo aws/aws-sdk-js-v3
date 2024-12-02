@@ -84,6 +84,15 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link InvalidClusterStateFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link MultiRegionClusterNotFoundFault} (client fault)
+ *  <p>The specified multi-Region cluster does not exist.</p>
+ *
+ * @throws {@link MultiRegionParameterGroupNotFoundFault} (client fault)
+ *  <p>The specified multi-Region parameter group does not exist.</p>
+ *
  * @throws {@link ParameterGroupNotFoundFault} (client fault)
  *  <p></p>
  *

@@ -38,6 +38,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * const input = { // CreateClusterRequest
  *   ClusterName: "STRING_VALUE", // required
  *   NodeType: "STRING_VALUE", // required
+ *   MultiRegionClusterName: "STRING_VALUE",
  *   ParameterGroupName: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   NumShards: Number("int"),
@@ -92,6 +93,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //         },
  * //       ],
  * //     },
+ * //     MultiRegionClusterName: "STRING_VALUE",
  * //     NumberOfShards: Number("int"),
  * //     Shards: [ // ShardList
  * //       { // Shard
@@ -171,6 +173,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link InvalidCredentialsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link InvalidMultiRegionClusterStateFault} (client fault)
+ *  <p>The requested operation cannot be performed on the multi-Region cluster in its current state.</p>
+ *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p></p>
  *
@@ -179,6 +184,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
  *  <p></p>
+ *
+ * @throws {@link MultiRegionClusterNotFoundFault} (client fault)
+ *  <p>The specified multi-Region cluster does not exist.</p>
  *
  * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
  *  <p></p>

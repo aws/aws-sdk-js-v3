@@ -82,6 +82,8 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __Metad
  * //           SnapshotCreationTime: new Date("TIMESTAMP"),
  * //         },
  * //       ],
+ * //       MultiRegionParameterGroupName: "STRING_VALUE",
+ * //       MultiRegionClusterName: "STRING_VALUE",
  * //     },
  * //     DataTiering: "true" || "false",
  * //   },

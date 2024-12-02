@@ -58,6 +58,10 @@ import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/
 import { CreateACLCommandInput, CreateACLCommandOutput } from "./commands/CreateACLCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import {
+  CreateMultiRegionClusterCommandInput,
+  CreateMultiRegionClusterCommandOutput,
+} from "./commands/CreateMultiRegionClusterCommand";
+import {
   CreateParameterGroupCommandInput,
   CreateParameterGroupCommandOutput,
 } from "./commands/CreateParameterGroupCommand";
@@ -66,6 +70,10 @@ import { CreateSubnetGroupCommandInput, CreateSubnetGroupCommandOutput } from ".
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import { DeleteACLCommandInput, DeleteACLCommandOutput } from "./commands/DeleteACLCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
+import {
+  DeleteMultiRegionClusterCommandInput,
+  DeleteMultiRegionClusterCommandOutput,
+} from "./commands/DeleteMultiRegionClusterCommand";
 import {
   DeleteParameterGroupCommandInput,
   DeleteParameterGroupCommandOutput,
@@ -80,6 +88,10 @@ import {
   DescribeEngineVersionsCommandOutput,
 } from "./commands/DescribeEngineVersionsCommand";
 import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
+import {
+  DescribeMultiRegionClustersCommandInput,
+  DescribeMultiRegionClustersCommandOutput,
+} from "./commands/DescribeMultiRegionClustersCommand";
 import {
   DescribeParameterGroupsCommandInput,
   DescribeParameterGroupsCommandOutput,
@@ -105,6 +117,10 @@ import {
 import { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "./commands/DescribeUsersCommand";
 import { FailoverShardCommandInput, FailoverShardCommandOutput } from "./commands/FailoverShardCommand";
 import {
+  ListAllowedMultiRegionClusterUpdatesCommandInput,
+  ListAllowedMultiRegionClusterUpdatesCommandOutput,
+} from "./commands/ListAllowedMultiRegionClusterUpdatesCommand";
+import {
   ListAllowedNodeTypeUpdatesCommandInput,
   ListAllowedNodeTypeUpdatesCommandOutput,
 } from "./commands/ListAllowedNodeTypeUpdatesCommand";
@@ -121,6 +137,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateACLCommandInput, UpdateACLCommandOutput } from "./commands/UpdateACLCommand";
 import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
+import {
+  UpdateMultiRegionClusterCommandInput,
+  UpdateMultiRegionClusterCommandOutput,
+} from "./commands/UpdateMultiRegionClusterCommand";
 import {
   UpdateParameterGroupCommandInput,
   UpdateParameterGroupCommandOutput,
@@ -146,12 +166,14 @@ export type ServiceInputTypes =
   | CopySnapshotCommandInput
   | CreateACLCommandInput
   | CreateClusterCommandInput
+  | CreateMultiRegionClusterCommandInput
   | CreateParameterGroupCommandInput
   | CreateSnapshotCommandInput
   | CreateSubnetGroupCommandInput
   | CreateUserCommandInput
   | DeleteACLCommandInput
   | DeleteClusterCommandInput
+  | DeleteMultiRegionClusterCommandInput
   | DeleteParameterGroupCommandInput
   | DeleteSnapshotCommandInput
   | DeleteSubnetGroupCommandInput
@@ -160,6 +182,7 @@ export type ServiceInputTypes =
   | DescribeClustersCommandInput
   | DescribeEngineVersionsCommandInput
   | DescribeEventsCommandInput
+  | DescribeMultiRegionClustersCommandInput
   | DescribeParameterGroupsCommandInput
   | DescribeParametersCommandInput
   | DescribeReservedNodesCommandInput
@@ -169,6 +192,7 @@ export type ServiceInputTypes =
   | DescribeSubnetGroupsCommandInput
   | DescribeUsersCommandInput
   | FailoverShardCommandInput
+  | ListAllowedMultiRegionClusterUpdatesCommandInput
   | ListAllowedNodeTypeUpdatesCommandInput
   | ListTagsCommandInput
   | PurchaseReservedNodesOfferingCommandInput
@@ -177,6 +201,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateACLCommandInput
   | UpdateClusterCommandInput
+  | UpdateMultiRegionClusterCommandInput
   | UpdateParameterGroupCommandInput
   | UpdateSubnetGroupCommandInput
   | UpdateUserCommandInput;
@@ -189,12 +214,14 @@ export type ServiceOutputTypes =
   | CopySnapshotCommandOutput
   | CreateACLCommandOutput
   | CreateClusterCommandOutput
+  | CreateMultiRegionClusterCommandOutput
   | CreateParameterGroupCommandOutput
   | CreateSnapshotCommandOutput
   | CreateSubnetGroupCommandOutput
   | CreateUserCommandOutput
   | DeleteACLCommandOutput
   | DeleteClusterCommandOutput
+  | DeleteMultiRegionClusterCommandOutput
   | DeleteParameterGroupCommandOutput
   | DeleteSnapshotCommandOutput
   | DeleteSubnetGroupCommandOutput
@@ -203,6 +230,7 @@ export type ServiceOutputTypes =
   | DescribeClustersCommandOutput
   | DescribeEngineVersionsCommandOutput
   | DescribeEventsCommandOutput
+  | DescribeMultiRegionClustersCommandOutput
   | DescribeParameterGroupsCommandOutput
   | DescribeParametersCommandOutput
   | DescribeReservedNodesCommandOutput
@@ -212,6 +240,7 @@ export type ServiceOutputTypes =
   | DescribeSubnetGroupsCommandOutput
   | DescribeUsersCommandOutput
   | FailoverShardCommandOutput
+  | ListAllowedMultiRegionClusterUpdatesCommandOutput
   | ListAllowedNodeTypeUpdatesCommandOutput
   | ListTagsCommandOutput
   | PurchaseReservedNodesOfferingCommandOutput
@@ -220,6 +249,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateACLCommandOutput
   | UpdateClusterCommandOutput
+  | UpdateMultiRegionClusterCommandOutput
   | UpdateParameterGroupCommandOutput
   | UpdateSubnetGroupCommandOutput
   | UpdateUserCommandOutput;
@@ -396,9 +426,9 @@ export type MemoryDBClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface MemoryDBClientResolvedConfig extends MemoryDBClientResolvedConfigType {}
 
 /**
- * <p>MemoryDB for Redis is a fully managed, Redis-compatible, in-memory database that delivers ultra-fast performance and Multi-AZ durability for modern applications built using microservices architectures.
+ * <p>MemoryDB is a fully managed, Redis OSS-compatible, in-memory database that delivers ultra-fast performance and Multi-AZ durability for modern applications built using microservices architectures.
  *
- *        MemoryDB stores the entire database in-memory, enabling low latency and high throughput data access. It is compatible with Redis, a popular open source data store, enabling you to leverage Redis’ flexible and friendly data structures, APIs, and commands.</p>
+ *        MemoryDB stores the entire database in-memory, enabling low latency and high throughput data access. It is compatible with Redis OSS, a popular open source data store, enabling you to leverage Redis OSS’ flexible and friendly data structures, APIs, and commands.</p>
  * @public
  */
 export class MemoryDBClient extends __Client<

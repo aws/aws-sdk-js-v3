@@ -27,6 +27,10 @@ import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "../commands
 import { CreateACLCommandInput, CreateACLCommandOutput } from "../commands/CreateACLCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "../commands/CreateClusterCommand";
 import {
+  CreateMultiRegionClusterCommandInput,
+  CreateMultiRegionClusterCommandOutput,
+} from "../commands/CreateMultiRegionClusterCommand";
+import {
   CreateParameterGroupCommandInput,
   CreateParameterGroupCommandOutput,
 } from "../commands/CreateParameterGroupCommand";
@@ -35,6 +39,10 @@ import { CreateSubnetGroupCommandInput, CreateSubnetGroupCommandOutput } from ".
 import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
 import { DeleteACLCommandInput, DeleteACLCommandOutput } from "../commands/DeleteACLCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "../commands/DeleteClusterCommand";
+import {
+  DeleteMultiRegionClusterCommandInput,
+  DeleteMultiRegionClusterCommandOutput,
+} from "../commands/DeleteMultiRegionClusterCommand";
 import {
   DeleteParameterGroupCommandInput,
   DeleteParameterGroupCommandOutput,
@@ -49,6 +57,10 @@ import {
   DescribeEngineVersionsCommandOutput,
 } from "../commands/DescribeEngineVersionsCommand";
 import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "../commands/DescribeEventsCommand";
+import {
+  DescribeMultiRegionClustersCommandInput,
+  DescribeMultiRegionClustersCommandOutput,
+} from "../commands/DescribeMultiRegionClustersCommand";
 import {
   DescribeParameterGroupsCommandInput,
   DescribeParameterGroupsCommandOutput,
@@ -74,6 +86,10 @@ import {
 import { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "../commands/DescribeUsersCommand";
 import { FailoverShardCommandInput, FailoverShardCommandOutput } from "../commands/FailoverShardCommand";
 import {
+  ListAllowedMultiRegionClusterUpdatesCommandInput,
+  ListAllowedMultiRegionClusterUpdatesCommandOutput,
+} from "../commands/ListAllowedMultiRegionClusterUpdatesCommand";
+import {
   ListAllowedNodeTypeUpdatesCommandInput,
   ListAllowedNodeTypeUpdatesCommandOutput,
 } from "../commands/ListAllowedNodeTypeUpdatesCommand";
@@ -90,6 +106,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateACLCommandInput, UpdateACLCommandOutput } from "../commands/UpdateACLCommand";
 import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "../commands/UpdateClusterCommand";
+import {
+  UpdateMultiRegionClusterCommandInput,
+  UpdateMultiRegionClusterCommandOutput,
+} from "../commands/UpdateMultiRegionClusterCommand";
 import {
   UpdateParameterGroupCommandInput,
   UpdateParameterGroupCommandOutput,
@@ -116,6 +136,7 @@ import {
   CreateACLRequest,
   CreateClusterRequest,
   CreateClusterResponse,
+  CreateMultiRegionClusterRequest,
   CreateParameterGroupRequest,
   CreateSnapshotRequest,
   CreateSnapshotResponse,
@@ -125,6 +146,7 @@ import {
   DeleteACLRequest,
   DeleteClusterRequest,
   DeleteClusterResponse,
+  DeleteMultiRegionClusterRequest,
   DeleteParameterGroupRequest,
   DeleteSnapshotRequest,
   DeleteSnapshotResponse,
@@ -136,6 +158,7 @@ import {
   DescribeEngineVersionsRequest,
   DescribeEventsRequest,
   DescribeEventsResponse,
+  DescribeMultiRegionClustersRequest,
   DescribeParameterGroupsRequest,
   DescribeParametersRequest,
   DescribeReservedNodesOfferingsRequest,
@@ -159,6 +182,7 @@ import {
   InvalidClusterStateFault,
   InvalidCredentialsException,
   InvalidKMSKeyFault,
+  InvalidMultiRegionClusterStateFault,
   InvalidNodeStateFault,
   InvalidParameterCombinationException,
   InvalidParameterGroupStateFault,
@@ -167,8 +191,12 @@ import {
   InvalidSubnet,
   InvalidUserStateFault,
   InvalidVPCNetworkStateFault,
+  ListAllowedMultiRegionClusterUpdatesRequest,
   ListAllowedNodeTypeUpdatesRequest,
   ListTagsRequest,
+  MultiRegionClusterAlreadyExistsFault,
+  MultiRegionClusterNotFoundFault,
+  MultiRegionParameterGroupNotFoundFault,
   Node,
   NodeQuotaForClusterExceededFault,
   NodeQuotaForCustomerExceededFault,
@@ -220,6 +248,7 @@ import {
   UpdateACLRequest,
   UpdateClusterRequest,
   UpdateClusterResponse,
+  UpdateMultiRegionClusterRequest,
   UpdateParameterGroupRequest,
   UpdateSubnetGroupRequest,
   UpdateUserRequest,
@@ -275,6 +304,19 @@ export const se_CreateClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateCluster");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateMultiRegionClusterCommand
+ */
+export const se_CreateMultiRegionClusterCommand = async (
+  input: CreateMultiRegionClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateMultiRegionCluster");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -353,6 +395,19 @@ export const se_DeleteClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteCluster");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteMultiRegionClusterCommand
+ */
+export const se_DeleteMultiRegionClusterCommand = async (
+  input: DeleteMultiRegionClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteMultiRegionCluster");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -459,6 +514,19 @@ export const se_DescribeEventsCommand = async (
   const headers: __HeaderBag = sharedHeaders("DescribeEvents");
   let body: any;
   body = JSON.stringify(se_DescribeEventsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeMultiRegionClustersCommand
+ */
+export const se_DescribeMultiRegionClustersCommand = async (
+  input: DescribeMultiRegionClustersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeMultiRegionClusters");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -580,6 +648,19 @@ export const se_FailoverShardCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListAllowedMultiRegionClusterUpdatesCommand
+ */
+export const se_ListAllowedMultiRegionClusterUpdatesCommand = async (
+  input: ListAllowedMultiRegionClusterUpdatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListAllowedMultiRegionClusterUpdates");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListAllowedNodeTypeUpdatesCommand
  */
 export const se_ListAllowedNodeTypeUpdatesCommand = async (
@@ -678,6 +759,19 @@ export const se_UpdateClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateCluster");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateMultiRegionClusterCommand
+ */
+export const se_UpdateMultiRegionClusterCommand = async (
+  input: UpdateMultiRegionClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateMultiRegionCluster");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -803,6 +897,26 @@ export const de_CreateClusterCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateMultiRegionClusterCommand
+ */
+export const de_CreateMultiRegionClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMultiRegionClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateMultiRegionClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1CreateParameterGroupCommand
  */
 export const de_CreateParameterGroupCommand = async (
@@ -916,6 +1030,26 @@ export const de_DeleteClusterCommand = async (
   let contents: any = {};
   contents = de_DeleteClusterResponse(data, context);
   const response: DeleteClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteMultiRegionClusterCommand
+ */
+export const de_DeleteMultiRegionClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMultiRegionClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteMultiRegionClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1076,6 +1210,26 @@ export const de_DescribeEventsCommand = async (
   let contents: any = {};
   contents = de_DescribeEventsResponse(data, context);
   const response: DescribeEventsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMultiRegionClustersCommand
+ */
+export const de_DescribeMultiRegionClustersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMultiRegionClustersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeMultiRegionClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1263,6 +1417,26 @@ export const de_FailoverShardCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListAllowedMultiRegionClusterUpdatesCommand
+ */
+export const de_ListAllowedMultiRegionClusterUpdatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAllowedMultiRegionClusterUpdatesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListAllowedMultiRegionClusterUpdatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListAllowedNodeTypeUpdatesCommand
  */
 export const de_ListAllowedNodeTypeUpdatesCommand = async (
@@ -1423,6 +1597,26 @@ export const de_UpdateClusterCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateMultiRegionClusterCommand
+ */
+export const de_UpdateMultiRegionClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMultiRegionClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateMultiRegionClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1UpdateParameterGroupCommand
  */
 export const de_UpdateParameterGroupCommand = async (
@@ -1552,9 +1746,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidCredentialsException":
     case "com.amazonaws.memorydb#InvalidCredentialsException":
       throw await de_InvalidCredentialsExceptionRes(parsedOutput, context);
+    case "InvalidMultiRegionClusterStateFault":
+    case "com.amazonaws.memorydb#InvalidMultiRegionClusterStateFault":
+      throw await de_InvalidMultiRegionClusterStateFaultRes(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.memorydb#InvalidVPCNetworkStateFault":
       throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
+    case "MultiRegionClusterNotFoundFault":
+    case "com.amazonaws.memorydb#MultiRegionClusterNotFoundFault":
+      throw await de_MultiRegionClusterNotFoundFaultRes(parsedOutput, context);
     case "NodeQuotaForClusterExceededFault":
     case "com.amazonaws.memorydb#NodeQuotaForClusterExceededFault":
       throw await de_NodeQuotaForClusterExceededFaultRes(parsedOutput, context);
@@ -1570,6 +1770,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "SubnetGroupNotFoundFault":
     case "com.amazonaws.memorydb#SubnetGroupNotFoundFault":
       throw await de_SubnetGroupNotFoundFaultRes(parsedOutput, context);
+    case "MultiRegionClusterAlreadyExistsFault":
+    case "com.amazonaws.memorydb#MultiRegionClusterAlreadyExistsFault":
+      throw await de_MultiRegionClusterAlreadyExistsFaultRes(parsedOutput, context);
+    case "MultiRegionParameterGroupNotFoundFault":
+    case "com.amazonaws.memorydb#MultiRegionParameterGroupNotFoundFault":
+      throw await de_MultiRegionParameterGroupNotFoundFaultRes(parsedOutput, context);
     case "InvalidParameterGroupStateFault":
     case "com.amazonaws.memorydb#InvalidParameterGroupStateFault":
       throw await de_InvalidParameterGroupStateFaultRes(parsedOutput, context);
@@ -1890,6 +2096,22 @@ const de_InvalidKMSKeyFaultRes = async (parsedOutput: any, context: __SerdeConte
 };
 
 /**
+ * deserializeAws_json1_1InvalidMultiRegionClusterStateFaultRes
+ */
+const de_InvalidMultiRegionClusterStateFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidMultiRegionClusterStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new InvalidMultiRegionClusterStateFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1InvalidNodeStateFaultRes
  */
 const de_InvalidNodeStateFaultRes = async (
@@ -2008,6 +2230,54 @@ const de_InvalidVPCNetworkStateFaultRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new InvalidVPCNetworkStateFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1MultiRegionClusterAlreadyExistsFaultRes
+ */
+const de_MultiRegionClusterAlreadyExistsFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MultiRegionClusterAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new MultiRegionClusterAlreadyExistsFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1MultiRegionClusterNotFoundFaultRes
+ */
+const de_MultiRegionClusterNotFoundFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MultiRegionClusterNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new MultiRegionClusterNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1MultiRegionParameterGroupNotFoundFaultRes
+ */
+const de_MultiRegionParameterGroupNotFoundFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MultiRegionParameterGroupNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new MultiRegionParameterGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2491,6 +2761,8 @@ const de_UserQuotaExceededFaultRes = async (
 
 // se_CreateClusterRequest omitted.
 
+// se_CreateMultiRegionClusterRequest omitted.
+
 // se_CreateParameterGroupRequest omitted.
 
 // se_CreateSnapshotRequest omitted.
@@ -2502,6 +2774,8 @@ const de_UserQuotaExceededFaultRes = async (
 // se_DeleteACLRequest omitted.
 
 // se_DeleteClusterRequest omitted.
+
+// se_DeleteMultiRegionClusterRequest omitted.
 
 // se_DeleteParameterGroupRequest omitted.
 
@@ -2532,6 +2806,8 @@ const se_DescribeEventsRequest = (input: DescribeEventsRequest, context: __Serde
   });
 };
 
+// se_DescribeMultiRegionClustersRequest omitted.
+
 // se_DescribeParameterGroupsRequest omitted.
 
 // se_DescribeParametersRequest omitted.
@@ -2557,6 +2833,8 @@ const se_DescribeEventsRequest = (input: DescribeEventsRequest, context: __Serde
 // se_FilterValueList omitted.
 
 // se_KeyList omitted.
+
+// se_ListAllowedMultiRegionClusterUpdatesRequest omitted.
 
 // se_ListAllowedNodeTypeUpdatesRequest omitted.
 
@@ -2599,6 +2877,8 @@ const se_DescribeEventsRequest = (input: DescribeEventsRequest, context: __Serde
 // se_UpdateACLRequest omitted.
 
 // se_UpdateClusterRequest omitted.
+
+// se_UpdateMultiRegionClusterRequest omitted.
 
 // se_UpdateParameterGroupRequest omitted.
 
@@ -2659,6 +2939,7 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     EngineVersion: __expectString,
     KmsKeyId: __expectString,
     MaintenanceWindow: __expectString,
+    MultiRegionClusterName: __expectString,
     Name: __expectString,
     NodeType: __expectString,
     NumberOfShards: __expectInt32,
@@ -2688,6 +2969,8 @@ const de_ClusterConfiguration = (output: any, context: __SerdeContext): ClusterC
     Engine: __expectString,
     EngineVersion: __expectString,
     MaintenanceWindow: __expectString,
+    MultiRegionClusterName: __expectString,
+    MultiRegionParameterGroupName: __expectString,
     Name: __expectString,
     NodeType: __expectString,
     NumShards: __expectInt32,
@@ -2749,6 +3032,8 @@ const de_CreateClusterResponse = (output: any, context: __SerdeContext): CreateC
   }) as any;
 };
 
+// de_CreateMultiRegionClusterResponse omitted.
+
 // de_CreateParameterGroupResponse omitted.
 
 /**
@@ -2776,6 +3061,8 @@ const de_DeleteClusterResponse = (output: any, context: __SerdeContext): DeleteC
     Cluster: (_: any) => de_Cluster(_, context),
   }) as any;
 };
+
+// de_DeleteMultiRegionClusterResponse omitted.
 
 // de_DeleteParameterGroupResponse omitted.
 
@@ -2815,6 +3102,8 @@ const de_DescribeEventsResponse = (output: any, context: __SerdeContext): Descri
     NextToken: __expectString,
   }) as any;
 };
+
+// de_DescribeMultiRegionClustersResponse omitted.
 
 // de_DescribeParameterGroupsResponse omitted.
 
@@ -2920,6 +3209,8 @@ const de_FailoverShardResponse = (output: any, context: __SerdeContext): Failove
 
 // de_InvalidKMSKeyFault omitted.
 
+// de_InvalidMultiRegionClusterStateFault omitted.
+
 // de_InvalidNodeStateFault omitted.
 
 // de_InvalidParameterCombinationException omitted.
@@ -2936,9 +3227,21 @@ const de_FailoverShardResponse = (output: any, context: __SerdeContext): Failove
 
 // de_InvalidVPCNetworkStateFault omitted.
 
+// de_ListAllowedMultiRegionClusterUpdatesResponse omitted.
+
 // de_ListAllowedNodeTypeUpdatesResponse omitted.
 
 // de_ListTagsResponse omitted.
+
+// de_MultiRegionCluster omitted.
+
+// de_MultiRegionClusterAlreadyExistsFault omitted.
+
+// de_MultiRegionClusterList omitted.
+
+// de_MultiRegionClusterNotFoundFault omitted.
+
+// de_MultiRegionParameterGroupNotFoundFault omitted.
 
 /**
  * deserializeAws_json1_1Node
@@ -3024,6 +3327,10 @@ const de_RecurringChargeList = (output: any, context: __SerdeContext): Recurring
     });
   return retVal;
 };
+
+// de_RegionalCluster omitted.
+
+// de_RegionalClusterList omitted.
 
 /**
  * deserializeAws_json1_1ReservedNode
@@ -3285,6 +3592,8 @@ const de_UpdateClusterResponse = (output: any, context: __SerdeContext): UpdateC
     Cluster: (_: any) => de_Cluster(_, context),
   }) as any;
 };
+
+// de_UpdateMultiRegionClusterResponse omitted.
 
 // de_UpdateParameterGroupResponse omitted.
 
