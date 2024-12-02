@@ -105,7 +105,11 @@ export interface marshallOptions {
    */
   convertEmptyValues?: boolean;
   /**
-   * Whether to remove undefined values while marshalling.
+   * Whether to remove undefined values from JS arrays/Sets/objects
+   * when marshalling to DynamoDB lists/sets/maps respectively.
+   *
+   * A DynamoDB item is not itself considered a map. Only
+   * attributes of an item are examined.
    */
   removeUndefinedValues?: boolean;
   /**
