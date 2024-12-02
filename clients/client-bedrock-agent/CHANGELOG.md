@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
+
+
+### Features
+
+* **client-bedrock-agent:** This release introduces APIs to upload documents directly into a Knowledge Base ([908a395](https://github.com/aws/aws-sdk-js-v3/commit/908a3951fa3837b050c9a0830b6b4bbe01106202))
+
+
+
+
+
 # [3.702.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.701.0...v3.702.0) (2024-11-27)
 
 

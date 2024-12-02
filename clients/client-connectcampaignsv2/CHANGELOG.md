@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
+
+
+### Features
+
+* **client-connectcampaignsv2:** Amazon Connect Outbound Campaigns V2 / Features : Adds support for Event-Triggered Campaigns. ([1bea595](https://github.com/aws/aws-sdk-js-v3/commit/1bea595d1a528a124aa0f6ed5de3158c75bcd12e))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-connectcampaignsv2

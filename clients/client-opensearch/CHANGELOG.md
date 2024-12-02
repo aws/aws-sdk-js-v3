@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
+
+
+### Features
+
+* **client-opensearch:** This feature introduces support for CRUDL APIs, enabling the creation and management of Connected data sources. ([9f110aa](https://github.com/aws/aws-sdk-js-v3/commit/9f110aae7b8a8589bbee5ef5b1d68cd031f77d4a))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearch

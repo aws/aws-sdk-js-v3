@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release introduces a new Rerank API to leverage reranking models (with integration into Knowledge Bases); APIs to upload documents directly into Knowledge Base; RetrieveAndGenerateStream API for streaming response; Guardrails on Retrieve API; and ability to automatically generate filters ([4ed232e](https://github.com/aws/aws-sdk-js-v3/commit/4ed232e6e723470aa5ec71f292a1e2b7960561c8))
+
+
+
+
+
 # [3.701.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.700.0...v3.701.0) (2024-11-26)
 
 

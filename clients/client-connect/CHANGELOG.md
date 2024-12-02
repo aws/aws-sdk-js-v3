@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
+
+
+### Features
+
+* **client-connect:** Adds support for WhatsApp Business messaging, IVR call recording, enabling Contact Lens for existing on-premise contact centers and telephony platforms, and enabling telephony and IVR migration to Amazon Connect independent of their contact center agents. ([f6492f5](https://github.com/aws/aws-sdk-js-v3/commit/f6492f5a3dd87337990a209be65c6054fa6c2821))
+
+
+
+
+
 # [3.701.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.700.0...v3.701.0) (2024-11-26)
 
 

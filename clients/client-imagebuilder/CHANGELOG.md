@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
+
+
+### Features
+
+* **client-imagebuilder:** Added support for EC2 Image Builder's integration with AWS Marketplace for Marketplace components. ([967f0c2](https://github.com/aws/aws-sdk-js-v3/commit/967f0c20baec3297b60f3c692429dd1af029733f))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-imagebuilder

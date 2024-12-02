@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
+
+
+### Features
+
+* **client-transfer:** AWS Transfer Family now offers Web apps that enables simple and secure access to data stored in Amazon S3. ([77c2e6a](https://github.com/aws/aws-sdk-js-v3/commit/77c2e6ab98bc960d4d8002ca0b06a176fe6a5882))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-transfer

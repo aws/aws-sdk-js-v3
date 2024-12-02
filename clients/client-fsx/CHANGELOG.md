@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
+
+
+### Features
+
+* **client-fsx:** FSx API changes to support the public launch of the Amazon FSx Intelligent Tiering for OpenZFS storage class. ([bed4377](https://github.com/aws/aws-sdk-js-v3/commit/bed43775a1a6fd89c97ca5a5fe48d8f674f395f7))
+
+
+
+
+
 # [3.702.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.701.0...v3.702.0) (2024-11-27)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
+
+
+### Features
+
+* **client-eventbridge:** Call private APIs by configuring Connections with VPC connectivity through PrivateLink and VPC Lattice ([224d5a7](https://github.com/aws/aws-sdk-js-v3/commit/224d5a7384ca450c05c052e1fba03e64f3d858f4))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-eventbridge

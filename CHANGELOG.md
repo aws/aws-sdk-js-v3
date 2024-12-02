@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release introduces a new Rerank API to leverage reranking models (with integration into Knowledge Bases); APIs to upload documents directly into Knowledge Base; RetrieveAndGenerateStream API for streaming response; Guardrails on Retrieve API; and ability to automatically generate filters ([4ed232e](https://github.com/aws/aws-sdk-js-v3/commit/4ed232e6e723470aa5ec71f292a1e2b7960561c8))
+* **client-bedrock-agent:** This release introduces APIs to upload documents directly into a Knowledge Base ([908a395](https://github.com/aws/aws-sdk-js-v3/commit/908a3951fa3837b050c9a0830b6b4bbe01106202))
+* **client-bedrock:** Add support for Knowledge Base Evaluations & LLM as a judge ([ac2bf51](https://github.com/aws/aws-sdk-js-v3/commit/ac2bf51b72458c859e61563be6bd9679bb9e5b18))
+* **client-chime-sdk-voice:** This release adds supports for enterprises to integrate Amazon Connect with other voice systems. It supports directly transferring voice calls and metadata without using the public telephone network. It also supports real-time and post-call analytics. ([79dd462](https://github.com/aws/aws-sdk-js-v3/commit/79dd4625a4a8f5bb3cb972d08c2dcf80adc2748e))
+* **client-cleanrooms:** This release allows customers and their partners to easily collaborate with data stored in Snowflake and Amazon Athena, without having to move or share their underlying data among collaborators. ([7447521](https://github.com/aws/aws-sdk-js-v3/commit/744752169f30c170bd1bfc80ff0c2506659c52e9))
+* **client-cloudwatch-logs:** Adds PutIntegration, GetIntegration, ListIntegrations and DeleteIntegration APIs. Adds QueryLanguage support to StartQuery, GetQueryResults, DescribeQueries, DescribeQueryDefinitions, and PutQueryDefinition APIs. ([dc60c6f](https://github.com/aws/aws-sdk-js-v3/commit/dc60c6f8835b63c14c45adc6fba56bffac8584a0))
+* **client-connect:** Adds support for WhatsApp Business messaging, IVR call recording, enabling Contact Lens for existing on-premise contact centers and telephony platforms, and enabling telephony and IVR migration to Amazon Connect independent of their contact center agents. ([f6492f5](https://github.com/aws/aws-sdk-js-v3/commit/f6492f5a3dd87337990a209be65c6054fa6c2821))
+* **client-connectcampaignsv2:** Amazon Connect Outbound Campaigns V2 / Features : Adds support for Event-Triggered Campaigns. ([1bea595](https://github.com/aws/aws-sdk-js-v3/commit/1bea595d1a528a124aa0f6ed5de3158c75bcd12e))
+* **client-customer-profiles:** This release introduces Event Trigger APIs as part of Amazon Connect Customer Profiles service. ([a4af58b](https://github.com/aws/aws-sdk-js-v3/commit/a4af58baa338e188fb6d2fecf44436ecef8472bf))
+* **client-ec2:** Adds support for declarative policies that allow you to enforce desired configuration across an AWS organization through configuring account attributes. Adds support for Allowed AMIs that allows you to limit the use of AMIs in AWS accounts. Adds support for connectivity over non-HTTP protocols. ([478480a](https://github.com/aws/aws-sdk-js-v3/commit/478480a6c172c0f48ea39b501c9ec1fef66d9a20))
+* **client-eks:** Added support for Auto Mode Clusters, Hybrid Nodes, and specifying computeTypes in the DescribeAddonVersions API. ([41cd745](https://github.com/aws/aws-sdk-js-v3/commit/41cd7451e7fd0a0b669828d6b57a5fa9ab7f11e5))
+* **client-eventbridge:** Call private APIs by configuring Connections with VPC connectivity through PrivateLink and VPC Lattice ([224d5a7](https://github.com/aws/aws-sdk-js-v3/commit/224d5a7384ca450c05c052e1fba03e64f3d858f4))
+* **client-fsx:** FSx API changes to support the public launch of the Amazon FSx Intelligent Tiering for OpenZFS storage class. ([bed4377](https://github.com/aws/aws-sdk-js-v3/commit/bed43775a1a6fd89c97ca5a5fe48d8f674f395f7))
+* **client-guardduty:** Add new Multi Domain Correlation findings. ([b2a4c95](https://github.com/aws/aws-sdk-js-v3/commit/b2a4c95c77e53b6b171193ad26d5687993a6a376))
+* **client-imagebuilder:** Added support for EC2 Image Builder's integration with AWS Marketplace for Marketplace components. ([967f0c2](https://github.com/aws/aws-sdk-js-v3/commit/967f0c20baec3297b60f3c692429dd1af029733f))
+* **client-invoicing:** AWS Invoice Configuration allows you to receive separate AWS invoices based on your organizational needs. You can use the AWS SDKs to manage Invoice Units and programmatically fetch the information of the invoice receiver. ([263848d](https://github.com/aws/aws-sdk-js-v3/commit/263848d53b6fb30cb553c195616825b5712fdb8c))
+* **client-memorydb:** Amazon MemoryDB SDK now supports all APIs for Multi-Region. Please refer to the updated Amazon MemoryDB public documentation for detailed information on API usage. ([73a9ef4](https://github.com/aws/aws-sdk-js-v3/commit/73a9ef4626dbe8c62739a1f017bf63dc51c54463))
+* **client-networkflowmonitor:** This release adds documentation for a new feature in Amazon CloudWatch called Network Flow Monitor. You can use Network Flow Monitor to get near real-time metrics, including retransmissions and data transferred, for your actual workloads. ([e7dc6a2](https://github.com/aws/aws-sdk-js-v3/commit/e7dc6a2fe038a2a7d54e6b8b72b68e02f943c5e4))
+* **client-opensearch:** This feature introduces support for CRUDL APIs, enabling the creation and management of Connected data sources. ([9f110aa](https://github.com/aws/aws-sdk-js-v3/commit/9f110aae7b8a8589bbee5ef5b1d68cd031f77d4a))
+* **client-organizations:** Add support for policy operations on the DECLARATIVE_POLICY_EC2 policy type. ([2af53c3](https://github.com/aws/aws-sdk-js-v3/commit/2af53c3baf734ca921606f787956f140fdd34a4e))
+* **client-qbusiness:** Amazon Q Business now supports capabilities to extract insights and answer questions from visual elements embedded within documents, a browser extension for Google Chrome, Mozilla Firefox, and Microsoft Edge, and attachments across conversations. ([45e207b](https://github.com/aws/aws-sdk-js-v3/commit/45e207bf43eda4f5733f9e8c973659d4b4521d1b))
+* **client-qconnect:** This release adds following capabilities: Configuring safeguards via AIGuardrails for Q in Connect inferencing, and APIs to support Q&A self-service use cases ([8730906](https://github.com/aws/aws-sdk-js-v3/commit/8730906cfe722421d62169daf18a3a3d5c05282d))
+* **client-rds:** Amazon RDS supports CloudWatch Database Insights. You can use the SDK to create, modify, and describe the DatabaseInsightsMode for your DB instances and clusters. ([e2236af](https://github.com/aws/aws-sdk-js-v3/commit/e2236af652531152e987bb5415844286ce8d7b05))
+* **client-s3-control:** Amazon S3 introduces support for AWS Dedicated Local Zones ([f1a56b4](https://github.com/aws/aws-sdk-js-v3/commit/f1a56b4f62a92c9781a091b4bb67ccc2188ebde8))
+* **client-s3:** Amazon S3 introduces support for AWS Dedicated Local Zones ([a4b4303](https://github.com/aws/aws-sdk-js-v3/commit/a4b43038cb15c3f1ff395194e3500b9d9a8c19d8))
+* **client-security-ir:** AWS Security Incident Response is a purpose-built security incident solution designed to help customers prepare for, respond to, and recover from security incidents. ([7458eec](https://github.com/aws/aws-sdk-js-v3/commit/7458eecb72137382e586773bc8b45ac25666e7a9))
+* **client-securityhub:** Add new Multi Domain Correlation findings. ([824c92f](https://github.com/aws/aws-sdk-js-v3/commit/824c92f42532564ae8f3825cfd2ea73fc56bd054))
+* **client-transfer:** AWS Transfer Family now offers Web apps that enables simple and secure access to data stored in Amazon S3. ([77c2e6a](https://github.com/aws/aws-sdk-js-v3/commit/77c2e6ab98bc960d4d8002ca0b06a176fe6a5882))
+* **client-vpc-lattice:** Lattice APIs that allow sharing and access of VPC resources across accounts. ([a662822](https://github.com/aws/aws-sdk-js-v3/commit/a66282249bde56b13f1f43f461882a7ec3de6903))
+* **clients:** update client endpoints as of 2024-12-02 ([5fffd4a](https://github.com/aws/aws-sdk-js-v3/commit/5fffd4aad6965c064cbdc9b78333ced5c5c01a4f))
+
+
+
+
+
 # [3.702.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.701.0...v3.702.0) (2024-11-27)
 
 
