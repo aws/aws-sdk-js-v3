@@ -46,7 +46,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  *   Content: "STRING_VALUE", // required
  *   Description: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY", // required
+ *   Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2", // required
  *   Tags: [ // Tags
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -63,7 +63,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
- * //       Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY",
+ * //       Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2",
  * //       AwsManaged: true || false,
  * //     },
  * //     Content: "STRING_VALUE",

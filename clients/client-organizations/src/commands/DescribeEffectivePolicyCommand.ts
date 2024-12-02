@@ -32,8 +32,8 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  *             The effective policy is the aggregation of any policies of the specified type that the
  *             account inherits, plus any policy of that type that is directly attached to the
  *             account.</p>
- *          <p>This operation applies only to policy types <i>other</i> than service
- *             control policies (SCPs).</p>
+ *          <p>This operation applies only to management policies. It does not apply to authorization policies: service
+ *             control policies (SCPs) and resource control policies (RCPs).</p>
  *          <p>For more information about policy inheritance, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inheritance_mgmt.html">Understanding
  *                 management policy inheritance</a> in the
  *             <i>Organizations User Guide</i>.</p>
@@ -45,7 +45,7 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  * // const { OrganizationsClient, DescribeEffectivePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const input = { // DescribeEffectivePolicyRequest
- *   PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY", // required
+ *   PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2", // required
  *   TargetId: "STRING_VALUE",
  * };
  * const command = new DescribeEffectivePolicyCommand(input);
@@ -55,7 +55,7 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  * //     PolicyContent: "STRING_VALUE",
  * //     LastUpdatedTimestamp: new Date("TIMESTAMP"),
  * //     TargetId: "STRING_VALUE",
- * //     PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY",
+ * //     PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2",
  * //   },
  * // };
  *

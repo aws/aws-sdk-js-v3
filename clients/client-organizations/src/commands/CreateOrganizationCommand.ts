@@ -64,7 +64,7 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * //     MasterAccountEmail: "STRING_VALUE",
  * //     AvailablePolicyTypes: [ // PolicyTypes
  * //       { // PolicyTypeSummary
- * //         Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY",
+ * //         Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2",
  * //         Status: "ENABLED" || "PENDING_ENABLE" || "PENDING_DISABLE",
  * //       },
  * //     ],

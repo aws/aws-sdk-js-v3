@@ -1901,6 +1901,7 @@ export const PolicyType = {
   AISERVICES_OPT_OUT_POLICY: "AISERVICES_OPT_OUT_POLICY",
   BACKUP_POLICY: "BACKUP_POLICY",
   CHATBOT_POLICY: "CHATBOT_POLICY",
+  DECLARATIVE_POLICY_EC2: "DECLARATIVE_POLICY_EC2",
   RESOURCE_CONTROL_POLICY: "RESOURCE_CONTROL_POLICY",
   SERVICE_CONTROL_POLICY: "SERVICE_CONTROL_POLICY",
   TAG_POLICY: "TAG_POLICY",
@@ -2188,6 +2189,11 @@ export interface CreatePolicyRequest {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html">RESOURCE_CONTROL_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html">DECLARATIVE_POLICY_EC2</a>
    *                </p>
    *             </li>
    *             <li>
@@ -2649,6 +2655,7 @@ export const EffectivePolicyType = {
   AISERVICES_OPT_OUT_POLICY: "AISERVICES_OPT_OUT_POLICY",
   BACKUP_POLICY: "BACKUP_POLICY",
   CHATBOT_POLICY: "CHATBOT_POLICY",
+  DECLARATIVE_POLICY_EC2: "DECLARATIVE_POLICY_EC2",
   TAG_POLICY: "TAG_POLICY",
 } as const;
 
@@ -2665,6 +2672,11 @@ export interface DescribeEffectivePolicyRequest {
    * <p>The type of policy that you want information about. You can specify one of the
    *             following values:</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html">DECLARATIVE_POLICY_EC2</a>
+   *                </p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a>
@@ -3010,6 +3022,11 @@ export interface DisablePolicyTypeRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html">DECLARATIVE_POLICY_EC2</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a>
    *                </p>
    *             </li>
@@ -3157,6 +3174,11 @@ export interface EnablePolicyTypeRequest {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html">RESOURCE_CONTROL_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html">DECLARATIVE_POLICY_EC2</a>
    *                </p>
    *             </li>
    *             <li>
@@ -4209,6 +4231,11 @@ export interface ListPoliciesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html">DECLARATIVE_POLICY_EC2</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a>
    *                </p>
    *             </li>
@@ -4319,6 +4346,11 @@ export interface ListPoliciesForTargetRequest {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html">RESOURCE_CONTROL_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html">DECLARATIVE_POLICY_EC2</a>
    *                </p>
    *             </li>
    *             <li>
