@@ -1012,6 +1012,56 @@ export const OpenZFSDeploymentType = {
 export type OpenZFSDeploymentType = (typeof OpenZFSDeploymentType)[keyof typeof OpenZFSDeploymentType];
 
 /**
+ * @public
+ * @enum
+ */
+export const OpenZFSReadCacheSizingMode = {
+  NO_CACHE: "NO_CACHE",
+  PROPORTIONAL_TO_THROUGHPUT_CAPACITY: "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+  USER_PROVISIONED: "USER_PROVISIONED",
+} as const;
+
+/**
+ * @public
+ */
+export type OpenZFSReadCacheSizingMode = (typeof OpenZFSReadCacheSizingMode)[keyof typeof OpenZFSReadCacheSizingMode];
+
+/**
+ * <p>
+ *             The configuration for the optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class.
+ *         </p>
+ * @public
+ */
+export interface OpenZFSReadCacheConfiguration {
+  /**
+   * <p>
+   *             Specifies how the provisioned SSD read cache is sized, as follows:
+   *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>Set to <code>NO_CACHE</code> if you do not want to use an SSD read cache with your Intelligent-Tiering file system.</p>
+   *             </li>
+   *             <li>
+   *                <p>Set to <code>USER_PROVISIONED</code> to specify the exact size of your SSD read cache.</p>
+   *             </li>
+   *             <li>
+   *                <p>Set to <code>PROPORTIONAL_TO_THROUGHPUT_CAPACITY</code> to have your SSD read cache automatically sized based on your throughput capacity.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SizingMode?: OpenZFSReadCacheSizingMode | undefined;
+
+  /**
+   * <p>
+   *             Required if <code>SizingMode</code> is set to <code>USER_PROVISIONED</code>. Specifies the size of the file system's SSD read cache, in gibibytes (GiB).
+   *         </p>
+   * @public
+   */
+  SizeGiB?: number | undefined;
+}
+
+/**
  * <p>The configuration for the Amazon FSx for OpenZFS file system. </p>
  * @public
  */
@@ -1126,6 +1176,13 @@ export interface OpenZFSFileSystemConfiguration {
    * @public
    */
   EndpointIpAddress?: string | undefined;
+
+  /**
+   * <p>
+   *             Required when <code>StorageType</code> is set to <code>INTELLIGENT_TIERING</code>. Specifies the optional provisioned SSD read cache. </p>
+   * @public
+   */
+  ReadCacheConfiguration?: OpenZFSReadCacheConfiguration | undefined;
 }
 
 /**
@@ -1134,6 +1191,7 @@ export interface OpenZFSFileSystemConfiguration {
  */
 export const StorageType = {
   HDD: "HDD",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
   SSD: "SSD",
 } as const;
 
@@ -5974,6 +6032,14 @@ export interface CreateFileSystemOpenZFSConfiguration {
    * @public
    */
   RouteTableIds?: string[] | undefined;
+
+  /**
+   * <p>
+   *             Specifies the optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class.
+   *         </p>
+   * @public
+   */
+  ReadCacheConfiguration?: OpenZFSReadCacheConfiguration | undefined;
 }
 
 /**
@@ -6349,11 +6415,11 @@ export interface CreateFileSystemRequest {
    *          </ul>
    * @public
    */
-  StorageCapacity: number | undefined;
+  StorageCapacity?: number | undefined;
 
   /**
-   * <p>Sets the storage type for the file system that you're creating. Valid values are
-   *                 <code>SSD</code> and <code>HDD</code>.</p>
+   * <p>Sets the storage class for the file system that you're creating. Valid values are
+   *                 <code>SSD</code>, <code>HDD</code>, and <code>INTELLIGENT_TIERING</code>.</p>
    *          <ul>
    *             <li>
    *                <p>Set to <code>SSD</code> to use solid state drive storage. SSD is supported on all Windows,
@@ -6364,12 +6430,16 @@ export interface CreateFileSystemRequest {
    *                 HDD is supported on <code>SINGLE_AZ_2</code> and <code>MULTI_AZ_1</code> Windows file system deployment types,
    *                 and on <code>PERSISTENT_1</code> Lustre file system deployment types.</p>
    *             </li>
+   *             <li>
+   *                <p>Set to <code>INTELLIGENT_TIERING</code> to use fully elastic, intelligently-tiered storage. Intelligent-Tiering is only available for OpenZFS file systems with the Multi-AZ deployment type.</p>
+   *             </li>
    *          </ul>
    *          <p>Default value is <code>SSD</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options"> Storage
    *                 type options</a> in the <i>FSx for Windows File Server User
-   *                 Guide</i> and <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options">Multiple storage
+   *                 Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options">Multiple storage
    *                 options</a> in the <i>FSx for Lustre User
-   *             Guide</i>. </p>
+   *                     Guide</i>, and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance-intelligent-tiering">Working with Intelligent-Tiering</a> in the <i>Amazon FSx for OpenZFS User
+   *                             Guide</i>. </p>
    * @public
    */
   StorageType?: StorageType | undefined;
@@ -7530,14 +7600,11 @@ export interface CreateOpenZFSVolumeConfiguration {
   StorageCapacityQuotaGiB?: number | undefined;
 
   /**
-   * <p>Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB). Valid values are 4, 8,
-   *             16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128 KiB.
-   *             We recommend using the default setting for the majority of use cases.
-   *             Generally, workloads that write in fixed small or large record sizes
-   *             may benefit from setting a custom record size, like database workloads
-   *             (small record size) or media streaming workloads (large record size).
-   *             For additional guidance on when
-   *             to set a custom record size, see
+   * <p>Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
+   *             For file systems using the Intelligent-Tiering storage class, valid values are 128, 256, 512, 1024, 2048, or 4096 KiB, with a default of 2048 KiB.
+   *             For all other file systems, valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB, with a default of 128 KiB.
+   *             We recommend using the default setting for the majority of use cases. Generally, workloads that write in fixed small or large record sizes may benefit from setting a custom record size, like database workloads (small record size) or media streaming workloads (large record size).
+   *             For additional guidance on when to set a custom record size, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#record-size-performance">
    *             ZFS Record size</a> in the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
    * @public
@@ -10084,6 +10151,13 @@ export interface UpdateFileSystemOpenZFSConfiguration {
    * @public
    */
   RemoveRouteTableIds?: string[] | undefined;
+
+  /**
+   * <p>
+   *             The configuration for the optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class.</p>
+   * @public
+   */
+  ReadCacheConfiguration?: OpenZFSReadCacheConfiguration | undefined;
 }
 
 /**
@@ -11693,6 +11767,14 @@ export interface Backup {
    * @public
    */
   Volume?: Volume | undefined;
+
+  /**
+   * <p>
+   *             The size of the backup in bytes. This represents the amount of data that the file system would contain if you restore this backup.
+   *         </p>
+   * @public
+   */
+  SizeInBytes?: number | undefined;
 }
 
 /**

@@ -110,7 +110,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //           Message: "STRING_VALUE",
  * //         },
  * //         StorageCapacity: Number("int"),
- * //         StorageType: "SSD" || "HDD",
+ * //         StorageType: "SSD" || "HDD" || "INTELLIGENT_TIERING",
  * //         VpcId: "STRING_VALUE",
  * //         SubnetIds: [ // SubnetIds
  * //           "STRING_VALUE",
@@ -218,7 +218,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //                 Message: "STRING_VALUE",
  * //               },
  * //               StorageCapacity: Number("int"),
- * //               StorageType: "SSD" || "HDD",
+ * //               StorageType: "SSD" || "HDD" || "INTELLIGENT_TIERING",
  * //               VpcId: "STRING_VALUE",
  * //               SubnetIds: [
  * //                 "STRING_VALUE",
@@ -488,6 +488,10 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //                   "STRING_VALUE",
  * //                 ],
  * //                 EndpointIpAddress: "STRING_VALUE",
+ * //                 ReadCacheConfiguration: { // OpenZFSReadCacheConfiguration
+ * //                   SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //                   SizeGiB: Number("int"),
+ * //                 },
  * //               },
  * //             },
  * //             FailureDetails: {
@@ -660,6 +664,10 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //             "STRING_VALUE",
  * //           ],
  * //           EndpointIpAddress: "STRING_VALUE",
+ * //           ReadCacheConfiguration: {
+ * //             SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //             SizeGiB: Number("int"),
+ * //           },
  * //         },
  * //       },
  * //       DirectoryInformation: { // ActiveDirectoryBackupAttributes
@@ -672,6 +680,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //       SourceBackupRegion: "STRING_VALUE",
  * //       ResourceType: "FILE_SYSTEM" || "VOLUME",
  * //       Volume: "<Volume>",
+ * //       SizeInBytes: Number("long"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

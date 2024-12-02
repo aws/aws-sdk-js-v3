@@ -72,7 +72,7 @@ export interface CopySnapshotAndUpdateVolumeCommandOutput
  * //           Message: "STRING_VALUE",
  * //         },
  * //         StorageCapacity: Number("int"),
- * //         StorageType: "SSD" || "HDD",
+ * //         StorageType: "SSD" || "HDD" || "INTELLIGENT_TIERING",
  * //         VpcId: "STRING_VALUE",
  * //         SubnetIds: [ // SubnetIds
  * //           "STRING_VALUE",
@@ -180,7 +180,7 @@ export interface CopySnapshotAndUpdateVolumeCommandOutput
  * //                 Message: "STRING_VALUE",
  * //               },
  * //               StorageCapacity: Number("int"),
- * //               StorageType: "SSD" || "HDD",
+ * //               StorageType: "SSD" || "HDD" || "INTELLIGENT_TIERING",
  * //               VpcId: "STRING_VALUE",
  * //               SubnetIds: [
  * //                 "STRING_VALUE",
@@ -326,6 +326,10 @@ export interface CopySnapshotAndUpdateVolumeCommandOutput
  * //                   "STRING_VALUE",
  * //                 ],
  * //                 EndpointIpAddress: "STRING_VALUE",
+ * //                 ReadCacheConfiguration: { // OpenZFSReadCacheConfiguration
+ * //                   SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //                   SizeGiB: Number("int"),
+ * //                 },
  * //               },
  * //             },
  * //             FailureDetails: { // AdministrativeActionFailureDetails
@@ -511,6 +515,10 @@ export interface CopySnapshotAndUpdateVolumeCommandOutput
  * //             "STRING_VALUE",
  * //           ],
  * //           EndpointIpAddress: "STRING_VALUE",
+ * //           ReadCacheConfiguration: {
+ * //             SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //             SizeGiB: Number("int"),
+ * //           },
  * //         },
  * //       },
  * //       FailureDetails: {
