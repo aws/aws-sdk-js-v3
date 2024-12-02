@@ -11,4 +11,5 @@ export * from "./ListSecurityPoliciesPaginator";
 export * from "./ListServersPaginator";
 export * from "./ListTagsForResourcePaginator";
 export * from "./ListUsersPaginator";
+export * from "./ListWebAppsPaginator";
 export * from "./ListWorkflowsPaginator";

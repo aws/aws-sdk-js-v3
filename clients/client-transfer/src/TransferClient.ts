@@ -59,6 +59,7 @@ import { CreateConnectorCommandInput, CreateConnectorCommandOutput } from "./com
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
 import { CreateServerCommandInput, CreateServerCommandOutput } from "./commands/CreateServerCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import { CreateWebAppCommandInput, CreateWebAppCommandOutput } from "./commands/CreateWebAppCommand";
 import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
 import { DeleteAccessCommandInput, DeleteAccessCommandOutput } from "./commands/DeleteAccessCommand";
 import { DeleteAgreementCommandInput, DeleteAgreementCommandOutput } from "./commands/DeleteAgreementCommand";
@@ -69,6 +70,11 @@ import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./command
 import { DeleteServerCommandInput, DeleteServerCommandOutput } from "./commands/DeleteServerCommand";
 import { DeleteSshPublicKeyCommandInput, DeleteSshPublicKeyCommandOutput } from "./commands/DeleteSshPublicKeyCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import { DeleteWebAppCommandInput, DeleteWebAppCommandOutput } from "./commands/DeleteWebAppCommand";
+import {
+  DeleteWebAppCustomizationCommandInput,
+  DeleteWebAppCustomizationCommandOutput,
+} from "./commands/DeleteWebAppCustomizationCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
 import { DescribeAccessCommandInput, DescribeAccessCommandOutput } from "./commands/DescribeAccessCommand";
 import { DescribeAgreementCommandInput, DescribeAgreementCommandOutput } from "./commands/DescribeAgreementCommand";
@@ -86,6 +92,11 @@ import {
 } from "./commands/DescribeSecurityPolicyCommand";
 import { DescribeServerCommandInput, DescribeServerCommandOutput } from "./commands/DescribeServerCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
+import { DescribeWebAppCommandInput, DescribeWebAppCommandOutput } from "./commands/DescribeWebAppCommand";
+import {
+  DescribeWebAppCustomizationCommandInput,
+  DescribeWebAppCustomizationCommandOutput,
+} from "./commands/DescribeWebAppCustomizationCommand";
 import { DescribeWorkflowCommandInput, DescribeWorkflowCommandOutput } from "./commands/DescribeWorkflowCommand";
 import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "./commands/ImportCertificateCommand";
 import { ImportHostKeyCommandInput, ImportHostKeyCommandOutput } from "./commands/ImportHostKeyCommand";
@@ -111,6 +122,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { ListWebAppsCommandInput, ListWebAppsCommandOutput } from "./commands/ListWebAppsCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
 import {
   SendWorkflowStepStateCommandInput,
@@ -138,6 +150,11 @@ import { UpdateHostKeyCommandInput, UpdateHostKeyCommandOutput } from "./command
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
 import { UpdateServerCommandInput, UpdateServerCommandOutput } from "./commands/UpdateServerCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import { UpdateWebAppCommandInput, UpdateWebAppCommandOutput } from "./commands/UpdateWebAppCommand";
+import {
+  UpdateWebAppCustomizationCommandInput,
+  UpdateWebAppCustomizationCommandOutput,
+} from "./commands/UpdateWebAppCustomizationCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -159,6 +176,7 @@ export type ServiceInputTypes =
   | CreateProfileCommandInput
   | CreateServerCommandInput
   | CreateUserCommandInput
+  | CreateWebAppCommandInput
   | CreateWorkflowCommandInput
   | DeleteAccessCommandInput
   | DeleteAgreementCommandInput
@@ -169,6 +187,8 @@ export type ServiceInputTypes =
   | DeleteServerCommandInput
   | DeleteSshPublicKeyCommandInput
   | DeleteUserCommandInput
+  | DeleteWebAppCommandInput
+  | DeleteWebAppCustomizationCommandInput
   | DeleteWorkflowCommandInput
   | DescribeAccessCommandInput
   | DescribeAgreementCommandInput
@@ -180,6 +200,8 @@ export type ServiceInputTypes =
   | DescribeSecurityPolicyCommandInput
   | DescribeServerCommandInput
   | DescribeUserCommandInput
+  | DescribeWebAppCommandInput
+  | DescribeWebAppCustomizationCommandInput
   | DescribeWorkflowCommandInput
   | ImportCertificateCommandInput
   | ImportHostKeyCommandInput
@@ -196,6 +218,7 @@ export type ServiceInputTypes =
   | ListServersCommandInput
   | ListTagsForResourceCommandInput
   | ListUsersCommandInput
+  | ListWebAppsCommandInput
   | ListWorkflowsCommandInput
   | SendWorkflowStepStateCommandInput
   | StartDirectoryListingCommandInput
@@ -213,7 +236,9 @@ export type ServiceInputTypes =
   | UpdateHostKeyCommandInput
   | UpdateProfileCommandInput
   | UpdateServerCommandInput
-  | UpdateUserCommandInput;
+  | UpdateUserCommandInput
+  | UpdateWebAppCommandInput
+  | UpdateWebAppCustomizationCommandInput;
 
 /**
  * @public
@@ -225,6 +250,7 @@ export type ServiceOutputTypes =
   | CreateProfileCommandOutput
   | CreateServerCommandOutput
   | CreateUserCommandOutput
+  | CreateWebAppCommandOutput
   | CreateWorkflowCommandOutput
   | DeleteAccessCommandOutput
   | DeleteAgreementCommandOutput
@@ -235,6 +261,8 @@ export type ServiceOutputTypes =
   | DeleteServerCommandOutput
   | DeleteSshPublicKeyCommandOutput
   | DeleteUserCommandOutput
+  | DeleteWebAppCommandOutput
+  | DeleteWebAppCustomizationCommandOutput
   | DeleteWorkflowCommandOutput
   | DescribeAccessCommandOutput
   | DescribeAgreementCommandOutput
@@ -246,6 +274,8 @@ export type ServiceOutputTypes =
   | DescribeSecurityPolicyCommandOutput
   | DescribeServerCommandOutput
   | DescribeUserCommandOutput
+  | DescribeWebAppCommandOutput
+  | DescribeWebAppCustomizationCommandOutput
   | DescribeWorkflowCommandOutput
   | ImportCertificateCommandOutput
   | ImportHostKeyCommandOutput
@@ -262,6 +292,7 @@ export type ServiceOutputTypes =
   | ListServersCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUsersCommandOutput
+  | ListWebAppsCommandOutput
   | ListWorkflowsCommandOutput
   | SendWorkflowStepStateCommandOutput
   | StartDirectoryListingCommandOutput
@@ -279,7 +310,9 @@ export type ServiceOutputTypes =
   | UpdateHostKeyCommandOutput
   | UpdateProfileCommandOutput
   | UpdateServerCommandOutput
-  | UpdateUserCommandOutput;
+  | UpdateUserCommandOutput
+  | UpdateWebAppCommandOutput
+  | UpdateWebAppCustomizationCommandOutput;
 
 /**
  * @public

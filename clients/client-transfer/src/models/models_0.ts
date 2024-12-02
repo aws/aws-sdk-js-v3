@@ -466,7 +466,7 @@ export class InvalidNextTokenException extends __BaseException {
  */
 export interface ListAgreementsRequest {
   /**
-   * <p>The maximum number of agreements to return.</p>
+   * <p>The maximum number of items to return.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -1138,7 +1138,7 @@ export interface ImportCertificateResponse {
  */
 export interface ListCertificatesRequest {
   /**
-   * <p>The maximum number of certificates to return.</p>
+   * <p>The maximum number of items to return.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -1622,7 +1622,7 @@ export interface DescribeConnectorResponse {
  */
 export interface ListConnectorsRequest {
   /**
-   * <p>The maximum number of connectors to return.</p>
+   * <p>The maximum number of items to return.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2769,10 +2769,11 @@ export interface CreateServerRequest {
 
   /**
    * <p>Required when <code>IdentityProviderType</code> is set to
-   *         <code>AWS_DIRECTORY_SERVICE</code>, <code>Amazon Web Services_LAMBDA</code> or <code>API_GATEWAY</code>. Accepts an array containing
-   *       all of the information required to use a directory in <code>AWS_DIRECTORY_SERVICE</code> or
-   *       invoke a customer-supplied authentication API, including the API Gateway URL. Not required
-   *       when <code>IdentityProviderType</code> is set to <code>SERVICE_MANAGED</code>.</p>
+   *         <code>AWS_DIRECTORY_SERVICE</code>, <code>Amazon Web Services_LAMBDA</code> or
+   *         <code>API_GATEWAY</code>. Accepts an array containing all of the information required to use
+   *       a directory in <code>AWS_DIRECTORY_SERVICE</code> or invoke a customer-supplied authentication
+   *       API, including the API Gateway URL. Cannot be specified when <code>IdentityProviderType</code>
+   *       is set to <code>SERVICE_MANAGED</code>.</p>
    * @public
    */
   IdentityProviderDetails?: IdentityProviderDetails | undefined;
@@ -3123,6 +3124,143 @@ export interface CreateUserResponse {
    * @public
    */
   UserName: string | undefined;
+}
+
+/**
+ * <p>A structure that describes the values to use for the IAM Identity Center settings when you create or update a web app.</p>
+ * @public
+ */
+export interface IdentityCenterConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the IAM Identity Center used for the web app.</p>
+   * @public
+   */
+  InstanceArn?: string | undefined;
+
+  /**
+   * <p>The IAM role in IAM Identity Center used for the web app.</p>
+   * @public
+   */
+  Role?: string | undefined;
+}
+
+/**
+ * <p>A union that contains the <code>IdentityCenterConfig</code> object.</p>
+ * @public
+ */
+export type WebAppIdentityProviderDetails =
+  | WebAppIdentityProviderDetails.IdentityCenterConfigMember
+  | WebAppIdentityProviderDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace WebAppIdentityProviderDetails {
+  /**
+   * <p>A structure that describes the values to use for the IAM Identity Center settings when you create a web app.</p>
+   * @public
+   */
+  export interface IdentityCenterConfigMember {
+    IdentityCenterConfig: IdentityCenterConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    IdentityCenterConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    IdentityCenterConfig: (value: IdentityCenterConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: WebAppIdentityProviderDetails, visitor: Visitor<T>): T => {
+    if (value.IdentityCenterConfig !== undefined) return visitor.IdentityCenterConfig(value.IdentityCenterConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains an integer value that represents the value for number of concurrent connections or the user sessions on your web app.</p>
+ * @public
+ */
+export type WebAppUnits = WebAppUnits.ProvisionedMember | WebAppUnits.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace WebAppUnits {
+  /**
+   * <p>An integer that represents the number of units for your desired number of concurrent connections, or the number of user sessions on your web app at the same time.</p>
+   *          <p>Each increment allows an additional 250 concurrent sessions: a value of <code>1</code> sets the number of concurrent sessions to 250; <code>2</code> sets a value of 500, and so on. </p>
+   * @public
+   */
+  export interface ProvisionedMember {
+    Provisioned: number;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Provisioned?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Provisioned: (value: number) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: WebAppUnits, visitor: Visitor<T>): T => {
+    if (value.Provisioned !== undefined) return visitor.Provisioned(value.Provisioned);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateWebAppRequest {
+  /**
+   * <p>You can provide a structure that contains the details for the identity provider to use with your web app.</p>
+   * @public
+   */
+  IdentityProviderDetails: WebAppIdentityProviderDetails | undefined;
+
+  /**
+   * <p>The <code>AccessEndpoint</code> is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value.</p>
+   * @public
+   */
+  AccessEndpoint?: string | undefined;
+
+  /**
+   * <p>A union that contains the value for number of concurrent connections or the user sessions on your web app.</p>
+   * @public
+   */
+  WebAppUnits?: WebAppUnits | undefined;
+
+  /**
+   * <p>Key-value pairs that can be used to group and search for web apps.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateWebAppResponse {
+  /**
+   * <p>Returns a unique identifier for the web app.</p>
+   * @public
+   */
+  WebAppId: string | undefined;
 }
 
 /**
@@ -3674,6 +3812,28 @@ export interface DeleteUserRequest {
    * @public
    */
   UserName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWebAppRequest {
+  /**
+   * <p>Provide the unique identifier for the web app that you are deleting.</p>
+   * @public
+   */
+  WebAppId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWebAppCustomizationRequest {
+  /**
+   * <p>Provide the unique identifier for the web app that contains the customizations that you are deleting.</p>
+   * @public
+   */
+  WebAppId: string | undefined;
 }
 
 /**
@@ -4234,6 +4394,30 @@ export interface DescribedHostKey {
    * @public
    */
   Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>A structure that contains the details of the IAM Identity Center used for your web app. Returned during a call to <code>DescribeWebApp</code>.</p>
+ * @public
+ */
+export interface DescribedIdentityCenterConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.</p>
+   * @public
+   */
+  ApplicationArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the IAM Identity Center used for the web app.</p>
+   * @public
+   */
+  InstanceArn?: string | undefined;
+
+  /**
+   * <p>The IAM role in IAM Identity Center used for the web app.</p>
+   * @public
+   */
+  Role?: string | undefined;
 }
 
 /**
@@ -4818,6 +5002,130 @@ export interface DescribedUser {
 }
 
 /**
+ * <p>Returns a structure that contains the identity provider details for your web app.</p>
+ * @public
+ */
+export type DescribedWebAppIdentityProviderDetails =
+  | DescribedWebAppIdentityProviderDetails.IdentityCenterConfigMember
+  | DescribedWebAppIdentityProviderDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DescribedWebAppIdentityProviderDetails {
+  /**
+   * <p>Returns a structure for your identity provider details. This structure contains the instance ARN and role being used for the web app.</p>
+   * @public
+   */
+  export interface IdentityCenterConfigMember {
+    IdentityCenterConfig: DescribedIdentityCenterConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    IdentityCenterConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    IdentityCenterConfig: (value: DescribedIdentityCenterConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DescribedWebAppIdentityProviderDetails, visitor: Visitor<T>): T => {
+    if (value.IdentityCenterConfig !== undefined) return visitor.IdentityCenterConfig(value.IdentityCenterConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>A structure that describes the parameters for the web app, as identified by the <code>WebAppId</code>.</p>
+ * @public
+ */
+export interface DescribedWebApp {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the web app.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the web app.</p>
+   * @public
+   */
+  WebAppId: string | undefined;
+
+  /**
+   * <p>A structure that contains the details for the identity provider used by the web app.</p>
+   * @public
+   */
+  DescribedIdentityProviderDetails?: DescribedWebAppIdentityProviderDetails | undefined;
+
+  /**
+   * <p>The <code>AccessEndpoint</code> is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value.</p>
+   * @public
+   */
+  AccessEndpoint?: string | undefined;
+
+  /**
+   * <p>The <code>WebAppEndpoint</code> is the unique URL for your Transfer Family web app. This is the value that you use when you configure <b>Origins</b> on CloudFront.</p>
+   * @public
+   */
+  WebAppEndpoint?: string | undefined;
+
+  /**
+   * <p>A union that contains the value for number of concurrent connections or the user sessions on your web app.</p>
+   * @public
+   */
+  WebAppUnits?: WebAppUnits | undefined;
+
+  /**
+   * <p>Key-value pairs that can be used to group and search for web apps. Tags are metadata attached to web apps for any purpose.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.</p>
+ * @public
+ */
+export interface DescribedWebAppCustomization {
+  /**
+   * <p>Returns the Amazon Resource Name (ARN) for the web app.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>Returns the unique identifier for your web app.</p>
+   * @public
+   */
+  WebAppId: string | undefined;
+
+  /**
+   * <p>Returns the page title that you defined for your web app.</p>
+   * @public
+   */
+  Title?: string | undefined;
+
+  /**
+   * <p>Returns a logo file data string (in base64 encoding).</p>
+   * @public
+   */
+  LogoFile?: Uint8Array | undefined;
+
+  /**
+   * <p>Returns a icon file data string (in base64 encoding).</p>
+   * @public
+   */
+  FaviconFile?: Uint8Array | undefined;
+}
+
+/**
  * <p>Describes the properties of the specified workflow</p>
  * @public
  */
@@ -5027,6 +5335,50 @@ export interface DescribeUserResponse {
 /**
  * @public
  */
+export interface DescribeWebAppRequest {
+  /**
+   * <p>Provide the unique identifier for the web app.</p>
+   * @public
+   */
+  WebAppId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeWebAppResponse {
+  /**
+   * <p>Returns a structure that contains the details of the web app.</p>
+   * @public
+   */
+  WebApp: DescribedWebApp | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeWebAppCustomizationRequest {
+  /**
+   * <p>Provide the unique identifier for the web app.</p>
+   * @public
+   */
+  WebAppId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeWebAppCustomizationResponse {
+  /**
+   * <p>Returns a structure that contains the details of the web app customizations.</p>
+   * @public
+   */
+  WebAppCustomization: DescribedWebAppCustomization | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeWorkflowRequest {
   /**
    * <p>A unique identifier for the workflow.</p>
@@ -5148,7 +5500,7 @@ export interface ImportSshPublicKeyResponse {
  */
 export interface ListAccessesRequest {
   /**
-   * <p>Specifies the maximum number of access SIDs to return.</p>
+   * <p>The maximum number of items to return.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -5537,6 +5889,36 @@ export interface ListedUser {
 }
 
 /**
+ * <p> a structure that contains details for the web app.</p>
+ * @public
+ */
+export interface ListedWebApp {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the web app.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the web app.</p>
+   * @public
+   */
+  WebAppId: string | undefined;
+
+  /**
+   * <p>The <code>AccessEndpoint</code> is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value.</p>
+   * @public
+   */
+  AccessEndpoint?: string | undefined;
+
+  /**
+   * <p>The <code>WebAppEndpoint</code> is the unique URL for your Transfer Family web app. This is the value that you use when you configure <b>Origins</b> on CloudFront.</p>
+   * @public
+   */
+  WebAppEndpoint?: string | undefined;
+}
+
+/**
  * <p>Contains the identifier, text description, and Amazon Resource Name (ARN) for the
  *       workflow.</p>
  * @public
@@ -5566,7 +5948,7 @@ export interface ListedWorkflow {
  */
 export interface ListExecutionsRequest {
   /**
-   * <p>Specifies the maximum number of executions to return.</p>
+   * <p>The maximum number of items to return.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -5707,7 +6089,7 @@ export interface ListFileTransferResultsResponse {
  */
 export interface ListHostKeysRequest {
   /**
-   * <p>The maximum number of host keys to return.</p>
+   * <p>The maximum number of items to return.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -5756,7 +6138,7 @@ export interface ListHostKeysResponse {
  */
 export interface ListProfilesRequest {
   /**
-   * <p>The maximum number of profiles to return.</p>
+   * <p>The maximum number of items to return.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -5986,9 +6368,46 @@ export interface ListUsersResponse {
 /**
  * @public
  */
+export interface ListWebAppsRequest {
+  /**
+   * <p>The maximum number of items to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Returns the <code>NextToken</code> parameter in the output.
+   *       You can then pass the <code>NextToken</code> parameter in a subsequent command to
+   *       continue listing additional web apps.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWebAppsResponse {
+  /**
+   * <p>Provide this value for the <code>NextToken</code> parameter in a subsequent command to
+   *       continue listing additional web apps.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Returns, for each listed web app, a structure that contains details for the web app.</p>
+   * @public
+   */
+  WebApps: ListedWebApp[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListWorkflowsRequest {
   /**
-   * <p>Specifies the maximum number of workflows to return.</p>
+   * <p>The maximum number of items to return.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -6976,6 +7395,138 @@ export interface UpdateUserResponse {
 }
 
 /**
+ * @public
+ */
+export interface UpdateWebAppCustomizationRequest {
+  /**
+   * <p>Provide the identifier of the web app that you are updating.</p>
+   * @public
+   */
+  WebAppId: string | undefined;
+
+  /**
+   * <p>Provide an updated title.</p>
+   * @public
+   */
+  Title?: string | undefined;
+
+  /**
+   * <p>Specify logo file data string (in base64 encoding).</p>
+   * @public
+   */
+  LogoFile?: Uint8Array | undefined;
+
+  /**
+   * <p>Specify icon file data string (in base64 encoding).</p>
+   * @public
+   */
+  FaviconFile?: Uint8Array | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWebAppCustomizationResponse {
+  /**
+   * <p>Returns the unique identifier for the web app being updated.</p>
+   * @public
+   */
+  WebAppId: string | undefined;
+}
+
+/**
+ * <p>A structure that describes the values to use for the IAM Identity Center settings when you update a web app.</p>
+ * @public
+ */
+export interface UpdateWebAppIdentityCenterConfig {
+  /**
+   * <p>The IAM role used to access IAM Identity Center.</p>
+   * @public
+   */
+  Role?: string | undefined;
+}
+
+/**
+ * <p>A union that contains the <code>UpdateWebAppIdentityCenterConfig</code> object.</p>
+ * @public
+ */
+export type UpdateWebAppIdentityProviderDetails =
+  | UpdateWebAppIdentityProviderDetails.IdentityCenterConfigMember
+  | UpdateWebAppIdentityProviderDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UpdateWebAppIdentityProviderDetails {
+  /**
+   * <p>A structure that describes the values to use for the IAM Identity Center settings when you update a web app.</p>
+   * @public
+   */
+  export interface IdentityCenterConfigMember {
+    IdentityCenterConfig: UpdateWebAppIdentityCenterConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    IdentityCenterConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    IdentityCenterConfig: (value: UpdateWebAppIdentityCenterConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: UpdateWebAppIdentityProviderDetails, visitor: Visitor<T>): T => {
+    if (value.IdentityCenterConfig !== undefined) return visitor.IdentityCenterConfig(value.IdentityCenterConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface UpdateWebAppRequest {
+  /**
+   * <p>Provide the identifier of the web app that you are updating.</p>
+   * @public
+   */
+  WebAppId: string | undefined;
+
+  /**
+   * <p>Provide updated identity provider values in a <code>WebAppIdentityProviderDetails</code> object.</p>
+   * @public
+   */
+  IdentityProviderDetails?: UpdateWebAppIdentityProviderDetails | undefined;
+
+  /**
+   * <p>The <code>AccessEndpoint</code> is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value.</p>
+   * @public
+   */
+  AccessEndpoint?: string | undefined;
+
+  /**
+   * <p>A union that contains the value for number of concurrent connections or the user sessions on your web app.</p>
+   * @public
+   */
+  WebAppUnits?: WebAppUnits | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWebAppResponse {
+  /**
+   * <p>Returns the unique identifier for the web app being updated.</p>
+   * @public
+   */
+  WebAppId: string | undefined;
+}
+
+/**
  * @internal
  */
 export const DescribedCertificateFilterSensitiveLog = (obj: DescribedCertificate): any => ({
@@ -7013,6 +7564,27 @@ export const CreateServerRequestFilterSensitiveLog = (obj: CreateServerRequest):
 /**
  * @internal
  */
+export const DescribedWebAppCustomizationFilterSensitiveLog = (obj: DescribedWebAppCustomization): any => ({
+  ...obj,
+  ...(obj.LogoFile && { LogoFile: SENSITIVE_STRING }),
+  ...(obj.FaviconFile && { FaviconFile: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeWebAppCustomizationResponseFilterSensitiveLog = (
+  obj: DescribeWebAppCustomizationResponse
+): any => ({
+  ...obj,
+  ...(obj.WebAppCustomization && {
+    WebAppCustomization: DescribedWebAppCustomizationFilterSensitiveLog(obj.WebAppCustomization),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const ImportHostKeyRequestFilterSensitiveLog = (obj: ImportHostKeyRequest): any => ({
   ...obj,
   ...(obj.HostKeyBody && { HostKeyBody: SENSITIVE_STRING }),
@@ -7032,4 +7604,13 @@ export const UpdateServerRequestFilterSensitiveLog = (obj: UpdateServerRequest):
 export const TestIdentityProviderRequestFilterSensitiveLog = (obj: TestIdentityProviderRequest): any => ({
   ...obj,
   ...(obj.UserPassword && { UserPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateWebAppCustomizationRequestFilterSensitiveLog = (obj: UpdateWebAppCustomizationRequest): any => ({
+  ...obj,
+  ...(obj.LogoFile && { LogoFile: SENSITIVE_STRING }),
+  ...(obj.FaviconFile && { FaviconFile: SENSITIVE_STRING }),
 });

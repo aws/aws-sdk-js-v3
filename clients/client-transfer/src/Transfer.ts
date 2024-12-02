@@ -29,6 +29,11 @@ import {
 } from "./commands/CreateServerCommand";
 import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
+  CreateWebAppCommand,
+  CreateWebAppCommandInput,
+  CreateWebAppCommandOutput,
+} from "./commands/CreateWebAppCommand";
+import {
   CreateWorkflowCommand,
   CreateWorkflowCommandInput,
   CreateWorkflowCommandOutput,
@@ -74,6 +79,16 @@ import {
   DeleteSshPublicKeyCommandOutput,
 } from "./commands/DeleteSshPublicKeyCommand";
 import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import {
+  DeleteWebAppCommand,
+  DeleteWebAppCommandInput,
+  DeleteWebAppCommandOutput,
+} from "./commands/DeleteWebAppCommand";
+import {
+  DeleteWebAppCustomizationCommand,
+  DeleteWebAppCustomizationCommandInput,
+  DeleteWebAppCustomizationCommandOutput,
+} from "./commands/DeleteWebAppCustomizationCommand";
 import {
   DeleteWorkflowCommand,
   DeleteWorkflowCommandInput,
@@ -129,6 +144,16 @@ import {
   DescribeUserCommandInput,
   DescribeUserCommandOutput,
 } from "./commands/DescribeUserCommand";
+import {
+  DescribeWebAppCommand,
+  DescribeWebAppCommandInput,
+  DescribeWebAppCommandOutput,
+} from "./commands/DescribeWebAppCommand";
+import {
+  DescribeWebAppCustomizationCommand,
+  DescribeWebAppCustomizationCommandInput,
+  DescribeWebAppCustomizationCommandOutput,
+} from "./commands/DescribeWebAppCustomizationCommand";
 import {
   DescribeWorkflowCommand,
   DescribeWorkflowCommandInput,
@@ -201,6 +226,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { ListWebAppsCommand, ListWebAppsCommandInput, ListWebAppsCommandOutput } from "./commands/ListWebAppsCommand";
 import {
   ListWorkflowsCommand,
   ListWorkflowsCommandInput,
@@ -275,6 +301,16 @@ import {
   UpdateServerCommandOutput,
 } from "./commands/UpdateServerCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import {
+  UpdateWebAppCommand,
+  UpdateWebAppCommandInput,
+  UpdateWebAppCommandOutput,
+} from "./commands/UpdateWebAppCommand";
+import {
+  UpdateWebAppCustomizationCommand,
+  UpdateWebAppCustomizationCommandInput,
+  UpdateWebAppCustomizationCommandOutput,
+} from "./commands/UpdateWebAppCustomizationCommand";
 import { TransferClient, TransferClientConfig } from "./TransferClient";
 
 const commands = {
@@ -284,6 +320,7 @@ const commands = {
   CreateProfileCommand,
   CreateServerCommand,
   CreateUserCommand,
+  CreateWebAppCommand,
   CreateWorkflowCommand,
   DeleteAccessCommand,
   DeleteAgreementCommand,
@@ -294,6 +331,8 @@ const commands = {
   DeleteServerCommand,
   DeleteSshPublicKeyCommand,
   DeleteUserCommand,
+  DeleteWebAppCommand,
+  DeleteWebAppCustomizationCommand,
   DeleteWorkflowCommand,
   DescribeAccessCommand,
   DescribeAgreementCommand,
@@ -305,6 +344,8 @@ const commands = {
   DescribeSecurityPolicyCommand,
   DescribeServerCommand,
   DescribeUserCommand,
+  DescribeWebAppCommand,
+  DescribeWebAppCustomizationCommand,
   DescribeWorkflowCommand,
   ImportCertificateCommand,
   ImportHostKeyCommand,
@@ -321,6 +362,7 @@ const commands = {
   ListServersCommand,
   ListTagsForResourceCommand,
   ListUsersCommand,
+  ListWebAppsCommand,
   ListWorkflowsCommand,
   SendWorkflowStepStateCommand,
   StartDirectoryListingCommand,
@@ -339,6 +381,8 @@ const commands = {
   UpdateProfileCommand,
   UpdateServerCommand,
   UpdateUserCommand,
+  UpdateWebAppCommand,
+  UpdateWebAppCustomizationCommand,
 };
 
 export interface Transfer {
@@ -413,6 +457,17 @@ export interface Transfer {
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateWebAppCommand}
+   */
+  createWebApp(args: CreateWebAppCommandInput, options?: __HttpHandlerOptions): Promise<CreateWebAppCommandOutput>;
+  createWebApp(args: CreateWebAppCommandInput, cb: (err: any, data?: CreateWebAppCommandOutput) => void): void;
+  createWebApp(
+    args: CreateWebAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWebAppCommandOutput) => void
   ): void;
 
   /**
@@ -544,6 +599,34 @@ export interface Transfer {
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWebAppCommand}
+   */
+  deleteWebApp(args: DeleteWebAppCommandInput, options?: __HttpHandlerOptions): Promise<DeleteWebAppCommandOutput>;
+  deleteWebApp(args: DeleteWebAppCommandInput, cb: (err: any, data?: DeleteWebAppCommandOutput) => void): void;
+  deleteWebApp(
+    args: DeleteWebAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWebAppCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWebAppCustomizationCommand}
+   */
+  deleteWebAppCustomization(
+    args: DeleteWebAppCustomizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWebAppCustomizationCommandOutput>;
+  deleteWebAppCustomization(
+    args: DeleteWebAppCustomizationCommandInput,
+    cb: (err: any, data?: DeleteWebAppCustomizationCommandOutput) => void
+  ): void;
+  deleteWebAppCustomization(
+    args: DeleteWebAppCustomizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWebAppCustomizationCommandOutput) => void
   ): void;
 
   /**
@@ -710,6 +793,37 @@ export interface Transfer {
     args: DescribeUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeWebAppCommand}
+   */
+  describeWebApp(
+    args: DescribeWebAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWebAppCommandOutput>;
+  describeWebApp(args: DescribeWebAppCommandInput, cb: (err: any, data?: DescribeWebAppCommandOutput) => void): void;
+  describeWebApp(
+    args: DescribeWebAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWebAppCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeWebAppCustomizationCommand}
+   */
+  describeWebAppCustomization(
+    args: DescribeWebAppCustomizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWebAppCustomizationCommandOutput>;
+  describeWebAppCustomization(
+    args: DescribeWebAppCustomizationCommandInput,
+    cb: (err: any, data?: DescribeWebAppCustomizationCommandOutput) => void
+  ): void;
+  describeWebAppCustomization(
+    args: DescribeWebAppCustomizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWebAppCustomizationCommandOutput) => void
   ): void;
 
   /**
@@ -942,6 +1056,18 @@ export interface Transfer {
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWebAppsCommand}
+   */
+  listWebApps(): Promise<ListWebAppsCommandOutput>;
+  listWebApps(args: ListWebAppsCommandInput, options?: __HttpHandlerOptions): Promise<ListWebAppsCommandOutput>;
+  listWebApps(args: ListWebAppsCommandInput, cb: (err: any, data?: ListWebAppsCommandOutput) => void): void;
+  listWebApps(
+    args: ListWebAppsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWebAppsCommandOutput) => void
   ): void;
 
   /**
@@ -1180,6 +1306,34 @@ export interface Transfer {
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateWebAppCommand}
+   */
+  updateWebApp(args: UpdateWebAppCommandInput, options?: __HttpHandlerOptions): Promise<UpdateWebAppCommandOutput>;
+  updateWebApp(args: UpdateWebAppCommandInput, cb: (err: any, data?: UpdateWebAppCommandOutput) => void): void;
+  updateWebApp(
+    args: UpdateWebAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWebAppCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateWebAppCustomizationCommand}
+   */
+  updateWebAppCustomization(
+    args: UpdateWebAppCustomizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWebAppCustomizationCommandOutput>;
+  updateWebAppCustomization(
+    args: UpdateWebAppCustomizationCommandInput,
+    cb: (err: any, data?: UpdateWebAppCustomizationCommandOutput) => void
+  ): void;
+  updateWebAppCustomization(
+    args: UpdateWebAppCustomizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWebAppCustomizationCommandOutput) => void
   ): void;
 }
 
