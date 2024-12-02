@@ -1456,6 +1456,36 @@ export const AnalyticsEngine = {
 export type AnalyticsEngine = (typeof AnalyticsEngine)[keyof typeof AnalyticsEngine];
 
 /**
+ * <p> A reference to a table within Athena.</p>
+ * @public
+ */
+export interface AthenaTableReference {
+  /**
+   * <p> The workgroup of the Athena table reference.</p>
+   * @public
+   */
+  workGroup: string | undefined;
+
+  /**
+   * <p> The output location for the Athena table.</p>
+   * @public
+   */
+  outputLocation?: string | undefined;
+
+  /**
+   * <p> The database name.</p>
+   * @public
+   */
+  databaseName: string | undefined;
+
+  /**
+   * <p> The table reference.</p>
+   * @public
+   */
+  tableName: string | undefined;
+}
+
+/**
  * @public
  */
 export interface BatchGetCollaborationAnalysisTemplateInput {
@@ -1653,7 +1683,7 @@ export interface BatchGetSchemaError {
 }
 
 /**
- * <p>A column within a schema relation, derived from the underlying Glue
+ * <p>A column within a schema relation, derived from the underlying
  *          table.</p>
  * @public
  */
@@ -5197,11 +5227,119 @@ export interface GlueTableReference {
 }
 
 /**
- * <p>A pointer to the dataset that underlies this table. Currently, this can only be an Glue
- *          table.</p>
+ * <p> The Snowflake table schema.</p>
  * @public
  */
-export type TableReference = TableReference.GlueMember | TableReference.$UnknownMember;
+export interface SnowflakeTableSchemaV1 {
+  /**
+   * <p> The column name.</p>
+   * @public
+   */
+  columnName: string | undefined;
+
+  /**
+   * <p> The column's data type. Supported data types: <code>ARRAY</code>, <code>BIGINT</code>,
+   *             <code>BOOLEAN</code>, <code>CHAR</code>, <code>DATE</code>,
+   *             <code>DECIMAL</code>, <code>DOUBLE</code>, <code>DOUBLE PRECISION</code>,
+   *             <code>FLOAT</code>, <code>FLOAT4</code>, <code>INT</code>, <code>INTEGER</code>,
+   *             <code>MAP</code>, <code>NUMERIC</code>, <code>NUMBER</code>, <code>REAL</code>,
+   *             <code>SMALLINT</code>, <code>STRING</code>, <code>TIMESTAMP</code>,
+   *             <code>TIMESTAMP_LTZ</code>, <code>TIMESTAMP_NTZ</code>, <code>DATETIME</code>,
+   *             <code>TINYINT</code>, <code>VARCHAR</code>, <code>TEXT</code>, <code>CHARACTER</code>.</p>
+   * @public
+   */
+  columnType: string | undefined;
+}
+
+/**
+ * <p> The schema of a Snowflake table.</p>
+ * @public
+ */
+export type SnowflakeTableSchema = SnowflakeTableSchema.V1Member | SnowflakeTableSchema.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SnowflakeTableSchema {
+  /**
+   * <p> The schema of a Snowflake table.</p>
+   * @public
+   */
+  export interface V1Member {
+    v1: SnowflakeTableSchemaV1[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    v1?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    v1: (value: SnowflakeTableSchemaV1[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: SnowflakeTableSchema, visitor: Visitor<T>): T => {
+    if (value.v1 !== undefined) return visitor.v1(value.v1);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p> A reference to a table within Snowflake.</p>
+ * @public
+ */
+export interface SnowflakeTableReference {
+  /**
+   * <p> The secret ARN of the Snowflake table reference.</p>
+   * @public
+   */
+  secretArn: string | undefined;
+
+  /**
+   * <p> The account identifier for the Snowflake table reference.</p>
+   * @public
+   */
+  accountIdentifier: string | undefined;
+
+  /**
+   * <p> The name of the database the Snowflake table belongs to.</p>
+   * @public
+   */
+  databaseName: string | undefined;
+
+  /**
+   * <p> The name of the Snowflake table.</p>
+   * @public
+   */
+  tableName: string | undefined;
+
+  /**
+   * <p> The schema name of the Snowflake table reference.</p>
+   * @public
+   */
+  schemaName: string | undefined;
+
+  /**
+   * <p> The schema of the Snowflake table.</p>
+   * @public
+   */
+  tableSchema: SnowflakeTableSchema | undefined;
+}
+
+/**
+ * <p>A pointer to the dataset that underlies this table.</p>
+ * @public
+ */
+export type TableReference =
+  | TableReference.AthenaMember
+  | TableReference.GlueMember
+  | TableReference.SnowflakeMember
+  | TableReference.$UnknownMember;
 
 /**
  * @public
@@ -5214,6 +5352,30 @@ export namespace TableReference {
    */
   export interface GlueMember {
     glue: GlueTableReference;
+    snowflake?: never;
+    athena?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> If present, a reference to the Snowflake table referred to by this table reference.</p>
+   * @public
+   */
+  export interface SnowflakeMember {
+    glue?: never;
+    snowflake: SnowflakeTableReference;
+    athena?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> If present, a reference to the Athena table referred to by this table reference.</p>
+   * @public
+   */
+  export interface AthenaMember {
+    glue?: never;
+    snowflake?: never;
+    athena: AthenaTableReference;
     $unknown?: never;
   }
 
@@ -5222,16 +5384,22 @@ export namespace TableReference {
    */
   export interface $UnknownMember {
     glue?: never;
+    snowflake?: never;
+    athena?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     glue: (value: GlueTableReference) => T;
+    snowflake: (value: SnowflakeTableReference) => T;
+    athena: (value: AthenaTableReference) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: TableReference, visitor: Visitor<T>): T => {
     if (value.glue !== undefined) return visitor.glue(value.glue);
+    if (value.snowflake !== undefined) return visitor.snowflake(value.snowflake);
+    if (value.athena !== undefined) return visitor.athena(value.athena);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -5253,7 +5421,9 @@ export interface CreateConfiguredTableInput {
   description?: string | undefined;
 
   /**
-   * <p>A reference to the Glue table being configured.</p>
+   * <p>A reference to the
+   *          table
+   *          being configured.</p>
    * @public
    */
   tableReference: TableReference | undefined;
@@ -5328,7 +5498,9 @@ export interface ConfiguredTable {
   description?: string | undefined;
 
   /**
-   * <p>The Glue table that this configured table represents.</p>
+   * <p>The
+   *          table
+   *          that this configured table represents.</p>
    * @public
    */
   tableReference: TableReference | undefined;
@@ -7859,101 +8031,6 @@ export namespace ConfigurationDetails {
       return visitor.directAnalysisConfigurationDetails(value.directAnalysisConfigurationDetails);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-}
-
-/**
- * <p> The receiver configuration for a protected query.</p>
- * @public
- */
-export interface ReceiverConfiguration {
-  /**
-   * <p> The type of analysis for the protected query. The results of the query can be analyzed directly (<code>DIRECT_ANALYSIS</code>) or used as input into additional analyses (<code>ADDITIONAL_ANALYSIS</code>), such as a query that is a seed for a lookalike ML model.</p>
-   * @public
-   */
-  analysisType: AnalysisType | undefined;
-
-  /**
-   * <p> The configuration details of the receiver configuration.</p>
-   * @public
-   */
-  configurationDetails?: ConfigurationDetails | undefined;
-}
-
-/**
- * <p>The protected query summary for the objects listed by the request.</p>
- * @public
- */
-export interface ProtectedQuerySummary {
-  /**
-   * <p>The unique ID of the protected query.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The unique ID for the membership that initiated the protected query.</p>
-   * @public
-   */
-  membershipId: string | undefined;
-
-  /**
-   * <p>The unique ARN for the membership that initiated the protected query.</p>
-   * @public
-   */
-  membershipArn: string | undefined;
-
-  /**
-   * <p>The time the protected query was created.</p>
-   * @public
-   */
-  createTime: Date | undefined;
-
-  /**
-   * <p>The status of the protected query.</p>
-   * @public
-   */
-  status: ProtectedQueryStatus | undefined;
-
-  /**
-   * <p> The receiver configuration.</p>
-   * @public
-   */
-  receiverConfigurations: ReceiverConfiguration[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListProtectedQueriesOutput {
-  /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>A list of protected queries.</p>
-   * @public
-   */
-  protectedQueries: ProtectedQuerySummary[] | undefined;
-}
-
-/**
- * <p>The epsilon and noise parameters that you want to preview.</p>
- * @public
- */
-export interface DifferentialPrivacyPreviewParametersInput {
-  /**
-   * <p>The epsilon value that you want to preview.</p>
-   * @public
-   */
-  epsilon: number | undefined;
-
-  /**
-   * <p>Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.</p>
-   * @public
-   */
-  usersNoisePerQuery: number | undefined;
 }
 
 /**

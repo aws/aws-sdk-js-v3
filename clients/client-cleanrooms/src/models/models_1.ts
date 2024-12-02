@@ -2,9 +2,10 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
+  AnalysisType,
   ComputeConfiguration,
+  ConfigurationDetails,
   DifferentialPrivacyAggregationType,
-  DifferentialPrivacyPreviewParametersInput,
   Membership,
   MembershipProtectedQueryResultConfiguration,
   MembershipQueryLogStatus,
@@ -15,7 +16,103 @@ import {
   ProtectedQueryFilterSensitiveLog,
   ProtectedQueryResultConfiguration,
   ProtectedQuerySQLParameters,
+  ProtectedQueryStatus,
 } from "./models_0";
+
+/**
+ * <p> The receiver configuration for a protected query.</p>
+ * @public
+ */
+export interface ReceiverConfiguration {
+  /**
+   * <p> The type of analysis for the protected query. The results of the query can be analyzed directly (<code>DIRECT_ANALYSIS</code>) or used as input into additional analyses (<code>ADDITIONAL_ANALYSIS</code>), such as a query that is a seed for a lookalike ML model.</p>
+   * @public
+   */
+  analysisType: AnalysisType | undefined;
+
+  /**
+   * <p> The configuration details of the receiver configuration.</p>
+   * @public
+   */
+  configurationDetails?: ConfigurationDetails | undefined;
+}
+
+/**
+ * <p>The protected query summary for the objects listed by the request.</p>
+ * @public
+ */
+export interface ProtectedQuerySummary {
+  /**
+   * <p>The unique ID of the protected query.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique ID for the membership that initiated the protected query.</p>
+   * @public
+   */
+  membershipId: string | undefined;
+
+  /**
+   * <p>The unique ARN for the membership that initiated the protected query.</p>
+   * @public
+   */
+  membershipArn: string | undefined;
+
+  /**
+   * <p>The time the protected query was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The status of the protected query.</p>
+   * @public
+   */
+  status: ProtectedQueryStatus | undefined;
+
+  /**
+   * <p> The receiver configuration.</p>
+   * @public
+   */
+  receiverConfigurations: ReceiverConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProtectedQueriesOutput {
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>A list of protected queries.</p>
+   * @public
+   */
+  protectedQueries: ProtectedQuerySummary[] | undefined;
+}
+
+/**
+ * <p>The epsilon and noise parameters that you want to preview.</p>
+ * @public
+ */
+export interface DifferentialPrivacyPreviewParametersInput {
+  /**
+   * <p>The epsilon value that you want to preview.</p>
+   * @public
+   */
+  epsilon: number | undefined;
+
+  /**
+   * <p>Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.</p>
+   * @public
+   */
+  usersNoisePerQuery: number | undefined;
+}
 
 /**
  * <p>Specifies the updated epsilon and noise parameters to preview. The preview allows you to see how the maximum number of each type of aggregation function would change with the new parameters.</p>

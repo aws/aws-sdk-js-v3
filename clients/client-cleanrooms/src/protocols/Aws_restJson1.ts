@@ -313,6 +313,7 @@ import {
   AnalysisSource,
   AnalysisTemplate,
   AnalysisTemplateSummary,
+  AthenaTableReference,
   BilledResourceUtilization,
   Collaboration,
   CollaborationAnalysisTemplate,
@@ -347,7 +348,6 @@ import {
   DifferentialPrivacyColumn,
   DifferentialPrivacyConfiguration,
   DifferentialPrivacyParameters,
-  DifferentialPrivacyPreviewParametersInput,
   DifferentialPrivacySensitivityParameters,
   GlueTableReference,
   IdMappingConfig,
@@ -385,7 +385,6 @@ import {
   ProtectedQueryS3OutputConfiguration,
   ProtectedQuerySQLParameters,
   ProtectedQueryStatistics,
-  ProtectedQuerySummary,
   QueryComputePaymentConfig,
   ResourceNotFoundException,
   ScalarFunctions,
@@ -393,12 +392,16 @@ import {
   SchemaAnalysisRuleRequest,
   SchemaSummary,
   ServiceQuotaExceededException,
+  SnowflakeTableReference,
+  SnowflakeTableSchema,
+  SnowflakeTableSchemaV1,
   TableReference,
   ThrottlingException,
   ValidationException,
   WorkerComputeConfiguration,
 } from "../models/models_0";
 import {
+  DifferentialPrivacyPreviewParametersInput,
   DifferentialPrivacyTemplateParametersInput,
   DifferentialPrivacyTemplateUpdateParameters,
   PreviewPrivacyImpactParametersInput,
@@ -406,6 +409,7 @@ import {
   PrivacyBudgetTemplateParametersInput,
   PrivacyBudgetTemplateSummary,
   PrivacyBudgetTemplateUpdateParameters,
+  ProtectedQuerySummary,
 } from "../models/models_1";
 
 /**
@@ -4039,6 +4043,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AnalysisTemplateArnList omitted.
 
+// se_AthenaTableReference omitted.
+
 // se_ComputeConfiguration omitted.
 
 // se_ConfiguredTableAnalysisRulePolicy omitted.
@@ -4136,6 +4142,14 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_SchemaAnalysisRuleRequest omitted.
 
 // se_SchemaAnalysisRuleRequestList omitted.
+
+// se_SnowflakeTableReference omitted.
+
+// se_SnowflakeTableSchema omitted.
+
+// se_SnowflakeTableSchemaList omitted.
+
+// se_SnowflakeTableSchemaV1 omitted.
 
 // se_TableAliasList omitted.
 
@@ -4263,6 +4277,8 @@ const de_AnalysisTemplateSummaryList = (output: any, context: __SerdeContext): A
 // de_AnalysisTemplateValidationStatusReason omitted.
 
 // de_AnalysisTemplateValidationStatusReasonList omitted.
+
+// de_AthenaTableReference omitted.
 
 // de_BatchGetCollaborationAnalysisTemplateError omitted.
 
@@ -5434,6 +5450,14 @@ const de_SchemaSummaryList = (output: any, context: __SerdeContext): SchemaSumma
 };
 
 // de_SchemaTypeProperties omitted.
+
+// de_SnowflakeTableReference omitted.
+
+// de_SnowflakeTableSchema omitted.
+
+// de_SnowflakeTableSchemaList omitted.
+
+// de_SnowflakeTableSchemaV1 omitted.
 
 // de_TableReference omitted.
 

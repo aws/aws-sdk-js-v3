@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListProtectedQueriesInput, ListProtectedQueriesOutput } from "../models/models_0";
+import { ListProtectedQueriesInput } from "../models/models_0";
+import { ListProtectedQueriesOutput } from "../models/models_1";
 import { de_ListProtectedQueriesCommand, se_ListProtectedQueriesCommand } from "../protocols/Aws_restJson1";
 
 /**
