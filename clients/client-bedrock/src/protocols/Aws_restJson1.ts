@@ -28,6 +28,7 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
@@ -170,6 +171,8 @@ import { BedrockServiceException as __BaseException } from "../models/BedrockSer
 import {
   AccessDeniedException,
   AutomatedEvaluationConfig,
+  BedrockEvaluatorModel,
+  ByteContentDoc,
   CloudWatchConfig,
   ConflictException,
   CustomModelSummary,
@@ -182,6 +185,13 @@ import {
   EvaluationModelConfig,
   EvaluationOutputDataConfig,
   EvaluationSummary,
+  EvaluatorModelConfig,
+  ExternalSource,
+  ExternalSourcesGenerationConfiguration,
+  ExternalSourcesRetrieveAndGenerateConfiguration,
+  FilterAttribute,
+  GenerationConfiguration,
+  GuardrailConfiguration,
   GuardrailContentFilterConfig,
   GuardrailContentPolicyConfig,
   GuardrailContextualGroundingFilter,
@@ -204,6 +214,11 @@ import {
   InferenceProfileModelSource,
   InferenceProfileSummary,
   InternalServerException,
+  KbInferenceConfig,
+  KnowledgeBaseConfig,
+  KnowledgeBaseRetrievalConfiguration,
+  KnowledgeBaseRetrieveAndGenerateConfiguration,
+  KnowledgeBaseVectorSearchConfiguration,
   LoggingConfig,
   ModelCopyJobSummary,
   ModelCustomizationJobSummary,
@@ -214,13 +229,22 @@ import {
   ModelInvocationJobS3InputDataConfig,
   ModelInvocationJobS3OutputDataConfig,
   ModelInvocationJobSummary,
+  OrchestrationConfiguration,
   OutputDataConfig,
+  PromptTemplate,
   ProvisionedModelSummary,
+  QueryTransformationConfiguration,
+  RAGConfig,
   ResourceNotFoundException,
+  RetrievalFilter,
+  RetrieveAndGenerateConfiguration,
+  RetrieveConfig,
   S3Config,
   S3DataSource,
+  S3ObjectDoc,
   ServiceQuotaExceededException,
   Tag,
+  TextInferenceConfig,
   ThrottlingException,
   TooManyTagsException,
   TrainingDataConfig,
@@ -269,10 +293,11 @@ export const se_CreateEvaluationJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      applicationType: [],
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       customerEncryptionKeyId: [],
       evaluationConfig: (_) => _json(_),
-      inferenceConfig: (_) => _json(_),
+      inferenceConfig: (_) => se_EvaluationInferenceConfig(_, context),
       jobDescription: [],
       jobName: [],
       jobTags: (_) => _json(_),
@@ -848,6 +873,7 @@ export const se_ListEvaluationJobsCommand = async (
     [_cTA]: [() => input.creationTimeAfter !== void 0, () => __serializeDateTime(input[_cTA]!).toString()],
     [_cTB]: [() => input.creationTimeBefore !== void 0, () => __serializeDateTime(input[_cTB]!).toString()],
     [_sE]: [, input[_sE]!],
+    [_aTE]: [, input[_aTE]!],
     [_nC]: [, input[_nC]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
@@ -1633,11 +1659,12 @@ export const de_GetEvaluationJobCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    applicationType: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     customerEncryptionKeyId: __expectString,
     evaluationConfig: (_) => _json(__expectUnion(_)),
     failureMessages: _json,
-    inferenceConfig: (_) => _json(__expectUnion(_)),
+    inferenceConfig: (_) => de_EvaluationInferenceConfig(__expectUnion(_), context),
     jobArn: __expectString,
     jobDescription: __expectString,
     jobName: __expectString,
@@ -2564,7 +2591,42 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+/**
+ * serializeAws_restJson1AdditionalModelRequestFields
+ */
+const se_AdditionalModelRequestFields = (input: Record<string, __DocumentType>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_AdditionalModelRequestFieldsValue(value, context);
+    return acc;
+  }, {});
+};
+
+/**
+ * serializeAws_restJson1AdditionalModelRequestFieldsValue
+ */
+const se_AdditionalModelRequestFieldsValue = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
 // se_AutomatedEvaluationConfig omitted.
+
+// se_BedrockEvaluatorModel omitted.
+
+// se_BedrockEvaluatorModels omitted.
+
+/**
+ * serializeAws_restJson1ByteContentDoc
+ */
+const se_ByteContentDoc = (input: ByteContentDoc, context: __SerdeContext): any => {
+  return take(input, {
+    contentType: [],
+    data: context.base64Encoder,
+    identifier: [],
+  });
+};
 
 // se_CloudWatchConfig omitted.
 
@@ -2580,7 +2642,16 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_EvaluationDatasetMetricConfigs omitted.
 
-// se_EvaluationInferenceConfig omitted.
+/**
+ * serializeAws_restJson1EvaluationInferenceConfig
+ */
+const se_EvaluationInferenceConfig = (input: EvaluationInferenceConfig, context: __SerdeContext): any => {
+  return EvaluationInferenceConfig.visit(input, {
+    models: (value) => ({ models: _json(value) }),
+    ragConfigs: (value) => ({ ragConfigs: se_RagConfigs(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
 
 // se_EvaluationJobIdentifiers omitted.
 
@@ -2591,6 +2662,90 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_EvaluationModelConfigs omitted.
 
 // se_EvaluationOutputDataConfig omitted.
+
+// se_EvaluatorModelConfig omitted.
+
+/**
+ * serializeAws_restJson1ExternalSource
+ */
+const se_ExternalSource = (input: ExternalSource, context: __SerdeContext): any => {
+  return take(input, {
+    byteContent: (_) => se_ByteContentDoc(_, context),
+    s3Location: _json,
+    sourceType: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1ExternalSources
+ */
+const se_ExternalSources = (input: ExternalSource[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ExternalSource(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1ExternalSourcesGenerationConfiguration
+ */
+const se_ExternalSourcesGenerationConfiguration = (
+  input: ExternalSourcesGenerationConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    additionalModelRequestFields: (_) => se_AdditionalModelRequestFields(_, context),
+    guardrailConfiguration: _json,
+    kbInferenceConfig: (_) => se_KbInferenceConfig(_, context),
+    promptTemplate: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1ExternalSourcesRetrieveAndGenerateConfiguration
+ */
+const se_ExternalSourcesRetrieveAndGenerateConfiguration = (
+  input: ExternalSourcesRetrieveAndGenerateConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    generationConfiguration: (_) => se_ExternalSourcesGenerationConfiguration(_, context),
+    modelArn: [],
+    sources: (_) => se_ExternalSources(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1FilterAttribute
+ */
+const se_FilterAttribute = (input: FilterAttribute, context: __SerdeContext): any => {
+  return take(input, {
+    key: [],
+    value: (_) => se_FilterValue(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1FilterValue
+ */
+const se_FilterValue = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
+/**
+ * serializeAws_restJson1GenerationConfiguration
+ */
+const se_GenerationConfiguration = (input: GenerationConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    additionalModelRequestFields: (_) => se_AdditionalModelRequestFields(_, context),
+    guardrailConfiguration: _json,
+    kbInferenceConfig: (_) => se_KbInferenceConfig(_, context),
+    promptTemplate: _json,
+  });
+};
+
+// se_GuardrailConfiguration omitted.
 
 // se_GuardrailContentFilterConfig omitted.
 
@@ -2675,6 +2830,70 @@ const se_GuardrailContextualGroundingPolicyConfig = (
 
 // se_InferenceProfileModelSource omitted.
 
+/**
+ * serializeAws_restJson1KbInferenceConfig
+ */
+const se_KbInferenceConfig = (input: KbInferenceConfig, context: __SerdeContext): any => {
+  return take(input, {
+    textInferenceConfig: (_) => se_TextInferenceConfig(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1KnowledgeBaseConfig
+ */
+const se_KnowledgeBaseConfig = (input: KnowledgeBaseConfig, context: __SerdeContext): any => {
+  return KnowledgeBaseConfig.visit(input, {
+    retrieveAndGenerateConfig: (value) => ({
+      retrieveAndGenerateConfig: se_RetrieveAndGenerateConfiguration(value, context),
+    }),
+    retrieveConfig: (value) => ({ retrieveConfig: se_RetrieveConfig(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
+ * serializeAws_restJson1KnowledgeBaseRetrievalConfiguration
+ */
+const se_KnowledgeBaseRetrievalConfiguration = (
+  input: KnowledgeBaseRetrievalConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    vectorSearchConfiguration: (_) => se_KnowledgeBaseVectorSearchConfiguration(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1KnowledgeBaseRetrieveAndGenerateConfiguration
+ */
+const se_KnowledgeBaseRetrieveAndGenerateConfiguration = (
+  input: KnowledgeBaseRetrieveAndGenerateConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    generationConfiguration: (_) => se_GenerationConfiguration(_, context),
+    knowledgeBaseId: [],
+    modelArn: [],
+    orchestrationConfiguration: _json,
+    retrievalConfiguration: (_) => se_KnowledgeBaseRetrievalConfiguration(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1KnowledgeBaseVectorSearchConfiguration
+ */
+const se_KnowledgeBaseVectorSearchConfiguration = (
+  input: KnowledgeBaseVectorSearchConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    filter: (_) => se_RetrievalFilter(_, context),
+    numberOfResults: [],
+    overrideSearchType: [],
+  });
+};
+
 // se_LoggingConfig omitted.
 
 // se_ModelCustomizationHyperParameters omitted.
@@ -2689,11 +2908,96 @@ const se_GuardrailContextualGroundingPolicyConfig = (
 
 // se_ModelInvocationJobS3OutputDataConfig omitted.
 
+// se_OrchestrationConfiguration omitted.
+
 // se_OutputDataConfig omitted.
+
+// se_PromptTemplate omitted.
+
+// se_QueryTransformationConfiguration omitted.
+
+/**
+ * serializeAws_restJson1RAGConfig
+ */
+const se_RAGConfig = (input: RAGConfig, context: __SerdeContext): any => {
+  return RAGConfig.visit(input, {
+    knowledgeBaseConfig: (value) => ({ knowledgeBaseConfig: se_KnowledgeBaseConfig(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
+ * serializeAws_restJson1RagConfigs
+ */
+const se_RagConfigs = (input: RAGConfig[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_RAGConfig(entry, context);
+    });
+};
+
+// se_RAGStopSequences omitted.
+
+/**
+ * serializeAws_restJson1RetrievalFilter
+ */
+const se_RetrievalFilter = (input: RetrievalFilter, context: __SerdeContext): any => {
+  return RetrievalFilter.visit(input, {
+    andAll: (value) => ({ andAll: se_RetrievalFilterList(value, context) }),
+    equals: (value) => ({ equals: se_FilterAttribute(value, context) }),
+    greaterThan: (value) => ({ greaterThan: se_FilterAttribute(value, context) }),
+    greaterThanOrEquals: (value) => ({ greaterThanOrEquals: se_FilterAttribute(value, context) }),
+    in: (value) => ({ in: se_FilterAttribute(value, context) }),
+    lessThan: (value) => ({ lessThan: se_FilterAttribute(value, context) }),
+    lessThanOrEquals: (value) => ({ lessThanOrEquals: se_FilterAttribute(value, context) }),
+    listContains: (value) => ({ listContains: se_FilterAttribute(value, context) }),
+    notEquals: (value) => ({ notEquals: se_FilterAttribute(value, context) }),
+    notIn: (value) => ({ notIn: se_FilterAttribute(value, context) }),
+    orAll: (value) => ({ orAll: se_RetrievalFilterList(value, context) }),
+    startsWith: (value) => ({ startsWith: se_FilterAttribute(value, context) }),
+    stringContains: (value) => ({ stringContains: se_FilterAttribute(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
+ * serializeAws_restJson1RetrievalFilterList
+ */
+const se_RetrievalFilterList = (input: RetrievalFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_RetrievalFilter(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1RetrieveAndGenerateConfiguration
+ */
+const se_RetrieveAndGenerateConfiguration = (input: RetrieveAndGenerateConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    externalSourcesConfiguration: (_) => se_ExternalSourcesRetrieveAndGenerateConfiguration(_, context),
+    knowledgeBaseConfiguration: (_) => se_KnowledgeBaseRetrieveAndGenerateConfiguration(_, context),
+    type: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1RetrieveConfig
+ */
+const se_RetrieveConfig = (input: RetrieveConfig, context: __SerdeContext): any => {
+  return take(input, {
+    knowledgeBaseId: [],
+    knowledgeBaseRetrievalConfiguration: (_) => se_KnowledgeBaseRetrievalConfiguration(_, context),
+  });
+};
 
 // se_S3Config omitted.
 
 // se_S3DataSource omitted.
+
+// se_S3ObjectDoc omitted.
 
 // se_SecurityGroupIds omitted.
 
@@ -2705,6 +3009,18 @@ const se_GuardrailContextualGroundingPolicyConfig = (
 
 // se_TagList omitted.
 
+/**
+ * serializeAws_restJson1TextInferenceConfig
+ */
+const se_TextInferenceConfig = (input: TextInferenceConfig, context: __SerdeContext): any => {
+  return take(input, {
+    maxTokens: [],
+    stopSequences: _json,
+    temperature: __serializeFloat,
+    topP: __serializeFloat,
+  });
+};
+
 // se_TrainingDataConfig omitted.
 
 // se_ValidationDataConfig omitted.
@@ -2715,6 +3031,26 @@ const se_GuardrailContextualGroundingPolicyConfig = (
 
 // se_VpcConfig omitted.
 
+/**
+ * deserializeAws_restJson1AdditionalModelRequestFields
+ */
+const de_AdditionalModelRequestFields = (output: any, context: __SerdeContext): Record<string, __DocumentType> => {
+  return Object.entries(output).reduce((acc: Record<string, __DocumentType>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_AdditionalModelRequestFieldsValue(value, context);
+    return acc;
+  }, {} as Record<string, __DocumentType>);
+};
+
+/**
+ * deserializeAws_restJson1AdditionalModelRequestFieldsValue
+ */
+const de_AdditionalModelRequestFieldsValue = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
+
 // de_AutomatedEvaluationConfig omitted.
 
 // de_BatchDeleteEvaluationJobError omitted.
@@ -2724,6 +3060,21 @@ const se_GuardrailContextualGroundingPolicyConfig = (
 // de_BatchDeleteEvaluationJobItem omitted.
 
 // de_BatchDeleteEvaluationJobItems omitted.
+
+// de_BedrockEvaluatorModel omitted.
+
+// de_BedrockEvaluatorModels omitted.
+
+/**
+ * deserializeAws_restJson1ByteContentDoc
+ */
+const de_ByteContentDoc = (output: any, context: __SerdeContext): ByteContentDoc => {
+  return take(output, {
+    contentType: __expectString,
+    data: context.base64Decoder,
+    identifier: __expectString,
+  }) as any;
+};
 
 // de_CloudWatchConfig omitted.
 
@@ -2768,7 +3119,22 @@ const de_CustomModelSummaryList = (output: any, context: __SerdeContext): Custom
 
 // de_EvaluationDatasetMetricConfigs omitted.
 
-// de_EvaluationInferenceConfig omitted.
+/**
+ * deserializeAws_restJson1EvaluationInferenceConfig
+ */
+const de_EvaluationInferenceConfig = (output: any, context: __SerdeContext): EvaluationInferenceConfig => {
+  if (output.models != null) {
+    return {
+      models: _json(output.models),
+    };
+  }
+  if (output.ragConfigs != null) {
+    return {
+      ragConfigs: de_RagConfigs(output.ragConfigs, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 // de_EvaluationMetricNames omitted.
 
@@ -2797,17 +3163,93 @@ const de_EvaluationSummaries = (output: any, context: __SerdeContext): Evaluatio
  */
 const de_EvaluationSummary = (output: any, context: __SerdeContext): EvaluationSummary => {
   return take(output, {
+    applicationType: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     evaluationTaskTypes: _json,
+    evaluatorModelIdentifiers: _json,
     jobArn: __expectString,
     jobName: __expectString,
     jobType: __expectString,
     modelIdentifiers: _json,
+    ragIdentifiers: _json,
     status: __expectString,
   }) as any;
 };
 
 // de_EvaluationTaskTypes omitted.
+
+// de_EvaluatorModelConfig omitted.
+
+// de_EvaluatorModelIdentifiers omitted.
+
+/**
+ * deserializeAws_restJson1ExternalSource
+ */
+const de_ExternalSource = (output: any, context: __SerdeContext): ExternalSource => {
+  return take(output, {
+    byteContent: (_: any) => de_ByteContentDoc(_, context),
+    s3Location: _json,
+    sourceType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ExternalSources
+ */
+const de_ExternalSources = (output: any, context: __SerdeContext): ExternalSource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ExternalSource(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ExternalSourcesGenerationConfiguration
+ */
+const de_ExternalSourcesGenerationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ExternalSourcesGenerationConfiguration => {
+  return take(output, {
+    additionalModelRequestFields: (_: any) => de_AdditionalModelRequestFields(_, context),
+    guardrailConfiguration: _json,
+    kbInferenceConfig: (_: any) => de_KbInferenceConfig(_, context),
+    promptTemplate: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ExternalSourcesRetrieveAndGenerateConfiguration
+ */
+const de_ExternalSourcesRetrieveAndGenerateConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ExternalSourcesRetrieveAndGenerateConfiguration => {
+  return take(output, {
+    generationConfiguration: (_: any) => de_ExternalSourcesGenerationConfiguration(_, context),
+    modelArn: __expectString,
+    sources: (_: any) => de_ExternalSources(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FilterAttribute
+ */
+const de_FilterAttribute = (output: any, context: __SerdeContext): FilterAttribute => {
+  return take(output, {
+    key: __expectString,
+    value: (_: any) => de_FilterValue(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FilterValue
+ */
+const de_FilterValue = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
 
 // de_FoundationModelDetails omitted.
 
@@ -2816,6 +3258,20 @@ const de_EvaluationSummary = (output: any, context: __SerdeContext): EvaluationS
 // de_FoundationModelSummary omitted.
 
 // de_FoundationModelSummaryList omitted.
+
+/**
+ * deserializeAws_restJson1GenerationConfiguration
+ */
+const de_GenerationConfiguration = (output: any, context: __SerdeContext): GenerationConfiguration => {
+  return take(output, {
+    additionalModelRequestFields: (_: any) => de_AdditionalModelRequestFields(_, context),
+    guardrailConfiguration: _json,
+    kbInferenceConfig: (_: any) => de_KbInferenceConfig(_, context),
+    promptTemplate: _json,
+  }) as any;
+};
+
+// de_GuardrailConfiguration omitted.
 
 // de_GuardrailContentFilter omitted.
 
@@ -2991,6 +3447,74 @@ const de_InferenceProfileSummary = (output: any, context: __SerdeContext): Infer
 
 // de_InferenceTypeList omitted.
 
+/**
+ * deserializeAws_restJson1KbInferenceConfig
+ */
+const de_KbInferenceConfig = (output: any, context: __SerdeContext): KbInferenceConfig => {
+  return take(output, {
+    textInferenceConfig: (_: any) => de_TextInferenceConfig(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1KnowledgeBaseConfig
+ */
+const de_KnowledgeBaseConfig = (output: any, context: __SerdeContext): KnowledgeBaseConfig => {
+  if (output.retrieveAndGenerateConfig != null) {
+    return {
+      retrieveAndGenerateConfig: de_RetrieveAndGenerateConfiguration(output.retrieveAndGenerateConfig, context),
+    };
+  }
+  if (output.retrieveConfig != null) {
+    return {
+      retrieveConfig: de_RetrieveConfig(output.retrieveConfig, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1KnowledgeBaseRetrievalConfiguration
+ */
+const de_KnowledgeBaseRetrievalConfiguration = (
+  output: any,
+  context: __SerdeContext
+): KnowledgeBaseRetrievalConfiguration => {
+  return take(output, {
+    vectorSearchConfiguration: (_: any) => de_KnowledgeBaseVectorSearchConfiguration(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1KnowledgeBaseRetrieveAndGenerateConfiguration
+ */
+const de_KnowledgeBaseRetrieveAndGenerateConfiguration = (
+  output: any,
+  context: __SerdeContext
+): KnowledgeBaseRetrieveAndGenerateConfiguration => {
+  return take(output, {
+    generationConfiguration: (_: any) => de_GenerationConfiguration(_, context),
+    knowledgeBaseId: __expectString,
+    modelArn: __expectString,
+    orchestrationConfiguration: _json,
+    retrievalConfiguration: (_: any) => de_KnowledgeBaseRetrievalConfiguration(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1KnowledgeBaseVectorSearchConfiguration
+ */
+const de_KnowledgeBaseVectorSearchConfiguration = (
+  output: any,
+  context: __SerdeContext
+): KnowledgeBaseVectorSearchConfiguration => {
+  return take(output, {
+    filter: (_: any) => de_RetrievalFilter(__expectUnion(_), context),
+    numberOfResults: __expectInt32,
+    overrideSearchType: __expectString,
+  }) as any;
+};
+
 // de_LoggingConfig omitted.
 
 /**
@@ -3133,7 +3657,11 @@ const de_ModelInvocationJobSummary = (output: any, context: __SerdeContext): Mod
 
 // de_ModelModalityList omitted.
 
+// de_OrchestrationConfiguration omitted.
+
 // de_OutputDataConfig omitted.
+
+// de_PromptTemplate omitted.
 
 /**
  * deserializeAws_restJson1ProvisionedModelSummaries
@@ -3167,9 +3695,149 @@ const de_ProvisionedModelSummary = (output: any, context: __SerdeContext): Provi
   }) as any;
 };
 
+// de_QueryTransformationConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1RAGConfig
+ */
+const de_RAGConfig = (output: any, context: __SerdeContext): RAGConfig => {
+  if (output.knowledgeBaseConfig != null) {
+    return {
+      knowledgeBaseConfig: de_KnowledgeBaseConfig(__expectUnion(output.knowledgeBaseConfig), context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1RagConfigs
+ */
+const de_RagConfigs = (output: any, context: __SerdeContext): RAGConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RAGConfig(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+// de_RAGIdentifiers omitted.
+
+// de_RAGStopSequences omitted.
+
+/**
+ * deserializeAws_restJson1RetrievalFilter
+ */
+const de_RetrievalFilter = (output: any, context: __SerdeContext): RetrievalFilter => {
+  if (output.andAll != null) {
+    return {
+      andAll: de_RetrievalFilterList(output.andAll, context),
+    };
+  }
+  if (output.equals != null) {
+    return {
+      equals: de_FilterAttribute(output.equals, context),
+    };
+  }
+  if (output.greaterThan != null) {
+    return {
+      greaterThan: de_FilterAttribute(output.greaterThan, context),
+    };
+  }
+  if (output.greaterThanOrEquals != null) {
+    return {
+      greaterThanOrEquals: de_FilterAttribute(output.greaterThanOrEquals, context),
+    };
+  }
+  if (output.in != null) {
+    return {
+      in: de_FilterAttribute(output.in, context),
+    };
+  }
+  if (output.lessThan != null) {
+    return {
+      lessThan: de_FilterAttribute(output.lessThan, context),
+    };
+  }
+  if (output.lessThanOrEquals != null) {
+    return {
+      lessThanOrEquals: de_FilterAttribute(output.lessThanOrEquals, context),
+    };
+  }
+  if (output.listContains != null) {
+    return {
+      listContains: de_FilterAttribute(output.listContains, context),
+    };
+  }
+  if (output.notEquals != null) {
+    return {
+      notEquals: de_FilterAttribute(output.notEquals, context),
+    };
+  }
+  if (output.notIn != null) {
+    return {
+      notIn: de_FilterAttribute(output.notIn, context),
+    };
+  }
+  if (output.orAll != null) {
+    return {
+      orAll: de_RetrievalFilterList(output.orAll, context),
+    };
+  }
+  if (output.startsWith != null) {
+    return {
+      startsWith: de_FilterAttribute(output.startsWith, context),
+    };
+  }
+  if (output.stringContains != null) {
+    return {
+      stringContains: de_FilterAttribute(output.stringContains, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1RetrievalFilterList
+ */
+const de_RetrievalFilterList = (output: any, context: __SerdeContext): RetrievalFilter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RetrievalFilter(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1RetrieveAndGenerateConfiguration
+ */
+const de_RetrieveAndGenerateConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RetrieveAndGenerateConfiguration => {
+  return take(output, {
+    externalSourcesConfiguration: (_: any) => de_ExternalSourcesRetrieveAndGenerateConfiguration(_, context),
+    knowledgeBaseConfiguration: (_: any) => de_KnowledgeBaseRetrieveAndGenerateConfiguration(_, context),
+    type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RetrieveConfig
+ */
+const de_RetrieveConfig = (output: any, context: __SerdeContext): RetrieveConfig => {
+  return take(output, {
+    knowledgeBaseId: __expectString,
+    knowledgeBaseRetrievalConfiguration: (_: any) => de_KnowledgeBaseRetrievalConfiguration(_, context),
+  }) as any;
+};
+
 // de_S3Config omitted.
 
 // de_S3DataSource omitted.
+
+// de_S3ObjectDoc omitted.
 
 // de_SecurityGroupIds omitted.
 
@@ -3178,6 +3846,18 @@ const de_ProvisionedModelSummary = (output: any, context: __SerdeContext): Provi
 // de_Tag omitted.
 
 // de_TagList omitted.
+
+/**
+ * deserializeAws_restJson1TextInferenceConfig
+ */
+const de_TextInferenceConfig = (output: any, context: __SerdeContext): TextInferenceConfig => {
+  return take(output, {
+    maxTokens: __expectInt32,
+    stopSequences: _json,
+    temperature: __limitedParseFloat32,
+    topP: __limitedParseFloat32,
+  }) as any;
+};
 
 // de_TrainingDataConfig omitted.
 
@@ -3231,6 +3911,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _aTE = "applicationTypeEquals";
 const _bCT = "byCustomizationType";
 const _bIT = "byInferenceType";
 const _bMAE = "baseModelArnEquals";

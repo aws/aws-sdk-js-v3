@@ -32,7 +32,7 @@ export interface StopEvaluationJobCommandInput extends StopEvaluationJobRequest 
 export interface StopEvaluationJobCommandOutput extends StopEvaluationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Stops an in progress model evaluation job.</p>
+ * <p>Stops an evaluation job that is current being created or running.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

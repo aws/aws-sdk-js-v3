@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
+import { DocumentType as __DocumentType } from "@smithy/types";
+
 import { BedrockServiceException as __BaseException } from "./BedrockServiceException";
 
 /**
@@ -28,31 +30,31 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface BatchDeleteEvaluationJobRequest {
   /**
-   * <p>An array of model evaluation job ARNs to be deleted.</p>
+   * <p>A list of one or more evaluation job Amazon Resource Names (ARNs) you want to delete.</p>
    * @public
    */
   jobIdentifiers: string[] | undefined;
 }
 
 /**
- * <p>A JSON array that provides the status of the model evaluation jobs being deleted.</p>
+ * <p>A JSON array that provides the status of the evaluation jobs being deleted.</p>
  * @public
  */
 export interface BatchDeleteEvaluationJobError {
   /**
-   * <p>The ARN of the model evaluation job being deleted.</p>
+   * <p>The ARN of the evaluation job being deleted.</p>
    * @public
    */
   jobIdentifier: string | undefined;
 
   /**
-   * <p>A HTTP status code of the model evaluation job being deleted.</p>
+   * <p>A HTTP status code of the evaluation job being deleted.</p>
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>A status message about the model evaluation job deletion.</p>
+   * <p>A status message about the evaluation job deletion.</p>
    * @public
    */
   message?: string | undefined;
@@ -77,18 +79,18 @@ export const EvaluationJobStatus = {
 export type EvaluationJobStatus = (typeof EvaluationJobStatus)[keyof typeof EvaluationJobStatus];
 
 /**
- * <p>An array of model evaluation jobs to be deleted, and their associated statuses.</p>
+ * <p>An evaluation job for deletion, and it’s current status.</p>
  * @public
  */
 export interface BatchDeleteEvaluationJobItem {
   /**
-   * <p>The ARN of model evaluation job to be deleted.</p>
+   * <p>The Amazon Resource Name (ARN) of the evaluation job for deletion.</p>
    * @public
    */
   jobIdentifier: string | undefined;
 
   /**
-   * <p>The status of the job's deletion.</p>
+   * <p>The status of the evaluation job for deletion.</p>
    * @public
    */
   jobStatus: EvaluationJobStatus | undefined;
@@ -99,13 +101,13 @@ export interface BatchDeleteEvaluationJobItem {
  */
 export interface BatchDeleteEvaluationJobResponse {
   /**
-   * <p>A JSON object containing the HTTP status codes and the ARNs of model evaluation jobs that failed to be deleted.</p>
+   * <p>A JSON object containing the HTTP status codes and the ARNs of evaluation jobs that failed to be deleted.</p>
    * @public
    */
   errors: BatchDeleteEvaluationJobError[] | undefined;
 
   /**
-   * <p>The list of model evaluation jobs to be deleted.</p>
+   * <p>The list of evaluation jobs for deletion.</p>
    * @public
    */
   evaluationJobs: BatchDeleteEvaluationJobItem[] | undefined;
@@ -212,6 +214,20 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ApplicationType = {
+  MODEL_EVALUATION: "ModelEvaluation",
+  RAG_EVALUATION: "RagEvaluation",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];
+
+/**
  * <p>The location in Amazon S3 where your prompt dataset is stored.</p>
  * @public
  */
@@ -287,12 +303,13 @@ export const EvaluationTaskType = {
 export type EvaluationTaskType = (typeof EvaluationTaskType)[keyof typeof EvaluationTaskType];
 
 /**
- * <p>Defines the built-in prompt datasets, built-in metric names and custom metric names, and the task type.</p>
+ * <p>Defines the prompt datasets, built-in metric names and custom metric names, and the task type.</p>
  * @public
  */
 export interface EvaluationDatasetMetricConfig {
   /**
-   * <p>The task type you want the model to carry out.  </p>
+   * <p>The the type of task you want to evaluate for your evaluation job. This applies only
+   *          to model evaluation jobs and is ignored for knowledge base evaluation jobs.</p>
    * @public
    */
   taskType: EvaluationTaskType | undefined;
@@ -304,22 +321,91 @@ export interface EvaluationDatasetMetricConfig {
   dataset: EvaluationDataset | undefined;
 
   /**
-   * <p>The names of the metrics used. For automated model evaluation jobs valid values are <code>"Builtin.Accuracy"</code>, <code>"Builtin.Robustness"</code>, and <code>"Builtin.Toxicity"</code>. In human-based model evaluation jobs the array of strings must match the <code>name</code> parameter specified in <code>HumanEvaluationCustomMetric</code>. </p>
+   * <p>The names of the metrics you want to use for your evaluation job.</p>
+   *          <p>For knowledge base evaluation jobs that evaluate retrieval only, valid values are
+   *          "<code>Builtin.ContextRelevance</code>", "<code>Builtin.ContextConverage</code>".</p>
+   *          <p>For knowledge base evaluation jobs that evaluate retrieval with response generation,
+   *          valid values are  "<code>Builtin.Correctness</code>", "<code>Builtin.Completeness</code>",
+   *          "<code>Builtin.Helpfulness</code>", "<code>Builtin.LogicalCoherence</code>",
+   *          "<code>Builtin.Faithfulness</code>", "<code>Builtin.Harmfulness</code>",
+   *          "<code>Builtin.Stereotyping</code>", "<code>Builtin.Refusal</code>".</p>
+   *          <p>For automated model evaluation jobs, valid values are "<code>Builtin.Accuracy</code>", "<code>Builtin.Robustness</code>", and "<code>Builtin.Toxicity</code>". In model evaluation jobs that use a LLM as judge you can specify "<code>Builtin.Correctness</code>", "<code>Builtin.Completeness"</code>, "<code>Builtin.Faithfulness"</code>, "<code>Builtin.Helpfulness</code>", "<code>Builtin.Coherence</code>", "<code>Builtin.Relevance</code>", "<code>Builtin.FollowingInstructions</code>", "<code>Builtin.ProfessionalStyleAndTone</code>", You can also specify the following responsible AI related metrics only for model evaluation job that use a LLM as judge "<code>Builtin.Harmfulness</code>", "<code>Builtin.Stereotyping</code>", and "<code>Builtin.Refusal</code>".</p>
+   *          <p>For human-based model evaluation jobs, the list of strings must match the
+   *          <code>name</code> parameter specified in <code>HumanEvaluationCustomMetric</code>.</p>
    * @public
    */
   metricNames: string[] | undefined;
 }
 
 /**
- * <p>Use to specify a automatic model evaluation job. The <code>EvaluationDatasetMetricConfig</code> object is used to specify the prompt datasets, task type, and metric names.</p>
+ * <p>The evaluator model used in knowledge base evaluation job or in model evaluation job that use a model as judge. This model computes all evaluation related metrics.</p>
+ * @public
+ */
+export interface BedrockEvaluatorModel {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the evaluator model used used in knowledge base evaluation job or in model evaluation job that use a model as judge.</p>
+   * @public
+   */
+  modelIdentifier: string | undefined;
+}
+
+/**
+ * <p>Specifies the model configuration for the evaluator model. <code>EvaluatorModelConfig</code> is required for evaluation jobs that use a knowledge base or in model evaluation job that use a model as judge. This model computes all evaluation related metrics.</p>
+ * @public
+ */
+export type EvaluatorModelConfig =
+  | EvaluatorModelConfig.BedrockEvaluatorModelsMember
+  | EvaluatorModelConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluatorModelConfig {
+  /**
+   * <p>The evaluator model used in knowledge base evaluation job or in model evaluation job that use a model as judge. This model computes all evaluation related metrics.</p>
+   * @public
+   */
+  export interface BedrockEvaluatorModelsMember {
+    bedrockEvaluatorModels: BedrockEvaluatorModel[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    bedrockEvaluatorModels?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    bedrockEvaluatorModels: (value: BedrockEvaluatorModel[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EvaluatorModelConfig, visitor: Visitor<T>): T => {
+    if (value.bedrockEvaluatorModels !== undefined) return visitor.bedrockEvaluatorModels(value.bedrockEvaluatorModels);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The configuration details of an automated evaluation job. The <code>EvaluationDatasetMetricConfig</code> object
+ *          is used to specify the prompt datasets, task type, and metric names.</p>
  * @public
  */
 export interface AutomatedEvaluationConfig {
   /**
-   * <p>Specifies the required elements for an automatic model evaluation job.</p>
+   * <p>Configuration details of the prompt datasets and metrics you want to use for your evaluation job.</p>
    * @public
    */
   datasetMetricConfigs: EvaluationDatasetMetricConfig[] | undefined;
+
+  /**
+   * <p>Contains the evaluator model configuration details. <code>EvaluatorModelConfig</code> is required for evaluation jobs that use a knowledge base or in model evaluation job that use a model as judge. This model computes all evaluation related metrics.</p>
+   * @public
+   */
+  evaluatorModelConfig?: EvaluatorModelConfig | undefined;
 }
 
 /**
@@ -393,7 +479,7 @@ export interface HumanEvaluationConfig {
 }
 
 /**
- * <p>Used to specify either a <code>AutomatedEvaluationConfig</code> or <code>HumanEvaluationConfig</code> object.</p>
+ * <p>The configuration details of either an automated or human-based evaluation job.</p>
  * @public
  */
 export type EvaluationConfig =
@@ -406,8 +492,7 @@ export type EvaluationConfig =
  */
 export namespace EvaluationConfig {
   /**
-   * <p>Used to specify an automated model evaluation job.
-   *          See <code>AutomatedEvaluationConfig</code> to view the required parameters.</p>
+   * <p>Contains the configuration details of an automated evaluation job that computes metrics.</p>
    * @public
    */
   export interface AutomatedMember {
@@ -417,7 +502,7 @@ export namespace EvaluationConfig {
   }
 
   /**
-   * <p>Used to specify a model evaluation job that uses human workers.See <code>HumanEvaluationConfig</code> to view the required parameters.</p>
+   * <p>Contains the configuration details of an evaluation job that uses human workers.</p>
    * @public
    */
   export interface HumanMember {
@@ -449,7 +534,7 @@ export namespace EvaluationConfig {
 }
 
 /**
- * <p>Contains the ARN of the Amazon Bedrock model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> specified in your model evaluation job. Each Amazon Bedrock model supports different <code>inferenceParams</code>. To learn more about supported inference parameters for Amazon Bedrock models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
+ * <p>Contains the ARN of the Amazon Bedrock model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> specified in your evaluation job. Each Amazon Bedrock model supports different <code>inferenceParams</code>. To learn more about supported inference parameters for Amazon Bedrock models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
  *          <p>The <code>inferenceParams</code> are specified using JSON. To successfully insert JSON as string make sure that all quotations are properly escaped. For example, <code>"temperature":"0.25"</code> key value pair would need to be formatted as <code>\"temperature\":\"0.25\"</code> to successfully accepted in the request.</p>
  * @public
  */
@@ -464,7 +549,7 @@ export interface EvaluationBedrockModel {
    * <p>Each Amazon Bedrock support different inference parameters that change how the model behaves during inference.</p>
    * @public
    */
-  inferenceParams: string | undefined;
+  inferenceParams?: string | undefined;
 }
 
 /**
@@ -506,44 +591,346 @@ export namespace EvaluationModelConfig {
 }
 
 /**
- * <p>Used to define the models you want used in your model evaluation job. Automated model evaluation jobs support only a single model. In a human-based model evaluation job, your annotator can compare the responses for up to two different models.</p>
+ * <p>The configuration details for the guardrail.</p>
  * @public
  */
-export type EvaluationInferenceConfig =
-  | EvaluationInferenceConfig.ModelsMember
-  | EvaluationInferenceConfig.$UnknownMember;
+export interface GuardrailConfiguration {
+  /**
+   * <p>The unique identifier for the guardrail.</p>
+   * @public
+   */
+  guardrailId: string | undefined;
+
+  /**
+   * <p>The version of the guardrail.</p>
+   * @public
+   */
+  guardrailVersion: string | undefined;
+}
+
+/**
+ * <p>The configuration details for text generation using a language model via the
+ *             <code>RetrieveAndGenerate</code> function.</p>
+ * @public
+ */
+export interface TextInferenceConfig {
+  /**
+   * <p>Controls the random-ness of text generated by the language model, influencing how
+   *             much the model sticks to the most predictable next words versus exploring more
+   *             surprising options. A lower temperature value (e.g. 0.2 or 0.3) makes model outputs
+   *             more deterministic or predictable, while a higher temperature (e.g. 0.8 or 0.9) makes
+   *             the outputs more creative or unpredictable.</p>
+   * @public
+   */
+  temperature?: number | undefined;
+
+  /**
+   * <p>A probability distribution threshold which controls what the model considers for
+   *             the set of possible next tokens. The model will only consider the top p% of the
+   *             probability distribution when generating the next token.</p>
+   * @public
+   */
+  topP?: number | undefined;
+
+  /**
+   * <p>The maximum number of tokens to generate in the output text. Do not use the minimum of 0
+   *             or the maximum of 65536. The limit values described here are arbitrary values, for actual
+   *             values consult the limits defined by your specific model.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>A list of sequences of characters that, if generated, will cause the model to stop
+   *             generating further tokens. Do not use a minimum length of 1 or a maximum length of 1000.
+   *             The limit values described here are arbitrary values, for actual values consult the
+   *             limits defined by your specific model.</p>
+   * @public
+   */
+  stopSequences?: string[] | undefined;
+}
+
+/**
+ * <p>Contains configuration details of the inference for knowledge base retrieval and response generation.</p>
+ * @public
+ */
+export interface KbInferenceConfig {
+  /**
+   * <p>Contains configuration details for text generation using a language model via the
+   *             <code>RetrieveAndGenerate</code> function.</p>
+   * @public
+   */
+  textInferenceConfig?: TextInferenceConfig | undefined;
+}
+
+/**
+ * <p>The template for the prompt that's sent to the model for response generation.</p>
+ * @public
+ */
+export interface PromptTemplate {
+  /**
+   * <p>The template for the prompt that's sent to the model for response generation. You can include
+   *             prompt placeholders, which become replaced before the prompt is sent to the model to provide
+   *             instructions and context to the model. In addition, you can include XML tags to delineate
+   *             meaningful sections of the prompt template.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Knowledge base prompt template</a> and
+   *             <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-xml-tags">Use XML tags with Anthropic Claude models</a>.</p>
+   * @public
+   */
+  textPromptTemplate?: string | undefined;
+}
+
+/**
+ * <p>The response generation configuration of the external source wrapper object.</p>
+ * @public
+ */
+export interface ExternalSourcesGenerationConfiguration {
+  /**
+   * <p>Contains the template for the prompt for the external source wrapper object.</p>
+   * @public
+   */
+  promptTemplate?: PromptTemplate | undefined;
+
+  /**
+   * <p>Configuration details for the guardrail.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
+
+  /**
+   * <p>Configuration details for inference when using <code>RetrieveAndGenerate</code> to generate
+   *             responses while using an external source.</p>
+   * @public
+   */
+  kbInferenceConfig?: KbInferenceConfig | undefined;
+
+  /**
+   * <p>Additional model parameters and their corresponding values not included in the
+   *             text inference configuration for an external source. Takes in custom model parameters
+   *             specific to the language model being used.</p>
+   * @public
+   */
+  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
+}
+
+/**
+ * <p>Contains the document contained in the wrapper object, along with its attributes/fields.</p>
+ * @public
+ */
+export interface ByteContentDoc {
+  /**
+   * <p>The file name of the document contained in the wrapper object.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The MIME type of the document contained in the wrapper object.</p>
+   * @public
+   */
+  contentType: string | undefined;
+
+  /**
+   * <p>The byte value of the file to upload, encoded as a Base-64 string.</p>
+   * @public
+   */
+  data: Uint8Array | undefined;
+}
+
+/**
+ * <p>The unique wrapper object of the document from the S3 location.</p>
+ * @public
+ */
+export interface S3ObjectDoc {
+  /**
+   * <p>The S3 URI location for the wrapper object of the document.</p>
+   * @public
+   */
+  uri: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExternalSourceType = {
+  BYTE_CONTENT: "BYTE_CONTENT",
+  S3: "S3",
+} as const;
 
 /**
  * @public
  */
-export namespace EvaluationInferenceConfig {
+export type ExternalSourceType = (typeof ExternalSourceType)[keyof typeof ExternalSourceType];
+
+/**
+ * <p>The unique external source of the content contained in the wrapper object.</p>
+ * @public
+ */
+export interface ExternalSource {
   /**
-   * <p>Used to specify the models.</p>
+   * <p>The source type of the external source wrapper object.</p>
    * @public
    */
-  export interface ModelsMember {
-    models: EvaluationModelConfig[];
-    $unknown?: never;
-  }
+  sourceType: ExternalSourceType | undefined;
 
   /**
+   * <p>The S3 location of the external source wrapper object.</p>
    * @public
    */
-  export interface $UnknownMember {
-    models?: never;
-    $unknown: [string, any];
-  }
+  s3Location?: S3ObjectDoc | undefined;
 
-  export interface Visitor<T> {
-    models: (value: EvaluationModelConfig[]) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: EvaluationInferenceConfig, visitor: Visitor<T>): T => {
-    if (value.models !== undefined) return visitor.models(value.models);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
+  /**
+   * <p>The identifier, content type, and data of the external source wrapper object.</p>
+   * @public
+   */
+  byteContent?: ByteContentDoc | undefined;
 }
+
+/**
+ * <p>The configuration of the external source wrapper object in the <code>retrieveAndGenerate</code>
+ *             function.</p>
+ * @public
+ */
+export interface ExternalSourcesRetrieveAndGenerateConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a>
+   *             used to generate responses.
+   *         </p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>The document for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
+   * @public
+   */
+  sources: ExternalSource[] | undefined;
+
+  /**
+   * <p>Contains configurations details for response generation based on retrieved text chunks.</p>
+   * @public
+   */
+  generationConfiguration?: ExternalSourcesGenerationConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration details for response generation based on retrieved text chunks.</p>
+ * @public
+ */
+export interface GenerationConfiguration {
+  /**
+   * <p>Contains the template for the prompt that's sent to the model for response generation.</p>
+   * @public
+   */
+  promptTemplate?: PromptTemplate | undefined;
+
+  /**
+   * <p>Contains configuration details for the guardrail.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
+
+  /**
+   * <p>Contains configuration details for inference for knowledge base retrieval and response generation.</p>
+   * @public
+   */
+  kbInferenceConfig?: KbInferenceConfig | undefined;
+
+  /**
+   * <p>Additional model parameters and corresponding values not included in the
+   *             <code>textInferenceConfig</code> structure for a knowledge base. This allows
+   *             you to provide custom model parameters specific to the language model being
+   *             used.</p>
+   * @public
+   */
+  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryTransformationType = {
+  QUERY_DECOMPOSITION: "QUERY_DECOMPOSITION",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryTransformationType = (typeof QueryTransformationType)[keyof typeof QueryTransformationType];
+
+/**
+ * <p>The configuration details for transforming the prompt.</p>
+ * @public
+ */
+export interface QueryTransformationConfiguration {
+  /**
+   * <p>The type of transformation to apply to the prompt.</p>
+   * @public
+   */
+  type: QueryTransformationType | undefined;
+}
+
+/**
+ * <p>The configuration details for the model to process the prompt prior to retrieval and response generation.</p>
+ * @public
+ */
+export interface OrchestrationConfiguration {
+  /**
+   * <p>Contains configuration details for transforming the prompt.</p>
+   * @public
+   */
+  queryTransformationConfiguration: QueryTransformationConfiguration | undefined;
+}
+
+/**
+ * <p>Specifies the name of the metadata attribute/field to apply filters.
+ *             You must match the name of the attribute/field in your data source/document metadata.</p>
+ * @public
+ */
+export interface FilterAttribute {
+  /**
+   * <p>The name of metadata attribute/field, which must match the name in your
+   *             data source/document metadata.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value of the metadata attribute/field.</p>
+   * @public
+   */
+  value: __DocumentType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchType = {
+  HYBRID: "HYBRID",
+  SEMANTIC: "SEMANTIC",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchType = (typeof SearchType)[keyof typeof SearchType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RetrieveAndGenerateType = {
+  EXTERNAL_SOURCES: "EXTERNAL_SOURCES",
+  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
+} as const;
+
+/**
+ * @public
+ */
+export type RetrieveAndGenerateType = (typeof RetrieveAndGenerateType)[keyof typeof RetrieveAndGenerateType];
 
 /**
  * <p>Definition of the key/value pair for a tag.</p>
@@ -564,12 +951,12 @@ export interface Tag {
 }
 
 /**
- * <p>The  Amazon S3 location where the results of your model evaluation job are saved.</p>
+ * <p>The  Amazon S3 location where the results of your evaluation job are saved.</p>
  * @public
  */
 export interface EvaluationOutputDataConfig {
   /**
-   * <p>The Amazon S3 URI where the results of model evaluation job are saved.</p>
+   * <p>The Amazon S3 URI where the results of the evaluation job are saved.</p>
    * @public
    */
   s3Uri: string | undefined;
@@ -578,69 +965,9 @@ export interface EvaluationOutputDataConfig {
 /**
  * @public
  */
-export interface CreateEvaluationJobRequest {
-  /**
-   * <p>The name of the model evaluation job. Model evaluation job names must unique with your AWS account, and your account's AWS region.</p>
-   * @public
-   */
-  jobName: string | undefined;
-
-  /**
-   * <p>A description of the model evaluation job.</p>
-   * @public
-   */
-  jobDescription?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientRequestToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM service role that Amazon Bedrock can assume to perform tasks on your behalf. The service role must have Amazon Bedrock as the service principal, and provide access to any Amazon S3 buckets specified in the <code>EvaluationConfig</code> object. To pass this role to Amazon Bedrock, the caller of this API must have the <code>iam:PassRole</code> permission. To learn more about the required permissions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-security.html">Required permissions</a>.</p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>Specify your customer managed key ARN that will be used to encrypt your model evaluation job.</p>
-   * @public
-   */
-  customerEncryptionKeyId?: string | undefined;
-
-  /**
-   * <p>Tags to attach to the model evaluation job.</p>
-   * @public
-   */
-  jobTags?: Tag[] | undefined;
-
-  /**
-   * <p>Specifies whether the model evaluation job is automatic or uses human worker.</p>
-   * @public
-   */
-  evaluationConfig: EvaluationConfig | undefined;
-
-  /**
-   * <p>Specify the models you want to use in your model evaluation job. Automatic model evaluation jobs support a single model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a>, and model evaluation job that use human workers support two models or inference profiles.</p>
-   * @public
-   */
-  inferenceConfig: EvaluationInferenceConfig | undefined;
-
-  /**
-   * <p>An object that defines where the results of model evaluation job will be saved in Amazon S3.</p>
-   * @public
-   */
-  outputDataConfig: EvaluationOutputDataConfig | undefined;
-}
-
-/**
- * @public
- */
 export interface CreateEvaluationJobResponse {
   /**
-   * <p>The ARN of the model evaluation job.</p>
+   * <p>The Amazon Resource Name (ARN) of the evaluation job.</p>
    * @public
    */
   jobArn: string | undefined;
@@ -671,7 +998,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface GetEvaluationJobRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the model evaluation job.</p>
+   * <p>The Amazon Resource Name (ARN) of the evaluation job you want get information on.</p>
    * @public
    */
   jobIdentifier: string | undefined;
@@ -690,89 +1017,6 @@ export const EvaluationJobType = {
  * @public
  */
 export type EvaluationJobType = (typeof EvaluationJobType)[keyof typeof EvaluationJobType];
-
-/**
- * @public
- */
-export interface GetEvaluationJobResponse {
-  /**
-   * <p>The name of the model evaluation job.</p>
-   * @public
-   */
-  jobName: string | undefined;
-
-  /**
-   * <p>The status of the model evaluation job.</p>
-   * @public
-   */
-  status: EvaluationJobStatus | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model evaluation job.</p>
-   * @public
-   */
-  jobArn: string | undefined;
-
-  /**
-   * <p>The description of the model evaluation job.</p>
-   * @public
-   */
-  jobDescription?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role used in the model evaluation job.</p>
-   * @public
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the customer managed key specified when the model evaluation job was created.</p>
-   * @public
-   */
-  customerEncryptionKeyId?: string | undefined;
-
-  /**
-   * <p>The type of model evaluation job.</p>
-   * @public
-   */
-  jobType: EvaluationJobType | undefined;
-
-  /**
-   * <p>Contains details about the type of model evaluation job, the metrics used, the task type selected, the datasets used, and any custom metrics you defined.</p>
-   * @public
-   */
-  evaluationConfig: EvaluationConfig | undefined;
-
-  /**
-   * <p>Details about the models you specified in your model evaluation job.</p>
-   * @public
-   */
-  inferenceConfig: EvaluationInferenceConfig | undefined;
-
-  /**
-   * <p>Amazon S3 location for where output data is saved.</p>
-   * @public
-   */
-  outputDataConfig: EvaluationOutputDataConfig | undefined;
-
-  /**
-   * <p>When the model evaluation job was created.</p>
-   * @public
-   */
-  creationTime: Date | undefined;
-
-  /**
-   * <p>When the model evaluation job was last modified.</p>
-   * @public
-   */
-  lastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>An array of strings the specify why the model evaluation job has failed.</p>
-   * @public
-   */
-  failureMessages?: string[] | undefined;
-}
 
 /**
  * @public
@@ -806,25 +1050,31 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
  */
 export interface ListEvaluationJobsRequest {
   /**
-   * <p>A filter that includes model evaluation jobs created after the time specified.</p>
+   * <p>A filter to only list evaluation jobs created after a specified time.</p>
    * @public
    */
   creationTimeAfter?: Date | undefined;
 
   /**
-   * <p>A filter that includes model evaluation jobs created prior to the time specified.</p>
+   * <p>A filter to only list evaluation jobs created before a specified time.</p>
    * @public
    */
   creationTimeBefore?: Date | undefined;
 
   /**
-   * <p>Only return jobs where the status condition is met.</p>
+   * <p>A filter to only list evaluation jobs that are of a certain status.</p>
    * @public
    */
   statusEquals?: EvaluationJobStatus | undefined;
 
   /**
-   * <p>Query parameter string for model evaluation job names.</p>
+   * <p>A filter to only list evaluation jobs that are either model evaluations or knowledge base evaluations.</p>
+   * @public
+   */
+  applicationTypeEquals?: ApplicationType | undefined;
+
+  /**
+   * <p>A filter to only list evaluation jobs that contain a specified string in the job name.</p>
    * @public
    */
   nameContains?: string | undefined;
@@ -842,64 +1092,82 @@ export interface ListEvaluationJobsRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>Allows you to sort model evaluation jobs by when they were created.</p>
+   * <p>Specifies a creation time to sort the list of evaluation jobs by when they were created.</p>
    * @public
    */
   sortBy?: SortJobsBy | undefined;
 
   /**
-   * <p>How you want the order of jobs sorted.</p>
+   * <p>Specifies whether to sort the list of evaluation jobs by either ascending or descending order.</p>
    * @public
    */
   sortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>A summary of the model evaluation job.</p>
+ * <p>Summary information of an evaluation job.</p>
  * @public
  */
 export interface EvaluationSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the model evaluation job.</p>
+   * <p>The Amazon Resource Name (ARN) of the evaluation job.</p>
    * @public
    */
   jobArn: string | undefined;
 
   /**
-   * <p>The name of the model evaluation job.</p>
+   * <p>The name for the evaluation job.</p>
    * @public
    */
   jobName: string | undefined;
 
   /**
-   * <p>The current status of the model evaluation job. </p>
+   * <p>The current status of the evaluation job.</p>
    * @public
    */
   status: EvaluationJobStatus | undefined;
 
   /**
-   * <p>When the model evaluation job was created.</p>
+   * <p>The time the evaluation job was created.</p>
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The type, either human or automatic, of model evaluation job.</p>
+   * <p>Specifies whether the evaluation job is automated or human-based.</p>
    * @public
    */
   jobType: EvaluationJobType | undefined;
 
   /**
-   * <p>What task type was used in the model evaluation job.</p>
+   * <p>The type of task for model evaluation.</p>
    * @public
    */
   evaluationTaskTypes: EvaluationTaskType[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the model(s) used in the model evaluation job.</p>
+   * <p>The Amazon Resource Names (ARNs) of the model(s) used for the evaluation job.</p>
    * @public
    */
-  modelIdentifiers: string[] | undefined;
+  modelIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the knowledge base resources used for a knowledge base evaluation job.</p>
+   * @public
+   */
+  ragIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the models used to compute the metrics for a knowledge base evaluation job.</p>
+   * @public
+   */
+  evaluatorModelIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>Specifies whether the evaluation job is for evaluating a model or evaluating a knowledge base (retrieval and response generation).</p>
+   * @public
+   */
+  applicationType?: ApplicationType | undefined;
 }
 
 /**
@@ -913,7 +1181,7 @@ export interface ListEvaluationJobsResponse {
   nextToken?: string | undefined;
 
   /**
-   * <p>A summary of the model evaluation jobs.</p>
+   * <p>A list of summaries of the evaluation jobs.</p>
    * @public
    */
   jobSummaries?: EvaluationSummary[] | undefined;
@@ -924,7 +1192,7 @@ export interface ListEvaluationJobsResponse {
  */
 export interface StopEvaluationJobRequest {
   /**
-   * <p>The ARN of the model evaluation job you want to stop.</p>
+   * <p>The Amazon Resource Name (ARN) of the evaluation job you want to stop.</p>
    * @public
    */
   jobIdentifier: string | undefined;
@@ -5859,6 +6127,851 @@ export interface StopModelCustomizationJobRequest {
 export interface StopModelCustomizationJobResponse {}
 
 /**
+ * <p>Specifies the filters to use on the metadata attributes/fields in the knowledge base data
+ *             sources before returning results.</p>
+ * @public
+ */
+export type RetrievalFilter =
+  | RetrievalFilter.AndAllMember
+  | RetrievalFilter.EqualsMember
+  | RetrievalFilter.GreaterThanMember
+  | RetrievalFilter.GreaterThanOrEqualsMember
+  | RetrievalFilter.InMember
+  | RetrievalFilter.LessThanMember
+  | RetrievalFilter.LessThanOrEqualsMember
+  | RetrievalFilter.ListContainsMember
+  | RetrievalFilter.NotEqualsMember
+  | RetrievalFilter.NotInMember
+  | RetrievalFilter.OrAllMember
+  | RetrievalFilter.StartsWithMember
+  | RetrievalFilter.StringContainsMember
+  | RetrievalFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RetrievalFilter {
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose
+   *             name matches the key and whose value matches the value in this object.</p>
+   *          <p>The following example would return data sources with an animal attribute whose value is 'cat':
+   *             <code>"equals": \{ "key": "animal", "value": "cat" \}</code>
+   *          </p>
+   * @public
+   */
+  export interface EqualsMember {
+    equals: FilterAttribute;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the key and whose value
+   *             doesn't match the value in this object are returned.</p>
+   *          <p>The following example would return data sources that don't contain an animal attribute whose value is 'cat':
+   *             <code>"notEquals": \{ "key": "animal", "value": "cat" \}</code>
+   *          </p>
+   * @public
+   */
+  export interface NotEqualsMember {
+    equals?: never;
+    notEquals: FilterAttribute;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name
+   *             matches the key and whose value is greater than the value in this object.</p>
+   *          <p>The following example would return data sources with an year attribute whose value is
+   *             greater than '1989': <code>"greaterThan": \{ "key": "year", "value": 1989 \}</code>
+   *          </p>
+   * @public
+   */
+  export interface GreaterThanMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan: FilterAttribute;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name
+   *             matches the key and whose value is greater than or equal to the value in this object.</p>
+   *          <p>The following example would return data sources with an year attribute whose value is
+   *             greater than or equal to '1989': <code>"greaterThanOrEquals": \{ "key": "year", "value": 1989 \}</code>
+   *          </p>
+   * @public
+   */
+  export interface GreaterThanOrEqualsMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals: FilterAttribute;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the
+   *             key and whose value is less than the value in this object.</p>
+   *          <p>The following example would return data sources with an year attribute whose value is less than to '1989':
+   *             <code>"lessThan": \{ "key": "year", "value": 1989 \}</code>
+   *          </p>
+   * @public
+   */
+  export interface LessThanMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan: FilterAttribute;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key
+   *             and whose value is less than or equal to the value in this object.</p>
+   *          <p>The following example would return data sources with an year attribute whose value is less than or equal
+   *             to '1989': <code>"lessThanOrEquals": \{ "key": "year", "value": 1989 \}</code>
+   *          </p>
+   * @public
+   */
+  export interface LessThanOrEqualsMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals: FilterAttribute;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose
+   *             name matches the key and whose value is in the list specified in the value in this object.</p>
+   *          <p>The following example would return data sources with an animal attribute that is either 'cat' or 'dog':
+   *             <code>"in": \{ "key": "animal", "value": ["cat", "dog"] \}</code>
+   *          </p>
+   * @public
+   */
+  export interface InMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in: FilterAttribute;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key
+   *             and whose value isn't in the list specified in the value in this object.</p>
+   *          <p>The following example would return data sources whose animal attribute is neither 'cat' nor 'dog':
+   *             <code>"notIn": \{ "key": "animal", "value": ["cat", "dog"] \}</code>
+   *          </p>
+   * @public
+   */
+  export interface NotInMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn: FilterAttribute;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key
+   *             and whose value starts with the value in this object. This filter is currently only supported for
+   *             Amazon OpenSearch Serverless vector stores.</p>
+   *          <p>The following example would return data sources with an animal attribute starts with 'ca' (for example, 'cat' or 'camel').
+   *             <code>"startsWith": \{ "key": "animal", "value": "ca" \}</code>
+   *          </p>
+   * @public
+   */
+  export interface StartsWithMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith: FilterAttribute;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key
+   *             and whose value is a list that contains the value as one of its members.</p>
+   *          <p>The following example would return data sources with an animals attribute that is a list containing a cat
+   *             member (for example, <code>["dog", "cat"]</code>): <code>"listContains": \{ "key": "animals", "value": "cat" \}</code>
+   *          </p>
+   * @public
+   */
+  export interface ListContainsMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains: FilterAttribute;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the key
+   *             and whose value is one of the following:</p>
+   *          <p>A string that contains the value as a substring. The following example would return data sources with an
+   *             animal attribute that contains the substring at (for example, 'cat'):
+   *             <code>"stringContains": \{ "key": "animal", "value": "at" \}</code>
+   *          </p>
+   *          <p>A list with a member that contains the value as a substring. The following example would return data
+   *             sources with an animals attribute that is a list containing a member that contains the substring at
+   *             (for example, <code>["dog", "cat"]</code>): <code>"stringContains": \{ "key": "animals", "value": "at" \}</code>
+   *          </p>
+   * @public
+   */
+  export interface StringContainsMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains: FilterAttribute;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if their metadata attributes fulfill all the
+   *             filter conditions inside this list.</p>
+   * @public
+   */
+  export interface AndAllMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll: RetrievalFilter[];
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if their metadata attributes fulfill at least one of the filter
+   *             conditions inside this list.</p>
+   * @public
+   */
+  export interface OrAllMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll: RetrievalFilter[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    equals: (value: FilterAttribute) => T;
+    notEquals: (value: FilterAttribute) => T;
+    greaterThan: (value: FilterAttribute) => T;
+    greaterThanOrEquals: (value: FilterAttribute) => T;
+    lessThan: (value: FilterAttribute) => T;
+    lessThanOrEquals: (value: FilterAttribute) => T;
+    in: (value: FilterAttribute) => T;
+    notIn: (value: FilterAttribute) => T;
+    startsWith: (value: FilterAttribute) => T;
+    listContains: (value: FilterAttribute) => T;
+    stringContains: (value: FilterAttribute) => T;
+    andAll: (value: RetrievalFilter[]) => T;
+    orAll: (value: RetrievalFilter[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RetrievalFilter, visitor: Visitor<T>): T => {
+    if (value.equals !== undefined) return visitor.equals(value.equals);
+    if (value.notEquals !== undefined) return visitor.notEquals(value.notEquals);
+    if (value.greaterThan !== undefined) return visitor.greaterThan(value.greaterThan);
+    if (value.greaterThanOrEquals !== undefined) return visitor.greaterThanOrEquals(value.greaterThanOrEquals);
+    if (value.lessThan !== undefined) return visitor.lessThan(value.lessThan);
+    if (value.lessThanOrEquals !== undefined) return visitor.lessThanOrEquals(value.lessThanOrEquals);
+    if (value.in !== undefined) return visitor.in(value.in);
+    if (value.notIn !== undefined) return visitor.notIn(value.notIn);
+    if (value.startsWith !== undefined) return visitor.startsWith(value.startsWith);
+    if (value.listContains !== undefined) return visitor.listContains(value.listContains);
+    if (value.stringContains !== undefined) return visitor.stringContains(value.stringContains);
+    if (value.andAll !== undefined) return visitor.andAll(value.andAll);
+    if (value.orAll !== undefined) return visitor.orAll(value.orAll);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The configuration details for returning the results from the knowledge base vector search.</p>
+ * @public
+ */
+export interface KnowledgeBaseVectorSearchConfiguration {
+  /**
+   * <p>The number of text chunks to retrieve; the number of results to return.</p>
+   * @public
+   */
+  numberOfResults?: number | undefined;
+
+  /**
+   * <p>By default, Amazon Bedrock decides a search strategy for you. If you're using an
+   *             Amazon OpenSearch Serverless vector store that contains a filterable text field, you
+   *             can specify whether to query the knowledge base with a <code>HYBRID</code> search
+   *             using both vector embeddings and raw text, or <code>SEMANTIC</code> search using
+   *             only vector embeddings. For other vector store configurations, only <code>SEMANTIC</code>
+   *             search is available.</p>
+   * @public
+   */
+  overrideSearchType?: SearchType | undefined;
+
+  /**
+   * <p>Specifies the filters to use on the metadata fields in the knowledge base data sources before returning results.</p>
+   * @public
+   */
+  filter?: RetrievalFilter | undefined;
+}
+
+/**
+ * <p>Contains configuration details for retrieving information from a knowledge base.</p>
+ * @public
+ */
+export interface KnowledgeBaseRetrievalConfiguration {
+  /**
+   * <p>Contains configuration details for returning the results from the vector search.</p>
+   * @public
+   */
+  vectorSearchConfiguration: KnowledgeBaseVectorSearchConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configuration details for retrieving information from a knowledge base and generating responses.</p>
+ * @public
+ */
+export interface KnowledgeBaseRetrieveAndGenerateConfiguration {
+  /**
+   * <p>The unique identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a>
+   *             used to generate responses.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>Contains configuration details for retrieving text chunks.</p>
+   * @public
+   */
+  retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration | undefined;
+
+  /**
+   * <p>Contains configurations details for response generation based on retrieved text chunks.</p>
+   * @public
+   */
+  generationConfiguration?: GenerationConfiguration | undefined;
+
+  /**
+   * <p>Contains configuration details for the model to process the prompt prior to retrieval and response generation.</p>
+   * @public
+   */
+  orchestrationConfiguration?: OrchestrationConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration details for retrieving information from a knowledge base.</p>
+ * @public
+ */
+export interface RetrieveConfig {
+  /**
+   * <p>The unique identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>Contains configuration details for knowledge base retrieval.</p>
+   * @public
+   */
+  knowledgeBaseRetrievalConfiguration: KnowledgeBaseRetrievalConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configuration details for a knowledge base retrieval and response generation.</p>
+ * @public
+ */
+export interface RetrieveAndGenerateConfiguration {
+  /**
+   * <p>The type of resource that contains your data for retrieving information and generating responses.</p>
+   *          <p>If you choose to use <code>EXTERNAL_SOURCES</code>, then currently only Claude 3 Sonnet models for knowledge bases are supported.</p>
+   * @public
+   */
+  type: RetrieveAndGenerateType | undefined;
+
+  /**
+   * <p>Contains configuration details for the knowledge base retrieval and response generation.</p>
+   * @public
+   */
+  knowledgeBaseConfiguration?: KnowledgeBaseRetrieveAndGenerateConfiguration | undefined;
+
+  /**
+   * <p>The configuration for the external source wrapper object in the
+   *             <code>retrieveAndGenerate</code> function.</p>
+   * @public
+   */
+  externalSourcesConfiguration?: ExternalSourcesRetrieveAndGenerateConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration details for retrieving information from a knowledge base and generating responses.</p>
+ * @public
+ */
+export type KnowledgeBaseConfig =
+  | KnowledgeBaseConfig.RetrieveAndGenerateConfigMember
+  | KnowledgeBaseConfig.RetrieveConfigMember
+  | KnowledgeBaseConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace KnowledgeBaseConfig {
+  /**
+   * <p>Contains configuration details for retrieving information from a knowledge base.</p>
+   * @public
+   */
+  export interface RetrieveConfigMember {
+    retrieveConfig: RetrieveConfig;
+    retrieveAndGenerateConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains configuration details for retrieving information from a knowledge base and generating responses.</p>
+   * @public
+   */
+  export interface RetrieveAndGenerateConfigMember {
+    retrieveConfig?: never;
+    retrieveAndGenerateConfig: RetrieveAndGenerateConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    retrieveConfig?: never;
+    retrieveAndGenerateConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    retrieveConfig: (value: RetrieveConfig) => T;
+    retrieveAndGenerateConfig: (value: RetrieveAndGenerateConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: KnowledgeBaseConfig, visitor: Visitor<T>): T => {
+    if (value.retrieveConfig !== undefined) return visitor.retrieveConfig(value.retrieveConfig);
+    if (value.retrieveAndGenerateConfig !== undefined)
+      return visitor.retrieveAndGenerateConfig(value.retrieveAndGenerateConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains configuration details for retrieval of information and response generation.</p>
+ * @public
+ */
+export type RAGConfig = RAGConfig.KnowledgeBaseConfigMember | RAGConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RAGConfig {
+  /**
+   * <p>Contains configuration details for knowledge base retrieval and response generation.</p>
+   * @public
+   */
+  export interface KnowledgeBaseConfigMember {
+    knowledgeBaseConfig: KnowledgeBaseConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    knowledgeBaseConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    knowledgeBaseConfig: (value: KnowledgeBaseConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RAGConfig, visitor: Visitor<T>): T => {
+    if (value.knowledgeBaseConfig !== undefined) return visitor.knowledgeBaseConfig(value.knowledgeBaseConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The configuration details of the inference model for an evaluation job.</p>
+ *          <p>For automated model evaluation jobs, only a single model is supported.</p>
+ *          <p>For human-based model evaluation jobs, your annotator can compare the responses for up to two different models.</p>
+ * @public
+ */
+export type EvaluationInferenceConfig =
+  | EvaluationInferenceConfig.ModelsMember
+  | EvaluationInferenceConfig.RagConfigsMember
+  | EvaluationInferenceConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationInferenceConfig {
+  /**
+   * <p>Specifies the inference models.</p>
+   * @public
+   */
+  export interface ModelsMember {
+    models: EvaluationModelConfig[];
+    ragConfigs?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains the configuration details of the inference for a knowledge base evaluation
+   *          job, including either the retrieval only configuration or the retrieval with response
+   *          generation configuration.</p>
+   * @public
+   */
+  export interface RagConfigsMember {
+    models?: never;
+    ragConfigs: RAGConfig[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    models?: never;
+    ragConfigs?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    models: (value: EvaluationModelConfig[]) => T;
+    ragConfigs: (value: RAGConfig[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EvaluationInferenceConfig, visitor: Visitor<T>): T => {
+    if (value.models !== undefined) return visitor.models(value.models);
+    if (value.ragConfigs !== undefined) return visitor.ragConfigs(value.ragConfigs);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateEvaluationJobRequest {
+  /**
+   * <p>A name for the evaluation job. Names must unique with your Amazon Web Services account,
+   *          and your account's Amazon Web Services region.</p>
+   * @public
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>A description of the evaluation job.</p>
+   * @public
+   */
+  jobDescription?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM service role that Amazon Bedrock can
+   *          assume to perform tasks on your behalf. To learn more about the required permissions,
+   *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-security.html">Required
+   *             permissions for model evaluations</a>.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>Specify your customer managed encryption key Amazon Resource Name (ARN) that will be used to encrypt your evaluation job.</p>
+   * @public
+   */
+  customerEncryptionKeyId?: string | undefined;
+
+  /**
+   * <p>Tags to attach to the model evaluation job.</p>
+   * @public
+   */
+  jobTags?: Tag[] | undefined;
+
+  /**
+   * <p>Specifies whether the evaluation job is for evaluating a model or evaluating a knowledge base
+   *          (retrieval and response generation).</p>
+   * @public
+   */
+  applicationType?: ApplicationType | undefined;
+
+  /**
+   * <p>Contains the configuration details of either an automated or human-based evaluation job.</p>
+   * @public
+   */
+  evaluationConfig: EvaluationConfig | undefined;
+
+  /**
+   * <p>Contains the configuration details of the inference model for the evaluation job.</p>
+   *          <p>For model evaluation jobs, automated jobs support a single model or
+   *          <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a>, and jobs that use human workers support
+   *          two models or inference profiles.</p>
+   * @public
+   */
+  inferenceConfig: EvaluationInferenceConfig | undefined;
+
+  /**
+   * <p>Contains the configuration details of the Amazon S3 bucket for storing the results
+   *          of the evaluation job.</p>
+   * @public
+   */
+  outputDataConfig: EvaluationOutputDataConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEvaluationJobResponse {
+  /**
+   * <p>The name for the evaluation job.</p>
+   * @public
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The current status of the evaluation job.</p>
+   * @public
+   */
+  status: EvaluationJobStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the evaluation job.</p>
+   * @public
+   */
+  jobArn: string | undefined;
+
+  /**
+   * <p>The description of the evaluation job.</p>
+   * @public
+   */
+  jobDescription?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role used in the evaluation job.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer managed encryption key specified when the evaluation job was created.</p>
+   * @public
+   */
+  customerEncryptionKeyId?: string | undefined;
+
+  /**
+   * <p>Specifies whether the evaluation job is automated or human-based.</p>
+   * @public
+   */
+  jobType: EvaluationJobType | undefined;
+
+  /**
+   * <p>Specifies whether the evaluation job is for evaluating a model or evaluating a knowledge base (retrieval and response generation).</p>
+   * @public
+   */
+  applicationType?: ApplicationType | undefined;
+
+  /**
+   * <p>Contains the configuration details of either an automated or human-based evaluation job.</p>
+   * @public
+   */
+  evaluationConfig: EvaluationConfig | undefined;
+
+  /**
+   * <p>Contains the configuration details of the inference model used for the evaluation job. </p>
+   * @public
+   */
+  inferenceConfig: EvaluationInferenceConfig | undefined;
+
+  /**
+   * <p>Contains the configuration details of the Amazon S3 bucket for
+   *          storing the results of the evaluation job.</p>
+   * @public
+   */
+  outputDataConfig: EvaluationOutputDataConfig | undefined;
+
+  /**
+   * <p>The time the evaluation job was created.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * <p>The time the evaluation job was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>A list of strings that specify why the evaluation job failed to create.</p>
+   * @public
+   */
+  failureMessages?: string[] | undefined;
+}
+
+/**
  * @internal
  */
 export const BatchDeleteEvaluationJobRequestFilterSensitiveLog = (obj: BatchDeleteEvaluationJobRequest): any => ({
@@ -5919,6 +7032,7 @@ export const AutomatedEvaluationConfigFilterSensitiveLog = (obj: AutomatedEvalua
   ...(obj.datasetMetricConfigs && {
     datasetMetricConfigs: obj.datasetMetricConfigs.map((item) => EvaluationDatasetMetricConfigFilterSensitiveLog(item)),
   }),
+  ...(obj.evaluatorModelConfig && { evaluatorModelConfig: obj.evaluatorModelConfig }),
 });
 
 /**
@@ -5983,20 +7097,57 @@ export const EvaluationModelConfigFilterSensitiveLog = (obj: EvaluationModelConf
 /**
  * @internal
  */
-export const EvaluationInferenceConfigFilterSensitiveLog = (obj: EvaluationInferenceConfig): any => {
-  if (obj.models !== undefined)
-    return { models: obj.models.map((item) => EvaluationModelConfigFilterSensitiveLog(item)) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
+export const PromptTemplateFilterSensitiveLog = (obj: PromptTemplate): any => ({
+  ...obj,
+  ...(obj.textPromptTemplate && { textPromptTemplate: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
  */
-export const CreateEvaluationJobRequestFilterSensitiveLog = (obj: CreateEvaluationJobRequest): any => ({
+export const ExternalSourcesGenerationConfigurationFilterSensitiveLog = (
+  obj: ExternalSourcesGenerationConfiguration
+): any => ({
   ...obj,
-  ...(obj.jobDescription && { jobDescription: SENSITIVE_STRING }),
-  ...(obj.evaluationConfig && { evaluationConfig: EvaluationConfigFilterSensitiveLog(obj.evaluationConfig) }),
-  ...(obj.inferenceConfig && { inferenceConfig: EvaluationInferenceConfigFilterSensitiveLog(obj.inferenceConfig) }),
+  ...(obj.promptTemplate && { promptTemplate: PromptTemplateFilterSensitiveLog(obj.promptTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const ByteContentDocFilterSensitiveLog = (obj: ByteContentDoc): any => ({
+  ...obj,
+  ...(obj.identifier && { identifier: SENSITIVE_STRING }),
+  ...(obj.data && { data: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ExternalSourceFilterSensitiveLog = (obj: ExternalSource): any => ({
+  ...obj,
+  ...(obj.byteContent && { byteContent: ByteContentDocFilterSensitiveLog(obj.byteContent) }),
+});
+
+/**
+ * @internal
+ */
+export const ExternalSourcesRetrieveAndGenerateConfigurationFilterSensitiveLog = (
+  obj: ExternalSourcesRetrieveAndGenerateConfiguration
+): any => ({
+  ...obj,
+  ...(obj.sources && { sources: obj.sources.map((item) => ExternalSourceFilterSensitiveLog(item)) }),
+  ...(obj.generationConfiguration && {
+    generationConfiguration: ExternalSourcesGenerationConfigurationFilterSensitiveLog(obj.generationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GenerationConfigurationFilterSensitiveLog = (obj: GenerationConfiguration): any => ({
+  ...obj,
+  ...(obj.promptTemplate && { promptTemplate: PromptTemplateFilterSensitiveLog(obj.promptTemplate) }),
 });
 
 /**
@@ -6005,16 +7156,6 @@ export const CreateEvaluationJobRequestFilterSensitiveLog = (obj: CreateEvaluati
 export const GetEvaluationJobRequestFilterSensitiveLog = (obj: GetEvaluationJobRequest): any => ({
   ...obj,
   ...(obj.jobIdentifier && { jobIdentifier: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetEvaluationJobResponseFilterSensitiveLog = (obj: GetEvaluationJobResponse): any => ({
-  ...obj,
-  ...(obj.jobDescription && { jobDescription: SENSITIVE_STRING }),
-  ...(obj.evaluationConfig && { evaluationConfig: EvaluationConfigFilterSensitiveLog(obj.evaluationConfig) }),
-  ...(obj.inferenceConfig && { inferenceConfig: EvaluationInferenceConfigFilterSensitiveLog(obj.inferenceConfig) }),
 });
 
 /**
@@ -6195,4 +7336,142 @@ export const ListModelInvocationJobsResponseFilterSensitiveLog = (obj: ListModel
   ...(obj.invocationJobSummaries && {
     invocationJobSummaries: obj.invocationJobSummaries.map((item) => ModelInvocationJobSummaryFilterSensitiveLog(item)),
   }),
+});
+
+/**
+ * @internal
+ */
+export const RetrievalFilterFilterSensitiveLog = (obj: RetrievalFilter): any => {
+  if (obj.equals !== undefined) return { equals: obj.equals };
+  if (obj.notEquals !== undefined) return { notEquals: obj.notEquals };
+  if (obj.greaterThan !== undefined) return { greaterThan: obj.greaterThan };
+  if (obj.greaterThanOrEquals !== undefined) return { greaterThanOrEquals: obj.greaterThanOrEquals };
+  if (obj.lessThan !== undefined) return { lessThan: obj.lessThan };
+  if (obj.lessThanOrEquals !== undefined) return { lessThanOrEquals: obj.lessThanOrEquals };
+  if (obj.in !== undefined) return { in: obj.in };
+  if (obj.notIn !== undefined) return { notIn: obj.notIn };
+  if (obj.startsWith !== undefined) return { startsWith: obj.startsWith };
+  if (obj.listContains !== undefined) return { listContains: obj.listContains };
+  if (obj.stringContains !== undefined) return { stringContains: obj.stringContains };
+  if (obj.andAll !== undefined) return { andAll: SENSITIVE_STRING };
+  if (obj.orAll !== undefined) return { orAll: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseVectorSearchConfigurationFilterSensitiveLog = (
+  obj: KnowledgeBaseVectorSearchConfiguration
+): any => ({
+  ...obj,
+  ...(obj.filter && { filter: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseRetrievalConfigurationFilterSensitiveLog = (
+  obj: KnowledgeBaseRetrievalConfiguration
+): any => ({
+  ...obj,
+  ...(obj.vectorSearchConfiguration && {
+    vectorSearchConfiguration: KnowledgeBaseVectorSearchConfigurationFilterSensitiveLog(obj.vectorSearchConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseRetrieveAndGenerateConfigurationFilterSensitiveLog = (
+  obj: KnowledgeBaseRetrieveAndGenerateConfiguration
+): any => ({
+  ...obj,
+  ...(obj.retrievalConfiguration && {
+    retrievalConfiguration: KnowledgeBaseRetrievalConfigurationFilterSensitiveLog(obj.retrievalConfiguration),
+  }),
+  ...(obj.generationConfiguration && {
+    generationConfiguration: GenerationConfigurationFilterSensitiveLog(obj.generationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const RetrieveConfigFilterSensitiveLog = (obj: RetrieveConfig): any => ({
+  ...obj,
+  ...(obj.knowledgeBaseRetrievalConfiguration && {
+    knowledgeBaseRetrievalConfiguration: KnowledgeBaseRetrievalConfigurationFilterSensitiveLog(
+      obj.knowledgeBaseRetrievalConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const RetrieveAndGenerateConfigurationFilterSensitiveLog = (obj: RetrieveAndGenerateConfiguration): any => ({
+  ...obj,
+  ...(obj.knowledgeBaseConfiguration && {
+    knowledgeBaseConfiguration: KnowledgeBaseRetrieveAndGenerateConfigurationFilterSensitiveLog(
+      obj.knowledgeBaseConfiguration
+    ),
+  }),
+  ...(obj.externalSourcesConfiguration && {
+    externalSourcesConfiguration: ExternalSourcesRetrieveAndGenerateConfigurationFilterSensitiveLog(
+      obj.externalSourcesConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseConfigFilterSensitiveLog = (obj: KnowledgeBaseConfig): any => {
+  if (obj.retrieveConfig !== undefined) return { retrieveConfig: RetrieveConfigFilterSensitiveLog(obj.retrieveConfig) };
+  if (obj.retrieveAndGenerateConfig !== undefined)
+    return {
+      retrieveAndGenerateConfig: RetrieveAndGenerateConfigurationFilterSensitiveLog(obj.retrieveAndGenerateConfig),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const RAGConfigFilterSensitiveLog = (obj: RAGConfig): any => {
+  if (obj.knowledgeBaseConfig !== undefined)
+    return { knowledgeBaseConfig: KnowledgeBaseConfigFilterSensitiveLog(obj.knowledgeBaseConfig) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const EvaluationInferenceConfigFilterSensitiveLog = (obj: EvaluationInferenceConfig): any => {
+  if (obj.models !== undefined)
+    return { models: obj.models.map((item) => EvaluationModelConfigFilterSensitiveLog(item)) };
+  if (obj.ragConfigs !== undefined)
+    return { ragConfigs: obj.ragConfigs.map((item) => RAGConfigFilterSensitiveLog(item)) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateEvaluationJobRequestFilterSensitiveLog = (obj: CreateEvaluationJobRequest): any => ({
+  ...obj,
+  ...(obj.jobDescription && { jobDescription: SENSITIVE_STRING }),
+  ...(obj.evaluationConfig && { evaluationConfig: EvaluationConfigFilterSensitiveLog(obj.evaluationConfig) }),
+  ...(obj.inferenceConfig && { inferenceConfig: EvaluationInferenceConfigFilterSensitiveLog(obj.inferenceConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const GetEvaluationJobResponseFilterSensitiveLog = (obj: GetEvaluationJobResponse): any => ({
+  ...obj,
+  ...(obj.jobDescription && { jobDescription: SENSITIVE_STRING }),
+  ...(obj.evaluationConfig && { evaluationConfig: EvaluationConfigFilterSensitiveLog(obj.evaluationConfig) }),
+  ...(obj.inferenceConfig && { inferenceConfig: EvaluationInferenceConfigFilterSensitiveLog(obj.inferenceConfig) }),
 });

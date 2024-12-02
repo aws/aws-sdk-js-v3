@@ -28,7 +28,7 @@ export interface ListEvaluationJobsCommandInput extends ListEvaluationJobsReques
 export interface ListEvaluationJobsCommandOutput extends ListEvaluationJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists model evaluation jobs.</p>
+ * <p>Lists all existing evaluation jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,6 +39,7 @@ export interface ListEvaluationJobsCommandOutput extends ListEvaluationJobsRespo
  *   creationTimeAfter: new Date("TIMESTAMP"),
  *   creationTimeBefore: new Date("TIMESTAMP"),
  *   statusEquals: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting",
+ *   applicationTypeEquals: "ModelEvaluation" || "RagEvaluation",
  *   nameContains: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
@@ -59,9 +60,16 @@ export interface ListEvaluationJobsCommandOutput extends ListEvaluationJobsRespo
  * //       evaluationTaskTypes: [ // EvaluationTaskTypes // required
  * //         "Summarization" || "Classification" || "QuestionAndAnswer" || "Generation" || "Custom",
  * //       ],
- * //       modelIdentifiers: [ // EvaluationModelIdentifiers // required
+ * //       modelIdentifiers: [ // EvaluationModelIdentifiers
  * //         "STRING_VALUE",
  * //       ],
+ * //       ragIdentifiers: [ // RAGIdentifiers
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       evaluatorModelIdentifiers: [ // EvaluatorModelIdentifiers
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       applicationType: "ModelEvaluation" || "RagEvaluation",
  * //     },
  * //   ],
  * // };

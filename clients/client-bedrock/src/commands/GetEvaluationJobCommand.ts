@@ -33,8 +33,7 @@ export interface GetEvaluationJobCommandInput extends GetEvaluationJobRequest {}
 export interface GetEvaluationJobCommandOutput extends GetEvaluationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the properties associated with a model evaluation job, including the
- *          status of the job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html">Model evaluation</a>.</p>
+ * <p>Gets information about an evaluation job, such as the status of the job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +53,7 @@ export interface GetEvaluationJobCommandOutput extends GetEvaluationJobResponse,
  * //   roleArn: "STRING_VALUE", // required
  * //   customerEncryptionKeyId: "STRING_VALUE",
  * //   jobType: "Human" || "Automated", // required
+ * //   applicationType: "ModelEvaluation" || "RagEvaluation",
  * //   evaluationConfig: { // EvaluationConfig Union: only one key present
  * //     automated: { // AutomatedEvaluationConfig
  * //       datasetMetricConfigs: [ // EvaluationDatasetMetricConfigs // required
@@ -70,6 +70,13 @@ export interface GetEvaluationJobCommandOutput extends GetEvaluationJobResponse,
  * //           ],
  * //         },
  * //       ],
+ * //       evaluatorModelConfig: { // EvaluatorModelConfig Union: only one key present
+ * //         bedrockEvaluatorModels: [ // BedrockEvaluatorModels
+ * //           { // BedrockEvaluatorModel
+ * //             modelIdentifier: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //     human: { // HumanEvaluationConfig
  * //       humanWorkflowConfig: { // HumanWorkflowConfig
@@ -104,7 +111,153 @@ export interface GetEvaluationJobCommandOutput extends GetEvaluationJobResponse,
  * //       { // EvaluationModelConfig Union: only one key present
  * //         bedrockModel: { // EvaluationBedrockModel
  * //           modelIdentifier: "STRING_VALUE", // required
- * //           inferenceParams: "STRING_VALUE", // required
+ * //           inferenceParams: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     ragConfigs: [ // RagConfigs
+ * //       { // RAGConfig Union: only one key present
+ * //         knowledgeBaseConfig: { // KnowledgeBaseConfig Union: only one key present
+ * //           retrieveConfig: { // RetrieveConfig
+ * //             knowledgeBaseId: "STRING_VALUE", // required
+ * //             knowledgeBaseRetrievalConfiguration: { // KnowledgeBaseRetrievalConfiguration
+ * //               vectorSearchConfiguration: { // KnowledgeBaseVectorSearchConfiguration
+ * //                 numberOfResults: Number("int"),
+ * //                 overrideSearchType: "HYBRID" || "SEMANTIC",
+ * //                 filter: { // RetrievalFilter Union: only one key present
+ * //                   equals: { // FilterAttribute
+ * //                     key: "STRING_VALUE", // required
+ * //                     value: "DOCUMENT_VALUE", // required
+ * //                   },
+ * //                   notEquals: {
+ * //                     key: "STRING_VALUE", // required
+ * //                     value: "DOCUMENT_VALUE", // required
+ * //                   },
+ * //                   greaterThan: {
+ * //                     key: "STRING_VALUE", // required
+ * //                     value: "DOCUMENT_VALUE", // required
+ * //                   },
+ * //                   greaterThanOrEquals: {
+ * //                     key: "STRING_VALUE", // required
+ * //                     value: "DOCUMENT_VALUE", // required
+ * //                   },
+ * //                   lessThan: {
+ * //                     key: "STRING_VALUE", // required
+ * //                     value: "DOCUMENT_VALUE", // required
+ * //                   },
+ * //                   lessThanOrEquals: "<FilterAttribute>",
+ * //                   in: "<FilterAttribute>",
+ * //                   notIn: "<FilterAttribute>",
+ * //                   startsWith: "<FilterAttribute>",
+ * //                   listContains: "<FilterAttribute>",
+ * //                   stringContains: "<FilterAttribute>",
+ * //                   andAll: [ // RetrievalFilterList
+ * //                     {//  Union: only one key present
+ * //                       equals: "<FilterAttribute>",
+ * //                       notEquals: "<FilterAttribute>",
+ * //                       greaterThan: "<FilterAttribute>",
+ * //                       greaterThanOrEquals: "<FilterAttribute>",
+ * //                       lessThan: "<FilterAttribute>",
+ * //                       lessThanOrEquals: "<FilterAttribute>",
+ * //                       in: "<FilterAttribute>",
+ * //                       notIn: "<FilterAttribute>",
+ * //                       startsWith: "<FilterAttribute>",
+ * //                       listContains: "<FilterAttribute>",
+ * //                       stringContains: "<FilterAttribute>",
+ * //                       andAll: [
+ * //                         "<RetrievalFilter>",
+ * //                       ],
+ * //                       orAll: [
+ * //                         "<RetrievalFilter>",
+ * //                       ],
+ * //                     },
+ * //                   ],
+ * //                   orAll: [
+ * //                     "<RetrievalFilter>",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //             },
+ * //           },
+ * //           retrieveAndGenerateConfig: { // RetrieveAndGenerateConfiguration
+ * //             type: "KNOWLEDGE_BASE" || "EXTERNAL_SOURCES", // required
+ * //             knowledgeBaseConfiguration: { // KnowledgeBaseRetrieveAndGenerateConfiguration
+ * //               knowledgeBaseId: "STRING_VALUE", // required
+ * //               modelArn: "STRING_VALUE", // required
+ * //               retrievalConfiguration: {
+ * //                 vectorSearchConfiguration: {
+ * //                   numberOfResults: Number("int"),
+ * //                   overrideSearchType: "HYBRID" || "SEMANTIC",
+ * //                   filter: "<RetrievalFilter>",
+ * //                 },
+ * //               },
+ * //               generationConfiguration: { // GenerationConfiguration
+ * //                 promptTemplate: { // PromptTemplate
+ * //                   textPromptTemplate: "STRING_VALUE",
+ * //                 },
+ * //                 guardrailConfiguration: { // GuardrailConfiguration
+ * //                   guardrailId: "STRING_VALUE", // required
+ * //                   guardrailVersion: "STRING_VALUE", // required
+ * //                 },
+ * //                 kbInferenceConfig: { // KbInferenceConfig
+ * //                   textInferenceConfig: { // TextInferenceConfig
+ * //                     temperature: Number("float"),
+ * //                     topP: Number("float"),
+ * //                     maxTokens: Number("int"),
+ * //                     stopSequences: [ // RAGStopSequences
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                   },
+ * //                 },
+ * //                 additionalModelRequestFields: { // AdditionalModelRequestFields
+ * //                   "<keys>": "DOCUMENT_VALUE",
+ * //                 },
+ * //               },
+ * //               orchestrationConfiguration: { // OrchestrationConfiguration
+ * //                 queryTransformationConfiguration: { // QueryTransformationConfiguration
+ * //                   type: "QUERY_DECOMPOSITION", // required
+ * //                 },
+ * //               },
+ * //             },
+ * //             externalSourcesConfiguration: { // ExternalSourcesRetrieveAndGenerateConfiguration
+ * //               modelArn: "STRING_VALUE", // required
+ * //               sources: [ // ExternalSources // required
+ * //                 { // ExternalSource
+ * //                   sourceType: "S3" || "BYTE_CONTENT", // required
+ * //                   s3Location: { // S3ObjectDoc
+ * //                     uri: "STRING_VALUE", // required
+ * //                   },
+ * //                   byteContent: { // ByteContentDoc
+ * //                     identifier: "STRING_VALUE", // required
+ * //                     contentType: "STRING_VALUE", // required
+ * //                     data: new Uint8Array(), // required
+ * //                   },
+ * //                 },
+ * //               ],
+ * //               generationConfiguration: { // ExternalSourcesGenerationConfiguration
+ * //                 promptTemplate: {
+ * //                   textPromptTemplate: "STRING_VALUE",
+ * //                 },
+ * //                 guardrailConfiguration: {
+ * //                   guardrailId: "STRING_VALUE", // required
+ * //                   guardrailVersion: "STRING_VALUE", // required
+ * //                 },
+ * //                 kbInferenceConfig: {
+ * //                   textInferenceConfig: {
+ * //                     temperature: Number("float"),
+ * //                     topP: Number("float"),
+ * //                     maxTokens: Number("int"),
+ * //                     stopSequences: [
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                   },
+ * //                 },
+ * //                 additionalModelRequestFields: {
+ * //                   "<keys>": "DOCUMENT_VALUE",
+ * //                 },
+ * //               },
+ * //             },
+ * //           },
  * //         },
  * //       },
  * //     ],

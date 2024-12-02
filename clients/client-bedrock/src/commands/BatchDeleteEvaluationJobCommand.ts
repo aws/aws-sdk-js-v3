@@ -33,7 +33,9 @@ export interface BatchDeleteEvaluationJobCommandInput extends BatchDeleteEvaluat
 export interface BatchDeleteEvaluationJobCommandOutput extends BatchDeleteEvaluationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a batch deletion job. A model evaluation job can only be deleted if it has following status <code>FAILED</code>, <code>COMPLETED</code>, and <code>STOPPED</code>. You can request up to 25 model evaluation jobs be deleted in a single request.</p>
+ * <p>Deletes a batch of evaluation jobs. An evaluation job can only be deleted if it has
+ *          following status <code>FAILED</code>, <code>COMPLETED</code>, and <code>STOPPED</code>.
+ *          You can request up to 25 model evaluation jobs be deleted in a single request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
