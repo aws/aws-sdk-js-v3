@@ -18,6 +18,16 @@ import {
   CreateAIAgentVersionCommandOutput,
 } from "./commands/CreateAIAgentVersionCommand";
 import {
+  CreateAIGuardrailCommand,
+  CreateAIGuardrailCommandInput,
+  CreateAIGuardrailCommandOutput,
+} from "./commands/CreateAIGuardrailCommand";
+import {
+  CreateAIGuardrailVersionCommand,
+  CreateAIGuardrailVersionCommandInput,
+  CreateAIGuardrailVersionCommandOutput,
+} from "./commands/CreateAIGuardrailVersionCommand";
+import {
   CreateAIPromptCommand,
   CreateAIPromptCommandInput,
   CreateAIPromptCommandOutput,
@@ -93,6 +103,16 @@ import {
   DeleteAIAgentVersionCommandOutput,
 } from "./commands/DeleteAIAgentVersionCommand";
 import {
+  DeleteAIGuardrailCommand,
+  DeleteAIGuardrailCommandInput,
+  DeleteAIGuardrailCommandOutput,
+} from "./commands/DeleteAIGuardrailCommand";
+import {
+  DeleteAIGuardrailVersionCommand,
+  DeleteAIGuardrailVersionCommandInput,
+  DeleteAIGuardrailVersionCommandOutput,
+} from "./commands/DeleteAIGuardrailVersionCommand";
+import {
   DeleteAIPromptCommand,
   DeleteAIPromptCommandInput,
   DeleteAIPromptCommandOutput,
@@ -148,6 +168,11 @@ import {
   DeleteQuickResponseCommandOutput,
 } from "./commands/DeleteQuickResponseCommand";
 import { GetAIAgentCommand, GetAIAgentCommandInput, GetAIAgentCommandOutput } from "./commands/GetAIAgentCommand";
+import {
+  GetAIGuardrailCommand,
+  GetAIGuardrailCommandInput,
+  GetAIGuardrailCommandOutput,
+} from "./commands/GetAIGuardrailCommand";
 import { GetAIPromptCommand, GetAIPromptCommandInput, GetAIPromptCommandOutput } from "./commands/GetAIPromptCommand";
 import {
   GetAssistantAssociationCommand,
@@ -186,6 +211,11 @@ import {
   GetMessageTemplateCommandOutput,
 } from "./commands/GetMessageTemplateCommand";
 import {
+  GetNextMessageCommand,
+  GetNextMessageCommandInput,
+  GetNextMessageCommandOutput,
+} from "./commands/GetNextMessageCommand";
+import {
   GetQuickResponseCommand,
   GetQuickResponseCommandInput,
   GetQuickResponseCommandOutput,
@@ -206,6 +236,16 @@ import {
   ListAIAgentVersionsCommandInput,
   ListAIAgentVersionsCommandOutput,
 } from "./commands/ListAIAgentVersionsCommand";
+import {
+  ListAIGuardrailsCommand,
+  ListAIGuardrailsCommandInput,
+  ListAIGuardrailsCommandOutput,
+} from "./commands/ListAIGuardrailsCommand";
+import {
+  ListAIGuardrailVersionsCommand,
+  ListAIGuardrailVersionsCommandInput,
+  ListAIGuardrailVersionsCommandOutput,
+} from "./commands/ListAIGuardrailVersionsCommand";
 import {
   ListAIPromptsCommand,
   ListAIPromptsCommandInput,
@@ -246,6 +286,11 @@ import {
   ListKnowledgeBasesCommandInput,
   ListKnowledgeBasesCommandOutput,
 } from "./commands/ListKnowledgeBasesCommand";
+import {
+  ListMessagesCommand,
+  ListMessagesCommandInput,
+  ListMessagesCommandOutput,
+} from "./commands/ListMessagesCommand";
 import {
   ListMessageTemplatesCommand,
   ListMessageTemplatesCommandInput,
@@ -312,6 +357,7 @@ import {
   SearchSessionsCommandInput,
   SearchSessionsCommandOutput,
 } from "./commands/SearchSessionsCommand";
+import { SendMessageCommand, SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
 import {
   StartContentUploadCommand,
   StartContentUploadCommandInput,
@@ -333,6 +379,11 @@ import {
   UpdateAIAgentCommandInput,
   UpdateAIAgentCommandOutput,
 } from "./commands/UpdateAIAgentCommand";
+import {
+  UpdateAIGuardrailCommand,
+  UpdateAIGuardrailCommandInput,
+  UpdateAIGuardrailCommandOutput,
+} from "./commands/UpdateAIGuardrailCommand";
 import {
   UpdateAIPromptCommand,
   UpdateAIPromptCommandInput,
@@ -384,6 +435,8 @@ const commands = {
   ActivateMessageTemplateCommand,
   CreateAIAgentCommand,
   CreateAIAgentVersionCommand,
+  CreateAIGuardrailCommand,
+  CreateAIGuardrailVersionCommand,
   CreateAIPromptCommand,
   CreateAIPromptVersionCommand,
   CreateAssistantCommand,
@@ -399,6 +452,8 @@ const commands = {
   DeactivateMessageTemplateCommand,
   DeleteAIAgentCommand,
   DeleteAIAgentVersionCommand,
+  DeleteAIGuardrailCommand,
+  DeleteAIGuardrailVersionCommand,
   DeleteAIPromptCommand,
   DeleteAIPromptVersionCommand,
   DeleteAssistantCommand,
@@ -411,6 +466,7 @@ const commands = {
   DeleteMessageTemplateAttachmentCommand,
   DeleteQuickResponseCommand,
   GetAIAgentCommand,
+  GetAIGuardrailCommand,
   GetAIPromptCommand,
   GetAssistantCommand,
   GetAssistantAssociationCommand,
@@ -420,11 +476,14 @@ const commands = {
   GetImportJobCommand,
   GetKnowledgeBaseCommand,
   GetMessageTemplateCommand,
+  GetNextMessageCommand,
   GetQuickResponseCommand,
   GetRecommendationsCommand,
   GetSessionCommand,
   ListAIAgentsCommand,
   ListAIAgentVersionsCommand,
+  ListAIGuardrailsCommand,
+  ListAIGuardrailVersionsCommand,
   ListAIPromptsCommand,
   ListAIPromptVersionsCommand,
   ListAssistantAssociationsCommand,
@@ -433,6 +492,7 @@ const commands = {
   ListContentsCommand,
   ListImportJobsCommand,
   ListKnowledgeBasesCommand,
+  ListMessagesCommand,
   ListMessageTemplatesCommand,
   ListMessageTemplateVersionsCommand,
   ListQuickResponsesCommand,
@@ -447,11 +507,13 @@ const commands = {
   SearchMessageTemplatesCommand,
   SearchQuickResponsesCommand,
   SearchSessionsCommand,
+  SendMessageCommand,
   StartContentUploadCommand,
   StartImportJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAIAgentCommand,
+  UpdateAIGuardrailCommand,
   UpdateAIPromptCommand,
   UpdateAssistantAIAgentCommand,
   UpdateContentCommand,
@@ -507,6 +569,40 @@ export interface QConnect {
     args: CreateAIAgentVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAIAgentVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAIGuardrailCommand}
+   */
+  createAIGuardrail(
+    args: CreateAIGuardrailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAIGuardrailCommandOutput>;
+  createAIGuardrail(
+    args: CreateAIGuardrailCommandInput,
+    cb: (err: any, data?: CreateAIGuardrailCommandOutput) => void
+  ): void;
+  createAIGuardrail(
+    args: CreateAIGuardrailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAIGuardrailCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAIGuardrailVersionCommand}
+   */
+  createAIGuardrailVersion(
+    args: CreateAIGuardrailVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAIGuardrailVersionCommandOutput>;
+  createAIGuardrailVersion(
+    args: CreateAIGuardrailVersionCommandInput,
+    cb: (err: any, data?: CreateAIGuardrailVersionCommandOutput) => void
+  ): void;
+  createAIGuardrailVersion(
+    args: CreateAIGuardrailVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAIGuardrailVersionCommandOutput) => void
   ): void;
 
   /**
@@ -741,6 +837,40 @@ export interface QConnect {
   ): void;
 
   /**
+   * @see {@link DeleteAIGuardrailCommand}
+   */
+  deleteAIGuardrail(
+    args: DeleteAIGuardrailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAIGuardrailCommandOutput>;
+  deleteAIGuardrail(
+    args: DeleteAIGuardrailCommandInput,
+    cb: (err: any, data?: DeleteAIGuardrailCommandOutput) => void
+  ): void;
+  deleteAIGuardrail(
+    args: DeleteAIGuardrailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAIGuardrailCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAIGuardrailVersionCommand}
+   */
+  deleteAIGuardrailVersion(
+    args: DeleteAIGuardrailVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAIGuardrailVersionCommandOutput>;
+  deleteAIGuardrailVersion(
+    args: DeleteAIGuardrailVersionCommandInput,
+    cb: (err: any, data?: DeleteAIGuardrailVersionCommandOutput) => void
+  ): void;
+  deleteAIGuardrailVersion(
+    args: DeleteAIGuardrailVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAIGuardrailVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAIPromptCommand}
    */
   deleteAIPrompt(
@@ -924,6 +1054,20 @@ export interface QConnect {
   ): void;
 
   /**
+   * @see {@link GetAIGuardrailCommand}
+   */
+  getAIGuardrail(
+    args: GetAIGuardrailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAIGuardrailCommandOutput>;
+  getAIGuardrail(args: GetAIGuardrailCommandInput, cb: (err: any, data?: GetAIGuardrailCommandOutput) => void): void;
+  getAIGuardrail(
+    args: GetAIGuardrailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAIGuardrailCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAIPromptCommand}
    */
   getAIPrompt(args: GetAIPromptCommandInput, options?: __HttpHandlerOptions): Promise<GetAIPromptCommandOutput>;
@@ -1053,6 +1197,20 @@ export interface QConnect {
   ): void;
 
   /**
+   * @see {@link GetNextMessageCommand}
+   */
+  getNextMessage(
+    args: GetNextMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNextMessageCommandOutput>;
+  getNextMessage(args: GetNextMessageCommandInput, cb: (err: any, data?: GetNextMessageCommandOutput) => void): void;
+  getNextMessage(
+    args: GetNextMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNextMessageCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetQuickResponseCommand}
    */
   getQuickResponse(
@@ -1123,6 +1281,40 @@ export interface QConnect {
     args: ListAIAgentVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAIAgentVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAIGuardrailsCommand}
+   */
+  listAIGuardrails(
+    args: ListAIGuardrailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAIGuardrailsCommandOutput>;
+  listAIGuardrails(
+    args: ListAIGuardrailsCommandInput,
+    cb: (err: any, data?: ListAIGuardrailsCommandOutput) => void
+  ): void;
+  listAIGuardrails(
+    args: ListAIGuardrailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAIGuardrailsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAIGuardrailVersionsCommand}
+   */
+  listAIGuardrailVersions(
+    args: ListAIGuardrailVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAIGuardrailVersionsCommandOutput>;
+  listAIGuardrailVersions(
+    args: ListAIGuardrailVersionsCommandInput,
+    cb: (err: any, data?: ListAIGuardrailVersionsCommandOutput) => void
+  ): void;
+  listAIGuardrailVersions(
+    args: ListAIGuardrailVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAIGuardrailVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -1243,6 +1435,17 @@ export interface QConnect {
     args: ListKnowledgeBasesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListKnowledgeBasesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListMessagesCommand}
+   */
+  listMessages(args: ListMessagesCommandInput, options?: __HttpHandlerOptions): Promise<ListMessagesCommandOutput>;
+  listMessages(args: ListMessagesCommandInput, cb: (err: any, data?: ListMessagesCommandOutput) => void): void;
+  listMessages(
+    args: ListMessagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMessagesCommandOutput) => void
   ): void;
 
   /**
@@ -1466,6 +1669,17 @@ export interface QConnect {
   ): void;
 
   /**
+   * @see {@link SendMessageCommand}
+   */
+  sendMessage(args: SendMessageCommandInput, options?: __HttpHandlerOptions): Promise<SendMessageCommandOutput>;
+  sendMessage(args: SendMessageCommandInput, cb: (err: any, data?: SendMessageCommandOutput) => void): void;
+  sendMessage(
+    args: SendMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendMessageCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartContentUploadCommand}
    */
   startContentUpload(
@@ -1527,6 +1741,23 @@ export interface QConnect {
     args: UpdateAIAgentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAIAgentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAIGuardrailCommand}
+   */
+  updateAIGuardrail(
+    args: UpdateAIGuardrailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAIGuardrailCommandOutput>;
+  updateAIGuardrail(
+    args: UpdateAIGuardrailCommandInput,
+    cb: (err: any, data?: UpdateAIGuardrailCommandOutput) => void
+  ): void;
+  updateAIGuardrail(
+    args: UpdateAIGuardrailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAIGuardrailCommandOutput) => void
   ): void;
 
   /**

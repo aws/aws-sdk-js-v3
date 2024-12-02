@@ -43,6 +43,7 @@ export interface CreateAIAgentCommandOutput extends CreateAIAgentResponse, __Met
  *   configuration: { // AIAgentConfiguration Union: only one key present
  *     manualSearchAIAgentConfiguration: { // ManualSearchAIAgentConfiguration
  *       answerGenerationAIPromptId: "STRING_VALUE",
+ *       answerGenerationAIGuardrailId: "STRING_VALUE",
  *       associationConfigurations: [ // AssociationConfigurationList
  *         { // AssociationConfiguration
  *           associationId: "STRING_VALUE",
@@ -80,6 +81,7 @@ export interface CreateAIAgentCommandOutput extends CreateAIAgentResponse, __Met
  *       intentLabelingGenerationAIPromptId: "STRING_VALUE",
  *       queryReformulationAIPromptId: "STRING_VALUE",
  *       answerGenerationAIPromptId: "STRING_VALUE",
+ *       answerGenerationAIGuardrailId: "STRING_VALUE",
  *       associationConfigurations: [
  *         {
  *           associationId: "STRING_VALUE",
@@ -96,6 +98,35 @@ export interface CreateAIAgentCommandOutput extends CreateAIAgentResponse, __Met
  *                     andConditions: [
  *                       "<TagCondition>",
  *                     ],
+ *                     tagCondition: "<TagCondition>",
+ *                   },
+ *                 ],
+ *               },
+ *               maxResults: Number("int"),
+ *               overrideKnowledgeBaseSearchType: "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     selfServiceAIAgentConfiguration: { // SelfServiceAIAgentConfiguration
+ *       selfServicePreProcessingAIPromptId: "STRING_VALUE",
+ *       selfServiceAnswerGenerationAIPromptId: "STRING_VALUE",
+ *       selfServiceAIGuardrailId: "STRING_VALUE",
+ *       associationConfigurations: [
+ *         {
+ *           associationId: "STRING_VALUE",
+ *           associationType: "STRING_VALUE",
+ *           associationConfigurationData: {//  Union: only one key present
+ *             knowledgeBaseAssociationConfigurationData: {
+ *               contentTagFilter: {//  Union: only one key present
+ *                 tagCondition: "<TagCondition>",
+ *                 andConditions: [
+ *                   "<TagCondition>",
+ *                 ],
+ *                 orConditions: [
+ *                   {//  Union: only one key present
+ *                     andConditions: "<AndConditions>",
  *                     tagCondition: "<TagCondition>",
  *                   },
  *                 ],
@@ -127,6 +158,7 @@ export interface CreateAIAgentCommandOutput extends CreateAIAgentResponse, __Met
  * //     configuration: { // AIAgentConfiguration Union: only one key present
  * //       manualSearchAIAgentConfiguration: { // ManualSearchAIAgentConfiguration
  * //         answerGenerationAIPromptId: "STRING_VALUE",
+ * //         answerGenerationAIGuardrailId: "STRING_VALUE",
  * //         associationConfigurations: [ // AssociationConfigurationList
  * //           { // AssociationConfiguration
  * //             associationId: "STRING_VALUE",
@@ -164,6 +196,7 @@ export interface CreateAIAgentCommandOutput extends CreateAIAgentResponse, __Met
  * //         intentLabelingGenerationAIPromptId: "STRING_VALUE",
  * //         queryReformulationAIPromptId: "STRING_VALUE",
  * //         answerGenerationAIPromptId: "STRING_VALUE",
+ * //         answerGenerationAIGuardrailId: "STRING_VALUE",
  * //         associationConfigurations: [
  * //           {
  * //             associationId: "STRING_VALUE",
@@ -180,6 +213,35 @@ export interface CreateAIAgentCommandOutput extends CreateAIAgentResponse, __Met
  * //                       andConditions: [
  * //                         "<TagCondition>",
  * //                       ],
+ * //                       tagCondition: "<TagCondition>",
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //                 maxResults: Number("int"),
+ * //                 overrideKnowledgeBaseSearchType: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //       selfServiceAIAgentConfiguration: { // SelfServiceAIAgentConfiguration
+ * //         selfServicePreProcessingAIPromptId: "STRING_VALUE",
+ * //         selfServiceAnswerGenerationAIPromptId: "STRING_VALUE",
+ * //         selfServiceAIGuardrailId: "STRING_VALUE",
+ * //         associationConfigurations: [
+ * //           {
+ * //             associationId: "STRING_VALUE",
+ * //             associationType: "STRING_VALUE",
+ * //             associationConfigurationData: {//  Union: only one key present
+ * //               knowledgeBaseAssociationConfigurationData: {
+ * //                 contentTagFilter: {//  Union: only one key present
+ * //                   tagCondition: "<TagCondition>",
+ * //                   andConditions: [
+ * //                     "<TagCondition>",
+ * //                   ],
+ * //                   orConditions: [
+ * //                     {//  Union: only one key present
+ * //                       andConditions: "<AndConditions>",
  * //                       tagCondition: "<TagCondition>",
  * //                     },
  * //                   ],

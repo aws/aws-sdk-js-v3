@@ -10,7 +10,7 @@ import {
   UpdateMessageTemplateRequestFilterSensitiveLog,
   UpdateMessageTemplateResponse,
   UpdateMessageTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_UpdateMessageTemplateCommand, se_UpdateMessageTemplateCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 

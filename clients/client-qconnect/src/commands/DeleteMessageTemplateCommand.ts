@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteMessageTemplateRequest, DeleteMessageTemplateResponse } from "../models/models_0";
+import { DeleteMessageTemplateRequest, DeleteMessageTemplateResponse } from "../models/models_1";
 import { de_DeleteMessageTemplateCommand, se_DeleteMessageTemplateCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 

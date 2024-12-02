@@ -23,6 +23,7 @@ import {
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeFloat as __serializeFloat,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -42,6 +43,11 @@ import {
   CreateAIAgentVersionCommandInput,
   CreateAIAgentVersionCommandOutput,
 } from "../commands/CreateAIAgentVersionCommand";
+import { CreateAIGuardrailCommandInput, CreateAIGuardrailCommandOutput } from "../commands/CreateAIGuardrailCommand";
+import {
+  CreateAIGuardrailVersionCommandInput,
+  CreateAIGuardrailVersionCommandOutput,
+} from "../commands/CreateAIGuardrailVersionCommand";
 import { CreateAIPromptCommandInput, CreateAIPromptCommandOutput } from "../commands/CreateAIPromptCommand";
 import {
   CreateAIPromptVersionCommandInput,
@@ -87,6 +93,11 @@ import {
   DeleteAIAgentVersionCommandInput,
   DeleteAIAgentVersionCommandOutput,
 } from "../commands/DeleteAIAgentVersionCommand";
+import { DeleteAIGuardrailCommandInput, DeleteAIGuardrailCommandOutput } from "../commands/DeleteAIGuardrailCommand";
+import {
+  DeleteAIGuardrailVersionCommandInput,
+  DeleteAIGuardrailVersionCommandOutput,
+} from "../commands/DeleteAIGuardrailVersionCommand";
 import { DeleteAIPromptCommandInput, DeleteAIPromptCommandOutput } from "../commands/DeleteAIPromptCommand";
 import {
   DeleteAIPromptVersionCommandInput,
@@ -120,6 +131,7 @@ import {
   DeleteQuickResponseCommandOutput,
 } from "../commands/DeleteQuickResponseCommand";
 import { GetAIAgentCommandInput, GetAIAgentCommandOutput } from "../commands/GetAIAgentCommand";
+import { GetAIGuardrailCommandInput, GetAIGuardrailCommandOutput } from "../commands/GetAIGuardrailCommand";
 import { GetAIPromptCommandInput, GetAIPromptCommandOutput } from "../commands/GetAIPromptCommand";
 import {
   GetAssistantAssociationCommandInput,
@@ -135,6 +147,7 @@ import { GetContentSummaryCommandInput, GetContentSummaryCommandOutput } from ".
 import { GetImportJobCommandInput, GetImportJobCommandOutput } from "../commands/GetImportJobCommand";
 import { GetKnowledgeBaseCommandInput, GetKnowledgeBaseCommandOutput } from "../commands/GetKnowledgeBaseCommand";
 import { GetMessageTemplateCommandInput, GetMessageTemplateCommandOutput } from "../commands/GetMessageTemplateCommand";
+import { GetNextMessageCommandInput, GetNextMessageCommandOutput } from "../commands/GetNextMessageCommand";
 import { GetQuickResponseCommandInput, GetQuickResponseCommandOutput } from "../commands/GetQuickResponseCommand";
 import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "../commands/GetRecommendationsCommand";
 import { GetSessionCommandInput, GetSessionCommandOutput } from "../commands/GetSessionCommand";
@@ -143,6 +156,11 @@ import {
   ListAIAgentVersionsCommandInput,
   ListAIAgentVersionsCommandOutput,
 } from "../commands/ListAIAgentVersionsCommand";
+import { ListAIGuardrailsCommandInput, ListAIGuardrailsCommandOutput } from "../commands/ListAIGuardrailsCommand";
+import {
+  ListAIGuardrailVersionsCommandInput,
+  ListAIGuardrailVersionsCommandOutput,
+} from "../commands/ListAIGuardrailVersionsCommand";
 import { ListAIPromptsCommandInput, ListAIPromptsCommandOutput } from "../commands/ListAIPromptsCommand";
 import {
   ListAIPromptVersionsCommandInput,
@@ -160,6 +178,7 @@ import {
 import { ListContentsCommandInput, ListContentsCommandOutput } from "../commands/ListContentsCommand";
 import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "../commands/ListImportJobsCommand";
 import { ListKnowledgeBasesCommandInput, ListKnowledgeBasesCommandOutput } from "../commands/ListKnowledgeBasesCommand";
+import { ListMessagesCommandInput, ListMessagesCommandOutput } from "../commands/ListMessagesCommand";
 import {
   ListMessageTemplatesCommandInput,
   ListMessageTemplatesCommandOutput,
@@ -201,11 +220,13 @@ import {
   SearchQuickResponsesCommandOutput,
 } from "../commands/SearchQuickResponsesCommand";
 import { SearchSessionsCommandInput, SearchSessionsCommandOutput } from "../commands/SearchSessionsCommand";
+import { SendMessageCommandInput, SendMessageCommandOutput } from "../commands/SendMessageCommand";
 import { StartContentUploadCommandInput, StartContentUploadCommandOutput } from "../commands/StartContentUploadCommand";
 import { StartImportJobCommandInput, StartImportJobCommandOutput } from "../commands/StartImportJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAIAgentCommandInput, UpdateAIAgentCommandOutput } from "../commands/UpdateAIAgentCommand";
+import { UpdateAIGuardrailCommandInput, UpdateAIGuardrailCommandOutput } from "../commands/UpdateAIGuardrailCommand";
 import { UpdateAIPromptCommandInput, UpdateAIPromptCommandOutput } from "../commands/UpdateAIPromptCommand";
 import {
   UpdateAssistantAIAgentCommandInput,
@@ -239,6 +260,14 @@ import {
   AIAgentSummary,
   AIAgentType,
   AIAgentVersionSummary,
+  AIGuardrailContentPolicyConfig,
+  AIGuardrailContextualGroundingPolicyConfig,
+  AIGuardrailData,
+  AIGuardrailSensitiveInformationPolicyConfig,
+  AIGuardrailSummary,
+  AIGuardrailTopicPolicyConfig,
+  AIGuardrailVersionSummary,
+  AIGuardrailWordPolicyConfig,
   AIPromptData,
   AIPromptSummary,
   AIPromptTemplateConfiguration,
@@ -258,31 +287,38 @@ import {
   ContentData,
   ContentDataDetails,
   ContentFeedbackData,
+  ConversationContext,
   CustomerProfileAttributes,
   EmailHeader,
   EmailMessageTemplateContent,
   EmailMessageTemplateContentBody,
   ExtendedMessageTemplateData,
-  ExternalSourceConfiguration,
   Filter,
   FixedSizeChunkingConfiguration,
   GenerativeContentFeedbackData,
   GroupingConfiguration,
+  GuardrailContentFilterConfig,
+  GuardrailContextualGroundingFilterConfig,
+  GuardrailManagedWordsConfig,
+  GuardrailPiiEntityConfig,
+  GuardrailRegexConfig,
+  GuardrailTopicConfig,
+  GuardrailWordConfig,
   HierarchicalChunkingConfiguration,
   HierarchicalChunkingLevelConfiguration,
-  ImportJobData,
-  ImportJobSummary,
   IntentInputData,
   KnowledgeBaseAssociationConfigurationData,
   KnowledgeBaseData,
   ManagedSourceConfiguration,
   ManualSearchAIAgentConfiguration,
+  MessageData,
+  MessageInput,
+  MessageOutput,
   MessageTemplateAttachment,
   MessageTemplateAttributes,
   MessageTemplateBodyContentProvider,
   MessageTemplateContentProvider,
   MessageTemplateData,
-  MessageTemplateSummary,
   OrCondition,
   ParsingConfiguration,
   ParsingPrompt,
@@ -291,9 +327,6 @@ import {
   QueryConditionItem,
   QueryInputData,
   QueryTextInputData,
-  QuickResponseData,
-  QuickResponseDataProvider,
-  QuickResponseSummary,
   RankingData,
   RenderingConfiguration,
   RequestTimeoutException,
@@ -302,6 +335,8 @@ import {
   RuntimeSessionDataValue,
   SearchExpression,
   SeedUrl,
+  SelfServiceAIAgentConfiguration,
+  SelfServiceConversationHistory,
   SemanticChunkingConfiguration,
   ServerSideEncryptionConfiguration,
   ServiceQuotaExceededException,
@@ -314,6 +349,7 @@ import {
   TagCondition,
   TagFilter,
   TextFullAIPromptEditTemplateConfiguration,
+  TextMessage,
   ThrottlingException,
   UrlConfiguration,
   ValidationException,
@@ -324,17 +360,24 @@ import {
 import {
   DataDetails,
   DataSummary,
+  ExternalSourceConfiguration,
   GenerativeDataDetails,
+  ImportJobData,
+  ImportJobSummary,
   MessageTemplateFilterField,
   MessageTemplateOrderField,
   MessageTemplateQueryField,
   MessageTemplateSearchExpression,
   MessageTemplateSearchResultData,
+  MessageTemplateSummary,
+  QuickResponseData,
+  QuickResponseDataProvider,
   QuickResponseFilterField,
   QuickResponseOrderField,
   QuickResponseQueryField,
   QuickResponseSearchExpression,
   QuickResponseSearchResultData,
+  QuickResponseSummary,
   RecommendationData,
   ResultData,
   TooManyTagsException,
@@ -408,6 +451,65 @@ export const se_CreateAIAgentVersionCommand = async (
   b.bp("/assistants/{assistantId}/aiagents/{aiAgentId}/versions");
   b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   b.p("aiAgentId", () => input.aiAgentId!, "{aiAgentId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      modifiedTime: (_) => _.getTime() / 1_000,
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateAIGuardrailCommand
+ */
+export const se_CreateAIGuardrailCommand = async (
+  input: CreateAIGuardrailCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/assistants/{assistantId}/aiguardrails");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      blockedInputMessaging: [],
+      blockedOutputsMessaging: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      contentPolicyConfig: (_) => _json(_),
+      contextualGroundingPolicyConfig: (_) => se_AIGuardrailContextualGroundingPolicyConfig(_, context),
+      description: [],
+      name: [],
+      sensitiveInformationPolicyConfig: (_) => _json(_),
+      tags: (_) => _json(_),
+      topicPolicyConfig: (_) => _json(_),
+      visibilityStatus: [],
+      wordPolicyConfig: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateAIGuardrailVersionCommand
+ */
+export const se_CreateAIGuardrailVersionCommand = async (
+  input: CreateAIGuardrailVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/assistants/{assistantId}/aiguardrails/{aiGuardrailId}/versions");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiGuardrailId", () => input.aiGuardrailId!, "{aiGuardrailId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -818,6 +920,41 @@ export const se_DeleteAIAgentVersionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteAIGuardrailCommand
+ */
+export const se_DeleteAIGuardrailCommand = async (
+  input: DeleteAIGuardrailCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/aiguardrails/{aiGuardrailId}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiGuardrailId", () => input.aiGuardrailId!, "{aiGuardrailId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteAIGuardrailVersionCommand
+ */
+export const se_DeleteAIGuardrailVersionCommand = async (
+  input: DeleteAIGuardrailVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/aiguardrails/{aiGuardrailId}/versions/{versionNumber}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiGuardrailId", () => input.aiGuardrailId!, "{aiGuardrailId}", false);
+  b.p("versionNumber", () => input.versionNumber!.toString(), "{versionNumber}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteAIPromptCommand
  */
 export const se_DeleteAIPromptCommand = async (
@@ -1023,6 +1160,23 @@ export const se_GetAIAgentCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetAIGuardrailCommand
+ */
+export const se_GetAIGuardrailCommand = async (
+  input: GetAIGuardrailCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/aiguardrails/{aiGuardrailId}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiGuardrailId", () => input.aiGuardrailId!, "{aiGuardrailId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetAIPromptCommand
  */
 export const se_GetAIPromptCommand = async (
@@ -1175,6 +1329,26 @@ export const se_GetMessageTemplateCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetNextMessageCommand
+ */
+export const se_GetNextMessageCommand = async (
+  input: GetNextMessageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/sessions/{sessionId}/messages/next");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
+  const query: any = map({
+    [_nMT]: [, __expectNonNull(input[_nMT]!, `nextMessageToken`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetQuickResponseCommand
  */
 export const se_GetQuickResponseCommand = async (
@@ -1266,6 +1440,47 @@ export const se_ListAIAgentVersionsCommand = async (
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_o]: [, input[_o]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAIGuardrailsCommand
+ */
+export const se_ListAIGuardrailsCommand = async (
+  input: ListAIGuardrailsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/aiguardrails");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAIGuardrailVersionsCommand
+ */
+export const se_ListAIGuardrailVersionsCommand = async (
+  input: ListAIGuardrailVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/aiguardrails/{aiGuardrailId}/versions");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiGuardrailId", () => input.aiGuardrailId!, "{aiGuardrailId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1425,6 +1640,27 @@ export const se_ListKnowledgeBasesCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/knowledgeBases");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListMessagesCommand
+ */
+export const se_ListMessagesCommand = async (
+  input: ListMessagesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/assistants/{assistantId}/sessions/{sessionId}/messages");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -1758,6 +1994,33 @@ export const se_SearchSessionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SendMessageCommand
+ */
+export const se_SendMessageCommand = async (
+  input: SendMessageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/assistants/{assistantId}/sessions/{sessionId}/message");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      conversationContext: (_) => _json(_),
+      message: (_) => _json(_),
+      type: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StartContentUploadCommand
  */
 export const se_StartContentUploadCommand = async (
@@ -1871,6 +2134,39 @@ export const se_UpdateAIAgentCommand = async (
       configuration: (_) => se_AIAgentConfiguration(_, context),
       description: [],
       visibilityStatus: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateAIGuardrailCommand
+ */
+export const se_UpdateAIGuardrailCommand = async (
+  input: UpdateAIGuardrailCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/assistants/{assistantId}/aiguardrails/{aiGuardrailId}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("aiGuardrailId", () => input.aiGuardrailId!, "{aiGuardrailId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      blockedInputMessaging: [],
+      blockedOutputsMessaging: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      contentPolicyConfig: (_) => _json(_),
+      contextualGroundingPolicyConfig: (_) => se_AIGuardrailContextualGroundingPolicyConfig(_, context),
+      description: [],
+      sensitiveInformationPolicyConfig: (_) => _json(_),
+      topicPolicyConfig: (_) => _json(_),
+      visibilityStatus: [],
+      wordPolicyConfig: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2178,6 +2474,49 @@ export const de_CreateAIAgentVersionCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     aiAgent: (_) => de_AIAgentData(_, context),
+    versionNumber: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAIGuardrailCommand
+ */
+export const de_CreateAIGuardrailCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAIGuardrailCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiGuardrail: (_) => de_AIGuardrailData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAIGuardrailVersionCommand
+ */
+export const de_CreateAIGuardrailVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAIGuardrailVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiGuardrail: (_) => de_AIGuardrailData(_, context),
     versionNumber: __expectLong,
   });
   Object.assign(contents, doc);
@@ -2495,6 +2834,40 @@ export const de_DeleteAIAgentVersionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteAIGuardrailCommand
+ */
+export const de_DeleteAIGuardrailCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAIGuardrailCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteAIGuardrailVersionCommand
+ */
+export const de_DeleteAIGuardrailVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAIGuardrailVersionCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteAIPromptCommand
  */
 export const de_DeleteAIPromptCommand = async (
@@ -2704,6 +3077,28 @@ export const de_GetAIAgentCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetAIGuardrailCommand
+ */
+export const de_GetAIGuardrailCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAIGuardrailCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiGuardrail: (_) => de_AIGuardrailData(_, context),
+    versionNumber: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetAIPromptCommand
  */
 export const de_GetAIPromptCommand = async (
@@ -2894,6 +3289,32 @@ export const de_GetMessageTemplateCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetNextMessageCommand
+ */
+export const de_GetNextMessageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetNextMessageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    conversationSessionData: _json,
+    conversationState: _json,
+    nextMessageToken: __expectString,
+    requestMessageId: __expectString,
+    response: (_) => de_MessageOutput(_, context),
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetQuickResponseCommand
  */
 export const de_GetQuickResponseCommand = async (
@@ -2995,6 +3416,50 @@ export const de_ListAIAgentVersionsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     aiAgentVersionSummaries: (_) => de_AIAgentVersionSummariesList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAIGuardrailsCommand
+ */
+export const de_ListAIGuardrailsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAIGuardrailsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiGuardrailSummaries: (_) => de_AIGuardrailSummariesList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAIGuardrailVersionsCommand
+ */
+export const de_ListAIGuardrailVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAIGuardrailVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiGuardrailVersionSummaries: (_) => de_AIGuardrailVersionSummariesList(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -3171,6 +3636,28 @@ export const de_ListKnowledgeBasesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     knowledgeBaseSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListMessagesCommand
+ */
+export const de_ListMessagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMessagesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    messages: (_) => de_MessageList(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -3479,6 +3966,28 @@ export const de_SearchSessionsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1SendMessageCommand
+ */
+export const de_SendMessageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendMessageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextMessageToken: __expectString,
+    requestMessageId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StartContentUploadCommand
  */
 export const de_StartContentUploadCommand = async (
@@ -3573,6 +4082,27 @@ export const de_UpdateAIAgentCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     aiAgent: (_) => de_AIAgentData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAIGuardrailCommand
+ */
+export const de_UpdateAIGuardrailCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAIGuardrailCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    aiGuardrail: (_) => de_AIGuardrailData(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -4000,6 +4530,7 @@ const se_AIAgentConfiguration = (input: AIAgentConfiguration, context: __SerdeCo
   return AIAgentConfiguration.visit(input, {
     answerRecommendationAIAgentConfiguration: (value) => ({ answerRecommendationAIAgentConfiguration: _json(value) }),
     manualSearchAIAgentConfiguration: (value) => ({ manualSearchAIAgentConfiguration: _json(value) }),
+    selfServiceAIAgentConfiguration: (value) => ({ selfServiceAIAgentConfiguration: _json(value) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -4007,6 +4538,26 @@ const se_AIAgentConfiguration = (input: AIAgentConfiguration, context: __SerdeCo
 // se_AIAgentConfigurationData omitted.
 
 // se_AIAgentConfigurationMap omitted.
+
+// se_AIGuardrailContentPolicyConfig omitted.
+
+/**
+ * serializeAws_restJson1AIGuardrailContextualGroundingPolicyConfig
+ */
+const se_AIGuardrailContextualGroundingPolicyConfig = (
+  input: AIGuardrailContextualGroundingPolicyConfig,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    filtersConfig: (_) => se_GuardrailContextualGroundingFiltersConfig(_, context),
+  });
+};
+
+// se_AIGuardrailSensitiveInformationPolicyConfig omitted.
+
+// se_AIGuardrailTopicPolicyConfig omitted.
+
+// se_AIGuardrailWordPolicyConfig omitted.
 
 // se_AIPromptTemplateConfiguration omitted.
 
@@ -4044,6 +4595,8 @@ const se_AIAgentConfiguration = (input: AIAgentConfiguration, context: __SerdeCo
 
 // se_ContentMetadata omitted.
 
+// se_ConversationContext omitted.
+
 // se_CustomAttributes omitted.
 
 // se_CustomerProfileAttributes omitted.
@@ -4070,6 +4623,59 @@ const se_AIAgentConfiguration = (input: AIAgentConfiguration, context: __SerdeCo
 
 // se_GroupingValues omitted.
 
+// se_GuardrailContentFilterConfig omitted.
+
+// se_GuardrailContentFiltersConfig omitted.
+
+/**
+ * serializeAws_restJson1GuardrailContextualGroundingFilterConfig
+ */
+const se_GuardrailContextualGroundingFilterConfig = (
+  input: GuardrailContextualGroundingFilterConfig,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    threshold: __serializeFloat,
+    type: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1GuardrailContextualGroundingFiltersConfig
+ */
+const se_GuardrailContextualGroundingFiltersConfig = (
+  input: GuardrailContextualGroundingFilterConfig[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_GuardrailContextualGroundingFilterConfig(entry, context);
+    });
+};
+
+// se_GuardrailManagedWordListsConfig omitted.
+
+// se_GuardrailManagedWordsConfig omitted.
+
+// se_GuardrailPiiEntitiesConfig omitted.
+
+// se_GuardrailPiiEntityConfig omitted.
+
+// se_GuardrailRegexConfig omitted.
+
+// se_GuardrailRegexesConfig omitted.
+
+// se_GuardrailTopicConfig omitted.
+
+// se_GuardrailTopicExamples omitted.
+
+// se_GuardrailTopicsConfig omitted.
+
+// se_GuardrailWordConfig omitted.
+
+// se_GuardrailWordsConfig omitted.
+
 // se_HierarchicalChunkingConfiguration omitted.
 
 // se_HierarchicalChunkingLevelConfiguration omitted.
@@ -4083,6 +4689,10 @@ const se_AIAgentConfiguration = (input: AIAgentConfiguration, context: __SerdeCo
 // se_ManagedSourceConfiguration omitted.
 
 // se_ManualSearchAIAgentConfiguration omitted.
+
+// se_MessageData omitted.
+
+// se_MessageInput omitted.
 
 // se_MessageTemplateAttributes omitted.
 
@@ -4160,6 +4770,12 @@ const se_AIAgentConfiguration = (input: AIAgentConfiguration, context: __SerdeCo
 
 // se_SeedUrls omitted.
 
+// se_SelfServiceAIAgentConfiguration omitted.
+
+// se_SelfServiceConversationHistory omitted.
+
+// se_SelfServiceConversationHistoryList omitted.
+
 // se_SemanticChunkingConfiguration omitted.
 
 // se_ServerSideEncryptionConfiguration omitted.
@@ -4181,6 +4797,8 @@ const se_AIAgentConfiguration = (input: AIAgentConfiguration, context: __SerdeCo
 // se_Tags omitted.
 
 // se_TextFullAIPromptEditTemplateConfiguration omitted.
+
+// se_TextMessage omitted.
 
 // se_UrlConfiguration omitted.
 
@@ -4206,6 +4824,11 @@ const de_AIAgentConfiguration = (output: any, context: __SerdeContext): AIAgentC
   if (output.manualSearchAIAgentConfiguration != null) {
     return {
       manualSearchAIAgentConfiguration: _json(output.manualSearchAIAgentConfiguration),
+    };
+  }
+  if (output.selfServiceAIAgentConfiguration != null) {
+    return {
+      selfServiceAIAgentConfiguration: _json(output.selfServiceAIAgentConfiguration),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -4290,6 +4913,103 @@ const de_AIAgentVersionSummary = (output: any, context: __SerdeContext): AIAgent
     versionNumber: __expectLong,
   }) as any;
 };
+
+// de_AIGuardrailContentPolicyConfig omitted.
+
+/**
+ * deserializeAws_restJson1AIGuardrailContextualGroundingPolicyConfig
+ */
+const de_AIGuardrailContextualGroundingPolicyConfig = (
+  output: any,
+  context: __SerdeContext
+): AIGuardrailContextualGroundingPolicyConfig => {
+  return take(output, {
+    filtersConfig: (_: any) => de_GuardrailContextualGroundingFiltersConfig(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AIGuardrailData
+ */
+const de_AIGuardrailData = (output: any, context: __SerdeContext): AIGuardrailData => {
+  return take(output, {
+    aiGuardrailArn: __expectString,
+    aiGuardrailId: __expectString,
+    assistantArn: __expectString,
+    assistantId: __expectString,
+    blockedInputMessaging: __expectString,
+    blockedOutputsMessaging: __expectString,
+    contentPolicyConfig: _json,
+    contextualGroundingPolicyConfig: (_: any) => de_AIGuardrailContextualGroundingPolicyConfig(_, context),
+    description: __expectString,
+    modifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    sensitiveInformationPolicyConfig: _json,
+    status: __expectString,
+    tags: _json,
+    topicPolicyConfig: _json,
+    visibilityStatus: __expectString,
+    wordPolicyConfig: _json,
+  }) as any;
+};
+
+// de_AIGuardrailSensitiveInformationPolicyConfig omitted.
+
+/**
+ * deserializeAws_restJson1AIGuardrailSummariesList
+ */
+const de_AIGuardrailSummariesList = (output: any, context: __SerdeContext): AIGuardrailSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AIGuardrailSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AIGuardrailSummary
+ */
+const de_AIGuardrailSummary = (output: any, context: __SerdeContext): AIGuardrailSummary => {
+  return take(output, {
+    aiGuardrailArn: __expectString,
+    aiGuardrailId: __expectString,
+    assistantArn: __expectString,
+    assistantId: __expectString,
+    description: __expectString,
+    modifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+    tags: _json,
+    visibilityStatus: __expectString,
+  }) as any;
+};
+
+// de_AIGuardrailTopicPolicyConfig omitted.
+
+/**
+ * deserializeAws_restJson1AIGuardrailVersionSummariesList
+ */
+const de_AIGuardrailVersionSummariesList = (output: any, context: __SerdeContext): AIGuardrailVersionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AIGuardrailVersionSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AIGuardrailVersionSummary
+ */
+const de_AIGuardrailVersionSummary = (output: any, context: __SerdeContext): AIGuardrailVersionSummary => {
+  return take(output, {
+    aiGuardrailSummary: (_: any) => de_AIGuardrailSummary(_, context),
+    versionNumber: __expectLong,
+  }) as any;
+};
+
+// de_AIGuardrailWordPolicyConfig omitted.
 
 /**
  * deserializeAws_restJson1AIPromptData
@@ -4470,6 +5190,8 @@ const de_ContentDataDetails = (output: any, context: __SerdeContext): ContentDat
 
 // de_ContentSummaryList omitted.
 
+// de_ConversationState omitted.
+
 // de_CustomAttributes omitted.
 
 // de_CustomerProfileAttributes omitted.
@@ -4590,6 +5312,60 @@ const de_GenerativeDataDetails = (output: any, context: __SerdeContext): Generat
 
 // de_GroupingValues omitted.
 
+// de_GuardrailContentFilterConfig omitted.
+
+// de_GuardrailContentFiltersConfig omitted.
+
+/**
+ * deserializeAws_restJson1GuardrailContextualGroundingFilterConfig
+ */
+const de_GuardrailContextualGroundingFilterConfig = (
+  output: any,
+  context: __SerdeContext
+): GuardrailContextualGroundingFilterConfig => {
+  return take(output, {
+    threshold: __limitedParseDouble,
+    type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GuardrailContextualGroundingFiltersConfig
+ */
+const de_GuardrailContextualGroundingFiltersConfig = (
+  output: any,
+  context: __SerdeContext
+): GuardrailContextualGroundingFilterConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_GuardrailContextualGroundingFilterConfig(entry, context);
+    });
+  return retVal;
+};
+
+// de_GuardrailManagedWordListsConfig omitted.
+
+// de_GuardrailManagedWordsConfig omitted.
+
+// de_GuardrailPiiEntitiesConfig omitted.
+
+// de_GuardrailPiiEntityConfig omitted.
+
+// de_GuardrailRegexConfig omitted.
+
+// de_GuardrailRegexesConfig omitted.
+
+// de_GuardrailTopicConfig omitted.
+
+// de_GuardrailTopicExamples omitted.
+
+// de_GuardrailTopicsConfig omitted.
+
+// de_GuardrailWordConfig omitted.
+
+// de_GuardrailWordsConfig omitted.
+
 // de_Headers omitted.
 
 // de_HierarchicalChunkingConfiguration omitted.
@@ -4688,6 +5464,32 @@ const de_KnowledgeBaseData = (output: any, context: __SerdeContext): KnowledgeBa
 // de_ManagedSourceConfiguration omitted.
 
 // de_ManualSearchAIAgentConfiguration omitted.
+
+// de_MessageData omitted.
+
+/**
+ * deserializeAws_restJson1MessageList
+ */
+const de_MessageList = (output: any, context: __SerdeContext): MessageOutput[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MessageOutput(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1MessageOutput
+ */
+const de_MessageOutput = (output: any, context: __SerdeContext): MessageOutput => {
+  return take(output, {
+    messageId: __expectString,
+    participant: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    value: (_: any) => _json(__expectUnion(_)),
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1MessageTemplateAttachment
@@ -5025,6 +5827,8 @@ const de_ResultData = (output: any, context: __SerdeContext): ResultData => {
 
 // de_SeedUrls omitted.
 
+// de_SelfServiceAIAgentConfiguration omitted.
+
 // de_SemanticChunkingConfiguration omitted.
 
 // de_ServerSideEncryptionConfiguration omitted.
@@ -5070,6 +5874,8 @@ const de_SourceContentDataDetails = (output: any, context: __SerdeContext): Sour
 
 // de_TextFullAIPromptEditTemplateConfiguration omitted.
 
+// de_TextMessage omitted.
+
 // de_UrlConfiguration omitted.
 
 // de_UrlFilterList omitted.
@@ -5094,6 +5900,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const _aAT = "aiAgentType";
 const _mR = "maxResults";
+const _nMT = "nextMessageToken";
 const _nT = "nextToken";
 const _o = "origin";
 const _tK = "tagKeys";

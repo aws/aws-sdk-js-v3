@@ -62,6 +62,11 @@ import {
   CreateAIAgentVersionCommandInput,
   CreateAIAgentVersionCommandOutput,
 } from "./commands/CreateAIAgentVersionCommand";
+import { CreateAIGuardrailCommandInput, CreateAIGuardrailCommandOutput } from "./commands/CreateAIGuardrailCommand";
+import {
+  CreateAIGuardrailVersionCommandInput,
+  CreateAIGuardrailVersionCommandOutput,
+} from "./commands/CreateAIGuardrailVersionCommand";
 import { CreateAIPromptCommandInput, CreateAIPromptCommandOutput } from "./commands/CreateAIPromptCommand";
 import {
   CreateAIPromptVersionCommandInput,
@@ -107,6 +112,11 @@ import {
   DeleteAIAgentVersionCommandInput,
   DeleteAIAgentVersionCommandOutput,
 } from "./commands/DeleteAIAgentVersionCommand";
+import { DeleteAIGuardrailCommandInput, DeleteAIGuardrailCommandOutput } from "./commands/DeleteAIGuardrailCommand";
+import {
+  DeleteAIGuardrailVersionCommandInput,
+  DeleteAIGuardrailVersionCommandOutput,
+} from "./commands/DeleteAIGuardrailVersionCommand";
 import { DeleteAIPromptCommandInput, DeleteAIPromptCommandOutput } from "./commands/DeleteAIPromptCommand";
 import {
   DeleteAIPromptVersionCommandInput,
@@ -140,6 +150,7 @@ import {
   DeleteQuickResponseCommandOutput,
 } from "./commands/DeleteQuickResponseCommand";
 import { GetAIAgentCommandInput, GetAIAgentCommandOutput } from "./commands/GetAIAgentCommand";
+import { GetAIGuardrailCommandInput, GetAIGuardrailCommandOutput } from "./commands/GetAIGuardrailCommand";
 import { GetAIPromptCommandInput, GetAIPromptCommandOutput } from "./commands/GetAIPromptCommand";
 import {
   GetAssistantAssociationCommandInput,
@@ -155,6 +166,7 @@ import { GetContentSummaryCommandInput, GetContentSummaryCommandOutput } from ".
 import { GetImportJobCommandInput, GetImportJobCommandOutput } from "./commands/GetImportJobCommand";
 import { GetKnowledgeBaseCommandInput, GetKnowledgeBaseCommandOutput } from "./commands/GetKnowledgeBaseCommand";
 import { GetMessageTemplateCommandInput, GetMessageTemplateCommandOutput } from "./commands/GetMessageTemplateCommand";
+import { GetNextMessageCommandInput, GetNextMessageCommandOutput } from "./commands/GetNextMessageCommand";
 import { GetQuickResponseCommandInput, GetQuickResponseCommandOutput } from "./commands/GetQuickResponseCommand";
 import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "./commands/GetRecommendationsCommand";
 import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
@@ -163,6 +175,11 @@ import {
   ListAIAgentVersionsCommandInput,
   ListAIAgentVersionsCommandOutput,
 } from "./commands/ListAIAgentVersionsCommand";
+import { ListAIGuardrailsCommandInput, ListAIGuardrailsCommandOutput } from "./commands/ListAIGuardrailsCommand";
+import {
+  ListAIGuardrailVersionsCommandInput,
+  ListAIGuardrailVersionsCommandOutput,
+} from "./commands/ListAIGuardrailVersionsCommand";
 import { ListAIPromptsCommandInput, ListAIPromptsCommandOutput } from "./commands/ListAIPromptsCommand";
 import {
   ListAIPromptVersionsCommandInput,
@@ -180,6 +197,7 @@ import {
 import { ListContentsCommandInput, ListContentsCommandOutput } from "./commands/ListContentsCommand";
 import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "./commands/ListImportJobsCommand";
 import { ListKnowledgeBasesCommandInput, ListKnowledgeBasesCommandOutput } from "./commands/ListKnowledgeBasesCommand";
+import { ListMessagesCommandInput, ListMessagesCommandOutput } from "./commands/ListMessagesCommand";
 import {
   ListMessageTemplatesCommandInput,
   ListMessageTemplatesCommandOutput,
@@ -221,11 +239,13 @@ import {
   SearchQuickResponsesCommandOutput,
 } from "./commands/SearchQuickResponsesCommand";
 import { SearchSessionsCommandInput, SearchSessionsCommandOutput } from "./commands/SearchSessionsCommand";
+import { SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
 import { StartContentUploadCommandInput, StartContentUploadCommandOutput } from "./commands/StartContentUploadCommand";
 import { StartImportJobCommandInput, StartImportJobCommandOutput } from "./commands/StartImportJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAIAgentCommandInput, UpdateAIAgentCommandOutput } from "./commands/UpdateAIAgentCommand";
+import { UpdateAIGuardrailCommandInput, UpdateAIGuardrailCommandOutput } from "./commands/UpdateAIGuardrailCommand";
 import { UpdateAIPromptCommandInput, UpdateAIPromptCommandOutput } from "./commands/UpdateAIPromptCommand";
 import {
   UpdateAssistantAIAgentCommandInput,
@@ -268,6 +288,8 @@ export type ServiceInputTypes =
   | ActivateMessageTemplateCommandInput
   | CreateAIAgentCommandInput
   | CreateAIAgentVersionCommandInput
+  | CreateAIGuardrailCommandInput
+  | CreateAIGuardrailVersionCommandInput
   | CreateAIPromptCommandInput
   | CreateAIPromptVersionCommandInput
   | CreateAssistantAssociationCommandInput
@@ -283,6 +305,8 @@ export type ServiceInputTypes =
   | DeactivateMessageTemplateCommandInput
   | DeleteAIAgentCommandInput
   | DeleteAIAgentVersionCommandInput
+  | DeleteAIGuardrailCommandInput
+  | DeleteAIGuardrailVersionCommandInput
   | DeleteAIPromptCommandInput
   | DeleteAIPromptVersionCommandInput
   | DeleteAssistantAssociationCommandInput
@@ -295,6 +319,7 @@ export type ServiceInputTypes =
   | DeleteMessageTemplateCommandInput
   | DeleteQuickResponseCommandInput
   | GetAIAgentCommandInput
+  | GetAIGuardrailCommandInput
   | GetAIPromptCommandInput
   | GetAssistantAssociationCommandInput
   | GetAssistantCommandInput
@@ -304,11 +329,14 @@ export type ServiceInputTypes =
   | GetImportJobCommandInput
   | GetKnowledgeBaseCommandInput
   | GetMessageTemplateCommandInput
+  | GetNextMessageCommandInput
   | GetQuickResponseCommandInput
   | GetRecommendationsCommandInput
   | GetSessionCommandInput
   | ListAIAgentVersionsCommandInput
   | ListAIAgentsCommandInput
+  | ListAIGuardrailVersionsCommandInput
+  | ListAIGuardrailsCommandInput
   | ListAIPromptVersionsCommandInput
   | ListAIPromptsCommandInput
   | ListAssistantAssociationsCommandInput
@@ -319,6 +347,7 @@ export type ServiceInputTypes =
   | ListKnowledgeBasesCommandInput
   | ListMessageTemplateVersionsCommandInput
   | ListMessageTemplatesCommandInput
+  | ListMessagesCommandInput
   | ListQuickResponsesCommandInput
   | ListTagsForResourceCommandInput
   | NotifyRecommendationsReceivedCommandInput
@@ -331,11 +360,13 @@ export type ServiceInputTypes =
   | SearchMessageTemplatesCommandInput
   | SearchQuickResponsesCommandInput
   | SearchSessionsCommandInput
+  | SendMessageCommandInput
   | StartContentUploadCommandInput
   | StartImportJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAIAgentCommandInput
+  | UpdateAIGuardrailCommandInput
   | UpdateAIPromptCommandInput
   | UpdateAssistantAIAgentCommandInput
   | UpdateContentCommandInput
@@ -353,6 +384,8 @@ export type ServiceOutputTypes =
   | ActivateMessageTemplateCommandOutput
   | CreateAIAgentCommandOutput
   | CreateAIAgentVersionCommandOutput
+  | CreateAIGuardrailCommandOutput
+  | CreateAIGuardrailVersionCommandOutput
   | CreateAIPromptCommandOutput
   | CreateAIPromptVersionCommandOutput
   | CreateAssistantAssociationCommandOutput
@@ -368,6 +401,8 @@ export type ServiceOutputTypes =
   | DeactivateMessageTemplateCommandOutput
   | DeleteAIAgentCommandOutput
   | DeleteAIAgentVersionCommandOutput
+  | DeleteAIGuardrailCommandOutput
+  | DeleteAIGuardrailVersionCommandOutput
   | DeleteAIPromptCommandOutput
   | DeleteAIPromptVersionCommandOutput
   | DeleteAssistantAssociationCommandOutput
@@ -380,6 +415,7 @@ export type ServiceOutputTypes =
   | DeleteMessageTemplateCommandOutput
   | DeleteQuickResponseCommandOutput
   | GetAIAgentCommandOutput
+  | GetAIGuardrailCommandOutput
   | GetAIPromptCommandOutput
   | GetAssistantAssociationCommandOutput
   | GetAssistantCommandOutput
@@ -389,11 +425,14 @@ export type ServiceOutputTypes =
   | GetImportJobCommandOutput
   | GetKnowledgeBaseCommandOutput
   | GetMessageTemplateCommandOutput
+  | GetNextMessageCommandOutput
   | GetQuickResponseCommandOutput
   | GetRecommendationsCommandOutput
   | GetSessionCommandOutput
   | ListAIAgentVersionsCommandOutput
   | ListAIAgentsCommandOutput
+  | ListAIGuardrailVersionsCommandOutput
+  | ListAIGuardrailsCommandOutput
   | ListAIPromptVersionsCommandOutput
   | ListAIPromptsCommandOutput
   | ListAssistantAssociationsCommandOutput
@@ -404,6 +443,7 @@ export type ServiceOutputTypes =
   | ListKnowledgeBasesCommandOutput
   | ListMessageTemplateVersionsCommandOutput
   | ListMessageTemplatesCommandOutput
+  | ListMessagesCommandOutput
   | ListQuickResponsesCommandOutput
   | ListTagsForResourceCommandOutput
   | NotifyRecommendationsReceivedCommandOutput
@@ -416,11 +456,13 @@ export type ServiceOutputTypes =
   | SearchMessageTemplatesCommandOutput
   | SearchQuickResponsesCommandOutput
   | SearchSessionsCommandOutput
+  | SendMessageCommandOutput
   | StartContentUploadCommandOutput
   | StartImportJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAIAgentCommandOutput
+  | UpdateAIGuardrailCommandOutput
   | UpdateAIPromptCommandOutput
   | UpdateAssistantAIAgentCommandOutput
   | UpdateContentCommandOutput

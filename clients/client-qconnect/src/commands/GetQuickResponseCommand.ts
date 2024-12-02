@@ -9,7 +9,7 @@ import {
   GetQuickResponseRequest,
   GetQuickResponseResponse,
   GetQuickResponseResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetQuickResponseCommand, se_GetQuickResponseCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 

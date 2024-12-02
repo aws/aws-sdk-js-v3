@@ -9,7 +9,7 @@ import {
   GetMessageTemplateRequest,
   GetMessageTemplateResponse,
   GetMessageTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetMessageTemplateCommand, se_GetMessageTemplateCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 
@@ -35,8 +35,9 @@ export interface GetMessageTemplateCommandOutput extends GetMessageTemplateRespo
  * <p>Retrieves the Amazon Q in Connect message template. The message template identifier can
  *       contain an optional qualifier, for example,
  *         <code>&lt;message-template-id&gt;:&lt;qualifier&gt;</code>, which is either an actual
- *       version number or an Amazon Q Connect managed qualifier <code>$ACTIVE_VERSION</code> | <code>$LATEST</code>. If it is
- *       not supplied, then <code>$LATEST</code> is assumed implicitly.</p>
+ *       version number or an Amazon Q Connect managed qualifier <code>$ACTIVE_VERSION</code> |
+ *         <code>$LATEST</code>. If it is not supplied, then <code>$LATEST</code> is assumed
+ *       implicitly.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

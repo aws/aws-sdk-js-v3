@@ -35,7 +35,8 @@ export interface ActivateMessageTemplateRequest {
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain
+   *       any qualifier.</p>
    * @public
    */
   messageTemplateId: string | undefined;
@@ -474,6 +475,13 @@ export interface AnswerRecommendationAIAgentConfiguration {
   answerGenerationAIPromptId?: string | undefined;
 
   /**
+   * <p>The AI Guardrail identifier for the Answer Generation Guardrail used by the
+   *         <code>ANSWER_RECOMMENDATION</code> AI Agent.</p>
+   * @public
+   */
+  answerGenerationAIGuardrailId?: string | undefined;
+
+  /**
    * <p>The association configurations for overriding behavior on this AI Agent.</p>
    * @public
    */
@@ -493,6 +501,45 @@ export interface ManualSearchAIAgentConfiguration {
   answerGenerationAIPromptId?: string | undefined;
 
   /**
+   * <p>The AI Guardrail identifier for the Answer Generation guardrail used by the MANUAL_SEARCH
+   *       AI Agent.</p>
+   * @public
+   */
+  answerGenerationAIGuardrailId?: string | undefined;
+
+  /**
+   * <p>The association configurations for overriding behavior on this AI Agent.</p>
+   * @public
+   */
+  associationConfigurations?: AssociationConfiguration[] | undefined;
+}
+
+/**
+ * <p>The configuration for AI Agents of type SELF_SERVICE.</p>
+ * @public
+ */
+export interface SelfServiceAIAgentConfiguration {
+  /**
+   * <p>The AI Prompt identifier for the Self Service Pre-Processing prompt used by the
+   *       SELF_SERVICE AI Agent</p>
+   * @public
+   */
+  selfServicePreProcessingAIPromptId?: string | undefined;
+
+  /**
+   * <p>The AI Prompt identifier for the Self Service Answer Generation prompt used by the
+   *       SELF_SERVICE AI Agent</p>
+   * @public
+   */
+  selfServiceAnswerGenerationAIPromptId?: string | undefined;
+
+  /**
+   * <p>The AI Guardrail identifier used by the SELF_SERVICE AI Agent.</p>
+   * @public
+   */
+  selfServiceAIGuardrailId?: string | undefined;
+
+  /**
    * <p>The association configurations for overriding behavior on this AI Agent.</p>
    * @public
    */
@@ -506,6 +553,7 @@ export interface ManualSearchAIAgentConfiguration {
 export type AIAgentConfiguration =
   | AIAgentConfiguration.AnswerRecommendationAIAgentConfigurationMember
   | AIAgentConfiguration.ManualSearchAIAgentConfigurationMember
+  | AIAgentConfiguration.SelfServiceAIAgentConfigurationMember
   | AIAgentConfiguration.$UnknownMember;
 
 /**
@@ -519,6 +567,7 @@ export namespace AIAgentConfiguration {
   export interface ManualSearchAIAgentConfigurationMember {
     manualSearchAIAgentConfiguration: ManualSearchAIAgentConfiguration;
     answerRecommendationAIAgentConfiguration?: never;
+    selfServiceAIAgentConfiguration?: never;
     $unknown?: never;
   }
 
@@ -529,6 +578,18 @@ export namespace AIAgentConfiguration {
   export interface AnswerRecommendationAIAgentConfigurationMember {
     manualSearchAIAgentConfiguration?: never;
     answerRecommendationAIAgentConfiguration: AnswerRecommendationAIAgentConfiguration;
+    selfServiceAIAgentConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for AI Agents of type SELF_SERVICE.</p>
+   * @public
+   */
+  export interface SelfServiceAIAgentConfigurationMember {
+    manualSearchAIAgentConfiguration?: never;
+    answerRecommendationAIAgentConfiguration?: never;
+    selfServiceAIAgentConfiguration: SelfServiceAIAgentConfiguration;
     $unknown?: never;
   }
 
@@ -538,12 +599,14 @@ export namespace AIAgentConfiguration {
   export interface $UnknownMember {
     manualSearchAIAgentConfiguration?: never;
     answerRecommendationAIAgentConfiguration?: never;
+    selfServiceAIAgentConfiguration?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     manualSearchAIAgentConfiguration: (value: ManualSearchAIAgentConfiguration) => T;
     answerRecommendationAIAgentConfiguration: (value: AnswerRecommendationAIAgentConfiguration) => T;
+    selfServiceAIAgentConfiguration: (value: SelfServiceAIAgentConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -552,6 +615,8 @@ export namespace AIAgentConfiguration {
       return visitor.manualSearchAIAgentConfiguration(value.manualSearchAIAgentConfiguration);
     if (value.answerRecommendationAIAgentConfiguration !== undefined)
       return visitor.answerRecommendationAIAgentConfiguration(value.answerRecommendationAIAgentConfiguration);
+    if (value.selfServiceAIAgentConfiguration !== undefined)
+      return visitor.selfServiceAIAgentConfiguration(value.selfServiceAIAgentConfiguration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -563,6 +628,7 @@ export namespace AIAgentConfiguration {
 export const AIAgentType = {
   ANSWER_RECOMMENDATION: "ANSWER_RECOMMENDATION",
   MANUAL_SEARCH: "MANUAL_SEARCH",
+  SELF_SERVICE: "SELF_SERVICE",
 } as const;
 
 /**
@@ -1224,6 +1290,1319 @@ export interface AIAgentConfigurationData {
  * @public
  * @enum
  */
+export const GuardrailFilterStrength = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailFilterStrength = (typeof GuardrailFilterStrength)[keyof typeof GuardrailFilterStrength];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailContentFilterType = {
+  HATE: "HATE",
+  INSULTS: "INSULTS",
+  MISCONDUCT: "MISCONDUCT",
+  PROMPT_ATTACK: "PROMPT_ATTACK",
+  SEXUAL: "SEXUAL",
+  VIOLENCE: "VIOLENCE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContentFilterType = (typeof GuardrailContentFilterType)[keyof typeof GuardrailContentFilterType];
+
+/**
+ * <p>Contains filter strengths for harmful content. AI Guardrail's support the following
+ *       content filters to detect and filter harmful user inputs and FM-generated outputs.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Hate</b>: Describes input prompts and model responses that
+ *           discriminate, criticize, insult, denounce, or dehumanize a person or group on the basis of
+ *           an identity (such as race, ethnicity, gender, religion, sexual orientation, ability, and
+ *           national origin).</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Insults</b>: Describes input prompts and model responses that
+ *           includes demeaning, humiliating, mocking, insulting, or belittling language. This type of
+ *           language is also labeled as bullying.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Sexual</b>: Describes input prompts and model responses that
+ *           indicates sexual interest, activity, or arousal using direct or indirect references to
+ *           body parts, physical traits, or sex.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Violence</b>: Describes input prompts and model responses
+ *           that includes glorification of, or threats to inflict physical pain, hurt, or injury
+ *           toward a person, group, or thing.</p>
+ *             </li>
+ *          </ul>
+ *          <p>Content filtering depends on the confidence classification of user inputs and FM responses
+ *       across each of the four harmful categories. All input and output statements are classified
+ *       into one of four confidence levels (NONE, LOW, MEDIUM, HIGH) for each harmful category. For
+ *       example, if a statement is classified as <i>Hate</i> with HIGH confidence, the
+ *       likelihood of the statement representing hateful content is high. A single statement can be
+ *       classified across multiple categories with varying confidence levels. For example, a single
+ *       statement can be classified as <i>Hate</i> with HIGH confidence, <i>
+ *         Insults</i> with LOW confidence, <i>Sexual</i> with NONE confidence,
+ *       and <i>Violence</i> with MEDIUM confidence.</p>
+ * @public
+ */
+export interface GuardrailContentFilterConfig {
+  /**
+   * <p>The harmful category that the content filter is applied to.</p>
+   * @public
+   */
+  type: GuardrailContentFilterType | undefined;
+
+  /**
+   * <p>The strength of the content filter to apply to prompts. As you increase the filter
+   *       strength, the likelihood of filtering harmful content increases and the probability of seeing
+   *       harmful content in your application reduces.</p>
+   * @public
+   */
+  inputStrength: GuardrailFilterStrength | undefined;
+
+  /**
+   * <p>The strength of the content filter to apply to model responses. As you increase the filter
+   *       strength, the likelihood of filtering harmful content increases and the probability of seeing
+   *       harmful content in your application reduces.</p>
+   * @public
+   */
+  outputStrength: GuardrailFilterStrength | undefined;
+}
+
+/**
+ * <p>Contains details about how to handle harmful content.</p>
+ * @public
+ */
+export interface AIGuardrailContentPolicyConfig {
+  /**
+   * <p>Contains the type of the content filter and how strongly it should apply to prompts and
+   *       model responses.</p>
+   * @public
+   */
+  filtersConfig: GuardrailContentFilterConfig[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailContextualGroundingFilterType = {
+  GROUNDING: "GROUNDING",
+  RELEVANCE: "RELEVANCE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContextualGroundingFilterType =
+  (typeof GuardrailContextualGroundingFilterType)[keyof typeof GuardrailContextualGroundingFilterType];
+
+/**
+ * <p>The filter configuration details for the AI Guardrail's contextual grounding
+ *       filter.</p>
+ * @public
+ */
+export interface GuardrailContextualGroundingFilterConfig {
+  /**
+   * <p>The filter type for the AI Guardrail's contextual grounding filter.</p>
+   * @public
+   */
+  type: GuardrailContextualGroundingFilterType | undefined;
+
+  /**
+   * <p>The threshold details for the AI Guardrail's contextual grounding filter.</p>
+   * @public
+   */
+  threshold: number | undefined;
+}
+
+/**
+ * <p>The policy configuration details for the AI Guardrail's contextual grounding
+ *       policy.</p>
+ * @public
+ */
+export interface AIGuardrailContextualGroundingPolicyConfig {
+  /**
+   * <p>The filter configuration details for the AI Guardrails contextual grounding policy.</p>
+   * @public
+   */
+  filtersConfig: GuardrailContextualGroundingFilterConfig[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailSensitiveInformationAction = {
+  ANONYMIZE: "ANONYMIZE",
+  BLOCK: "BLOCK",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailSensitiveInformationAction =
+  (typeof GuardrailSensitiveInformationAction)[keyof typeof GuardrailSensitiveInformationAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailPiiEntityType = {
+  ADDRESS: "ADDRESS",
+  AGE: "AGE",
+  AWS_ACCESS_KEY: "AWS_ACCESS_KEY",
+  AWS_SECRET_KEY: "AWS_SECRET_KEY",
+  CA_HEALTH_NUMBER: "CA_HEALTH_NUMBER",
+  CA_SOCIAL_INSURANCE_NUMBER: "CA_SOCIAL_INSURANCE_NUMBER",
+  CREDIT_DEBIT_CARD_CVV: "CREDIT_DEBIT_CARD_CVV",
+  CREDIT_DEBIT_CARD_EXPIRY: "CREDIT_DEBIT_CARD_EXPIRY",
+  CREDIT_DEBIT_CARD_NUMBER: "CREDIT_DEBIT_CARD_NUMBER",
+  DRIVER_ID: "DRIVER_ID",
+  EMAIL: "EMAIL",
+  INTERNATIONAL_BANK_ACCOUNT_NUMBER: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+  IP_ADDRESS: "IP_ADDRESS",
+  LICENSE_PLATE: "LICENSE_PLATE",
+  MAC_ADDRESS: "MAC_ADDRESS",
+  NAME: "NAME",
+  PASSWORD: "PASSWORD",
+  PHONE: "PHONE",
+  PIN: "PIN",
+  SWIFT_CODE: "SWIFT_CODE",
+  UK_NATIONAL_HEALTH_SERVICE_NUMBER: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+  UK_NATIONAL_INSURANCE_NUMBER: "UK_NATIONAL_INSURANCE_NUMBER",
+  UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
+  URL: "URL",
+  USERNAME: "USERNAME",
+  US_BANK_ACCOUNT_NUMBER: "US_BANK_ACCOUNT_NUMBER",
+  US_BANK_ROUTING_NUMBER: "US_BANK_ROUTING_NUMBER",
+  US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
+  US_PASSPORT_NUMBER: "US_PASSPORT_NUMBER",
+  US_SOCIAL_SECURITY_NUMBER: "US_SOCIAL_SECURITY_NUMBER",
+  VEHICLE_IDENTIFICATION_NUMBER: "VEHICLE_IDENTIFICATION_NUMBER",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailPiiEntityType = (typeof GuardrailPiiEntityType)[keyof typeof GuardrailPiiEntityType];
+
+/**
+ * <p>The PII entity to configure for the AI Guardrail.</p>
+ * @public
+ */
+export interface GuardrailPiiEntityConfig {
+  /**
+   * <p>Configure AI Guardrail type when the PII entity is detected.</p>
+   *          <p>The following PIIs are used to block or mask sensitive information:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>General</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>ADDRESS</b>
+   *                      </p>
+   *                      <p>A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12,
+   *               Building 123". An address can include information such as the street, building,
+   *               location, city, state, country, county, zip code, precinct, and neighborhood. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>AGE</b>
+   *                      </p>
+   *                      <p>An individual's age, including the quantity and unit of time. For example, in the
+   *               phrase "I am 40 years old," Guarrails recognizes "40 years" as an age. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>NAME</b>
+   *                      </p>
+   *                      <p>An individual's name. This entity type does not include titles, such as Dr., Mr.,
+   *               Mrs., or Miss. AI Guardrail doesn't apply this entity type to names that are part of
+   *               organizations or addresses. For example, AI Guardrail recognizes the "John Doe
+   *               Organization" as an organization, and it recognizes "Jane Doe Street" as an address.
+   *             </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>EMAIL</b>
+   *                      </p>
+   *                      <p>An email address, such as <i>marymajor@email.com</i>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>PHONE</b>
+   *                      </p>
+   *                      <p>A phone number. This entity type also includes fax and pager numbers. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>USERNAME</b>
+   *                      </p>
+   *                      <p>A user name that identifies an account, such as a login name, screen name, nick
+   *               name, or handle. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>PASSWORD</b>
+   *                      </p>
+   *                      <p>An alphanumeric string that is used as a password, such as "*<i>
+   *                 very20special#pass*</i>". </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>DRIVER_ID</b>
+   *                      </p>
+   *                      <p>The number assigned to a driver's license, which is an official document
+   *               permitting an individual to operate one or more motorized vehicles on a public road. A
+   *               driver's license number consists of alphanumeric characters. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>LICENSE_PLATE</b>
+   *                      </p>
+   *                      <p>A license plate for a vehicle is issued by the state or country where the vehicle
+   *               is registered. The format for passenger vehicles is typically five to eight digits,
+   *               consisting of upper-case letters and numbers. The format varies depending on the
+   *               location of the issuing state or country. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>VEHICLE_IDENTIFICATION_NUMBER</b>
+   *                      </p>
+   *                      <p>A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content
+   *               and format are defined in the <i>ISO 3779</i> specification. Each
+   *               country has specific codes and formats for VINs. </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Finance</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>REDIT_DEBIT_CARD_CVV</b>
+   *                      </p>
+   *                      <p>A three-digit card verification code (CVV) that is present on VISA, MasterCard,
+   *               and Discover credit and debit cards. For American Express credit or debit cards, the
+   *               CVV is a four-digit numeric code. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>CREDIT_DEBIT_CARD_EXPIRY</b>
+   *                      </p>
+   *                      <p>The expiration date for a credit or debit card. This number is usually four digits
+   *               long and is often formatted as <i>month/year</i> or
+   *                 <i>MM/YY</i>. AI Guardrail recognizes expiration dates such as
+   *                 <i>01/21</i>, <i>01/2021</i>, and <i>Jan
+   *                 2021</i>. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>CREDIT_DEBIT_CARD_NUMBER</b>
+   *                      </p>
+   *                      <p>The number for a credit or debit card. These numbers can vary from 13 to 16 digits
+   *               in length. However, Amazon Comprehend also recognizes credit or debit card numbers
+   *               when only the last four digits are present. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>PIN</b>
+   *                      </p>
+   *                      <p>A four-digit personal identification number (PIN) with which you can access your
+   *               bank account. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>INTERNATIONAL_BANK_ACCOUNT_NUMBER</b>
+   *                      </p>
+   *                      <p>An International Bank Account Number has specific formats in each country. For
+   *               more information, see <a href="https://www.iban.com/structure">
+   *                 www.iban.com/structure</a>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>SWIFT_CODE</b>
+   *                      </p>
+   *                      <p>A SWIFT code is a standard format of Bank Identifier Code (BIC) used to specify a
+   *               particular bank or branch. Banks use these codes for money transfers such as
+   *               international wire transfers.</p>
+   *                      <p>SWIFT codes consist of eight or 11 characters. The 11-digit codes refer to
+   *               specific branches, while eight-digit codes (or 11-digit codes ending in 'XXX') refer
+   *               to the head or primary office.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>IT</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>IP_ADDRESS</b>
+   *                      </p>
+   *                      <p>An IPv4 address, such as <i>198.51.100.0</i>. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>MAC_ADDRESS</b>
+   *                      </p>
+   *                      <p>A <i>media access control</i> (MAC) address is a unique identifier
+   *               assigned to a network interface controller (NIC). </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>URL</b>
+   *                      </p>
+   *                      <p>A web address, such as <i>www.example.com</i>. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>AWS_ACCESS_KEY</b>
+   *                      </p>
+   *                      <p>A unique identifier that's associated with a secret access key; you use the access
+   *               key ID and secret access key to sign programmatic Amazon Web Services requests
+   *               cryptographically. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>AWS_SECRET_KEY</b>
+   *                      </p>
+   *                      <p>A unique identifier that's associated with an access key. You use the access key
+   *               ID and secret access key to sign programmatic Amazon Web Services requests
+   *               cryptographically. </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>USA specific</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>US_BANK_ACCOUNT_NUMBER</b>
+   *                      </p>
+   *                      <p>A US bank account number, which is typically 10 to 12 digits long. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>US_BANK_ROUTING_NUMBER</b>
+   *                      </p>
+   *                      <p>A US bank account routing number. These are typically nine digits long, </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER</b>
+   *                      </p>
+   *                      <p>A US Individual Taxpayer Identification Number (ITIN) is a nine-digit number that
+   *               starts with a "9" and contain a "7" or "8" as the fourth digit. An ITIN can be
+   *               formatted with a space or a dash after the third and forth digits. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>US_PASSPORT_NUMBER</b>
+   *                      </p>
+   *                      <p>A US passport number. Passport numbers range from six to nine alphanumeric
+   *               characters. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>US_SOCIAL_SECURITY_NUMBER</b>
+   *                      </p>
+   *                      <p>A US Social Security Number (SSN) is a nine-digit number that is issued to US
+   *               citizens, permanent residents, and temporary working residents. </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Canada specific</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>CA_HEALTH_NUMBER</b>
+   *                      </p>
+   *                      <p>A Canadian Health Service Number is a 10-digit unique identifier, required for
+   *               individuals to access healthcare benefits. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>CA_SOCIAL_INSURANCE_NUMBER</b>
+   *                      </p>
+   *                      <p>A Canadian Social Insurance Number (SIN) is a nine-digit unique identifier,
+   *               required for individuals to access government programs and benefits.</p>
+   *                      <p>The SIN is formatted as three groups of three digits, such as <i>
+   *                 123-456-789</i>. A SIN can be validated through a simple check-digit process
+   *               called the <a href="https://www.wikipedia.org/wiki/Luhn_algorithm">Luhn
+   *                 algorithm</a> .</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>UK Specific</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>UK_NATIONAL_HEALTH_SERVICE_NUMBER</b>
+   *                      </p>
+   *                      <p>A UK National Health Service Number is a 10-17 digit number, such as <i>485
+   *                 555 3456</i>. The current system formats the 10-digit number with spaces
+   *               after the third and sixth digits. The final digit is an error-detecting
+   *               checksum.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>UK_NATIONAL_INSURANCE_NUMBER</b>
+   *                      </p>
+   *                      <p>A UK National Insurance Number (NINO) provides individuals with access to National
+   *               Insurance (social security) benefits. It is also used for some purposes in the UK tax
+   *               system.</p>
+   *                      <p>The number is nine digits long and starts with two letters, followed by six
+   *               numbers and one letter. A NINO can be formatted with a space or a dash after the two
+   *               letters and after the second, forth, and sixth digits.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER</b>
+   *                      </p>
+   *                      <p>A UK Unique Taxpayer Reference (UTR) is a 10-digit number that identifies a
+   *               taxpayer or a business. </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Custom</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>Regex filter</b> - You can use a regular expressions to
+   *               define patterns for an AI Guardrail to recognize and act upon such as serial number,
+   *               booking ID etc..</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  type: GuardrailPiiEntityType | undefined;
+
+  /**
+   * <p>Configure AI Guardrail's action when the PII entity is detected.</p>
+   * @public
+   */
+  action: GuardrailSensitiveInformationAction | undefined;
+}
+
+/**
+ * <p>The regular expression to configure for the AI Guardrail.</p>
+ * @public
+ */
+export interface GuardrailRegexConfig {
+  /**
+   * <p>The name of the regular expression to configure for the AI Guardrail.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the regular expression to configure for the AI Guardrail.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The regular expression pattern to configure for the AI Guardrail.</p>
+   * @public
+   */
+  pattern: string | undefined;
+
+  /**
+   * <p>The AI Guardrail action to configure when matching regular expression is detected.</p>
+   * @public
+   */
+  action: GuardrailSensitiveInformationAction | undefined;
+}
+
+/**
+ * <p>Contains details about PII entities and regular expressions to configure for the AI
+ *       Guardrail.</p>
+ * @public
+ */
+export interface AIGuardrailSensitiveInformationPolicyConfig {
+  /**
+   * <p>A list of PII entities to configure to the AI Guardrail.</p>
+   * @public
+   */
+  piiEntitiesConfig?: GuardrailPiiEntityConfig[] | undefined;
+
+  /**
+   * <p>A list of regular expressions to configure to the AI Guardrail.</p>
+   * @public
+   */
+  regexesConfig?: GuardrailRegexConfig[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailTopicType = {
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailTopicType = (typeof GuardrailTopicType)[keyof typeof GuardrailTopicType];
+
+/**
+ * <p>Details about topics for the AI Guardrail to identify and deny.</p>
+ * @public
+ */
+export interface GuardrailTopicConfig {
+  /**
+   * <p>The name of the topic to deny.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A definition of the topic to deny.</p>
+   * @public
+   */
+  definition: string | undefined;
+
+  /**
+   * <p>A list of prompts, each of which is an example of a prompt that can be categorized as
+   *       belonging to the topic.</p>
+   * @public
+   */
+  examples?: string[] | undefined;
+
+  /**
+   * <p>Specifies to deny the topic.</p>
+   * @public
+   */
+  type: GuardrailTopicType | undefined;
+}
+
+/**
+ * <p>Contains details about topics that the AI Guardrail should identify and deny.</p>
+ * @public
+ */
+export interface AIGuardrailTopicPolicyConfig {
+  /**
+   * <p>A list of policies related to topics that the AI Guardrail should deny.</p>
+   * @public
+   */
+  topicsConfig: GuardrailTopicConfig[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailManagedWordsType = {
+  PROFANITY: "PROFANITY",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailManagedWordsType = (typeof GuardrailManagedWordsType)[keyof typeof GuardrailManagedWordsType];
+
+/**
+ * <p>The managed word list to configure for the AI Guardrail.</p>
+ * @public
+ */
+export interface GuardrailManagedWordsConfig {
+  /**
+   * <p>The managed word type to configure for the AI Guardrail.</p>
+   * @public
+   */
+  type: GuardrailManagedWordsType | undefined;
+}
+
+/**
+ * <p>A word to configure for the AI Guardrail.</p>
+ * @public
+ */
+export interface GuardrailWordConfig {
+  /**
+   * <p>Text of the word configured for the AI Guardrail to block.</p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * <p>Contains details about the word policy to configured for the AI Guardrail.</p>
+ * @public
+ */
+export interface AIGuardrailWordPolicyConfig {
+  /**
+   * <p>A list of words to configure for the AI Guardrail.</p>
+   * @public
+   */
+  wordsConfig?: GuardrailWordConfig[] | undefined;
+
+  /**
+   * <p>A list of managed words to configure for the AI Guardrail.</p>
+   * @public
+   */
+  managedWordListsConfig?: GuardrailManagedWordsConfig[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAIGuardrailRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The name of the AI Guardrail.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The message to return when the AI Guardrail blocks a prompt.</p>
+   * @public
+   */
+  blockedInputMessaging: string | undefined;
+
+  /**
+   * <p>The message to return when the AI Guardrail blocks a model response.</p>
+   * @public
+   */
+  blockedOutputsMessaging: string | undefined;
+
+  /**
+   * <p>The visibility status of the AI Guardrail.</p>
+   * @public
+   */
+  visibilityStatus: VisibilityStatus | undefined;
+
+  /**
+   * <p>A description of the AI Guardrail.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The topic policies to configure for the AI Guardrail.</p>
+   * @public
+   */
+  topicPolicyConfig?: AIGuardrailTopicPolicyConfig | undefined;
+
+  /**
+   * <p>The content filter policies to configure for the AI Guardrail.</p>
+   * @public
+   */
+  contentPolicyConfig?: AIGuardrailContentPolicyConfig | undefined;
+
+  /**
+   * <p>The word policy you configure for the AI Guardrail.</p>
+   * @public
+   */
+  wordPolicyConfig?: AIGuardrailWordPolicyConfig | undefined;
+
+  /**
+   * <p>The sensitive information policy to configure for the AI Guardrail.</p>
+   * @public
+   */
+  sensitiveInformationPolicyConfig?: AIGuardrailSensitiveInformationPolicyConfig | undefined;
+
+  /**
+   * <p>The contextual grounding policy configuration used to create an AI Guardrail.</p>
+   * @public
+   */
+  contextualGroundingPolicyConfig?: AIGuardrailContextualGroundingPolicyConfig | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The data for the AI Guardrail</p>
+ * @public
+ */
+export interface AIGuardrailData {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * @public
+   */
+  assistantArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AI Guardrail.</p>
+   * @public
+   */
+  aiGuardrailArn: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI Guardrail.</p>
+   * @public
+   */
+  aiGuardrailId: string | undefined;
+
+  /**
+   * <p>The name of the AI Guardrail.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The visibility status of the AI Guardrail.</p>
+   * @public
+   */
+  visibilityStatus: VisibilityStatus | undefined;
+
+  /**
+   * <p>The message to return when the AI Guardrail blocks a prompt.</p>
+   * @public
+   */
+  blockedInputMessaging: string | undefined;
+
+  /**
+   * <p>The message to return when the AI Guardrail blocks a model response.</p>
+   * @public
+   */
+  blockedOutputsMessaging: string | undefined;
+
+  /**
+   * <p>A description of the AI Guardrail.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Contains details about topics that the AI Guardrail should identify and deny.</p>
+   * @public
+   */
+  topicPolicyConfig?: AIGuardrailTopicPolicyConfig | undefined;
+
+  /**
+   * <p>Contains details about how to handle harmful content.</p>
+   * @public
+   */
+  contentPolicyConfig?: AIGuardrailContentPolicyConfig | undefined;
+
+  /**
+   * <p>Contains details about the word policy to configured for the AI Guardrail.</p>
+   * @public
+   */
+  wordPolicyConfig?: AIGuardrailWordPolicyConfig | undefined;
+
+  /**
+   * <p>Contains details about PII entities and regular expressions to configure for the AI
+   *       Guardrail.</p>
+   * @public
+   */
+  sensitiveInformationPolicyConfig?: AIGuardrailSensitiveInformationPolicyConfig | undefined;
+
+  /**
+   * <p>The policy configuration details for the AI Guardrail's contextual grounding
+   *       policy.</p>
+   * @public
+   */
+  contextualGroundingPolicyConfig?: AIGuardrailContextualGroundingPolicyConfig | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The status of the AI Guardrail.</p>
+   * @public
+   */
+  status?: Status | undefined;
+
+  /**
+   * <p>The time the AI Guardrail was last modified.</p>
+   * @public
+   */
+  modifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAIGuardrailResponse {
+  /**
+   * <p>The data of the AI Guardrail.</p>
+   * @public
+   */
+  aiGuardrail?: AIGuardrailData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAIGuardrailVersionRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI Guardrail.</p>
+   * @public
+   */
+  aiGuardrailId: string | undefined;
+
+  /**
+   * <p>The time the AI Guardrail was last modified.</p>
+   * @public
+   */
+  modifiedTime?: Date | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAIGuardrailVersionResponse {
+  /**
+   * <p>The data of the AI Guardrail version.</p>
+   * @public
+   */
+  aiGuardrail?: AIGuardrailData | undefined;
+
+  /**
+   * <p>The version number of the AI Guardrail version.</p>
+   * @public
+   */
+  versionNumber?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAIGuardrailRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI Guardrail. Can be either the ID or the ARN.
+   *       URLs cannot contain the ARN.</p>
+   * @public
+   */
+  aiGuardrailId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAIGuardrailResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteAIGuardrailVersionRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI Guardrail.</p>
+   * @public
+   */
+  aiGuardrailId: string | undefined;
+
+  /**
+   * <p>The version number of the AI Guardrail version to be deleted.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAIGuardrailVersionResponse {}
+
+/**
+ * @public
+ */
+export interface GetAIGuardrailRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI Guardrail.</p>
+   * @public
+   */
+  aiGuardrailId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAIGuardrailResponse {
+  /**
+   * <p>The data of the AI Guardrail.</p>
+   * @public
+   */
+  aiGuardrail?: AIGuardrailData | undefined;
+
+  /**
+   * <p>The version number of the AI Guardrail version (returned if an AI Guardrail version was
+   *       specified via use of a qualifier for the <code>aiGuardrailId</code> on the request). </p>
+   * @public
+   */
+  versionNumber?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAIGuardrailsRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary of the AI Guardrail.</p>
+ * @public
+ */
+export interface AIGuardrailSummary {
+  /**
+   * <p>The name of the AI Guardrail.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
+   * @public
+   */
+  assistantArn: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI Guardrail.</p>
+   * @public
+   */
+  aiGuardrailId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AI Guardrail.</p>
+   * @public
+   */
+  aiGuardrailArn: string | undefined;
+
+  /**
+   * <p>The time the AI Guardrail was last modified.</p>
+   * @public
+   */
+  modifiedTime?: Date | undefined;
+
+  /**
+   * <p>The visibility status of the AI Guardrail.</p>
+   * @public
+   */
+  visibilityStatus: VisibilityStatus | undefined;
+
+  /**
+   * <p>A description of the AI Guardrail.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The status of the AI Guardrail.</p>
+   * @public
+   */
+  status?: Status | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAIGuardrailsResponse {
+  /**
+   * <p>The summaries of the AI Guardrails.</p>
+   * @public
+   */
+  aiGuardrailSummaries: AIGuardrailSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAIGuardrailVersionsRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI Guardrail for which versions are to be
+   *       listed.</p>
+   * @public
+   */
+  aiGuardrailId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary of the AI Guardrail version.</p>
+ * @public
+ */
+export interface AIGuardrailVersionSummary {
+  /**
+   * <p>The data for the summary of the AI Guardrail version.</p>
+   * @public
+   */
+  aiGuardrailSummary?: AIGuardrailSummary | undefined;
+
+  /**
+   * <p>The version number for this AI Guardrail version.</p>
+   * @public
+   */
+  versionNumber?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAIGuardrailVersionsResponse {
+  /**
+   * <p>The summaries of the AI Guardrail versions.</p>
+   * @public
+   */
+  aiGuardrailVersionSummaries: AIGuardrailVersionSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAIGuardrailRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs
+   *       cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect AI Guardrail.</p>
+   * @public
+   */
+  aiGuardrailId: string | undefined;
+
+  /**
+   * <p>The visibility status of the Amazon Q in Connect AI Guardrail.</p>
+   * @public
+   */
+  visibilityStatus: VisibilityStatus | undefined;
+
+  /**
+   * <p>The message to return when the AI Guardrail blocks a prompt.</p>
+   * @public
+   */
+  blockedInputMessaging: string | undefined;
+
+  /**
+   * <p>The message to return when the AI Guardrail blocks a model response.</p>
+   * @public
+   */
+  blockedOutputsMessaging: string | undefined;
+
+  /**
+   * <p>A description of the AI Guardrail.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The topic policies to configure for the AI Guardrail.</p>
+   * @public
+   */
+  topicPolicyConfig?: AIGuardrailTopicPolicyConfig | undefined;
+
+  /**
+   * <p>The content filter policies to configure for the AI Guardrail.</p>
+   * @public
+   */
+  contentPolicyConfig?: AIGuardrailContentPolicyConfig | undefined;
+
+  /**
+   * <p>The word policy you configure for the AI Guardrail.</p>
+   * @public
+   */
+  wordPolicyConfig?: AIGuardrailWordPolicyConfig | undefined;
+
+  /**
+   * <p>The sensitive information policy to configure for the AI Guardrail.</p>
+   * @public
+   */
+  sensitiveInformationPolicyConfig?: AIGuardrailSensitiveInformationPolicyConfig | undefined;
+
+  /**
+   * <p>The contextual grounding policy configuration used to create an AI Guardrail.</p>
+   * @public
+   */
+  contextualGroundingPolicyConfig?: AIGuardrailContextualGroundingPolicyConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAIGuardrailResponse {
+  /**
+   * <p>The data of the updated Amazon Q in Connect AI Guardrail.</p>
+   * @public
+   */
+  aiGuardrail?: AIGuardrailData | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const AIPromptAPIFormat = {
   ANTHROPIC_CLAUDE_MESSAGES: "ANTHROPIC_CLAUDE_MESSAGES",
   ANTHROPIC_CLAUDE_TEXT_COMPLETIONS: "ANTHROPIC_CLAUDE_TEXT_COMPLETIONS",
@@ -1311,6 +2690,8 @@ export const AIPromptType = {
   ANSWER_GENERATION: "ANSWER_GENERATION",
   INTENT_LABELING_GENERATION: "INTENT_LABELING_GENERATION",
   QUERY_REFORMULATION: "QUERY_REFORMULATION",
+  SELF_SERVICE_ANSWER_GENERATION: "SELF_SERVICE_ANSWER_GENERATION",
+  SELF_SERVICE_PRE_PROCESSING: "SELF_SERVICE_PRE_PROCESSING",
 } as const;
 
 /**
@@ -4039,76 +5420,25 @@ export interface CreateSessionResponse {
 /**
  * @public
  */
-export interface GetSessionRequest {
+export interface GetNextMessageRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant.</p>
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSessionResponse {
-  /**
-   * <p>The session.</p>
-   * @public
-   */
-  session?: SessionData | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSessionRequest {
-  /**
-   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  assistantId: string | undefined;
-
-  /**
-   * <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the Amazon Q in Connect session.</p>
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The description.</p>
+   * <p>The token for the next message. Use the value returned in the SendMessage or previous
+   *       response in the next request to retrieve the next message.</p>
    * @public
    */
-  description?: string | undefined;
-
-  /**
-   * <p>An object that can be used to specify Tag conditions.</p>
-   * @public
-   */
-  tagFilter?: TagFilter | undefined;
-
-  /**
-   * <p>The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that
-   *       should be used by Amazon Q in Connect for this Session.</p>
-   * @public
-   */
-  aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>> | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSessionResponse {
-  /**
-   * <p>Information about the session.</p>
-   * @public
-   */
-  session?: SessionData | undefined;
+  nextMessageToken: string | undefined;
 }
 
 /**
@@ -4167,6 +5497,435 @@ export interface RuntimeSessionData {
    * @public
    */
   value: RuntimeSessionDataValue | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConversationStatusReason = {
+  FAILED: "FAILED",
+  REJECTED: "REJECTED",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ConversationStatusReason = (typeof ConversationStatusReason)[keyof typeof ConversationStatusReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConversationStatus = {
+  CLOSED: "CLOSED",
+  PROCESSING: "PROCESSING",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type ConversationStatus = (typeof ConversationStatus)[keyof typeof ConversationStatus];
+
+/**
+ * <p>The conversation state associated to a message.</p>
+ * @public
+ */
+export interface ConversationState {
+  /**
+   * <p>The status of the conversation state.</p>
+   * @public
+   */
+  status: ConversationStatus | undefined;
+
+  /**
+   * <p>The reason of the conversation state.</p>
+   * @public
+   */
+  reason?: ConversationStatusReason | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Participant = {
+  AGENT: "AGENT",
+  BOT: "BOT",
+  CUSTOMER: "CUSTOMER",
+} as const;
+
+/**
+ * @public
+ */
+export type Participant = (typeof Participant)[keyof typeof Participant];
+
+/**
+ * <p>The message data in text type.</p>
+ * @public
+ */
+export interface TextMessage {
+  /**
+   * <p>The value of the message data in text type.</p>
+   * @public
+   */
+  value?: string | undefined;
+}
+
+/**
+ * <p>The message data.</p>
+ * @public
+ */
+export type MessageData = MessageData.TextMember | MessageData.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MessageData {
+  /**
+   * <p>The message data in text type.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: TextMessage;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    text: (value: TextMessage) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: MessageData, visitor: Visitor<T>): T => {
+    if (value.text !== undefined) return visitor.text(value.text);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The message output.</p>
+ * @public
+ */
+export interface MessageOutput {
+  /**
+   * <p>The value of a message data.</p>
+   * @public
+   */
+  value: MessageData | undefined;
+
+  /**
+   * <p>The identifier of a message.</p>
+   * @public
+   */
+  messageId: string | undefined;
+
+  /**
+   * <p>The participant of a message.</p>
+   * @public
+   */
+  participant: Participant | undefined;
+
+  /**
+   * <p>The timestamp of a message.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MessageType = {
+  TEXT: "TEXT",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageType = (typeof MessageType)[keyof typeof MessageType];
+
+/**
+ * @public
+ */
+export interface GetNextMessageResponse {
+  /**
+   * <p>The type of message response.</p>
+   * @public
+   */
+  type: MessageType | undefined;
+
+  /**
+   * <p>The message response to the requested message.</p>
+   * @public
+   */
+  response: MessageOutput | undefined;
+
+  /**
+   * <p>The identifier of the submitted message.</p>
+   * @public
+   */
+  requestMessageId: string | undefined;
+
+  /**
+   * <p>The state of current conversation.</p>
+   * @public
+   */
+  conversationState: ConversationState | undefined;
+
+  /**
+   * <p>The token for the next message.</p>
+   * @public
+   */
+  nextMessageToken?: string | undefined;
+
+  /**
+   * <p>The conversation data stored on an Amazon Q in Connect Session.</p>
+   * @public
+   */
+  conversationSessionData?: RuntimeSessionData[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionResponse {
+  /**
+   * <p>The session.</p>
+   * @public
+   */
+  session?: SessionData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessagesRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessagesResponse {
+  /**
+   * <p>The message information.</p>
+   * @public
+   */
+  messages: MessageOutput[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The conversation history data to included in conversation context data before the the
+ *       Amazon Q in Connect session..</p>
+ * @public
+ */
+export interface SelfServiceConversationHistory {
+  /**
+   * <p>The number of turn of the conversation history data.</p>
+   * @public
+   */
+  turnNumber: number | undefined;
+
+  /**
+   * <p>The input transcript of the conversation history data.</p>
+   * @public
+   */
+  inputTranscript?: string | undefined;
+
+  /**
+   * <p>The bot response of the conversation history data.</p>
+   * @public
+   */
+  botResponse?: string | undefined;
+}
+
+/**
+ * <p>The conversation context to include in SendMessage.</p>
+ * @public
+ */
+export interface ConversationContext {
+  /**
+   * <p>The self service conversation history before the Amazon Q in Connect session.</p>
+   * @public
+   */
+  selfServiceConversationHistory: SelfServiceConversationHistory[] | undefined;
+}
+
+/**
+ * <p>The message input.</p>
+ * @public
+ */
+export interface MessageInput {
+  /**
+   * <p>The message input value.</p>
+   * @public
+   */
+  value: MessageData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendMessageRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q in Connect session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The message type.</p>
+   * @public
+   */
+  type: MessageType | undefined;
+
+  /**
+   * <p>The message data to submit to the Amazon Q in Connect session.</p>
+   * @public
+   */
+  message: MessageInput | undefined;
+
+  /**
+   * <p>The conversation context before the Amazon Q in Connect session.</p>
+   * @public
+   */
+  conversationContext?: ConversationContext | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *       request. If not provided, the AWS SDK populates this field.For more information about
+   *       idempotency, see Making retries safe with idempotent APIs.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendMessageResponse {
+  /**
+   * <p>The identifier of the submitted message.</p>
+   * @public
+   */
+  requestMessageId: string | undefined;
+
+  /**
+   * <p>The token for the next message, used by GetNextMessage.</p>
+   * @public
+   */
+  nextMessageToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSessionRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>An object that can be used to specify Tag conditions.</p>
+   * @public
+   */
+  tagFilter?: TagFilter | undefined;
+
+  /**
+   * <p>The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that
+   *       should be used by Amazon Q in Connect for this Session.</p>
+   * @public
+   */
+  aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSessionResponse {
+  /**
+   * <p>Information about the session.</p>
+   * @public
+   */
+  session?: SessionData | undefined;
 }
 
 /**
@@ -6383,8 +8142,8 @@ export interface CustomerProfileAttributes {
  */
 export interface SystemEndpointAttributes {
   /**
-   * <p>The customer's phone number if used with <code>customerEndpoint</code>, or the number the customer
-   *       dialed to call your contact center if used with <code>systemEndpoint</code>.</p>
+   * <p>The customer's phone number if used with <code>customerEndpoint</code>, or the number the
+   *       customer dialed to call your contact center if used with <code>systemEndpoint</code>.</p>
    * @public
    */
   address?: string | undefined;
@@ -6710,7 +8469,8 @@ export interface CreateMessageTemplateAttachmentRequest {
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain
+   *       any qualifier.</p>
    * @public
    */
   messageTemplateId: string | undefined;
@@ -6722,7 +8482,8 @@ export interface CreateMessageTemplateAttachmentRequest {
   contentDisposition: ContentDisposition | undefined;
 
   /**
-   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
+   * <p>The name of the attachment file being uploaded. The name should include the file
+   *       extension.</p>
    * @public
    */
   name: string | undefined;
@@ -6756,7 +8517,8 @@ export interface MessageTemplateAttachment {
   contentDisposition: ContentDisposition | undefined;
 
   /**
-   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
+   * <p>The name of the attachment file being uploaded. The name should include the file
+   *       extension.</p>
    * @public
    */
   name: string | undefined;
@@ -6809,7 +8571,8 @@ export interface CreateMessageTemplateVersionRequest {
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain
+   *       any qualifier.</p>
    * @public
    */
   messageTemplateId: string | undefined;
@@ -6974,1644 +8737,297 @@ export interface CreateMessageTemplateVersionResponse {
 }
 
 /**
- * <p>The container of quick response data.</p>
- * @public
- */
-export type QuickResponseDataProvider =
-  | QuickResponseDataProvider.ContentMember
-  | QuickResponseDataProvider.$UnknownMember;
-
-/**
- * @public
- */
-export namespace QuickResponseDataProvider {
-  /**
-   * <p>The content of the quick response.</p>
-   * @public
-   */
-  export interface ContentMember {
-    content: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    content?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    content: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: QuickResponseDataProvider, visitor: Visitor<T>): T => {
-    if (value.content !== undefined) return visitor.content(value.content);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- */
-export interface CreateQuickResponseRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the quick response.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The content of the quick response.</p>
-   * @public
-   */
-  content: QuickResponseDataProvider | undefined;
-
-  /**
-   * <p>The media type of the quick response content.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=plain</code> for a quick response written
-   *           in plain text.</p>
-   *             </li>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for a quick response
-   *           written in richtext.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  contentType?: string | undefined;
-
-  /**
-   * <p>The configuration information of the user groups that the quick response is accessible
-   *       to.</p>
-   * @public
-   */
-  groupingConfiguration?: GroupingConfiguration | undefined;
-
-  /**
-   * <p>The description of the quick response.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The shortcut key of the quick response. The value should be unique across the
-   *   knowledge base. </p>
-   * @public
-   */
-  shortcutKey?: string | undefined;
-
-  /**
-   * <p>Whether the quick response is active.</p>
-   * @public
-   */
-  isActive?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Connect channels this quick response applies to.</p>
-   * @public
-   */
-  channels?: string[] | undefined;
-
-  /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
-   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
-   *   <code>zh_CN</code>, <code>zh_TW</code>
-   *          </p>
-   * @public
-   */
-  language?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>The container quick response content.</p>
- * @public
- */
-export type QuickResponseContentProvider =
-  | QuickResponseContentProvider.ContentMember
-  | QuickResponseContentProvider.$UnknownMember;
-
-/**
- * @public
- */
-export namespace QuickResponseContentProvider {
-  /**
-   * <p>The content of the quick response.</p>
-   * @public
-   */
-  export interface ContentMember {
-    content: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    content?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    content: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: QuickResponseContentProvider, visitor: Visitor<T>): T => {
-    if (value.content !== undefined) return visitor.content(value.content);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>The content of the quick response stored in different media types.</p>
- * @public
- */
-export interface QuickResponseContents {
-  /**
-   * <p>The container quick response content.</p>
-   * @public
-   */
-  plainText?: QuickResponseContentProvider | undefined;
-
-  /**
-   * <p>The container quick response content.</p>
-   * @public
-   */
-  markdown?: QuickResponseContentProvider | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const QuickResponseStatus = {
-  CREATED: "CREATED",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type QuickResponseStatus = (typeof QuickResponseStatus)[keyof typeof QuickResponseStatus];
-
-/**
- * <p>Information about the quick response.</p>
- * @public
- */
-export interface QuickResponseData {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the quick response.</p>
-   * @public
-   */
-  quickResponseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the quick response.</p>
-   * @public
-   */
-  quickResponseId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the quick response.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The media type of the quick response content.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written
-   *           in plain text.</p>
-   *             </li>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response
-   *           written in richtext.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  contentType: string | undefined;
-
-  /**
-   * <p>The status of the quick response data.</p>
-   * @public
-   */
-  status: QuickResponseStatus | undefined;
-
-  /**
-   * <p>The timestamp when the quick response was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the quick response data was last modified.</p>
-   * @public
-   */
-  lastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The contents of the quick response.</p>
-   * @public
-   */
-  contents?: QuickResponseContents | undefined;
-
-  /**
-   * <p>The description of the quick response.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The configuration information of the user groups that the quick response is accessible
-   *       to.</p>
-   * @public
-   */
-  groupingConfiguration?: GroupingConfiguration | undefined;
-
-  /**
-   * <p>The shortcut key of the quick response. The value should be unique across the
-   *   knowledge base.</p>
-   * @public
-   */
-  shortcutKey?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response
-   *       data.</p>
-   * @public
-   */
-  lastModifiedBy?: string | undefined;
-
-  /**
-   * <p>Whether the quick response is active.</p>
-   * @public
-   */
-  isActive?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Connect contact channels this quick response applies to.
-   *       The supported contact channel types include <code>Chat</code>.</p>
-   * @public
-   */
-  channels?: string[] | undefined;
-
-  /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
-   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
-   *   <code>zh_CN</code>, <code>zh_TW</code>
-   *          </p>
-   * @public
-   */
-  language?: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateQuickResponseResponse {
-  /**
-   * <p>The quick response.</p>
-   * @public
-   */
-  quickResponse?: QuickResponseData | undefined;
-}
-
-/**
- * @public
- */
-export interface DeactivateMessageTemplateRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The version number of the message template version to deactivate.</p>
-   * @public
-   */
-  versionNumber: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeactivateMessageTemplateResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
-   * @public
-   */
-  messageTemplateArn: string | undefined;
-
-  /**
-   * <p>The identifier of the message template.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The version number of the message template version that has been deactivated.</p>
-   * @public
-   */
-  versionNumber: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteImportJobRequest {
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the import job to be deleted.</p>
-   * @public
-   */
-  importJobId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteImportJobResponse {}
-
-/**
- * @public
- */
-export interface DeleteKnowledgeBaseRequest {
-  /**
-   * <p>The knowledge base to delete content from. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteKnowledgeBaseResponse {}
-
-/**
- * @public
- */
-export interface DeleteMessageTemplateRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteMessageTemplateResponse {}
-
-/**
- * @public
- */
-export interface DeleteMessageTemplateAttachmentRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The identifier of the attachment file.</p>
-   * @public
-   */
-  attachmentId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteMessageTemplateAttachmentResponse {}
-
-/**
- * @public
- */
-export interface DeleteQuickResponseRequest {
-  /**
-   * <p>The knowledge base from which the quick response is deleted. The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the quick response to delete.</p>
-   * @public
-   */
-  quickResponseId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteQuickResponseResponse {}
-
-/**
- * @public
- * @enum
- */
-export const ExternalSource = {
-  AMAZON_CONNECT: "AMAZON_CONNECT",
-} as const;
-
-/**
- * @public
- */
-export type ExternalSource = (typeof ExternalSource)[keyof typeof ExternalSource];
-
-/**
- * <p>The configuration information of the external data source.</p>
- * @public
- */
-export interface ExternalSourceConfiguration {
-  /**
-   * <p>The type of the external data source.</p>
-   * @public
-   */
-  source: ExternalSource | undefined;
-
-  /**
-   * <p>The configuration information of the external data source.</p>
-   * @public
-   */
-  configuration: Configuration | undefined;
-}
-
-/**
- * @public
- */
-export interface GetImportJobRequest {
-  /**
-   * <p>The identifier of the import job to retrieve.</p>
-   * @public
-   */
-  importJobId: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base that the import job belongs to.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ImportJobType = {
-  QUICK_RESPONSES: "QUICK_RESPONSES",
-} as const;
-
-/**
- * @public
- */
-export type ImportJobType = (typeof ImportJobType)[keyof typeof ImportJobType];
-
-/**
- * @public
- * @enum
- */
-export const ImportJobStatus = {
-  COMPLETE: "COMPLETE",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-  FAILED: "FAILED",
-  START_IN_PROGRESS: "START_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ImportJobStatus = (typeof ImportJobStatus)[keyof typeof ImportJobStatus];
-
-/**
- * <p>Summary information about the import job.</p>
- * @public
- */
-export interface ImportJobData {
-  /**
-   * <p>The identifier of the import job.</p>
-   * @public
-   */
-  importJobId: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
-   * @public
-   */
-  uploadId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The type of the import job.</p>
-   * @public
-   */
-  importJobType: ImportJobType | undefined;
-
-  /**
-   * <p>The status of the import job.</p>
-   * @public
-   */
-  status: ImportJobStatus | undefined;
-
-  /**
-   * <p>The download link to the resource file that is uploaded to the import job.</p>
-   * @public
-   */
-  url: string | undefined;
-
-  /**
-   * <p>The link to download the information of resource data that failed to be imported.</p>
-   * @public
-   */
-  failedRecordReport?: string | undefined;
-
-  /**
-   * <p>The expiration time of the URL as an epoch timestamp.</p>
-   * @public
-   */
-  urlExpiry: Date | undefined;
-
-  /**
-   * <p>The timestamp when the import job was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the import job data was last modified.</p>
-   * @public
-   */
-  lastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
-   * @public
-   */
-  metadata?: Record<string, string> | undefined;
-
-  /**
-   * <p>The configuration information of the external data source.</p>
-   * @public
-   */
-  externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface GetImportJobResponse {
-  /**
-   * <p>The import job.</p>
-   * @public
-   */
-  importJob?: ImportJobData | undefined;
-}
-
-/**
- * @public
- */
-export interface GetKnowledgeBaseRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetKnowledgeBaseResponse {
-  /**
-   * <p>The knowledge base.</p>
-   * @public
-   */
-  knowledgeBase?: KnowledgeBaseData | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMessageTemplateRequest {
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMessageTemplateResponse {
-  /**
-   * <p>The message template.</p>
-   * @public
-   */
-  messageTemplate?: ExtendedMessageTemplateData | undefined;
-}
-
-/**
- * @public
- */
-export interface GetQuickResponseRequest {
-  /**
-   * <p>The identifier of the quick response.</p>
-   * @public
-   */
-  quickResponseId: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetQuickResponseResponse {
-  /**
-   * <p>The quick response.</p>
-   * @public
-   */
-  quickResponse?: QuickResponseData | undefined;
-}
-
-/**
- * <p>Summary information about the import job.</p>
- * @public
- */
-export interface ImportJobSummary {
-  /**
-   * <p>The identifier of the import job.</p>
-   * @public
-   */
-  importJobId: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
-   * @public
-   */
-  uploadId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The type of import job.</p>
-   * @public
-   */
-  importJobType: ImportJobType | undefined;
-
-  /**
-   * <p>The status of the import job.</p>
-   * @public
-   */
-  status: ImportJobStatus | undefined;
-
-  /**
-   * <p>The timestamp when the import job was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the import job was last modified.</p>
-   * @public
-   */
-  lastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
-   * @public
-   */
-  metadata?: Record<string, string> | undefined;
-
-  /**
-   * <p>The configuration information of the external source that the resource data are imported
-   *       from.</p>
-   * @public
-   */
-  externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface ListImportJobsRequest {
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListImportJobsResponse {
-  /**
-   * <p>Summary information about the import jobs.</p>
-   * @public
-   */
-  importJobSummaries: ImportJobSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListKnowledgeBasesRequest {
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>Summary information about the knowledge base.</p>
- * @public
- */
-export interface KnowledgeBaseSummary {
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The name of the knowledge base.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseType: KnowledgeBaseType | undefined;
-
-  /**
-   * <p>The status of the knowledge base summary.</p>
-   * @public
-   */
-  status: KnowledgeBaseStatus | undefined;
-
-  /**
-   * <p>Configuration information about the external data source.</p>
-   * @public
-   */
-  sourceConfiguration?: SourceConfiguration | undefined;
-
-  /**
-   * <p>Contains details about how to ingest the documents in a data source.</p>
-   * @public
-   */
-  vectorIngestionConfiguration?: VectorIngestionConfiguration | undefined;
-
-  /**
-   * <p>Information about how to render the content.</p>
-   * @public
-   */
-  renderingConfiguration?: RenderingConfiguration | undefined;
-
-  /**
-   * <p>The configuration information for the customer managed key used for encryption. </p>
-   *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>,
-   *         <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and
-   *         <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the
-   *       key to invoke Amazon Q in Connect. </p>
-   *          <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
-   *         your instance</a>.</p>
-   * @public
-   */
-  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
-
-  /**
-   * <p>The description of the knowledge base.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface ListKnowledgeBasesResponse {
-  /**
-   * <p>Information about the knowledge bases.</p>
-   * @public
-   */
-  knowledgeBaseSummaries: KnowledgeBaseSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMessageTemplatesRequest {
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * <p>The summary of the message template.</p>
- * @public
- */
-export interface MessageTemplateSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
-   * @public
-   */
-  messageTemplateArn: string | undefined;
-
-  /**
-   * <p>The identifier of the message template.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the message template.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The channel subtype this message template applies to.</p>
-   * @public
-   */
-  channelSubtype: ChannelSubtype | undefined;
-
-  /**
-   * <p>The timestamp when the message template was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the message template data was last modified.</p>
-   * @public
-   */
-  lastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template
-   *       data.</p>
-   * @public
-   */
-  lastModifiedBy: string | undefined;
-
-  /**
-   * <p>The version number of the message template version that is activated.</p>
-   * @public
-   */
-  activeVersionNumber?: number | undefined;
-
-  /**
-   * <p>The description of the message template.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMessageTemplatesResponse {
-  /**
-   * <p>Summary information about the message template.</p>
-   * @public
-   */
-  messageTemplateSummaries: MessageTemplateSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMessageTemplateVersionsRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>The summary of the message template version.</p>
- * @public
- */
-export interface MessageTemplateVersionSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
-   * @public
-   */
-  messageTemplateArn: string | undefined;
-
-  /**
-   * <p>The identifier of the message template.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the message template.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The channel subtype this message template applies to.</p>
-   * @public
-   */
-  channelSubtype: ChannelSubtype | undefined;
-
-  /**
-   * <p>Whether the version of the message template is activated.</p>
-   * @public
-   */
-  isActive: boolean | undefined;
-
-  /**
-   * <p>The version number of the message template version.</p>
-   * @public
-   */
-  versionNumber: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMessageTemplateVersionsResponse {
-  /**
-   * <p>Summary information about the versions of a message template.</p>
-   * @public
-   */
-  messageTemplateVersionSummaries: MessageTemplateVersionSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RenderMessageTemplateRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>An object that specifies the values to use for variables in the message template. This
-   *       object contains different categories of key-value pairs. Each key defines a variable or
-   *       placeholder in the message template. The corresponding value defines the value for that
-   *       variable.</p>
-   * @public
-   */
-  attributes: MessageTemplateAttributes | undefined;
-}
-
-/**
- * @public
- */
-export interface RenderMessageTemplateResponse {
-  /**
-   * <p>The content of the message template.</p>
-   * @public
-   */
-  content: MessageTemplateContentProvider | undefined;
-
-  /**
-   * <p>The attribute keys that are not resolved.</p>
-   * @public
-   */
-  attributesNotInterpolated?: string[] | undefined;
-
-  /**
-   * <p>The message template attachments.</p>
-   * @public
-   */
-  attachments?: MessageTemplateAttachment[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMessageTemplateRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The content of the message template.</p>
-   * @public
-   */
-  content?: MessageTemplateContentProvider | undefined;
-
-  /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
-   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
-   *   <code>zh_CN</code>, <code>zh_TW</code>
-   *          </p>
-   * @public
-   */
-  language?: string | undefined;
-
-  /**
-   * <p>An object that specifies the default values to use for variables in the message template.
-   *       This object contains different categories of key-value pairs. Each key defines a variable or
-   *       placeholder in the message template. The corresponding value defines the default value for
-   *       that variable.</p>
-   * @public
-   */
-  defaultAttributes?: MessageTemplateAttributes | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMessageTemplateResponse {
-  /**
-   * <p>The message template.</p>
-   * @public
-   */
-  messageTemplate?: MessageTemplateData | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMessageTemplateMetadataRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
-   *       the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The name of the message template.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The description of the message template.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
-   * @public
-   */
-  groupingConfiguration?: GroupingConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMessageTemplateMetadataResponse {
-  /**
-   * <p>The message template.</p>
-   * @public
-   */
-  messageTemplate?: MessageTemplateData | undefined;
-}
-
-/**
- * @public
- */
-export interface ListQuickResponsesRequest {
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * <p>The summary information about the quick response.</p>
- * @public
- */
-export interface QuickResponseSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the quick response.</p>
-   * @public
-   */
-  quickResponseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the quick response.</p>
-   * @public
-   */
-  quickResponseId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the quick response.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The media type of the quick response content.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written
-   *           in plain text.</p>
-   *             </li>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response
-   *           written in richtext.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  contentType: string | undefined;
-
-  /**
-   * <p>The resource status of the quick response.</p>
-   * @public
-   */
-  status: QuickResponseStatus | undefined;
-
-  /**
-   * <p>The timestamp when the quick response was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the quick response summary was last modified.</p>
-   * @public
-   */
-  lastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The description of the quick response.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response
-   *       data.</p>
-   * @public
-   */
-  lastModifiedBy?: string | undefined;
-
-  /**
-   * <p>Whether the quick response is active.</p>
-   * @public
-   */
-  isActive?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Connect contact channels this quick response applies to.
-   *       The supported contact channel types include <code>Chat</code>.</p>
-   * @public
-   */
-  channels?: string[] | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface ListQuickResponsesResponse {
-  /**
-   * <p>Summary information about the quick responses.</p>
-   * @public
-   */
-  quickResponseSummaries: QuickResponseSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateQuickResponseRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the quick response.</p>
-   * @public
-   */
-  quickResponseId: string | undefined;
-
-  /**
-   * <p>The name of the quick response.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The updated content of the quick response.</p>
-   * @public
-   */
-  content?: QuickResponseDataProvider | undefined;
-
-  /**
-   * <p>The media type of the quick response content.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written
-   *           in plain text.</p>
-   *             </li>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response
-   *           written in richtext.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  contentType?: string | undefined;
-
-  /**
-   * <p>The updated grouping configuration of the quick response.</p>
-   * @public
-   */
-  groupingConfiguration?: GroupingConfiguration | undefined;
-
-  /**
-   * <p>Whether to remove the grouping configuration of the quick response.</p>
-   * @public
-   */
-  removeGroupingConfiguration?: boolean | undefined;
-
-  /**
-   * <p>The updated description of the quick response.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Whether to remove the description from the quick response.</p>
-   * @public
-   */
-  removeDescription?: boolean | undefined;
-
-  /**
-   * <p>The shortcut key of the quick response. The value should be unique across the
-   *   knowledge base.</p>
-   * @public
-   */
-  shortcutKey?: string | undefined;
-
-  /**
-   * <p>Whether to remove the shortcut key of the quick response.</p>
-   * @public
-   */
-  removeShortcutKey?: boolean | undefined;
-
-  /**
-   * <p>Whether the quick response is active. </p>
-   * @public
-   */
-  isActive?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Connect contact channels this quick response applies to.
-   *       The supported contact channel types include <code>Chat</code>.</p>
-   * @public
-   */
-  channels?: string[] | undefined;
-
-  /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
-   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
-   *   <code>zh_CN</code>, <code>zh_TW</code>
-   *          </p>
-   * @public
-   */
-  language?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateQuickResponseResponse {
-  /**
-   * <p>The quick response.</p>
-   * @public
-   */
-  quickResponse?: QuickResponseData | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveKnowledgeBaseTemplateUriRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
  * @internal
  */
 export const AgentAttributesFilterSensitiveLog = (obj: AgentAttributes): any => ({
   ...obj,
   ...(obj.firstName && { firstName: SENSITIVE_STRING }),
   ...(obj.lastName && { lastName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailContentFilterConfigFilterSensitiveLog = (obj: GuardrailContentFilterConfig): any => ({
+  ...obj,
+  ...(obj.type && { type: SENSITIVE_STRING }),
+  ...(obj.inputStrength && { inputStrength: SENSITIVE_STRING }),
+  ...(obj.outputStrength && { outputStrength: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AIGuardrailContentPolicyConfigFilterSensitiveLog = (obj: AIGuardrailContentPolicyConfig): any => ({
+  ...obj,
+  ...(obj.filtersConfig && {
+    filtersConfig: obj.filtersConfig.map((item) => GuardrailContentFilterConfigFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailContextualGroundingFilterConfigFilterSensitiveLog = (
+  obj: GuardrailContextualGroundingFilterConfig
+): any => ({
+  ...obj,
+  ...(obj.type && { type: SENSITIVE_STRING }),
+  ...(obj.threshold && { threshold: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AIGuardrailContextualGroundingPolicyConfigFilterSensitiveLog = (
+  obj: AIGuardrailContextualGroundingPolicyConfig
+): any => ({
+  ...obj,
+  ...(obj.filtersConfig && {
+    filtersConfig: obj.filtersConfig.map((item) => GuardrailContextualGroundingFilterConfigFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailPiiEntityConfigFilterSensitiveLog = (obj: GuardrailPiiEntityConfig): any => ({
+  ...obj,
+  ...(obj.type && { type: SENSITIVE_STRING }),
+  ...(obj.action && { action: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailRegexConfigFilterSensitiveLog = (obj: GuardrailRegexConfig): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.pattern && { pattern: SENSITIVE_STRING }),
+  ...(obj.action && { action: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AIGuardrailSensitiveInformationPolicyConfigFilterSensitiveLog = (
+  obj: AIGuardrailSensitiveInformationPolicyConfig
+): any => ({
+  ...obj,
+  ...(obj.piiEntitiesConfig && {
+    piiEntitiesConfig: obj.piiEntitiesConfig.map((item) => GuardrailPiiEntityConfigFilterSensitiveLog(item)),
+  }),
+  ...(obj.regexesConfig && {
+    regexesConfig: obj.regexesConfig.map((item) => GuardrailRegexConfigFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailTopicConfigFilterSensitiveLog = (obj: GuardrailTopicConfig): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.definition && { definition: SENSITIVE_STRING }),
+  ...(obj.examples && { examples: SENSITIVE_STRING }),
+  ...(obj.type && { type: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AIGuardrailTopicPolicyConfigFilterSensitiveLog = (obj: AIGuardrailTopicPolicyConfig): any => ({
+  ...obj,
+  ...(obj.topicsConfig && {
+    topicsConfig: obj.topicsConfig.map((item) => GuardrailTopicConfigFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailManagedWordsConfigFilterSensitiveLog = (obj: GuardrailManagedWordsConfig): any => ({
+  ...obj,
+  ...(obj.type && { type: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailWordConfigFilterSensitiveLog = (obj: GuardrailWordConfig): any => ({
+  ...obj,
+  ...(obj.text && { text: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AIGuardrailWordPolicyConfigFilterSensitiveLog = (obj: AIGuardrailWordPolicyConfig): any => ({
+  ...obj,
+  ...(obj.wordsConfig && { wordsConfig: obj.wordsConfig.map((item) => GuardrailWordConfigFilterSensitiveLog(item)) }),
+  ...(obj.managedWordListsConfig && {
+    managedWordListsConfig: obj.managedWordListsConfig.map((item) =>
+      GuardrailManagedWordsConfigFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAIGuardrailRequestFilterSensitiveLog = (obj: CreateAIGuardrailRequest): any => ({
+  ...obj,
+  ...(obj.blockedInputMessaging && { blockedInputMessaging: SENSITIVE_STRING }),
+  ...(obj.blockedOutputsMessaging && { blockedOutputsMessaging: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.topicPolicyConfig && {
+    topicPolicyConfig: AIGuardrailTopicPolicyConfigFilterSensitiveLog(obj.topicPolicyConfig),
+  }),
+  ...(obj.contentPolicyConfig && {
+    contentPolicyConfig: AIGuardrailContentPolicyConfigFilterSensitiveLog(obj.contentPolicyConfig),
+  }),
+  ...(obj.wordPolicyConfig && {
+    wordPolicyConfig: AIGuardrailWordPolicyConfigFilterSensitiveLog(obj.wordPolicyConfig),
+  }),
+  ...(obj.sensitiveInformationPolicyConfig && {
+    sensitiveInformationPolicyConfig: AIGuardrailSensitiveInformationPolicyConfigFilterSensitiveLog(
+      obj.sensitiveInformationPolicyConfig
+    ),
+  }),
+  ...(obj.contextualGroundingPolicyConfig && {
+    contextualGroundingPolicyConfig: AIGuardrailContextualGroundingPolicyConfigFilterSensitiveLog(
+      obj.contextualGroundingPolicyConfig
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const AIGuardrailDataFilterSensitiveLog = (obj: AIGuardrailData): any => ({
+  ...obj,
+  ...(obj.blockedInputMessaging && { blockedInputMessaging: SENSITIVE_STRING }),
+  ...(obj.blockedOutputsMessaging && { blockedOutputsMessaging: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.topicPolicyConfig && {
+    topicPolicyConfig: AIGuardrailTopicPolicyConfigFilterSensitiveLog(obj.topicPolicyConfig),
+  }),
+  ...(obj.contentPolicyConfig && {
+    contentPolicyConfig: AIGuardrailContentPolicyConfigFilterSensitiveLog(obj.contentPolicyConfig),
+  }),
+  ...(obj.wordPolicyConfig && {
+    wordPolicyConfig: AIGuardrailWordPolicyConfigFilterSensitiveLog(obj.wordPolicyConfig),
+  }),
+  ...(obj.sensitiveInformationPolicyConfig && {
+    sensitiveInformationPolicyConfig: AIGuardrailSensitiveInformationPolicyConfigFilterSensitiveLog(
+      obj.sensitiveInformationPolicyConfig
+    ),
+  }),
+  ...(obj.contextualGroundingPolicyConfig && {
+    contextualGroundingPolicyConfig: AIGuardrailContextualGroundingPolicyConfigFilterSensitiveLog(
+      obj.contextualGroundingPolicyConfig
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAIGuardrailResponseFilterSensitiveLog = (obj: CreateAIGuardrailResponse): any => ({
+  ...obj,
+  ...(obj.aiGuardrail && { aiGuardrail: AIGuardrailDataFilterSensitiveLog(obj.aiGuardrail) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAIGuardrailVersionResponseFilterSensitiveLog = (obj: CreateAIGuardrailVersionResponse): any => ({
+  ...obj,
+  ...(obj.aiGuardrail && { aiGuardrail: AIGuardrailDataFilterSensitiveLog(obj.aiGuardrail) }),
+});
+
+/**
+ * @internal
+ */
+export const GetAIGuardrailResponseFilterSensitiveLog = (obj: GetAIGuardrailResponse): any => ({
+  ...obj,
+  ...(obj.aiGuardrail && { aiGuardrail: AIGuardrailDataFilterSensitiveLog(obj.aiGuardrail) }),
+});
+
+/**
+ * @internal
+ */
+export const AIGuardrailSummaryFilterSensitiveLog = (obj: AIGuardrailSummary): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAIGuardrailsResponseFilterSensitiveLog = (obj: ListAIGuardrailsResponse): any => ({
+  ...obj,
+  ...(obj.aiGuardrailSummaries && {
+    aiGuardrailSummaries: obj.aiGuardrailSummaries.map((item) => AIGuardrailSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const AIGuardrailVersionSummaryFilterSensitiveLog = (obj: AIGuardrailVersionSummary): any => ({
+  ...obj,
+  ...(obj.aiGuardrailSummary && { aiGuardrailSummary: AIGuardrailSummaryFilterSensitiveLog(obj.aiGuardrailSummary) }),
+});
+
+/**
+ * @internal
+ */
+export const ListAIGuardrailVersionsResponseFilterSensitiveLog = (obj: ListAIGuardrailVersionsResponse): any => ({
+  ...obj,
+  ...(obj.aiGuardrailVersionSummaries && {
+    aiGuardrailVersionSummaries: obj.aiGuardrailVersionSummaries.map((item) =>
+      AIGuardrailVersionSummaryFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAIGuardrailRequestFilterSensitiveLog = (obj: UpdateAIGuardrailRequest): any => ({
+  ...obj,
+  ...(obj.blockedInputMessaging && { blockedInputMessaging: SENSITIVE_STRING }),
+  ...(obj.blockedOutputsMessaging && { blockedOutputsMessaging: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.topicPolicyConfig && {
+    topicPolicyConfig: AIGuardrailTopicPolicyConfigFilterSensitiveLog(obj.topicPolicyConfig),
+  }),
+  ...(obj.contentPolicyConfig && {
+    contentPolicyConfig: AIGuardrailContentPolicyConfigFilterSensitiveLog(obj.contentPolicyConfig),
+  }),
+  ...(obj.wordPolicyConfig && {
+    wordPolicyConfig: AIGuardrailWordPolicyConfigFilterSensitiveLog(obj.wordPolicyConfig),
+  }),
+  ...(obj.sensitiveInformationPolicyConfig && {
+    sensitiveInformationPolicyConfig: AIGuardrailSensitiveInformationPolicyConfigFilterSensitiveLog(
+      obj.sensitiveInformationPolicyConfig
+    ),
+  }),
+  ...(obj.contextualGroundingPolicyConfig && {
+    contextualGroundingPolicyConfig: AIGuardrailContextualGroundingPolicyConfigFilterSensitiveLog(
+      obj.contextualGroundingPolicyConfig
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAIGuardrailResponseFilterSensitiveLog = (obj: UpdateAIGuardrailResponse): any => ({
+  ...obj,
+  ...(obj.aiGuardrail && { aiGuardrail: AIGuardrailDataFilterSensitiveLog(obj.aiGuardrail) }),
 });
 
 /**
@@ -8816,6 +9232,89 @@ export const RuntimeSessionDataFilterSensitiveLog = (obj: RuntimeSessionData): a
   ...obj,
   ...(obj.key && { key: SENSITIVE_STRING }),
   ...(obj.value && { value: RuntimeSessionDataValueFilterSensitiveLog(obj.value) }),
+});
+
+/**
+ * @internal
+ */
+export const TextMessageFilterSensitiveLog = (obj: TextMessage): any => ({
+  ...obj,
+  ...(obj.value && { value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MessageDataFilterSensitiveLog = (obj: MessageData): any => {
+  if (obj.text !== undefined) return { text: TextMessageFilterSensitiveLog(obj.text) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const MessageOutputFilterSensitiveLog = (obj: MessageOutput): any => ({
+  ...obj,
+  ...(obj.value && { value: MessageDataFilterSensitiveLog(obj.value) }),
+});
+
+/**
+ * @internal
+ */
+export const GetNextMessageResponseFilterSensitiveLog = (obj: GetNextMessageResponse): any => ({
+  ...obj,
+  ...(obj.response && { response: MessageOutputFilterSensitiveLog(obj.response) }),
+  ...(obj.conversationSessionData && {
+    conversationSessionData: obj.conversationSessionData.map((item) => RuntimeSessionDataFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListMessagesResponseFilterSensitiveLog = (obj: ListMessagesResponse): any => ({
+  ...obj,
+  ...(obj.messages && { messages: obj.messages.map((item) => MessageOutputFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SelfServiceConversationHistoryFilterSensitiveLog = (obj: SelfServiceConversationHistory): any => ({
+  ...obj,
+  ...(obj.inputTranscript && { inputTranscript: SENSITIVE_STRING }),
+  ...(obj.botResponse && { botResponse: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConversationContextFilterSensitiveLog = (obj: ConversationContext): any => ({
+  ...obj,
+  ...(obj.selfServiceConversationHistory && {
+    selfServiceConversationHistory: obj.selfServiceConversationHistory.map((item) =>
+      SelfServiceConversationHistoryFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const MessageInputFilterSensitiveLog = (obj: MessageInput): any => ({
+  ...obj,
+  ...(obj.value && { value: MessageDataFilterSensitiveLog(obj.value) }),
+});
+
+/**
+ * @internal
+ */
+export const SendMessageRequestFilterSensitiveLog = (obj: SendMessageRequest): any => ({
+  ...obj,
+  ...(obj.message && { message: MessageInputFilterSensitiveLog(obj.message) }),
+  ...(obj.conversationContext && {
+    conversationContext: ConversationContextFilterSensitiveLog(obj.conversationContext),
+  }),
 });
 
 /**
@@ -9178,222 +9677,4 @@ export const CreateMessageTemplateVersionResponseFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.messageTemplate && { messageTemplate: ExtendedMessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
-});
-
-/**
- * @internal
- */
-export const QuickResponseDataProviderFilterSensitiveLog = (obj: QuickResponseDataProvider): any => {
-  if (obj.content !== undefined) return { content: SENSITIVE_STRING };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateQuickResponseRequestFilterSensitiveLog = (obj: CreateQuickResponseRequest): any => ({
-  ...obj,
-  ...(obj.content && { content: QuickResponseDataProviderFilterSensitiveLog(obj.content) }),
-  ...(obj.groupingConfiguration && {
-    groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
-  }),
-  ...(obj.channels && { channels: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const QuickResponseContentProviderFilterSensitiveLog = (obj: QuickResponseContentProvider): any => {
-  if (obj.content !== undefined) return { content: SENSITIVE_STRING };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const QuickResponseContentsFilterSensitiveLog = (obj: QuickResponseContents): any => ({
-  ...obj,
-  ...(obj.plainText && { plainText: QuickResponseContentProviderFilterSensitiveLog(obj.plainText) }),
-  ...(obj.markdown && { markdown: QuickResponseContentProviderFilterSensitiveLog(obj.markdown) }),
-});
-
-/**
- * @internal
- */
-export const QuickResponseDataFilterSensitiveLog = (obj: QuickResponseData): any => ({
-  ...obj,
-  ...(obj.contents && { contents: QuickResponseContentsFilterSensitiveLog(obj.contents) }),
-  ...(obj.groupingConfiguration && {
-    groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
-  }),
-  ...(obj.channels && { channels: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateQuickResponseResponseFilterSensitiveLog = (obj: CreateQuickResponseResponse): any => ({
-  ...obj,
-  ...(obj.quickResponse && { quickResponse: QuickResponseDataFilterSensitiveLog(obj.quickResponse) }),
-});
-
-/**
- * @internal
- */
-export const ImportJobDataFilterSensitiveLog = (obj: ImportJobData): any => ({
-  ...obj,
-  ...(obj.url && { url: SENSITIVE_STRING }),
-  ...(obj.failedRecordReport && { failedRecordReport: SENSITIVE_STRING }),
-  ...(obj.externalSourceConfiguration && { externalSourceConfiguration: obj.externalSourceConfiguration }),
-});
-
-/**
- * @internal
- */
-export const GetImportJobResponseFilterSensitiveLog = (obj: GetImportJobResponse): any => ({
-  ...obj,
-  ...(obj.importJob && { importJob: ImportJobDataFilterSensitiveLog(obj.importJob) }),
-});
-
-/**
- * @internal
- */
-export const GetKnowledgeBaseResponseFilterSensitiveLog = (obj: GetKnowledgeBaseResponse): any => ({
-  ...obj,
-  ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseDataFilterSensitiveLog(obj.knowledgeBase) }),
-});
-
-/**
- * @internal
- */
-export const GetMessageTemplateResponseFilterSensitiveLog = (obj: GetMessageTemplateResponse): any => ({
-  ...obj,
-  ...(obj.messageTemplate && { messageTemplate: ExtendedMessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
-});
-
-/**
- * @internal
- */
-export const GetQuickResponseResponseFilterSensitiveLog = (obj: GetQuickResponseResponse): any => ({
-  ...obj,
-  ...(obj.quickResponse && { quickResponse: QuickResponseDataFilterSensitiveLog(obj.quickResponse) }),
-});
-
-/**
- * @internal
- */
-export const KnowledgeBaseSummaryFilterSensitiveLog = (obj: KnowledgeBaseSummary): any => ({
-  ...obj,
-  ...(obj.sourceConfiguration && {
-    sourceConfiguration: SourceConfigurationFilterSensitiveLog(obj.sourceConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const ListKnowledgeBasesResponseFilterSensitiveLog = (obj: ListKnowledgeBasesResponse): any => ({
-  ...obj,
-  ...(obj.knowledgeBaseSummaries && {
-    knowledgeBaseSummaries: obj.knowledgeBaseSummaries.map((item) => KnowledgeBaseSummaryFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const RenderMessageTemplateRequestFilterSensitiveLog = (obj: RenderMessageTemplateRequest): any => ({
-  ...obj,
-  ...(obj.attributes && { attributes: MessageTemplateAttributesFilterSensitiveLog(obj.attributes) }),
-});
-
-/**
- * @internal
- */
-export const RenderMessageTemplateResponseFilterSensitiveLog = (obj: RenderMessageTemplateResponse): any => ({
-  ...obj,
-  ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
-  ...(obj.attributesNotInterpolated && { attributesNotInterpolated: SENSITIVE_STRING }),
-  ...(obj.attachments && {
-    attachments: obj.attachments.map((item) => MessageTemplateAttachmentFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateMessageTemplateRequestFilterSensitiveLog = (obj: UpdateMessageTemplateRequest): any => ({
-  ...obj,
-  ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
-  ...(obj.defaultAttributes && {
-    defaultAttributes: MessageTemplateAttributesFilterSensitiveLog(obj.defaultAttributes),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateMessageTemplateResponseFilterSensitiveLog = (obj: UpdateMessageTemplateResponse): any => ({
-  ...obj,
-  ...(obj.messageTemplate && { messageTemplate: MessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
-});
-
-/**
- * @internal
- */
-export const UpdateMessageTemplateMetadataRequestFilterSensitiveLog = (
-  obj: UpdateMessageTemplateMetadataRequest
-): any => ({
-  ...obj,
-  ...(obj.groupingConfiguration && {
-    groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateMessageTemplateMetadataResponseFilterSensitiveLog = (
-  obj: UpdateMessageTemplateMetadataResponse
-): any => ({
-  ...obj,
-  ...(obj.messageTemplate && { messageTemplate: MessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
-});
-
-/**
- * @internal
- */
-export const QuickResponseSummaryFilterSensitiveLog = (obj: QuickResponseSummary): any => ({
-  ...obj,
-  ...(obj.channels && { channels: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListQuickResponsesResponseFilterSensitiveLog = (obj: ListQuickResponsesResponse): any => ({
-  ...obj,
-  ...(obj.quickResponseSummaries && {
-    quickResponseSummaries: obj.quickResponseSummaries.map((item) => QuickResponseSummaryFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateQuickResponseRequestFilterSensitiveLog = (obj: UpdateQuickResponseRequest): any => ({
-  ...obj,
-  ...(obj.content && { content: QuickResponseDataProviderFilterSensitiveLog(obj.content) }),
-  ...(obj.groupingConfiguration && {
-    groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
-  }),
-  ...(obj.channels && { channels: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateQuickResponseResponseFilterSensitiveLog = (obj: UpdateQuickResponseResponse): any => ({
-  ...obj,
-  ...(obj.quickResponse && { quickResponse: QuickResponseDataFilterSensitiveLog(obj.quickResponse) }),
 });

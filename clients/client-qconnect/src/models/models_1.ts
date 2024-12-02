@@ -3,37 +3,1685 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import {
   ChannelSubtype,
+  Configuration,
   ContentDataDetails,
   ContentDataDetailsFilterSensitiveLog,
   ContentSummary,
   DataReference,
   Document,
   DocumentFilterSensitiveLog,
-  ExternalSourceConfiguration,
+  ExtendedMessageTemplateData,
+  ExtendedMessageTemplateDataFilterSensitiveLog,
   GroupingConfiguration,
   GroupingConfigurationFilterSensitiveLog,
-  ImportJobData,
-  ImportJobDataFilterSensitiveLog,
-  ImportJobType,
   IntentDetectedDataDetails,
   IntentDetectedDataDetailsFilterSensitiveLog,
   KnowledgeBaseData,
   KnowledgeBaseDataFilterSensitiveLog,
+  KnowledgeBaseStatus,
+  KnowledgeBaseType,
+  MessageTemplateAttachment,
+  MessageTemplateAttachmentFilterSensitiveLog,
+  MessageTemplateAttributes,
+  MessageTemplateAttributesFilterSensitiveLog,
+  MessageTemplateContentProvider,
+  MessageTemplateContentProviderFilterSensitiveLog,
+  MessageTemplateData,
+  MessageTemplateDataFilterSensitiveLog,
   QueryResultType,
-  QuickResponseContents,
-  QuickResponseContentsFilterSensitiveLog,
-  QuickResponseStatus,
   RankingData,
   RecommendationTrigger,
   RecommendationTriggerFilterSensitiveLog,
   RecommendationType,
   RelevanceLevel,
+  RenderingConfiguration,
   SearchExpression,
+  ServerSideEncryptionConfiguration,
+  SourceConfiguration,
+  SourceConfigurationFilterSensitiveLog,
   SourceContentDataDetails,
   SourceContentDataDetailsFilterSensitiveLog,
+  VectorIngestionConfiguration,
 } from "./models_0";
 
 import { QConnectServiceException as __BaseException } from "./QConnectServiceException";
+
+/**
+ * <p>The container of quick response data.</p>
+ * @public
+ */
+export type QuickResponseDataProvider =
+  | QuickResponseDataProvider.ContentMember
+  | QuickResponseDataProvider.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace QuickResponseDataProvider {
+  /**
+   * <p>The content of the quick response.</p>
+   * @public
+   */
+  export interface ContentMember {
+    content: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    content?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    content: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: QuickResponseDataProvider, visitor: Visitor<T>): T => {
+    if (value.content !== undefined) return visitor.content(value.content);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateQuickResponseRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the quick response.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The content of the quick response.</p>
+   * @public
+   */
+  content: QuickResponseDataProvider | undefined;
+
+  /**
+   * <p>The media type of the quick response content.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Use <code>application/x.quickresponse;format=plain</code> for a quick response written
+   *           in plain text.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for a quick response
+   *           written in richtext.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  contentType?: string | undefined;
+
+  /**
+   * <p>The configuration information of the user groups that the quick response is accessible
+   *       to.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>The description of the quick response.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The shortcut key of the quick response. The value should be unique across the
+   *   knowledge base. </p>
+   * @public
+   */
+  shortcutKey?: string | undefined;
+
+  /**
+   * <p>Whether the quick response is active.</p>
+   * @public
+   */
+  isActive?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Connect channels this quick response applies to.</p>
+   * @public
+   */
+  channels?: string[] | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
+   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
+   *   <code>zh_CN</code>, <code>zh_TW</code>
+   *          </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The container quick response content.</p>
+ * @public
+ */
+export type QuickResponseContentProvider =
+  | QuickResponseContentProvider.ContentMember
+  | QuickResponseContentProvider.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace QuickResponseContentProvider {
+  /**
+   * <p>The content of the quick response.</p>
+   * @public
+   */
+  export interface ContentMember {
+    content: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    content?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    content: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: QuickResponseContentProvider, visitor: Visitor<T>): T => {
+    if (value.content !== undefined) return visitor.content(value.content);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The content of the quick response stored in different media types.</p>
+ * @public
+ */
+export interface QuickResponseContents {
+  /**
+   * <p>The container quick response content.</p>
+   * @public
+   */
+  plainText?: QuickResponseContentProvider | undefined;
+
+  /**
+   * <p>The container quick response content.</p>
+   * @public
+   */
+  markdown?: QuickResponseContentProvider | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QuickResponseStatus = {
+  CREATED: "CREATED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type QuickResponseStatus = (typeof QuickResponseStatus)[keyof typeof QuickResponseStatus];
+
+/**
+ * <p>Information about the quick response.</p>
+ * @public
+ */
+export interface QuickResponseData {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the quick response.</p>
+   * @public
+   */
+  quickResponseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the quick response.</p>
+   * @public
+   */
+  quickResponseId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the quick response.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The media type of the quick response content.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written
+   *           in plain text.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response
+   *           written in richtext.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  contentType: string | undefined;
+
+  /**
+   * <p>The status of the quick response data.</p>
+   * @public
+   */
+  status: QuickResponseStatus | undefined;
+
+  /**
+   * <p>The timestamp when the quick response was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the quick response data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The contents of the quick response.</p>
+   * @public
+   */
+  contents?: QuickResponseContents | undefined;
+
+  /**
+   * <p>The description of the quick response.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The configuration information of the user groups that the quick response is accessible
+   *       to.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>The shortcut key of the quick response. The value should be unique across the
+   *   knowledge base.</p>
+   * @public
+   */
+  shortcutKey?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response
+   *       data.</p>
+   * @public
+   */
+  lastModifiedBy?: string | undefined;
+
+  /**
+   * <p>Whether the quick response is active.</p>
+   * @public
+   */
+  isActive?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Connect contact channels this quick response applies to.
+   *       The supported contact channel types include <code>Chat</code>.</p>
+   * @public
+   */
+  channels?: string[] | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
+   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
+   *   <code>zh_CN</code>, <code>zh_TW</code>
+   *          </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateQuickResponseResponse {
+  /**
+   * <p>The quick response.</p>
+   * @public
+   */
+  quickResponse?: QuickResponseData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeactivateMessageTemplateRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain
+   *       any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The version number of the message template version to deactivate.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeactivateMessageTemplateResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The version number of the message template version that has been deactivated.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteImportJobRequest {
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the import job to be deleted.</p>
+   * @public
+   */
+  importJobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteImportJobResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseRequest {
+  /**
+   * <p>The knowledge base to delete content from. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteMessageTemplateRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMessageTemplateResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteMessageTemplateAttachmentRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain
+   *       any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The identifier of the attachment file.</p>
+   * @public
+   */
+  attachmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMessageTemplateAttachmentResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteQuickResponseRequest {
+  /**
+   * <p>The knowledge base from which the quick response is deleted. The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the quick response to delete.</p>
+   * @public
+   */
+  quickResponseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteQuickResponseResponse {}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExternalSource = {
+  AMAZON_CONNECT: "AMAZON_CONNECT",
+} as const;
+
+/**
+ * @public
+ */
+export type ExternalSource = (typeof ExternalSource)[keyof typeof ExternalSource];
+
+/**
+ * <p>The configuration information of the external data source.</p>
+ * @public
+ */
+export interface ExternalSourceConfiguration {
+  /**
+   * <p>The type of the external data source.</p>
+   * @public
+   */
+  source: ExternalSource | undefined;
+
+  /**
+   * <p>The configuration information of the external data source.</p>
+   * @public
+   */
+  configuration: Configuration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetImportJobRequest {
+  /**
+   * <p>The identifier of the import job to retrieve.</p>
+   * @public
+   */
+  importJobId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base that the import job belongs to.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImportJobType = {
+  QUICK_RESPONSES: "QUICK_RESPONSES",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportJobType = (typeof ImportJobType)[keyof typeof ImportJobType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImportJobStatus = {
+  COMPLETE: "COMPLETE",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  FAILED: "FAILED",
+  START_IN_PROGRESS: "START_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportJobStatus = (typeof ImportJobStatus)[keyof typeof ImportJobStatus];
+
+/**
+ * <p>Summary information about the import job.</p>
+ * @public
+ */
+export interface ImportJobData {
+  /**
+   * <p>The identifier of the import job.</p>
+   * @public
+   */
+  importJobId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
+   * @public
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The type of the import job.</p>
+   * @public
+   */
+  importJobType: ImportJobType | undefined;
+
+  /**
+   * <p>The status of the import job.</p>
+   * @public
+   */
+  status: ImportJobStatus | undefined;
+
+  /**
+   * <p>The download link to the resource file that is uploaded to the import job.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>The link to download the information of resource data that failed to be imported.</p>
+   * @public
+   */
+  failedRecordReport?: string | undefined;
+
+  /**
+   * <p>The expiration time of the URL as an epoch timestamp.</p>
+   * @public
+   */
+  urlExpiry: Date | undefined;
+
+  /**
+   * <p>The timestamp when the import job was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the import job data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration information of the external data source.</p>
+   * @public
+   */
+  externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetImportJobResponse {
+  /**
+   * <p>The import job.</p>
+   * @public
+   */
+  importJob?: ImportJobData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKnowledgeBaseRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKnowledgeBaseResponse {
+  /**
+   * <p>The knowledge base.</p>
+   * @public
+   */
+  knowledgeBase?: KnowledgeBaseData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMessageTemplateRequest {
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMessageTemplateResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: ExtendedMessageTemplateData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQuickResponseRequest {
+  /**
+   * <p>The identifier of the quick response.</p>
+   * @public
+   */
+  quickResponseId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQuickResponseResponse {
+  /**
+   * <p>The quick response.</p>
+   * @public
+   */
+  quickResponse?: QuickResponseData | undefined;
+}
+
+/**
+ * <p>Summary information about the import job.</p>
+ * @public
+ */
+export interface ImportJobSummary {
+  /**
+   * <p>The identifier of the import job.</p>
+   * @public
+   */
+  importJobId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
+   * @public
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The type of import job.</p>
+   * @public
+   */
+  importJobType: ImportJobType | undefined;
+
+  /**
+   * <p>The status of the import job.</p>
+   * @public
+   */
+  status: ImportJobStatus | undefined;
+
+  /**
+   * <p>The timestamp when the import job was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the import job was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration information of the external source that the resource data are imported
+   *       from.</p>
+   * @public
+   */
+  externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListImportJobsRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListImportJobsResponse {
+  /**
+   * <p>Summary information about the import jobs.</p>
+   * @public
+   */
+  importJobSummaries: ImportJobSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListKnowledgeBasesRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Summary information about the knowledge base.</p>
+ * @public
+ */
+export interface KnowledgeBaseSummary {
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The name of the knowledge base.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseType: KnowledgeBaseType | undefined;
+
+  /**
+   * <p>The status of the knowledge base summary.</p>
+   * @public
+   */
+  status: KnowledgeBaseStatus | undefined;
+
+  /**
+   * <p>Configuration information about the external data source.</p>
+   * @public
+   */
+  sourceConfiguration?: SourceConfiguration | undefined;
+
+  /**
+   * <p>Contains details about how to ingest the documents in a data source.</p>
+   * @public
+   */
+  vectorIngestionConfiguration?: VectorIngestionConfiguration | undefined;
+
+  /**
+   * <p>Information about how to render the content.</p>
+   * @public
+   */
+  renderingConfiguration?: RenderingConfiguration | undefined;
+
+  /**
+   * <p>The configuration information for the customer managed key used for encryption. </p>
+   *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>,
+   *         <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and
+   *         <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the
+   *       key to invoke Amazon Q in Connect. </p>
+   *          <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
+   *         your instance</a>.</p>
+   * @public
+   */
+  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The description of the knowledge base.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListKnowledgeBasesResponse {
+  /**
+   * <p>Information about the knowledge bases.</p>
+   * @public
+   */
+  knowledgeBaseSummaries: KnowledgeBaseSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessageTemplatesRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * <p>The summary of the message template.</p>
+ * @public
+ */
+export interface MessageTemplateSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>The timestamp when the message template was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the message template data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template
+   *       data.</p>
+   * @public
+   */
+  lastModifiedBy: string | undefined;
+
+  /**
+   * <p>The version number of the message template version that is activated.</p>
+   * @public
+   */
+  activeVersionNumber?: number | undefined;
+
+  /**
+   * <p>The description of the message template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessageTemplatesResponse {
+  /**
+   * <p>Summary information about the message template.</p>
+   * @public
+   */
+  messageTemplateSummaries: MessageTemplateSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessageTemplateVersionsRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain
+   *       any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary of the message template version.</p>
+ * @public
+ */
+export interface MessageTemplateVersionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>Whether the version of the message template is activated.</p>
+   * @public
+   */
+  isActive: boolean | undefined;
+
+  /**
+   * <p>The version number of the message template version.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessageTemplateVersionsResponse {
+  /**
+   * <p>Summary information about the versions of a message template.</p>
+   * @public
+   */
+  messageTemplateVersionSummaries: MessageTemplateVersionSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RenderMessageTemplateRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>An object that specifies the values to use for variables in the message template. This
+   *       object contains different categories of key-value pairs. Each key defines a variable or
+   *       placeholder in the message template. The corresponding value defines the value for that
+   *       variable.</p>
+   * @public
+   */
+  attributes: MessageTemplateAttributes | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RenderMessageTemplateResponse {
+  /**
+   * <p>The content of the message template.</p>
+   * @public
+   */
+  content: MessageTemplateContentProvider | undefined;
+
+  /**
+   * <p>The attribute keys that are not resolved.</p>
+   * @public
+   */
+  attributesNotInterpolated?: string[] | undefined;
+
+  /**
+   * <p>The message template attachments.</p>
+   * @public
+   */
+  attachments?: MessageTemplateAttachment[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMessageTemplateRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain
+   *       any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The content of the message template.</p>
+   * @public
+   */
+  content?: MessageTemplateContentProvider | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
+   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
+   *   <code>zh_CN</code>, <code>zh_TW</code>
+   *          </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>An object that specifies the default values to use for variables in the message template.
+   *       This object contains different categories of key-value pairs. Each key defines a variable or
+   *       placeholder in the message template. The corresponding value defines the default value for
+   *       that variable.</p>
+   * @public
+   */
+  defaultAttributes?: MessageTemplateAttributes | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMessageTemplateResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: MessageTemplateData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMessageTemplateMetadataRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain
+   *       any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the message template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMessageTemplateMetadataResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: MessageTemplateData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQuickResponsesRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * <p>The summary information about the quick response.</p>
+ * @public
+ */
+export interface QuickResponseSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the quick response.</p>
+   * @public
+   */
+  quickResponseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the quick response.</p>
+   * @public
+   */
+  quickResponseId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the quick response.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The media type of the quick response content.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written
+   *           in plain text.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response
+   *           written in richtext.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  contentType: string | undefined;
+
+  /**
+   * <p>The resource status of the quick response.</p>
+   * @public
+   */
+  status: QuickResponseStatus | undefined;
+
+  /**
+   * <p>The timestamp when the quick response was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the quick response summary was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The description of the quick response.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response
+   *       data.</p>
+   * @public
+   */
+  lastModifiedBy?: string | undefined;
+
+  /**
+   * <p>Whether the quick response is active.</p>
+   * @public
+   */
+  isActive?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Connect contact channels this quick response applies to.
+   *       The supported contact channel types include <code>Chat</code>.</p>
+   * @public
+   */
+  channels?: string[] | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQuickResponsesResponse {
+  /**
+   * <p>Summary information about the quick responses.</p>
+   * @public
+   */
+  quickResponseSummaries: QuickResponseSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQuickResponseRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the quick response.</p>
+   * @public
+   */
+  quickResponseId: string | undefined;
+
+  /**
+   * <p>The name of the quick response.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The updated content of the quick response.</p>
+   * @public
+   */
+  content?: QuickResponseDataProvider | undefined;
+
+  /**
+   * <p>The media type of the quick response content.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written
+   *           in plain text.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response
+   *           written in richtext.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  contentType?: string | undefined;
+
+  /**
+   * <p>The updated grouping configuration of the quick response.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>Whether to remove the grouping configuration of the quick response.</p>
+   * @public
+   */
+  removeGroupingConfiguration?: boolean | undefined;
+
+  /**
+   * <p>The updated description of the quick response.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Whether to remove the description from the quick response.</p>
+   * @public
+   */
+  removeDescription?: boolean | undefined;
+
+  /**
+   * <p>The shortcut key of the quick response. The value should be unique across the
+   *   knowledge base.</p>
+   * @public
+   */
+  shortcutKey?: string | undefined;
+
+  /**
+   * <p>Whether to remove the shortcut key of the quick response.</p>
+   * @public
+   */
+  removeShortcutKey?: boolean | undefined;
+
+  /**
+   * <p>Whether the quick response is active. </p>
+   * @public
+   */
+  isActive?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Connect contact channels this quick response applies to.
+   *       The supported contact channel types include <code>Chat</code>.</p>
+   * @public
+   */
+  channels?: string[] | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
+   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
+   *   <code>zh_CN</code>, <code>zh_TW</code>
+   *          </p>
+   * @public
+   */
+  language?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQuickResponseResponse {
+  /**
+   * <p>The quick response.</p>
+   * @public
+   */
+  quickResponse?: QuickResponseData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveKnowledgeBaseTemplateUriRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
 
 /**
  * @public
@@ -1396,6 +3044,224 @@ export interface QueryAssistantResponse {
    */
   nextToken?: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const QuickResponseDataProviderFilterSensitiveLog = (obj: QuickResponseDataProvider): any => {
+  if (obj.content !== undefined) return { content: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateQuickResponseRequestFilterSensitiveLog = (obj: CreateQuickResponseRequest): any => ({
+  ...obj,
+  ...(obj.content && { content: QuickResponseDataProviderFilterSensitiveLog(obj.content) }),
+  ...(obj.groupingConfiguration && {
+    groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
+  }),
+  ...(obj.channels && { channels: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const QuickResponseContentProviderFilterSensitiveLog = (obj: QuickResponseContentProvider): any => {
+  if (obj.content !== undefined) return { content: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const QuickResponseContentsFilterSensitiveLog = (obj: QuickResponseContents): any => ({
+  ...obj,
+  ...(obj.plainText && { plainText: QuickResponseContentProviderFilterSensitiveLog(obj.plainText) }),
+  ...(obj.markdown && { markdown: QuickResponseContentProviderFilterSensitiveLog(obj.markdown) }),
+});
+
+/**
+ * @internal
+ */
+export const QuickResponseDataFilterSensitiveLog = (obj: QuickResponseData): any => ({
+  ...obj,
+  ...(obj.contents && { contents: QuickResponseContentsFilterSensitiveLog(obj.contents) }),
+  ...(obj.groupingConfiguration && {
+    groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
+  }),
+  ...(obj.channels && { channels: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateQuickResponseResponseFilterSensitiveLog = (obj: CreateQuickResponseResponse): any => ({
+  ...obj,
+  ...(obj.quickResponse && { quickResponse: QuickResponseDataFilterSensitiveLog(obj.quickResponse) }),
+});
+
+/**
+ * @internal
+ */
+export const ImportJobDataFilterSensitiveLog = (obj: ImportJobData): any => ({
+  ...obj,
+  ...(obj.url && { url: SENSITIVE_STRING }),
+  ...(obj.failedRecordReport && { failedRecordReport: SENSITIVE_STRING }),
+  ...(obj.externalSourceConfiguration && { externalSourceConfiguration: obj.externalSourceConfiguration }),
+});
+
+/**
+ * @internal
+ */
+export const GetImportJobResponseFilterSensitiveLog = (obj: GetImportJobResponse): any => ({
+  ...obj,
+  ...(obj.importJob && { importJob: ImportJobDataFilterSensitiveLog(obj.importJob) }),
+});
+
+/**
+ * @internal
+ */
+export const GetKnowledgeBaseResponseFilterSensitiveLog = (obj: GetKnowledgeBaseResponse): any => ({
+  ...obj,
+  ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseDataFilterSensitiveLog(obj.knowledgeBase) }),
+});
+
+/**
+ * @internal
+ */
+export const GetMessageTemplateResponseFilterSensitiveLog = (obj: GetMessageTemplateResponse): any => ({
+  ...obj,
+  ...(obj.messageTemplate && { messageTemplate: ExtendedMessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const GetQuickResponseResponseFilterSensitiveLog = (obj: GetQuickResponseResponse): any => ({
+  ...obj,
+  ...(obj.quickResponse && { quickResponse: QuickResponseDataFilterSensitiveLog(obj.quickResponse) }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseSummaryFilterSensitiveLog = (obj: KnowledgeBaseSummary): any => ({
+  ...obj,
+  ...(obj.sourceConfiguration && {
+    sourceConfiguration: SourceConfigurationFilterSensitiveLog(obj.sourceConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListKnowledgeBasesResponseFilterSensitiveLog = (obj: ListKnowledgeBasesResponse): any => ({
+  ...obj,
+  ...(obj.knowledgeBaseSummaries && {
+    knowledgeBaseSummaries: obj.knowledgeBaseSummaries.map((item) => KnowledgeBaseSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const RenderMessageTemplateRequestFilterSensitiveLog = (obj: RenderMessageTemplateRequest): any => ({
+  ...obj,
+  ...(obj.attributes && { attributes: MessageTemplateAttributesFilterSensitiveLog(obj.attributes) }),
+});
+
+/**
+ * @internal
+ */
+export const RenderMessageTemplateResponseFilterSensitiveLog = (obj: RenderMessageTemplateResponse): any => ({
+  ...obj,
+  ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
+  ...(obj.attributesNotInterpolated && { attributesNotInterpolated: SENSITIVE_STRING }),
+  ...(obj.attachments && {
+    attachments: obj.attachments.map((item) => MessageTemplateAttachmentFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMessageTemplateRequestFilterSensitiveLog = (obj: UpdateMessageTemplateRequest): any => ({
+  ...obj,
+  ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
+  ...(obj.defaultAttributes && {
+    defaultAttributes: MessageTemplateAttributesFilterSensitiveLog(obj.defaultAttributes),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMessageTemplateResponseFilterSensitiveLog = (obj: UpdateMessageTemplateResponse): any => ({
+  ...obj,
+  ...(obj.messageTemplate && { messageTemplate: MessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMessageTemplateMetadataRequestFilterSensitiveLog = (
+  obj: UpdateMessageTemplateMetadataRequest
+): any => ({
+  ...obj,
+  ...(obj.groupingConfiguration && {
+    groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMessageTemplateMetadataResponseFilterSensitiveLog = (
+  obj: UpdateMessageTemplateMetadataResponse
+): any => ({
+  ...obj,
+  ...(obj.messageTemplate && { messageTemplate: MessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const QuickResponseSummaryFilterSensitiveLog = (obj: QuickResponseSummary): any => ({
+  ...obj,
+  ...(obj.channels && { channels: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListQuickResponsesResponseFilterSensitiveLog = (obj: ListQuickResponsesResponse): any => ({
+  ...obj,
+  ...(obj.quickResponseSummaries && {
+    quickResponseSummaries: obj.quickResponseSummaries.map((item) => QuickResponseSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateQuickResponseRequestFilterSensitiveLog = (obj: UpdateQuickResponseRequest): any => ({
+  ...obj,
+  ...(obj.content && { content: QuickResponseDataProviderFilterSensitiveLog(obj.content) }),
+  ...(obj.groupingConfiguration && {
+    groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
+  }),
+  ...(obj.channels && { channels: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateQuickResponseResponseFilterSensitiveLog = (obj: UpdateQuickResponseResponse): any => ({
+  ...obj,
+  ...(obj.quickResponse && { quickResponse: QuickResponseDataFilterSensitiveLog(obj.quickResponse) }),
+});
 
 /**
  * @internal

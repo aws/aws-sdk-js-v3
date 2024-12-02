@@ -10,7 +10,7 @@ import {
   UpdateQuickResponseRequestFilterSensitiveLog,
   UpdateQuickResponseResponse,
   UpdateQuickResponseResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_UpdateQuickResponseCommand, se_UpdateQuickResponseCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 

@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeactivateMessageTemplateRequest, DeactivateMessageTemplateResponse } from "../models/models_1";
-import { de_DeactivateMessageTemplateCommand, se_DeactivateMessageTemplateCommand } from "../protocols/Aws_restJson1";
+import { DeleteAIGuardrailRequest, DeleteAIGuardrailResponse } from "../models/models_0";
+import { de_DeleteAIGuardrailCommand, se_DeleteAIGuardrailCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 
 /**
@@ -17,45 +17,38 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeactivateMessageTemplateCommand}.
+ * The input for {@link DeleteAIGuardrailCommand}.
  */
-export interface DeactivateMessageTemplateCommandInput extends DeactivateMessageTemplateRequest {}
+export interface DeleteAIGuardrailCommandInput extends DeleteAIGuardrailRequest {}
 /**
  * @public
  *
- * The output of {@link DeactivateMessageTemplateCommand}.
+ * The output of {@link DeleteAIGuardrailCommand}.
  */
-export interface DeactivateMessageTemplateCommandOutput extends DeactivateMessageTemplateResponse, __MetadataBearer {}
+export interface DeleteAIGuardrailCommandOutput extends DeleteAIGuardrailResponse, __MetadataBearer {}
 
 /**
- * <p>Deactivates a specific version of the Amazon Q in Connect message template . After the
- *       version is deactivated, you can no longer use the <code>$ACTIVE_VERSION</code> qualifier to
- *       reference the version in active status.</p>
+ * <p>Deletes an Amazon Q in Connect AI Guardrail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QConnectClient, DeactivateMessageTemplateCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
- * // const { QConnectClient, DeactivateMessageTemplateCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * import { QConnectClient, DeleteAIGuardrailCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
+ * // const { QConnectClient, DeleteAIGuardrailCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
  * const client = new QConnectClient(config);
- * const input = { // DeactivateMessageTemplateRequest
- *   knowledgeBaseId: "STRING_VALUE", // required
- *   messageTemplateId: "STRING_VALUE", // required
- *   versionNumber: Number("long"), // required
+ * const input = { // DeleteAIGuardrailRequest
+ *   assistantId: "STRING_VALUE", // required
+ *   aiGuardrailId: "STRING_VALUE", // required
  * };
- * const command = new DeactivateMessageTemplateCommand(input);
+ * const command = new DeleteAIGuardrailCommand(input);
  * const response = await client.send(command);
- * // { // DeactivateMessageTemplateResponse
- * //   messageTemplateArn: "STRING_VALUE", // required
- * //   messageTemplateId: "STRING_VALUE", // required
- * //   versionNumber: Number("long"), // required
- * // };
+ * // {};
  *
  * ```
  *
- * @param DeactivateMessageTemplateCommandInput - {@link DeactivateMessageTemplateCommandInput}
- * @returns {@link DeactivateMessageTemplateCommandOutput}
- * @see {@link DeactivateMessageTemplateCommandInput} for command's `input` shape.
- * @see {@link DeactivateMessageTemplateCommandOutput} for command's `response` shape.
+ * @param DeleteAIGuardrailCommandInput - {@link DeleteAIGuardrailCommandInput}
+ * @returns {@link DeleteAIGuardrailCommandOutput}
+ * @see {@link DeleteAIGuardrailCommandInput} for command's `input` shape.
+ * @see {@link DeleteAIGuardrailCommandOutput} for command's `response` shape.
  * @see {@link QConnectClientResolvedConfig | config} for QConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -81,10 +74,10 @@ export interface DeactivateMessageTemplateCommandOutput extends DeactivateMessag
  *
  * @public
  */
-export class DeactivateMessageTemplateCommand extends $Command
+export class DeleteAIGuardrailCommand extends $Command
   .classBuilder<
-    DeactivateMessageTemplateCommandInput,
-    DeactivateMessageTemplateCommandOutput,
+    DeleteAIGuardrailCommandInput,
+    DeleteAIGuardrailCommandOutput,
     QConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -96,21 +89,21 @@ export class DeactivateMessageTemplateCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("WisdomService", "DeactivateMessageTemplate", {})
-  .n("QConnectClient", "DeactivateMessageTemplateCommand")
+  .s("WisdomService", "DeleteAIGuardrail", {})
+  .n("QConnectClient", "DeleteAIGuardrailCommand")
   .f(void 0, void 0)
-  .ser(se_DeactivateMessageTemplateCommand)
-  .de(de_DeactivateMessageTemplateCommand)
+  .ser(se_DeleteAIGuardrailCommand)
+  .de(de_DeleteAIGuardrailCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeactivateMessageTemplateRequest;
-      output: DeactivateMessageTemplateResponse;
+      input: DeleteAIGuardrailRequest;
+      output: {};
     };
     sdk: {
-      input: DeactivateMessageTemplateCommandInput;
-      output: DeactivateMessageTemplateCommandOutput;
+      input: DeleteAIGuardrailCommandInput;
+      output: DeleteAIGuardrailCommandOutput;
     };
   };
 }

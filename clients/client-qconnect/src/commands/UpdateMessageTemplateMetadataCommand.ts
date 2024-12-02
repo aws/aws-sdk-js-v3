@@ -10,7 +10,7 @@ import {
   UpdateMessageTemplateMetadataRequestFilterSensitiveLog,
   UpdateMessageTemplateMetadataResponse,
   UpdateMessageTemplateMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_UpdateMessageTemplateMetadataCommand,
   se_UpdateMessageTemplateMetadataCommand,

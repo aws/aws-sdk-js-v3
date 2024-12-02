@@ -2,6 +2,8 @@
 export * from "./Interfaces";
 export * from "./ListAIAgentVersionsPaginator";
 export * from "./ListAIAgentsPaginator";
+export * from "./ListAIGuardrailVersionsPaginator";
+export * from "./ListAIGuardrailsPaginator";
 export * from "./ListAIPromptVersionsPaginator";
 export * from "./ListAIPromptsPaginator";
 export * from "./ListAssistantAssociationsPaginator";
@@ -12,6 +14,7 @@ export * from "./ListImportJobsPaginator";
 export * from "./ListKnowledgeBasesPaginator";
 export * from "./ListMessageTemplateVersionsPaginator";
 export * from "./ListMessageTemplatesPaginator";
+export * from "./ListMessagesPaginator";
 export * from "./ListQuickResponsesPaginator";
 export * from "./QueryAssistantPaginator";
 export * from "./SearchContentPaginator";
