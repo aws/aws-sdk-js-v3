@@ -282,6 +282,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //     AutoMinorVersionUpgrade: true || false,
  * //     MonitoringInterval: Number("int"),
  * //     MonitoringRoleArn: "STRING_VALUE",
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),

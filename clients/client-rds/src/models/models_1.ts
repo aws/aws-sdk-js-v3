@@ -8,6 +8,7 @@ import {
   AutomationMode,
   AvailabilityZone,
   BlueGreenDeployment,
+  DatabaseInsightsMode,
   DBCluster,
   DBClusterAutomatedBackup,
   DBClusterBacktrack,
@@ -44,6 +45,26 @@ import {
 } from "./models_0";
 
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
+
+/**
+ * <p>The option group isn't in the <i>available</i> state.</p>
+ * @public
+ */
+export class InvalidOptionGroupStateFault extends __BaseException {
+  readonly name: "InvalidOptionGroupStateFault" = "InvalidOptionGroupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOptionGroupStateFault, __BaseException>) {
+    super({
+      name: "InvalidOptionGroupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOptionGroupStateFault.prototype);
+  }
+}
 
 /**
  * @public
@@ -7744,7 +7765,7 @@ export interface ModifyDBClusterMessage {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using RDS Data API</a> in the
    *             <i>Amazon Aurora User Guide</i>.</p>
    *          <note>
-   *             <p>This parameter applies only to Aurora Serverless v1 DB clusters. To enable or disable the HTTP endpoint for an Aurora PostgreSQL
+   *             <p>This parameter applies only to Aurora Serverless v1 DB clusters. To enable or disable the HTTP endpoint for an Aurora
    *         Serverless v2 or provisioned DB cluster, use the <code>EnableHttpEndpoint</code> and <code>DisableHttpEndpoint</code> operations.</p>
    *          </note>
    *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
@@ -7872,6 +7893,12 @@ export interface ModifyDBClusterMessage {
    * @public
    */
   MonitoringRoleArn?: string | undefined;
+
+  /**
+   * <p>Specifies the mode of Database Insights to enable for the cluster.</p>
+   * @public
+   */
+  DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
 
   /**
    * <p>Specifies whether to turn on Performance Insights for the DB cluster.</p>
@@ -9050,6 +9077,12 @@ export interface ModifyDBInstanceMessage {
    * @public
    */
   EnableIAMDatabaseAuthentication?: boolean | undefined;
+
+  /**
+   * <p>Specifies the mode of Database Insights to enable for the instance.</p>
+   * @public
+   */
+  DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
 
   /**
    * <p>Specifies whether to enable Performance Insights for the DB instance.</p>
@@ -13643,6 +13676,12 @@ export interface RestoreDBInstanceFromS3Message {
    * @public
    */
   S3IngestionRoleArn: string | undefined;
+
+  /**
+   * <p>Specifies the mode of Database Insights to enable for the instance.</p>
+   * @public
+   */
+  DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
 
   /**
    * <p>Specifies whether to enable Performance Insights for the DB instance.</p>

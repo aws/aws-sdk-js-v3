@@ -4387,6 +4387,20 @@ export type ClusterScalabilityType = (typeof ClusterScalabilityType)[keyof typeo
  * @public
  * @enum
  */
+export const DatabaseInsightsMode = {
+  ADVANCED: "advanced",
+  STANDARD: "standard",
+} as const;
+
+/**
+ * @public
+ */
+export type DatabaseInsightsMode = (typeof DatabaseInsightsMode)[keyof typeof DatabaseInsightsMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ReplicaMode = {
   MOUNTED: "mounted",
   OPEN_READ_ONLY: "open-read-only",
@@ -5242,6 +5256,12 @@ export interface CreateDBClusterMessage {
    * @public
    */
   MonitoringRoleArn?: string | undefined;
+
+  /**
+   * <p>Specifies the mode of Database Insights to enable for the cluster.</p>
+   * @public
+   */
+  DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
 
   /**
    * <p>Specifies whether to turn on Performance Insights for the DB cluster.</p>
@@ -6410,6 +6430,12 @@ export interface DBCluster {
    * @public
    */
   MonitoringRoleArn?: string | undefined;
+
+  /**
+   * <p>The mode of Database Insights that is enabled for the cluster.</p>
+   * @public
+   */
+  DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
 
   /**
    * <p>Indicates whether Performance Insights is enabled for the DB cluster.</p>
@@ -8387,6 +8413,12 @@ export interface CreateDBInstanceMessage {
   EnableIAMDatabaseAuthentication?: boolean | undefined;
 
   /**
+   * <p>Specifies the mode of Database Insights to enable for the instance.</p>
+   * @public
+   */
+  DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
+
+  /**
    * <p>Specifies whether to enable Performance Insights for the DB instance. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
@@ -9611,6 +9643,12 @@ export interface DBInstance {
   IAMDatabaseAuthenticationEnabled?: boolean | undefined;
 
   /**
+   * <p>The mode of Database Insights that is enabled for the instance.</p>
+   * @public
+   */
+  DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
+
+  /**
    * <p>Indicates whether Performance Insights is enabled for the DB instance.</p>
    * @public
    */
@@ -10366,6 +10404,12 @@ export interface CreateDBInstanceReadReplicaMessage {
    * @public
    */
   EnableIAMDatabaseAuthentication?: boolean | undefined;
+
+  /**
+   * <p>Specifies the mode of Database Insights.</p>
+   * @public
+   */
+  DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
 
   /**
    * <p>Specifies whether to enable Performance Insights for the read replica.</p>
@@ -14676,26 +14720,6 @@ export interface DeleteOptionGroupMessage {
    * @public
    */
   OptionGroupName: string | undefined;
-}
-
-/**
- * <p>The option group isn't in the <i>available</i> state.</p>
- * @public
- */
-export class InvalidOptionGroupStateFault extends __BaseException {
-  readonly name: "InvalidOptionGroupStateFault" = "InvalidOptionGroupStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidOptionGroupStateFault, __BaseException>) {
-    super({
-      name: "InvalidOptionGroupStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidOptionGroupStateFault.prototype);
-  }
 }
 
 /**

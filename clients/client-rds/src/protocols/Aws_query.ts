@@ -764,7 +764,6 @@ import {
   InvalidExportTaskStateFault,
   InvalidGlobalClusterStateFault,
   InvalidIntegrationStateFault,
-  InvalidOptionGroupStateFault,
   InvalidSubnet,
   InvalidVPCNetworkStateFault,
   IPRange,
@@ -959,6 +958,7 @@ import {
   InvalidDBClusterCapacityFault,
   InvalidExportOnlyFault,
   InvalidExportSourceStateFault,
+  InvalidOptionGroupStateFault,
   InvalidResourceStateFault,
   InvalidRestoreFault,
   InvalidS3BucketFault,
@@ -10557,6 +10557,9 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
   if (input[_MRA] != null) {
     entries[_MRA] = input[_MRA];
   }
+  if (input[_DIM] != null) {
+    entries[_DIM] = input[_DIM];
+  }
   if (input[_EPI] != null) {
     entries[_EPI] = input[_EPI];
   }
@@ -10822,6 +10825,9 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
   if (input[_EIAMDA] != null) {
     entries[_EIAMDA] = input[_EIAMDA];
   }
+  if (input[_DIM] != null) {
+    entries[_DIM] = input[_DIM];
+  }
   if (input[_EPI] != null) {
     entries[_EPI] = input[_EPI];
   }
@@ -10980,6 +10986,9 @@ const se_CreateDBInstanceReadReplicaMessage = (
   }
   if (input[_EIAMDA] != null) {
     entries[_EIAMDA] = input[_EIAMDA];
+  }
+  if (input[_DIM] != null) {
+    entries[_DIM] = input[_DIM];
   }
   if (input[_EPI] != null) {
     entries[_EPI] = input[_EPI];
@@ -13720,6 +13729,9 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
   if (input[_MRA] != null) {
     entries[_MRA] = input[_MRA];
   }
+  if (input[_DIM] != null) {
+    entries[_DIM] = input[_DIM];
+  }
   if (input[_EPI] != null) {
     entries[_EPI] = input[_EPI];
   }
@@ -13969,6 +13981,9 @@ const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __S
   }
   if (input[_EIAMDA] != null) {
     entries[_EIAMDA] = input[_EIAMDA];
+  }
+  if (input[_DIM] != null) {
+    entries[_DIM] = input[_DIM];
   }
   if (input[_EPI] != null) {
     entries[_EPI] = input[_EPI];
@@ -15730,6 +15745,9 @@ const se_RestoreDBInstanceFromS3Message = (input: RestoreDBInstanceFromS3Message
   if (input[_SIRA] != null) {
     entries[_SIRA] = input[_SIRA];
   }
+  if (input[_DIM] != null) {
+    entries[_DIM] = input[_DIM];
+  }
   if (input[_EPI] != null) {
     entries[_EPI] = input[_EPI];
   }
@@ -17462,6 +17480,9 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output[_MRA] != null) {
     contents[_MRA] = __expectString(output[_MRA]);
   }
+  if (output[_DIM] != null) {
+    contents[_DIM] = __expectString(output[_DIM]);
+  }
   if (output[_PIE] != null) {
     contents[_PIE] = __parseBoolean(output[_PIE]);
   }
@@ -18672,6 +18693,9 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   }
   if (output[_IAMDAE] != null) {
     contents[_IAMDAE] = __parseBoolean(output[_IAMDAE]);
+  }
+  if (output[_DIM] != null) {
+    contents[_DIM] = __expectString(output[_DIM]);
   }
   if (output[_PIE] != null) {
     contents[_PIE] = __parseBoolean(output[_PIE]);
@@ -25350,6 +25374,7 @@ const _DI = "DeleteIntegration";
 const _DIAMRN = "DomainIAMRoleName";
 const _DIFSBN = "DatabaseInstallationFilesS3BucketName";
 const _DIFSP = "DatabaseInstallationFilesS3Prefix";
+const _DIM = "DatabaseInsightsMode";
 const _DIP = "DbInstancePort";
 const _DIe = "DescribeIntegrations";
 const _DIn = "DnsIps";
