@@ -537,7 +537,9 @@ await ddbDocClient.send(
     TableName,
     Item: {
       id: "123",
-      content: undefined // This value will be automatically omitted
+      array: [1, undefined], // The undefined value will be automatically omitted.
+      map: { key: undefined }, // The "key" will be automatically omitted.
+      set: new Set([1, undefined]), // The undefined value will be automatically omitted.
     };
   })
 );
