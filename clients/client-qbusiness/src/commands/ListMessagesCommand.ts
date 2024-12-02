@@ -54,11 +54,13 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * //       attachments: [ // AttachmentsOutput
  * //         { // AttachmentOutput
  * //           name: "STRING_VALUE",
- * //           status: "FAILED" || "SUCCEEDED",
+ * //           status: "FAILED" || "SUCCESS",
  * //           error: { // ErrorDetail
  * //             errorMessage: "STRING_VALUE",
  * //             errorCode: "InternalError" || "InvalidRequest" || "ResourceInactive" || "ResourceNotFound",
  * //           },
+ * //           attachmentId: "STRING_VALUE",
+ * //           conversationId: "STRING_VALUE",
  * //         },
  * //       ],
  * //       sourceAttribution: [ // SourceAttributions
@@ -75,6 +77,8 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * //               snippetExcerpt: { // SnippetExcerpt
  * //                 text: "STRING_VALUE",
  * //               },
+ * //               mediaId: "STRING_VALUE",
+ * //               mediaMimeType: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },

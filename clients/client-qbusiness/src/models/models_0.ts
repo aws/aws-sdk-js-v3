@@ -649,7 +649,7 @@ export interface Application {
 
 /**
  * <p>You are trying to perform an action that conflicts with the current status of your
- *             resource. Fix any inconsistences with your resources and try again.</p>
+ *             resource. Fix any inconsistencies with your resources and try again.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -1201,18 +1201,18 @@ export const ErrorCode = {
 export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
- * <p>Provides information about a data source sync error.</p>
+ * <p>Provides information about a Amazon Q Business request error.</p>
  * @public
  */
 export interface ErrorDetail {
   /**
-   * <p>The message explaining the data source sync error.</p>
+   * <p>The message explaining the Amazon Q Business request error.</p>
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>The code associated with the data source sync error.</p>
+   * <p>The code associated with the Amazon Q Business request error.</p>
    * @public
    */
   errorCode?: ErrorCode | undefined;
@@ -1383,18 +1383,18 @@ export interface CreateIndexRequest {
   displayName: string | undefined;
 
   /**
+   * <p>A description for the Amazon Q Business index.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
    * <p>The index type that's suitable for your needs. For more information on what's included
    *             in each type of index, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers">Amazon Q Business
    *             tiers</a>.</p>
    * @public
    */
   type?: IndexType | undefined;
-
-  /**
-   * <p>A description for the Amazon Q Business index.</p>
-   * @public
-   */
-  description?: string | undefined;
 
   /**
    * <p>A list of key-value pairs that identify or categorize the index. You can also use tags
@@ -1830,6 +1830,45 @@ export interface DocumentEnrichmentConfiguration {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ImageExtractionStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageExtractionStatus = (typeof ImageExtractionStatus)[keyof typeof ImageExtractionStatus];
+
+/**
+ * <p>The configuration for extracting semantic meaning from images in documents. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html">Extracting semantic meaning from images and visuals</a>.</p>
+ * @public
+ */
+export interface ImageExtractionConfiguration {
+  /**
+   * <p>Specify whether to extract semantic meaning from images and visuals from documents.</p>
+   * @public
+   */
+  imageExtractionStatus: ImageExtractionStatus | undefined;
+}
+
+/**
+ * <p>The configuration for extracting information from media in documents.</p>
+ * @public
+ */
+export interface MediaExtractionConfiguration {
+  /**
+   * <p>The configuration for extracting semantic meaning from images in documents.
+   *             For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html">Extracting semantic meaning from images and visuals</a>. </p>
+   * @public
+   */
+  imageExtractionConfiguration?: ImageExtractionConfiguration | undefined;
+}
+
+/**
  * <p>Provides configuration information needed to connect to an Amazon VPC (Virtual
  *             Private Cloud).</p>
  * @public
@@ -1968,6 +2007,12 @@ export interface CreateDataSourceRequest {
    * @public
    */
   documentEnrichmentConfiguration?: DocumentEnrichmentConfiguration | undefined;
+
+  /**
+   * <p>The configuration for extracting information from media in documents during ingestion.</p>
+   * @public
+   */
+  mediaExtractionConfiguration?: MediaExtractionConfiguration | undefined;
 }
 
 /**
@@ -2166,6 +2211,13 @@ export interface GetDataSourceResponse {
    * @public
    */
   documentEnrichmentConfiguration?: DocumentEnrichmentConfiguration | undefined;
+
+  /**
+   * <p>The configuration for extracting information from media in documents for the data source.
+   *         </p>
+   * @public
+   */
+  mediaExtractionConfiguration?: MediaExtractionConfiguration | undefined;
 }
 
 /**
@@ -2330,6 +2382,12 @@ export interface UpdateDataSourceRequest {
    * @public
    */
   documentEnrichmentConfiguration?: DocumentEnrichmentConfiguration | undefined;
+
+  /**
+   * <p>The configuration for extracting information from media in documents for your data source.</p>
+   * @public
+   */
+  mediaExtractionConfiguration?: MediaExtractionConfiguration | undefined;
 }
 
 /**
@@ -2505,12 +2563,6 @@ export interface GetIndexResponse {
   displayName?: string | undefined;
 
   /**
-   * <p>The type of index attached to your Amazon Q Business application.</p>
-   * @public
-   */
-  type?: IndexType | undefined;
-
-  /**
    * <p> The Amazon Resource Name (ARN) of the Amazon Q Business index. </p>
    * @public
    */
@@ -2523,6 +2575,12 @@ export interface GetIndexResponse {
    * @public
    */
   status?: IndexStatus | undefined;
+
+  /**
+   * <p>The type of index attached to your Amazon Q Business application.</p>
+   * @public
+   */
+  type?: IndexType | undefined;
 
   /**
    * <p>The description for the Amazon Q Business index.</p>
@@ -4000,6 +4058,48 @@ export interface UpdateApplicationRequest {
 export interface UpdateApplicationResponse {}
 
 /**
+ * @public
+ * @enum
+ */
+export const BrowserExtension = {
+  CHROME: "CHROME",
+  FIREFOX: "FIREFOX",
+} as const;
+
+/**
+ * @public
+ */
+export type BrowserExtension = (typeof BrowserExtension)[keyof typeof BrowserExtension];
+
+/**
+ * <p>The container for browser extension configuration for an Amazon Q Business web experience.</p>
+ * @public
+ */
+export interface BrowserExtensionConfiguration {
+  /**
+   * <p>Specify the browser extensions allowed for your Amazon Q web experience.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CHROME</code> — Enables the extension for Chromium-based browsers (Google Chrome, Microsoft
+   *                     Edge, Opera, etc.).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FIREFOX</code> — Enables the extension for Mozilla Firefox.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CHROME</code> and <code>FIREFOX</code> — Enable the extension for Chromium-based browsers
+   *                     and Mozilla Firefox.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  enabledBrowserExtensions: BrowserExtension[] | undefined;
+}
+
+/**
  * <p>Information about the OIDC-compliant identity provider (IdP) used to authenticate end
  *             users of an Amazon Q Business web experience.</p>
  * @public
@@ -4194,6 +4294,19 @@ export interface CreateWebExperienceRequest {
    * @public
    */
   identityProviderConfiguration?: IdentityProviderConfiguration | undefined;
+
+  /**
+   * <p>The browser extension configuration for an Amazon Q Business web experience.</p>
+   *          <note>
+   *             <p>
+   *                 For Amazon Q Business application using external OIDC-compliant identity providers (IdPs).
+   *                 The IdP administrator must add the browser extension sign-in redirect URLs to the IdP application.
+   *                 For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/browser-extensions.html">Configure external OIDC identity provider for your browser extensions.</a>.
+   *             </p>
+   *          </note>
+   * @public
+   */
+  browserExtensionConfiguration?: BrowserExtensionConfiguration | undefined;
 }
 
 /**
@@ -4462,6 +4575,12 @@ export interface GetWebExperienceResponse {
    * @public
    */
   error?: ErrorDetail | undefined;
+
+  /**
+   * <p>The browser extension configuration for an Amazon Q Business web experience.</p>
+   * @public
+   */
+  browserExtensionConfiguration?: BrowserExtensionConfiguration | undefined;
 }
 
 /**
@@ -4631,6 +4750,19 @@ export interface UpdateWebExperienceRequest {
    * @public
    */
   origins?: string[] | undefined;
+
+  /**
+   * <p>The browser extension configuration for an Amazon Q Business web experience.</p>
+   *          <note>
+   *             <p>
+   *                 For Amazon Q Business application using external OIDC-compliant identity providers (IdPs).
+   *                 The IdP administrator must add the browser extension sign-in redirect URLs to the IdP application.
+   *                 For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/browser-extensions.html">Configure external OIDC identity provider for your browser extensions.</a>.
+   *             </p>
+   *          </note>
+   * @public
+   */
+  browserExtensionConfiguration?: BrowserExtensionConfiguration | undefined;
 }
 
 /**
@@ -4669,21 +4801,163 @@ export interface AppliedCreatorModeConfiguration {
 }
 
 /**
- * <p>A file directly uploaded into a web experience chat.</p>
+ * <p>The source reference for an existing attachment in an existing conversation.</p>
+ * @public
+ */
+export interface ConversationSource {
+  /**
+   * <p>The unique identifier of the Amazon Q Business conversation.</p>
+   * @public
+   */
+  conversationId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Amazon Q Business attachment.</p>
+   * @public
+   */
+  attachmentId: string | undefined;
+}
+
+/**
+ * <p>The source reference for an existing attachment.</p>
+ * @public
+ */
+export type CopyFromSource = CopyFromSource.ConversationMember | CopyFromSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CopyFromSource {
+  /**
+   * <p>A reference to an attachment in an existing conversation.</p>
+   * @public
+   */
+  export interface ConversationMember {
+    conversation: ConversationSource;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    conversation?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    conversation: (value: ConversationSource) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: CopyFromSource, visitor: Visitor<T>): T => {
+    if (value.conversation !== undefined) return visitor.conversation(value.conversation);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AttachmentStatus = {
+  FAILED: "FAILED",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type AttachmentStatus = (typeof AttachmentStatus)[keyof typeof AttachmentStatus];
+
+/**
+ * <p>An attachment in an Amazon Q Business conversation.</p>
+ * @public
+ */
+export interface Attachment {
+  /**
+   * <p>The identifier of the Amazon Q Business attachment.</p>
+   * @public
+   */
+  attachmentId?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q Business conversation the attachment is associated with.</p>
+   * @public
+   */
+  conversationId?: string | undefined;
+
+  /**
+   * <p>Filename of the Amazon Q Business attachment.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A CopyFromSource containing a reference to the original source of the Amazon Q Business attachment.</p>
+   * @public
+   */
+  copyFrom?: CopyFromSource | undefined;
+
+  /**
+   * <p>Filetype of the Amazon Q Business attachment.</p>
+   * @public
+   */
+  fileType?: string | undefined;
+
+  /**
+   * <p>Size in bytes of the Amazon Q Business attachment.</p>
+   * @public
+   */
+  fileSize?: number | undefined;
+
+  /**
+   * <p>MD5 checksum of the Amazon Q Business attachment contents.</p>
+   * @public
+   */
+  md5chksum?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp when the Amazon Q Business attachment was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>AttachmentStatus of the Amazon Q Business attachment.</p>
+   * @public
+   */
+  status?: AttachmentStatus | undefined;
+
+  /**
+   * <p>ErrorDetail providing information about a Amazon Q Business attachment error. </p>
+   * @public
+   */
+  error?: ErrorDetail | undefined;
+}
+
+/**
+ * <p>This is either a file directly uploaded into a web experience chat or a reference to an existing attachment that is part of a web experience chat.</p>
  * @public
  */
 export interface AttachmentInput {
   /**
-   * <p>The name of the file.</p>
+   * <p>The contents of the attachment.</p>
    * @public
    */
-  name: string | undefined;
+  data?: Uint8Array | undefined;
 
   /**
-   * <p>The data contained within the uploaded file.</p>
+   * <p>The filename of the attachment.</p>
    * @public
    */
-  data: Uint8Array | undefined;
+  name?: string | undefined;
+
+  /**
+   * <p>A reference to an existing attachment.</p>
+   * @public
+   */
+  copyFrom?: CopyFromSource | undefined;
 }
 
 /**
@@ -4693,25 +4967,11 @@ export interface AttachmentInput {
  */
 export interface AttachmentInputEvent {
   /**
-   * <p>A file directly uploaded into a web experience chat.</p>
+   * <p>This is either a file directly uploaded into a web experience chat or a reference to an existing attachment that is part of a web experience chat.</p>
    * @public
    */
   attachment?: AttachmentInput | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AttachmentStatus = {
-  FAILED: "FAILED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type AttachmentStatus = (typeof AttachmentStatus)[keyof typeof AttachmentStatus];
 
 /**
  * <p>The details of a file uploaded during chat.</p>
@@ -4735,6 +4995,18 @@ export interface AttachmentOutput {
    * @public
    */
   error?: ErrorDetail | undefined;
+
+  /**
+   * <p>The unique identifier of the Amazon Q Business attachment.</p>
+   * @public
+   */
+  attachmentId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Amazon Q Business conversation.</p>
+   * @public
+   */
+  conversationId?: string | undefined;
 }
 
 /**
@@ -5024,6 +5296,12 @@ export interface Document {
    * @public
    */
   documentEnrichmentConfiguration?: DocumentEnrichmentConfiguration | undefined;
+
+  /**
+   * <p>The configuration for extracting information from media in the document.</p>
+   * @public
+   */
+  mediaExtractionConfiguration?: MediaExtractionConfiguration | undefined;
 }
 
 /**
@@ -5279,6 +5557,18 @@ export interface TextSegment {
    * @public
    */
   snippetExcerpt?: SnippetExcerpt | undefined;
+
+  /**
+   * <p>The identifier of the media object associated with the text segment in the source attribution.</p>
+   * @public
+   */
+  mediaId?: string | undefined;
+
+  /**
+   * <p>The MIME type (image/png) of the media object associated with the text segment in the source attribution.</p>
+   * @public
+   */
+  mediaMimeType?: string | undefined;
 }
 
 /**
@@ -5524,6 +5814,28 @@ export interface ChatOutput {
    * @public
    */
   outputStream?: AsyncIterable<ChatOutputStream> | undefined;
+}
+
+/**
+ * <p>An external resource that you configured with your application is returning errors and
+ *             preventing this operation from succeeding. Fix those errors and try again.
+ *         </p>
+ * @public
+ */
+export class ExternalResourceException extends __BaseException {
+  readonly name: "ExternalResourceException" = "ExternalResourceException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExternalResourceException, __BaseException>) {
+    super({
+      name: "ExternalResourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExternalResourceException.prototype);
+  }
 }
 
 /**
@@ -6353,6 +6665,72 @@ export interface GetGroupResponse {
 /**
  * @public
  */
+export interface GetMediaRequest {
+  /**
+   * <p>The identifier of the Amazon Q Business which contains the media object.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q Business conversation.</p>
+   * @public
+   */
+  conversationId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q Business message.</p>
+   * @public
+   */
+  messageId: string | undefined;
+
+  /**
+   * <p>The identifier of the media object. You can find this in the <code>sourceAttributions</code> returned by the <code>Chat</code>, <code>ChatSync</code>, and <code>ListMessages</code> API responses.</p>
+   * @public
+   */
+  mediaId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMediaResponse {
+  /**
+   * <p>The base64-encoded bytes of the media object.</p>
+   * @public
+   */
+  mediaBytes?: Uint8Array | undefined;
+
+  /**
+   * <p>The MIME type of the media object (image/png).</p>
+   * @public
+   */
+  mediaMimeType?: string | undefined;
+}
+
+/**
+ * <p>The requested media object is too large to be returned.</p>
+ * @public
+ */
+export class MediaTooLargeException extends __BaseException {
+  readonly name: "MediaTooLargeException" = "MediaTooLargeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MediaTooLargeException, __BaseException>) {
+    super({
+      name: "MediaTooLargeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MediaTooLargeException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
 export interface GetUserRequest {
   /**
    * <p>The identifier of the application connected to the user.</p>
@@ -6376,6 +6754,60 @@ export interface GetUserResponse {
    * @public
    */
   userAliases?: UserAlias[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAttachmentsRequest {
+  /**
+   * <p>The unique identifier for the Amazon Q Business application.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Amazon Q Business web experience conversation.</p>
+   * @public
+   */
+  conversationId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the user involved in the Amazon Q Business web experience conversation.</p>
+   * @public
+   */
+  userId?: string | undefined;
+
+  /**
+   * <p>If the number of attachments returned exceeds <code>maxResults</code>, Amazon Q Business
+   *             returns a next token as a pagination token to retrieve the next set of attachments.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of attachements to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAttachmentsResponse {
+  /**
+   * <p>An array of information on one or more attachments.</p>
+   * @public
+   */
+  attachments?: Attachment[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you can use in a
+   *             later request to list the next set of attachments.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6657,7 +7089,7 @@ export interface ListMessagesRequest {
   userId?: string | undefined;
 
   /**
-   * <p>If the number of retrievers returned exceeds <code>maxResults</code>, Amazon Q Business
+   * <p>If the number of messages returned exceeds <code>maxResults</code>, Amazon Q Business
    *             returns a next token as a pagination token to retrieve the next set of messages.</p>
    * @public
    */
@@ -7389,29 +7821,38 @@ export interface ChatSyncInput {
   attributeFilter?: AttributeFilter | undefined;
 
   /**
-   * <p>The chat modes available to an Amazon Q Business end user.</p>
+   * <p>The <code>chatMode</code> parameter determines the chat modes available to
+   *             Amazon Q Business users:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>RETRIEVAL_MODE</code> - The default chat mode for an
-   *                     Amazon Q Business application. When this mode is enabled, Amazon Q Business generates
-   *                     responses only from data sources connected to an Amazon Q Business
-   *                     application.</p>
+   *                   <code>RETRIEVAL_MODE</code> - If you choose this mode, Amazon Q generates responses solely from the data sources connected and
+   *                     indexed by the application. If an answer is not found in the data sources or
+   *                     there are no data sources available, Amazon Q will respond with a
+   *                         "<i>No Answer Found</i>" message, unless LLM knowledge has
+   *                     been enabled. In that case, Amazon Q will generate a response from
+   *                     the LLM knowledge</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CREATOR_MODE</code> - By selecting this mode, users can choose to
-   *                     generate responses only from the LLM knowledge, without consulting connected
-   *                     data sources, for a chat request.</p>
+   *                   <code>CREATOR_MODE</code> - By selecting this mode, you can choose to generate
+   *                     responses only from the LLM knowledge. You can also attach files and have Amazon Q
+   *                     generate a response based on the data in those files.
+   *                     If the attached files do not contain an answer for the query, Amazon Q
+   *                     will automatically fall back to generating a response from the LLM knowledge.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>PLUGIN_MODE</code> - By selecting this mode, users can choose to
-   *                     use plugins in chat.</p>
+   *                     use plugins in chat to get their responses.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>If none of the modes are selected, Amazon Q will only respond using the information
+   *                 from the attached files.</p>
+   *          </note>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a>, <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins.html">Plugins</a>,
-   *             and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
+   *             and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Response sources</a>.</p>
    * @public
    */
   chatMode?: ChatMode | undefined;

@@ -78,11 +78,13 @@ import {
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "../commands/GetGroupCommand";
 import { GetIndexCommandInput, GetIndexCommandOutput } from "../commands/GetIndexCommand";
+import { GetMediaCommandInput, GetMediaCommandOutput } from "../commands/GetMediaCommand";
 import { GetPluginCommandInput, GetPluginCommandOutput } from "../commands/GetPluginCommand";
 import { GetRetrieverCommandInput, GetRetrieverCommandOutput } from "../commands/GetRetrieverCommand";
 import { GetUserCommandInput, GetUserCommandOutput } from "../commands/GetUserCommand";
 import { GetWebExperienceCommandInput, GetWebExperienceCommandOutput } from "../commands/GetWebExperienceCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
+import { ListAttachmentsCommandInput, ListAttachmentsCommandOutput } from "../commands/ListAttachmentsCommand";
 import { ListConversationsCommandInput, ListConversationsCommandOutput } from "../commands/ListConversationsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
 import {
@@ -139,6 +141,7 @@ import {
   ActionReviewPayloadFieldAllowedValue,
   APISchema,
   Application,
+  Attachment,
   AttachmentInput,
   AttachmentInputEvent,
   AttachmentsConfiguration,
@@ -149,6 +152,8 @@ import {
   AutoSubscriptionConfiguration,
   BasicAuthConfiguration,
   BlockedPhrasesConfigurationUpdate,
+  BrowserExtension,
+  BrowserExtensionConfiguration,
   ChatInputStream,
   ChatModeConfiguration,
   ChatOutputStream,
@@ -157,6 +162,8 @@ import {
   ContentBlockerRule,
   ContentRetrievalRule,
   Conversation,
+  ConversationSource,
+  CopyFromSource,
   CreatorModeConfiguration,
   CustomPluginConfiguration,
   DataSource,
@@ -177,17 +184,21 @@ import {
   EligibleDataSource,
   EncryptionConfiguration,
   EndOfInputEvent,
+  ExternalResourceException,
   FailedAttachmentEvent,
   GroupMembers,
   GroupStatusDetail,
   HookConfiguration,
   IdentityProviderConfiguration,
+  ImageExtractionConfiguration,
   Index,
   IndexCapacityConfiguration,
   InlineDocumentEnrichmentConfiguration,
   InternalServerException,
   KendraIndexConfiguration,
   LicenseNotFoundException,
+  MediaExtractionConfiguration,
+  MediaTooLargeException,
   MemberGroup,
   MemberUser,
   Message,
@@ -403,6 +414,7 @@ export const se_CreateDataSourceCommand = async (
       description: [],
       displayName: [],
       documentEnrichmentConfiguration: (_) => se_DocumentEnrichmentConfiguration(_, context),
+      mediaExtractionConfiguration: (_) => _json(_),
       roleArn: [],
       syncSchedule: [],
       tags: (_) => _json(_),
@@ -539,6 +551,7 @@ export const se_CreateWebExperienceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      browserExtensionConfiguration: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       identityProviderConfiguration: (_) => _json(_),
       origins: (_) => _json(_),
@@ -823,6 +836,25 @@ export const se_GetIndexCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetMediaCommand
+ */
+export const se_GetMediaCommand = async (
+  input: GetMediaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/conversations/{conversationId}/messages/{messageId}/media/{mediaId}");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("conversationId", () => input.conversationId!, "{conversationId}", false);
+  b.p("messageId", () => input.messageId!, "{messageId}", false);
+  b.p("mediaId", () => input.mediaId!, "{mediaId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetPluginCommand
  */
 export const se_GetPluginCommand = async (
@@ -901,6 +933,28 @@ export const se_ListApplicationsCommand = async (
   const headers: any = {};
   b.bp("/applications");
   const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAttachmentsCommand
+ */
+export const se_ListAttachmentsCommand = async (
+  input: ListAttachmentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/attachments");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  const query: any = map({
+    [_cI]: [, input[_cI]!],
+    [_uI]: [, input[_uI]!],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
@@ -1357,6 +1411,7 @@ export const se_UpdateDataSourceCommand = async (
       description: [],
       displayName: [],
       documentEnrichmentConfiguration: (_) => se_DocumentEnrichmentConfiguration(_, context),
+      mediaExtractionConfiguration: (_) => _json(_),
       roleArn: [],
       syncSchedule: [],
       vpcConfiguration: (_) => _json(_),
@@ -1490,6 +1545,7 @@ export const se_UpdateWebExperienceCommand = async (
   body = JSON.stringify(
     take(input, {
       authenticationConfiguration: (_) => _json(_),
+      browserExtensionConfiguration: (_) => _json(_),
       identityProviderConfiguration: (_) => _json(_),
       origins: (_) => _json(_),
       roleArn: [],
@@ -1999,6 +2055,7 @@ export const de_GetDataSourceCommand = async (
     documentEnrichmentConfiguration: (_) => de_DocumentEnrichmentConfiguration(_, context),
     error: _json,
     indexId: __expectString,
+    mediaExtractionConfiguration: _json,
     roleArn: __expectString,
     status: __expectString,
     syncSchedule: __expectString,
@@ -2060,6 +2117,28 @@ export const de_GetIndexCommand = async (
     status: __expectString,
     type: __expectString,
     updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetMediaCommand
+ */
+export const de_GetMediaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMediaCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    mediaBytes: context.base64Decoder,
+    mediaMimeType: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2165,6 +2244,7 @@ export const de_GetWebExperienceCommand = async (
   const doc = take(data, {
     applicationId: __expectString,
     authenticationConfiguration: (_) => _json(__expectUnion(_)),
+    browserExtensionConfiguration: _json,
     createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     defaultEndpoint: __expectString,
     error: _json,
@@ -2200,6 +2280,28 @@ export const de_ListApplicationsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     applications: (_) => de_Applications(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAttachmentsCommand
+ */
+export const de_ListAttachmentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAttachmentsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    attachments: (_) => de_AttachmentList(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -2726,9 +2828,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ServiceQuotaExceededException":
     case "com.amazonaws.qbusiness#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ExternalResourceException":
+    case "com.amazonaws.qbusiness#ExternalResourceException":
+      throw await de_ExternalResourceExceptionRes(parsedOutput, context);
     case "LicenseNotFoundException":
     case "com.amazonaws.qbusiness#LicenseNotFoundException":
       throw await de_LicenseNotFoundExceptionRes(parsedOutput, context);
+    case "MediaTooLargeException":
+    case "com.amazonaws.qbusiness#MediaTooLargeException":
+      throw await de_MediaTooLargeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2780,6 +2888,26 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
 };
 
 /**
+ * deserializeAws_restJson1ExternalResourceExceptionRes
+ */
+const de_ExternalResourceExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ExternalResourceException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ExternalResourceException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1InternalServerExceptionRes
  */
 const de_InternalServerExceptionRes = async (
@@ -2813,6 +2941,26 @@ const de_LicenseNotFoundExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new LicenseNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1MediaTooLargeExceptionRes
+ */
+const de_MediaTooLargeExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MediaTooLargeException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new MediaTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -3120,6 +3268,7 @@ const se_ActionPayloadFieldValue = (input: __DocumentType, context: __SerdeConte
  */
 const se_AttachmentInput = (input: AttachmentInput, context: __SerdeContext): any => {
   return take(input, {
+    copyFrom: _json,
     data: context.base64Encoder,
     name: [],
   });
@@ -3190,6 +3339,10 @@ const se_AttributeFilters = (input: AttributeFilter[], context: __SerdeContext):
 
 // se_BlockedPhrasesConfigurationUpdate omitted.
 
+// se_BrowserExtensionConfiguration omitted.
+
+// se_BrowserExtensionList omitted.
+
 // se_ChatModeConfiguration omitted.
 
 // se_ClientIdsForOIDC omitted.
@@ -3208,6 +3361,10 @@ const se_ConfigurationEvent = (input: ConfigurationEvent, context: __SerdeContex
 // se_ContentBlockerRule omitted.
 
 // se_ContentRetrievalRule omitted.
+
+// se_ConversationSource omitted.
+
+// se_CopyFromSource omitted.
 
 // se_CreatorModeConfiguration omitted.
 
@@ -3239,6 +3396,7 @@ const se_Document = (input: Document, context: __SerdeContext): any => {
     contentType: [],
     documentEnrichmentConfiguration: (_) => se_DocumentEnrichmentConfiguration(_, context),
     id: [],
+    mediaExtractionConfiguration: _json,
     title: [],
   });
 };
@@ -3368,6 +3526,8 @@ const se_HookConfiguration = (input: HookConfiguration, context: __SerdeContext)
 
 // se_IdentityProviderConfiguration omitted.
 
+// se_ImageExtractionConfiguration omitted.
+
 // se_IndexCapacityConfiguration omitted.
 
 /**
@@ -3399,6 +3559,8 @@ const se_InlineDocumentEnrichmentConfigurations = (
 };
 
 // se_KendraIndexConfiguration omitted.
+
+// se_MediaExtractionConfiguration omitted.
 
 // se_MemberGroup omitted.
 
@@ -3664,6 +3826,36 @@ const de_Applications = (output: any, context: __SerdeContext): Application[] =>
 
 // de_AppliedCreatorModeConfiguration omitted.
 
+/**
+ * deserializeAws_restJson1Attachment
+ */
+const de_Attachment = (output: any, context: __SerdeContext): Attachment => {
+  return take(output, {
+    attachmentId: __expectString,
+    conversationId: __expectString,
+    copyFrom: (_: any) => _json(__expectUnion(_)),
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    error: _json,
+    fileSize: __expectInt32,
+    fileType: __expectString,
+    md5chksum: __expectString,
+    name: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AttachmentList
+ */
+const de_AttachmentList = (output: any, context: __SerdeContext): Attachment[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Attachment(entry, context);
+    });
+  return retVal;
+};
+
 // de_AttachmentOutput omitted.
 
 // de_AttachmentsOutput omitted.
@@ -3679,6 +3871,10 @@ const de_Applications = (output: any, context: __SerdeContext): Application[] =>
 // de_BlockedPhrases omitted.
 
 // de_BlockedPhrasesConfiguration omitted.
+
+// de_BrowserExtensionConfiguration omitted.
+
+// de_BrowserExtensionList omitted.
 
 // de_ClientIdsForOIDC omitted.
 
@@ -3708,6 +3904,10 @@ const de_Conversations = (output: any, context: __SerdeContext): Conversation[] 
     });
   return retVal;
 };
+
+// de_ConversationSource omitted.
+
+// de_CopyFromSource omitted.
 
 // de_CustomPluginConfiguration omitted.
 
@@ -3925,6 +4125,8 @@ const de_HookConfiguration = (output: any, context: __SerdeContext): HookConfigu
 
 // de_IdentityProviderConfiguration omitted.
 
+// de_ImageExtractionConfiguration omitted.
+
 /**
  * deserializeAws_restJson1Index
  */
@@ -3984,6 +4186,8 @@ const de_InlineDocumentEnrichmentConfigurations = (
 };
 
 // de_KendraIndexConfiguration omitted.
+
+// de_MediaExtractionConfiguration omitted.
 
 /**
  * deserializeAws_restJson1Message

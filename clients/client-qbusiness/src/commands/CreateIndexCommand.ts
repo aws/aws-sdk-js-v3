@@ -46,8 +46,8 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * const input = { // CreateIndexRequest
  *   applicationId: "STRING_VALUE", // required
  *   displayName: "STRING_VALUE", // required
- *   type: "ENTERPRISE" || "STARTER",
  *   description: "STRING_VALUE",
+ *   type: "ENTERPRISE" || "STARTER",
  *   tags: [ // Tags
  *     { // Tag
  *       key: "STRING_VALUE", // required
@@ -80,7 +80,7 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>You are trying to perform an action that conflicts with the current status of your
- *             resource. Fix any inconsistences with your resources and try again.</p>
+ *             resource. Fix any inconsistencies with your resources and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait

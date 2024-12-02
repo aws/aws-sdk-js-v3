@@ -106,11 +106,13 @@ import {
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
+import { GetMediaCommandInput, GetMediaCommandOutput } from "./commands/GetMediaCommand";
 import { GetPluginCommandInput, GetPluginCommandOutput } from "./commands/GetPluginCommand";
 import { GetRetrieverCommandInput, GetRetrieverCommandOutput } from "./commands/GetRetrieverCommand";
 import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import { GetWebExperienceCommandInput, GetWebExperienceCommandOutput } from "./commands/GetWebExperienceCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import { ListAttachmentsCommandInput, ListAttachmentsCommandOutput } from "./commands/ListAttachmentsCommand";
 import { ListConversationsCommandInput, ListConversationsCommandOutput } from "./commands/ListConversationsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import {
@@ -195,11 +197,13 @@ export type ServiceInputTypes =
   | GetDataSourceCommandInput
   | GetGroupCommandInput
   | GetIndexCommandInput
+  | GetMediaCommandInput
   | GetPluginCommandInput
   | GetRetrieverCommandInput
   | GetUserCommandInput
   | GetWebExperienceCommandInput
   | ListApplicationsCommandInput
+  | ListAttachmentsCommandInput
   | ListConversationsCommandInput
   | ListDataSourceSyncJobsCommandInput
   | ListDataSourcesCommandInput
@@ -256,11 +260,13 @@ export type ServiceOutputTypes =
   | GetDataSourceCommandOutput
   | GetGroupCommandOutput
   | GetIndexCommandOutput
+  | GetMediaCommandOutput
   | GetPluginCommandOutput
   | GetRetrieverCommandOutput
   | GetUserCommandOutput
   | GetWebExperienceCommandOutput
   | ListApplicationsCommandOutput
+  | ListAttachmentsCommandOutput
   | ListConversationsCommandOutput
   | ListDataSourceSyncJobsCommandOutput
   | ListDataSourcesCommandOutput

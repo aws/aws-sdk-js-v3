@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteGroupRequest, DeleteGroupResponse } from "../models/models_0";
-import { de_DeleteGroupCommand, se_DeleteGroupCommand } from "../protocols/Aws_restJson1";
+import { GetMediaRequest, GetMediaResponse } from "../models/models_0";
+import { de_GetMediaCommand, se_GetMediaCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
 /**
@@ -17,61 +17,62 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteGroupCommand}.
+ * The input for {@link GetMediaCommand}.
  */
-export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
+export interface GetMediaCommandInput extends GetMediaRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteGroupCommand}.
+ * The output of {@link GetMediaCommand}.
  */
-export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __MetadataBearer {}
+export interface GetMediaCommandOutput extends GetMediaResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a group so that all users and sub groups that belong to the group can no
- *             longer access documents only available to that group. For example, after deleting the
- *             group "Summer Interns", all interns who belonged to that group no longer see intern-only
- *             documents in their chat results. </p>
- *          <p>If you want to delete, update, or replace users or sub groups of a group, you need to
- *             use the <code>PutGroup</code> operation. For example, if a user in the group
- *             "Engineering" leaves the engineering team and another user takes their place, you
- *             provide an updated list of users or sub groups that belong to the "Engineering" group
- *             when calling <code>PutGroup</code>.</p>
+ * <p>Returns the image bytes corresponding to a media object. If you have implemented your own application with the Chat and ChatSync APIs, and
+ *             have enabled content extraction from visual data in Amazon Q Business, you use the GetMedia API operation to download
+ *             the images so you can show them in your UI with responses.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html">Extracting semantic meaning from images and visuals</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QBusinessClient, DeleteGroupCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
- * // const { QBusinessClient, DeleteGroupCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * import { QBusinessClient, GetMediaCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
+ * // const { QBusinessClient, GetMediaCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
  * const client = new QBusinessClient(config);
- * const input = { // DeleteGroupRequest
+ * const input = { // GetMediaRequest
  *   applicationId: "STRING_VALUE", // required
- *   indexId: "STRING_VALUE", // required
- *   groupName: "STRING_VALUE", // required
- *   dataSourceId: "STRING_VALUE",
+ *   conversationId: "STRING_VALUE", // required
+ *   messageId: "STRING_VALUE", // required
+ *   mediaId: "STRING_VALUE", // required
  * };
- * const command = new DeleteGroupCommand(input);
+ * const command = new GetMediaCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetMediaResponse
+ * //   mediaBytes: new Uint8Array(),
+ * //   mediaMimeType: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param DeleteGroupCommandInput - {@link DeleteGroupCommandInput}
- * @returns {@link DeleteGroupCommandOutput}
- * @see {@link DeleteGroupCommandInput} for command's `input` shape.
- * @see {@link DeleteGroupCommandOutput} for command's `response` shape.
+ * @param GetMediaCommandInput - {@link GetMediaCommandInput}
+ * @returns {@link GetMediaCommandOutput}
+ * @see {@link GetMediaCommandInput} for command's `input` shape.
+ * @see {@link GetMediaCommandOutput} for command's `response` shape.
  * @see {@link QBusinessClientResolvedConfig | config} for QBusinessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p> You don't have access to perform this action. Make sure you have the required
  *             permission policies and user accounts and try again.</p>
  *
- * @throws {@link ConflictException} (client fault)
- *  <p>You are trying to perform an action that conflicts with the current status of your
- *             resource. Fix any inconsistencies with your resources and try again.</p>
- *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * @throws {@link LicenseNotFoundException} (client fault)
+ *  <p>You don't have permissions to perform the action because your license is inactive. Ask
+ *             your admin to activate your license and try again after your licence is active.</p>
+ *
+ * @throws {@link MediaTooLargeException} (client fault)
+ *  <p>The requested media object is too large to be returned.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
@@ -90,10 +91,10 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  *
  * @public
  */
-export class DeleteGroupCommand extends $Command
+export class GetMediaCommand extends $Command
   .classBuilder<
-    DeleteGroupCommandInput,
-    DeleteGroupCommandOutput,
+    GetMediaCommandInput,
+    GetMediaCommandOutput,
     QBusinessClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -105,21 +106,21 @@ export class DeleteGroupCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ExpertQ", "DeleteGroup", {})
-  .n("QBusinessClient", "DeleteGroupCommand")
+  .s("ExpertQ", "GetMedia", {})
+  .n("QBusinessClient", "GetMediaCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteGroupCommand)
-  .de(de_DeleteGroupCommand)
+  .ser(se_GetMediaCommand)
+  .de(de_GetMediaCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteGroupRequest;
-      output: {};
+      input: GetMediaRequest;
+      output: GetMediaResponse;
     };
     sdk: {
-      input: DeleteGroupCommandInput;
-      output: DeleteGroupCommandOutput;
+      input: GetMediaCommandInput;
+      output: GetMediaCommandOutput;
     };
   };
 }

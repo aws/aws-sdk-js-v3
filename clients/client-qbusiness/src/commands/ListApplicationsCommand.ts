@@ -29,6 +29,12 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
 
 /**
  * <p>Lists Amazon Q Business applications.</p>
+ *          <note>
+ *             <p>Amazon Q Business applications may securely transmit data for processing across
+ *                     Amazon Web Services Regions within your geography. For more information, see
+ *                     <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html">Cross region
+ *                     inference in Amazon Q Business</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

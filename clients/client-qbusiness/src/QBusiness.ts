@@ -96,6 +96,7 @@ import {
 } from "./commands/GetDataSourceCommand";
 import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import { GetIndexCommand, GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
+import { GetMediaCommand, GetMediaCommandInput, GetMediaCommandOutput } from "./commands/GetMediaCommand";
 import { GetPluginCommand, GetPluginCommandInput, GetPluginCommandOutput } from "./commands/GetPluginCommand";
 import {
   GetRetrieverCommand,
@@ -113,6 +114,11 @@ import {
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
+import {
+  ListAttachmentsCommand,
+  ListAttachmentsCommandInput,
+  ListAttachmentsCommandOutput,
+} from "./commands/ListAttachmentsCommand";
 import {
   ListConversationsCommand,
   ListConversationsCommandInput,
@@ -235,11 +241,13 @@ const commands = {
   GetDataSourceCommand,
   GetGroupCommand,
   GetIndexCommand,
+  GetMediaCommand,
   GetPluginCommand,
   GetRetrieverCommand,
   GetUserCommand,
   GetWebExperienceCommand,
   ListApplicationsCommand,
+  ListAttachmentsCommand,
   ListConversationsCommand,
   ListDataSourcesCommand,
   ListDataSourceSyncJobsCommand,
@@ -626,6 +634,17 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link GetMediaCommand}
+   */
+  getMedia(args: GetMediaCommandInput, options?: __HttpHandlerOptions): Promise<GetMediaCommandOutput>;
+  getMedia(args: GetMediaCommandInput, cb: (err: any, data?: GetMediaCommandOutput) => void): void;
+  getMedia(
+    args: GetMediaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMediaCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetPluginCommand}
    */
   getPlugin(args: GetPluginCommandInput, options?: __HttpHandlerOptions): Promise<GetPluginCommandOutput>;
@@ -691,6 +710,20 @@ export interface QBusiness {
     args: ListApplicationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAttachmentsCommand}
+   */
+  listAttachments(
+    args: ListAttachmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAttachmentsCommandOutput>;
+  listAttachments(args: ListAttachmentsCommandInput, cb: (err: any, data?: ListAttachmentsCommandOutput) => void): void;
+  listAttachments(
+    args: ListAttachmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAttachmentsCommandOutput) => void
   ): void;
 
   /**

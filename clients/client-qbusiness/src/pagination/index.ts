@@ -2,6 +2,7 @@ export * from "./GetChatControlsConfigurationPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListApplicationsPaginator";
+export * from "./ListAttachmentsPaginator";
 export * from "./ListConversationsPaginator";
 export * from "./ListDataSourceSyncJobsPaginator";
 export * from "./ListDataSourcesPaginator";

@@ -140,8 +140,14 @@ export interface ChatCommandOutput extends ChatOutput, __MetadataBearer {}
  *     },
  *     attachmentEvent: { // AttachmentInputEvent
  *       attachment: { // AttachmentInput
- *         name: "STRING_VALUE", // required
- *         data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")         // required
+ *         data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *         name: "STRING_VALUE",
+ *         copyFrom: { // CopyFromSource Union: only one key present
+ *           conversation: { // ConversationSource
+ *             conversationId: "STRING_VALUE", // required
+ *             attachmentId: "STRING_VALUE", // required
+ *           },
+ *         },
  *       },
  *     },
  *     actionExecutionEvent: { // ActionExecutionEvent
@@ -189,6 +195,8 @@ export interface ChatCommandOutput extends ChatOutput, __MetadataBearer {}
  * //               snippetExcerpt: { // SnippetExcerpt
  * //                 text: "STRING_VALUE",
  * //               },
+ * //               mediaId: "STRING_VALUE",
+ * //               mediaMimeType: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -227,11 +235,13 @@ export interface ChatCommandOutput extends ChatOutput, __MetadataBearer {}
  * //       systemMessageId: "STRING_VALUE",
  * //       attachment: { // AttachmentOutput
  * //         name: "STRING_VALUE",
- * //         status: "FAILED" || "SUCCEEDED",
+ * //         status: "FAILED" || "SUCCESS",
  * //         error: { // ErrorDetail
  * //           errorMessage: "STRING_VALUE",
  * //           errorCode: "InternalError" || "InvalidRequest" || "ResourceInactive" || "ResourceNotFound",
  * //         },
+ * //         attachmentId: "STRING_VALUE",
+ * //         conversationId: "STRING_VALUE",
  * //       },
  * //     },
  * //     authChallengeRequestEvent: { // AuthChallengeRequestEvent
@@ -254,7 +264,12 @@ export interface ChatCommandOutput extends ChatOutput, __MetadataBearer {}
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>You are trying to perform an action that conflicts with the current status of your
- *             resource. Fix any inconsistences with your resources and try again.</p>
+ *             resource. Fix any inconsistencies with your resources and try again.</p>
+ *
+ * @throws {@link ExternalResourceException} (client fault)
+ *  <p>An external resource that you configured with your application is returning errors and
+ *             preventing this operation from succeeding. Fix those errors and try again.
+ *         </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait

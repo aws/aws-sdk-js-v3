@@ -78,6 +78,11 @@ export interface GetWebExperienceCommandOutput extends GetWebExperienceResponse,
  * //     errorMessage: "STRING_VALUE",
  * //     errorCode: "InternalError" || "InvalidRequest" || "ResourceInactive" || "ResourceNotFound",
  * //   },
+ * //   browserExtensionConfiguration: { // BrowserExtensionConfiguration
+ * //     enabledBrowserExtensions: [ // BrowserExtensionList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```

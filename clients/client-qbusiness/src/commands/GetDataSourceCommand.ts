@@ -133,6 +133,11 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
  * //       roleArn: "STRING_VALUE",
  * //     },
  * //   },
+ * //   mediaExtractionConfiguration: { // MediaExtractionConfiguration
+ * //     imageExtractionConfiguration: { // ImageExtractionConfiguration
+ * //       imageExtractionStatus: "ENABLED" || "DISABLED", // required
+ * //     },
+ * //   },
  * // };
  *
  * ```

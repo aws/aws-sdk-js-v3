@@ -117,6 +117,11 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *       roleArn: "STRING_VALUE",
  *     },
  *   },
+ *   mediaExtractionConfiguration: { // MediaExtractionConfiguration
+ *     imageExtractionConfiguration: { // ImageExtractionConfiguration
+ *       imageExtractionStatus: "ENABLED" || "DISABLED", // required
+ *     },
+ *   },
  * };
  * const command = new UpdateDataSourceCommand(input);
  * const response = await client.send(command);
@@ -136,7 +141,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>You are trying to perform an action that conflicts with the current status of your
- *             resource. Fix any inconsistences with your resources and try again.</p>
+ *             resource. Fix any inconsistencies with your resources and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait

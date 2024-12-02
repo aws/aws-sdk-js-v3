@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { BatchDeleteDocumentRequest, BatchDeleteDocumentResponse } from "../models/models_0";
-import { de_BatchDeleteDocumentCommand, se_BatchDeleteDocumentCommand } from "../protocols/Aws_restJson1";
+import { ListAttachmentsRequest, ListAttachmentsResponse } from "../models/models_0";
+import { de_ListAttachmentsCommand, se_ListAttachmentsCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
 /**
@@ -17,71 +17,78 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link BatchDeleteDocumentCommand}.
+ * The input for {@link ListAttachmentsCommand}.
  */
-export interface BatchDeleteDocumentCommandInput extends BatchDeleteDocumentRequest {}
+export interface ListAttachmentsCommandInput extends ListAttachmentsRequest {}
 /**
  * @public
  *
- * The output of {@link BatchDeleteDocumentCommand}.
+ * The output of {@link ListAttachmentsCommand}.
  */
-export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentResponse, __MetadataBearer {}
+export interface ListAttachmentsCommandOutput extends ListAttachmentsResponse, __MetadataBearer {}
 
 /**
- * <p>Asynchronously deletes one or more documents added using the
- *                 <code>BatchPutDocument</code> API from an Amazon Q Business index.</p>
- *          <p>You can see the progress of the deletion, and any error messages related to the
- *             process, by using CloudWatch.</p>
+ * <p>Gets a list of attachments associated with an Amazon Q Business web experience or a list of attachements associated with a specific Amazon Q Business conversation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QBusinessClient, BatchDeleteDocumentCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
- * // const { QBusinessClient, BatchDeleteDocumentCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * import { QBusinessClient, ListAttachmentsCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
+ * // const { QBusinessClient, ListAttachmentsCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
  * const client = new QBusinessClient(config);
- * const input = { // BatchDeleteDocumentRequest
+ * const input = { // ListAttachmentsRequest
  *   applicationId: "STRING_VALUE", // required
- *   indexId: "STRING_VALUE", // required
- *   documents: [ // DeleteDocuments // required
- *     { // DeleteDocument
- *       documentId: "STRING_VALUE", // required
- *     },
- *   ],
- *   dataSourceSyncId: "STRING_VALUE",
+ *   conversationId: "STRING_VALUE",
+ *   userId: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  * };
- * const command = new BatchDeleteDocumentCommand(input);
+ * const command = new ListAttachmentsCommand(input);
  * const response = await client.send(command);
- * // { // BatchDeleteDocumentResponse
- * //   failedDocuments: [ // FailedDocuments
- * //     { // FailedDocument
- * //       id: "STRING_VALUE",
+ * // { // ListAttachmentsResponse
+ * //   attachments: [ // AttachmentList
+ * //     { // Attachment
+ * //       attachmentId: "STRING_VALUE",
+ * //       conversationId: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       copyFrom: { // CopyFromSource Union: only one key present
+ * //         conversation: { // ConversationSource
+ * //           conversationId: "STRING_VALUE", // required
+ * //           attachmentId: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       fileType: "STRING_VALUE",
+ * //       fileSize: Number("int"),
+ * //       md5chksum: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       status: "FAILED" || "SUCCESS",
  * //       error: { // ErrorDetail
  * //         errorMessage: "STRING_VALUE",
  * //         errorCode: "InternalError" || "InvalidRequest" || "ResourceInactive" || "ResourceNotFound",
  * //       },
- * //       dataSourceId: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param BatchDeleteDocumentCommandInput - {@link BatchDeleteDocumentCommandInput}
- * @returns {@link BatchDeleteDocumentCommandOutput}
- * @see {@link BatchDeleteDocumentCommandInput} for command's `input` shape.
- * @see {@link BatchDeleteDocumentCommandOutput} for command's `response` shape.
+ * @param ListAttachmentsCommandInput - {@link ListAttachmentsCommandInput}
+ * @returns {@link ListAttachmentsCommandOutput}
+ * @see {@link ListAttachmentsCommandInput} for command's `input` shape.
+ * @see {@link ListAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link QBusinessClientResolvedConfig | config} for QBusinessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p> You don't have access to perform this action. Make sure you have the required
  *             permission policies and user accounts and try again.</p>
  *
- * @throws {@link ConflictException} (client fault)
- *  <p>You are trying to perform an action that conflicts with the current status of your
- *             resource. Fix any inconsistencies with your resources and try again.</p>
- *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * @throws {@link LicenseNotFoundException} (client fault)
+ *  <p>You don't have permissions to perform the action because your license is inactive. Ask
+ *             your admin to activate your license and try again after your licence is active.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
@@ -100,10 +107,10 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  *
  * @public
  */
-export class BatchDeleteDocumentCommand extends $Command
+export class ListAttachmentsCommand extends $Command
   .classBuilder<
-    BatchDeleteDocumentCommandInput,
-    BatchDeleteDocumentCommandOutput,
+    ListAttachmentsCommandInput,
+    ListAttachmentsCommandOutput,
     QBusinessClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -115,21 +122,21 @@ export class BatchDeleteDocumentCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ExpertQ", "BatchDeleteDocument", {})
-  .n("QBusinessClient", "BatchDeleteDocumentCommand")
+  .s("ExpertQ", "ListAttachments", {})
+  .n("QBusinessClient", "ListAttachmentsCommand")
   .f(void 0, void 0)
-  .ser(se_BatchDeleteDocumentCommand)
-  .de(de_BatchDeleteDocumentCommand)
+  .ser(se_ListAttachmentsCommand)
+  .de(de_ListAttachmentsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: BatchDeleteDocumentRequest;
-      output: BatchDeleteDocumentResponse;
+      input: ListAttachmentsRequest;
+      output: ListAttachmentsResponse;
     };
     sdk: {
-      input: BatchDeleteDocumentCommandInput;
-      output: BatchDeleteDocumentCommandOutput;
+      input: ListAttachmentsCommandInput;
+      output: ListAttachmentsCommandOutput;
     };
   };
 }
