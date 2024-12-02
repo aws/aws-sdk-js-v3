@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EnableFastSnapshotRestoresRequest, EnableFastSnapshotRestoresResult } from "../models/models_5";
+import { EnableFastSnapshotRestoresRequest, EnableFastSnapshotRestoresResult } from "../models/models_6";
 import { de_EnableFastSnapshotRestoresCommand, se_EnableFastSnapshotRestoresCommand } from "../protocols/Aws_ec2";
 
 /**

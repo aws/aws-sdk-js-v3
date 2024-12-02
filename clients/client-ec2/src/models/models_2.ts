@@ -40,23 +40,241 @@ import {
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipCidr,
-  CoipPool,
   ConnectionTrackingSpecificationRequest,
-  ConnectivityType,
   GatewayType,
   InstanceIpv6Address,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
-  NatGatewayState,
   OperatorRequest,
   OperatorResponse,
+  PrefixListState,
   PrivateIpAddressSpecification,
-  ProvisionedBandwidth,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Describes a managed prefix list.</p>
+ * @public
+ */
+export interface ManagedPrefixList {
+  /**
+   * <p>The ID of the prefix list.</p>
+   * @public
+   */
+  PrefixListId?: string | undefined;
+
+  /**
+   * <p>The IP address version.</p>
+   * @public
+   */
+  AddressFamily?: string | undefined;
+
+  /**
+   * <p>The current state of the prefix list.</p>
+   * @public
+   */
+  State?: PrefixListState | undefined;
+
+  /**
+   * <p>The state message.</p>
+   * @public
+   */
+  StateMessage?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the prefix list.</p>
+   * @public
+   */
+  PrefixListArn?: string | undefined;
+
+  /**
+   * <p>The name of the prefix list.</p>
+   * @public
+   */
+  PrefixListName?: string | undefined;
+
+  /**
+   * <p>The maximum number of entries for the prefix list.</p>
+   * @public
+   */
+  MaxEntries?: number | undefined;
+
+  /**
+   * <p>The version of the prefix list.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>The tags for the prefix list.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The ID of the owner of the prefix list.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateManagedPrefixListResult {
+  /**
+   * <p>Information about the prefix list.</p>
+   * @public
+   */
+  PrefixList?: ManagedPrefixList | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectivityType = {
+  PRIVATE: "private",
+  PUBLIC: "public",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectivityType = (typeof ConnectivityType)[keyof typeof ConnectivityType];
+
+/**
+ * @public
+ */
+export interface CreateNatGatewayRequest {
+  /**
+   * <p>[Public NAT gateways only] The allocation ID of an Elastic IP address to associate
+   *           with the NAT gateway. You cannot specify an Elastic IP address with a private NAT gateway.
+   *           If the Elastic IP address is associated with another resource, you must first disassociate it.</p>
+   * @public
+   */
+  AllocationId?: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * 			request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   *          <p>Constraint: Maximum 64 ASCII characters.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the subnet in which to create the NAT gateway.</p>
+   * @public
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>The tags to assign to the NAT gateway.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Indicates whether the NAT gateway supports public or private connectivity.
+   *           The default is public connectivity.</p>
+   * @public
+   */
+  ConnectivityType?: ConnectivityType | undefined;
+
+  /**
+   * <p>The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.</p>
+   * @public
+   */
+  PrivateIpAddress?: string | undefined;
+
+  /**
+   * <p>Secondary EIP allocation IDs. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html">Create a NAT gateway</a>
+   *             in the <i>Amazon VPC User Guide</i>.</p>
+   * @public
+   */
+  SecondaryAllocationIds?: string[] | undefined;
+
+  /**
+   * <p>Secondary private IPv4 addresses. For more information about secondary addresses, see
+   *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html">Create a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</p>
+   * @public
+   */
+  SecondaryPrivateIpAddresses?: string[] | undefined;
+
+  /**
+   * <p>[Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway.
+   *             For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html">Create a NAT gateway</a>
+   *             in the <i>Amazon VPC User Guide</i>.</p>
+   * @public
+   */
+  SecondaryPrivateIpAddressCount?: number | undefined;
+}
+
+/**
+ * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-gateways">documented limits</a>,
+ *           contact Amazon Web Services Support.</p>
+ * @public
+ */
+export interface ProvisionedBandwidth {
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  ProvisionTime?: Date | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  Provisioned?: string | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  RequestTime?: Date | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  Requested?: string | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  Status?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NatGatewayState = {
+  AVAILABLE: "available",
+  DELETED: "deleted",
+  DELETING: "deleting",
+  FAILED: "failed",
+  PENDING: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type NatGatewayState = (typeof NatGatewayState)[keyof typeof NatGatewayState];
 
 /**
  * <p>Describes a NAT gateway.</p>
@@ -1540,7 +1758,7 @@ export interface NetworkInterface {
   Ipv6Address?: string | undefined;
 
   /**
-   * <p>The entity that manages the network interface.</p>
+   * <p>The service provider that manages the network interface.</p>
    * @public
    */
   Operator?: OperatorResponse | undefined;
@@ -5941,18 +6159,22 @@ export type VerifiedAccessEndpointAttachmentType =
   (typeof VerifiedAccessEndpointAttachmentType)[keyof typeof VerifiedAccessEndpointAttachmentType];
 
 /**
+ * <p>Describes the port range for a Verified Access endpoint.</p>
  * @public
- * @enum
  */
-export const VerifiedAccessEndpointType = {
-  load_balancer: "load-balancer",
-  network_interface: "network-interface",
-} as const;
+export interface CreateVerifiedAccessEndpointPortRange {
+  /**
+   * <p>The start of the port range.</p>
+   * @public
+   */
+  FromPort?: number | undefined;
 
-/**
- * @public
- */
-export type VerifiedAccessEndpointType = (typeof VerifiedAccessEndpointType)[keyof typeof VerifiedAccessEndpointType];
+  /**
+   * <p>The end of the port range.</p>
+   * @public
+   */
+  ToPort?: number | undefined;
+}
 
 /**
  * @public
@@ -5961,6 +6183,7 @@ export type VerifiedAccessEndpointType = (typeof VerifiedAccessEndpointType)[key
 export const VerifiedAccessEndpointProtocol = {
   http: "http",
   https: "https",
+  tcp: "tcp",
 } as const;
 
 /**
@@ -5968,6 +6191,52 @@ export const VerifiedAccessEndpointProtocol = {
  */
 export type VerifiedAccessEndpointProtocol =
   (typeof VerifiedAccessEndpointProtocol)[keyof typeof VerifiedAccessEndpointProtocol];
+
+/**
+ * <p>Describes the CIDR options for a Verified Access endpoint.</p>
+ * @public
+ */
+export interface CreateVerifiedAccessEndpointCidrOptions {
+  /**
+   * <p>The protocol.</p>
+   * @public
+   */
+  Protocol?: VerifiedAccessEndpointProtocol | undefined;
+
+  /**
+   * <p>The IDs of the subnets.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The CIDR.</p>
+   * @public
+   */
+  Cidr?: string | undefined;
+
+  /**
+   * <p>The port ranges.</p>
+   * @public
+   */
+  PortRanges?: CreateVerifiedAccessEndpointPortRange[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VerifiedAccessEndpointType = {
+  cidr: "cidr",
+  load_balancer: "load-balancer",
+  network_interface: "network-interface",
+  rds: "rds",
+} as const;
+
+/**
+ * @public
+ */
+export type VerifiedAccessEndpointType = (typeof VerifiedAccessEndpointType)[keyof typeof VerifiedAccessEndpointType];
 
 /**
  * <p>Describes the load balancer options when creating an Amazon Web Services Verified Access endpoint using the
@@ -5998,6 +6267,12 @@ export interface CreateVerifiedAccessEndpointLoadBalancerOptions {
    * @public
    */
   SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The port ranges.</p>
+   * @public
+   */
+  PortRanges?: CreateVerifiedAccessEndpointPortRange[] | undefined;
 }
 
 /**
@@ -6023,6 +6298,60 @@ export interface CreateVerifiedAccessEndpointEniOptions {
    * @public
    */
   Port?: number | undefined;
+
+  /**
+   * <p>The port ranges.</p>
+   * @public
+   */
+  PortRanges?: CreateVerifiedAccessEndpointPortRange[] | undefined;
+}
+
+/**
+ * <p>Describes the RDS options for a Verified Access endpoint.</p>
+ * @public
+ */
+export interface CreateVerifiedAccessEndpointRdsOptions {
+  /**
+   * <p>The protocol.</p>
+   * @public
+   */
+  Protocol?: VerifiedAccessEndpointProtocol | undefined;
+
+  /**
+   * <p>The port.</p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>The ARN of the RDS instance.</p>
+   * @public
+   */
+  RdsDbInstanceArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the DB cluster.</p>
+   * @public
+   */
+  RdsDbClusterArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the RDS proxy.</p>
+   * @public
+   */
+  RdsDbProxyArn?: string | undefined;
+
+  /**
+   * <p>The RDS endpoint.</p>
+   * @public
+   */
+  RdsEndpoint?: string | undefined;
+
+  /**
+   * <p>The IDs of the subnets.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
 }
 
 /**
@@ -6079,20 +6408,20 @@ export interface CreateVerifiedAccessEndpointRequest {
    *          application.</p>
    * @public
    */
-  DomainCertificateArn: string | undefined;
+  DomainCertificateArn?: string | undefined;
 
   /**
    * <p>The DNS name for users to reach your application.</p>
    * @public
    */
-  ApplicationDomain: string | undefined;
+  ApplicationDomain?: string | undefined;
 
   /**
    * <p>A custom identifier that is prepended to the DNS name that is generated for the
    *          endpoint.</p>
    * @public
    */
-  EndpointDomainPrefix: string | undefined;
+  EndpointDomainPrefix?: string | undefined;
 
   /**
    * <p>The IDs of the security groups to associate with the Verified Access endpoint. Required if <code>AttachmentType</code> is set to <code>vpc</code>.</p>
@@ -6152,6 +6481,66 @@ export interface CreateVerifiedAccessEndpointRequest {
    * @public
    */
   SseSpecification?: VerifiedAccessSseSpecificationRequest | undefined;
+
+  /**
+   * <p>The RDS details. This parameter is required if the endpoint type is <code>rds</code>.</p>
+   * @public
+   */
+  RdsOptions?: CreateVerifiedAccessEndpointRdsOptions | undefined;
+
+  /**
+   * <p>The CIDR options. This parameter is required if the endpoint type is <code>cidr</code>.</p>
+   * @public
+   */
+  CidrOptions?: CreateVerifiedAccessEndpointCidrOptions | undefined;
+}
+
+/**
+ * <p>Describes a port range.</p>
+ * @public
+ */
+export interface VerifiedAccessEndpointPortRange {
+  /**
+   * <p>The start of the port range.</p>
+   * @public
+   */
+  FromPort?: number | undefined;
+
+  /**
+   * <p>The end of the port range.</p>
+   * @public
+   */
+  ToPort?: number | undefined;
+}
+
+/**
+ * <p>Describes the CIDR options for a Verified Access endpoint.</p>
+ * @public
+ */
+export interface VerifiedAccessEndpointCidrOptions {
+  /**
+   * <p>The CIDR.</p>
+   * @public
+   */
+  Cidr?: string | undefined;
+
+  /**
+   * <p>The port ranges.</p>
+   * @public
+   */
+  PortRanges?: VerifiedAccessEndpointPortRange[] | undefined;
+
+  /**
+   * <p>The protocol.</p>
+   * @public
+   */
+  Protocol?: VerifiedAccessEndpointProtocol | undefined;
+
+  /**
+   * <p>The IDs of the subnets.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
 }
 
 /**
@@ -6183,6 +6572,12 @@ export interface VerifiedAccessEndpointLoadBalancerOptions {
    * @public
    */
   SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The port ranges.</p>
+   * @public
+   */
+  PortRanges?: VerifiedAccessEndpointPortRange[] | undefined;
 }
 
 /**
@@ -6207,6 +6602,60 @@ export interface VerifiedAccessEndpointEniOptions {
    * @public
    */
   Port?: number | undefined;
+
+  /**
+   * <p>The port ranges.</p>
+   * @public
+   */
+  PortRanges?: VerifiedAccessEndpointPortRange[] | undefined;
+}
+
+/**
+ * <p>Describes the RDS options for a Verified Access endpoint.</p>
+ * @public
+ */
+export interface VerifiedAccessEndpointRdsOptions {
+  /**
+   * <p>The protocol.</p>
+   * @public
+   */
+  Protocol?: VerifiedAccessEndpointProtocol | undefined;
+
+  /**
+   * <p>The port.</p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>The ARN of the RDS instance.</p>
+   * @public
+   */
+  RdsDbInstanceArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the DB cluster.</p>
+   * @public
+   */
+  RdsDbClusterArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the RDS proxy.</p>
+   * @public
+   */
+  RdsDbProxyArn?: string | undefined;
+
+  /**
+   * <p>The RDS endpoint.</p>
+   * @public
+   */
+  RdsEndpoint?: string | undefined;
+
+  /**
+   * <p>The IDs of the subnets.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
 }
 
 /**
@@ -6369,6 +6818,18 @@ export interface VerifiedAccessEndpoint {
    * @public
    */
   SseSpecification?: VerifiedAccessSseSpecificationResponse | undefined;
+
+  /**
+   * <p>The options for an RDS endpoint.</p>
+   * @public
+   */
+  RdsOptions?: VerifiedAccessEndpointRdsOptions | undefined;
+
+  /**
+   * <p>The options for a CIDR endpoint.</p>
+   * @public
+   */
+  CidrOptions?: VerifiedAccessEndpointCidrOptions | undefined;
 }
 
 /**
@@ -6545,6 +7006,12 @@ export interface CreateVerifiedAccessInstanceRequest {
    * @public
    */
   FIPSEnabled?: boolean | undefined;
+
+  /**
+   * <p>The custom subdomain.</p>
+   * @public
+   */
+  CidrEndpointsCustomSubDomain?: string | undefined;
 }
 
 /**
@@ -6577,6 +7044,60 @@ export interface CreateVerifiedAccessTrustProviderDeviceOptions {
    * @public
    */
   PublicSigningKeyUrl?: string | undefined;
+}
+
+/**
+ * <p>Describes the OpenID Connect (OIDC) options.</p>
+ * @public
+ */
+export interface CreateVerifiedAccessNativeApplicationOidcOptions {
+  /**
+   * <p>The public signing key endpoint.</p>
+   * @public
+   */
+  PublicSigningKeyEndpoint?: string | undefined;
+
+  /**
+   * <p>The OIDC issuer identifier of the IdP.</p>
+   * @public
+   */
+  Issuer?: string | undefined;
+
+  /**
+   * <p>The authorization endpoint of the IdP.</p>
+   * @public
+   */
+  AuthorizationEndpoint?: string | undefined;
+
+  /**
+   * <p>The token endpoint of the IdP.</p>
+   * @public
+   */
+  TokenEndpoint?: string | undefined;
+
+  /**
+   * <p>The user info endpoint of the IdP.</p>
+   * @public
+   */
+  UserInfoEndpoint?: string | undefined;
+
+  /**
+   * <p>The OAuth 2.0 client identifier.</p>
+   * @public
+   */
+  ClientId?: string | undefined;
+
+  /**
+   * <p>The OAuth 2.0 client secret.</p>
+   * @public
+   */
+  ClientSecret?: string | undefined;
+
+  /**
+   * <p>The set of user claims to be requested from the IdP.</p>
+   * @public
+   */
+  Scope?: string | undefined;
 }
 
 /**
@@ -6704,6 +7225,12 @@ export interface CreateVerifiedAccessTrustProviderRequest {
    * @public
    */
   SseSpecification?: VerifiedAccessSseSpecificationRequest | undefined;
+
+  /**
+   * <p>The OpenID Connect (OIDC) options.</p>
+   * @public
+   */
+  NativeApplicationOidcOptions?: CreateVerifiedAccessNativeApplicationOidcOptions | undefined;
 }
 
 /**
@@ -7001,7 +7528,7 @@ export interface Volume {
   SseType?: SSEType | undefined;
 
   /**
-   * <p>The entity that manages the volume.</p>
+   * <p>The service provider that manages the volume.</p>
    * @public
    */
   Operator?: OperatorResponse | undefined;
@@ -7431,6 +7958,8 @@ export const VpcEndpointType = {
   Gateway: "Gateway",
   GatewayLoadBalancer: "GatewayLoadBalancer",
   Interface: "Interface",
+  Resource: "Resource",
+  ServiceNetwork: "ServiceNetwork",
 } as const;
 
 /**
@@ -7467,7 +7996,7 @@ export interface CreateVpcEndpointRequest {
    * <p>The name of the endpoint service.</p>
    * @public
    */
-  ServiceName: string | undefined;
+  ServiceName?: string | undefined;
 
   /**
    * <p>(Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the
@@ -7549,6 +8078,20 @@ export interface CreateVpcEndpointRequest {
   SubnetConfigurations?: SubnetConfiguration[] | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of a service network that will be associated with the VPC
+   *          endpoint of type service-network.</p>
+   * @public
+   */
+  ServiceNetworkArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a resource configuration that will be associated with
+   *          the VPC endpoint of type resource.</p>
+   * @public
+   */
+  ResourceConfigurationArn?: string | undefined;
+
+  /**
    * <p>The Region where the service is hosted. The default is the current Region.</p>
    * @public
    */
@@ -7610,6 +8153,24 @@ export interface SecurityGroupIdentifier {
 }
 
 /**
+ * <p>Prefixes of the subnet IP.</p>
+ * @public
+ */
+export interface SubnetIpPrefixes {
+  /**
+   * <p>ID of the subnet.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>Array of SubnetIpPrefixes objects.</p>
+   * @public
+   */
+  IpPrefixes?: string[] | undefined;
+}
+
+/**
  * <p>The last error that occurred for a VPC endpoint.</p>
  * @public
  */
@@ -7637,6 +8198,7 @@ export const State = {
   Deleting: "Deleting",
   Expired: "Expired",
   Failed: "Failed",
+  Partial: "Partial",
   Pending: "Pending",
   PendingAcceptance: "PendingAcceptance",
   Rejected: "Rejected",
@@ -7766,6 +8328,36 @@ export interface VpcEndpoint {
    * @public
    */
   LastError?: LastError | undefined;
+
+  /**
+   * <p>Array of IPv4 prefixes.</p>
+   * @public
+   */
+  Ipv4Prefixes?: SubnetIpPrefixes[] | undefined;
+
+  /**
+   * <p>Array of IPv6 prefixes.</p>
+   * @public
+   */
+  Ipv6Prefixes?: SubnetIpPrefixes[] | undefined;
+
+  /**
+   * <p>Reason for the failure.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service network.</p>
+   * @public
+   */
+  ServiceNetworkArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource configuration.</p>
+   * @public
+   */
+  ResourceConfigurationArn?: string | undefined;
 
   /**
    * <p>The Region where the service is hosted.</p>
@@ -9686,269 +10278,14 @@ export interface DeleteCoipCidrResult {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface DeleteCoipPoolRequest {
-  /**
-   * <p>The ID of the CoIP pool that you want to delete. </p>
-   * @public
-   */
-  CoipPoolId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteCoipPoolResult {
-  /**
-   * <p>Information about the CoIP address pool.</p>
-   * @public
-   */
-  CoipPool?: CoipPool | undefined;
-}
-
-/**
- * <p>Contains the parameters for DeleteCustomerGateway.</p>
- * @public
- */
-export interface DeleteCustomerGatewayRequest {
-  /**
-   * <p>The ID of the customer gateway.</p>
-   * @public
-   */
-  CustomerGatewayId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDhcpOptionsRequest {
-  /**
-   * <p>The ID of the DHCP options set.</p>
-   * @public
-   */
-  DhcpOptionsId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteEgressOnlyInternetGatewayRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the egress-only internet gateway.</p>
-   * @public
-   */
-  EgressOnlyInternetGatewayId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteEgressOnlyInternetGatewayResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  ReturnCode?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFleetsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of the EC2 Fleets.</p>
-   *          <p>Constraints: In a single request, you can specify up to 25 <code>instant</code> fleet
-   *          IDs and up to 100 <code>maintain</code> or <code>request</code> fleet IDs. </p>
-   * @public
-   */
-  FleetIds: string[] | undefined;
-
-  /**
-   * <p>Indicates whether to terminate the associated instances when the EC2 Fleet is deleted. The default is to
-   *          terminate the instances.</p>
-   *          <p>To let the instances continue to run after the EC2 Fleet is deleted, specify
-   *             <code>no-terminate-instances</code>. Supported only for fleets of type
-   *             <code>maintain</code> and <code>request</code>.</p>
-   *          <p>For <code>instant</code> fleets, you cannot specify <code>NoTerminateInstances</code>. A
-   *          deleted <code>instant</code> fleet with running instances is not supported.</p>
-   * @public
-   */
-  TerminateInstances: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FleetStateCode = {
-  ACTIVE: "active",
-  DELETED: "deleted",
-  DELETED_RUNNING: "deleted_running",
-  DELETED_TERMINATING_INSTANCES: "deleted_terminating",
-  FAILED: "failed",
-  MODIFYING: "modifying",
-  SUBMITTED: "submitted",
-} as const;
-
-/**
- * @public
- */
-export type FleetStateCode = (typeof FleetStateCode)[keyof typeof FleetStateCode];
-
-/**
- * <p>Describes an EC2 Fleet that was successfully deleted.</p>
- * @public
- */
-export interface DeleteFleetSuccessItem {
-  /**
-   * <p>The current state of the EC2 Fleet.</p>
-   * @public
-   */
-  CurrentFleetState?: FleetStateCode | undefined;
-
-  /**
-   * <p>The previous state of the EC2 Fleet.</p>
-   * @public
-   */
-  PreviousFleetState?: FleetStateCode | undefined;
-
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   * @public
-   */
-  FleetId?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DeleteFleetErrorCode = {
-  FLEET_ID_DOES_NOT_EXIST: "fleetIdDoesNotExist",
-  FLEET_ID_MALFORMED: "fleetIdMalformed",
-  FLEET_NOT_IN_DELETABLE_STATE: "fleetNotInDeletableState",
-  UNEXPECTED_ERROR: "unexpectedError",
-} as const;
-
-/**
- * @public
- */
-export type DeleteFleetErrorCode = (typeof DeleteFleetErrorCode)[keyof typeof DeleteFleetErrorCode];
-
-/**
- * <p>Describes an EC2 Fleet error.</p>
- * @public
- */
-export interface DeleteFleetError {
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code?: DeleteFleetErrorCode | undefined;
-
-  /**
-   * <p>The description for the error code.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>Describes an EC2 Fleet that was not successfully deleted.</p>
- * @public
- */
-export interface DeleteFleetErrorItem {
-  /**
-   * <p>The error.</p>
-   * @public
-   */
-  Error?: DeleteFleetError | undefined;
-
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   * @public
-   */
-  FleetId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFleetsResult {
-  /**
-   * <p>Information about the EC2 Fleets that are successfully deleted.</p>
-   * @public
-   */
-  SuccessfulFleetDeletions?: DeleteFleetSuccessItem[] | undefined;
-
-  /**
-   * <p>Information about the EC2 Fleets that are not successfully deleted.</p>
-   * @public
-   */
-  UnsuccessfulFleetDeletions?: DeleteFleetErrorItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFlowLogsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>One or more flow log IDs.</p>
-   *          <p>Constraint: Maximum of 1000 flow log IDs.</p>
-   * @public
-   */
-  FlowLogIds: string[] | undefined;
-}
+export const CreateVerifiedAccessNativeApplicationOidcOptionsFilterSensitiveLog = (
+  obj: CreateVerifiedAccessNativeApplicationOidcOptions
+): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -9969,6 +10306,11 @@ export const CreateVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
   ...obj,
   ...(obj.OidcOptions && {
     OidcOptions: CreateVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog(obj.OidcOptions),
+  }),
+  ...(obj.NativeApplicationOidcOptions && {
+    NativeApplicationOidcOptions: CreateVerifiedAccessNativeApplicationOidcOptionsFilterSensitiveLog(
+      obj.NativeApplicationOidcOptions
+    ),
   }),
 });
 

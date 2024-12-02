@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyIpamResourceDiscoveryRequest, ModifyIpamResourceDiscoveryResult } from "../models/models_6";
+import { ModifyIpamResourceDiscoveryRequest, ModifyIpamResourceDiscoveryResult } from "../models/models_7";
 import { de_ModifyIpamResourceDiscoveryCommand, se_ModifyIpamResourceDiscoveryCommand } from "../protocols/Aws_ec2";
 
 /**

@@ -16,7 +16,6 @@ import {
   InstanceEventWindow,
   IpamResourceDiscoveryAssociation,
   PathComponent,
-  ReservedInstancesListing,
   Tag,
 } from "./models_0";
 
@@ -27,9 +26,19 @@ import {
   BlockDeviceMapping,
   CapacityReservationPreference,
   CapacityReservationTargetResponse,
+  DefaultTargetCapacityType,
+  DestinationFileFormat,
   Ec2InstanceConnectEndpoint,
+  FleetCapacityReservationUsageStrategy,
+  FleetExcessCapacityTerminationPolicy,
+  FleetLaunchTemplateOverrides,
+  FleetLaunchTemplateSpecification,
+  FleetOnDemandAllocationStrategy,
+  FleetReplacementStrategy,
+  FleetType,
   HostnameType,
   InstanceIpv6Address,
+  InstanceLifecycle,
   InternetGateway,
   Ipam,
   IpamExternalResourceVerificationToken,
@@ -38,21 +47,26 @@ import {
   IpamScope,
   KeyType,
   LaunchTemplate,
+  LaunchTemplateAndOverridesResponse,
   LaunchTemplateVersion,
   LaunchTemplateVersionFilterSensitiveLog,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
-  ManagedPrefixList,
+  LogDestinationType,
   OperatorResponse,
   Placement,
   PlatformValues,
+  SpotAllocationStrategy,
+  SpotInstanceInterruptionBehavior,
   StateReason,
-  Tenancy,
+  TargetCapacityUnitType,
+  TrafficType,
 } from "./models_1";
 
 import {
   GroupIdentifier,
+  ManagedPrefixList,
   NatGateway,
   NetworkAcl,
   NetworkInsightsAccessScope,
@@ -63,10 +77,905 @@ import {
   NetworkInterfaceStatus,
   PlacementGroup,
   ReplaceRootVolumeTask,
-  RouteTable,
 } from "./models_2";
 
-import { Byoasn, Filter, IdFormat, InstanceTagNotificationAttribute, PermissionGroup } from "./models_3";
+import {
+  Byoasn,
+  Filter,
+  FleetActivityStatus,
+  FleetStateCode,
+  IdFormat,
+  InstanceTagNotificationAttribute,
+} from "./models_3";
+
+/**
+ * <p>Describes the instances that could not be launched by the fleet.</p>
+ * @public
+ */
+export interface DescribeFleetError {
+  /**
+   * <p>The launch templates and overrides that were used for launching the instances. The
+   *          values that you specify in the Overrides replace the values in the launch template.</p>
+   * @public
+   */
+  LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse | undefined;
+
+  /**
+   * <p>Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.</p>
+   * @public
+   */
+  Lifecycle?: InstanceLifecycle | undefined;
+
+  /**
+   * <p>The error code that indicates why the instance could not be launched. For more
+   *          information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error codes</a>.</p>
+   * @public
+   */
+  ErrorCode?: string | undefined;
+
+  /**
+   * <p>The error message that describes why the instance could not be launched. For more
+   *          information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error codes</a>.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+}
+
+/**
+ * <p>Describes the instances that were launched by the fleet.</p>
+ * @public
+ */
+export interface DescribeFleetsInstances {
+  /**
+   * <p>The launch templates and overrides that were used for launching the instances. The
+   *          values that you specify in the Overrides replace the values in the launch template.</p>
+   * @public
+   */
+  LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse | undefined;
+
+  /**
+   * <p>Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.</p>
+   * @public
+   */
+  Lifecycle?: InstanceLifecycle | undefined;
+
+  /**
+   * <p>The IDs of the instances.</p>
+   * @public
+   */
+  InstanceIds?: string[] | undefined;
+
+  /**
+   * <p>The instance type.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The value is <code>windows</code> for Windows instances in an EC2 Fleet. Otherwise, the value is
+   *          blank.</p>
+   * @public
+   */
+  Platform?: PlatformValues | undefined;
+}
+
+/**
+ * <p>Describes a launch template and overrides.</p>
+ * @public
+ */
+export interface FleetLaunchTemplateConfig {
+  /**
+   * <p>The launch template.</p>
+   * @public
+   */
+  LaunchTemplateSpecification?: FleetLaunchTemplateSpecification | undefined;
+
+  /**
+   * <p>Any parameters that you specify override the same parameters in the launch
+   *          template.</p>
+   * @public
+   */
+  Overrides?: FleetLaunchTemplateOverrides[] | undefined;
+}
+
+/**
+ * <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand
+ *          capacity.</p>
+ *          <note>
+ *             <p>This strategy can only be used if the EC2 Fleet is of type
+ *             <code>instant</code>.</p>
+ *          </note>
+ *          <p>For more information about Capacity Reservations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">On-Demand Capacity
+ *             Reservations</a> in the <i>Amazon EC2 User Guide</i>. For examples of using
+ *          Capacity Reservations in an EC2 Fleet, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html">EC2 Fleet example
+ *             configurations</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface CapacityReservationOptions {
+  /**
+   * <p>Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.</p>
+   *          <p>If you specify <code>use-capacity-reservations-first</code>, the fleet uses unused
+   *          Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If
+   *          multiple instance pools have unused Capacity Reservations, the On-Demand allocation
+   *          strategy (<code>lowest-price</code> or <code>prioritized</code>) is applied. If the number
+   *          of unused Capacity Reservations is less than the On-Demand target capacity, the remaining
+   *          On-Demand target capacity is launched according to the On-Demand allocation strategy
+   *             (<code>lowest-price</code> or <code>prioritized</code>).</p>
+   *          <p>If you do not specify a value, the fleet fulfils the On-Demand capacity according to the
+   *          chosen On-Demand allocation strategy.</p>
+   * @public
+   */
+  UsageStrategy?: FleetCapacityReservationUsageStrategy | undefined;
+}
+
+/**
+ * <p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>
+ * @public
+ */
+export interface OnDemandOptions {
+  /**
+   * <p>The strategy that determines the order of the launch template overrides to use in
+   *          fulfilling On-Demand capacity.</p>
+   *          <p>
+   *             <code>lowest-price</code> - EC2 Fleet uses price to determine the order, launching the lowest
+   *          price first.</p>
+   *          <p>
+   *             <code>prioritized</code> - EC2 Fleet uses the priority that you assigned to each launch
+   *          template override, launching the highest priority first.</p>
+   *          <p>Default: <code>lowest-price</code>
+   *          </p>
+   * @public
+   */
+  AllocationStrategy?: FleetOnDemandAllocationStrategy | undefined;
+
+  /**
+   * <p>The strategy for using unused Capacity Reservations for fulfilling On-Demand
+   *          capacity.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * @public
+   */
+  CapacityReservationOptions?: CapacityReservationOptions | undefined;
+
+  /**
+   * <p>Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the
+   *          fleet.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * @public
+   */
+  SingleInstanceType?: boolean | undefined;
+
+  /**
+   * <p>Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * @public
+   */
+  SingleAvailabilityZone?: boolean | undefined;
+
+  /**
+   * <p>The minimum target capacity for On-Demand Instances in the fleet. If this minimum capacity isn't
+   *          reached, no instances are launched.</p>
+   *          <p>Constraints: Maximum value of <code>1000</code>. Supported only for fleets of type
+   *             <code>instant</code>.</p>
+   *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
+   *          <code>SingleInstanceType</code>
+   *          </p>
+   * @public
+   */
+  MinTargetCapacity?: number | undefined;
+
+  /**
+   * <p>The maximum amount per hour for On-Demand Instances that you're willing to pay.</p>
+   *          <note>
+   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>, and
+   *             if their average CPU usage exceeds the baseline utilization, you will incur a charge for
+   *             surplus credits. The <code>maxTotalPrice</code> does not account for surplus credits,
+   *             and, if you use surplus credits, your final cost might be higher than what you specified
+   *             for <code>maxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the
+   *                <i>Amazon EC2 User Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  MaxTotalPrice?: string | undefined;
+}
+
+/**
+ * <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an
+ *          elevated risk of being interrupted.</p>
+ * @public
+ */
+export interface FleetSpotCapacityRebalance {
+  /**
+   * <p>The replacement strategy to use. Only available for fleets of type
+   *          <code>maintain</code>.</p>
+   *          <p>
+   *             <code>launch</code> - EC2 Fleet launches a new replacement Spot Instance when a
+   *          rebalance notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet
+   *          does not terminate the instances that receive a rebalance notification. You can terminate
+   *          the old instances, or you can leave them running. You are charged for all instances while
+   *          they are running. </p>
+   *          <p>
+   *             <code>launch-before-terminate</code> - EC2 Fleet launches a new replacement Spot
+   *          Instance when a rebalance notification is emitted for an existing Spot Instance in the
+   *          fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),
+   *          terminates the instances that received a rebalance notification.</p>
+   * @public
+   */
+  ReplacementStrategy?: FleetReplacementStrategy | undefined;
+
+  /**
+   * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
+   *          Instance after launching a new replacement Spot Instance.</p>
+   *          <p>Required when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
+   *          <p>Not valid when <code>ReplacementStrategy</code> is set to <code>launch</code>.</p>
+   *          <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>
+   * @public
+   */
+  TerminationDelay?: number | undefined;
+}
+
+/**
+ * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
+ *          interrupted.</p>
+ * @public
+ */
+export interface FleetSpotMaintenanceStrategies {
+  /**
+   * <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an
+   *          elevated risk of being interrupted.</p>
+   * @public
+   */
+  CapacityRebalance?: FleetSpotCapacityRebalance | undefined;
+}
+
+/**
+ * <p>Describes the configuration of Spot Instances in an EC2 Fleet.</p>
+ * @public
+ */
+export interface SpotOptions {
+  /**
+   * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance
+   *          pools specified by the EC2 Fleet launch configuration. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation strategies for Spot Instances</a> in the
+   *          <i>Amazon EC2 User Guide</i>.</p>
+   *          <dl>
+   *             <dt>price-capacity-optimized (recommended)</dt>
+   *             <dd>
+   *                <p>EC2 Fleet identifies the pools with
+   *                   the highest capacity availability for the number of instances that are launching. This means
+   *                   that we will request Spot Instances from the pools that we believe have the lowest chance of interruption
+   *                   in the near term. EC2 Fleet then requests Spot Instances from the lowest priced of these pools.</p>
+   *             </dd>
+   *             <dt>capacity-optimized</dt>
+   *             <dd>
+   *                <p>EC2 Fleet identifies the pools with
+   *                   the highest capacity availability for the number of instances that are launching. This means
+   *                   that we will request Spot Instances from the pools that we believe have the lowest chance of interruption
+   *                   in the near term. To give certain
+   *                   instance types a higher chance of launching first, use
+   *                   <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by
+   *                   using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can
+   *                   assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements
+   *                   the priorities on a best-effort basis, but optimizes for capacity first.
+   *                   <code>capacity-optimized-prioritized</code> is supported only if your EC2 Fleet uses a
+   *                   launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to
+   *                   <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
+   *                   capacity.</p>
+   *             </dd>
+   *             <dt>diversified</dt>
+   *             <dd>
+   *                <p>EC2 Fleet requests instances from all of the Spot Instance pools that you
+   *                   specify.</p>
+   *             </dd>
+   *             <dt>lowest-price (not recommended)</dt>
+   *             <dd>
+   *                <important>
+   *                   <p>We don't recommend the <code>lowest-price</code> allocation strategy because
+   *                      it has the highest risk of interruption for your Spot Instances.</p>
+   *                </important>
+   *                <p>EC2 Fleet requests instances from the lowest priced Spot Instance pool that has available
+   *                   capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances
+   *                   come from the next lowest priced pool that has available capacity. If a pool runs
+   *                   out of capacity before fulfilling your desired capacity, EC2 Fleet will continue to
+   *                   fulfill your request by drawing from the next lowest priced pool. To ensure that
+   *                   your desired capacity is met, you might receive Spot Instances from several pools. Because
+   *                   this strategy only considers instance price and not capacity availability, it
+   *                   might lead to high interruption rates.</p>
+   *             </dd>
+   *          </dl>
+   *          <p>Default: <code>lowest-price</code>
+   *          </p>
+   * @public
+   */
+  AllocationStrategy?: SpotAllocationStrategy | undefined;
+
+  /**
+   * <p>The strategies for managing your workloads on your Spot Instances that will be
+   *          interrupted. Currently only the capacity rebalance strategy is available.</p>
+   * @public
+   */
+  MaintenanceStrategies?: FleetSpotMaintenanceStrategies | undefined;
+
+  /**
+   * <p>The behavior when a Spot Instance is interrupted.</p>
+   *          <p>Default: <code>terminate</code>
+   *          </p>
+   * @public
+   */
+  InstanceInterruptionBehavior?: SpotInstanceInterruptionBehavior | undefined;
+
+  /**
+   * <p>The number of Spot pools across which to allocate your target Spot capacity. Supported
+   *          only when <code>AllocationStrategy</code> is set to <code>lowest-price</code>. EC2 Fleet selects
+   *          the cheapest Spot pools and evenly allocates your target Spot capacity across the number of
+   *          Spot pools that you specify.</p>
+   *          <p>Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that you specify on a
+   *          best effort basis. If a pool runs out of Spot capacity before fulfilling your target
+   *          capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest
+   *          pool. To ensure that your target capacity is met, you might receive Spot Instances from more than
+   *          the number of pools that you specified. Similarly, if most of the pools have no Spot
+   *          capacity, you might receive your full target capacity from fewer than the number of pools
+   *          that you specified.</p>
+   * @public
+   */
+  InstancePoolsToUseCount?: number | undefined;
+
+  /**
+   * <p>Indicates that the fleet uses a single instance type to launch all Spot Instances in the
+   *          fleet.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * @public
+   */
+  SingleInstanceType?: boolean | undefined;
+
+  /**
+   * <p>Indicates that the fleet launches all Spot Instances into a single Availability Zone.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * @public
+   */
+  SingleAvailabilityZone?: boolean | undefined;
+
+  /**
+   * <p>The minimum target capacity for Spot Instances in the fleet. If this minimum capacity isn't
+   *          reached, no instances are launched.</p>
+   *          <p>Constraints: Maximum value of <code>1000</code>. Supported only for fleets of type
+   *             <code>instant</code>.</p>
+   *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
+   *             <code>SingleInstanceType</code>
+   *          </p>
+   * @public
+   */
+  MinTargetCapacity?: number | undefined;
+
+  /**
+   * <p>The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend
+   *          using this parameter because it can lead to increased interruptions. If you do not specify
+   *          this parameter, you will pay the current Spot price.</p>
+   *          <important>
+   *             <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *          </important>
+   *          <note>
+   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>, and
+   *             if their average CPU usage exceeds the baseline utilization, you will incur a charge for
+   *             surplus credits. The <code>maxTotalPrice</code> does not account for surplus credits,
+   *             and, if you use surplus credits, your final cost might be higher than what you specified
+   *             for <code>maxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the
+   *                <i>Amazon EC2 User Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  MaxTotalPrice?: string | undefined;
+}
+
+/**
+ * <p>The number of units to request. You can choose to set the target capacity in terms of
+ *          instances or a performance characteristic that is important to your application workload,
+ *          such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can
+ *          specify a target capacity of 0 and add capacity later.</p>
+ *          <p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance
+ *             <code>MaxTotalPrice</code>, or both to ensure that your fleet cost does not exceed your
+ *          budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet
+ *          will launch instances until it reaches the maximum amount that you're willing to pay. When
+ *          the maximum amount you're willing to pay is reached, the fleet stops launching instances
+ *          even if it hasn’t met the target capacity. The <code>MaxTotalPrice</code> parameters are
+ *          located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptions.html">OnDemandOptions</a>
+ *          and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptions">SpotOptions</a>.</p>
+ * @public
+ */
+export interface TargetCapacitySpecification {
+  /**
+   * <p>The number of units to request, filled the default target capacity type.</p>
+   * @public
+   */
+  TotalTargetCapacity?: number | undefined;
+
+  /**
+   * <p>The number of On-Demand units to request. If you specify a target capacity for Spot units, you cannot specify a target capacity for On-Demand units.</p>
+   * @public
+   */
+  OnDemandTargetCapacity?: number | undefined;
+
+  /**
+   * <p>The maximum number of Spot units to launch. If you specify a target capacity for On-Demand units, you cannot specify a target capacity for Spot units.</p>
+   * @public
+   */
+  SpotTargetCapacity?: number | undefined;
+
+  /**
+   * <p>The default target capacity type.</p>
+   * @public
+   */
+  DefaultTargetCapacityType?: DefaultTargetCapacityType | undefined;
+
+  /**
+   * <p>The unit for the target capacity.</p>
+   * @public
+   */
+  TargetCapacityUnitType?: TargetCapacityUnitType | undefined;
+}
+
+/**
+ * <p>Describes an EC2 Fleet.</p>
+ * @public
+ */
+export interface FleetData {
+  /**
+   * <p>The progress of the EC2 Fleet. If there is an error, the status is <code>error</code>. After
+   *          all requests are placed, the status is <code>pending_fulfillment</code>. If the size of the
+   *          EC2 Fleet is equal to or greater than its target capacity, the status is <code>fulfilled</code>.
+   *          If the size of the EC2 Fleet is decreased, the status is <code>pending_termination</code> while
+   *          instances are terminating.</p>
+   * @public
+   */
+  ActivityStatus?: FleetActivityStatus | undefined;
+
+  /**
+   * <p>The creation date and time of the EC2 Fleet.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>The ID of the EC2 Fleet.</p>
+   * @public
+   */
+  FleetId?: string | undefined;
+
+  /**
+   * <p>The state of the EC2 Fleet.</p>
+   * @public
+   */
+  FleetState?: FleetStateCode | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *             idempotency</a>.</p>
+   *          <p>Constraints: Maximum 64 ASCII characters</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Indicates whether running instances should be terminated if the target capacity of the
+   *          EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
+   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
+   * @public
+   */
+  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | undefined;
+
+  /**
+   * <p>The number of units fulfilled by this request compared to the set target
+   *          capacity.</p>
+   * @public
+   */
+  FulfilledCapacity?: number | undefined;
+
+  /**
+   * <p>The number of units fulfilled by this request compared to the set target On-Demand
+   *          capacity.</p>
+   * @public
+   */
+  FulfilledOnDemandCapacity?: number | undefined;
+
+  /**
+   * <p>The launch template and overrides.</p>
+   * @public
+   */
+  LaunchTemplateConfigs?: FleetLaunchTemplateConfig[] | undefined;
+
+  /**
+   * <p>The number of units to request. You can choose to set the target capacity in terms of
+   *          instances or a performance characteristic that is important to your application workload,
+   *          such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can
+   *          specify a target capacity of 0 and add capacity later.</p>
+   * @public
+   */
+  TargetCapacitySpecification?: TargetCapacitySpecification | undefined;
+
+  /**
+   * <p>Indicates whether running instances should be terminated when the EC2 Fleet expires. </p>
+   * @public
+   */
+  TerminateInstancesWithExpiration?: boolean | undefined;
+
+  /**
+   * <p>The type of request. Indicates whether the EC2 Fleet only <code>requests</code> the target
+   *          capacity, or also attempts to <code>maintain</code> it. If you request a certain target
+   *          capacity, EC2 Fleet only places the required requests; it does not attempt to replenish
+   *          instances if capacity is diminished, and it does not submit requests in alternative
+   *          capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2 Fleet
+   *          places the required requests to meet this target capacity. It also automatically
+   *          replenishes any interrupted Spot Instances. Default: <code>maintain</code>.</p>
+   * @public
+   */
+  Type?: FleetType | undefined;
+
+  /**
+   * <p>The start date and time of the request, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *          The default is to start fulfilling the request immediately. </p>
+   * @public
+   */
+  ValidFrom?: Date | undefined;
+
+  /**
+   * <p>The end date and time of the request, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *          At this point, no new instance requests are placed or able to fulfill the request. The
+   *          default end date is 7 days from the current date. </p>
+   * @public
+   */
+  ValidUntil?: Date | undefined;
+
+  /**
+   * <p>Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for
+   *          fleets of type <code>maintain</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks">EC2 Fleet
+   *             health checks</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  ReplaceUnhealthyInstances?: boolean | undefined;
+
+  /**
+   * <p>The configuration of Spot Instances in an EC2 Fleet.</p>
+   * @public
+   */
+  SpotOptions?: SpotOptions | undefined;
+
+  /**
+   * <p>The allocation strategy of On-Demand Instances in an EC2 Fleet.</p>
+   * @public
+   */
+  OnDemandOptions?: OnDemandOptions | undefined;
+
+  /**
+   * <p>The tags for an EC2 Fleet resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Information about the instances that could not be launched by the fleet. Valid only when
+   *          <b>Type</b> is set to <code>instant</code>.</p>
+   * @public
+   */
+  Errors?: DescribeFleetError[] | undefined;
+
+  /**
+   * <p>Information about the instances that were launched by the fleet. Valid only when
+   *          <b>Type</b> is set to <code>instant</code>.</p>
+   * @public
+   */
+  Instances?: DescribeFleetsInstances[] | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  Context?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFleetsResult {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the EC2 Fleets.</p>
+   * @public
+   */
+  Fleets?: FleetData[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFlowLogsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>deliver-log-status</code> - The status of the logs delivery (<code>SUCCESS</code> |
+   *                     <code>FAILED</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>log-destination-type</code> - The type of destination for the flow log
+   *                     data (<code>cloud-watch-logs</code> | <code>s3</code> |
+   *                         <code>kinesis-data-firehose</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>flow-log-id</code> - The ID of the flow log.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>log-group-name</code> - The name of the log group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> - The ID of the VPC, subnet, or network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-type</code> - The type of traffic (<code>ACCEPT</code> |
+   *                     <code>REJECT</code> | <code>ALL</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filter?: Filter[] | undefined;
+
+  /**
+   * <p>One or more flow log IDs.</p>
+   *          <p>Constraint: Maximum of 1000 flow log IDs.</p>
+   * @public
+   */
+  FlowLogIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token to request the next page of items. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Describes the destination options for a flow log.</p>
+ * @public
+ */
+export interface DestinationOptionsResponse {
+  /**
+   * <p>The format for the flow log.</p>
+   * @public
+   */
+  FileFormat?: DestinationFileFormat | undefined;
+
+  /**
+   * <p>Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3.</p>
+   * @public
+   */
+  HiveCompatiblePartitions?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether to partition the flow log per hour.</p>
+   * @public
+   */
+  PerHourPartition?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a flow log.</p>
+ * @public
+ */
+export interface FlowLog {
+  /**
+   * <p>The date and time the flow log was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>Information about the error that occurred. <code>Rate limited</code> indicates that
+   *             CloudWatch Logs throttling has been applied for one or more network interfaces, or that you've
+   *             reached the limit on the number of log groups that you can create. <code>Access
+   *                 error</code> indicates that the IAM role associated with the flow log does not have
+   *             sufficient permissions to publish to CloudWatch Logs. <code>Unknown error</code> indicates an
+   *             internal error.</p>
+   * @public
+   */
+  DeliverLogsErrorMessage?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role allows the service to publish logs to CloudWatch Logs.</p>
+   * @public
+   */
+  DeliverLogsPermissionArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that allows the service to publish flow logs across accounts.</p>
+   * @public
+   */
+  DeliverCrossAccountRole?: string | undefined;
+
+  /**
+   * <p>The status of the logs delivery (<code>SUCCESS</code> | <code>FAILED</code>).</p>
+   * @public
+   */
+  DeliverLogsStatus?: string | undefined;
+
+  /**
+   * <p>The ID of the flow log.</p>
+   * @public
+   */
+  FlowLogId?: string | undefined;
+
+  /**
+   * <p>The status of the flow log (<code>ACTIVE</code>).</p>
+   * @public
+   */
+  FlowLogStatus?: string | undefined;
+
+  /**
+   * <p>The name of the flow log group.</p>
+   * @public
+   */
+  LogGroupName?: string | undefined;
+
+  /**
+   * <p>The ID of the resource being monitored.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The type of traffic captured for the flow log.</p>
+   * @public
+   */
+  TrafficType?: TrafficType | undefined;
+
+  /**
+   * <p>The type of destination for the flow log data.</p>
+   * @public
+   */
+  LogDestinationType?: LogDestinationType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination for the flow log data.</p>
+   * @public
+   */
+  LogDestination?: string | undefined;
+
+  /**
+   * <p>The format of the flow log record.</p>
+   * @public
+   */
+  LogFormat?: string | undefined;
+
+  /**
+   * <p>The tags for the flow log.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record.</p>
+   *          <p>When a network interface is attached to a <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">Nitro-based
+   *                 instance</a>, the aggregation interval is always 60 seconds (1 minute) or less,
+   *             regardless of the specified value.</p>
+   *          <p>Valid Values: <code>60</code> | <code>600</code>
+   *          </p>
+   * @public
+   */
+  MaxAggregationInterval?: number | undefined;
+
+  /**
+   * <p>The destination options.</p>
+   * @public
+   */
+  DestinationOptions?: DestinationOptionsResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFlowLogsResult {
+  /**
+   * <p>Information about the flow logs.</p>
+   * @public
+   */
+  FlowLogs?: FlowLog[] | undefined;
+
+  /**
+   * <p>The token to request the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FpgaImageAttributeName = {
+  description: "description",
+  loadPermission: "loadPermission",
+  name: "name",
+  productCodes: "productCodes",
+} as const;
+
+/**
+ * @public
+ */
+export type FpgaImageAttributeName = (typeof FpgaImageAttributeName)[keyof typeof FpgaImageAttributeName];
+
+/**
+ * @public
+ */
+export interface DescribeFpgaImageAttributeRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the AFI.</p>
+   * @public
+   */
+  FpgaImageId: string | undefined;
+
+  /**
+   * <p>The AFI attribute.</p>
+   * @public
+   */
+  Attribute: FpgaImageAttributeName | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PermissionGroup = {
+  all: "all",
+} as const;
+
+/**
+ * @public
+ */
+export type PermissionGroup = (typeof PermissionGroup)[keyof typeof PermissionGroup];
 
 /**
  * <p>Describes a load permission.</p>
@@ -1588,6 +2497,11 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>image-allowed</code> - A Boolean that indicates whether the image meets the
+   *           criteria specified for Allowed AMIs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>image-id</code> - The ID of the image.</p>
    *             </li>
    *             <li>
@@ -1651,6 +2565,15 @@ export interface DescribeImagesRequest {
    *                <p>
    *                   <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> |
    *             <code>instance-store</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>source-image-id</code> - The ID of the source AMI from which the AMI was
+   *           created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>source-image-region</code> - The Region of the source AMI.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1987,6 +2910,19 @@ export interface Image {
    * @public
    */
   LastLaunchedTime?: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, the AMI satisfies the criteria for Allowed AMIs and can be
+   *       discovered and used in the account. If <code>false</code> and Allowed AMIs is set to
+   *         <code>enabled</code>, the AMI can't be discovered or used in the account. If
+   *         <code>false</code> and Allowed AMIs is set to <code>audit-mode</code>, the AMI can be
+   *       discovered and used in the account.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html">Control the discovery and use of AMIs in
+   *       Amazon EC2 with Allowed AMIs</a> in
+   *       <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  ImageAllowed?: boolean | undefined;
 
   /**
    * <p>The ID of the source AMI from which the AMI was created.</p>
@@ -2627,7 +3563,7 @@ export interface EbsInstanceBlockDevice {
   VolumeOwnerId?: string | undefined;
 
   /**
-   * <p>The entity that manages the EBS volume.</p>
+   * <p>The service provider that manages the EBS volume.</p>
    * @public
    */
   Operator?: OperatorResponse | undefined;
@@ -3129,6 +4065,11 @@ export interface DescribeInstanceImageMetadataRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>image-allowed</code> - A Boolean that indicates whether the image meets the
+   *           criteria specified for Allowed AMIs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>instance-state-name</code> - The state of the instance (<code>pending</code> |
    *             <code>running</code> | <code>shutting-down</code> | <code>terminated</code> |
    *             <code>stopping</code> | <code>stopped</code>).</p>
@@ -3143,7 +4084,20 @@ export interface DescribeInstanceImageMetadataRequest {
    *                   <code>launch-time</code> - The time when the instance was launched, in the ISO 8601
    *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
    *             <code>2023-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
-   *           example, <code>2023-09-29T*</code>, which matches an entire day. </p>
+   *           example, <code>2023-09-29T*</code>, which matches an entire day.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> |
+   *             <code>aws-marketplace</code> | <code>aws-backup-vault</code>). The valid aliases are
+   *           defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be set
+   *           using the IAM console. We recommend that you use the <code>Owner</code> request parameter
+   *           instead of this filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use
+   *           the <code>Owner</code> request parameter instead of this filter.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3248,6 +4202,17 @@ export interface ImageMetadata {
    * @public
    */
   DeprecationTime?: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, the AMI satisfies the criteria for Allowed AMIs and can be
+   *       discovered and used in the account. If <code>false</code>, the AMI can't be discovered or used
+   *       in the account.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html">Control the discovery and use of AMIs in
+   *       Amazon EC2 with Allowed AMIs</a> in
+   *       <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  ImageAllowed?: boolean | undefined;
 
   /**
    * <p>Indicates whether the AMI has public launch permissions. A value of <code>true</code>
@@ -4891,7 +5856,7 @@ export interface InstanceNetworkInterface {
   ConnectionTrackingConfiguration?: ConnectionTrackingSpecificationResponse | undefined;
 
   /**
-   * <p>The entity that manages the network interface.</p>
+   * <p>The service provider that manages the network interface.</p>
    * @public
    */
   Operator?: OperatorResponse | undefined;
@@ -5181,7 +6146,7 @@ export interface Instance {
   CurrentInstanceBootMode?: InstanceBootModeValues | undefined;
 
   /**
-   * <p>The entity that manages the instance.</p>
+   * <p>The service provider that manages the instance.</p>
    * @public
    */
   Operator?: OperatorResponse | undefined;
@@ -5733,7 +6698,7 @@ export interface InstanceStatus {
   OutpostArn?: string | undefined;
 
   /**
-   * <p>The entity that manages the instance.</p>
+   * <p>The service provider that manages the instance.</p>
    * @public
    */
   Operator?: OperatorResponse | undefined;
@@ -11456,941 +12421,6 @@ export const ReservedInstanceState = {
  * @public
  */
 export type ReservedInstanceState = (typeof ReservedInstanceState)[keyof typeof ReservedInstanceState];
-
-/**
- * <p>Describes a Reserved Instance.</p>
- * @public
- */
-export interface ReservedInstances {
-  /**
-   * <p>The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes.
-   * 				At this time, the only supported currency is <code>USD</code>.</p>
-   * @public
-   */
-  CurrencyCode?: CurrencyCodeValues | undefined;
-
-  /**
-   * <p>The tenancy of the instance.</p>
-   * @public
-   */
-  InstanceTenancy?: Tenancy | undefined;
-
-  /**
-   * <p>The offering class of the Reserved Instance.</p>
-   * @public
-   */
-  OfferingClass?: OfferingClassType | undefined;
-
-  /**
-   * <p>The Reserved Instance offering type.</p>
-   * @public
-   */
-  OfferingType?: OfferingTypeValues | undefined;
-
-  /**
-   * <p>The recurring charge tag assigned to the resource.</p>
-   * @public
-   */
-  RecurringCharges?: RecurringCharge[] | undefined;
-
-  /**
-   * <p>The scope of the Reserved Instance.</p>
-   * @public
-   */
-  Scope?: Scope | undefined;
-
-  /**
-   * <p>Any tags assigned to the resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The ID of the Reserved Instance.</p>
-   * @public
-   */
-  ReservedInstancesId?: string | undefined;
-
-  /**
-   * <p>The instance type on which the Reserved Instance can be used.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The Availability Zone in which the Reserved Instance can be used.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The date and time the Reserved Instance started.</p>
-   * @public
-   */
-  Start?: Date | undefined;
-
-  /**
-   * <p>The time when the Reserved Instance expires.</p>
-   * @public
-   */
-  End?: Date | undefined;
-
-  /**
-   * <p>The duration of the Reserved Instance, in seconds.</p>
-   * @public
-   */
-  Duration?: number | undefined;
-
-  /**
-   * <p>The usage price of the Reserved Instance, per hour.</p>
-   * @public
-   */
-  UsagePrice?: number | undefined;
-
-  /**
-   * <p>The purchase price of the Reserved Instance.</p>
-   * @public
-   */
-  FixedPrice?: number | undefined;
-
-  /**
-   * <p>The number of reservations purchased.</p>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>The Reserved Instance product platform description.</p>
-   * @public
-   */
-  ProductDescription?: RIProductDescription | undefined;
-
-  /**
-   * <p>The state of the Reserved Instance purchase.</p>
-   * @public
-   */
-  State?: ReservedInstanceState | undefined;
-}
-
-/**
- * <p>Contains the output for DescribeReservedInstances.</p>
- * @public
- */
-export interface DescribeReservedInstancesResult {
-  /**
-   * <p>A list of Reserved Instances.</p>
-   * @public
-   */
-  ReservedInstances?: ReservedInstances[] | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeReservedInstancesListings.</p>
- * @public
- */
-export interface DescribeReservedInstancesListingsRequest {
-  /**
-   * <p>One or more Reserved Instance IDs.</p>
-   * @public
-   */
-  ReservedInstancesId?: string | undefined;
-
-  /**
-   * <p>One or more Reserved Instance listing IDs.</p>
-   * @public
-   */
-  ReservedInstancesListingId?: string | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> |
-   *            <code>cancelled</code> | <code>closed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status-message</code> - The reason for the status.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Contains the output of DescribeReservedInstancesListings.</p>
- * @public
- */
-export interface DescribeReservedInstancesListingsResult {
-  /**
-   * <p>Information about the Reserved Instance listing.</p>
-   * @public
-   */
-  ReservedInstancesListings?: ReservedInstancesListing[] | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeReservedInstancesModifications.</p>
- * @public
- */
-export interface DescribeReservedInstancesModificationsRequest {
-  /**
-   * <p>IDs for the submitted modification request.</p>
-   * @public
-   */
-  ReservedInstancesModificationIds?: string[] | undefined;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>client-token</code> - The idempotency token for the modification request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>create-date</code> - The time when the modification request was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>effective-date</code> - The time when the modification becomes effective.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>modification-result.reserved-instances-id</code> - The ID for the Reserved Instances created as part of the modification request. This ID is only available when the status of the modification is <code>fulfilled</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>modification-result.target-configuration.availability-zone</code> - The Availability Zone for the new Reserved Instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>modification-result.target-configuration.instance-count </code> - The number of new Reserved Instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>modification-result.target-configuration.instance-type</code> - The instance type of the new Reserved Instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instances modified.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>reserved-instances-modification-id</code> - The ID of the modification request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status</code> - The status of the Reserved Instances modification request
-   *            (<code>processing</code> | <code>fulfilled</code> | <code>failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status-message</code> - The reason for the status.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>update-date</code> - The time when the modification request was last updated.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Describes the configuration settings for the modified Reserved Instances.</p>
- * @public
- */
-export interface ReservedInstancesConfiguration {
-  /**
-   * <p>The Availability Zone for the modified Reserved Instances.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The number of modified Reserved Instances.</p>
-   *          <note>
-   *             <p>This is a required field for a request.</p>
-   *          </note>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>The instance type for the modified Reserved Instances.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The network platform of the modified Reserved Instances.</p>
-   * @public
-   */
-  Platform?: string | undefined;
-
-  /**
-   * <p>Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.</p>
-   * @public
-   */
-  Scope?: Scope | undefined;
-}
-
-/**
- * <p>Describes the modification request/s.</p>
- * @public
- */
-export interface ReservedInstancesModificationResult {
-  /**
-   * <p>The ID for the Reserved Instances that were created as part of the modification request. This field is only available when the modification is fulfilled.</p>
-   * @public
-   */
-  ReservedInstancesId?: string | undefined;
-
-  /**
-   * <p>The target Reserved Instances configurations supplied as part of the modification request.</p>
-   * @public
-   */
-  TargetConfiguration?: ReservedInstancesConfiguration | undefined;
-}
-
-/**
- * <p>Describes the ID of a Reserved Instance.</p>
- * @public
- */
-export interface ReservedInstancesId {
-  /**
-   * <p>The ID of the Reserved Instance.</p>
-   * @public
-   */
-  ReservedInstancesId?: string | undefined;
-}
-
-/**
- * <p>Describes a Reserved Instance modification.</p>
- * @public
- */
-export interface ReservedInstancesModification {
-  /**
-   * <p>A unique, case-sensitive key supplied by the client to ensure that the request is idempotent.
-   * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   * 				Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The time when the modification request was created.</p>
-   * @public
-   */
-  CreateDate?: Date | undefined;
-
-  /**
-   * <p>The time for the modification to become effective.</p>
-   * @public
-   */
-  EffectiveDate?: Date | undefined;
-
-  /**
-   * <p>Contains target configurations along with their corresponding new Reserved Instance IDs.</p>
-   * @public
-   */
-  ModificationResults?: ReservedInstancesModificationResult[] | undefined;
-
-  /**
-   * <p>The IDs of one or more Reserved Instances.</p>
-   * @public
-   */
-  ReservedInstancesIds?: ReservedInstancesId[] | undefined;
-
-  /**
-   * <p>A unique ID for the Reserved Instance modification.</p>
-   * @public
-   */
-  ReservedInstancesModificationId?: string | undefined;
-
-  /**
-   * <p>The status of the Reserved Instances modification request.</p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>The reason for the status.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The time when the modification request was last updated.</p>
-   * @public
-   */
-  UpdateDate?: Date | undefined;
-}
-
-/**
- * <p>Contains the output of DescribeReservedInstancesModifications.</p>
- * @public
- */
-export interface DescribeReservedInstancesModificationsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when
-   * 			there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Reserved Instance modification information.</p>
-   * @public
-   */
-  ReservedInstancesModifications?: ReservedInstancesModification[] | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeReservedInstancesOfferings.</p>
- * @public
- */
-export interface DescribeReservedInstancesOfferingsRequest {
-  /**
-   * <p>The Availability Zone in which the Reserved Instance can be used.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>Include Reserved Instance Marketplace offerings in the response.</p>
-   * @public
-   */
-  IncludeMarketplace?: boolean | undefined;
-
-  /**
-   * <p>The instance type that the reservation will cover (for example, <code>m1.small</code>).
-   *       For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Amazon EC2 instance types</a> in the
-   *         <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The maximum duration (in seconds) to filter when searching for offerings.</p>
-   *          <p>Default: 94608000 (3 years)</p>
-   * @public
-   */
-  MaxDuration?: number | undefined;
-
-  /**
-   * <p>The maximum number of instances to filter when searching for offerings.</p>
-   *          <p>Default: 20</p>
-   * @public
-   */
-  MaxInstanceCount?: number | undefined;
-
-  /**
-   * <p>The minimum duration (in seconds) to filter when searching for offerings.</p>
-   *          <p>Default: 2592000 (1 month)</p>
-   * @public
-   */
-  MinDuration?: number | undefined;
-
-  /**
-   * <p>The offering class of the Reserved Instance. Can be <code>standard</code> or <code>convertible</code>.</p>
-   * @public
-   */
-  OfferingClass?: OfferingClassType | undefined;
-
-  /**
-   * <p>The Reserved Instance product platform description. Instances that include <code>(Amazon
-   *         VPC)</code> in the description are for use with Amazon VPC.</p>
-   * @public
-   */
-  ProductDescription?: RIProductDescription | undefined;
-
-  /**
-   * <p>One or more Reserved Instances offering IDs.</p>
-   * @public
-   */
-  ReservedInstancesOfferingIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone where the Reserved Instance can be
-   *           used.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>duration</code> - The duration of the Reserved Instance (for example, one year or
-   *           three years), in seconds (<code>31536000</code> | <code>94608000</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fixed-price</code> - The purchase price of the Reserved Instance (for example,
-   *           9800.0).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type that is covered by the
-   *           reservation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>marketplace</code> - Set to <code>true</code> to show only Reserved Instance
-   *           Marketplace offerings. When this filter is not used, which is the default behavior, all
-   *           offerings from both Amazon Web Services and the Reserved Instance Marketplace are listed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>product-description</code> - The Reserved Instance product platform description
-   *           (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> |
-   *           <code>Linux with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> |
-   *           <code>SUSE Linux</code> |
-   *           <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> |
-   *           <code>Windows</code> | <code>Windows with SQL Server Standard</code> |
-   *           <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>reserved-instances-offering-id</code> - The Reserved Instances offering
-   *           ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>scope</code> - The scope of the Reserved Instance (<code>Availability Zone</code> or
-   *             <code>Region</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for
-   *           example, 0.84).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy
-   *       of <code>dedicated</code> is applied to instances that run in a VPC on single-tenant hardware
-   *       (i.e., Dedicated Instances).</p>
-   *          <p>
-   *             <b>Important:</b> The <code>host</code> value cannot be used with this parameter. Use the <code>default</code> or <code>dedicated</code> values only.</p>
-   *          <p>Default: <code>default</code>
-   *          </p>
-   * @public
-   */
-  InstanceTenancy?: Tenancy | undefined;
-
-  /**
-   * <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API
-   * 			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
-   * 			offering type. </p>
-   * @public
-   */
-  OfferingType?: OfferingTypeValues | undefined;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining
-   * 			results of the initial request can be seen by sending another request with the returned
-   * 				<code>NextToken</code> value. The maximum is 100.</p>
-   *          <p>Default: 100</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Describes a Reserved Instance offering.</p>
- * @public
- */
-export interface PricingDetail {
-  /**
-   * <p>The number of reservations available for the price.</p>
-   * @public
-   */
-  Count?: number | undefined;
-
-  /**
-   * <p>The price per instance.</p>
-   * @public
-   */
-  Price?: number | undefined;
-}
-
-/**
- * <p>Describes a Reserved Instance offering.</p>
- * @public
- */
-export interface ReservedInstancesOffering {
-  /**
-   * <p>The currency of the Reserved Instance offering you are purchasing. It's
-   * 				specified using ISO 4217 standard currency codes. At this time,
-   * 				the only supported currency is <code>USD</code>.</p>
-   * @public
-   */
-  CurrencyCode?: CurrencyCodeValues | undefined;
-
-  /**
-   * <p>The tenancy of the instance.</p>
-   * @public
-   */
-  InstanceTenancy?: Tenancy | undefined;
-
-  /**
-   * <p>Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or Amazon Web Services.
-   *         If it's a Reserved Instance Marketplace offering, this is <code>true</code>.</p>
-   * @public
-   */
-  Marketplace?: boolean | undefined;
-
-  /**
-   * <p>If <code>convertible</code> it can be exchanged for Reserved Instances of
-   *       the same or higher monetary value, with different configurations. If <code>standard</code>, it is not
-   *       possible to perform an exchange.</p>
-   * @public
-   */
-  OfferingClass?: OfferingClassType | undefined;
-
-  /**
-   * <p>The Reserved Instance offering type.</p>
-   * @public
-   */
-  OfferingType?: OfferingTypeValues | undefined;
-
-  /**
-   * <p>The pricing details of the Reserved Instance offering.</p>
-   * @public
-   */
-  PricingDetails?: PricingDetail[] | undefined;
-
-  /**
-   * <p>The recurring charge tag assigned to the resource.</p>
-   * @public
-   */
-  RecurringCharges?: RecurringCharge[] | undefined;
-
-  /**
-   * <p>Whether the Reserved Instance is applied to instances in a Region or an Availability Zone.</p>
-   * @public
-   */
-  Scope?: Scope | undefined;
-
-  /**
-   * <p>The ID of the Reserved Instance offering. This is the offering ID used in <a>GetReservedInstancesExchangeQuote</a>
-   *      to confirm that an exchange can be made.</p>
-   * @public
-   */
-  ReservedInstancesOfferingId?: string | undefined;
-
-  /**
-   * <p>The instance type on which the Reserved Instance can be used.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The Availability Zone in which the Reserved Instance can be used.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The duration of the Reserved Instance, in seconds.</p>
-   * @public
-   */
-  Duration?: number | undefined;
-
-  /**
-   * <p>The usage price of the Reserved Instance, per hour.</p>
-   * @public
-   */
-  UsagePrice?: number | undefined;
-
-  /**
-   * <p>The purchase price of the Reserved Instance.</p>
-   * @public
-   */
-  FixedPrice?: number | undefined;
-
-  /**
-   * <p>The Reserved Instance product platform description.</p>
-   * @public
-   */
-  ProductDescription?: RIProductDescription | undefined;
-}
-
-/**
- * <p>Contains the output of DescribeReservedInstancesOfferings.</p>
- * @public
- */
-export interface DescribeReservedInstancesOfferingsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when
-   * 			there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of Reserved Instances offerings.</p>
-   * @public
-   */
-  ReservedInstancesOfferings?: ReservedInstancesOffering[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeRouteTablesRequest {
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of the route tables.</p>
-   * @public
-   */
-  RouteTableIds?: string[] | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>association.gateway-id</code> - The ID of the gateway involved in the
-   * 		                association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>association.route-table-association-id</code> - The ID of an association
-   *                     ID for the route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>association.route-table-id</code> - The ID of the route table involved in
-   *                     the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>association.subnet-id</code> - The ID of the subnet involved in the
-   *                     association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>association.main</code> - Indicates whether the route table is the main
-   *                     route table for the VPC (<code>true</code> | <code>false</code>). Route tables
-   *                     that do not have an association ID are not returned in the response.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route-table-id</code> - The ID of the route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.destination-cidr-block</code> - The IPv4 CIDR range specified in a
-   *                     route in the table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.destination-ipv6-cidr-block</code> - The IPv6 CIDR range specified in a route in the route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.destination-prefix-list-id</code> - The ID (prefix) of the Amazon Web Services
-   * 				      service specified in a route in the table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.egress-only-internet-gateway-id</code> - The ID of an
-   *                     egress-only Internet gateway specified in a route in the route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.gateway-id</code> - The ID of a gateway specified in a route in the table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.instance-id</code> - The ID of an instance specified in a route in the table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.nat-gateway-id</code> - The ID of a NAT gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.transit-gateway-id</code> - The ID of a transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.origin</code> - Describes how the route was created.
-   *                         <code>CreateRouteTable</code> indicates that the route was automatically
-   *                     created when the route table was created; <code>CreateRoute</code> indicates
-   *                     that the route was manually added to the route table;
-   *                         <code>EnableVgwRoutePropagation</code> indicates that the route was
-   *                     propagated by route propagation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.state</code> - The state of a route in the route table
-   *                         (<code>active</code> | <code>blackhole</code>). The blackhole state
-   *                     indicates that the route's target isn't available (for example, the specified
-   *                     gateway isn't attached to the VPC, the specified NAT instance has been
-   *                     terminated, and so on).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.vpc-peering-connection-id</code> - The ID of a VPC peering
-   * 		                connection specified in a route in the table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC for the route table.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Contains the output of DescribeRouteTables.</p>
- * @public
- */
-export interface DescribeRouteTablesResult {
-  /**
-   * <p>Information about the route tables.</p>
-   * @public
-   */
-  RouteTables?: RouteTable[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Describes the time period for a Scheduled Instance to start its first schedule. The time period must span less than one day.</p>
- * @public
- */
-export interface SlotDateTimeRangeRequest {
-  /**
-   * <p>The earliest date and time, in UTC, for the Scheduled Instance to start.</p>
-   * @public
-   */
-  EarliestTime: Date | undefined;
-
-  /**
-   * <p>The latest date and time, in UTC, for the Scheduled Instance to start. This value must be later than or equal to the earliest date and at most three months in the future.</p>
-   * @public
-   */
-  LatestTime: Date | undefined;
-}
-
-/**
- * <p>Describes the recurring schedule for a Scheduled Instance.</p>
- * @public
- */
-export interface ScheduledInstanceRecurrenceRequest {
-  /**
-   * <p>The frequency (<code>Daily</code>, <code>Weekly</code>, or <code>Monthly</code>).</p>
-   * @public
-   */
-  Frequency?: string | undefined;
-
-  /**
-   * <p>The interval quantity. The interval unit depends on the value of <code>Frequency</code>. For example, every 2
-   *          weeks or every 2 months.</p>
-   * @public
-   */
-  Interval?: number | undefined;
-
-  /**
-   * <p>The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday). You can't specify this value with a daily schedule. If the occurrence is relative to the end of the month, you can specify only a single day.</p>
-   * @public
-   */
-  OccurrenceDays?: number[] | undefined;
-
-  /**
-   * <p>Indicates whether the occurrence is relative to the end of the specified week or month. You can't specify this value with a daily schedule.</p>
-   * @public
-   */
-  OccurrenceRelativeToEnd?: boolean | undefined;
-
-  /**
-   * <p>The unit for <code>OccurrenceDays</code> (<code>DayOfWeek</code> or <code>DayOfMonth</code>).
-   *         This value is required for a monthly schedule.
-   *         You can't specify <code>DayOfWeek</code> with a weekly schedule.
-   *         You can't specify this value with a daily schedule.</p>
-   * @public
-   */
-  OccurrenceUnit?: string | undefined;
-}
 
 /**
  * @internal

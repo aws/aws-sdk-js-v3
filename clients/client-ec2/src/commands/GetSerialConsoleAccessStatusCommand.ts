@@ -47,6 +47,7 @@ export interface GetSerialConsoleAccessStatusCommandOutput
  * const response = await client.send(command);
  * // { // GetSerialConsoleAccessStatusResult
  * //   SerialConsoleAccessEnabled: true || false,
+ * //   ManagedBy: "account" || "declarative-policy",
  * // };
  *
  * ```

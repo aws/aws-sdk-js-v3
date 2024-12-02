@@ -42,6 +42,7 @@ export interface ModifyVerifiedAccessInstanceCommandOutput
  *   Description: "STRING_VALUE",
  *   DryRun: true || false,
  *   ClientToken: "STRING_VALUE",
+ *   CidrEndpointsCustomSubDomain: "STRING_VALUE",
  * };
  * const command = new ModifyVerifiedAccessInstanceCommand(input);
  * const response = await client.send(command);
@@ -67,6 +68,12 @@ export interface ModifyVerifiedAccessInstanceCommandOutput
  * //       },
  * //     ],
  * //     FipsEnabled: true || false,
+ * //     CidrEndpointsCustomSubDomain: { // VerifiedAccessInstanceCustomSubDomain
+ * //       SubDomain: "STRING_VALUE",
+ * //       Nameservers: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

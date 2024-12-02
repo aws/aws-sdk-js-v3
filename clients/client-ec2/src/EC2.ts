@@ -243,6 +243,11 @@ import {
   CancelConversionTaskCommandOutput,
 } from "./commands/CancelConversionTaskCommand";
 import {
+  CancelDeclarativePoliciesReportCommand,
+  CancelDeclarativePoliciesReportCommandInput,
+  CancelDeclarativePoliciesReportCommandOutput,
+} from "./commands/CancelDeclarativePoliciesReportCommand";
+import {
   CancelExportTaskCommand,
   CancelExportTaskCommandInput,
   CancelExportTaskCommandOutput,
@@ -1219,6 +1224,11 @@ import {
   DescribeCustomerGatewaysCommandOutput,
 } from "./commands/DescribeCustomerGatewaysCommand";
 import {
+  DescribeDeclarativePoliciesReportsCommand,
+  DescribeDeclarativePoliciesReportsCommandInput,
+  DescribeDeclarativePoliciesReportsCommandOutput,
+} from "./commands/DescribeDeclarativePoliciesReportsCommand";
+import {
   DescribeDhcpOptionsCommand,
   DescribeDhcpOptionsCommandInput,
   DescribeDhcpOptionsCommandOutput,
@@ -1839,6 +1849,11 @@ import {
   DescribeVpcClassicLinkDnsSupportCommandOutput,
 } from "./commands/DescribeVpcClassicLinkDnsSupportCommand";
 import {
+  DescribeVpcEndpointAssociationsCommand,
+  DescribeVpcEndpointAssociationsCommandInput,
+  DescribeVpcEndpointAssociationsCommandOutput,
+} from "./commands/DescribeVpcEndpointAssociationsCommand";
+import {
   DescribeVpcEndpointConnectionNotificationsCommand,
   DescribeVpcEndpointConnectionNotificationsCommandInput,
   DescribeVpcEndpointConnectionNotificationsCommandOutput,
@@ -1923,6 +1938,11 @@ import {
   DisableAddressTransferCommandInput,
   DisableAddressTransferCommandOutput,
 } from "./commands/DisableAddressTransferCommand";
+import {
+  DisableAllowedImagesSettingsCommand,
+  DisableAllowedImagesSettingsCommandInput,
+  DisableAllowedImagesSettingsCommandOutput,
+} from "./commands/DisableAllowedImagesSettingsCommand";
 import {
   DisableAwsNetworkPerformanceMetricSubscriptionCommand,
   DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
@@ -2089,6 +2109,11 @@ import {
   EnableAddressTransferCommandOutput,
 } from "./commands/EnableAddressTransferCommand";
 import {
+  EnableAllowedImagesSettingsCommand,
+  EnableAllowedImagesSettingsCommandInput,
+  EnableAllowedImagesSettingsCommandOutput,
+} from "./commands/EnableAllowedImagesSettingsCommand";
+import {
   EnableAwsNetworkPerformanceMetricSubscriptionCommand,
   EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
   EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
@@ -2186,6 +2211,16 @@ import {
   ExportTransitGatewayRoutesCommandOutput,
 } from "./commands/ExportTransitGatewayRoutesCommand";
 import {
+  ExportVerifiedAccessInstanceClientConfigurationCommand,
+  ExportVerifiedAccessInstanceClientConfigurationCommandInput,
+  ExportVerifiedAccessInstanceClientConfigurationCommandOutput,
+} from "./commands/ExportVerifiedAccessInstanceClientConfigurationCommand";
+import {
+  GetAllowedImagesSettingsCommand,
+  GetAllowedImagesSettingsCommandInput,
+  GetAllowedImagesSettingsCommandOutput,
+} from "./commands/GetAllowedImagesSettingsCommand";
+import {
   GetAssociatedEnclaveCertificateIamRolesCommand,
   GetAssociatedEnclaveCertificateIamRolesCommandInput,
   GetAssociatedEnclaveCertificateIamRolesCommandOutput,
@@ -2220,6 +2255,11 @@ import {
   GetConsoleScreenshotCommandInput,
   GetConsoleScreenshotCommandOutput,
 } from "./commands/GetConsoleScreenshotCommand";
+import {
+  GetDeclarativePoliciesReportSummaryCommand,
+  GetDeclarativePoliciesReportSummaryCommandInput,
+  GetDeclarativePoliciesReportSummaryCommandOutput,
+} from "./commands/GetDeclarativePoliciesReportSummaryCommand";
 import {
   GetDefaultCreditSpecificationCommand,
   GetDefaultCreditSpecificationCommandInput,
@@ -2410,6 +2450,11 @@ import {
   GetVerifiedAccessEndpointPolicyCommandInput,
   GetVerifiedAccessEndpointPolicyCommandOutput,
 } from "./commands/GetVerifiedAccessEndpointPolicyCommand";
+import {
+  GetVerifiedAccessEndpointTargetsCommand,
+  GetVerifiedAccessEndpointTargetsCommandInput,
+  GetVerifiedAccessEndpointTargetsCommandOutput,
+} from "./commands/GetVerifiedAccessEndpointTargetsCommand";
 import {
   GetVerifiedAccessGroupPolicyCommand,
   GetVerifiedAccessGroupPolicyCommandInput,
@@ -2940,6 +2985,11 @@ import {
   ReplaceIamInstanceProfileAssociationCommandOutput,
 } from "./commands/ReplaceIamInstanceProfileAssociationCommand";
 import {
+  ReplaceImageCriteriaInAllowedImagesSettingsCommand,
+  ReplaceImageCriteriaInAllowedImagesSettingsCommandInput,
+  ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput,
+} from "./commands/ReplaceImageCriteriaInAllowedImagesSettingsCommand";
+import {
   ReplaceNetworkAclAssociationCommand,
   ReplaceNetworkAclAssociationCommandInput,
   ReplaceNetworkAclAssociationCommandOutput,
@@ -3090,6 +3140,11 @@ import {
   SendDiagnosticInterruptCommandOutput,
 } from "./commands/SendDiagnosticInterruptCommand";
 import {
+  StartDeclarativePoliciesReportCommand,
+  StartDeclarativePoliciesReportCommandInput,
+  StartDeclarativePoliciesReportCommandOutput,
+} from "./commands/StartDeclarativePoliciesReportCommand";
+import {
   StartInstancesCommand,
   StartInstancesCommandInput,
   StartInstancesCommandOutput,
@@ -3215,6 +3270,7 @@ const commands = {
   CancelCapacityReservationCommand,
   CancelCapacityReservationFleetsCommand,
   CancelConversionTaskCommand,
+  CancelDeclarativePoliciesReportCommand,
   CancelExportTaskCommand,
   CancelImageLaunchPermissionCommand,
   CancelImportTaskCommand,
@@ -3419,6 +3475,7 @@ const commands = {
   DescribeCoipPoolsCommand,
   DescribeConversionTasksCommand,
   DescribeCustomerGatewaysCommand,
+  DescribeDeclarativePoliciesReportsCommand,
   DescribeDhcpOptionsCommand,
   DescribeEgressOnlyInternetGatewaysCommand,
   DescribeElasticGpusCommand,
@@ -3543,6 +3600,7 @@ const commands = {
   DescribeVpcBlockPublicAccessOptionsCommand,
   DescribeVpcClassicLinkCommand,
   DescribeVpcClassicLinkDnsSupportCommand,
+  DescribeVpcEndpointAssociationsCommand,
   DescribeVpcEndpointConnectionNotificationsCommand,
   DescribeVpcEndpointConnectionsCommand,
   DescribeVpcEndpointsCommand,
@@ -3560,6 +3618,7 @@ const commands = {
   DetachVolumeCommand,
   DetachVpnGatewayCommand,
   DisableAddressTransferCommand,
+  DisableAllowedImagesSettingsCommand,
   DisableAwsNetworkPerformanceMetricSubscriptionCommand,
   DisableEbsEncryptionByDefaultCommand,
   DisableFastLaunchCommand,
@@ -3593,6 +3652,7 @@ const commands = {
   DisassociateTrunkInterfaceCommand,
   DisassociateVpcCidrBlockCommand,
   EnableAddressTransferCommand,
+  EnableAllowedImagesSettingsCommand,
   EnableAwsNetworkPerformanceMetricSubscriptionCommand,
   EnableEbsEncryptionByDefaultCommand,
   EnableFastLaunchCommand,
@@ -3614,6 +3674,8 @@ const commands = {
   ExportClientVpnClientConfigurationCommand,
   ExportImageCommand,
   ExportTransitGatewayRoutesCommand,
+  ExportVerifiedAccessInstanceClientConfigurationCommand,
+  GetAllowedImagesSettingsCommand,
   GetAssociatedEnclaveCertificateIamRolesCommand,
   GetAssociatedIpv6PoolCidrsCommand,
   GetAwsNetworkPerformanceDataCommand,
@@ -3621,6 +3683,7 @@ const commands = {
   GetCoipPoolUsageCommand,
   GetConsoleOutputCommand,
   GetConsoleScreenshotCommand,
+  GetDeclarativePoliciesReportSummaryCommand,
   GetDefaultCreditSpecificationCommand,
   GetEbsDefaultKmsKeyIdCommand,
   GetEbsEncryptionByDefaultCommand,
@@ -3659,6 +3722,7 @@ const commands = {
   GetTransitGatewayRouteTableAssociationsCommand,
   GetTransitGatewayRouteTablePropagationsCommand,
   GetVerifiedAccessEndpointPolicyCommand,
+  GetVerifiedAccessEndpointTargetsCommand,
   GetVerifiedAccessGroupPolicyCommand,
   GetVpnConnectionDeviceSampleConfigurationCommand,
   GetVpnConnectionDeviceTypesCommand,
@@ -3768,6 +3832,7 @@ const commands = {
   ReleaseHostsCommand,
   ReleaseIpamPoolAllocationCommand,
   ReplaceIamInstanceProfileAssociationCommand,
+  ReplaceImageCriteriaInAllowedImagesSettingsCommand,
   ReplaceNetworkAclAssociationCommand,
   ReplaceNetworkAclEntryCommand,
   ReplaceRouteCommand,
@@ -3798,6 +3863,7 @@ const commands = {
   SearchTransitGatewayMulticastGroupsCommand,
   SearchTransitGatewayRoutesCommand,
   SendDiagnosticInterruptCommand,
+  StartDeclarativePoliciesReportCommand,
   StartInstancesCommand,
   StartNetworkInsightsAccessScopeAnalysisCommand,
   StartNetworkInsightsAnalysisCommand,
@@ -4616,6 +4682,23 @@ export interface EC2 {
     args: CancelConversionTaskCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelConversionTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelDeclarativePoliciesReportCommand}
+   */
+  cancelDeclarativePoliciesReport(
+    args: CancelDeclarativePoliciesReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelDeclarativePoliciesReportCommandOutput>;
+  cancelDeclarativePoliciesReport(
+    args: CancelDeclarativePoliciesReportCommandInput,
+    cb: (err: any, data?: CancelDeclarativePoliciesReportCommandOutput) => void
+  ): void;
+  cancelDeclarativePoliciesReport(
+    args: CancelDeclarativePoliciesReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelDeclarativePoliciesReportCommandOutput) => void
   ): void;
 
   /**
@@ -7956,6 +8039,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DescribeDeclarativePoliciesReportsCommand}
+   */
+  describeDeclarativePoliciesReports(): Promise<DescribeDeclarativePoliciesReportsCommandOutput>;
+  describeDeclarativePoliciesReports(
+    args: DescribeDeclarativePoliciesReportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDeclarativePoliciesReportsCommandOutput>;
+  describeDeclarativePoliciesReports(
+    args: DescribeDeclarativePoliciesReportsCommandInput,
+    cb: (err: any, data?: DescribeDeclarativePoliciesReportsCommandOutput) => void
+  ): void;
+  describeDeclarativePoliciesReports(
+    args: DescribeDeclarativePoliciesReportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDeclarativePoliciesReportsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeDhcpOptionsCommand}
    */
   describeDhcpOptions(): Promise<DescribeDhcpOptionsCommandOutput>;
@@ -10140,6 +10241,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DescribeVpcEndpointAssociationsCommand}
+   */
+  describeVpcEndpointAssociations(): Promise<DescribeVpcEndpointAssociationsCommandOutput>;
+  describeVpcEndpointAssociations(
+    args: DescribeVpcEndpointAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVpcEndpointAssociationsCommandOutput>;
+  describeVpcEndpointAssociations(
+    args: DescribeVpcEndpointAssociationsCommandInput,
+    cb: (err: any, data?: DescribeVpcEndpointAssociationsCommandOutput) => void
+  ): void;
+  describeVpcEndpointAssociations(
+    args: DescribeVpcEndpointAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVpcEndpointAssociationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeVpcEndpointConnectionNotificationsCommand}
    */
   describeVpcEndpointConnectionNotifications(): Promise<DescribeVpcEndpointConnectionNotificationsCommandOutput>;
@@ -10423,6 +10542,24 @@ export interface EC2 {
     args: DisableAddressTransferCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisableAddressTransferCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisableAllowedImagesSettingsCommand}
+   */
+  disableAllowedImagesSettings(): Promise<DisableAllowedImagesSettingsCommandOutput>;
+  disableAllowedImagesSettings(
+    args: DisableAllowedImagesSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableAllowedImagesSettingsCommandOutput>;
+  disableAllowedImagesSettings(
+    args: DisableAllowedImagesSettingsCommandInput,
+    cb: (err: any, data?: DisableAllowedImagesSettingsCommandOutput) => void
+  ): void;
+  disableAllowedImagesSettings(
+    args: DisableAllowedImagesSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableAllowedImagesSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -10988,6 +11125,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link EnableAllowedImagesSettingsCommand}
+   */
+  enableAllowedImagesSettings(
+    args: EnableAllowedImagesSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableAllowedImagesSettingsCommandOutput>;
+  enableAllowedImagesSettings(
+    args: EnableAllowedImagesSettingsCommandInput,
+    cb: (err: any, data?: EnableAllowedImagesSettingsCommandOutput) => void
+  ): void;
+  enableAllowedImagesSettings(
+    args: EnableAllowedImagesSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableAllowedImagesSettingsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EnableAwsNetworkPerformanceMetricSubscriptionCommand}
    */
   enableAwsNetworkPerformanceMetricSubscription(): Promise<EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput>;
@@ -11335,6 +11489,41 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link ExportVerifiedAccessInstanceClientConfigurationCommand}
+   */
+  exportVerifiedAccessInstanceClientConfiguration(
+    args: ExportVerifiedAccessInstanceClientConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportVerifiedAccessInstanceClientConfigurationCommandOutput>;
+  exportVerifiedAccessInstanceClientConfiguration(
+    args: ExportVerifiedAccessInstanceClientConfigurationCommandInput,
+    cb: (err: any, data?: ExportVerifiedAccessInstanceClientConfigurationCommandOutput) => void
+  ): void;
+  exportVerifiedAccessInstanceClientConfiguration(
+    args: ExportVerifiedAccessInstanceClientConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportVerifiedAccessInstanceClientConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAllowedImagesSettingsCommand}
+   */
+  getAllowedImagesSettings(): Promise<GetAllowedImagesSettingsCommandOutput>;
+  getAllowedImagesSettings(
+    args: GetAllowedImagesSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAllowedImagesSettingsCommandOutput>;
+  getAllowedImagesSettings(
+    args: GetAllowedImagesSettingsCommandInput,
+    cb: (err: any, data?: GetAllowedImagesSettingsCommandOutput) => void
+  ): void;
+  getAllowedImagesSettings(
+    args: GetAllowedImagesSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAllowedImagesSettingsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAssociatedEnclaveCertificateIamRolesCommand}
    */
   getAssociatedEnclaveCertificateIamRoles(
@@ -11452,6 +11641,23 @@ export interface EC2 {
     args: GetConsoleScreenshotCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetConsoleScreenshotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDeclarativePoliciesReportSummaryCommand}
+   */
+  getDeclarativePoliciesReportSummary(
+    args: GetDeclarativePoliciesReportSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeclarativePoliciesReportSummaryCommandOutput>;
+  getDeclarativePoliciesReportSummary(
+    args: GetDeclarativePoliciesReportSummaryCommandInput,
+    cb: (err: any, data?: GetDeclarativePoliciesReportSummaryCommandOutput) => void
+  ): void;
+  getDeclarativePoliciesReportSummary(
+    args: GetDeclarativePoliciesReportSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeclarativePoliciesReportSummaryCommandOutput) => void
   ): void;
 
   /**
@@ -12101,6 +12307,23 @@ export interface EC2 {
     args: GetVerifiedAccessEndpointPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVerifiedAccessEndpointPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVerifiedAccessEndpointTargetsCommand}
+   */
+  getVerifiedAccessEndpointTargets(
+    args: GetVerifiedAccessEndpointTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVerifiedAccessEndpointTargetsCommandOutput>;
+  getVerifiedAccessEndpointTargets(
+    args: GetVerifiedAccessEndpointTargetsCommandInput,
+    cb: (err: any, data?: GetVerifiedAccessEndpointTargetsCommandOutput) => void
+  ): void;
+  getVerifiedAccessEndpointTargets(
+    args: GetVerifiedAccessEndpointTargetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVerifiedAccessEndpointTargetsCommandOutput) => void
   ): void;
 
   /**
@@ -13885,6 +14108,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link ReplaceImageCriteriaInAllowedImagesSettingsCommand}
+   */
+  replaceImageCriteriaInAllowedImagesSettings(): Promise<ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput>;
+  replaceImageCriteriaInAllowedImagesSettings(
+    args: ReplaceImageCriteriaInAllowedImagesSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput>;
+  replaceImageCriteriaInAllowedImagesSettings(
+    args: ReplaceImageCriteriaInAllowedImagesSettingsCommandInput,
+    cb: (err: any, data?: ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput) => void
+  ): void;
+  replaceImageCriteriaInAllowedImagesSettings(
+    args: ReplaceImageCriteriaInAllowedImagesSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ReplaceNetworkAclAssociationCommand}
    */
   replaceNetworkAclAssociation(
@@ -14383,6 +14624,23 @@ export interface EC2 {
     args: SendDiagnosticInterruptCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SendDiagnosticInterruptCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartDeclarativePoliciesReportCommand}
+   */
+  startDeclarativePoliciesReport(
+    args: StartDeclarativePoliciesReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDeclarativePoliciesReportCommandOutput>;
+  startDeclarativePoliciesReport(
+    args: StartDeclarativePoliciesReportCommandInput,
+    cb: (err: any, data?: StartDeclarativePoliciesReportCommandOutput) => void
+  ): void;
+  startDeclarativePoliciesReport(
+    args: StartDeclarativePoliciesReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDeclarativePoliciesReportCommandOutput) => void
   ): void;
 
   /**

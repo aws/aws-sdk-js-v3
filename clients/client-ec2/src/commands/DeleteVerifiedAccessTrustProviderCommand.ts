@@ -84,6 +84,15 @@ export interface DeleteVerifiedAccessTrustProviderCommandOutput
  * //       CustomerManagedKeyEnabled: true || false,
  * //       KmsKeyArn: "STRING_VALUE",
  * //     },
+ * //     NativeApplicationOidcOptions: { // NativeApplicationOidcOptions
+ * //       PublicSigningKeyEndpoint: "STRING_VALUE",
+ * //       Issuer: "STRING_VALUE",
+ * //       AuthorizationEndpoint: "STRING_VALUE",
+ * //       TokenEndpoint: "STRING_VALUE",
+ * //       UserInfoEndpoint: "STRING_VALUE",
+ * //       ClientId: "STRING_VALUE",
+ * //       Scope: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

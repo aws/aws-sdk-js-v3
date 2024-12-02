@@ -66,6 +66,12 @@ export interface DeleteVerifiedAccessInstanceCommandOutput
  * //       },
  * //     ],
  * //     FipsEnabled: true || false,
+ * //     CidrEndpointsCustomSubDomain: { // VerifiedAccessInstanceCustomSubDomain
+ * //       SubDomain: "STRING_VALUE",
+ * //       Nameservers: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

@@ -37,6 +37,11 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  *       return empty results. After all instances that reference a deregistered AMI are terminated,
  *       specifying the ID of the image will eventually return an error indicating that the AMI ID
  *       cannot be found.</p>
+ *          <p>When Allowed AMIs is set to <code>enabled</code>, only allowed images are returned in the
+ *       results, with the <code>imageAllowed</code> field set to <code>true</code> for each image. In
+ *         <code>audit-mode</code>, the <code>imageAllowed</code> field is set to <code>true</code> for
+ *       images that meet the account's Allowed AMIs criteria, and <code>false</code> for images that
+ *       don't meet the criteria. For more information, see <a>EnableAllowedImagesSettings</a>.</p>
  *          <important>
  *             <p>We strongly recommend using only paginated requests. Unpaginated requests are
  *         susceptible to throttling and timeouts.</p>
@@ -127,6 +132,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //       SourceInstanceId: "STRING_VALUE",
  * //       DeregistrationProtection: "STRING_VALUE",
  * //       LastLaunchedTime: "STRING_VALUE",
+ * //       ImageAllowed: true || false,
  * //       SourceImageId: "STRING_VALUE",
  * //       SourceImageRegion: "STRING_VALUE",
  * //       ImageId: "STRING_VALUE",

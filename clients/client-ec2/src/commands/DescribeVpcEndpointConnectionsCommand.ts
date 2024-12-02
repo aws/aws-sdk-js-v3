@@ -62,7 +62,7 @@ export interface DescribeVpcEndpointConnectionsCommandOutput
  * //       ServiceId: "STRING_VALUE",
  * //       VpcEndpointId: "STRING_VALUE",
  * //       VpcEndpointOwner: "STRING_VALUE",
- * //       VpcEndpointState: "PendingAcceptance" || "Pending" || "Available" || "Deleting" || "Deleted" || "Rejected" || "Failed" || "Expired",
+ * //       VpcEndpointState: "PendingAcceptance" || "Pending" || "Available" || "Deleting" || "Deleted" || "Rejected" || "Failed" || "Expired" || "Partial",
  * //       CreationTimestamp: new Date("TIMESTAMP"),
  * //       DnsEntries: [ // DnsEntrySet
  * //         { // DnsEntry

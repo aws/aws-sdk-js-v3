@@ -39,32 +39,44 @@ export interface CreateVerifiedAccessEndpointCommandOutput
  * const client = new EC2Client(config);
  * const input = { // CreateVerifiedAccessEndpointRequest
  *   VerifiedAccessGroupId: "STRING_VALUE", // required
- *   EndpointType: "load-balancer" || "network-interface", // required
+ *   EndpointType: "load-balancer" || "network-interface" || "rds" || "cidr", // required
  *   AttachmentType: "vpc", // required
- *   DomainCertificateArn: "STRING_VALUE", // required
- *   ApplicationDomain: "STRING_VALUE", // required
- *   EndpointDomainPrefix: "STRING_VALUE", // required
+ *   DomainCertificateArn: "STRING_VALUE",
+ *   ApplicationDomain: "STRING_VALUE",
+ *   EndpointDomainPrefix: "STRING_VALUE",
  *   SecurityGroupIds: [ // SecurityGroupIdList
  *     "STRING_VALUE",
  *   ],
  *   LoadBalancerOptions: { // CreateVerifiedAccessEndpointLoadBalancerOptions
- *     Protocol: "http" || "https",
+ *     Protocol: "http" || "https" || "tcp",
  *     Port: Number("int"),
  *     LoadBalancerArn: "STRING_VALUE",
  *     SubnetIds: [ // CreateVerifiedAccessEndpointSubnetIdList
  *       "STRING_VALUE",
  *     ],
+ *     PortRanges: [ // CreateVerifiedAccessEndpointPortRangeList
+ *       { // CreateVerifiedAccessEndpointPortRange
+ *         FromPort: Number("int"),
+ *         ToPort: Number("int"),
+ *       },
+ *     ],
  *   },
  *   NetworkInterfaceOptions: { // CreateVerifiedAccessEndpointEniOptions
  *     NetworkInterfaceId: "STRING_VALUE",
- *     Protocol: "http" || "https",
+ *     Protocol: "http" || "https" || "tcp",
  *     Port: Number("int"),
+ *     PortRanges: [
+ *       {
+ *         FromPort: Number("int"),
+ *         ToPort: Number("int"),
+ *       },
+ *     ],
  *   },
  *   Description: "STRING_VALUE",
  *   PolicyDocument: "STRING_VALUE",
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
- *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint" || "ipam-external-resource-verification-token",
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "declarative-policies-report" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint" || "verified-access-endpoint-target" || "ipam-external-resource-verification-token",
  *       Tags: [ // TagList
  *         { // Tag
  *           Key: "STRING_VALUE",
@@ -79,6 +91,30 @@ export interface CreateVerifiedAccessEndpointCommandOutput
  *     CustomerManagedKeyEnabled: true || false,
  *     KmsKeyArn: "STRING_VALUE",
  *   },
+ *   RdsOptions: { // CreateVerifiedAccessEndpointRdsOptions
+ *     Protocol: "http" || "https" || "tcp",
+ *     Port: Number("int"),
+ *     RdsDbInstanceArn: "STRING_VALUE",
+ *     RdsDbClusterArn: "STRING_VALUE",
+ *     RdsDbProxyArn: "STRING_VALUE",
+ *     RdsEndpoint: "STRING_VALUE",
+ *     SubnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   CidrOptions: { // CreateVerifiedAccessEndpointCidrOptions
+ *     Protocol: "http" || "https" || "tcp",
+ *     SubnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Cidr: "STRING_VALUE",
+ *     PortRanges: [
+ *       {
+ *         FromPort: Number("int"),
+ *         ToPort: Number("int"),
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new CreateVerifiedAccessEndpointCommand(input);
  * const response = await client.send(command);
@@ -88,7 +124,7 @@ export interface CreateVerifiedAccessEndpointCommandOutput
  * //     VerifiedAccessGroupId: "STRING_VALUE",
  * //     VerifiedAccessEndpointId: "STRING_VALUE",
  * //     ApplicationDomain: "STRING_VALUE",
- * //     EndpointType: "load-balancer" || "network-interface",
+ * //     EndpointType: "load-balancer" || "network-interface" || "rds" || "cidr",
  * //     AttachmentType: "vpc",
  * //     DomainCertificateArn: "STRING_VALUE",
  * //     EndpointDomain: "STRING_VALUE",
@@ -97,17 +133,29 @@ export interface CreateVerifiedAccessEndpointCommandOutput
  * //       "STRING_VALUE",
  * //     ],
  * //     LoadBalancerOptions: { // VerifiedAccessEndpointLoadBalancerOptions
- * //       Protocol: "http" || "https",
+ * //       Protocol: "http" || "https" || "tcp",
  * //       Port: Number("int"),
  * //       LoadBalancerArn: "STRING_VALUE",
  * //       SubnetIds: [ // VerifiedAccessEndpointSubnetIdList
  * //         "STRING_VALUE",
  * //       ],
+ * //       PortRanges: [ // VerifiedAccessEndpointPortRangeList
+ * //         { // VerifiedAccessEndpointPortRange
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //       ],
  * //     },
  * //     NetworkInterfaceOptions: { // VerifiedAccessEndpointEniOptions
  * //       NetworkInterfaceId: "STRING_VALUE",
- * //       Protocol: "http" || "https",
+ * //       Protocol: "http" || "https" || "tcp",
  * //       Port: Number("int"),
+ * //       PortRanges: [
+ * //         {
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //       ],
  * //     },
  * //     Status: { // VerifiedAccessEndpointStatus
  * //       Code: "pending" || "active" || "updating" || "deleting" || "deleted",
@@ -126,6 +174,30 @@ export interface CreateVerifiedAccessEndpointCommandOutput
  * //     SseSpecification: { // VerifiedAccessSseSpecificationResponse
  * //       CustomerManagedKeyEnabled: true || false,
  * //       KmsKeyArn: "STRING_VALUE",
+ * //     },
+ * //     RdsOptions: { // VerifiedAccessEndpointRdsOptions
+ * //       Protocol: "http" || "https" || "tcp",
+ * //       Port: Number("int"),
+ * //       RdsDbInstanceArn: "STRING_VALUE",
+ * //       RdsDbClusterArn: "STRING_VALUE",
+ * //       RdsDbProxyArn: "STRING_VALUE",
+ * //       RdsEndpoint: "STRING_VALUE",
+ * //       SubnetIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     CidrOptions: { // VerifiedAccessEndpointCidrOptions
+ * //       Cidr: "STRING_VALUE",
+ * //       PortRanges: [
+ * //         {
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //       ],
+ * //       Protocol: "http" || "https" || "tcp",
+ * //       SubnetIds: [
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   },
  * // };

@@ -67,7 +67,7 @@ export interface DescribeVerifiedAccessEndpointsCommandOutput
  * //       VerifiedAccessGroupId: "STRING_VALUE",
  * //       VerifiedAccessEndpointId: "STRING_VALUE",
  * //       ApplicationDomain: "STRING_VALUE",
- * //       EndpointType: "load-balancer" || "network-interface",
+ * //       EndpointType: "load-balancer" || "network-interface" || "rds" || "cidr",
  * //       AttachmentType: "vpc",
  * //       DomainCertificateArn: "STRING_VALUE",
  * //       EndpointDomain: "STRING_VALUE",
@@ -76,17 +76,29 @@ export interface DescribeVerifiedAccessEndpointsCommandOutput
  * //         "STRING_VALUE",
  * //       ],
  * //       LoadBalancerOptions: { // VerifiedAccessEndpointLoadBalancerOptions
- * //         Protocol: "http" || "https",
+ * //         Protocol: "http" || "https" || "tcp",
  * //         Port: Number("int"),
  * //         LoadBalancerArn: "STRING_VALUE",
  * //         SubnetIds: [ // VerifiedAccessEndpointSubnetIdList
  * //           "STRING_VALUE",
  * //         ],
+ * //         PortRanges: [ // VerifiedAccessEndpointPortRangeList
+ * //           { // VerifiedAccessEndpointPortRange
+ * //             FromPort: Number("int"),
+ * //             ToPort: Number("int"),
+ * //           },
+ * //         ],
  * //       },
  * //       NetworkInterfaceOptions: { // VerifiedAccessEndpointEniOptions
  * //         NetworkInterfaceId: "STRING_VALUE",
- * //         Protocol: "http" || "https",
+ * //         Protocol: "http" || "https" || "tcp",
  * //         Port: Number("int"),
+ * //         PortRanges: [
+ * //           {
+ * //             FromPort: Number("int"),
+ * //             ToPort: Number("int"),
+ * //           },
+ * //         ],
  * //       },
  * //       Status: { // VerifiedAccessEndpointStatus
  * //         Code: "pending" || "active" || "updating" || "deleting" || "deleted",
@@ -105,6 +117,30 @@ export interface DescribeVerifiedAccessEndpointsCommandOutput
  * //       SseSpecification: { // VerifiedAccessSseSpecificationResponse
  * //         CustomerManagedKeyEnabled: true || false,
  * //         KmsKeyArn: "STRING_VALUE",
+ * //       },
+ * //       RdsOptions: { // VerifiedAccessEndpointRdsOptions
+ * //         Protocol: "http" || "https" || "tcp",
+ * //         Port: Number("int"),
+ * //         RdsDbInstanceArn: "STRING_VALUE",
+ * //         RdsDbClusterArn: "STRING_VALUE",
+ * //         RdsDbProxyArn: "STRING_VALUE",
+ * //         RdsEndpoint: "STRING_VALUE",
+ * //         SubnetIds: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       CidrOptions: { // VerifiedAccessEndpointCidrOptions
+ * //         Cidr: "STRING_VALUE",
+ * //         PortRanges: [
+ * //           {
+ * //             FromPort: Number("int"),
+ * //             ToPort: Number("int"),
+ * //           },
+ * //         ],
+ * //         Protocol: "http" || "https" || "tcp",
+ * //         SubnetIds: [
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     },
  * //   ],

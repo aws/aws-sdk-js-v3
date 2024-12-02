@@ -221,6 +221,10 @@ import {
   CancelConversionTaskCommandInput,
   CancelConversionTaskCommandOutput,
 } from "./commands/CancelConversionTaskCommand";
+import {
+  CancelDeclarativePoliciesReportCommandInput,
+  CancelDeclarativePoliciesReportCommandOutput,
+} from "./commands/CancelDeclarativePoliciesReportCommand";
 import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand";
 import {
   CancelImageLaunchPermissionCommandInput,
@@ -876,6 +880,10 @@ import {
   DescribeCustomerGatewaysCommandOutput,
 } from "./commands/DescribeCustomerGatewaysCommand";
 import {
+  DescribeDeclarativePoliciesReportsCommandInput,
+  DescribeDeclarativePoliciesReportsCommandOutput,
+} from "./commands/DescribeDeclarativePoliciesReportsCommand";
+import {
   DescribeDhcpOptionsCommandInput,
   DescribeDhcpOptionsCommandOutput,
 } from "./commands/DescribeDhcpOptionsCommand";
@@ -1315,6 +1323,10 @@ import {
   DescribeVpcClassicLinkDnsSupportCommandOutput,
 } from "./commands/DescribeVpcClassicLinkDnsSupportCommand";
 import {
+  DescribeVpcEndpointAssociationsCommandInput,
+  DescribeVpcEndpointAssociationsCommandOutput,
+} from "./commands/DescribeVpcEndpointAssociationsCommand";
+import {
   DescribeVpcEndpointConnectionNotificationsCommandInput,
   DescribeVpcEndpointConnectionNotificationsCommandOutput,
 } from "./commands/DescribeVpcEndpointConnectionNotificationsCommand";
@@ -1373,6 +1385,10 @@ import {
   DisableAddressTransferCommandInput,
   DisableAddressTransferCommandOutput,
 } from "./commands/DisableAddressTransferCommand";
+import {
+  DisableAllowedImagesSettingsCommandInput,
+  DisableAllowedImagesSettingsCommandOutput,
+} from "./commands/DisableAllowedImagesSettingsCommand";
 import {
   DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
   DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
@@ -1500,6 +1516,10 @@ import {
   EnableAddressTransferCommandOutput,
 } from "./commands/EnableAddressTransferCommand";
 import {
+  EnableAllowedImagesSettingsCommandInput,
+  EnableAllowedImagesSettingsCommandOutput,
+} from "./commands/EnableAllowedImagesSettingsCommand";
+import {
   EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
   EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
 } from "./commands/EnableAwsNetworkPerformanceMetricSubscriptionCommand";
@@ -1572,6 +1592,14 @@ import {
   ExportTransitGatewayRoutesCommandOutput,
 } from "./commands/ExportTransitGatewayRoutesCommand";
 import {
+  ExportVerifiedAccessInstanceClientConfigurationCommandInput,
+  ExportVerifiedAccessInstanceClientConfigurationCommandOutput,
+} from "./commands/ExportVerifiedAccessInstanceClientConfigurationCommand";
+import {
+  GetAllowedImagesSettingsCommandInput,
+  GetAllowedImagesSettingsCommandOutput,
+} from "./commands/GetAllowedImagesSettingsCommand";
+import {
   GetAssociatedEnclaveCertificateIamRolesCommandInput,
   GetAssociatedEnclaveCertificateIamRolesCommandOutput,
 } from "./commands/GetAssociatedEnclaveCertificateIamRolesCommand";
@@ -1593,6 +1621,10 @@ import {
   GetConsoleScreenshotCommandInput,
   GetConsoleScreenshotCommandOutput,
 } from "./commands/GetConsoleScreenshotCommand";
+import {
+  GetDeclarativePoliciesReportSummaryCommandInput,
+  GetDeclarativePoliciesReportSummaryCommandOutput,
+} from "./commands/GetDeclarativePoliciesReportSummaryCommand";
 import {
   GetDefaultCreditSpecificationCommandInput,
   GetDefaultCreditSpecificationCommandOutput,
@@ -1739,6 +1771,10 @@ import {
   GetVerifiedAccessEndpointPolicyCommandInput,
   GetVerifiedAccessEndpointPolicyCommandOutput,
 } from "./commands/GetVerifiedAccessEndpointPolicyCommand";
+import {
+  GetVerifiedAccessEndpointTargetsCommandInput,
+  GetVerifiedAccessEndpointTargetsCommandOutput,
+} from "./commands/GetVerifiedAccessEndpointTargetsCommand";
 import {
   GetVerifiedAccessGroupPolicyCommandInput,
   GetVerifiedAccessGroupPolicyCommandOutput,
@@ -2104,6 +2140,10 @@ import {
   ReplaceIamInstanceProfileAssociationCommandOutput,
 } from "./commands/ReplaceIamInstanceProfileAssociationCommand";
 import {
+  ReplaceImageCriteriaInAllowedImagesSettingsCommandInput,
+  ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput,
+} from "./commands/ReplaceImageCriteriaInAllowedImagesSettingsCommand";
+import {
   ReplaceNetworkAclAssociationCommandInput,
   ReplaceNetworkAclAssociationCommandOutput,
 } from "./commands/ReplaceNetworkAclAssociationCommand";
@@ -2211,6 +2251,10 @@ import {
   SendDiagnosticInterruptCommandInput,
   SendDiagnosticInterruptCommandOutput,
 } from "./commands/SendDiagnosticInterruptCommand";
+import {
+  StartDeclarativePoliciesReportCommandInput,
+  StartDeclarativePoliciesReportCommandOutput,
+} from "./commands/StartDeclarativePoliciesReportCommand";
 import { StartInstancesCommandInput, StartInstancesCommandOutput } from "./commands/StartInstancesCommand";
 import {
   StartNetworkInsightsAccessScopeAnalysisCommandInput,
@@ -2316,6 +2360,7 @@ export type ServiceInputTypes =
   | CancelCapacityReservationCommandInput
   | CancelCapacityReservationFleetsCommandInput
   | CancelConversionTaskCommandInput
+  | CancelDeclarativePoliciesReportCommandInput
   | CancelExportTaskCommandInput
   | CancelImageLaunchPermissionCommandInput
   | CancelImportTaskCommandInput
@@ -2520,6 +2565,7 @@ export type ServiceInputTypes =
   | DescribeCoipPoolsCommandInput
   | DescribeConversionTasksCommandInput
   | DescribeCustomerGatewaysCommandInput
+  | DescribeDeclarativePoliciesReportsCommandInput
   | DescribeDhcpOptionsCommandInput
   | DescribeEgressOnlyInternetGatewaysCommandInput
   | DescribeElasticGpusCommandInput
@@ -2644,6 +2690,7 @@ export type ServiceInputTypes =
   | DescribeVpcBlockPublicAccessOptionsCommandInput
   | DescribeVpcClassicLinkCommandInput
   | DescribeVpcClassicLinkDnsSupportCommandInput
+  | DescribeVpcEndpointAssociationsCommandInput
   | DescribeVpcEndpointConnectionNotificationsCommandInput
   | DescribeVpcEndpointConnectionsCommandInput
   | DescribeVpcEndpointServiceConfigurationsCommandInput
@@ -2661,6 +2708,7 @@ export type ServiceInputTypes =
   | DetachVolumeCommandInput
   | DetachVpnGatewayCommandInput
   | DisableAddressTransferCommandInput
+  | DisableAllowedImagesSettingsCommandInput
   | DisableAwsNetworkPerformanceMetricSubscriptionCommandInput
   | DisableEbsEncryptionByDefaultCommandInput
   | DisableFastLaunchCommandInput
@@ -2694,6 +2742,7 @@ export type ServiceInputTypes =
   | DisassociateTrunkInterfaceCommandInput
   | DisassociateVpcCidrBlockCommandInput
   | EnableAddressTransferCommandInput
+  | EnableAllowedImagesSettingsCommandInput
   | EnableAwsNetworkPerformanceMetricSubscriptionCommandInput
   | EnableEbsEncryptionByDefaultCommandInput
   | EnableFastLaunchCommandInput
@@ -2715,6 +2764,8 @@ export type ServiceInputTypes =
   | ExportClientVpnClientConfigurationCommandInput
   | ExportImageCommandInput
   | ExportTransitGatewayRoutesCommandInput
+  | ExportVerifiedAccessInstanceClientConfigurationCommandInput
+  | GetAllowedImagesSettingsCommandInput
   | GetAssociatedEnclaveCertificateIamRolesCommandInput
   | GetAssociatedIpv6PoolCidrsCommandInput
   | GetAwsNetworkPerformanceDataCommandInput
@@ -2722,6 +2773,7 @@ export type ServiceInputTypes =
   | GetCoipPoolUsageCommandInput
   | GetConsoleOutputCommandInput
   | GetConsoleScreenshotCommandInput
+  | GetDeclarativePoliciesReportSummaryCommandInput
   | GetDefaultCreditSpecificationCommandInput
   | GetEbsDefaultKmsKeyIdCommandInput
   | GetEbsEncryptionByDefaultCommandInput
@@ -2760,6 +2812,7 @@ export type ServiceInputTypes =
   | GetTransitGatewayRouteTableAssociationsCommandInput
   | GetTransitGatewayRouteTablePropagationsCommandInput
   | GetVerifiedAccessEndpointPolicyCommandInput
+  | GetVerifiedAccessEndpointTargetsCommandInput
   | GetVerifiedAccessGroupPolicyCommandInput
   | GetVpnConnectionDeviceSampleConfigurationCommandInput
   | GetVpnConnectionDeviceTypesCommandInput
@@ -2869,6 +2922,7 @@ export type ServiceInputTypes =
   | ReleaseHostsCommandInput
   | ReleaseIpamPoolAllocationCommandInput
   | ReplaceIamInstanceProfileAssociationCommandInput
+  | ReplaceImageCriteriaInAllowedImagesSettingsCommandInput
   | ReplaceNetworkAclAssociationCommandInput
   | ReplaceNetworkAclEntryCommandInput
   | ReplaceRouteCommandInput
@@ -2899,6 +2953,7 @@ export type ServiceInputTypes =
   | SearchTransitGatewayMulticastGroupsCommandInput
   | SearchTransitGatewayRoutesCommandInput
   | SendDiagnosticInterruptCommandInput
+  | StartDeclarativePoliciesReportCommandInput
   | StartInstancesCommandInput
   | StartNetworkInsightsAccessScopeAnalysisCommandInput
   | StartNetworkInsightsAnalysisCommandInput
@@ -2967,6 +3022,7 @@ export type ServiceOutputTypes =
   | CancelCapacityReservationCommandOutput
   | CancelCapacityReservationFleetsCommandOutput
   | CancelConversionTaskCommandOutput
+  | CancelDeclarativePoliciesReportCommandOutput
   | CancelExportTaskCommandOutput
   | CancelImageLaunchPermissionCommandOutput
   | CancelImportTaskCommandOutput
@@ -3171,6 +3227,7 @@ export type ServiceOutputTypes =
   | DescribeCoipPoolsCommandOutput
   | DescribeConversionTasksCommandOutput
   | DescribeCustomerGatewaysCommandOutput
+  | DescribeDeclarativePoliciesReportsCommandOutput
   | DescribeDhcpOptionsCommandOutput
   | DescribeEgressOnlyInternetGatewaysCommandOutput
   | DescribeElasticGpusCommandOutput
@@ -3295,6 +3352,7 @@ export type ServiceOutputTypes =
   | DescribeVpcBlockPublicAccessOptionsCommandOutput
   | DescribeVpcClassicLinkCommandOutput
   | DescribeVpcClassicLinkDnsSupportCommandOutput
+  | DescribeVpcEndpointAssociationsCommandOutput
   | DescribeVpcEndpointConnectionNotificationsCommandOutput
   | DescribeVpcEndpointConnectionsCommandOutput
   | DescribeVpcEndpointServiceConfigurationsCommandOutput
@@ -3312,6 +3370,7 @@ export type ServiceOutputTypes =
   | DetachVolumeCommandOutput
   | DetachVpnGatewayCommandOutput
   | DisableAddressTransferCommandOutput
+  | DisableAllowedImagesSettingsCommandOutput
   | DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput
   | DisableEbsEncryptionByDefaultCommandOutput
   | DisableFastLaunchCommandOutput
@@ -3345,6 +3404,7 @@ export type ServiceOutputTypes =
   | DisassociateTrunkInterfaceCommandOutput
   | DisassociateVpcCidrBlockCommandOutput
   | EnableAddressTransferCommandOutput
+  | EnableAllowedImagesSettingsCommandOutput
   | EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput
   | EnableEbsEncryptionByDefaultCommandOutput
   | EnableFastLaunchCommandOutput
@@ -3366,6 +3426,8 @@ export type ServiceOutputTypes =
   | ExportClientVpnClientConfigurationCommandOutput
   | ExportImageCommandOutput
   | ExportTransitGatewayRoutesCommandOutput
+  | ExportVerifiedAccessInstanceClientConfigurationCommandOutput
+  | GetAllowedImagesSettingsCommandOutput
   | GetAssociatedEnclaveCertificateIamRolesCommandOutput
   | GetAssociatedIpv6PoolCidrsCommandOutput
   | GetAwsNetworkPerformanceDataCommandOutput
@@ -3373,6 +3435,7 @@ export type ServiceOutputTypes =
   | GetCoipPoolUsageCommandOutput
   | GetConsoleOutputCommandOutput
   | GetConsoleScreenshotCommandOutput
+  | GetDeclarativePoliciesReportSummaryCommandOutput
   | GetDefaultCreditSpecificationCommandOutput
   | GetEbsDefaultKmsKeyIdCommandOutput
   | GetEbsEncryptionByDefaultCommandOutput
@@ -3411,6 +3474,7 @@ export type ServiceOutputTypes =
   | GetTransitGatewayRouteTableAssociationsCommandOutput
   | GetTransitGatewayRouteTablePropagationsCommandOutput
   | GetVerifiedAccessEndpointPolicyCommandOutput
+  | GetVerifiedAccessEndpointTargetsCommandOutput
   | GetVerifiedAccessGroupPolicyCommandOutput
   | GetVpnConnectionDeviceSampleConfigurationCommandOutput
   | GetVpnConnectionDeviceTypesCommandOutput
@@ -3520,6 +3584,7 @@ export type ServiceOutputTypes =
   | ReleaseHostsCommandOutput
   | ReleaseIpamPoolAllocationCommandOutput
   | ReplaceIamInstanceProfileAssociationCommandOutput
+  | ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput
   | ReplaceNetworkAclAssociationCommandOutput
   | ReplaceNetworkAclEntryCommandOutput
   | ReplaceRouteCommandOutput
@@ -3550,6 +3615,7 @@ export type ServiceOutputTypes =
   | SearchTransitGatewayMulticastGroupsCommandOutput
   | SearchTransitGatewayRoutesCommandOutput
   | SendDiagnosticInterruptCommandOutput
+  | StartDeclarativePoliciesReportCommandOutput
   | StartInstancesCommandOutput
   | StartNetworkInsightsAccessScopeAnalysisCommandOutput
   | StartNetworkInsightsAnalysisCommandOutput

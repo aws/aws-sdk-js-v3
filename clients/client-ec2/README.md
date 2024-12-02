@@ -592,6 +592,14 @@ CancelConversionTask
 </details>
 <details>
 <summary>
+CancelDeclarativePoliciesReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CancelDeclarativePoliciesReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CancelDeclarativePoliciesReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CancelDeclarativePoliciesReportCommandOutput/)
+
+</details>
+<details>
+<summary>
 CancelExportTask
 </summary>
 
@@ -2224,6 +2232,14 @@ DescribeCustomerGateways
 </details>
 <details>
 <summary>
+DescribeDeclarativePoliciesReports
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeDeclarativePoliciesReportsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeDeclarativePoliciesReportsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeDeclarativePoliciesReportsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeDhcpOptions
 </summary>
 
@@ -3216,6 +3232,14 @@ DescribeVpcClassicLinkDnsSupport
 </details>
 <details>
 <summary>
+DescribeVpcEndpointAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeVpcEndpointAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeVpcEndpointAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeVpcEndpointAssociationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeVpcEndpointConnectionNotifications
 </summary>
 
@@ -3348,6 +3372,14 @@ DisableAddressTransfer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisableAddressTransferCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisableAddressTransferCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisableAddressTransferCommandOutput/)
+
+</details>
+<details>
+<summary>
+DisableAllowedImagesSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisableAllowedImagesSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisableAllowedImagesSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisableAllowedImagesSettingsCommandOutput/)
 
 </details>
 <details>
@@ -3616,6 +3648,14 @@ EnableAddressTransfer
 </details>
 <details>
 <summary>
+EnableAllowedImagesSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/EnableAllowedImagesSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableAllowedImagesSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableAllowedImagesSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
 EnableAwsNetworkPerformanceMetricSubscription
 </summary>
 
@@ -3784,6 +3824,22 @@ ExportTransitGatewayRoutes
 </details>
 <details>
 <summary>
+ExportVerifiedAccessInstanceClientConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ExportVerifiedAccessInstanceClientConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ExportVerifiedAccessInstanceClientConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ExportVerifiedAccessInstanceClientConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAllowedImagesSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetAllowedImagesSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetAllowedImagesSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetAllowedImagesSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetAssociatedEnclaveCertificateIamRoles
 </summary>
 
@@ -3836,6 +3892,14 @@ GetConsoleScreenshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetConsoleScreenshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetConsoleScreenshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetConsoleScreenshotCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDeclarativePoliciesReportSummary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetDeclarativePoliciesReportSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetDeclarativePoliciesReportSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetDeclarativePoliciesReportSummaryCommandOutput/)
 
 </details>
 <details>
@@ -4140,6 +4204,14 @@ GetVerifiedAccessEndpointPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetVerifiedAccessEndpointPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetVerifiedAccessEndpointPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetVerifiedAccessEndpointPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetVerifiedAccessEndpointTargets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetVerifiedAccessEndpointTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetVerifiedAccessEndpointTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetVerifiedAccessEndpointTargetsCommandOutput/)
 
 </details>
 <details>
@@ -5016,6 +5088,14 @@ ReplaceIamInstanceProfileAssociation
 </details>
 <details>
 <summary>
+ReplaceImageCriteriaInAllowedImagesSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ReplaceImageCriteriaInAllowedImagesSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ReplaceImageCriteriaInAllowedImagesSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ReplaceNetworkAclAssociation
 </summary>
 
@@ -5252,6 +5332,14 @@ SendDiagnosticInterrupt
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/SendDiagnosticInterruptCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/SendDiagnosticInterruptCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/SendDiagnosticInterruptCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartDeclarativePoliciesReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/StartDeclarativePoliciesReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/StartDeclarativePoliciesReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/StartDeclarativePoliciesReportCommandOutput/)
 
 </details>
 <details>

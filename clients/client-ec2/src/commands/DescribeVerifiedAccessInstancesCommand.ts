@@ -81,6 +81,12 @@ export interface DescribeVerifiedAccessInstancesCommandOutput
  * //         },
  * //       ],
  * //       FipsEnabled: true || false,
+ * //       CidrEndpointsCustomSubDomain: { // VerifiedAccessInstanceCustomSubDomain
+ * //         SubDomain: "STRING_VALUE",
+ * //         Nameservers: [ // ValueStringList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

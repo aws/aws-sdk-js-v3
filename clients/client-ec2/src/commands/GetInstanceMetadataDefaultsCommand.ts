@@ -49,6 +49,8 @@ export interface GetInstanceMetadataDefaultsCommandOutput extends GetInstanceMet
  * //     HttpPutResponseHopLimit: Number("int"),
  * //     HttpEndpoint: "disabled" || "enabled",
  * //     InstanceMetadataTags: "disabled" || "enabled",
+ * //     ManagedBy: "account" || "declarative-policy",
+ * //     ManagedExceptionMessage: "STRING_VALUE",
  * //   },
  * // };
  *

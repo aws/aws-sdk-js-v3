@@ -66,6 +66,16 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  *     CustomerManagedKeyEnabled: true || false,
  *     KmsKeyArn: "STRING_VALUE",
  *   },
+ *   NativeApplicationOidcOptions: { // ModifyVerifiedAccessNativeApplicationOidcOptions
+ *     PublicSigningKeyEndpoint: "STRING_VALUE",
+ *     Issuer: "STRING_VALUE",
+ *     AuthorizationEndpoint: "STRING_VALUE",
+ *     TokenEndpoint: "STRING_VALUE",
+ *     UserInfoEndpoint: "STRING_VALUE",
+ *     ClientId: "STRING_VALUE",
+ *     ClientSecret: "STRING_VALUE",
+ *     Scope: "STRING_VALUE",
+ *   },
  * };
  * const command = new ModifyVerifiedAccessTrustProviderCommand(input);
  * const response = await client.send(command);
@@ -101,6 +111,15 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * //     SseSpecification: { // VerifiedAccessSseSpecificationResponse
  * //       CustomerManagedKeyEnabled: true || false,
  * //       KmsKeyArn: "STRING_VALUE",
+ * //     },
+ * //     NativeApplicationOidcOptions: { // NativeApplicationOidcOptions
+ * //       PublicSigningKeyEndpoint: "STRING_VALUE",
+ * //       Issuer: "STRING_VALUE",
+ * //       AuthorizationEndpoint: "STRING_VALUE",
+ * //       TokenEndpoint: "STRING_VALUE",
+ * //       UserInfoEndpoint: "STRING_VALUE",
+ * //       ClientId: "STRING_VALUE",
+ * //       Scope: "STRING_VALUE",
  * //     },
  * //   },
  * // };

@@ -152,6 +152,7 @@ export const ResourceType = {
   client_vpn_endpoint: "client-vpn-endpoint",
   coip_pool: "coip-pool",
   customer_gateway: "customer-gateway",
+  declarative_policies_report: "declarative-policies-report",
   dedicated_host: "dedicated-host",
   dhcp_options: "dhcp-options",
   egress_only_internet_gateway: "egress-only-internet-gateway",
@@ -217,6 +218,7 @@ export const ResourceType = {
   transit_gateway_route_table: "transit-gateway-route-table",
   transit_gateway_route_table_announcement: "transit-gateway-route-table-announcement",
   verified_access_endpoint: "verified-access-endpoint",
+  verified_access_endpoint_target: "verified-access-endpoint-target",
   verified_access_group: "verified-access-group",
   verified_access_instance: "verified-access-instance",
   verified_access_policy: "verified-access-policy",
@@ -3749,6 +3751,35 @@ export const AllocationType = {
 export type AllocationType = (typeof AllocationType)[keyof typeof AllocationType];
 
 /**
+ * @public
+ * @enum
+ */
+export const AllowedImagesSettingsDisabledState = {
+  disabled: "disabled",
+} as const;
+
+/**
+ * @public
+ */
+export type AllowedImagesSettingsDisabledState =
+  (typeof AllowedImagesSettingsDisabledState)[keyof typeof AllowedImagesSettingsDisabledState];
+
+/**
+ * @public
+ * @enum
+ */
+export const AllowedImagesSettingsEnabledState = {
+  audit_mode: "audit-mode",
+  enabled: "enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type AllowedImagesSettingsEnabledState =
+  (typeof AllowedImagesSettingsEnabledState)[keyof typeof AllowedImagesSettingsEnabledState];
+
+/**
  * <p>Describes a principal.</p>
  * @public
  */
@@ -6023,6 +6054,24 @@ export interface AttachVerifiedAccessTrustProviderRequest {
 }
 
 /**
+ * <p>Describes a custom subdomain for a network CIDR endpoint for Verified Access.</p>
+ * @public
+ */
+export interface VerifiedAccessInstanceCustomSubDomain {
+  /**
+   * <p>The subdomain.</p>
+   * @public
+   */
+  SubDomain?: string | undefined;
+
+  /**
+   * <p>The name servers.</p>
+   * @public
+   */
+  Nameservers?: string[] | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -6147,6 +6196,12 @@ export interface VerifiedAccessInstance {
    * @public
    */
   FipsEnabled?: boolean | undefined;
+
+  /**
+   * <p>The custom subdomain.</p>
+   * @public
+   */
+  CidrEndpointsCustomSubDomain?: VerifiedAccessInstanceCustomSubDomain | undefined;
 }
 
 /**
@@ -6167,6 +6222,54 @@ export interface DeviceOptions {
    * @public
    */
   PublicSigningKeyUrl?: string | undefined;
+}
+
+/**
+ * <p>Describes the OpenID Connect (OIDC) options.</p>
+ * @public
+ */
+export interface NativeApplicationOidcOptions {
+  /**
+   * <p>The public signing key endpoint.</p>
+   * @public
+   */
+  PublicSigningKeyEndpoint?: string | undefined;
+
+  /**
+   * <p>The OIDC issuer identifier of the IdP.</p>
+   * @public
+   */
+  Issuer?: string | undefined;
+
+  /**
+   * <p>The authorization endpoint of the IdP.</p>
+   * @public
+   */
+  AuthorizationEndpoint?: string | undefined;
+
+  /**
+   * <p>The token endpoint of the IdP.</p>
+   * @public
+   */
+  TokenEndpoint?: string | undefined;
+
+  /**
+   * <p>The user info endpoint of the IdP.</p>
+   * @public
+   */
+  UserInfoEndpoint?: string | undefined;
+
+  /**
+   * <p>The OAuth 2.0 client identifier.</p>
+   * @public
+   */
+  ClientId?: string | undefined;
+
+  /**
+   * <p>The set of user claims to be requested from the IdP.</p>
+   * @public
+   */
+  Scope?: string | undefined;
 }
 
 /**
@@ -6314,6 +6417,12 @@ export interface VerifiedAccessTrustProvider {
    * @public
    */
   SseSpecification?: VerifiedAccessSseSpecificationResponse | undefined;
+
+  /**
+   * <p>The OpenID Connect (OIDC) options.</p>
+   * @public
+   */
+  NativeApplicationOidcOptions?: NativeApplicationOidcOptions | undefined;
 }
 
 /**
@@ -7505,6 +7614,36 @@ export interface CancelConversionRequest {
 /**
  * @public
  */
+export interface CancelDeclarativePoliciesReportRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the report.</p>
+   * @public
+   */
+  ReportId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelDeclarativePoliciesReportResult {
+  /**
+   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CancelExportTaskRequest {
   /**
    * <p>The ID of the export task. This is the ID returned by the
@@ -8388,334 +8527,6 @@ export const CapacityReservationDeliveryPreference = {
  */
 export type CapacityReservationDeliveryPreference =
   (typeof CapacityReservationDeliveryPreference)[keyof typeof CapacityReservationDeliveryPreference];
-
-/**
- * @public
- * @enum
- */
-export const EndDateType = {
-  limited: "limited",
-  unlimited: "unlimited",
-} as const;
-
-/**
- * @public
- */
-export type EndDateType = (typeof EndDateType)[keyof typeof EndDateType];
-
-/**
- * @public
- * @enum
- */
-export const InstanceMatchCriteria = {
-  open: "open",
-  targeted: "targeted",
-} as const;
-
-/**
- * @public
- */
-export type InstanceMatchCriteria = (typeof InstanceMatchCriteria)[keyof typeof InstanceMatchCriteria];
-
-/**
- * @public
- * @enum
- */
-export const CapacityReservationInstancePlatform = {
-  LINUX_UNIX: "Linux/UNIX",
-  LINUX_WITH_SQL_SERVER_ENTERPRISE: "Linux with SQL Server Enterprise",
-  LINUX_WITH_SQL_SERVER_STANDARD: "Linux with SQL Server Standard",
-  LINUX_WITH_SQL_SERVER_WEB: "Linux with SQL Server Web",
-  RED_HAT_ENTERPRISE_LINUX: "Red Hat Enterprise Linux",
-  RHEL_WITH_HA: "RHEL with HA",
-  RHEL_WITH_HA_AND_SQL_SERVER_ENTERPRISE: "RHEL with HA and SQL Server Enterprise",
-  RHEL_WITH_HA_AND_SQL_SERVER_STANDARD: "RHEL with HA and SQL Server Standard",
-  RHEL_WITH_SQL_SERVER_ENTERPRISE: "RHEL with SQL Server Enterprise",
-  RHEL_WITH_SQL_SERVER_STANDARD: "RHEL with SQL Server Standard",
-  RHEL_WITH_SQL_SERVER_WEB: "RHEL with SQL Server Web",
-  SUSE_LINUX: "SUSE Linux",
-  UBUNTU_PRO_LINUX: "Ubuntu Pro",
-  WINDOWS: "Windows",
-  WINDOWS_WITH_SQL_SERVER: "Windows with SQL Server",
-  WINDOWS_WITH_SQL_SERVER_ENTERPRISE: "Windows with SQL Server Enterprise",
-  WINDOWS_WITH_SQL_SERVER_STANDARD: "Windows with SQL Server Standard",
-  WINDOWS_WITH_SQL_SERVER_WEB: "Windows with SQL Server Web",
-} as const;
-
-/**
- * @public
- */
-export type CapacityReservationInstancePlatform =
-  (typeof CapacityReservationInstancePlatform)[keyof typeof CapacityReservationInstancePlatform];
-
-/**
- * @public
- * @enum
- */
-export const CapacityReservationTenancy = {
-  dedicated: "dedicated",
-  default: "default",
-} as const;
-
-/**
- * @public
- */
-export type CapacityReservationTenancy = (typeof CapacityReservationTenancy)[keyof typeof CapacityReservationTenancy];
-
-/**
- * @public
- */
-export interface CreateCapacityReservationRequest {
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The instance type for which to reserve capacity.</p>
-   *          <note>
-   *             <p>You can request future-dated Capacity Reservations for instance types in the C, M, R, I,
-   * 				and T instance families only.</p>
-   *          </note>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  InstanceType: string | undefined;
-
-  /**
-   * <p>The type of operating system for which to reserve capacity.</p>
-   * @public
-   */
-  InstancePlatform: CapacityReservationInstancePlatform | undefined;
-
-  /**
-   * <p>The Availability Zone in which to create the Capacity Reservation.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone in which to create the Capacity Reservation.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one
-   * 			of the following tenancy settings:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>default</code> - The Capacity Reservation is created on hardware that is
-   * 					shared with other Amazon Web Services accounts.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>dedicated</code> - The Capacity Reservation is created on single-tenant
-   * 					hardware that is dedicated to a single Amazon Web Services account.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Tenancy?: CapacityReservationTenancy | undefined;
-
-  /**
-   * <p>The number of instances for which to reserve capacity.</p>
-   *          <note>
-   *             <p>You can request future-dated Capacity Reservations for an instance count
-   * 				with a minimum of 100 VPUs. For example, if you request a future-dated Capacity
-   * 				Reservation for <code>m5.xlarge</code> instances, you must request at least
-   * 				25 instances (<i>25 * m5.xlarge = 100 vCPUs</i>).</p>
-   *          </note>
-   *          <p>Valid range: 1 - 1000</p>
-   * @public
-   */
-  InstanceCount: number | undefined;
-
-  /**
-   * <p>Indicates whether the Capacity Reservation supports EBS-optimized instances. This
-   * 			optimization provides dedicated throughput to Amazon EBS and an optimized configuration
-   * 			stack to provide optimal I/O performance. This optimization isn't available with all
-   * 			instance types. Additional usage charges apply when using an EBS- optimized
-   * 			instance.</p>
-   * @public
-   */
-  EbsOptimized?: boolean | undefined;
-
-  /**
-   * <p>
-   *             <i>Deprecated.</i>
-   *          </p>
-   * @public
-   */
-  EphemeralStorage?: boolean | undefined;
-
-  /**
-   * <p>The date and time at which the Capacity Reservation expires. When a Capacity
-   * 			Reservation expires, the reserved capacity is released and you can no longer launch
-   * 			instances into it. The Capacity Reservation's state changes to <code>expired</code>
-   * 			when it reaches its end date and time.</p>
-   *          <p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is
-   * 			<code>limited</code>. Omit <code>EndDate</code> if <code>EndDateType</code> is
-   * 			<code>unlimited</code>.</p>
-   *          <p>If the <code>EndDateType</code> is <code>limited</code>, the Capacity Reservation
-   * 			is cancelled within an hour from the specified time. For example, if you specify
-   * 			5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55
-   * 			and 14:30:55 on 5/31/2019.</p>
-   *          <p>If you are requesting a future-dated Capacity Reservation, you can't specify an end
-   * 			date and time that is within the commitment duration.</p>
-   * @public
-   */
-  EndDate?: Date | undefined;
-
-  /**
-   * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can
-   * 			have one of the following end types:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>unlimited</code> - The Capacity Reservation remains active until you
-   * 					explicitly cancel it. Do not provide an <code>EndDate</code> if the
-   * 						<code>EndDateType</code> is <code>unlimited</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>limited</code> - The Capacity Reservation expires automatically at a
-   * 					specified date and time. You must provide an <code>EndDate</code> value if the
-   * 						<code>EndDateType</code> value is <code>limited</code>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  EndDateType?: EndDateType | undefined;
-
-  /**
-   * <p>Indicates the type of instance launches that the Capacity Reservation accepts. The
-   * 			options include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>open</code> - The Capacity Reservation automatically matches all instances
-   * 					that have matching attributes (instance type, platform, and Availability Zone).
-   * 					Instances that have matching attributes run in the Capacity Reservation
-   * 					automatically without specifying any additional parameters.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>targeted</code> - The Capacity Reservation only accepts instances that
-   * 					have matching attributes (instance type, platform, and Availability Zone), and
-   * 					explicitly target the Capacity Reservation. This ensures that only permitted
-   * 					instances can use the reserved capacity. </p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>If you are requesting a future-dated Capacity Reservation, you must specify <code>targeted</code>.</p>
-   *          </note>
-   *          <p>Default: <code>open</code>
-   *          </p>
-   * @public
-   */
-  InstanceMatchCriteria?: InstanceMatchCriteria | undefined;
-
-  /**
-   * <p>The tags to apply to the Capacity Reservation during launch.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <note>
-   *             <p>Not supported for future-dated Capacity Reservations.</p>
-   *          </note>
-   *          <p>The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity
-   * 			Reservation.</p>
-   * @public
-   */
-  OutpostArn?: string | undefined;
-
-  /**
-   * <note>
-   *             <p>Not supported for future-dated Capacity Reservations.</p>
-   *          </note>
-   *          <p>The Amazon Resource Name (ARN) of the cluster placement group in which
-   * 			to create the Capacity Reservation. For more information, see
-   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html">
-   * 				Capacity Reservations for cluster placement groups</a> in the
-   * 			<i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  PlacementGroupArn?: string | undefined;
-
-  /**
-   * <note>
-   *             <p>Required for future-dated Capacity Reservations only. To create a Capacity
-   * 			Reservation for immediate use, omit this parameter. </p>
-   *          </note>
-   *          <p>The date and time at which the future-dated Capacity Reservation should become
-   * 			available for use, in the ISO8601 format in the UTC time zone
-   * 			(<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
-   *          <p>You can request a future-dated Capacity Reservation between 5 and 120 days in
-   * 			advance.</p>
-   * @public
-   */
-  StartDate?: Date | undefined;
-
-  /**
-   * <note>
-   *             <p>Required for future-dated Capacity Reservations only. To create a Capacity
-   * 			Reservation for immediate use, omit this parameter. </p>
-   *          </note>
-   *          <p>Specify a commitment duration, in seconds, for the future-dated Capacity Reservation.</p>
-   *          <p>The commitment duration is a minimum duration for which you commit to having the
-   * 			future-dated Capacity Reservation in the <code>active</code> state in your account
-   * 			after it has been delivered.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-concepts.html#cr-commitment-duration">
-   * 			Commitment duration</a>.</p>
-   * @public
-   */
-  CommitmentDuration?: number | undefined;
-
-  /**
-   * <note>
-   *             <p>Required for future-dated Capacity Reservations only. To create a Capacity
-   * 			Reservation for immediate use, omit this parameter. </p>
-   *          </note>
-   *          <p>Indicates that the requested capacity will be delivered in addition to any
-   * 			running instances or reserved capacity that you have in your account at the
-   * 			requested date and time.</p>
-   *          <p>The only supported value is <code>incremental</code>.</p>
-   * @public
-   */
-  DeliveryPreference?: CapacityReservationDeliveryPreference | undefined;
-}
-
-/**
- * <p>Information about instance capacity usage for a Capacity Reservation.</p>
- * @public
- */
-export interface CapacityAllocation {
-  /**
-   * <p>The usage type. <code>used</code> indicates that the instance capacity is in use by
-   * 			instances that are running in the Capacity Reservation.</p>
-   * @public
-   */
-  AllocationType?: AllocationType | undefined;
-
-  /**
-   * <p>The amount of instance capacity associated with the usage. For example a value of
-   * 				<code>4</code> indicates that instance capacity for 4 instances is currently in
-   * 			use.</p>
-   * @public
-   */
-  Count?: number | undefined;
-}
 
 /**
  * @internal

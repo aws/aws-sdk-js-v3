@@ -3,14 +3,18 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   AddedPrincipal,
+  AddIpamOperatingRegion,
+  AddIpamOrganizationalUnitExclusion,
+  AddPrefixListEntry,
   AddressAttribute,
   AddressAttributeName,
+  Affinity,
   ApplianceModeSupportValue,
   ByoipCidr,
-  CapacityReservationInstancePlatform,
   ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
   DnsSupportValue,
+  EnaSrdSpecification,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   IpPermission,
@@ -34,18 +38,27 @@ import {
 import {
   _InstanceType,
   AmdSevSnpSpecification,
+  AttributeValue,
   BlockDeviceMapping,
   CapacityReservation,
+  CapacityReservationInstancePlatform,
+  ConnectionTrackingSpecificationRequest,
   CreditSpecificationRequest,
   ElasticGpuSpecification,
   HostnameType,
   InstanceInterruptionBehavior,
   InstanceIpv6Address,
+  Ipam,
+  IpamPool,
+  IpamResourceDiscovery,
+  IpamScope,
+  IpamTier,
+  LaunchTemplate,
   LocalGatewayRoute,
-  ManagedPrefixList,
   MarketType,
   OperatorRequest,
   Placement,
+  RequestIpamResourceTag,
   ShutdownBehavior,
   SpotInstanceType,
   VolumeType,
@@ -60,6 +73,7 @@ import {
   IKEVersionsRequestListValue,
   InternetGatewayExclusionMode,
   IpAddressType,
+  ManagedPrefixList,
   PayerResponsibility,
   Phase1DHGroupNumbersRequestListValue,
   Phase1EncryptionAlgorithmsRequestListValue,
@@ -110,6 +124,7 @@ import {
   InstanceAttributeName,
   InstanceAutoRecoveryState,
   InstanceMetadataEndpointState,
+  InstanceMetadataOptionsResponse,
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
   InstanceState,
@@ -121,8 +136,12 @@ import {
 } from "./models_4";
 
 import {
+  CreateVolumePermission,
+  ExcessCapacityTerminationPolicy,
   InstanceNetworkInterfaceSpecification,
   InternetGatewayBlockMode,
+  LaunchTemplateConfig,
+  ReservedInstancesConfiguration,
   RunInstancesMonitoringEnabled,
   ScheduledInstance,
   SnapshotAttributeName,
@@ -136,7 +155,1337 @@ import {
   VpcBlockPublicAccessOptions,
 } from "./models_5";
 
-import { CapacityReservationSpecification, Purchase } from "./models_6";
+import {
+  CapacityReservationSpecification,
+  DefaultInstanceMetadataEndpointState,
+  DefaultInstanceMetadataTagsState,
+  IpamResourceCidr,
+  MetadataDefaultHttpTokensState,
+  OperationType,
+  Purchase,
+} from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyInstanceMetadataDefaultsRequest {
+  /**
+   * <p>Indicates whether IMDSv2 is required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>optional</code> – IMDSv2 is optional, which means that you can
+   *                     use either IMDSv2 or IMDSv1.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>required</code> – IMDSv2 is required, which means that IMDSv1 is
+   *                     disabled, and you must use IMDSv2.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  HttpTokens?: MetadataDefaultHttpTokensState | undefined;
+
+  /**
+   * <p>The maximum number of hops that the metadata token can travel. To indicate no
+   *             preference, specify <code>-1</code>.</p>
+   *          <p>Possible values: Integers from <code>1</code> to <code>64</code>, and <code>-1</code>
+   *             to indicate no preference</p>
+   * @public
+   */
+  HttpPutResponseHopLimit?: number | undefined;
+
+  /**
+   * <p>Enables or disables the IMDS endpoint on an instance. When disabled, the instance
+   *             metadata can't be accessed.</p>
+   * @public
+   */
+  HttpEndpoint?: DefaultInstanceMetadataEndpointState | undefined;
+
+  /**
+   * <p>Enables or disables access to an instance's tags from the instance metadata. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
+   *                 instance tags using the instance metadata</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  InstanceMetadataTags?: DefaultInstanceMetadataTagsState | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceMetadataDefaultsResult {
+  /**
+   * <p>If the request succeeds, the response returns <code>true</code>. If the request fails,
+   *             no response is returned, and instead an error message is returned.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceMetadataOptionsRequest {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Indicates whether IMDSv2 is required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>optional</code> - IMDSv2 is optional. You can choose whether to send a
+   *                     session token in your instance metadata retrieval requests. If you retrieve
+   *                     IAM role credentials without a session token, you receive the IMDSv1 role
+   *                     credentials. If you retrieve IAM role credentials using a valid session token,
+   *                     you receive the IMDSv2 role credentials.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>required</code> - IMDSv2 is required. You must send a session token
+   *                     in your instance metadata retrieval requests. With this option, retrieving the
+   *                     IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are
+   *                     not available.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI)
+   *                     for your instance is <code>v2.0</code> and the account level default is set to
+   *                     <code>no-preference</code>, the default is <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI)
+   *                     for your instance is <code>v2.0</code>, but the account level default is set to
+   *                     <code>V1 or V2</code>, the default is <code>optional</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The default value can also be affected by other combinations of parameters. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence">Order of precedence for instance metadata options</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  HttpTokens?: HttpTokensState | undefined;
+
+  /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
+   *             number, the further instance metadata requests can travel. If no parameter is specified,
+   *             the existing state is maintained.</p>
+   *          <p>Possible values: Integers from 1 to 64</p>
+   * @public
+   */
+  HttpPutResponseHopLimit?: number | undefined;
+
+  /**
+   * <p>Enables or disables the HTTP metadata endpoint on your instances. If this parameter is
+   *             not specified, the existing state is maintained.</p>
+   *          <p>If you specify a value of <code>disabled</code>, you cannot access your instance
+   *             metadata.</p>
+   * @public
+   */
+  HttpEndpoint?: InstanceMetadataEndpointState | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Enables or disables the IPv6 endpoint for the instance metadata service.
+   *             Applies only if you enabled the HTTP metadata endpoint.</p>
+   * @public
+   */
+  HttpProtocolIpv6?: InstanceMetadataProtocolState | undefined;
+
+  /**
+   * <p>Set to <code>enabled</code> to allow access to instance tags from the instance
+   *             metadata. Set to <code>disabled</code> to turn off access to instance tags from the
+   *             instance metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
+   *                 instance tags using the instance metadata</a>.</p>
+   * @public
+   */
+  InstanceMetadataTags?: InstanceMetadataTagsState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceMetadataOptionsResult {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The metadata options for the instance.</p>
+   * @public
+   */
+  InstanceMetadataOptions?: InstanceMetadataOptionsResponse | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HostTenancy = {
+  dedicated: "dedicated",
+  default: "default",
+  host: "host",
+} as const;
+
+/**
+ * @public
+ */
+export type HostTenancy = (typeof HostTenancy)[keyof typeof HostTenancy];
+
+/**
+ * @public
+ */
+export interface ModifyInstancePlacementRequest {
+  /**
+   * <p>The name of the placement group in which to place the instance. For spread placement
+   *             groups, the instance must have a tenancy of <code>default</code>. For cluster and
+   *             partition placement groups, the instance must have a tenancy of <code>default</code> or
+   *                 <code>dedicated</code>.</p>
+   *          <p>To remove an instance from a placement group, specify an empty string ("").</p>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>The number of the partition in which to place the instance. Valid only if the
+   *             placement group strategy is set to <code>partition</code>.</p>
+   * @public
+   */
+  PartitionNumber?: number | undefined;
+
+  /**
+   * <p>The ARN of the host resource group in which to place the instance. The instance must
+   *             have a tenancy of <code>host</code> to specify this parameter.</p>
+   * @public
+   */
+  HostResourceGroupArn?: string | undefined;
+
+  /**
+   * <p>The Group Id of a placement group. You must specify the Placement Group <b>Group Id</b> to launch an instance in a shared placement
+   *             group.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * <p>The ID of the instance that you are modifying.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The tenancy for the instance.</p>
+   *          <note>
+   *             <p>For T3 instances, you must launch the instance on a Dedicated Host to use a
+   *                 tenancy of <code>host</code>. You can't change the tenancy from
+   *                 <code>host</code> to <code>dedicated</code> or <code>default</code>.
+   *                 Attempting to make one of these unsupported tenancy changes results in an
+   *                 <code>InvalidRequest</code> error code.</p>
+   *          </note>
+   * @public
+   */
+  Tenancy?: HostTenancy | undefined;
+
+  /**
+   * <p>The affinity setting for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-affinity">Host affinity</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  Affinity?: Affinity | undefined;
+
+  /**
+   * <p>The ID of the Dedicated Host with which to associate the instance.</p>
+   * @public
+   */
+  HostId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstancePlacementResult {
+  /**
+   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * <p>Remove an operating Region from an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+ *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>
+ *          </p>
+ * @public
+ */
+export interface RemoveIpamOperatingRegion {
+  /**
+   * <p>The name of the operating Region you want to remove.</p>
+   * @public
+   */
+  RegionName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM you want to modify.</p>
+   * @public
+   */
+  IpamId: string | undefined;
+
+  /**
+   * <p>The description of the IPAM you want to modify.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Choose the operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+   *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  AddOperatingRegions?: AddIpamOperatingRegion[] | undefined;
+
+  /**
+   * <p>The operating Regions to remove.</p>
+   * @public
+   */
+  RemoveOperatingRegions?: RemoveIpamOperatingRegion[] | undefined;
+
+  /**
+   * <p>IPAM is offered in a Free Tier and an Advanced Tier. For more information about the features available in each tier and the costs associated with the tiers, see <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing > IPAM tab</a>.</p>
+   * @public
+   */
+  Tier?: IpamTier | undefined;
+
+  /**
+   * <p>Enable this option to use your own GUA ranges as private IPv6 addresses. This option is disabled by default.</p>
+   * @public
+   */
+  EnablePrivateGua?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamResult {
+  /**
+   * <p>The results of the modification.</p>
+   * @public
+   */
+  Ipam?: Ipam | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamPoolRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM pool you want to modify.</p>
+   * @public
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The description of the IPAM pool you want to modify.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>If true, IPAM will continuously look for resources within the CIDR range of this pool
+   *          and automatically import them as allocations into your IPAM. The CIDRs that will be allocated for
+   *          these resources must not already be allocated to other resources in order for the import to succeed. IPAM will import
+   *          a CIDR regardless of its compliance with the pool's allocation rules, so a resource might be imported and subsequently
+   *          marked as noncompliant. If IPAM discovers multiple CIDRs that overlap, IPAM will import the largest CIDR only. If IPAM
+   *          discovers multiple CIDRs with matching CIDRs, IPAM will randomly import one of them only.
+   *       </p>
+   *          <p>A locale must be set on the pool for this feature to work.</p>
+   * @public
+   */
+  AutoImport?: boolean | undefined;
+
+  /**
+   * <p>The minimum netmask length required for CIDR allocations in this IPAM pool to be compliant. Possible
+   *          netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are  0 - 128. The minimum netmask
+   *          length must be less than the maximum netmask length.</p>
+   * @public
+   */
+  AllocationMinNetmaskLength?: number | undefined;
+
+  /**
+   * <p>The maximum netmask length possible for CIDR allocations in this IPAM pool to be compliant. Possible
+   *          netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are  0 - 128.The maximum netmask
+   *          length must be greater than the minimum netmask length.</p>
+   * @public
+   */
+  AllocationMaxNetmaskLength?: number | undefined;
+
+  /**
+   * <p>The default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.</p>
+   * @public
+   */
+  AllocationDefaultNetmaskLength?: number | undefined;
+
+  /**
+   * <p>Clear the default netmask length allocation rule for this pool.</p>
+   * @public
+   */
+  ClearAllocationDefaultNetmaskLength?: boolean | undefined;
+
+  /**
+   * <p>Add tag allocation rules to a pool. For more information about allocation rules, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  AddAllocationResourceTags?: RequestIpamResourceTag[] | undefined;
+
+  /**
+   * <p>Remove tag allocation rules from a pool.</p>
+   * @public
+   */
+  RemoveAllocationResourceTags?: RequestIpamResourceTag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamPoolResult {
+  /**
+   * <p>The results of the modification.</p>
+   * @public
+   */
+  IpamPool?: IpamPool | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamResourceCidrRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the resource you want to modify.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The CIDR of the resource you want to modify.</p>
+   * @public
+   */
+  ResourceCidr: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region of the resource you want to modify.</p>
+   * @public
+   */
+  ResourceRegion: string | undefined;
+
+  /**
+   * <p>The ID of the current scope that the resource CIDR is in.</p>
+   * @public
+   */
+  CurrentIpamScopeId: string | undefined;
+
+  /**
+   * <p>The ID of the scope you want to transfer the resource CIDR to.</p>
+   * @public
+   */
+  DestinationIpamScopeId?: string | undefined;
+
+  /**
+   * <p>Determines if the resource is monitored by IPAM. If a resource is monitored, the resource is discovered by IPAM and you can view details about the resource’s CIDR.</p>
+   * @public
+   */
+  Monitored: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamResourceCidrResult {
+  /**
+   * <p>The CIDR of the resource.</p>
+   * @public
+   */
+  IpamResourceCidr?: IpamResourceCidr | undefined;
+}
+
+/**
+ * <p>Remove an Organizational Unit (OU) exclusion to your IPAM. If your IPAM is integrated with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a limit on the number of exclusions you can create. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ * @public
+ */
+export interface RemoveIpamOrganizationalUnitExclusion {
+  /**
+   * <p>An Amazon Web Services Organizations entity path. Build the path for the OU(s) using Amazon Web Services Organizations IDs separated by a <code>/</code>. Include all child OUs by ending the path with <code>/*</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Example 1</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Path to a child OU: <code>o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-ghi0-awsccccc/ou-jkl0-awsddddd/</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>In this example, <code>o-a1b2c3d4e5</code> is the organization ID, <code>r-f6g7h8i9j0example</code> is the root ID , <code>ou-ghi0-awsccccc</code> is an OU ID, and <code>ou-jkl0-awsddddd</code> is a child OU ID.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>IPAM will not manage the IP addresses in accounts in the child OU.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Example 2</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Path where all child OUs will be part of the exclusion: <code>o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-ghi0-awsccccc/*</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>In this example, IPAM will not manage the IP addresses in accounts in the OU (<code>ou-ghi0-awsccccc</code>) or in accounts in any OUs that are children of the OU.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *          <p>For more information on how to construct an entity path, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_last-accessed-view-data-orgs.html#access_policies_access-advisor-viewing-orgs-entity-path">Understand the Amazon Web Services Organizations entity path</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p>
+   * @public
+   */
+  OrganizationsEntityPath?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamResourceDiscoveryRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A resource discovery ID.</p>
+   * @public
+   */
+  IpamResourceDiscoveryId: string | undefined;
+
+  /**
+   * <p>A resource discovery description.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Add operating Regions to the resource discovery. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+   * @public
+   */
+  AddOperatingRegions?: AddIpamOperatingRegion[] | undefined;
+
+  /**
+   * <p>Remove operating Regions.</p>
+   * @public
+   */
+  RemoveOperatingRegions?: RemoveIpamOperatingRegion[] | undefined;
+
+  /**
+   * <p>Add an Organizational Unit (OU) exclusion to your IPAM. If your IPAM is integrated with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a limit on the number of exclusions you can create. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  AddOrganizationalUnitExclusions?: AddIpamOrganizationalUnitExclusion[] | undefined;
+
+  /**
+   * <p>Remove an Organizational Unit (OU) exclusion to your IPAM. If your IPAM is integrated with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a limit on the number of exclusions you can create. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  RemoveOrganizationalUnitExclusions?: RemoveIpamOrganizationalUnitExclusion[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamResourceDiscoveryResult {
+  /**
+   * <p>A resource discovery.</p>
+   * @public
+   */
+  IpamResourceDiscovery?: IpamResourceDiscovery | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamScopeRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the scope you want to modify.</p>
+   * @public
+   */
+  IpamScopeId: string | undefined;
+
+  /**
+   * <p>The description of the scope you want to modify.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamScopeResult {
+  /**
+   * <p>The results of the modification.</p>
+   * @public
+   */
+  IpamScope?: IpamScope | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyLaunchTemplateRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *                 idempotency</a>.</p>
+   *          <p>Constraint: Maximum 128 ASCII characters.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The ID of the launch template.</p>
+   *          <p>You must specify either the launch template ID or the
+   *             launch template name, but not both.</p>
+   * @public
+   */
+  LaunchTemplateId?: string | undefined;
+
+  /**
+   * <p>The name of the launch template.</p>
+   *          <p>You must specify either the launch template ID or the
+   *             launch template name, but not both.</p>
+   * @public
+   */
+  LaunchTemplateName?: string | undefined;
+
+  /**
+   * <p>The version number of the launch template to set as the default version.</p>
+   * @public
+   */
+  DefaultVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyLaunchTemplateResult {
+  /**
+   * <p>Information about the launch template.</p>
+   * @public
+   */
+  LaunchTemplate?: LaunchTemplate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyLocalGatewayRouteRequest {
+  /**
+   * <p>The CIDR block used for destination matches. The value that you provide must match the CIDR of an existing route in the table.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string | undefined;
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   * @public
+   */
+  LocalGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>
+   *          The ID of the virtual interface group.
+   *       </p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceGroupId?: string | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>
+   *          The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>. You
+   *          cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request.
+   *       </p>
+   * @public
+   */
+  DestinationPrefixListId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyLocalGatewayRouteResult {
+  /**
+   * <p>Information about the local gateway route table.</p>
+   * @public
+   */
+  Route?: LocalGatewayRoute | undefined;
+}
+
+/**
+ * <p>An entry for a prefix list.</p>
+ * @public
+ */
+export interface RemovePrefixListEntry {
+  /**
+   * <p>The CIDR block.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyManagedPrefixListRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   * @public
+   */
+  PrefixListId: string | undefined;
+
+  /**
+   * <p>The current version of the prefix list.</p>
+   * @public
+   */
+  CurrentVersion?: number | undefined;
+
+  /**
+   * <p>A name for the prefix list.</p>
+   * @public
+   */
+  PrefixListName?: string | undefined;
+
+  /**
+   * <p>One or more entries to add to the prefix list.</p>
+   * @public
+   */
+  AddEntries?: AddPrefixListEntry[] | undefined;
+
+  /**
+   * <p>One or more entries to remove from the prefix list.</p>
+   * @public
+   */
+  RemoveEntries?: RemovePrefixListEntry[] | undefined;
+
+  /**
+   * <p>The maximum number of entries for the prefix list. You cannot modify the entries
+   *             of a prefix list and modify the size of a prefix list at the same time.</p>
+   *          <p>If any of the resources that reference the prefix list cannot support the new
+   *             maximum size, the modify operation fails. Check the state message for the IDs of
+   *             the first ten resources that do not support the new maximum size.</p>
+   * @public
+   */
+  MaxEntries?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyManagedPrefixListResult {
+  /**
+   * <p>Information about the prefix list.</p>
+   * @public
+   */
+  PrefixList?: ManagedPrefixList | undefined;
+}
+
+/**
+ * <p>Describes an attachment change.</p>
+ * @public
+ */
+export interface NetworkInterfaceAttachmentChanges {
+  /**
+   * <p>The ID of the network interface attachment.</p>
+   * @public
+   */
+  AttachmentId?: string | undefined;
+
+  /**
+   * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
+   * @public
+   */
+  DeleteOnTermination?: boolean | undefined;
+}
+
+/**
+ * <p>Contains the parameters for ModifyNetworkInterfaceAttribute.</p>
+ * @public
+ */
+export interface ModifyNetworkInterfaceAttributeRequest {
+  /**
+   * <p>Updates the ENA Express configuration for the network interface that’s attached to the
+   * 			instance.</p>
+   * @public
+   */
+  EnaSrdSpecification?: EnaSrdSpecification | undefined;
+
+  /**
+   * <p>If you’re modifying a network interface in a dual-stack or IPv6-only subnet, you have
+   *             the option to assign a primary IPv6 IP address. A primary IPv6 address is an IPv6 GUA
+   *             address associated with an ENI that you have enabled to use a primary IPv6 address. Use
+   *             this option if the instance that this ENI will be attached to relies on its IPv6 address
+   *             not changing. Amazon Web Services will automatically assign an IPv6 address associated
+   *             with the ENI attached to your instance to be the primary IPv6 address. Once you enable
+   *             an IPv6 GUA address to be a primary IPv6, you cannot disable it. When you enable an IPv6
+   *             GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6
+   *             address until the instance is terminated or the network interface is detached. If you
+   *             have multiple IPv6 addresses associated with an ENI attached to your instance and you
+   *             enable a primary IPv6 address, the first IPv6 GUA address associated with the ENI
+   *             becomes the primary IPv6 address.</p>
+   * @public
+   */
+  EnablePrimaryIpv6?: boolean | undefined;
+
+  /**
+   * <p>A connection tracking specification.</p>
+   * @public
+   */
+  ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest | undefined;
+
+  /**
+   * <p>Indicates whether to assign a public IPv4 address to a network interface.
+   *             This option can be enabled for any network interface but will only apply to the primary network interface (eth0).</p>
+   * @public
+   */
+  AssociatePublicIpAddress?: boolean | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>A description for the network interface.</p>
+   * @public
+   */
+  Description?: AttributeValue | undefined;
+
+  /**
+   * <p>Enable or disable source/destination checks, which ensure that the instance
+   *             is either the source or the destination of any traffic that it receives.
+   *             If the value is <code>true</code>, source/destination checks are enabled;
+   *             otherwise, they are disabled. The default value is <code>true</code>.
+   *             You must disable source/destination checks if the instance runs services
+   *             such as network address translation, routing, or firewalls.</p>
+   * @public
+   */
+  SourceDestCheck?: AttributeBooleanValue | undefined;
+
+  /**
+   * <p>Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.</p>
+   * @public
+   */
+  Groups?: string[] | undefined;
+
+  /**
+   * <p>Information about the interface attachment. If modifying the <code>delete on
+   * 				termination</code> attribute, you must specify the ID of the interface
+   * 			attachment.</p>
+   * @public
+   */
+  Attachment?: NetworkInterfaceAttachmentChanges | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyPrivateDnsNameOptionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name
+   *             must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name
+   *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
+   *             names use the instance IPv4 address or the instance ID.</p>
+   * @public
+   */
+  PrivateDnsHostnameType?: HostnameType | undefined;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
+   *             records.</p>
+   * @public
+   */
+  EnableResourceNameDnsARecord?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
+   *             records.</p>
+   * @public
+   */
+  EnableResourceNameDnsAAAARecord?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyPrivateDnsNameOptionsResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an
+   *             error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * <p>Contains the parameters for ModifyReservedInstances.</p>
+ * @public
+ */
+export interface ModifyReservedInstancesRequest {
+  /**
+   * <p>The IDs of the Reserved Instances to modify.</p>
+   * @public
+   */
+  ReservedInstancesIds: string[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see
+   *    		<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The configuration settings for the Reserved Instances to modify.</p>
+   * @public
+   */
+  TargetConfigurations: ReservedInstancesConfiguration[] | undefined;
+}
+
+/**
+ * <p>Contains the output of ModifyReservedInstances.</p>
+ * @public
+ */
+export interface ModifyReservedInstancesResult {
+  /**
+   * <p>The ID for the modification.</p>
+   * @public
+   */
+  ReservedInstancesModificationId?: string | undefined;
+}
+
+/**
+ * <p>Describes a security group rule.</p>
+ *          <p>You must specify exactly one of the following parameters, based on the rule type:</p>
+ *          <ul>
+ *             <li>
+ *                <p>CidrIpv4</p>
+ *             </li>
+ *             <li>
+ *                <p>CidrIpv6</p>
+ *             </li>
+ *             <li>
+ *                <p>PrefixListId</p>
+ *             </li>
+ *             <li>
+ *                <p>ReferencedGroupId</p>
+ *             </li>
+ *          </ul>
+ *          <p>When you modify a rule, you cannot change the rule type. For example, if the rule
+ *             uses an IPv4 address range, you must use <code>CidrIpv4</code> to specify a new IPv4
+ *             address range.</p>
+ * @public
+ */
+export interface SecurityGroupRuleRequest {
+  /**
+   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>,
+   *                 <code>icmpv6</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). </p>
+   *          <p>Use <code>-1</code> to specify all protocols.</p>
+   * @public
+   */
+  IpProtocol?: string | undefined;
+
+  /**
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *             If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
+   * @public
+   */
+  FromPort?: number | undefined;
+
+  /**
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *             If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes).
+   *             If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).</p>
+   * @public
+   */
+  ToPort?: number | undefined;
+
+  /**
+   * <p>The IPv4 CIDR range. To specify a single IPv4 address, use the /32 prefix length. </p>
+   * @public
+   */
+  CidrIpv4?: string | undefined;
+
+  /**
+   * <p>The IPv6 CIDR range. To specify a single IPv6 address, use the /128 prefix length.</p>
+   * @public
+   */
+  CidrIpv6?: string | undefined;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   * @public
+   */
+  PrefixListId?: string | undefined;
+
+  /**
+   * <p>The ID of the security group that is referenced in the security group rule.</p>
+   * @public
+   */
+  ReferencedGroupId?: string | undefined;
+
+  /**
+   * <p>The description of the security group rule.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * <p>Describes an update to a security group rule.</p>
+ * @public
+ */
+export interface SecurityGroupRuleUpdate {
+  /**
+   * <p>The ID of the security group rule.</p>
+   * @public
+   */
+  SecurityGroupRuleId: string | undefined;
+
+  /**
+   * <p>Information about the security group rule.</p>
+   * @public
+   */
+  SecurityGroupRule?: SecurityGroupRuleRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifySecurityGroupRulesRequest {
+  /**
+   * <p>The ID of the security group.</p>
+   * @public
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>Information about the security group properties to update.</p>
+   * @public
+   */
+  SecurityGroupRules: SecurityGroupRuleUpdate[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifySecurityGroupRulesResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * <p>Describes modifications to the list of create volume permissions for a volume.</p>
+ * @public
+ */
+export interface CreateVolumePermissionModifications {
+  /**
+   * <p>Adds the specified Amazon Web Services account ID or group to the list.</p>
+   * @public
+   */
+  Add?: CreateVolumePermission[] | undefined;
+
+  /**
+   * <p>Removes the specified Amazon Web Services account ID or group from the list.</p>
+   * @public
+   */
+  Remove?: CreateVolumePermission[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifySnapshotAttributeRequest {
+  /**
+   * <p>The snapshot attribute to modify. Only volume creation permissions can be modified.</p>
+   * @public
+   */
+  Attribute?: SnapshotAttributeName | undefined;
+
+  /**
+   * <p>A JSON representation of the snapshot attribute modification.</p>
+   * @public
+   */
+  CreateVolumePermission?: CreateVolumePermissionModifications | undefined;
+
+  /**
+   * <p>The group to modify for the snapshot.</p>
+   * @public
+   */
+  GroupNames?: string[] | undefined;
+
+  /**
+   * <p>The type of operation to perform to the attribute.</p>
+   * @public
+   */
+  OperationType?: OperationType | undefined;
+
+  /**
+   * <p>The ID of the snapshot.</p>
+   * @public
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>The account ID to modify for the snapshot.</p>
+   * @public
+   */
+  UserIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetStorageTier = {
+  archive: "archive",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetStorageTier = (typeof TargetStorageTier)[keyof typeof TargetStorageTier];
+
+/**
+ * @public
+ */
+export interface ModifySnapshotTierRequest {
+  /**
+   * <p>The ID of the snapshot.</p>
+   * @public
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>The name of the storage tier. You must specify <code>archive</code>.</p>
+   * @public
+   */
+  StorageTier?: TargetStorageTier | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifySnapshotTierResult {
+  /**
+   * <p>The ID of the snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The date and time when the archive process was started.</p>
+   * @public
+   */
+  TieringStartTime?: Date | undefined;
+}
+
+/**
+ * <p>Contains the parameters for ModifySpotFleetRequest.</p>
+ * @public
+ */
+export interface ModifySpotFleetRequestRequest {
+  /**
+   * <p>The launch template and overrides. You can only use this parameter if you specified a
+   *             launch template (<code>LaunchTemplateConfigs</code>) in your Spot Fleet request. If you
+   *             specified <code>LaunchSpecifications</code> in your Spot Fleet request, then omit this
+   *             parameter.</p>
+   * @public
+   */
+  LaunchTemplateConfigs?: LaunchTemplateConfig[] | undefined;
+
+  /**
+   * <p>The number of On-Demand Instances in the fleet.</p>
+   * @public
+   */
+  OnDemandTargetCapacity?: number | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  Context?: string | undefined;
+
+  /**
+   * <p>The ID of the Spot Fleet request.</p>
+   * @public
+   */
+  SpotFleetRequestId: string | undefined;
+
+  /**
+   * <p>The size of the fleet.</p>
+   * @public
+   */
+  TargetCapacity?: number | undefined;
+
+  /**
+   * <p>Indicates whether running instances should be terminated if the target capacity
+   *             of the Spot Fleet request is decreased below the current size of the Spot Fleet.</p>
+   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
+   * @public
+   */
+  ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy | undefined;
+}
 
 /**
  * <p>Contains the output of ModifySpotFleetRequest.</p>
@@ -760,6 +2109,36 @@ export interface ModifyTransitGatewayVpcAttachmentResult {
 }
 
 /**
+ * <p>Describes the port range for a Verified Access endpoint.</p>
+ * @public
+ */
+export interface ModifyVerifiedAccessEndpointPortRange {
+  /**
+   * <p>The start of the port range.</p>
+   * @public
+   */
+  FromPort?: number | undefined;
+
+  /**
+   * <p>The end of the port range.</p>
+   * @public
+   */
+  ToPort?: number | undefined;
+}
+
+/**
+ * <p>The CIDR options for a Verified Access endpoint.</p>
+ * @public
+ */
+export interface ModifyVerifiedAccessEndpointCidrOptions {
+  /**
+   * <p>The port ranges.</p>
+   * @public
+   */
+  PortRanges?: ModifyVerifiedAccessEndpointPortRange[] | undefined;
+}
+
+/**
  * <p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the
  *             <code>load-balancer</code> type.</p>
  * @public
@@ -782,6 +2161,12 @@ export interface ModifyVerifiedAccessEndpointLoadBalancerOptions {
    * @public
    */
   Port?: number | undefined;
+
+  /**
+   * <p>The port ranges.</p>
+   * @public
+   */
+  PortRanges?: ModifyVerifiedAccessEndpointPortRange[] | undefined;
 }
 
 /**
@@ -801,6 +2186,36 @@ export interface ModifyVerifiedAccessEndpointEniOptions {
    * @public
    */
   Port?: number | undefined;
+
+  /**
+   * <p>The port ranges.</p>
+   * @public
+   */
+  PortRanges?: ModifyVerifiedAccessEndpointPortRange[] | undefined;
+}
+
+/**
+ * <p>The RDS options for a Verified Access endpoint.</p>
+ * @public
+ */
+export interface ModifyVerifiedAccessEndpointRdsOptions {
+  /**
+   * <p>The IDs of the subnets.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The port.</p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>The RDS endpoint.</p>
+   * @public
+   */
+  RdsEndpoint?: string | undefined;
 }
 
 /**
@@ -852,6 +2267,18 @@ export interface ModifyVerifiedAccessEndpointRequest {
    * @public
    */
   DryRun?: boolean | undefined;
+
+  /**
+   * <p>The RDS options.</p>
+   * @public
+   */
+  RdsOptions?: ModifyVerifiedAccessEndpointRdsOptions | undefined;
+
+  /**
+   * <p>The CIDR options.</p>
+   * @public
+   */
+  CidrOptions?: ModifyVerifiedAccessEndpointCidrOptions | undefined;
 }
 
 /**
@@ -1078,6 +2505,12 @@ export interface ModifyVerifiedAccessInstanceRequest {
    * @public
    */
   ClientToken?: string | undefined;
+
+  /**
+   * <p>The custom subdomain.</p>
+   * @public
+   */
+  CidrEndpointsCustomSubDomain?: string | undefined;
 }
 
 /**
@@ -1244,10 +2677,64 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationResult {
  */
 export interface ModifyVerifiedAccessTrustProviderDeviceOptions {
   /**
-   * <p> The URL Amazon Web Services Verified Access will use to verify the authenticity of the device tokens. </p>
+   * <p> The URL Amazon Web Services Verified Access will use to verify the authenticity of the device tokens.</p>
    * @public
    */
   PublicSigningKeyUrl?: string | undefined;
+}
+
+/**
+ * <p>Describes the OpenID Connect (OIDC) options.</p>
+ * @public
+ */
+export interface ModifyVerifiedAccessNativeApplicationOidcOptions {
+  /**
+   * <p>The public signing key endpoint.</p>
+   * @public
+   */
+  PublicSigningKeyEndpoint?: string | undefined;
+
+  /**
+   * <p>The OIDC issuer identifier of the IdP.</p>
+   * @public
+   */
+  Issuer?: string | undefined;
+
+  /**
+   * <p>The authorization endpoint of the IdP.</p>
+   * @public
+   */
+  AuthorizationEndpoint?: string | undefined;
+
+  /**
+   * <p>The token endpoint of the IdP.</p>
+   * @public
+   */
+  TokenEndpoint?: string | undefined;
+
+  /**
+   * <p>The user info endpoint of the IdP.</p>
+   * @public
+   */
+  UserInfoEndpoint?: string | undefined;
+
+  /**
+   * <p>The OAuth 2.0 client identifier.</p>
+   * @public
+   */
+  ClientId?: string | undefined;
+
+  /**
+   * <p>The OAuth 2.0 client secret.</p>
+   * @public
+   */
+  ClientSecret?: string | undefined;
+
+  /**
+   * <p>The set of user claims to be requested from the IdP.</p>
+   * @public
+   */
+  Scope?: string | undefined;
 }
 
 /**
@@ -1347,6 +2834,12 @@ export interface ModifyVerifiedAccessTrustProviderRequest {
    * @public
    */
   SseSpecification?: VerifiedAccessSseSpecificationRequest | undefined;
+
+  /**
+   * <p>The OpenID Connect (OIDC) options.</p>
+   * @public
+   */
+  NativeApplicationOidcOptions?: ModifyVerifiedAccessNativeApplicationOidcOptions | undefined;
 }
 
 /**
@@ -4056,6 +5549,69 @@ export interface ReplaceIamInstanceProfileAssociationResult {
    * @public
    */
   IamInstanceProfileAssociation?: IamInstanceProfileAssociation | undefined;
+}
+
+/**
+ * <p>The list of criteria that are evaluated to determine whch AMIs are discoverable and usable
+ *       in the account in the specified Amazon Web Services Region. Currently, the only criteria that can be
+ *       specified are AMI providers. </p>
+ *          <p>Up to 10 <code>imageCriteria</code> objects can be specified, and up to a total of 200
+ *       values for all <code>imageProviders</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#allowed-amis-json-configuration">JSON
+ *         configuration for the Allowed AMIs criteria</a> in the
+ *         <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface ImageCriterionRequest {
+  /**
+   * <p>A list of image providers whose AMIs are discoverable and useable in the account. Up to a
+   *       total of 200 values can be specified.</p>
+   *          <p>Possible values:</p>
+   *          <p>
+   *             <code>amazon</code>: Allow AMIs created by Amazon Web Services.</p>
+   *          <p>
+   *             <code>aws-marketplace</code>: Allow AMIs created by verified providers in the Amazon Web Services
+   *       Marketplace.</p>
+   *          <p>
+   *             <code>aws-backup-vault</code>: Allow AMIs created by Amazon Web Services Backup. </p>
+   *          <p>12-digit account ID: Allow AMIs created by this account. One or more account IDs can be
+   *       specified.</p>
+   *          <p>
+   *             <code>none</code>: Allow AMIs created by your own account only. When <code>none</code> is
+   *       specified, no other values can be specified.</p>
+   * @public
+   */
+  ImageProviders?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceImageCriteriaInAllowedImagesSettingsRequest {
+  /**
+   * <p>The list of criteria that are evaluated to determine whether AMIs are discoverable and
+   *       usable in the account in the specified Amazon Web Services Region.</p>
+   * @public
+   */
+  ImageCriteria?: ImageCriterionRequest[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceImageCriteriaInAllowedImagesSettingsResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  ReturnValue?: boolean | undefined;
 }
 
 /**
@@ -7181,6 +8737,69 @@ export interface SendDiagnosticInterruptRequest {
 /**
  * @public
  */
+export interface StartDeclarativePoliciesReportRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The name of the S3 bucket where the report will be saved.</p>
+   * @public
+   */
+  S3Bucket: string | undefined;
+
+  /**
+   * <p>The prefix for your S3 object.</p>
+   * @public
+   */
+  S3Prefix?: string | undefined;
+
+  /**
+   * <p>The root ID, organizational unit ID, or account ID.</p>
+   *          <p>Format:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For root: <code>r-ab12</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For OU: <code>ou-ab12-cdef1234</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For account: <code>123456789012</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TargetId: string | undefined;
+
+  /**
+   * <p>The tags to apply.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDeclarativePoliciesReportResult {
+  /**
+   * <p>The ID of the report.</p>
+   * @public
+   */
+  ReportId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StartInstancesRequest {
   /**
    * <p>The IDs of the instances.</p>
@@ -7852,15 +9471,14 @@ export interface WithdrawByoipCidrRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface WithdrawByoipCidrResult {
-  /**
-   * <p>Information about the address pool.</p>
-   * @public
-   */
-  ByoipCidr?: ByoipCidr | undefined;
-}
+export const ModifyVerifiedAccessNativeApplicationOidcOptionsFilterSensitiveLog = (
+  obj: ModifyVerifiedAccessNativeApplicationOidcOptions
+): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -7881,6 +9499,11 @@ export const ModifyVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
   ...obj,
   ...(obj.OidcOptions && {
     OidcOptions: ModifyVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog(obj.OidcOptions),
+  }),
+  ...(obj.NativeApplicationOidcOptions && {
+    NativeApplicationOidcOptions: ModifyVerifiedAccessNativeApplicationOidcOptionsFilterSensitiveLog(
+      obj.NativeApplicationOidcOptions
+    ),
   }),
 });
 

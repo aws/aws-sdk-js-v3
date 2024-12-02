@@ -6,16 +6,20 @@ import {
   ActivityStatus,
   AddressTransfer,
   AllocationStrategy,
+  AllowedImagesSettingsDisabledState,
+  AllowedImagesSettingsEnabledState,
   AllowedPrincipal,
   AsnAssociation,
   AssociationStatus,
   BatchState,
+  CurrencyCodeValues,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   InstanceEventWindow,
   IpamResourceDiscoveryAssociation,
   IpPermission,
   NatGatewayAddress,
+  ReservedInstancesListing,
   ResourceType,
   SecurityGroupRule,
   SecurityGroupVpcAssociationState,
@@ -68,6 +72,7 @@ import {
   GroupIdentifier,
   IpAddressType,
   PayerResponsibility,
+  RouteTable,
   ServiceConfiguration,
   ServiceConnectivityType,
   ServiceTypeDetail,
@@ -107,17 +112,955 @@ import {
   FastSnapshotRestoreStateCode,
   Filter,
   MetricType,
-  PermissionGroup,
   StatisticType,
 } from "./models_3";
 
 import {
   AttributeBooleanValue,
+  OfferingClassType,
+  OfferingTypeValues,
+  PermissionGroup,
   ProductCode,
+  RecurringCharge,
+  ReservedInstanceState,
   RIProductDescription,
-  ScheduledInstanceRecurrenceRequest,
-  SlotDateTimeRangeRequest,
+  Scope,
 } from "./models_4";
+
+/**
+ * <p>Describes a Reserved Instance.</p>
+ * @public
+ */
+export interface ReservedInstances {
+  /**
+   * <p>The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes.
+   * 				At this time, the only supported currency is <code>USD</code>.</p>
+   * @public
+   */
+  CurrencyCode?: CurrencyCodeValues | undefined;
+
+  /**
+   * <p>The tenancy of the instance.</p>
+   * @public
+   */
+  InstanceTenancy?: Tenancy | undefined;
+
+  /**
+   * <p>The offering class of the Reserved Instance.</p>
+   * @public
+   */
+  OfferingClass?: OfferingClassType | undefined;
+
+  /**
+   * <p>The Reserved Instance offering type.</p>
+   * @public
+   */
+  OfferingType?: OfferingTypeValues | undefined;
+
+  /**
+   * <p>The recurring charge tag assigned to the resource.</p>
+   * @public
+   */
+  RecurringCharges?: RecurringCharge[] | undefined;
+
+  /**
+   * <p>The scope of the Reserved Instance.</p>
+   * @public
+   */
+  Scope?: Scope | undefined;
+
+  /**
+   * <p>Any tags assigned to the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The ID of the Reserved Instance.</p>
+   * @public
+   */
+  ReservedInstancesId?: string | undefined;
+
+  /**
+   * <p>The instance type on which the Reserved Instance can be used.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The Availability Zone in which the Reserved Instance can be used.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The date and time the Reserved Instance started.</p>
+   * @public
+   */
+  Start?: Date | undefined;
+
+  /**
+   * <p>The time when the Reserved Instance expires.</p>
+   * @public
+   */
+  End?: Date | undefined;
+
+  /**
+   * <p>The duration of the Reserved Instance, in seconds.</p>
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * <p>The usage price of the Reserved Instance, per hour.</p>
+   * @public
+   */
+  UsagePrice?: number | undefined;
+
+  /**
+   * <p>The purchase price of the Reserved Instance.</p>
+   * @public
+   */
+  FixedPrice?: number | undefined;
+
+  /**
+   * <p>The number of reservations purchased.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The Reserved Instance product platform description.</p>
+   * @public
+   */
+  ProductDescription?: RIProductDescription | undefined;
+
+  /**
+   * <p>The state of the Reserved Instance purchase.</p>
+   * @public
+   */
+  State?: ReservedInstanceState | undefined;
+}
+
+/**
+ * <p>Contains the output for DescribeReservedInstances.</p>
+ * @public
+ */
+export interface DescribeReservedInstancesResult {
+  /**
+   * <p>A list of Reserved Instances.</p>
+   * @public
+   */
+  ReservedInstances?: ReservedInstances[] | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DescribeReservedInstancesListings.</p>
+ * @public
+ */
+export interface DescribeReservedInstancesListingsRequest {
+  /**
+   * <p>One or more Reserved Instance IDs.</p>
+   * @public
+   */
+  ReservedInstancesId?: string | undefined;
+
+  /**
+   * <p>One or more Reserved Instance listing IDs.</p>
+   * @public
+   */
+  ReservedInstancesListingId?: string | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> |
+   *            <code>cancelled</code> | <code>closed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status-message</code> - The reason for the status.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Contains the output of DescribeReservedInstancesListings.</p>
+ * @public
+ */
+export interface DescribeReservedInstancesListingsResult {
+  /**
+   * <p>Information about the Reserved Instance listing.</p>
+   * @public
+   */
+  ReservedInstancesListings?: ReservedInstancesListing[] | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DescribeReservedInstancesModifications.</p>
+ * @public
+ */
+export interface DescribeReservedInstancesModificationsRequest {
+  /**
+   * <p>IDs for the submitted modification request.</p>
+   * @public
+   */
+  ReservedInstancesModificationIds?: string[] | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>client-token</code> - The idempotency token for the modification request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>create-date</code> - The time when the modification request was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>effective-date</code> - The time when the modification becomes effective.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modification-result.reserved-instances-id</code> - The ID for the Reserved Instances created as part of the modification request. This ID is only available when the status of the modification is <code>fulfilled</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modification-result.target-configuration.availability-zone</code> - The Availability Zone for the new Reserved Instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modification-result.target-configuration.instance-count </code> - The number of new Reserved Instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modification-result.target-configuration.instance-type</code> - The instance type of the new Reserved Instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instances modified.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-modification-id</code> - The ID of the modification request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - The status of the Reserved Instances modification request
+   *            (<code>processing</code> | <code>fulfilled</code> | <code>failed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status-message</code> - The reason for the status.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>update-date</code> - The time when the modification request was last updated.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Describes the configuration settings for the modified Reserved Instances.</p>
+ * @public
+ */
+export interface ReservedInstancesConfiguration {
+  /**
+   * <p>The Availability Zone for the modified Reserved Instances.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The number of modified Reserved Instances.</p>
+   *          <note>
+   *             <p>This is a required field for a request.</p>
+   *          </note>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The instance type for the modified Reserved Instances.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The network platform of the modified Reserved Instances.</p>
+   * @public
+   */
+  Platform?: string | undefined;
+
+  /**
+   * <p>Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.</p>
+   * @public
+   */
+  Scope?: Scope | undefined;
+}
+
+/**
+ * <p>Describes the modification request/s.</p>
+ * @public
+ */
+export interface ReservedInstancesModificationResult {
+  /**
+   * <p>The ID for the Reserved Instances that were created as part of the modification request. This field is only available when the modification is fulfilled.</p>
+   * @public
+   */
+  ReservedInstancesId?: string | undefined;
+
+  /**
+   * <p>The target Reserved Instances configurations supplied as part of the modification request.</p>
+   * @public
+   */
+  TargetConfiguration?: ReservedInstancesConfiguration | undefined;
+}
+
+/**
+ * <p>Describes the ID of a Reserved Instance.</p>
+ * @public
+ */
+export interface ReservedInstancesId {
+  /**
+   * <p>The ID of the Reserved Instance.</p>
+   * @public
+   */
+  ReservedInstancesId?: string | undefined;
+}
+
+/**
+ * <p>Describes a Reserved Instance modification.</p>
+ * @public
+ */
+export interface ReservedInstancesModification {
+  /**
+   * <p>A unique, case-sensitive key supplied by the client to ensure that the request is idempotent.
+   * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   * 				Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The time when the modification request was created.</p>
+   * @public
+   */
+  CreateDate?: Date | undefined;
+
+  /**
+   * <p>The time for the modification to become effective.</p>
+   * @public
+   */
+  EffectiveDate?: Date | undefined;
+
+  /**
+   * <p>Contains target configurations along with their corresponding new Reserved Instance IDs.</p>
+   * @public
+   */
+  ModificationResults?: ReservedInstancesModificationResult[] | undefined;
+
+  /**
+   * <p>The IDs of one or more Reserved Instances.</p>
+   * @public
+   */
+  ReservedInstancesIds?: ReservedInstancesId[] | undefined;
+
+  /**
+   * <p>A unique ID for the Reserved Instance modification.</p>
+   * @public
+   */
+  ReservedInstancesModificationId?: string | undefined;
+
+  /**
+   * <p>The status of the Reserved Instances modification request.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The reason for the status.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The time when the modification request was last updated.</p>
+   * @public
+   */
+  UpdateDate?: Date | undefined;
+}
+
+/**
+ * <p>Contains the output of DescribeReservedInstancesModifications.</p>
+ * @public
+ */
+export interface DescribeReservedInstancesModificationsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when
+   * 			there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Reserved Instance modification information.</p>
+   * @public
+   */
+  ReservedInstancesModifications?: ReservedInstancesModification[] | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DescribeReservedInstancesOfferings.</p>
+ * @public
+ */
+export interface DescribeReservedInstancesOfferingsRequest {
+  /**
+   * <p>The Availability Zone in which the Reserved Instance can be used.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>Include Reserved Instance Marketplace offerings in the response.</p>
+   * @public
+   */
+  IncludeMarketplace?: boolean | undefined;
+
+  /**
+   * <p>The instance type that the reservation will cover (for example, <code>m1.small</code>).
+   *       For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Amazon EC2 instance types</a> in the
+   *         <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The maximum duration (in seconds) to filter when searching for offerings.</p>
+   *          <p>Default: 94608000 (3 years)</p>
+   * @public
+   */
+  MaxDuration?: number | undefined;
+
+  /**
+   * <p>The maximum number of instances to filter when searching for offerings.</p>
+   *          <p>Default: 20</p>
+   * @public
+   */
+  MaxInstanceCount?: number | undefined;
+
+  /**
+   * <p>The minimum duration (in seconds) to filter when searching for offerings.</p>
+   *          <p>Default: 2592000 (1 month)</p>
+   * @public
+   */
+  MinDuration?: number | undefined;
+
+  /**
+   * <p>The offering class of the Reserved Instance. Can be <code>standard</code> or <code>convertible</code>.</p>
+   * @public
+   */
+  OfferingClass?: OfferingClassType | undefined;
+
+  /**
+   * <p>The Reserved Instance product platform description. Instances that include <code>(Amazon
+   *         VPC)</code> in the description are for use with Amazon VPC.</p>
+   * @public
+   */
+  ProductDescription?: RIProductDescription | undefined;
+
+  /**
+   * <p>One or more Reserved Instances offering IDs.</p>
+   * @public
+   */
+  ReservedInstancesOfferingIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone where the Reserved Instance can be
+   *           used.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>duration</code> - The duration of the Reserved Instance (for example, one year or
+   *           three years), in seconds (<code>31536000</code> | <code>94608000</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fixed-price</code> - The purchase price of the Reserved Instance (for example,
+   *           9800.0).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type that is covered by the
+   *           reservation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>marketplace</code> - Set to <code>true</code> to show only Reserved Instance
+   *           Marketplace offerings. When this filter is not used, which is the default behavior, all
+   *           offerings from both Amazon Web Services and the Reserved Instance Marketplace are listed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>product-description</code> - The Reserved Instance product platform description
+   *           (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> |
+   *           <code>Linux with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> |
+   *           <code>SUSE Linux</code> |
+   *           <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> |
+   *           <code>Windows</code> | <code>Windows with SQL Server Standard</code> |
+   *           <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-offering-id</code> - The Reserved Instances offering
+   *           ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scope</code> - The scope of the Reserved Instance (<code>Availability Zone</code> or
+   *             <code>Region</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for
+   *           example, 0.84).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy
+   *       of <code>dedicated</code> is applied to instances that run in a VPC on single-tenant hardware
+   *       (i.e., Dedicated Instances).</p>
+   *          <p>
+   *             <b>Important:</b> The <code>host</code> value cannot be used with this parameter. Use the <code>default</code> or <code>dedicated</code> values only.</p>
+   *          <p>Default: <code>default</code>
+   *          </p>
+   * @public
+   */
+  InstanceTenancy?: Tenancy | undefined;
+
+  /**
+   * <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API
+   * 			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
+   * 			offering type. </p>
+   * @public
+   */
+  OfferingType?: OfferingTypeValues | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining
+   * 			results of the initial request can be seen by sending another request with the returned
+   * 				<code>NextToken</code> value. The maximum is 100.</p>
+   *          <p>Default: 100</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Describes a Reserved Instance offering.</p>
+ * @public
+ */
+export interface PricingDetail {
+  /**
+   * <p>The number of reservations available for the price.</p>
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * <p>The price per instance.</p>
+   * @public
+   */
+  Price?: number | undefined;
+}
+
+/**
+ * <p>Describes a Reserved Instance offering.</p>
+ * @public
+ */
+export interface ReservedInstancesOffering {
+  /**
+   * <p>The currency of the Reserved Instance offering you are purchasing. It's
+   * 				specified using ISO 4217 standard currency codes. At this time,
+   * 				the only supported currency is <code>USD</code>.</p>
+   * @public
+   */
+  CurrencyCode?: CurrencyCodeValues | undefined;
+
+  /**
+   * <p>The tenancy of the instance.</p>
+   * @public
+   */
+  InstanceTenancy?: Tenancy | undefined;
+
+  /**
+   * <p>Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or Amazon Web Services.
+   *         If it's a Reserved Instance Marketplace offering, this is <code>true</code>.</p>
+   * @public
+   */
+  Marketplace?: boolean | undefined;
+
+  /**
+   * <p>If <code>convertible</code> it can be exchanged for Reserved Instances of
+   *       the same or higher monetary value, with different configurations. If <code>standard</code>, it is not
+   *       possible to perform an exchange.</p>
+   * @public
+   */
+  OfferingClass?: OfferingClassType | undefined;
+
+  /**
+   * <p>The Reserved Instance offering type.</p>
+   * @public
+   */
+  OfferingType?: OfferingTypeValues | undefined;
+
+  /**
+   * <p>The pricing details of the Reserved Instance offering.</p>
+   * @public
+   */
+  PricingDetails?: PricingDetail[] | undefined;
+
+  /**
+   * <p>The recurring charge tag assigned to the resource.</p>
+   * @public
+   */
+  RecurringCharges?: RecurringCharge[] | undefined;
+
+  /**
+   * <p>Whether the Reserved Instance is applied to instances in a Region or an Availability Zone.</p>
+   * @public
+   */
+  Scope?: Scope | undefined;
+
+  /**
+   * <p>The ID of the Reserved Instance offering. This is the offering ID used in <a>GetReservedInstancesExchangeQuote</a>
+   *      to confirm that an exchange can be made.</p>
+   * @public
+   */
+  ReservedInstancesOfferingId?: string | undefined;
+
+  /**
+   * <p>The instance type on which the Reserved Instance can be used.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The Availability Zone in which the Reserved Instance can be used.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The duration of the Reserved Instance, in seconds.</p>
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * <p>The usage price of the Reserved Instance, per hour.</p>
+   * @public
+   */
+  UsagePrice?: number | undefined;
+
+  /**
+   * <p>The purchase price of the Reserved Instance.</p>
+   * @public
+   */
+  FixedPrice?: number | undefined;
+
+  /**
+   * <p>The Reserved Instance product platform description.</p>
+   * @public
+   */
+  ProductDescription?: RIProductDescription | undefined;
+}
+
+/**
+ * <p>Contains the output of DescribeReservedInstancesOfferings.</p>
+ * @public
+ */
+export interface DescribeReservedInstancesOfferingsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when
+   * 			there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of Reserved Instances offerings.</p>
+   * @public
+   */
+  ReservedInstancesOfferings?: ReservedInstancesOffering[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRouteTablesRequest {
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IDs of the route tables.</p>
+   * @public
+   */
+  RouteTableIds?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>association.gateway-id</code> - The ID of the gateway involved in the
+   * 		                association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>association.route-table-association-id</code> - The ID of an association
+   *                     ID for the route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>association.route-table-id</code> - The ID of the route table involved in
+   *                     the association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>association.subnet-id</code> - The ID of the subnet involved in the
+   *                     association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>association.main</code> - Indicates whether the route table is the main
+   *                     route table for the VPC (<code>true</code> | <code>false</code>). Route tables
+   *                     that do not have an association ID are not returned in the response.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-table-id</code> - The ID of the route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.destination-cidr-block</code> - The IPv4 CIDR range specified in a
+   *                     route in the table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.destination-ipv6-cidr-block</code> - The IPv6 CIDR range specified in a route in the route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.destination-prefix-list-id</code> - The ID (prefix) of the Amazon Web Services
+   * 				      service specified in a route in the table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.egress-only-internet-gateway-id</code> - The ID of an
+   *                     egress-only Internet gateway specified in a route in the route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.gateway-id</code> - The ID of a gateway specified in a route in the table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.instance-id</code> - The ID of an instance specified in a route in the table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.nat-gateway-id</code> - The ID of a NAT gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.transit-gateway-id</code> - The ID of a transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.origin</code> - Describes how the route was created.
+   *                         <code>CreateRouteTable</code> indicates that the route was automatically
+   *                     created when the route table was created; <code>CreateRoute</code> indicates
+   *                     that the route was manually added to the route table;
+   *                         <code>EnableVgwRoutePropagation</code> indicates that the route was
+   *                     propagated by route propagation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.state</code> - The state of a route in the route table
+   *                         (<code>active</code> | <code>blackhole</code>). The blackhole state
+   *                     indicates that the route's target isn't available (for example, the specified
+   *                     gateway isn't attached to the VPC, the specified NAT instance has been
+   *                     terminated, and so on).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.vpc-peering-connection-id</code> - The ID of a VPC peering
+   * 		                connection specified in a route in the table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC for the route table.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Contains the output of DescribeRouteTables.</p>
+ * @public
+ */
+export interface DescribeRouteTablesResult {
+  /**
+   * <p>Information about the route tables.</p>
+   * @public
+   */
+  RouteTables?: RouteTable[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Describes the time period for a Scheduled Instance to start its first schedule. The time period must span less than one day.</p>
+ * @public
+ */
+export interface SlotDateTimeRangeRequest {
+  /**
+   * <p>The earliest date and time, in UTC, for the Scheduled Instance to start.</p>
+   * @public
+   */
+  EarliestTime: Date | undefined;
+
+  /**
+   * <p>The latest date and time, in UTC, for the Scheduled Instance to start. This value must be later than or equal to the earliest date and at most three months in the future.</p>
+   * @public
+   */
+  LatestTime: Date | undefined;
+}
+
+/**
+ * <p>Describes the recurring schedule for a Scheduled Instance.</p>
+ * @public
+ */
+export interface ScheduledInstanceRecurrenceRequest {
+  /**
+   * <p>The frequency (<code>Daily</code>, <code>Weekly</code>, or <code>Monthly</code>).</p>
+   * @public
+   */
+  Frequency?: string | undefined;
+
+  /**
+   * <p>The interval quantity. The interval unit depends on the value of <code>Frequency</code>. For example, every 2
+   *          weeks or every 2 months.</p>
+   * @public
+   */
+  Interval?: number | undefined;
+
+  /**
+   * <p>The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday). You can't specify this value with a daily schedule. If the occurrence is relative to the end of the month, you can specify only a single day.</p>
+   * @public
+   */
+  OccurrenceDays?: number[] | undefined;
+
+  /**
+   * <p>Indicates whether the occurrence is relative to the end of the specified week or month. You can't specify this value with a daily schedule.</p>
+   * @public
+   */
+  OccurrenceRelativeToEnd?: boolean | undefined;
+
+  /**
+   * <p>The unit for <code>OccurrenceDays</code> (<code>DayOfWeek</code> or <code>DayOfMonth</code>).
+   *         This value is required for a monthly schedule.
+   *         You can't specify <code>DayOfWeek</code> with a weekly schedule.
+   *         You can't specify this value with a daily schedule.</p>
+   * @public
+   */
+  OccurrenceUnit?: string | undefined;
+}
 
 /**
  * <p>Contains the parameters for DescribeScheduledInstanceAvailability.</p>
@@ -1204,6 +2147,10 @@ export interface DescribeSnapshotsRequest {
    *                <p>
    *                   <code>storage-tier</code> - The storage tier of the snapshot (<code>archive</code> |
    *           <code>standard</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transfer-type</code> - The type of operation used to create the snapshot (<code>time-based</code> | <code>standard</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6684,6 +7631,21 @@ export interface DescribeVpcBlockPublicAccessOptionsRequest {
  * @public
  * @enum
  */
+export const VpcBlockPublicAccessExclusionsAllowed = {
+  allowed: "allowed",
+  not_allowed: "not-allowed",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcBlockPublicAccessExclusionsAllowed =
+  (typeof VpcBlockPublicAccessExclusionsAllowed)[keyof typeof VpcBlockPublicAccessExclusionsAllowed];
+
+/**
+ * @public
+ * @enum
+ */
 export const InternetGatewayBlockMode = {
   block_bidirectional: "block-bidirectional",
   block_ingress: "block-ingress",
@@ -6694,6 +7656,20 @@ export const InternetGatewayBlockMode = {
  * @public
  */
 export type InternetGatewayBlockMode = (typeof InternetGatewayBlockMode)[keyof typeof InternetGatewayBlockMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ManagedBy = {
+  account: "account",
+  declarative_policy: "declarative-policy",
+} as const;
+
+/**
+ * @public
+ */
+export type ManagedBy = (typeof ManagedBy)[keyof typeof ManagedBy];
 
 /**
  * @public
@@ -6764,6 +7740,30 @@ export interface VpcBlockPublicAccessOptions {
    * @public
    */
   LastUpdateTimestamp?: Date | undefined;
+
+  /**
+   * <p>The entity that manages the state of VPC BPA. Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>account</code> - The state is managed by the account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>declarative-policy</code> - The state is managed by a declarative policy
+   *                     and can't be modified by the account.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ManagedBy?: ManagedBy | undefined;
+
+  /**
+   * <p>Determines if exclusions are allowed. If you have <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html#security-vpc-bpa-exclusions-orgs">enabled VPC BPA at the Organization level</a>, exclusions may be
+   *                 <code>not-allowed</code>. Otherwise, they are <code>allowed</code>.</p>
+   * @public
+   */
+  ExclusionsAllowed?: VpcBlockPublicAccessExclusionsAllowed | undefined;
 }
 
 /**
@@ -6917,6 +7917,179 @@ export interface DescribeVpcClassicLinkDnsSupportResult {
    * @public
    */
   Vpcs?: ClassicLinkDnsSupport[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcEndpointAssociationsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IDs of the VPC endpoints.</p>
+   * @public
+   */
+  VpcEndpointIds?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-endpoint-id</code> - The ID of the VPC endpoint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>associated-resource-accessibility</code> - The association state. When the
+   *                state is <code>accessible</code>, it returns <code>AVAILABLE</code>. When the state
+   *                is <code>inaccessible</code>, it returns <code>PENDING</code> or
+   *                <code>FAILED</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>association-id</code> - The ID of the VPC endpoint association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>associated-resource-id</code> - The ID of the associated resource
+   *                configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-network-arn</code> - The Amazon Resource Name (ARN) of the
+   *                associated service network. Only VPC endpoints of type service network will be
+   *                returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-configuration-group-arn</code> - The Amazon Resource Name (ARN) of
+   *                the resource configuration of type GROUP.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-network-resource-association-id</code> - The ID of the
+   *                association.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum page size.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Describes the VPC resources, VPC endpoint services, Lattice services, or service
+ *          networks associated with the VPC endpoint.</p>
+ * @public
+ */
+export interface VpcEndpointAssociation {
+  /**
+   * <p>The ID of the VPC endpoint association.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC endpoint.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service network.</p>
+   * @public
+   */
+  ServiceNetworkArn?: string | undefined;
+
+  /**
+   * <p>The name of the service network.</p>
+   * @public
+   */
+  ServiceNetworkName?: string | undefined;
+
+  /**
+   * <p>The connectivity status of the resources associated to a VPC endpoint. The resource is
+   *          accessible if the associated resource configuration is <code>AVAILABLE</code>, otherwise
+   *          the resource is inaccessible.</p>
+   * @public
+   */
+  AssociatedResourceAccessibility?: string | undefined;
+
+  /**
+   * <p>A message related to why an VPC endpoint association failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>An error code related to why an VPC endpoint association failed.</p>
+   * @public
+   */
+  FailureCode?: string | undefined;
+
+  /**
+   * <p>The DNS entry of the VPC endpoint association.</p>
+   * @public
+   */
+  DnsEntry?: DnsEntry | undefined;
+
+  /**
+   * <p>The private DNS entry of the VPC endpoint association.</p>
+   * @public
+   */
+  PrivateDnsEntry?: DnsEntry | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the associated resource.</p>
+   * @public
+   */
+  AssociatedResourceArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource configuration group.</p>
+   * @public
+   */
+  ResourceConfigurationGroupArn?: string | undefined;
+
+  /**
+   * <p>The tags to apply to the VPC endpoint association.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcEndpointAssociationsResult {
+  /**
+   * <p>Details of the endpoint associations.</p>
+   * @public
+   */
+  VpcEndpointAssociations?: VpcEndpointAssociation[] | undefined;
+
+  /**
+   * <p>The pagination token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8322,6 +9495,31 @@ export interface DisableAddressTransferResult {
 /**
  * @public
  */
+export interface DisableAllowedImagesSettingsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableAllowedImagesSettingsResult {
+  /**
+   * <p>Returns <code>disabled</code> if the request succeeds; otherwise, it returns an
+   *       error.</p>
+   * @public
+   */
+  AllowedImagesSettingsState?: AllowedImagesSettingsDisabledState | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DisableAwsNetworkPerformanceMetricSubscriptionRequest {
   /**
    * <p>The source Region or Availability Zone that the metric subscription is disabled for. For example, <code>us-east-1</code>.</p>
@@ -9710,6 +10908,39 @@ export interface EnableAddressTransferResult {
 /**
  * @public
  */
+export interface EnableAllowedImagesSettingsRequest {
+  /**
+   * <p>Specify <code>enabled</code> to apply the image criteria specified by the Allowed AMIs
+   *       settings. Specify <code>audit-mode</code> so that you can check which AMIs will be allowed or
+   *       not allowed by the image criteria.</p>
+   * @public
+   */
+  AllowedImagesSettingsState: AllowedImagesSettingsEnabledState | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableAllowedImagesSettingsResult {
+  /**
+   * <p>Returns <code>enabled</code> or <code>audit-mode</code> if the request succeeds;
+   *       otherwise, it returns an error.</p>
+   * @public
+   */
+  AllowedImagesSettingsState?: AllowedImagesSettingsEnabledState | undefined;
+}
+
+/**
+ * @public
+ */
 export interface EnableAwsNetworkPerformanceMetricSubscriptionRequest {
   /**
    * <p>The source Region (like <code>us-east-1</code>) or Availability Zone ID (like <code>use1-az1</code>) that the metric subscription is enabled for. If you use Availability Zone IDs, the Source and Destination Availability Zones must be in the same Region.</p>
@@ -9777,630 +11008,6 @@ export interface EnableEbsEncryptionByDefaultResult {
    * @public
    */
   EbsEncryptionByDefault?: boolean | undefined;
-}
-
-/**
- * <p>Request to create a launch template for a Windows fast launch enabled AMI.</p>
- *          <note>
- *             <p>Note - You can specify either the <code>LaunchTemplateName</code> or the
- *           <code>LaunchTemplateId</code>, but not both.</p>
- *          </note>
- * @public
- */
-export interface FastLaunchLaunchTemplateSpecificationRequest {
-  /**
-   * <p>Specify the ID of the launch template that the AMI should use for Windows fast
-   *       launch.</p>
-   * @public
-   */
-  LaunchTemplateId?: string | undefined;
-
-  /**
-   * <p>Specify the name of the launch template that the AMI should use for Windows fast
-   *       launch.</p>
-   * @public
-   */
-  LaunchTemplateName?: string | undefined;
-
-  /**
-   * <p>Specify the version of the launch template that the AMI should use for Windows fast
-   *       launch.</p>
-   * @public
-   */
-  Version: string | undefined;
-}
-
-/**
- * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows
- *       fast launch enabled AMI.</p>
- * @public
- */
-export interface FastLaunchSnapshotConfigurationRequest {
-  /**
-   * <p>The number of pre-provisioned snapshots to keep on hand for a Windows fast launch enabled
-   *       AMI.</p>
-   * @public
-   */
-  TargetResourceCount?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableFastLaunchRequest {
-  /**
-   * <p>Specify the ID of the image for which to enable Windows fast launch.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>The type of resource to use for pre-provisioning the AMI for Windows fast launch.
-   *       Supported values include: <code>snapshot</code>, which is the default value.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>Configuration settings for creating and managing the snapshots that are used for
-   *       pre-provisioning the AMI for Windows fast launch. The associated <code>ResourceType</code>
-   *       must be <code>snapshot</code>.</p>
-   * @public
-   */
-  SnapshotConfiguration?: FastLaunchSnapshotConfigurationRequest | undefined;
-
-  /**
-   * <p>The launch template to use when launching Windows instances from pre-provisioned
-   *       snapshots. Launch template parameters can include either the name or ID of the launch
-   *       template, but not both.</p>
-   * @public
-   */
-  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationRequest | undefined;
-
-  /**
-   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
-   *       pre-provisioned snapshots for Windows fast launch. Value must be <code>6</code> or
-   *       greater.</p>
-   * @public
-   */
-  MaxParallelLaunches?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableFastLaunchResult {
-  /**
-   * <p>The image ID that identifies the AMI for which Windows fast launch was enabled.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The type of resource that was defined for pre-provisioning the AMI for Windows fast
-   *       launch.</p>
-   * @public
-   */
-  ResourceType?: FastLaunchResourceType | undefined;
-
-  /**
-   * <p>Settings to create and manage the pre-provisioned snapshots that Amazon EC2 uses for faster
-   *       launches from the Windows AMI. This property is returned when the associated
-   *         <code>resourceType</code> is <code>snapshot</code>.</p>
-   * @public
-   */
-  SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse | undefined;
-
-  /**
-   * <p>The launch template that is used when launching Windows instances from pre-provisioned
-   *       snapshots.</p>
-   * @public
-   */
-  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse | undefined;
-
-  /**
-   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
-   *       pre-provisioned snapshots for Windows fast launch.</p>
-   * @public
-   */
-  MaxParallelLaunches?: number | undefined;
-
-  /**
-   * <p>The owner ID for the AMI for which Windows fast launch was enabled.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The current state of Windows fast launch for the specified AMI.</p>
-   * @public
-   */
-  State?: FastLaunchStateCode | undefined;
-
-  /**
-   * <p>The reason that the state changed for Windows fast launch for the AMI.</p>
-   * @public
-   */
-  StateTransitionReason?: string | undefined;
-
-  /**
-   * <p>The time that the state changed for Windows fast launch for the AMI.</p>
-   * @public
-   */
-  StateTransitionTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableFastSnapshotRestoresRequest {
-  /**
-   * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
-   * @public
-   */
-  AvailabilityZones: string[] | undefined;
-
-  /**
-   * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>. You can specify
-   *       a snapshot that was shared with you from another Amazon Web Services account.</p>
-   * @public
-   */
-  SourceSnapshotIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes fast snapshot restores that were successfully enabled.</p>
- * @public
- */
-export interface EnableFastSnapshotRestoreSuccessItem {
-  /**
-   * <p>The ID of the snapshot.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>The Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The state of fast snapshot restores.</p>
-   * @public
-   */
-  State?: FastSnapshotRestoreStateCode | undefined;
-
-  /**
-   * <p>The reason for the state transition. The possible values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Client.UserInitiated</code> - The state successfully transitioned to <code>enabling</code> or
-   *           <code>disabling</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.UserInitiated - Lifecycle state transition</code> - The state successfully transitioned
-   *           to <code>optimizing</code>, <code>enabled</code>, or <code>disabled</code>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  StateTransitionReason?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that enabled fast snapshot restores on the snapshot.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
-   * @public
-   */
-  OwnerAlias?: string | undefined;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>enabling</code> state.</p>
-   * @public
-   */
-  EnablingTime?: Date | undefined;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>optimizing</code> state.</p>
-   * @public
-   */
-  OptimizingTime?: Date | undefined;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>enabled</code> state.</p>
-   * @public
-   */
-  EnabledTime?: Date | undefined;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>disabling</code> state.</p>
-   * @public
-   */
-  DisablingTime?: Date | undefined;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>disabled</code> state.</p>
-   * @public
-   */
-  DisabledTime?: Date | undefined;
-}
-
-/**
- * <p>Describes an error that occurred when enabling fast snapshot restores.</p>
- * @public
- */
-export interface EnableFastSnapshotRestoreStateError {
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>The error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>Contains information about an error that occurred when enabling fast snapshot restores.</p>
- * @public
- */
-export interface EnableFastSnapshotRestoreStateErrorItem {
-  /**
-   * <p>The Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The error.</p>
-   * @public
-   */
-  Error?: EnableFastSnapshotRestoreStateError | undefined;
-}
-
-/**
- * <p>Contains information about the errors that occurred when enabling fast snapshot restores.</p>
- * @public
- */
-export interface EnableFastSnapshotRestoreErrorItem {
-  /**
-   * <p>The ID of the snapshot.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>The errors.</p>
-   * @public
-   */
-  FastSnapshotRestoreStateErrors?: EnableFastSnapshotRestoreStateErrorItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableFastSnapshotRestoresResult {
-  /**
-   * <p>Information about the snapshots for which fast snapshot restores were successfully enabled.</p>
-   * @public
-   */
-  Successful?: EnableFastSnapshotRestoreSuccessItem[] | undefined;
-
-  /**
-   * <p>Information about the snapshots for which fast snapshot restores could not be enabled.</p>
-   * @public
-   */
-  Unsuccessful?: EnableFastSnapshotRestoreErrorItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableImageRequest {
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableImageResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ImageBlockPublicAccessEnabledState = {
-  block_new_sharing: "block-new-sharing",
-} as const;
-
-/**
- * @public
- */
-export type ImageBlockPublicAccessEnabledState =
-  (typeof ImageBlockPublicAccessEnabledState)[keyof typeof ImageBlockPublicAccessEnabledState];
-
-/**
- * @public
- */
-export interface EnableImageBlockPublicAccessRequest {
-  /**
-   * <p>Specify <code>block-new-sharing</code> to enable block public access for AMIs at the
-   *       account level in the specified Region. This will block any attempt to publicly share your AMIs
-   *       in the specified Region.</p>
-   * @public
-   */
-  ImageBlockPublicAccessState: ImageBlockPublicAccessEnabledState | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableImageBlockPublicAccessResult {
-  /**
-   * <p>Returns <code>block-new-sharing</code> if the request succeeds; otherwise, it returns an
-   *       error.</p>
-   * @public
-   */
-  ImageBlockPublicAccessState?: ImageBlockPublicAccessEnabledState | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableImageDeprecationRequest {
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>The date and time to deprecate the AMI, in UTC, in the following format:
-   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
-   *       If you specify a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</p>
-   *          <p>You can’t specify a date in the past. The upper limit for <code>DeprecateAt</code> is 10
-   *       years from now, except for public AMIs, where the upper limit is 2 years from the creation
-   *       date.</p>
-   * @public
-   */
-  DeprecateAt: Date | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableImageDeprecationResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableImageDeregistrationProtectionRequest {
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>If <code>true</code>, enforces deregistration protection for 24 hours after deregistration
-   *       protection is disabled.</p>
-   * @public
-   */
-  WithCooldown?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableImageDeregistrationProtectionResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableIpamOrganizationAdminAccountRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The Organizations member account ID that you want to enable as the IPAM account.</p>
-   * @public
-   */
-  DelegatedAdminAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableIpamOrganizationAdminAccountResult {
-  /**
-   * <p>The result of enabling the IPAM account.</p>
-   * @public
-   */
-  Success?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableReachabilityAnalyzerOrganizationSharingRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableReachabilityAnalyzerOrganizationSharingResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
-   * @public
-   */
-  ReturnValue?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableSerialConsoleAccessRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableSerialConsoleAccessResult {
-  /**
-   * <p>If <code>true</code>, access to the EC2 serial console of all instances is enabled for
-   * 			your account. If <code>false</code>, access to the EC2 serial console of all instances
-   * 			is disabled for your account.</p>
-   * @public
-   */
-  SerialConsoleAccessEnabled?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableSnapshotBlockPublicAccessRequest {
-  /**
-   * <p>The mode in which to enable block public access for snapshots for the Region.
-   *       Specify one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>block-all-sharing</code> - Prevents all public sharing of snapshots in
-   *           the Region. Users in the account will no longer be able to request new public
-   *           sharing. Additionally, snapshots that are already publicly shared are treated as
-   *           private and they are no longer publicly available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-new-sharing</code>  - Prevents only new public sharing of snapshots
-   *           in the Region. Users in the account will no longer be able to request new public
-   *           sharing. However, snapshots that are already publicly shared, remain publicly
-   *           available.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <code>unblocked</code> is not a valid value for <b>EnableSnapshotBlockPublicAccess</b>.</p>
-   * @public
-   */
-  State: SnapshotBlockPublicAccessState | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableSnapshotBlockPublicAccessResult {
-  /**
-   * <p>The state of block public access for snapshots for the account and Region. Returns
-   *       either <code>block-all-sharing</code> or <code>block-new-sharing</code> if the request
-   *       succeeds.</p>
-   * @public
-   */
-  State?: SnapshotBlockPublicAccessState | undefined;
 }
 
 /**

@@ -56,6 +56,8 @@ export interface DescribeVpcBlockPublicAccessOptionsCommandOutput
  * //     InternetGatewayBlockMode: "off" || "block-bidirectional" || "block-ingress",
  * //     Reason: "STRING_VALUE",
  * //     LastUpdateTimestamp: new Date("TIMESTAMP"),
+ * //     ManagedBy: "account" || "declarative-policy",
+ * //     ExclusionsAllowed: "allowed" || "not-allowed",
  * //   },
  * // };
  *

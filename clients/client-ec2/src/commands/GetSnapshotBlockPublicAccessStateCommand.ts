@@ -50,6 +50,7 @@ export interface GetSnapshotBlockPublicAccessStateCommandOutput
  * const response = await client.send(command);
  * // { // GetSnapshotBlockPublicAccessStateResult
  * //   State: "block-all-sharing" || "block-new-sharing" || "unblocked",
+ * //   ManagedBy: "account" || "declarative-policy",
  * // };
  *
  * ```

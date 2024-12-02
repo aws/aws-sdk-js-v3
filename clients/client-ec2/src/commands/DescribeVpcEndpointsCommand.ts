@@ -59,10 +59,10 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * //   VpcEndpoints: [ // VpcEndpointSet
  * //     { // VpcEndpoint
  * //       VpcEndpointId: "STRING_VALUE",
- * //       VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer",
+ * //       VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer" || "Resource" || "ServiceNetwork",
  * //       VpcId: "STRING_VALUE",
  * //       ServiceName: "STRING_VALUE",
- * //       State: "PendingAcceptance" || "Pending" || "Available" || "Deleting" || "Deleted" || "Rejected" || "Failed" || "Expired",
+ * //       State: "PendingAcceptance" || "Pending" || "Available" || "Deleting" || "Deleted" || "Rejected" || "Failed" || "Expired" || "Partial",
  * //       PolicyDocument: "STRING_VALUE",
  * //       RouteTableIds: [ // ValueStringList
  * //         "STRING_VALUE",
@@ -104,6 +104,25 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * //         Message: "STRING_VALUE",
  * //         Code: "STRING_VALUE",
  * //       },
+ * //       Ipv4Prefixes: [ // SubnetIpPrefixesList
+ * //         { // SubnetIpPrefixes
+ * //           SubnetId: "STRING_VALUE",
+ * //           IpPrefixes: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       Ipv6Prefixes: [
+ * //         {
+ * //           SubnetId: "STRING_VALUE",
+ * //           IpPrefixes: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       FailureReason: "STRING_VALUE",
+ * //       ServiceNetworkArn: "STRING_VALUE",
+ * //       ResourceConfigurationArn: "STRING_VALUE",
  * //       ServiceRegion: "STRING_VALUE",
  * //     },
  * //   ],

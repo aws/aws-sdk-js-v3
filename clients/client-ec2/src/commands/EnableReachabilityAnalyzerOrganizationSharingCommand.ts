@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   EnableReachabilityAnalyzerOrganizationSharingRequest,
   EnableReachabilityAnalyzerOrganizationSharingResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   de_EnableReachabilityAnalyzerOrganizationSharingCommand,
   se_EnableReachabilityAnalyzerOrganizationSharingCommand,

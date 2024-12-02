@@ -85,6 +85,15 @@ export interface DetachVerifiedAccessTrustProviderCommandOutput
  * //       CustomerManagedKeyEnabled: true || false,
  * //       KmsKeyArn: "STRING_VALUE",
  * //     },
+ * //     NativeApplicationOidcOptions: { // NativeApplicationOidcOptions
+ * //       PublicSigningKeyEndpoint: "STRING_VALUE",
+ * //       Issuer: "STRING_VALUE",
+ * //       AuthorizationEndpoint: "STRING_VALUE",
+ * //       TokenEndpoint: "STRING_VALUE",
+ * //       UserInfoEndpoint: "STRING_VALUE",
+ * //       ClientId: "STRING_VALUE",
+ * //       Scope: "STRING_VALUE",
+ * //     },
  * //   },
  * //   VerifiedAccessInstance: { // VerifiedAccessInstance
  * //     VerifiedAccessInstanceId: "STRING_VALUE",
@@ -107,6 +116,12 @@ export interface DetachVerifiedAccessTrustProviderCommandOutput
  * //       },
  * //     ],
  * //     FipsEnabled: true || false,
+ * //     CidrEndpointsCustomSubDomain: { // VerifiedAccessInstanceCustomSubDomain
+ * //       SubDomain: "STRING_VALUE",
+ * //       Nameservers: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

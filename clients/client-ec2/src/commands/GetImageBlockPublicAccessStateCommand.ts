@@ -50,6 +50,7 @@ export interface GetImageBlockPublicAccessStateCommandOutput
  * const response = await client.send(command);
  * // { // GetImageBlockPublicAccessStateResult
  * //   ImageBlockPublicAccessState: "STRING_VALUE",
+ * //   ManagedBy: "account" || "declarative-policy",
  * // };
  *
  * ```

@@ -44,16 +44,43 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
  *     SubnetIds: [ // ModifyVerifiedAccessEndpointSubnetIdList
  *       "STRING_VALUE",
  *     ],
- *     Protocol: "http" || "https",
+ *     Protocol: "http" || "https" || "tcp",
  *     Port: Number("int"),
+ *     PortRanges: [ // ModifyVerifiedAccessEndpointPortRangeList
+ *       { // ModifyVerifiedAccessEndpointPortRange
+ *         FromPort: Number("int"),
+ *         ToPort: Number("int"),
+ *       },
+ *     ],
  *   },
  *   NetworkInterfaceOptions: { // ModifyVerifiedAccessEndpointEniOptions
- *     Protocol: "http" || "https",
+ *     Protocol: "http" || "https" || "tcp",
  *     Port: Number("int"),
+ *     PortRanges: [
+ *       {
+ *         FromPort: Number("int"),
+ *         ToPort: Number("int"),
+ *       },
+ *     ],
  *   },
  *   Description: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  *   DryRun: true || false,
+ *   RdsOptions: { // ModifyVerifiedAccessEndpointRdsOptions
+ *     SubnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Port: Number("int"),
+ *     RdsEndpoint: "STRING_VALUE",
+ *   },
+ *   CidrOptions: { // ModifyVerifiedAccessEndpointCidrOptions
+ *     PortRanges: [
+ *       {
+ *         FromPort: Number("int"),
+ *         ToPort: Number("int"),
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new ModifyVerifiedAccessEndpointCommand(input);
  * const response = await client.send(command);
@@ -63,7 +90,7 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
  * //     VerifiedAccessGroupId: "STRING_VALUE",
  * //     VerifiedAccessEndpointId: "STRING_VALUE",
  * //     ApplicationDomain: "STRING_VALUE",
- * //     EndpointType: "load-balancer" || "network-interface",
+ * //     EndpointType: "load-balancer" || "network-interface" || "rds" || "cidr",
  * //     AttachmentType: "vpc",
  * //     DomainCertificateArn: "STRING_VALUE",
  * //     EndpointDomain: "STRING_VALUE",
@@ -72,17 +99,29 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
  * //       "STRING_VALUE",
  * //     ],
  * //     LoadBalancerOptions: { // VerifiedAccessEndpointLoadBalancerOptions
- * //       Protocol: "http" || "https",
+ * //       Protocol: "http" || "https" || "tcp",
  * //       Port: Number("int"),
  * //       LoadBalancerArn: "STRING_VALUE",
  * //       SubnetIds: [ // VerifiedAccessEndpointSubnetIdList
  * //         "STRING_VALUE",
  * //       ],
+ * //       PortRanges: [ // VerifiedAccessEndpointPortRangeList
+ * //         { // VerifiedAccessEndpointPortRange
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //       ],
  * //     },
  * //     NetworkInterfaceOptions: { // VerifiedAccessEndpointEniOptions
  * //       NetworkInterfaceId: "STRING_VALUE",
- * //       Protocol: "http" || "https",
+ * //       Protocol: "http" || "https" || "tcp",
  * //       Port: Number("int"),
+ * //       PortRanges: [
+ * //         {
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //       ],
  * //     },
  * //     Status: { // VerifiedAccessEndpointStatus
  * //       Code: "pending" || "active" || "updating" || "deleting" || "deleted",
@@ -101,6 +140,30 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
  * //     SseSpecification: { // VerifiedAccessSseSpecificationResponse
  * //       CustomerManagedKeyEnabled: true || false,
  * //       KmsKeyArn: "STRING_VALUE",
+ * //     },
+ * //     RdsOptions: { // VerifiedAccessEndpointRdsOptions
+ * //       Protocol: "http" || "https" || "tcp",
+ * //       Port: Number("int"),
+ * //       RdsDbInstanceArn: "STRING_VALUE",
+ * //       RdsDbClusterArn: "STRING_VALUE",
+ * //       RdsDbProxyArn: "STRING_VALUE",
+ * //       RdsEndpoint: "STRING_VALUE",
+ * //       SubnetIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     CidrOptions: { // VerifiedAccessEndpointCidrOptions
+ * //       Cidr: "STRING_VALUE",
+ * //       PortRanges: [
+ * //         {
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //       ],
+ * //       Protocol: "http" || "https" || "tcp",
+ * //       SubnetIds: [
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   },
  * // };
