@@ -1391,6 +1391,21 @@ export type VoiceConnectorAwsRegion = (typeof VoiceConnectorAwsRegion)[keyof typ
 
 /**
  * @public
+ * @enum
+ */
+export const VoiceConnectorIntegrationType = {
+  CONNECT_ANALYTICS_CONNECTOR: "CONNECT_ANALYTICS_CONNECTOR",
+  CONNECT_CALL_TRANSFER_CONNECTOR: "CONNECT_CALL_TRANSFER_CONNECTOR",
+} as const;
+
+/**
+ * @public
+ */
+export type VoiceConnectorIntegrationType =
+  (typeof VoiceConnectorIntegrationType)[keyof typeof VoiceConnectorIntegrationType];
+
+/**
+ * @public
  */
 export interface CreateVoiceConnectorRequest {
   /**
@@ -1417,6 +1432,40 @@ export interface CreateVoiceConnectorRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The connectors for use with Amazon Connect.</p>
+   *          <p>The following options are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONNECT_CALL_TRANSFER_CONNECTOR</code> - Enables enterprises to integrate
+   *                Amazon Connect with other voice systems to directly transfer voice calls and
+   *                metadata without using the public telephone network. They can use Amazon Connect
+   *                telephony and Interactive Voice Response (IVR) with their existing voice systems to
+   *                modernize the IVR experience of their existing contact center and their enterprise
+   *                and branch voice systems. Additionally, enterprises migrating their contact center to
+   *                Amazon Connect can start with Connect telephony and IVR for immediate
+   *                modernization ahead of agent migration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONNECT_ANALYTICS_CONNECTOR</code> - Enables enterprises to integrate
+   *                Amazon Connect with other voice systems for real-time and post-call analytics.
+   *                They can use Amazon Connect Contact Lens with their existing voice systems to
+   *                provides call recordings, conversational analytics (including contact transcript,
+   *                sensitive data redaction, content categorization, theme detection, sentiment
+   *                analysis, real-time alerts, and post-contact summary), and agent performance
+   *                evaluations (including evaluation forms, automated evaluation, supervisor review)
+   *                with a rich user experience to display, search and filter customer interactions, and
+   *                programmatic access to data streams and the data lake. Additionally, enterprises
+   *                migrating their contact center to Amazon Connect can start with Contact Lens
+   *                analytics and performance insights ahead of agent migration.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  IntegrationType?: VoiceConnectorIntegrationType | undefined;
 }
 
 /**
@@ -1473,6 +1522,12 @@ export interface VoiceConnector {
    * @public
    */
   VoiceConnectorArn?: string | undefined;
+
+  /**
+   * <p>The connectors for use with Amazon Connect.</p>
+   * @public
+   */
+  IntegrationType?: VoiceConnectorIntegrationType | undefined;
 }
 
 /**
@@ -1847,6 +1902,18 @@ export interface DeleteVoiceConnectorRequest {
 export interface DeleteVoiceConnectorEmergencyCallingConfigurationRequest {
   /**
    * <p>The Voice Connector ID.</p>
+   * @public
+   */
+  VoiceConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVoiceConnectorExternalSystemsConfigurationRequest {
+  /**
+   * <p>The ID of the Voice Connector for which to delete the external system
+   *          configuration.</p>
    * @public
    */
   VoiceConnectorId: string | undefined;
@@ -2659,6 +2726,82 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationResponse {
    * @public
    */
   EmergencyCallingConfiguration?: EmergencyCallingConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVoiceConnectorExternalSystemsConfigurationRequest {
+  /**
+   * <p>The ID of the Voice Connector for which to return information about the
+   *          external system configuration.</p>
+   * @public
+   */
+  VoiceConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ContactCenterSystemType = {
+  AVAYA_AURA_CALL_CENTER_ELITE: "AVAYA_AURA_CALL_CENTER_ELITE",
+  AVAYA_AURA_CONTACT_CENTER: "AVAYA_AURA_CONTACT_CENTER",
+  CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE: "CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE",
+  GENESYS_ENGAGE_ON_PREMISES: "GENESYS_ENGAGE_ON_PREMISES",
+} as const;
+
+/**
+ * @public
+ */
+export type ContactCenterSystemType = (typeof ContactCenterSystemType)[keyof typeof ContactCenterSystemType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SessionBorderControllerType = {
+  AUDIOCODES_MEDIANT_SBC: "AUDIOCODES_MEDIANT_SBC",
+  AVAYA_SBCE: "AVAYA_SBCE",
+  CISCO_UNIFIED_BORDER_ELEMENT: "CISCO_UNIFIED_BORDER_ELEMENT",
+  ORACLE_ACME_PACKET_SBC: "ORACLE_ACME_PACKET_SBC",
+  RIBBON_SBC: "RIBBON_SBC",
+} as const;
+
+/**
+ * @public
+ */
+export type SessionBorderControllerType =
+  (typeof SessionBorderControllerType)[keyof typeof SessionBorderControllerType];
+
+/**
+ * <p>Contains information about an external systems configuration for a Voice
+ *          Connector.</p>
+ * @public
+ */
+export interface ExternalSystemsConfiguration {
+  /**
+   * <p>The session border controllers.</p>
+   * @public
+   */
+  SessionBorderControllerTypes?: SessionBorderControllerType[] | undefined;
+
+  /**
+   * <p>The contact center system.</p>
+   * @public
+   */
+  ContactCenterSystemTypes?: ContactCenterSystemType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVoiceConnectorExternalSystemsConfigurationResponse {
+  /**
+   * <p>An object that contains information about an external systems configuration for a Voice Connector.</p>
+   * @public
+   */
+  ExternalSystemsConfiguration?: ExternalSystemsConfiguration | undefined;
 }
 
 /**
@@ -3823,6 +3966,41 @@ export interface PutVoiceConnectorEmergencyCallingConfigurationResponse {
    * @public
    */
   EmergencyCallingConfiguration?: EmergencyCallingConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutVoiceConnectorExternalSystemsConfigurationRequest {
+  /**
+   * <p>The ID of the Voice Connector for which to add the external system
+   *          configuration.</p>
+   * @public
+   */
+  VoiceConnectorId: string | undefined;
+
+  /**
+   * <p>The session border controllers to use.</p>
+   * @public
+   */
+  SessionBorderControllerTypes?: SessionBorderControllerType[] | undefined;
+
+  /**
+   * <p>The contact center system to use.</p>
+   * @public
+   */
+  ContactCenterSystemTypes?: ContactCenterSystemType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutVoiceConnectorExternalSystemsConfigurationResponse {
+  /**
+   * <p>An object that contains information about an external systems configuration for a Voice Connector.</p>
+   * @public
+   */
+  ExternalSystemsConfiguration?: ExternalSystemsConfiguration | undefined;
 }
 
 /**

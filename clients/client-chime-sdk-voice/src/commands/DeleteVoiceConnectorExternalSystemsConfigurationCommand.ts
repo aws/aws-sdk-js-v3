@@ -6,8 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetVoiceConnectorRequest, GetVoiceConnectorResponse } from "../models/models_0";
-import { de_GetVoiceConnectorCommand, se_GetVoiceConnectorCommand } from "../protocols/Aws_restJson1";
+import { DeleteVoiceConnectorExternalSystemsConfigurationRequest } from "../models/models_0";
+import {
+  de_DeleteVoiceConnectorExternalSystemsConfigurationCommand,
+  se_DeleteVoiceConnectorExternalSystemsConfigurationCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,50 +20,38 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetVoiceConnectorCommand}.
+ * The input for {@link DeleteVoiceConnectorExternalSystemsConfigurationCommand}.
  */
-export interface GetVoiceConnectorCommandInput extends GetVoiceConnectorRequest {}
+export interface DeleteVoiceConnectorExternalSystemsConfigurationCommandInput
+  extends DeleteVoiceConnectorExternalSystemsConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link GetVoiceConnectorCommand}.
+ * The output of {@link DeleteVoiceConnectorExternalSystemsConfigurationCommand}.
  */
-export interface GetVoiceConnectorCommandOutput extends GetVoiceConnectorResponse, __MetadataBearer {}
+export interface DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Retrieves details for the specified Amazon Chime SDK Voice Connector, such as
- *          timestamps,name, outbound host, and encryption requirements.</p>
+ * <p>Deletes the external systems configuration for a Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKVoiceClient, GetVoiceConnectorCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
- * // const { ChimeSDKVoiceClient, GetVoiceConnectorCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * import { ChimeSDKVoiceClient, DeleteVoiceConnectorExternalSystemsConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, DeleteVoiceConnectorExternalSystemsConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
  * const client = new ChimeSDKVoiceClient(config);
- * const input = { // GetVoiceConnectorRequest
+ * const input = { // DeleteVoiceConnectorExternalSystemsConfigurationRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
  * };
- * const command = new GetVoiceConnectorCommand(input);
+ * const command = new DeleteVoiceConnectorExternalSystemsConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // GetVoiceConnectorResponse
- * //   VoiceConnector: { // VoiceConnector
- * //     VoiceConnectorId: "STRING_VALUE",
- * //     AwsRegion: "us-east-1" || "us-west-2" || "ca-central-1" || "eu-central-1" || "eu-west-1" || "eu-west-2" || "ap-northeast-2" || "ap-northeast-1" || "ap-southeast-1" || "ap-southeast-2",
- * //     Name: "STRING_VALUE",
- * //     OutboundHostName: "STRING_VALUE",
- * //     RequireEncryption: true || false,
- * //     CreatedTimestamp: new Date("TIMESTAMP"),
- * //     UpdatedTimestamp: new Date("TIMESTAMP"),
- * //     VoiceConnectorArn: "STRING_VALUE",
- * //     IntegrationType: "CONNECT_CALL_TRANSFER_CONNECTOR" || "CONNECT_ANALYTICS_CONNECTOR",
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetVoiceConnectorCommandInput - {@link GetVoiceConnectorCommandInput}
- * @returns {@link GetVoiceConnectorCommandOutput}
- * @see {@link GetVoiceConnectorCommandInput} for command's `input` shape.
- * @see {@link GetVoiceConnectorCommandOutput} for command's `response` shape.
+ * @param DeleteVoiceConnectorExternalSystemsConfigurationCommandInput - {@link DeleteVoiceConnectorExternalSystemsConfigurationCommandInput}
+ * @returns {@link DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput}
+ * @see {@link DeleteVoiceConnectorExternalSystemsConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -89,10 +80,10 @@ export interface GetVoiceConnectorCommandOutput extends GetVoiceConnectorRespons
  *
  * @public
  */
-export class GetVoiceConnectorCommand extends $Command
+export class DeleteVoiceConnectorExternalSystemsConfigurationCommand extends $Command
   .classBuilder<
-    GetVoiceConnectorCommandInput,
-    GetVoiceConnectorCommandOutput,
+    DeleteVoiceConnectorExternalSystemsConfigurationCommandInput,
+    DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput,
     ChimeSDKVoiceClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -104,21 +95,21 @@ export class GetVoiceConnectorCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ChimeSDKTelephonyService", "GetVoiceConnector", {})
-  .n("ChimeSDKVoiceClient", "GetVoiceConnectorCommand")
+  .s("ChimeSDKTelephonyService", "DeleteVoiceConnectorExternalSystemsConfiguration", {})
+  .n("ChimeSDKVoiceClient", "DeleteVoiceConnectorExternalSystemsConfigurationCommand")
   .f(void 0, void 0)
-  .ser(se_GetVoiceConnectorCommand)
-  .de(de_GetVoiceConnectorCommand)
+  .ser(se_DeleteVoiceConnectorExternalSystemsConfigurationCommand)
+  .de(de_DeleteVoiceConnectorExternalSystemsConfigurationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetVoiceConnectorRequest;
-      output: GetVoiceConnectorResponse;
+      input: DeleteVoiceConnectorExternalSystemsConfigurationRequest;
+      output: {};
     };
     sdk: {
-      input: GetVoiceConnectorCommandInput;
-      output: GetVoiceConnectorCommandOutput;
+      input: DeleteVoiceConnectorExternalSystemsConfigurationCommandInput;
+      output: DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput;
     };
   };
 }

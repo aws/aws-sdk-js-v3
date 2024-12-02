@@ -99,6 +99,11 @@ import {
   DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput,
 } from "./commands/DeleteVoiceConnectorEmergencyCallingConfigurationCommand";
 import {
+  DeleteVoiceConnectorExternalSystemsConfigurationCommand,
+  DeleteVoiceConnectorExternalSystemsConfigurationCommandInput,
+  DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput,
+} from "./commands/DeleteVoiceConnectorExternalSystemsConfigurationCommand";
+import {
   DeleteVoiceConnectorGroupCommand,
   DeleteVoiceConnectorGroupCommandInput,
   DeleteVoiceConnectorGroupCommandOutput,
@@ -204,6 +209,11 @@ import {
   GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
   GetVoiceConnectorEmergencyCallingConfigurationCommandOutput,
 } from "./commands/GetVoiceConnectorEmergencyCallingConfigurationCommand";
+import {
+  GetVoiceConnectorExternalSystemsConfigurationCommand,
+  GetVoiceConnectorExternalSystemsConfigurationCommandInput,
+  GetVoiceConnectorExternalSystemsConfigurationCommandOutput,
+} from "./commands/GetVoiceConnectorExternalSystemsConfigurationCommand";
 import {
   GetVoiceConnectorGroupCommand,
   GetVoiceConnectorGroupCommandInput,
@@ -334,6 +344,11 @@ import {
   PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
   PutVoiceConnectorEmergencyCallingConfigurationCommandOutput,
 } from "./commands/PutVoiceConnectorEmergencyCallingConfigurationCommand";
+import {
+  PutVoiceConnectorExternalSystemsConfigurationCommand,
+  PutVoiceConnectorExternalSystemsConfigurationCommandInput,
+  PutVoiceConnectorExternalSystemsConfigurationCommandOutput,
+} from "./commands/PutVoiceConnectorExternalSystemsConfigurationCommand";
 import {
   PutVoiceConnectorLoggingConfigurationCommand,
   PutVoiceConnectorLoggingConfigurationCommandInput,
@@ -481,6 +496,7 @@ const commands = {
   DeleteSipRuleCommand,
   DeleteVoiceConnectorCommand,
   DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
+  DeleteVoiceConnectorExternalSystemsConfigurationCommand,
   DeleteVoiceConnectorGroupCommand,
   DeleteVoiceConnectorOriginationCommand,
   DeleteVoiceConnectorProxyCommand,
@@ -503,6 +519,7 @@ const commands = {
   GetSpeakerSearchTaskCommand,
   GetVoiceConnectorCommand,
   GetVoiceConnectorEmergencyCallingConfigurationCommand,
+  GetVoiceConnectorExternalSystemsConfigurationCommand,
   GetVoiceConnectorGroupCommand,
   GetVoiceConnectorLoggingConfigurationCommand,
   GetVoiceConnectorOriginationCommand,
@@ -529,6 +546,7 @@ const commands = {
   PutSipMediaApplicationAlexaSkillConfigurationCommand,
   PutSipMediaApplicationLoggingConfigurationCommand,
   PutVoiceConnectorEmergencyCallingConfigurationCommand,
+  PutVoiceConnectorExternalSystemsConfigurationCommand,
   PutVoiceConnectorLoggingConfigurationCommand,
   PutVoiceConnectorOriginationCommand,
   PutVoiceConnectorProxyCommand,
@@ -867,6 +885,23 @@ export interface ChimeSDKVoice {
     args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVoiceConnectorExternalSystemsConfigurationCommand}
+   */
+  deleteVoiceConnectorExternalSystemsConfiguration(
+    args: DeleteVoiceConnectorExternalSystemsConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput>;
+  deleteVoiceConnectorExternalSystemsConfiguration(
+    args: DeleteVoiceConnectorExternalSystemsConfigurationCommandInput,
+    cb: (err: any, data?: DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput) => void
+  ): void;
+  deleteVoiceConnectorExternalSystemsConfiguration(
+    args: DeleteVoiceConnectorExternalSystemsConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -1231,6 +1266,23 @@ export interface ChimeSDKVoice {
     args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVoiceConnectorExternalSystemsConfigurationCommand}
+   */
+  getVoiceConnectorExternalSystemsConfiguration(
+    args: GetVoiceConnectorExternalSystemsConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceConnectorExternalSystemsConfigurationCommandOutput>;
+  getVoiceConnectorExternalSystemsConfiguration(
+    args: GetVoiceConnectorExternalSystemsConfigurationCommandInput,
+    cb: (err: any, data?: GetVoiceConnectorExternalSystemsConfigurationCommandOutput) => void
+  ): void;
+  getVoiceConnectorExternalSystemsConfiguration(
+    args: GetVoiceConnectorExternalSystemsConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceConnectorExternalSystemsConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -1672,6 +1724,23 @@ export interface ChimeSDKVoice {
     args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutVoiceConnectorExternalSystemsConfigurationCommand}
+   */
+  putVoiceConnectorExternalSystemsConfiguration(
+    args: PutVoiceConnectorExternalSystemsConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutVoiceConnectorExternalSystemsConfigurationCommandOutput>;
+  putVoiceConnectorExternalSystemsConfiguration(
+    args: PutVoiceConnectorExternalSystemsConfigurationCommandInput,
+    cb: (err: any, data?: PutVoiceConnectorExternalSystemsConfigurationCommandOutput) => void
+  ): void;
+  putVoiceConnectorExternalSystemsConfiguration(
+    args: PutVoiceConnectorExternalSystemsConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutVoiceConnectorExternalSystemsConfigurationCommandOutput) => void
   ): void;
 
   /**

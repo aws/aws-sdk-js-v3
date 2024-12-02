@@ -52,6 +52,7 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   IntegrationType: "CONNECT_CALL_TRANSFER_CONNECTOR" || "CONNECT_ANALYTICS_CONNECTOR",
  * };
  * const command = new CreateVoiceConnectorCommand(input);
  * const response = await client.send(command);
@@ -65,6 +66,7 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  * //     CreatedTimestamp: new Date("TIMESTAMP"),
  * //     UpdatedTimestamp: new Date("TIMESTAMP"),
  * //     VoiceConnectorArn: "STRING_VALUE",
+ * //     IntegrationType: "CONNECT_CALL_TRANSFER_CONNECTOR" || "CONNECT_ANALYTICS_CONNECTOR",
  * //   },
  * // };
  *

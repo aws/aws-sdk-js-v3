@@ -112,6 +112,10 @@ import {
   DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput,
 } from "./commands/DeleteVoiceConnectorEmergencyCallingConfigurationCommand";
 import {
+  DeleteVoiceConnectorExternalSystemsConfigurationCommandInput,
+  DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput,
+} from "./commands/DeleteVoiceConnectorExternalSystemsConfigurationCommand";
+import {
   DeleteVoiceConnectorGroupCommandInput,
   DeleteVoiceConnectorGroupCommandOutput,
 } from "./commands/DeleteVoiceConnectorGroupCommand";
@@ -181,6 +185,10 @@ import {
   GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
   GetVoiceConnectorEmergencyCallingConfigurationCommandOutput,
 } from "./commands/GetVoiceConnectorEmergencyCallingConfigurationCommand";
+import {
+  GetVoiceConnectorExternalSystemsConfigurationCommandInput,
+  GetVoiceConnectorExternalSystemsConfigurationCommandOutput,
+} from "./commands/GetVoiceConnectorExternalSystemsConfigurationCommand";
 import {
   GetVoiceConnectorGroupCommandInput,
   GetVoiceConnectorGroupCommandOutput,
@@ -270,6 +278,10 @@ import {
   PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
   PutVoiceConnectorEmergencyCallingConfigurationCommandOutput,
 } from "./commands/PutVoiceConnectorEmergencyCallingConfigurationCommand";
+import {
+  PutVoiceConnectorExternalSystemsConfigurationCommandInput,
+  PutVoiceConnectorExternalSystemsConfigurationCommandOutput,
+} from "./commands/PutVoiceConnectorExternalSystemsConfigurationCommand";
 import {
   PutVoiceConnectorLoggingConfigurationCommandInput,
   PutVoiceConnectorLoggingConfigurationCommandOutput,
@@ -387,6 +399,7 @@ export type ServiceInputTypes =
   | DeleteSipRuleCommandInput
   | DeleteVoiceConnectorCommandInput
   | DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput
+  | DeleteVoiceConnectorExternalSystemsConfigurationCommandInput
   | DeleteVoiceConnectorGroupCommandInput
   | DeleteVoiceConnectorOriginationCommandInput
   | DeleteVoiceConnectorProxyCommandInput
@@ -409,6 +422,7 @@ export type ServiceInputTypes =
   | GetSpeakerSearchTaskCommandInput
   | GetVoiceConnectorCommandInput
   | GetVoiceConnectorEmergencyCallingConfigurationCommandInput
+  | GetVoiceConnectorExternalSystemsConfigurationCommandInput
   | GetVoiceConnectorGroupCommandInput
   | GetVoiceConnectorLoggingConfigurationCommandInput
   | GetVoiceConnectorOriginationCommandInput
@@ -435,6 +449,7 @@ export type ServiceInputTypes =
   | PutSipMediaApplicationAlexaSkillConfigurationCommandInput
   | PutSipMediaApplicationLoggingConfigurationCommandInput
   | PutVoiceConnectorEmergencyCallingConfigurationCommandInput
+  | PutVoiceConnectorExternalSystemsConfigurationCommandInput
   | PutVoiceConnectorLoggingConfigurationCommandInput
   | PutVoiceConnectorOriginationCommandInput
   | PutVoiceConnectorProxyCommandInput
@@ -485,6 +500,7 @@ export type ServiceOutputTypes =
   | DeleteSipRuleCommandOutput
   | DeleteVoiceConnectorCommandOutput
   | DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput
+  | DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput
   | DeleteVoiceConnectorGroupCommandOutput
   | DeleteVoiceConnectorOriginationCommandOutput
   | DeleteVoiceConnectorProxyCommandOutput
@@ -507,6 +523,7 @@ export type ServiceOutputTypes =
   | GetSpeakerSearchTaskCommandOutput
   | GetVoiceConnectorCommandOutput
   | GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
+  | GetVoiceConnectorExternalSystemsConfigurationCommandOutput
   | GetVoiceConnectorGroupCommandOutput
   | GetVoiceConnectorLoggingConfigurationCommandOutput
   | GetVoiceConnectorOriginationCommandOutput
@@ -533,6 +550,7 @@ export type ServiceOutputTypes =
   | PutSipMediaApplicationAlexaSkillConfigurationCommandOutput
   | PutSipMediaApplicationLoggingConfigurationCommandOutput
   | PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
+  | PutVoiceConnectorExternalSystemsConfigurationCommandOutput
   | PutVoiceConnectorLoggingConfigurationCommandOutput
   | PutVoiceConnectorOriginationCommandOutput
   | PutVoiceConnectorProxyCommandOutput

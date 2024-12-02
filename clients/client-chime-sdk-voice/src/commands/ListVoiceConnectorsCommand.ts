@@ -53,6 +53,7 @@ export interface ListVoiceConnectorsCommandOutput extends ListVoiceConnectorsRes
  * //       CreatedTimestamp: new Date("TIMESTAMP"),
  * //       UpdatedTimestamp: new Date("TIMESTAMP"),
  * //       VoiceConnectorArn: "STRING_VALUE",
+ * //       IntegrationType: "CONNECT_CALL_TRANSFER_CONNECTOR" || "CONNECT_ANALYTICS_CONNECTOR",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
