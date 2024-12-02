@@ -60,6 +60,9 @@ export interface ListAccountIntegrationsCommandOutput extends ListAccountIntegra
  * //       WorkflowId: "STRING_VALUE",
  * //       IsUnstructured: true || false,
  * //       RoleArn: "STRING_VALUE",
+ * //       EventTriggerNames: [ // EventTriggerNames
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

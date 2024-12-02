@@ -1224,7 +1224,8 @@ export const FilterDimensionType = {
 export type FilterDimensionType = (typeof FilterDimensionType)[keyof typeof FilterDimensionType];
 
 /**
- * <p>Object that defines how to filter the incoming objects for the calculated attribute.</p>
+ * <p>Object that defines how to filter the incoming objects for the calculated
+ *          attribute.</p>
  * @public
  */
 export interface FilterAttributeDimension {
@@ -1499,7 +1500,8 @@ export interface RangeOverride {
  */
 export interface ConditionOverrides {
   /**
-   * <p>The relative time period over which data is included in the aggregation for this override.</p>
+   * <p>The relative time period over which data is included in the aggregation for this
+   *          override.</p>
    * @public
    */
   Range?: RangeOverride | undefined;
@@ -1528,7 +1530,8 @@ export interface BatchGetCalculatedAttributeForProfileRequest {
   ProfileIds: string[] | undefined;
 
   /**
-   * <p>Overrides the condition block within the original calculated attribute definition.</p>
+   * <p>Overrides the condition block within the original calculated attribute
+   *          definition.</p>
    * @public
    */
   ConditionOverrides?: ConditionOverrides | undefined;
@@ -1552,7 +1555,8 @@ export interface CalculatedAttributeValue {
   DisplayName?: string | undefined;
 
   /**
-   * <p>Indicates whether the calculated attribute's value is based on partial data. If the data is partial, it is set to true.</p>
+   * <p>Indicates whether the calculated attribute's value is based on partial data. If the data
+   *          is partial, it is set to true.</p>
    * @public
    */
   IsDataPartial?: string | undefined;
@@ -1611,7 +1615,8 @@ export interface BatchGetCalculatedAttributeForProfileResponse {
   CalculatedAttributeValues?: CalculatedAttributeValue[] | undefined;
 
   /**
-   * <p>Overrides the condition block within the original calculated attribute definition.</p>
+   * <p>Overrides the condition block within the original calculated attribute
+   *          definition.</p>
    * @public
    */
   ConditionOverrides?: ConditionOverrides | undefined;
@@ -1898,7 +1903,8 @@ export interface Profile {
  */
 export interface BatchGetProfileResponse {
   /**
-   * <p>For information about the errors that are common to all actions, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
+   * <p>For information about the errors that are common to all actions, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/CommonErrors.html">Common
+   *             Errors</a>.</p>
    * @public
    */
   Errors?: BatchGetProfileError[] | undefined;
@@ -2007,6 +2013,33 @@ export interface ListCalculatedAttributeForProfileItem {
    */
   Value?: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonOperator = {
+  AFTER: "AFTER",
+  BEFORE: "BEFORE",
+  BEGINS_WITH: "BEGINS_WITH",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  ENDS_WITH: "ENDS_WITH",
+  EQUAL: "EQUAL",
+  EXCLUSIVE: "EXCLUSIVE",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
+  INCLUSIVE: "INCLUSIVE",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
+  NOT_BETWEEN: "NOT_BETWEEN",
+  ON: "ON",
+} as const;
+
+/**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
 
 /**
  * @public
@@ -2164,7 +2197,8 @@ export type Include = (typeof Include)[keyof typeof Include];
  */
 export interface Filter {
   /**
-   * <p>Define whether to include or exclude objects for Calculated Attributed calculation that fit the filter groups criteria.</p>
+   * <p>Define whether to include or exclude objects for Calculated Attributed calculation that
+   *          fit the filter groups criteria.</p>
    * @public
    */
   Include: Include | undefined;
@@ -2239,7 +2273,8 @@ export interface CreateCalculatedAttributeDefinitionRequest {
   Conditions?: Conditions | undefined;
 
   /**
-   * <p>Defines how to filter incoming objects to include part of the Calculated Attribute.</p>
+   * <p>Defines how to filter incoming objects to include part of the Calculated
+   *          Attribute.</p>
    * @public
    */
   Filter?: Filter | undefined;
@@ -2872,6 +2907,262 @@ export interface CreateEventStreamResponse {
 }
 
 /**
+ * <p>The criteria that a specific object attribute must meet to trigger the destination.</p>
+ * @public
+ */
+export interface ObjectAttribute {
+  /**
+   * <p>An attribute contained within a source object.</p>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>A field defined within an object type.</p>
+   * @public
+   */
+  FieldName?: string | undefined;
+
+  /**
+   * <p>The operator used to compare an attribute against a list of values.</p>
+   * @public
+   */
+  ComparisonOperator: ComparisonOperator | undefined;
+
+  /**
+   * <p>A list of attribute values used for comparison.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * <p>A specific event dimension to be assessed.</p>
+ * @public
+ */
+export interface EventTriggerDimension {
+  /**
+   * <p>A list of object attributes to be evaluated.</p>
+   * @public
+   */
+  ObjectAttributes: ObjectAttribute[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EventTriggerLogicalOperator = {
+  ALL: "ALL",
+  ANY: "ANY",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type EventTriggerLogicalOperator =
+  (typeof EventTriggerLogicalOperator)[keyof typeof EventTriggerLogicalOperator];
+
+/**
+ * <p>Specifies the circumstances under which the event should trigger the destination.</p>
+ * @public
+ */
+export interface EventTriggerCondition {
+  /**
+   * <p>A list of dimensions to be evaluated for the event.</p>
+   * @public
+   */
+  EventTriggerDimensions: EventTriggerDimension[] | undefined;
+
+  /**
+   * <p>The operator used to combine multiple dimensions.</p>
+   * @public
+   */
+  LogicalOperator: EventTriggerLogicalOperator | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PeriodUnit = {
+  DAYS: "DAYS",
+  HOURS: "HOURS",
+  MONTHS: "MONTHS",
+  WEEKS: "WEEKS",
+} as const;
+
+/**
+ * @public
+ */
+export type PeriodUnit = (typeof PeriodUnit)[keyof typeof PeriodUnit];
+
+/**
+ * <p>Defines a limit and the time period during which it is enforced.</p>
+ * @public
+ */
+export interface Period {
+  /**
+   * <p>The unit of time.</p>
+   * @public
+   */
+  Unit: PeriodUnit | undefined;
+
+  /**
+   * <p>The amount of time of the specified unit.</p>
+   * @public
+   */
+  Value: number | undefined;
+
+  /**
+   * <p>The maximum allowed number of destination invocations per profile.</p>
+   * @public
+   */
+  MaxInvocationsPerProfile?: number | undefined;
+
+  /**
+   * <p>If set to true, there is no limit on the number of destination invocations per profile. The default is false.</p>
+   * @public
+   */
+  Unlimited?: boolean | undefined;
+}
+
+/**
+ * <p>Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.</p>
+ * @public
+ */
+export interface EventTriggerLimits {
+  /**
+   * <p>In milliseconds. Specifies that an event will only trigger the destination if it is processed within a certain latency period.</p>
+   * @public
+   */
+  EventExpiration?: number | undefined;
+
+  /**
+   * <p>A list of time periods during which the limits apply.</p>
+   * @public
+   */
+  Periods?: Period[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEventTriggerRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the event trigger.</p>
+   * @public
+   */
+  EventTriggerName: string | undefined;
+
+  /**
+   * <p>The unique name of the object type.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
+   * <p>The description of the event trigger.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A list of conditions that determine when an event should trigger the destination.</p>
+   * @public
+   */
+  EventTriggerConditions: EventTriggerCondition[] | undefined;
+
+  /**
+   * <p>The destination is triggered only for profiles that meet the criteria of a segment
+   *          definition.</p>
+   * @public
+   */
+  SegmentFilter?: string | undefined;
+
+  /**
+   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion
+   *          latency and the number of invocations per profile over specific time periods.</p>
+   * @public
+   */
+  EventTriggerLimits?: EventTriggerLimits | undefined;
+
+  /**
+   * <p>An array of key-value pairs to apply to this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEventTriggerResponse {
+  /**
+   * <p>The unique name of the event trigger.</p>
+   * @public
+   */
+  EventTriggerName?: string | undefined;
+
+  /**
+   * <p>The unique name of the object type.</p>
+   * @public
+   */
+  ObjectTypeName?: string | undefined;
+
+  /**
+   * <p>The description of the event trigger.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A list of conditions that determine when an event should trigger the destination.</p>
+   * @public
+   */
+  EventTriggerConditions?: EventTriggerCondition[] | undefined;
+
+  /**
+   * <p>The destination is triggered only for profiles that meet the criteria of a segment
+   *          definition.</p>
+   * @public
+   */
+  SegmentFilter?: string | undefined;
+
+  /**
+   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion
+   *          latency and the number of invocations per profile over specific time periods.</p>
+   * @public
+   */
+  EventTriggerLimits?: EventTriggerLimits | undefined;
+
+  /**
+   * <p>The timestamp of when the event trigger was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the event trigger was most recently updated.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>An array of key-value pairs to apply to this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
  * <p>Configuration data for integration workflow.</p>
  * @public
  */
@@ -3122,7 +3413,8 @@ export interface CreateProfileResponse {
 }
 
 /**
- * <p>Object that segments on various Customer profile's fields that are larger than normal.</p>
+ * <p>Object that segments on various Customer profile's fields that are larger than
+ *          normal.</p>
  * @public
  */
 export interface ExtraLengthValueProfileDimension {
@@ -3465,7 +3757,8 @@ export interface CreateSegmentDefinitionRequest {
   Description?: string | undefined;
 
   /**
-   * <p>Specifies the base segments and dimensions for a segment definition along with their respective relationship.</p>
+   * <p>Specifies the base segments and dimensions for a segment definition along with their
+   *          respective relationship.</p>
    * @public
    */
   SegmentGroups: SegmentGroup | undefined;
@@ -3564,7 +3857,9 @@ export interface CreateSegmentEstimateResponse {
   DomainName?: string | undefined;
 
   /**
-   * <p>A unique identifier for the resource. The value can be passed to <code>GetSegmentEstimate</code> to retrieve the result of segment estimate status.</p>
+   * <p>A unique identifier for the resource. The value can be passed to
+   *             <code>GetSegmentEstimate</code> to retrieve the result of segment estimate
+   *          status.</p>
    * @public
    */
   EstimateId?: string | undefined;
@@ -3614,19 +3909,22 @@ export interface CreateSegmentSnapshotRequest {
   DataFormat: DataFormat | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the exported segment.</p>
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the exported
+   *          segment.</p>
    * @public
    */
   EncryptionKey?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that allows Customer Profiles service principal to assume the role for conducting KMS and S3 operations.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that allows Customer Profiles service
+   *          principal to assume the role for conducting KMS and S3 operations.</p>
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>The destination to which the segment will be exported. This field must be provided if the request is not submitted from the Amazon Connect Admin Website.</p>
+   * <p>The destination to which the segment will be exported. This field must be provided if
+   *          the request is not submitted from the Amazon Connect Admin Website.</p>
    * @public
    */
   DestinationUri?: string | undefined;
@@ -3708,6 +4006,34 @@ export interface DeleteEventStreamRequest {
  * @public
  */
 export interface DeleteEventStreamResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteEventTriggerRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the event trigger.</p>
+   * @public
+   */
+  EventTriggerName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteEventTriggerResponse {
+  /**
+   * <p>A message that indicates the delete request is done.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
 
 /**
  * @public
@@ -4517,6 +4843,83 @@ export interface GetEventStreamResponse {
 /**
  * @public
  */
+export interface GetEventTriggerRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the event trigger.</p>
+   * @public
+   */
+  EventTriggerName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEventTriggerResponse {
+  /**
+   * <p>The unique name of the event trigger.</p>
+   * @public
+   */
+  EventTriggerName?: string | undefined;
+
+  /**
+   * <p>The unique name of the object type.</p>
+   * @public
+   */
+  ObjectTypeName?: string | undefined;
+
+  /**
+   * <p>The description of the event trigger.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A list of conditions that determine when an event should trigger the destination.</p>
+   * @public
+   */
+  EventTriggerConditions?: EventTriggerCondition[] | undefined;
+
+  /**
+   * <p>The destination is triggered only for profiles that meet the criteria of a segment
+   *          definition.</p>
+   * @public
+   */
+  SegmentFilter?: string | undefined;
+
+  /**
+   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.</p>
+   * @public
+   */
+  EventTriggerLimits?: EventTriggerLimits | undefined;
+
+  /**
+   * <p>The timestamp of when the event trigger was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the event trigger was most recently updated.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>An array of key-value pairs to apply to this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetIdentityResolutionJobRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -4796,6 +5199,13 @@ export interface GetIntegrationResponse {
    * @public
    */
   RoleArn?: string | undefined;
+
+  /**
+   * <p>A list of unique names for active event triggers associated with the integration. This
+   *          list would be empty if no Event Trigger is associated with the integration.</p>
+   * @public
+   */
+  EventTriggerNames?: string[] | undefined;
 }
 
 /**
@@ -5163,7 +5573,8 @@ export interface GetSegmentEstimateResponse {
   DomainName?: string | undefined;
 
   /**
-   * <p>The <code>QueryId</code> which is the same as the value passed in <code>QueryId</code>.</p>
+   * <p>The <code>QueryId</code> which is the same as the value passed in
+   *          <code>QueryId</code>.</p>
    * @public
    */
   EstimateId?: string | undefined;
@@ -5295,7 +5706,8 @@ export interface GetSegmentMembershipResponse {
   Profiles?: ProfileQueryResult[] | undefined;
 
   /**
-   * <p>An array of maps where each contains a response per profile failed for the request.</p>
+   * <p>An array of maps where each contains a response per profile failed for the
+   *          request.</p>
    * @public
    */
   Failures?: ProfileQueryFailures[] | undefined;
@@ -5368,19 +5780,22 @@ export interface GetSegmentSnapshotResponse {
   DataFormat: DataFormat | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the exported segment.</p>
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the exported
+   *          segment.</p>
    * @public
    */
   EncryptionKey?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that allows Customer Profiles service principal to assume the role for conducting KMS and S3 operations.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that allows Customer Profiles service
+   *          principal to assume the role for conducting KMS and S3 operations.</p>
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>The destination to which the segment will be exported. This field must be provided if the request is not submitted from the Amazon Connect Admin Website.</p>
+   * <p>The destination to which the segment will be exported. This field must be provided if
+   *          the request is not submitted from the Amazon Connect Admin Website.</p>
    * @public
    */
   DestinationUri?: string | undefined;
@@ -5752,6 +6167,12 @@ export interface ListIntegrationItem {
    * @public
    */
   RoleArn?: string | undefined;
+
+  /**
+   * <p>A list of unique names for active event triggers associated with the integration.</p>
+   * @public
+   */
+  EventTriggerNames?: string[] | undefined;
 }
 
 /**
@@ -6033,6 +6454,88 @@ export interface ListEventStreamsResponse {
 
   /**
    * <p>Identifies the next page of results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEventTriggersRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The pagination token to use with ListEventTriggers.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary of the event trigger.</p>
+ * @public
+ */
+export interface EventTriggerSummaryItem {
+  /**
+   * <p>The unique name of the object type.</p>
+   * @public
+   */
+  ObjectTypeName?: string | undefined;
+
+  /**
+   * <p>The unique name of the event trigger.</p>
+   * @public
+   */
+  EventTriggerName?: string | undefined;
+
+  /**
+   * <p>The description of the event trigger.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the event trigger was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the event trigger was most recently updated.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>An array of key-value pairs to apply to this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEventTriggersResponse {
+  /**
+   * <p>The list of Event Triggers.</p>
+   * @public
+   */
+  Items?: EventTriggerSummaryItem[] | undefined;
+
+  /**
+   * <p>The pagination token from the previous call to ListEventTriggers.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -7053,6 +7556,12 @@ export interface PutIntegrationRequest {
    * @public
    */
   RoleArn?: string | undefined;
+
+  /**
+   * <p>A list of unique names for active event triggers associated with the integration.</p>
+   * @public
+   */
+  EventTriggerNames?: string[] | undefined;
 }
 
 /**
@@ -7123,6 +7632,13 @@ export interface PutIntegrationResponse {
    * @public
    */
   RoleArn?: string | undefined;
+
+  /**
+   * <p>A list of unique names for active event triggers associated with the integration. This
+   *          list would be empty if no Event Trigger is associated with the integration.</p>
+   * @public
+   */
+  EventTriggerNames?: string[] | undefined;
 }
 
 /**
@@ -7734,6 +8250,114 @@ export interface UpdateDomainResponse {
 }
 
 /**
+ * @public
+ */
+export interface UpdateEventTriggerRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the event trigger.</p>
+   * @public
+   */
+  EventTriggerName: string | undefined;
+
+  /**
+   * <p>The unique name of the object type.</p>
+   * @public
+   */
+  ObjectTypeName?: string | undefined;
+
+  /**
+   * <p>The description of the event trigger.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A list of conditions that determine when an event should trigger the destination.</p>
+   * @public
+   */
+  EventTriggerConditions?: EventTriggerCondition[] | undefined;
+
+  /**
+   * <p>The destination is triggered only for profiles that meet the criteria of a segment
+   *          definition.</p>
+   * @public
+   */
+  SegmentFilter?: string | undefined;
+
+  /**
+   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.</p>
+   * @public
+   */
+  EventTriggerLimits?: EventTriggerLimits | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEventTriggerResponse {
+  /**
+   * <p>The unique name of the event trigger.</p>
+   * @public
+   */
+  EventTriggerName?: string | undefined;
+
+  /**
+   * <p>The unique name of the object type.</p>
+   * @public
+   */
+  ObjectTypeName?: string | undefined;
+
+  /**
+   * <p>The description of the event trigger.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A list of conditions that determine when an event should trigger the destination.</p>
+   * @public
+   */
+  EventTriggerConditions?: EventTriggerCondition[] | undefined;
+
+  /**
+   * <p>The destination is triggered only for profiles that meet the criteria of a segment
+   *          definition.</p>
+   * @public
+   */
+  SegmentFilter?: string | undefined;
+
+  /**
+   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.</p>
+   * @public
+   */
+  EventTriggerLimits?: EventTriggerLimits | undefined;
+
+  /**
+   * <p>The timestamp of when the event trigger was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the event trigger was most recently updated.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>An array of key-value pairs to apply to this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
  * <p>Updates associated with the address properties of a customer profile.</p>
  * @public
  */
@@ -8120,6 +8744,24 @@ export const CreateCalculatedAttributeDefinitionResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const CreateEventTriggerRequestFilterSensitiveLog = (obj: CreateEventTriggerRequest): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.EventTriggerConditions && { EventTriggerConditions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEventTriggerResponseFilterSensitiveLog = (obj: CreateEventTriggerResponse): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.EventTriggerConditions && { EventTriggerConditions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const IntegrationConfigFilterSensitiveLog = (obj: IntegrationConfig): any => ({
   ...obj,
   ...(obj.AppflowIntegration && { AppflowIntegration: AppflowIntegrationFilterSensitiveLog(obj.AppflowIntegration) }),
@@ -8281,6 +8923,15 @@ export const GetCalculatedAttributeDefinitionResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const GetEventTriggerResponseFilterSensitiveLog = (obj: GetEventTriggerResponse): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.EventTriggerConditions && { EventTriggerConditions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const GetProfileObjectTypeResponseFilterSensitiveLog = (obj: GetProfileObjectTypeResponse): any => ({
   ...obj,
   ...(obj.Description && { Description: SENSITIVE_STRING }),
@@ -8330,6 +8981,14 @@ export const GetSegmentMembershipResponseFilterSensitiveLog = (obj: GetSegmentMe
 export const ListCalculatedAttributeDefinitionsResponseFilterSensitiveLog = (
   obj: ListCalculatedAttributeDefinitionsResponse
 ): any => ({
+  ...obj,
+  ...(obj.Items && { Items: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListEventTriggersResponseFilterSensitiveLog = (obj: ListEventTriggersResponse): any => ({
   ...obj,
   ...(obj.Items && { Items: SENSITIVE_STRING }),
 });
@@ -8440,6 +9099,24 @@ export const UpdateCalculatedAttributeDefinitionResponseFilterSensitiveLog = (
   ...(obj.Statistic && { Statistic: SENSITIVE_STRING }),
   ...(obj.Conditions && { Conditions: SENSITIVE_STRING }),
   ...(obj.AttributeDetails && { AttributeDetails: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateEventTriggerRequestFilterSensitiveLog = (obj: UpdateEventTriggerRequest): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.EventTriggerConditions && { EventTriggerConditions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateEventTriggerResponseFilterSensitiveLog = (obj: UpdateEventTriggerResponse): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.EventTriggerConditions && { EventTriggerConditions: SENSITIVE_STRING }),
 });
 
 /**

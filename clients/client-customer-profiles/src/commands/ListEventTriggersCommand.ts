@@ -6,8 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListIntegrationsRequest, ListIntegrationsResponse } from "../models/models_0";
-import { de_ListIntegrationsCommand, se_ListIntegrationsCommand } from "../protocols/Aws_restJson1";
+import {
+  ListEventTriggersRequest,
+  ListEventTriggersResponse,
+  ListEventTriggersResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_ListEventTriggersCommand, se_ListEventTriggersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,52 +21,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListIntegrationsCommand}.
+ * The input for {@link ListEventTriggersCommand}.
  */
-export interface ListIntegrationsCommandInput extends ListIntegrationsRequest {}
+export interface ListEventTriggersCommandInput extends ListEventTriggersRequest {}
 /**
  * @public
  *
- * The output of {@link ListIntegrationsCommand}.
+ * The output of {@link ListEventTriggersCommand}.
  */
-export interface ListIntegrationsCommandOutput extends ListIntegrationsResponse, __MetadataBearer {}
+export interface ListEventTriggersCommandOutput extends ListEventTriggersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all of the integrations in your domain.</p>
+ * <p>List all Event Triggers under a domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, ListIntegrationsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, ListIntegrationsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, ListEventTriggersCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, ListEventTriggersCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
- * const input = { // ListIntegrationsRequest
+ * const input = { // ListEventTriggersRequest
  *   DomainName: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   IncludeHidden: true || false,
  * };
- * const command = new ListIntegrationsCommand(input);
+ * const command = new ListEventTriggersCommand(input);
  * const response = await client.send(command);
- * // { // ListIntegrationsResponse
- * //   Items: [ // IntegrationList
- * //     { // ListIntegrationItem
- * //       DomainName: "STRING_VALUE", // required
- * //       Uri: "STRING_VALUE", // required
+ * // { // ListEventTriggersResponse
+ * //   Items: [ // EventTriggerSummaryList
+ * //     { // EventTriggerSummaryItem
  * //       ObjectTypeName: "STRING_VALUE",
- * //       CreatedAt: new Date("TIMESTAMP"), // required
- * //       LastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //       EventTriggerName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       LastUpdatedAt: new Date("TIMESTAMP"),
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
- * //       ObjectTypeNames: { // ObjectTypeNames
- * //         "<keys>": "STRING_VALUE",
- * //       },
- * //       WorkflowId: "STRING_VALUE",
- * //       IsUnstructured: true || false,
- * //       RoleArn: "STRING_VALUE",
- * //       EventTriggerNames: [ // EventTriggerNames
- * //         "STRING_VALUE",
- * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -70,10 +64,10 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsResponse,
  *
  * ```
  *
- * @param ListIntegrationsCommandInput - {@link ListIntegrationsCommandInput}
- * @returns {@link ListIntegrationsCommandOutput}
- * @see {@link ListIntegrationsCommandInput} for command's `input` shape.
- * @see {@link ListIntegrationsCommandOutput} for command's `response` shape.
+ * @param ListEventTriggersCommandInput - {@link ListEventTriggersCommandInput}
+ * @returns {@link ListEventTriggersCommandOutput}
+ * @see {@link ListEventTriggersCommandInput} for command's `input` shape.
+ * @see {@link ListEventTriggersCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -96,10 +90,10 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsResponse,
  *
  * @public
  */
-export class ListIntegrationsCommand extends $Command
+export class ListEventTriggersCommand extends $Command
   .classBuilder<
-    ListIntegrationsCommandInput,
-    ListIntegrationsCommandOutput,
+    ListEventTriggersCommandInput,
+    ListEventTriggersCommandOutput,
     CustomerProfilesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -111,21 +105,21 @@ export class ListIntegrationsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("CustomerProfiles_20200815", "ListIntegrations", {})
-  .n("CustomerProfilesClient", "ListIntegrationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListIntegrationsCommand)
-  .de(de_ListIntegrationsCommand)
+  .s("CustomerProfiles_20200815", "ListEventTriggers", {})
+  .n("CustomerProfilesClient", "ListEventTriggersCommand")
+  .f(void 0, ListEventTriggersResponseFilterSensitiveLog)
+  .ser(se_ListEventTriggersCommand)
+  .de(de_ListEventTriggersCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListIntegrationsRequest;
-      output: ListIntegrationsResponse;
+      input: ListEventTriggersRequest;
+      output: ListEventTriggersResponse;
     };
     sdk: {
-      input: ListIntegrationsCommandInput;
-      output: ListIntegrationsCommandOutput;
+      input: ListEventTriggersCommandInput;
+      output: ListEventTriggersCommandOutput;
     };
   };
 }

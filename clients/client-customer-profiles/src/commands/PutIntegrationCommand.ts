@@ -120,6 +120,9 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  *     "<keys>": "STRING_VALUE",
  *   },
  *   RoleArn: "STRING_VALUE",
+ *   EventTriggerNames: [ // EventTriggerNames
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new PutIntegrationCommand(input);
  * const response = await client.send(command);
@@ -138,6 +141,9 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * //   WorkflowId: "STRING_VALUE",
  * //   IsUnstructured: true || false,
  * //   RoleArn: "STRING_VALUE",
+ * //   EventTriggerNames: [ // EventTriggerNames
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```

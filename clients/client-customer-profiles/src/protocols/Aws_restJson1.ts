@@ -45,6 +45,7 @@ import {
 } from "../commands/CreateCalculatedAttributeDefinitionCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
 import { CreateEventStreamCommandInput, CreateEventStreamCommandOutput } from "../commands/CreateEventStreamCommand";
+import { CreateEventTriggerCommandInput, CreateEventTriggerCommandOutput } from "../commands/CreateEventTriggerCommand";
 import {
   CreateIntegrationWorkflowCommandInput,
   CreateIntegrationWorkflowCommandOutput,
@@ -68,6 +69,7 @@ import {
 } from "../commands/DeleteCalculatedAttributeDefinitionCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
 import { DeleteEventStreamCommandInput, DeleteEventStreamCommandOutput } from "../commands/DeleteEventStreamCommand";
+import { DeleteEventTriggerCommandInput, DeleteEventTriggerCommandOutput } from "../commands/DeleteEventTriggerCommand";
 import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "../commands/DeleteIntegrationCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "../commands/DeleteProfileCommand";
 import { DeleteProfileKeyCommandInput, DeleteProfileKeyCommandOutput } from "../commands/DeleteProfileKeyCommand";
@@ -102,6 +104,7 @@ import {
 } from "../commands/GetCalculatedAttributeForProfileCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "../commands/GetDomainCommand";
 import { GetEventStreamCommandInput, GetEventStreamCommandOutput } from "../commands/GetEventStreamCommand";
+import { GetEventTriggerCommandInput, GetEventTriggerCommandOutput } from "../commands/GetEventTriggerCommand";
 import {
   GetIdentityResolutionJobCommandInput,
   GetIdentityResolutionJobCommandOutput,
@@ -143,6 +146,7 @@ import {
 } from "../commands/ListCalculatedAttributesForProfileCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
 import { ListEventStreamsCommandInput, ListEventStreamsCommandOutput } from "../commands/ListEventStreamsCommand";
+import { ListEventTriggersCommandInput, ListEventTriggersCommandOutput } from "../commands/ListEventTriggersCommand";
 import {
   ListIdentityResolutionJobsCommandInput,
   ListIdentityResolutionJobsCommandOutput,
@@ -193,6 +197,7 @@ import {
   UpdateCalculatedAttributeDefinitionCommandOutput,
 } from "../commands/UpdateCalculatedAttributeDefinitionCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "../commands/UpdateDomainCommand";
+import { UpdateEventTriggerCommandInput, UpdateEventTriggerCommandOutput } from "../commands/UpdateEventTriggerCommand";
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "../commands/UpdateProfileCommand";
 import { CustomerProfilesServiceException as __BaseException } from "../models/CustomerProfilesServiceException";
 import {
@@ -220,6 +225,10 @@ import {
   Dimension,
   EventStreamDestinationDetails,
   EventStreamSummary,
+  EventTriggerCondition,
+  EventTriggerDimension,
+  EventTriggerLimits,
+  EventTriggerSummaryItem,
   ExportingConfig,
   ExtraLengthValueProfileDimension,
   FieldSourceProfileIds,
@@ -245,10 +254,12 @@ import {
   MatchingResponse,
   MatchingRule,
   MatchItem,
+  ObjectAttribute,
   ObjectFilter,
   ObjectTypeField,
   ObjectTypeKey,
   OperatorPropertiesKeys,
+  Period,
   ProfileAttributes,
   ProfileDimension,
   ProfileQueryFailures,
@@ -429,6 +440,35 @@ export const se_CreateEventStreamCommand = async (
     take(input, {
       Tags: (_) => _json(_),
       Uri: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateEventTriggerCommand
+ */
+export const se_CreateEventTriggerCommand = async (
+  input: CreateEventTriggerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/domains/{DomainName}/event-triggers/{EventTriggerName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("EventTriggerName", () => input.EventTriggerName!, "{EventTriggerName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      EventTriggerConditions: (_) => _json(_),
+      EventTriggerLimits: (_) => _json(_),
+      ObjectTypeName: [],
+      SegmentFilter: [],
+      Tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -629,6 +669,23 @@ export const se_DeleteEventStreamCommand = async (
   b.bp("/domains/{DomainName}/event-streams/{EventStreamName}");
   b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   b.p("EventStreamName", () => input.EventStreamName!, "{EventStreamName}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteEventTriggerCommand
+ */
+export const se_DeleteEventTriggerCommand = async (
+  input: DeleteEventTriggerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domains/{DomainName}/event-triggers/{EventTriggerName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("EventTriggerName", () => input.EventTriggerName!, "{EventTriggerName}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -892,6 +949,23 @@ export const se_GetEventStreamCommand = async (
   b.bp("/domains/{DomainName}/event-streams/{EventStreamName}");
   b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   b.p("EventStreamName", () => input.EventStreamName!, "{EventStreamName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetEventTriggerCommand
+ */
+export const se_GetEventTriggerCommand = async (
+  input: GetEventTriggerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domains/{DomainName}/event-triggers/{EventTriggerName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("EventTriggerName", () => input.EventTriggerName!, "{EventTriggerName}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -1241,6 +1315,26 @@ export const se_ListEventStreamsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListEventTriggersCommand
+ */
+export const se_ListEventTriggersCommand = async (
+  input: ListEventTriggersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domains/{DomainName}/event-triggers");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  const query: any = map({
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListIdentityResolutionJobsCommand
  */
 export const se_ListIdentityResolutionJobsCommand = async (
@@ -1514,6 +1608,7 @@ export const se_PutIntegrationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      EventTriggerNames: (_) => _json(_),
       FlowDefinition: (_) => se_FlowDefinition(_, context),
       ObjectTypeName: [],
       ObjectTypeNames: (_) => _json(_),
@@ -1703,6 +1798,34 @@ export const se_UpdateDomainCommand = async (
       Matching: (_) => se_MatchingRequest(_, context),
       RuleBasedMatching: (_) => _json(_),
       Tags: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateEventTriggerCommand
+ */
+export const se_UpdateEventTriggerCommand = async (
+  input: UpdateEventTriggerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/domains/{DomainName}/event-triggers/{EventTriggerName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("EventTriggerName", () => input.EventTriggerName!, "{EventTriggerName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      EventTriggerConditions: (_) => _json(_),
+      EventTriggerLimits: (_) => _json(_),
+      ObjectTypeName: [],
+      SegmentFilter: [],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -1904,6 +2027,35 @@ export const de_CreateEventStreamCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateEventTriggerCommand
+ */
+export const de_CreateEventTriggerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEventTriggerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    EventTriggerConditions: _json,
+    EventTriggerLimits: _json,
+    EventTriggerName: __expectString,
+    LastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ObjectTypeName: __expectString,
+    SegmentFilter: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateIntegrationWorkflowCommand
  */
 export const de_CreateIntegrationWorkflowCommand = async (
@@ -2070,6 +2222,27 @@ export const de_DeleteEventStreamCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteEventTriggerCommand
+ */
+export const de_DeleteEventTriggerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventTriggerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2373,6 +2546,35 @@ export const de_GetEventStreamCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetEventTriggerCommand
+ */
+export const de_GetEventTriggerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEventTriggerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    EventTriggerConditions: _json,
+    EventTriggerLimits: _json,
+    EventTriggerName: __expectString,
+    LastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ObjectTypeName: __expectString,
+    SegmentFilter: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetIdentityResolutionJobCommand
  */
 export const de_GetIdentityResolutionJobCommand = async (
@@ -2420,6 +2622,7 @@ export const de_GetIntegrationCommand = async (
   const doc = take(data, {
     CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DomainName: __expectString,
+    EventTriggerNames: _json,
     IsUnstructured: __expectBoolean,
     LastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ObjectTypeName: __expectString,
@@ -2812,6 +3015,28 @@ export const de_ListEventStreamsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListEventTriggersCommand
+ */
+export const de_ListEventTriggersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventTriggersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: (_) => de_EventTriggerSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListIdentityResolutionJobsCommand
  */
 export const de_ListIdentityResolutionJobsCommand = async (
@@ -3094,6 +3319,7 @@ export const de_PutIntegrationCommand = async (
   const doc = take(data, {
     CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DomainName: __expectString,
+    EventTriggerNames: _json,
     IsUnstructured: __expectBoolean,
     LastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ObjectTypeName: __expectString,
@@ -3270,6 +3496,35 @@ export const de_UpdateDomainCommand = async (
     LastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Matching: (_) => de_MatchingResponse(_, context),
     RuleBasedMatching: _json,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateEventTriggerCommand
+ */
+export const de_UpdateEventTriggerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEventTriggerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    EventTriggerConditions: _json,
+    EventTriggerLimits: _json,
+    EventTriggerName: __expectString,
+    LastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ObjectTypeName: __expectString,
+    SegmentFilter: __expectString,
     Tags: _json,
   });
   Object.assign(contents, doc);
@@ -3606,6 +3861,20 @@ const se_DimensionList = (input: Dimension[], context: __SerdeContext): any => {
 
 // se_EmailList omitted.
 
+// se_EventTriggerCondition omitted.
+
+// se_EventTriggerConditions omitted.
+
+// se_EventTriggerDimension omitted.
+
+// se_EventTriggerDimensions omitted.
+
+// se_EventTriggerLimits omitted.
+
+// se_EventTriggerNames omitted.
+
+// se_EventTriggerValues omitted.
+
 // se_ExportingConfig omitted.
 
 /**
@@ -3703,6 +3972,10 @@ const se_MatchingRequest = (input: MatchingRequest, context: __SerdeContext): an
 
 // se_MatchingRules omitted.
 
+// se_ObjectAttribute omitted.
+
+// se_ObjectAttributes omitted.
+
 // se_ObjectFilter omitted.
 
 // se_Objects omitted.
@@ -3714,6 +3987,10 @@ const se_MatchingRequest = (input: MatchingRequest, context: __SerdeContext): an
 // se_ObjectTypeKeyList omitted.
 
 // se_ObjectTypeNames omitted.
+
+// se_Period omitted.
+
+// se_Periods omitted.
 
 // se_PhoneNumberList omitted.
 
@@ -4156,6 +4433,46 @@ const de_EventStreamSummaryList = (output: any, context: __SerdeContext): EventS
   return retVal;
 };
 
+// de_EventTriggerCondition omitted.
+
+// de_EventTriggerConditions omitted.
+
+// de_EventTriggerDimension omitted.
+
+// de_EventTriggerDimensions omitted.
+
+// de_EventTriggerLimits omitted.
+
+// de_EventTriggerNames omitted.
+
+/**
+ * deserializeAws_restJson1EventTriggerSummaryItem
+ */
+const de_EventTriggerSummaryItem = (output: any, context: __SerdeContext): EventTriggerSummaryItem => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    EventTriggerName: __expectString,
+    LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ObjectTypeName: __expectString,
+    Tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EventTriggerSummaryList
+ */
+const de_EventTriggerSummaryList = (output: any, context: __SerdeContext): EventTriggerSummaryItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EventTriggerSummaryItem(entry, context);
+    });
+  return retVal;
+};
+
+// de_EventTriggerValues omitted.
+
 // de_ExportingConfig omitted.
 
 // de_ExportingLocation omitted.
@@ -4303,6 +4620,7 @@ const de_ListIntegrationItem = (output: any, context: __SerdeContext): ListInteg
   return take(output, {
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DomainName: __expectString,
+    EventTriggerNames: _json,
     IsUnstructured: __expectBoolean,
     LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ObjectTypeName: __expectString,
@@ -4416,6 +4734,10 @@ const de_MatchItem = (output: any, context: __SerdeContext): MatchItem => {
   }) as any;
 };
 
+// de_ObjectAttribute omitted.
+
+// de_ObjectAttributes omitted.
+
 // de_ObjectTypeField omitted.
 
 // de_ObjectTypeKey omitted.
@@ -4423,6 +4745,10 @@ const de_MatchItem = (output: any, context: __SerdeContext): MatchItem => {
 // de_ObjectTypeKeyList omitted.
 
 // de_ObjectTypeNames omitted.
+
+// de_Period omitted.
+
+// de_Periods omitted.
 
 // de_PhoneNumberList omitted.
 

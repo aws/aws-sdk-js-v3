@@ -65,6 +65,7 @@ import {
 } from "./commands/CreateCalculatedAttributeDefinitionCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
 import { CreateEventStreamCommandInput, CreateEventStreamCommandOutput } from "./commands/CreateEventStreamCommand";
+import { CreateEventTriggerCommandInput, CreateEventTriggerCommandOutput } from "./commands/CreateEventTriggerCommand";
 import {
   CreateIntegrationWorkflowCommandInput,
   CreateIntegrationWorkflowCommandOutput,
@@ -88,6 +89,7 @@ import {
 } from "./commands/DeleteCalculatedAttributeDefinitionCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import { DeleteEventStreamCommandInput, DeleteEventStreamCommandOutput } from "./commands/DeleteEventStreamCommand";
+import { DeleteEventTriggerCommandInput, DeleteEventTriggerCommandOutput } from "./commands/DeleteEventTriggerCommand";
 import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
 import { DeleteProfileKeyCommandInput, DeleteProfileKeyCommandOutput } from "./commands/DeleteProfileKeyCommand";
@@ -122,6 +124,7 @@ import {
 } from "./commands/GetCalculatedAttributeForProfileCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
 import { GetEventStreamCommandInput, GetEventStreamCommandOutput } from "./commands/GetEventStreamCommand";
+import { GetEventTriggerCommandInput, GetEventTriggerCommandOutput } from "./commands/GetEventTriggerCommand";
 import {
   GetIdentityResolutionJobCommandInput,
   GetIdentityResolutionJobCommandOutput,
@@ -163,6 +166,7 @@ import {
 } from "./commands/ListCalculatedAttributesForProfileCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import { ListEventStreamsCommandInput, ListEventStreamsCommandOutput } from "./commands/ListEventStreamsCommand";
+import { ListEventTriggersCommandInput, ListEventTriggersCommandOutput } from "./commands/ListEventTriggersCommand";
 import {
   ListIdentityResolutionJobsCommandInput,
   ListIdentityResolutionJobsCommandOutput,
@@ -213,6 +217,7 @@ import {
   UpdateCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/UpdateCalculatedAttributeDefinitionCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
+import { UpdateEventTriggerCommandInput, UpdateEventTriggerCommandOutput } from "./commands/UpdateEventTriggerCommand";
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
 import {
   ClientInputEndpointParameters,
@@ -235,6 +240,7 @@ export type ServiceInputTypes =
   | CreateCalculatedAttributeDefinitionCommandInput
   | CreateDomainCommandInput
   | CreateEventStreamCommandInput
+  | CreateEventTriggerCommandInput
   | CreateIntegrationWorkflowCommandInput
   | CreateProfileCommandInput
   | CreateSegmentDefinitionCommandInput
@@ -243,6 +249,7 @@ export type ServiceInputTypes =
   | DeleteCalculatedAttributeDefinitionCommandInput
   | DeleteDomainCommandInput
   | DeleteEventStreamCommandInput
+  | DeleteEventTriggerCommandInput
   | DeleteIntegrationCommandInput
   | DeleteProfileCommandInput
   | DeleteProfileKeyCommandInput
@@ -256,6 +263,7 @@ export type ServiceInputTypes =
   | GetCalculatedAttributeForProfileCommandInput
   | GetDomainCommandInput
   | GetEventStreamCommandInput
+  | GetEventTriggerCommandInput
   | GetIdentityResolutionJobCommandInput
   | GetIntegrationCommandInput
   | GetMatchesCommandInput
@@ -273,6 +281,7 @@ export type ServiceInputTypes =
   | ListCalculatedAttributesForProfileCommandInput
   | ListDomainsCommandInput
   | ListEventStreamsCommandInput
+  | ListEventTriggersCommandInput
   | ListIdentityResolutionJobsCommandInput
   | ListIntegrationsCommandInput
   | ListObjectTypeAttributesCommandInput
@@ -293,6 +302,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateCalculatedAttributeDefinitionCommandInput
   | UpdateDomainCommandInput
+  | UpdateEventTriggerCommandInput
   | UpdateProfileCommandInput;
 
 /**
@@ -305,6 +315,7 @@ export type ServiceOutputTypes =
   | CreateCalculatedAttributeDefinitionCommandOutput
   | CreateDomainCommandOutput
   | CreateEventStreamCommandOutput
+  | CreateEventTriggerCommandOutput
   | CreateIntegrationWorkflowCommandOutput
   | CreateProfileCommandOutput
   | CreateSegmentDefinitionCommandOutput
@@ -313,6 +324,7 @@ export type ServiceOutputTypes =
   | DeleteCalculatedAttributeDefinitionCommandOutput
   | DeleteDomainCommandOutput
   | DeleteEventStreamCommandOutput
+  | DeleteEventTriggerCommandOutput
   | DeleteIntegrationCommandOutput
   | DeleteProfileCommandOutput
   | DeleteProfileKeyCommandOutput
@@ -326,6 +338,7 @@ export type ServiceOutputTypes =
   | GetCalculatedAttributeForProfileCommandOutput
   | GetDomainCommandOutput
   | GetEventStreamCommandOutput
+  | GetEventTriggerCommandOutput
   | GetIdentityResolutionJobCommandOutput
   | GetIntegrationCommandOutput
   | GetMatchesCommandOutput
@@ -343,6 +356,7 @@ export type ServiceOutputTypes =
   | ListCalculatedAttributesForProfileCommandOutput
   | ListDomainsCommandOutput
   | ListEventStreamsCommandOutput
+  | ListEventTriggersCommandOutput
   | ListIdentityResolutionJobsCommandOutput
   | ListIntegrationsCommandOutput
   | ListObjectTypeAttributesCommandOutput
@@ -363,6 +377,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateCalculatedAttributeDefinitionCommandOutput
   | UpdateDomainCommandOutput
+  | UpdateEventTriggerCommandOutput
   | UpdateProfileCommandOutput;
 
 /**

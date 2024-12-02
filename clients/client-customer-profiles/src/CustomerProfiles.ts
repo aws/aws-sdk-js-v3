@@ -33,6 +33,11 @@ import {
   CreateEventStreamCommandOutput,
 } from "./commands/CreateEventStreamCommand";
 import {
+  CreateEventTriggerCommand,
+  CreateEventTriggerCommandInput,
+  CreateEventTriggerCommandOutput,
+} from "./commands/CreateEventTriggerCommand";
+import {
   CreateIntegrationWorkflowCommand,
   CreateIntegrationWorkflowCommandInput,
   CreateIntegrationWorkflowCommandOutput,
@@ -72,6 +77,11 @@ import {
   DeleteEventStreamCommandInput,
   DeleteEventStreamCommandOutput,
 } from "./commands/DeleteEventStreamCommand";
+import {
+  DeleteEventTriggerCommand,
+  DeleteEventTriggerCommandInput,
+  DeleteEventTriggerCommandOutput,
+} from "./commands/DeleteEventTriggerCommand";
 import {
   DeleteIntegrationCommand,
   DeleteIntegrationCommandInput,
@@ -133,6 +143,11 @@ import {
   GetEventStreamCommandInput,
   GetEventStreamCommandOutput,
 } from "./commands/GetEventStreamCommand";
+import {
+  GetEventTriggerCommand,
+  GetEventTriggerCommandInput,
+  GetEventTriggerCommandOutput,
+} from "./commands/GetEventTriggerCommand";
 import {
   GetIdentityResolutionJobCommand,
   GetIdentityResolutionJobCommandInput,
@@ -206,6 +221,11 @@ import {
   ListEventStreamsCommandInput,
   ListEventStreamsCommandOutput,
 } from "./commands/ListEventStreamsCommand";
+import {
+  ListEventTriggersCommand,
+  ListEventTriggersCommandInput,
+  ListEventTriggersCommandOutput,
+} from "./commands/ListEventTriggersCommand";
 import {
   ListIdentityResolutionJobsCommand,
   ListIdentityResolutionJobsCommandInput,
@@ -303,6 +323,11 @@ import {
   UpdateDomainCommandOutput,
 } from "./commands/UpdateDomainCommand";
 import {
+  UpdateEventTriggerCommand,
+  UpdateEventTriggerCommandInput,
+  UpdateEventTriggerCommandOutput,
+} from "./commands/UpdateEventTriggerCommand";
+import {
   UpdateProfileCommand,
   UpdateProfileCommandInput,
   UpdateProfileCommandOutput,
@@ -316,6 +341,7 @@ const commands = {
   CreateCalculatedAttributeDefinitionCommand,
   CreateDomainCommand,
   CreateEventStreamCommand,
+  CreateEventTriggerCommand,
   CreateIntegrationWorkflowCommand,
   CreateProfileCommand,
   CreateSegmentDefinitionCommand,
@@ -324,6 +350,7 @@ const commands = {
   DeleteCalculatedAttributeDefinitionCommand,
   DeleteDomainCommand,
   DeleteEventStreamCommand,
+  DeleteEventTriggerCommand,
   DeleteIntegrationCommand,
   DeleteProfileCommand,
   DeleteProfileKeyCommand,
@@ -337,6 +364,7 @@ const commands = {
   GetCalculatedAttributeForProfileCommand,
   GetDomainCommand,
   GetEventStreamCommand,
+  GetEventTriggerCommand,
   GetIdentityResolutionJobCommand,
   GetIntegrationCommand,
   GetMatchesCommand,
@@ -354,6 +382,7 @@ const commands = {
   ListCalculatedAttributesForProfileCommand,
   ListDomainsCommand,
   ListEventStreamsCommand,
+  ListEventTriggersCommand,
   ListIdentityResolutionJobsCommand,
   ListIntegrationsCommand,
   ListObjectTypeAttributesCommand,
@@ -374,6 +403,7 @@ const commands = {
   UntagResourceCommand,
   UpdateCalculatedAttributeDefinitionCommand,
   UpdateDomainCommand,
+  UpdateEventTriggerCommand,
   UpdateProfileCommand,
 };
 
@@ -463,6 +493,23 @@ export interface CustomerProfiles {
     args: CreateEventStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEventStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateEventTriggerCommand}
+   */
+  createEventTrigger(
+    args: CreateEventTriggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEventTriggerCommandOutput>;
+  createEventTrigger(
+    args: CreateEventTriggerCommandInput,
+    cb: (err: any, data?: CreateEventTriggerCommandOutput) => void
+  ): void;
+  createEventTrigger(
+    args: CreateEventTriggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEventTriggerCommandOutput) => void
   ): void;
 
   /**
@@ -587,6 +634,23 @@ export interface CustomerProfiles {
     args: DeleteEventStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEventStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEventTriggerCommand}
+   */
+  deleteEventTrigger(
+    args: DeleteEventTriggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEventTriggerCommandOutput>;
+  deleteEventTrigger(
+    args: DeleteEventTriggerCommandInput,
+    cb: (err: any, data?: DeleteEventTriggerCommandOutput) => void
+  ): void;
+  deleteEventTrigger(
+    args: DeleteEventTriggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEventTriggerCommandOutput) => void
   ): void;
 
   /**
@@ -790,6 +854,20 @@ export interface CustomerProfiles {
     args: GetEventStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEventStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEventTriggerCommand}
+   */
+  getEventTrigger(
+    args: GetEventTriggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventTriggerCommandOutput>;
+  getEventTrigger(args: GetEventTriggerCommandInput, cb: (err: any, data?: GetEventTriggerCommandOutput) => void): void;
+  getEventTrigger(
+    args: GetEventTriggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEventTriggerCommandOutput) => void
   ): void;
 
   /**
@@ -1059,6 +1137,23 @@ export interface CustomerProfiles {
     args: ListEventStreamsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEventStreamsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEventTriggersCommand}
+   */
+  listEventTriggers(
+    args: ListEventTriggersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEventTriggersCommandOutput>;
+  listEventTriggers(
+    args: ListEventTriggersCommandInput,
+    cb: (err: any, data?: ListEventTriggersCommandOutput) => void
+  ): void;
+  listEventTriggers(
+    args: ListEventTriggersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEventTriggersCommandOutput) => void
   ): void;
 
   /**
@@ -1364,6 +1459,23 @@ export interface CustomerProfiles {
     args: UpdateDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateEventTriggerCommand}
+   */
+  updateEventTrigger(
+    args: UpdateEventTriggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEventTriggerCommandOutput>;
+  updateEventTrigger(
+    args: UpdateEventTriggerCommandInput,
+    cb: (err: any, data?: UpdateEventTriggerCommandOutput) => void
+  ): void;
+  updateEventTrigger(
+    args: UpdateEventTriggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEventTriggerCommandOutput) => void
   ): void;
 
   /**

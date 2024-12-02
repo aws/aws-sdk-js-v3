@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetIntegrationRequest, GetIntegrationResponse } from "../models/models_0";
-import { de_GetIntegrationCommand, se_GetIntegrationCommand } from "../protocols/Aws_restJson1";
+import { DeleteEventTriggerRequest, DeleteEventTriggerResponse } from "../models/models_0";
+import { de_DeleteEventTriggerCommand, se_DeleteEventTriggerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,56 +17,43 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetIntegrationCommand}.
+ * The input for {@link DeleteEventTriggerCommand}.
  */
-export interface GetIntegrationCommandInput extends GetIntegrationRequest {}
+export interface DeleteEventTriggerCommandInput extends DeleteEventTriggerRequest {}
 /**
  * @public
  *
- * The output of {@link GetIntegrationCommand}.
+ * The output of {@link DeleteEventTriggerCommand}.
  */
-export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __MetadataBearer {}
+export interface DeleteEventTriggerCommandOutput extends DeleteEventTriggerResponse, __MetadataBearer {}
 
 /**
- * <p>Returns an integration for a domain.</p>
+ * <p>Disable and deletes the Event Trigger.</p>
+ *          <note>
+ *             <p>You cannot delete an Event Trigger with an active Integration associated.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, GetIntegrationCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, GetIntegrationCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, DeleteEventTriggerCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, DeleteEventTriggerCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
- * const input = { // GetIntegrationRequest
+ * const input = { // DeleteEventTriggerRequest
  *   DomainName: "STRING_VALUE", // required
- *   Uri: "STRING_VALUE", // required
+ *   EventTriggerName: "STRING_VALUE", // required
  * };
- * const command = new GetIntegrationCommand(input);
+ * const command = new DeleteEventTriggerCommand(input);
  * const response = await client.send(command);
- * // { // GetIntegrationResponse
- * //   DomainName: "STRING_VALUE", // required
- * //   Uri: "STRING_VALUE", // required
- * //   ObjectTypeName: "STRING_VALUE",
- * //   CreatedAt: new Date("TIMESTAMP"), // required
- * //   LastUpdatedAt: new Date("TIMESTAMP"), // required
- * //   Tags: { // TagMap
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * //   ObjectTypeNames: { // ObjectTypeNames
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * //   WorkflowId: "STRING_VALUE",
- * //   IsUnstructured: true || false,
- * //   RoleArn: "STRING_VALUE",
- * //   EventTriggerNames: [ // EventTriggerNames
- * //     "STRING_VALUE",
- * //   ],
+ * // { // DeleteEventTriggerResponse
+ * //   Message: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param GetIntegrationCommandInput - {@link GetIntegrationCommandInput}
- * @returns {@link GetIntegrationCommandOutput}
- * @see {@link GetIntegrationCommandInput} for command's `input` shape.
- * @see {@link GetIntegrationCommandOutput} for command's `response` shape.
+ * @param DeleteEventTriggerCommandInput - {@link DeleteEventTriggerCommandInput}
+ * @returns {@link DeleteEventTriggerCommandOutput}
+ * @see {@link DeleteEventTriggerCommandInput} for command's `input` shape.
+ * @see {@link DeleteEventTriggerCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -89,10 +76,10 @@ export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __M
  *
  * @public
  */
-export class GetIntegrationCommand extends $Command
+export class DeleteEventTriggerCommand extends $Command
   .classBuilder<
-    GetIntegrationCommandInput,
-    GetIntegrationCommandOutput,
+    DeleteEventTriggerCommandInput,
+    DeleteEventTriggerCommandOutput,
     CustomerProfilesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -104,21 +91,21 @@ export class GetIntegrationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("CustomerProfiles_20200815", "GetIntegration", {})
-  .n("CustomerProfilesClient", "GetIntegrationCommand")
+  .s("CustomerProfiles_20200815", "DeleteEventTrigger", {})
+  .n("CustomerProfilesClient", "DeleteEventTriggerCommand")
   .f(void 0, void 0)
-  .ser(se_GetIntegrationCommand)
-  .de(de_GetIntegrationCommand)
+  .ser(se_DeleteEventTriggerCommand)
+  .de(de_DeleteEventTriggerCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetIntegrationRequest;
-      output: GetIntegrationResponse;
+      input: DeleteEventTriggerRequest;
+      output: DeleteEventTriggerResponse;
     };
     sdk: {
-      input: GetIntegrationCommandInput;
-      output: GetIntegrationCommandOutput;
+      input: DeleteEventTriggerCommandInput;
+      output: DeleteEventTriggerCommandOutput;
     };
   };
 }
