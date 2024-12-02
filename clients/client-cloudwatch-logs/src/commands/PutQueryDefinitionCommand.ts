@@ -46,6 +46,7 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  * // const { CloudWatchLogsClient, PutQueryDefinitionCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutQueryDefinitionRequest
+ *   queryLanguage: "CWLI" || "SQL" || "PPL",
  *   name: "STRING_VALUE", // required
  *   queryDefinitionId: "STRING_VALUE",
  *   logGroupNames: [ // LogGroupNames

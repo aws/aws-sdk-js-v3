@@ -54,6 +54,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * const command = new GetQueryResultsCommand(input);
  * const response = await client.send(command);
  * // { // GetQueryResultsResponse
+ * //   queryLanguage: "CWLI" || "SQL" || "PPL",
  * //   results: [ // QueryResults
  * //     [ // ResultRows
  * //       { // ResultField

@@ -42,12 +42,14 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  *   status: "Scheduled" || "Running" || "Complete" || "Failed" || "Cancelled" || "Timeout" || "Unknown",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   queryLanguage: "CWLI" || "SQL" || "PPL",
  * };
  * const command = new DescribeQueriesCommand(input);
  * const response = await client.send(command);
  * // { // DescribeQueriesResponse
  * //   queries: [ // QueryInfoList
  * //     { // QueryInfo
+ * //       queryLanguage: "CWLI" || "SQL" || "PPL",
  * //       queryId: "STRING_VALUE",
  * //       queryString: "STRING_VALUE",
  * //       status: "Scheduled" || "Running" || "Complete" || "Failed" || "Cancelled" || "Timeout" || "Unknown",

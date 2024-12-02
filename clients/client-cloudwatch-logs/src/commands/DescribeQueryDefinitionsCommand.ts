@@ -39,6 +39,7 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * // const { CloudWatchLogsClient, DescribeQueryDefinitionsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeQueryDefinitionsRequest
+ *   queryLanguage: "CWLI" || "SQL" || "PPL",
  *   queryDefinitionNamePrefix: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
@@ -48,6 +49,7 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * // { // DescribeQueryDefinitionsResponse
  * //   queryDefinitions: [ // QueryDefinitionList
  * //     { // QueryDefinition
+ * //       queryLanguage: "CWLI" || "SQL" || "PPL",
  * //       queryDefinitionId: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //       queryString: "STRING_VALUE",

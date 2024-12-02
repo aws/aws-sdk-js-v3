@@ -79,6 +79,11 @@ import {
   DeleteIndexPolicyCommandOutput,
 } from "./commands/DeleteIndexPolicyCommand";
 import {
+  DeleteIntegrationCommand,
+  DeleteIntegrationCommandInput,
+  DeleteIntegrationCommandOutput,
+} from "./commands/DeleteIntegrationCommand";
+import {
   DeleteLogAnomalyDetectorCommand,
   DeleteLogAnomalyDetectorCommandInput,
   DeleteLogAnomalyDetectorCommandOutput,
@@ -235,6 +240,11 @@ import {
   GetDeliverySourceCommandOutput,
 } from "./commands/GetDeliverySourceCommand";
 import {
+  GetIntegrationCommand,
+  GetIntegrationCommandInput,
+  GetIntegrationCommandOutput,
+} from "./commands/GetIntegrationCommand";
+import {
   GetLogAnomalyDetectorCommand,
   GetLogAnomalyDetectorCommandInput,
   GetLogAnomalyDetectorCommandOutput,
@@ -269,6 +279,11 @@ import {
   ListAnomaliesCommandInput,
   ListAnomaliesCommandOutput,
 } from "./commands/ListAnomaliesCommand";
+import {
+  ListIntegrationsCommand,
+  ListIntegrationsCommandInput,
+  ListIntegrationsCommandOutput,
+} from "./commands/ListIntegrationsCommand";
 import {
   ListLogAnomalyDetectorsCommand,
   ListLogAnomalyDetectorsCommandInput,
@@ -329,6 +344,11 @@ import {
   PutIndexPolicyCommandInput,
   PutIndexPolicyCommandOutput,
 } from "./commands/PutIndexPolicyCommand";
+import {
+  PutIntegrationCommand,
+  PutIntegrationCommandInput,
+  PutIntegrationCommandOutput,
+} from "./commands/PutIntegrationCommand";
 import {
   PutLogEventsCommand,
   PutLogEventsCommandInput,
@@ -425,6 +445,7 @@ const commands = {
   DeleteDeliverySourceCommand,
   DeleteDestinationCommand,
   DeleteIndexPolicyCommand,
+  DeleteIntegrationCommand,
   DeleteLogAnomalyDetectorCommand,
   DeleteLogGroupCommand,
   DeleteLogStreamCommand,
@@ -457,6 +478,7 @@ const commands = {
   GetDeliveryDestinationCommand,
   GetDeliveryDestinationPolicyCommand,
   GetDeliverySourceCommand,
+  GetIntegrationCommand,
   GetLogAnomalyDetectorCommand,
   GetLogEventsCommand,
   GetLogGroupFieldsCommand,
@@ -464,6 +486,7 @@ const commands = {
   GetQueryResultsCommand,
   GetTransformerCommand,
   ListAnomaliesCommand,
+  ListIntegrationsCommand,
   ListLogAnomalyDetectorsCommand,
   ListLogGroupsForQueryCommand,
   ListTagsForResourceCommand,
@@ -476,6 +499,7 @@ const commands = {
   PutDestinationCommand,
   PutDestinationPolicyCommand,
   PutIndexPolicyCommand,
+  PutIntegrationCommand,
   PutLogEventsCommand,
   PutMetricFilterCommand,
   PutQueryDefinitionCommand,
@@ -736,6 +760,23 @@ export interface CloudWatchLogs {
     args: DeleteIndexPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteIndexPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIntegrationCommand}
+   */
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIntegrationCommandOutput>;
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
+  ): void;
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
   ): void;
 
   /**
@@ -1280,6 +1321,20 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link GetIntegrationCommand}
+   */
+  getIntegration(
+    args: GetIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIntegrationCommandOutput>;
+  getIntegration(args: GetIntegrationCommandInput, cb: (err: any, data?: GetIntegrationCommandOutput) => void): void;
+  getIntegration(
+    args: GetIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIntegrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetLogAnomalyDetectorCommand}
    */
   getLogAnomalyDetector(
@@ -1374,6 +1429,24 @@ export interface CloudWatchLogs {
     args: ListAnomaliesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAnomaliesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIntegrationsCommand}
+   */
+  listIntegrations(): Promise<ListIntegrationsCommandOutput>;
+  listIntegrations(
+    args: ListIntegrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIntegrationsCommandOutput>;
+  listIntegrations(
+    args: ListIntegrationsCommandInput,
+    cb: (err: any, data?: ListIntegrationsCommandOutput) => void
+  ): void;
+  listIntegrations(
+    args: ListIntegrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIntegrationsCommandOutput) => void
   ): void;
 
   /**
@@ -1573,6 +1646,20 @@ export interface CloudWatchLogs {
     args: PutIndexPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutIndexPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutIntegrationCommand}
+   */
+  putIntegration(
+    args: PutIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutIntegrationCommandOutput>;
+  putIntegration(args: PutIntegrationCommandInput, cb: (err: any, data?: PutIntegrationCommandOutput) => void): void;
+  putIntegration(
+    args: PutIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutIntegrationCommandOutput) => void
   ): void;
 
   /**

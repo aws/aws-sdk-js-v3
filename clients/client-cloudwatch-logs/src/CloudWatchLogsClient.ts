@@ -92,6 +92,7 @@ import {
 } from "./commands/DeleteDeliverySourceCommand";
 import { DeleteDestinationCommandInput, DeleteDestinationCommandOutput } from "./commands/DeleteDestinationCommand";
 import { DeleteIndexPolicyCommandInput, DeleteIndexPolicyCommandOutput } from "./commands/DeleteIndexPolicyCommand";
+import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
 import {
   DeleteLogAnomalyDetectorCommandInput,
   DeleteLogAnomalyDetectorCommandOutput,
@@ -184,6 +185,7 @@ import {
   GetDeliveryDestinationPolicyCommandOutput,
 } from "./commands/GetDeliveryDestinationPolicyCommand";
 import { GetDeliverySourceCommandInput, GetDeliverySourceCommandOutput } from "./commands/GetDeliverySourceCommand";
+import { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "./commands/GetIntegrationCommand";
 import {
   GetLogAnomalyDetectorCommandInput,
   GetLogAnomalyDetectorCommandOutput,
@@ -194,6 +196,7 @@ import { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "./commands/
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
 import { GetTransformerCommandInput, GetTransformerCommandOutput } from "./commands/GetTransformerCommand";
 import { ListAnomaliesCommandInput, ListAnomaliesCommandOutput } from "./commands/ListAnomaliesCommand";
+import { ListIntegrationsCommandInput, ListIntegrationsCommandOutput } from "./commands/ListIntegrationsCommand";
 import {
   ListLogAnomalyDetectorsCommandInput,
   ListLogAnomalyDetectorsCommandOutput,
@@ -227,6 +230,7 @@ import {
   PutDestinationPolicyCommandOutput,
 } from "./commands/PutDestinationPolicyCommand";
 import { PutIndexPolicyCommandInput, PutIndexPolicyCommandOutput } from "./commands/PutIndexPolicyCommand";
+import { PutIntegrationCommandInput, PutIntegrationCommandOutput } from "./commands/PutIntegrationCommand";
 import { PutLogEventsCommandInput, PutLogEventsCommandOutput } from "./commands/PutLogEventsCommand";
 import { PutMetricFilterCommandInput, PutMetricFilterCommandOutput } from "./commands/PutMetricFilterCommand";
 import { PutQueryDefinitionCommandInput, PutQueryDefinitionCommandOutput } from "./commands/PutQueryDefinitionCommand";
@@ -285,6 +289,7 @@ export type ServiceInputTypes =
   | DeleteDeliverySourceCommandInput
   | DeleteDestinationCommandInput
   | DeleteIndexPolicyCommandInput
+  | DeleteIntegrationCommandInput
   | DeleteLogAnomalyDetectorCommandInput
   | DeleteLogGroupCommandInput
   | DeleteLogStreamCommandInput
@@ -317,6 +322,7 @@ export type ServiceInputTypes =
   | GetDeliveryDestinationCommandInput
   | GetDeliveryDestinationPolicyCommandInput
   | GetDeliverySourceCommandInput
+  | GetIntegrationCommandInput
   | GetLogAnomalyDetectorCommandInput
   | GetLogEventsCommandInput
   | GetLogGroupFieldsCommandInput
@@ -324,6 +330,7 @@ export type ServiceInputTypes =
   | GetQueryResultsCommandInput
   | GetTransformerCommandInput
   | ListAnomaliesCommandInput
+  | ListIntegrationsCommandInput
   | ListLogAnomalyDetectorsCommandInput
   | ListLogGroupsForQueryCommandInput
   | ListTagsForResourceCommandInput
@@ -336,6 +343,7 @@ export type ServiceInputTypes =
   | PutDestinationCommandInput
   | PutDestinationPolicyCommandInput
   | PutIndexPolicyCommandInput
+  | PutIntegrationCommandInput
   | PutLogEventsCommandInput
   | PutMetricFilterCommandInput
   | PutQueryDefinitionCommandInput
@@ -375,6 +383,7 @@ export type ServiceOutputTypes =
   | DeleteDeliverySourceCommandOutput
   | DeleteDestinationCommandOutput
   | DeleteIndexPolicyCommandOutput
+  | DeleteIntegrationCommandOutput
   | DeleteLogAnomalyDetectorCommandOutput
   | DeleteLogGroupCommandOutput
   | DeleteLogStreamCommandOutput
@@ -407,6 +416,7 @@ export type ServiceOutputTypes =
   | GetDeliveryDestinationCommandOutput
   | GetDeliveryDestinationPolicyCommandOutput
   | GetDeliverySourceCommandOutput
+  | GetIntegrationCommandOutput
   | GetLogAnomalyDetectorCommandOutput
   | GetLogEventsCommandOutput
   | GetLogGroupFieldsCommandOutput
@@ -414,6 +424,7 @@ export type ServiceOutputTypes =
   | GetQueryResultsCommandOutput
   | GetTransformerCommandOutput
   | ListAnomaliesCommandOutput
+  | ListIntegrationsCommandOutput
   | ListLogAnomalyDetectorsCommandOutput
   | ListLogGroupsForQueryCommandOutput
   | ListTagsForResourceCommandOutput
@@ -426,6 +437,7 @@ export type ServiceOutputTypes =
   | PutDestinationCommandOutput
   | PutDestinationPolicyCommandOutput
   | PutIndexPolicyCommandOutput
+  | PutIntegrationCommandOutput
   | PutLogEventsCommandOutput
   | PutMetricFilterCommandOutput
   | PutQueryDefinitionCommandOutput

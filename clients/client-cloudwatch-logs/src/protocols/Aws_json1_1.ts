@@ -59,6 +59,7 @@ import {
 } from "../commands/DeleteDeliverySourceCommand";
 import { DeleteDestinationCommandInput, DeleteDestinationCommandOutput } from "../commands/DeleteDestinationCommand";
 import { DeleteIndexPolicyCommandInput, DeleteIndexPolicyCommandOutput } from "../commands/DeleteIndexPolicyCommand";
+import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "../commands/DeleteIntegrationCommand";
 import {
   DeleteLogAnomalyDetectorCommandInput,
   DeleteLogAnomalyDetectorCommandOutput,
@@ -151,6 +152,7 @@ import {
   GetDeliveryDestinationPolicyCommandOutput,
 } from "../commands/GetDeliveryDestinationPolicyCommand";
 import { GetDeliverySourceCommandInput, GetDeliverySourceCommandOutput } from "../commands/GetDeliverySourceCommand";
+import { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "../commands/GetIntegrationCommand";
 import {
   GetLogAnomalyDetectorCommandInput,
   GetLogAnomalyDetectorCommandOutput,
@@ -161,6 +163,7 @@ import { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "../commands
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "../commands/GetQueryResultsCommand";
 import { GetTransformerCommandInput, GetTransformerCommandOutput } from "../commands/GetTransformerCommand";
 import { ListAnomaliesCommandInput, ListAnomaliesCommandOutput } from "../commands/ListAnomaliesCommand";
+import { ListIntegrationsCommandInput, ListIntegrationsCommandOutput } from "../commands/ListIntegrationsCommand";
 import {
   ListLogAnomalyDetectorsCommandInput,
   ListLogAnomalyDetectorsCommandOutput,
@@ -194,6 +197,7 @@ import {
   PutDestinationPolicyCommandOutput,
 } from "../commands/PutDestinationPolicyCommand";
 import { PutIndexPolicyCommandInput, PutIndexPolicyCommandOutput } from "../commands/PutIndexPolicyCommand";
+import { PutIntegrationCommandInput, PutIntegrationCommandOutput } from "../commands/PutIntegrationCommand";
 import { PutLogEventsCommandInput, PutLogEventsCommandOutput } from "../commands/PutLogEventsCommand";
 import { PutMetricFilterCommandInput, PutMetricFilterCommandOutput } from "../commands/PutMetricFilterCommand";
 import { PutQueryDefinitionCommandInput, PutQueryDefinitionCommandOutput } from "../commands/PutQueryDefinitionCommand";
@@ -248,6 +252,7 @@ import {
   DeleteDeliverySourceRequest,
   DeleteDestinationRequest,
   DeleteIndexPolicyRequest,
+  DeleteIntegrationRequest,
   DeleteKeys,
   DeleteLogAnomalyDetectorRequest,
   DeleteLogGroupRequest,
@@ -285,6 +290,7 @@ import {
   GetDeliveryDestinationRequest,
   GetDeliveryRequest,
   GetDeliverySourceRequest,
+  GetIntegrationRequest,
   GetLogAnomalyDetectorRequest,
   GetLogEventsRequest,
   GetLogGroupFieldsRequest,
@@ -299,6 +305,7 @@ import {
   InvalidSequenceTokenException,
   LimitExceededException,
   ListAnomaliesRequest,
+  ListIntegrationsRequest,
   ListLogAnomalyDetectorsRequest,
   ListLogGroupsForQueryRequest,
   ListTagsForResourceRequest,
@@ -312,6 +319,7 @@ import {
   MetricTransformation,
   MoveKeyEntry,
   MoveKeys,
+  OpenSearchResourceConfig,
   OperationAbortedException,
   ParseCloudfront,
   ParseJSON,
@@ -329,6 +337,7 @@ import {
   PutDestinationPolicyRequest,
   PutDestinationRequest,
   PutIndexPolicyRequest,
+  PutIntegrationRequest,
   PutLogEventsRequest,
   PutMetricFilterRequest,
   PutQueryDefinitionRequest,
@@ -340,6 +349,7 @@ import {
   RenameKeyEntry,
   RenameKeys,
   ResourceAlreadyExistsException,
+  ResourceConfig,
   ResourceNotFoundException,
   S3DeliveryConfiguration,
   ServiceQuotaExceededException,
@@ -564,6 +574,19 @@ export const se_DeleteIndexPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteIndexPolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteIntegrationCommand
+ */
+export const se_DeleteIntegrationCommand = async (
+  input: DeleteIntegrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteIntegration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -986,6 +1009,19 @@ export const se_GetDeliverySourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetIntegrationCommand
+ */
+export const se_GetIntegrationCommand = async (
+  input: GetIntegrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetIntegration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetLogAnomalyDetectorCommand
  */
 export const se_GetLogAnomalyDetectorCommand = async (
@@ -1071,6 +1107,19 @@ export const se_ListAnomaliesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAnomalies");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListIntegrationsCommand
+ */
+export const se_ListIntegrationsCommand = async (
+  input: ListIntegrationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListIntegrations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1227,6 +1276,19 @@ export const se_PutIndexPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutIndexPolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1PutIntegrationCommand
+ */
+export const se_PutIntegrationCommand = async (
+  input: PutIntegrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutIntegration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1747,6 +1809,26 @@ export const de_DeleteIndexPolicyCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DeleteIndexPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteIntegrationCommand
+ */
+export const de_DeleteIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIntegrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteIntegrationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2367,6 +2449,26 @@ export const de_GetDeliverySourceCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetIntegrationCommand
+ */
+export const de_GetIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIntegrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetIntegrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetLogAnomalyDetectorCommand
  */
 export const de_GetLogAnomalyDetectorCommand = async (
@@ -2500,6 +2602,26 @@ export const de_ListAnomaliesCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListAnomaliesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListIntegrationsCommand
+ */
+export const de_ListIntegrationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIntegrationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListIntegrationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2737,6 +2859,26 @@ export const de_PutIndexPolicyCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: PutIndexPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutIntegrationCommand
+ */
+export const de_PutIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutIntegrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutIntegrationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3555,6 +3697,8 @@ const de_SessionTimeoutExceptionRes = async (
 
 // se_CSV omitted.
 
+// se_DashboardViewerPrincipals omitted.
+
 // se_DateTimeConverter omitted.
 
 // se_DeleteAccountPolicyRequest omitted.
@@ -3572,6 +3716,8 @@ const de_SessionTimeoutExceptionRes = async (
 // se_DeleteDestinationRequest omitted.
 
 // se_DeleteIndexPolicyRequest omitted.
+
+// se_DeleteIntegrationRequest omitted.
 
 // se_DeleteKeys omitted.
 
@@ -3657,6 +3803,8 @@ const de_SessionTimeoutExceptionRes = async (
 
 // se_GetDeliverySourceRequest omitted.
 
+// se_GetIntegrationRequest omitted.
+
 // se_GetLogAnomalyDetectorRequest omitted.
 
 // se_GetLogEventsRequest omitted.
@@ -3678,6 +3826,8 @@ const de_SessionTimeoutExceptionRes = async (
 // se_InputLogStreamNames omitted.
 
 // se_ListAnomaliesRequest omitted.
+
+// se_ListIntegrationsRequest omitted.
 
 // se_ListLogAnomalyDetectorsRequest omitted.
 
@@ -3734,6 +3884,8 @@ const se_MetricTransformations = (input: MetricTransformation[], context: __Serd
 
 // se_MoveKeys omitted.
 
+// se_OpenSearchResourceConfig omitted.
+
 // se_ParseCloudfront omitted.
 
 // se_ParseJSON omitted.
@@ -3768,6 +3920,8 @@ const se_MetricTransformations = (input: MetricTransformation[], context: __Serd
 
 // se_PutIndexPolicyRequest omitted.
 
+// se_PutIntegrationRequest omitted.
+
 // se_PutLogEventsRequest omitted.
 
 /**
@@ -3792,6 +3946,7 @@ const se_PutQueryDefinitionRequest = (input: PutQueryDefinitionRequest, context:
     logGroupNames: _json,
     name: [],
     queryDefinitionId: [],
+    queryLanguage: [],
     queryString: [],
   });
 };
@@ -3811,6 +3966,8 @@ const se_PutQueryDefinitionRequest = (input: PutQueryDefinitionRequest, context:
 // se_RenameKeyEntry omitted.
 
 // se_RenameKeys omitted.
+
+// se_ResourceConfig omitted.
 
 // se_ResourceTypes omitted.
 
@@ -3932,6 +4089,8 @@ const se_PutQueryDefinitionRequest = (input: PutQueryDefinitionRequest, context:
 
 // de_DeleteIndexPolicyResponse omitted.
 
+// de_DeleteIntegrationResponse omitted.
+
 // de_DeleteKeys omitted.
 
 // de_DeleteQueryDefinitionResponse omitted.
@@ -4030,6 +4189,8 @@ const de_DescribeMetricFiltersResponse = (output: any, context: __SerdeContext):
 
 // de_GetDeliverySourceResponse omitted.
 
+// de_GetIntegrationResponse omitted.
+
 // de_GetLogAnomalyDetectorResponse omitted.
 
 // de_GetLogEventsResponse omitted.
@@ -4044,6 +4205,7 @@ const de_DescribeMetricFiltersResponse = (output: any, context: __SerdeContext):
 const de_GetQueryResultsResponse = (output: any, context: __SerdeContext): GetQueryResultsResponse => {
   return take(output, {
     encryptionKey: __expectString,
+    queryLanguage: __expectString,
     results: _json,
     statistics: (_: any) => de_QueryStatistics(_, context),
     status: __expectString,
@@ -4064,6 +4226,12 @@ const de_GetQueryResultsResponse = (output: any, context: __SerdeContext): GetQu
 
 // de_InputLogStreamNames omitted.
 
+// de_IntegrationDetails omitted.
+
+// de_IntegrationSummaries omitted.
+
+// de_IntegrationSummary omitted.
+
 // de_InvalidOperationException omitted.
 
 // de_InvalidParameterException omitted.
@@ -4073,6 +4241,8 @@ const de_GetQueryResultsResponse = (output: any, context: __SerdeContext): GetQu
 // de_LimitExceededException omitted.
 
 // de_ListAnomaliesResponse omitted.
+
+// de_ListIntegrationsResponse omitted.
 
 // de_ListLogAnomalyDetectorsResponse omitted.
 
@@ -4188,6 +4358,26 @@ const de_MetricTransformations = (output: any, context: __SerdeContext): MetricT
 
 // de_MoveKeys omitted.
 
+// de_OpenSearchApplication omitted.
+
+// de_OpenSearchCollection omitted.
+
+// de_OpenSearchDataAccessPolicy omitted.
+
+// de_OpenSearchDataSource omitted.
+
+// de_OpenSearchEncryptionPolicy omitted.
+
+// de_OpenSearchIntegrationDetails omitted.
+
+// de_OpenSearchLifecyclePolicy omitted.
+
+// de_OpenSearchNetworkPolicy omitted.
+
+// de_OpenSearchResourceStatus omitted.
+
+// de_OpenSearchWorkspace omitted.
+
 // de_OperationAbortedException omitted.
 
 // de_OutputFormats omitted.
@@ -4233,6 +4423,8 @@ const de_MetricTransformations = (output: any, context: __SerdeContext): MetricT
 // de_PutDestinationResponse omitted.
 
 // de_PutIndexPolicyResponse omitted.
+
+// de_PutIntegrationResponse omitted.
 
 // de_PutLogEventsResponse omitted.
 

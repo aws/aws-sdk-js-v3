@@ -1552,6 +1552,30 @@ export interface DeleteIndexPolicyRequest {
 export interface DeleteIndexPolicyResponse {}
 
 /**
+ * @public
+ */
+export interface DeleteIntegrationRequest {
+  /**
+   * <p>The name of the integration to delete. To find the name of your integration, use
+   *         <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListIntegrations.html">ListIntegrations</a>.</p>
+   * @public
+   */
+  integrationName: string | undefined;
+
+  /**
+   * <p>Specify <code>true</code> to force the deletion of the integration even if vended logs dashboards currently exist.</p>
+   *          <p>The default is <code>false</code>.</p>
+   * @public
+   */
+  force?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIntegrationResponse {}
+
+/**
  * <p>This processor deletes entries from a log event. These entries are key-value pairs. </p>
  *          <p>For more information about this processor including examples, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-deleteKeys">
  *        deleteKeys</a> in the <i>CloudWatch Logs User Guide</i>.</p>
@@ -3106,6 +3130,21 @@ export interface DescribeMetricFiltersResponse {
  * @public
  * @enum
  */
+export const QueryLanguage = {
+  CWLI: "CWLI",
+  PPL: "PPL",
+  SQL: "SQL",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryLanguage = (typeof QueryLanguage)[keyof typeof QueryLanguage];
+
+/**
+ * @public
+ * @enum
+ */
 export const QueryStatus = {
   Cancelled: "Cancelled",
   Complete: "Complete",
@@ -3149,6 +3188,12 @@ export interface DescribeQueriesRequest {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p>Limits the returned queries to only the queries that use the specified query language.</p>
+   * @public
+   */
+  queryLanguage?: QueryLanguage | undefined;
 }
 
 /**
@@ -3156,6 +3201,13 @@ export interface DescribeQueriesRequest {
  * @public
  */
 export interface QueryInfo {
+  /**
+   * <p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports,
+   *         see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
+   * @public
+   */
+  queryLanguage?: QueryLanguage | undefined;
+
   /**
    * <p>The unique ID number of this query.</p>
    * @public
@@ -3210,6 +3262,13 @@ export interface DescribeQueriesResponse {
  */
 export interface DescribeQueryDefinitionsRequest {
   /**
+   * <p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports,
+   *        see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
+   * @public
+   */
+  queryLanguage?: QueryLanguage | undefined;
+
+  /**
    * <p>Use this parameter to filter your results to only the query definitions that have names that start with the prefix you specify.</p>
    * @public
    */
@@ -3233,6 +3292,13 @@ export interface DescribeQueryDefinitionsRequest {
  * @public
  */
 export interface QueryDefinition {
+  /**
+   * <p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports,
+   *        see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
+   * @public
+   */
+  queryLanguage?: QueryLanguage | undefined;
+
   /**
    * <p>The unique ID of the query definition.</p>
    * @public
@@ -3894,6 +3960,414 @@ export interface GetDeliverySourceResponse {
 /**
  * @public
  */
+export interface GetIntegrationRequest {
+  /**
+   * <p>The name of the integration that you want to find information about. To find the name of your integration, use
+   *        <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListIntegrations.html">ListIntegrations</a>
+   *          </p>
+   * @public
+   */
+  integrationName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OpenSearchResourceStatusType = {
+  ACTIVE: "ACTIVE",
+  ERROR: "ERROR",
+  NOT_FOUND: "NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type OpenSearchResourceStatusType =
+  (typeof OpenSearchResourceStatusType)[keyof typeof OpenSearchResourceStatusType];
+
+/**
+ * <p>This structure contains information about the status of an OpenSearch Service resource.</p>
+ * @public
+ */
+export interface OpenSearchResourceStatus {
+  /**
+   * <p>The current status of this resource.</p>
+   * @public
+   */
+  status?: OpenSearchResourceStatusType | undefined;
+
+  /**
+   * <p>A message with additional information about the status of this resource.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+}
+
+/**
+ * <p>This structure contains information about the OpenSearch Service data access policy used for this integration. The access
+ *        policy defines the access controls for the collection. This data access policy was automatically created as part of the integration setup.
+ *        For more information about OpenSearch Service data access policies, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data access control for Amazon OpenSearch Serverless</a> in the OpenSearch Service Developer Guide.</p>
+ * @public
+ */
+export interface OpenSearchDataAccessPolicy {
+  /**
+   * <p>The name of the data access policy.</p>
+   * @public
+   */
+  policyName?: string | undefined;
+
+  /**
+   * <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+   * @public
+   */
+  status?: OpenSearchResourceStatus | undefined;
+}
+
+/**
+ * <p>This structure contains information about the OpenSearch Service application used for this integration.
+ *        An OpenSearch Service application is the web application created by the integration with CloudWatch Logs. It hosts the vended logs dashboards.</p>
+ * @public
+ */
+export interface OpenSearchApplication {
+  /**
+   * <p>The endpoint of the application.</p>
+   * @public
+   */
+  applicationEndpoint?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the application.</p>
+   * @public
+   */
+  applicationArn?: string | undefined;
+
+  /**
+   * <p>The ID of the application.</p>
+   * @public
+   */
+  applicationId?: string | undefined;
+
+  /**
+   * <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+   * @public
+   */
+  status?: OpenSearchResourceStatus | undefined;
+}
+
+/**
+ * <p>This structure contains information about the OpenSearch Service collection used for this integration.
+ *        An OpenSearch Service collection is a logical grouping of one or more indexes that represent an analytics workload.
+ *        For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-collections.html">Creating and managing OpenSearch Service Serverless collections</a>.</p>
+ * @public
+ */
+export interface OpenSearchCollection {
+  /**
+   * <p>The endpoint of the collection.</p>
+   * @public
+   */
+  collectionEndpoint?: string | undefined;
+
+  /**
+   * <p>The ARN of the collection.</p>
+   * @public
+   */
+  collectionArn?: string | undefined;
+
+  /**
+   * <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+   * @public
+   */
+  status?: OpenSearchResourceStatus | undefined;
+}
+
+/**
+ * <p>This structure contains information about the OpenSearch Service data source used for this integration. This data source was
+ *        created as part of the integration setup.
+ *        An OpenSearch Service data source defines the source and destination for OpenSearch Service queries. It includes the role required to execute queries and write to collections.</p>
+ *          <p>For more information about OpenSearch Service data sources , see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html">Creating OpenSearch Service data source integrations with Amazon S3.</a>
+ *          </p>
+ * @public
+ */
+export interface OpenSearchDataSource {
+  /**
+   * <p>The name of the OpenSearch Service data source.</p>
+   * @public
+   */
+  dataSourceName?: string | undefined;
+
+  /**
+   * <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+   * @public
+   */
+  status?: OpenSearchResourceStatus | undefined;
+}
+
+/**
+ * <p>This structure contains information about the OpenSearch Service encryption policy used for this integration. The encryption policy was created
+ *        automatically when you created the integration. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html#serverless-encryption-policies">Encryption policies</a> in the OpenSearch Service Developer Guide.
+ *      </p>
+ * @public
+ */
+export interface OpenSearchEncryptionPolicy {
+  /**
+   * <p>The name of the encryption policy.</p>
+   * @public
+   */
+  policyName?: string | undefined;
+
+  /**
+   * <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+   * @public
+   */
+  status?: OpenSearchResourceStatus | undefined;
+}
+
+/**
+ * <p>This structure contains information about the OpenSearch Service data lifecycle policy used for this integration. The lifecycle policy
+ *        determines the lifespan of the data in the collection. It was automatically created as part of the integration setup.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html">Using data lifecycle policies with OpenSearch Service Serverless</a>
+ *        in the OpenSearch Service Developer Guide.</p>
+ * @public
+ */
+export interface OpenSearchLifecyclePolicy {
+  /**
+   * <p>The name of the lifecycle policy.</p>
+   * @public
+   */
+  policyName?: string | undefined;
+
+  /**
+   * <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+   * @public
+   */
+  status?: OpenSearchResourceStatus | undefined;
+}
+
+/**
+ * <p>This structure contains information about the OpenSearch Service network policy used for this integration. The network
+ *        policy assigns network access settings to collections.
+ *        For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html#serverless-network-policies">Network policies</a> in the OpenSearch Service Developer Guide.</p>
+ * @public
+ */
+export interface OpenSearchNetworkPolicy {
+  /**
+   * <p>The name of the network policy.</p>
+   * @public
+   */
+  policyName?: string | undefined;
+
+  /**
+   * <p>This structure contains information about the status of this OpenSearch Service resource.</p>
+   * @public
+   */
+  status?: OpenSearchResourceStatus | undefined;
+}
+
+/**
+ * <p>This structure contains information about the OpenSearch Service workspace used for this integration.
+ *        An OpenSearch Service workspace is the collection of dashboards along with other OpenSearch Service tools. This workspace was created automatically as part of the integration setup.
+ *        For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application.html">Centralized OpenSearch user interface (Dashboards) with
+ *          OpenSearch Service</a>.</p>
+ * @public
+ */
+export interface OpenSearchWorkspace {
+  /**
+   * <p>The ID of this workspace.</p>
+   * @public
+   */
+  workspaceId?: string | undefined;
+
+  /**
+   * <p>This structure contains information about the status of an OpenSearch Service resource.</p>
+   * @public
+   */
+  status?: OpenSearchResourceStatus | undefined;
+}
+
+/**
+ * <p>This structure contains complete information about one CloudWatch Logs integration. This structure
+ *        is returned by a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetIntegration.html">GetIntegration</a> operation.</p>
+ * @public
+ */
+export interface OpenSearchIntegrationDetails {
+  /**
+   * <p>This structure contains information about the OpenSearch Service data source used for this integration. This data source was
+   *         created as part of the integration setup.
+   *         An OpenSearch Service data source defines the source and destination for OpenSearch Service queries. It includes the role required to execute queries and write to collections.</p>
+   *          <p>For more information about OpenSearch Service data sources , see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html">Creating OpenSearch Service data source integrations with Amazon S3.</a>
+   *          </p>
+   * @public
+   */
+  dataSource?: OpenSearchDataSource | undefined;
+
+  /**
+   * <p>This structure contains information about the OpenSearch Service application used for this integration.
+   *        An OpenSearch Service application is the web application that was created by the integration with CloudWatch Logs. It hosts the vended logs dashboards.</p>
+   * @public
+   */
+  application?: OpenSearchApplication | undefined;
+
+  /**
+   * <p>This structure contains information about the OpenSearch Service collection used for this integration. This collection was
+   *        created as part of the integration setup.
+   *        An OpenSearch Service collection is a logical grouping of one or more indexes that represent an analytics workload.
+   *        For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-collections.html">Creating and managing OpenSearch Service Serverless collections</a>.</p>
+   * @public
+   */
+  collection?: OpenSearchCollection | undefined;
+
+  /**
+   * <p>This structure contains information about the OpenSearch Service workspace used for this integration.
+   *        An OpenSearch Service workspace is the collection of dashboards along with other OpenSearch Service tools. This workspace was created automatically as part of the integration setup.
+   *        For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application.html">Centralized OpenSearch user interface (Dashboards) with
+   *          OpenSearch Service</a>.</p>
+   * @public
+   */
+  workspace?: OpenSearchWorkspace | undefined;
+
+  /**
+   * <p>This structure contains information about the OpenSearch Service encryption policy used for this integration. The encryption policy was created
+   *        automatically when you created the integration. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html#serverless-encryption-policies">Encryption policies</a> in the OpenSearch Service Developer Guide.
+   *      </p>
+   * @public
+   */
+  encryptionPolicy?: OpenSearchEncryptionPolicy | undefined;
+
+  /**
+   * <p>This structure contains information about the OpenSearch Service network policy used for this integration. The network
+   *        policy assigns network access settings to collections.
+   *        For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html#serverless-network-policies">Network policies</a> in the OpenSearch Service Developer Guide.</p>
+   * @public
+   */
+  networkPolicy?: OpenSearchNetworkPolicy | undefined;
+
+  /**
+   * <p>This structure contains information about the OpenSearch Service data access policy used for this integration. The access
+   *        policy defines the access controls for the collection. This data access policy was automatically created as part of the integration setup.
+   *        For more information about OpenSearch Service data access policies, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data access control for Amazon OpenSearch Serverless</a> in the OpenSearch Service Developer Guide.</p>
+   * @public
+   */
+  accessPolicy?: OpenSearchDataAccessPolicy | undefined;
+
+  /**
+   * <p>This structure contains information about the OpenSearch Service data lifecycle policy used for this integration. The lifecycle policy
+   *        determines the lifespan of the data in the collection. It was automatically created as part of the integration setup.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html">Using data lifecycle policies with OpenSearch Service Serverless</a>
+   *        in the OpenSearch Service Developer Guide.</p>
+   * @public
+   */
+  lifecyclePolicy?: OpenSearchLifecyclePolicy | undefined;
+}
+
+/**
+ * <p>This structure contains information about the integration configuration. For an integration
+ *        with OpenSearch Service, this includes information about OpenSearch Service resources such as the collection, the workspace,
+ *        and policies.</p>
+ *          <p>This structure
+ *         is returned by a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetIntegration.html">GetIntegration</a> operation.</p>
+ * @public
+ */
+export type IntegrationDetails =
+  | IntegrationDetails.OpenSearchIntegrationDetailsMember
+  | IntegrationDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace IntegrationDetails {
+  /**
+   * <p>This structure contains complete information about one integration between CloudWatch Logs and
+   *        OpenSearch Service.</p>
+   * @public
+   */
+  export interface OpenSearchIntegrationDetailsMember {
+    openSearchIntegrationDetails: OpenSearchIntegrationDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    openSearchIntegrationDetails?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    openSearchIntegrationDetails: (value: OpenSearchIntegrationDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: IntegrationDetails, visitor: Visitor<T>): T => {
+    if (value.openSearchIntegrationDetails !== undefined)
+      return visitor.openSearchIntegrationDetails(value.openSearchIntegrationDetails);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IntegrationStatus = {
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  PROVISIONING: "PROVISIONING",
+} as const;
+
+/**
+ * @public
+ */
+export type IntegrationStatus = (typeof IntegrationStatus)[keyof typeof IntegrationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const IntegrationType = {
+  OPENSEARCH: "OPENSEARCH",
+} as const;
+
+/**
+ * @public
+ */
+export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
+
+/**
+ * @public
+ */
+export interface GetIntegrationResponse {
+  /**
+   * <p>The name of the integration.</p>
+   * @public
+   */
+  integrationName?: string | undefined;
+
+  /**
+   * <p>The type of integration. Integrations with OpenSearch Service have the type <code>OPENSEARCH</code>.</p>
+   * @public
+   */
+  integrationType?: IntegrationType | undefined;
+
+  /**
+   * <p>The current status of this integration.</p>
+   * @public
+   */
+  integrationStatus?: IntegrationStatus | undefined;
+
+  /**
+   * <p>A structure that contains information about the integration configuration. For an integration
+   *        with OpenSearch Service, this includes information about OpenSearch Service resources such as the collection, the workspace,
+   *        and policies.</p>
+   * @public
+   */
+  integrationDetails?: IntegrationDetails | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetLogAnomalyDetectorRequest {
   /**
    * <p>The ARN of the anomaly detector to retrieve information about. You can find the ARNs of log anomaly detectors
@@ -4304,6 +4778,13 @@ export interface QueryStatistics {
  * @public
  */
 export interface GetQueryResultsResponse {
+  /**
+   * <p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports,
+   *        see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
+   * @public
+   */
+  queryLanguage?: QueryLanguage | undefined;
+
   /**
    * <p>The log events that matched the query criteria during the most recent time it ran.</p>
    *          <p>The <code>results</code> value is an array of arrays. Each log event is one object in the
@@ -5069,6 +5550,31 @@ export interface InputLogEvent {
 }
 
 /**
+ * <p>This structure contains information about one CloudWatch Logs integration. This structure
+ *        is returned by a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListIntegrations.html">ListIntegrations</a> operation.</p>
+ * @public
+ */
+export interface IntegrationSummary {
+  /**
+   * <p>The name of this integration.</p>
+   * @public
+   */
+  integrationName?: string | undefined;
+
+  /**
+   * <p>The type of integration. Integrations with OpenSearch Service have the type <code>OPENSEARCH</code>.</p>
+   * @public
+   */
+  integrationType?: IntegrationType | undefined;
+
+  /**
+   * <p>The current status of this integration.</p>
+   * @public
+   */
+  integrationStatus?: IntegrationStatus | undefined;
+}
+
+/**
  * <p>The sequence token is not valid. You can get the correct sequence token in
  *       the <code>expectedSequenceToken</code> field in the <code>InvalidSequenceTokenException</code>
  *     message. </p>
@@ -5160,6 +5666,40 @@ export interface ListAnomaliesResponse {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIntegrationsRequest {
+  /**
+   * <p>To limit the results to integrations that start with a certain name prefix, specify that name prefix here.</p>
+   * @public
+   */
+  integrationNamePrefix?: string | undefined;
+
+  /**
+   * <p>To limit the results to integrations of a certain type, specify that type here.</p>
+   * @public
+   */
+  integrationType?: IntegrationType | undefined;
+
+  /**
+   * <p>To limit the results to integrations with a certain status, specify that status here.</p>
+   * @public
+   */
+  integrationStatus?: IntegrationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIntegrationsResponse {
+  /**
+   * <p>An array, where each object in the array contains information about one CloudWatch Logs integration in this account. </p>
+   * @public
+   */
+  integrationSummaries?: IntegrationSummary[] | undefined;
 }
 
 /**
@@ -5906,6 +6446,130 @@ export interface PutIndexPolicyResponse {
 }
 
 /**
+ * <p>This structure contains configuration details about an integration between CloudWatch Logs and OpenSearch Service.</p>
+ * @public
+ */
+export interface OpenSearchResourceConfig {
+  /**
+   * <p>To have the vended dashboard data encrypted with KMS instead of the CloudWatch Logs default
+   *        encryption method, specify the ARN of the KMS key that you want to use.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>Specify the ARN of an IAM role that CloudWatch Logs will use to create the integration. This role must have the permissions necessary to access the OpenSearch Service
+   *         collection to be able to create the dashboards. For more information about the permissions needed, see  <a href="https://docs.aws.amazon.com/OpenSearch-Dashboards-CreateRole">Create an IAM role to access the OpenSearch Service collection</a> in the CloudWatch Logs User Guide.</p>
+   * @public
+   */
+  dataSourceRoleArn: string | undefined;
+
+  /**
+   * <p>Specify the ARNs of IAM roles and IAM users who you want to grant permission to for viewing the dashboards.</p>
+   *          <important>
+   *             <p>In addition to specifying these users here, you must also grant them the <b>CloudWatchOpenSearchDashboardsAccess</b>
+   *        IAM policy. For more information, see </p>
+   *          </important>
+   * @public
+   */
+  dashboardViewerPrincipals: string[] | undefined;
+
+  /**
+   * <p>If you want to use an existing OpenSearch Service application for your integration with OpenSearch Service, specify it here. If you
+   *       omit this, a new application will be created.</p>
+   * @public
+   */
+  applicationArn?: string | undefined;
+
+  /**
+   * <p>Specify how many days that you want the data derived by OpenSearch Service to be retained in the index that the dashboard refers to.
+   *        This also sets the maximum time period that you can choose when viewing data in the dashboard. Choosing a longer time frame will incur additional costs. </p>
+   * @public
+   */
+  retentionDays: number | undefined;
+}
+
+/**
+ * <p>This structure contains configuration details about an integration between CloudWatch Logs and another entity.</p>
+ * @public
+ */
+export type ResourceConfig = ResourceConfig.OpenSearchResourceConfigMember | ResourceConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ResourceConfig {
+  /**
+   * <p>This structure contains configuration details about an integration between CloudWatch Logs and OpenSearch Service.</p>
+   * @public
+   */
+  export interface OpenSearchResourceConfigMember {
+    openSearchResourceConfig: OpenSearchResourceConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    openSearchResourceConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    openSearchResourceConfig: (value: OpenSearchResourceConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ResourceConfig, visitor: Visitor<T>): T => {
+    if (value.openSearchResourceConfig !== undefined)
+      return visitor.openSearchResourceConfig(value.openSearchResourceConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface PutIntegrationRequest {
+  /**
+   * <p>A name for the integration.</p>
+   * @public
+   */
+  integrationName: string | undefined;
+
+  /**
+   * <p>A structure that contains configuration information for the integration that you are creating.</p>
+   * @public
+   */
+  resourceConfig: ResourceConfig | undefined;
+
+  /**
+   * <p>The type of integration. Currently, the only supported type is <code>OPENSEARCH</code>.</p>
+   * @public
+   */
+  integrationType: IntegrationType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutIntegrationResponse {
+  /**
+   * <p>The name of the integration that you just created.</p>
+   * @public
+   */
+  integrationName?: string | undefined;
+
+  /**
+   * <p>The status of the integration that you just created.</p>
+   *          <p>After you create an integration, it takes a few minutes to complete. During this time, you'll see the status as <code>PROVISIONING</code>.</p>
+   * @public
+   */
+  integrationStatus?: IntegrationStatus | undefined;
+}
+
+/**
  * @public
  */
 export interface PutLogEventsRequest {
@@ -6085,6 +6749,13 @@ export interface PutMetricFilterRequest {
  */
 export interface PutQueryDefinitionRequest {
   /**
+   * <p>Specify the query language to use for this query. The options are Logs Insights QL, OpenSearch PPL, and OpenSearch SQL. For more information about the query languages that CloudWatch Logs supports,
+   *        see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
+   * @public
+   */
+  queryLanguage?: QueryLanguage | undefined;
+
+  /**
    * <p>A name for the query definition. If you are saving numerous query definitions, we
    *       recommend that you name them. This way, you can find the ones you want by using the first part
    *       of the name as a filter in the <code>queryDefinitionNamePrefix</code> parameter of <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a>.</p>
@@ -6104,8 +6775,9 @@ export interface PutQueryDefinitionRequest {
   queryDefinitionId?: string | undefined;
 
   /**
-   * <p>Use this parameter to include specific log groups as part of your query definition.</p>
-   *          <p>If you are updating a query definition and you omit this parameter, then the updated
+   * <p>Use this parameter to include specific log groups as part of your query definition. If your query
+   *     uses the OpenSearch Service query language, you specify the log group names inside the <code>querystring</code> instead of here.</p>
+   *          <p>If you are updating an existing query definition for the Logs Insights QL or OpenSearch Service PPL and you omit this parameter, then the updated
    *       definition will contain no log groups.</p>
    * @public
    */
@@ -6590,13 +7262,32 @@ export class MalformedQueryException extends __BaseException {
  */
 export interface StartQueryRequest {
   /**
+   * <p>Specify the query language to use for this query. The options are Logs Insights QL, OpenSearch PPL, and OpenSearch SQL. For more information about the query languages that CloudWatch Logs supports,
+   *        see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
+   * @public
+   */
+  queryLanguage?: QueryLanguage | undefined;
+
+  /**
    * <p>The log group on which to perform the query.</p>
+   *          <note>
+   *             <p>A <code>StartQuery</code> operation must include exactly one of the following
+   *         parameters: <code>logGroupName</code>, <code>logGroupNames</code>, or
+   *           <code>logGroupIdentifiers</code>. The exception is queries using the OpenSearch Service SQL query
+   *           language, where you specify the log group names inside the <code>querystring</code> instead of here.</p>
+   *          </note>
    * @public
    */
   logGroupName?: string | undefined;
 
   /**
    * <p>The list of log groups to be queried. You can include up to 50 log groups.</p>
+   *          <note>
+   *             <p>A <code>StartQuery</code> operation must include exactly one of the following
+   *         parameters: <code>logGroupName</code>, <code>logGroupNames</code>, or
+   *         <code>logGroupIdentifiers</code>. The exception is queries using the OpenSearch Service SQL query
+   *         language, where you specify the log group names inside the <code>querystring</code> instead of here.</p>
+   *          </note>
    * @public
    */
   logGroupNames?: string[] | undefined;
@@ -6609,7 +7300,8 @@ export interface StartQueryRequest {
    *          <p>If you specify an ARN, use the format
    *       arn:aws:logs:<i>region</i>:<i>account-id</i>:log-group:<i>log_group_name</i> Don't include an * at the end.</p>
    *          <p>A <code>StartQuery</code> operation must include exactly one of the following parameters:
-   *         <code>logGroupName</code>, <code>logGroupNames</code>, or <code>logGroupIdentifiers</code>. </p>
+   *       <code>logGroupName</code>, <code>logGroupNames</code>, or <code>logGroupIdentifiers</code>. The exception is queries using the OpenSearch Service SQL query
+   *       language, where you specify the log group names inside the <code>querystring</code> instead of here. </p>
    * @public
    */
   logGroupIdentifiers?: string[] | undefined;
