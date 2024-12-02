@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListScheduledActionsRequest, ListScheduledActionsResponse } from "../models/models_0";
+import { ListScheduledActionsRequest, ListScheduledActionsResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_ListScheduledActionsCommand, se_ListScheduledActionsCommand } from "../protocols/Aws_restJson1";
 

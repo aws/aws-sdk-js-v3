@@ -12,6 +12,11 @@ import {
   AddDataSourceCommandInput,
   AddDataSourceCommandOutput,
 } from "./commands/AddDataSourceCommand";
+import {
+  AddDirectQueryDataSourceCommand,
+  AddDirectQueryDataSourceCommandInput,
+  AddDirectQueryDataSourceCommandOutput,
+} from "./commands/AddDirectQueryDataSourceCommand";
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   AssociatePackageCommand,
@@ -73,6 +78,11 @@ import {
   DeleteDataSourceCommandInput,
   DeleteDataSourceCommandOutput,
 } from "./commands/DeleteDataSourceCommand";
+import {
+  DeleteDirectQueryDataSourceCommand,
+  DeleteDirectQueryDataSourceCommandInput,
+  DeleteDirectQueryDataSourceCommandOutput,
+} from "./commands/DeleteDirectQueryDataSourceCommand";
 import {
   DeleteDomainCommand,
   DeleteDomainCommandInput,
@@ -199,6 +209,11 @@ import {
   GetDataSourceCommandOutput,
 } from "./commands/GetDataSourceCommand";
 import {
+  GetDirectQueryDataSourceCommand,
+  GetDirectQueryDataSourceCommandInput,
+  GetDirectQueryDataSourceCommandOutput,
+} from "./commands/GetDirectQueryDataSourceCommand";
+import {
   GetDomainMaintenanceStatusCommand,
   GetDomainMaintenanceStatusCommandInput,
   GetDomainMaintenanceStatusCommandOutput,
@@ -228,6 +243,11 @@ import {
   ListDataSourcesCommandInput,
   ListDataSourcesCommandOutput,
 } from "./commands/ListDataSourcesCommand";
+import {
+  ListDirectQueryDataSourcesCommand,
+  ListDirectQueryDataSourcesCommandInput,
+  ListDirectQueryDataSourcesCommandOutput,
+} from "./commands/ListDirectQueryDataSourcesCommand";
 import {
   ListDomainMaintenancesCommand,
   ListDomainMaintenancesCommandInput,
@@ -316,6 +336,11 @@ import {
   UpdateDataSourceCommandOutput,
 } from "./commands/UpdateDataSourceCommand";
 import {
+  UpdateDirectQueryDataSourceCommand,
+  UpdateDirectQueryDataSourceCommandInput,
+  UpdateDirectQueryDataSourceCommandOutput,
+} from "./commands/UpdateDirectQueryDataSourceCommand";
+import {
   UpdateDomainConfigCommand,
   UpdateDomainConfigCommandInput,
   UpdateDomainConfigCommandOutput,
@@ -350,6 +375,7 @@ import { OpenSearchClient, OpenSearchClientConfig } from "./OpenSearchClient";
 const commands = {
   AcceptInboundConnectionCommand,
   AddDataSourceCommand,
+  AddDirectQueryDataSourceCommand,
   AddTagsCommand,
   AssociatePackageCommand,
   AssociatePackagesCommand,
@@ -363,6 +389,7 @@ const commands = {
   CreateVpcEndpointCommand,
   DeleteApplicationCommand,
   DeleteDataSourceCommand,
+  DeleteDirectQueryDataSourceCommand,
   DeleteDomainCommand,
   DeleteInboundConnectionCommand,
   DeleteOutboundConnectionCommand,
@@ -388,12 +415,14 @@ const commands = {
   GetApplicationCommand,
   GetCompatibleVersionsCommand,
   GetDataSourceCommand,
+  GetDirectQueryDataSourceCommand,
   GetDomainMaintenanceStatusCommand,
   GetPackageVersionHistoryCommand,
   GetUpgradeHistoryCommand,
   GetUpgradeStatusCommand,
   ListApplicationsCommand,
   ListDataSourcesCommand,
+  ListDirectQueryDataSourcesCommand,
   ListDomainMaintenancesCommand,
   ListDomainNamesCommand,
   ListDomainsForPackageCommand,
@@ -413,6 +442,7 @@ const commands = {
   StartServiceSoftwareUpdateCommand,
   UpdateApplicationCommand,
   UpdateDataSourceCommand,
+  UpdateDirectQueryDataSourceCommand,
   UpdateDomainConfigCommand,
   UpdatePackageCommand,
   UpdatePackageScopeCommand,
@@ -448,6 +478,23 @@ export interface OpenSearch {
     args: AddDataSourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddDataSourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AddDirectQueryDataSourceCommand}
+   */
+  addDirectQueryDataSource(
+    args: AddDirectQueryDataSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddDirectQueryDataSourceCommandOutput>;
+  addDirectQueryDataSource(
+    args: AddDirectQueryDataSourceCommandInput,
+    cb: (err: any, data?: AddDirectQueryDataSourceCommandOutput) => void
+  ): void;
+  addDirectQueryDataSource(
+    args: AddDirectQueryDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddDirectQueryDataSourceCommandOutput) => void
   ): void;
 
   /**
@@ -651,6 +698,23 @@ export interface OpenSearch {
     args: DeleteDataSourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDirectQueryDataSourceCommand}
+   */
+  deleteDirectQueryDataSource(
+    args: DeleteDirectQueryDataSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDirectQueryDataSourceCommandOutput>;
+  deleteDirectQueryDataSource(
+    args: DeleteDirectQueryDataSourceCommandInput,
+    cb: (err: any, data?: DeleteDirectQueryDataSourceCommandOutput) => void
+  ): void;
+  deleteDirectQueryDataSource(
+    args: DeleteDirectQueryDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDirectQueryDataSourceCommandOutput) => void
   ): void;
 
   /**
@@ -1058,6 +1122,23 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link GetDirectQueryDataSourceCommand}
+   */
+  getDirectQueryDataSource(
+    args: GetDirectQueryDataSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDirectQueryDataSourceCommandOutput>;
+  getDirectQueryDataSource(
+    args: GetDirectQueryDataSourceCommandInput,
+    cb: (err: any, data?: GetDirectQueryDataSourceCommandOutput) => void
+  ): void;
+  getDirectQueryDataSource(
+    args: GetDirectQueryDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDirectQueryDataSourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDomainMaintenanceStatusCommand}
    */
   getDomainMaintenanceStatus(
@@ -1155,6 +1236,24 @@ export interface OpenSearch {
     args: ListDataSourcesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDataSourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDirectQueryDataSourcesCommand}
+   */
+  listDirectQueryDataSources(): Promise<ListDirectQueryDataSourcesCommandOutput>;
+  listDirectQueryDataSources(
+    args: ListDirectQueryDataSourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDirectQueryDataSourcesCommandOutput>;
+  listDirectQueryDataSources(
+    args: ListDirectQueryDataSourcesCommandInput,
+    cb: (err: any, data?: ListDirectQueryDataSourcesCommandOutput) => void
+  ): void;
+  listDirectQueryDataSources(
+    args: ListDirectQueryDataSourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDirectQueryDataSourcesCommandOutput) => void
   ): void;
 
   /**
@@ -1460,6 +1559,23 @@ export interface OpenSearch {
     args: UpdateDataSourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDataSourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDirectQueryDataSourceCommand}
+   */
+  updateDirectQueryDataSource(
+    args: UpdateDirectQueryDataSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDirectQueryDataSourceCommandOutput>;
+  updateDirectQueryDataSource(
+    args: UpdateDirectQueryDataSourceCommandInput,
+    cb: (err: any, data?: UpdateDirectQueryDataSourceCommandOutput) => void
+  ): void;
+  updateDirectQueryDataSource(
+    args: UpdateDirectQueryDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDirectQueryDataSourceCommandOutput) => void
   ): void;
 
   /**

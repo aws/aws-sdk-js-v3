@@ -38,6 +38,10 @@ import {
   AcceptInboundConnectionCommandOutput,
 } from "../commands/AcceptInboundConnectionCommand";
 import { AddDataSourceCommandInput, AddDataSourceCommandOutput } from "../commands/AddDataSourceCommand";
+import {
+  AddDirectQueryDataSourceCommandInput,
+  AddDirectQueryDataSourceCommandOutput,
+} from "../commands/AddDirectQueryDataSourceCommand";
 import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand";
 import { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "../commands/AssociatePackageCommand";
 import { AssociatePackagesCommandInput, AssociatePackagesCommandOutput } from "../commands/AssociatePackagesCommand";
@@ -63,6 +67,10 @@ import { CreatePackageCommandInput, CreatePackageCommandOutput } from "../comman
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "../commands/CreateVpcEndpointCommand";
 import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "../commands/DeleteApplicationCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
+import {
+  DeleteDirectQueryDataSourceCommandInput,
+  DeleteDirectQueryDataSourceCommandOutput,
+} from "../commands/DeleteDirectQueryDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
 import {
   DeleteInboundConnectionCommandInput,
@@ -134,6 +142,10 @@ import {
 } from "../commands/GetCompatibleVersionsCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
 import {
+  GetDirectQueryDataSourceCommandInput,
+  GetDirectQueryDataSourceCommandOutput,
+} from "../commands/GetDirectQueryDataSourceCommand";
+import {
   GetDomainMaintenanceStatusCommandInput,
   GetDomainMaintenanceStatusCommandOutput,
 } from "../commands/GetDomainMaintenanceStatusCommand";
@@ -145,6 +157,10 @@ import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from ".
 import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "../commands/GetUpgradeStatusCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
+import {
+  ListDirectQueryDataSourcesCommandInput,
+  ListDirectQueryDataSourcesCommandOutput,
+} from "../commands/ListDirectQueryDataSourcesCommand";
 import {
   ListDomainMaintenancesCommandInput,
   ListDomainMaintenancesCommandOutput,
@@ -200,6 +216,10 @@ import {
 } from "../commands/StartServiceSoftwareUpdateCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
+import {
+  UpdateDirectQueryDataSourceCommandInput,
+  UpdateDirectQueryDataSourceCommandOutput,
+} from "../commands/UpdateDirectQueryDataSourceCommand";
 import { UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput } from "../commands/UpdateDomainConfigCommand";
 import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "../commands/UpdatePackageCommand";
 import { UpdatePackageScopeCommandInput, UpdatePackageScopeCommandOutput } from "../commands/UpdatePackageScopeCommand";
@@ -232,6 +252,7 @@ import {
   ChangeProgressDetails,
   ChangeProgressStage,
   ChangeProgressStatusDetails,
+  CloudWatchDirectQueryDataSource,
   ClusterConfig,
   ClusterConfigStatus,
   CognitoOptions,
@@ -244,6 +265,7 @@ import {
   DataSourceType,
   DependencyFailureException,
   DescribePackagesFilter,
+  DirectQueryDataSourceType,
   DisabledOperationException,
   DomainConfig,
   DomainEndpointOptions,
@@ -298,6 +320,7 @@ import {
   SAMLIdp,
   SAMLOptionsInput,
   ScheduledAutoTuneDetails,
+  SecurityLakeDirectQueryDataSource,
   ServiceSoftwareOptions,
   SnapshotOptions,
   SnapshotOptionsStatus,
@@ -351,6 +374,32 @@ export const se_AddDataSourceCommand = async (
       DataSourceType: (_) => _json(_),
       Description: [],
       Name: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AddDirectQueryDataSourceCommand
+ */
+export const se_AddDirectQueryDataSourceCommand = async (
+  input: AddDirectQueryDataSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2021-01-01/opensearch/directQueryDataSource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DataSourceName: [],
+      DataSourceType: (_) => _json(_),
+      Description: [],
+      OpenSearchArns: (_) => _json(_),
+      TagList: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -673,6 +722,22 @@ export const se_DeleteDataSourceCommand = async (
   b.bp("/2021-01-01/opensearch/domain/{DomainName}/dataSource/{Name}");
   b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   b.p("Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteDirectQueryDataSourceCommand
+ */
+export const se_DeleteDirectQueryDataSourceCommand = async (
+  input: DeleteDirectQueryDataSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2021-01-01/opensearch/directQueryDataSource/{DataSourceName}");
+  b.p("DataSourceName", () => input.DataSourceName!, "{DataSourceName}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -1153,6 +1218,22 @@ export const se_GetDataSourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetDirectQueryDataSourceCommand
+ */
+export const se_GetDirectQueryDataSourceCommand = async (
+  input: GetDirectQueryDataSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2021-01-01/opensearch/directQueryDataSource/{DataSourceName}");
+  b.p("DataSourceName", () => input.DataSourceName!, "{DataSourceName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetDomainMaintenanceStatusCommand
  */
 export const se_GetDomainMaintenanceStatusCommand = async (
@@ -1260,6 +1341,24 @@ export const se_ListDataSourcesCommand = async (
   b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListDirectQueryDataSourcesCommand
+ */
+export const se_ListDirectQueryDataSourcesCommand = async (
+  input: ListDirectQueryDataSourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2021-01-01/opensearch/directQueryDataSource");
+  const query: any = map({
+    [_n]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1665,6 +1764,31 @@ export const se_UpdateDataSourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateDirectQueryDataSourceCommand
+ */
+export const se_UpdateDirectQueryDataSourceCommand = async (
+  input: UpdateDirectQueryDataSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2021-01-01/opensearch/directQueryDataSource/{DataSourceName}");
+  b.p("DataSourceName", () => input.DataSourceName!, "{DataSourceName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DataSourceType: (_) => _json(_),
+      Description: [],
+      OpenSearchArns: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateDomainConfigCommand
  */
 export const se_UpdateDomainConfigCommand = async (
@@ -1868,6 +1992,27 @@ export const de_AddDataSourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AddDirectQueryDataSourceCommand
+ */
+export const de_AddDirectQueryDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddDirectQueryDataSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DataSourceArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2150,6 +2295,23 @@ export const de_DeleteDataSourceCommand = async (
     Message: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteDirectQueryDataSourceCommand
+ */
+export const de_DeleteDirectQueryDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDirectQueryDataSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -2712,6 +2874,31 @@ export const de_GetDataSourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetDirectQueryDataSourceCommand
+ */
+export const de_GetDirectQueryDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDirectQueryDataSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DataSourceArn: __expectString,
+    DataSourceName: __expectString,
+    DataSourceType: (_) => _json(__expectUnion(_)),
+    Description: __expectString,
+    OpenSearchArns: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetDomainMaintenanceStatusCommand
  */
 export const de_GetDomainMaintenanceStatusCommand = async (
@@ -2843,6 +3030,28 @@ export const de_ListDataSourcesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     DataSources: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDirectQueryDataSourcesCommand
+ */
+export const de_ListDirectQueryDataSourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDirectQueryDataSourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DirectQueryDataSources: _json,
+    NextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3251,6 +3460,27 @@ export const de_UpdateDataSourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateDirectQueryDataSourceCommand
+ */
+export const de_UpdateDirectQueryDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDirectQueryDataSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DataSourceArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3757,6 +3987,8 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 
 // se_AWSDomainInformation omitted.
 
+// se_CloudWatchDirectQueryDataSource omitted.
+
 // se_ClusterConfig omitted.
 
 // se_CognitoOptions omitted.
@@ -3778,6 +4010,10 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 // se_DescribePackagesFilterList omitted.
 
 // se_DescribePackagesFilterValues omitted.
+
+// se_DirectQueryDataSourceType omitted.
+
+// se_DirectQueryOpenSearchARNList omitted.
 
 // se_DomainEndpointOptions omitted.
 
@@ -3846,6 +4082,8 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 // se_SAMLIdp omitted.
 
 // se_SAMLOptionsInput omitted.
+
+// se_SecurityLakeDirectQueryDataSource omitted.
 
 // se_SnapshotOptions omitted.
 
@@ -4124,6 +4362,8 @@ const de_ChangeProgressStatusDetails = (output: any, context: __SerdeContext): C
   }) as any;
 };
 
+// de_CloudWatchDirectQueryDataSource omitted.
+
 // de_ClusterConfig omitted.
 
 /**
@@ -4167,6 +4407,14 @@ const de_CognitoOptionsStatus = (output: any, context: __SerdeContext): CognitoO
 // de_DataSources omitted.
 
 // de_DataSourceType omitted.
+
+// de_DirectQueryDataSource omitted.
+
+// de_DirectQueryDataSourceList omitted.
+
+// de_DirectQueryDataSourceType omitted.
+
+// de_DirectQueryOpenSearchARNList omitted.
 
 /**
  * deserializeAws_restJson1DomainConfig
@@ -4679,6 +4927,8 @@ const de_ScheduledAutoTuneDetails = (output: any, context: __SerdeContext): Sche
   }) as any;
 };
 
+// de_SecurityLakeDirectQueryDataSource omitted.
+
 /**
  * deserializeAws_restJson1ServiceSoftwareOptions
  */
@@ -4864,6 +5114,7 @@ const _iT = "instanceType";
 const _lDRC = "loadDryRunConfig";
 const _mI = "maintenanceId";
 const _mR = "maxResults";
+const _n = "nexttoken";
 const _nT = "nextToken";
 const _oI = "offeringId";
 const _rAZ = "retrieveAZs";

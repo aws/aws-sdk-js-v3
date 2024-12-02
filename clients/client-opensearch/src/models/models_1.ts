@@ -2,6 +2,8 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import {
+  ActionSeverity,
+  ActionStatus,
   ActionType,
   AdvancedSecurityOptionsInput,
   AdvancedSecurityOptionsInputFilterSensitiveLog,
@@ -16,8 +18,10 @@ import {
   DataSource,
   DataSourceStatus,
   DataSourceType,
+  DirectQueryDataSourceType,
   DomainConfig,
   DomainEndpointOptions,
+  DomainPackageDetails,
   DryRunProgressStatus,
   DryRunResults,
   EBSOptions,
@@ -31,20 +35,338 @@ import {
   MaintenanceType,
   NodeToNodeEncryptionOptions,
   OffPeakWindowOptions,
+  OpenSearchPartitionInstanceType,
   PackageConfiguration,
   PackageDetails,
   PackageEncryptionOptions,
   PackageSource,
-  ScheduledAction,
   ServiceSoftwareOptions,
   SnapshotOptions,
   SoftwareUpdateOptions,
+  Tag,
   VpcEndpoint,
   VpcEndpointSummary,
   VPCOptions,
 } from "./models_0";
 
 import { OpenSearchServiceException as __BaseException } from "./OpenSearchServiceException";
+
+/**
+ * @public
+ */
+export interface ListInstanceTypeDetailsRequest {
+  /**
+   * <p>The version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
+   *    Defaults to the latest version of OpenSearch.</p>
+   * @public
+   */
+  EngineVersion: string | undefined;
+
+  /**
+   * <p>The name of the domain.</p>
+   * @public
+   */
+  DomainName?: string | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use
+   *     <code>nextToken</code> to get the next page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If your initial <code>ListInstanceTypeDetails</code> operation returns a
+   *     <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+   *     <code>ListInstanceTypeDetails</code> operations, which returns results in the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the Availability Zones for the domain.</p>
+   * @public
+   */
+  RetrieveAZs?: boolean | undefined;
+
+  /**
+   * <p>An optional parameter that lists information for a given instance type.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+}
+
+/**
+ * <p>Lists all instance types and available features for a given OpenSearch or Elasticsearch
+ *    version.</p>
+ * @public
+ */
+export interface InstanceTypeDetails {
+  /**
+   * <p>The instance type.</p>
+   * @public
+   */
+  InstanceType?: OpenSearchPartitionInstanceType | undefined;
+
+  /**
+   * <p>Whether encryption at rest and node-to-node encryption are supported for the instance
+   *    type.</p>
+   * @public
+   */
+  EncryptionEnabled?: boolean | undefined;
+
+  /**
+   * <p>Whether Amazon Cognito access is supported for the instance type.</p>
+   * @public
+   */
+  CognitoEnabled?: boolean | undefined;
+
+  /**
+   * <p>Whether logging is supported for the instance type.</p>
+   * @public
+   */
+  AppLogsEnabled?: boolean | undefined;
+
+  /**
+   * <p>Whether fine-grained access control is supported for the instance type.</p>
+   * @public
+   */
+  AdvancedSecurityEnabled?: boolean | undefined;
+
+  /**
+   * <p>Whether UltraWarm is supported for the instance type.</p>
+   * @public
+   */
+  WarmEnabled?: boolean | undefined;
+
+  /**
+   * <p>Whether the instance acts as a data node, a dedicated master node, or an UltraWarm
+   *    node.</p>
+   * @public
+   */
+  InstanceRole?: string[] | undefined;
+
+  /**
+   * <p>The supported Availability Zones for the instance type.</p>
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInstanceTypeDetailsResponse {
+  /**
+   * <p>Lists all supported instance types and features for the given OpenSearch or Elasticsearch
+   *    version.</p>
+   * @public
+   */
+  InstanceTypeDetails?: InstanceTypeDetails[] | undefined;
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
+   *    returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Container for the request parameters to the <code>ListPackagesForDomain</code> operation.</p>
+ * @public
+ */
+export interface ListPackagesForDomainRequest {
+  /**
+   * <p>The name of the domain for which you want to list associated packages.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use
+   *     <code>nextToken</code> to get the next page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If your initial <code>ListPackagesForDomain</code> operation returns a
+   *     <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+   *     <code>ListPackagesForDomain</code> operations, which returns results in the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Container for the response parameters to the <code>ListPackagesForDomain</code> operation.</p>
+ * @public
+ */
+export interface ListPackagesForDomainResponse {
+  /**
+   * <p>List of all packages associated with a domain.</p>
+   * @public
+   */
+  DomainPackageDetailsList?: DomainPackageDetails[] | undefined;
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
+   *    returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListScheduledActionsRequest {
+  /**
+   * <p>The name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use
+   *    <code>nextToken</code> to get the next page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If your initial <code>ListScheduledActions</code> operation returns a <code>nextToken</code>, you
+   *    can include the returned <code>nextToken</code> in subsequent <code>ListScheduledActions</code>
+   *    operations, which returns results in the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ScheduledBy = {
+  CUSTOMER: "CUSTOMER",
+  SYSTEM: "SYSTEM",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduledBy = (typeof ScheduledBy)[keyof typeof ScheduledBy];
+
+/**
+ * <p>Information about a scheduled configuration change for an OpenSearch Service domain. This
+ *    actions can be a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
+ *     update</a> or a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
+ *     Auto-Tune enhancement</a>.</p>
+ * @public
+ */
+export interface ScheduledAction {
+  /**
+   * <p>The unique identifier of the scheduled action.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The type of action that will be taken on the domain.</p>
+   * @public
+   */
+  Type: ActionType | undefined;
+
+  /**
+   * <p>The severity of the action.</p>
+   * @public
+   */
+  Severity: ActionSeverity | undefined;
+
+  /**
+   * <p>The time when the change is scheduled to happen.</p>
+   * @public
+   */
+  ScheduledTime: number | undefined;
+
+  /**
+   * <p>A description of the action to be taken.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Whether the action was scheduled manually (<code>CUSTOMER</code>, or by OpenSearch Service automatically (<code>SYSTEM</code>).</p>
+   * @public
+   */
+  ScheduledBy?: ScheduledBy | undefined;
+
+  /**
+   * <p>The current status of the scheduled action.</p>
+   * @public
+   */
+  Status?: ActionStatus | undefined;
+
+  /**
+   * <p>Whether the action is required or optional.</p>
+   * @public
+   */
+  Mandatory?: boolean | undefined;
+
+  /**
+   * <p>Whether or not the scheduled action is cancellable.</p>
+   * @public
+   */
+  Cancellable?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListScheduledActionsResponse {
+  /**
+   * <p>A list of actions that are scheduled for the domain.</p>
+   * @public
+   */
+  ScheduledActions?: ScheduledAction[] | undefined;
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
+   *    <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
+   *    returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Container for the parameters to the <code>ListTags</code> operation.</p>
+ * @public
+ */
+export interface ListTagsRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) for the domain, data source, or application to view tags
+   *    for.</p>
+   * @public
+   */
+  ARN: string | undefined;
+}
+
+/**
+ * <p>The results of a <code>ListTags</code> operation.</p>
+ * @public
+ */
+export interface ListTagsResponse {
+  /**
+   * <p>List of resource tags associated with the specified domain, data source, or
+   *    application.</p>
+   * @public
+   */
+  TagList?: Tag[] | undefined;
+}
 
 /**
  * <p>Container for the request parameters to the <code>ListVersions</code> operation.</p>
@@ -271,14 +593,14 @@ export interface RejectInboundConnectionResponse {
  */
 export interface RemoveTagsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the domain from which you want to delete the specified
-   *    tags.</p>
+   * <p>The Amazon Resource Name (ARN) of the domain, data source, or application from which you
+   *    want to delete the specified tags.</p>
    * @public
    */
   ARN: string | undefined;
 
   /**
-   * <p>The list of tag keys to remove from the domain.</p>
+   * <p>The list of tag keys to remove from the domain, data source, or application.</p>
    * @public
    */
   TagKeys: string[] | undefined;
@@ -548,6 +870,60 @@ export interface UpdateDataSourceResponse {
    * @public
    */
   Message?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDirectQueryDataSourceRequest {
+  /**
+   * <p>
+   *    A unique, user-defined label to identify the data
+   *    source within your OpenSearch Service environment.
+   *   </p>
+   * @public
+   */
+  DataSourceName: string | undefined;
+
+  /**
+   * <p>
+   *    The supported Amazon Web Services service that you want to use as the source for
+   *    direct queries in OpenSearch Service.
+   *   </p>
+   * @public
+   */
+  DataSourceType: DirectQueryDataSourceType | undefined;
+
+  /**
+   * <p>
+   *    An optional text field for providing additional context and
+   *    details about the data source.
+   *   </p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>
+   *    A list of Amazon Resource Names (ARNs) for the OpenSearch
+   *    collections that are associated with the direct query data source.
+   *   </p>
+   * @public
+   */
+  OpenSearchArns: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDirectQueryDataSourceResponse {
+  /**
+   * <p>
+   *    The unique, system-generated identifier that represents the data source.
+   *   </p>
+   * @public
+   */
+  DataSourceArn?: string | undefined;
 }
 
 /**

@@ -58,6 +58,10 @@ import {
   AcceptInboundConnectionCommandOutput,
 } from "./commands/AcceptInboundConnectionCommand";
 import { AddDataSourceCommandInput, AddDataSourceCommandOutput } from "./commands/AddDataSourceCommand";
+import {
+  AddDirectQueryDataSourceCommandInput,
+  AddDirectQueryDataSourceCommandOutput,
+} from "./commands/AddDirectQueryDataSourceCommand";
 import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "./commands/AssociatePackageCommand";
 import { AssociatePackagesCommandInput, AssociatePackagesCommandOutput } from "./commands/AssociatePackagesCommand";
@@ -83,6 +87,10 @@ import { CreatePackageCommandInput, CreatePackageCommandOutput } from "./command
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "./commands/CreateVpcEndpointCommand";
 import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import {
+  DeleteDirectQueryDataSourceCommandInput,
+  DeleteDirectQueryDataSourceCommandOutput,
+} from "./commands/DeleteDirectQueryDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import {
   DeleteInboundConnectionCommandInput,
@@ -154,6 +162,10 @@ import {
 } from "./commands/GetCompatibleVersionsCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
 import {
+  GetDirectQueryDataSourceCommandInput,
+  GetDirectQueryDataSourceCommandOutput,
+} from "./commands/GetDirectQueryDataSourceCommand";
+import {
   GetDomainMaintenanceStatusCommandInput,
   GetDomainMaintenanceStatusCommandOutput,
 } from "./commands/GetDomainMaintenanceStatusCommand";
@@ -165,6 +177,10 @@ import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from ".
 import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "./commands/GetUpgradeStatusCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
+import {
+  ListDirectQueryDataSourcesCommandInput,
+  ListDirectQueryDataSourcesCommandOutput,
+} from "./commands/ListDirectQueryDataSourcesCommand";
 import {
   ListDomainMaintenancesCommandInput,
   ListDomainMaintenancesCommandOutput,
@@ -220,6 +236,10 @@ import {
 } from "./commands/StartServiceSoftwareUpdateCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
+import {
+  UpdateDirectQueryDataSourceCommandInput,
+  UpdateDirectQueryDataSourceCommandOutput,
+} from "./commands/UpdateDirectQueryDataSourceCommand";
 import { UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput } from "./commands/UpdateDomainConfigCommand";
 import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "./commands/UpdatePackageCommand";
 import { UpdatePackageScopeCommandInput, UpdatePackageScopeCommandOutput } from "./commands/UpdatePackageScopeCommand";
@@ -246,6 +266,7 @@ export { __Client };
 export type ServiceInputTypes =
   | AcceptInboundConnectionCommandInput
   | AddDataSourceCommandInput
+  | AddDirectQueryDataSourceCommandInput
   | AddTagsCommandInput
   | AssociatePackageCommandInput
   | AssociatePackagesCommandInput
@@ -259,6 +280,7 @@ export type ServiceInputTypes =
   | CreateVpcEndpointCommandInput
   | DeleteApplicationCommandInput
   | DeleteDataSourceCommandInput
+  | DeleteDirectQueryDataSourceCommandInput
   | DeleteDomainCommandInput
   | DeleteInboundConnectionCommandInput
   | DeleteOutboundConnectionCommandInput
@@ -284,12 +306,14 @@ export type ServiceInputTypes =
   | GetApplicationCommandInput
   | GetCompatibleVersionsCommandInput
   | GetDataSourceCommandInput
+  | GetDirectQueryDataSourceCommandInput
   | GetDomainMaintenanceStatusCommandInput
   | GetPackageVersionHistoryCommandInput
   | GetUpgradeHistoryCommandInput
   | GetUpgradeStatusCommandInput
   | ListApplicationsCommandInput
   | ListDataSourcesCommandInput
+  | ListDirectQueryDataSourcesCommandInput
   | ListDomainMaintenancesCommandInput
   | ListDomainNamesCommandInput
   | ListDomainsForPackageCommandInput
@@ -309,6 +333,7 @@ export type ServiceInputTypes =
   | StartServiceSoftwareUpdateCommandInput
   | UpdateApplicationCommandInput
   | UpdateDataSourceCommandInput
+  | UpdateDirectQueryDataSourceCommandInput
   | UpdateDomainConfigCommandInput
   | UpdatePackageCommandInput
   | UpdatePackageScopeCommandInput
@@ -322,6 +347,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AcceptInboundConnectionCommandOutput
   | AddDataSourceCommandOutput
+  | AddDirectQueryDataSourceCommandOutput
   | AddTagsCommandOutput
   | AssociatePackageCommandOutput
   | AssociatePackagesCommandOutput
@@ -335,6 +361,7 @@ export type ServiceOutputTypes =
   | CreateVpcEndpointCommandOutput
   | DeleteApplicationCommandOutput
   | DeleteDataSourceCommandOutput
+  | DeleteDirectQueryDataSourceCommandOutput
   | DeleteDomainCommandOutput
   | DeleteInboundConnectionCommandOutput
   | DeleteOutboundConnectionCommandOutput
@@ -360,12 +387,14 @@ export type ServiceOutputTypes =
   | GetApplicationCommandOutput
   | GetCompatibleVersionsCommandOutput
   | GetDataSourceCommandOutput
+  | GetDirectQueryDataSourceCommandOutput
   | GetDomainMaintenanceStatusCommandOutput
   | GetPackageVersionHistoryCommandOutput
   | GetUpgradeHistoryCommandOutput
   | GetUpgradeStatusCommandOutput
   | ListApplicationsCommandOutput
   | ListDataSourcesCommandOutput
+  | ListDirectQueryDataSourcesCommandOutput
   | ListDomainMaintenancesCommandOutput
   | ListDomainNamesCommandOutput
   | ListDomainsForPackageCommandOutput
@@ -385,6 +414,7 @@ export type ServiceOutputTypes =
   | StartServiceSoftwareUpdateCommandOutput
   | UpdateApplicationCommandOutput
   | UpdateDataSourceCommandOutput
+  | UpdateDirectQueryDataSourceCommandOutput
   | UpdateDomainConfigCommandOutput
   | UpdatePackageCommandOutput
   | UpdatePackageScopeCommandOutput

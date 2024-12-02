@@ -5,9 +5,12 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTagsRequest, ListTagsResponse } from "../models/models_1";
+import { DeleteDirectQueryDataSourceRequest } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { de_ListTagsCommand, se_ListTagsCommand } from "../protocols/Aws_restJson1";
+import {
+  de_DeleteDirectQueryDataSourceCommand,
+  se_DeleteDirectQueryDataSourceCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,50 +20,47 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsCommand}.
+ * The input for {@link DeleteDirectQueryDataSourceCommand}.
  */
-export interface ListTagsCommandInput extends ListTagsRequest {}
+export interface DeleteDirectQueryDataSourceCommandInput extends DeleteDirectQueryDataSourceRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsCommand}.
+ * The output of {@link DeleteDirectQueryDataSourceCommand}.
  */
-export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
+export interface DeleteDirectQueryDataSourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Returns all resource tags for an Amazon OpenSearch Service domain, data source, or
- *    application. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging
- *     Amazon OpenSearch Service resources</a>.</p>
+ * <p>
+ *    Deletes a previously configured direct query data
+ *    source from Amazon OpenSearch Service.
+ *   </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, ListTagsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, ListTagsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, DeleteDirectQueryDataSourceCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
+ * // const { OpenSearchClient, DeleteDirectQueryDataSourceCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = { // ListTagsRequest
- *   ARN: "STRING_VALUE", // required
+ * const input = { // DeleteDirectQueryDataSourceRequest
+ *   DataSourceName: "STRING_VALUE", // required
  * };
- * const command = new ListTagsCommand(input);
+ * const command = new DeleteDirectQueryDataSourceCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsResponse
- * //   TagList: [ // TagList
- * //     { // Tag
- * //       Key: "STRING_VALUE", // required
- * //       Value: "STRING_VALUE", // required
- * //     },
- * //   ],
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListTagsCommandInput - {@link ListTagsCommandInput}
- * @returns {@link ListTagsCommandOutput}
- * @see {@link ListTagsCommandInput} for command's `input` shape.
- * @see {@link ListTagsCommandOutput} for command's `response` shape.
+ * @param DeleteDirectQueryDataSourceCommandInput - {@link DeleteDirectQueryDataSourceCommandInput}
+ * @returns {@link DeleteDirectQueryDataSourceCommandOutput}
+ * @see {@link DeleteDirectQueryDataSourceCommandInput} for command's `input` shape.
+ * @see {@link DeleteDirectQueryDataSourceCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link BaseException} (client fault)
  *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access an unsupported operation.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
@@ -76,10 +76,10 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  *
  * @public
  */
-export class ListTagsCommand extends $Command
+export class DeleteDirectQueryDataSourceCommand extends $Command
   .classBuilder<
-    ListTagsCommandInput,
-    ListTagsCommandOutput,
+    DeleteDirectQueryDataSourceCommandInput,
+    DeleteDirectQueryDataSourceCommandOutput,
     OpenSearchClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -91,21 +91,21 @@ export class ListTagsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonOpenSearchService", "ListTags", {})
-  .n("OpenSearchClient", "ListTagsCommand")
+  .s("AmazonOpenSearchService", "DeleteDirectQueryDataSource", {})
+  .n("OpenSearchClient", "DeleteDirectQueryDataSourceCommand")
   .f(void 0, void 0)
-  .ser(se_ListTagsCommand)
-  .de(de_ListTagsCommand)
+  .ser(se_DeleteDirectQueryDataSourceCommand)
+  .de(de_DeleteDirectQueryDataSourceCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsRequest;
-      output: ListTagsResponse;
+      input: DeleteDirectQueryDataSourceRequest;
+      output: {};
     };
     sdk: {
-      input: ListTagsCommandInput;
-      output: ListTagsCommandOutput;
+      input: DeleteDirectQueryDataSourceCommandInput;
+      output: DeleteDirectQueryDataSourceCommandOutput;
     };
   };
 }
