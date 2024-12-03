@@ -2097,7 +2097,8 @@ export interface Entity {
    *          <p>There are five allowed attributes (key names): <code>Type</code>,
    *             <code>ResourceType</code>, <code>Identifier</code>, <code>Name</code>, and
    *             <code>Environment</code>.</p>
-   *          <p>For details about how to use the key attributes to specify an entity, see <a href="https://docs.aws.amazon.com/adding-your-own-related-telemetry.html">How to add related
+   *          <p>For details about how to use the key attributes to specify an entity, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/adding-your-own-related-telemetry.html">How
+   *             to add related
    *             information to telemetry</a> in the <i>CloudWatch User
    *             Guide</i>.</p>
    * @public
@@ -2107,7 +2108,8 @@ export interface Entity {
   /**
    * <p>Additional attributes of the entity that are not used to specify the identity of the
    *             entity. A list of key-value pairs.</p>
-   *          <p>For details about how to use the attributes, see <a href="https://docs.aws.amazon.com/adding-your-own-related-telemetry.html">How to add related information to
+   *          <p>For details about how to use the attributes, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/adding-your-own-related-telemetry.html">How
+   *             to add related information to
    *             telemetry</a> in the <i>CloudWatch User Guide</i>.</p>
    * @public
    */
@@ -3797,6 +3799,13 @@ export interface PutCompositeAlarmInput {
    *             <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>
    *             </code>
    *          </p>
+   *          <p>
+   *             <b>Start a Amazon Q Developer operational investigation</b>
+   *          </p>
+   *          <p>
+   *             <code>arn:aws:aiops:<i>region</i>:<i>account-id</i>:investigation-group:<i>ingestigation-group-id</i>
+   *             </code>
+   *          </p>
    * @public
    */
   AlarmActions?: string[] | undefined;
@@ -4407,6 +4416,13 @@ export interface PutMetricAlarmInput {
    *                </p>
    *             </li>
    *          </ul>
+   *          <p>
+   *             <b>Start a Amazon Q Developer operational investigation</b>
+   *          </p>
+   *          <p>
+   *             <code>arn:aws:aiops:<i>region</i>:<i>account-id</i>:investigation-group:<i>ingestigation-group-id</i>
+   *             </code>
+   *          </p>
    * @public
    */
   AlarmActions?: string[] | undefined;
