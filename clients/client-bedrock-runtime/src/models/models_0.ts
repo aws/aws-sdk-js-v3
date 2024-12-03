@@ -6,7 +6,8 @@ import { DocumentType as __DocumentType } from "@smithy/types";
 import { BedrockRuntimeServiceException as __BaseException } from "./BedrockRuntimeServiceException";
 
 /**
- * <p>The request is denied because of missing access permissions.</p>
+ * <p>The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error,
+ *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied">AccessDeniedException</a> in the Amazon Bedrock User Guide</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -797,7 +798,8 @@ export interface ApplyGuardrailResponse {
 }
 
 /**
- * <p>An internal server error occurred. Retry your request.</p>
+ * <p>An internal server error occurred. For troubleshooting this error,
+ *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure">InternalFailure</a> in the Amazon Bedrock User Guide</p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -817,7 +819,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ * <p>The specified resource ARN was not found. For troubleshooting this error,
+ *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-resource-not-found">ResourceNotFound</a> in the Amazon Bedrock User Guide</p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -857,7 +860,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Your request was throttled because of service-wide limitations. Resubmit your request later or in a different region. You can also purchase <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> to increase the rate or number of tokens you can process.</p>
+ * <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For
+ *          troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -877,7 +881,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Input validation failed. Check your request parameters and retry the request.</p>
+ * <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error,
+ *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -1584,6 +1589,32 @@ export interface Message {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const PerformanceConfigLatency = {
+  OPTIMIZED: "optimized",
+  STANDARD: "standard",
+} as const;
+
+/**
+ * @public
+ */
+export type PerformanceConfigLatency = (typeof PerformanceConfigLatency)[keyof typeof PerformanceConfigLatency];
+
+/**
+ * <p>Performance settings for a model.</p>
+ * @public
+ */
+export interface PerformanceConfiguration {
+  /**
+   * <p>To use a latency-optimized version of the model, set to <code>optimized</code>.</p>
+   * @public
+   */
+  latency?: PerformanceConfigLatency | undefined;
+}
+
+/**
  * <p>Contains a map of variables in a prompt from Prompt management to an object containing the values to fill in for them when running model invocation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-how.html">How Prompt management works</a>.</p>
  * @public
  */
@@ -1921,7 +1952,7 @@ export interface ConverseRequest {
    *                <p>If you use a custom model, first purchase Provisioned Throughput for it. Then specify the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
    *             </li>
    *             <li>
-   *                <p>To include a prompt that was defined in Prompt management, specify the ARN of the prompt version to use.</p>
+   *                <p>To include a prompt that was defined in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html">Prompt management</a>, specify the ARN of the prompt version to use.</p>
    *             </li>
    *          </ul>
    *          <p>The Converse API doesn't support <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported models</a>.</p>
@@ -1988,7 +2019,7 @@ export interface ConverseRequest {
    *          ]</code>
    *          </p>
    *          <p>For information about the JSON Pointer syntax, see the
-   *         <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet Engineering Task Force (IETF)</a> documentation.</p>
+   *          <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet Engineering Task Force (IETF)</a> documentation.</p>
    *          <p>
    *             <code>Converse</code> and <code>ConverseStream</code> reject an empty JSON Pointer or incorrectly structured
    *          JSON Pointer with a <code>400</code> error code. if the JSON Pointer is valid, but the requested
@@ -1996,6 +2027,12 @@ export interface ConverseRequest {
    * @public
    */
   additionalModelResponseFieldPaths?: string[] | undefined;
+
+  /**
+   * <p>Model performance settings for the request.</p>
+   * @public
+   */
+  performanceConfig?: PerformanceConfiguration | undefined;
 }
 
 /**
@@ -2167,6 +2204,12 @@ export interface ConverseResponse {
    * @public
    */
   trace?: ConverseTrace | undefined;
+
+  /**
+   * <p>Model performance settings for the request.</p>
+   * @public
+   */
+  performanceConfig?: PerformanceConfiguration | undefined;
 }
 
 /**
@@ -2205,9 +2248,9 @@ export class ModelErrorException extends __BaseException {
 
 /**
  * <p>The model specified in the request is not ready to serve inference requests. The AWS SDK
- *            will automatically retry the operation up to 5 times. For information about configuring
- *            automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i>
- *            reference guide.</p>
+ *          will automatically retry the operation up to 5 times. For information about configuring
+ *          automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i>
+ *       reference guide.</p>
  * @public
  */
 export class ModelNotReadyException extends __BaseException {
@@ -2248,7 +2291,8 @@ export class ModelTimeoutException extends __BaseException {
 }
 
 /**
- * <p>The service isn't currently available. Try again later.</p>
+ * <p>The service isn't currently available. For troubleshooting this error,
+ *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -2335,7 +2379,7 @@ export interface ConverseStreamRequest {
    *                <p>If you use a custom model, first purchase Provisioned Throughput for it. Then specify the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
    *             </li>
    *             <li>
-   *                <p>To include a prompt that was defined in Prompt management, specify the ARN of the prompt version to use.</p>
+   *                <p>To include a prompt that was defined in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html">Prompt management</a>, specify the ARN of the prompt version to use.</p>
    *             </li>
    *          </ul>
    *          <p>The Converse API doesn't support <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported models</a>.</p>
@@ -2402,7 +2446,7 @@ export interface ConverseStreamRequest {
    *          ]</code>
    *          </p>
    *          <p>For information about the JSON Pointer syntax, see the
-   *         <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet Engineering Task Force (IETF)</a> documentation.</p>
+   *          <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet Engineering Task Force (IETF)</a> documentation.</p>
    *          <p>
    *             <code>Converse</code> and <code>ConverseStream</code> reject an empty JSON Pointer or incorrectly structured
    *          JSON Pointer with a <code>400</code> error code. if the JSON Pointer is valid, but the requested
@@ -2410,6 +2454,12 @@ export interface ConverseStreamRequest {
    * @public
    */
   additionalModelResponseFieldPaths?: string[] | undefined;
+
+  /**
+   * <p>Model performance settings for the request.</p>
+   * @public
+   */
+  performanceConfig?: PerformanceConfiguration | undefined;
 }
 
 /**
@@ -2659,6 +2709,12 @@ export interface ConverseStreamMetadataEvent {
    * @public
    */
   trace?: ConverseStreamTrace | undefined;
+
+  /**
+   * <p>Model performance configuration metadata for the conversation stream event.</p>
+   * @public
+   */
+  performanceConfig?: PerformanceConfiguration | undefined;
 }
 
 /**
@@ -2908,7 +2964,8 @@ export namespace ConverseStreamOutput {
   }
 
   /**
-   * <p>The service isn't currently available. Try again later.</p>
+   * <p>The service isn't currently available. For troubleshooting this error,
+   *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
    * @public
    */
   export interface ServiceUnavailableExceptionMember {
@@ -3028,10 +3085,13 @@ export interface InvokeModelRequest {
 
   /**
    * <p>The unique identifier of the model to invoke to run inference.</p>
-   *          <p>The <code>modelId</code> to provide depends on the type of model that you use:</p>
+   *          <p>The <code>modelId</code> to provide depends on the type of model or throughput that you use:</p>
    *          <ul>
    *             <li>
    *                <p>If you use a base model, specify the model ID or its ARN. For a list of model IDs for base models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">Amazon Bedrock base model IDs (on-demand throughput)</a> in the Amazon Bedrock User Guide.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you use an inference profile, specify the inference profile ID or its ARN. For a list of inference profile IDs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html">Supported Regions and models for cross-region inference</a> in the Amazon Bedrock User Guide.</p>
    *             </li>
    *             <li>
    *                <p>If you use a provisioned model, specify the ARN of the Provisioned Throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-thru-use.html">Run inference using a Provisioned Throughput</a> in the Amazon Bedrock User Guide.</p>
@@ -3077,6 +3137,12 @@ export interface InvokeModelRequest {
    * @public
    */
   guardrailVersion?: string | undefined;
+
+  /**
+   * <p>Model performance settings for the request.</p>
+   * @public
+   */
+  performanceConfigLatency?: PerformanceConfigLatency | undefined;
 }
 
 /**
@@ -3094,6 +3160,12 @@ export interface InvokeModelResponse {
    * @public
    */
   contentType: string | undefined;
+
+  /**
+   * <p>Model performance settings for the request.</p>
+   * @public
+   */
+  performanceConfigLatency?: PerformanceConfigLatency | undefined;
 }
 
 /**
@@ -3122,10 +3194,13 @@ export interface InvokeModelWithResponseStreamRequest {
 
   /**
    * <p>The unique identifier of the model to invoke to run inference.</p>
-   *          <p>The <code>modelId</code> to provide depends on the type of model that you use:</p>
+   *          <p>The <code>modelId</code> to provide depends on the type of model or throughput that you use:</p>
    *          <ul>
    *             <li>
    *                <p>If you use a base model, specify the model ID or its ARN. For a list of model IDs for base models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">Amazon Bedrock base model IDs (on-demand throughput)</a> in the Amazon Bedrock User Guide.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you use an inference profile, specify the inference profile ID or its ARN. For a list of inference profile IDs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html">Supported Regions and models for cross-region inference</a> in the Amazon Bedrock User Guide.</p>
    *             </li>
    *             <li>
    *                <p>If you use a provisioned model, specify the ARN of the Provisioned Throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-thru-use.html">Run inference using a Provisioned Throughput</a> in the Amazon Bedrock User Guide.</p>
@@ -3171,6 +3246,12 @@ export interface InvokeModelWithResponseStreamRequest {
    * @public
    */
   guardrailVersion?: string | undefined;
+
+  /**
+   * <p>Model performance settings for the request.</p>
+   * @public
+   */
+  performanceConfigLatency?: PerformanceConfigLatency | undefined;
 }
 
 /**
@@ -3294,7 +3375,7 @@ export namespace ResponseStream {
   }
 
   /**
-   * <p>The service isn't currently available. Try again later.</p>
+   * <p>The service isn't available. Try again later.</p>
    * @public
    */
   export interface ServiceUnavailableExceptionMember {
@@ -3363,6 +3444,12 @@ export interface InvokeModelWithResponseStreamResponse {
    * @public
    */
   contentType: string | undefined;
+
+  /**
+   * <p>Model performance settings for the request.</p>
+   * @public
+   */
+  performanceConfigLatency?: PerformanceConfigLatency | undefined;
 }
 
 /**

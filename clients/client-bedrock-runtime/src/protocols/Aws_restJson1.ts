@@ -79,6 +79,7 @@ import {
   ModelStreamErrorException,
   ModelTimeoutException,
   PayloadPart,
+  PerformanceConfiguration,
   PromptVariableValues,
   ResourceNotFoundException,
   ResponseStream,
@@ -144,6 +145,7 @@ export const se_ConverseCommand = async (
       guardrailConfig: (_) => _json(_),
       inferenceConfig: (_) => se_InferenceConfiguration(_, context),
       messages: (_) => se_Messages(_, context),
+      performanceConfig: (_) => _json(_),
       promptVariables: (_) => _json(_),
       system: (_) => _json(_),
       toolConfig: (_) => se_ToolConfiguration(_, context),
@@ -174,6 +176,7 @@ export const se_ConverseStreamCommand = async (
       guardrailConfig: (_) => _json(_),
       inferenceConfig: (_) => se_InferenceConfiguration(_, context),
       messages: (_) => se_Messages(_, context),
+      performanceConfig: (_) => _json(_),
       promptVariables: (_) => _json(_),
       system: (_) => _json(_),
       toolConfig: (_) => se_ToolConfiguration(_, context),
@@ -197,6 +200,7 @@ export const se_InvokeModelCommand = async (
     [_xabt]: input[_t]!,
     [_xabg]: input[_gI]!,
     [_xabg_]: input[_gV]!,
+    [_xabpl]: input[_pCL]!,
   });
   b.bp("/model/{modelId}/invoke");
   b.p("modelId", () => input.modelId!, "{modelId}", false);
@@ -222,6 +226,7 @@ export const se_InvokeModelWithResponseStreamCommand = async (
     [_xabt]: input[_t]!,
     [_xabg]: input[_gI]!,
     [_xabg_]: input[_gV]!,
+    [_xabpl]: input[_pCL]!,
   });
   b.bp("/model/{modelId}/invoke-with-response-stream");
   b.p("modelId", () => input.modelId!, "{modelId}", false);
@@ -276,6 +281,7 @@ export const de_ConverseCommand = async (
     additionalModelResponseFields: (_) => de_Document(_, context),
     metrics: _json,
     output: (_) => de_ConverseOutput(__expectUnion(_), context),
+    performanceConfig: _json,
     stopReason: __expectString,
     trace: (_) => de_ConverseTrace(_, context),
     usage: _json,
@@ -315,6 +321,7 @@ export const de_InvokeModelCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
     [_cT]: [, output.headers[_ct]],
+    [_pCL]: [, output.headers[_xabpl]],
   });
   const data: any = await collectBody(output.body, context);
   contents.body = data;
@@ -334,6 +341,7 @@ export const de_InvokeModelWithResponseStreamCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
     [_cT]: [, output.headers[_xabct]],
+    [_pCL]: [, output.headers[_xabpl]],
   });
   const data: any = output.body;
   contents.body = de_ResponseStream(data, context);
@@ -961,6 +969,8 @@ const se_Messages = (input: Message[], context: __SerdeContext): any => {
 
 // se_NonEmptyStringList omitted.
 
+// se_PerformanceConfiguration omitted.
+
 // se_PromptVariableMap omitted.
 
 // se_PromptVariableValues omitted.
@@ -1155,6 +1165,7 @@ const de_ConverseOutput = (output: any, context: __SerdeContext): ConverseOutput
 const de_ConverseStreamMetadataEvent = (output: any, context: __SerdeContext): ConverseStreamMetadataEvent => {
   return take(output, {
     metrics: _json,
+    performanceConfig: _json,
     trace: (_: any) => de_ConverseStreamTrace(_, context),
     usage: _json,
   }) as any;
@@ -1413,6 +1424,8 @@ const de_PayloadPart = (output: any, context: __SerdeContext): PayloadPart => {
   }) as any;
 };
 
+// de_PerformanceConfiguration omitted.
+
 // de_TokenUsage omitted.
 
 /**
@@ -1502,9 +1515,11 @@ const _cT = "contentType";
 const _ct = "content-type";
 const _gI = "guardrailIdentifier";
 const _gV = "guardrailVersion";
+const _pCL = "performanceConfigLatency";
 const _t = "trace";
 const _xaba = "x-amzn-bedrock-accept";
 const _xabct = "x-amzn-bedrock-content-type";
 const _xabg = "x-amzn-bedrock-guardrailidentifier";
 const _xabg_ = "x-amzn-bedrock-guardrailversion";
+const _xabpl = "x-amzn-bedrock-performanceconfig-latency";
 const _xabt = "x-amzn-bedrock-trace";
