@@ -44,7 +44,9 @@ export interface BatchRevokePermissionsCommandOutput extends BatchRevokePermissi
  *         DataLakePrincipalIdentifier: "STRING_VALUE",
  *       },
  *       Resource: { // Resource
- *         Catalog: {},
+ *         Catalog: { // CatalogResource
+ *           Id: "STRING_VALUE",
+ *         },
  *         Database: { // DatabaseResource
  *           CatalogId: "STRING_VALUE",
  *           Name: "STRING_VALUE", // required
@@ -104,10 +106,10 @@ export interface BatchRevokePermissionsCommandOutput extends BatchRevokePermissi
  *         },
  *       },
  *       Permissions: [ // PermissionList
- *         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION",
+ *         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
  *       ],
  *       PermissionsWithGrantOption: [
- *         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION",
+ *         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
  *       ],
  *     },
  *   ],
@@ -123,7 +125,9 @@ export interface BatchRevokePermissionsCommandOutput extends BatchRevokePermissi
  * //           DataLakePrincipalIdentifier: "STRING_VALUE",
  * //         },
  * //         Resource: { // Resource
- * //           Catalog: {},
+ * //           Catalog: { // CatalogResource
+ * //             Id: "STRING_VALUE",
+ * //           },
  * //           Database: { // DatabaseResource
  * //             CatalogId: "STRING_VALUE",
  * //             Name: "STRING_VALUE", // required
@@ -183,10 +187,10 @@ export interface BatchRevokePermissionsCommandOutput extends BatchRevokePermissi
  * //           },
  * //         },
  * //         Permissions: [ // PermissionList
- * //           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION",
+ * //           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
  * //         ],
  * //         PermissionsWithGrantOption: [
- * //           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION",
+ * //           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
  * //         ],
  * //       },
  * //       Error: { // ErrorDetail

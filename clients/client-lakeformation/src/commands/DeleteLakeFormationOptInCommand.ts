@@ -40,7 +40,9 @@ export interface DeleteLakeFormationOptInCommandOutput extends DeleteLakeFormati
  *     DataLakePrincipalIdentifier: "STRING_VALUE",
  *   },
  *   Resource: { // Resource
- *     Catalog: {},
+ *     Catalog: { // CatalogResource
+ *       Id: "STRING_VALUE",
+ *     },
  *     Database: { // DatabaseResource
  *       CatalogId: "STRING_VALUE",
  *       Name: "STRING_VALUE", // required

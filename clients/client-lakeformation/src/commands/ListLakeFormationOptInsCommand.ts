@@ -40,7 +40,9 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  *     DataLakePrincipalIdentifier: "STRING_VALUE",
  *   },
  *   Resource: { // Resource
- *     Catalog: {},
+ *     Catalog: { // CatalogResource
+ *       Id: "STRING_VALUE",
+ *     },
  *     Database: { // DatabaseResource
  *       CatalogId: "STRING_VALUE",
  *       Name: "STRING_VALUE", // required
@@ -108,7 +110,9 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  * //   LakeFormationOptInsInfoList: [ // LakeFormationOptInsInfoList
  * //     { // LakeFormationOptInsInfo
  * //       Resource: { // Resource
- * //         Catalog: {},
+ * //         Catalog: { // CatalogResource
+ * //           Id: "STRING_VALUE",
+ * //         },
  * //         Database: { // DatabaseResource
  * //           CatalogId: "STRING_VALUE",
  * //           Name: "STRING_VALUE", // required
@@ -169,6 +173,9 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  * //       },
  * //       Principal: { // DataLakePrincipal
  * //         DataLakePrincipalIdentifier: "STRING_VALUE",
+ * //       },
+ * //       Condition: { // Condition
+ * //         Expression: "STRING_VALUE",
  * //       },
  * //       LastModified: new Date("TIMESTAMP"),
  * //       LastUpdatedBy: "STRING_VALUE",

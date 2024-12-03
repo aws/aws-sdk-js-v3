@@ -3506,6 +3506,8 @@ const se_QuerySessionContext = (input: QuerySessionContext, context: __SerdeCont
 
 // de_ColumnWildcard omitted.
 
+// de_Condition omitted.
+
 // de_DatabaseLFTagsList omitted.
 
 // de_DatabaseResource omitted.
@@ -3539,6 +3541,7 @@ const se_QuerySessionContext = (input: QuerySessionContext, context: __SerdeCont
  */
 const de_LakeFormationOptInsInfo = (output: any, context: __SerdeContext): LakeFormationOptInsInfo => {
   return take(output, {
+    Condition: _json,
     LastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastUpdatedBy: __expectString,
     Principal: _json,
@@ -3602,6 +3605,7 @@ const de_LakeFormationOptInsInfoList = (output: any, context: __SerdeContext): L
 const de_PrincipalResourcePermissions = (output: any, context: __SerdeContext): PrincipalResourcePermissions => {
   return take(output, {
     AdditionalDetails: _json,
+    Condition: _json,
     LastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastUpdatedBy: __expectString,
     Permissions: _json,

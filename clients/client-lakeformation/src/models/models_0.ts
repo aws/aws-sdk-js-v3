@@ -59,7 +59,13 @@ export interface LFTagPair {
  * <p>A structure for the catalog object.</p>
  * @public
  */
-export interface CatalogResource {}
+export interface CatalogResource {
+  /**
+   * <p>An identifier for the catalog resource.</p>
+   * @public
+   */
+  Id?: string | undefined;
+}
 
 /**
  * <p>A structure for the database object.</p>
@@ -736,6 +742,7 @@ export const Permission = {
   ALL: "ALL",
   ALTER: "ALTER",
   ASSOCIATE: "ASSOCIATE",
+  CREATE_CATALOG: "CREATE_CATALOG",
   CREATE_DATABASE: "CREATE_DATABASE",
   CREATE_LF_TAG: "CREATE_LF_TAG",
   CREATE_LF_TAG_EXPRESSION: "CREATE_LF_TAG_EXPRESSION",
@@ -747,6 +754,7 @@ export const Permission = {
   GRANT_WITH_LF_TAG_EXPRESSION: "GRANT_WITH_LF_TAG_EXPRESSION",
   INSERT: "INSERT",
   SELECT: "SELECT",
+  SUPER_USER: "SUPER_USER",
 } as const;
 
 /**
@@ -1911,6 +1919,18 @@ export interface DetailsMap {
 }
 
 /**
+ * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+ * @public
+ */
+export interface Condition {
+  /**
+   * <p>An expression written based on the Cedar Policy Language used to match the principal attributes.</p>
+   * @public
+   */
+  Expression?: string | undefined;
+}
+
+/**
  * <p>The permissions granted or revoked on a resource.</p>
  * @public
  */
@@ -1926,6 +1946,12 @@ export interface PrincipalResourcePermissions {
    * @public
    */
   Resource?: Resource | undefined;
+
+  /**
+   * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+   * @public
+   */
+  Condition?: Condition | undefined;
 
   /**
    * <p>The permissions to be granted or revoked on the resource.</p>
@@ -3005,6 +3031,12 @@ export interface LakeFormationOptInsInfo {
    * @public
    */
   Principal?: DataLakePrincipal | undefined;
+
+  /**
+   * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+   * @public
+   */
+  Condition?: Condition | undefined;
 
   /**
    * <p>The last modified date and time of the record.</p>
