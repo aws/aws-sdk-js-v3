@@ -2719,6 +2719,106 @@ export interface ListCustomDomainAssociationsResponse {
 /**
  * @public
  */
+export interface ListManagedWorkgroupsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the managed
+   *          workgroup in the AWS Glue Data Catalog.</p>
+   * @public
+   */
+  sourceArn?: string | undefined;
+
+  /**
+   * <p>If your initial ListManagedWorkgroups operation returns a nextToken,
+   *          you can include the returned nextToken in following ListManagedWorkgroups
+   *          operations, which returns results in the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the maximum number
+   *          of results to return. You can use nextToken to display the next page of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ManagedWorkgroupStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  MODIFYING: "MODIFYING",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type ManagedWorkgroupStatus = (typeof ManagedWorkgroupStatus)[keyof typeof ManagedWorkgroupStatus];
+
+/**
+ * <p>A collection of Amazon Redshift compute resources managed by AWS Glue.</p>
+ * @public
+ */
+export interface ManagedWorkgroupListItem {
+  /**
+   * <p>The name of the managed workgroup.</p>
+   * @public
+   */
+  managedWorkgroupName?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the managed workgroup.</p>
+   * @public
+   */
+  managedWorkgroupId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the managed
+   *          workgroup in the AWS Glue Data Catalog.</p>
+   * @public
+   */
+  sourceArn?: string | undefined;
+
+  /**
+   * <p>The status of the managed workgroup.</p>
+   * @public
+   */
+  status?: ManagedWorkgroupStatus | undefined;
+
+  /**
+   * <p>The creation date of the managed workgroup.</p>
+   * @public
+   */
+  creationDate?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListManagedWorkgroupsResponse {
+  /**
+   * <p>If nextToken is returned, there are more results available.
+   *          The value of nextToken is a unique pagination token for each page.
+   *          To retrieve the next page, make the call again using the returned token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The returned array of managed workgroups.</p>
+   * @public
+   */
+  managedWorkgroups?: ManagedWorkgroupListItem[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListNamespacesRequest {
   /**
    * <p>If your initial <code>ListNamespaces</code> operation returns a <code>nextToken</code>,

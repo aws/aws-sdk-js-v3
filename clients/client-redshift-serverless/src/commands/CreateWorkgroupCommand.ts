@@ -33,6 +33,23 @@ export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, _
 
 /**
  * <p>Creates an workgroup in Amazon Redshift Serverless.</p>
+ *          <p>VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that
+ *          you own in a Region from reaching or being reached from the internet through internet
+ *          gateways and egress-only internet gateways. If a workgroup is in an account with VPC BPA
+ *          turned on, the following capabilities are blocked: </p>
+ *          <ul>
+ *             <li>
+ *                <p>Creating a public access workgroup</p>
+ *             </li>
+ *             <li>
+ *                <p>Modifying a private workgroup to public</p>
+ *             </li>
+ *             <li>
+ *                <p>Adding a subnet with VPC BPA turned on to the workgroup when the workgroup is
+ *                public</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

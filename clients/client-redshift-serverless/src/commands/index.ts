@@ -30,6 +30,7 @@ export * from "./GetUsageLimitCommand";
 export * from "./GetWorkgroupCommand";
 export * from "./ListCustomDomainAssociationsCommand";
 export * from "./ListEndpointAccessCommand";
+export * from "./ListManagedWorkgroupsCommand";
 export * from "./ListNamespacesCommand";
 export * from "./ListRecoveryPointsCommand";
 export * from "./ListScheduledActionsCommand";

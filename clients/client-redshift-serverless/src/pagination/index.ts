@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./ListCustomDomainAssociationsPaginator";
 export * from "./ListEndpointAccessPaginator";
+export * from "./ListManagedWorkgroupsPaginator";
 export * from "./ListNamespacesPaginator";
 export * from "./ListRecoveryPointsPaginator";
 export * from "./ListScheduledActionsPaginator";

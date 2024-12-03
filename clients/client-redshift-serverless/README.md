@@ -14,10 +14,7 @@ underlying resources based on workload demands. Amazon Redshift Serverless adjus
 performance and simplified operations for even the most demanding and volatile workloads. Amazon Redshift Serverless lets you
 focus on using your data to acquire new insights for your business and customers.
 </p>
-<p>
-To learn more about Amazon Redshift Serverless,
-see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html">What is Amazon Redshift Serverless</a>.
-</p>
+<p> To learn more about Amazon Redshift Serverless, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html">What is Amazon Redshift Serverless?</a>.</p>
 
 ## Installing
 
@@ -460,6 +457,14 @@ ListEndpointAccess
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/ListEndpointAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/ListEndpointAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/ListEndpointAccessCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListManagedWorkgroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/ListManagedWorkgroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/ListManagedWorkgroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/ListManagedWorkgroupsCommandOutput/)
 
 </details>
 <details>

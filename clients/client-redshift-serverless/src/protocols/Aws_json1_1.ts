@@ -99,6 +99,10 @@ import {
   ListCustomDomainAssociationsCommandOutput,
 } from "../commands/ListCustomDomainAssociationsCommand";
 import { ListEndpointAccessCommandInput, ListEndpointAccessCommandOutput } from "../commands/ListEndpointAccessCommand";
+import {
+  ListManagedWorkgroupsCommandInput,
+  ListManagedWorkgroupsCommandOutput,
+} from "../commands/ListManagedWorkgroupsCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "../commands/ListNamespacesCommand";
 import { ListRecoveryPointsCommandInput, ListRecoveryPointsCommandOutput } from "../commands/ListRecoveryPointsCommand";
 import {
@@ -224,6 +228,8 @@ import {
   ListCustomDomainAssociationsResponse,
   ListEndpointAccessRequest,
   ListEndpointAccessResponse,
+  ListManagedWorkgroupsRequest,
+  ListManagedWorkgroupsResponse,
   ListNamespacesRequest,
   ListNamespacesResponse,
   ListRecoveryPointsRequest,
@@ -239,6 +245,7 @@ import {
   ListWorkgroupsRequest,
   ListWorkgroupsResponse,
   LogExport,
+  ManagedWorkgroupListItem,
   Namespace,
   PerformanceTarget,
   PutResourcePolicyRequest,
@@ -680,6 +687,19 @@ export const se_ListEndpointAccessCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListEndpointAccess");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListManagedWorkgroupsCommand
+ */
+export const se_ListManagedWorkgroupsCommand = async (
+  input: ListManagedWorkgroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListManagedWorkgroups");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1618,6 +1638,26 @@ export const de_ListEndpointAccessCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListManagedWorkgroupsCommand
+ */
+export const de_ListManagedWorkgroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedWorkgroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListManagedWorkgroupsResponse(data, context);
+  const response: ListManagedWorkgroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListNamespacesCommand
  */
 export const de_ListNamespacesCommand = async (
@@ -2402,6 +2442,8 @@ const se_CreateScheduledActionRequest = (input: CreateScheduledActionRequest, co
 
 // se_ListEndpointAccessRequest omitted.
 
+// se_ListManagedWorkgroupsRequest omitted.
+
 // se_ListNamespacesRequest omitted.
 
 /**
@@ -2843,6 +2885,16 @@ const de_ListEndpointAccessResponse = (output: any, context: __SerdeContext): Li
 };
 
 /**
+ * deserializeAws_json1_1ListManagedWorkgroupsResponse
+ */
+const de_ListManagedWorkgroupsResponse = (output: any, context: __SerdeContext): ListManagedWorkgroupsResponse => {
+  return take(output, {
+    managedWorkgroups: (_: any) => de_ManagedWorkgroups(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ListNamespacesResponse
  */
 const de_ListNamespacesResponse = (output: any, context: __SerdeContext): ListNamespacesResponse => {
@@ -2901,6 +2953,31 @@ const de_ListWorkgroupsResponse = (output: any, context: __SerdeContext): ListWo
 };
 
 // de_LogExportList omitted.
+
+/**
+ * deserializeAws_json1_1ManagedWorkgroupListItem
+ */
+const de_ManagedWorkgroupListItem = (output: any, context: __SerdeContext): ManagedWorkgroupListItem => {
+  return take(output, {
+    creationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    managedWorkgroupId: __expectString,
+    managedWorkgroupName: __expectString,
+    sourceArn: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ManagedWorkgroups
+ */
+const de_ManagedWorkgroups = (output: any, context: __SerdeContext): ManagedWorkgroupListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ManagedWorkgroupListItem(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_json1_1Namespace
