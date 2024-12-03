@@ -33,6 +33,10 @@ import {
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
+  AssociateAgentCollaboratorCommandInput,
+  AssociateAgentCollaboratorCommandOutput,
+} from "../commands/AssociateAgentCollaboratorCommand";
+import {
   AssociateAgentKnowledgeBaseCommandInput,
   AssociateAgentKnowledgeBaseCommandOutput,
 } from "../commands/AssociateAgentKnowledgeBaseCommand";
@@ -76,6 +80,10 @@ import {
 } from "../commands/DeleteKnowledgeBaseDocumentsCommand";
 import { DeletePromptCommandInput, DeletePromptCommandOutput } from "../commands/DeletePromptCommand";
 import {
+  DisassociateAgentCollaboratorCommandInput,
+  DisassociateAgentCollaboratorCommandOutput,
+} from "../commands/DisassociateAgentCollaboratorCommand";
+import {
   DisassociateAgentKnowledgeBaseCommandInput,
   DisassociateAgentKnowledgeBaseCommandOutput,
 } from "../commands/DisassociateAgentKnowledgeBaseCommand";
@@ -84,6 +92,10 @@ import {
   GetAgentActionGroupCommandOutput,
 } from "../commands/GetAgentActionGroupCommand";
 import { GetAgentAliasCommandInput, GetAgentAliasCommandOutput } from "../commands/GetAgentAliasCommand";
+import {
+  GetAgentCollaboratorCommandInput,
+  GetAgentCollaboratorCommandOutput,
+} from "../commands/GetAgentCollaboratorCommand";
 import { GetAgentCommandInput, GetAgentCommandOutput } from "../commands/GetAgentCommand";
 import {
   GetAgentKnowledgeBaseCommandInput,
@@ -110,6 +122,10 @@ import {
   ListAgentActionGroupsCommandOutput,
 } from "../commands/ListAgentActionGroupsCommand";
 import { ListAgentAliasesCommandInput, ListAgentAliasesCommandOutput } from "../commands/ListAgentAliasesCommand";
+import {
+  ListAgentCollaboratorsCommandInput,
+  ListAgentCollaboratorsCommandOutput,
+} from "../commands/ListAgentCollaboratorsCommand";
 import {
   ListAgentKnowledgeBasesCommandInput,
   ListAgentKnowledgeBasesCommandOutput,
@@ -142,6 +158,10 @@ import {
   UpdateAgentActionGroupCommandOutput,
 } from "../commands/UpdateAgentActionGroupCommand";
 import { UpdateAgentAliasCommandInput, UpdateAgentAliasCommandOutput } from "../commands/UpdateAgentAliasCommand";
+import {
+  UpdateAgentCollaboratorCommandInput,
+  UpdateAgentCollaboratorCommandOutput,
+} from "../commands/UpdateAgentCollaboratorCommand";
 import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "../commands/UpdateAgentCommand";
 import {
   UpdateAgentKnowledgeBaseCommandInput,
@@ -170,6 +190,9 @@ import {
   AgentAliasHistoryEvent,
   AgentAliasRoutingConfigurationListItem,
   AgentAliasSummary,
+  AgentCollaborator,
+  AgentCollaboratorSummary,
+  AgentDescriptor,
   AgentFlowNodeConfiguration,
   AgentKnowledgeBase,
   AgentKnowledgeBaseSummary,
@@ -191,17 +214,13 @@ import {
   ConfluenceSourceConfiguration,
   ContentBlock,
   CrawlFilterConfiguration,
-  CustomContent,
   CustomDocumentIdentifier,
   CustomOrchestration,
-  CustomS3Location,
   CustomTransformationConfiguration,
   DataSource,
   DataSourceConfiguration,
   DataSourceSummary,
-  DocumentContent,
   DocumentIdentifier,
-  DocumentMetadata,
   FixedSizeChunkingConfiguration,
   FlowAliasRoutingConfigurationListItem,
   FlowAliasSummary,
@@ -232,7 +251,6 @@ import {
   IntermediateStorage,
   InternalServerException,
   IteratorFlowNodeConfiguration,
-  KnowledgeBaseDocument,
   KnowledgeBaseDocumentDetail,
   KnowledgeBaseFlowNodeConfiguration,
   LambdaFunctionFlowNodeConfiguration,
@@ -240,8 +258,6 @@ import {
   MemoryConfiguration,
   MemoryType,
   Message,
-  MetadataAttribute,
-  MetadataAttributeValue,
   OrchestrationExecutor,
   OutputFlowNodeConfiguration,
   ParameterDetail,
@@ -263,7 +279,6 @@ import {
   RetrievalFlowNodeConfiguration,
   RetrievalFlowNodeS3Configuration,
   RetrievalFlowNodeServiceConfiguration,
-  S3Content,
   S3DataSourceConfiguration,
   S3Identifier,
   S3Location,
@@ -303,10 +318,17 @@ import {
 } from "../models/models_0";
 import {
   BedrockEmbeddingModelConfiguration,
+  CustomContent,
+  CustomS3Location,
+  DocumentContent,
+  DocumentMetadata,
   EmbeddingModelConfiguration,
   KnowledgeBase,
   KnowledgeBaseConfiguration,
+  KnowledgeBaseDocument,
   KnowledgeBaseSummary,
+  MetadataAttribute,
+  MetadataAttributeValue,
   MongoDbAtlasConfiguration,
   MongoDbAtlasFieldMapping,
   OpenSearchServerlessConfiguration,
@@ -322,9 +344,38 @@ import {
   RdsFieldMapping,
   RedisEnterpriseCloudConfiguration,
   RedisEnterpriseCloudFieldMapping,
+  S3Content,
   StorageConfiguration,
   VectorKnowledgeBaseConfiguration,
 } from "../models/models_1";
+
+/**
+ * serializeAws_restJson1AssociateAgentCollaboratorCommand
+ */
+export const se_AssociateAgentCollaboratorCommand = async (
+  input: AssociateAgentCollaboratorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      agentDescriptor: (_) => _json(_),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      collaborationInstruction: [],
+      collaboratorName: [],
+      relayConversationHistory: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1AssociateAgentKnowledgeBaseCommand
@@ -367,6 +418,7 @@ export const se_CreateAgentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      agentCollaboration: [],
       agentName: [],
       agentResourceRoleArn: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
@@ -845,6 +897,24 @@ export const se_DeletePromptCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DisassociateAgentCollaboratorCommand
+ */
+export const se_DisassociateAgentCollaboratorCommand = async (
+  input: DisassociateAgentCollaboratorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators/{collaboratorId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
+  b.p("collaboratorId", () => input.collaboratorId!, "{collaboratorId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DisassociateAgentKnowledgeBaseCommand
  */
 export const se_DisassociateAgentKnowledgeBaseCommand = async (
@@ -908,6 +978,24 @@ export const se_GetAgentAliasCommand = async (
   b.bp("/agents/{agentId}/agentaliases/{agentAliasId}");
   b.p("agentId", () => input.agentId!, "{agentId}", false);
   b.p("agentAliasId", () => input.agentAliasId!, "{agentAliasId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAgentCollaboratorCommand
+ */
+export const se_GetAgentCollaboratorCommand = async (
+  input: GetAgentCollaboratorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators/{collaboratorId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
+  b.p("collaboratorId", () => input.collaboratorId!, "{collaboratorId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -1155,6 +1243,31 @@ export const se_ListAgentAliasesCommand = async (
   };
   b.bp("/agents/{agentId}/agentaliases");
   b.p("agentId", () => input.agentId!, "{agentId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAgentCollaboratorsCommand
+ */
+export const se_ListAgentCollaboratorsCommand = async (
+  input: ListAgentCollaboratorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1565,6 +1678,7 @@ export const se_UpdateAgentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      agentCollaboration: [],
       agentName: [],
       agentResourceRoleArn: [],
       customOrchestration: (_) => _json(_),
@@ -1634,6 +1748,34 @@ export const se_UpdateAgentAliasCommand = async (
       agentAliasName: [],
       description: [],
       routingConfiguration: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateAgentCollaboratorCommand
+ */
+export const se_UpdateAgentCollaboratorCommand = async (
+  input: UpdateAgentCollaboratorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators/{collaboratorId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
+  b.p("collaboratorId", () => input.collaboratorId!, "{collaboratorId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      agentDescriptor: (_) => _json(_),
+      collaborationInstruction: [],
+      collaboratorName: [],
+      relayConversationHistory: [],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -1822,6 +1964,27 @@ export const se_ValidateFlowDefinitionCommand = async (
   );
   b.m("POST").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1AssociateAgentCollaboratorCommand
+ */
+export const de_AssociateAgentCollaboratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateAgentCollaboratorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    agentCollaborator: (_) => de_AgentCollaborator(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -2338,6 +2501,23 @@ export const de_DeletePromptCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DisassociateAgentCollaboratorCommand
+ */
+export const de_DisassociateAgentCollaboratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateAgentCollaboratorCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DisassociateAgentKnowledgeBaseCommand
  */
 export const de_DisassociateAgentKnowledgeBaseCommand = async (
@@ -2412,6 +2592,27 @@ export const de_GetAgentAliasCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     agentAlias: (_) => de_AgentAlias(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAgentCollaboratorCommand
+ */
+export const de_GetAgentCollaboratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAgentCollaboratorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    agentCollaborator: (_) => de_AgentCollaborator(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2722,6 +2923,28 @@ export const de_ListAgentAliasesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     agentAliasSummaries: (_) => de_AgentAliasSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAgentCollaboratorsCommand
+ */
+export const de_ListAgentCollaboratorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAgentCollaboratorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    agentCollaboratorSummaries: (_) => de_AgentCollaboratorSummaries(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -3177,6 +3400,27 @@ export const de_UpdateAgentAliasCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateAgentCollaboratorCommand
+ */
+export const de_UpdateAgentCollaboratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAgentCollaboratorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    agentCollaborator: (_) => de_AgentCollaborator(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateAgentKnowledgeBaseCommand
  */
 export const de_UpdateAgentKnowledgeBaseCommand = async (
@@ -3529,6 +3773,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AgentAliasRoutingConfigurationListItem omitted.
 
+// se_AgentDescriptor omitted.
+
 // se_AgentFlowNodeConfiguration omitted.
 
 // se_AnyToolChoice omitted.
@@ -3877,6 +4123,7 @@ const se_MetadataAttributeValue = (input: MetadataAttributeValue, context: __Ser
 const se_PromptConfiguration = (input: PromptConfiguration, context: __SerdeContext): any => {
   return take(input, {
     basePromptTemplate: [],
+    foundationModel: [],
     inferenceConfiguration: (_) => se_InferenceConfiguration(_, context),
     parserMode: [],
     promptCreationMode: [],
@@ -4207,6 +4454,7 @@ const de_ActionGroupSummary = (output: any, context: __SerdeContext): ActionGrou
 const de_Agent = (output: any, context: __SerdeContext): Agent => {
   return take(output, {
     agentArn: __expectString,
+    agentCollaboration: __expectString,
     agentId: __expectString,
     agentName: __expectString,
     agentResourceRoleArn: __expectString,
@@ -4326,6 +4574,55 @@ const de_AgentAliasSummary = (output: any, context: __SerdeContext): AgentAliasS
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1AgentCollaborator
+ */
+const de_AgentCollaborator = (output: any, context: __SerdeContext): AgentCollaborator => {
+  return take(output, {
+    agentDescriptor: _json,
+    agentId: __expectString,
+    agentVersion: __expectString,
+    clientToken: __expectString,
+    collaborationInstruction: __expectString,
+    collaboratorId: __expectString,
+    collaboratorName: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    relayConversationHistory: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AgentCollaboratorSummaries
+ */
+const de_AgentCollaboratorSummaries = (output: any, context: __SerdeContext): AgentCollaboratorSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AgentCollaboratorSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AgentCollaboratorSummary
+ */
+const de_AgentCollaboratorSummary = (output: any, context: __SerdeContext): AgentCollaboratorSummary => {
+  return take(output, {
+    agentDescriptor: _json,
+    agentId: __expectString,
+    agentVersion: __expectString,
+    collaborationInstruction: __expectString,
+    collaboratorId: __expectString,
+    collaboratorName: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    relayConversationHistory: __expectString,
+  }) as any;
+};
+
+// de_AgentDescriptor omitted.
+
 // de_AgentFlowNodeConfiguration omitted.
 
 /**
@@ -4400,6 +4697,7 @@ const de_AgentSummary = (output: any, context: __SerdeContext): AgentSummary => 
 const de_AgentVersion = (output: any, context: __SerdeContext): AgentVersion => {
   return take(output, {
     agentArn: __expectString,
+    agentCollaboration: __expectString,
     agentId: __expectString,
     agentName: __expectString,
     agentResourceRoleArn: __expectString,
@@ -5002,6 +5300,7 @@ const de_KnowledgeBaseSummary = (output: any, context: __SerdeContext): Knowledg
 const de_PromptConfiguration = (output: any, context: __SerdeContext): PromptConfiguration => {
   return take(output, {
     basePromptTemplate: __expectString,
+    foundationModel: __expectString,
     inferenceConfiguration: (_: any) => de_InferenceConfiguration(_, context),
     parserMode: __expectString,
     promptCreationMode: __expectString,

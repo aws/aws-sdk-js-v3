@@ -54,6 +54,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  AssociateAgentCollaboratorCommandInput,
+  AssociateAgentCollaboratorCommandOutput,
+} from "./commands/AssociateAgentCollaboratorCommand";
+import {
   AssociateAgentKnowledgeBaseCommandInput,
   AssociateAgentKnowledgeBaseCommandOutput,
 } from "./commands/AssociateAgentKnowledgeBaseCommand";
@@ -97,6 +101,10 @@ import {
 } from "./commands/DeleteKnowledgeBaseDocumentsCommand";
 import { DeletePromptCommandInput, DeletePromptCommandOutput } from "./commands/DeletePromptCommand";
 import {
+  DisassociateAgentCollaboratorCommandInput,
+  DisassociateAgentCollaboratorCommandOutput,
+} from "./commands/DisassociateAgentCollaboratorCommand";
+import {
   DisassociateAgentKnowledgeBaseCommandInput,
   DisassociateAgentKnowledgeBaseCommandOutput,
 } from "./commands/DisassociateAgentKnowledgeBaseCommand";
@@ -105,6 +113,10 @@ import {
   GetAgentActionGroupCommandOutput,
 } from "./commands/GetAgentActionGroupCommand";
 import { GetAgentAliasCommandInput, GetAgentAliasCommandOutput } from "./commands/GetAgentAliasCommand";
+import {
+  GetAgentCollaboratorCommandInput,
+  GetAgentCollaboratorCommandOutput,
+} from "./commands/GetAgentCollaboratorCommand";
 import { GetAgentCommandInput, GetAgentCommandOutput } from "./commands/GetAgentCommand";
 import {
   GetAgentKnowledgeBaseCommandInput,
@@ -131,6 +143,10 @@ import {
   ListAgentActionGroupsCommandOutput,
 } from "./commands/ListAgentActionGroupsCommand";
 import { ListAgentAliasesCommandInput, ListAgentAliasesCommandOutput } from "./commands/ListAgentAliasesCommand";
+import {
+  ListAgentCollaboratorsCommandInput,
+  ListAgentCollaboratorsCommandOutput,
+} from "./commands/ListAgentCollaboratorsCommand";
 import {
   ListAgentKnowledgeBasesCommandInput,
   ListAgentKnowledgeBasesCommandOutput,
@@ -163,6 +179,10 @@ import {
   UpdateAgentActionGroupCommandOutput,
 } from "./commands/UpdateAgentActionGroupCommand";
 import { UpdateAgentAliasCommandInput, UpdateAgentAliasCommandOutput } from "./commands/UpdateAgentAliasCommand";
+import {
+  UpdateAgentCollaboratorCommandInput,
+  UpdateAgentCollaboratorCommandOutput,
+} from "./commands/UpdateAgentCollaboratorCommand";
 import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
 import {
   UpdateAgentKnowledgeBaseCommandInput,
@@ -195,6 +215,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateAgentCollaboratorCommandInput
   | AssociateAgentKnowledgeBaseCommandInput
   | CreateAgentActionGroupCommandInput
   | CreateAgentAliasCommandInput
@@ -217,9 +238,11 @@ export type ServiceInputTypes =
   | DeleteKnowledgeBaseCommandInput
   | DeleteKnowledgeBaseDocumentsCommandInput
   | DeletePromptCommandInput
+  | DisassociateAgentCollaboratorCommandInput
   | DisassociateAgentKnowledgeBaseCommandInput
   | GetAgentActionGroupCommandInput
   | GetAgentAliasCommandInput
+  | GetAgentCollaboratorCommandInput
   | GetAgentCommandInput
   | GetAgentKnowledgeBaseCommandInput
   | GetAgentVersionCommandInput
@@ -234,6 +257,7 @@ export type ServiceInputTypes =
   | IngestKnowledgeBaseDocumentsCommandInput
   | ListAgentActionGroupsCommandInput
   | ListAgentAliasesCommandInput
+  | ListAgentCollaboratorsCommandInput
   | ListAgentKnowledgeBasesCommandInput
   | ListAgentVersionsCommandInput
   | ListAgentsCommandInput
@@ -254,6 +278,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAgentActionGroupCommandInput
   | UpdateAgentAliasCommandInput
+  | UpdateAgentCollaboratorCommandInput
   | UpdateAgentCommandInput
   | UpdateAgentKnowledgeBaseCommandInput
   | UpdateDataSourceCommandInput
@@ -267,6 +292,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateAgentCollaboratorCommandOutput
   | AssociateAgentKnowledgeBaseCommandOutput
   | CreateAgentActionGroupCommandOutput
   | CreateAgentAliasCommandOutput
@@ -289,9 +315,11 @@ export type ServiceOutputTypes =
   | DeleteKnowledgeBaseCommandOutput
   | DeleteKnowledgeBaseDocumentsCommandOutput
   | DeletePromptCommandOutput
+  | DisassociateAgentCollaboratorCommandOutput
   | DisassociateAgentKnowledgeBaseCommandOutput
   | GetAgentActionGroupCommandOutput
   | GetAgentAliasCommandOutput
+  | GetAgentCollaboratorCommandOutput
   | GetAgentCommandOutput
   | GetAgentKnowledgeBaseCommandOutput
   | GetAgentVersionCommandOutput
@@ -306,6 +334,7 @@ export type ServiceOutputTypes =
   | IngestKnowledgeBaseDocumentsCommandOutput
   | ListAgentActionGroupsCommandOutput
   | ListAgentAliasesCommandOutput
+  | ListAgentCollaboratorsCommandOutput
   | ListAgentKnowledgeBasesCommandOutput
   | ListAgentVersionsCommandOutput
   | ListAgentsCommandOutput
@@ -326,6 +355,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAgentActionGroupCommandOutput
   | UpdateAgentAliasCommandOutput
+  | UpdateAgentCollaboratorCommandOutput
   | UpdateAgentCommandOutput
   | UpdateAgentKnowledgeBaseCommandOutput
   | UpdateDataSourceCommandOutput

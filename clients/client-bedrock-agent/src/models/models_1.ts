@@ -10,15 +10,332 @@ import {
   AgentVersion,
   AgentVersionFilterSensitiveLog,
   AgentVersionSummary,
+  ContentDataSourceType,
+  CustomDocumentIdentifier,
   FlowDefinition,
   FlowValidation,
   FlowValidationFilterSensitiveLog,
+  InlineContent,
+  InlineContentFilterSensitiveLog,
+  KnowledgeBaseDocumentDetail,
   KnowledgeBaseState,
   PromptInferenceConfiguration,
   PromptTemplateConfiguration,
   PromptTemplateConfigurationFilterSensitiveLog,
   PromptTemplateType,
+  S3Location,
 } from "./models_0";
+
+/**
+ * <p>Contains information about the Amazon S3 location of the file containing the content to ingest into a knowledge base connected to a custom data source.</p>
+ * @public
+ */
+export interface CustomS3Location {
+  /**
+   * <p>The S3 URI of the file containing the content to ingest.</p>
+   * @public
+   */
+  uri: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Web Services account that owns the S3 bucket containing the content to ingest.</p>
+   * @public
+   */
+  bucketOwnerAccountId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomSourceType = {
+  IN_LINE: "IN_LINE",
+  S3_LOCATION: "S3_LOCATION",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomSourceType = (typeof CustomSourceType)[keyof typeof CustomSourceType];
+
+/**
+ * <p>Contains information about the content to ingest into a knowledge base connected to a custom data source. Choose a <code>sourceType</code> and include the field that corresponds to it.</p>
+ * @public
+ */
+export interface CustomContent {
+  /**
+   * <p>A unique identifier for the document.</p>
+   * @public
+   */
+  customDocumentIdentifier: CustomDocumentIdentifier | undefined;
+
+  /**
+   * <p>The source of the data to ingest.</p>
+   * @public
+   */
+  sourceType: CustomSourceType | undefined;
+
+  /**
+   * <p>Contains information about the Amazon S3 location of the file from which to ingest data.</p>
+   * @public
+   */
+  s3Location?: CustomS3Location | undefined;
+
+  /**
+   * <p>Contains information about content defined inline to ingest into a knowledge base.</p>
+   * @public
+   */
+  inlineContent?: InlineContent | undefined;
+}
+
+/**
+ * <p>Contains information about the content to ingest into a knowledge base connected to an Amazon S3 data source.</p>
+ * @public
+ */
+export interface S3Content {
+  /**
+   * <p>The S3 location of the file containing the content to ingest.</p>
+   * @public
+   */
+  s3Location: S3Location | undefined;
+}
+
+/**
+ * <p>Contains information about the content of a document. Choose a <code>dataSourceType</code> and include the field that corresponds to it.</p>
+ * @public
+ */
+export interface DocumentContent {
+  /**
+   * <p>The type of data source that is connected to the knowledge base to which to ingest this document.</p>
+   * @public
+   */
+  dataSourceType: ContentDataSourceType | undefined;
+
+  /**
+   * <p>Contains information about the content to ingest into a knowledge base connected to a custom data source.</p>
+   * @public
+   */
+  custom?: CustomContent | undefined;
+
+  /**
+   * <p>Contains information about the content to ingest into a knowledge base connected to an Amazon S3 data source</p>
+   * @public
+   */
+  s3?: S3Content | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MetadataValueType = {
+  BOOLEAN: "BOOLEAN",
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+  STRING_LIST: "STRING_LIST",
+} as const;
+
+/**
+ * @public
+ */
+export type MetadataValueType = (typeof MetadataValueType)[keyof typeof MetadataValueType];
+
+/**
+ * <p>Contains the value of the metadata attribute. Choose a <code>type</code> and include the field that corresponds to it.</p>
+ * @public
+ */
+export interface MetadataAttributeValue {
+  /**
+   * <p>The type of the metadata attribute.</p>
+   * @public
+   */
+  type: MetadataValueType | undefined;
+
+  /**
+   * <p>The value of the numeric metadata attribute.</p>
+   * @public
+   */
+  numberValue?: number | undefined;
+
+  /**
+   * <p>The value of the Boolean metadata attribute.</p>
+   * @public
+   */
+  booleanValue?: boolean | undefined;
+
+  /**
+   * <p>The value of the string metadata attribute.</p>
+   * @public
+   */
+  stringValue?: string | undefined;
+
+  /**
+   * <p>An array of strings that define the value of the metadata attribute.</p>
+   * @public
+   */
+  stringListValue?: string[] | undefined;
+}
+
+/**
+ * <p>Contains information about a metadata attribute.</p>
+ * @public
+ */
+export interface MetadataAttribute {
+  /**
+   * <p>The key of the metadata attribute.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>Contains the value of the metadata attribute.</p>
+   * @public
+   */
+  value: MetadataAttributeValue | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MetadataSourceType = {
+  IN_LINE_ATTRIBUTE: "IN_LINE_ATTRIBUTE",
+  S3_LOCATION: "S3_LOCATION",
+} as const;
+
+/**
+ * @public
+ */
+export type MetadataSourceType = (typeof MetadataSourceType)[keyof typeof MetadataSourceType];
+
+/**
+ * <p>Contains information about the metadata associate with the content to ingest into a knowledge base. Choose a <code>type</code> and include the field that corresponds to it.</p>
+ * @public
+ */
+export interface DocumentMetadata {
+  /**
+   * <p>The type of the source source from which to add metadata.</p>
+   * @public
+   */
+  type: MetadataSourceType | undefined;
+
+  /**
+   * <p>An array of objects, each of which defines a metadata attribute to associate with the content to ingest. You define the attributes inline.</p>
+   * @public
+   */
+  inlineAttributes?: MetadataAttribute[] | undefined;
+
+  /**
+   * <p>The Amazon S3 location of the file containing metadata to associate with the content to ingest.</p>
+   * @public
+   */
+  s3Location?: CustomS3Location | undefined;
+}
+
+/**
+ * <p>Contains information about a document to ingest into a knowledge base and metadata to associate with it.</p>
+ * @public
+ */
+export interface KnowledgeBaseDocument {
+  /**
+   * <p>Contains the metadata to associate with the document.</p>
+   * @public
+   */
+  metadata?: DocumentMetadata | undefined;
+
+  /**
+   * <p>Contains the content of the document.</p>
+   * @public
+   */
+  content: DocumentContent | undefined;
+}
+
+/**
+ * @public
+ */
+export interface IngestKnowledgeBaseDocumentsRequest {
+  /**
+   * <p>The unique identifier of the knowledge base to ingest the documents into.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source connected to the knowledge base that you're adding documents to.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A list of objects, each of which contains information about the documents to add.</p>
+   * @public
+   */
+  documents: KnowledgeBaseDocument[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface IngestKnowledgeBaseDocumentsResponse {
+  /**
+   * <p>A list of objects, each of which contains information about the documents that were ingested.</p>
+   * @public
+   */
+  documentDetails?: KnowledgeBaseDocumentDetail[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListKnowledgeBaseDocumentsRequest {
+  /**
+   * <p>The unique identifier of the knowledge base that is connected to the data source.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source that contains the documents.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListKnowledgeBaseDocumentsResponse {
+  /**
+   * <p>A list of objects, each of which contains information about the documents that were retrieved.</p>
+   * @public
+   */
+  documentDetails: KnowledgeBaseDocumentDetail[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -1851,6 +2168,70 @@ export interface ListAgentVersionsResponse {
    */
   nextToken?: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const CustomContentFilterSensitiveLog = (obj: CustomContent): any => ({
+  ...obj,
+  ...(obj.inlineContent && { inlineContent: InlineContentFilterSensitiveLog(obj.inlineContent) }),
+});
+
+/**
+ * @internal
+ */
+export const DocumentContentFilterSensitiveLog = (obj: DocumentContent): any => ({
+  ...obj,
+  ...(obj.custom && { custom: CustomContentFilterSensitiveLog(obj.custom) }),
+});
+
+/**
+ * @internal
+ */
+export const MetadataAttributeValueFilterSensitiveLog = (obj: MetadataAttributeValue): any => ({
+  ...obj,
+  ...(obj.numberValue && { numberValue: SENSITIVE_STRING }),
+  ...(obj.stringValue && { stringValue: SENSITIVE_STRING }),
+  ...(obj.stringListValue && { stringListValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MetadataAttributeFilterSensitiveLog = (obj: MetadataAttribute): any => ({
+  ...obj,
+  ...(obj.key && { key: SENSITIVE_STRING }),
+  ...(obj.value && { value: MetadataAttributeValueFilterSensitiveLog(obj.value) }),
+});
+
+/**
+ * @internal
+ */
+export const DocumentMetadataFilterSensitiveLog = (obj: DocumentMetadata): any => ({
+  ...obj,
+  ...(obj.inlineAttributes && {
+    inlineAttributes: obj.inlineAttributes.map((item) => MetadataAttributeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseDocumentFilterSensitiveLog = (obj: KnowledgeBaseDocument): any => ({
+  ...obj,
+  ...(obj.metadata && { metadata: DocumentMetadataFilterSensitiveLog(obj.metadata) }),
+  ...(obj.content && { content: DocumentContentFilterSensitiveLog(obj.content) }),
+});
+
+/**
+ * @internal
+ */
+export const IngestKnowledgeBaseDocumentsRequestFilterSensitiveLog = (
+  obj: IngestKnowledgeBaseDocumentsRequest
+): any => ({
+  ...obj,
+  ...(obj.documents && { documents: obj.documents.map((item) => KnowledgeBaseDocumentFilterSensitiveLog(item)) }),
+});
 
 /**
  * @internal

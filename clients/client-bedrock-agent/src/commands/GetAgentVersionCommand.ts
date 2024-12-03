@@ -83,6 +83,7 @@ export interface GetAgentVersionCommandOutput extends GetAgentVersionResponse, _
  * //             ],
  * //           },
  * //           parserMode: "DEFAULT" || "OVERRIDDEN",
+ * //           foundationModel: "STRING_VALUE",
  * //         },
  * //       ],
  * //       overrideLambda: "STRING_VALUE",
@@ -97,6 +98,7 @@ export interface GetAgentVersionCommandOutput extends GetAgentVersionResponse, _
  * //       ],
  * //       storageDays: Number("int"),
  * //     },
+ * //     agentCollaboration: "SUPERVISOR" || "SUPERVISOR_ROUTER" || "DISABLED",
  * //   },
  * // };
  *

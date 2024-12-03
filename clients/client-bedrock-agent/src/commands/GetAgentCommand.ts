@@ -86,6 +86,7 @@ export interface GetAgentCommandOutput extends GetAgentResponse, __MetadataBeare
  * //             ],
  * //           },
  * //           parserMode: "DEFAULT" || "OVERRIDDEN",
+ * //           foundationModel: "STRING_VALUE",
  * //         },
  * //       ],
  * //       overrideLambda: "STRING_VALUE",
@@ -100,6 +101,7 @@ export interface GetAgentCommandOutput extends GetAgentResponse, __MetadataBeare
  * //       ],
  * //       storageDays: Number("int"),
  * //     },
+ * //     agentCollaboration: "SUPERVISOR" || "SUPERVISOR_ROUTER" || "DISABLED",
  * //   },
  * // };
  *

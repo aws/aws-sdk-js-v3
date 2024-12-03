@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./ListAgentActionGroupsPaginator";
 export * from "./ListAgentAliasesPaginator";
+export * from "./ListAgentCollaboratorsPaginator";
 export * from "./ListAgentKnowledgeBasesPaginator";
 export * from "./ListAgentVersionsPaginator";
 export * from "./ListAgentsPaginator";

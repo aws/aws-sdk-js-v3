@@ -72,6 +72,7 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  *           ],
  *         },
  *         parserMode: "DEFAULT" || "OVERRIDDEN",
+ *         foundationModel: "STRING_VALUE",
  *       },
  *     ],
  *     overrideLambda: "STRING_VALUE",
@@ -86,6 +87,7 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  *     ],
  *     storageDays: Number("int"),
  *   },
+ *   agentCollaboration: "SUPERVISOR" || "SUPERVISOR_ROUTER" || "DISABLED",
  * };
  * const command = new UpdateAgentCommand(input);
  * const response = await client.send(command);
@@ -135,6 +137,7 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * //             ],
  * //           },
  * //           parserMode: "DEFAULT" || "OVERRIDDEN",
+ * //           foundationModel: "STRING_VALUE",
  * //         },
  * //       ],
  * //       overrideLambda: "STRING_VALUE",
@@ -149,6 +152,7 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * //       ],
  * //       storageDays: Number("int"),
  * //     },
+ * //     agentCollaboration: "SUPERVISOR" || "SUPERVISOR_ROUTER" || "DISABLED",
  * //   },
  * // };
  *

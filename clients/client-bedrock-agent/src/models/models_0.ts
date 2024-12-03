@@ -941,6 +941,21 @@ export interface UpdateAgentActionGroupResponse {
  * @public
  * @enum
  */
+export const AgentCollaboration = {
+  DISABLED: "DISABLED",
+  SUPERVISOR: "SUPERVISOR",
+  SUPERVISOR_ROUTER: "SUPERVISOR_ROUTER",
+} as const;
+
+/**
+ * @public
+ */
+export type AgentCollaboration = (typeof AgentCollaboration)[keyof typeof AgentCollaboration];
+
+/**
+ * @public
+ * @enum
+ */
 export const AgentStatus = {
   CREATING: "CREATING",
   DELETING: "DELETING",
@@ -1220,6 +1235,12 @@ export interface PromptConfiguration {
    * @public
    */
   parserMode?: CreationMode | undefined;
+
+  /**
+   * <p>The agent's foundation model.</p>
+   * @public
+   */
+  foundationModel?: string | undefined;
 }
 
 /**
@@ -1405,6 +1426,12 @@ export interface Agent {
    * @public
    */
   memoryConfiguration?: MemoryConfiguration | undefined;
+
+  /**
+   * <p>The agent's collaboration settings.</p>
+   * @public
+   */
+  agentCollaboration?: AgentCollaboration | undefined;
 }
 
 /**
@@ -1608,6 +1635,382 @@ export interface AgentAliasSummary {
    * @public
    */
   updatedAt: Date | undefined;
+}
+
+/**
+ * <p>An agent descriptor.</p>
+ * @public
+ */
+export interface AgentDescriptor {
+  /**
+   * <p>The agent's alias ARN.</p>
+   * @public
+   */
+  aliasArn?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RelayConversationHistory = {
+  DISABLED: "DISABLED",
+  TO_COLLABORATOR: "TO_COLLABORATOR",
+} as const;
+
+/**
+ * @public
+ */
+export type RelayConversationHistory = (typeof RelayConversationHistory)[keyof typeof RelayConversationHistory];
+
+/**
+ * <p>An agent collaborator.</p>
+ * @public
+ */
+export interface AgentCollaborator {
+  /**
+   * <p>The collaborator's agent ID.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>The collaborator's agent version.</p>
+   * @public
+   */
+  agentVersion: string | undefined;
+
+  /**
+   * <p>The collaborator's agent descriptor.</p>
+   * @public
+   */
+  agentDescriptor: AgentDescriptor | undefined;
+
+  /**
+   * <p>The collaborator's collaborator ID.</p>
+   * @public
+   */
+  collaboratorId: string | undefined;
+
+  /**
+   * <p>The collaborator's instructions.</p>
+   * @public
+   */
+  collaborationInstruction: string | undefined;
+
+  /**
+   * <p>The collaborator's collaborator name.</p>
+   * @public
+   */
+  collaboratorName: string | undefined;
+
+  /**
+   * <p>When the collaborator was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>When the collaborator was updated.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The collaborator's relay conversation history.</p>
+   * @public
+   */
+  relayConversationHistory?: RelayConversationHistory | undefined;
+
+  /**
+   * <p>The collaborator's client token.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateAgentCollaboratorRequest {
+  /**
+   * <p>The agent's ID.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>An agent version.</p>
+   * @public
+   */
+  agentVersion: string | undefined;
+
+  /**
+   * <p>The alias of the collaborator agent.</p>
+   * @public
+   */
+  agentDescriptor: AgentDescriptor | undefined;
+
+  /**
+   * <p>A name for the collaborator.</p>
+   * @public
+   */
+  collaboratorName: string | undefined;
+
+  /**
+   * <p>Instruction for the collaborator.</p>
+   * @public
+   */
+  collaborationInstruction: string | undefined;
+
+  /**
+   * <p>A relay conversation history for the collaborator.</p>
+   * @public
+   */
+  relayConversationHistory?: RelayConversationHistory | undefined;
+
+  /**
+   * <p>A client token.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateAgentCollaboratorResponse {
+  /**
+   * <p>Details about the collaborator.</p>
+   * @public
+   */
+  agentCollaborator: AgentCollaborator | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateAgentCollaboratorRequest {
+  /**
+   * <p>An agent ID.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>The agent's version.</p>
+   * @public
+   */
+  agentVersion: string | undefined;
+
+  /**
+   * <p>The collaborator's ID.</p>
+   * @public
+   */
+  collaboratorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateAgentCollaboratorResponse {}
+
+/**
+ * @public
+ */
+export interface GetAgentCollaboratorRequest {
+  /**
+   * <p>The agent's ID.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>The agent's version.</p>
+   * @public
+   */
+  agentVersion: string | undefined;
+
+  /**
+   * <p>The collaborator's ID.</p>
+   * @public
+   */
+  collaboratorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgentCollaboratorResponse {
+  /**
+   * <p>Details about the collaborator.</p>
+   * @public
+   */
+  agentCollaborator: AgentCollaborator | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgentCollaboratorsRequest {
+  /**
+   * <p>The agent's ID.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>The agent's version.</p>
+   * @public
+   */
+  agentVersion: string | undefined;
+
+  /**
+   * <p>The maximum number of agent collaborators to return in one page of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>An agent collaborator summary.</p>
+ * @public
+ */
+export interface AgentCollaboratorSummary {
+  /**
+   * <p>The collaborator's agent ID.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>The collaborator's agent version.</p>
+   * @public
+   */
+  agentVersion: string | undefined;
+
+  /**
+   * <p>The collaborator's ID.</p>
+   * @public
+   */
+  collaboratorId: string | undefined;
+
+  /**
+   * <p>The collaborator's agent descriptor.</p>
+   * @public
+   */
+  agentDescriptor: AgentDescriptor | undefined;
+
+  /**
+   * <p>The collaborator's collaboration instruction.</p>
+   * @public
+   */
+  collaborationInstruction: string | undefined;
+
+  /**
+   * <p>The collaborator's relay conversation history.</p>
+   * @public
+   */
+  relayConversationHistory: RelayConversationHistory | undefined;
+
+  /**
+   * <p>The collaborator's name.</p>
+   * @public
+   */
+  collaboratorName: string | undefined;
+
+  /**
+   * <p>When the collaborator was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>When the collaborator was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgentCollaboratorsResponse {
+  /**
+   * <p>A list of collaborator summaries.</p>
+   * @public
+   */
+  agentCollaboratorSummaries: AgentCollaboratorSummary[] | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAgentCollaboratorRequest {
+  /**
+   * <p>The agent's ID.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>The agent's version.</p>
+   * @public
+   */
+  agentVersion: string | undefined;
+
+  /**
+   * <p>The collaborator's ID.</p>
+   * @public
+   */
+  collaboratorId: string | undefined;
+
+  /**
+   * <p>An agent descriptor for the agent collaborator.</p>
+   * @public
+   */
+  agentDescriptor: AgentDescriptor | undefined;
+
+  /**
+   * <p>The collaborator's name.</p>
+   * @public
+   */
+  collaboratorName: string | undefined;
+
+  /**
+   * <p>Instruction for the collaborator.</p>
+   * @public
+   */
+  collaborationInstruction: string | undefined;
+
+  /**
+   * <p>A relay conversation history for the collaborator.</p>
+   * @public
+   */
+  relayConversationHistory?: RelayConversationHistory | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAgentCollaboratorResponse {
+  /**
+   * <p>Details about the collaborator.</p>
+   * @public
+   */
+  agentCollaborator: AgentCollaborator | undefined;
 }
 
 /**
@@ -1825,6 +2228,12 @@ export interface CreateAgentRequest {
    * @public
    */
   memoryConfiguration?: MemoryConfiguration | undefined;
+
+  /**
+   * <p>The agent's collaboration role.</p>
+   * @public
+   */
+  agentCollaboration?: AgentCollaboration | undefined;
 }
 
 /**
@@ -2120,6 +2529,12 @@ export interface UpdateAgentRequest {
    * @public
    */
   memoryConfiguration?: MemoryConfiguration | undefined;
+
+  /**
+   * <p>The agent's collaboration role.</p>
+   * @public
+   */
+  agentCollaboration?: AgentCollaboration | undefined;
 }
 
 /**
@@ -2248,6 +2663,12 @@ export interface AgentVersion {
    * @public
    */
   memoryConfiguration?: MemoryConfiguration | undefined;
+
+  /**
+   * <p>The agent's collaboration settings.</p>
+   * @public
+   */
+  agentCollaboration?: AgentCollaboration | undefined;
 }
 
 /**
@@ -8799,317 +9220,6 @@ export interface InlineContent {
 }
 
 /**
- * <p>Contains information about the Amazon S3 location of the file containing the content to ingest into a knowledge base connected to a custom data source.</p>
- * @public
- */
-export interface CustomS3Location {
-  /**
-   * <p>The S3 URI of the file containing the content to ingest.</p>
-   * @public
-   */
-  uri: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Web Services account that owns the S3 bucket containing the content to ingest.</p>
-   * @public
-   */
-  bucketOwnerAccountId?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const CustomSourceType = {
-  IN_LINE: "IN_LINE",
-  S3_LOCATION: "S3_LOCATION",
-} as const;
-
-/**
- * @public
- */
-export type CustomSourceType = (typeof CustomSourceType)[keyof typeof CustomSourceType];
-
-/**
- * <p>Contains information about the content to ingest into a knowledge base connected to a custom data source. Choose a <code>sourceType</code> and include the field that corresponds to it.</p>
- * @public
- */
-export interface CustomContent {
-  /**
-   * <p>A unique identifier for the document.</p>
-   * @public
-   */
-  customDocumentIdentifier: CustomDocumentIdentifier | undefined;
-
-  /**
-   * <p>The source of the data to ingest.</p>
-   * @public
-   */
-  sourceType: CustomSourceType | undefined;
-
-  /**
-   * <p>Contains information about the Amazon S3 location of the file from which to ingest data.</p>
-   * @public
-   */
-  s3Location?: CustomS3Location | undefined;
-
-  /**
-   * <p>Contains information about content defined inline to ingest into a knowledge base.</p>
-   * @public
-   */
-  inlineContent?: InlineContent | undefined;
-}
-
-/**
- * <p>Contains information about the content to ingest into a knowledge base connected to an Amazon S3 data source.</p>
- * @public
- */
-export interface S3Content {
-  /**
-   * <p>The S3 location of the file containing the content to ingest.</p>
-   * @public
-   */
-  s3Location: S3Location | undefined;
-}
-
-/**
- * <p>Contains information about the content of a document. Choose a <code>dataSourceType</code> and include the field that corresponds to it.</p>
- * @public
- */
-export interface DocumentContent {
-  /**
-   * <p>The type of data source that is connected to the knowledge base to which to ingest this document.</p>
-   * @public
-   */
-  dataSourceType: ContentDataSourceType | undefined;
-
-  /**
-   * <p>Contains information about the content to ingest into a knowledge base connected to a custom data source.</p>
-   * @public
-   */
-  custom?: CustomContent | undefined;
-
-  /**
-   * <p>Contains information about the content to ingest into a knowledge base connected to an Amazon S3 data source</p>
-   * @public
-   */
-  s3?: S3Content | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MetadataValueType = {
-  BOOLEAN: "BOOLEAN",
-  NUMBER: "NUMBER",
-  STRING: "STRING",
-  STRING_LIST: "STRING_LIST",
-} as const;
-
-/**
- * @public
- */
-export type MetadataValueType = (typeof MetadataValueType)[keyof typeof MetadataValueType];
-
-/**
- * <p>Contains the value of the metadata attribute. Choose a <code>type</code> and include the field that corresponds to it.</p>
- * @public
- */
-export interface MetadataAttributeValue {
-  /**
-   * <p>The type of the metadata attribute.</p>
-   * @public
-   */
-  type: MetadataValueType | undefined;
-
-  /**
-   * <p>The value of the numeric metadata attribute.</p>
-   * @public
-   */
-  numberValue?: number | undefined;
-
-  /**
-   * <p>The value of the Boolean metadata attribute.</p>
-   * @public
-   */
-  booleanValue?: boolean | undefined;
-
-  /**
-   * <p>The value of the string metadata attribute.</p>
-   * @public
-   */
-  stringValue?: string | undefined;
-
-  /**
-   * <p>An array of strings that define the value of the metadata attribute.</p>
-   * @public
-   */
-  stringListValue?: string[] | undefined;
-}
-
-/**
- * <p>Contains information about a metadata attribute.</p>
- * @public
- */
-export interface MetadataAttribute {
-  /**
-   * <p>The key of the metadata attribute.</p>
-   * @public
-   */
-  key: string | undefined;
-
-  /**
-   * <p>Contains the value of the metadata attribute.</p>
-   * @public
-   */
-  value: MetadataAttributeValue | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MetadataSourceType = {
-  IN_LINE_ATTRIBUTE: "IN_LINE_ATTRIBUTE",
-  S3_LOCATION: "S3_LOCATION",
-} as const;
-
-/**
- * @public
- */
-export type MetadataSourceType = (typeof MetadataSourceType)[keyof typeof MetadataSourceType];
-
-/**
- * <p>Contains information about the metadata associate with the content to ingest into a knowledge base. Choose a <code>type</code> and include the field that corresponds to it.</p>
- * @public
- */
-export interface DocumentMetadata {
-  /**
-   * <p>The type of the source source from which to add metadata.</p>
-   * @public
-   */
-  type: MetadataSourceType | undefined;
-
-  /**
-   * <p>An array of objects, each of which defines a metadata attribute to associate with the content to ingest. You define the attributes inline.</p>
-   * @public
-   */
-  inlineAttributes?: MetadataAttribute[] | undefined;
-
-  /**
-   * <p>The Amazon S3 location of the file containing metadata to associate with the content to ingest.</p>
-   * @public
-   */
-  s3Location?: CustomS3Location | undefined;
-}
-
-/**
- * <p>Contains information about a document to ingest into a knowledge base and metadata to associate with it.</p>
- * @public
- */
-export interface KnowledgeBaseDocument {
-  /**
-   * <p>Contains the metadata to associate with the document.</p>
-   * @public
-   */
-  metadata?: DocumentMetadata | undefined;
-
-  /**
-   * <p>Contains the content of the document.</p>
-   * @public
-   */
-  content: DocumentContent | undefined;
-}
-
-/**
- * @public
- */
-export interface IngestKnowledgeBaseDocumentsRequest {
-  /**
-   * <p>The unique identifier of the knowledge base to ingest the documents into.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the data source connected to the knowledge base that you're adding documents to.</p>
-   * @public
-   */
-  dataSourceId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>A list of objects, each of which contains information about the documents to add.</p>
-   * @public
-   */
-  documents: KnowledgeBaseDocument[] | undefined;
-}
-
-/**
- * @public
- */
-export interface IngestKnowledgeBaseDocumentsResponse {
-  /**
-   * <p>A list of objects, each of which contains information about the documents that were ingested.</p>
-   * @public
-   */
-  documentDetails?: KnowledgeBaseDocumentDetail[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListKnowledgeBaseDocumentsRequest {
-  /**
-   * <p>The unique identifier of the knowledge base that is connected to the data source.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the data source that contains the documents.</p>
-   * @public
-   */
-  dataSourceId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListKnowledgeBaseDocumentsResponse {
-  /**
-   * <p>A list of objects, each of which contains information about the documents that were retrieved.</p>
-   * @public
-   */
-  documentDetails: KnowledgeBaseDocumentDetail[] | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const APISchemaFilterSensitiveLog = (obj: APISchema): any => {
@@ -9198,6 +9308,74 @@ export const AgentFilterSensitiveLog = (obj: Agent): any => ({
   ...(obj.instruction && { instruction: SENSITIVE_STRING }),
   ...(obj.customOrchestration && { customOrchestration: obj.customOrchestration }),
   ...(obj.promptOverrideConfiguration && { promptOverrideConfiguration: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AgentCollaboratorFilterSensitiveLog = (obj: AgentCollaborator): any => ({
+  ...obj,
+  ...(obj.collaborationInstruction && { collaborationInstruction: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssociateAgentCollaboratorRequestFilterSensitiveLog = (obj: AssociateAgentCollaboratorRequest): any => ({
+  ...obj,
+  ...(obj.collaborationInstruction && { collaborationInstruction: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssociateAgentCollaboratorResponseFilterSensitiveLog = (obj: AssociateAgentCollaboratorResponse): any => ({
+  ...obj,
+  ...(obj.agentCollaborator && { agentCollaborator: AgentCollaboratorFilterSensitiveLog(obj.agentCollaborator) }),
+});
+
+/**
+ * @internal
+ */
+export const GetAgentCollaboratorResponseFilterSensitiveLog = (obj: GetAgentCollaboratorResponse): any => ({
+  ...obj,
+  ...(obj.agentCollaborator && { agentCollaborator: AgentCollaboratorFilterSensitiveLog(obj.agentCollaborator) }),
+});
+
+/**
+ * @internal
+ */
+export const AgentCollaboratorSummaryFilterSensitiveLog = (obj: AgentCollaboratorSummary): any => ({
+  ...obj,
+  ...(obj.collaborationInstruction && { collaborationInstruction: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAgentCollaboratorsResponseFilterSensitiveLog = (obj: ListAgentCollaboratorsResponse): any => ({
+  ...obj,
+  ...(obj.agentCollaboratorSummaries && {
+    agentCollaboratorSummaries: obj.agentCollaboratorSummaries.map((item) =>
+      AgentCollaboratorSummaryFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAgentCollaboratorRequestFilterSensitiveLog = (obj: UpdateAgentCollaboratorRequest): any => ({
+  ...obj,
+  ...(obj.collaborationInstruction && { collaborationInstruction: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAgentCollaboratorResponseFilterSensitiveLog = (obj: UpdateAgentCollaboratorResponse): any => ({
+  ...obj,
+  ...(obj.agentCollaborator && { agentCollaborator: AgentCollaboratorFilterSensitiveLog(obj.agentCollaborator) }),
 });
 
 /**
@@ -9748,68 +9926,4 @@ export const InlineContentFilterSensitiveLog = (obj: InlineContent): any => ({
   ...obj,
   ...(obj.byteContent && { byteContent: ByteContentDocFilterSensitiveLog(obj.byteContent) }),
   ...(obj.textContent && { textContent: TextContentDocFilterSensitiveLog(obj.textContent) }),
-});
-
-/**
- * @internal
- */
-export const CustomContentFilterSensitiveLog = (obj: CustomContent): any => ({
-  ...obj,
-  ...(obj.inlineContent && { inlineContent: InlineContentFilterSensitiveLog(obj.inlineContent) }),
-});
-
-/**
- * @internal
- */
-export const DocumentContentFilterSensitiveLog = (obj: DocumentContent): any => ({
-  ...obj,
-  ...(obj.custom && { custom: CustomContentFilterSensitiveLog(obj.custom) }),
-});
-
-/**
- * @internal
- */
-export const MetadataAttributeValueFilterSensitiveLog = (obj: MetadataAttributeValue): any => ({
-  ...obj,
-  ...(obj.numberValue && { numberValue: SENSITIVE_STRING }),
-  ...(obj.stringValue && { stringValue: SENSITIVE_STRING }),
-  ...(obj.stringListValue && { stringListValue: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const MetadataAttributeFilterSensitiveLog = (obj: MetadataAttribute): any => ({
-  ...obj,
-  ...(obj.key && { key: SENSITIVE_STRING }),
-  ...(obj.value && { value: MetadataAttributeValueFilterSensitiveLog(obj.value) }),
-});
-
-/**
- * @internal
- */
-export const DocumentMetadataFilterSensitiveLog = (obj: DocumentMetadata): any => ({
-  ...obj,
-  ...(obj.inlineAttributes && {
-    inlineAttributes: obj.inlineAttributes.map((item) => MetadataAttributeFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const KnowledgeBaseDocumentFilterSensitiveLog = (obj: KnowledgeBaseDocument): any => ({
-  ...obj,
-  ...(obj.metadata && { metadata: DocumentMetadataFilterSensitiveLog(obj.metadata) }),
-  ...(obj.content && { content: DocumentContentFilterSensitiveLog(obj.content) }),
-});
-
-/**
- * @internal
- */
-export const IngestKnowledgeBaseDocumentsRequestFilterSensitiveLog = (
-  obj: IngestKnowledgeBaseDocumentsRequest
-): any => ({
-  ...obj,
-  ...(obj.documents && { documents: obj.documents.map((item) => KnowledgeBaseDocumentFilterSensitiveLog(item)) }),
 });
