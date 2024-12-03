@@ -294,6 +294,7 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * //       WriteUnitsPerSecond: Number("long"),
  * //       Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
  * //     },
+ * //     MultiRegionConsistency: "EVENTUAL" || "STRONG",
  * //   },
  * // };
  *

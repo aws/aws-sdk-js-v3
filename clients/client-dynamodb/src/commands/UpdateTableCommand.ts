@@ -184,6 +184,7 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *   ],
  *   TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
  *   DeletionProtectionEnabled: true || false,
+ *   MultiRegionConsistency: "EVENTUAL" || "STRONG",
  *   OnDemandThroughput: {
  *     MaxReadRequestUnits: Number("long"),
  *     MaxWriteRequestUnits: Number("long"),
@@ -364,6 +365,7 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * //       WriteUnitsPerSecond: Number("long"),
  * //       Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
  * //     },
+ * //     MultiRegionConsistency: "EVENTUAL" || "STRONG",
  * //   },
  * // };
  *

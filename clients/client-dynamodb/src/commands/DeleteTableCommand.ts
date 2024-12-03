@@ -231,6 +231,7 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  * //       WriteUnitsPerSecond: Number("long"),
  * //       Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
  * //     },
+ * //     MultiRegionConsistency: "EVENTUAL" || "STRONG",
  * //   },
  * // };
  *

@@ -222,6 +222,7 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //       WriteUnitsPerSecond: Number("long"),
  * //       Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
  * //     },
+ * //     MultiRegionConsistency: "EVENTUAL" || "STRONG",
  * //   },
  * // };
  *

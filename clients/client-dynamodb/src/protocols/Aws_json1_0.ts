@@ -310,6 +310,7 @@ import {
   ReplicaNotFoundException,
   ReplicaSettingsDescription,
   ReplicaSettingsUpdate,
+  ReplicatedWriteConflictException,
   ReplicationGroupUpdate,
   ReplicaUpdate,
   RequestLimitExceeded,
@@ -2289,6 +2290,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ConditionalCheckFailedException":
     case "com.amazonaws.dynamodb#ConditionalCheckFailedException":
       throw await de_ConditionalCheckFailedExceptionRes(parsedOutput, context);
+    case "ReplicatedWriteConflictException":
+    case "com.amazonaws.dynamodb#ReplicatedWriteConflictException":
+      throw await de_ReplicatedWriteConflictExceptionRes(parsedOutput, context);
     case "TransactionConflictException":
     case "com.amazonaws.dynamodb#TransactionConflictException":
       throw await de_TransactionConflictExceptionRes(parsedOutput, context);
@@ -2728,6 +2732,22 @@ const de_ReplicaNotFoundExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ReplicaNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_0ReplicatedWriteConflictExceptionRes
+ */
+const de_ReplicatedWriteConflictExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ReplicatedWriteConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ReplicatedWriteConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -5305,6 +5325,8 @@ const de_ReplicaSettingsDescriptionList = (output: any, context: __SerdeContext)
   return retVal;
 };
 
+// de_ReplicatedWriteConflictException omitted.
+
 // de_RequestLimitExceeded omitted.
 
 // de_ResourceInUseException omitted.
@@ -5460,6 +5482,7 @@ const de_TableDescription = (output: any, context: __SerdeContext): TableDescrip
     LatestStreamArn: __expectString,
     LatestStreamLabel: __expectString,
     LocalSecondaryIndexes: _json,
+    MultiRegionConsistency: __expectString,
     OnDemandThroughput: _json,
     ProvisionedThroughput: (_: any) => de_ProvisionedThroughputDescription(_, context),
     Replicas: (_: any) => de_ReplicaDescriptionList(_, context),

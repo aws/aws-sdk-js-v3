@@ -3144,6 +3144,20 @@ export interface LocalSecondaryIndexDescription {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const MultiRegionConsistency = {
+  EVENTUAL: "EVENTUAL",
+  STRONG: "STRONG",
+} as const;
+
+/**
+ * @public
+ */
+export type MultiRegionConsistency = (typeof MultiRegionConsistency)[keyof typeof MultiRegionConsistency];
+
+/**
  * <p>Contains details for the restore.</p>
  * @public
  */
@@ -3612,6 +3626,26 @@ export interface TableDescription {
    * @public
    */
   WarmThroughput?: TableWarmThroughputDescription | undefined;
+
+  /**
+   * <p>Indicates one of the following consistency modes for a global table:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EVENTUAL</code>: Indicates that the global table is configured for multi-Region eventual consistency.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STRONG</code>: Indicates that the global table is configured for multi-Region strong consistency (preview).</p>
+   *                <note>
+   *                   <p>Multi-Region strong consistency (MRSC) is a new DynamoDB global tables capability currently available in preview mode. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PreviewFeatures.html#multi-region-strong-consistency-gt">Global tables multi-Region strong consistency</a>.</p>
+   *                </note>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>.</p>
+   * @public
+   */
+  MultiRegionConsistency?: MultiRegionConsistency | undefined;
 }
 
 /**
@@ -3729,6 +3763,26 @@ export const ReturnValue = {
  * @public
  */
 export type ReturnValue = (typeof ReturnValue)[keyof typeof ReturnValue];
+
+/**
+ * <p>The request was rejected because one or more items in the request are being modified by a request in another Region. </p>
+ * @public
+ */
+export class ReplicatedWriteConflictException extends __BaseException {
+  readonly name: "ReplicatedWriteConflictException" = "ReplicatedWriteConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicatedWriteConflictException, __BaseException>) {
+    super({
+      name: "ReplicatedWriteConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicatedWriteConflictException.prototype);
+  }
+}
 
 /**
  * <p>Operation was rejected because there is an ongoing transaction for the
@@ -7227,6 +7281,27 @@ export interface UpdateTableInput {
    * @public
    */
   DeletionProtectionEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies the consistency mode for a new global table. This parameter is only valid when you create a global table by specifying one or more <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ReplicationGroupUpdate.html#DDB-Type-ReplicationGroupUpdate-Create">Create</a> actions in the <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html#DDB-UpdateTable-request-ReplicaUpdates">ReplicaUpdates</a> action list.</p>
+   *          <p>You can specify one of the following consistency modes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EVENTUAL</code>: Configures a new global table for multi-Region eventual consistency. This is the default consistency mode for global tables.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STRONG</code>: Configures a new global table for multi-Region strong consistency (preview).</p>
+   *                <note>
+   *                   <p>Multi-Region strong consistency (MRSC) is a new DynamoDB global tables capability currently available in preview mode. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PreviewFeatures.html#multi-region-strong-consistency-gt">Global tables multi-Region strong consistency</a>.</p>
+   *                </note>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify this parameter, the global table consistency mode defaults to <code>EVENTUAL</code>.</p>
+   * @public
+   */
+  MultiRegionConsistency?: MultiRegionConsistency | undefined;
 
   /**
    * <p>Updates the maximum number of read and write units for the specified table in
