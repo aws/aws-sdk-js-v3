@@ -60,6 +60,7 @@ export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBe
  * //     },
  * //   ],
  * //   ManagedBy: "STRING_VALUE",
+ * //   DataShareType: "INTERNAL",
  * // };
  *
  * ```

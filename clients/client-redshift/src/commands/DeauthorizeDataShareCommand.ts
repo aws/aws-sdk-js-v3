@@ -57,6 +57,7 @@ export interface DeauthorizeDataShareCommandOutput extends DataShare, __Metadata
  * //     },
  * //   ],
  * //   ManagedBy: "STRING_VALUE",
+ * //   DataShareType: "INTERNAL",
  * // };
  *
  * ```

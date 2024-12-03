@@ -61,6 +61,7 @@ export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResul
  * //         },
  * //       ],
  * //       ManagedBy: "STRING_VALUE",
+ * //       DataShareType: "INTERNAL",
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",

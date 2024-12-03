@@ -57,6 +57,7 @@ export interface RejectDataShareCommandOutput extends DataShare, __MetadataBeare
  * //     },
  * //   ],
  * //   ManagedBy: "STRING_VALUE",
+ * //   DataShareType: "INTERNAL",
  * // };
  *
  * ```

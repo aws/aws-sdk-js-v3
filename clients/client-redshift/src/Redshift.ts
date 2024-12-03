@@ -241,6 +241,11 @@ import {
   DeleteUsageLimitCommandOutput,
 } from "./commands/DeleteUsageLimitCommand";
 import {
+  DeregisterNamespaceCommand,
+  DeregisterNamespaceCommandInput,
+  DeregisterNamespaceCommandOutput,
+} from "./commands/DeregisterNamespaceCommand";
+import {
   DescribeAccountAttributesCommand,
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
@@ -621,6 +626,11 @@ import {
   RebootClusterCommandOutput,
 } from "./commands/RebootClusterCommand";
 import {
+  RegisterNamespaceCommand,
+  RegisterNamespaceCommandInput,
+  RegisterNamespaceCommandOutput,
+} from "./commands/RegisterNamespaceCommand";
+import {
   RejectDataShareCommand,
   RejectDataShareCommandInput,
   RejectDataShareCommandOutput,
@@ -728,6 +738,7 @@ const commands = {
   DeleteSnapshotScheduleCommand,
   DeleteTagsCommand,
   DeleteUsageLimitCommand,
+  DeregisterNamespaceCommand,
   DescribeAccountAttributesCommand,
   DescribeAuthenticationProfilesCommand,
   DescribeClusterDbRevisionsCommand,
@@ -804,6 +815,7 @@ const commands = {
   PurchaseReservedNodeOfferingCommand,
   PutResourcePolicyCommand,
   RebootClusterCommand,
+  RegisterNamespaceCommand,
   RejectDataShareCommand,
   ResetClusterParameterGroupCommand,
   ResizeClusterCommand,
@@ -1625,6 +1637,23 @@ export interface Redshift {
     args: DeleteUsageLimitCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteUsageLimitCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterNamespaceCommand}
+   */
+  deregisterNamespace(
+    args: DeregisterNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterNamespaceCommandOutput>;
+  deregisterNamespace(
+    args: DeregisterNamespaceCommandInput,
+    cb: (err: any, data?: DeregisterNamespaceCommandOutput) => void
+  ): void;
+  deregisterNamespace(
+    args: DeregisterNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterNamespaceCommandOutput) => void
   ): void;
 
   /**
@@ -2912,6 +2941,23 @@ export interface Redshift {
     args: RebootClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RebootClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterNamespaceCommand}
+   */
+  registerNamespace(
+    args: RegisterNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterNamespaceCommandOutput>;
+  registerNamespace(
+    args: RegisterNamespaceCommandInput,
+    cb: (err: any, data?: RegisterNamespaceCommandOutput) => void
+  ): void;
+  registerNamespace(
+    args: RegisterNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterNamespaceCommandOutput) => void
   ): void;
 
   /**

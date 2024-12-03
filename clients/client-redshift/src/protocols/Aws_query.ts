@@ -189,6 +189,10 @@ import {
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
 import { DeleteUsageLimitCommandInput, DeleteUsageLimitCommandOutput } from "../commands/DeleteUsageLimitCommand";
 import {
+  DeregisterNamespaceCommandInput,
+  DeregisterNamespaceCommandOutput,
+} from "../commands/DeregisterNamespaceCommand";
+import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "../commands/DescribeAccountAttributesCommand";
@@ -441,6 +445,7 @@ import {
 } from "../commands/PurchaseReservedNodeOfferingCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { RebootClusterCommandInput, RebootClusterCommandOutput } from "../commands/RebootClusterCommand";
+import { RegisterNamespaceCommandInput, RegisterNamespaceCommandOutput } from "../commands/RegisterNamespaceCommand";
 import { RejectDataShareCommandInput, RejectDataShareCommandOutput } from "../commands/RejectDataShareCommand";
 import {
   ResetClusterParameterGroupCommandInput,
@@ -621,11 +626,7 @@ import {
   DependentServiceAccessDeniedFault,
   DependentServiceRequestThrottlingFault,
   DependentServiceUnavailableFault,
-  DescribeAccountAttributesMessage,
-  DescribeAuthenticationProfilesMessage,
-  DescribeAuthenticationProfilesResult,
-  DescribeClusterDbRevisionsMessage,
-  DescribeClusterParameterGroupsMessage,
+  DeregisterNamespaceInputMessage,
   EC2SecurityGroup,
   ElasticIpStatus,
   Endpoint,
@@ -689,6 +690,7 @@ import {
   LakeFormationQuery,
   LakeFormationScopeUnion,
   LimitExceededFault,
+  NamespaceIdentifierUnion,
   NetworkInterface,
   NumberOfNodesPerClusterLimitExceededFault,
   NumberOfNodesQuotaExceededFault,
@@ -698,6 +700,7 @@ import {
   PartnerNotFoundFault,
   PauseClusterMessage,
   PendingModifiedValues,
+  ProvisionedIdentifier,
   ReadWriteAccess,
   RecurringCharge,
   RedshiftIdcApplication,
@@ -727,6 +730,7 @@ import {
   ScheduledActionTypeUnsupportedFault,
   ScheduleDefinitionTypeUnsupportedFault,
   SecondaryClusterInfo,
+  ServerlessIdentifier,
   ServiceIntegrationsUnion,
   Snapshot,
   SnapshotCopyGrant,
@@ -761,6 +765,12 @@ import {
   VpcSecurityGroupMembership,
 } from "../models/models_0";
 import {
+  DeregisterNamespaceOutputMessage,
+  DescribeAccountAttributesMessage,
+  DescribeAuthenticationProfilesMessage,
+  DescribeAuthenticationProfilesResult,
+  DescribeClusterDbRevisionsMessage,
+  DescribeClusterParameterGroupsMessage,
   DescribeClusterParametersMessage,
   DescribeClusterSecurityGroupsMessage,
   DescribeClustersMessage,
@@ -896,6 +906,8 @@ import {
   Recommendation,
   RecommendedAction,
   ReferenceLink,
+  RegisterNamespaceInputMessage,
+  RegisterNamespaceOutputMessage,
   RejectDataShareMessage,
   ReservedNodeConfigurationOption,
   ReservedNodeExchangeNotFoundFault,
@@ -1789,6 +1801,23 @@ export const se_DeleteUsageLimitCommand = async (
   body = buildFormUrlencodedString({
     ...se_DeleteUsageLimitMessage(input, context),
     [_A]: _DUL,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDeregisterNamespaceCommand
+ */
+export const se_DeregisterNamespaceCommand = async (
+  input: DeregisterNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeregisterNamespaceInputMessage(input, context),
+    [_A]: _DN,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3085,6 +3114,23 @@ export const se_RebootClusterCommand = async (
 };
 
 /**
+ * serializeAws_queryRegisterNamespaceCommand
+ */
+export const se_RegisterNamespaceCommand = async (
+  input: RegisterNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_RegisterNamespaceInputMessage(input, context),
+    [_A]: _RN,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryRejectDataShareCommand
  */
 export const se_RejectDataShareCommand = async (
@@ -4222,6 +4268,26 @@ export const de_DeleteUsageLimitCommand = async (
   await collectBody(output.body, context);
   const response: DeleteUsageLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeregisterNamespaceCommand
+ */
+export const de_DeregisterNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterNamespaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeregisterNamespaceOutputMessage(data.DeregisterNamespaceResult, context);
+  const response: DeregisterNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -5740,6 +5806,26 @@ export const de_RebootClusterCommand = async (
   let contents: any = {};
   contents = de_RebootClusterResult(data.RebootClusterResult, context);
   const response: RebootClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRegisterNamespaceCommand
+ */
+export const de_RegisterNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterNamespaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RegisterNamespaceOutputMessage(data.RegisterNamespaceResult, context);
+  const response: RegisterNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -8932,6 +9018,22 @@ const se_ClusterSecurityGroupNameList = (input: string[], context: __SerdeContex
 };
 
 /**
+ * serializeAws_queryConsumerIdentifierList
+ */
+const se_ConsumerIdentifierList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryCopyClusterSnapshotMessage
  */
 const se_CopyClusterSnapshotMessage = (input: CopyClusterSnapshotMessage, context: __SerdeContext): any => {
@@ -9593,8 +9695,8 @@ const se_CreateSnapshotScheduleMessage = (input: CreateSnapshotScheduleMessage, 
  */
 const se_CreateTagsMessage = (input: CreateTagsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input[_RN] != null) {
-    entries[_RN] = input[_RN];
+  if (input[_RNe] != null) {
+    entries[_RNe] = input[_RNe];
   }
   if (input[_T] != null) {
     const memberEntries = se_TagList(input[_T], context);
@@ -9919,8 +10021,8 @@ const se_DeleteSnapshotScheduleMessage = (input: DeleteSnapshotScheduleMessage, 
  */
 const se_DeleteTagsMessage = (input: DeleteTagsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input[_RN] != null) {
-    entries[_RN] = input[_RN];
+  if (input[_RNe] != null) {
+    entries[_RNe] = input[_RNe];
   }
   if (input[_TK] != null) {
     const memberEntries = se_TagKeyList(input[_TK], context);
@@ -9942,6 +10044,31 @@ const se_DeleteUsageLimitMessage = (input: DeleteUsageLimitMessage, context: __S
   const entries: any = {};
   if (input[_ULI] != null) {
     entries[_ULI] = input[_ULI];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDeregisterNamespaceInputMessage
+ */
+const se_DeregisterNamespaceInputMessage = (input: DeregisterNamespaceInputMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_NIa] != null) {
+    const memberEntries = se_NamespaceIdentifierUnion(input[_NIa], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NamespaceIdentifier.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_CIon] != null) {
+    const memberEntries = se_ConsumerIdentifierList(input[_CIon], context);
+    if (input[_CIon]?.length === 0) {
+      entries.ConsumerIdentifiers = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ConsumerIdentifiers.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -10788,8 +10915,8 @@ const se_DescribePartnersInputMessage = (input: DescribePartnersInputMessage, co
   if (input[_CIl] != null) {
     entries[_CIl] = input[_CIl];
   }
-  if (input[_DN] != null) {
-    entries[_DN] = input[_DN];
+  if (input[_DNa] != null) {
+    entries[_DNa] = input[_DNa];
   }
   if (input[_PN] != null) {
     entries[_PN] = input[_PN];
@@ -11035,8 +11162,8 @@ const se_DescribeTableRestoreStatusMessage = (
  */
 const se_DescribeTagsMessage = (input: DescribeTagsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input[_RN] != null) {
-    entries[_RN] = input[_RN];
+  if (input[_RNe] != null) {
+    entries[_RNe] = input[_RNe];
   }
   if (input[_RT] != null) {
     entries[_RT] = input[_RT];
@@ -12013,6 +12140,33 @@ const se_ModifyUsageLimitMessage = (input: ModifyUsageLimitMessage, context: __S
 };
 
 /**
+ * serializeAws_queryNamespaceIdentifierUnion
+ */
+const se_NamespaceIdentifierUnion = (input: NamespaceIdentifierUnion, context: __SerdeContext): any => {
+  const entries: any = {};
+  NamespaceIdentifierUnion.visit(input, {
+    ServerlessIdentifier: (value) => {
+      const memberEntries = se_ServerlessIdentifier(value, context);
+      Object.entries(memberEntries).forEach(([key, value]) => {
+        const loc = `ServerlessIdentifier.${key}`;
+        entries[loc] = value;
+      });
+    },
+    ProvisionedIdentifier: (value) => {
+      const memberEntries = se_ProvisionedIdentifier(value, context);
+      Object.entries(memberEntries).forEach(([key, value]) => {
+        const loc = `ProvisionedIdentifier.${key}`;
+        entries[loc] = value;
+      });
+    },
+    _: (name: string, value: any) => {
+      entries[name] = value;
+    },
+  });
+  return entries;
+};
+
+/**
  * serializeAws_queryNodeConfigurationOptionsFilter
  */
 const se_NodeConfigurationOptionsFilter = (input: NodeConfigurationOptionsFilter, context: __SerdeContext): any => {
@@ -12123,8 +12277,8 @@ const se_PartnerIntegrationInputMessage = (input: PartnerIntegrationInputMessage
   if (input[_CIl] != null) {
     entries[_CIl] = input[_CIl];
   }
-  if (input[_DN] != null) {
-    entries[_DN] = input[_DN];
+  if (input[_DNa] != null) {
+    entries[_DNa] = input[_DNa];
   }
   if (input[_PN] != null) {
     entries[_PN] = input[_PN];
@@ -12136,6 +12290,17 @@ const se_PartnerIntegrationInputMessage = (input: PartnerIntegrationInputMessage
  * serializeAws_queryPauseClusterMessage
  */
 const se_PauseClusterMessage = (input: PauseClusterMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_CIl] != null) {
+    entries[_CIl] = input[_CIl];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryProvisionedIdentifier
+ */
+const se_ProvisionedIdentifier = (input: ProvisionedIdentifier, context: __SerdeContext): any => {
   const entries: any = {};
   if (input[_CIl] != null) {
     entries[_CIl] = input[_CIl];
@@ -12192,6 +12357,31 @@ const se_RebootClusterMessage = (input: RebootClusterMessage, context: __SerdeCo
   const entries: any = {};
   if (input[_CIl] != null) {
     entries[_CIl] = input[_CIl];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryRegisterNamespaceInputMessage
+ */
+const se_RegisterNamespaceInputMessage = (input: RegisterNamespaceInputMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_NIa] != null) {
+    const memberEntries = se_NamespaceIdentifierUnion(input[_NIa], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NamespaceIdentifier.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_CIon] != null) {
+    const memberEntries = se_ConsumerIdentifierList(input[_CIon], context);
+    if (input[_CIon]?.length === 0) {
+      entries.ConsumerIdentifiers = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ConsumerIdentifiers.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -12661,6 +12851,20 @@ const se_ScheduleDefinitionList = (input: string[], context: __SerdeContext): an
 };
 
 /**
+ * serializeAws_queryServerlessIdentifier
+ */
+const se_ServerlessIdentifier = (input: ServerlessIdentifier, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_NIa] != null) {
+    entries[_NIa] = input[_NIa];
+  }
+  if (input[_WI] != null) {
+    entries[_WI] = input[_WI];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryServiceIntegrationList
  */
 const se_ServiceIntegrationList = (input: ServiceIntegrationsUnion[], context: __SerdeContext): any => {
@@ -12869,8 +13073,8 @@ const se_UpdatePartnerStatusInputMessage = (input: UpdatePartnerStatusInputMessa
   if (input[_CIl] != null) {
     entries[_CIl] = input[_CIl];
   }
-  if (input[_DN] != null) {
-    entries[_DN] = input[_DN];
+  if (input[_DNa] != null) {
+    entries[_DNa] = input[_DNa];
   }
   if (input[_PN] != null) {
     entries[_PN] = input[_PN];
@@ -14640,6 +14844,9 @@ const de_DataShare = (output: any, context: __SerdeContext): DataShare => {
   if (output[_MB] != null) {
     contents[_MB] = __expectString(output[_MB]);
   }
+  if (output[_DST] != null) {
+    contents[_DST] = __expectString(output[_DST]);
+  }
   return contents;
 };
 
@@ -14841,6 +15048,20 @@ const de_DependentServiceUnavailableFault = (
   const contents: any = {};
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDeregisterNamespaceOutputMessage
+ */
+const de_DeregisterNamespaceOutputMessage = (
+  output: any,
+  context: __SerdeContext
+): DeregisterNamespaceOutputMessage => {
+  const contents: any = {};
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -17047,8 +17268,8 @@ const de_ParametersList = (output: any, context: __SerdeContext): Parameter[] =>
  */
 const de_PartnerIntegrationInfo = (output: any, context: __SerdeContext): PartnerIntegrationInfo => {
   const contents: any = {};
-  if (output[_DN] != null) {
-    contents[_DN] = __expectString(output[_DN]);
+  if (output[_DNa] != null) {
+    contents[_DNa] = __expectString(output[_DNa]);
   }
   if (output[_PN] != null) {
     contents[_PN] = __expectString(output[_PN]);
@@ -17084,8 +17305,8 @@ const de_PartnerIntegrationInfoList = (output: any, context: __SerdeContext): Pa
  */
 const de_PartnerIntegrationOutputMessage = (output: any, context: __SerdeContext): PartnerIntegrationOutputMessage => {
   const contents: any = {};
-  if (output[_DN] != null) {
-    contents[_DN] = __expectString(output[_DN]);
+  if (output[_DNa] != null) {
+    contents[_DNa] = __expectString(output[_DNa]);
   }
   if (output[_PN] != null) {
     contents[_PN] = __expectString(output[_PN]);
@@ -17186,8 +17407,8 @@ const de_PurchaseReservedNodeOfferingResult = (
   context: __SerdeContext
 ): PurchaseReservedNodeOfferingResult => {
   const contents: any = {};
-  if (output[_RNe] != null) {
-    contents[_RNe] = de_ReservedNode(output[_RNe], context);
+  if (output[_RNes] != null) {
+    contents[_RNes] = de_ReservedNode(output[_RNes], context);
   }
   return contents;
 };
@@ -17458,6 +17679,17 @@ const de_ReferenceLinkList = (output: any, context: __SerdeContext): ReferenceLi
     .map((entry: any) => {
       return de_ReferenceLink(entry, context);
     });
+};
+
+/**
+ * deserializeAws_queryRegisterNamespaceOutputMessage
+ */
+const de_RegisterNamespaceOutputMessage = (output: any, context: __SerdeContext): RegisterNamespaceOutputMessage => {
+  const contents: any = {};
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
+  }
+  return contents;
 };
 
 /**
@@ -17745,9 +17977,9 @@ const de_ReservedNodesMessage = (output: any, context: __SerdeContext): Reserved
     contents[_M] = __expectString(output[_M]);
   }
   if (output.ReservedNodes === "") {
-    contents[_RNes] = [];
-  } else if (output[_RNes] != null && output[_RNes][_RNe] != null) {
-    contents[_RNes] = de_ReservedNodeList(__getArrayIfSingleItem(output[_RNes][_RNe]), context);
+    contents[_RNese] = [];
+  } else if (output[_RNese] != null && output[_RNese][_RNes] != null) {
+    contents[_RNese] = de_ReservedNodeList(__getArrayIfSingleItem(output[_RNese][_RNes]), context);
   }
   return contents;
 };
@@ -19039,8 +19271,8 @@ const de_TaggedResource = (output: any, context: __SerdeContext): TaggedResource
   if (output[_Ta] != null) {
     contents[_Ta] = de_Tag(output[_Ta], context);
   }
-  if (output[_RN] != null) {
-    contents[_RN] = __expectString(output[_RN]);
+  if (output[_RNe] != null) {
+    contents[_RNe] = __expectString(output[_RNe]);
   }
   if (output[_RT] != null) {
     contents[_RT] = __expectString(output[_RT]);
@@ -19506,6 +19738,7 @@ const _CIDRIP = "CIDRIP";
 const _CIR = "ClusterIamRole";
 const _CIl = "ClusterIdentifier";
 const _CIo = "ConsumerIdentifier";
+const _CIon = "ConsumerIdentifiers";
 const _CN = "ClusterNodes";
 const _CNA = "ClusterNamespaceArn";
 const _CPG = "ClusterParameterGroups";
@@ -19595,8 +19828,9 @@ const _DMI = "DeferMaintenanceIdentifier";
 const _DMST = "DeferMaintenanceStartTime";
 const _DMW = "DeferredMaintenanceWindows";
 const _DMWe = "DeferredMaintenanceWindow";
-const _DN = "DatabaseName";
+const _DN = "DeregisterNamespace";
 const _DNCO = "DescribeNodeConfigurationOptions";
+const _DNa = "DatabaseName";
 const _DNb = "DbName";
 const _DOCO = "DescribeOrderableClusterOptions";
 const _DP = "DeletePartner";
@@ -19623,6 +19857,7 @@ const _DSCG = "DeleteSnapshotCopyGrant";
 const _DSCGe = "DescribeSnapshotCopyGrants";
 const _DSS = "DeleteSnapshotSchedule";
 const _DSSe = "DescribeSnapshotSchedules";
+const _DST = "DataShareType";
 const _DSa = "DataShares";
 const _DSi = "DisassociateSchedule";
 const _DSu = "DurationSeconds";
@@ -19804,6 +20039,7 @@ const _NCO = "NodeConfigurationOption";
 const _NCOL = "NodeConfigurationOptionList";
 const _NI = "NextInvocations";
 const _NII = "NetworkInterfaceId";
+const _NIa = "NamespaceIdentifier";
 const _NIe = "NetworkInterfaces";
 const _NIet = "NetworkInterface";
 const _NMWST = "NextMaintenanceWindowStartTime";
@@ -19874,7 +20110,7 @@ const _RIAe = "RedshiftIdcApplications";
 const _RIR = "RemoveIamRoles";
 const _RL = "ReferenceLinks";
 const _RLe = "ReferenceLink";
-const _RN = "ResourceName";
+const _RN = "RegisterNamespace";
 const _RNCO = "ReservedNodeConfigurationOption";
 const _RNCOL = "ReservedNodeConfigurationOptionList";
 const _RNERI = "ReservedNodeExchangeRequestId";
@@ -19886,8 +20122,9 @@ const _RNOI = "ReservedNodeOfferingId";
 const _RNOT = "ReservedNodeOfferingType";
 const _RNOe = "ReservedNodeOffering";
 const _RNT = "RestorableNodeTypes";
-const _RNe = "ReservedNode";
-const _RNes = "ReservedNodes";
+const _RNe = "ResourceName";
+const _RNes = "ReservedNode";
+const _RNese = "ReservedNodes";
 const _RO = "ResourceOwner";
 const _RP = "RetentionPeriod";
 const _RPe = "ResourcePolicy";
@@ -20034,6 +20271,7 @@ const _VSGIp = "VpcSecurityGroupId";
 const _VSGp = "VpcSecurityGroup";
 const _Va = "Values";
 const _Val = "Value";
+const _WI = "WorkgroupIdentifier";
 const _e = "entry";
 const _i = "item";
 const _m = "message";

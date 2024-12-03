@@ -62,6 +62,7 @@ export interface AssociateDataShareConsumerCommandOutput extends DataShare, __Me
  * //     },
  * //   ],
  * //   ManagedBy: "STRING_VALUE",
+ * //   DataShareType: "INTERNAL",
  * // };
  *
  * ```

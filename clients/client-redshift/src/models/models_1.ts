@@ -5,6 +5,7 @@ import {
   ActionType,
   AquaConfiguration,
   AquaConfigurationStatus,
+  AuthenticationProfile,
   AuthorizedTokenIssuer,
   AvailabilityZone,
   Cluster,
@@ -22,6 +23,7 @@ import {
   HsmConfiguration,
   Integration,
   IntegrationError,
+  NamespaceIdentifierUnion,
   Parameter,
   RecurringCharge,
   RedshiftIdcApplication,
@@ -42,6 +44,163 @@ import {
 } from "./models_0";
 
 import { RedshiftServiceException as __BaseException } from "./RedshiftServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const NamespaceRegistrationStatus = {
+  DEREGISTERING: "Deregistering",
+  REGISTERING: "Registering",
+} as const;
+
+/**
+ * @public
+ */
+export type NamespaceRegistrationStatus =
+  (typeof NamespaceRegistrationStatus)[keyof typeof NamespaceRegistrationStatus];
+
+/**
+ * @public
+ */
+export interface DeregisterNamespaceOutputMessage {
+  /**
+   * <p>The registration status of the cluster or
+   *             serverless namespace.</p>
+   * @public
+   */
+  Status?: NamespaceRegistrationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAccountAttributesMessage {
+  /**
+   * <p>A list of attribute names.</p>
+   * @public
+   */
+  AttributeNames?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAuthenticationProfilesMessage {
+  /**
+   * <p>The name of the authentication profile to describe. If not specified then all authentication profiles owned by the account are listed.</p>
+   * @public
+   */
+  AuthenticationProfileName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAuthenticationProfilesResult {
+  /**
+   * <p>The list of authentication profiles.</p>
+   * @public
+   */
+  AuthenticationProfiles?: AuthenticationProfile[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterDbRevisionsMessage {
+  /**
+   * <p>A unique identifier for a cluster whose <code>ClusterDbRevisions</code> you are
+   *             requesting. This parameter is case sensitive. All clusters defined for an account are
+   *             returned by default.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified MaxRecords value, a value is returned
+   *             in the <code>marker</code> field of the response. You can retrieve the next set of
+   *             response records by providing the returned <code>marker</code> value in the
+   *                 <code>marker</code> parameter and retrying the request. </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point for returning a set of
+   *             response records. When the results of a <code>DescribeClusterDbRevisions</code> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Redshift returns a value
+   *             in the <code>marker</code> field of the response. You can retrieve the next set of
+   *             response records by providing the returned <code>marker</code> value in the
+   *                 <code>marker</code> parameter and retrying the request. </p>
+   *          <p>Constraints: You can specify either the <code>ClusterIdentifier</code> parameter, or
+   *             the <code>marker</code> parameter, but not both.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeClusterParameterGroupsMessage {
+  /**
+   * <p>The name of a specific parameter group for which to return details. By default,
+   *             details about all parameter groups and the default parameter group are
+   *             returned.</p>
+   * @public
+   */
+  ParameterGroupName?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeClusterParameterGroups</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching cluster parameter
+   *             groups that are associated with the specified key or keys. For example, suppose that you
+   *             have parameter groups that are tagged with keys called <code>owner</code> and
+   *                 <code>environment</code>. If you specify both of these tag keys in the request,
+   *             Amazon Redshift returns a response with the parameter groups that have either or both of these
+   *             tag keys associated with them.</p>
+   * @public
+   */
+  TagKeys?: string[] | undefined;
+
+  /**
+   * <p>A tag value or values for which you want to return all matching cluster parameter
+   *             groups that are associated with the specified tag value or values. For example, suppose
+   *             that you have parameter groups that are tagged with values called <code>admin</code> and
+   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
+   *             returns a response with the parameter groups that have either or both of these tag
+   *             values associated with them.</p>
+   * @public
+   */
+  TagValues?: string[] | undefined;
+}
 
 /**
  * <p></p>
@@ -5568,6 +5727,37 @@ export interface RebootClusterResult {
    * @public
    */
   Cluster?: Cluster | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterNamespaceInputMessage {
+  /**
+   * <p>The unique identifier of the cluster or
+   *             serverless namespace that you want to register. </p>
+   * @public
+   */
+  NamespaceIdentifier: NamespaceIdentifierUnion | undefined;
+
+  /**
+   * <p>An array containing the ID of the consumer account
+   *             that you want to register the namespace to.</p>
+   * @public
+   */
+  ConsumerIdentifiers: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterNamespaceOutputMessage {
+  /**
+   * <p>The registration status of the cluster or
+   *             serverless namespace.</p>
+   * @public
+   */
+  Status?: NamespaceRegistrationStatus | undefined;
 }
 
 /**

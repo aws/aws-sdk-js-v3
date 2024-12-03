@@ -218,6 +218,10 @@ import {
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import { DeleteUsageLimitCommandInput, DeleteUsageLimitCommandOutput } from "./commands/DeleteUsageLimitCommand";
 import {
+  DeregisterNamespaceCommandInput,
+  DeregisterNamespaceCommandOutput,
+} from "./commands/DeregisterNamespaceCommand";
+import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
@@ -470,6 +474,7 @@ import {
 } from "./commands/PurchaseReservedNodeOfferingCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { RebootClusterCommandInput, RebootClusterCommandOutput } from "./commands/RebootClusterCommand";
+import { RegisterNamespaceCommandInput, RegisterNamespaceCommandOutput } from "./commands/RegisterNamespaceCommand";
 import { RejectDataShareCommandInput, RejectDataShareCommandOutput } from "./commands/RejectDataShareCommand";
 import {
   ResetClusterParameterGroupCommandInput,
@@ -570,6 +575,7 @@ export type ServiceInputTypes =
   | DeleteSnapshotScheduleCommandInput
   | DeleteTagsCommandInput
   | DeleteUsageLimitCommandInput
+  | DeregisterNamespaceCommandInput
   | DescribeAccountAttributesCommandInput
   | DescribeAuthenticationProfilesCommandInput
   | DescribeClusterDbRevisionsCommandInput
@@ -646,6 +652,7 @@ export type ServiceInputTypes =
   | PurchaseReservedNodeOfferingCommandInput
   | PutResourcePolicyCommandInput
   | RebootClusterCommandInput
+  | RegisterNamespaceCommandInput
   | RejectDataShareCommandInput
   | ResetClusterParameterGroupCommandInput
   | ResizeClusterCommandInput
@@ -712,6 +719,7 @@ export type ServiceOutputTypes =
   | DeleteSnapshotScheduleCommandOutput
   | DeleteTagsCommandOutput
   | DeleteUsageLimitCommandOutput
+  | DeregisterNamespaceCommandOutput
   | DescribeAccountAttributesCommandOutput
   | DescribeAuthenticationProfilesCommandOutput
   | DescribeClusterDbRevisionsCommandOutput
@@ -788,6 +796,7 @@ export type ServiceOutputTypes =
   | PurchaseReservedNodeOfferingCommandOutput
   | PutResourcePolicyCommandOutput
   | RebootClusterCommandOutput
+  | RegisterNamespaceCommandOutput
   | RejectDataShareCommandOutput
   | ResetClusterParameterGroupCommandOutput
   | ResizeClusterCommandOutput

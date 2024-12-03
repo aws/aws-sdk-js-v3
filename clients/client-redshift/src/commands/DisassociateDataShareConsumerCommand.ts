@@ -64,6 +64,7 @@ export interface DisassociateDataShareConsumerCommandOutput extends DataShare, _
  * //     },
  * //   ],
  * //   ManagedBy: "STRING_VALUE",
+ * //   DataShareType: "INTERNAL",
  * // };
  *
  * ```

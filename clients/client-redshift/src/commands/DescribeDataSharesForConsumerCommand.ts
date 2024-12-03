@@ -66,6 +66,7 @@ export interface DescribeDataSharesForConsumerCommandOutput
  * //         },
  * //       ],
  * //       ManagedBy: "STRING_VALUE",
+ * //       DataShareType: "INTERNAL",
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",
