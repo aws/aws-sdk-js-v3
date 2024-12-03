@@ -49,6 +49,7 @@ export interface PutWhatsAppBusinessAccountEventDestinationsCommandOutput
  *   eventDestinations: [ // WhatsAppBusinessAccountEventDestinations // required
  *     { // WhatsAppBusinessAccountEventDestination
  *       eventDestinationArn: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE",
  *     },
  *   ],
  * };

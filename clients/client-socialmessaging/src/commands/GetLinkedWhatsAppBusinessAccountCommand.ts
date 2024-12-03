@@ -56,6 +56,7 @@ export interface GetLinkedWhatsAppBusinessAccountCommandOutput
  * //     eventDestinations: [ // WhatsAppBusinessAccountEventDestinations // required
  * //       { // WhatsAppBusinessAccountEventDestination
  * //         eventDestinationArn: "STRING_VALUE", // required
+ * //         roleArn: "STRING_VALUE",
  * //       },
  * //     ],
  * //     phoneNumbers: [ // WhatsAppPhoneNumberSummaryList // required

@@ -188,6 +188,13 @@ export interface WhatsAppBusinessAccountEventDestination {
    * @public
    */
   eventDestinationArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Identity and Access Management role
+   *          that is able to import phone numbers and write events.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
 }
 
 /**
@@ -358,6 +365,12 @@ export interface LinkedWhatsAppBusinessAccountIdMetaData {
    * @public
    */
   unregisteredWhatsAppPhoneNumbers?: WhatsAppPhoneNumberDetail[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the WhatsApp Business Account ID.</p>
+   * @public
+   */
+  wabaId?: string | undefined;
 }
 
 /**

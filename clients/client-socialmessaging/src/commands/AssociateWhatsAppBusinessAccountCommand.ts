@@ -70,6 +70,7 @@ export interface AssociateWhatsAppBusinessAccountCommandOutput
  *       eventDestinations: [ // WhatsAppBusinessAccountEventDestinations
  *         { // WhatsAppBusinessAccountEventDestination
  *           eventDestinationArn: "STRING_VALUE", // required
+ *           roleArn: "STRING_VALUE",
  *         },
  *       ],
  *       tags: [
@@ -101,6 +102,7 @@ export interface AssociateWhatsAppBusinessAccountCommandOutput
  * //             qualityRating: "STRING_VALUE", // required
  * //           },
  * //         ],
+ * //         wabaId: "STRING_VALUE",
  * //       },
  * //     },
  * //   },
