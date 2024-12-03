@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.705.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.704.0...v3.705.0) (2024-12-03)
+
+
+### Features
+
+* **client-athena:** Add FEDERATED type to CreateDataCatalog. This creates Athena Data Catalog, AWS Lambda connector, and AWS Glue connection. Create/DeleteDataCatalog returns DataCatalog. Add Status, ConnectionType, and Error to DataCatalog and DataCatalogSummary. Add DeleteCatalogOnly to delete Athena Catalog only. ([500786a](https://github.com/aws/aws-sdk-js-v3/commit/500786a14fa02561e817763aae95fb150729612c))
+* **client-bedrock-agent-runtime:** Releasing SDK for multi agent collaboration ([c1cceb3](https://github.com/aws/aws-sdk-js-v3/commit/c1cceb369ea741888536a919e1b50f4cb643d6e2))
+* **client-bedrock-agent:** Releasing SDK for Multi-Agent Collaboration. ([29558b0](https://github.com/aws/aws-sdk-js-v3/commit/29558b0cfeff7bde350be6ac4caba0f9a495f234))
+* **client-bedrock-runtime:** Added support for Async Invoke Operations Start, List and Get. Support for invocation logs with `requestMetadata` field in Converse, ConverseStream, Invoke and InvokeStream. Video content blocks in Converse/ConverseStream accept raw bytes or S3 URI. ([9169d69](https://github.com/aws/aws-sdk-js-v3/commit/9169d69478932e6ffa143b277ce67ae487a2e267))
+* **client-bedrock:** Tagging support for Async Invoke resources. Added support for Distillation in CreateModelCustomizationJob API. Support for videoDataDeliveryEnabled flag in invocation logging. ([44b1172](https://github.com/aws/aws-sdk-js-v3/commit/44b1172b4d1ab9bc0d8afc9d045bde5fb1d95c7b))
+* **client-datazone:** Adds support for Connections, ProjectProfiles, and JobRuns APIs. Supports the new Lineage feature at GA. Adjusts optionality of a parameter for DataSource and SubscriptionTarget APIs which may adjust types in some clients. ([86fba5d](https://github.com/aws/aws-sdk-js-v3/commit/86fba5d2a46e2ad4636852360618a2b5bca4088f))
+* **client-dsql:** Add new API operations for Amazon Aurora DSQL. Amazon Aurora DSQL is a serverless, distributed SQL database with virtually unlimited scale, highest availability, and zero infrastructure management. ([94d1598](https://github.com/aws/aws-sdk-js-v3/commit/94d15989551d7bd0532fb58ff7c4edcd3681b53c))
+* **client-dynamodb:** This change adds support for global tables with multi-Region strong consistency (in preview). The UpdateTable API now supports a new attribute MultiRegionConsistency to set consistency when creating global tables. The DescribeTable output now optionally includes the MultiRegionConsistency attribute. ([c96da51](https://github.com/aws/aws-sdk-js-v3/commit/c96da5157b12349b184c56e0a4fdb90717a10198))
+* **client-glue:** This release includes(1)Zero-ETL integration to ingest data from 3P SaaS and DynamoDB to Redshift/Redlake (2)new properties on Connections to enable reuse; new connection APIs for retrieve/preview metadata (3)support of CRUD operations for Multi-catalog (4)support of automatic statistics collections ([9c425d5](https://github.com/aws/aws-sdk-js-v3/commit/9c425d59553f40ad25b30eff64a5715eb29be1c4))
+* **client-lakeformation:** This release added two new LakeFormation Permissions (CREATE_CATALOG, SUPER_USER) and added Id field for CatalogResource. It also added new conditon and expression field. ([860d0d8](https://github.com/aws/aws-sdk-js-v3/commit/860d0d87442cdbaffff4c320223d09ff57d96599))
+* **client-qapps:** Add support for 11 new plugins as action cards to help automate repetitive tasks and improve productivity. ([e8b4cd8](https://github.com/aws/aws-sdk-js-v3/commit/e8b4cd83f24be93213e547a4cb944b567bf42445))
+* **client-qbusiness:** Amazon Q Business now supports customization options for your web experience, 11 new Plugins, and QuickSight support. Amazon Q index allows software providers to enrich their native generative AI experiences with their customer's enterprise knowledge and user context spanning multiple applications. ([60ec210](https://github.com/aws/aws-sdk-js-v3/commit/60ec2100e43c6d82d38d45ca0b7eedfabe573ed7))
+* **client-quicksight:** This release includes API needed to support for Unstructured Data in Q in QuickSight Q&A (IDC). ([40ef36d](https://github.com/aws/aws-sdk-js-v3/commit/40ef36db9adc6f6a3d205c154ae9bfaef8f781b5))
+* **client-redshift-serverless:** Adds support for the ListManagedWorkgroups API to get an overview of existing managed workgroups. ([e55f648](https://github.com/aws/aws-sdk-js-v3/commit/e55f648d7650e05630a1fa69e13147ba97cf9bbe))
+* **client-redshift:** Adds support for Amazon Redshift RegisterNamespace and DeregisterNamespace APIs to share data to AWS Glue Data Catalog. ([b6e41dd](https://github.com/aws/aws-sdk-js-v3/commit/b6e41dd2b86dacfdfece9c7bc50364de84b3bce9))
+* **client-s3:** Amazon S3 Metadata stores object metadata in read-only, fully managed Apache Iceberg metadata tables that you can query. You can create metadata table configurations for S3 general purpose buckets. ([b6368e5](https://github.com/aws/aws-sdk-js-v3/commit/b6368e5d8d76e21567c93e2fefd4eba8f6f7d51c))
+* **client-s3tables:** Amazon S3 Tables deliver the first cloud object store with built-in open table format support, and the easiest way to store tabular data at scale. ([d8beae2](https://github.com/aws/aws-sdk-js-v3/commit/d8beae298736b4dcb03656cb9630b29b9fc03e73))
+* **clients:** update client endpoints as of 2024-12-03 ([a0ccaa1](https://github.com/aws/aws-sdk-js-v3/commit/a0ccaa105027e49b38ed9f29b6757c68411f5d35))
+
+
+
+
+
 # [3.704.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.703.0...v3.704.0) (2024-12-03)
 
 

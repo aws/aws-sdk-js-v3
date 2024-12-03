@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.705.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.704.0...v3.705.0) (2024-12-03)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Releasing SDK for multi agent collaboration ([c1cceb3](https://github.com/aws/aws-sdk-js-v3/commit/c1cceb369ea741888536a919e1b50f4cb643d6e2))
+
+
+
+
+
 # [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.705.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.704.0...v3.705.0) (2024-12-03)
+
+
+### Features
+
+* **client-lakeformation:** This release added two new LakeFormation Permissions (CREATE_CATALOG, SUPER_USER) and added Id field for CatalogResource. It also added new conditon and expression field. ([860d0d8](https://github.com/aws/aws-sdk-js-v3/commit/860d0d87442cdbaffff4c320223d09ff57d96599))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-lakeformation

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.705.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.704.0...v3.705.0) (2024-12-03)
+
+
+### Features
+
+* **client-quicksight:** This release includes API needed to support for Unstructured Data in Q in QuickSight Q&A (IDC). ([40ef36d](https://github.com/aws/aws-sdk-js-v3/commit/40ef36db9adc6f6a3d205c154ae9bfaef8f781b5))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 

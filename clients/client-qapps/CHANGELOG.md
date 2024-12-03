@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.705.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.704.0...v3.705.0) (2024-12-03)
+
+
+### Features
+
+* **client-qapps:** Add support for 11 new plugins as action cards to help automate repetitive tasks and improve productivity. ([e8b4cd8](https://github.com/aws/aws-sdk-js-v3/commit/e8b4cd83f24be93213e547a4cb944b567bf42445))
+
+
+
+
+
 # [3.702.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.701.0...v3.702.0) (2024-11-27)
 
 **Note:** Version bump only for package @aws-sdk/client-qapps

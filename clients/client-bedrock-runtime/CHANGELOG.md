@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.705.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.704.0...v3.705.0) (2024-12-03)
+
+
+### Features
+
+* **client-bedrock-runtime:** Added support for Async Invoke Operations Start, List and Get. Support for invocation logs with `requestMetadata` field in Converse, ConverseStream, Invoke and InvokeStream. Video content blocks in Converse/ConverseStream accept raw bytes or S3 URI. ([9169d69](https://github.com/aws/aws-sdk-js-v3/commit/9169d69478932e6ffa143b277ce67ae487a2e267))
+
+
+
+
+
 # [3.704.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.703.0...v3.704.0) (2024-12-03)
 
 

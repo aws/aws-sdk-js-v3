@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.705.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.704.0...v3.705.0) (2024-12-03)
+
+
+### Features
+
+* **client-dynamodb:** This change adds support for global tables with multi-Region strong consistency (in preview). The UpdateTable API now supports a new attribute MultiRegionConsistency to set consistency when creating global tables. The DescribeTable output now optionally includes the MultiRegionConsistency attribute. ([c96da51](https://github.com/aws/aws-sdk-js-v3/commit/c96da5157b12349b184c56e0a4fdb90717a10198))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-dynamodb

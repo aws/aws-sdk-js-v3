@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.705.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.704.0...v3.705.0) (2024-12-03)
+
+
+### Features
+
+* **client-redshift:** Adds support for Amazon Redshift RegisterNamespace and DeregisterNamespace APIs to share data to AWS Glue Data Catalog. ([b6e41dd](https://github.com/aws/aws-sdk-js-v3/commit/b6e41dd2b86dacfdfece9c7bc50364de84b3bce9))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-redshift

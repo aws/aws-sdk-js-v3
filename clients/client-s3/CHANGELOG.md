@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.705.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.704.0...v3.705.0) (2024-12-03)
+
+
+### Features
+
+* **client-s3:** Amazon S3 Metadata stores object metadata in read-only, fully managed Apache Iceberg metadata tables that you can query. You can create metadata table configurations for S3 general purpose buckets. ([b6368e5](https://github.com/aws/aws-sdk-js-v3/commit/b6368e5d8d76e21567c93e2fefd4eba8f6f7d51c))
+
+
+
+
+
 # [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.705.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.704.0...v3.705.0) (2024-12-03)
+
+
+### Features
+
+* **client-bedrock:** Tagging support for Async Invoke resources. Added support for Distillation in CreateModelCustomizationJob API. Support for videoDataDeliveryEnabled flag in invocation logging. ([44b1172](https://github.com/aws/aws-sdk-js-v3/commit/44b1172b4d1ab9bc0d8afc9d045bde5fb1d95c7b))
+
+
+
+
+
 # [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
 
 

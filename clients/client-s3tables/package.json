@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-s3tables",
   "description": "AWS SDK for JavaScript S3tables Client for Node.js, Browser and React Native",
-  "version": "3.0.0",
+  "version": "3.705.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
