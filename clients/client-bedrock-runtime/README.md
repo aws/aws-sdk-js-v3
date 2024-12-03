@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `BedrockRuntimeClient` and
-the commands you need, for example `ConverseCommand`:
+the commands you need, for example `ListAsyncInvokesCommand`:
 
 ```js
 // ES5 example
-const { BedrockRuntimeClient, ConverseCommand } = require("@aws-sdk/client-bedrock-runtime");
+const { BedrockRuntimeClient, ListAsyncInvokesCommand } = require("@aws-sdk/client-bedrock-runtime");
 ```
 
 ```ts
 // ES6+ example
-import { BedrockRuntimeClient, ConverseCommand } from "@aws-sdk/client-bedrock-runtime";
+import { BedrockRuntimeClient, ListAsyncInvokesCommand } from "@aws-sdk/client-bedrock-runtime";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new BedrockRuntimeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ConverseCommand(params);
+const command = new ListAsyncInvokesCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.BedrockRuntime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.converse(params);
+  const data = await client.listAsyncInvokes(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .converse(params)
+  .listAsyncInvokes(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.converse(params, (err, data) => {
+client.listAsyncInvokes(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -229,6 +229,14 @@ ConverseStream
 </details>
 <details>
 <summary>
+GetAsyncInvoke
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/GetAsyncInvokeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/GetAsyncInvokeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/GetAsyncInvokeCommandOutput/)
+
+</details>
+<details>
+<summary>
 InvokeModel
 </summary>
 
@@ -241,5 +249,21 @@ InvokeModelWithResponseStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/InvokeModelWithResponseStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/InvokeModelWithResponseStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/InvokeModelWithResponseStreamCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAsyncInvokes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/ListAsyncInvokesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/ListAsyncInvokesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/ListAsyncInvokesCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartAsyncInvoke
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/StartAsyncInvokeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/StartAsyncInvokeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/StartAsyncInvokeCommandOutput/)
 
 </details>

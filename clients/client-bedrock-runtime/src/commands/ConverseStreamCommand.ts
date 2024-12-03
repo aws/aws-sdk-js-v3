@@ -90,6 +90,16 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *               bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *             },
  *           },
+ *           video: { // VideoBlock
+ *             format: "mkv" || "mov" || "mp4" || "webm" || "flv" || "mpeg" || "mpg" || "wmv" || "three_gp", // required
+ *             source: { // VideoSource Union: only one key present
+ *               bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *               s3Location: { // S3Location
+ *                 uri: "STRING_VALUE", // required
+ *                 bucketOwner: "STRING_VALUE",
+ *               },
+ *             },
+ *           },
  *           toolUse: { // ToolUseBlock
  *             toolUseId: "STRING_VALUE", // required
  *             name: "STRING_VALUE", // required
@@ -112,6 +122,16 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *                   name: "STRING_VALUE", // required
  *                   source: {//  Union: only one key present
  *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *                   },
+ *                 },
+ *                 video: {
+ *                   format: "mkv" || "mov" || "mp4" || "webm" || "flv" || "mpeg" || "mpg" || "wmv" || "three_gp", // required
+ *                   source: {//  Union: only one key present
+ *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *                     s3Location: {
+ *                       uri: "STRING_VALUE", // required
+ *                       bucketOwner: "STRING_VALUE",
+ *                     },
  *                   },
  *                 },
  *               },
@@ -186,6 +206,9 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *   additionalModelResponseFieldPaths: [ // AdditionalModelResponseFieldPaths
  *     "STRING_VALUE",
  *   ],
+ *   requestMetadata: { // RequestMetadata
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   performanceConfig: { // PerformanceConfiguration
  *     latency: "standard" || "optimized",
  *   },

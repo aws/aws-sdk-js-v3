@@ -15,10 +15,13 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
   isSerializableHeaderValue,
   limitedParseDouble as __limitedParseDouble,
   map,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   take,
   withBaseException,
@@ -30,20 +33,28 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import { ApplyGuardrailCommandInput, ApplyGuardrailCommandOutput } from "../commands/ApplyGuardrailCommand";
 import { ConverseCommandInput, ConverseCommandOutput } from "../commands/ConverseCommand";
 import { ConverseStreamCommandInput, ConverseStreamCommandOutput } from "../commands/ConverseStreamCommand";
+import { GetAsyncInvokeCommandInput, GetAsyncInvokeCommandOutput } from "../commands/GetAsyncInvokeCommand";
 import { InvokeModelCommandInput, InvokeModelCommandOutput } from "../commands/InvokeModelCommand";
 import {
   InvokeModelWithResponseStreamCommandInput,
   InvokeModelWithResponseStreamCommandOutput,
 } from "../commands/InvokeModelWithResponseStreamCommand";
+import { ListAsyncInvokesCommandInput, ListAsyncInvokesCommandOutput } from "../commands/ListAsyncInvokesCommand";
+import { StartAsyncInvokeCommandInput, StartAsyncInvokeCommandOutput } from "../commands/StartAsyncInvokeCommand";
 import { BedrockRuntimeServiceException as __BaseException } from "../models/BedrockRuntimeServiceException";
 import {
   AccessDeniedException,
   AnyToolChoice,
+  AsyncInvokeOutputDataConfig,
+  AsyncInvokeS3OutputDataConfig,
+  AsyncInvokeSummary,
   AutoToolChoice,
+  ConflictException,
   ContentBlock,
   ContentBlockDeltaEvent,
   ContentBlockStartEvent,
@@ -83,10 +94,12 @@ import {
   PromptVariableValues,
   ResourceNotFoundException,
   ResponseStream,
+  S3Location,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
   SpecificToolChoice,
   SystemContentBlock,
+  Tag,
   ThrottlingException,
   Tool,
   ToolChoice,
@@ -97,6 +110,8 @@ import {
   ToolSpecification,
   ToolUseBlock,
   ValidationException,
+  VideoBlock,
+  VideoSource,
 } from "../models/models_0";
 
 /**
@@ -147,6 +162,7 @@ export const se_ConverseCommand = async (
       messages: (_) => se_Messages(_, context),
       performanceConfig: (_) => _json(_),
       promptVariables: (_) => _json(_),
+      requestMetadata: (_) => _json(_),
       system: (_) => _json(_),
       toolConfig: (_) => se_ToolConfiguration(_, context),
     })
@@ -178,11 +194,28 @@ export const se_ConverseStreamCommand = async (
       messages: (_) => se_Messages(_, context),
       performanceConfig: (_) => _json(_),
       promptVariables: (_) => _json(_),
+      requestMetadata: (_) => _json(_),
       system: (_) => _json(_),
       toolConfig: (_) => se_ToolConfiguration(_, context),
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAsyncInvokeCommand
+ */
+export const se_GetAsyncInvokeCommand = async (
+  input: GetAsyncInvokeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/async-invoke/{invocationArn}");
+  b.p("invocationArn", () => input.invocationArn!, "{invocationArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -234,6 +267,56 @@ export const se_InvokeModelWithResponseStreamCommand = async (
   if (input.body !== undefined) {
     body = input.body;
   }
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAsyncInvokesCommand
+ */
+export const se_ListAsyncInvokesCommand = async (
+  input: ListAsyncInvokesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/async-invoke");
+  const query: any = map({
+    [_sTA]: [() => input.submitTimeAfter !== void 0, () => __serializeDateTime(input[_sTA]!).toString()],
+    [_sTB]: [() => input.submitTimeBefore !== void 0, () => __serializeDateTime(input[_sTB]!).toString()],
+    [_sE]: [, input[_sE]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_sB]: [, input[_sB]!],
+    [_sO]: [, input[_sO]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartAsyncInvokeCommand
+ */
+export const se_StartAsyncInvokeCommand = async (
+  input: StartAsyncInvokeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/async-invoke");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      modelId: [],
+      modelInput: (_) => se_ModelInputPayload(_, context),
+      outputDataConfig: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -309,6 +392,35 @@ export const de_ConverseStreamCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetAsyncInvokeCommand
+ */
+export const de_GetAsyncInvokeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAsyncInvokeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientRequestToken: __expectString,
+    endTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    failureMessage: __expectString,
+    invocationArn: __expectString,
+    lastModifiedTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    modelArn: __expectString,
+    outputDataConfig: (_) => _json(__expectUnion(_)),
+    status: __expectString,
+    submitTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1InvokeModelCommand
  */
 export const de_InvokeModelCommand = async (
@@ -345,6 +457,49 @@ export const de_InvokeModelWithResponseStreamCommand = async (
   });
   const data: any = output.body;
   contents.body = de_ResponseStream(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAsyncInvokesCommand
+ */
+export const de_ListAsyncInvokesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAsyncInvokesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    asyncInvokeSummaries: (_) => de_AsyncInvokeSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartAsyncInvokeCommand
+ */
+export const de_StartAsyncInvokeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAsyncInvokeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    invocationArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -391,6 +546,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ModelStreamErrorException":
     case "com.amazonaws.bedrockruntime#ModelStreamErrorException":
       throw await de_ModelStreamErrorExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.bedrockruntime#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -416,6 +574,23 @@ const de_AccessDeniedExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -847,6 +1022,10 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
 
 // se_AnyToolChoice omitted.
 
+// se_AsyncInvokeOutputDataConfig omitted.
+
+// se_AsyncInvokeS3OutputDataConfig omitted.
+
 // se_AutoToolChoice omitted.
 
 /**
@@ -860,6 +1039,7 @@ const se_ContentBlock = (input: ContentBlock, context: __SerdeContext): any => {
     text: (value) => ({ text: value }),
     toolResult: (value) => ({ toolResult: se_ToolResultBlock(value, context) }),
     toolUse: (value) => ({ toolUse: se_ToolUseBlock(value, context) }),
+    video: (value) => ({ video: se_VideoBlock(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -967,6 +1147,13 @@ const se_Messages = (input: Message[], context: __SerdeContext): any => {
     });
 };
 
+/**
+ * serializeAws_restJson1ModelInputPayload
+ */
+const se_ModelInputPayload = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
 // se_NonEmptyStringList omitted.
 
 // se_PerformanceConfiguration omitted.
@@ -975,11 +1162,19 @@ const se_Messages = (input: Message[], context: __SerdeContext): any => {
 
 // se_PromptVariableValues omitted.
 
+// se_RequestMetadata omitted.
+
+// se_S3Location omitted.
+
 // se_SpecificToolChoice omitted.
 
 // se_SystemContentBlock omitted.
 
 // se_SystemContentBlocks omitted.
+
+// se_Tag omitted.
+
+// se_TagList omitted.
 
 /**
  * serializeAws_restJson1Tool
@@ -1033,6 +1228,7 @@ const se_ToolResultContentBlock = (input: ToolResultContentBlock, context: __Ser
     image: (value) => ({ image: se_ImageBlock(value, context) }),
     json: (value) => ({ json: se_Document(value, context) }),
     text: (value) => ({ text: value }),
+    video: (value) => ({ video: se_VideoBlock(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -1082,10 +1278,64 @@ const se_ToolUseBlock = (input: ToolUseBlock, context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_restJson1VideoBlock
+ */
+const se_VideoBlock = (input: VideoBlock, context: __SerdeContext): any => {
+  return take(input, {
+    format: [],
+    source: (_) => se_VideoSource(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1VideoSource
+ */
+const se_VideoSource = (input: VideoSource, context: __SerdeContext): any => {
+  return VideoSource.visit(input, {
+    bytes: (value) => ({ bytes: context.base64Encoder(value) }),
+    s3Location: (value) => ({ s3Location: _json(value) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
  * serializeAws_restJson1Document
  */
 const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
   return input;
+};
+
+// de_AsyncInvokeOutputDataConfig omitted.
+
+// de_AsyncInvokeS3OutputDataConfig omitted.
+
+/**
+ * deserializeAws_restJson1AsyncInvokeSummaries
+ */
+const de_AsyncInvokeSummaries = (output: any, context: __SerdeContext): AsyncInvokeSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AsyncInvokeSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AsyncInvokeSummary
+ */
+const de_AsyncInvokeSummary = (output: any, context: __SerdeContext): AsyncInvokeSummary => {
+  return take(output, {
+    clientRequestToken: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    failureMessage: __expectString,
+    invocationArn: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    modelArn: __expectString,
+    outputDataConfig: (_: any) => _json(__expectUnion(_)),
+    status: __expectString,
+    submitTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -1118,6 +1368,11 @@ const de_ContentBlock = (output: any, context: __SerdeContext): ContentBlock => 
   if (output.toolUse != null) {
     return {
       toolUse: de_ToolUseBlock(output.toolUse, context),
+    };
+  }
+  if (output.video != null) {
+    return {
+      video: de_VideoBlock(output.video, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -1426,6 +1681,8 @@ const de_PayloadPart = (output: any, context: __SerdeContext): PayloadPart => {
 
 // de_PerformanceConfiguration omitted.
 
+// de_S3Location omitted.
+
 // de_TokenUsage omitted.
 
 /**
@@ -1461,6 +1718,11 @@ const de_ToolResultContentBlock = (output: any, context: __SerdeContext): ToolRe
   if (__expectString(output.text) !== undefined) {
     return { text: __expectString(output.text) as any };
   }
+  if (output.video != null) {
+    return {
+      video: de_VideoBlock(output.video, context),
+    };
+  }
   return { $unknown: Object.entries(output)[0] };
 };
 
@@ -1492,6 +1754,33 @@ const de_ToolUseBlock = (output: any, context: __SerdeContext): ToolUseBlock => 
 // de_ToolUseBlockStart omitted.
 
 /**
+ * deserializeAws_restJson1VideoBlock
+ */
+const de_VideoBlock = (output: any, context: __SerdeContext): VideoBlock => {
+  return take(output, {
+    format: __expectString,
+    source: (_: any) => de_VideoSource(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VideoSource
+ */
+const de_VideoSource = (output: any, context: __SerdeContext): VideoSource => {
+  if (output.bytes != null) {
+    return {
+      bytes: context.base64Decoder(output.bytes),
+    };
+  }
+  if (output.s3Location != null) {
+    return {
+      s3Location: _json(output.s3Location),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
  * deserializeAws_restJson1Document
  */
 const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
@@ -1515,7 +1804,14 @@ const _cT = "contentType";
 const _ct = "content-type";
 const _gI = "guardrailIdentifier";
 const _gV = "guardrailVersion";
+const _mR = "maxResults";
+const _nT = "nextToken";
 const _pCL = "performanceConfigLatency";
+const _sB = "sortBy";
+const _sE = "statusEquals";
+const _sO = "sortOrder";
+const _sTA = "submitTimeAfter";
+const _sTB = "submitTimeBefore";
 const _t = "trace";
 const _xaba = "x-amzn-bedrock-accept";
 const _xabct = "x-amzn-bedrock-content-type";

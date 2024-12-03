@@ -62,11 +62,14 @@ import {
 import { ApplyGuardrailCommandInput, ApplyGuardrailCommandOutput } from "./commands/ApplyGuardrailCommand";
 import { ConverseCommandInput, ConverseCommandOutput } from "./commands/ConverseCommand";
 import { ConverseStreamCommandInput, ConverseStreamCommandOutput } from "./commands/ConverseStreamCommand";
+import { GetAsyncInvokeCommandInput, GetAsyncInvokeCommandOutput } from "./commands/GetAsyncInvokeCommand";
 import { InvokeModelCommandInput, InvokeModelCommandOutput } from "./commands/InvokeModelCommand";
 import {
   InvokeModelWithResponseStreamCommandInput,
   InvokeModelWithResponseStreamCommandOutput,
 } from "./commands/InvokeModelWithResponseStreamCommand";
+import { ListAsyncInvokesCommandInput, ListAsyncInvokesCommandOutput } from "./commands/ListAsyncInvokesCommand";
+import { StartAsyncInvokeCommandInput, StartAsyncInvokeCommandOutput } from "./commands/StartAsyncInvokeCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -85,8 +88,11 @@ export type ServiceInputTypes =
   | ApplyGuardrailCommandInput
   | ConverseCommandInput
   | ConverseStreamCommandInput
+  | GetAsyncInvokeCommandInput
   | InvokeModelCommandInput
-  | InvokeModelWithResponseStreamCommandInput;
+  | InvokeModelWithResponseStreamCommandInput
+  | ListAsyncInvokesCommandInput
+  | StartAsyncInvokeCommandInput;
 
 /**
  * @public
@@ -95,8 +101,11 @@ export type ServiceOutputTypes =
   | ApplyGuardrailCommandOutput
   | ConverseCommandOutput
   | ConverseStreamCommandOutput
+  | GetAsyncInvokeCommandOutput
   | InvokeModelCommandOutput
-  | InvokeModelWithResponseStreamCommandOutput;
+  | InvokeModelWithResponseStreamCommandOutput
+  | ListAsyncInvokesCommandOutput
+  | StartAsyncInvokeCommandOutput;
 
 /**
  * @public

@@ -28,6 +28,515 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ */
+export interface GetAsyncInvokeRequest {
+  /**
+   * <p>The invocation's ARN.</p>
+   * @public
+   */
+  invocationArn: string | undefined;
+}
+
+/**
+ * <p>Asynchronous invocation output data settings.</p>
+ * @public
+ */
+export interface AsyncInvokeS3OutputDataConfig {
+  /**
+   * <p>An object URI starting with <code>s3://</code>.</p>
+   * @public
+   */
+  s3Uri: string | undefined;
+
+  /**
+   * <p>A KMS encryption key ID.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+
+  /**
+   * <p>If the bucket belongs to another AWS account, specify that account's ID.</p>
+   * @public
+   */
+  bucketOwner?: string | undefined;
+}
+
+/**
+ * <p>Asynchronous invocation output data settings.</p>
+ * @public
+ */
+export type AsyncInvokeOutputDataConfig =
+  | AsyncInvokeOutputDataConfig.S3OutputDataConfigMember
+  | AsyncInvokeOutputDataConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AsyncInvokeOutputDataConfig {
+  /**
+   * <p>A storage location for the output data in an S3 bucket</p>
+   * @public
+   */
+  export interface S3OutputDataConfigMember {
+    s3OutputDataConfig: AsyncInvokeS3OutputDataConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3OutputDataConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3OutputDataConfig: (value: AsyncInvokeS3OutputDataConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AsyncInvokeOutputDataConfig, visitor: Visitor<T>): T => {
+    if (value.s3OutputDataConfig !== undefined) return visitor.s3OutputDataConfig(value.s3OutputDataConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AsyncInvokeStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type AsyncInvokeStatus = (typeof AsyncInvokeStatus)[keyof typeof AsyncInvokeStatus];
+
+/**
+ * @public
+ */
+export interface GetAsyncInvokeResponse {
+  /**
+   * <p>The invocation's ARN.</p>
+   * @public
+   */
+  invocationArn: string | undefined;
+
+  /**
+   * <p>The invocation's model ARN.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>The invocation's idempotency token.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+
+  /**
+   * <p>The invocation's status.</p>
+   * @public
+   */
+  status: AsyncInvokeStatus | undefined;
+
+  /**
+   * <p>An error message.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
+
+  /**
+   * <p>When the invocation request was submitted.</p>
+   * @public
+   */
+  submitTime: Date | undefined;
+
+  /**
+   * <p>The invocation's last modified time.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>When the invocation ended.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>Output data settings.</p>
+   * @public
+   */
+  outputDataConfig: AsyncInvokeOutputDataConfig | undefined;
+}
+
+/**
+ * <p>An internal server error occurred. For troubleshooting this error,
+ *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure">InternalFailure</a> in the Amazon Bedrock User Guide</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For
+ *          troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error,
+ *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortAsyncInvocationBy = {
+  SUBMISSION_TIME: "SubmissionTime",
+} as const;
+
+/**
+ * @public
+ */
+export type SortAsyncInvocationBy = (typeof SortAsyncInvocationBy)[keyof typeof SortAsyncInvocationBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
+export interface ListAsyncInvokesRequest {
+  /**
+   * <p>Include invocations submitted after this time.</p>
+   * @public
+   */
+  submitTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Include invocations submitted before this time.</p>
+   * @public
+   */
+  submitTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Filter invocations by status.</p>
+   * @public
+   */
+  statusEquals?: AsyncInvokeStatus | undefined;
+
+  /**
+   * <p>The maximum number of invocations to return in one page of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>How to sort the response.</p>
+   * @public
+   */
+  sortBy?: SortAsyncInvocationBy | undefined;
+
+  /**
+   * <p>The sorting order for the response.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+}
+
+/**
+ * <p>A summary of an asynchronous invocation.</p>
+ * @public
+ */
+export interface AsyncInvokeSummary {
+  /**
+   * <p>The invocation's ARN.</p>
+   * @public
+   */
+  invocationArn: string | undefined;
+
+  /**
+   * <p>The invoked model's ARN.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>The invocation's idempotency token.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+
+  /**
+   * <p>The invocation's status.</p>
+   * @public
+   */
+  status?: AsyncInvokeStatus | undefined;
+
+  /**
+   * <p>An error message.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
+
+  /**
+   * <p>When the invocation was submitted.</p>
+   * @public
+   */
+  submitTime: Date | undefined;
+
+  /**
+   * <p>When the invocation was last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>When the invocation ended.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>The invocation's output data settings.</p>
+   * @public
+   */
+  outputDataConfig: AsyncInvokeOutputDataConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAsyncInvokesResponse {
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>A list of invocation summaries.</p>
+   * @public
+   */
+  asyncInvokeSummaries?: AsyncInvokeSummary[] | undefined;
+}
+
+/**
+ * <p>Error occurred because of a conflict while performing an operation.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
+}
+
+/**
+ * <p>The specified resource ARN was not found. For troubleshooting this error,
+ *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-resource-not-found">ResourceNotFound</a> in the Amazon Bedrock User Guide</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>Your request exceeds the service quota for your account. You can view your quotas at <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html">Viewing service quotas</a>. You can resubmit your request later.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
+ * <p>The service isn't currently available. For troubleshooting this error,
+ *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
+ * @public
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
+}
+
+/**
+ * <p>A tag.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>The tag's key.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The tag's value.</p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAsyncInvokeRequest {
+  /**
+   * <p>Specify idempotency token to ensure that requests are not duplicated.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+
+  /**
+   * <p>The model to invoke.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>Input to send to the model.</p>
+   * @public
+   */
+  modelInput: __DocumentType | undefined;
+
+  /**
+   * <p>Where to store the output.</p>
+   * @public
+   */
+  outputDataConfig: AsyncInvokeOutputDataConfig | undefined;
+
+  /**
+   * <p>Tags to apply to the invocation.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAsyncInvokeResponse {
+  /**
+   * <p>The ARN of the invocation.</p>
+   * @public
+   */
+  invocationArn: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const GuardrailContentQualifier = {
@@ -798,110 +1307,6 @@ export interface ApplyGuardrailResponse {
 }
 
 /**
- * <p>An internal server error occurred. For troubleshooting this error,
- *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure">InternalFailure</a> in the Amazon Bedrock User Guide</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource ARN was not found. For troubleshooting this error,
- *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-resource-not-found">ResourceNotFound</a> in the Amazon Bedrock User Guide</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>Your request exceeds the service quota for your account. You can view your quotas at <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html">Viewing service quotas</a>. You can resubmit your request later.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For
- *          troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error,
- *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * @public
  * @enum
  */
@@ -1239,6 +1644,117 @@ export interface ImageBlock {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const VideoFormat = {
+  FLV: "flv",
+  MKV: "mkv",
+  MOV: "mov",
+  MP4: "mp4",
+  MPEG: "mpeg",
+  MPG: "mpg",
+  THREE_GP: "three_gp",
+  WEBM: "webm",
+  WMV: "wmv",
+} as const;
+
+/**
+ * @public
+ */
+export type VideoFormat = (typeof VideoFormat)[keyof typeof VideoFormat];
+
+/**
+ * <p>A storage location in an S3 bucket.</p>
+ * @public
+ */
+export interface S3Location {
+  /**
+   * <p>An object URI starting with <code>s3://</code>.</p>
+   * @public
+   */
+  uri: string | undefined;
+
+  /**
+   * <p>If the bucket belongs to another AWS account, specify that account's ID.</p>
+   * @public
+   */
+  bucketOwner?: string | undefined;
+}
+
+/**
+ * <p>A video source. You can upload a smaller video as a base64-encoded string as
+ *     long as the encoded file is less than 25MB. You can also transfer videos up to 1GB in size
+ *     from an S3 bucket.</p>
+ * @public
+ */
+export type VideoSource = VideoSource.BytesMember | VideoSource.S3LocationMember | VideoSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace VideoSource {
+  /**
+   * <p>Video content encoded in base64.</p>
+   * @public
+   */
+  export interface BytesMember {
+    bytes: Uint8Array;
+    s3Location?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The location of a video object in an S3 bucket.</p>
+   * @public
+   */
+  export interface S3LocationMember {
+    bytes?: never;
+    s3Location: S3Location;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    bytes?: never;
+    s3Location?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    bytes: (value: Uint8Array) => T;
+    s3Location: (value: S3Location) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: VideoSource, visitor: Visitor<T>): T => {
+    if (value.bytes !== undefined) return visitor.bytes(value.bytes);
+    if (value.s3Location !== undefined) return visitor.s3Location(value.s3Location);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>A video block.</p>
+ * @public
+ */
+export interface VideoBlock {
+  /**
+   * <p>The block's format.</p>
+   * @public
+   */
+  format: VideoFormat | undefined;
+
+  /**
+   * <p>The block's source.</p>
+   * @public
+   */
+  source: VideoSource | undefined;
+}
+
+/**
  * <p>The tool result content block.</p>
  * @public
  */
@@ -1247,6 +1763,7 @@ export type ToolResultContentBlock =
   | ToolResultContentBlock.ImageMember
   | ToolResultContentBlock.JsonMember
   | ToolResultContentBlock.TextMember
+  | ToolResultContentBlock.VideoMember
   | ToolResultContentBlock.$UnknownMember;
 
 /**
@@ -1262,6 +1779,7 @@ export namespace ToolResultContentBlock {
     text?: never;
     image?: never;
     document?: never;
+    video?: never;
     $unknown?: never;
   }
 
@@ -1274,6 +1792,7 @@ export namespace ToolResultContentBlock {
     text: string;
     image?: never;
     document?: never;
+    video?: never;
     $unknown?: never;
   }
 
@@ -1289,6 +1808,7 @@ export namespace ToolResultContentBlock {
     text?: never;
     image: ImageBlock;
     document?: never;
+    video?: never;
     $unknown?: never;
   }
 
@@ -1301,6 +1821,20 @@ export namespace ToolResultContentBlock {
     text?: never;
     image?: never;
     document: DocumentBlock;
+    video?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A tool result that is video.</p>
+   * @public
+   */
+  export interface VideoMember {
+    json?: never;
+    text?: never;
+    image?: never;
+    document?: never;
+    video: VideoBlock;
     $unknown?: never;
   }
 
@@ -1312,6 +1846,7 @@ export namespace ToolResultContentBlock {
     text?: never;
     image?: never;
     document?: never;
+    video?: never;
     $unknown: [string, any];
   }
 
@@ -1320,6 +1855,7 @@ export namespace ToolResultContentBlock {
     text: (value: string) => T;
     image: (value: ImageBlock) => T;
     document: (value: DocumentBlock) => T;
+    video: (value: VideoBlock) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1328,6 +1864,7 @@ export namespace ToolResultContentBlock {
     if (value.text !== undefined) return visitor.text(value.text);
     if (value.image !== undefined) return visitor.image(value.image);
     if (value.document !== undefined) return visitor.document(value.document);
+    if (value.video !== undefined) return visitor.video(value.video);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1410,6 +1947,7 @@ export type ContentBlock =
   | ContentBlock.TextMember
   | ContentBlock.ToolResultMember
   | ContentBlock.ToolUseMember
+  | ContentBlock.VideoMember
   | ContentBlock.$UnknownMember;
 
 /**
@@ -1424,6 +1962,7 @@ export namespace ContentBlock {
     text: string;
     image?: never;
     document?: never;
+    video?: never;
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
@@ -1441,6 +1980,7 @@ export namespace ContentBlock {
     text?: never;
     image: ImageBlock;
     document?: never;
+    video?: never;
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
@@ -1455,6 +1995,22 @@ export namespace ContentBlock {
     text?: never;
     image?: never;
     document: DocumentBlock;
+    video?: never;
+    toolUse?: never;
+    toolResult?: never;
+    guardContent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Video to include in the message. </p>
+   * @public
+   */
+  export interface VideoMember {
+    text?: never;
+    image?: never;
+    document?: never;
+    video: VideoBlock;
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
@@ -1469,6 +2025,7 @@ export namespace ContentBlock {
     text?: never;
     image?: never;
     document?: never;
+    video?: never;
     toolUse: ToolUseBlock;
     toolResult?: never;
     guardContent?: never;
@@ -1483,6 +2040,7 @@ export namespace ContentBlock {
     text?: never;
     image?: never;
     document?: never;
+    video?: never;
     toolUse?: never;
     toolResult: ToolResultBlock;
     guardContent?: never;
@@ -1502,6 +2060,7 @@ export namespace ContentBlock {
     text?: never;
     image?: never;
     document?: never;
+    video?: never;
     toolUse?: never;
     toolResult?: never;
     guardContent: GuardrailConverseContentBlock;
@@ -1515,6 +2074,7 @@ export namespace ContentBlock {
     text?: never;
     image?: never;
     document?: never;
+    video?: never;
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
@@ -1525,6 +2085,7 @@ export namespace ContentBlock {
     text: (value: string) => T;
     image: (value: ImageBlock) => T;
     document: (value: DocumentBlock) => T;
+    video: (value: VideoBlock) => T;
     toolUse: (value: ToolUseBlock) => T;
     toolResult: (value: ToolResultBlock) => T;
     guardContent: (value: GuardrailConverseContentBlock) => T;
@@ -1535,6 +2096,7 @@ export namespace ContentBlock {
     if (value.text !== undefined) return visitor.text(value.text);
     if (value.image !== undefined) return visitor.image(value.image);
     if (value.document !== undefined) return visitor.document(value.document);
+    if (value.video !== undefined) return visitor.video(value.video);
     if (value.toolUse !== undefined) return visitor.toolUse(value.toolUse);
     if (value.toolResult !== undefined) return visitor.toolResult(value.toolResult);
     if (value.guardContent !== undefined) return visitor.guardContent(value.guardContent);
@@ -1913,9 +2475,6 @@ export namespace Tool {
 
 /**
  * <p>Configuration information for the tools that you pass to a model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Tool use (function calling)</a> in the Amazon Bedrock User Guide.</p>
- *          <note>
- *             <p>This field is only supported by Anthropic Claude 3, Cohere Command R, Cohere Command R+, and Mistral Large models.</p>
- *          </note>
  * @public
  */
 export interface ToolConfiguration {
@@ -1982,9 +2541,8 @@ export interface ConverseRequest {
 
   /**
    * <p>Configuration information for the tools that the model can use when generating a response. </p>
-   *          <note>
-   *             <p>This field is only supported by Anthropic Claude 3, Cohere Command R, Cohere Command R+, and Mistral Large models.</p>
-   *          </note>
+   *          <p>For information about models that support tool use, see
+   *          <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html#conversation-inference-supported-models-features">Supported models and model features</a>.</p>
    * @public
    */
   toolConfig?: ToolConfiguration | undefined;
@@ -2027,6 +2585,12 @@ export interface ConverseRequest {
    * @public
    */
   additionalModelResponseFieldPaths?: string[] | undefined;
+
+  /**
+   * <p>Key-value pairs that you can use to filter invocation logs.</p>
+   * @public
+   */
+  requestMetadata?: Record<string, string> | undefined;
 
   /**
    * <p>Model performance settings for the request.</p>
@@ -2291,27 +2855,6 @@ export class ModelTimeoutException extends __BaseException {
 }
 
 /**
- * <p>The service isn't currently available. For troubleshooting this error,
- *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-  }
-}
-
-/**
  * @public
  * @enum
  */
@@ -2409,9 +2952,8 @@ export interface ConverseStreamRequest {
 
   /**
    * <p>Configuration information for the tools that the model can use when generating a response.</p>
-   *          <note>
-   *             <p>This field is only supported by Anthropic Claude 3 models.</p>
-   *          </note>
+   *          <p>For information about models that support streaming tool use, see
+   *             <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html#conversation-inference-supported-models-features">Supported models and model features</a>.</p>
    * @public
    */
   toolConfig?: ToolConfiguration | undefined;
@@ -2454,6 +2996,12 @@ export interface ConverseStreamRequest {
    * @public
    */
   additionalModelResponseFieldPaths?: string[] | undefined;
+
+  /**
+   * <p>Key-value pairs that you can use to filter invocation logs.</p>
+   * @public
+   */
+  requestMetadata?: Record<string, string> | undefined;
 
   /**
    * <p>Model performance settings for the request.</p>
@@ -2926,7 +3474,8 @@ export namespace ConverseStreamOutput {
   }
 
   /**
-   * <p>Input validation failed. Check your request parameters and retry the request.</p>
+   * <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error,
+   *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
    * @public
    */
   export interface ValidationExceptionMember {
@@ -2945,7 +3494,8 @@ export namespace ConverseStreamOutput {
   }
 
   /**
-   * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+   * <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For
+   *          troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
    * @public
    */
   export interface ThrottlingExceptionMember {
@@ -3455,12 +4005,50 @@ export interface InvokeModelWithResponseStreamResponse {
 /**
  * @internal
  */
+export const GetAsyncInvokeResponseFilterSensitiveLog = (obj: GetAsyncInvokeResponse): any => ({
+  ...obj,
+  ...(obj.failureMessage && { failureMessage: SENSITIVE_STRING }),
+  ...(obj.outputDataConfig && { outputDataConfig: obj.outputDataConfig }),
+});
+
+/**
+ * @internal
+ */
+export const AsyncInvokeSummaryFilterSensitiveLog = (obj: AsyncInvokeSummary): any => ({
+  ...obj,
+  ...(obj.failureMessage && { failureMessage: SENSITIVE_STRING }),
+  ...(obj.outputDataConfig && { outputDataConfig: obj.outputDataConfig }),
+});
+
+/**
+ * @internal
+ */
+export const ListAsyncInvokesResponseFilterSensitiveLog = (obj: ListAsyncInvokesResponse): any => ({
+  ...obj,
+  ...(obj.asyncInvokeSummaries && {
+    asyncInvokeSummaries: obj.asyncInvokeSummaries.map((item) => AsyncInvokeSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const StartAsyncInvokeRequestFilterSensitiveLog = (obj: StartAsyncInvokeRequest): any => ({
+  ...obj,
+  ...(obj.modelInput && { modelInput: SENSITIVE_STRING }),
+  ...(obj.outputDataConfig && { outputDataConfig: obj.outputDataConfig }),
+});
+
+/**
+ * @internal
+ */
 export const ConverseRequestFilterSensitiveLog = (obj: ConverseRequest): any => ({
   ...obj,
   ...(obj.messages && { messages: obj.messages.map((item) => item) }),
   ...(obj.system && { system: obj.system.map((item) => item) }),
   ...(obj.toolConfig && { toolConfig: obj.toolConfig }),
   ...(obj.promptVariables && { promptVariables: SENSITIVE_STRING }),
+  ...(obj.requestMetadata && { requestMetadata: SENSITIVE_STRING }),
 });
 
 /**
@@ -3472,6 +4060,7 @@ export const ConverseStreamRequestFilterSensitiveLog = (obj: ConverseStreamReque
   ...(obj.system && { system: obj.system.map((item) => item) }),
   ...(obj.toolConfig && { toolConfig: obj.toolConfig }),
   ...(obj.promptVariables && { promptVariables: SENSITIVE_STRING }),
+  ...(obj.requestMetadata && { requestMetadata: SENSITIVE_STRING }),
 });
 
 /**
