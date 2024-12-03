@@ -45,7 +45,8 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceOutput, _
  *   description: "STRING_VALUE",
  *   domainIdentifier: "STRING_VALUE", // required
  *   projectIdentifier: "STRING_VALUE", // required
- *   environmentIdentifier: "STRING_VALUE", // required
+ *   environmentIdentifier: "STRING_VALUE",
+ *   connectionIdentifier: "STRING_VALUE",
  *   type: "STRING_VALUE", // required
  *   configuration: { // DataSourceConfigurationInput Union: only one key present
  *     glueRunConfiguration: { // GlueRunConfigurationInput
@@ -63,6 +64,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceOutput, _
  *         },
  *       ],
  *       autoImportDataQualityResult: true || false,
+ *       catalogName: "STRING_VALUE",
  *     },
  *     redshiftRunConfiguration: { // RedshiftRunConfigurationInput
  *       dataAccessRole: "STRING_VALUE",
@@ -88,6 +90,13 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceOutput, _
  *         redshiftServerlessSource: { // RedshiftServerlessStorage
  *           workgroupName: "STRING_VALUE", // required
  *         },
+ *       },
+ *     },
+ *     sageMakerRunConfiguration: { // SageMakerRunConfigurationInput
+ *       trackingAssets: { // TrackingAssets // required
+ *         "<keys>": [ // TrackingAssetArns
+ *           "STRING_VALUE",
+ *         ],
  *       },
  *     },
  *   },
@@ -120,7 +129,8 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceOutput, _
  * //   description: "STRING_VALUE",
  * //   domainId: "STRING_VALUE", // required
  * //   projectId: "STRING_VALUE", // required
- * //   environmentId: "STRING_VALUE", // required
+ * //   environmentId: "STRING_VALUE",
+ * //   connectionId: "STRING_VALUE",
  * //   configuration: { // DataSourceConfigurationOutput Union: only one key present
  * //     glueRunConfiguration: { // GlueRunConfigurationOutput
  * //       accountId: "STRING_VALUE",
@@ -139,6 +149,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceOutput, _
  * //         },
  * //       ],
  * //       autoImportDataQualityResult: true || false,
+ * //       catalogName: "STRING_VALUE",
  * //     },
  * //     redshiftRunConfiguration: { // RedshiftRunConfigurationOutput
  * //       accountId: "STRING_VALUE",
@@ -166,6 +177,15 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceOutput, _
  * //         redshiftServerlessSource: { // RedshiftServerlessStorage
  * //           workgroupName: "STRING_VALUE", // required
  * //         },
+ * //       },
+ * //     },
+ * //     sageMakerRunConfiguration: { // SageMakerRunConfigurationOutput
+ * //       accountId: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //       trackingAssets: { // TrackingAssets // required
+ * //         "<keys>": [ // TrackingAssetArns
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     },
  * //   },

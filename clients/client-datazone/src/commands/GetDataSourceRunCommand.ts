@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetDataSourceRunInput, GetDataSourceRunOutput } from "../models/models_0";
+import { GetDataSourceRunInput, GetDataSourceRunOutput } from "../models/models_1";
 import { de_GetDataSourceRunCommand, se_GetDataSourceRunCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -55,6 +55,9 @@ export interface GetDataSourceRunCommandOutput extends GetDataSourceRunOutput, _
  * //     unchanged: Number("int"),
  * //     skipped: Number("int"),
  * //     failed: Number("int"),
+ * //   },
+ * //   lineageSummary: { // DataSourceRunLineageSummary
+ * //     importStatus: "IN_PROGRESS" || "SUCCESS" || "FAILED" || "PARTIALLY_SUCCEEDED",
  * //   },
  * //   errorMessage: { // DataSourceErrorMessage
  * //     errorType: "ACCESS_DENIED_EXCEPTION" || "CONFLICT_EXCEPTION" || "INTERNAL_SERVER_EXCEPTION" || "RESOURCE_NOT_FOUND_EXCEPTION" || "SERVICE_QUOTA_EXCEEDED_EXCEPTION" || "THROTTLING_EXCEPTION" || "VALIDATION_EXCEPTION", // required

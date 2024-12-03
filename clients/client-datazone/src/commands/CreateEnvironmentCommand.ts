@@ -57,6 +57,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  *   environmentAccountIdentifier: "STRING_VALUE",
  *   environmentAccountRegion: "STRING_VALUE",
  *   environmentBlueprintIdentifier: "STRING_VALUE",
+ *   deploymentOrder: Number("int"),
+ *   environmentConfigurationId: "STRING_VALUE",
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);

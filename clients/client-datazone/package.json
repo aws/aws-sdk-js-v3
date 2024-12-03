@@ -57,6 +57,7 @@
     "@smithy/util-endpoints": "^2.1.6",
     "@smithy/util-middleware": "^3.0.10",
     "@smithy/util-retry": "^3.0.10",
+    "@smithy/util-stream": "^3.3.1",
     "@smithy/util-utf8": "^3.0.0",
     "@types/uuid": "^9.0.1",
     "tslib": "^2.6.2",

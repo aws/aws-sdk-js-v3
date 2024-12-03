@@ -43,6 +43,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainOutput, __Metadat
  *     userAssignment: "AUTOMATIC" || "MANUAL",
  *   },
  *   domainExecutionRole: "STRING_VALUE",
+ *   serviceRole: "STRING_VALUE",
  *   name: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
@@ -57,6 +58,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainOutput, __Metadat
  * //     userAssignment: "AUTOMATIC" || "MANUAL",
  * //   },
  * //   domainExecutionRole: "STRING_VALUE",
+ * //   serviceRole: "STRING_VALUE",
  * //   name: "STRING_VALUE",
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
  * // };

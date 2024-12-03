@@ -11,7 +11,7 @@ import {
   CreateSubscriptionTargetInputFilterSensitiveLog,
   CreateSubscriptionTargetOutput,
   CreateSubscriptionTargetOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_CreateSubscriptionTargetCommand, se_CreateSubscriptionTargetCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -77,7 +77,7 @@ export interface CreateSubscriptionTargetCommandOutput extends CreateSubscriptio
  * //   updatedBy: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"),
- * //   manageAccessRole: "STRING_VALUE", // required
+ * //   manageAccessRole: "STRING_VALUE",
  * //   applicableAssetTypes: [ // ApplicableAssetTypes // required
  * //     "STRING_VALUE",
  * //   ],

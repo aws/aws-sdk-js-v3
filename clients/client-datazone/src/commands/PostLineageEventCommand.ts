@@ -53,7 +53,10 @@ export interface PostLineageEventCommandOutput extends PostLineageEventOutput, _
  * };
  * const command = new PostLineageEventCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // PostLineageEventOutput
+ * //   id: "STRING_VALUE",
+ * //   domainId: "STRING_VALUE",
+ * // };
  *
  * ```
  *
@@ -117,7 +120,7 @@ export class PostLineageEventCommand extends $Command
   protected declare static __types: {
     api: {
       input: PostLineageEventInput;
-      output: {};
+      output: PostLineageEventOutput;
     };
     sdk: {
       input: PostLineageEventCommandInput;

@@ -60,7 +60,7 @@ export interface GetSubscriptionTargetCommandOutput extends GetSubscriptionTarge
  * //   updatedBy: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"),
- * //   manageAccessRole: "STRING_VALUE", // required
+ * //   manageAccessRole: "STRING_VALUE",
  * //   applicableAssetTypes: [ // ApplicableAssetTypes // required
  * //     "STRING_VALUE",
  * //   ],

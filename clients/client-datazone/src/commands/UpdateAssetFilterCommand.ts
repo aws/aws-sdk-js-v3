@@ -11,7 +11,7 @@ import {
   UpdateAssetFilterInputFilterSensitiveLog,
   UpdateAssetFilterOutput,
   UpdateAssetFilterOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateAssetFilterCommand, se_UpdateAssetFilterCommand } from "../protocols/Aws_restJson1";
 
 /**

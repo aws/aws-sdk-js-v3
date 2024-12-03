@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetDomainInput, GetDomainOutput } from "../models/models_0";
+import { GetDomainInput, GetDomainOutput } from "../models/models_1";
 import { de_GetDomainCommand, se_GetDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -59,6 +59,8 @@ export interface GetDomainCommandOutput extends GetDomainOutput, __MetadataBeare
  * //   tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   domainVersion: "V1" || "V2",
+ * //   serviceRole: "STRING_VALUE",
  * // };
  *
  * ```

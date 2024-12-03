@@ -48,6 +48,7 @@ export interface PutEnvironmentBlueprintConfigurationCommandOutput
  *   environmentBlueprintIdentifier: "STRING_VALUE", // required
  *   provisioningRoleArn: "STRING_VALUE",
  *   manageAccessRoleArn: "STRING_VALUE",
+ *   environmentRolePermissionBoundary: "STRING_VALUE",
  *   enabledRegions: [ // EnabledRegionList // required
  *     "STRING_VALUE",
  *   ],
@@ -73,6 +74,7 @@ export interface PutEnvironmentBlueprintConfigurationCommandOutput
  * //   domainId: "STRING_VALUE", // required
  * //   environmentBlueprintId: "STRING_VALUE", // required
  * //   provisioningRoleArn: "STRING_VALUE",
+ * //   environmentRolePermissionBoundary: "STRING_VALUE",
  * //   manageAccessRoleArn: "STRING_VALUE",
  * //   enabledRegions: [ // EnabledRegionList
  * //     "STRING_VALUE",

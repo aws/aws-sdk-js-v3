@@ -76,6 +76,7 @@ import {
   CreateAssetRevisionCommandOutput,
 } from "./commands/CreateAssetRevisionCommand";
 import { CreateAssetTypeCommandInput, CreateAssetTypeCommandOutput } from "./commands/CreateAssetTypeCommand";
+import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
 import { CreateDataProductCommandInput, CreateDataProductCommandOutput } from "./commands/CreateDataProductCommand";
 import {
   CreateDataProductRevisionCommandInput,
@@ -106,6 +107,10 @@ import {
   CreateProjectMembershipCommandInput,
   CreateProjectMembershipCommandOutput,
 } from "./commands/CreateProjectMembershipCommand";
+import {
+  CreateProjectProfileCommandInput,
+  CreateProjectProfileCommandOutput,
+} from "./commands/CreateProjectProfileCommand";
 import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import {
   CreateSubscriptionGrantCommandInput,
@@ -123,6 +128,7 @@ import { CreateUserProfileCommandInput, CreateUserProfileCommandOutput } from ".
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
 import { DeleteAssetFilterCommandInput, DeleteAssetFilterCommandOutput } from "./commands/DeleteAssetFilterCommand";
 import { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "./commands/DeleteAssetTypeCommand";
+import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
 import { DeleteDataProductCommandInput, DeleteDataProductCommandOutput } from "./commands/DeleteDataProductCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
@@ -149,6 +155,10 @@ import {
   DeleteProjectMembershipCommandInput,
   DeleteProjectMembershipCommandOutput,
 } from "./commands/DeleteProjectMembershipCommand";
+import {
+  DeleteProjectProfileCommandInput,
+  DeleteProjectProfileCommandOutput,
+} from "./commands/DeleteProjectProfileCommand";
 import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
   DeleteSubscriptionGrantCommandInput,
@@ -173,6 +183,7 @@ import {
 import { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
 import { GetAssetFilterCommandInput, GetAssetFilterCommandOutput } from "./commands/GetAssetFilterCommand";
 import { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "./commands/GetAssetTypeCommand";
+import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
 import { GetDataProductCommandInput, GetDataProductCommandOutput } from "./commands/GetDataProductCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
 import { GetDataSourceRunCommandInput, GetDataSourceRunCommandOutput } from "./commands/GetDataSourceRunCommand";
@@ -207,6 +218,8 @@ import {
   GetIamPortalLoginUrlCommandInput,
   GetIamPortalLoginUrlCommandOutput,
 } from "./commands/GetIamPortalLoginUrlCommand";
+import { GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJobRunCommand";
+import { GetLineageEventCommandInput, GetLineageEventCommandOutput } from "./commands/GetLineageEventCommand";
 import { GetLineageNodeCommandInput, GetLineageNodeCommandOutput } from "./commands/GetLineageNodeCommand";
 import { GetListingCommandInput, GetListingCommandOutput } from "./commands/GetListingCommand";
 import {
@@ -214,6 +227,7 @@ import {
   GetMetadataGenerationRunCommandOutput,
 } from "./commands/GetMetadataGenerationRunCommand";
 import { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
+import { GetProjectProfileCommandInput, GetProjectProfileCommandOutput } from "./commands/GetProjectProfileCommand";
 import { GetRuleCommandInput, GetRuleCommandOutput } from "./commands/GetRuleCommand";
 import { GetSubscriptionCommandInput, GetSubscriptionCommandOutput } from "./commands/GetSubscriptionCommand";
 import {
@@ -235,6 +249,7 @@ import {
 import { GetUserProfileCommandInput, GetUserProfileCommandOutput } from "./commands/GetUserProfileCommand";
 import { ListAssetFiltersCommandInput, ListAssetFiltersCommandOutput } from "./commands/ListAssetFiltersCommand";
 import { ListAssetRevisionsCommandInput, ListAssetRevisionsCommandOutput } from "./commands/ListAssetRevisionsCommand";
+import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand";
 import {
   ListDataProductRevisionsCommandInput,
   ListDataProductRevisionsCommandOutput,
@@ -268,6 +283,8 @@ import {
   ListEnvironmentProfilesCommandOutput,
 } from "./commands/ListEnvironmentProfilesCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
+import { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "./commands/ListJobRunsCommand";
+import { ListLineageEventsCommandInput, ListLineageEventsCommandOutput } from "./commands/ListLineageEventsCommand";
 import {
   ListLineageNodeHistoryCommandInput,
   ListLineageNodeHistoryCommandOutput,
@@ -282,6 +299,10 @@ import {
   ListProjectMembershipsCommandInput,
   ListProjectMembershipsCommandOutput,
 } from "./commands/ListProjectMembershipsCommand";
+import {
+  ListProjectProfilesCommandInput,
+  ListProjectProfilesCommandOutput,
+} from "./commands/ListProjectProfilesCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
 import { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
 import {
@@ -338,6 +359,7 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAssetFilterCommandInput, UpdateAssetFilterCommandOutput } from "./commands/UpdateAssetFilterCommand";
+import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
 import { UpdateDomainUnitCommandInput, UpdateDomainUnitCommandOutput } from "./commands/UpdateDomainUnitCommand";
@@ -354,6 +376,10 @@ import { UpdateGlossaryCommandInput, UpdateGlossaryCommandOutput } from "./comma
 import { UpdateGlossaryTermCommandInput, UpdateGlossaryTermCommandOutput } from "./commands/UpdateGlossaryTermCommand";
 import { UpdateGroupProfileCommandInput, UpdateGroupProfileCommandOutput } from "./commands/UpdateGroupProfileCommand";
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
+import {
+  UpdateProjectProfileCommandInput,
+  UpdateProjectProfileCommandOutput,
+} from "./commands/UpdateProjectProfileCommand";
 import { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
 import {
   UpdateSubscriptionGrantStatusCommandInput,
@@ -394,6 +420,7 @@ export type ServiceInputTypes =
   | CreateAssetFilterCommandInput
   | CreateAssetRevisionCommandInput
   | CreateAssetTypeCommandInput
+  | CreateConnectionCommandInput
   | CreateDataProductCommandInput
   | CreateDataProductRevisionCommandInput
   | CreateDataSourceCommandInput
@@ -409,6 +436,7 @@ export type ServiceInputTypes =
   | CreateListingChangeSetCommandInput
   | CreateProjectCommandInput
   | CreateProjectMembershipCommandInput
+  | CreateProjectProfileCommandInput
   | CreateRuleCommandInput
   | CreateSubscriptionGrantCommandInput
   | CreateSubscriptionRequestCommandInput
@@ -417,6 +445,7 @@ export type ServiceInputTypes =
   | DeleteAssetCommandInput
   | DeleteAssetFilterCommandInput
   | DeleteAssetTypeCommandInput
+  | DeleteConnectionCommandInput
   | DeleteDataProductCommandInput
   | DeleteDataSourceCommandInput
   | DeleteDomainCommandInput
@@ -431,6 +460,7 @@ export type ServiceInputTypes =
   | DeleteListingCommandInput
   | DeleteProjectCommandInput
   | DeleteProjectMembershipCommandInput
+  | DeleteProjectProfileCommandInput
   | DeleteRuleCommandInput
   | DeleteSubscriptionGrantCommandInput
   | DeleteSubscriptionRequestCommandInput
@@ -440,6 +470,7 @@ export type ServiceInputTypes =
   | GetAssetCommandInput
   | GetAssetFilterCommandInput
   | GetAssetTypeCommandInput
+  | GetConnectionCommandInput
   | GetDataProductCommandInput
   | GetDataSourceCommandInput
   | GetDataSourceRunCommandInput
@@ -456,10 +487,13 @@ export type ServiceInputTypes =
   | GetGlossaryTermCommandInput
   | GetGroupProfileCommandInput
   | GetIamPortalLoginUrlCommandInput
+  | GetJobRunCommandInput
+  | GetLineageEventCommandInput
   | GetLineageNodeCommandInput
   | GetListingCommandInput
   | GetMetadataGenerationRunCommandInput
   | GetProjectCommandInput
+  | GetProjectProfileCommandInput
   | GetRuleCommandInput
   | GetSubscriptionCommandInput
   | GetSubscriptionGrantCommandInput
@@ -469,6 +503,7 @@ export type ServiceInputTypes =
   | GetUserProfileCommandInput
   | ListAssetFiltersCommandInput
   | ListAssetRevisionsCommandInput
+  | ListConnectionsCommandInput
   | ListDataProductRevisionsCommandInput
   | ListDataSourceRunActivitiesCommandInput
   | ListDataSourceRunsCommandInput
@@ -481,11 +516,14 @@ export type ServiceInputTypes =
   | ListEnvironmentBlueprintsCommandInput
   | ListEnvironmentProfilesCommandInput
   | ListEnvironmentsCommandInput
+  | ListJobRunsCommandInput
+  | ListLineageEventsCommandInput
   | ListLineageNodeHistoryCommandInput
   | ListMetadataGenerationRunsCommandInput
   | ListNotificationsCommandInput
   | ListPolicyGrantsCommandInput
   | ListProjectMembershipsCommandInput
+  | ListProjectProfilesCommandInput
   | ListProjectsCommandInput
   | ListRulesCommandInput
   | ListSubscriptionGrantsCommandInput
@@ -512,6 +550,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAssetFilterCommandInput
+  | UpdateConnectionCommandInput
   | UpdateDataSourceCommandInput
   | UpdateDomainCommandInput
   | UpdateDomainUnitCommandInput
@@ -522,6 +561,7 @@ export type ServiceInputTypes =
   | UpdateGlossaryTermCommandInput
   | UpdateGroupProfileCommandInput
   | UpdateProjectCommandInput
+  | UpdateProjectProfileCommandInput
   | UpdateRuleCommandInput
   | UpdateSubscriptionGrantStatusCommandInput
   | UpdateSubscriptionRequestCommandInput
@@ -543,6 +583,7 @@ export type ServiceOutputTypes =
   | CreateAssetFilterCommandOutput
   | CreateAssetRevisionCommandOutput
   | CreateAssetTypeCommandOutput
+  | CreateConnectionCommandOutput
   | CreateDataProductCommandOutput
   | CreateDataProductRevisionCommandOutput
   | CreateDataSourceCommandOutput
@@ -558,6 +599,7 @@ export type ServiceOutputTypes =
   | CreateListingChangeSetCommandOutput
   | CreateProjectCommandOutput
   | CreateProjectMembershipCommandOutput
+  | CreateProjectProfileCommandOutput
   | CreateRuleCommandOutput
   | CreateSubscriptionGrantCommandOutput
   | CreateSubscriptionRequestCommandOutput
@@ -566,6 +608,7 @@ export type ServiceOutputTypes =
   | DeleteAssetCommandOutput
   | DeleteAssetFilterCommandOutput
   | DeleteAssetTypeCommandOutput
+  | DeleteConnectionCommandOutput
   | DeleteDataProductCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteDomainCommandOutput
@@ -580,6 +623,7 @@ export type ServiceOutputTypes =
   | DeleteListingCommandOutput
   | DeleteProjectCommandOutput
   | DeleteProjectMembershipCommandOutput
+  | DeleteProjectProfileCommandOutput
   | DeleteRuleCommandOutput
   | DeleteSubscriptionGrantCommandOutput
   | DeleteSubscriptionRequestCommandOutput
@@ -589,6 +633,7 @@ export type ServiceOutputTypes =
   | GetAssetCommandOutput
   | GetAssetFilterCommandOutput
   | GetAssetTypeCommandOutput
+  | GetConnectionCommandOutput
   | GetDataProductCommandOutput
   | GetDataSourceCommandOutput
   | GetDataSourceRunCommandOutput
@@ -605,10 +650,13 @@ export type ServiceOutputTypes =
   | GetGlossaryTermCommandOutput
   | GetGroupProfileCommandOutput
   | GetIamPortalLoginUrlCommandOutput
+  | GetJobRunCommandOutput
+  | GetLineageEventCommandOutput
   | GetLineageNodeCommandOutput
   | GetListingCommandOutput
   | GetMetadataGenerationRunCommandOutput
   | GetProjectCommandOutput
+  | GetProjectProfileCommandOutput
   | GetRuleCommandOutput
   | GetSubscriptionCommandOutput
   | GetSubscriptionGrantCommandOutput
@@ -618,6 +666,7 @@ export type ServiceOutputTypes =
   | GetUserProfileCommandOutput
   | ListAssetFiltersCommandOutput
   | ListAssetRevisionsCommandOutput
+  | ListConnectionsCommandOutput
   | ListDataProductRevisionsCommandOutput
   | ListDataSourceRunActivitiesCommandOutput
   | ListDataSourceRunsCommandOutput
@@ -630,11 +679,14 @@ export type ServiceOutputTypes =
   | ListEnvironmentBlueprintsCommandOutput
   | ListEnvironmentProfilesCommandOutput
   | ListEnvironmentsCommandOutput
+  | ListJobRunsCommandOutput
+  | ListLineageEventsCommandOutput
   | ListLineageNodeHistoryCommandOutput
   | ListMetadataGenerationRunsCommandOutput
   | ListNotificationsCommandOutput
   | ListPolicyGrantsCommandOutput
   | ListProjectMembershipsCommandOutput
+  | ListProjectProfilesCommandOutput
   | ListProjectsCommandOutput
   | ListRulesCommandOutput
   | ListSubscriptionGrantsCommandOutput
@@ -661,6 +713,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAssetFilterCommandOutput
+  | UpdateConnectionCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateDomainCommandOutput
   | UpdateDomainUnitCommandOutput
@@ -671,6 +724,7 @@ export type ServiceOutputTypes =
   | UpdateGlossaryTermCommandOutput
   | UpdateGroupProfileCommandOutput
   | UpdateProjectCommandOutput
+  | UpdateProjectProfileCommandOutput
   | UpdateRuleCommandOutput
   | UpdateSubscriptionGrantStatusCommandOutput
   | UpdateSubscriptionRequestCommandOutput

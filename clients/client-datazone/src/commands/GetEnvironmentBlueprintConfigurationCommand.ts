@@ -53,6 +53,7 @@ export interface GetEnvironmentBlueprintConfigurationCommandOutput
  * //   domainId: "STRING_VALUE", // required
  * //   environmentBlueprintId: "STRING_VALUE", // required
  * //   provisioningRoleArn: "STRING_VALUE",
+ * //   environmentRolePermissionBoundary: "STRING_VALUE",
  * //   manageAccessRoleArn: "STRING_VALUE",
  * //   enabledRegions: [ // EnabledRegionList
  * //     "STRING_VALUE",

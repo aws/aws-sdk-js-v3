@@ -38,7 +38,7 @@ export interface CreateSubscriptionGrantCommandOutput extends CreateSubscription
  * const input = { // CreateSubscriptionGrantInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   environmentIdentifier: "STRING_VALUE", // required
- *   subscriptionTargetIdentifier: "STRING_VALUE", // required
+ *   subscriptionTargetIdentifier: "STRING_VALUE",
  *   grantedEntity: { // GrantedEntityInput Union: only one key present
  *     listing: { // ListingRevisionInput
  *       identifier: "STRING_VALUE", // required

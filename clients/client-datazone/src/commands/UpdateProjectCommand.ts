@@ -11,7 +11,7 @@ import {
   UpdateProjectInputFilterSensitiveLog,
   UpdateProjectOutput,
   UpdateProjectOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateProjectCommand, se_UpdateProjectCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -48,6 +48,17 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  *   glossaryTerms: [ // GlossaryTerms
  *     "STRING_VALUE",
  *   ],
+ *   environmentDeploymentDetails: { // EnvironmentDeploymentDetails
+ *     overallDeploymentStatus: "PENDING_DEPLOYMENT" || "IN_PROGRESS" || "SUCCESSFUL" || "FAILED_VALIDATION" || "FAILED_DEPLOYMENT",
+ *     environmentFailureReasons: { // EnvironmentFailureReasons
+ *       "<keys>": [ // EnvironmentFailureReasonsList
+ *         { // EnvironmentError
+ *           code: "STRING_VALUE",
+ *           message: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
@@ -70,6 +81,29 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * //     "STRING_VALUE",
  * //   ],
  * //   domainUnitId: "STRING_VALUE",
+ * //   projectProfileId: "STRING_VALUE",
+ * //   userParameters: [ // EnvironmentConfigurationUserParametersList
+ * //     { // EnvironmentConfigurationUserParameter
+ * //       environmentConfigurationName: "STRING_VALUE",
+ * //       environmentParameters: [ // EnvironmentParametersList
+ * //         { // EnvironmentParameter
+ * //           name: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   environmentDeploymentDetails: { // EnvironmentDeploymentDetails
+ * //     overallDeploymentStatus: "PENDING_DEPLOYMENT" || "IN_PROGRESS" || "SUCCESSFUL" || "FAILED_VALIDATION" || "FAILED_DEPLOYMENT",
+ * //     environmentFailureReasons: { // EnvironmentFailureReasons
+ * //       "<keys>": [ // EnvironmentFailureReasonsList
+ * //         { // EnvironmentError
+ * //           code: "STRING_VALUE",
+ * //           message: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
  * // };
  *
  * ```

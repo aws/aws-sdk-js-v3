@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDomainsInput } from "../models/models_0";
-import { ListDomainsOutput, ListDomainsOutputFilterSensitiveLog } from "../models/models_1";
+import { ListDomainsInput, ListDomainsOutput, ListDomainsOutputFilterSensitiveLog } from "../models/models_1";
 import { de_ListDomainsCommand, se_ListDomainsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -55,6 +54,7 @@ export interface ListDomainsCommandOutput extends ListDomainsOutput, __MetadataB
  * //       portalUrl: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       domainVersion: "V1" || "V2",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

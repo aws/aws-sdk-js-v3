@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteProjectMembershipInput, DeleteProjectMembershipOutput } from "../models/models_0";
+import { DeleteProjectMembershipInput, DeleteProjectMembershipOutput } from "../models/models_1";
 import { de_DeleteProjectMembershipCommand, se_DeleteProjectMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**

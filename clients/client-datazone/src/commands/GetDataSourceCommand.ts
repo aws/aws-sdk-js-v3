@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetDataSourceInput, GetDataSourceOutput, GetDataSourceOutputFilterSensitiveLog } from "../models/models_0";
+import { GetDataSourceInput, GetDataSourceOutput, GetDataSourceOutputFilterSensitiveLog } from "../models/models_1";
 import { de_GetDataSourceCommand, se_GetDataSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -49,7 +49,8 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * //   description: "STRING_VALUE",
  * //   domainId: "STRING_VALUE", // required
  * //   projectId: "STRING_VALUE", // required
- * //   environmentId: "STRING_VALUE", // required
+ * //   environmentId: "STRING_VALUE",
+ * //   connectionId: "STRING_VALUE",
  * //   configuration: { // DataSourceConfigurationOutput Union: only one key present
  * //     glueRunConfiguration: { // GlueRunConfigurationOutput
  * //       accountId: "STRING_VALUE",
@@ -68,6 +69,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * //         },
  * //       ],
  * //       autoImportDataQualityResult: true || false,
+ * //       catalogName: "STRING_VALUE",
  * //     },
  * //     redshiftRunConfiguration: { // RedshiftRunConfigurationOutput
  * //       accountId: "STRING_VALUE",
@@ -95,6 +97,15 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * //         redshiftServerlessSource: { // RedshiftServerlessStorage
  * //           workgroupName: "STRING_VALUE", // required
  * //         },
+ * //       },
+ * //     },
+ * //     sageMakerRunConfiguration: { // SageMakerRunConfigurationOutput
+ * //       accountId: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //       trackingAssets: { // TrackingAssets // required
+ * //         "<keys>": [ // TrackingAssetArns
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     },
  * //   },

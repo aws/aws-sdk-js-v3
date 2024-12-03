@@ -11,7 +11,7 @@ import {
   CreateSubscriptionRequestInputFilterSensitiveLog,
   CreateSubscriptionRequestOutput,
   CreateSubscriptionRequestOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_CreateSubscriptionRequestCommand, se_CreateSubscriptionRequestCommand } from "../protocols/Aws_restJson1";
 
 /**

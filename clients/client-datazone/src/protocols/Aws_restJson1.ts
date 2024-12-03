@@ -18,9 +18,11 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  parseRfc7231DateTime as __parseRfc7231DateTime,
   resolvedPath as __resolvedPath,
   serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
@@ -57,6 +59,7 @@ import {
   CreateAssetRevisionCommandOutput,
 } from "../commands/CreateAssetRevisionCommand";
 import { CreateAssetTypeCommandInput, CreateAssetTypeCommandOutput } from "../commands/CreateAssetTypeCommand";
+import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "../commands/CreateConnectionCommand";
 import { CreateDataProductCommandInput, CreateDataProductCommandOutput } from "../commands/CreateDataProductCommand";
 import {
   CreateDataProductRevisionCommandInput,
@@ -87,6 +90,10 @@ import {
   CreateProjectMembershipCommandInput,
   CreateProjectMembershipCommandOutput,
 } from "../commands/CreateProjectMembershipCommand";
+import {
+  CreateProjectProfileCommandInput,
+  CreateProjectProfileCommandOutput,
+} from "../commands/CreateProjectProfileCommand";
 import { CreateRuleCommandInput, CreateRuleCommandOutput } from "../commands/CreateRuleCommand";
 import {
   CreateSubscriptionGrantCommandInput,
@@ -104,6 +111,7 @@ import { CreateUserProfileCommandInput, CreateUserProfileCommandOutput } from ".
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "../commands/DeleteAssetCommand";
 import { DeleteAssetFilterCommandInput, DeleteAssetFilterCommandOutput } from "../commands/DeleteAssetFilterCommand";
 import { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "../commands/DeleteAssetTypeCommand";
+import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "../commands/DeleteConnectionCommand";
 import { DeleteDataProductCommandInput, DeleteDataProductCommandOutput } from "../commands/DeleteDataProductCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
@@ -130,6 +138,10 @@ import {
   DeleteProjectMembershipCommandInput,
   DeleteProjectMembershipCommandOutput,
 } from "../commands/DeleteProjectMembershipCommand";
+import {
+  DeleteProjectProfileCommandInput,
+  DeleteProjectProfileCommandOutput,
+} from "../commands/DeleteProjectProfileCommand";
 import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "../commands/DeleteRuleCommand";
 import {
   DeleteSubscriptionGrantCommandInput,
@@ -154,6 +166,7 @@ import {
 import { GetAssetCommandInput, GetAssetCommandOutput } from "../commands/GetAssetCommand";
 import { GetAssetFilterCommandInput, GetAssetFilterCommandOutput } from "../commands/GetAssetFilterCommand";
 import { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "../commands/GetAssetTypeCommand";
+import { GetConnectionCommandInput, GetConnectionCommandOutput } from "../commands/GetConnectionCommand";
 import { GetDataProductCommandInput, GetDataProductCommandOutput } from "../commands/GetDataProductCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
 import { GetDataSourceRunCommandInput, GetDataSourceRunCommandOutput } from "../commands/GetDataSourceRunCommand";
@@ -188,6 +201,8 @@ import {
   GetIamPortalLoginUrlCommandInput,
   GetIamPortalLoginUrlCommandOutput,
 } from "../commands/GetIamPortalLoginUrlCommand";
+import { GetJobRunCommandInput, GetJobRunCommandOutput } from "../commands/GetJobRunCommand";
+import { GetLineageEventCommandInput, GetLineageEventCommandOutput } from "../commands/GetLineageEventCommand";
 import { GetLineageNodeCommandInput, GetLineageNodeCommandOutput } from "../commands/GetLineageNodeCommand";
 import { GetListingCommandInput, GetListingCommandOutput } from "../commands/GetListingCommand";
 import {
@@ -195,6 +210,7 @@ import {
   GetMetadataGenerationRunCommandOutput,
 } from "../commands/GetMetadataGenerationRunCommand";
 import { GetProjectCommandInput, GetProjectCommandOutput } from "../commands/GetProjectCommand";
+import { GetProjectProfileCommandInput, GetProjectProfileCommandOutput } from "../commands/GetProjectProfileCommand";
 import { GetRuleCommandInput, GetRuleCommandOutput } from "../commands/GetRuleCommand";
 import { GetSubscriptionCommandInput, GetSubscriptionCommandOutput } from "../commands/GetSubscriptionCommand";
 import {
@@ -216,6 +232,7 @@ import {
 import { GetUserProfileCommandInput, GetUserProfileCommandOutput } from "../commands/GetUserProfileCommand";
 import { ListAssetFiltersCommandInput, ListAssetFiltersCommandOutput } from "../commands/ListAssetFiltersCommand";
 import { ListAssetRevisionsCommandInput, ListAssetRevisionsCommandOutput } from "../commands/ListAssetRevisionsCommand";
+import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "../commands/ListConnectionsCommand";
 import {
   ListDataProductRevisionsCommandInput,
   ListDataProductRevisionsCommandOutput,
@@ -249,6 +266,8 @@ import {
   ListEnvironmentProfilesCommandOutput,
 } from "../commands/ListEnvironmentProfilesCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "../commands/ListEnvironmentsCommand";
+import { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "../commands/ListJobRunsCommand";
+import { ListLineageEventsCommandInput, ListLineageEventsCommandOutput } from "../commands/ListLineageEventsCommand";
 import {
   ListLineageNodeHistoryCommandInput,
   ListLineageNodeHistoryCommandOutput,
@@ -263,6 +282,10 @@ import {
   ListProjectMembershipsCommandInput,
   ListProjectMembershipsCommandOutput,
 } from "../commands/ListProjectMembershipsCommand";
+import {
+  ListProjectProfilesCommandInput,
+  ListProjectProfilesCommandOutput,
+} from "../commands/ListProjectProfilesCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "../commands/ListProjectsCommand";
 import { ListRulesCommandInput, ListRulesCommandOutput } from "../commands/ListRulesCommand";
 import {
@@ -319,6 +342,7 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAssetFilterCommandInput, UpdateAssetFilterCommandOutput } from "../commands/UpdateAssetFilterCommand";
+import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "../commands/UpdateConnectionCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "../commands/UpdateDomainCommand";
 import { UpdateDomainUnitCommandInput, UpdateDomainUnitCommandOutput } from "../commands/UpdateDomainUnitCommand";
@@ -335,6 +359,10 @@ import { UpdateGlossaryCommandInput, UpdateGlossaryCommandOutput } from "../comm
 import { UpdateGlossaryTermCommandInput, UpdateGlossaryTermCommandOutput } from "../commands/UpdateGlossaryTermCommand";
 import { UpdateGroupProfileCommandInput, UpdateGroupProfileCommandOutput } from "../commands/UpdateGroupProfileCommand";
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "../commands/UpdateProjectCommand";
+import {
+  UpdateProjectProfileCommandInput,
+  UpdateProjectProfileCommandOutput,
+} from "../commands/UpdateProjectProfileCommand";
 import { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "../commands/UpdateRuleCommand";
 import {
   UpdateSubscriptionGrantStatusCommandInput,
@@ -369,40 +397,63 @@ import {
   AssetTargetNameMap,
   AssetTypeItem,
   AssetTypesForRule,
+  AthenaPropertiesInput,
+  AthenaPropertiesPatch,
+  AuthenticationConfigurationInput,
+  AuthenticationConfigurationPatch,
+  AuthorizationCodeProperties,
+  AwsAccount,
   AwsConsoleLinkParameters,
+  AwsLocation,
+  BasicAuthenticationCredentials,
   BusinessNameGenerationConfiguration,
   ColumnFilterConfiguration,
+  ComputeEnvironments,
   ConflictException,
+  ConnectionCredentials,
+  ConnectionPropertiesInput,
+  ConnectionPropertiesOutput,
+  ConnectionPropertiesPatch,
+  ConnectionSummary,
   CreateAssetTypePolicyGrantDetail,
   CreateDomainUnitPolicyGrantDetail,
   CreateEnvironmentProfilePolicyGrantDetail,
   CreateFormTypePolicyGrantDetail,
   CreateGlossaryPolicyGrantDetail,
+  CreateProjectFromProjectProfilePolicyGrantDetail,
   CreateProjectPolicyGrantDetail,
   DataProductItem,
-  DataProductListing,
-  DataProductListingItem,
-  DataProductResultItem,
-  DataProductRevision,
   DataSourceConfigurationInput,
-  DataSourceRunActivity,
-  DataSourceRunSummary,
-  DataSourceSummary,
   DomainUnitFilterForProject,
   DomainUnitGrantFilter,
   DomainUnitPolicyGrantPrincipal,
   DomainUnitTarget,
+  EnvironmentConfiguration,
+  EnvironmentConfigurationParameter,
+  EnvironmentConfigurationParametersDetails,
+  EnvironmentConfigurationUserParameter,
+  EnvironmentDeploymentDetails,
+  EnvironmentError,
   EnvironmentParameter,
   EqualToExpression,
   FailureCause,
   FilterExpression,
   FormEntryInput,
   FormInput,
+  GlueConnection,
+  GlueConnectionInput,
+  GlueConnectionPatch,
+  GlueOAuth2Credentials,
+  GluePropertiesInput,
+  GluePropertiesPatch,
   GlueRunConfigurationInput,
   GrantedEntityInput,
   GreaterThanExpression,
   GreaterThanOrEqualToExpression,
   GroupPolicyGrantPrincipal,
+  HyperPodPropertiesInput,
+  IamPropertiesInput,
+  IamPropertiesPatch,
   InExpression,
   InternalServerException,
   IsNotNullExpression,
@@ -410,6 +461,7 @@ import {
   LessThanExpression,
   LessThanOrEqualToExpression,
   LikeExpression,
+  LineageSyncSchedule,
   ListingRevisionInput,
   Member,
   MetadataFormEnforcementDetail,
@@ -418,11 +470,15 @@ import {
   NotEqualToExpression,
   NotInExpression,
   NotLikeExpression,
+  OAuth2ClientApplication,
+  OAuth2Properties,
   OverrideDomainUnitOwnersPolicyGrantDetail,
   OverrideProjectOwnersPolicyGrantDetail,
   OwnerGroupProperties,
   OwnerProperties,
   OwnerUserProperties,
+  PhysicalConnectionRequirements,
+  PhysicalEndpoint,
   PolicyGrantDetail,
   PolicyGrantPrincipal,
   PredictionConfiguration,
@@ -432,72 +488,100 @@ import {
   RecommendationConfiguration,
   RedshiftClusterStorage,
   RedshiftCredentialConfiguration,
+  RedshiftCredentials,
+  RedshiftLineageSyncConfigurationInput,
+  RedshiftPropertiesInput,
+  RedshiftPropertiesPatch,
   RedshiftRunConfigurationInput,
   RedshiftServerlessStorage,
   RedshiftStorage,
+  RedshiftStorageProperties,
+  Region,
   RelationalFilterConfiguration,
   ResourceNotFoundException,
   RowFilterExpression,
   RuleDetail,
   RuleScope,
   RuleTarget,
+  SageMakerRunConfigurationInput,
   ScheduleConfiguration,
   ServiceQuotaExceededException,
   SingleSignOn,
+  SparkEmrPropertiesInput,
+  SparkEmrPropertiesOutput,
+  SparkEmrPropertiesPatch,
+  SparkGlueArgs,
+  SparkGluePropertiesInput,
   SubscribedAsset,
   SubscribedListingInput,
-  SubscribedPrincipalInput,
   SubscribedProjectInput,
-  SubscriptionTargetForm,
   TermRelations,
   ThrottlingException,
   TimeSeriesDataPointSummaryFormOutput,
   UnauthorizedException,
   Unit,
+  UsernamePassword,
   UserPolicyGrantPrincipal,
   ValidationException,
 } from "../models/models_0";
 import {
-  AssetFilterConfiguration,
+  DataProductListing,
+  DataProductListingItem,
+  DataProductResultItem,
+  DataProductRevision,
+  DataSourceRunActivity,
+  DataSourceRunSummary,
+  DataSourceSummary,
   DomainSummary,
   EnvironmentBlueprintConfigurationItem,
   EnvironmentBlueprintSummary,
   EnvironmentProfileSummary,
   EnvironmentSummary,
   Filter,
-  FilterClause,
-  FormTypeData,
-  GlossaryItem,
-  GlossaryTermItem,
+  JobRunDetails,
+  JobRunSummary,
   LakeFormationConfiguration,
+  LineageEventSummary,
   LineageNodeReference,
   LineageNodeSummary,
-  LineageNodeTypeItem,
+  LineageRunDetails,
+  LineageSqlQueryRunDetails,
   ListingItem,
   MetadataGenerationRunItem,
   MetadataGenerationRunTarget,
   NotificationOutput,
   PolicyGrantMember,
+  ProjectProfileSummary,
   ProjectSummary,
   ProvisioningConfiguration,
   RejectChoice,
   RejectRule,
-  RowFilter,
-  RowFilterConfiguration,
   RuleSummary,
-  SearchInItem,
-  SearchInventoryResultItem,
   SearchOutputAdditionalAttribute,
-  SearchResultItem,
-  SearchSort,
-  SearchTypesResultItem,
+  SubscribedPrincipalInput,
   SubscriptionGrantSummary,
   SubscriptionRequestSummary,
   SubscriptionSummary,
+  SubscriptionTargetForm,
   SubscriptionTargetSummary,
   TimeSeriesDataPointFormInput,
   TimeSeriesDataPointFormOutput,
 } from "../models/models_1";
+import {
+  AssetFilterConfiguration,
+  FilterClause,
+  FormTypeData,
+  GlossaryItem,
+  GlossaryTermItem,
+  LineageNodeTypeItem,
+  RowFilter,
+  RowFilterConfiguration,
+  SearchInItem,
+  SearchInventoryResultItem,
+  SearchResultItem,
+  SearchSort,
+  SearchTypesResultItem,
+} from "../models/models_2";
 
 /**
  * serializeAws_restJson1AcceptPredictionsCommand
@@ -775,6 +859,34 @@ export const se_CreateAssetTypeCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateConnectionCommand
+ */
+export const se_CreateConnectionCommand = async (
+  input: CreateConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/connections");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      awsLocation: (_) => _json(_),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      environmentIdentifier: [],
+      name: [],
+      props: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateDataProductCommand
  */
 export const se_CreateDataProductCommand = async (
@@ -851,6 +963,7 @@ export const se_CreateDataSourceCommand = async (
       assetFormsInput: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       configuration: (_) => _json(_),
+      connectionIdentifier: [],
       description: [],
       enableSetting: [],
       environmentIdentifier: [],
@@ -884,8 +997,10 @@ export const se_CreateDomainCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       domainExecutionRole: [],
+      domainVersion: [],
       kmsKeyIdentifier: [],
       name: [],
+      serviceRole: [],
       singleSignOn: (_) => _json(_),
       tags: (_) => _json(_),
     })
@@ -936,10 +1051,12 @@ export const se_CreateEnvironmentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      deploymentOrder: [],
       description: [],
       environmentAccountIdentifier: [],
       environmentAccountRegion: [],
       environmentBlueprintIdentifier: [],
+      environmentConfigurationId: [],
       environmentProfileIdentifier: [],
       glossaryTerms: (_) => _json(_),
       name: [],
@@ -1160,6 +1277,8 @@ export const se_CreateProjectCommand = async (
       domainUnitId: [],
       glossaryTerms: (_) => _json(_),
       name: [],
+      projectProfileId: [],
+      userParameters: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1185,6 +1304,33 @@ export const se_CreateProjectMembershipCommand = async (
     take(input, {
       designation: [],
       member: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateProjectProfileCommand
+ */
+export const se_CreateProjectProfileCommand = async (
+  input: CreateProjectProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/project-profiles");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      domainUnitIdentifier: [],
+      environmentConfigurations: (_) => _json(_),
+      name: [],
+      status: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1375,6 +1521,23 @@ export const se_DeleteAssetTypeCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/v2/domains/{domainIdentifier}/asset-types/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteConnectionCommand
+ */
+export const se_DeleteConnectionCommand = async (
+  input: DeleteConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/connections/{identifier}");
   b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
   b.p("identifier", () => input.identifier!, "{identifier}", false);
   let body: any;
@@ -1644,6 +1807,23 @@ export const se_DeleteProjectMembershipCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteProjectProfileCommand
+ */
+export const se_DeleteProjectProfileCommand = async (
+  input: DeleteProjectProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/project-profiles/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteRuleCommand
  */
 export const se_DeleteRuleCommand = async (
@@ -1804,6 +1984,26 @@ export const se_GetAssetTypeCommand = async (
   b.p("identifier", () => input.identifier!, "{identifier}", false);
   const query: any = map({
     [_r]: [, input[_r]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetConnectionCommand
+ */
+export const se_GetConnectionCommand = async (
+  input: GetConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/connections/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  const query: any = map({
+    [_wS]: [() => input.withSecret !== void 0, () => input[_wS]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -2093,6 +2293,40 @@ export const se_GetIamPortalLoginUrlCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetJobRunCommand
+ */
+export const se_GetJobRunCommand = async (
+  input: GetJobRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/jobRuns/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetLineageEventCommand
+ */
+export const se_GetLineageEventCommand = async (
+  input: GetLineageEventCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/lineage/events/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetLineageNodeCommand
  */
 export const se_GetLineageNodeCommand = async (
@@ -2159,6 +2393,23 @@ export const se_GetProjectCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/v2/domains/{domainIdentifier}/projects/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetProjectProfileCommand
+ */
+export const se_GetProjectProfileCommand = async (
+  input: GetProjectProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/project-profiles/{identifier}");
   b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
   b.p("identifier", () => input.identifier!, "{identifier}", false);
   let body: any;
@@ -2341,6 +2592,32 @@ export const se_ListAssetRevisionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListConnectionsCommand
+ */
+export const se_ListConnectionsCommand = async (
+  input: ListConnectionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/connections");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_sB]: [, input[_sB]!],
+    [_sO]: [, input[_sO]!],
+    [_n]: [, input[_n]!],
+    [_eI]: [, input[_eI]!],
+    [_pI]: [, __expectNonNull(input[_pI]!, `projectIdentifier`)],
+    [_ty]: [, input[_ty]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListDataProductRevisionsCommand
  */
 export const se_ListDataProductRevisionsCommand = async (
@@ -2419,6 +2696,7 @@ export const se_ListDataSourcesCommand = async (
   const query: any = map({
     [_pI]: [, __expectNonNull(input[_pI]!, `projectIdentifier`)],
     [_eI]: [, input[_eI]!],
+    [_cI]: [, input[_cI]!],
     [_ty]: [, input[_ty]!],
     [_s]: [, input[_s]!],
     [_n]: [, input[_n]!],
@@ -2610,6 +2888,53 @@ export const se_ListEnvironmentsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListJobRunsCommand
+ */
+export const se_ListJobRunsCommand = async (
+  input: ListJobRunsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/jobs/{jobIdentifier}/runs");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("jobIdentifier", () => input.jobIdentifier!, "{jobIdentifier}", false);
+  const query: any = map({
+    [_s]: [, input[_s]!],
+    [_sO]: [, input[_sO]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListLineageEventsCommand
+ */
+export const se_ListLineageEventsCommand = async (
+  input: ListLineageEventsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/lineage/events");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_tA]: [() => input.timestampAfter !== void 0, () => __serializeDateTime(input[_tA]!).toString()],
+    [_tB]: [() => input.timestampBefore !== void 0, () => __serializeDateTime(input[_tB]!).toString()],
+    [_pS]: [, input[_pS]!],
+    [_sO]: [, input[_sO]!],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListLineageNodeHistoryCommand
  */
 export const se_ListLineageNodeHistoryCommand = async (
@@ -2717,6 +3042,29 @@ export const se_ListProjectMembershipsCommand = async (
   b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
   b.p("projectIdentifier", () => input.projectIdentifier!, "{projectIdentifier}", false);
   const query: any = map({
+    [_sB]: [, input[_sB]!],
+    [_sO]: [, input[_sO]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListProjectProfilesCommand
+ */
+export const se_ListProjectProfilesCommand = async (
+  input: ListProjectProfilesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/project-profiles");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  const query: any = map({
+    [_n]: [, input[_n]!],
     [_sB]: [, input[_sB]!],
     [_sO]: [, input[_sO]!],
     [_nT]: [, input[_nT]!],
@@ -2930,19 +3278,17 @@ export const se_PostLineageEventCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
-  };
+    [_ct]: input[_cT] ?? generateIdempotencyToken(),
+  });
   b.bp("/v2/domains/{domainIdentifier}/lineage/events");
   b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
-  const query: any = map({
-    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
-  });
   let body: any;
   if (input.event !== undefined) {
     body = input.event;
   }
-  b.m("POST").h(headers).q(query).b(body);
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -2995,6 +3341,7 @@ export const se_PutEnvironmentBlueprintConfigurationCommand = async (
   body = JSON.stringify(
     take(input, {
       enabledRegions: (_) => _json(_),
+      environmentRolePermissionBoundary: [],
       manageAccessRoleArn: [],
       provisioningConfigurations: (_) => _json(_),
       provisioningRoleArn: [],
@@ -3394,6 +3741,32 @@ export const se_UpdateAssetFilterCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateConnectionCommand
+ */
+export const se_UpdateConnectionCommand = async (
+  input: UpdateConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/connections/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      awsLocation: (_) => _json(_),
+      description: [],
+      props: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateDataSourceCommand
  */
 export const se_UpdateDataSourceCommand = async (
@@ -3447,6 +3820,7 @@ export const se_UpdateDomainCommand = async (
       description: [],
       domainExecutionRole: [],
       name: [],
+      serviceRole: [],
       singleSignOn: (_) => _json(_),
     })
   );
@@ -3658,8 +4032,37 @@ export const se_UpdateProjectCommand = async (
   body = JSON.stringify(
     take(input, {
       description: [],
+      environmentDeploymentDetails: (_) => _json(_),
       glossaryTerms: (_) => _json(_),
       name: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateProjectProfileCommand
+ */
+export const se_UpdateProjectProfileCommand = async (
+  input: UpdateProjectProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/project-profiles/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      domainUnitIdentifier: [],
+      environmentConfigurations: (_) => _json(_),
+      name: [],
+      status: [],
     })
   );
   b.m("PATCH").h(headers).b(body);
@@ -4098,6 +4501,36 @@ export const de_CreateAssetTypeCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateConnectionCommand
+ */
+export const de_CreateConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConnectionCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    connectionId: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    domainUnitId: __expectString,
+    environmentId: __expectString,
+    name: __expectString,
+    physicalEndpoints: (_) => de_PhysicalEndpoints(_, context),
+    projectId: __expectString,
+    props: (_) => de_ConnectionPropertiesOutput(__expectUnion(_), context),
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateDataProductCommand
  */
 export const de_CreateDataProductCommand = async (
@@ -4182,6 +4615,7 @@ export const de_CreateDataSourceCommand = async (
   const doc = take(data, {
     assetFormsOutput: _json,
     configuration: (_) => _json(__expectUnion(_)),
+    connectionId: __expectString,
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
     domainId: __expectString,
@@ -4223,11 +4657,13 @@ export const de_CreateDomainCommand = async (
     arn: __expectString,
     description: __expectString,
     domainExecutionRole: __expectString,
+    domainVersion: __expectString,
     id: __expectString,
     kmsKeyIdentifier: __expectString,
     name: __expectString,
     portalUrl: __expectString,
     rootDomainUnitId: __expectString,
+    serviceRole: __expectString,
     singleSignOn: _json,
     status: __expectString,
     tags: _json,
@@ -4512,12 +4948,15 @@ export const de_CreateProjectCommand = async (
     description: __expectString,
     domainId: __expectString,
     domainUnitId: __expectString,
+    environmentDeploymentDetails: _json,
     failureReasons: _json,
     glossaryTerms: _json,
     id: __expectString,
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
+    projectProfileId: __expectString,
     projectStatus: __expectString,
+    userParameters: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4537,6 +4976,36 @@ export const de_CreateProjectMembershipCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateProjectProfileCommand
+ */
+export const de_CreateProjectProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateProjectProfileCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    domainUnitId: __expectString,
+    environmentConfigurations: _json,
+    id: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    name: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4748,6 +5217,27 @@ export const de_DeleteAssetTypeCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteConnectionCommand
+ */
+export const de_DeleteConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConnectionCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteDataProductCommand
  */
 export const de_DeleteDataProductCommand = async (
@@ -4781,6 +5271,7 @@ export const de_DeleteDataSourceCommand = async (
   const doc = take(data, {
     assetFormsOutput: _json,
     configuration: (_) => _json(__expectUnion(_)),
+    connectionId: __expectString,
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
     domainId: __expectString,
@@ -5014,6 +5505,23 @@ export const de_DeleteProjectMembershipCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteProjectProfileCommand
+ */
+export const de_DeleteProjectProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProjectProfileCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteRuleCommand
  */
 export const de_DeleteRuleCommand = async (
@@ -5231,6 +5739,38 @@ export const de_GetAssetTypeCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetConnectionCommand
+ */
+export const de_GetConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    connectionCredentials: (_) => de_ConnectionCredentials(_, context),
+    connectionId: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    domainUnitId: __expectString,
+    environmentId: __expectString,
+    environmentUserRole: __expectString,
+    name: __expectString,
+    physicalEndpoints: (_) => de_PhysicalEndpoints(_, context),
+    projectId: __expectString,
+    props: (_) => de_ConnectionPropertiesOutput(__expectUnion(_), context),
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetDataProductCommand
  */
 export const de_GetDataProductCommand = async (
@@ -5281,6 +5821,7 @@ export const de_GetDataSourceCommand = async (
   const doc = take(data, {
     assetFormsOutput: _json,
     configuration: (_) => _json(__expectUnion(_)),
+    connectionId: __expectString,
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
     domainId: __expectString,
@@ -5327,6 +5868,7 @@ export const de_GetDataSourceRunCommand = async (
     domainId: __expectString,
     errorMessage: _json,
     id: __expectString,
+    lineageSummary: _json,
     projectId: __expectString,
     runStatisticsForAssets: _json,
     startedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -5358,12 +5900,14 @@ export const de_GetDomainCommand = async (
     createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     domainExecutionRole: __expectString,
+    domainVersion: __expectString,
     id: __expectString,
     kmsKeyIdentifier: __expectString,
     lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
     portalUrl: __expectString,
     rootDomainUnitId: __expectString,
+    serviceRole: __expectString,
     singleSignOn: _json,
     status: __expectString,
     tags: _json,
@@ -5518,6 +6062,7 @@ export const de_GetEnvironmentBlueprintConfigurationCommand = async (
     domainId: __expectString,
     enabledRegions: _json,
     environmentBlueprintId: __expectString,
+    environmentRolePermissionBoundary: __expectString,
     manageAccessRoleArn: __expectString,
     provisioningConfigurations: _json,
     provisioningRoleArn: __expectString,
@@ -5725,6 +6270,62 @@ export const de_GetIamPortalLoginUrlCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetJobRunCommand
+ */
+export const de_GetJobRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetJobRunCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    details: (_) => de_JobRunDetails(__expectUnion(_), context),
+    domainId: __expectString,
+    endTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    error: _json,
+    id: __expectString,
+    jobId: __expectString,
+    jobType: __expectString,
+    runMode: __expectString,
+    startTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetLineageEventCommand
+ */
+export const de_GetLineageEventCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLineageEventCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_dI]: [, output.headers[_di]],
+    [_i]: [, output.headers[_i]],
+    [_cB]: [, output.headers[_cb]],
+    [_pS]: [, output.headers[_ps]],
+    [_eTv]: [() => void 0 !== output.headers[_et], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_et]))],
+    [_cA]: [() => void 0 !== output.headers[_ca], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_ca]))],
+  });
+  const data: any = await collectBody(output.body, context);
+  contents.event = data;
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetLineageNodeCommand
  */
 export const de_GetLineageNodeCommand = async (
@@ -5838,12 +6439,45 @@ export const de_GetProjectCommand = async (
     description: __expectString,
     domainId: __expectString,
     domainUnitId: __expectString,
+    environmentDeploymentDetails: _json,
     failureReasons: _json,
     glossaryTerms: _json,
     id: __expectString,
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
+    projectProfileId: __expectString,
     projectStatus: __expectString,
+    userParameters: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetProjectProfileCommand
+ */
+export const de_GetProjectProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProjectProfileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    domainUnitId: __expectString,
+    environmentConfigurations: _json,
+    id: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    name: __expectString,
+    status: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -6102,6 +6736,28 @@ export const de_ListAssetRevisionsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     items: (_) => de_AssetRevisions(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListConnectionsCommand
+ */
+export const de_ListConnectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConnectionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_ConnectionSummaries(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -6373,6 +7029,50 @@ export const de_ListEnvironmentsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListJobRunsCommand
+ */
+export const de_ListJobRunsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListJobRunsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_JobRunSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListLineageEventsCommand
+ */
+export const de_ListLineageEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLineageEventsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_LineageEventSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListLineageNodeHistoryCommand
  */
 export const de_ListLineageNodeHistoryCommand = async (
@@ -6476,6 +7176,28 @@ export const de_ListProjectMembershipsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     members: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListProjectProfilesCommand
+ */
+export const de_ListProjectProfilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProjectProfilesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_ProjectProfileSummaries(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -6670,7 +7392,12 @@ export const de_PostLineageEventCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  await collectBody(output.body, context);
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    domainId: __expectString,
+    id: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6717,6 +7444,7 @@ export const de_PutEnvironmentBlueprintConfigurationCommand = async (
     domainId: __expectString,
     enabledRegions: _json,
     environmentBlueprintId: __expectString,
+    environmentRolePermissionBoundary: __expectString,
     manageAccessRoleArn: __expectString,
     provisioningConfigurations: _json,
     provisioningRoleArn: __expectString,
@@ -7088,6 +7816,36 @@ export const de_UpdateAssetFilterCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateConnectionCommand
+ */
+export const de_UpdateConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    connectionId: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    domainUnitId: __expectString,
+    environmentId: __expectString,
+    name: __expectString,
+    physicalEndpoints: (_) => de_PhysicalEndpoints(_, context),
+    projectId: __expectString,
+    props: (_) => de_ConnectionPropertiesOutput(__expectUnion(_), context),
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateDataSourceCommand
  */
 export const de_UpdateDataSourceCommand = async (
@@ -7104,6 +7862,7 @@ export const de_UpdateDataSourceCommand = async (
   const doc = take(data, {
     assetFormsOutput: _json,
     configuration: (_) => _json(__expectUnion(_)),
+    connectionId: __expectString,
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
     domainId: __expectString,
@@ -7150,6 +7909,7 @@ export const de_UpdateDomainCommand = async (
     lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
     rootDomainUnitId: __expectString,
+    serviceRole: __expectString,
     singleSignOn: _json,
   });
   Object.assign(contents, doc);
@@ -7383,12 +8143,45 @@ export const de_UpdateProjectCommand = async (
     description: __expectString,
     domainId: __expectString,
     domainUnitId: __expectString,
+    environmentDeploymentDetails: _json,
     failureReasons: _json,
     glossaryTerms: _json,
     id: __expectString,
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
+    projectProfileId: __expectString,
     projectStatus: __expectString,
+    userParameters: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateProjectProfileCommand
+ */
+export const de_UpdateProjectProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProjectProfileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    domainUnitId: __expectString,
+    environmentConfigurations: _json,
+    id: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    name: __expectString,
+    status: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -7793,15 +8586,39 @@ const se_AssetFilterConfiguration = (input: AssetFilterConfiguration, context: _
 
 // se_AssetTypesForRule omitted.
 
+// se_AthenaPropertiesInput omitted.
+
+// se_AthenaPropertiesPatch omitted.
+
+// se_AuthenticationConfigurationInput omitted.
+
+// se_AuthenticationConfigurationPatch omitted.
+
+// se_AuthorizationCodeProperties omitted.
+
 // se_AuthorizedPrincipalIdentifiers omitted.
 
+// se_AwsAccount omitted.
+
 // se_AwsConsoleLinkParameters omitted.
+
+// se_AwsLocation omitted.
+
+// se_BasicAuthenticationCredentials omitted.
 
 // se_BusinessNameGenerationConfiguration omitted.
 
 // se_ColumnFilterConfiguration omitted.
 
 // se_ColumnNameList omitted.
+
+// se_ComputeEnvironmentsList omitted.
+
+// se_ConnectionProperties omitted.
+
+// se_ConnectionPropertiesInput omitted.
+
+// se_ConnectionPropertiesPatch omitted.
 
 // se_CreateAssetTypePolicyGrantDetail omitted.
 
@@ -7813,7 +8630,11 @@ const se_AssetFilterConfiguration = (input: AssetFilterConfiguration, context: _
 
 // se_CreateGlossaryPolicyGrantDetail omitted.
 
+// se_CreateProjectFromProjectProfilePolicyGrantDetail omitted.
+
 // se_CreateProjectPolicyGrantDetail omitted.
+
+// se_CredentialMap omitted.
 
 // se_DataProductItem omitted.
 
@@ -7830,6 +8651,28 @@ const se_AssetFilterConfiguration = (input: AssetFilterConfiguration, context: _
 // se_DomainUnitTarget omitted.
 
 // se_EnabledRegionList omitted.
+
+// se_EnvironmentConfiguration omitted.
+
+// se_EnvironmentConfigurationParameter omitted.
+
+// se_EnvironmentConfigurationParametersDetails omitted.
+
+// se_EnvironmentConfigurationParametersList omitted.
+
+// se_EnvironmentConfigurationsList omitted.
+
+// se_EnvironmentConfigurationUserParameter omitted.
+
+// se_EnvironmentConfigurationUserParametersList omitted.
+
+// se_EnvironmentDeploymentDetails omitted.
+
+// se_EnvironmentError omitted.
+
+// se_EnvironmentFailureReasons omitted.
+
+// se_EnvironmentFailureReasonsList omitted.
 
 // se_EnvironmentParameter omitted.
 
@@ -7880,6 +8723,16 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 
 // se_GlossaryTerms omitted.
 
+// se_GlueConnectionInput omitted.
+
+// se_GlueConnectionPatch omitted.
+
+// se_GlueOAuth2Credentials omitted.
+
+// se_GluePropertiesInput omitted.
+
+// se_GluePropertiesPatch omitted.
+
 // se_GlueRunConfigurationInput omitted.
 
 // se_GrantedEntityInput omitted.
@@ -7889,6 +8742,12 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 // se_GreaterThanOrEqualToExpression omitted.
 
 // se_GroupPolicyGrantPrincipal omitted.
+
+// se_HyperPodPropertiesInput omitted.
+
+// se_IamPropertiesInput omitted.
+
+// se_IamPropertiesPatch omitted.
 
 // se_InExpression omitted.
 
@@ -7905,6 +8764,8 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 // se_LessThanOrEqualToExpression omitted.
 
 // se_LikeExpression omitted.
+
+// se_LineageSyncSchedule omitted.
 
 // se_ListingRevisionInput omitted.
 
@@ -7926,6 +8787,10 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 
 // se_NotLikeExpression omitted.
 
+// se_OAuth2ClientApplication omitted.
+
+// se_OAuth2Properties omitted.
+
 // se_OverrideDomainUnitOwnersPolicyGrantDetail omitted.
 
 // se_OverrideProjectOwnersPolicyGrantDetail omitted.
@@ -7935,6 +8800,8 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 // se_OwnerProperties omitted.
 
 // se_OwnerUserProperties omitted.
+
+// se_PhysicalConnectionRequirements omitted.
 
 // se_PolicyGrantDetail omitted.
 
@@ -7948,7 +8815,11 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 
 // se_ProjectPolicyGrantPrincipal omitted.
 
+// se_ProjectProfileList omitted.
+
 // se_ProjectsForRule omitted.
+
+// se_PropertyMap omitted.
 
 // se_ProvisioningConfiguration omitted.
 
@@ -7960,11 +8831,23 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 
 // se_RedshiftCredentialConfiguration omitted.
 
+// se_RedshiftCredentials omitted.
+
+// se_RedshiftLineageSyncConfigurationInput omitted.
+
+// se_RedshiftPropertiesInput omitted.
+
+// se_RedshiftPropertiesPatch omitted.
+
 // se_RedshiftRunConfigurationInput omitted.
 
 // se_RedshiftServerlessStorage omitted.
 
 // se_RedshiftStorage omitted.
+
+// se_RedshiftStorageProperties omitted.
+
+// se_Region omitted.
 
 // se_RegionalParameter omitted.
 
@@ -8037,6 +8920,8 @@ const se_RowFilterList = (input: RowFilter[], context: __SerdeContext): any => {
 
 // se_S3LocationList omitted.
 
+// se_SageMakerRunConfigurationInput omitted.
+
 // se_ScheduleConfiguration omitted.
 
 // se_SearchInItem omitted.
@@ -8047,9 +8932,21 @@ const se_RowFilterList = (input: RowFilter[], context: __SerdeContext): any => {
 
 // se_SearchSort omitted.
 
+// se_SecurityGroupIdList omitted.
+
 // se_SingleSignOn omitted.
 
+// se_SparkEmrPropertiesInput omitted.
+
+// se_SparkEmrPropertiesPatch omitted.
+
+// se_SparkGlueArgs omitted.
+
+// se_SparkGluePropertiesInput omitted.
+
 // se_StringList omitted.
+
+// se_SubnetIdList omitted.
 
 // se_SubscribedListingInput omitted.
 
@@ -8093,7 +8990,15 @@ const se_TimeSeriesDataPointFormInputList = (input: TimeSeriesDataPointFormInput
     });
 };
 
+// se_TokenUrlParametersMap omitted.
+
+// se_TrackingAssetArns omitted.
+
+// se_TrackingAssets omitted.
+
 // se_Unit omitted.
+
+// se_UsernamePassword omitted.
 
 // se_UserPolicyGrantPrincipal omitted.
 
@@ -8292,9 +9197,19 @@ const de_AssetTypeItem = (output: any, context: __SerdeContext): AssetTypeItem =
 
 // de_AssetTypesForRule omitted.
 
+// de_AthenaPropertiesOutput omitted.
+
+// de_AuthenticationConfiguration omitted.
+
+// de_AuthorizationCodeProperties omitted.
+
 // de_AuthorizedPrincipalIdentifiers omitted.
 
+// de_AwsAccount omitted.
+
 // de_AwsConsoleLinkParameters omitted.
+
+// de_AwsLocation omitted.
 
 // de_BusinessNameGenerationConfiguration omitted.
 
@@ -8304,11 +9219,98 @@ const de_AssetTypeItem = (output: any, context: __SerdeContext): AssetTypeItem =
 
 // de_ColumnNameList omitted.
 
+// de_ComputeEnvironmentsList omitted.
+
 // de_ConfigurableActionParameter omitted.
 
 // de_ConfigurableActionParameterList omitted.
 
 // de_ConfigurableEnvironmentAction omitted.
+
+/**
+ * deserializeAws_restJson1ConnectionCredentials
+ */
+const de_ConnectionCredentials = (output: any, context: __SerdeContext): ConnectionCredentials => {
+  return take(output, {
+    accessKeyId: __expectString,
+    expiration: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    secretAccessKey: __expectString,
+    sessionToken: __expectString,
+  }) as any;
+};
+
+// de_ConnectionProperties omitted.
+
+/**
+ * deserializeAws_restJson1ConnectionPropertiesOutput
+ */
+const de_ConnectionPropertiesOutput = (output: any, context: __SerdeContext): ConnectionPropertiesOutput => {
+  if (output.athenaProperties != null) {
+    return {
+      athenaProperties: _json(output.athenaProperties),
+    };
+  }
+  if (output.glueProperties != null) {
+    return {
+      glueProperties: _json(output.glueProperties),
+    };
+  }
+  if (output.hyperPodProperties != null) {
+    return {
+      hyperPodProperties: _json(output.hyperPodProperties),
+    };
+  }
+  if (output.iamProperties != null) {
+    return {
+      iamProperties: _json(output.iamProperties),
+    };
+  }
+  if (output.redshiftProperties != null) {
+    return {
+      redshiftProperties: _json(output.redshiftProperties),
+    };
+  }
+  if (output.sparkEmrProperties != null) {
+    return {
+      sparkEmrProperties: de_SparkEmrPropertiesOutput(output.sparkEmrProperties, context),
+    };
+  }
+  if (output.sparkGlueProperties != null) {
+    return {
+      sparkGlueProperties: _json(output.sparkGlueProperties),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1ConnectionSummaries
+ */
+const de_ConnectionSummaries = (output: any, context: __SerdeContext): ConnectionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ConnectionSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ConnectionSummary
+ */
+const de_ConnectionSummary = (output: any, context: __SerdeContext): ConnectionSummary => {
+  return take(output, {
+    connectionId: __expectString,
+    domainId: __expectString,
+    domainUnitId: __expectString,
+    environmentId: __expectString,
+    name: __expectString,
+    physicalEndpoints: (_: any) => de_PhysicalEndpoints(_, context),
+    projectId: __expectString,
+    props: (_: any) => de_ConnectionPropertiesOutput(__expectUnion(_), context),
+    type: __expectString,
+  }) as any;
+};
 
 // de_CreateAssetTypePolicyGrantDetail omitted.
 
@@ -8319,6 +9321,8 @@ const de_AssetTypeItem = (output: any, context: __SerdeContext): AssetTypeItem =
 // de_CreateFormTypePolicyGrantDetail omitted.
 
 // de_CreateGlossaryPolicyGrantDetail omitted.
+
+// de_CreateProjectFromProjectProfilePolicyGrantDetail omitted.
 
 // de_CreateProjectPolicyGrantDetail omitted.
 
@@ -8438,12 +9442,15 @@ const de_DataSourceRunActivity = (output: any, context: __SerdeContext): DataSou
     dataSourceRunId: __expectString,
     database: __expectString,
     errorMessage: _json,
+    lineageSummary: _json,
     projectId: __expectString,
     technicalDescription: __expectString,
     technicalName: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
+
+// de_DataSourceRunLineageSummary omitted.
 
 /**
  * deserializeAws_restJson1DataSourceRunSummaries
@@ -8466,6 +9473,7 @@ const de_DataSourceRunSummary = (output: any, context: __SerdeContext): DataSour
     dataSourceId: __expectString,
     errorMessage: _json,
     id: __expectString,
+    lineageSummary: _json,
     projectId: __expectString,
     runStatisticsForAssets: _json,
     startedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -8493,8 +9501,10 @@ const de_DataSourceSummaries = (output: any, context: __SerdeContext): DataSourc
  */
 const de_DataSourceSummary = (output: any, context: __SerdeContext): DataSourceSummary => {
   return take(output, {
+    connectionId: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     dataSourceId: __expectString,
+    description: __expectString,
     domainId: __expectString,
     enableSetting: __expectString,
     environmentId: __expectString,
@@ -8540,6 +9550,7 @@ const de_DomainSummary = (output: any, context: __SerdeContext): DomainSummary =
     arn: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    domainVersion: __expectString,
     id: __expectString,
     lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     managedAccountId: __expectString,
@@ -8591,6 +9602,7 @@ const de_EnvironmentBlueprintConfigurationItem = (
     domainId: __expectString,
     enabledRegions: _json,
     environmentBlueprintId: __expectString,
+    environmentRolePermissionBoundary: __expectString,
     manageAccessRoleArn: __expectString,
     provisioningConfigurations: _json,
     provisioningRoleArn: __expectString,
@@ -8641,7 +9653,31 @@ const de_EnvironmentBlueprintSummary = (output: any, context: __SerdeContext): E
   }) as any;
 };
 
+// de_EnvironmentConfiguration omitted.
+
+// de_EnvironmentConfigurationParameter omitted.
+
+// de_EnvironmentConfigurationParametersDetails omitted.
+
+// de_EnvironmentConfigurationParametersList omitted.
+
+// de_EnvironmentConfigurationsList omitted.
+
+// de_EnvironmentConfigurationUserParameter omitted.
+
+// de_EnvironmentConfigurationUserParametersList omitted.
+
+// de_EnvironmentDeploymentDetails omitted.
+
 // de_EnvironmentError omitted.
+
+// de_EnvironmentFailureReasons omitted.
+
+// de_EnvironmentFailureReasonsList omitted.
+
+// de_EnvironmentParameter omitted.
+
+// de_EnvironmentParametersList omitted.
 
 /**
  * deserializeAws_restJson1EnvironmentProfileSummaries
@@ -8708,6 +9744,10 @@ const de_EnvironmentSummary = (output: any, context: __SerdeContext): Environmen
 };
 
 // de_EqualToExpression omitted.
+
+// de_EventSummary omitted.
+
+// de_FailedQueryProcessingErrorMessages omitted.
 
 // de_FailureCause omitted.
 
@@ -8787,6 +9827,36 @@ const de_GlossaryTermItem = (output: any, context: __SerdeContext): GlossaryTerm
 
 // de_GlossaryTerms omitted.
 
+/**
+ * deserializeAws_restJson1GlueConnection
+ */
+const de_GlueConnection = (output: any, context: __SerdeContext): GlueConnection => {
+  return take(output, {
+    athenaProperties: _json,
+    authenticationConfiguration: _json,
+    compatibleComputeEnvironments: _json,
+    connectionProperties: _json,
+    connectionSchemaVersion: __expectInt32,
+    connectionType: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastConnectionValidationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedBy: __expectString,
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    matchCriteria: _json,
+    name: __expectString,
+    physicalConnectionRequirements: _json,
+    pythonProperties: _json,
+    sparkProperties: _json,
+    status: __expectString,
+    statusReason: __expectString,
+  }) as any;
+};
+
+// de_GlueOAuth2Credentials omitted.
+
+// de_GluePropertiesOutput omitted.
+
 // de_GlueRunConfigurationOutput omitted.
 
 // de_GlueSelfGrantStatusOutput omitted.
@@ -8805,6 +9875,10 @@ const de_GlossaryTermItem = (output: any, context: __SerdeContext): GlossaryTerm
 
 // de_GroupProfileSummary omitted.
 
+// de_HyperPodPropertiesOutput omitted.
+
+// de_IamPropertiesOutput omitted.
+
 // de_IamUserProfileDetails omitted.
 
 // de_Import omitted.
@@ -8819,6 +9893,51 @@ const de_GlossaryTermItem = (output: any, context: __SerdeContext): GlossaryTerm
 
 // de_ItemGlossaryTerms omitted.
 
+/**
+ * deserializeAws_restJson1JobRunDetails
+ */
+const de_JobRunDetails = (output: any, context: __SerdeContext): JobRunDetails => {
+  if (output.lineageRunDetails != null) {
+    return {
+      lineageRunDetails: de_LineageRunDetails(output.lineageRunDetails, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+// de_JobRunError omitted.
+
+/**
+ * deserializeAws_restJson1JobRunSummaries
+ */
+const de_JobRunSummaries = (output: any, context: __SerdeContext): JobRunSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_JobRunSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1JobRunSummary
+ */
+const de_JobRunSummary = (output: any, context: __SerdeContext): JobRunSummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    domainId: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    error: _json,
+    jobId: __expectString,
+    jobType: __expectString,
+    runId: __expectString,
+    runMode: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  }) as any;
+};
+
 // de_LakeFormationConfiguration omitted.
 
 // de_LessThanExpression omitted.
@@ -8826,6 +9945,35 @@ const de_GlossaryTermItem = (output: any, context: __SerdeContext): GlossaryTerm
 // de_LessThanOrEqualToExpression omitted.
 
 // de_LikeExpression omitted.
+
+/**
+ * deserializeAws_restJson1LineageEventSummaries
+ */
+const de_LineageEventSummaries = (output: any, context: __SerdeContext): LineageEventSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LineageEventSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1LineageEventSummary
+ */
+const de_LineageEventSummary = (output: any, context: __SerdeContext): LineageEventSummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    domainId: __expectString,
+    eventSummary: (_: any) => _json(__expectUnion(_)),
+    eventTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    processingStatus: __expectString,
+  }) as any;
+};
+
+// de_LineageInfo omitted.
 
 /**
  * deserializeAws_restJson1LineageNodeReference
@@ -8898,6 +10046,30 @@ const de_LineageNodeTypeItem = (output: any, context: __SerdeContext): LineageNo
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1LineageRunDetails
+ */
+const de_LineageRunDetails = (output: any, context: __SerdeContext): LineageRunDetails => {
+  return take(output, {
+    sqlQueryRunDetails: (_: any) => de_LineageSqlQueryRunDetails(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1LineageSqlQueryRunDetails
+ */
+const de_LineageSqlQueryRunDetails = (output: any, context: __SerdeContext): LineageSqlQueryRunDetails => {
+  return take(output, {
+    errorMessages: _json,
+    numQueriesFailed: __expectInt32,
+    queryEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    queryStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    totalQueriesProcessed: __expectInt32,
+  }) as any;
+};
+
+// de_LineageSyncSchedule omitted.
+
 // de_ListEnvironmentActionSummaries omitted.
 
 /**
@@ -8926,6 +10098,8 @@ const de_ListingItem = (output: any, context: __SerdeContext): ListingItem => {
 // de_ListingSummaryItem omitted.
 
 // de_ListingSummaryItems omitted.
+
+// de_MatchCriteria omitted.
 
 // de_MemberDetails omitted.
 
@@ -8973,6 +10147,10 @@ const de_MetadataGenerationRuns = (output: any, context: __SerdeContext): Metada
 
 // de_Model omitted.
 
+// de_NameIdentifier omitted.
+
+// de_NameIdentifiers omitted.
+
 // de_NotEqualToExpression omitted.
 
 /**
@@ -9012,6 +10190,12 @@ const de_NotificationsList = (output: any, context: __SerdeContext): Notificatio
 
 // de_NotLikeExpression omitted.
 
+// de_OAuth2ClientApplication omitted.
+
+// de_OAuth2Properties omitted.
+
+// de_OpenLineageRunEventSummary omitted.
+
 // de_OverrideDomainUnitOwnersPolicyGrantDetail omitted.
 
 // de_OverrideProjectOwnersPolicyGrantDetail omitted.
@@ -9021,6 +10205,35 @@ const de_NotificationsList = (output: any, context: __SerdeContext): Notificatio
 // de_OwnerPropertiesOutput omitted.
 
 // de_OwnerUserPropertiesOutput omitted.
+
+// de_PhysicalConnectionRequirements omitted.
+
+/**
+ * deserializeAws_restJson1PhysicalEndpoint
+ */
+const de_PhysicalEndpoint = (output: any, context: __SerdeContext): PhysicalEndpoint => {
+  return take(output, {
+    awsLocation: _json,
+    glueConnection: (_: any) => de_GlueConnection(_, context),
+    glueConnectionName: __expectString,
+    host: __expectString,
+    port: __expectInt32,
+    protocol: __expectString,
+    stage: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1PhysicalEndpoints
+ */
+const de_PhysicalEndpoints = (output: any, context: __SerdeContext): PhysicalEndpoint[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PhysicalEndpoint(entry, context);
+    });
+  return retVal;
+};
 
 // de_PolicyGrantDetail omitted.
 
@@ -9062,6 +10275,37 @@ const de_PolicyGrantMember = (output: any, context: __SerdeContext): PolicyGrant
 
 // de_ProjectPolicyGrantPrincipal omitted.
 
+// de_ProjectProfileList omitted.
+
+/**
+ * deserializeAws_restJson1ProjectProfileSummaries
+ */
+const de_ProjectProfileSummaries = (output: any, context: __SerdeContext): ProjectProfileSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ProjectProfileSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ProjectProfileSummary
+ */
+const de_ProjectProfileSummary = (output: any, context: __SerdeContext): ProjectProfileSummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    domainUnitId: __expectString,
+    id: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    name: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
 // de_ProjectsForRule omitted.
 
 /**
@@ -9094,6 +10338,8 @@ const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary
   }) as any;
 };
 
+// de_PropertyMap omitted.
+
 // de_ProvisioningConfiguration omitted.
 
 // de_ProvisioningConfigurationList omitted.
@@ -9106,6 +10352,12 @@ const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary
 
 // de_RedshiftCredentialConfiguration omitted.
 
+// de_RedshiftCredentials omitted.
+
+// de_RedshiftLineageSyncConfigurationOutput omitted.
+
+// de_RedshiftPropertiesOutput omitted.
+
 // de_RedshiftRunConfigurationOutput omitted.
 
 // de_RedshiftSelfGrantStatusOutput omitted.
@@ -9113,6 +10365,10 @@ const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary
 // de_RedshiftServerlessStorage omitted.
 
 // de_RedshiftStorage omitted.
+
+// de_RedshiftStorageProperties omitted.
+
+// de_Region omitted.
 
 // de_RegionalParameter omitted.
 
@@ -9218,6 +10474,8 @@ const de_RuleSummary = (output: any, context: __SerdeContext): RuleSummary => {
 
 // de_S3LocationList omitted.
 
+// de_SageMakerRunConfigurationOutput omitted.
+
 // de_ScheduleConfiguration omitted.
 
 /**
@@ -9322,6 +10580,8 @@ const de_SearchTypesResultItems = (output: any, context: __SerdeContext): Search
   return retVal;
 };
 
+// de_SecurityGroupIdList omitted.
+
 // de_SelfGrantStatusDetail omitted.
 
 // de_SelfGrantStatusDetails omitted.
@@ -9330,9 +10590,34 @@ const de_SearchTypesResultItems = (output: any, context: __SerdeContext): Search
 
 // de_SingleSignOn omitted.
 
+/**
+ * deserializeAws_restJson1SparkEmrPropertiesOutput
+ */
+const de_SparkEmrPropertiesOutput = (output: any, context: __SerdeContext): SparkEmrPropertiesOutput => {
+  return take(output, {
+    computeArn: __expectString,
+    credentials: _json,
+    credentialsExpiration: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    governanceType: __expectString,
+    instanceProfileArn: __expectString,
+    javaVirtualEnv: __expectString,
+    livyEndpoint: __expectString,
+    logUri: __expectString,
+    pythonVirtualEnv: __expectString,
+    runtimeRole: __expectString,
+    trustedCertificatesS3Uri: __expectString,
+  }) as any;
+};
+
+// de_SparkGlueArgs omitted.
+
+// de_SparkGluePropertiesOutput omitted.
+
 // de_SsoUserProfileDetails omitted.
 
 // de_StringList omitted.
+
+// de_SubnetIdList omitted.
 
 /**
  * deserializeAws_restJson1SubscribedAsset
@@ -9578,11 +10863,19 @@ const de_TimeSeriesDataPointSummaryFormOutputList = (
   return retVal;
 };
 
+// de_TokenUrlParametersMap omitted.
+
 // de_Topic omitted.
+
+// de_TrackingAssetArns omitted.
+
+// de_TrackingAssets omitted.
 
 // de_Unit omitted.
 
 // de_UserDetails omitted.
+
+// de_UsernamePassword omitted.
 
 // de_UserPolicyGrantPrincipal omitted.
 
@@ -9611,9 +10904,17 @@ const _aPI = "approverProjectId";
 const _aT = "afterTimestamp";
 const _aTs = "assetTypes";
 const _bT = "beforeTimestamp";
+const _cA = "createdAt";
+const _cB = "createdBy";
+const _cI = "connectionIdentifier";
 const _cT = "clientToken";
+const _ca = "created-at";
+const _cb = "created-by";
+const _ct = "client-token";
 const _d = "direction";
+const _dI = "domainId";
 const _dP = "dataProduct";
+const _di = "domain-id";
 const _eA = "endedAt";
 const _eBI = "environmentBlueprintIdentifier";
 const _eI = "environmentIdentifier";
@@ -9622,8 +10923,11 @@ const _ePI = "environmentProfileIdentifier";
 const _eT = "eventTimestamp";
 const _eTGTE = "eventTimestampGTE";
 const _eTLTE = "eventTimestampLTE";
+const _eTv = "eventTime";
+const _et = "event-time";
 const _fN = "formName";
 const _gI = "groupIdentifier";
+const _i = "id";
 const _iC = "includeCascaded";
 const _lR = "listingRevision";
 const _m = "managed";
@@ -9635,7 +10939,9 @@ const _p = "provider";
 const _pDUI = "parentDomainUnitIdentifier";
 const _pI = "projectIdentifier";
 const _pIr = "projectIds";
+const _pS = "processingStatus";
 const _pT = "policyType";
+const _ps = "processing-status";
 const _r = "revision";
 const _rA = "ruleAction";
 const _rPORF = "retainPermissionsOnRevokeFailure";
@@ -9651,9 +10957,12 @@ const _sRI = "subscriptionRequestIdentifier";
 const _sTI = "subscriptionTargetId";
 const _su = "subjects";
 const _t = "timestamp";
+const _tA = "timestampAfter";
+const _tB = "timestampBefore";
 const _tGTE = "timestampGTE";
 const _tK = "tagKeys";
 const _tLTE = "timestampLTE";
 const _tS = "taskStatus";
 const _ty = "type";
 const _uI = "userIdentifier";
+const _wS = "withSecret";

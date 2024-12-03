@@ -65,6 +65,11 @@ export interface ListDataSourceRunActivitiesCommandOutput extends ListDataSource
  * //         errorType: "ACCESS_DENIED_EXCEPTION" || "CONFLICT_EXCEPTION" || "INTERNAL_SERVER_EXCEPTION" || "RESOURCE_NOT_FOUND_EXCEPTION" || "SERVICE_QUOTA_EXCEEDED_EXCEPTION" || "THROTTLING_EXCEPTION" || "VALIDATION_EXCEPTION", // required
  * //         errorDetail: "STRING_VALUE",
  * //       },
+ * //       lineageSummary: { // LineageInfo
+ * //         eventId: "STRING_VALUE",
+ * //         eventStatus: "REQUESTED" || "PROCESSING" || "SUCCESS" || "FAILED",
+ * //         errorMessage: "STRING_VALUE",
+ * //       },
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //     },

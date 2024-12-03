@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateSubscriptionGrantStatusInput, UpdateSubscriptionGrantStatusOutput } from "../models/models_1";
+import { UpdateSubscriptionGrantStatusInput, UpdateSubscriptionGrantStatusOutput } from "../models/models_2";
 import {
   de_UpdateSubscriptionGrantStatusCommand,
   se_UpdateSubscriptionGrantStatusCommand,

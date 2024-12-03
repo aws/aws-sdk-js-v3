@@ -10,7 +10,7 @@ import {
   UpdateEnvironmentInput,
   UpdateEnvironmentOutput,
   UpdateEnvironmentOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateEnvironmentCommand, se_UpdateEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**

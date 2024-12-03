@@ -11,7 +11,7 @@ import {
   UpdateSubscriptionTargetInputFilterSensitiveLog,
   UpdateSubscriptionTargetOutput,
   UpdateSubscriptionTargetOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateSubscriptionTargetCommand, se_UpdateSubscriptionTargetCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -76,7 +76,7 @@ export interface UpdateSubscriptionTargetCommandOutput extends UpdateSubscriptio
  * //   updatedBy: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"),
- * //   manageAccessRole: "STRING_VALUE", // required
+ * //   manageAccessRole: "STRING_VALUE",
  * //   applicableAssetTypes: [ // ApplicableAssetTypes // required
  * //     "STRING_VALUE",
  * //   ],

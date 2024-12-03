@@ -11,7 +11,7 @@ import {
   UpdateEnvironmentProfileInputFilterSensitiveLog,
   UpdateEnvironmentProfileOutput,
   UpdateEnvironmentProfileOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateEnvironmentProfileCommand, se_UpdateEnvironmentProfileCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartDataSourceRunInput, StartDataSourceRunOutput } from "../models/models_0";
+import { StartDataSourceRunInput, StartDataSourceRunOutput } from "../models/models_1";
 import { de_StartDataSourceRunCommand, se_StartDataSourceRunCommand } from "../protocols/Aws_restJson1";
 
 /**

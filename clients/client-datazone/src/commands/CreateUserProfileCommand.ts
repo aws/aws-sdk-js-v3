@@ -10,7 +10,7 @@ import {
   CreateUserProfileInput,
   CreateUserProfileOutput,
   CreateUserProfileOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_CreateUserProfileCommand, se_CreateUserProfileCommand } from "../protocols/Aws_restJson1";
 
 /**

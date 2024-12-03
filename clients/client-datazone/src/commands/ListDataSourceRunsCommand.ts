@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDataSourceRunsInput, ListDataSourceRunsOutput } from "../models/models_0";
+import { ListDataSourceRunsInput, ListDataSourceRunsOutput } from "../models/models_1";
 import { de_ListDataSourceRunsCommand, se_ListDataSourceRunsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -67,6 +67,9 @@ export interface ListDataSourceRunsCommandOutput extends ListDataSourceRunsOutpu
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //       startedAt: new Date("TIMESTAMP"),
  * //       stoppedAt: new Date("TIMESTAMP"),
+ * //       lineageSummary: { // DataSourceRunLineageSummary
+ * //         importStatus: "IN_PROGRESS" || "SUCCESS" || "FAILED" || "PARTIALLY_SUCCEEDED",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

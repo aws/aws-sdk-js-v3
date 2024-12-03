@@ -11,7 +11,7 @@ import {
   UpdateSubscriptionRequestInputFilterSensitiveLog,
   UpdateSubscriptionRequestOutput,
   UpdateSubscriptionRequestOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateSubscriptionRequestCommand, se_UpdateSubscriptionRequestCommand } from "../protocols/Aws_restJson1";
 
 /**

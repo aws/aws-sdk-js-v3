@@ -60,6 +60,29 @@ export interface GetProjectCommandOutput extends GetProjectOutput, __MetadataBea
  * //     "STRING_VALUE",
  * //   ],
  * //   domainUnitId: "STRING_VALUE",
+ * //   projectProfileId: "STRING_VALUE",
+ * //   userParameters: [ // EnvironmentConfigurationUserParametersList
+ * //     { // EnvironmentConfigurationUserParameter
+ * //       environmentConfigurationName: "STRING_VALUE",
+ * //       environmentParameters: [ // EnvironmentParametersList
+ * //         { // EnvironmentParameter
+ * //           name: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   environmentDeploymentDetails: { // EnvironmentDeploymentDetails
+ * //     overallDeploymentStatus: "PENDING_DEPLOYMENT" || "IN_PROGRESS" || "SUCCESSFUL" || "FAILED_VALIDATION" || "FAILED_DEPLOYMENT",
+ * //     environmentFailureReasons: { // EnvironmentFailureReasons
+ * //       "<keys>": [ // EnvironmentFailureReasonsList
+ * //         { // EnvironmentError
+ * //           code: "STRING_VALUE",
+ * //           message: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
  * // };
  *
  * ```

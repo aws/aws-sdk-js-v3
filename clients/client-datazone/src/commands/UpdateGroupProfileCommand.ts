@@ -10,7 +10,7 @@ import {
   UpdateGroupProfileInput,
   UpdateGroupProfileOutput,
   UpdateGroupProfileOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateGroupProfileCommand, se_UpdateGroupProfileCommand } from "../protocols/Aws_restJson1";
 
 /**

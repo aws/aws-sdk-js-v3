@@ -11,7 +11,7 @@ import {
   SearchUserProfilesInputFilterSensitiveLog,
   SearchUserProfilesOutput,
   SearchUserProfilesOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_SearchUserProfilesCommand, se_SearchUserProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**

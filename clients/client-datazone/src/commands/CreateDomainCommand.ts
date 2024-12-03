@@ -47,6 +47,8 @@ export interface CreateDomainCommandOutput extends CreateDomainOutput, __Metadat
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   domainVersion: "V1" || "V2",
+ *   serviceRole: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateDomainCommand(input);
@@ -68,6 +70,8 @@ export interface CreateDomainCommandOutput extends CreateDomainOutput, __Metadat
  * //   tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   domainVersion: "V1" || "V2",
+ * //   serviceRole: "STRING_VALUE",
  * // };
  *
  * ```
