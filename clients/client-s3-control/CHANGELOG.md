@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.704.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.703.0...v3.704.0) (2024-12-03)
+
+
+### Features
+
+* **client-s3-control:** It allows customers to pass CRC64NVME as a header in S3 Batch Operations copy requests ([94cd2b3](https://github.com/aws/aws-sdk-js-v3/commit/94cd2b394afd4efeb7e491863887864532345f1d))
+
+
+
+
+
 # [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
 
 

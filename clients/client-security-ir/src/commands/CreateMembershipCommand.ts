@@ -104,6 +104,40 @@ export interface CreateMembershipCommandOutput extends CreateMembershipResponse,
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
  * @public
+ * @example Invoke CreateMembership
+ * ```javascript
+ * //
+ * const input = {
+ *   "incidentResponseTeam": [
+ *     {
+ *       "name": "Bob Jones",
+ *       "email": "bob.jones@gmail.com",
+ *       "jobTitle": "Security Responder"
+ *     },
+ *     {
+ *       "name": "Alice",
+ *       "email": "alice@example.com",
+ *       "jobTitle": "CEO"
+ *     }
+ *   ],
+ *   "membershipName": "Example Membership Name.",
+ *   "optInFeatures": [
+ *     {
+ *       "featureName": "Triage",
+ *       "isEnabled": true
+ *     }
+ *   ]
+ * };
+ * const command = new CreateMembershipCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "membershipId": "m-abcd1234efgh"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class CreateMembershipCommand extends $Command
   .classBuilder<

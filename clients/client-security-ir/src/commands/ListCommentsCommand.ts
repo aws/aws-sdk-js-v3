@@ -96,6 +96,28 @@ export interface ListCommentsCommandOutput extends ListCommentsResponse, __Metad
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
  * @public
+ * @example Invoke ListComments
+ * ```javascript
+ * //
+ * const input = {
+ *   "caseId": "8403556009"
+ * };
+ * const command = new ListCommentsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "items": [
+ *     {
+ *       "body": "Case comment body.",
+ *       "commentId": "000000"
+ *     }
+ *   ],
+ *   "total": 1
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class ListCommentsCommand extends $Command
   .classBuilder<

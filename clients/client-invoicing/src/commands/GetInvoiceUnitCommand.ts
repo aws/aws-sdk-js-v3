@@ -86,6 +86,59 @@ export interface GetInvoiceUnitCommandOutput extends GetInvoiceUnitResponse, __M
  * <p>Base exception class for all service exceptions from Invoicing service.</p>
  *
  * @public
+ * @example GetInvoiceUnit as of current time
+ * ```javascript
+ * //
+ * const input = {
+ *   "InvoiceUnitArn": "arn:aws:invoicing::000000000000:invoice-unit/12345678"
+ * };
+ * const command = new GetInvoiceUnitCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Description": "Description changed on 1733788800",
+ *   "InvoiceReceiver": "111111111111",
+ *   "InvoiceUnitArn": "arn:aws:invoicing::000000000000:invoice-unit/12345678",
+ *   "LastModified": 1733788800,
+ *   "Name": "Example Invoice Unit A",
+ *   "Rule": {
+ *     "LinkedAccounts": [
+ *       "222222222222"
+ *     ]
+ *   },
+ *   "TaxInheritanceDisabled": false
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
+ * @example GetInvoiceUnit as of specified time
+ * ```javascript
+ * //
+ * const input = {
+ *   "AsOf": 1733097600,
+ *   "InvoiceUnitArn": "arn:aws:invoicing::000000000000:invoice-unit/87654321"
+ * };
+ * const command = new GetInvoiceUnitCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Description": "Description changed on 1733011200",
+ *   "InvoiceReceiver": "333333333333",
+ *   "InvoiceUnitArn": "arn:aws:invoicing::000000000000:invoice-unit/87654321",
+ *   "LastModified": 1733011200,
+ *   "Name": "Example Invoice Unit B",
+ *   "Rule": {
+ *     "LinkedAccounts": [
+ *       "333333333333"
+ *     ]
+ *   },
+ *   "TaxInheritanceDisabled": false
+ * }
+ * *\/
+ * // example id: example-2
+ * ```
+ *
  */
 export class GetInvoiceUnitCommand extends $Command
   .classBuilder<

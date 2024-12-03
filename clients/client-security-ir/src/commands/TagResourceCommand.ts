@@ -84,6 +84,21 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
  * @public
+ * @example Invoke TagResource
+ * ```javascript
+ * //
+ * const input = {
+ *   "resourceArn": "arn:aws:security-ir:us-west-1:123456789012:membership/m-abcd1234efgh",
+ *   "tags": {
+ *     "key": "example-tag-key",
+ *     "value": "example-tag-value"
+ *   }
+ * };
+ * const command = new TagResourceCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

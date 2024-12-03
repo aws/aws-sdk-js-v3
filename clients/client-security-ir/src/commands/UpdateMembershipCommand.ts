@@ -99,6 +99,36 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipResponse,
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
  * @public
+ * @example Invoke UpdateMembership
+ * ```javascript
+ * //
+ * const input = {
+ *   "incidentResponseTeam": [
+ *     {
+ *       "name": "Bob Jones",
+ *       "email": "bob.jones@gmail.com",
+ *       "jobTitle": "Security Responder"
+ *     },
+ *     {
+ *       "name": "Alice",
+ *       "email": "alice@example.com",
+ *       "jobTitle": "CEO"
+ *     }
+ *   ],
+ *   "membershipId": "m-abcd1234efgh",
+ *   "membershipName": "New membership name",
+ *   "optInFeatures": [
+ *     {
+ *       "featureName": "Triage",
+ *       "isEnabled": true
+ *     }
+ *   ]
+ * };
+ * const command = new UpdateMembershipCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class UpdateMembershipCommand extends $Command
   .classBuilder<

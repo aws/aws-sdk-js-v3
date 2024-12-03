@@ -93,6 +93,23 @@ export interface GetCaseAttachmentDownloadUrlCommandOutput
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
  * @public
+ * @example Invoke GetCaseAttachmentDownloadUrl
+ * ```javascript
+ * //
+ * const input = {
+ *   "attachmentId": "3C5A6B89-1DEF-4C2D-A5B6-123456789ABC",
+ *   "caseId": "8403556009"
+ * };
+ * const command = new GetCaseAttachmentDownloadUrlCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "attachmentPresignedUrl": "https://presignedurl.com"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class GetCaseAttachmentDownloadUrlCommand extends $Command
   .classBuilder<

@@ -134,6 +134,70 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
  * @public
+ * @example Invoke UpdateCase
+ * ```javascript
+ * //
+ * const input = {
+ *   "actualIncidentStartDate": "2023-03-25T15:32:01.789Z",
+ *   "caseId": "8403556009",
+ *   "description": "Case description",
+ *   "engagementType": "Investigation",
+ *   "impactedAccountsToAdd": [
+ *     "000000000000"
+ *   ],
+ *   "impactedAccountsToDelete": [
+ *     "111111111111"
+ *   ],
+ *   "impactedAwsRegionsToAdd": [
+ *     {
+ *       "region": "ap-southeast-1"
+ *     }
+ *   ],
+ *   "impactedAwsRegionsToDelete": [
+ *     {
+ *       "region": "us-east-1"
+ *     }
+ *   ],
+ *   "impactedServicesToAdd": [
+ *     "Amazon EC2"
+ *   ],
+ *   "impactedServicesToDelete": [
+ *     "Amazon EKS"
+ *   ],
+ *   "reportedIncidentStartDate": "2023-03-27T15:32:01.789Z",
+ *   "threatActorIpAddressesToAdd": [
+ *     {
+ *       "ipAddress": "190.160.190.160",
+ *       "userAgent": "Browser"
+ *     }
+ *   ],
+ *   "threatActorIpAddressesToDelete": [
+ *     {
+ *       "ipAddress": "192.168.192.168",
+ *       "userAgent": "Browser"
+ *     }
+ *   ],
+ *   "title": "My sample case",
+ *   "watchersToAdd": [
+ *     {
+ *       "name": "Same",
+ *       "email": "Sam@example.com",
+ *       "jobTitle": "CEO"
+ *     }
+ *   ],
+ *   "watchersToDelete": [
+ *     {
+ *       "name": "Bob",
+ *       "email": "bob@example.com",
+ *       "jobTitle": "CFO"
+ *     }
+ *   ]
+ * };
+ * const command = new UpdateCaseCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class UpdateCaseCommand extends $Command
   .classBuilder<

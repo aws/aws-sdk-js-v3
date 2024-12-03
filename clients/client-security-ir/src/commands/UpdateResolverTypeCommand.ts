@@ -90,6 +90,25 @@ export interface UpdateResolverTypeCommandOutput extends UpdateResolverTypeRespo
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
  * @public
+ * @example Invoke UpdateResolverType
+ * ```javascript
+ * //
+ * const input = {
+ *   "caseId": "8403556009",
+ *   "resolverType": "AWS"
+ * };
+ * const command = new UpdateResolverTypeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "caseId": "8403556009",
+ *   "caseStatus": "Detection and Analysis",
+ *   "resolverType": "AWS"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class UpdateResolverTypeCommand extends $Command
   .classBuilder<

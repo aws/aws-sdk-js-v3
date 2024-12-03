@@ -109,6 +109,49 @@ export interface GetMembershipCommandOutput extends GetMembershipResponse, __Met
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
  * @public
+ * @example Invoke GetMembership
+ * ```javascript
+ * //
+ * const input = {
+ *   "membershipId": "m-abcd1234efgh"
+ * };
+ * const command = new GetMembershipCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "accountId": "123412341234",
+ *   "customerType": "Standalone",
+ *   "incidentResponseTeam": [
+ *     {
+ *       "name": "Bob Jones",
+ *       "email": "bob.jones@gmail.com",
+ *       "jobTitle": "Security Responder"
+ *     },
+ *     {
+ *       "name": "Alice",
+ *       "email": "alice@example.com",
+ *       "jobTitle": "CEO"
+ *     }
+ *   ],
+ *   "membershipActivationTimestamp": "2023-03-27T15:32:01.789Z",
+ *   "membershipArn": "arn:aws:security-ir:us-west-1:123456789012:membership/m-abcd1234efgh",
+ *   "membershipDeactivationTimestamp": "2023-04-27T15:32:01.789Z",
+ *   "membershipId": "m-abcd1234efgh",
+ *   "membershipName": "Example Membership",
+ *   "membershipStatus": "Active",
+ *   "numberOfAccountsCovered": 50,
+ *   "optInFeatures": [
+ *     {
+ *       "featureName": "Triage",
+ *       "isEnabled": true
+ *     }
+ *   ],
+ *   "region": "af-south-1"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class GetMembershipCommand extends $Command
   .classBuilder<

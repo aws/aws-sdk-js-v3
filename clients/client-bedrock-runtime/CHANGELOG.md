@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.704.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.703.0...v3.704.0) (2024-12-03)
+
+
+### Features
+
+* **client-bedrock-runtime:** Add an API parameter that allows customers to set performance configuration for invoking a model. ([f87e55a](https://github.com/aws/aws-sdk-js-v3/commit/f87e55a13bf41ed1ff2fd0a15250c253d3188c5f))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-runtime

@@ -82,6 +82,47 @@ export interface UpdateInvoiceUnitCommandOutput extends UpdateInvoiceUnitRespons
  * <p>Base exception class for all service exceptions from Invoicing service.</p>
  *
  * @public
+ * @example UpdateInvoiceUnit with all updatable fields
+ * ```javascript
+ * //
+ * const input = {
+ *   "Description": "Updated IU description",
+ *   "InvoiceUnitArn": "arn:aws:invoicing::000000000000:invoice-unit/12345678",
+ *   "Rule": {
+ *     "LinkedAccounts": [
+ *       "111111111111",
+ *       "222222222222"
+ *     ]
+ *   },
+ *   "TaxInheritanceDisabled": false
+ * };
+ * const command = new UpdateInvoiceUnitCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InvoiceUnitArn": "arn:aws:invoicing::000000000000:invoice-unit/12345678"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
+ * @example UpdateInvoiceUnit with specific fields
+ * ```javascript
+ * //
+ * const input = {
+ *   "Description": "Updated IU description. All other fields remain unchanged",
+ *   "InvoiceUnitArn": "arn:aws:invoicing::000000000000:invoice-unit/12345678"
+ * };
+ * const command = new UpdateInvoiceUnitCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InvoiceUnitArn": "arn:aws:invoicing::000000000000:invoice-unit/12345678"
+ * }
+ * *\/
+ * // example id: example-2
+ * ```
+ *
  */
 export class UpdateInvoiceUnitCommand extends $Command
   .classBuilder<

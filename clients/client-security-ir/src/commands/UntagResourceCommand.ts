@@ -84,6 +84,20 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
  * @public
+ * @example Invoke UntagResource
+ * ```javascript
+ * //
+ * const input = {
+ *   "resourceArn": "arn:aws:security-ir:us-west-1:123456789012:membership/m-abcd1234efgh",
+ *   "tagKeys": [
+ *     "example-tag-key"
+ *   ]
+ * };
+ * const command = new UntagResourceCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

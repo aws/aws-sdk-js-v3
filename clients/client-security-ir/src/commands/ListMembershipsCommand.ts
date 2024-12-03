@@ -93,6 +93,30 @@ export interface ListMembershipsCommandOutput extends ListMembershipsResponse, _
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
  * @public
+ * @example Invoke ListMemberships
+ * ```javascript
+ * //
+ * const input = {
+ *   "maxResults": 10
+ * };
+ * const command = new ListMembershipsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "items": [
+ *     {
+ *       "accountId": "123123123123",
+ *       "membershipArn": "arn:aws:security-ir:us-west-1:123456789012:membership/m-abcd1234efgh",
+ *       "membershipId": "m-abcd1234efgh",
+ *       "membershipStatus": "Cancelled",
+ *       "region": "af-south-1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class ListMembershipsCommand extends $Command
   .classBuilder<

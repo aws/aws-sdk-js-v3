@@ -84,6 +84,23 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>Base exception class for all service exceptions from Invoicing service.</p>
  *
  * @public
+ * @example TagResource
+ * ```javascript
+ * //
+ * const input = {
+ *   "ResourceArn": "arn:aws:invoicing::000000000000:invoice-unit/12345678",
+ *   "ResourceTags": [
+ *     {
+ *       "Key": "TagKey",
+ *       "Value": "TagValue"
+ *     }
+ *   ]
+ * };
+ * const command = new TagResourceCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.704.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.703.0...v3.704.0) (2024-12-03)
+
+
+### Features
+
+* **client-socialmessaging:** Added support for passing role arn corresponding to the supported event destination ([75bd846](https://github.com/aws/aws-sdk-js-v3/commit/75bd8462bfacdb4c4dee65889b0124053ff90dc1))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-socialmessaging

@@ -100,6 +100,38 @@ export interface BatchGetInvoiceProfileCommandOutput extends BatchGetInvoiceProf
  * <p>Base exception class for all service exceptions from Invoicing service.</p>
  *
  * @public
+ * @example BatchGetInvoiceProfile
+ * ```javascript
+ * //
+ * const input = {
+ *   "AccountIds": [
+ *     "111111111111"
+ *   ]
+ * };
+ * const command = new BatchGetInvoiceProfileCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Profiles": [
+ *     {
+ *       "AccountId": "111111111111",
+ *       "Issuer": "Test",
+ *       "ReceiverAddress": {
+ *         "AddressLine1": "Test",
+ *         "City": "Test",
+ *         "CountryCode": "LU",
+ *         "PostalCode": "Test",
+ *         "StateOrRegion": "Test"
+ *       },
+ *       "ReceiverEmail": "test@amazon.com",
+ *       "ReceiverName": "TestAccount"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class BatchGetInvoiceProfileCommand extends $Command
   .classBuilder<

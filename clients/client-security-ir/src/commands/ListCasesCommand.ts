@@ -99,6 +99,35 @@ export interface ListCasesCommandOutput extends ListCasesResponse, __MetadataBea
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
  * @public
+ * @example Invoke ListCases
+ * ```javascript
+ * //
+ * const input = {
+ *   "maxResults": 10
+ * };
+ * const command = new ListCasesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "items": [
+ *     {
+ *       "caseArn": "arn:aws:security-ir:us-west-1:123456789012:case/1234567890",
+ *       "caseId": "8403556009",
+ *       "caseStatus": "Acknowledged",
+ *       "createdDate": "2023-01-27T15:32:01.789Z",
+ *       "engagementType": "Security Incident",
+ *       "lastUpdatedDate": "2023-03-27T15:32:01.789Z",
+ *       "pendingAction": "None",
+ *       "resolverType": "Self",
+ *       "title": "Example case title"
+ *     }
+ *   ],
+ *   "total": 1
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class ListCasesCommand extends $Command
   .classBuilder<

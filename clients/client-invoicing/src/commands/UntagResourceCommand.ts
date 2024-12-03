@@ -78,6 +78,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * <p>Base exception class for all service exceptions from Invoicing service.</p>
  *
  * @public
+ * @example UntagResource
+ * ```javascript
+ * //
+ * const input = {
+ *   "ResourceArn": "arn:aws:invoicing::000000000000:invoice-unit/12345678",
+ *   "ResourceTagKeys": [
+ *     "TagKey"
+ *   ]
+ * };
+ * const command = new UntagResourceCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

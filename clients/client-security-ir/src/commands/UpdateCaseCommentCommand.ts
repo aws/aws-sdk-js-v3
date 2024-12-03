@@ -91,6 +91,25 @@ export interface UpdateCaseCommentCommandOutput extends UpdateCaseCommentRespons
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
  * @public
+ * @example Invoke UpdateCaseComment
+ * ```javascript
+ * //
+ * const input = {
+ *   "body": "Updated case comment.",
+ *   "caseId": "8403556009",
+ *   "commentId": "000000"
+ * };
+ * const command = new UpdateCaseCommentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "body": "Updated case comment.",
+ *   "commentId": "000000"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class UpdateCaseCommentCommand extends $Command
   .classBuilder<

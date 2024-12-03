@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.704.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.703.0...v3.704.0) (2024-12-03)
+
+
+### Features
+
+* **client-bedrock-runtime:** Add an API parameter that allows customers to set performance configuration for invoking a model. ([f87e55a](https://github.com/aws/aws-sdk-js-v3/commit/f87e55a13bf41ed1ff2fd0a15250c253d3188c5f))
+* **client-s3-control:** It allows customers to pass CRC64NVME as a header in S3 Batch Operations copy requests ([94cd2b3](https://github.com/aws/aws-sdk-js-v3/commit/94cd2b394afd4efeb7e491863887864532345f1d))
+* **client-socialmessaging:** Added support for passing role arn corresponding to the supported event destination ([75bd846](https://github.com/aws/aws-sdk-js-v3/commit/75bd8462bfacdb4c4dee65889b0124053ff90dc1))
+* **clients:** update client endpoints as of 2024-12-03 ([25460cc](https://github.com/aws/aws-sdk-js-v3/commit/25460cc85363edd371eb774f40d7875dc1964dcd))
+
+
+
+
+
 # [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
 
 
