@@ -37,7 +37,7 @@ export interface ListFoundationModelsCommandOutput extends ListFoundationModelsR
  * const client = new BedrockClient(config);
  * const input = { // ListFoundationModelsRequest
  *   byProvider: "STRING_VALUE",
- *   byCustomizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
+ *   byCustomizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION",
  *   byOutputModality: "TEXT" || "IMAGE" || "EMBEDDING",
  *   byInferenceType: "ON_DEMAND" || "PROVISIONED",
  * };
@@ -58,7 +58,7 @@ export interface ListFoundationModelsCommandOutput extends ListFoundationModelsR
  * //       ],
  * //       responseStreamingSupported: true || false,
  * //       customizationsSupported: [ // ModelCustomizationList
- * //         "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
+ * //         "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION",
  * //       ],
  * //       inferenceTypesSupported: [ // InferenceTypeList
  * //         "ON_DEMAND" || "PROVISIONED",

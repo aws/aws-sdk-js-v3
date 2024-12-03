@@ -28,7 +28,7 @@ export interface StopModelInvocationJobCommandInput extends StopModelInvocationJ
 export interface StopModelInvocationJobCommandOutput extends StopModelInvocationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a batch inference job. You're only charged for tokens that were already processed. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-manage.html#batch-inference-stop">Stop a batch inference job</a>.</p>
+ * <p>Stops a batch inference job. You're only charged for tokens that were already processed. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-stop.html">Stop a batch inference job</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

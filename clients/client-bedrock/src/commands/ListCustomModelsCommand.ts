@@ -59,7 +59,7 @@ export interface ListCustomModelsCommandOutput extends ListCustomModelsResponse,
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       baseModelArn: "STRING_VALUE", // required
  * //       baseModelName: "STRING_VALUE", // required
- * //       customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
+ * //       customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION",
  * //       ownerAccountId: "STRING_VALUE",
  * //     },
  * //   ],

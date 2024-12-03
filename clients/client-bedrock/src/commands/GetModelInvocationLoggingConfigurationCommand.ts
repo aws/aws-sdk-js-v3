@@ -64,6 +64,7 @@ export interface GetModelInvocationLoggingConfigurationCommandOutput
  * //     textDataDeliveryEnabled: true || false,
  * //     imageDataDeliveryEnabled: true || false,
  * //     embeddingDataDeliveryEnabled: true || false,
+ * //     videoDataDeliveryEnabled: true || false,
  * //   },
  * // };
  *

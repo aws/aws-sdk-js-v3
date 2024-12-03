@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateModelCustomizationJobRequest, CreateModelCustomizationJobResponse } from "../models/models_0";
+import {
+  CreateModelCustomizationJobRequest,
+  CreateModelCustomizationJobRequestFilterSensitiveLog,
+  CreateModelCustomizationJobResponse,
+} from "../models/models_0";
 import {
   de_CreateModelCustomizationJobCommand,
   se_CreateModelCustomizationJobCommand,
@@ -54,7 +58,7 @@ export interface CreateModelCustomizationJobCommandOutput
  *   roleArn: "STRING_VALUE", // required
  *   clientRequestToken: "STRING_VALUE",
  *   baseModelIdentifier: "STRING_VALUE", // required
- *   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
+ *   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION",
  *   customModelKmsKeyId: "STRING_VALUE",
  *   jobTags: [ // TagList
  *     { // Tag
@@ -69,7 +73,39 @@ export interface CreateModelCustomizationJobCommandOutput
  *     },
  *   ],
  *   trainingDataConfig: { // TrainingDataConfig
- *     s3Uri: "STRING_VALUE", // required
+ *     s3Uri: "STRING_VALUE",
+ *     invocationLogsConfig: { // InvocationLogsConfig
+ *       usePromptResponse: true || false,
+ *       invocationLogSource: { // InvocationLogSource Union: only one key present
+ *         s3Uri: "STRING_VALUE",
+ *       },
+ *       requestMetadataFilters: { // RequestMetadataFilters Union: only one key present
+ *         equals: { // RequestMetadataMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         notEquals: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         andAll: [ // RequestMetadataFiltersList
+ *           { // RequestMetadataBaseFilters
+ *             equals: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             notEquals: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         orAll: [
+ *           {
+ *             equals: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             notEquals: "<RequestMetadataMap>",
+ *           },
+ *         ],
+ *       },
+ *     },
  *   },
  *   validationDataConfig: { // ValidationDataConfig
  *     validators: [ // Validators // required
@@ -81,7 +117,7 @@ export interface CreateModelCustomizationJobCommandOutput
  *   outputDataConfig: { // OutputDataConfig
  *     s3Uri: "STRING_VALUE", // required
  *   },
- *   hyperParameters: { // ModelCustomizationHyperParameters // required
+ *   hyperParameters: { // ModelCustomizationHyperParameters
  *     "<keys>": "STRING_VALUE",
  *   },
  *   vpcConfig: { // VpcConfig
@@ -91,6 +127,14 @@ export interface CreateModelCustomizationJobCommandOutput
  *     securityGroupIds: [ // SecurityGroupIds // required
  *       "STRING_VALUE",
  *     ],
+ *   },
+ *   customizationConfig: { // CustomizationConfig Union: only one key present
+ *     distillationConfig: { // DistillationConfig
+ *       teacherModelConfig: { // TeacherModelConfig
+ *         teacherModelIdentifier: "STRING_VALUE", // required
+ *         maxResponseLengthForInference: Number("int"),
+ *       },
+ *     },
  *   },
  * };
  * const command = new CreateModelCustomizationJobCommand(input);
@@ -154,7 +198,7 @@ export class CreateModelCustomizationJobCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "CreateModelCustomizationJob", {})
   .n("BedrockClient", "CreateModelCustomizationJobCommand")
-  .f(void 0, void 0)
+  .f(CreateModelCustomizationJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreateModelCustomizationJobCommand)
   .de(de_CreateModelCustomizationJobCommand)
   .build() {

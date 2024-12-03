@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetModelCustomizationJobRequest, GetModelCustomizationJobResponse } from "../models/models_0";
+import {
+  GetModelCustomizationJobRequest,
+  GetModelCustomizationJobResponse,
+  GetModelCustomizationJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_GetModelCustomizationJobCommand, se_GetModelCustomizationJobCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -54,11 +58,43 @@ export interface GetModelCustomizationJobCommandOutput extends GetModelCustomiza
  * //   lastModifiedTime: new Date("TIMESTAMP"),
  * //   endTime: new Date("TIMESTAMP"),
  * //   baseModelArn: "STRING_VALUE", // required
- * //   hyperParameters: { // ModelCustomizationHyperParameters // required
+ * //   hyperParameters: { // ModelCustomizationHyperParameters
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   trainingDataConfig: { // TrainingDataConfig
- * //     s3Uri: "STRING_VALUE", // required
+ * //     s3Uri: "STRING_VALUE",
+ * //     invocationLogsConfig: { // InvocationLogsConfig
+ * //       usePromptResponse: true || false,
+ * //       invocationLogSource: { // InvocationLogSource Union: only one key present
+ * //         s3Uri: "STRING_VALUE",
+ * //       },
+ * //       requestMetadataFilters: { // RequestMetadataFilters Union: only one key present
+ * //         equals: { // RequestMetadataMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         notEquals: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         andAll: [ // RequestMetadataFiltersList
+ * //           { // RequestMetadataBaseFilters
+ * //             equals: {
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             notEquals: {
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         ],
+ * //         orAll: [
+ * //           {
+ * //             equals: {
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             notEquals: "<RequestMetadataMap>",
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
  * //   },
  * //   validationDataConfig: { // ValidationDataConfig
  * //     validators: [ // Validators // required
@@ -70,7 +106,7 @@ export interface GetModelCustomizationJobCommandOutput extends GetModelCustomiza
  * //   outputDataConfig: { // OutputDataConfig
  * //     s3Uri: "STRING_VALUE", // required
  * //   },
- * //   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
+ * //   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION",
  * //   outputModelKmsKeyArn: "STRING_VALUE",
  * //   trainingMetrics: { // TrainingMetrics
  * //     trainingLoss: Number("float"),
@@ -87,6 +123,14 @@ export interface GetModelCustomizationJobCommandOutput extends GetModelCustomiza
  * //     securityGroupIds: [ // SecurityGroupIds // required
  * //       "STRING_VALUE",
  * //     ],
+ * //   },
+ * //   customizationConfig: { // CustomizationConfig Union: only one key present
+ * //     distillationConfig: { // DistillationConfig
+ * //       teacherModelConfig: { // TeacherModelConfig
+ * //         teacherModelIdentifier: "STRING_VALUE", // required
+ * //         maxResponseLengthForInference: Number("int"),
+ * //       },
+ * //     },
  * //   },
  * // };
  *
@@ -135,7 +179,7 @@ export class GetModelCustomizationJobCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "GetModelCustomizationJob", {})
   .n("BedrockClient", "GetModelCustomizationJobCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetModelCustomizationJobResponseFilterSensitiveLog)
   .ser(se_GetModelCustomizationJobCommand)
   .de(de_GetModelCustomizationJobCommand)
   .build() {

@@ -175,7 +175,9 @@ import {
   ByteContentDoc,
   CloudWatchConfig,
   ConflictException,
+  CustomizationConfig,
   CustomModelSummary,
+  DistillationConfig,
   EvaluationBedrockModel,
   EvaluationConfig,
   EvaluationDataset,
@@ -214,6 +216,8 @@ import {
   InferenceProfileModelSource,
   InferenceProfileSummary,
   InternalServerException,
+  InvocationLogsConfig,
+  InvocationLogSource,
   KbInferenceConfig,
   KnowledgeBaseConfig,
   KnowledgeBaseRetrievalConfiguration,
@@ -235,6 +239,8 @@ import {
   ProvisionedModelSummary,
   QueryTransformationConfiguration,
   RAGConfig,
+  RequestMetadataBaseFilters,
+  RequestMetadataFilters,
   ResourceNotFoundException,
   RetrievalFilter,
   RetrieveAndGenerateConfiguration,
@@ -244,6 +250,7 @@ import {
   S3ObjectDoc,
   ServiceQuotaExceededException,
   Tag,
+  TeacherModelConfig,
   TextInferenceConfig,
   ThrottlingException,
   TooManyTagsException,
@@ -438,6 +445,7 @@ export const se_CreateModelCustomizationJobCommand = async (
       customModelKmsKeyId: [],
       customModelName: [],
       customModelTags: (_) => _json(_),
+      customizationConfig: (_) => _json(_),
       customizationType: [],
       hyperParameters: (_) => _json(_),
       jobName: [],
@@ -1627,6 +1635,7 @@ export const de_GetCustomModelCommand = async (
   const doc = take(data, {
     baseModelArn: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customizationConfig: (_) => _json(__expectUnion(_)),
     customizationType: __expectString,
     hyperParameters: _json,
     jobArn: __expectString,
@@ -1844,6 +1853,7 @@ export const de_GetModelCustomizationJobCommand = async (
     baseModelArn: __expectString,
     clientRequestToken: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customizationConfig: (_) => _json(__expectUnion(_)),
     customizationType: __expectString,
     endTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     failureMessage: __expectString,
@@ -2630,6 +2640,10 @@ const se_ByteContentDoc = (input: ByteContentDoc, context: __SerdeContext): any 
 
 // se_CloudWatchConfig omitted.
 
+// se_CustomizationConfig omitted.
+
+// se_DistillationConfig omitted.
+
 // se_EvaluationBedrockModel omitted.
 
 // se_EvaluationConfig omitted.
@@ -2830,6 +2844,10 @@ const se_GuardrailContextualGroundingPolicyConfig = (
 
 // se_InferenceProfileModelSource omitted.
 
+// se_InvocationLogsConfig omitted.
+
+// se_InvocationLogSource omitted.
+
 /**
  * serializeAws_restJson1KbInferenceConfig
  */
@@ -2939,6 +2957,14 @@ const se_RagConfigs = (input: RAGConfig[], context: __SerdeContext): any => {
 
 // se_RAGStopSequences omitted.
 
+// se_RequestMetadataBaseFilters omitted.
+
+// se_RequestMetadataFilters omitted.
+
+// se_RequestMetadataFiltersList omitted.
+
+// se_RequestMetadataMap omitted.
+
 /**
  * serializeAws_restJson1RetrievalFilter
  */
@@ -3009,6 +3035,8 @@ const se_RetrieveConfig = (input: RetrieveConfig, context: __SerdeContext): any 
 
 // se_TagList omitted.
 
+// se_TeacherModelConfig omitted.
+
 /**
  * serializeAws_restJson1TextInferenceConfig
  */
@@ -3078,6 +3106,8 @@ const de_ByteContentDoc = (output: any, context: __SerdeContext): ByteContentDoc
 
 // de_CloudWatchConfig omitted.
 
+// de_CustomizationConfig omitted.
+
 /**
  * deserializeAws_restJson1CustomModelSummary
  */
@@ -3104,6 +3134,8 @@ const de_CustomModelSummaryList = (output: any, context: __SerdeContext): Custom
     });
   return retVal;
 };
+
+// de_DistillationConfig omitted.
 
 // de_ErrorMessages omitted.
 
@@ -3447,6 +3479,10 @@ const de_InferenceProfileSummary = (output: any, context: __SerdeContext): Infer
 
 // de_InferenceTypeList omitted.
 
+// de_InvocationLogsConfig omitted.
+
+// de_InvocationLogSource omitted.
+
 /**
  * deserializeAws_restJson1KbInferenceConfig
  */
@@ -3725,6 +3761,14 @@ const de_RagConfigs = (output: any, context: __SerdeContext): RAGConfig[] => {
 
 // de_RAGStopSequences omitted.
 
+// de_RequestMetadataBaseFilters omitted.
+
+// de_RequestMetadataFilters omitted.
+
+// de_RequestMetadataFiltersList omitted.
+
+// de_RequestMetadataMap omitted.
+
 /**
  * deserializeAws_restJson1RetrievalFilter
  */
@@ -3846,6 +3890,8 @@ const de_RetrieveConfig = (output: any, context: __SerdeContext): RetrieveConfig
 // de_Tag omitted.
 
 // de_TagList omitted.
+
+// de_TeacherModelConfig omitted.
 
 /**
  * deserializeAws_restJson1TextInferenceConfig

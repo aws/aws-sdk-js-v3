@@ -32,7 +32,7 @@ export interface ListModelInvocationJobsCommandInput extends ListModelInvocation
 export interface ListModelInvocationJobsCommandOutput extends ListModelInvocationJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all batch inference jobs in the account. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-manage.html#batch-inference-view">View details about a batch inference job</a>.</p>
+ * <p>Lists all batch inference jobs in the account. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-view.html">View details about a batch inference job</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

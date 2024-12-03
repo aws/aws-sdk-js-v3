@@ -54,7 +54,7 @@ export interface GetFoundationModelCommandOutput extends GetFoundationModelRespo
  * //     ],
  * //     responseStreamingSupported: true || false,
  * //     customizationsSupported: [ // ModelCustomizationList
- * //       "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
+ * //       "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION",
  * //     ],
  * //     inferenceTypesSupported: [ // InferenceTypeList
  * //       "ON_DEMAND" || "PROVISIONED",

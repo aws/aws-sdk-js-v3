@@ -3182,6 +3182,12 @@ export interface LoggingConfig {
    * @public
    */
   embeddingDataDeliveryEnabled?: boolean | undefined;
+
+  /**
+   * <p>Set to include video data in the log delivery.</p>
+   * @public
+   */
+  videoDataDeliveryEnabled?: boolean | undefined;
 }
 
 /**
@@ -4274,7 +4280,7 @@ export interface CreateModelInvocationJobRequest {
   outputDataConfig: ModelInvocationJobOutputDataConfig | undefined;
 
   /**
-   * <p>The configuration of the Virtual Private Cloud (VPC) for the data in the batch inference job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-vpc">Protect batch inference jobs using a VPC</a>.</p>
+   * <p>The configuration of the Virtual Private Cloud (VPC) for the data in the batch inference job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-vpc">Protect batch inference jobs using a VPC</a>.</p>
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
@@ -4373,6 +4379,50 @@ export interface GetModelInvocationJobResponse {
 
   /**
    * <p>The status of the batch inference job.</p>
+   *          <p>The following statuses are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Submitted – This job has been submitted to a queue for validation.</p>
+   *             </li>
+   *             <li>
+   *                <p>Validating – This job is being validated for the requirements described in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data.html">Format and upload your batch inference data</a>. The criteria include the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Your IAM service role has access to the Amazon S3 buckets containing your files.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Your files are .jsonl files and each individual record is a JSON object in the correct format. Note that validation doesn't check if the <code>modelInput</code> value matches the request body for the model.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Your files fulfill the requirements for file size and number of records. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html">Quotas for Amazon Bedrock</a>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Scheduled – This job has been validated and is now in a queue. The job will automatically start when it reaches its turn.</p>
+   *             </li>
+   *             <li>
+   *                <p>Expired – This job timed out because it was scheduled but didn't begin before the set timeout duration. Submit a new job request.</p>
+   *             </li>
+   *             <li>
+   *                <p>InProgress – This job has begun. You can start viewing the results in the output S3 location.</p>
+   *             </li>
+   *             <li>
+   *                <p>Completed – This job has successfully completed. View the output files in the output S3 location.</p>
+   *             </li>
+   *             <li>
+   *                <p>PartiallyCompleted – This job has partially completed. Not all of your records could be processed in time. View the output files in the output S3 location.</p>
+   *             </li>
+   *             <li>
+   *                <p>Failed – This job has failed. Check the failure message for any further details. For further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon Web Services Support Center</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Stopped – This job was stopped by a user.</p>
+   *             </li>
+   *             <li>
+   *                <p>Stopping – This job is being stopped by a user.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   status?: ModelInvocationJobStatus | undefined;
@@ -4414,7 +4464,7 @@ export interface GetModelInvocationJobResponse {
   outputDataConfig: ModelInvocationJobOutputDataConfig | undefined;
 
   /**
-   * <p>The configuration of the Virtual Private Cloud (VPC) for the data in the batch inference job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-vpc">Protect batch inference jobs using a VPC</a>.</p>
+   * <p>The configuration of the Virtual Private Cloud (VPC) for the data in the batch inference job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-vpc">Protect batch inference jobs using a VPC</a>.</p>
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
@@ -4450,6 +4500,50 @@ export interface ListModelInvocationJobsRequest {
 
   /**
    * <p>Specify a status to filter for batch inference jobs whose statuses match the string you specify.</p>
+   *          <p>The following statuses are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Submitted – This job has been submitted to a queue for validation.</p>
+   *             </li>
+   *             <li>
+   *                <p>Validating – This job is being validated for the requirements described in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data.html">Format and upload your batch inference data</a>. The criteria include the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Your IAM service role has access to the Amazon S3 buckets containing your files.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Your files are .jsonl files and each individual record is a JSON object in the correct format. Note that validation doesn't check if the <code>modelInput</code> value matches the request body for the model.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Your files fulfill the requirements for file size and number of records. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html">Quotas for Amazon Bedrock</a>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Scheduled – This job has been validated and is now in a queue. The job will automatically start when it reaches its turn.</p>
+   *             </li>
+   *             <li>
+   *                <p>Expired – This job timed out because it was scheduled but didn't begin before the set timeout duration. Submit a new job request.</p>
+   *             </li>
+   *             <li>
+   *                <p>InProgress – This job has begun. You can start viewing the results in the output S3 location.</p>
+   *             </li>
+   *             <li>
+   *                <p>Completed – This job has successfully completed. View the output files in the output S3 location.</p>
+   *             </li>
+   *             <li>
+   *                <p>PartiallyCompleted – This job has partially completed. Not all of your records could be processed in time. View the output files in the output S3 location.</p>
+   *             </li>
+   *             <li>
+   *                <p>Failed – This job has failed. Check the failure message for any further details. For further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon Web Services Support Center</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Stopped – This job was stopped by a user.</p>
+   *             </li>
+   *             <li>
+   *                <p>Stopping – This job is being stopped by a user.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   statusEquals?: ModelInvocationJobStatus | undefined;
@@ -4527,6 +4621,50 @@ export interface ModelInvocationJobSummary {
 
   /**
    * <p>The status of the batch inference job.</p>
+   *          <p>The following statuses are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Submitted – This job has been submitted to a queue for validation.</p>
+   *             </li>
+   *             <li>
+   *                <p>Validating – This job is being validated for the requirements described in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data.html">Format and upload your batch inference data</a>. The criteria include the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Your IAM service role has access to the Amazon S3 buckets containing your files.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Your files are .jsonl files and each individual record is a JSON object in the correct format. Note that validation doesn't check if the <code>modelInput</code> value matches the request body for the model.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Your files fulfill the requirements for file size and number of records. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html">Quotas for Amazon Bedrock</a>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Scheduled – This job has been validated and is now in a queue. The job will automatically start when it reaches its turn.</p>
+   *             </li>
+   *             <li>
+   *                <p>Expired – This job timed out because it was scheduled but didn't begin before the set timeout duration. Submit a new job request.</p>
+   *             </li>
+   *             <li>
+   *                <p>InProgress – This job has begun. You can start viewing the results in the output S3 location.</p>
+   *             </li>
+   *             <li>
+   *                <p>Completed – This job has successfully completed. View the output files in the output S3 location.</p>
+   *             </li>
+   *             <li>
+   *                <p>PartiallyCompleted – This job has partially completed. Not all of your records could be processed in time. View the output files in the output S3 location.</p>
+   *             </li>
+   *             <li>
+   *                <p>Failed – This job has failed. Check the failure message for any further details. For further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon Web Services Support Center</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Stopped – This job was stopped by a user.</p>
+   *             </li>
+   *             <li>
+   *                <p>Stopping – This job is being stopped by a user.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   status?: ModelInvocationJobStatus | undefined;
@@ -4568,7 +4706,7 @@ export interface ModelInvocationJobSummary {
   outputDataConfig: ModelInvocationJobOutputDataConfig | undefined;
 
   /**
-   * <p>The configuration of the Virtual Private Cloud (VPC) for the data in the batch inference job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-vpc">Protect batch inference jobs using a VPC</a>.</p>
+   * <p>The configuration of the Virtual Private Cloud (VPC) for the data in the batch inference job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-vpc">Protect batch inference jobs using a VPC</a>.</p>
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
@@ -4647,11 +4785,80 @@ export interface GetCustomModelRequest {
 }
 
 /**
+ * <p>Details about a teacher model used for model customization.</p>
+ * @public
+ */
+export interface TeacherModelConfig {
+  /**
+   * <p>The identifier of the teacher model.</p>
+   * @public
+   */
+  teacherModelIdentifier: string | undefined;
+
+  /**
+   * <p>The maximum number of tokens requested when the customization job invokes the teacher model.</p>
+   * @public
+   */
+  maxResponseLengthForInference?: number | undefined;
+}
+
+/**
+ * <p>Settings for distilling a foundation model into a smaller and more efficient model.</p>
+ * @public
+ */
+export interface DistillationConfig {
+  /**
+   * <p>The teacher model configuration.</p>
+   * @public
+   */
+  teacherModelConfig: TeacherModelConfig | undefined;
+}
+
+/**
+ * <p>A model customization configuration</p>
+ * @public
+ */
+export type CustomizationConfig = CustomizationConfig.DistillationConfigMember | CustomizationConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CustomizationConfig {
+  /**
+   * <p>The distillation configuration for the custom model.</p>
+   * @public
+   */
+  export interface DistillationConfigMember {
+    distillationConfig: DistillationConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    distillationConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    distillationConfig: (value: DistillationConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: CustomizationConfig, visitor: Visitor<T>): T => {
+    if (value.distillationConfig !== undefined) return visitor.distillationConfig(value.distillationConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * @public
  * @enum
  */
 export const CustomizationType = {
   CONTINUED_PRE_TRAINING: "CONTINUED_PRE_TRAINING",
+  DISTILLATION: "DISTILLATION",
   FINE_TUNING: "FINE_TUNING",
 } as const;
 
@@ -4673,6 +4880,179 @@ export interface OutputDataConfig {
 }
 
 /**
+ * <p>A storage location for invocation logs.</p>
+ * @public
+ */
+export type InvocationLogSource = InvocationLogSource.S3UriMember | InvocationLogSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InvocationLogSource {
+  /**
+   * <p>The URI of an invocation log in a bucket.</p>
+   * @public
+   */
+  export interface S3UriMember {
+    s3Uri: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3Uri?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3Uri: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: InvocationLogSource, visitor: Visitor<T>): T => {
+    if (value.s3Uri !== undefined) return visitor.s3Uri(value.s3Uri);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>A mapping of a metadata key to a value that it should or should not equal.</p>
+ * @public
+ */
+export interface RequestMetadataBaseFilters {
+  /**
+   * <p>Include results where the key equals the value.</p>
+   * @public
+   */
+  equals?: Record<string, string> | undefined;
+
+  /**
+   * <p>Include results where the key does not equal the value.</p>
+   * @public
+   */
+  notEquals?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Rules for filtering invocation logs. A filter can be a mapping of a metadata
+ *     key to a value that it should or should not equal (a base filter), or a list of base filters
+ *     that are all applied with <code>AND</code> or <code>OR</code> logical operators</p>
+ * @public
+ */
+export type RequestMetadataFilters =
+  | RequestMetadataFilters.AndAllMember
+  | RequestMetadataFilters.EqualsMember
+  | RequestMetadataFilters.NotEqualsMember
+  | RequestMetadataFilters.OrAllMember
+  | RequestMetadataFilters.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RequestMetadataFilters {
+  /**
+   * <p>Include results where the key equals the value.</p>
+   * @public
+   */
+  export interface EqualsMember {
+    equals: Record<string, string>;
+    notEquals?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Include results where the key does not equal the value.</p>
+   * @public
+   */
+  export interface NotEqualsMember {
+    equals?: never;
+    notEquals: Record<string, string>;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Include results where all of the based filters match.</p>
+   * @public
+   */
+  export interface AndAllMember {
+    equals?: never;
+    notEquals?: never;
+    andAll: RequestMetadataBaseFilters[];
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Include results where any of the base filters match.</p>
+   * @public
+   */
+  export interface OrAllMember {
+    equals?: never;
+    notEquals?: never;
+    andAll?: never;
+    orAll: RequestMetadataBaseFilters[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    equals?: never;
+    notEquals?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    equals: (value: Record<string, string>) => T;
+    notEquals: (value: Record<string, string>) => T;
+    andAll: (value: RequestMetadataBaseFilters[]) => T;
+    orAll: (value: RequestMetadataBaseFilters[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RequestMetadataFilters, visitor: Visitor<T>): T => {
+    if (value.equals !== undefined) return visitor.equals(value.equals);
+    if (value.notEquals !== undefined) return visitor.notEquals(value.notEquals);
+    if (value.andAll !== undefined) return visitor.andAll(value.andAll);
+    if (value.orAll !== undefined) return visitor.orAll(value.orAll);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Settings for using invocation logs to customize a model.</p>
+ * @public
+ */
+export interface InvocationLogsConfig {
+  /**
+   * <p>Whether to use the model's response for training, or just the prompt. The default value is <code>False</code>.</p>
+   * @public
+   */
+  usePromptResponse?: boolean | undefined;
+
+  /**
+   * <p>The source of the invocation logs.</p>
+   * @public
+   */
+  invocationLogSource: InvocationLogSource | undefined;
+
+  /**
+   * <p>Rules for filtering invocation logs based on request metadata.</p>
+   * @public
+   */
+  requestMetadataFilters?: RequestMetadataFilters | undefined;
+}
+
+/**
  * <p>S3 Location of the training data.</p>
  * @public
  */
@@ -4681,7 +5061,13 @@ export interface TrainingDataConfig {
    * <p>The S3 URI where the training data is stored.</p>
    * @public
    */
-  s3Uri: string | undefined;
+  s3Uri?: string | undefined;
+
+  /**
+   * <p>Settings for using invocation logs to customize a model.</p>
+   * @public
+   */
+  invocationLogsConfig?: InvocationLogsConfig | undefined;
 }
 
 /**
@@ -4819,6 +5205,12 @@ export interface GetCustomModelResponse {
    * @public
    */
   creationTime: Date | undefined;
+
+  /**
+   * <p>The customization configuration for the custom model.</p>
+   * @public
+   */
+  customizationConfig?: CustomizationConfig | undefined;
 }
 
 /**
@@ -4838,6 +5230,7 @@ export interface GetFoundationModelRequest {
  */
 export const ModelCustomization = {
   CONTINUED_PRE_TRAINING: "CONTINUED_PRE_TRAINING",
+  DISTILLATION: "DISTILLATION",
   FINE_TUNING: "FINE_TUNING",
 } as const;
 
@@ -5776,13 +6169,19 @@ export interface CreateModelCustomizationJobRequest {
    * <p>Parameters related to tuning the model. For details on the format for different models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html">Custom model hyperparameters</a>.</p>
    * @public
    */
-  hyperParameters: Record<string, string> | undefined;
+  hyperParameters?: Record<string, string> | undefined;
 
   /**
    * <p>The configuration of the Virtual Private Cloud (VPC) that contains the resources that you're using for this job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-model-customization.html">Protect your model customization jobs using a VPC</a>.</p>
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The customization configuration for the model customization job.</p>
+   * @public
+   */
+  customizationConfig?: CustomizationConfig | undefined;
 }
 
 /**
@@ -5906,7 +6305,7 @@ export interface GetModelCustomizationJobResponse {
    * <p>The hyperparameter values for the job. For details on the format for different models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html">Custom model hyperparameters</a>.</p>
    * @public
    */
-  hyperParameters: Record<string, string> | undefined;
+  hyperParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Contains information about the training dataset.</p>
@@ -5955,6 +6354,12 @@ export interface GetModelCustomizationJobResponse {
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The customization configuration for the model customization job.</p>
+   * @public
+   */
+  customizationConfig?: CustomizationConfig | undefined;
 }
 
 /**
@@ -7336,6 +7741,76 @@ export const ListModelInvocationJobsResponseFilterSensitiveLog = (obj: ListModel
   ...(obj.invocationJobSummaries && {
     invocationJobSummaries: obj.invocationJobSummaries.map((item) => ModelInvocationJobSummaryFilterSensitiveLog(item)),
   }),
+});
+
+/**
+ * @internal
+ */
+export const RequestMetadataBaseFiltersFilterSensitiveLog = (obj: RequestMetadataBaseFilters): any => ({
+  ...obj,
+  ...(obj.equals && { equals: SENSITIVE_STRING }),
+  ...(obj.notEquals && { notEquals: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RequestMetadataFiltersFilterSensitiveLog = (obj: RequestMetadataFilters): any => {
+  if (obj.equals !== undefined) return { equals: SENSITIVE_STRING };
+  if (obj.notEquals !== undefined) return { notEquals: SENSITIVE_STRING };
+  if (obj.andAll !== undefined)
+    return { andAll: obj.andAll.map((item) => RequestMetadataBaseFiltersFilterSensitiveLog(item)) };
+  if (obj.orAll !== undefined)
+    return { orAll: obj.orAll.map((item) => RequestMetadataBaseFiltersFilterSensitiveLog(item)) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const InvocationLogsConfigFilterSensitiveLog = (obj: InvocationLogsConfig): any => ({
+  ...obj,
+  ...(obj.invocationLogSource && { invocationLogSource: obj.invocationLogSource }),
+  ...(obj.requestMetadataFilters && {
+    requestMetadataFilters: RequestMetadataFiltersFilterSensitiveLog(obj.requestMetadataFilters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const TrainingDataConfigFilterSensitiveLog = (obj: TrainingDataConfig): any => ({
+  ...obj,
+  ...(obj.invocationLogsConfig && {
+    invocationLogsConfig: InvocationLogsConfigFilterSensitiveLog(obj.invocationLogsConfig),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetCustomModelResponseFilterSensitiveLog = (obj: GetCustomModelResponse): any => ({
+  ...obj,
+  ...(obj.trainingDataConfig && { trainingDataConfig: TrainingDataConfigFilterSensitiveLog(obj.trainingDataConfig) }),
+  ...(obj.customizationConfig && { customizationConfig: obj.customizationConfig }),
+});
+
+/**
+ * @internal
+ */
+export const CreateModelCustomizationJobRequestFilterSensitiveLog = (obj: CreateModelCustomizationJobRequest): any => ({
+  ...obj,
+  ...(obj.trainingDataConfig && { trainingDataConfig: TrainingDataConfigFilterSensitiveLog(obj.trainingDataConfig) }),
+  ...(obj.customizationConfig && { customizationConfig: obj.customizationConfig }),
+});
+
+/**
+ * @internal
+ */
+export const GetModelCustomizationJobResponseFilterSensitiveLog = (obj: GetModelCustomizationJobResponse): any => ({
+  ...obj,
+  ...(obj.trainingDataConfig && { trainingDataConfig: TrainingDataConfigFilterSensitiveLog(obj.trainingDataConfig) }),
+  ...(obj.customizationConfig && { customizationConfig: obj.customizationConfig }),
 });
 
 /**

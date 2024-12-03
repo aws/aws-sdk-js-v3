@@ -62,7 +62,7 @@ export interface CreateGuardrailCommandOutput extends CreateGuardrailResponse, _
  *          </ul>
  *          <p>In addition to the above policies, you can also configure the messages to be returned to
  *         the user if a user input or model response is in violation of the policies defined in the guardrail.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">Guardrails for Amazon Bedrock</a> in
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">Amazon Bedrock Guardrails</a> in
  *          the <i>Amazon Bedrock User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
