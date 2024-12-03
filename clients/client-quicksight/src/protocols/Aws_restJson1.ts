@@ -124,6 +124,10 @@ import {
   DeleteDataSetRefreshPropertiesCommandOutput,
 } from "../commands/DeleteDataSetRefreshPropertiesCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
+import {
+  DeleteDefaultQBusinessApplicationCommandInput,
+  DeleteDefaultQBusinessApplicationCommandOutput,
+} from "../commands/DeleteDefaultQBusinessApplicationCommand";
 import { DeleteFolderCommandInput, DeleteFolderCommandOutput } from "../commands/DeleteFolderCommand";
 import {
   DeleteFolderMembershipCommandInput,
@@ -257,6 +261,10 @@ import {
   DescribeDataSourcePermissionsCommandInput,
   DescribeDataSourcePermissionsCommandOutput,
 } from "../commands/DescribeDataSourcePermissionsCommand";
+import {
+  DescribeDefaultQBusinessApplicationCommandInput,
+  DescribeDefaultQBusinessApplicationCommandOutput,
+} from "../commands/DescribeDefaultQBusinessApplicationCommand";
 import { DescribeFolderCommandInput, DescribeFolderCommandOutput } from "../commands/DescribeFolderCommand";
 import {
   DescribeFolderPermissionsCommandInput,
@@ -289,6 +297,10 @@ import {
   DescribeQPersonalizationConfigurationCommandInput,
   DescribeQPersonalizationConfigurationCommandOutput,
 } from "../commands/DescribeQPersonalizationConfigurationCommand";
+import {
+  DescribeQuickSightQSearchConfigurationCommandInput,
+  DescribeQuickSightQSearchConfigurationCommandOutput,
+} from "../commands/DescribeQuickSightQSearchConfigurationCommand";
 import {
   DescribeRefreshScheduleCommandInput,
   DescribeRefreshScheduleCommandOutput,
@@ -342,6 +354,10 @@ import {
   GenerateEmbedUrlForRegisteredUserCommandInput,
   GenerateEmbedUrlForRegisteredUserCommandOutput,
 } from "../commands/GenerateEmbedUrlForRegisteredUserCommand";
+import {
+  GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput,
+  GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput,
+} from "../commands/GenerateEmbedUrlForRegisteredUserWithIdentityCommand";
 import {
   GetDashboardEmbedUrlCommandInput,
   GetDashboardEmbedUrlCommandOutput,
@@ -429,6 +445,7 @@ import { ListTopicsCommandInput, ListTopicsCommandOutput } from "../commands/Lis
 import { ListUserGroupsCommandInput, ListUserGroupsCommandOutput } from "../commands/ListUserGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
 import { ListVPCConnectionsCommandInput, ListVPCConnectionsCommandOutput } from "../commands/ListVPCConnectionsCommand";
+import { PredictQAResultsCommandInput, PredictQAResultsCommandOutput } from "../commands/PredictQAResultsCommand";
 import {
   PutDataSetRefreshPropertiesCommandInput,
   PutDataSetRefreshPropertiesCommandOutput,
@@ -474,6 +491,10 @@ import {
   UpdateAnalysisPermissionsCommandOutput,
 } from "../commands/UpdateAnalysisPermissionsCommand";
 import {
+  UpdateApplicationWithTokenExchangeGrantCommandInput,
+  UpdateApplicationWithTokenExchangeGrantCommandOutput,
+} from "../commands/UpdateApplicationWithTokenExchangeGrantCommand";
+import {
   UpdateBrandAssignmentCommandInput,
   UpdateBrandAssignmentCommandOutput,
 } from "../commands/UpdateBrandAssignmentCommand";
@@ -513,6 +534,10 @@ import {
   UpdateDataSourcePermissionsCommandInput,
   UpdateDataSourcePermissionsCommandOutput,
 } from "../commands/UpdateDataSourcePermissionsCommand";
+import {
+  UpdateDefaultQBusinessApplicationCommandInput,
+  UpdateDefaultQBusinessApplicationCommandOutput,
+} from "../commands/UpdateDefaultQBusinessApplicationCommand";
 import { UpdateFolderCommandInput, UpdateFolderCommandOutput } from "../commands/UpdateFolderCommand";
 import {
   UpdateFolderPermissionsCommandInput,
@@ -543,6 +568,10 @@ import {
   UpdateQPersonalizationConfigurationCommandInput,
   UpdateQPersonalizationConfigurationCommandOutput,
 } from "../commands/UpdateQPersonalizationConfigurationCommand";
+import {
+  UpdateQuickSightQSearchConfigurationCommandInput,
+  UpdateQuickSightQSearchConfigurationCommandOutput,
+} from "../commands/UpdateQuickSightQSearchConfigurationCommand";
 import {
   UpdateRefreshScheduleCommandInput,
   UpdateRefreshScheduleCommandOutput,
@@ -2374,6 +2403,25 @@ export const se_DeleteDataSourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteDefaultQBusinessApplicationCommand
+ */
+export const se_DeleteDefaultQBusinessApplicationCommand = async (
+  input: DeleteDefaultQBusinessApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/default-qbusiness-application");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  const query: any = map({
+    [_n]: [, input[_N]!],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteFolderCommand
  */
 export const se_DeleteFolderCommand = async (
@@ -3139,6 +3187,25 @@ export const se_DescribeDataSourcePermissionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeDefaultQBusinessApplicationCommand
+ */
+export const se_DescribeDefaultQBusinessApplicationCommand = async (
+  input: DescribeDefaultQBusinessApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/default-qbusiness-application");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  const query: any = map({
+    [_n]: [, input[_N]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DescribeFolderCommand
  */
 export const se_DescribeFolderCommand = async (
@@ -3334,6 +3401,22 @@ export const se_DescribeQPersonalizationConfigurationCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/accounts/{AwsAccountId}/q-personalization-configuration");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeQuickSightQSearchConfigurationCommand
+ */
+export const se_DescribeQuickSightQSearchConfigurationCommand = async (
+  input: DescribeQuickSightQSearchConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/quicksight-q-search-configuration");
   b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
@@ -3662,6 +3745,31 @@ export const se_GenerateEmbedUrlForRegisteredUserCommand = async (
       ExperienceConfiguration: (_) => _json(_),
       SessionLifetimeInMinutes: [],
       UserArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GenerateEmbedUrlForRegisteredUserWithIdentityCommand
+ */
+export const se_GenerateEmbedUrlForRegisteredUserWithIdentityCommand = async (
+  input: GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/embed-url/registered-user-with-identity");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AllowedDomains: (_) => _json(_),
+      ExperienceConfiguration: (_) => _json(_),
+      SessionLifetimeInMinutes: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -4405,6 +4513,32 @@ export const se_ListVPCConnectionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1PredictQAResultsCommand
+ */
+export const se_PredictQAResultsCommand = async (
+  input: PredictQAResultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/qa/predict");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      IncludeGeneratedAnswer: [],
+      IncludeQuickSightQIndex: [],
+      MaxTopicsToConsider: [],
+      QueryText: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1PutDataSetRefreshPropertiesCommand
  */
 export const se_PutDataSetRefreshPropertiesCommand = async (
@@ -4913,6 +5047,25 @@ export const se_UpdateAnalysisPermissionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateApplicationWithTokenExchangeGrantCommand
+ */
+export const se_UpdateApplicationWithTokenExchangeGrantCommand = async (
+  input: UpdateApplicationWithTokenExchangeGrantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/application-with-token-exchange-grant");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  const query: any = map({
+    [_n]: [, __expectNonNull(input[_N]!, `Namespace`)],
+  });
+  let body: any;
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateBrandCommand
  */
 export const se_UpdateBrandCommand = async (
@@ -5243,6 +5396,32 @@ export const se_UpdateDataSourcePermissionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateDefaultQBusinessApplicationCommand
+ */
+export const se_UpdateDefaultQBusinessApplicationCommand = async (
+  input: UpdateDefaultQBusinessApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/default-qbusiness-application");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  const query: any = map({
+    [_n]: [, input[_N]!],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ApplicationId: [],
+    })
+  );
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateFolderCommand
  */
 export const se_UpdateFolderCommand = async (
@@ -5456,6 +5635,29 @@ export const se_UpdateQPersonalizationConfigurationCommand = async (
   body = JSON.stringify(
     take(input, {
       PersonalizationMode: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateQuickSightQSearchConfigurationCommand
+ */
+export const se_UpdateQuickSightQSearchConfigurationCommand = async (
+  input: UpdateQuickSightQSearchConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/quicksight-q-search-configuration");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      QSearchStatus: [],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -6803,6 +7005,30 @@ export const de_DeleteDataSourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteDefaultQBusinessApplicationCommand
+ */
+export const de_DeleteDefaultQBusinessApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDefaultQBusinessApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteFolderCommand
  */
 export const de_DeleteFolderCommand = async (
@@ -7932,6 +8158,31 @@ export const de_DescribeDataSourcePermissionsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeDefaultQBusinessApplicationCommand
+ */
+export const de_DescribeDefaultQBusinessApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDefaultQBusinessApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApplicationId: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DescribeFolderCommand
  */
 export const de_DescribeFolderCommand = async (
@@ -8206,6 +8457,31 @@ export const de_DescribeQPersonalizationConfigurationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     PersonalizationMode: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeQuickSightQSearchConfigurationCommand
+ */
+export const de_DescribeQuickSightQSearchConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeQuickSightQSearchConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    QSearchStatus: __expectString,
     RequestId: __expectString,
   });
   Object.assign(contents, doc);
@@ -8636,6 +8912,31 @@ export const de_GenerateEmbedUrlForRegisteredUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateEmbedUrlForRegisteredUserCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EmbedUrl: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GenerateEmbedUrlForRegisteredUserWithIdentityCommand
+ */
+export const de_GenerateEmbedUrlForRegisteredUserWithIdentityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -9585,6 +9886,32 @@ export const de_ListVPCConnectionsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1PredictQAResultsCommand
+ */
+export const de_PredictQAResultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PredictQAResultsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AdditionalResults: _json,
+    PrimaryResult: _json,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1PutDataSetRefreshPropertiesCommand
  */
 export const de_PutDataSetRefreshPropertiesCommand = async (
@@ -10100,6 +10427,30 @@ export const de_UpdateAnalysisPermissionsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateApplicationWithTokenExchangeGrantCommand
+ */
+export const de_UpdateApplicationWithTokenExchangeGrantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApplicationWithTokenExchangeGrantCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateBrandCommand
  */
 export const de_UpdateBrandCommand = async (
@@ -10428,6 +10779,30 @@ export const de_UpdateDataSourcePermissionsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateDefaultQBusinessApplicationCommand
+ */
+export const de_UpdateDefaultQBusinessApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDefaultQBusinessApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateFolderCommand
  */
 export const de_UpdateFolderCommand = async (
@@ -10644,6 +11019,31 @@ export const de_UpdateQPersonalizationConfigurationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     PersonalizationMode: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateQuickSightQSearchConfigurationCommand
+ */
+export const de_UpdateQuickSightQSearchConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateQuickSightQSearchConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    QSearchStatus: __expectString,
     RequestId: __expectString,
   });
   Object.assign(contents, doc);
@@ -18759,6 +19159,8 @@ const de_DashboardVersionSummaryList = (output: any, context: __SerdeContext): D
 
 // de_DashboardVisualPublishOptions omitted.
 
+// de_DashboardVisualResult omitted.
+
 // de_DataAggregation omitted.
 
 // de_DataBarsOptions omitted.
@@ -19996,6 +20398,8 @@ const de_GaugeChartVisual = (output: any, context: __SerdeContext): GaugeChartVi
     VisualId: __expectString,
   }) as any;
 };
+
+// de_GeneratedAnswerResult omitted.
 
 /**
  * deserializeAws_restJson1GeospatialCategoricalColor
@@ -21931,6 +22335,10 @@ const de_PredefinedHierarchy = (output: any, context: __SerdeContext): Predefine
 // de_ProjectedColumnList omitted.
 
 // de_ProjectOperation omitted.
+
+// de_QAResult omitted.
+
+// de_QAResults omitted.
 
 // de_QueryExecutionOptions omitted.
 

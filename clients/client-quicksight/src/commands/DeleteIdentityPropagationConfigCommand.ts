@@ -43,7 +43,7 @@ export interface DeleteIdentityPropagationConfigCommandOutput
  * const client = new QuickSightClient(config);
  * const input = { // DeleteIdentityPropagationConfigRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   Service: "REDSHIFT", // required
+ *   Service: "REDSHIFT" || "QBUSINESS", // required
  * };
  * const command = new DeleteIdentityPropagationConfigCommand(input);
  * const response = await client.send(command);

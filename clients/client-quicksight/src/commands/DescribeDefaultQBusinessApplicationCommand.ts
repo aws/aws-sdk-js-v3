@@ -5,10 +5,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListIdentityPropagationConfigsRequest, ListIdentityPropagationConfigsResponse } from "../models/models_4";
 import {
-  de_ListIdentityPropagationConfigsCommand,
-  se_ListIdentityPropagationConfigsCommand,
+  DescribeDefaultQBusinessApplicationRequest,
+  DescribeDefaultQBusinessApplicationResponse,
+} from "../models/models_4";
+import {
+  de_DescribeDefaultQBusinessApplicationCommand,
+  se_DescribeDefaultQBusinessApplicationCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -20,54 +23,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListIdentityPropagationConfigsCommand}.
+ * The input for {@link DescribeDefaultQBusinessApplicationCommand}.
  */
-export interface ListIdentityPropagationConfigsCommandInput extends ListIdentityPropagationConfigsRequest {}
+export interface DescribeDefaultQBusinessApplicationCommandInput extends DescribeDefaultQBusinessApplicationRequest {}
 /**
  * @public
  *
- * The output of {@link ListIdentityPropagationConfigsCommand}.
+ * The output of {@link DescribeDefaultQBusinessApplicationCommand}.
  */
-export interface ListIdentityPropagationConfigsCommandOutput
-  extends ListIdentityPropagationConfigsResponse,
+export interface DescribeDefaultQBusinessApplicationCommandOutput
+  extends DescribeDefaultQBusinessApplicationResponse,
     __MetadataBearer {}
 
 /**
- * <p>Lists all services and authorized targets that the Amazon QuickSight IAM Identity Center application can access.</p>
- *          <p>This operation is only supported for Amazon QuickSight accounts that use IAM Identity Center.</p>
+ * <p>Describes a Amazon Q Business application that is linked to an Amazon QuickSight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListIdentityPropagationConfigsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListIdentityPropagationConfigsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DescribeDefaultQBusinessApplicationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, DescribeDefaultQBusinessApplicationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = { // ListIdentityPropagationConfigsRequest
+ * const input = { // DescribeDefaultQBusinessApplicationRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Namespace: "STRING_VALUE",
  * };
- * const command = new ListIdentityPropagationConfigsCommand(input);
+ * const command = new DescribeDefaultQBusinessApplicationCommand(input);
  * const response = await client.send(command);
- * // { // ListIdentityPropagationConfigsResponse
- * //   Services: [ // AuthorizedTargetsByServices
- * //     { // AuthorizedTargetsByService
- * //       Service: "REDSHIFT" || "QBUSINESS",
- * //       AuthorizedTargets: [ // AuthorizedTargetsList
- * //         "STRING_VALUE",
- * //       ],
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
- * //   Status: Number("int"),
+ * // { // DescribeDefaultQBusinessApplicationResponse
  * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   ApplicationId: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListIdentityPropagationConfigsCommandInput - {@link ListIdentityPropagationConfigsCommandInput}
- * @returns {@link ListIdentityPropagationConfigsCommandOutput}
- * @see {@link ListIdentityPropagationConfigsCommandInput} for command's `input` shape.
- * @see {@link ListIdentityPropagationConfigsCommandOutput} for command's `response` shape.
+ * @param DescribeDefaultQBusinessApplicationCommandInput - {@link DescribeDefaultQBusinessApplicationCommandInput}
+ * @returns {@link DescribeDefaultQBusinessApplicationCommandOutput}
+ * @see {@link DescribeDefaultQBusinessApplicationCommandInput} for command's `input` shape.
+ * @see {@link DescribeDefaultQBusinessApplicationCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -93,10 +86,10 @@ export interface ListIdentityPropagationConfigsCommandOutput
  *
  * @public
  */
-export class ListIdentityPropagationConfigsCommand extends $Command
+export class DescribeDefaultQBusinessApplicationCommand extends $Command
   .classBuilder<
-    ListIdentityPropagationConfigsCommandInput,
-    ListIdentityPropagationConfigsCommandOutput,
+    DescribeDefaultQBusinessApplicationCommandInput,
+    DescribeDefaultQBusinessApplicationCommandOutput,
     QuickSightClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -108,21 +101,21 @@ export class ListIdentityPropagationConfigsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("QuickSight_20180401", "ListIdentityPropagationConfigs", {})
-  .n("QuickSightClient", "ListIdentityPropagationConfigsCommand")
+  .s("QuickSight_20180401", "DescribeDefaultQBusinessApplication", {})
+  .n("QuickSightClient", "DescribeDefaultQBusinessApplicationCommand")
   .f(void 0, void 0)
-  .ser(se_ListIdentityPropagationConfigsCommand)
-  .de(de_ListIdentityPropagationConfigsCommand)
+  .ser(se_DescribeDefaultQBusinessApplicationCommand)
+  .de(de_DescribeDefaultQBusinessApplicationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListIdentityPropagationConfigsRequest;
-      output: ListIdentityPropagationConfigsResponse;
+      input: DescribeDefaultQBusinessApplicationRequest;
+      output: DescribeDefaultQBusinessApplicationResponse;
     };
     sdk: {
-      input: ListIdentityPropagationConfigsCommandInput;
-      output: ListIdentityPropagationConfigsCommandOutput;
+      input: DescribeDefaultQBusinessApplicationCommandInput;
+      output: DescribeDefaultQBusinessApplicationCommandOutput;
     };
   };
 }

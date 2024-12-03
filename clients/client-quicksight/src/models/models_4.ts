@@ -36,9 +36,6 @@ import {
   BrandDefinition,
   BrandDetail,
   BrandSummary,
-  Capabilities,
-  ColumnGroup,
-  ColumnLevelPermissionRule,
   DashboardVisualId,
   FilterOperator,
   SharedViewConfigurations,
@@ -55,40 +52,30 @@ import {
   DashboardError,
   DashboardPublishOptions,
   DashboardSearchFilter,
-  DashboardSourceEntity,
   DashboardsQAStatus,
   DashboardSummary,
   DashboardVersionDefinition,
   DashboardVersionSummary,
+  DashboardVisualResult,
   DataSet,
   DataSetConfiguration,
   DataSetFilterSensitiveLog,
-  DataSetImportMode,
-  DatasetParameter,
   DataSetRefreshProperties,
   DataSetSearchFilter,
   DataSetSummary,
-  DataSetUsageConfiguration,
   DataSource,
   DataSourceSearchFilter,
   DataSourceSummary,
-  FieldFolder,
   FolderType,
   Group,
   GroupMember,
   IdentityStore,
   IngestionStatus,
   LinkSharingConfiguration,
-  LogicalTable,
-  LogicalTableFilterSensitiveLog,
   NamespaceStatus,
-  PhysicalTable,
   RefreshSchedule,
   ResourcePermission,
   Role,
-  RowLevelPermissionDataSet,
-  RowLevelPermissionTagConfiguration,
-  RowLevelPermissionTagConfigurationFilterSensitiveLog,
   SharingModel,
   TemplateAlias,
   TemplateVersionDefinition,
@@ -103,6 +90,79 @@ import {
 } from "./models_3";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ */
+export interface DescribeAnalysisPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the analysis whose permissions you're
+   *             describing. You must be using the Amazon Web Services account that the analysis is in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the analysis whose permissions you're describing. The ID is part of the
+   *             analysis URL.</p>
+   * @public
+   */
+  AnalysisId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAnalysisPermissionsResponse {
+  /**
+   * <p>The ID of the analysis whose permissions you're describing.</p>
+   * @public
+   */
+  AnalysisId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the analysis whose permissions you're
+   *             describing.</p>
+   * @public
+   */
+  AnalysisArn?: string | undefined;
+
+  /**
+   * <p>A structure that describes the principals and the resource-level permissions on an
+   *             analysis.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAssetBundleExportJobRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account the export job is executed in. </p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the job that you want described. The job ID is set when you start a new job with a <code>StartAssetBundleExportJob</code> API call.</p>
+   * @public
+   */
+  AssetBundleExportJobId: string | undefined;
+}
 
 /**
  * @public
@@ -1388,6 +1448,46 @@ export interface DescribeDataSourcePermissionsResponse {
 /**
  * @public
  */
+export interface DescribeDefaultQBusinessApplicationRequest {
+  /**
+   * <p>The ID of the Amazon QuickSight account that is linked to the Amazon Q Business application that you want described.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Amazon QuickSight namespace that contains the linked Amazon Q Business application. If this field is left blank, the default namespace is used. Currently, the default namespace is the only valid value for this parameter.</p>
+   * @public
+   */
+  Namespace?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDefaultQBusinessApplicationResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The ID of the Amazon Q Business application that is linked to the Amazon QuickSight account.</p>
+   * @public
+   */
+  ApplicationId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeFolderRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -2411,6 +2511,54 @@ export interface DescribeQPersonalizationConfigurationResponse {
    * @public
    */
   PersonalizationMode?: PersonalizationMode | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeQuickSightQSearchConfigurationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the Amazon QuickSight Q Search configuration that the user wants described.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QSearchStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type QSearchStatus = (typeof QSearchStatus)[keyof typeof QSearchStatus];
+
+/**
+ * @public
+ */
+export interface DescribeQuickSightQSearchConfigurationResponse {
+  /**
+   * <p>The status of Amazon QuickSight Q Search configuration.</p>
+   * @public
+   */
+  QSearchStatus?: QSearchStatus | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -4164,6 +4312,75 @@ export interface FolderSummary {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const GeneratedAnswerStatus = {
+  ANSWER_DOWNGRADE: "ANSWER_DOWNGRADE",
+  ANSWER_GENERATED: "ANSWER_GENERATED",
+  ANSWER_RETRIEVED: "ANSWER_RETRIEVED",
+} as const;
+
+/**
+ * @public
+ */
+export type GeneratedAnswerStatus = (typeof GeneratedAnswerStatus)[keyof typeof GeneratedAnswerStatus];
+
+/**
+ * <p>The QA result that is made from generated answer.</p>
+ * @public
+ */
+export interface GeneratedAnswerResult {
+  /**
+   * <p>The question text.</p>
+   * @public
+   */
+  QuestionText?: string | undefined;
+
+  /**
+   * <p>The answer status of the generated answer.</p>
+   * @public
+   */
+  AnswerStatus?: GeneratedAnswerStatus | undefined;
+
+  /**
+   * <p>The ID of the topic.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The name of the topic.</p>
+   * @public
+   */
+  TopicName?: string | undefined;
+
+  /**
+   * <p>The restatement for the answer.</p>
+   * @public
+   */
+  Restatement?: string | undefined;
+
+  /**
+   * <p>The ID of the question.</p>
+   * @public
+   */
+  QuestionId?: string | undefined;
+
+  /**
+   * <p>The ID of the answer.</p>
+   * @public
+   */
+  AnswerId?: string | undefined;
+
+  /**
+   * <p>The URL of the question.</p>
+   * @public
+   */
+  QuestionUrl?: string | undefined;
+}
+
+/**
  * <p>The key-value pair used for the row-level security tags feature.</p>
  * @public
  */
@@ -4671,6 +4888,63 @@ export class QuickSightUserNotFoundException extends __BaseException {
 /**
  * @public
  */
+export interface GenerateEmbedUrlForRegisteredUserWithIdentityRequest {
+  /**
+   * <p>The ID of the Amazon Web Services registered user.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The validity of the session in minutes.</p>
+   * @public
+   */
+  SessionLifetimeInMinutes?: number | undefined;
+
+  /**
+   * <p>The type of experience you want to embed. For registered users, you can embed Amazon QuickSight dashboards or the Amazon QuickSight console.</p>
+   *          <note>
+   *             <p>Exactly one of the experience configurations is required. You can choose
+   *                     <code>Dashboard</code> or <code>QuickSightConsole</code>. You cannot choose more
+   *                 than one experience configuration.</p>
+   *          </note>
+   * @public
+   */
+  ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfiguration | undefined;
+
+  /**
+   * <p>A list of domains to be allowed to generate the embed URL.</p>
+   * @public
+   */
+  AllowedDomains?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GenerateEmbedUrlForRegisteredUserWithIdentityResponse {
+  /**
+   * <p>The generated embed URL for the registered user.</p>
+   * @public
+   */
+  EmbedUrl: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetDashboardEmbedUrlRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the dashboard that you're embedding.</p>
@@ -4991,6 +5265,34 @@ export interface IAMPolicyAssignmentSummary {
    */
   AssignmentStatus?: AssignmentStatus | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const IncludeGeneratedAnswer = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type IncludeGeneratedAnswer = (typeof IncludeGeneratedAnswer)[keyof typeof IncludeGeneratedAnswer];
+
+/**
+ * @public
+ * @enum
+ */
+export const IncludeQuickSightQIndex = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type IncludeQuickSightQIndex = (typeof IncludeQuickSightQIndex)[keyof typeof IncludeQuickSightQIndex];
 
 /**
  * @public
@@ -7140,6 +7442,109 @@ export interface ListVPCConnectionsResponse {
 
 /**
  * @public
+ */
+export interface PredictQAResultsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that the user wants to execute Predict QA results in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The query text to be used to predict QA results.</p>
+   * @public
+   */
+  QueryText: string | undefined;
+
+  /**
+   * <p>Indicates whether Q indicies are included or excluded.</p>
+   * @public
+   */
+  IncludeQuickSightQIndex?: IncludeQuickSightQIndex | undefined;
+
+  /**
+   * <p>Indicates whether generated answers are included or excluded.</p>
+   * @public
+   */
+  IncludeGeneratedAnswer?: IncludeGeneratedAnswer | undefined;
+
+  /**
+   * <p>The number of maximum topics to be considered to predict QA results.</p>
+   * @public
+   */
+  MaxTopicsToConsider?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QAResultType = {
+  DASHBOARD_VISUAL: "DASHBOARD_VISUAL",
+  GENERATED_ANSWER: "GENERATED_ANSWER",
+  NO_ANSWER: "NO_ANSWER",
+} as const;
+
+/**
+ * @public
+ */
+export type QAResultType = (typeof QAResultType)[keyof typeof QAResultType];
+
+/**
+ * <p>The QA result that is made from the <code>DashboardVisual</code> or <code>GeneratedAnswer</code>.</p>
+ * @public
+ */
+export interface QAResult {
+  /**
+   * <p>The type of QA result.</p>
+   * @public
+   */
+  ResultType?: QAResultType | undefined;
+
+  /**
+   * <p>The representation of a dashboard visual result.</p>
+   * @public
+   */
+  DashboardVisual?: DashboardVisualResult | undefined;
+
+  /**
+   * <p>The representation of a generated answer result.</p>
+   * @public
+   */
+  GeneratedAnswer?: GeneratedAnswerResult | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PredictQAResultsResponse {
+  /**
+   * <p>The primary visual response.</p>
+   * @public
+   */
+  PrimaryResult?: QAResult | undefined;
+
+  /**
+   * <p>Additional visual responses.</p>
+   * @public
+   */
+  AdditionalResults?: QAResult[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const PurchaseMode = {
@@ -8647,6 +9052,40 @@ export interface UpdateAnalysisPermissionsResponse {
 /**
  * @public
  */
+export interface UpdateApplicationWithTokenExchangeGrantRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account to be updated with a token exchange grant.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace of the Amazon QuickSight application.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateApplicationWithTokenExchangeGrantResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateBrandRequest {
   /**
    * <p>The ID of the Amazon Web Services account that owns the brand.</p>
@@ -8665,684 +9104,6 @@ export interface UpdateBrandRequest {
    * @public
    */
   BrandDefinition?: BrandDefinition | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateBrandResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The details of the brand.</p>
-   * @public
-   */
-  BrandDetail?: BrandDetail | undefined;
-
-  /**
-   * <p>The definition of the brand.</p>
-   * @public
-   */
-  BrandDefinition?: BrandDefinition | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateBrandAssignmentRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the brand assignment.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the brand.</p>
-   * @public
-   */
-  BrandArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateBrandAssignmentResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the brand.</p>
-   * @public
-   */
-  BrandArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateBrandPublishedVersionRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon QuickSight brand.</p>
-   * @public
-   */
-  BrandId: string | undefined;
-
-  /**
-   * <p>The ID of the published version.</p>
-   * @public
-   */
-  VersionId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateBrandPublishedVersionResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The ID of the published version.</p>
-   * @public
-   */
-  VersionId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateCustomPermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the custom permissions profile that you want to update.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name of the custom permissions profile that you want to update.</p>
-   * @public
-   */
-  CustomPermissionsName: string | undefined;
-
-  /**
-   * <p>A set of actions to include in the custom permissions profile.</p>
-   * @public
-   */
-  Capabilities?: Capabilities | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateCustomPermissionsResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the custom permissions profile.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDashboardRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
-   *             updating.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The display name of the dashboard.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The entity that you are using as a source when you update the dashboard. In
-   *             <code>SourceEntity</code>, you specify the type of object you're using as source. You
-   *             can only update a dashboard from a template, so you use a <code>SourceTemplate</code>
-   *             entity. If you need to update a dashboard from an analysis, first convert the analysis
-   *             to a template by using the <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
-   *             </code> API operation. For
-   *             <code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source
-   *             template. The <code>SourceTemplate</code> ARN can contain any Amazon Web Services account and any
-   *             Amazon QuickSight-supported Amazon Web Services Region. </p>
-   *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
-   *             list the replacement datasets for the placeholders listed in the original. The schema in
-   *             each dataset must match its placeholder. </p>
-   * @public
-   */
-  SourceEntity?: DashboardSourceEntity | undefined;
-
-  /**
-   * <p>A structure that contains the parameters of the dashboard. These are parameter
-   *             overrides for a dashboard. A dashboard can have any type of parameters, and some
-   *             parameters might accept multiple values.</p>
-   * @public
-   */
-  Parameters?: _Parameters | undefined;
-
-  /**
-   * <p>A description for the first version of the dashboard being created.</p>
-   * @public
-   */
-  VersionDescription?: string | undefined;
-
-  /**
-   * <p>Options for publishing the dashboard when you create it:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
-   *                     set to <code>DISABLED</code>, Amazon QuickSight disables the left filter pane on the
-   *                     published dashboard, which can be used for ad hoc (one-time) filtering. This
-   *                     option is <code>ENABLED</code> by default. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
-   *                     option to export data to .CSV format isn't enabled when this is set to
-   *                     <code>DISABLED</code>. This option is <code>ENABLED</code> by default. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
-   *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
-   *                     This option is <code>COLLAPSED</code> by default. </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  DashboardPublishOptions?: DashboardPublishOptions | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
-   *             you add a value for this field, it overrides the value that was originally associated
-   *             with the entity. The theme ARN must exist in the same Amazon Web Services account where you create the
-   *             dashboard.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>The definition of a dashboard.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   * @public
-   */
-  Definition?: DashboardVersionDefinition | undefined;
-
-  /**
-   * <p>The option to relax the validation needed to update a dashboard with definition objects. This skips the validation step for specific errors.</p>
-   * @public
-   */
-  ValidationStrategy?: ValidationStrategy | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDashboardResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ARN of the dashboard, including the version number.</p>
-   * @public
-   */
-  VersionArn?: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   * @public
-   */
-  DashboardId?: string | undefined;
-
-  /**
-   * <p>The creation status of the request.</p>
-   * @public
-   */
-  CreationStatus?: ResourceStatus | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDashboardLinksRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard whose links you want to update.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p> list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.</p>
-   * @public
-   */
-  LinkEntities: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDashboardLinksResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
-   * @public
-   */
-  DashboardArn?: string | undefined;
-
-  /**
-   * <p>A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.</p>
-   * @public
-   */
-  LinkEntities?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDashboardPermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard whose permissions you're
-   *             updating.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The permissions that you want to grant on this resource.</p>
-   * @public
-   */
-  GrantPermissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The permissions that you want to revoke from this resource.</p>
-   * @public
-   */
-  RevokePermissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>Grants link permissions to all users in a defined namespace.</p>
-   * @public
-   */
-  GrantLinkPermissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>Revokes link permissions from all users in a defined namespace.</p>
-   * @public
-   */
-  RevokeLinkPermissions?: ResourcePermission[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDashboardPermissionsResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
-   * @public
-   */
-  DashboardArn?: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   * @public
-   */
-  DashboardId?: string | undefined;
-
-  /**
-   * <p>Information about the permissions on the dashboard.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>Updates the permissions of a shared link to an Amazon QuickSight dashboard.</p>
-   * @public
-   */
-  LinkSharingConfiguration?: LinkSharingConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDashboardPublishedVersionRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
-   *             updating.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The version number of the dashboard.</p>
-   * @public
-   */
-  VersionNumber: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDashboardPublishedVersionResponse {
-  /**
-   * <p>The ID for the dashboard.</p>
-   * @public
-   */
-  DashboardId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
-   * @public
-   */
-  DashboardArn?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDashboardsQAConfigurationRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard QA configuration that you want to update.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The status of dashboards QA configuration that you want to update.</p>
-   * @public
-   */
-  DashboardsQAStatus: DashboardsQAStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDashboardsQAConfigurationResponse {
-  /**
-   * <p>A value that indicates whether the dashboard QA configuration is enabled or not.</p>
-   * @public
-   */
-  DashboardsQAStatus?: DashboardsQAStatus | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDataSetRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dataset that you want to update. This ID is unique per Amazon Web Services Region for each
-   * 			Amazon Web Services account.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The display name for the dataset.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Declares the physical tables that are available in the underlying data sources.</p>
-   * @public
-   */
-  PhysicalTableMap: Record<string, PhysicalTable> | undefined;
-
-  /**
-   * <p>Configures the combination and transformation of the data from the physical tables.</p>
-   * @public
-   */
-  LogicalTableMap?: Record<string, LogicalTable> | undefined;
-
-  /**
-   * <p>Indicates whether you want to import the data into SPICE.</p>
-   * @public
-   */
-  ImportMode: DataSetImportMode | undefined;
-
-  /**
-   * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
-   * @public
-   */
-  ColumnGroups?: ColumnGroup[] | undefined;
-
-  /**
-   * <p>The folder that contains fields and nested subfolders for your dataset.</p>
-   * @public
-   */
-  FieldFolders?: Record<string, FieldFolder> | undefined;
-
-  /**
-   * <p>The row-level security configuration for the data you want to create.</p>
-   * @public
-   */
-  RowLevelPermissionDataSet?: RowLevelPermissionDataSet | undefined;
-
-  /**
-   * <p>The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only.</p>
-   * @public
-   */
-  RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration | undefined;
-
-  /**
-   * <p>A set of one or more definitions of a <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
-   *             </code>.</p>
-   * @public
-   */
-  ColumnLevelPermissionRules?: ColumnLevelPermissionRule[] | undefined;
-
-  /**
-   * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
-   * @public
-   */
-  DataSetUsageConfiguration?: DataSetUsageConfiguration | undefined;
-
-  /**
-   * <p>The parameter declarations of the dataset.</p>
-   * @public
-   */
-  DatasetParameters?: DatasetParameter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDataSetResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  DataSetId?: string | undefined;
-
-  /**
-   * <p>The ARN for the ingestion, which is triggered as a result of dataset creation if the import
-   * 			mode is SPICE.</p>
-   * @public
-   */
-  IngestionArn?: string | undefined;
-
-  /**
-   * <p>The ID of the ingestion, which is triggered as a result of dataset creation if the import
-   * 			mode is SPICE.</p>
-   * @public
-   */
-  IngestionId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDataSetPermissionsRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dataset whose permissions you want to update. This ID is unique per
-   * 			Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The resource permissions that you want to grant to the dataset.</p>
-   * @public
-   */
-  GrantPermissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The resource permissions that you want to revoke from the dataset.</p>
-   * @public
-   */
-  RevokePermissions?: ResourcePermission[] | undefined;
 }
 
 /**
@@ -9462,6 +9223,15 @@ export const DescribeTopicResponseFilterSensitiveLog = (obj: DescribeTopicRespon
 /**
  * @internal
  */
+export const GeneratedAnswerResultFilterSensitiveLog = (obj: GeneratedAnswerResult): any => ({
+  ...obj,
+  ...(obj.QuestionText && { QuestionText: SENSITIVE_STRING }),
+  ...(obj.Restatement && { Restatement: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const SessionTagFilterSensitiveLog = (obj: SessionTag): any => ({
   ...obj,
   ...(obj.Value && { Value: SENSITIVE_STRING }),
@@ -9500,6 +9270,16 @@ export const GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const GenerateEmbedUrlForRegisteredUserWithIdentityResponseFilterSensitiveLog = (
+  obj: GenerateEmbedUrlForRegisteredUserWithIdentityResponse
+): any => ({
+  ...obj,
+  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const GetDashboardEmbedUrlResponseFilterSensitiveLog = (obj: GetDashboardEmbedUrlResponse): any => ({
   ...obj,
   ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
@@ -9511,6 +9291,33 @@ export const GetDashboardEmbedUrlResponseFilterSensitiveLog = (obj: GetDashboard
 export const GetSessionEmbedUrlResponseFilterSensitiveLog = (obj: GetSessionEmbedUrlResponse): any => ({
   ...obj,
   ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PredictQAResultsRequestFilterSensitiveLog = (obj: PredictQAResultsRequest): any => ({
+  ...obj,
+  ...(obj.QueryText && { QueryText: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const QAResultFilterSensitiveLog = (obj: QAResult): any => ({
+  ...obj,
+  ...(obj.GeneratedAnswer && { GeneratedAnswer: GeneratedAnswerResultFilterSensitiveLog(obj.GeneratedAnswer) }),
+});
+
+/**
+ * @internal
+ */
+export const PredictQAResultsResponseFilterSensitiveLog = (obj: PredictQAResultsResponse): any => ({
+  ...obj,
+  ...(obj.PrimaryResult && { PrimaryResult: QAResultFilterSensitiveLog(obj.PrimaryResult) }),
+  ...(obj.AdditionalResults && {
+    AdditionalResults: obj.AdditionalResults.map((item) => QAResultFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -9553,36 +9360,4 @@ export const StartDashboardSnapshotJobRequestFilterSensitiveLog = (obj: StartDas
 export const UpdateAnalysisRequestFilterSensitiveLog = (obj: UpdateAnalysisRequest): any => ({
   ...obj,
   ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
-});
-
-/**
- * @internal
- */
-export const UpdateDashboardRequestFilterSensitiveLog = (obj: UpdateDashboardRequest): any => ({
-  ...obj,
-  ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
-});
-
-/**
- * @internal
- */
-export const UpdateDataSetRequestFilterSensitiveLog = (obj: UpdateDataSetRequest): any => ({
-  ...obj,
-  ...(obj.PhysicalTableMap && {
-    PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = value), acc),
-      {}
-    ),
-  }),
-  ...(obj.LogicalTableMap && {
-    LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
-      (acc: any, [key, value]: [string, LogicalTable]) => ((acc[key] = LogicalTableFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.RowLevelPermissionTagConfiguration && {
-    RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfigurationFilterSensitiveLog(
-      obj.RowLevelPermissionTagConfiguration
-    ),
-  }),
 });

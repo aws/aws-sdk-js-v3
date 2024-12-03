@@ -144,6 +144,10 @@ import {
   DeleteDataSetRefreshPropertiesCommandOutput,
 } from "./commands/DeleteDataSetRefreshPropertiesCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import {
+  DeleteDefaultQBusinessApplicationCommandInput,
+  DeleteDefaultQBusinessApplicationCommandOutput,
+} from "./commands/DeleteDefaultQBusinessApplicationCommand";
 import { DeleteFolderCommandInput, DeleteFolderCommandOutput } from "./commands/DeleteFolderCommand";
 import {
   DeleteFolderMembershipCommandInput,
@@ -277,6 +281,10 @@ import {
   DescribeDataSourcePermissionsCommandInput,
   DescribeDataSourcePermissionsCommandOutput,
 } from "./commands/DescribeDataSourcePermissionsCommand";
+import {
+  DescribeDefaultQBusinessApplicationCommandInput,
+  DescribeDefaultQBusinessApplicationCommandOutput,
+} from "./commands/DescribeDefaultQBusinessApplicationCommand";
 import { DescribeFolderCommandInput, DescribeFolderCommandOutput } from "./commands/DescribeFolderCommand";
 import {
   DescribeFolderPermissionsCommandInput,
@@ -309,6 +317,10 @@ import {
   DescribeQPersonalizationConfigurationCommandInput,
   DescribeQPersonalizationConfigurationCommandOutput,
 } from "./commands/DescribeQPersonalizationConfigurationCommand";
+import {
+  DescribeQuickSightQSearchConfigurationCommandInput,
+  DescribeQuickSightQSearchConfigurationCommandOutput,
+} from "./commands/DescribeQuickSightQSearchConfigurationCommand";
 import {
   DescribeRefreshScheduleCommandInput,
   DescribeRefreshScheduleCommandOutput,
@@ -362,6 +374,10 @@ import {
   GenerateEmbedUrlForRegisteredUserCommandInput,
   GenerateEmbedUrlForRegisteredUserCommandOutput,
 } from "./commands/GenerateEmbedUrlForRegisteredUserCommand";
+import {
+  GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput,
+  GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput,
+} from "./commands/GenerateEmbedUrlForRegisteredUserWithIdentityCommand";
 import {
   GetDashboardEmbedUrlCommandInput,
   GetDashboardEmbedUrlCommandOutput,
@@ -449,6 +465,7 @@ import { ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/List
 import { ListUserGroupsCommandInput, ListUserGroupsCommandOutput } from "./commands/ListUserGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import { ListVPCConnectionsCommandInput, ListVPCConnectionsCommandOutput } from "./commands/ListVPCConnectionsCommand";
+import { PredictQAResultsCommandInput, PredictQAResultsCommandOutput } from "./commands/PredictQAResultsCommand";
 import {
   PutDataSetRefreshPropertiesCommandInput,
   PutDataSetRefreshPropertiesCommandOutput,
@@ -494,6 +511,10 @@ import {
   UpdateAnalysisPermissionsCommandOutput,
 } from "./commands/UpdateAnalysisPermissionsCommand";
 import {
+  UpdateApplicationWithTokenExchangeGrantCommandInput,
+  UpdateApplicationWithTokenExchangeGrantCommandOutput,
+} from "./commands/UpdateApplicationWithTokenExchangeGrantCommand";
+import {
   UpdateBrandAssignmentCommandInput,
   UpdateBrandAssignmentCommandOutput,
 } from "./commands/UpdateBrandAssignmentCommand";
@@ -533,6 +554,10 @@ import {
   UpdateDataSourcePermissionsCommandInput,
   UpdateDataSourcePermissionsCommandOutput,
 } from "./commands/UpdateDataSourcePermissionsCommand";
+import {
+  UpdateDefaultQBusinessApplicationCommandInput,
+  UpdateDefaultQBusinessApplicationCommandOutput,
+} from "./commands/UpdateDefaultQBusinessApplicationCommand";
 import { UpdateFolderCommandInput, UpdateFolderCommandOutput } from "./commands/UpdateFolderCommand";
 import {
   UpdateFolderPermissionsCommandInput,
@@ -563,6 +588,10 @@ import {
   UpdateQPersonalizationConfigurationCommandInput,
   UpdateQPersonalizationConfigurationCommandOutput,
 } from "./commands/UpdateQPersonalizationConfigurationCommand";
+import {
+  UpdateQuickSightQSearchConfigurationCommandInput,
+  UpdateQuickSightQSearchConfigurationCommandOutput,
+} from "./commands/UpdateQuickSightQSearchConfigurationCommand";
 import {
   UpdateRefreshScheduleCommandInput,
   UpdateRefreshScheduleCommandOutput,
@@ -660,6 +689,7 @@ export type ServiceInputTypes =
   | DeleteDataSetCommandInput
   | DeleteDataSetRefreshPropertiesCommandInput
   | DeleteDataSourceCommandInput
+  | DeleteDefaultQBusinessApplicationCommandInput
   | DeleteFolderCommandInput
   | DeleteFolderMembershipCommandInput
   | DeleteGroupCommandInput
@@ -703,6 +733,7 @@ export type ServiceInputTypes =
   | DescribeDataSetRefreshPropertiesCommandInput
   | DescribeDataSourceCommandInput
   | DescribeDataSourcePermissionsCommandInput
+  | DescribeDefaultQBusinessApplicationCommandInput
   | DescribeFolderCommandInput
   | DescribeFolderPermissionsCommandInput
   | DescribeFolderResolvedPermissionsCommandInput
@@ -714,6 +745,7 @@ export type ServiceInputTypes =
   | DescribeKeyRegistrationCommandInput
   | DescribeNamespaceCommandInput
   | DescribeQPersonalizationConfigurationCommandInput
+  | DescribeQuickSightQSearchConfigurationCommandInput
   | DescribeRefreshScheduleCommandInput
   | DescribeRoleCustomPermissionCommandInput
   | DescribeTemplateAliasCommandInput
@@ -731,6 +763,7 @@ export type ServiceInputTypes =
   | DescribeVPCConnectionCommandInput
   | GenerateEmbedUrlForAnonymousUserCommandInput
   | GenerateEmbedUrlForRegisteredUserCommandInput
+  | GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput
   | GetDashboardEmbedUrlCommandInput
   | GetSessionEmbedUrlCommandInput
   | ListAnalysesCommandInput
@@ -767,6 +800,7 @@ export type ServiceInputTypes =
   | ListUserGroupsCommandInput
   | ListUsersCommandInput
   | ListVPCConnectionsCommandInput
+  | PredictQAResultsCommandInput
   | PutDataSetRefreshPropertiesCommandInput
   | RegisterUserCommandInput
   | RestoreAnalysisCommandInput
@@ -787,6 +821,7 @@ export type ServiceInputTypes =
   | UpdateAccountSettingsCommandInput
   | UpdateAnalysisCommandInput
   | UpdateAnalysisPermissionsCommandInput
+  | UpdateApplicationWithTokenExchangeGrantCommandInput
   | UpdateBrandAssignmentCommandInput
   | UpdateBrandCommandInput
   | UpdateBrandPublishedVersionCommandInput
@@ -800,6 +835,7 @@ export type ServiceInputTypes =
   | UpdateDataSetPermissionsCommandInput
   | UpdateDataSourceCommandInput
   | UpdateDataSourcePermissionsCommandInput
+  | UpdateDefaultQBusinessApplicationCommandInput
   | UpdateFolderCommandInput
   | UpdateFolderPermissionsCommandInput
   | UpdateGroupCommandInput
@@ -809,6 +845,7 @@ export type ServiceInputTypes =
   | UpdateKeyRegistrationCommandInput
   | UpdatePublicSharingSettingsCommandInput
   | UpdateQPersonalizationConfigurationCommandInput
+  | UpdateQuickSightQSearchConfigurationCommandInput
   | UpdateRefreshScheduleCommandInput
   | UpdateRoleCustomPermissionCommandInput
   | UpdateSPICECapacityConfigurationCommandInput
@@ -866,6 +903,7 @@ export type ServiceOutputTypes =
   | DeleteDataSetCommandOutput
   | DeleteDataSetRefreshPropertiesCommandOutput
   | DeleteDataSourceCommandOutput
+  | DeleteDefaultQBusinessApplicationCommandOutput
   | DeleteFolderCommandOutput
   | DeleteFolderMembershipCommandOutput
   | DeleteGroupCommandOutput
@@ -909,6 +947,7 @@ export type ServiceOutputTypes =
   | DescribeDataSetRefreshPropertiesCommandOutput
   | DescribeDataSourceCommandOutput
   | DescribeDataSourcePermissionsCommandOutput
+  | DescribeDefaultQBusinessApplicationCommandOutput
   | DescribeFolderCommandOutput
   | DescribeFolderPermissionsCommandOutput
   | DescribeFolderResolvedPermissionsCommandOutput
@@ -920,6 +959,7 @@ export type ServiceOutputTypes =
   | DescribeKeyRegistrationCommandOutput
   | DescribeNamespaceCommandOutput
   | DescribeQPersonalizationConfigurationCommandOutput
+  | DescribeQuickSightQSearchConfigurationCommandOutput
   | DescribeRefreshScheduleCommandOutput
   | DescribeRoleCustomPermissionCommandOutput
   | DescribeTemplateAliasCommandOutput
@@ -937,6 +977,7 @@ export type ServiceOutputTypes =
   | DescribeVPCConnectionCommandOutput
   | GenerateEmbedUrlForAnonymousUserCommandOutput
   | GenerateEmbedUrlForRegisteredUserCommandOutput
+  | GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput
   | GetDashboardEmbedUrlCommandOutput
   | GetSessionEmbedUrlCommandOutput
   | ListAnalysesCommandOutput
@@ -973,6 +1014,7 @@ export type ServiceOutputTypes =
   | ListUserGroupsCommandOutput
   | ListUsersCommandOutput
   | ListVPCConnectionsCommandOutput
+  | PredictQAResultsCommandOutput
   | PutDataSetRefreshPropertiesCommandOutput
   | RegisterUserCommandOutput
   | RestoreAnalysisCommandOutput
@@ -993,6 +1035,7 @@ export type ServiceOutputTypes =
   | UpdateAccountSettingsCommandOutput
   | UpdateAnalysisCommandOutput
   | UpdateAnalysisPermissionsCommandOutput
+  | UpdateApplicationWithTokenExchangeGrantCommandOutput
   | UpdateBrandAssignmentCommandOutput
   | UpdateBrandCommandOutput
   | UpdateBrandPublishedVersionCommandOutput
@@ -1006,6 +1049,7 @@ export type ServiceOutputTypes =
   | UpdateDataSetPermissionsCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateDataSourcePermissionsCommandOutput
+  | UpdateDefaultQBusinessApplicationCommandOutput
   | UpdateFolderCommandOutput
   | UpdateFolderPermissionsCommandOutput
   | UpdateGroupCommandOutput
@@ -1015,6 +1059,7 @@ export type ServiceOutputTypes =
   | UpdateKeyRegistrationCommandOutput
   | UpdatePublicSharingSettingsCommandOutput
   | UpdateQPersonalizationConfigurationCommandOutput
+  | UpdateQuickSightQSearchConfigurationCommandOutput
   | UpdateRefreshScheduleCommandOutput
   | UpdateRoleCustomPermissionCommandOutput
   | UpdateSPICECapacityConfigurationCommandOutput

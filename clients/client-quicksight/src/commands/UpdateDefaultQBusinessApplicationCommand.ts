@@ -5,10 +5,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListIdentityPropagationConfigsRequest, ListIdentityPropagationConfigsResponse } from "../models/models_4";
 import {
-  de_ListIdentityPropagationConfigsCommand,
-  se_ListIdentityPropagationConfigsCommand,
+  UpdateDefaultQBusinessApplicationRequest,
+  UpdateDefaultQBusinessApplicationResponse,
+} from "../models/models_5";
+import {
+  de_UpdateDefaultQBusinessApplicationCommand,
+  se_UpdateDefaultQBusinessApplicationCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -20,54 +23,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListIdentityPropagationConfigsCommand}.
+ * The input for {@link UpdateDefaultQBusinessApplicationCommand}.
  */
-export interface ListIdentityPropagationConfigsCommandInput extends ListIdentityPropagationConfigsRequest {}
+export interface UpdateDefaultQBusinessApplicationCommandInput extends UpdateDefaultQBusinessApplicationRequest {}
 /**
  * @public
  *
- * The output of {@link ListIdentityPropagationConfigsCommand}.
+ * The output of {@link UpdateDefaultQBusinessApplicationCommand}.
  */
-export interface ListIdentityPropagationConfigsCommandOutput
-  extends ListIdentityPropagationConfigsResponse,
+export interface UpdateDefaultQBusinessApplicationCommandOutput
+  extends UpdateDefaultQBusinessApplicationResponse,
     __MetadataBearer {}
 
 /**
- * <p>Lists all services and authorized targets that the Amazon QuickSight IAM Identity Center application can access.</p>
- *          <p>This operation is only supported for Amazon QuickSight accounts that use IAM Identity Center.</p>
+ * <p>Updates a Amazon Q Business application that is linked to a Amazon QuickSight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListIdentityPropagationConfigsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListIdentityPropagationConfigsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, UpdateDefaultQBusinessApplicationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, UpdateDefaultQBusinessApplicationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = { // ListIdentityPropagationConfigsRequest
+ * const input = { // UpdateDefaultQBusinessApplicationRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   Namespace: "STRING_VALUE",
+ *   ApplicationId: "STRING_VALUE", // required
  * };
- * const command = new ListIdentityPropagationConfigsCommand(input);
+ * const command = new UpdateDefaultQBusinessApplicationCommand(input);
  * const response = await client.send(command);
- * // { // ListIdentityPropagationConfigsResponse
- * //   Services: [ // AuthorizedTargetsByServices
- * //     { // AuthorizedTargetsByService
- * //       Service: "REDSHIFT" || "QBUSINESS",
- * //       AuthorizedTargets: [ // AuthorizedTargetsList
- * //         "STRING_VALUE",
- * //       ],
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
- * //   Status: Number("int"),
+ * // { // UpdateDefaultQBusinessApplicationResponse
  * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
  * // };
  *
  * ```
  *
- * @param ListIdentityPropagationConfigsCommandInput - {@link ListIdentityPropagationConfigsCommandInput}
- * @returns {@link ListIdentityPropagationConfigsCommandOutput}
- * @see {@link ListIdentityPropagationConfigsCommandInput} for command's `input` shape.
- * @see {@link ListIdentityPropagationConfigsCommandOutput} for command's `response` shape.
+ * @param UpdateDefaultQBusinessApplicationCommandInput - {@link UpdateDefaultQBusinessApplicationCommandInput}
+ * @returns {@link UpdateDefaultQBusinessApplicationCommandOutput}
+ * @see {@link UpdateDefaultQBusinessApplicationCommandInput} for command's `input` shape.
+ * @see {@link UpdateDefaultQBusinessApplicationCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -75,6 +68,9 @@ export interface ListIdentityPropagationConfigsCommandOutput
  * 			validated. You might not be authorized to carry out the request. Make sure that your
  * 			account is authorized to use the Amazon QuickSight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>
@@ -93,10 +89,10 @@ export interface ListIdentityPropagationConfigsCommandOutput
  *
  * @public
  */
-export class ListIdentityPropagationConfigsCommand extends $Command
+export class UpdateDefaultQBusinessApplicationCommand extends $Command
   .classBuilder<
-    ListIdentityPropagationConfigsCommandInput,
-    ListIdentityPropagationConfigsCommandOutput,
+    UpdateDefaultQBusinessApplicationCommandInput,
+    UpdateDefaultQBusinessApplicationCommandOutput,
     QuickSightClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -108,21 +104,21 @@ export class ListIdentityPropagationConfigsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("QuickSight_20180401", "ListIdentityPropagationConfigs", {})
-  .n("QuickSightClient", "ListIdentityPropagationConfigsCommand")
+  .s("QuickSight_20180401", "UpdateDefaultQBusinessApplication", {})
+  .n("QuickSightClient", "UpdateDefaultQBusinessApplicationCommand")
   .f(void 0, void 0)
-  .ser(se_ListIdentityPropagationConfigsCommand)
-  .de(de_ListIdentityPropagationConfigsCommand)
+  .ser(se_UpdateDefaultQBusinessApplicationCommand)
+  .de(de_UpdateDefaultQBusinessApplicationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListIdentityPropagationConfigsRequest;
-      output: ListIdentityPropagationConfigsResponse;
+      input: UpdateDefaultQBusinessApplicationRequest;
+      output: UpdateDefaultQBusinessApplicationResponse;
     };
     sdk: {
-      input: ListIdentityPropagationConfigsCommandInput;
-      output: ListIdentityPropagationConfigsCommandOutput;
+      input: UpdateDefaultQBusinessApplicationCommandInput;
+      output: UpdateDefaultQBusinessApplicationCommandOutput;
     };
   };
 }

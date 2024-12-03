@@ -6622,6 +6622,60 @@ export interface DashboardVersionSummary {
 }
 
 /**
+ * <p>The QA result that is made from dashboard visual.</p>
+ * @public
+ */
+export interface DashboardVisualResult {
+  /**
+   * <p>The ID of the dashboard.</p>
+   * @public
+   */
+  DashboardId?: string | undefined;
+
+  /**
+   * <p>The name of the dashboard.</p>
+   * @public
+   */
+  DashboardName?: string | undefined;
+
+  /**
+   * <p>The ID of the sheet.</p>
+   * @public
+   */
+  SheetId?: string | undefined;
+
+  /**
+   * <p>The name of the sheet.</p>
+   * @public
+   */
+  SheetName?: string | undefined;
+
+  /**
+   * <p>The ID of the visual.</p>
+   * @public
+   */
+  VisualId?: string | undefined;
+
+  /**
+   * <p>The title of the visual.</p>
+   * @public
+   */
+  VisualTitle?: string | undefined;
+
+  /**
+   * <p>The subtitle of the visual.</p>
+   * @public
+   */
+  VisualSubtitle?: string | undefined;
+
+  /**
+   * <p>The URL of the dashboard.</p>
+   * @public
+   */
+  DashboardUrl?: string | undefined;
+}
+
+/**
  * <p>Output column.</p>
  * @public
  */
@@ -7604,6 +7658,40 @@ export interface DeleteDataSourceResponse {
    */
   DataSourceId?: string | undefined;
 
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDefaultQBusinessApplicationRequest {
+  /**
+   * <p>The ID of the Amazon QuickSight account that you want to disconnect from a Amazon Q Business application.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Amazon QuickSight namespace that you want to delete a linked Amazon Q Business application from. If this field is left blank, the Amazon Q Business application is deleted from the default namespace. Currently, the default namespace is the only valid value for this parameter.</p>
+   * @public
+   */
+  Namespace?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDefaultQBusinessApplicationResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
@@ -8883,79 +8971,6 @@ export interface DescribeAnalysisDefinitionResponse {
    * @public
    */
   RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisPermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the analysis whose permissions you're
-   *             describing. You must be using the Amazon Web Services account that the analysis is in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the analysis whose permissions you're describing. The ID is part of the
-   *             analysis URL.</p>
-   * @public
-   */
-  AnalysisId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisPermissionsResponse {
-  /**
-   * <p>The ID of the analysis whose permissions you're describing.</p>
-   * @public
-   */
-  AnalysisId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the analysis whose permissions you're
-   *             describing.</p>
-   * @public
-   */
-  AnalysisArn?: string | undefined;
-
-  /**
-   * <p>A structure that describes the principals and the resource-level permissions on an
-   *             analysis.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAssetBundleExportJobRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account the export job is executed in. </p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the job that you want described. The job ID is set when you start a new job with a <code>StartAssetBundleExportJob</code> API call.</p>
-   * @public
-   */
-  AssetBundleExportJobId: string | undefined;
 }
 
 /**

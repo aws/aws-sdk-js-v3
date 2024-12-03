@@ -168,6 +168,11 @@ import {
   DeleteDataSourceCommandOutput,
 } from "./commands/DeleteDataSourceCommand";
 import {
+  DeleteDefaultQBusinessApplicationCommand,
+  DeleteDefaultQBusinessApplicationCommandInput,
+  DeleteDefaultQBusinessApplicationCommandOutput,
+} from "./commands/DeleteDefaultQBusinessApplicationCommand";
+import {
   DeleteFolderCommand,
   DeleteFolderCommandInput,
   DeleteFolderCommandOutput,
@@ -367,6 +372,11 @@ import {
   DescribeDataSourcePermissionsCommandOutput,
 } from "./commands/DescribeDataSourcePermissionsCommand";
 import {
+  DescribeDefaultQBusinessApplicationCommand,
+  DescribeDefaultQBusinessApplicationCommandInput,
+  DescribeDefaultQBusinessApplicationCommandOutput,
+} from "./commands/DescribeDefaultQBusinessApplicationCommand";
+import {
   DescribeFolderCommand,
   DescribeFolderCommandInput,
   DescribeFolderCommandOutput,
@@ -421,6 +431,11 @@ import {
   DescribeQPersonalizationConfigurationCommandInput,
   DescribeQPersonalizationConfigurationCommandOutput,
 } from "./commands/DescribeQPersonalizationConfigurationCommand";
+import {
+  DescribeQuickSightQSearchConfigurationCommand,
+  DescribeQuickSightQSearchConfigurationCommandInput,
+  DescribeQuickSightQSearchConfigurationCommandOutput,
+} from "./commands/DescribeQuickSightQSearchConfigurationCommand";
 import {
   DescribeRefreshScheduleCommand,
   DescribeRefreshScheduleCommandInput,
@@ -506,6 +521,11 @@ import {
   GenerateEmbedUrlForRegisteredUserCommandInput,
   GenerateEmbedUrlForRegisteredUserCommandOutput,
 } from "./commands/GenerateEmbedUrlForRegisteredUserCommand";
+import {
+  GenerateEmbedUrlForRegisteredUserWithIdentityCommand,
+  GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput,
+  GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput,
+} from "./commands/GenerateEmbedUrlForRegisteredUserWithIdentityCommand";
 import {
   GetDashboardEmbedUrlCommand,
   GetDashboardEmbedUrlCommandInput,
@@ -663,6 +683,11 @@ import {
   ListVPCConnectionsCommandOutput,
 } from "./commands/ListVPCConnectionsCommand";
 import {
+  PredictQAResultsCommand,
+  PredictQAResultsCommandInput,
+  PredictQAResultsCommandOutput,
+} from "./commands/PredictQAResultsCommand";
+import {
   PutDataSetRefreshPropertiesCommand,
   PutDataSetRefreshPropertiesCommandInput,
   PutDataSetRefreshPropertiesCommandOutput,
@@ -759,6 +784,11 @@ import {
   UpdateAnalysisPermissionsCommandOutput,
 } from "./commands/UpdateAnalysisPermissionsCommand";
 import {
+  UpdateApplicationWithTokenExchangeGrantCommand,
+  UpdateApplicationWithTokenExchangeGrantCommandInput,
+  UpdateApplicationWithTokenExchangeGrantCommandOutput,
+} from "./commands/UpdateApplicationWithTokenExchangeGrantCommand";
+import {
   UpdateBrandAssignmentCommand,
   UpdateBrandAssignmentCommandInput,
   UpdateBrandAssignmentCommandOutput,
@@ -820,6 +850,11 @@ import {
   UpdateDataSourcePermissionsCommandOutput,
 } from "./commands/UpdateDataSourcePermissionsCommand";
 import {
+  UpdateDefaultQBusinessApplicationCommand,
+  UpdateDefaultQBusinessApplicationCommandInput,
+  UpdateDefaultQBusinessApplicationCommandOutput,
+} from "./commands/UpdateDefaultQBusinessApplicationCommand";
+import {
   UpdateFolderCommand,
   UpdateFolderCommandInput,
   UpdateFolderCommandOutput,
@@ -860,6 +895,11 @@ import {
   UpdateQPersonalizationConfigurationCommandInput,
   UpdateQPersonalizationConfigurationCommandOutput,
 } from "./commands/UpdateQPersonalizationConfigurationCommand";
+import {
+  UpdateQuickSightQSearchConfigurationCommand,
+  UpdateQuickSightQSearchConfigurationCommandInput,
+  UpdateQuickSightQSearchConfigurationCommandOutput,
+} from "./commands/UpdateQuickSightQSearchConfigurationCommand";
 import {
   UpdateRefreshScheduleCommand,
   UpdateRefreshScheduleCommandInput,
@@ -963,6 +1003,7 @@ const commands = {
   DeleteDataSetCommand,
   DeleteDataSetRefreshPropertiesCommand,
   DeleteDataSourceCommand,
+  DeleteDefaultQBusinessApplicationCommand,
   DeleteFolderCommand,
   DeleteFolderMembershipCommand,
   DeleteGroupCommand,
@@ -1006,6 +1047,7 @@ const commands = {
   DescribeDataSetRefreshPropertiesCommand,
   DescribeDataSourceCommand,
   DescribeDataSourcePermissionsCommand,
+  DescribeDefaultQBusinessApplicationCommand,
   DescribeFolderCommand,
   DescribeFolderPermissionsCommand,
   DescribeFolderResolvedPermissionsCommand,
@@ -1017,6 +1059,7 @@ const commands = {
   DescribeKeyRegistrationCommand,
   DescribeNamespaceCommand,
   DescribeQPersonalizationConfigurationCommand,
+  DescribeQuickSightQSearchConfigurationCommand,
   DescribeRefreshScheduleCommand,
   DescribeRoleCustomPermissionCommand,
   DescribeTemplateCommand,
@@ -1034,6 +1077,7 @@ const commands = {
   DescribeVPCConnectionCommand,
   GenerateEmbedUrlForAnonymousUserCommand,
   GenerateEmbedUrlForRegisteredUserCommand,
+  GenerateEmbedUrlForRegisteredUserWithIdentityCommand,
   GetDashboardEmbedUrlCommand,
   GetSessionEmbedUrlCommand,
   ListAnalysesCommand,
@@ -1070,6 +1114,7 @@ const commands = {
   ListUserGroupsCommand,
   ListUsersCommand,
   ListVPCConnectionsCommand,
+  PredictQAResultsCommand,
   PutDataSetRefreshPropertiesCommand,
   RegisterUserCommand,
   RestoreAnalysisCommand,
@@ -1090,6 +1135,7 @@ const commands = {
   UpdateAccountSettingsCommand,
   UpdateAnalysisCommand,
   UpdateAnalysisPermissionsCommand,
+  UpdateApplicationWithTokenExchangeGrantCommand,
   UpdateBrandCommand,
   UpdateBrandAssignmentCommand,
   UpdateBrandPublishedVersionCommand,
@@ -1103,6 +1149,7 @@ const commands = {
   UpdateDataSetPermissionsCommand,
   UpdateDataSourceCommand,
   UpdateDataSourcePermissionsCommand,
+  UpdateDefaultQBusinessApplicationCommand,
   UpdateFolderCommand,
   UpdateFolderPermissionsCommand,
   UpdateGroupCommand,
@@ -1112,6 +1159,7 @@ const commands = {
   UpdateKeyRegistrationCommand,
   UpdatePublicSharingSettingsCommand,
   UpdateQPersonalizationConfigurationCommand,
+  UpdateQuickSightQSearchConfigurationCommand,
   UpdateRefreshScheduleCommand,
   UpdateRoleCustomPermissionCommand,
   UpdateSPICECapacityConfigurationCommand,
@@ -1685,6 +1733,23 @@ export interface QuickSight {
     args: DeleteDataSourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDefaultQBusinessApplicationCommand}
+   */
+  deleteDefaultQBusinessApplication(
+    args: DeleteDefaultQBusinessApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDefaultQBusinessApplicationCommandOutput>;
+  deleteDefaultQBusinessApplication(
+    args: DeleteDefaultQBusinessApplicationCommandInput,
+    cb: (err: any, data?: DeleteDefaultQBusinessApplicationCommandOutput) => void
+  ): void;
+  deleteDefaultQBusinessApplication(
+    args: DeleteDefaultQBusinessApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDefaultQBusinessApplicationCommandOutput) => void
   ): void;
 
   /**
@@ -2374,6 +2439,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DescribeDefaultQBusinessApplicationCommand}
+   */
+  describeDefaultQBusinessApplication(
+    args: DescribeDefaultQBusinessApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDefaultQBusinessApplicationCommandOutput>;
+  describeDefaultQBusinessApplication(
+    args: DescribeDefaultQBusinessApplicationCommandInput,
+    cb: (err: any, data?: DescribeDefaultQBusinessApplicationCommandOutput) => void
+  ): void;
+  describeDefaultQBusinessApplication(
+    args: DescribeDefaultQBusinessApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDefaultQBusinessApplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeFolderCommand}
    */
   describeFolder(
@@ -2549,6 +2631,23 @@ export interface QuickSight {
     args: DescribeQPersonalizationConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeQPersonalizationConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeQuickSightQSearchConfigurationCommand}
+   */
+  describeQuickSightQSearchConfiguration(
+    args: DescribeQuickSightQSearchConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeQuickSightQSearchConfigurationCommandOutput>;
+  describeQuickSightQSearchConfiguration(
+    args: DescribeQuickSightQSearchConfigurationCommandInput,
+    cb: (err: any, data?: DescribeQuickSightQSearchConfigurationCommandOutput) => void
+  ): void;
+  describeQuickSightQSearchConfiguration(
+    args: DescribeQuickSightQSearchConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeQuickSightQSearchConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -2820,6 +2919,23 @@ export interface QuickSight {
     args: GenerateEmbedUrlForRegisteredUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GenerateEmbedUrlForRegisteredUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GenerateEmbedUrlForRegisteredUserWithIdentityCommand}
+   */
+  generateEmbedUrlForRegisteredUserWithIdentity(
+    args: GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput>;
+  generateEmbedUrlForRegisteredUserWithIdentity(
+    args: GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput,
+    cb: (err: any, data?: GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput) => void
+  ): void;
+  generateEmbedUrlForRegisteredUserWithIdentity(
+    args: GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput) => void
   ): void;
 
   /**
@@ -3366,6 +3482,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link PredictQAResultsCommand}
+   */
+  predictQAResults(
+    args: PredictQAResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PredictQAResultsCommandOutput>;
+  predictQAResults(
+    args: PredictQAResultsCommandInput,
+    cb: (err: any, data?: PredictQAResultsCommandOutput) => void
+  ): void;
+  predictQAResults(
+    args: PredictQAResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PredictQAResultsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutDataSetRefreshPropertiesCommand}
    */
   putDataSetRefreshProperties(
@@ -3658,6 +3791,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link UpdateApplicationWithTokenExchangeGrantCommand}
+   */
+  updateApplicationWithTokenExchangeGrant(
+    args: UpdateApplicationWithTokenExchangeGrantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateApplicationWithTokenExchangeGrantCommandOutput>;
+  updateApplicationWithTokenExchangeGrant(
+    args: UpdateApplicationWithTokenExchangeGrantCommandInput,
+    cb: (err: any, data?: UpdateApplicationWithTokenExchangeGrantCommandOutput) => void
+  ): void;
+  updateApplicationWithTokenExchangeGrant(
+    args: UpdateApplicationWithTokenExchangeGrantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateApplicationWithTokenExchangeGrantCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateBrandCommand}
    */
   updateBrand(args: UpdateBrandCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBrandCommandOutput>;
@@ -3864,6 +4014,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link UpdateDefaultQBusinessApplicationCommand}
+   */
+  updateDefaultQBusinessApplication(
+    args: UpdateDefaultQBusinessApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDefaultQBusinessApplicationCommandOutput>;
+  updateDefaultQBusinessApplication(
+    args: UpdateDefaultQBusinessApplicationCommandInput,
+    cb: (err: any, data?: UpdateDefaultQBusinessApplicationCommandOutput) => void
+  ): void;
+  updateDefaultQBusinessApplication(
+    args: UpdateDefaultQBusinessApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDefaultQBusinessApplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateFolderCommand}
    */
   updateFolder(args: UpdateFolderCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFolderCommandOutput>;
@@ -4002,6 +4169,23 @@ export interface QuickSight {
     args: UpdateQPersonalizationConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateQPersonalizationConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateQuickSightQSearchConfigurationCommand}
+   */
+  updateQuickSightQSearchConfiguration(
+    args: UpdateQuickSightQSearchConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQuickSightQSearchConfigurationCommandOutput>;
+  updateQuickSightQSearchConfiguration(
+    args: UpdateQuickSightQSearchConfigurationCommandInput,
+    cb: (err: any, data?: UpdateQuickSightQSearchConfigurationCommandOutput) => void
+  ): void;
+  updateQuickSightQSearchConfiguration(
+    args: UpdateQuickSightQSearchConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQuickSightQSearchConfigurationCommandOutput) => void
   ): void;
 
   /**

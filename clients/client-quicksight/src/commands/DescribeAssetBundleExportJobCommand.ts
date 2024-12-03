@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeAssetBundleExportJobRequest } from "../models/models_3";
 import {
+  DescribeAssetBundleExportJobRequest,
   DescribeAssetBundleExportJobResponse,
   DescribeAssetBundleExportJobResponseFilterSensitiveLog,
 } from "../models/models_4";

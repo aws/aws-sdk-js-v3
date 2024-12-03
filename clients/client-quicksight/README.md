@@ -506,6 +506,14 @@ DeleteDataSource
 </details>
 <details>
 <summary>
+DeleteDefaultQBusinessApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DeleteDefaultQBusinessApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DeleteDefaultQBusinessApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DeleteDefaultQBusinessApplicationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteFolder
 </summary>
 
@@ -850,6 +858,14 @@ DescribeDataSourcePermissions
 </details>
 <details>
 <summary>
+DescribeDefaultQBusinessApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DescribeDefaultQBusinessApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeDefaultQBusinessApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeDefaultQBusinessApplicationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeFolder
 </summary>
 
@@ -934,6 +950,14 @@ DescribeQPersonalizationConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DescribeQPersonalizationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeQPersonalizationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeQPersonalizationConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeQuickSightQSearchConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DescribeQuickSightQSearchConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeQuickSightQSearchConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeQuickSightQSearchConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -1070,6 +1094,14 @@ GenerateEmbedUrlForRegisteredUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/GenerateEmbedUrlForRegisteredUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/GenerateEmbedUrlForRegisteredUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/GenerateEmbedUrlForRegisteredUserCommandOutput/)
+
+</details>
+<details>
+<summary>
+GenerateEmbedUrlForRegisteredUserWithIdentity
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/GenerateEmbedUrlForRegisteredUserWithIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput/)
 
 </details>
 <details>
@@ -1362,6 +1394,14 @@ ListVPCConnections
 </details>
 <details>
 <summary>
+PredictQAResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/PredictQAResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/PredictQAResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/PredictQAResultsCommandOutput/)
+
+</details>
+<details>
+<summary>
 PutDataSetRefreshProperties
 </summary>
 
@@ -1522,6 +1562,14 @@ UpdateAnalysisPermissions
 </details>
 <details>
 <summary>
+UpdateApplicationWithTokenExchangeGrant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateApplicationWithTokenExchangeGrantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateApplicationWithTokenExchangeGrantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateApplicationWithTokenExchangeGrantCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateBrand
 </summary>
 
@@ -1626,6 +1674,14 @@ UpdateDataSourcePermissions
 </details>
 <details>
 <summary>
+UpdateDefaultQBusinessApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateDefaultQBusinessApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateDefaultQBusinessApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateDefaultQBusinessApplicationCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateFolder
 </summary>
 
@@ -1694,6 +1750,14 @@ UpdateQPersonalizationConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateQPersonalizationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateQPersonalizationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateQPersonalizationConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateQuickSightQSearchConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateQuickSightQSearchConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateQuickSightQSearchConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateQuickSightQSearchConfigurationCommandOutput/)
 
 </details>
 <details>

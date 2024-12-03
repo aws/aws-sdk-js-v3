@@ -6357,6 +6357,7 @@ export type AuthenticationMethodOption = (typeof AuthenticationMethodOption)[key
  * @enum
  */
 export const ServiceType = {
+  QBUSINESS: "QBUSINESS",
   REDSHIFT: "REDSHIFT",
 } as const;
 
