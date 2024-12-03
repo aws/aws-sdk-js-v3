@@ -16,6 +16,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
   map,
@@ -54,6 +55,7 @@ import {
   AccessDeniedException,
   ActionGroupExecutor,
   AgentActionGroup,
+  AgentCollaboratorInvocationOutput,
   AnalyzePromptEvent,
   ApiResult,
   APISchema,
@@ -66,7 +68,9 @@ import {
   Citation,
   CitationEvent,
   ConflictException,
+  ContentBlock,
   ContentBody,
+  ConversationHistory,
   DependencyFailedException,
   ExternalSource,
   ExternalSourcesGenerationConfiguration,
@@ -120,6 +124,7 @@ import {
   KnowledgeBaseVectorSearchConfiguration,
   Memory,
   MemorySessionSummary,
+  Message,
   MetadataAttributeSchema,
   MetadataConfigurationForReranking,
   ModelInvocationInput,
@@ -154,6 +159,7 @@ import {
   RetrieveAndGenerateStreamResponseOutput,
   RetrievedReference,
   ReturnControlPayload,
+  RoutingClassifierTrace,
   S3Identifier,
   S3ObjectDoc,
   S3ObjectFile,
@@ -222,9 +228,10 @@ export const se_InvokeAgentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-  };
+    [_xasa]: input[_sA]!,
+  });
   b.bp("/agents/{agentId}/agentAliases/{agentAliasId}/sessions/{sessionId}/text");
   b.p("agentId", () => input.agentId!, "{agentId}", false);
   b.p("agentAliasId", () => input.agentAliasId!, "{agentAliasId}", false);
@@ -1484,7 +1491,13 @@ const se_ByteContentFile = (input: ByteContentFile, context: __SerdeContext): an
   });
 };
 
+// se_ContentBlock omitted.
+
+// se_ContentBlocks omitted.
+
 // se_ContentBody omitted.
+
+// se_ConversationHistory omitted.
 
 /**
  * serializeAws_restJson1ExternalSource
@@ -1777,6 +1790,10 @@ const se_KnowledgeBaseVectorSearchConfiguration = (
   });
 };
 
+// se_Message omitted.
+
+// se_Messages omitted.
+
 // se_MetadataAttributeSchema omitted.
 
 // se_MetadataAttributeSchemaList omitted.
@@ -1957,6 +1974,7 @@ const se_RetrieveAndGenerateConfiguration = (input: RetrieveAndGenerateConfigura
  */
 const se_SessionState = (input: SessionState, context: __SerdeContext): any => {
   return take(input, {
+    conversationHistory: _json,
     files: (_) => se_InputFiles(_, context),
     invocationId: [],
     knowledgeBaseConfigurations: (_) => se_KnowledgeBaseConfigurations(_, context),
@@ -2035,6 +2053,26 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 
 // de_ActionGroupInvocationOutput omitted.
 
+// de_AgentCollaboratorInputPayload omitted.
+
+// de_AgentCollaboratorInvocationInput omitted.
+
+/**
+ * deserializeAws_restJson1AgentCollaboratorInvocationOutput
+ */
+const de_AgentCollaboratorInvocationOutput = (
+  output: any,
+  context: __SerdeContext
+): AgentCollaboratorInvocationOutput => {
+  return take(output, {
+    agentCollaboratorAliasArn: __expectString,
+    agentCollaboratorName: __expectString,
+    output: _json,
+  }) as any;
+};
+
+// de_AgentCollaboratorOutputPayload omitted.
+
 // de_AnalyzePromptEvent omitted.
 
 // de_ApiContentMap omitted.
@@ -2047,6 +2085,8 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 
 // de_ApiRequestBody omitted.
 
+// de_ApiResult omitted.
+
 /**
  * deserializeAws_restJson1Attribution
  */
@@ -2055,6 +2095,10 @@ const de_Attribution = (output: any, context: __SerdeContext): Attribution => {
     citations: (_: any) => de_Citations(_, context),
   }) as any;
 };
+
+// de_Caller omitted.
+
+// de_CallerChain omitted.
 
 /**
  * deserializeAws_restJson1Citation
@@ -2090,6 +2134,8 @@ const de_Citations = (output: any, context: __SerdeContext): Citation[] => {
 // de_CodeInterpreterInvocationInput omitted.
 
 // de_CodeInterpreterInvocationOutput omitted.
+
+// de_ContentBody omitted.
 
 // de_ContentMap omitted.
 
@@ -2282,6 +2328,8 @@ const de_FlowTraceNodeOutputFields = (output: any, context: __SerdeContext): Flo
 
 // de_FunctionParameters omitted.
 
+// de_FunctionResult omitted.
+
 // de_GeneratedResponsePart omitted.
 
 // de_GuardrailAssessment omitted.
@@ -2374,6 +2422,8 @@ const de_InlineAgentTracePart = (output: any, context: __SerdeContext): InlineAg
 
 // de_InvocationInputs omitted.
 
+// de_InvocationResultMember omitted.
+
 // de_KnowledgeBaseLookupInput omitted.
 
 /**
@@ -2453,6 +2503,7 @@ const de_MemorySessionSummary = (output: any, context: __SerdeContext): MemorySe
  */
 const de_ModelInvocationInput = (output: any, context: __SerdeContext): ModelInvocationInput => {
   return take(output, {
+    foundationModel: __expectString,
     inferenceConfiguration: (_: any) => de_InferenceConfiguration(_, context),
     overrideLambda: __expectString,
     parserMode: __expectString,
@@ -2469,6 +2520,7 @@ const de_ModelInvocationInput = (output: any, context: __SerdeContext): ModelInv
 const de_Observation = (output: any, context: __SerdeContext): Observation => {
   return take(output, {
     actionGroupInvocationOutput: _json,
+    agentCollaboratorInvocationOutput: (_: any) => de_AgentCollaboratorInvocationOutput(_, context),
     codeInterpreterInvocationOutput: _json,
     finalResponse: _json,
     knowledgeBaseLookupOutput: (_: any) => de_KnowledgeBaseLookupOutput(_, context),
@@ -2643,6 +2695,8 @@ const de_RerankResultsList = (output: any, context: __SerdeContext): RerankResul
 
 // de_RerankTextDocument omitted.
 
+// de_ResponseBody omitted.
+
 // de_RetrievalResultConfluenceLocation omitted.
 
 // de_RetrievalResultContent omitted.
@@ -2706,7 +2760,40 @@ const de_RetrievedReferences = (output: any, context: __SerdeContext): Retrieved
   return retVal;
 };
 
+// de_ReturnControlInvocationResults omitted.
+
 // de_ReturnControlPayload omitted.
+
+// de_ReturnControlResults omitted.
+
+// de_RoutingClassifierModelInvocationOutput omitted.
+
+/**
+ * deserializeAws_restJson1RoutingClassifierTrace
+ */
+const de_RoutingClassifierTrace = (output: any, context: __SerdeContext): RoutingClassifierTrace => {
+  if (output.invocationInput != null) {
+    return {
+      invocationInput: _json(output.invocationInput),
+    };
+  }
+  if (output.modelInvocationInput != null) {
+    return {
+      modelInvocationInput: de_ModelInvocationInput(output.modelInvocationInput, context),
+    };
+  }
+  if (output.modelInvocationOutput != null) {
+    return {
+      modelInvocationOutput: _json(output.modelInvocationOutput),
+    };
+  }
+  if (output.observation != null) {
+    return {
+      observation: de_Observation(output.observation, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 // de_Span omitted.
 
@@ -2750,6 +2837,11 @@ const de_Trace = (output: any, context: __SerdeContext): Trace => {
       preProcessingTrace: de_PreProcessingTrace(__expectUnion(output.preProcessingTrace), context),
     };
   }
+  if (output.routingClassifierTrace != null) {
+    return {
+      routingClassifierTrace: de_RoutingClassifierTrace(__expectUnion(output.routingClassifierTrace), context),
+    };
+  }
   return { $unknown: Object.entries(output)[0] };
 };
 
@@ -2761,6 +2853,8 @@ const de_TracePart = (output: any, context: __SerdeContext): TracePart => {
     agentAliasId: __expectString,
     agentId: __expectString,
     agentVersion: __expectString,
+    callerChain: _json,
+    collaboratorName: __expectString,
     sessionId: __expectString,
     trace: (_: any) => de_Trace(__expectUnion(_), context),
   }) as any;
@@ -2792,8 +2886,10 @@ const _mI = "memoryId";
 const _mIa = "maxItems";
 const _mT = "memoryType";
 const _nT = "nextToken";
+const _sA = "sourceArn";
 const _sI = "sessionId";
 const _xabact = "x-amzn-bedrock-agent-content-type";
 const _xabami = "x-amz-bedrock-agent-memory-id";
 const _xabasi = "x-amz-bedrock-agent-session-id";
 const _xabkbsi = "x-amzn-bedrock-knowledge-base-session-id";
+const _xasa = "x-amz-source-arn";

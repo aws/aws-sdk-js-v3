@@ -96,6 +96,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  *           },
  *           httpStatusCode: Number("int"),
  *           responseState: "FAILURE" || "REPROMPT",
+ *           agentId: "STRING_VALUE",
  *         },
  *         functionResult: { // FunctionResult
  *           actionGroup: "STRING_VALUE", // required
@@ -107,6 +108,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  *             },
  *           },
  *           responseState: "FAILURE" || "REPROMPT",
+ *           agentId: "STRING_VALUE",
  *         },
  *       },
  *     ],
@@ -477,6 +479,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //               ],
  * //             },
  * //             parserMode: "DEFAULT" || "OVERRIDDEN",
+ * //             foundationModel: "STRING_VALUE",
  * //           },
  * //           modelInvocationOutput: { // PreProcessingModelInvocationOutput
  * //             traceId: "STRING_VALUE",
@@ -502,7 +505,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //           },
  * //           invocationInput: { // InvocationInput
  * //             traceId: "STRING_VALUE",
- * //             invocationType: "ACTION_GROUP" || "KNOWLEDGE_BASE" || "FINISH" || "ACTION_GROUP_CODE_INTERPRETER",
+ * //             invocationType: "ACTION_GROUP" || "KNOWLEDGE_BASE" || "FINISH" || "ACTION_GROUP_CODE_INTERPRETER" || "AGENT_COLLABORATOR",
  * //             actionGroupInvocationInput: { // ActionGroupInvocationInput
  * //               actionGroupName: "STRING_VALUE",
  * //               verb: "STRING_VALUE",
@@ -539,12 +542,106 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //                 "STRING_VALUE",
  * //               ],
  * //             },
+ * //             agentCollaboratorInvocationInput: { // AgentCollaboratorInvocationInput
+ * //               agentCollaboratorName: "STRING_VALUE",
+ * //               agentCollaboratorAliasArn: "STRING_VALUE",
+ * //               input: { // AgentCollaboratorInputPayload
+ * //                 type: "TEXT" || "RETURN_CONTROL",
+ * //                 text: "STRING_VALUE",
+ * //                 returnControlResults: { // ReturnControlResults
+ * //                   invocationId: "STRING_VALUE",
+ * //                   returnControlInvocationResults: [ // ReturnControlInvocationResults
+ * //                     { // InvocationResultMember Union: only one key present
+ * //                       apiResult: { // ApiResult
+ * //                         actionGroup: "STRING_VALUE", // required
+ * //                         httpMethod: "STRING_VALUE",
+ * //                         apiPath: "STRING_VALUE",
+ * //                         confirmationState: "CONFIRM" || "DENY",
+ * //                         responseBody: { // ResponseBody
+ * //                           "<keys>": { // ContentBody
+ * //                             body: "STRING_VALUE",
+ * //                           },
+ * //                         },
+ * //                         httpStatusCode: Number("int"),
+ * //                         responseState: "FAILURE" || "REPROMPT",
+ * //                         agentId: "STRING_VALUE",
+ * //                       },
+ * //                       functionResult: { // FunctionResult
+ * //                         actionGroup: "STRING_VALUE", // required
+ * //                         confirmationState: "CONFIRM" || "DENY",
+ * //                         function: "STRING_VALUE",
+ * //                         responseBody: {
+ * //                           "<keys>": {
+ * //                             body: "STRING_VALUE",
+ * //                           },
+ * //                         },
+ * //                         responseState: "FAILURE" || "REPROMPT",
+ * //                         agentId: "STRING_VALUE",
+ * //                       },
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               },
+ * //             },
  * //           },
  * //           observation: { // Observation
  * //             traceId: "STRING_VALUE",
- * //             type: "ACTION_GROUP" || "KNOWLEDGE_BASE" || "FINISH" || "ASK_USER" || "REPROMPT",
+ * //             type: "ACTION_GROUP" || "AGENT_COLLABORATOR" || "KNOWLEDGE_BASE" || "FINISH" || "ASK_USER" || "REPROMPT",
  * //             actionGroupInvocationOutput: { // ActionGroupInvocationOutput
  * //               text: "STRING_VALUE",
+ * //             },
+ * //             agentCollaboratorInvocationOutput: { // AgentCollaboratorInvocationOutput
+ * //               agentCollaboratorName: "STRING_VALUE",
+ * //               agentCollaboratorAliasArn: "STRING_VALUE",
+ * //               output: { // AgentCollaboratorOutputPayload
+ * //                 type: "TEXT" || "RETURN_CONTROL",
+ * //                 text: "STRING_VALUE",
+ * //                 returnControlPayload: { // ReturnControlPayload
+ * //                   invocationInputs: [ // InvocationInputs
+ * //                     { // InvocationInputMember Union: only one key present
+ * //                       apiInvocationInput: { // ApiInvocationInput
+ * //                         actionGroup: "STRING_VALUE", // required
+ * //                         httpMethod: "STRING_VALUE",
+ * //                         apiPath: "STRING_VALUE",
+ * //                         parameters: [ // ApiParameters
+ * //                           { // ApiParameter
+ * //                             name: "STRING_VALUE",
+ * //                             type: "STRING_VALUE",
+ * //                             value: "STRING_VALUE",
+ * //                           },
+ * //                         ],
+ * //                         requestBody: { // ApiRequestBody
+ * //                           content: { // ApiContentMap
+ * //                             "<keys>": { // PropertyParameters
+ * //                               properties: [ // ParameterList
+ * //                                 "<Parameter>",
+ * //                               ],
+ * //                             },
+ * //                           },
+ * //                         },
+ * //                         actionInvocationType: "RESULT" || "USER_CONFIRMATION" || "USER_CONFIRMATION_AND_RESULT",
+ * //                         agentId: "STRING_VALUE",
+ * //                         collaboratorName: "STRING_VALUE",
+ * //                       },
+ * //                       functionInvocationInput: { // FunctionInvocationInput
+ * //                         actionGroup: "STRING_VALUE", // required
+ * //                         parameters: [ // FunctionParameters
+ * //                           { // FunctionParameter
+ * //                             name: "STRING_VALUE",
+ * //                             type: "STRING_VALUE",
+ * //                             value: "STRING_VALUE",
+ * //                           },
+ * //                         ],
+ * //                         function: "STRING_VALUE",
+ * //                         actionInvocationType: "RESULT" || "USER_CONFIRMATION" || "USER_CONFIRMATION_AND_RESULT",
+ * //                         agentId: "STRING_VALUE",
+ * //                         collaboratorName: "STRING_VALUE",
+ * //                       },
+ * //                     },
+ * //                   ],
+ * //                   invocationId: "STRING_VALUE",
+ * //                 },
+ * //               },
  * //             },
  * //             knowledgeBaseLookupOutput: { // KnowledgeBaseLookupOutput
  * //               retrievedReferences: [
@@ -611,6 +708,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //               ],
  * //             },
  * //             parserMode: "DEFAULT" || "OVERRIDDEN",
+ * //             foundationModel: "STRING_VALUE",
  * //           },
  * //           modelInvocationOutput: { // OrchestrationModelInvocationOutput
  * //             traceId: "STRING_VALUE",
@@ -642,12 +740,226 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //               ],
  * //             },
  * //             parserMode: "DEFAULT" || "OVERRIDDEN",
+ * //             foundationModel: "STRING_VALUE",
  * //           },
  * //           modelInvocationOutput: { // PostProcessingModelInvocationOutput
  * //             traceId: "STRING_VALUE",
  * //             parsedResponse: { // PostProcessingParsedResponse
  * //               text: "STRING_VALUE",
  * //             },
+ * //             rawResponse: {
+ * //               content: "STRING_VALUE",
+ * //             },
+ * //             metadata: {
+ * //               usage: {
+ * //                 inputTokens: Number("int"),
+ * //                 outputTokens: Number("int"),
+ * //               },
+ * //             },
+ * //           },
+ * //         },
+ * //         routingClassifierTrace: { // RoutingClassifierTrace Union: only one key present
+ * //           invocationInput: {
+ * //             traceId: "STRING_VALUE",
+ * //             invocationType: "ACTION_GROUP" || "KNOWLEDGE_BASE" || "FINISH" || "ACTION_GROUP_CODE_INTERPRETER" || "AGENT_COLLABORATOR",
+ * //             actionGroupInvocationInput: {
+ * //               actionGroupName: "STRING_VALUE",
+ * //               verb: "STRING_VALUE",
+ * //               apiPath: "STRING_VALUE",
+ * //               parameters: [
+ * //                 "<Parameter>",
+ * //               ],
+ * //               requestBody: {
+ * //                 content: {
+ * //                   "<keys>": [
+ * //                     "<Parameter>",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //               function: "STRING_VALUE",
+ * //               executionType: "LAMBDA" || "RETURN_CONTROL",
+ * //               invocationId: "STRING_VALUE",
+ * //             },
+ * //             knowledgeBaseLookupInput: {
+ * //               text: "STRING_VALUE",
+ * //               knowledgeBaseId: "STRING_VALUE",
+ * //             },
+ * //             codeInterpreterInvocationInput: {
+ * //               code: "STRING_VALUE",
+ * //               files: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             agentCollaboratorInvocationInput: {
+ * //               agentCollaboratorName: "STRING_VALUE",
+ * //               agentCollaboratorAliasArn: "STRING_VALUE",
+ * //               input: {
+ * //                 type: "TEXT" || "RETURN_CONTROL",
+ * //                 text: "STRING_VALUE",
+ * //                 returnControlResults: {
+ * //                   invocationId: "STRING_VALUE",
+ * //                   returnControlInvocationResults: [
+ * //                     {//  Union: only one key present
+ * //                       apiResult: {
+ * //                         actionGroup: "STRING_VALUE", // required
+ * //                         httpMethod: "STRING_VALUE",
+ * //                         apiPath: "STRING_VALUE",
+ * //                         confirmationState: "CONFIRM" || "DENY",
+ * //                         responseBody: {
+ * //                           "<keys>": {
+ * //                             body: "STRING_VALUE",
+ * //                           },
+ * //                         },
+ * //                         httpStatusCode: Number("int"),
+ * //                         responseState: "FAILURE" || "REPROMPT",
+ * //                         agentId: "STRING_VALUE",
+ * //                       },
+ * //                       functionResult: {
+ * //                         actionGroup: "STRING_VALUE", // required
+ * //                         confirmationState: "CONFIRM" || "DENY",
+ * //                         function: "STRING_VALUE",
+ * //                         responseBody: {
+ * //                           "<keys>": {
+ * //                             body: "STRING_VALUE",
+ * //                           },
+ * //                         },
+ * //                         responseState: "FAILURE" || "REPROMPT",
+ * //                         agentId: "STRING_VALUE",
+ * //                       },
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               },
+ * //             },
+ * //           },
+ * //           observation: {
+ * //             traceId: "STRING_VALUE",
+ * //             type: "ACTION_GROUP" || "AGENT_COLLABORATOR" || "KNOWLEDGE_BASE" || "FINISH" || "ASK_USER" || "REPROMPT",
+ * //             actionGroupInvocationOutput: {
+ * //               text: "STRING_VALUE",
+ * //             },
+ * //             agentCollaboratorInvocationOutput: {
+ * //               agentCollaboratorName: "STRING_VALUE",
+ * //               agentCollaboratorAliasArn: "STRING_VALUE",
+ * //               output: {
+ * //                 type: "TEXT" || "RETURN_CONTROL",
+ * //                 text: "STRING_VALUE",
+ * //                 returnControlPayload: {
+ * //                   invocationInputs: [
+ * //                     {//  Union: only one key present
+ * //                       apiInvocationInput: {
+ * //                         actionGroup: "STRING_VALUE", // required
+ * //                         httpMethod: "STRING_VALUE",
+ * //                         apiPath: "STRING_VALUE",
+ * //                         parameters: [
+ * //                           {
+ * //                             name: "STRING_VALUE",
+ * //                             type: "STRING_VALUE",
+ * //                             value: "STRING_VALUE",
+ * //                           },
+ * //                         ],
+ * //                         requestBody: {
+ * //                           content: {
+ * //                             "<keys>": {
+ * //                               properties: [
+ * //                                 "<Parameter>",
+ * //                               ],
+ * //                             },
+ * //                           },
+ * //                         },
+ * //                         actionInvocationType: "RESULT" || "USER_CONFIRMATION" || "USER_CONFIRMATION_AND_RESULT",
+ * //                         agentId: "STRING_VALUE",
+ * //                         collaboratorName: "STRING_VALUE",
+ * //                       },
+ * //                       functionInvocationInput: {
+ * //                         actionGroup: "STRING_VALUE", // required
+ * //                         parameters: [
+ * //                           {
+ * //                             name: "STRING_VALUE",
+ * //                             type: "STRING_VALUE",
+ * //                             value: "STRING_VALUE",
+ * //                           },
+ * //                         ],
+ * //                         function: "STRING_VALUE",
+ * //                         actionInvocationType: "RESULT" || "USER_CONFIRMATION" || "USER_CONFIRMATION_AND_RESULT",
+ * //                         agentId: "STRING_VALUE",
+ * //                         collaboratorName: "STRING_VALUE",
+ * //                       },
+ * //                     },
+ * //                   ],
+ * //                   invocationId: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             },
+ * //             knowledgeBaseLookupOutput: {
+ * //               retrievedReferences: [
+ * //                 {
+ * //                   content: {
+ * //                     text: "STRING_VALUE", // required
+ * //                   },
+ * //                   location: {
+ * //                     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM", // required
+ * //                     s3Location: {
+ * //                       uri: "STRING_VALUE",
+ * //                     },
+ * //                     webLocation: {
+ * //                       url: "STRING_VALUE",
+ * //                     },
+ * //                     confluenceLocation: {
+ * //                       url: "STRING_VALUE",
+ * //                     },
+ * //                     salesforceLocation: {
+ * //                       url: "STRING_VALUE",
+ * //                     },
+ * //                     sharePointLocation: {
+ * //                       url: "STRING_VALUE",
+ * //                     },
+ * //                     customDocumentLocation: {
+ * //                       id: "STRING_VALUE",
+ * //                     },
+ * //                   },
+ * //                   metadata: {
+ * //                     "<keys>": "DOCUMENT_VALUE",
+ * //                   },
+ * //                 },
+ * //               ],
+ * //             },
+ * //             finalResponse: {
+ * //               text: "STRING_VALUE",
+ * //             },
+ * //             repromptResponse: {
+ * //               text: "STRING_VALUE",
+ * //               source: "ACTION_GROUP" || "KNOWLEDGE_BASE" || "PARSER",
+ * //             },
+ * //             codeInterpreterInvocationOutput: {
+ * //               executionOutput: "STRING_VALUE",
+ * //               executionError: "STRING_VALUE",
+ * //               files: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               executionTimeout: true || false,
+ * //             },
+ * //           },
+ * //           modelInvocationInput: {
+ * //             traceId: "STRING_VALUE",
+ * //             text: "STRING_VALUE",
+ * //             type: "PRE_PROCESSING" || "ORCHESTRATION" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "POST_PROCESSING" || "ROUTING_CLASSIFIER",
+ * //             overrideLambda: "STRING_VALUE",
+ * //             promptCreationMode: "DEFAULT" || "OVERRIDDEN",
+ * //             inferenceConfiguration: {
+ * //               temperature: Number("float"),
+ * //               topP: Number("float"),
+ * //               topK: Number("int"),
+ * //               maximumLength: Number("int"),
+ * //               stopSequences: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             parserMode: "DEFAULT" || "OVERRIDDEN",
+ * //             foundationModel: "STRING_VALUE",
+ * //           },
+ * //           modelInvocationOutput: { // RoutingClassifierModelInvocationOutput
+ * //             traceId: "STRING_VALUE",
  * //             rawResponse: {
  * //               content: "STRING_VALUE",
  * //             },
@@ -672,38 +984,36 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //       },
  * //     },
  * //     returnControl: { // InlineAgentReturnControlPayload
- * //       invocationInputs: [ // InvocationInputs
- * //         { // InvocationInputMember Union: only one key present
- * //           apiInvocationInput: { // ApiInvocationInput
+ * //       invocationInputs: [
+ * //         {//  Union: only one key present
+ * //           apiInvocationInput: {
  * //             actionGroup: "STRING_VALUE", // required
  * //             httpMethod: "STRING_VALUE",
  * //             apiPath: "STRING_VALUE",
- * //             parameters: [ // ApiParameters
- * //               { // ApiParameter
+ * //             parameters: [
+ * //               {
  * //                 name: "STRING_VALUE",
  * //                 type: "STRING_VALUE",
  * //                 value: "STRING_VALUE",
  * //               },
  * //             ],
- * //             requestBody: { // ApiRequestBody
- * //               content: { // ApiContentMap
- * //                 "<keys>": { // PropertyParameters
- * //                   properties: [ // ParameterList
- * //                     {
- * //                       name: "STRING_VALUE",
- * //                       type: "STRING_VALUE",
- * //                       value: "STRING_VALUE",
- * //                     },
+ * //             requestBody: {
+ * //               content: {
+ * //                 "<keys>": {
+ * //                   properties: [
+ * //                     "<Parameter>",
  * //                   ],
  * //                 },
  * //               },
  * //             },
  * //             actionInvocationType: "RESULT" || "USER_CONFIRMATION" || "USER_CONFIRMATION_AND_RESULT",
+ * //             agentId: "STRING_VALUE",
+ * //             collaboratorName: "STRING_VALUE",
  * //           },
- * //           functionInvocationInput: { // FunctionInvocationInput
+ * //           functionInvocationInput: {
  * //             actionGroup: "STRING_VALUE", // required
- * //             parameters: [ // FunctionParameters
- * //               { // FunctionParameter
+ * //             parameters: [
+ * //               {
  * //                 name: "STRING_VALUE",
  * //                 type: "STRING_VALUE",
  * //                 value: "STRING_VALUE",
@@ -711,6 +1021,8 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //             ],
  * //             function: "STRING_VALUE",
  * //             actionInvocationType: "RESULT" || "USER_CONFIRMATION" || "USER_CONFIRMATION_AND_RESULT",
+ * //             agentId: "STRING_VALUE",
+ * //             collaboratorName: "STRING_VALUE",
  * //           },
  * //         },
  * //       ],
