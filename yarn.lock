@@ -23219,6 +23219,30 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/dsql-signer@workspace:packages/dsql-signer":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/dsql-signer@workspace:packages/dsql-signer"
+  dependencies:
+    "@aws-crypto/sha256-browser": "npm:5.2.0"
+    "@aws-crypto/sha256-js": "npm:5.2.0"
+    "@aws-sdk/credential-providers": "npm:*"
+    "@aws-sdk/util-format-url": "npm:*"
+    "@smithy/config-resolver": "npm:^3.0.12"
+    "@smithy/hash-node": "npm:^3.0.10"
+    "@smithy/invalid-dependency": "npm:^3.0.10"
+    "@smithy/node-config-provider": "npm:^3.1.11"
+    "@smithy/protocol-http": "npm:^4.1.7"
+    "@smithy/signature-v4": "npm:^4.2.2"
+    "@smithy/types": "npm:^3.7.1"
+    "@types/node": "npm:^16.18.96"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    rimraf: "npm:3.0.2"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~4.9.5"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/ec2-metadata-service@workspace:packages/ec2-metadata-service":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/ec2-metadata-service@workspace:packages/ec2-metadata-service"
