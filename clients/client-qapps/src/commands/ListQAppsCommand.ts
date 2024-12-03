@@ -28,9 +28,9 @@ export interface ListQAppsCommandInput extends ListQAppsInput {}
 export interface ListQAppsCommandOutput extends ListQAppsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon Q Apps owned by or associated with the user either because
- *       they created it or because they used it from the library in the past. The user
- *       identity is extracted from the credentials used to invoke this operation..</p>
+ * <p>Lists the Amazon Q Apps owned by or associated with the user either because they created it
+ *       or because they used it from the library in the past. The user identity is extracted from the
+ *       credentials used to invoke this operation..</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +75,8 @@ export interface ListQAppsCommandOutput extends ListQAppsOutput, __MetadataBeare
  *  <p>An internal service error occurred while processing the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>

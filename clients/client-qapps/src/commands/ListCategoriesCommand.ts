@@ -28,7 +28,8 @@ export interface ListCategoriesCommandInput extends ListCategoriesInput {}
 export interface ListCategoriesCommandOutput extends ListCategoriesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the categories of a Amazon Q Business application environment instance. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html">Custom labels for Amazon Q Apps</a>.</p>
+ * <p>Lists the categories of a Amazon Q Business application environment instance. For more information, see
+ *         <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html">Custom labels for Amazon Q Apps</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,8 +70,8 @@ export interface ListCategoriesCommandOutput extends ListCategoriesOutput, __Met
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>

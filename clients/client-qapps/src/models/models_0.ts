@@ -166,13 +166,11 @@ export interface FormInputCard {
   metadata: FormInputCardMetadata | undefined;
 
   /**
-   * <p>The compute mode of the form input card.
-   *       This property determines whether individual participants of a
-   *       data collection session can submit multiple response or one response.
-   *       A compute mode of <code>append</code> shall allow participants
-   *       to submit the same form multiple times with different values.
-   *       A compute mode of <code>replace</code>code&gt; shall overwrite
-   *       the current value for each participant.</p>
+   * <p>The compute mode of the form input card. This property determines whether individual
+   *       participants of a data collection session can submit multiple response or one response. A
+   *       compute mode of <code>append</code> shall allow participants to submit the same form multiple
+   *       times with different values. A compute mode of <code>replace</code>code&gt; shall overwrite the
+   *       current value for each participant.</p>
    * @public
    */
   computeMode?: InputCardComputeMode | undefined;
@@ -183,11 +181,22 @@ export interface FormInputCard {
  * @enum
  */
 export const PluginType = {
+  ASANA: "ASANA",
+  ATLASSIAN_CONFLUENCE: "ATLASSIAN_CONFLUENCE",
   CUSTOM: "CUSTOM",
+  GOOGLE_CALENDAR: "GOOGLE_CALENDAR",
   JIRA: "JIRA",
+  JIRA_CLOUD: "JIRA_CLOUD",
+  MICROSOFT_EXCHANGE: "MICROSOFT_EXCHANGE",
+  MICROSOFT_TEAMS: "MICROSOFT_TEAMS",
+  PAGERDUTY_ADVANCE: "PAGERDUTY_ADVANCE",
   SALESFORCE: "SALESFORCE",
+  SALESFORCE_CRM: "SALESFORCE_CRM",
+  SERVICENOW_NOW_PLATFORM: "SERVICENOW_NOW_PLATFORM",
   SERVICE_NOW: "SERVICE_NOW",
+  SMARTSHEET: "SMARTSHEET",
   ZENDESK: "ZENDESK",
+  ZENDESK_SUITE: "ZENDESK_SUITE",
 } as const;
 
 /**
@@ -241,6 +250,12 @@ export interface QPluginCard {
    * @public
    */
   pluginId: string | undefined;
+
+  /**
+   * <p>The action identifier of the action to be performed by the plugin card.</p>
+   * @public
+   */
+  actionIdentifier?: string | undefined;
 }
 
 /**
@@ -297,9 +312,10 @@ export namespace DocumentAttributeValue {
 
   /**
    * <p>A date expressed as an ISO 8601 string.</p>
-   *          <p>It's important for the time zone to be included in the <i>ISO 8601 date-time</i> format. For
-   *       example, 2012-03-25T12:30:10+01:00 is the ISO 8601 date-time format for March 25th 2012
-   *       at 12:30PM (plus 10 seconds) in Central European Time. </p>
+   *          <p>It's important for the time zone to be included in the <i>ISO 8601
+   *         date-time</i> format. For example, 2012-03-25T12:30:10+01:00 is the ISO 8601
+   *       date-time format for March 25th 2012 at 12:30PM (plus 10 seconds) in Central European Time.
+   *     </p>
    * @public
    */
   export interface DateValueMember {
@@ -413,9 +429,8 @@ export interface TextInputCard {
 }
 
 /**
- * <p>Represents a file upload card. It can optionally
- *       receive a <code>filename</code> and <code>fileId</code> to set a
- *       default file.  If not received, the user must provide the file
+ * <p>Represents a file upload card. It can optionally receive a <code>filename</code> and
+ *         <code>fileId</code> to set a default file. If not received, the user must provide the file
  *       when the Q App runs.</p>
  * @public
  */
@@ -487,13 +502,11 @@ export interface FormInputCardInput {
   metadata: FormInputCardMetadata | undefined;
 
   /**
-   * <p>The compute mode of the form input card.
-   *       This property determines whether individual participants of a
-   *       data collection session can submit multiple response or one response.
-   *       A compute mode of <code>append</code> shall allow participants
-   *       to submit the same form multiple times with different values.
-   *       A compute mode of <code>replace</code>code&gt; shall overwrite
-   *       the current value for each participant.</p>
+   * <p>The compute mode of the form input card. This property determines whether individual
+   *       participants of a data collection session can submit multiple response or one response. A
+   *       compute mode of <code>append</code> shall allow participants to submit the same form multiple
+   *       times with different values. A compute mode of <code>replace</code>code&gt; shall overwrite the
+   *       current value for each participant.</p>
    * @public
    */
   computeMode?: InputCardComputeMode | undefined;
@@ -533,6 +546,12 @@ export interface QPluginCardInput {
    * @public
    */
   pluginId: string | undefined;
+
+  /**
+   * <p>The action identifier of the action to be performed by the plugin card.</p>
+   * @public
+   */
+  actionIdentifier?: string | undefined;
 }
 
 /**
@@ -620,8 +639,8 @@ export interface AssociateLibraryItemReviewInput {
 }
 
 /**
- * <p>The requested operation could not be completed due to a
- *       conflict with the current state of the resource.</p>
+ * <p>The requested operation could not be completed due to a conflict with the current state of
+ *       the resource.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -717,8 +736,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The requested operation could not be completed because
- *       it would exceed the service's quota or limit.</p>
+ * <p>The requested operation could not be completed because it would exceed the service's quota
+ *       or limit.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -766,8 +785,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ * <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -873,7 +892,8 @@ export interface AssociateQAppWithUserInput {
  */
 export interface BatchCreateCategoryInputCategory {
   /**
-   * <p>The unique identifier to be associated with a category. If you don't include a value, the category is automatically assigned a unique identifier.</p>
+   * <p>The unique identifier to be associated with a category. If you don't include a value, the
+   *       category is automatically assigned a unique identifier.</p>
    * @public
    */
   id?: string | undefined;
@@ -885,7 +905,8 @@ export interface BatchCreateCategoryInputCategory {
   title: string | undefined;
 
   /**
-   * <p>The color to be associated with a category. The color must be a hexadecimal value of either 3 or 6 digits.</p>
+   * <p>The color to be associated with a category. The color must be a hexadecimal value of
+   *       either 3 or 6 digits.</p>
    * @public
    */
   color?: string | undefined;
@@ -926,7 +947,8 @@ export interface BatchDeleteCategoryInput {
 }
 
 /**
- * <p>A label that web experience users associate with a library item. Web experience users use Categories to tag and filter library items.</p>
+ * <p>A label that web experience users associate with a library item. Web experience users use
+ *       Categories to tag and filter library items.</p>
  * @public
  */
 export interface CategoryInput {
@@ -943,7 +965,8 @@ export interface CategoryInput {
   title: string | undefined;
 
   /**
-   * <p>The color of the category, represented as a hexadecimal value of either 3 or 6 digits.</p>
+   * <p>The color of the category, represented as a hexadecimal value of either 3 or 6
+   *       digits.</p>
    * @public
    */
   color?: string | undefined;
@@ -1081,8 +1104,8 @@ export interface CardValue {
   value: string | undefined;
 
   /**
-   * <p>The structure that describes how the current form card value is mutated.
-   *       Only applies for form cards when multiple responses are allowed.</p>
+   * <p>The structure that describes how the current form card value is mutated. Only applies for
+   *       form cards when multiple responses are allowed.</p>
    * @public
    */
   submissionMutation?: SubmissionMutation | undefined;
@@ -1119,8 +1142,8 @@ export interface Category {
 }
 
 /**
- * <p>The requested operation could not be completed because
- *       the content exceeds the maximum allowed size.</p>
+ * <p>The requested operation could not be completed because the content exceeds the maximum
+ *       allowed size.</p>
  * @public
  */
 export class ContentTooLargeException extends __BaseException {
@@ -1316,13 +1339,15 @@ export interface CreatePresignedUrlInput {
   fileName: string | undefined;
 
   /**
-   * <p>Whether the file is associated with a Q App definition or a specific Q App session.</p>
+   * <p>Whether the file is associated with a Q App definition or a specific Q App
+   *       session.</p>
    * @public
    */
   scope: DocumentScope | undefined;
 
   /**
-   * <p>The unique identifier of the Q App session the file is associated with, if applicable.</p>
+   * <p>The unique identifier of the Q App session the file is associated with, if
+   *       applicable.</p>
    * @public
    */
   sessionId?: string | undefined;
@@ -1345,7 +1370,8 @@ export interface CreatePresignedUrlOutput {
   presignedUrl: string | undefined;
 
   /**
-   * <p>The form fields to include in the presigned S3 POST operation used to upload a file.</p>
+   * <p>The form fields to include in the presigned S3 POST operation used to upload a
+   *       file.</p>
    * @public
    */
   presignedUrlFields: Record<string, string> | undefined;
@@ -1428,7 +1454,8 @@ export interface CreateQAppOutput {
   updatedBy: string | undefined;
 
   /**
-   * <p>The capabilities required to run the Q App, such as file upload or third-party integrations.</p>
+   * <p>The capabilities required to run the Q App, such as file upload or third-party
+   *       integrations.</p>
    * @public
    */
   requiredCapabilities?: AppRequiredCapability[] | undefined;
@@ -1546,7 +1573,8 @@ export interface PermissionOutput {
  */
 export interface DescribeQAppPermissionsOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q App for which permissions are returned.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q App for which permissions are
+   *       returned.</p>
    * @public
    */
   resourceArn?: string | undefined;
@@ -1831,7 +1859,8 @@ export interface GetQAppSessionOutput {
   cardStatus: Record<string, CardStatus> | undefined;
 
   /**
-   * <p>Indicates whether the current user is the owner of the Q App data collection session.</p>
+   * <p>Indicates whether the current user is the owner of the Q App data collection
+   *       session.</p>
    * @public
    */
   userIsHost?: boolean | undefined;
@@ -1872,7 +1901,8 @@ export interface SessionSharingConfiguration {
   acceptResponses?: boolean | undefined;
 
   /**
-   * <p>Indicates whether collected responses for an Q App session are revealed for all users.</p>
+   * <p>Indicates whether collected responses for an Q App session are revealed for all
+   *       users.</p>
    * @public
    */
   revealCards?: boolean | undefined;
@@ -1948,13 +1978,15 @@ export interface ImportDocumentInput {
   fileName: string | undefined;
 
   /**
-   * <p>Whether the file is associated with a Q App definition or a specific Q App session.</p>
+   * <p>Whether the file is associated with a Q App definition or a specific Q App
+   *       session.</p>
    * @public
    */
   scope: DocumentScope | undefined;
 
   /**
-   * <p>The unique identifier of the Q App session the file is associated with, if applicable.</p>
+   * <p>The unique identifier of the Q App session the file is associated with, if
+   *       applicable.</p>
    * @public
    */
   sessionId?: string | undefined;
@@ -1972,9 +2004,8 @@ export interface ImportDocumentOutput {
 }
 
 /**
- * <p>A library item is a snapshot of an Amazon Q App
- *       that can be published so the users in their Amazon Q Apps library
- *       can discover it, clone it, and run it.</p>
+ * <p>A library item is a snapshot of an Amazon Q App that can be published so the users in their
+ *       Amazon Q Apps library can discover it, clone it, and run it.</p>
  * @public
  */
 export interface LibraryItemMember {
@@ -2263,8 +2294,8 @@ export interface User {
 }
 
 /**
- * <p>The response collected for a Amazon Q App session.
- *       This container represents a single response to a Q App session.</p>
+ * <p>The response collected for a Amazon Q App session. This container represents a single
+ *       response to a Q App session.</p>
  * @public
  */
 export interface QAppSessionData {
@@ -2434,7 +2465,8 @@ export interface PredictQAppInput {
   instanceId: string | undefined;
 
   /**
-   * <p>The input to generate the Q App definition from, either a conversation or problem statement.</p>
+   * <p>The input to generate the Q App definition from, either a conversation or problem
+   *       statement.</p>
    * @public
    */
   options?: PredictQAppInputOptions | undefined;
@@ -2805,7 +2837,8 @@ export interface UpdateQAppPermissionsInput {
  */
 export interface UpdateQAppPermissionsOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q App for which permissions were updated.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q App for which permissions were
+   *       updated.</p>
    * @public
    */
   resourceArn?: string | undefined;
@@ -2922,7 +2955,8 @@ export interface UpdateQAppSessionMetadataOutput {
 }
 
 /**
- * <p>The filter criteria used on responses based on document attributes or metadata fields.</p>
+ * <p>The filter criteria used on responses based on document attributes or metadata
+ *       fields.</p>
  * @public
  */
 export interface AttributeFilter {
@@ -2945,66 +2979,62 @@ export interface AttributeFilter {
   notFilter?: AttributeFilter | undefined;
 
   /**
-   * <p>Performs an <i>equals</i> operation on two document attributes or metadata fields. Supported
-   *       for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code>,
-   *       <code>longValue</code>, <code>stringListValue</code> and
-   *       <code>stringValue</code>.</p>
+   * <p>Performs an <i>equals</i> operation on two document attributes or metadata
+   *       fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code>, <code>longValue</code>,
+   *         <code>stringListValue</code> and <code>stringValue</code>.</p>
    * @public
    */
   equalsTo?: DocumentAttribute | undefined;
 
   /**
-   * <p>Returns <code>true</code> when a document contains all the specified document
-   *       attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>:
-   *       <code>stringListValue</code>.</p>
+   * <p>Returns <code>true</code> when a document contains all the specified document attributes
+   *       or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>stringListValue</code>.</p>
    * @public
    */
   containsAll?: DocumentAttribute | undefined;
 
   /**
    * <p>Returns <code>true</code> when a document contains any of the specified document
-   *       attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>:
-   *       <code>stringListValue</code>.</p>
+   *       attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>stringListValue</code>.</p>
    * @public
    */
   containsAny?: DocumentAttribute | undefined;
 
   /**
-   * <p>Performs a <i>greater than</i> operation on two document attributes or metadata fields.
-   *       Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code>
-   *       and <code>longValue</code>.</p>
+   * <p>Performs a <i>greater than</i> operation on two document attributes or
+   *       metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code> and
+   *       <code>longValue</code>.</p>
    * @public
    */
   greaterThan?: DocumentAttribute | undefined;
 
   /**
-   * <p>Performs a <i>greater than or equals</i> operation on two document attributes or metadata
-   *       fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code>
-   *       and <code>longValue</code>. </p>
+   * <p>Performs a <i>greater than or equals</i> operation on two document
+   *       attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code> and <code>longValue</code>.
+   *     </p>
    * @public
    */
   greaterThanOrEquals?: DocumentAttribute | undefined;
 
   /**
-   * <p>Performs a <i>less than</i> operation on two document attributes or metadata fields.
-   *       Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code>
-   *       and <code>longValue</code>.</p>
+   * <p>Performs a <i>less than</i> operation on two document attributes or metadata
+   *       fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code> and
+   *       <code>longValue</code>.</p>
    * @public
    */
   lessThan?: DocumentAttribute | undefined;
 
   /**
-   * <p>Performs a <i>less than or equals</i> operation on two document attributes or metadata
-   *       fields.Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value type</a>: <code>dateValue</code>
-   *       and <code>longValue</code>. </p>
+   * <p>Performs a <i>less than or equals</i> operation on two document attributes
+   *       or metadata fields.Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value type</a>: <code>dateValue</code> and <code>longValue</code>.
+   *     </p>
    * @public
    */
   lessThanOrEquals?: DocumentAttribute | undefined;
 }
 
 /**
- * <p>A card in a Amazon Q App that generates a response
- *       based on the Amazon Q Business service.</p>
+ * <p>A card in a Amazon Q App that generates a response based on the Amazon Q Business service.</p>
  * @public
  */
 export interface QQueryCard {
@@ -3051,7 +3081,8 @@ export interface QQueryCard {
   attributeFilter?: AttributeFilter | undefined;
 
   /**
-   * <p>Any dependencies for the query card, where the dependencies are references to the collected responses.</p>
+   * <p>Any dependencies for the query card, where the dependencies are references to the
+   *       collected responses.</p>
    * @public
    */
   memoryReferences?: string[] | undefined;
@@ -3471,7 +3502,8 @@ export interface GetQAppOutput {
   updatedBy: string | undefined;
 
   /**
-   * <p>The capabilities required to run the Q App, such as file upload or third-party integrations.</p>
+   * <p>The capabilities required to run the Q App, such as file upload or third-party
+   *       integrations.</p>
    * @public
    */
   requiredCapabilities?: AppRequiredCapability[] | undefined;
@@ -3484,8 +3516,8 @@ export interface GetQAppOutput {
 }
 
 /**
- * <p>The definition of an Amazon Q App generated based on input such as a conversation
- *       or problem statement.</p>
+ * <p>The definition of an Amazon Q App generated based on input such as a conversation or problem
+ *       statement.</p>
  * @public
  */
 export interface PredictAppDefinition {

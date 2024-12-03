@@ -28,11 +28,10 @@ export interface CreatePresignedUrlCommandInput extends CreatePresignedUrlInput 
 export interface CreatePresignedUrlCommandOutput extends CreatePresignedUrlOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a presigned URL for an S3 POST operation to upload a file.
- *       You can use this URL to set a default file for a <code>FileUploadCard</code>
- *       in a Q App definition or to provide a file for a single Q App run.
- *       The <code>scope</code> parameter determines how the file will be used,
- *       either at the app definition level or the app session level.</p>
+ * <p>Creates a presigned URL for an S3 POST operation to upload a file. You can use this URL to
+ *       set a default file for a <code>FileUploadCard</code> in a Q App definition or to provide a
+ *       file for a single Q App run. The <code>scope</code> parameter determines how the file will be
+ *       used, either at the app definition level or the app session level.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,8 +73,8 @@ export interface CreatePresignedUrlCommandOutput extends CreatePresignedUrlOutpu
  *  <p>An internal service error occurred while processing the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>

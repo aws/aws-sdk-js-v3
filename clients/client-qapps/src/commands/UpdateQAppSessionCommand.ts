@@ -28,11 +28,11 @@ export interface UpdateQAppSessionCommandInput extends UpdateQAppSessionInput {}
 export interface UpdateQAppSessionCommandOutput extends UpdateQAppSessionOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the session for a given Q App <code>sessionId</code>. This is only
- *       valid when at least one card of the session is in the <code>WAITING</code> state.
- *       Data for each <code>WAITING</code> card can be provided as input. If inputs
- *       are not provided, the call will be accepted but session will not move forward.
- *       Inputs for cards that are not in the <code>WAITING</code> status will be ignored.</p>
+ * <p>Updates the session for a given Q App <code>sessionId</code>. This is only valid when at
+ *       least one card of the session is in the <code>WAITING</code> state. Data for each
+ *         <code>WAITING</code> card can be provided as input. If inputs are not provided, the call
+ *       will be accepted but session will not move forward. Inputs for cards that are not in the
+ *         <code>WAITING</code> status will be ignored.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,12 +78,12 @@ export interface UpdateQAppSessionCommandOutput extends UpdateQAppSessionOutput,
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because
- *       it would exceed the service's quota or limit.</p>
+ *  <p>The requested operation could not be completed because it would exceed the service's quota
+ *       or limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>

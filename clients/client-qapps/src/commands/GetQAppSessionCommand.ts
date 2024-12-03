@@ -82,12 +82,12 @@ export interface GetQAppSessionCommandOutput extends GetQAppSessionOutput, __Met
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because
- *       it would exceed the service's quota or limit.</p>
+ *  <p>The requested operation could not be completed because it would exceed the service's quota
+ *       or limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
@@ -117,7 +117,17 @@ export interface GetQAppSessionCommandOutput extends GetQAppSessionOutput, __Met
  *     },
  *     "6fb5b404-3b7b-48a4-8a8b-56406922a606": {
  *       "currentState": "COMPLETED",
- *       "currentValue": ""
+ *       "currentValue": "",
+ *       "submissions": [
+ *         {
+ *           "value": {
+ *             "18cee4cb-253e-4f87-9154-849fbb98e482": "user1",
+ *             "d52030f9-6c4b-47a9-a946-377f632c77cc": "red"
+ *           },
+ *           "submissionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+ *           "timestamp": "2023-06-15T14:30:45Z"
+ *         }
+ *       ]
  *     }
  *   },
  *   "sessionArn": "arn:aws:qapps:us-west-2:0123456789012:application/a929ecd6-5765-4ec7-bd3e-2ca90098b18e/qapp/65e7dce7-226a-47f9-b689-22850becef89/session/1fca878e-64c5-4dc4-b1d9-c93effed4e82",

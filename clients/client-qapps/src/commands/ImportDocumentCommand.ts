@@ -28,11 +28,10 @@ export interface ImportDocumentCommandInput extends ImportDocumentInput {}
 export interface ImportDocumentCommandOutput extends ImportDocumentOutput, __MetadataBearer {}
 
 /**
- * <p>Uploads a file that can then be used either as a default in a
- *       <code>FileUploadCard</code> from Q App definition or as a file that
- *       is used inside a single Q App run. The purpose of the document is
- *       determined by a scope parameter that indicates whether it is at the
- *       app definition level or at the app session level.</p>
+ * <p>Uploads a file that can then be used either as a default in a <code>FileUploadCard</code>
+ *       from Q App definition or as a file that is used inside a single Q App run. The purpose of
+ *       the document is determined by a scope parameter that indicates whether it is at the app
+ *       definition level or at the app session level.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +65,8 @@ export interface ImportDocumentCommandOutput extends ImportDocumentOutput, __Met
  *  <p>The client is not authorized to perform the requested operation.</p>
  *
  * @throws {@link ContentTooLargeException} (client fault)
- *  <p>The requested operation could not be completed because
- *       the content exceeds the maximum allowed size.</p>
+ *  <p>The requested operation could not be completed because the content exceeds the maximum
+ *       allowed size.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal service error occurred while processing the request.</p>
@@ -76,12 +75,12 @@ export interface ImportDocumentCommandOutput extends ImportDocumentOutput, __Met
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because
- *       it would exceed the service's quota or limit.</p>
+ *  <p>The requested operation could not be completed because it would exceed the service's quota
+ *       or limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>

@@ -28,7 +28,8 @@ export interface GetQAppCommandInput extends GetQAppInput {}
 export interface GetQAppCommandOutput extends GetQAppOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the full details of an Q App, including its definition specifying the cards and flow.</p>
+ * <p>Retrieves the full details of an Q App, including its definition specifying the cards and
+ *       flow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -173,8 +174,9 @@ export interface GetQAppCommandOutput extends GetQAppOutput, __MetadataBearer {}
  * //           ],
  * //           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  * //           prompt: "STRING_VALUE", // required
- * //           pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM", // required
+ * //           pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM" || "ASANA" || "ATLASSIAN_CONFLUENCE" || "GOOGLE_CALENDAR" || "JIRA_CLOUD" || "MICROSOFT_EXCHANGE" || "MICROSOFT_TEAMS" || "PAGERDUTY_ADVANCE" || "SALESFORCE_CRM" || "SERVICENOW_NOW_PLATFORM" || "SMARTSHEET" || "ZENDESK_SUITE", // required
  * //           pluginId: "STRING_VALUE", // required
+ * //           actionIdentifier: "STRING_VALUE",
  * //         },
  * //         fileUpload: { // FileUploadCard
  * //           id: "STRING_VALUE", // required
@@ -223,8 +225,8 @@ export interface GetQAppCommandOutput extends GetQAppOutput, __MetadataBearer {}
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>

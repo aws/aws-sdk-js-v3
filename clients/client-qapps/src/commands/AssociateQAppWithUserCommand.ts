@@ -29,8 +29,8 @@ export interface AssociateQAppWithUserCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation creates a link between the user's identity calling the operation and a
- *       specific Q App. This is useful to mark the Q App as a <i>favorite</i> for
- *       the user if the user doesn't own the Amazon Q App so they can still run it and see it in their
+ *       specific Q App. This is useful to mark the Q App as a <i>favorite</i> for the
+ *       user if the user doesn't own the Amazon Q App so they can still run it and see it in their
  *       inventory of Q Apps.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,12 +64,12 @@ export interface AssociateQAppWithUserCommandOutput extends __MetadataBearer {}
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because
- *       it would exceed the service's quota or limit.</p>
+ *  <p>The requested operation could not be completed because it would exceed the service's quota
+ *       or limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>

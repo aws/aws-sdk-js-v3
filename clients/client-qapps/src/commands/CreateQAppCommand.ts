@@ -29,8 +29,8 @@ export interface CreateQAppCommandOutput extends CreateQAppOutput, __MetadataBea
 
 /**
  * <p>Creates a new Amazon Q App based on the provided definition. The Q App definition specifies
- *       the cards and flow of the Q App. This operation also calculates the dependencies between the cards
- *       by inspecting the references in the prompts. </p>
+ *       the cards and flow of the Q App. This operation also calculates the dependencies between the
+ *       cards by inspecting the references in the prompts. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -145,6 +145,7 @@ export interface CreateQAppCommandOutput extends CreateQAppOutput, __MetadataBea
  *           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  *           prompt: "STRING_VALUE", // required
  *           pluginId: "STRING_VALUE", // required
+ *           actionIdentifier: "STRING_VALUE",
  *         },
  *         fileUpload: { // FileUploadCardInput
  *           title: "STRING_VALUE", // required
@@ -202,23 +203,23 @@ export interface CreateQAppCommandOutput extends CreateQAppOutput, __MetadataBea
  *  <p>The client is not authorized to perform the requested operation.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation could not be completed due to a
- *       conflict with the current state of the resource.</p>
+ *  <p>The requested operation could not be completed due to a conflict with the current state of
+ *       the resource.</p>
  *
  * @throws {@link ContentTooLargeException} (client fault)
- *  <p>The requested operation could not be completed because
- *       the content exceeds the maximum allowed size.</p>
+ *  <p>The requested operation could not be completed because the content exceeds the maximum
+ *       allowed size.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal service error occurred while processing the request.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because
- *       it would exceed the service's quota or limit.</p>
+ *  <p>The requested operation could not be completed because it would exceed the service's quota
+ *       or limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many
- *       requests were sent at once. Wait a bit and try again later.</p>
+ *  <p>The requested operation could not be completed because too many requests were sent at
+ *       once. Wait a bit and try again later.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
