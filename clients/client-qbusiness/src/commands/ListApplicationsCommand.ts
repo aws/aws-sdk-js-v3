@@ -56,7 +56,10 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED" || "UPDATING",
- * //       identityType: "AWS_IAM_IDP_SAML" || "AWS_IAM_IDP_OIDC" || "AWS_IAM_IDC",
+ * //       identityType: "AWS_IAM_IDP_SAML" || "AWS_IAM_IDP_OIDC" || "AWS_IAM_IDC" || "AWS_QUICKSIGHT_IDP",
+ * //       quickSightConfiguration: { // QuickSightConfiguration
+ * //         clientNamespace: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * // };

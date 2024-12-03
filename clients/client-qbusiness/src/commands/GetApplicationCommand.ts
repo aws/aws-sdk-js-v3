@@ -48,7 +48,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //   displayName: "STRING_VALUE",
  * //   applicationId: "STRING_VALUE",
  * //   applicationArn: "STRING_VALUE",
- * //   identityType: "AWS_IAM_IDP_SAML" || "AWS_IAM_IDP_OIDC" || "AWS_IAM_IDC",
+ * //   identityType: "AWS_IAM_IDP_SAML" || "AWS_IAM_IDP_OIDC" || "AWS_IAM_IDC" || "AWS_QUICKSIGHT_IDP",
  * //   iamIdentityProviderArn: "STRING_VALUE",
  * //   identityCenterApplicationArn: "STRING_VALUE",
  * //   roleArn: "STRING_VALUE",
@@ -79,6 +79,9 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //   clientIdsForOIDC: [ // ClientIdsForOIDC
  * //     "STRING_VALUE",
  * //   ],
+ * //   quickSightConfiguration: { // QuickSightConfiguration
+ * //     clientNamespace: "STRING_VALUE", // required
+ * //   },
  * // };
  *
  * ```
@@ -98,8 +101,8 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try

@@ -56,7 +56,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * const input = { // CreateApplicationRequest
  *   displayName: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE",
- *   identityType: "AWS_IAM_IDP_SAML" || "AWS_IAM_IDP_OIDC" || "AWS_IAM_IDC",
+ *   identityType: "AWS_IAM_IDP_SAML" || "AWS_IAM_IDP_OIDC" || "AWS_IAM_IDC" || "AWS_QUICKSIGHT_IDP",
  *   iamIdentityProviderArn: "STRING_VALUE",
  *   identityCenterInstanceArn: "STRING_VALUE",
  *   clientIdsForOIDC: [ // ClientIdsForOIDC
@@ -81,6 +81,9 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *   },
  *   personalizationConfiguration: { // PersonalizationConfiguration
  *     personalizationControlMode: "ENABLED" || "DISABLED", // required
+ *   },
+ *   quickSightConfiguration: { // QuickSightConfiguration
+ *     clientNamespace: "STRING_VALUE", // required
  *   },
  * };
  * const command = new CreateApplicationCommand(input);
@@ -111,8 +114,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the set limits for your Amazon Q Business service. </p>

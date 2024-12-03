@@ -75,8 +75,8 @@ export interface ListConversationsCommandOutput extends ListConversationsRespons
  *             your admin to activate your license and try again after your licence is active.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try

@@ -60,8 +60,14 @@ export interface UpdatePluginCommandOutput extends UpdatePluginResponse, __Metad
  *     oAuth2ClientCredentialConfiguration: { // OAuth2ClientCredentialConfiguration
  *       secretArn: "STRING_VALUE", // required
  *       roleArn: "STRING_VALUE", // required
+ *       authorizationUrl: "STRING_VALUE",
+ *       tokenUrl: "STRING_VALUE",
  *     },
  *     noAuthConfiguration: {},
+ *     idcAuthConfiguration: { // IdcAuthConfiguration
+ *       idcApplicationArn: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *     },
  *   },
  * };
  * const command = new UpdatePluginCommand(input);
@@ -89,8 +95,8 @@ export interface UpdatePluginCommandOutput extends UpdatePluginResponse, __Metad
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the set limits for your Amazon Q Business service. </p>

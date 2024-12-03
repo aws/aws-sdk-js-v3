@@ -210,6 +210,119 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * <p>The value of a document attribute. You can only provide one value for a document
+ *             attribute.</p>
+ * @public
+ */
+export type DocumentAttributeValue =
+  | DocumentAttributeValue.DateValueMember
+  | DocumentAttributeValue.LongValueMember
+  | DocumentAttributeValue.StringListValueMember
+  | DocumentAttributeValue.StringValueMember
+  | DocumentAttributeValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DocumentAttributeValue {
+  /**
+   * <p>A string.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    stringValue: string;
+    stringListValue?: never;
+    longValue?: never;
+    dateValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of strings.</p>
+   * @public
+   */
+  export interface StringListValueMember {
+    stringValue?: never;
+    stringListValue: string[];
+    longValue?: never;
+    dateValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A long integer value. </p>
+   * @public
+   */
+  export interface LongValueMember {
+    stringValue?: never;
+    stringListValue?: never;
+    longValue: number;
+    dateValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A date expressed as an ISO 8601 string.</p>
+   *          <p>It's important for the time zone to be included in the ISO 8601 date-time format. For
+   *             example, 2012-03-25T12:30:10+01:00 is the ISO 8601 date-time format for March 25th 2012
+   *             at 12:30PM (plus 10 seconds) in Central European Time. </p>
+   * @public
+   */
+  export interface DateValueMember {
+    stringValue?: never;
+    stringListValue?: never;
+    longValue?: never;
+    dateValue: Date;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    stringListValue?: never;
+    longValue?: never;
+    dateValue?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    stringListValue: (value: string[]) => T;
+    longValue: (value: number) => T;
+    dateValue: (value: Date) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DocumentAttributeValue, visitor: Visitor<T>): T => {
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
+    if (value.stringListValue !== undefined) return visitor.stringListValue(value.stringListValue);
+    if (value.longValue !== undefined) return visitor.longValue(value.longValue);
+    if (value.dateValue !== undefined) return visitor.dateValue(value.dateValue);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>A document attribute or metadata field.</p>
+ * @public
+ */
+export interface DocumentAttribute {
+  /**
+   * <p>The identifier for the attribute.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The value of the attribute. </p>
+   * @public
+   */
+  value: DocumentAttributeValue | undefined;
+}
+
+/**
  * <p>A user input field in an plugin action execution payload.</p>
  * @public
  */
@@ -364,7 +477,7 @@ export interface ActionReviewPayloadField {
 
   /**
    * <p>Use to create a custom form with array fields (fields with nested objects inside an
-   *             array). </p>
+   *             array).</p>
    * @public
    */
   arrayItemJsonSchema?: __DocumentType | undefined;
@@ -381,11 +494,23 @@ export interface ActionReviewPayloadField {
  * @enum
  */
 export const PluginType = {
+  ASANA: "ASANA",
+  ATLASSIAN_CONFLUENCE: "ATLASSIAN_CONFLUENCE",
   CUSTOM: "CUSTOM",
+  GOOGLE_CALENDAR: "GOOGLE_CALENDAR",
   JIRA: "JIRA",
+  JIRA_CLOUD: "JIRA_CLOUD",
+  MICROSOFT_EXCHANGE: "MICROSOFT_EXCHANGE",
+  MICROSOFT_TEAMS: "MICROSOFT_TEAMS",
+  PAGERDUTY_ADVANCE: "PAGERDUTY_ADVANCE",
+  QUICKSIGHT: "QUICKSIGHT",
   SALESFORCE: "SALESFORCE",
+  SALESFORCE_CRM: "SALESFORCE_CRM",
+  SERVICENOW_NOW_PLATFORM: "SERVICENOW_NOW_PLATFORM",
   SERVICE_NOW: "SERVICE_NOW",
+  SMARTSHEET: "SMARTSHEET",
   ZENDESK: "ZENDESK",
+  ZENDESK_SUITE: "ZENDESK_SUITE",
 } as const;
 
 /**
@@ -481,6 +606,48 @@ export interface ActionReviewEvent {
    * @public
    */
   payloadFieldNameSeparator?: string | undefined;
+}
+
+/**
+ * <p>Summary information for an Amazon Q Business plugin action.</p>
+ * @public
+ */
+export interface ActionSummary {
+  /**
+   * <p>The identifier of an Amazon Q Business plugin action.</p>
+   * @public
+   */
+  actionIdentifier?: string | undefined;
+
+  /**
+   * <p>The display name assigned by Amazon Q Business to a plugin action. You can't
+   *             modify this value.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>An Amazon Q Business suggested prompt and end user can use to invoke a plugin
+   *             action. This value can be modified and sent as input to initiate an action. For
+   *             example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Create a Jira task</p>
+   *             </li>
+   *             <li>
+   *                <p>Create a chat assistant task to find the root cause of a specific
+   *                     incident</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  instructionExample?: string | undefined;
+
+  /**
+   * <p>The description of an Amazon Q Business plugin action.</p>
+   * @public
+   */
+  description?: string | undefined;
 }
 
 /**
@@ -580,12 +747,29 @@ export const IdentityType = {
   AWS_IAM_IDC: "AWS_IAM_IDC",
   AWS_IAM_IDP_OIDC: "AWS_IAM_IDP_OIDC",
   AWS_IAM_IDP_SAML: "AWS_IAM_IDP_SAML",
+  AWS_QUICKSIGHT_IDP: "AWS_QUICKSIGHT_IDP",
 } as const;
 
 /**
  * @public
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+/**
+ * <p>The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider.
+ *             For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/create-quicksight-integrated-application.html">Creating an
+ *                 Amazon QuickSight integrated application</a>.</p>
+ * @public
+ */
+export interface QuickSightConfiguration {
+  /**
+   * <p>The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see
+   *             <a href="https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html">Namespace operations</a>.
+   *         </p>
+   * @public
+   */
+  clientNamespace: string | undefined;
+}
 
 /**
  * @public
@@ -645,6 +829,12 @@ export interface Application {
    * @public
    */
   identityType?: IdentityType | undefined;
+
+  /**
+   * <p>The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider.</p>
+   * @public
+   */
+  quickSightConfiguration?: QuickSightConfiguration | undefined;
 }
 
 /**
@@ -893,6 +1083,14 @@ export interface CreateApplicationRequest {
    * @public
    */
   personalizationConfiguration?: PersonalizationConfiguration | undefined;
+
+  /**
+   * <p>The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight for authentication. This configuration is
+   *             required if your application uses QuickSight as the identity provider. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/create-quicksight-integrated-application.html">Creating an
+   *                 Amazon QuickSight integrated application</a>.</p>
+   * @public
+   */
+  quickSightConfiguration?: QuickSightConfiguration | undefined;
 }
 
 /**
@@ -934,8 +1132,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ * <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1091,6 +1289,161 @@ export class ValidationException extends __BaseException {
     this.fields = opts.fields;
   }
 }
+
+/**
+ * @public
+ */
+export interface CreateDataAccessorResponse {
+  /**
+   * <p>The unique identifier of the created data accessor.</p>
+   * @public
+   */
+  dataAccessorId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS IAM Identity Center application created for this data accessor.</p>
+   * @public
+   */
+  idcApplicationArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created data accessor.</p>
+   * @public
+   */
+  dataAccessorArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataAccessorRequest {
+  /**
+   * <p>The unique identifier of the Q Business application.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data accessor to delete.</p>
+   * @public
+   */
+  dataAccessorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataAccessorResponse {}
+
+/**
+ * @public
+ */
+export interface GetDataAccessorRequest {
+  /**
+   * <p>The unique identifier of the Q Business application.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data accessor to retrieve.</p>
+   * @public
+   */
+  dataAccessorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDataAccessorsRequest {
+  /**
+   * <p>The unique identifier of the Q Business application.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. (You received this token from a previous call.)</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Provides summary information about a data accessor.</p>
+ * @public
+ */
+export interface DataAccessor {
+  /**
+   * <p>The friendly name of the data accessor.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data accessor.</p>
+   * @public
+   */
+  dataAccessorId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data accessor.</p>
+   * @public
+   */
+  dataAccessorArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the associated AWS IAM Identity Center application.</p>
+   * @public
+   */
+  idcApplicationArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.</p>
+   * @public
+   */
+  principal?: string | undefined;
+
+  /**
+   * <p>The timestamp when the data accessor was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the data accessor was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDataAccessorsResponse {
+  /**
+   * <p>The list of data accessors.</p>
+   * @public
+   */
+  dataAccessors?: DataAccessor[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next set of results, if there are any.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDataAccessorResponse {}
 
 /**
  * @public
@@ -1338,6 +1691,12 @@ export interface GetApplicationResponse {
    * @public
    */
   clientIdsForOIDC?: string[] | undefined;
+
+  /**
+   * <p>The Amazon QuickSight authentication configuration for the Amazon Q Business application.</p>
+   * @public
+   */
+  quickSightConfiguration?: QuickSightConfiguration | undefined;
 }
 
 /**
@@ -1460,101 +1819,6 @@ export const DocumentEnrichmentConditionOperator = {
  */
 export type DocumentEnrichmentConditionOperator =
   (typeof DocumentEnrichmentConditionOperator)[keyof typeof DocumentEnrichmentConditionOperator];
-
-/**
- * <p>The value of a document attribute. You can only provide one value for a document
- *             attribute.</p>
- * @public
- */
-export type DocumentAttributeValue =
-  | DocumentAttributeValue.DateValueMember
-  | DocumentAttributeValue.LongValueMember
-  | DocumentAttributeValue.StringListValueMember
-  | DocumentAttributeValue.StringValueMember
-  | DocumentAttributeValue.$UnknownMember;
-
-/**
- * @public
- */
-export namespace DocumentAttributeValue {
-  /**
-   * <p>A string.</p>
-   * @public
-   */
-  export interface StringValueMember {
-    stringValue: string;
-    stringListValue?: never;
-    longValue?: never;
-    dateValue?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A list of strings.</p>
-   * @public
-   */
-  export interface StringListValueMember {
-    stringValue?: never;
-    stringListValue: string[];
-    longValue?: never;
-    dateValue?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A long integer value. </p>
-   * @public
-   */
-  export interface LongValueMember {
-    stringValue?: never;
-    stringListValue?: never;
-    longValue: number;
-    dateValue?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A date expressed as an ISO 8601 string.</p>
-   *          <p>It's important for the time zone to be included in the ISO 8601 date-time format. For
-   *             example, 2012-03-25T12:30:10+01:00 is the ISO 8601 date-time format for March 25th 2012
-   *             at 12:30PM (plus 10 seconds) in Central European Time. </p>
-   * @public
-   */
-  export interface DateValueMember {
-    stringValue?: never;
-    stringListValue?: never;
-    longValue?: never;
-    dateValue: Date;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    stringValue?: never;
-    stringListValue?: never;
-    longValue?: never;
-    dateValue?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    stringValue: (value: string) => T;
-    stringListValue: (value: string[]) => T;
-    longValue: (value: number) => T;
-    dateValue: (value: Date) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: DocumentAttributeValue, visitor: Visitor<T>): T => {
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.stringListValue !== undefined) return visitor.stringListValue(value.stringListValue);
-    if (value.longValue !== undefined) return visitor.longValue(value.longValue);
-    if (value.dateValue !== undefined) return visitor.dateValue(value.dateValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
 
 /**
  * <p>The condition used for the target document attribute or metadata field when ingesting
@@ -2817,6 +3081,25 @@ export interface BasicAuthConfiguration {
 }
 
 /**
+ * <p>Information about the IAM Identity Center Application used to configure authentication for a plugin.</p>
+ * @public
+ */
+export interface IdcAuthConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center Application used to configure authentication.</p>
+   * @public
+   */
+  idcApplicationArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to perform actions on Amazon Web Services services
+   *             on your behalf.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+}
+
+/**
  * <p>Information about invoking a custom plugin without any authentication or authorization
  *             requirement.</p>
  * @public
@@ -2842,6 +3125,20 @@ export interface OAuth2ClientCredentialConfiguration {
    * @public
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>The redirect URL required by the OAuth 2.0 protocol for Amazon Q Business to
+   *             authenticate a plugin user through a third party authentication server.</p>
+   * @public
+   */
+  authorizationUrl?: string | undefined;
+
+  /**
+   * <p>The URL required by the OAuth 2.0 protocol to exchange an end user authorization code
+   *             for an access token.</p>
+   * @public
+   */
+  tokenUrl?: string | undefined;
 }
 
 /**
@@ -2850,6 +3147,7 @@ export interface OAuth2ClientCredentialConfiguration {
  */
 export type PluginAuthConfiguration =
   | PluginAuthConfiguration.BasicAuthConfigurationMember
+  | PluginAuthConfiguration.IdcAuthConfigurationMember
   | PluginAuthConfiguration.NoAuthConfigurationMember
   | PluginAuthConfiguration.OAuth2ClientCredentialConfigurationMember
   | PluginAuthConfiguration.$UnknownMember;
@@ -2867,6 +3165,7 @@ export namespace PluginAuthConfiguration {
     basicAuthConfiguration: BasicAuthConfiguration;
     oAuth2ClientCredentialConfiguration?: never;
     noAuthConfiguration?: never;
+    idcAuthConfiguration?: never;
     $unknown?: never;
   }
 
@@ -2879,6 +3178,7 @@ export namespace PluginAuthConfiguration {
     basicAuthConfiguration?: never;
     oAuth2ClientCredentialConfiguration: OAuth2ClientCredentialConfiguration;
     noAuthConfiguration?: never;
+    idcAuthConfiguration?: never;
     $unknown?: never;
   }
 
@@ -2890,6 +3190,19 @@ export namespace PluginAuthConfiguration {
     basicAuthConfiguration?: never;
     oAuth2ClientCredentialConfiguration?: never;
     noAuthConfiguration: NoAuthConfiguration;
+    idcAuthConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about the IAM Identity Center Application used to configure authentication for a plugin.</p>
+   * @public
+   */
+  export interface IdcAuthConfigurationMember {
+    basicAuthConfiguration?: never;
+    oAuth2ClientCredentialConfiguration?: never;
+    noAuthConfiguration?: never;
+    idcAuthConfiguration: IdcAuthConfiguration;
     $unknown?: never;
   }
 
@@ -2900,6 +3213,7 @@ export namespace PluginAuthConfiguration {
     basicAuthConfiguration?: never;
     oAuth2ClientCredentialConfiguration?: never;
     noAuthConfiguration?: never;
+    idcAuthConfiguration?: never;
     $unknown: [string, any];
   }
 
@@ -2907,6 +3221,7 @@ export namespace PluginAuthConfiguration {
     basicAuthConfiguration: (value: BasicAuthConfiguration) => T;
     oAuth2ClientCredentialConfiguration: (value: OAuth2ClientCredentialConfiguration) => T;
     noAuthConfiguration: (value: NoAuthConfiguration) => T;
+    idcAuthConfiguration: (value: IdcAuthConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2915,6 +3230,7 @@ export namespace PluginAuthConfiguration {
     if (value.oAuth2ClientCredentialConfiguration !== undefined)
       return visitor.oAuth2ClientCredentialConfiguration(value.oAuth2ClientCredentialConfiguration);
     if (value.noAuthConfiguration !== undefined) return visitor.noAuthConfiguration(value.noAuthConfiguration);
+    if (value.idcAuthConfiguration !== undefined) return visitor.idcAuthConfiguration(value.idcAuthConfiguration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -4100,6 +4416,36 @@ export interface BrowserExtensionConfiguration {
 }
 
 /**
+ * <p>Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.</p>
+ * @public
+ */
+export interface CustomizationConfiguration {
+  /**
+   * <p>Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.</p>
+   * @public
+   */
+  customCSSUrl?: string | undefined;
+
+  /**
+   * <p>Provides the URL where the custom logo file is hosted for an Amazon Q web experience.</p>
+   * @public
+   */
+  logoUrl?: string | undefined;
+
+  /**
+   * <p>Provides the URL where the custom font file is hosted for an Amazon Q web experience.</p>
+   * @public
+   */
+  fontUrl?: string | undefined;
+
+  /**
+   * <p>Provides the URL where the custom favicon file is hosted for an Amazon Q web experience.</p>
+   * @public
+   */
+  faviconUrl?: string | undefined;
+}
+
+/**
  * <p>Information about the OIDC-compliant identity provider (IdP) used to authenticate end
  *             users of an Amazon Q Business web experience.</p>
  * @public
@@ -4307,6 +4653,12 @@ export interface CreateWebExperienceRequest {
    * @public
    */
   browserExtensionConfiguration?: BrowserExtensionConfiguration | undefined;
+
+  /**
+   * <p>Sets the custom logo, favicon, font, and color used in the Amazon Q web experience. </p>
+   * @public
+   */
+  customizationConfiguration?: CustomizationConfiguration | undefined;
 }
 
 /**
@@ -4581,6 +4933,13 @@ export interface GetWebExperienceResponse {
    * @public
    */
   browserExtensionConfiguration?: BrowserExtensionConfiguration | undefined;
+
+  /**
+   * <p>Gets the custom logo, favicon, font, and color used in the Amazon Q web experience.
+   *         </p>
+   * @public
+   */
+  customizationConfiguration?: CustomizationConfiguration | undefined;
 }
 
 /**
@@ -4763,6 +5122,12 @@ export interface UpdateWebExperienceRequest {
    * @public
    */
   browserExtensionConfiguration?: BrowserExtensionConfiguration | undefined;
+
+  /**
+   * <p>Updates the custom logo, favicon, font, and color used in the Amazon Q web experience. </p>
+   * @public
+   */
+  customizationConfiguration?: CustomizationConfiguration | undefined;
 }
 
 /**
@@ -4798,6 +5163,46 @@ export interface AppliedCreatorModeConfiguration {
    * @public
    */
   creatorModeControl: CreatorModeControl | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociatePermissionRequest {
+  /**
+   * <p>The unique identifier of the Q Business application.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the policy statement.</p>
+   * @public
+   */
+  statementId: string | undefined;
+
+  /**
+   * <p>The list of Q Business actions that the ISV is allowed to perform.</p>
+   * @public
+   */
+  actions: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role for the ISV that is being granted permission.</p>
+   * @public
+   */
+  principal: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociatePermissionResponse {
+  /**
+   * <p>The JSON representation of the added permission statement.</p>
+   * @public
+   */
+  statement?: string | undefined;
 }
 
 /**
@@ -5007,24 +5412,6 @@ export interface AttachmentOutput {
    * @public
    */
   conversationId?: string | undefined;
-}
-
-/**
- * <p>A document attribute or metadata field.</p>
- * @public
- */
-export interface DocumentAttribute {
-  /**
-   * <p>The identifier for the attribute.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The value of the attribute. </p>
-   * @public
-   */
-  value: DocumentAttributeValue | undefined;
 }
 
 /**
@@ -5964,6 +6351,56 @@ export interface ContentRetrievalRule {
 }
 
 /**
+ * <p>Specifies a retriever as the content source for a search.</p>
+ * @public
+ */
+export interface RetrieverContentSource {
+  /**
+   * <p>The unique identifier of the retriever to use as the content source.</p>
+   * @public
+   */
+  retrieverId: string | undefined;
+}
+
+/**
+ * <p>Specifies the source of content to search in.</p>
+ * @public
+ */
+export type ContentSource = ContentSource.RetrieverMember | ContentSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ContentSource {
+  /**
+   * <p>The retriever to use as the content source.</p>
+   * @public
+   */
+  export interface RetrieverMember {
+    retriever: RetrieverContentSource;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    retriever?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    retriever: (value: RetrieverContentSource) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ContentSource, visitor: Visitor<T>): T => {
+    if (value.retriever !== undefined) return visitor.retriever(value.retriever);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>A conversation in an Amazon Q Business application.</p>
  * @public
  */
@@ -6284,6 +6721,28 @@ export interface DeleteUserRequest {
  * @public
  */
 export interface DeleteUserResponse {}
+
+/**
+ * @public
+ */
+export interface DisassociatePermissionRequest {
+  /**
+   * <p>The unique identifier of the Q Business application.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The statement ID of the permission to remove.</p>
+   * @public
+   */
+  statementId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociatePermissionResponse {}
 
 /**
  * @public
@@ -6726,6 +7185,28 @@ export class MediaTooLargeException extends __BaseException {
     });
     Object.setPrototypeOf(this, MediaTooLargeException.prototype);
   }
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyRequest {
+  /**
+   * <p>The unique identifier of the Q Business application.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyResponse {
+  /**
+   * <p>The JSON representation of the permission policy.</p>
+   * @public
+   */
+  policy?: string | undefined;
 }
 
 /**
@@ -7196,6 +7677,175 @@ export interface ListMessagesResponse {
 /**
  * @public
  */
+export interface ListPluginActionsRequest {
+  /**
+   * <p>The identifier of the Amazon Q Business application the plugin is attached
+   *             to.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q Business plugin.</p>
+   * @public
+   */
+  pluginId: string | undefined;
+
+  /**
+   * <p>If the number of plugin actions returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set
+   *             of plugin actions.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of plugin actions to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPluginActionsResponse {
+  /**
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you
+   *             can use in a later request to list the next set of plugin actions.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of information on one or more plugin actions.</p>
+   * @public
+   */
+  items?: ActionSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPluginTypeActionsRequest {
+  /**
+   * <p>The type of the plugin.</p>
+   * @public
+   */
+  pluginType: PluginType | undefined;
+
+  /**
+   * <p>If the number of plugins returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set
+   *             of plugins.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of plugins to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPluginTypeActionsResponse {
+  /**
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you
+   *             can use in a later request to list the next set of plugins.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of information on one or more plugins.</p>
+   * @public
+   */
+  items?: ActionSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPluginTypeMetadataRequest {
+  /**
+   * <p>If the metadata returned exceeds <code>maxResults</code>, Amazon Q Business
+   *             returns a next token as a pagination token to retrieve the next set of metadata.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of plugin metadata items to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PluginTypeCategory = {
+  COMMUNICATION: "Communication",
+  CRM: "Customer relationship management (CRM)",
+  PRODUCTIVITY: "Productivity",
+  PROJECT_MANAGEMENT: "Project management",
+  TICKETING_MANAGEMENT: "Ticketing and incident management",
+} as const;
+
+/**
+ * @public
+ */
+export type PluginTypeCategory = (typeof PluginTypeCategory)[keyof typeof PluginTypeCategory];
+
+/**
+ * <p>Summary metadata information for a Amazon Q Business plugin.</p>
+ * @public
+ */
+export interface PluginTypeMetadataSummary {
+  /**
+   * <p>The type of the plugin.</p>
+   * @public
+   */
+  type?: PluginType | undefined;
+
+  /**
+   * <p>The category of the plugin type.</p>
+   * @public
+   */
+  category?: PluginTypeCategory | undefined;
+
+  /**
+   * <p>The description assigned by Amazon Q Business to a plugin. You can't
+   *             modify this value.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPluginTypeMetadataResponse {
+  /**
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you
+   *             can use in a later request to list the next set of plugin metadata.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of information on plugin metadata.</p>
+   * @public
+   */
+  items?: PluginTypeMetadataSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Q Business application or data source to get
@@ -7454,6 +8104,94 @@ export interface PutGroupResponse {}
 
 /**
  * @public
+ * @enum
+ */
+export const ScoreConfidence = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  VERY_HIGH: "VERY_HIGH",
+} as const;
+
+/**
+ * @public
+ */
+export type ScoreConfidence = (typeof ScoreConfidence)[keyof typeof ScoreConfidence];
+
+/**
+ * <p>Provides information about the relevance score of content.</p>
+ * @public
+ */
+export interface ScoreAttributes {
+  /**
+   * <p>The confidence level of the relevance score.</p>
+   * @public
+   */
+  scoreConfidence?: ScoreConfidence | undefined;
+}
+
+/**
+ * <p>Represents a piece of content that is relevant to a search query.</p>
+ * @public
+ */
+export interface RelevantContent {
+  /**
+   * <p>The actual content of the relevant item.</p>
+   * @public
+   */
+  content?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the document containing the relevant content.</p>
+   * @public
+   */
+  documentId?: string | undefined;
+
+  /**
+   * <p>The title of the document containing the relevant content.</p>
+   * @public
+   */
+  documentTitle?: string | undefined;
+
+  /**
+   * <p>The URI of the document containing the relevant content.</p>
+   * @public
+   */
+  documentUri?: string | undefined;
+
+  /**
+   * <p>Additional attributes of the document containing the relevant content.</p>
+   * @public
+   */
+  documentAttributes?: DocumentAttribute[] | undefined;
+
+  /**
+   * <p>Attributes related to the relevance score of the content.</p>
+   * @public
+   */
+  scoreAttributes?: ScoreAttributes | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchRelevantContentResponse {
+  /**
+   * <p>The list of relevant content items found.</p>
+   * @public
+   */
+  relevantContent?: RelevantContent[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next set of results, if there are any.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
  */
 export interface StartDataSourceSyncJobRequest {
   /**
@@ -7473,636 +8211,6 @@ export interface StartDataSourceSyncJobRequest {
    * @public
    */
   indexId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartDataSourceSyncJobResponse {
-  /**
-   * <p>The identifier for a particular synchronization job.</p>
-   * @public
-   */
-  executionId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopDataSourceSyncJobRequest {
-  /**
-   * <p> The identifier of the data source connector. </p>
-   * @public
-   */
-  dataSourceId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Q Business application that the data source is connected
-   *             to.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The identifier of the index used with the Amazon Q Business data source connector.</p>
-   * @public
-   */
-  indexId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopDataSourceSyncJobResponse {}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business application or data source to
-   *             tag.</p>
-   * @public
-   */
-  resourceARN: string | undefined;
-
-  /**
-   * <p>A list of tag keys to add to the Amazon Q Business application or data source. If a tag
-   *             already exists, the existing value is replaced with the new value.</p>
-   * @public
-   */
-  tags: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business application, or data source to
-   *             remove the tag from.</p>
-   * @public
-   */
-  resourceARN: string | undefined;
-
-  /**
-   * <p>A list of tag keys to remove from the Amazon Q Business application or data source. If a
-   *             tag key does not exist on the resource, it is ignored.</p>
-   * @public
-   */
-  tagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResponse {}
-
-/**
- * @public
- */
-export interface UpdateChatControlsConfigurationRequest {
-  /**
-   * <p>The identifier of the application for which the chat controls are configured.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>A token that you provide to identify the request to update a Amazon Q Business application
-   *             chat configuration.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The response scope configured for your application. This determines whether your
-   *             application uses its retrieval augmented generation (RAG) system to generate answers
-   *             only from your enterprise data, or also uses the large language models (LLM) knowledge
-   *             to respons to end user questions in chat.</p>
-   * @public
-   */
-  responseScope?: ResponseScope | undefined;
-
-  /**
-   * <p>The phrases blocked from chat by your chat control configuration.</p>
-   * @public
-   */
-  blockedPhrasesConfigurationUpdate?: BlockedPhrasesConfigurationUpdate | undefined;
-
-  /**
-   * <p>The configured topic specific chat controls you want to update.</p>
-   * @public
-   */
-  topicConfigurationsToCreateOrUpdate?: TopicConfiguration[] | undefined;
-
-  /**
-   * <p>The configured topic specific chat controls you want to delete.</p>
-   * @public
-   */
-  topicConfigurationsToDelete?: TopicConfiguration[] | undefined;
-
-  /**
-   * <p>The configuration details for <code>CREATOR_MODE</code>.</p>
-   * @public
-   */
-  creatorModeConfiguration?: CreatorModeConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateChatControlsConfigurationResponse {}
-
-/**
- * @public
- */
-export interface UpdateUserRequest {
-  /**
-   * <p>The identifier of the application the user is attached to.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The email id attached to the user.</p>
-   * @public
-   */
-  userId: string | undefined;
-
-  /**
-   * <p>The user aliases attached to the user id that are to be updated.</p>
-   * @public
-   */
-  userAliasesToUpdate?: UserAlias[] | undefined;
-
-  /**
-   * <p>The user aliases attached to the user id that are to be deleted.</p>
-   * @public
-   */
-  userAliasesToDelete?: UserAlias[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserResponse {
-  /**
-   * <p>The user aliases that have been to be added to a user id.</p>
-   * @public
-   */
-  userAliasesAdded?: UserAlias[] | undefined;
-
-  /**
-   * <p>The user aliases attached to a user id that have been updated.</p>
-   * @public
-   */
-  userAliasesUpdated?: UserAlias[] | undefined;
-
-  /**
-   * <p>The user aliases that have been deleted from a user id.</p>
-   * @public
-   */
-  userAliasesDeleted?: UserAlias[] | undefined;
-}
-
-/**
- * <p>Enables filtering of responses based on document attributes or metadata fields.</p>
- * @public
- */
-export interface AttributeFilter {
-  /**
-   * <p>Performs a logical <code>AND</code> operation on all supplied filters.</p>
-   * @public
-   */
-  andAllFilters?: AttributeFilter[] | undefined;
-
-  /**
-   * <p> Performs a logical <code>OR</code> operation on all supplied filters. </p>
-   * @public
-   */
-  orAllFilters?: AttributeFilter[] | undefined;
-
-  /**
-   * <p>Performs a logical <code>NOT</code> operation on all supplied filters. </p>
-   * @public
-   */
-  notFilter?: AttributeFilter | undefined;
-
-  /**
-   * <p>Performs an equals operation on two document attributes or metadata fields. Supported
-   *             for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code>,
-   *                 <code>longValue</code>, <code>stringListValue</code> and
-   *             <code>stringValue</code>.</p>
-   * @public
-   */
-  equalsTo?: DocumentAttribute | undefined;
-
-  /**
-   * <p>Returns <code>true</code> when a document contains all the specified document
-   *             attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>:
-   *                 <code>stringListValue</code>.</p>
-   * @public
-   */
-  containsAll?: DocumentAttribute | undefined;
-
-  /**
-   * <p>Returns <code>true</code> when a document contains any of the specified document
-   *             attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>:
-   *                 <code>stringListValue</code>.</p>
-   * @public
-   */
-  containsAny?: DocumentAttribute | undefined;
-
-  /**
-   * <p>Performs a greater than operation on two document attributes or metadata fields.
-   *             Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code>
-   *             and <code>longValue</code>.</p>
-   * @public
-   */
-  greaterThan?: DocumentAttribute | undefined;
-
-  /**
-   * <p>Performs a greater or equals than operation on two document attributes or metadata
-   *             fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code>
-   *             and <code>longValue</code>. </p>
-   * @public
-   */
-  greaterThanOrEquals?: DocumentAttribute | undefined;
-
-  /**
-   * <p>Performs a less than operation on two document attributes or metadata fields.
-   *             Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code>
-   *             and <code>longValue</code>.</p>
-   * @public
-   */
-  lessThan?: DocumentAttribute | undefined;
-
-  /**
-   * <p>Performs a less than or equals operation on two document attributes or metadata
-   *             fields.Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value type</a>: <code>dateValue</code>
-   *             and <code>longValue</code>. </p>
-   * @public
-   */
-  lessThanOrEquals?: DocumentAttribute | undefined;
-}
-
-/**
- * @public
- */
-export interface ChatSyncInput {
-  /**
-   * <p>The identifier of the Amazon Q Business application linked to the Amazon Q Business
-   *             conversation.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The identifier of the user attached to the chat input.</p>
-   * @public
-   */
-  userId?: string | undefined;
-
-  /**
-   * <p>The group names that a user associated with the chat input belongs to.</p>
-   * @public
-   */
-  userGroups?: string[] | undefined;
-
-  /**
-   * <p>A end user message in a conversation.</p>
-   * @public
-   */
-  userMessage?: string | undefined;
-
-  /**
-   * <p>A list of files uploaded directly during chat. You can upload a maximum of 5 files of
-   *             upto 10 MB each.</p>
-   * @public
-   */
-  attachments?: AttachmentInput[] | undefined;
-
-  /**
-   * <p>A request from an end user to perform an Amazon Q Business plugin action.</p>
-   * @public
-   */
-  actionExecution?: ActionExecution | undefined;
-
-  /**
-   * <p>An authentication verification event response by a third party authentication server
-   *             to Amazon Q Business.</p>
-   * @public
-   */
-  authChallengeResponse?: AuthChallengeResponse | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Q Business conversation.</p>
-   * @public
-   */
-  conversationId?: string | undefined;
-
-  /**
-   * <p>The identifier of the previous system message in a conversation.</p>
-   * @public
-   */
-  parentMessageId?: string | undefined;
-
-  /**
-   * <p>Enables filtering of Amazon Q Business web experience responses based on document
-   *             attributes or metadata fields.</p>
-   * @public
-   */
-  attributeFilter?: AttributeFilter | undefined;
-
-  /**
-   * <p>The <code>chatMode</code> parameter determines the chat modes available to
-   *             Amazon Q Business users:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>RETRIEVAL_MODE</code> - If you choose this mode, Amazon Q generates responses solely from the data sources connected and
-   *                     indexed by the application. If an answer is not found in the data sources or
-   *                     there are no data sources available, Amazon Q will respond with a
-   *                         "<i>No Answer Found</i>" message, unless LLM knowledge has
-   *                     been enabled. In that case, Amazon Q will generate a response from
-   *                     the LLM knowledge</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATOR_MODE</code> - By selecting this mode, you can choose to generate
-   *                     responses only from the LLM knowledge. You can also attach files and have Amazon Q
-   *                     generate a response based on the data in those files.
-   *                     If the attached files do not contain an answer for the query, Amazon Q
-   *                     will automatically fall back to generating a response from the LLM knowledge.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PLUGIN_MODE</code> - By selecting this mode, users can choose to
-   *                     use plugins in chat to get their responses.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>If none of the modes are selected, Amazon Q will only respond using the information
-   *                 from the attached files.</p>
-   *          </note>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a>, <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins.html">Plugins</a>,
-   *             and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Response sources</a>.</p>
-   * @public
-   */
-  chatMode?: ChatMode | undefined;
-
-  /**
-   * <p>The chat mode configuration for an Amazon Q Business application.</p>
-   * @public
-   */
-  chatModeConfiguration?: ChatModeConfiguration | undefined;
-
-  /**
-   * <p>A token that you provide to identify a chat request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * <p>A configuration event activated by an end user request to select a specific chat
- *             mode.</p>
- * @public
- */
-export interface ConfigurationEvent {
-  /**
-   * <p>The chat modes available to an Amazon Q Business end user.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>RETRIEVAL_MODE</code> - The default chat mode for an
-   *                     Amazon Q Business application. When this mode is enabled, Amazon Q Business generates
-   *                     responses only from data sources connected to an Amazon Q Business
-   *                     application.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATOR_MODE</code> - By selecting this mode, users can choose to
-   *                     generate responses only from the LLM knowledge, without consulting connected
-   *                     data sources, for a chat request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PLUGIN_MODE</code> - By selecting this mode, users can choose to
-   *                     use plugins in chat.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a>, <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins.html">Plugins</a>,
-   *             and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
-   * @public
-   */
-  chatMode?: ChatMode | undefined;
-
-  /**
-   * <p>Configuration information for Amazon Q Business conversation modes.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a> and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
-   * @public
-   */
-  chatModeConfiguration?: ChatModeConfiguration | undefined;
-
-  /**
-   * <p>Enables filtering of responses based on document attributes or metadata fields.</p>
-   * @public
-   */
-  attributeFilter?: AttributeFilter | undefined;
-}
-
-/**
- * <p>The streaming input for the <code>Chat</code> API.</p>
- * @public
- */
-export type ChatInputStream =
-  | ChatInputStream.ActionExecutionEventMember
-  | ChatInputStream.AttachmentEventMember
-  | ChatInputStream.AuthChallengeResponseEventMember
-  | ChatInputStream.ConfigurationEventMember
-  | ChatInputStream.EndOfInputEventMember
-  | ChatInputStream.TextEventMember
-  | ChatInputStream.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ChatInputStream {
-  /**
-   * <p>A configuration event activated by an end user request to select a specific chat
-   *             mode.</p>
-   * @public
-   */
-  export interface ConfigurationEventMember {
-    configurationEvent: ConfigurationEvent;
-    textEvent?: never;
-    attachmentEvent?: never;
-    actionExecutionEvent?: never;
-    endOfInputEvent?: never;
-    authChallengeResponseEvent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Information about the payload of the <code>ChatInputStream</code> event containing the
-   *             end user message input.</p>
-   * @public
-   */
-  export interface TextEventMember {
-    configurationEvent?: never;
-    textEvent: TextInputEvent;
-    attachmentEvent?: never;
-    actionExecutionEvent?: never;
-    endOfInputEvent?: never;
-    authChallengeResponseEvent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A request by an end user to upload a file during chat.</p>
-   * @public
-   */
-  export interface AttachmentEventMember {
-    configurationEvent?: never;
-    textEvent?: never;
-    attachmentEvent: AttachmentInputEvent;
-    actionExecutionEvent?: never;
-    endOfInputEvent?: never;
-    authChallengeResponseEvent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A request from an end user to perform an Amazon Q Business plugin action.</p>
-   * @public
-   */
-  export interface ActionExecutionEventMember {
-    configurationEvent?: never;
-    textEvent?: never;
-    attachmentEvent?: never;
-    actionExecutionEvent: ActionExecutionEvent;
-    endOfInputEvent?: never;
-    authChallengeResponseEvent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The end of the streaming input for the <code>Chat</code> API.</p>
-   * @public
-   */
-  export interface EndOfInputEventMember {
-    configurationEvent?: never;
-    textEvent?: never;
-    attachmentEvent?: never;
-    actionExecutionEvent?: never;
-    endOfInputEvent: EndOfInputEvent;
-    authChallengeResponseEvent?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An authentication verification event response by a third party authentication server
-   *             to Amazon Q Business.</p>
-   * @public
-   */
-  export interface AuthChallengeResponseEventMember {
-    configurationEvent?: never;
-    textEvent?: never;
-    attachmentEvent?: never;
-    actionExecutionEvent?: never;
-    endOfInputEvent?: never;
-    authChallengeResponseEvent: AuthChallengeResponseEvent;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    configurationEvent?: never;
-    textEvent?: never;
-    attachmentEvent?: never;
-    actionExecutionEvent?: never;
-    endOfInputEvent?: never;
-    authChallengeResponseEvent?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    configurationEvent: (value: ConfigurationEvent) => T;
-    textEvent: (value: TextInputEvent) => T;
-    attachmentEvent: (value: AttachmentInputEvent) => T;
-    actionExecutionEvent: (value: ActionExecutionEvent) => T;
-    endOfInputEvent: (value: EndOfInputEvent) => T;
-    authChallengeResponseEvent: (value: AuthChallengeResponseEvent) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: ChatInputStream, visitor: Visitor<T>): T => {
-    if (value.configurationEvent !== undefined) return visitor.configurationEvent(value.configurationEvent);
-    if (value.textEvent !== undefined) return visitor.textEvent(value.textEvent);
-    if (value.attachmentEvent !== undefined) return visitor.attachmentEvent(value.attachmentEvent);
-    if (value.actionExecutionEvent !== undefined) return visitor.actionExecutionEvent(value.actionExecutionEvent);
-    if (value.endOfInputEvent !== undefined) return visitor.endOfInputEvent(value.endOfInputEvent);
-    if (value.authChallengeResponseEvent !== undefined)
-      return visitor.authChallengeResponseEvent(value.authChallengeResponseEvent);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- */
-export interface ChatInput {
-  /**
-   * <p>The identifier of the Amazon Q Business application linked to a streaming Amazon Q Business
-   *             conversation.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The identifier of the user attached to the chat input. </p>
-   * @public
-   */
-  userId?: string | undefined;
-
-  /**
-   * <p>The group names that a user associated with the chat input belongs to.</p>
-   * @public
-   */
-  userGroups?: string[] | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Q Business conversation.</p>
-   * @public
-   */
-  conversationId?: string | undefined;
-
-  /**
-   * <p>The identifier used to associate a user message with a AI generated response.</p>
-   * @public
-   */
-  parentMessageId?: string | undefined;
-
-  /**
-   * <p>A token that you provide to identify the chat input.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The streaming input for the <code>Chat</code> API.</p>
-   * @public
-   */
-  inputStream?: AsyncIterable<ChatInputStream> | undefined;
 }
 
 /**
@@ -8130,6 +8238,22 @@ export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicatio
   ...(obj.encryptionConfiguration && {
     encryptionConfiguration: EncryptionConfigurationFilterSensitiveLog(obj.encryptionConfiguration),
   }),
+});
+
+/**
+ * @internal
+ */
+export const DataAccessorFilterSensitiveLog = (obj: DataAccessor): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListDataAccessorsResponseFilterSensitiveLog = (obj: ListDataAccessorsResponse): any => ({
+  ...obj,
+  ...(obj.dataAccessors && { dataAccessors: obj.dataAccessors.map((item) => DataAccessorFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -8201,26 +8325,4 @@ export const ChatOutputStreamFilterSensitiveLog = (obj: ChatOutputStream): any =
 export const ChatOutputFilterSensitiveLog = (obj: ChatOutput): any => ({
   ...obj,
   ...(obj.outputStream && { outputStream: "STREAMING_CONTENT" }),
-});
-
-/**
- * @internal
- */
-export const ChatInputStreamFilterSensitiveLog = (obj: ChatInputStream): any => {
-  if (obj.configurationEvent !== undefined) return { configurationEvent: obj.configurationEvent };
-  if (obj.textEvent !== undefined) return { textEvent: obj.textEvent };
-  if (obj.attachmentEvent !== undefined) return { attachmentEvent: obj.attachmentEvent };
-  if (obj.actionExecutionEvent !== undefined) return { actionExecutionEvent: obj.actionExecutionEvent };
-  if (obj.endOfInputEvent !== undefined) return { endOfInputEvent: obj.endOfInputEvent };
-  if (obj.authChallengeResponseEvent !== undefined)
-    return { authChallengeResponseEvent: obj.authChallengeResponseEvent };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const ChatInputFilterSensitiveLog = (obj: ChatInput): any => ({
-  ...obj,
-  ...(obj.inputStream && { inputStream: "STREAMING_CONTENT" }),
 });

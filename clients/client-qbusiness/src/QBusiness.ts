@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  AssociatePermissionCommand,
+  AssociatePermissionCommandInput,
+  AssociatePermissionCommandOutput,
+} from "./commands/AssociatePermissionCommand";
+import {
   BatchDeleteDocumentCommand,
   BatchDeleteDocumentCommandInput,
   BatchDeleteDocumentCommandOutput,
@@ -19,6 +24,11 @@ import {
   CreateApplicationCommandInput,
   CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
+import {
+  CreateDataAccessorCommand,
+  CreateDataAccessorCommandInput,
+  CreateDataAccessorCommandOutput,
+} from "./commands/CreateDataAccessorCommand";
 import {
   CreateDataSourceCommand,
   CreateDataSourceCommandInput,
@@ -57,6 +67,11 @@ import {
   DeleteConversationCommandOutput,
 } from "./commands/DeleteConversationCommand";
 import {
+  DeleteDataAccessorCommand,
+  DeleteDataAccessorCommandInput,
+  DeleteDataAccessorCommandOutput,
+} from "./commands/DeleteDataAccessorCommand";
+import {
   DeleteDataSourceCommand,
   DeleteDataSourceCommandInput,
   DeleteDataSourceCommandOutput,
@@ -80,6 +95,11 @@ import {
   DeleteWebExperienceCommandOutput,
 } from "./commands/DeleteWebExperienceCommand";
 import {
+  DisassociatePermissionCommand,
+  DisassociatePermissionCommandInput,
+  DisassociatePermissionCommandOutput,
+} from "./commands/DisassociatePermissionCommand";
+import {
   GetApplicationCommand,
   GetApplicationCommandInput,
   GetApplicationCommandOutput,
@@ -90,6 +110,11 @@ import {
   GetChatControlsConfigurationCommandOutput,
 } from "./commands/GetChatControlsConfigurationCommand";
 import {
+  GetDataAccessorCommand,
+  GetDataAccessorCommandInput,
+  GetDataAccessorCommandOutput,
+} from "./commands/GetDataAccessorCommand";
+import {
   GetDataSourceCommand,
   GetDataSourceCommandInput,
   GetDataSourceCommandOutput,
@@ -98,6 +123,7 @@ import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./
 import { GetIndexCommand, GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
 import { GetMediaCommand, GetMediaCommandInput, GetMediaCommandOutput } from "./commands/GetMediaCommand";
 import { GetPluginCommand, GetPluginCommandInput, GetPluginCommandOutput } from "./commands/GetPluginCommand";
+import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import {
   GetRetrieverCommand,
   GetRetrieverCommandInput,
@@ -125,6 +151,11 @@ import {
   ListConversationsCommandOutput,
 } from "./commands/ListConversationsCommand";
 import {
+  ListDataAccessorsCommand,
+  ListDataAccessorsCommandInput,
+  ListDataAccessorsCommandOutput,
+} from "./commands/ListDataAccessorsCommand";
+import {
   ListDataSourcesCommand,
   ListDataSourcesCommandInput,
   ListDataSourcesCommandOutput,
@@ -146,7 +177,22 @@ import {
   ListMessagesCommandInput,
   ListMessagesCommandOutput,
 } from "./commands/ListMessagesCommand";
+import {
+  ListPluginActionsCommand,
+  ListPluginActionsCommandInput,
+  ListPluginActionsCommandOutput,
+} from "./commands/ListPluginActionsCommand";
 import { ListPluginsCommand, ListPluginsCommandInput, ListPluginsCommandOutput } from "./commands/ListPluginsCommand";
+import {
+  ListPluginTypeActionsCommand,
+  ListPluginTypeActionsCommandInput,
+  ListPluginTypeActionsCommandOutput,
+} from "./commands/ListPluginTypeActionsCommand";
+import {
+  ListPluginTypeMetadataCommand,
+  ListPluginTypeMetadataCommandInput,
+  ListPluginTypeMetadataCommandOutput,
+} from "./commands/ListPluginTypeMetadataCommand";
 import {
   ListRetrieversCommand,
   ListRetrieversCommandInput,
@@ -164,6 +210,11 @@ import {
 } from "./commands/ListWebExperiencesCommand";
 import { PutFeedbackCommand, PutFeedbackCommandInput, PutFeedbackCommandOutput } from "./commands/PutFeedbackCommand";
 import { PutGroupCommand, PutGroupCommandInput, PutGroupCommandOutput } from "./commands/PutGroupCommand";
+import {
+  SearchRelevantContentCommand,
+  SearchRelevantContentCommandInput,
+  SearchRelevantContentCommandOutput,
+} from "./commands/SearchRelevantContentCommand";
 import {
   StartDataSourceSyncJobCommand,
   StartDataSourceSyncJobCommandInput,
@@ -191,6 +242,11 @@ import {
   UpdateChatControlsConfigurationCommandOutput,
 } from "./commands/UpdateChatControlsConfigurationCommand";
 import {
+  UpdateDataAccessorCommand,
+  UpdateDataAccessorCommandInput,
+  UpdateDataAccessorCommandOutput,
+} from "./commands/UpdateDataAccessorCommand";
+import {
   UpdateDataSourceCommand,
   UpdateDataSourceCommandInput,
   UpdateDataSourceCommandOutput,
@@ -215,11 +271,13 @@ import {
 import { QBusinessClient, QBusinessClientConfig } from "./QBusinessClient";
 
 const commands = {
+  AssociatePermissionCommand,
   BatchDeleteDocumentCommand,
   BatchPutDocumentCommand,
   ChatCommand,
   ChatSyncCommand,
   CreateApplicationCommand,
+  CreateDataAccessorCommand,
   CreateDataSourceCommand,
   CreateIndexCommand,
   CreatePluginCommand,
@@ -229,6 +287,7 @@ const commands = {
   DeleteApplicationCommand,
   DeleteChatControlsConfigurationCommand,
   DeleteConversationCommand,
+  DeleteDataAccessorCommand,
   DeleteDataSourceCommand,
   DeleteGroupCommand,
   DeleteIndexCommand,
@@ -236,37 +295,46 @@ const commands = {
   DeleteRetrieverCommand,
   DeleteUserCommand,
   DeleteWebExperienceCommand,
+  DisassociatePermissionCommand,
   GetApplicationCommand,
   GetChatControlsConfigurationCommand,
+  GetDataAccessorCommand,
   GetDataSourceCommand,
   GetGroupCommand,
   GetIndexCommand,
   GetMediaCommand,
   GetPluginCommand,
+  GetPolicyCommand,
   GetRetrieverCommand,
   GetUserCommand,
   GetWebExperienceCommand,
   ListApplicationsCommand,
   ListAttachmentsCommand,
   ListConversationsCommand,
+  ListDataAccessorsCommand,
   ListDataSourcesCommand,
   ListDataSourceSyncJobsCommand,
   ListDocumentsCommand,
   ListGroupsCommand,
   ListIndicesCommand,
   ListMessagesCommand,
+  ListPluginActionsCommand,
   ListPluginsCommand,
+  ListPluginTypeActionsCommand,
+  ListPluginTypeMetadataCommand,
   ListRetrieversCommand,
   ListTagsForResourceCommand,
   ListWebExperiencesCommand,
   PutFeedbackCommand,
   PutGroupCommand,
+  SearchRelevantContentCommand,
   StartDataSourceSyncJobCommand,
   StopDataSourceSyncJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateChatControlsConfigurationCommand,
+  UpdateDataAccessorCommand,
   UpdateDataSourceCommand,
   UpdateIndexCommand,
   UpdatePluginCommand,
@@ -276,6 +344,23 @@ const commands = {
 };
 
 export interface QBusiness {
+  /**
+   * @see {@link AssociatePermissionCommand}
+   */
+  associatePermission(
+    args: AssociatePermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociatePermissionCommandOutput>;
+  associatePermission(
+    args: AssociatePermissionCommandInput,
+    cb: (err: any, data?: AssociatePermissionCommandOutput) => void
+  ): void;
+  associatePermission(
+    args: AssociatePermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociatePermissionCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link BatchDeleteDocumentCommand}
    */
@@ -343,6 +428,23 @@ export interface QBusiness {
     args: CreateApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDataAccessorCommand}
+   */
+  createDataAccessor(
+    args: CreateDataAccessorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataAccessorCommandOutput>;
+  createDataAccessor(
+    args: CreateDataAccessorCommandInput,
+    cb: (err: any, data?: CreateDataAccessorCommandOutput) => void
+  ): void;
+  createDataAccessor(
+    args: CreateDataAccessorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataAccessorCommandOutput) => void
   ): void;
 
   /**
@@ -478,6 +580,23 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link DeleteDataAccessorCommand}
+   */
+  deleteDataAccessor(
+    args: DeleteDataAccessorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataAccessorCommandOutput>;
+  deleteDataAccessor(
+    args: DeleteDataAccessorCommandInput,
+    cb: (err: any, data?: DeleteDataAccessorCommandOutput) => void
+  ): void;
+  deleteDataAccessor(
+    args: DeleteDataAccessorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataAccessorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDataSourceCommand}
    */
   deleteDataSource(
@@ -570,6 +689,23 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link DisassociatePermissionCommand}
+   */
+  disassociatePermission(
+    args: DisassociatePermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociatePermissionCommandOutput>;
+  disassociatePermission(
+    args: DisassociatePermissionCommandInput,
+    cb: (err: any, data?: DisassociatePermissionCommandOutput) => void
+  ): void;
+  disassociatePermission(
+    args: DisassociatePermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociatePermissionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetApplicationCommand}
    */
   getApplication(
@@ -598,6 +734,20 @@ export interface QBusiness {
     args: GetChatControlsConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetChatControlsConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDataAccessorCommand}
+   */
+  getDataAccessor(
+    args: GetDataAccessorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataAccessorCommandOutput>;
+  getDataAccessor(args: GetDataAccessorCommandInput, cb: (err: any, data?: GetDataAccessorCommandOutput) => void): void;
+  getDataAccessor(
+    args: GetDataAccessorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataAccessorCommandOutput) => void
   ): void;
 
   /**
@@ -653,6 +803,17 @@ export interface QBusiness {
     args: GetPluginCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPluginCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPolicyCommand}
+   */
+  getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
+  getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -744,6 +905,23 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link ListDataAccessorsCommand}
+   */
+  listDataAccessors(
+    args: ListDataAccessorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataAccessorsCommandOutput>;
+  listDataAccessors(
+    args: ListDataAccessorsCommandInput,
+    cb: (err: any, data?: ListDataAccessorsCommandOutput) => void
+  ): void;
+  listDataAccessors(
+    args: ListDataAccessorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataAccessorsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDataSourcesCommand}
    */
   listDataSources(
@@ -819,6 +997,23 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link ListPluginActionsCommand}
+   */
+  listPluginActions(
+    args: ListPluginActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPluginActionsCommandOutput>;
+  listPluginActions(
+    args: ListPluginActionsCommandInput,
+    cb: (err: any, data?: ListPluginActionsCommandOutput) => void
+  ): void;
+  listPluginActions(
+    args: ListPluginActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPluginActionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListPluginsCommand}
    */
   listPlugins(args: ListPluginsCommandInput, options?: __HttpHandlerOptions): Promise<ListPluginsCommandOutput>;
@@ -827,6 +1022,41 @@ export interface QBusiness {
     args: ListPluginsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPluginsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPluginTypeActionsCommand}
+   */
+  listPluginTypeActions(
+    args: ListPluginTypeActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPluginTypeActionsCommandOutput>;
+  listPluginTypeActions(
+    args: ListPluginTypeActionsCommandInput,
+    cb: (err: any, data?: ListPluginTypeActionsCommandOutput) => void
+  ): void;
+  listPluginTypeActions(
+    args: ListPluginTypeActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPluginTypeActionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPluginTypeMetadataCommand}
+   */
+  listPluginTypeMetadata(): Promise<ListPluginTypeMetadataCommandOutput>;
+  listPluginTypeMetadata(
+    args: ListPluginTypeMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPluginTypeMetadataCommandOutput>;
+  listPluginTypeMetadata(
+    args: ListPluginTypeMetadataCommandInput,
+    cb: (err: any, data?: ListPluginTypeMetadataCommandOutput) => void
+  ): void;
+  listPluginTypeMetadata(
+    args: ListPluginTypeMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPluginTypeMetadataCommandOutput) => void
   ): void;
 
   /**
@@ -897,6 +1127,23 @@ export interface QBusiness {
     args: PutGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchRelevantContentCommand}
+   */
+  searchRelevantContent(
+    args: SearchRelevantContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchRelevantContentCommandOutput>;
+  searchRelevantContent(
+    args: SearchRelevantContentCommandInput,
+    cb: (err: any, data?: SearchRelevantContentCommandOutput) => void
+  ): void;
+  searchRelevantContent(
+    args: SearchRelevantContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchRelevantContentCommandOutput) => void
   ): void;
 
   /**
@@ -987,6 +1234,23 @@ export interface QBusiness {
     args: UpdateChatControlsConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateChatControlsConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDataAccessorCommand}
+   */
+  updateDataAccessor(
+    args: UpdateDataAccessorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataAccessorCommandOutput>;
+  updateDataAccessor(
+    args: UpdateDataAccessorCommandInput,
+    cb: (err: any, data?: UpdateDataAccessorCommandOutput) => void
+  ): void;
+  updateDataAccessor(
+    args: UpdateDataAccessorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataAccessorCommandOutput) => void
   ): void;
 
   /**

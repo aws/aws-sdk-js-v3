@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ChatSyncInput, ChatSyncOutput } from "../models/models_0";
+import { ChatSyncOutput } from "../models/models_0";
+import { ChatSyncInput } from "../models/models_1";
 import { de_ChatSyncCommand, se_ChatSyncCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
@@ -168,7 +169,7 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  * //   userMessageId: "STRING_VALUE",
  * //   actionReview: { // ActionReview
  * //     pluginId: "STRING_VALUE",
- * //     pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM",
+ * //     pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM" || "QUICKSIGHT" || "SERVICENOW_NOW_PLATFORM" || "JIRA_CLOUD" || "SALESFORCE_CRM" || "ZENDESK_SUITE" || "ATLASSIAN_CONFLUENCE" || "GOOGLE_CALENDAR" || "MICROSOFT_TEAMS" || "MICROSOFT_EXCHANGE" || "PAGERDUTY_ADVANCE" || "SMARTSHEET" || "ASANA",
  * //     payload: { // ActionReviewPayload
  * //       "<keys>": { // ActionReviewPayloadField
  * //         displayName: "STRING_VALUE",
@@ -256,8 +257,8 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  *             your admin to activate your license and try again after your licence is active.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have
+ *             provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try

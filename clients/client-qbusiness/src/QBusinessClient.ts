@@ -66,6 +66,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  AssociatePermissionCommandInput,
+  AssociatePermissionCommandOutput,
+} from "./commands/AssociatePermissionCommand";
+import {
   BatchDeleteDocumentCommandInput,
   BatchDeleteDocumentCommandOutput,
 } from "./commands/BatchDeleteDocumentCommand";
@@ -73,6 +77,7 @@ import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./c
 import { ChatCommandInput, ChatCommandOutput } from "./commands/ChatCommand";
 import { ChatSyncCommandInput, ChatSyncCommandOutput } from "./commands/ChatSyncCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
+import { CreateDataAccessorCommandInput, CreateDataAccessorCommandOutput } from "./commands/CreateDataAccessorCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import { CreatePluginCommandInput, CreatePluginCommandOutput } from "./commands/CreatePluginCommand";
@@ -88,6 +93,7 @@ import {
   DeleteChatControlsConfigurationCommandOutput,
 } from "./commands/DeleteChatControlsConfigurationCommand";
 import { DeleteConversationCommandInput, DeleteConversationCommandOutput } from "./commands/DeleteConversationCommand";
+import { DeleteDataAccessorCommandInput, DeleteDataAccessorCommandOutput } from "./commands/DeleteDataAccessorCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
@@ -98,22 +104,29 @@ import {
   DeleteWebExperienceCommandInput,
   DeleteWebExperienceCommandOutput,
 } from "./commands/DeleteWebExperienceCommand";
+import {
+  DisassociatePermissionCommandInput,
+  DisassociatePermissionCommandOutput,
+} from "./commands/DisassociatePermissionCommand";
 import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
 import {
   GetChatControlsConfigurationCommandInput,
   GetChatControlsConfigurationCommandOutput,
 } from "./commands/GetChatControlsConfigurationCommand";
+import { GetDataAccessorCommandInput, GetDataAccessorCommandOutput } from "./commands/GetDataAccessorCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
 import { GetMediaCommandInput, GetMediaCommandOutput } from "./commands/GetMediaCommand";
 import { GetPluginCommandInput, GetPluginCommandOutput } from "./commands/GetPluginCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import { GetRetrieverCommandInput, GetRetrieverCommandOutput } from "./commands/GetRetrieverCommand";
 import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import { GetWebExperienceCommandInput, GetWebExperienceCommandOutput } from "./commands/GetWebExperienceCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import { ListAttachmentsCommandInput, ListAttachmentsCommandOutput } from "./commands/ListAttachmentsCommand";
 import { ListConversationsCommandInput, ListConversationsCommandOutput } from "./commands/ListConversationsCommand";
+import { ListDataAccessorsCommandInput, ListDataAccessorsCommandOutput } from "./commands/ListDataAccessorsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import {
   ListDataSourceSyncJobsCommandInput,
@@ -123,7 +136,16 @@ import { ListDocumentsCommandInput, ListDocumentsCommandOutput } from "./command
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
 import { ListMessagesCommandInput, ListMessagesCommandOutput } from "./commands/ListMessagesCommand";
+import { ListPluginActionsCommandInput, ListPluginActionsCommandOutput } from "./commands/ListPluginActionsCommand";
 import { ListPluginsCommandInput, ListPluginsCommandOutput } from "./commands/ListPluginsCommand";
+import {
+  ListPluginTypeActionsCommandInput,
+  ListPluginTypeActionsCommandOutput,
+} from "./commands/ListPluginTypeActionsCommand";
+import {
+  ListPluginTypeMetadataCommandInput,
+  ListPluginTypeMetadataCommandOutput,
+} from "./commands/ListPluginTypeMetadataCommand";
 import { ListRetrieversCommandInput, ListRetrieversCommandOutput } from "./commands/ListRetrieversCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -132,6 +154,10 @@ import {
 import { ListWebExperiencesCommandInput, ListWebExperiencesCommandOutput } from "./commands/ListWebExperiencesCommand";
 import { PutFeedbackCommandInput, PutFeedbackCommandOutput } from "./commands/PutFeedbackCommand";
 import { PutGroupCommandInput, PutGroupCommandOutput } from "./commands/PutGroupCommand";
+import {
+  SearchRelevantContentCommandInput,
+  SearchRelevantContentCommandOutput,
+} from "./commands/SearchRelevantContentCommand";
 import {
   StartDataSourceSyncJobCommandInput,
   StartDataSourceSyncJobCommandOutput,
@@ -147,6 +173,7 @@ import {
   UpdateChatControlsConfigurationCommandInput,
   UpdateChatControlsConfigurationCommandOutput,
 } from "./commands/UpdateChatControlsConfigurationCommand";
+import { UpdateDataAccessorCommandInput, UpdateDataAccessorCommandOutput } from "./commands/UpdateDataAccessorCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import { UpdatePluginCommandInput, UpdatePluginCommandOutput } from "./commands/UpdatePluginCommand";
@@ -171,11 +198,13 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociatePermissionCommandInput
   | BatchDeleteDocumentCommandInput
   | BatchPutDocumentCommandInput
   | ChatCommandInput
   | ChatSyncCommandInput
   | CreateApplicationCommandInput
+  | CreateDataAccessorCommandInput
   | CreateDataSourceCommandInput
   | CreateIndexCommandInput
   | CreatePluginCommandInput
@@ -185,6 +214,7 @@ export type ServiceInputTypes =
   | DeleteApplicationCommandInput
   | DeleteChatControlsConfigurationCommandInput
   | DeleteConversationCommandInput
+  | DeleteDataAccessorCommandInput
   | DeleteDataSourceCommandInput
   | DeleteGroupCommandInput
   | DeleteIndexCommandInput
@@ -192,37 +222,46 @@ export type ServiceInputTypes =
   | DeleteRetrieverCommandInput
   | DeleteUserCommandInput
   | DeleteWebExperienceCommandInput
+  | DisassociatePermissionCommandInput
   | GetApplicationCommandInput
   | GetChatControlsConfigurationCommandInput
+  | GetDataAccessorCommandInput
   | GetDataSourceCommandInput
   | GetGroupCommandInput
   | GetIndexCommandInput
   | GetMediaCommandInput
   | GetPluginCommandInput
+  | GetPolicyCommandInput
   | GetRetrieverCommandInput
   | GetUserCommandInput
   | GetWebExperienceCommandInput
   | ListApplicationsCommandInput
   | ListAttachmentsCommandInput
   | ListConversationsCommandInput
+  | ListDataAccessorsCommandInput
   | ListDataSourceSyncJobsCommandInput
   | ListDataSourcesCommandInput
   | ListDocumentsCommandInput
   | ListGroupsCommandInput
   | ListIndicesCommandInput
   | ListMessagesCommandInput
+  | ListPluginActionsCommandInput
+  | ListPluginTypeActionsCommandInput
+  | ListPluginTypeMetadataCommandInput
   | ListPluginsCommandInput
   | ListRetrieversCommandInput
   | ListTagsForResourceCommandInput
   | ListWebExperiencesCommandInput
   | PutFeedbackCommandInput
   | PutGroupCommandInput
+  | SearchRelevantContentCommandInput
   | StartDataSourceSyncJobCommandInput
   | StopDataSourceSyncJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateApplicationCommandInput
   | UpdateChatControlsConfigurationCommandInput
+  | UpdateDataAccessorCommandInput
   | UpdateDataSourceCommandInput
   | UpdateIndexCommandInput
   | UpdatePluginCommandInput
@@ -234,11 +273,13 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociatePermissionCommandOutput
   | BatchDeleteDocumentCommandOutput
   | BatchPutDocumentCommandOutput
   | ChatCommandOutput
   | ChatSyncCommandOutput
   | CreateApplicationCommandOutput
+  | CreateDataAccessorCommandOutput
   | CreateDataSourceCommandOutput
   | CreateIndexCommandOutput
   | CreatePluginCommandOutput
@@ -248,6 +289,7 @@ export type ServiceOutputTypes =
   | DeleteApplicationCommandOutput
   | DeleteChatControlsConfigurationCommandOutput
   | DeleteConversationCommandOutput
+  | DeleteDataAccessorCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteGroupCommandOutput
   | DeleteIndexCommandOutput
@@ -255,37 +297,46 @@ export type ServiceOutputTypes =
   | DeleteRetrieverCommandOutput
   | DeleteUserCommandOutput
   | DeleteWebExperienceCommandOutput
+  | DisassociatePermissionCommandOutput
   | GetApplicationCommandOutput
   | GetChatControlsConfigurationCommandOutput
+  | GetDataAccessorCommandOutput
   | GetDataSourceCommandOutput
   | GetGroupCommandOutput
   | GetIndexCommandOutput
   | GetMediaCommandOutput
   | GetPluginCommandOutput
+  | GetPolicyCommandOutput
   | GetRetrieverCommandOutput
   | GetUserCommandOutput
   | GetWebExperienceCommandOutput
   | ListApplicationsCommandOutput
   | ListAttachmentsCommandOutput
   | ListConversationsCommandOutput
+  | ListDataAccessorsCommandOutput
   | ListDataSourceSyncJobsCommandOutput
   | ListDataSourcesCommandOutput
   | ListDocumentsCommandOutput
   | ListGroupsCommandOutput
   | ListIndicesCommandOutput
   | ListMessagesCommandOutput
+  | ListPluginActionsCommandOutput
+  | ListPluginTypeActionsCommandOutput
+  | ListPluginTypeMetadataCommandOutput
   | ListPluginsCommandOutput
   | ListRetrieversCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWebExperiencesCommandOutput
   | PutFeedbackCommandOutput
   | PutGroupCommandOutput
+  | SearchRelevantContentCommandOutput
   | StartDataSourceSyncJobCommandOutput
   | StopDataSourceSyncJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateApplicationCommandOutput
   | UpdateChatControlsConfigurationCommandOutput
+  | UpdateDataAccessorCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateIndexCommandOutput
   | UpdatePluginCommandOutput
