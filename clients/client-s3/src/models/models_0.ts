@@ -2206,6 +2206,103 @@ export interface CreateBucketRequest {
 }
 
 /**
+ * <p>
+ *          The destination information for the metadata table configuration. The destination table bucket
+ *          must be in the same Region and Amazon Web Services account as the general purpose bucket. The specified metadata
+ *          table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination
+ *          table bucket.
+ *       </p>
+ * @public
+ */
+export interface S3TablesDestination {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) for the table bucket that's specified as the
+   *          destination in the metadata table configuration. The destination table bucket
+   *          must be in the same Region and Amazon Web Services account as the general purpose bucket.
+   *       </p>
+   * @public
+   */
+  TableBucketArn: string | undefined;
+
+  /**
+   * <p>
+   *          The name for the metadata table in your metadata table configuration. The specified metadata
+   *          table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination
+   *          table bucket.
+   *       </p>
+   * @public
+   */
+  TableName: string | undefined;
+}
+
+/**
+ * <p>
+ *          The metadata table configuration for a general purpose bucket.
+ *       </p>
+ * @public
+ */
+export interface MetadataTableConfiguration {
+  /**
+   * <p>
+   *          The destination information for the metadata table configuration. The destination table bucket
+   *          must be in the same Region and Amazon Web Services account as the general purpose bucket. The specified metadata
+   *          table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination
+   *          table bucket.
+   *       </p>
+   * @public
+   */
+  S3TablesDestination: S3TablesDestination | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateBucketMetadataTableConfigurationRequest {
+  /**
+   * <p>
+   *          The general purpose bucket that you want to create the metadata table configuration in.
+   *       </p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>
+   *          The <code>Content-MD5</code> header for the metadata table configuration.
+   *       </p>
+   * @public
+   */
+  ContentMD5?: string | undefined;
+
+  /**
+   * <p>
+   *          The checksum algorithm to use with your metadata table configuration.
+   *       </p>
+   * @public
+   */
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
+
+  /**
+   * <p>
+   *          The contents of your metadata table configuration.
+   *       </p>
+   * @public
+   */
+  MetadataTableConfiguration: MetadataTableConfiguration | undefined;
+
+  /**
+   * <p>
+   *          The expected owner of the general purpose bucket that contains your metadata table configuration.
+   *       </p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateMultipartUploadOutput {
@@ -3285,6 +3382,30 @@ export interface DeleteBucketLifecycleRequest {
    *             <p>This parameter applies to general purpose buckets only. It is not supported for
    *             directory bucket lifecycle configurations.</p>
    *          </note>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBucketMetadataTableConfigurationRequest {
+  /**
+   * <p>
+   *          The general purpose bucket that you want to remove the metadata table configuration from.
+   *       </p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>
+   *          The expected bucket owner of the general purpose bucket that you want to remove the
+   *          metadata table configuration from.
+   *       </p>
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
@@ -7619,6 +7740,284 @@ export interface GetBucketLoggingRequest {
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+}
+
+/**
+ * <p>
+ *          If the <code>CreateBucketMetadataTableConfiguration</code> request succeeds, but S3 Metadata was
+ *          unable to create the table, this structure contains the error code and error message.
+ *       </p>
+ * @public
+ */
+export interface ErrorDetails {
+  /**
+   * <p>
+   *          If the <code>CreateBucketMetadataTableConfiguration</code> request succeeds, but S3 Metadata was
+   *          unable to create the table, this structure contains the error code. The possible error codes and
+   *          error messages are as follows:
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AccessDeniedCreatingResources</code> - You don't have sufficient permissions to
+   *                create the required resources. Make sure that you have <code>s3tables:CreateNamespace</code>,
+   *                <code>s3tables:CreateTable</code>, <code>s3tables:GetTable</code> and
+   *                <code>s3tables:PutTablePolicy</code> permissions, and then try again. To create a new metadata
+   *                table, you must delete the metadata configuration for this bucket, and then create a new
+   *                metadata configuration.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AccessDeniedWritingToTable</code> - Unable to write to the metadata table because of
+   *                missing resource permissions. To fix the resource policy, Amazon S3 needs to create a new
+   *                metadata table. To create a new metadata table, you must delete the metadata configuration for
+   *                this bucket, and then create a new metadata configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DestinationTableNotFound</code> - The destination table doesn't exist. To create a
+   *                new metadata table, you must delete the metadata configuration for this bucket, and then
+   *                create a new metadata configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ServerInternalError</code> - An internal error has occurred. To create a new metadata
+   *                table, you must delete the metadata configuration for this bucket, and then create a new
+   *                metadata configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TableAlreadyExists</code> - The table that you specified already exists in the table
+   *                bucket's namespace. Specify a different table name. To create a new metadata table, you must
+   *                delete the metadata configuration for this bucket, and then create a new metadata
+   *                configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TableBucketNotFound</code> - The table bucket that you specified doesn't exist in
+   *                this Amazon Web Services Region and account. Create or choose a different table bucket. To create a new
+   *                metadata table, you must delete the metadata configuration for this bucket, and then create
+   *                a new metadata configuration.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ErrorCode?: string | undefined;
+
+  /**
+   * <p>
+   *          If the <code>CreateBucketMetadataTableConfiguration</code> request succeeds, but S3 Metadata was
+   *          unable to create the table, this structure contains the error message. The possible error codes and
+   *          error messages are as follows:
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AccessDeniedCreatingResources</code> - You don't have sufficient permissions to
+   *                create the required resources. Make sure that you have <code>s3tables:CreateNamespace</code>,
+   *                <code>s3tables:CreateTable</code>, <code>s3tables:GetTable</code> and
+   *                <code>s3tables:PutTablePolicy</code> permissions, and then try again. To create a new metadata
+   *                table, you must delete the metadata configuration for this bucket, and then create a new
+   *                metadata configuration.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AccessDeniedWritingToTable</code> - Unable to write to the metadata table because of
+   *                missing resource permissions. To fix the resource policy, Amazon S3 needs to create a new
+   *                metadata table. To create a new metadata table, you must delete the metadata configuration for
+   *                this bucket, and then create a new metadata configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DestinationTableNotFound</code> - The destination table doesn't exist. To create a
+   *                new metadata table, you must delete the metadata configuration for this bucket, and then
+   *                create a new metadata configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ServerInternalError</code> - An internal error has occurred. To create a new metadata
+   *                table, you must delete the metadata configuration for this bucket, and then create a new
+   *                metadata configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TableAlreadyExists</code> - The table that you specified already exists in the table
+   *                bucket's namespace. Specify a different table name. To create a new metadata table, you must
+   *                delete the metadata configuration for this bucket, and then create a new metadata
+   *                configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TableBucketNotFound</code> - The table bucket that you specified doesn't exist in
+   *                this Amazon Web Services Region and account. Create or choose a different table bucket. To create a new
+   *                metadata table, you must delete the metadata configuration for this bucket, and then create
+   *                a new metadata configuration.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+}
+
+/**
+ * <p>
+ *          The destination information for the metadata table configuration. The destination table bucket
+ *          must be in the same Region and Amazon Web Services account as the general purpose bucket. The specified metadata
+ *          table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination
+ *          table bucket.
+ *       </p>
+ * @public
+ */
+export interface S3TablesDestinationResult {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) for the table bucket that's specified as the
+   *          destination in the metadata table configuration. The destination table bucket
+   *          must be in the same Region and Amazon Web Services account as the general purpose bucket.
+   *       </p>
+   * @public
+   */
+  TableBucketArn: string | undefined;
+
+  /**
+   * <p>
+   *          The name for the metadata table in your metadata table configuration. The specified metadata
+   *          table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination
+   *          table bucket.
+   *       </p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The
+   *          specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace
+   *          in the destination table bucket.
+   *       </p>
+   * @public
+   */
+  TableArn: string | undefined;
+
+  /**
+   * <p>
+   *          The table bucket namespace for the metadata table in your metadata table configuration. This value
+   *          is always <code>aws_s3_metadata</code>.
+   *       </p>
+   * @public
+   */
+  TableNamespace: string | undefined;
+}
+
+/**
+ * <p>
+ *          The metadata table configuration for a general purpose bucket. The destination table bucket
+ *          must be in the same Region and Amazon Web Services account as the general purpose bucket. The specified metadata
+ *          table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination
+ *          table bucket.
+ *       </p>
+ * @public
+ */
+export interface MetadataTableConfigurationResult {
+  /**
+   * <p>
+   *          The destination information for the metadata table configuration. The destination table bucket
+   *          must be in the same Region and Amazon Web Services account as the general purpose bucket. The specified metadata
+   *          table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination
+   *          table bucket.
+   *       </p>
+   * @public
+   */
+  S3TablesDestinationResult: S3TablesDestinationResult | undefined;
+}
+
+/**
+ * <p>
+ *          The metadata table configuration for a general purpose bucket.
+ *       </p>
+ * @public
+ */
+export interface GetBucketMetadataTableConfigurationResult {
+  /**
+   * <p>
+   *          The metadata table configuration for a general purpose bucket.
+   *       </p>
+   * @public
+   */
+  MetadataTableConfigurationResult: MetadataTableConfigurationResult | undefined;
+
+  /**
+   * <p>
+   *          The status of the metadata table. The status values are:
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> - The metadata table is in the process of being created in the
+   *                specified table bucket.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> - The metadata table has been created successfully and records
+   *                are being delivered to the table.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - Amazon S3 is unable to create the metadata table, or Amazon S3 is unable to deliver
+   *                records. See <code>ErrorDetails</code> for details.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status: string | undefined;
+
+  /**
+   * <p>
+   *          If the <code>CreateBucketMetadataTableConfiguration</code> request succeeds, but S3 Metadata was
+   *          unable to create the table, this structure contains the error code and error message.
+   *       </p>
+   * @public
+   */
+  Error?: ErrorDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBucketMetadataTableConfigurationOutput {
+  /**
+   * <p>
+   *          The metadata table configuration for the general purpose bucket.
+   *       </p>
+   * @public
+   */
+  GetBucketMetadataTableConfigurationResult?: GetBucketMetadataTableConfigurationResult | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBucketMetadataTableConfigurationRequest {
+  /**
+   * <p>
+   *          The general purpose bucket that contains the metadata table configuration that you want to retrieve.
+   *       </p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>
+   *          The expected owner of the general purpose bucket that you want to retrieve the metadata table configuration from.
+   *       </p>
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
@@ -13908,383 +14307,6 @@ export interface CORSConfiguration {
 }
 
 /**
- * @public
- */
-export interface PutBucketCorsRequest {
-  /**
-   * <p>Specifies the bucket impacted by the <code>cors</code>configuration.</p>
-   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
-   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling
-   *             Cross-Origin Resource Sharing</a> in the
-   *          <i>Amazon S3 User Guide</i>.</p>
-   * @public
-   */
-  CORSConfiguration: CORSConfiguration | undefined;
-
-  /**
-   * <p>The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message
-   *          integrity check to verify that the request body was not corrupted in transit. For more
-   *          information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
-   *          1864.</a>
-   *          </p>
-   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
-   * @public
-   */
-  ContentMD5?: string | undefined;
-
-  /**
-   * <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any
-   *     additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or
-   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
-   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
-   *     the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
-   *             <code>ChecksumAlgorithm</code> parameter.</p>
-   * @public
-   */
-  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
-
-  /**
-   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-   * @public
-   */
-  ExpectedBucketOwner?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutBucketEncryptionRequest {
-  /**
-   * <p>Specifies default encryption for a bucket using server-side encryption with different
-   *          key options.</p>
-   *          <p>
-   *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
-   *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code>
-   *                <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
-   *          </p>
-   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
-   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The base64-encoded 128-bit MD5 digest of the server-side encryption
-   *          configuration.</p>
-   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
-   *          <note>
-   *             <p>This functionality is not supported for directory buckets.</p>
-   *          </note>
-   * @public
-   */
-  ContentMD5?: string | undefined;
-
-  /**
-   * <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any
-   *     additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or
-   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
-   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
-   *     the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
-   *             <code>ChecksumAlgorithm</code> parameter.</p>
-   *          <note>
-   *             <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
-   *          </note>
-   * @public
-   */
-  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
-
-  /**
-   * <p>Specifies the default server-side-encryption configuration.</p>
-   * @public
-   */
-  ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration | undefined;
-
-  /**
-   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-   *          <note>
-   *             <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code
-   * <code>501 Not Implemented</code>.</p>
-   *          </note>
-   * @public
-   */
-  ExpectedBucketOwner?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutBucketIntelligentTieringConfigurationRequest {
-  /**
-   * <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
-   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
-   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The ID used to identify the S3 Intelligent-Tiering configuration.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>Container for S3 Intelligent-Tiering configuration.</p>
-   * @public
-   */
-  IntelligentTieringConfiguration: IntelligentTieringConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface PutBucketInventoryConfigurationRequest {
-  /**
-   * <p>The name of the bucket where the inventory configuration will be stored.</p>
-   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
-   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The ID used to identify the inventory configuration.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>Specifies the inventory configuration.</p>
-   * @public
-   */
-  InventoryConfiguration: InventoryConfiguration | undefined;
-
-  /**
-   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-   * @public
-   */
-  ExpectedBucketOwner?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutBucketLifecycleConfigurationOutput {
-  /**
-   * <p>Indicates which default minimum object size behavior is applied to the lifecycle
-   *          configuration.</p>
-   *          <note>
-   *             <p>This parameter applies to general purpose buckets only. It is not supported for
-   *             directory bucket lifecycle configurations.</p>
-   *          </note>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>all_storage_classes_128K</code> - Objects smaller than 128 KB will not
-   *                transition to any storage class by default. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>varies_by_storage_class</code> - Objects smaller than 128 KB will
-   *                transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By
-   *                default, all other storage classes will prevent transitions smaller than 128 KB.
-   *             </p>
-   *             </li>
-   *          </ul>
-   *          <p>To customize the minimum object size for any transition you can add a filter that
-   *          specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in
-   *          the body of your transition rule. Custom filters always take precedence over the default
-   *          transition behavior.</p>
-   * @public
-   */
-  TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize | undefined;
-}
-
-/**
- * <p>Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more
- *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object Lifecycle Management</a>
- *          in the <i>Amazon S3 User Guide</i>.</p>
- * @public
- */
-export interface BucketLifecycleConfiguration {
-  /**
-   * <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
-   * @public
-   */
-  Rules: LifecycleRule[] | undefined;
-}
-
-/**
- * @public
- */
-export interface PutBucketLifecycleConfigurationRequest {
-  /**
-   * <p>The name of the bucket for which to set the configuration.</p>
-   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
-   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any
-   *     additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or
-   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
-   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
-   *     the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
-   *             <code>ChecksumAlgorithm</code> parameter.</p>
-   * @public
-   */
-  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
-
-  /**
-   * <p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>
-   * @public
-   */
-  LifecycleConfiguration?: BucketLifecycleConfiguration | undefined;
-
-  /**
-   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-   *          <note>
-   *             <p>This parameter applies to general purpose buckets only. It is not supported for
-   *             directory bucket lifecycle configurations.</p>
-   *          </note>
-   * @public
-   */
-  ExpectedBucketOwner?: string | undefined;
-
-  /**
-   * <p>Indicates which default minimum object size behavior is applied to the lifecycle
-   *          configuration.</p>
-   *          <note>
-   *             <p>This parameter applies to general purpose buckets only. It is not supported for
-   *             directory bucket lifecycle configurations.</p>
-   *          </note>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>all_storage_classes_128K</code> - Objects smaller than 128 KB will not
-   *                transition to any storage class by default. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>varies_by_storage_class</code> - Objects smaller than 128 KB will
-   *                transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By
-   *                default, all other storage classes will prevent transitions smaller than 128 KB.
-   *             </p>
-   *             </li>
-   *          </ul>
-   *          <p>To customize the minimum object size for any transition you can add a filter that
-   *          specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in
-   *          the body of your transition rule. Custom filters always take precedence over the default
-   *          transition behavior.</p>
-   * @public
-   */
-  TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize | undefined;
-}
-
-/**
- * <p>Container for logging status information.</p>
- * @public
- */
-export interface BucketLoggingStatus {
-  /**
-   * <p>Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys
-   *          for a bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html">PUT Bucket logging</a> in the
-   *             <i>Amazon S3 API Reference</i>.</p>
-   * @public
-   */
-  LoggingEnabled?: LoggingEnabled | undefined;
-}
-
-/**
- * @public
- */
-export interface PutBucketLoggingRequest {
-  /**
-   * <p>The name of the bucket for which to set the logging parameters.</p>
-   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
-   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>Container for logging status information.</p>
-   * @public
-   */
-  BucketLoggingStatus: BucketLoggingStatus | undefined;
-
-  /**
-   * <p>The MD5 hash of the <code>PutBucketLogging</code> request body.</p>
-   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
-   * @public
-   */
-  ContentMD5?: string | undefined;
-
-  /**
-   * <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any
-   *     additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or
-   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
-   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
-   *     the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
-   *             <code>ChecksumAlgorithm</code> parameter.</p>
-   * @public
-   */
-  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
-
-  /**
-   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-   * @public
-   */
-  ExpectedBucketOwner?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutBucketMetricsConfigurationRequest {
-  /**
-   * <p>The name of the bucket for which the metrics configuration is set.</p>
-   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
-   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The ID used to identify the metrics configuration. The ID has a 64 character limit and
-   *          can only contain letters, numbers, periods, dashes, and underscores.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>Specifies the metrics configuration.</p>
-   * @public
-   */
-  MetricsConfiguration: MetricsConfiguration | undefined;
-
-  /**
-   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-   * @public
-   */
-  ExpectedBucketOwner?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const CompleteMultipartUploadOutputFilterSensitiveLog = (obj: CompleteMultipartUploadOutput): any => ({
@@ -14528,28 +14550,4 @@ export const ListBucketInventoryConfigurationsOutputFilterSensitiveLog = (
 export const ListPartsRequestFilterSensitiveLog = (obj: ListPartsRequest): any => ({
   ...obj,
   ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutBucketEncryptionRequestFilterSensitiveLog = (obj: PutBucketEncryptionRequest): any => ({
-  ...obj,
-  ...(obj.ServerSideEncryptionConfiguration && {
-    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationFilterSensitiveLog(
-      obj.ServerSideEncryptionConfiguration
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const PutBucketInventoryConfigurationRequestFilterSensitiveLog = (
-  obj: PutBucketInventoryConfigurationRequest
-): any => ({
-  ...obj,
-  ...(obj.InventoryConfiguration && {
-    InventoryConfiguration: InventoryConfigurationFilterSensitiveLog(obj.InventoryConfiguration),
-  }),
 });

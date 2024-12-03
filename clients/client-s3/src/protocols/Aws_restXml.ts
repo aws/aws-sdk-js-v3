@@ -48,6 +48,10 @@ import {
 import { CopyObjectCommandInput, CopyObjectCommandOutput } from "../commands/CopyObjectCommand";
 import { CreateBucketCommandInput, CreateBucketCommandOutput } from "../commands/CreateBucketCommand";
 import {
+  CreateBucketMetadataTableConfigurationCommandInput,
+  CreateBucketMetadataTableConfigurationCommandOutput,
+} from "../commands/CreateBucketMetadataTableConfigurationCommand";
+import {
   CreateMultipartUploadCommandInput,
   CreateMultipartUploadCommandOutput,
 } from "../commands/CreateMultipartUploadCommand";
@@ -74,6 +78,10 @@ import {
   DeleteBucketLifecycleCommandInput,
   DeleteBucketLifecycleCommandOutput,
 } from "../commands/DeleteBucketLifecycleCommand";
+import {
+  DeleteBucketMetadataTableConfigurationCommandInput,
+  DeleteBucketMetadataTableConfigurationCommandOutput,
+} from "../commands/DeleteBucketMetadataTableConfigurationCommand";
 import {
   DeleteBucketMetricsConfigurationCommandInput,
   DeleteBucketMetricsConfigurationCommandOutput,
@@ -133,6 +141,10 @@ import {
 } from "../commands/GetBucketLifecycleConfigurationCommand";
 import { GetBucketLocationCommandInput, GetBucketLocationCommandOutput } from "../commands/GetBucketLocationCommand";
 import { GetBucketLoggingCommandInput, GetBucketLoggingCommandOutput } from "../commands/GetBucketLoggingCommand";
+import {
+  GetBucketMetadataTableConfigurationCommandInput,
+  GetBucketMetadataTableConfigurationCommandOutput,
+} from "../commands/GetBucketMetadataTableConfigurationCommand";
 import {
   GetBucketMetricsConfigurationCommandInput,
   GetBucketMetricsConfigurationCommandOutput,
@@ -307,8 +319,6 @@ import {
   BucketAlreadyExists,
   BucketAlreadyOwnedByYou,
   BucketInfo,
-  BucketLifecycleConfiguration,
-  BucketLoggingStatus,
   Checksum,
   ChecksumAlgorithm,
   CommonPrefix,
@@ -326,11 +336,13 @@ import {
   DeleteMarkerReplication,
   Destination,
   EncryptionConfiguration,
+  ErrorDetails,
   ErrorDocument,
   Event,
   EventBridgeConfiguration,
   ExistingObjectReplication,
   FilterRule,
+  GetBucketMetadataTableConfigurationResult,
   GetObjectAttributesParts,
   Grant,
   Grantee,
@@ -354,6 +366,8 @@ import {
   LifecycleRuleFilter,
   LocationInfo,
   LoggingEnabled,
+  MetadataTableConfiguration,
+  MetadataTableConfigurationResult,
   Metrics,
   MetricsAndOperator,
   MetricsConfiguration,
@@ -395,6 +409,8 @@ import {
   RestoreStatus,
   RoutingRule,
   S3KeyFilter,
+  S3TablesDestination,
+  S3TablesDestinationResult,
   ServerSideEncryptionByDefault,
   ServerSideEncryptionConfiguration,
   ServerSideEncryptionRule,
@@ -414,6 +430,8 @@ import {
   Transition,
 } from "../models/models_0";
 import {
+  BucketLifecycleConfiguration,
+  BucketLoggingStatus,
   ContinuationEvent,
   CopyPartResult,
   CSVInput,
@@ -611,6 +629,37 @@ export const se_CreateBucketCommand = async (
     body += contents.toString();
   }
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlCreateBucketMetadataTableConfigurationCommand
+ */
+export const se_CreateBucketMetadataTableConfigurationCommand = async (
+  input: CreateBucketMetadataTableConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xaebo]: input[_EBO]!,
+  });
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  const query: any = map({
+    [_mT]: [, ""],
+  });
+  let body: any;
+  let contents: any;
+  if (input.MetadataTableConfiguration !== undefined) {
+    contents = se_MetadataTableConfiguration(input.MetadataTableConfiguration, context);
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body += contents.toString();
+  }
+  b.m("POST").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -831,6 +880,27 @@ export const se_DeleteBucketLifecycleCommand = async (
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     [_l]: [, ""],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlDeleteBucketMetadataTableConfigurationCommand
+ */
+export const se_DeleteBucketMetadataTableConfigurationCommand = async (
+  input: DeleteBucketMetadataTableConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xaebo]: input[_EBO]!,
+  });
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  const query: any = map({
+    [_mT]: [, ""],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1279,6 +1349,27 @@ export const se_GetBucketLoggingCommand = async (
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     [_log]: [, ""],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlGetBucketMetadataTableConfigurationCommand
+ */
+export const se_GetBucketMetadataTableConfigurationCommand = async (
+  input: GetBucketMetadataTableConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xaebo]: input[_EBO]!,
+  });
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  const query: any = map({
+    [_mT]: [, ""],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -3244,6 +3335,23 @@ export const de_CreateBucketCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlCreateBucketMetadataTableConfigurationCommand
+ */
+export const de_CreateBucketMetadataTableConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBucketMetadataTableConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlCreateMultipartUploadCommand
  */
 export const de_CreateMultipartUploadCommand = async (
@@ -3415,6 +3523,23 @@ export const de_DeleteBucketLifecycleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketLifecycleCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDeleteBucketMetadataTableConfigurationCommand
+ */
+export const de_DeleteBucketMetadataTableConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBucketMetadataTableConfigurationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -3810,6 +3935,24 @@ export const de_GetBucketLoggingCommand = async (
   if (data[_LE] != null) {
     contents[_LE] = de_LoggingEnabled(data[_LE], context);
   }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGetBucketMetadataTableConfigurationCommand
+ */
+export const de_GetBucketMetadataTableConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBucketMetadataTableConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.GetBucketMetadataTableConfigurationResult = de_GetBucketMetadataTableConfigurationResult(data, context);
   return contents;
 };
 
@@ -6609,6 +6752,17 @@ const se_MetadataEntry = (input: MetadataEntry, context: __SerdeContext): any =>
 };
 
 /**
+ * serializeAws_restXmlMetadataTableConfiguration
+ */
+const se_MetadataTableConfiguration = (input: MetadataTableConfiguration, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_MTC);
+  if (input[_STD] != null) {
+    bn.c(se_S3TablesDestination(input[_STD], context).n(_STD));
+  }
+  return bn;
+};
+
+/**
  * serializeAws_restXmlMetrics
  */
 const se_Metrics = (input: Metrics, context: __SerdeContext): any => {
@@ -7204,6 +7358,20 @@ const se_S3Location = (input: S3Location, context: __SerdeContext): any => {
   }
   bn.lc(input, "UserMetadata", "UserMetadata", () => se_UserMetadata(input[_UM]!, context));
   bn.cc(input, _SC);
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlS3TablesDestination
+ */
+const se_S3TablesDestination = (input: S3TablesDestination, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_STD);
+  if (input[_TBA] != null) {
+    bn.c(__XmlNode.of(_STBA, input[_TBA]).n(_TBA));
+  }
+  if (input[_TN] != null) {
+    bn.c(__XmlNode.of(_STN, input[_TN]).n(_TN));
+  }
   return bn;
 };
 
@@ -8086,6 +8254,20 @@ const de__Error = (output: any, context: __SerdeContext): _Error => {
 };
 
 /**
+ * deserializeAws_restXmlErrorDetails
+ */
+const de_ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
+  const contents: any = {};
+  if (output[_EC] != null) {
+    contents[_EC] = __expectString(output[_EC]);
+  }
+  if (output[_EM] != null) {
+    contents[_EM] = __expectString(output[_EM]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlErrorDocument
  */
 const de_ErrorDocument = (output: any, context: __SerdeContext): ErrorDocument => {
@@ -8171,6 +8353,26 @@ const de_FilterRuleList = (output: any, context: __SerdeContext): FilterRule[] =
     .map((entry: any) => {
       return de_FilterRule(entry, context);
     });
+};
+
+/**
+ * deserializeAws_restXmlGetBucketMetadataTableConfigurationResult
+ */
+const de_GetBucketMetadataTableConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): GetBucketMetadataTableConfigurationResult => {
+  const contents: any = {};
+  if (output[_MTCR] != null) {
+    contents[_MTCR] = de_MetadataTableConfigurationResult(output[_MTCR], context);
+  }
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
+  }
+  if (output[_Er] != null) {
+    contents[_Er] = de_ErrorDetails(output[_Er], context);
+  }
+  return contents;
 };
 
 /**
@@ -8629,6 +8831,20 @@ const de_LoggingEnabled = (output: any, context: __SerdeContext): LoggingEnabled
   }
   if (output[_TOKF] != null) {
     contents[_TOKF] = de_TargetObjectKeyFormat(output[_TOKF], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlMetadataTableConfigurationResult
+ */
+const de_MetadataTableConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): MetadataTableConfigurationResult => {
+  const contents: any = {};
+  if (output[_STDR] != null) {
+    contents[_STDR] = de_S3TablesDestinationResult(output[_STDR], context);
   }
   return contents;
 };
@@ -9401,6 +9617,26 @@ const de_S3KeyFilter = (output: any, context: __SerdeContext): S3KeyFilter => {
 };
 
 /**
+ * deserializeAws_restXmlS3TablesDestinationResult
+ */
+const de_S3TablesDestinationResult = (output: any, context: __SerdeContext): S3TablesDestinationResult => {
+  const contents: any = {};
+  if (output[_TBA] != null) {
+    contents[_TBA] = __expectString(output[_TBA]);
+  }
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
+  }
+  if (output[_TAa] != null) {
+    contents[_TAa] = __expectString(output[_TAa]);
+  }
+  if (output[_TNa] != null) {
+    contents[_TNa] = __expectString(output[_TNa]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlServerSideEncryptionByDefault
  */
 const de_ServerSideEncryptionByDefault = (output: any, context: __SerdeContext): ServerSideEncryptionByDefault => {
@@ -9991,6 +10227,8 @@ const _MKe = "MetadataKey";
 const _MM = "MissingMeta";
 const _MP = "MaxParts";
 const _MS = "MetricsStatus";
+const _MTC = "MetadataTableConfiguration";
+const _MTCR = "MetadataTableConfigurationResult";
 const _MU = "MaxUploads";
 const _MV = "MetadataValue";
 const _Me = "Metrics";
@@ -10146,6 +10384,10 @@ const _SSEKMSKI = "SSEKMSKeyId";
 const _SSER = "ServerSideEncryptionRule";
 const _SSES = "SSES3";
 const _ST = "SessionToken";
+const _STBA = "S3TablesBucketArn";
+const _STD = "S3TablesDestination";
+const _STDR = "S3TablesDestinationResult";
+const _STN = "S3TablesName";
 const _S_ = "S3";
 const _Sc = "Schedule";
 const _Se = "Setting";
@@ -10154,7 +10396,9 @@ const _St = "Start";
 const _Su = "Suffix";
 const _T = "Tagging";
 const _TA = "TopicArn";
+const _TAa = "TableArn";
 const _TB = "TargetBucket";
+const _TBA = "TableBucketArn";
 const _TC = "TagCount";
 const _TCo = "TopicConfiguration";
 const _TCop = "TopicConfigurations";
@@ -10162,6 +10406,8 @@ const _TD = "TaggingDirective";
 const _TDMOS = "TransitionDefaultMinimumObjectSize";
 const _TG = "TargetGrants";
 const _TGa = "TargetGrant";
+const _TN = "TableName";
+const _TNa = "TableNamespace";
 const _TOKF = "TargetObjectKeyFormat";
 const _TP = "TargetPrefix";
 const _TPC = "TotalPartsCount";
@@ -10234,6 +10480,7 @@ const _lo = "location";
 const _log = "logging";
 const _lt = "list-type";
 const _m = "metrics";
+const _mT = "metadataTable";
 const _ma = "marker";
 const _mb = "max-buckets";
 const _mdb = "max-directory-buckets";

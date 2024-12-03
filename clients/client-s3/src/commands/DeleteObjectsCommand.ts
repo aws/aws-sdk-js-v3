@@ -228,44 +228,6 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To delete multiple object versions from a versioned bucket
- * ```javascript
- * // The following example deletes objects from a bucket. The request specifies object versions. S3 deletes specific object versions and returns the key and versions of deleted objects in the response.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Delete": {
- *     "Objects": [
- *       {
- *         "Key": "HappyFace.jpg",
- *         "VersionId": "2LWg7lQLnY41.maGB5Z6SWW.dcq0vx7b"
- *       },
- *       {
- *         "Key": "HappyFace.jpg",
- *         "VersionId": "yoz3HB.ZhCS_tKVEmIOr7qYyyAaZSKVd"
- *       }
- *     ],
- *     "Quiet": false
- *   }
- * };
- * const command = new DeleteObjectsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Deleted": [
- *     {
- *       "Key": "HappyFace.jpg",
- *       "VersionId": "yoz3HB.ZhCS_tKVEmIOr7qYyyAaZSKVd"
- *     },
- *     {
- *       "Key": "HappyFace.jpg",
- *       "VersionId": "2LWg7lQLnY41.maGB5Z6SWW.dcq0vx7b"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-delete-multiple-object-versions-from-a-versioned-bucket-1483147087737
- * ```
- *
  * @example To delete multiple objects from a versioned bucket
  * ```javascript
  * // The following example deletes objects from a bucket. The bucket is versioned, and the request does not specify the object version to delete. In this case, all versions remain in the bucket and S3 adds a delete marker.
@@ -302,6 +264,44 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  * }
  * *\/
  * // example id: to-delete-multiple-objects-from-a-versioned-bucket-1483146248805
+ * ```
+ *
+ * @example To delete multiple object versions from a versioned bucket
+ * ```javascript
+ * // The following example deletes objects from a bucket. The request specifies object versions. S3 deletes specific object versions and returns the key and versions of deleted objects in the response.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Delete": {
+ *     "Objects": [
+ *       {
+ *         "Key": "HappyFace.jpg",
+ *         "VersionId": "2LWg7lQLnY41.maGB5Z6SWW.dcq0vx7b"
+ *       },
+ *       {
+ *         "Key": "HappyFace.jpg",
+ *         "VersionId": "yoz3HB.ZhCS_tKVEmIOr7qYyyAaZSKVd"
+ *       }
+ *     ],
+ *     "Quiet": false
+ *   }
+ * };
+ * const command = new DeleteObjectsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Deleted": [
+ *     {
+ *       "Key": "HappyFace.jpg",
+ *       "VersionId": "yoz3HB.ZhCS_tKVEmIOr7qYyyAaZSKVd"
+ *     },
+ *     {
+ *       "Key": "HappyFace.jpg",
+ *       "VersionId": "2LWg7lQLnY41.maGB5Z6SWW.dcq0vx7b"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-delete-multiple-object-versions-from-a-versioned-bucket-1483147087737
  * ```
  *
  */

@@ -91,6 +91,10 @@ import {
 import { CopyObjectCommandInput, CopyObjectCommandOutput } from "./commands/CopyObjectCommand";
 import { CreateBucketCommandInput, CreateBucketCommandOutput } from "./commands/CreateBucketCommand";
 import {
+  CreateBucketMetadataTableConfigurationCommandInput,
+  CreateBucketMetadataTableConfigurationCommandOutput,
+} from "./commands/CreateBucketMetadataTableConfigurationCommand";
+import {
   CreateMultipartUploadCommandInput,
   CreateMultipartUploadCommandOutput,
 } from "./commands/CreateMultipartUploadCommand";
@@ -121,6 +125,10 @@ import {
   DeleteBucketLifecycleCommandInput,
   DeleteBucketLifecycleCommandOutput,
 } from "./commands/DeleteBucketLifecycleCommand";
+import {
+  DeleteBucketMetadataTableConfigurationCommandInput,
+  DeleteBucketMetadataTableConfigurationCommandOutput,
+} from "./commands/DeleteBucketMetadataTableConfigurationCommand";
 import {
   DeleteBucketMetricsConfigurationCommandInput,
   DeleteBucketMetricsConfigurationCommandOutput,
@@ -180,6 +188,10 @@ import {
 } from "./commands/GetBucketLifecycleConfigurationCommand";
 import { GetBucketLocationCommandInput, GetBucketLocationCommandOutput } from "./commands/GetBucketLocationCommand";
 import { GetBucketLoggingCommandInput, GetBucketLoggingCommandOutput } from "./commands/GetBucketLoggingCommand";
+import {
+  GetBucketMetadataTableConfigurationCommandInput,
+  GetBucketMetadataTableConfigurationCommandOutput,
+} from "./commands/GetBucketMetadataTableConfigurationCommand";
 import {
   GetBucketMetricsConfigurationCommandInput,
   GetBucketMetricsConfigurationCommandOutput,
@@ -357,6 +369,7 @@ export type ServiceInputTypes =
   | CompleteMultipartUploadCommandInput
   | CopyObjectCommandInput
   | CreateBucketCommandInput
+  | CreateBucketMetadataTableConfigurationCommandInput
   | CreateMultipartUploadCommandInput
   | CreateSessionCommandInput
   | DeleteBucketAnalyticsConfigurationCommandInput
@@ -366,6 +379,7 @@ export type ServiceInputTypes =
   | DeleteBucketIntelligentTieringConfigurationCommandInput
   | DeleteBucketInventoryConfigurationCommandInput
   | DeleteBucketLifecycleCommandInput
+  | DeleteBucketMetadataTableConfigurationCommandInput
   | DeleteBucketMetricsConfigurationCommandInput
   | DeleteBucketOwnershipControlsCommandInput
   | DeleteBucketPolicyCommandInput
@@ -386,6 +400,7 @@ export type ServiceInputTypes =
   | GetBucketLifecycleConfigurationCommandInput
   | GetBucketLocationCommandInput
   | GetBucketLoggingCommandInput
+  | GetBucketMetadataTableConfigurationCommandInput
   | GetBucketMetricsConfigurationCommandInput
   | GetBucketNotificationConfigurationCommandInput
   | GetBucketOwnershipControlsCommandInput
@@ -457,6 +472,7 @@ export type ServiceOutputTypes =
   | CompleteMultipartUploadCommandOutput
   | CopyObjectCommandOutput
   | CreateBucketCommandOutput
+  | CreateBucketMetadataTableConfigurationCommandOutput
   | CreateMultipartUploadCommandOutput
   | CreateSessionCommandOutput
   | DeleteBucketAnalyticsConfigurationCommandOutput
@@ -466,6 +482,7 @@ export type ServiceOutputTypes =
   | DeleteBucketIntelligentTieringConfigurationCommandOutput
   | DeleteBucketInventoryConfigurationCommandOutput
   | DeleteBucketLifecycleCommandOutput
+  | DeleteBucketMetadataTableConfigurationCommandOutput
   | DeleteBucketMetricsConfigurationCommandOutput
   | DeleteBucketOwnershipControlsCommandOutput
   | DeleteBucketPolicyCommandOutput
@@ -486,6 +503,7 @@ export type ServiceOutputTypes =
   | GetBucketLifecycleConfigurationCommandOutput
   | GetBucketLocationCommandOutput
   | GetBucketLoggingCommandOutput
+  | GetBucketMetadataTableConfigurationCommandOutput
   | GetBucketMetricsConfigurationCommandOutput
   | GetBucketNotificationConfigurationCommandOutput
   | GetBucketOwnershipControlsCommandOutput
