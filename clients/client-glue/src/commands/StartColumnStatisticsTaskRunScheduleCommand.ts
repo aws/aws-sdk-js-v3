@@ -9,7 +9,7 @@ import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from 
 import {
   StartColumnStatisticsTaskRunScheduleRequest,
   StartColumnStatisticsTaskRunScheduleResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_StartColumnStatisticsTaskRunScheduleCommand,
   se_StartColumnStatisticsTaskRunScheduleCommand,

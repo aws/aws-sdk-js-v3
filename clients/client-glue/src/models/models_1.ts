@@ -5,33 +5,25 @@ import { GlueServiceException as __BaseException } from "./GlueServiceException"
 
 import {
   Action,
-  AuthenticationConfiguration,
+  AuthConfiguration,
   AuthenticationConfigurationInput,
   AuthenticationConfigurationInputFilterSensitiveLog,
+  AuthenticationType,
+  BatchStopJobRunError,
   Blueprint,
   Column,
   ConnectionsList,
-  Crawler,
   CrawlerTargets,
-  DataQualityAnalyzerResult,
-  DataQualityAnalyzerResultFilterSensitiveLog,
-  DataQualityObservation,
-  DataQualityObservationFilterSensitiveLog,
-  DataQualityRuleResult,
-  DataQualityRuleResultFilterSensitiveLog,
-  DataSource,
-  DevEndpoint,
+  DataOperation,
   ErrorDetail,
   EventBatchingCondition,
   GlueTable,
-  InclusionAnnotationValue,
-  JobRun,
   LakeFormationConfiguration,
   LineageConfiguration,
   PartitionInput,
   Predicate,
+  Property,
   RecrawlPolicy,
-  Schedule,
   SchemaChangePolicy,
   SchemaId,
   StorageDescriptor,
@@ -40,6 +32,132 @@ import {
   TriggerType,
   WorkerType,
 } from "./models_0";
+
+/**
+ * <p>Records a successful request to stop a specified <code>JobRun</code>.</p>
+ * @public
+ */
+export interface BatchStopJobRunSuccessfulSubmission {
+  /**
+   * <p>The name of the job definition used in the job run that was stopped.</p>
+   * @public
+   */
+  JobName?: string | undefined;
+
+  /**
+   * <p>The <code>JobRunId</code> of the job run that was stopped.</p>
+   * @public
+   */
+  JobRunId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchStopJobRunResponse {
+  /**
+   * <p>A list of the JobRuns that were successfully submitted for stopping.</p>
+   * @public
+   */
+  SuccessfulSubmissions?: BatchStopJobRunSuccessfulSubmission[] | undefined;
+
+  /**
+   * <p>A list of the errors that were encountered in trying to stop <code>JobRuns</code>,
+   *       including the <code>JobRunId</code> for which each error was encountered and details about the
+   *       error.</p>
+   * @public
+   */
+  Errors?: BatchStopJobRunError[] | undefined;
+}
+
+/**
+ * <p>A structure that contains the values and structure used to update a partition.</p>
+ * @public
+ */
+export interface BatchUpdatePartitionRequestEntry {
+  /**
+   * <p>A list of values defining the partitions.</p>
+   * @public
+   */
+  PartitionValueList: string[] | undefined;
+
+  /**
+   * <p>The structure used to update a partition.</p>
+   * @public
+   */
+  PartitionInput: PartitionInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdatePartitionRequest {
+  /**
+   * <p>The ID of the catalog in which the partition is to be updated. Currently, this should be
+   *       the Amazon Web Services account ID.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The name of the metadata database in which the partition is
+   *       to be updated.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the metadata table in which the partition is to be updated.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A list of up to 100 <code>BatchUpdatePartitionRequestEntry</code> objects to update.</p>
+   * @public
+   */
+  Entries: BatchUpdatePartitionRequestEntry[] | undefined;
+}
+
+/**
+ * <p>Contains information about a batch update partition error.</p>
+ * @public
+ */
+export interface BatchUpdatePartitionFailureEntry {
+  /**
+   * <p>A list of values defining the partitions.</p>
+   * @public
+   */
+  PartitionValueList?: string[] | undefined;
+
+  /**
+   * <p>The details about the batch update partition error.</p>
+   * @public
+   */
+  ErrorDetail?: ErrorDetail | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdatePartitionResponse {
+  /**
+   * <p>The errors encountered when trying to update the requested partitions. A list of <code>BatchUpdatePartitionFailureEntry</code> objects.</p>
+   * @public
+   */
+  Errors?: BatchUpdatePartitionFailureEntry[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelDataQualityRuleRecommendationRunRequest {
+  /**
+   * <p>The unique run identifier associated with this run.</p>
+   * @public
+   */
+  RunId: string | undefined;
+}
 
 /**
  * @public
@@ -262,6 +380,270 @@ export interface CreateBlueprintResponse {
    * @public
    */
   Name?: string | undefined;
+}
+
+/**
+ * <p>Two processes are trying to modify a resource simultaneously.</p>
+ * @public
+ */
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Input properties to configure data lake access for your catalog resource in the Glue Data Catalog.</p>
+ * @public
+ */
+export interface DataLakeAccessProperties {
+  /**
+   * <p>Turns on or off data lake access for Apache Spark applications that access Amazon Redshift databases in the Data Catalog from any non-Redshift engine, such as Amazon Athena, Amazon EMR, or Glue ETL.</p>
+   * @public
+   */
+  DataLakeAccess?: boolean | undefined;
+
+  /**
+   * <p>A role that will be assumed by Glue for transferring data into/out of the staging bucket during a query.</p>
+   * @public
+   */
+  DataTransferRole?: string | undefined;
+
+  /**
+   * <p>An encryption key that will be used for the staging bucket that will be created along with the catalog.</p>
+   * @public
+   */
+  KmsKey?: string | undefined;
+
+  /**
+   * <p>Specifies a federated catalog type for the native catalog resource. The currently supported type is <code>aws:redshift</code>.</p>
+   * @public
+   */
+  CatalogType?: string | undefined;
+}
+
+/**
+ * <p>A structure that specifies data lake access properties and other custom properties.</p>
+ * @public
+ */
+export interface CatalogProperties {
+  /**
+   * <p>A <code>DataLakeAccessProperties</code> object that specifies properties to configure data lake access for your catalog resource in the Glue Data Catalog.</p>
+   * @public
+   */
+  DataLakeAccessProperties?: DataLakeAccessProperties | undefined;
+
+  /**
+   * <p>Additional key-value properties for the catalog, such as column statistics optimizations.</p>
+   * @public
+   */
+  CustomProperties?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Permission = {
+  ALL: "ALL",
+  ALTER: "ALTER",
+  CREATE_DATABASE: "CREATE_DATABASE",
+  CREATE_TABLE: "CREATE_TABLE",
+  DATA_LOCATION_ACCESS: "DATA_LOCATION_ACCESS",
+  DELETE: "DELETE",
+  DROP: "DROP",
+  INSERT: "INSERT",
+  SELECT: "SELECT",
+} as const;
+
+/**
+ * @public
+ */
+export type Permission = (typeof Permission)[keyof typeof Permission];
+
+/**
+ * <p>The Lake Formation principal.</p>
+ * @public
+ */
+export interface DataLakePrincipal {
+  /**
+   * <p>An identifier for the Lake Formation principal.</p>
+   * @public
+   */
+  DataLakePrincipalIdentifier?: string | undefined;
+}
+
+/**
+ * <p>Permissions granted to a principal.</p>
+ * @public
+ */
+export interface PrincipalPermissions {
+  /**
+   * <p>The principal who is granted permissions.</p>
+   * @public
+   */
+  Principal?: DataLakePrincipal | undefined;
+
+  /**
+   * <p>The permissions that are granted to the principal.</p>
+   * @public
+   */
+  Permissions?: Permission[] | undefined;
+}
+
+/**
+ * <p>A catalog that points to an entity outside the Glue Data Catalog.</p>
+ * @public
+ */
+export interface FederatedCatalog {
+  /**
+   * <p>A unique identifier for the federated catalog.</p>
+   * @public
+   */
+  Identifier?: string | undefined;
+
+  /**
+   * <p>The name of the connection to an external data source, for example a Redshift-federated catalog.</p>
+   * @public
+   */
+  ConnectionName?: string | undefined;
+}
+
+/**
+ * <p>A structure that describes a target catalog for resource linking.</p>
+ * @public
+ */
+export interface TargetRedshiftCatalog {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the catalog resource.</p>
+   * @public
+   */
+  CatalogArn: string | undefined;
+}
+
+/**
+ * <p>A structure that describes catalog properties.</p>
+ * @public
+ */
+export interface CatalogInput {
+  /**
+   * <p>Description string, not more than 2048 bytes long, matching the URI address multi-line string pattern. A description of the catalog.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A <code>FederatedCatalog</code> object. A <code>FederatedCatalog</code> structure that references an entity outside the Glue Data Catalog, for example a Redshift database.</p>
+   * @public
+   */
+  FederatedCatalog?: FederatedCatalog | undefined;
+
+  /**
+   * <p>A map array of key-value pairs that define the parameters and properties of the catalog.</p>
+   * @public
+   */
+  Parameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>A <code>TargetRedshiftCatalog</code> object that describes a target catalog for resource linking.</p>
+   * @public
+   */
+  TargetRedshiftCatalog?: TargetRedshiftCatalog | undefined;
+
+  /**
+   * <p>A <code>CatalogProperties</code> object that specifies data lake access properties and other custom properties.</p>
+   * @public
+   */
+  CatalogProperties?: CatalogProperties | undefined;
+
+  /**
+   * <p>An array of <code>PrincipalPermissions</code> objects. Creates a set of default permissions on the table(s) for principals. Used by Amazon Web Services Lake Formation. Typically should be explicitly set as an empty list.</p>
+   * @public
+   */
+  CreateTableDefaultPermissions?: PrincipalPermissions[] | undefined;
+
+  /**
+   * <p>An array of <code>PrincipalPermissions</code> objects. Creates a set of default permissions on the database(s) for principals. Used by Amazon Web Services Lake Formation. Typically should be explicitly set as an empty list.</p>
+   * @public
+   */
+  CreateDatabaseDefaultPermissions?: PrincipalPermissions[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCatalogRequest {
+  /**
+   * <p>The name of the catalog to create.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A <code>CatalogInput</code> object that defines the metadata for the catalog.</p>
+   * @public
+   */
+  CatalogInput: CatalogInput | undefined;
+
+  /**
+   * <p>A map array of key-value pairs, not more than 50 pairs. Each key is a UTF-8 string, not less than 1 or more than 128 bytes long. Each value is a UTF-8 string, not more than 256 bytes long. The tags you assign to the catalog.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCatalogResponse {}
+
+/**
+ * <p>A federated resource already exists.</p>
+ * @public
+ */
+export class FederatedResourceAlreadyExistsException extends __BaseException {
+  readonly name: "FederatedResourceAlreadyExistsException" = "FederatedResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The associated Glue resource already exists.</p>
+   * @public
+   */
+  AssociatedGlueResource?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FederatedResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "FederatedResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FederatedResourceAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+    this.AssociatedGlueResource = opts.AssociatedGlueResource;
+  }
 }
 
 /**
@@ -586,6 +968,8 @@ export const ConnectionPropertyKey = {
   ENCRYPTED_KAFKA_SASL_PLAIN_PASSWORD: "ENCRYPTED_KAFKA_SASL_PLAIN_PASSWORD",
   ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD: "ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD",
   ENCRYPTED_PASSWORD: "ENCRYPTED_PASSWORD",
+  ENDPOINT: "ENDPOINT",
+  ENDPOINT_TYPE: "ENDPOINT_TYPE",
   HOST: "HOST",
   INSTANCE_ID: "INSTANCE_ID",
   JDBC_CONNECTION_URL: "JDBC_CONNECTION_URL",
@@ -632,15 +1016,34 @@ export type ConnectionPropertyKey = (typeof ConnectionPropertyKey)[keyof typeof 
  */
 export const ConnectionType = {
   CUSTOM: "CUSTOM",
+  FACEBOOKADS: "FACEBOOKADS",
+  GOOGLEADS: "GOOGLEADS",
+  GOOGLEANALYTICS4: "GOOGLEANALYTICS4",
+  GOOGLESHEETS: "GOOGLESHEETS",
+  HUBSPOT: "HUBSPOT",
+  INSTAGRAMADS: "INSTAGRAMADS",
+  INTERCOM: "INTERCOM",
   JDBC: "JDBC",
+  JIRACLOUD: "JIRACLOUD",
   KAFKA: "KAFKA",
+  MARKETO: "MARKETO",
   MARKETPLACE: "MARKETPLACE",
   MONGODB: "MONGODB",
+  NETSUITEERP: "NETSUITEERP",
   NETWORK: "NETWORK",
   SALESFORCE: "SALESFORCE",
+  SALESFORCEMARKETINGCLOUD: "SALESFORCEMARKETINGCLOUD",
+  SALESFORCEPARDOT: "SALESFORCEPARDOT",
+  SAPODATA: "SAPODATA",
+  SERVICENOW: "SERVICENOW",
   SFTP: "SFTP",
+  SLACK: "SLACK",
+  SNAPCHATADS: "SNAPCHATADS",
+  STRIPE: "STRIPE",
   VIEW_VALIDATION_ATHENA: "VIEW_VALIDATION_ATHENA",
   VIEW_VALIDATION_REDSHIFT: "VIEW_VALIDATION_REDSHIFT",
+  ZENDESK: "ZENDESK",
+  ZOHOCRM: "ZOHOCRM",
 } as const;
 
 /**
@@ -671,6 +1074,21 @@ export interface PhysicalConnectionRequirements {
    */
   AvailabilityZone?: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ComputeEnvironment = {
+  ATHENA: "ATHENA",
+  PYTHON: "PYTHON",
+  SPARK: "SPARK",
+} as const;
+
+/**
+ * @public
+ */
+export type ComputeEnvironment = (typeof ComputeEnvironment)[keyof typeof ComputeEnvironment];
 
 /**
  * <p>A structure that is used to specify a connection to create or update.</p>
@@ -751,15 +1169,6 @@ export interface ConnectionInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SALESFORCE</code> - Designates a connection to Salesforce using OAuth authencation.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Requires the <code>AuthenticationConfiguration</code> member to be configured.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>VIEW_VALIDATION_REDSHIFT</code> - Designates a connection used for view validation by Amazon Redshift.</p>
    *             </li>
    *             <li>
@@ -792,6 +1201,90 @@ export interface ConnectionInput {
    *                   <code>CUSTOM</code> - Uses configuration settings contained in a custom connector to read from and write to data stores that are not natively supported by Glue.</p>
    *             </li>
    *          </ul>
+   *          <p>Additionally, a <code>ConnectionType</code> for the following SaaS connectors is supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FACEBOOKADS</code> - Designates a connection to Facebook Ads.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GOOGLEADS</code> - Designates a connection to Google Ads.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GOOGLESHEETS</code> - Designates a connection to Google Sheets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GOOGLEANALYTICS4</code> - Designates a connection to Google Analytics 4.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HUBSPOT</code> - Designates a connection to HubSpot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INSTAGRAMADS</code> - Designates a connection to Instagram Ads.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INTERCOM</code> - Designates a connection to Intercom.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>JIRACLOUD</code> - Designates a connection to Jira Cloud.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MARKETO</code> - Designates a connection to Adobe Marketo Engage.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NETSUITEERP</code> - Designates a connection to Oracle NetSuite.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SALESFORCE</code> - Designates a connection to Salesforce using OAuth authentication.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SALESFORCEMARKETINGCLOUD</code> - Designates a connection to Salesforce Marketing Cloud.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SALESFORCEPARDOT</code> - Designates a connection to Salesforce Marketing Cloud Account Engagement (MCAE).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAPODATA</code> - Designates a connection to SAP OData.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SERVICENOW</code> - Designates a connection to ServiceNow.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SLACK</code> - Designates a connection to Slack.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SNAPCHATADS</code> - Designates a connection to Snapchat Ads.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STRIPE</code> - Designates a connection to Stripe.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ZENDESK</code> - Designates a connection to Zendesk.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ZOHOCRM</code> - Designates a connection to Zoho CRM.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information on the connection parameters needed for a particular connector, see the documentation for the connector in <a href="https://docs.aws.amazon.com/glue/latest/dg/console-connections.html">Adding an Glue connection</a>in the Glue User Guide.</p>
    *          <p>
    *             <code>SFTP</code> is not supported.</p>
    *          <p>For more information about how optional ConnectionProperties are used to configure features in Glue, consult <a href="https://docs.aws.amazon.com/glue/latest/dg/connection-defining.html">Glue connection properties</a>.</p>
@@ -813,10 +1306,22 @@ export interface ConnectionInput {
   ConnectionProperties: Partial<Record<ConnectionPropertyKey, string>> | undefined;
 
   /**
-   * <p>This field is not currently used.</p>
+   * <p>Connection properties specific to the Spark compute environment.</p>
+   * @public
+   */
+  SparkProperties?: Record<string, string> | undefined;
+
+  /**
+   * <p>Connection properties specific to the Athena compute environment.</p>
    * @public
    */
   AthenaProperties?: Record<string, string> | undefined;
+
+  /**
+   * <p>Connection properties specific to the Python compute environment.</p>
+   * @public
+   */
+  PythonProperties?: Record<string, string> | undefined;
 
   /**
    * <p>The physical connection requirements, such as virtual private cloud (VPC) and <code>SecurityGroup</code>, that are needed to successfully make this connection.</p>
@@ -825,16 +1330,22 @@ export interface ConnectionInput {
   PhysicalConnectionRequirements?: PhysicalConnectionRequirements | undefined;
 
   /**
-   * <p>The authentication properties of the connection. Used for a Salesforce connection.</p>
+   * <p>The authentication properties of the connection.</p>
    * @public
    */
   AuthenticationConfiguration?: AuthenticationConfigurationInput | undefined;
 
   /**
-   * <p>A flag to validate the credentials during create connection. Used for a Salesforce connection. Default is true. </p>
+   * <p>A flag to validate the credentials during create connection. Default is true. </p>
    * @public
    */
   ValidateCredentials?: boolean | undefined;
+
+  /**
+   * <p>The compute environments that the specified connection properties are validated against.</p>
+   * @public
+   */
+  ValidateForComputeEnvironments?: ComputeEnvironment[] | undefined;
 }
 
 /**
@@ -1067,83 +1578,6 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
- * <p>Two processes are trying to modify a resource simultaneously.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const Permission = {
-  ALL: "ALL",
-  ALTER: "ALTER",
-  CREATE_DATABASE: "CREATE_DATABASE",
-  CREATE_TABLE: "CREATE_TABLE",
-  DATA_LOCATION_ACCESS: "DATA_LOCATION_ACCESS",
-  DELETE: "DELETE",
-  DROP: "DROP",
-  INSERT: "INSERT",
-  SELECT: "SELECT",
-} as const;
-
-/**
- * @public
- */
-export type Permission = (typeof Permission)[keyof typeof Permission];
-
-/**
- * <p>The Lake Formation principal.</p>
- * @public
- */
-export interface DataLakePrincipal {
-  /**
-   * <p>An identifier for the Lake Formation principal.</p>
-   * @public
-   */
-  DataLakePrincipalIdentifier?: string | undefined;
-}
-
-/**
- * <p>Permissions granted to a principal.</p>
- * @public
- */
-export interface PrincipalPermissions {
-  /**
-   * <p>The principal who is granted permissions.</p>
-   * @public
-   */
-  Principal?: DataLakePrincipal | undefined;
-
-  /**
-   * <p>The permissions that are granted to the principal.</p>
-   * @public
-   */
-  Permissions?: Permission[] | undefined;
-}
-
-/**
  * <p>A database that points to an entity outside the Glue Data Catalog.</p>
  * @public
  */
@@ -1264,39 +1698,6 @@ export interface CreateDatabaseRequest {
  * @public
  */
 export interface CreateDatabaseResponse {}
-
-/**
- * <p>A federated resource already exists.</p>
- * @public
- */
-export class FederatedResourceAlreadyExistsException extends __BaseException {
-  readonly name: "FederatedResourceAlreadyExistsException" = "FederatedResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The associated Glue resource already exists.</p>
-   * @public
-   */
-  AssociatedGlueResource?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FederatedResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "FederatedResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FederatedResourceAlreadyExistsException.prototype);
-    this.Message = opts.Message;
-    this.AssociatedGlueResource = opts.AssociatedGlueResource;
-  }
-}
 
 /**
  * <p>An object representing an Glue table.</p>
@@ -1671,6 +2072,583 @@ export class ValidationException extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled.	</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The <code>Tag</code> object represents a label that you can assign to an Amazon Web Services resource. Each tag consists of a key and an optional value, both of which you define.</p>
+ *          <p>For more information about tags, and controlling access to resources in Glue, see
+ *                 <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> and <a href="https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html">Specifying Glue Resource
+ *                 ARNs</a> in the developer guide.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>The tag key. The key is required when you create a tag on an object. The key is case-sensitive, and must not contain the prefix aws.</p>
+   * @public
+   */
+  key?: string | undefined;
+
+  /**
+   * <p>The tag value. The value is optional when you create a tag on an object. The value is case-sensitive, and must not contain the prefix aws.</p>
+   * @public
+   */
+  value?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateIntegrationRequest {
+  /**
+   * <p>A unique name for an integration in Glue.</p>
+   * @public
+   */
+  IntegrationName: string | undefined;
+
+  /**
+   * <p>The ARN of the source resource for the integration.</p>
+   * @public
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>The ARN of the target resource for the integration.</p>
+   * @public
+   */
+  TargetArn: string | undefined;
+
+  /**
+   * <p>A description of the integration.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Selects source tables for the integration using Maxwell filter syntax.</p>
+   * @public
+   */
+  DataFilter?: string | undefined;
+
+  /**
+   * <p>The ARN of a KMS key used for encrypting the channel.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>An optional set of non-secret key–value pairs that contains additional contextual information for encryption. This can only be provided if <code>KMSKeyId</code> is provided.</p>
+   * @public
+   */
+  AdditionalEncryptionContext?: Record<string, string> | undefined;
+
+  /**
+   * <p>Metadata assigned to the resource consisting of a list of key-value pairs.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>An error associated with a zero-ETL integration.</p>
+ * @public
+ */
+export interface IntegrationError {
+  /**
+   * <p>The code associated with this error.</p>
+   * @public
+   */
+  ErrorCode?: string | undefined;
+
+  /**
+   * <p>A message describing the error.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IntegrationStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  MODIFYING: "MODIFYING",
+  NEEDS_ATTENTION: "NEEDS_ATTENTION",
+  SYNCING: "SYNCING",
+} as const;
+
+/**
+ * @public
+ */
+export type IntegrationStatus = (typeof IntegrationStatus)[keyof typeof IntegrationStatus];
+
+/**
+ * @public
+ */
+export interface CreateIntegrationResponse {
+  /**
+   * <p>The ARN of the source resource for the integration.</p>
+   * @public
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>The ARN of the target resource for the integration.</p>
+   * @public
+   */
+  TargetArn: string | undefined;
+
+  /**
+   * <p>A unique name for an integration in Glue.</p>
+   * @public
+   */
+  IntegrationName: string | undefined;
+
+  /**
+   * <p>A description of the integration.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the created integration.</p>
+   * @public
+   */
+  IntegrationArn: string | undefined;
+
+  /**
+   * <p>The ARN of a KMS key used for encrypting the channel.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>An optional set of non-secret key–value pairs that contains additional contextual information for encryption.</p>
+   * @public
+   */
+  AdditionalEncryptionContext?: Record<string, string> | undefined;
+
+  /**
+   * <p>Metadata assigned to the resource consisting of a list of key-value pairs.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The status of the integration being created.</p>
+   *          <p>The possible statuses are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATING: The integration is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>ACTIVE: The integration creation succeeds.</p>
+   *             </li>
+   *             <li>
+   *                <p>MODIFYING: The integration is being modified.</p>
+   *             </li>
+   *             <li>
+   *                <p>FAILED: The integration creation fails. </p>
+   *             </li>
+   *             <li>
+   *                <p>DELETING: The integration is deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>SYNCING: The integration is synchronizing.</p>
+   *             </li>
+   *             <li>
+   *                <p>NEEDS_ATTENTION: The integration needs attention, such as synchronization.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status: IntegrationStatus | undefined;
+
+  /**
+   * <p>The time when the integration was created, in UTC.</p>
+   * @public
+   */
+  CreateTime: Date | undefined;
+
+  /**
+   * <p>A list of errors associated with the integration creation.</p>
+   * @public
+   */
+  Errors?: IntegrationError[] | undefined;
+
+  /**
+   * <p>Selects source tables for the integration using Maxwell filter syntax.</p>
+   * @public
+   */
+  DataFilter?: string | undefined;
+}
+
+/**
+ * <p>The requested operation conflicts with another operation.</p>
+ * @public
+ */
+export class IntegrationConflictOperationFault extends __BaseException {
+  readonly name: "IntegrationConflictOperationFault" = "IntegrationConflictOperationFault";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IntegrationConflictOperationFault, __BaseException>) {
+    super({
+      name: "IntegrationConflictOperationFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IntegrationConflictOperationFault.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The data processed through your integration exceeded your quota.</p>
+ * @public
+ */
+export class IntegrationQuotaExceededFault extends __BaseException {
+  readonly name: "IntegrationQuotaExceededFault" = "IntegrationQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IntegrationQuotaExceededFault, __BaseException>) {
+    super({
+      name: "IntegrationQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IntegrationQuotaExceededFault.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>An internal server error occurred.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The KMS key specified is not accessible.</p>
+ * @public
+ */
+export class KMSKeyNotAccessibleFault extends __BaseException {
+  readonly name: "KMSKeyNotAccessibleFault" = "KMSKeyNotAccessibleFault";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSKeyNotAccessibleFault, __BaseException>) {
+    super({
+      name: "KMSKeyNotAccessibleFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSKeyNotAccessibleFault.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The resource could not be found.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The resource properties associated with the integration source.</p>
+ * @public
+ */
+export interface SourceProcessingProperties {
+  /**
+   * <p>The IAM role to access the Glue connection.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+}
+
+/**
+ * <p>The resource properties associated with the integration target.</p>
+ * @public
+ */
+export interface TargetProcessingProperties {
+  /**
+   * <p>The IAM role to access the Glue database.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the KMS key used for encryption.</p>
+   * @public
+   */
+  KmsArn?: string | undefined;
+
+  /**
+   * <p>The Glue network connection to configure the Glue job running in the customer VPC.</p>
+   * @public
+   */
+  ConnectionName?: string | undefined;
+
+  /**
+   * <p>The ARN of an Eventbridge event bus to receive the integration status notification.</p>
+   * @public
+   */
+  EventBusArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateIntegrationResourcePropertyRequest {
+  /**
+   * <p>The connection ARN of the source, or the database ARN of the target.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The resource properties associated with the integration source.</p>
+   * @public
+   */
+  SourceProcessingProperties?: SourceProcessingProperties | undefined;
+
+  /**
+   * <p>The resource properties associated with the integration target.</p>
+   * @public
+   */
+  TargetProcessingProperties?: TargetProcessingProperties | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateIntegrationResourcePropertyResponse {
+  /**
+   * <p>The connection ARN of the source, or the database ARN of the target.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The resource properties associated with the integration source.</p>
+   * @public
+   */
+  SourceProcessingProperties?: SourceProcessingProperties | undefined;
+
+  /**
+   * <p>The resource properties associated with the integration target.</p>
+   * @public
+   */
+  TargetProcessingProperties?: TargetProcessingProperties | undefined;
+}
+
+/**
+ * <p>Properties used by the source leg to process data from the source.</p>
+ * @public
+ */
+export interface SourceTableConfig {
+  /**
+   * <p>A list of fields used for column-level filtering.</p>
+   * @public
+   */
+  Fields?: string[] | undefined;
+
+  /**
+   * <p>A condition clause used for row-level filtering.</p>
+   * @public
+   */
+  FilterPredicate?: string | undefined;
+
+  /**
+   * <p>Unique identifier of a record.</p>
+   * @public
+   */
+  PrimaryKey?: string[] | undefined;
+
+  /**
+   * <p>Incremental pull timestamp-based field.</p>
+   * @public
+   */
+  RecordUpdateField?: string | undefined;
+}
+
+/**
+ * <p>A structure that describes how data is partitioned on the target.</p>
+ * @public
+ */
+export interface IntegrationPartition {
+  /**
+   * <p>The field name used to partition data on the target.</p>
+   * @public
+   */
+  FieldName?: string | undefined;
+
+  /**
+   * <p>Specifies a function used to partition data on the target.</p>
+   * @public
+   */
+  FunctionSpec?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UnnestSpec = {
+  FULL: "FULL",
+  NOUNNEST: "NOUNNEST",
+  TOPLEVEL: "TOPLEVEL",
+} as const;
+
+/**
+ * @public
+ */
+export type UnnestSpec = (typeof UnnestSpec)[keyof typeof UnnestSpec];
+
+/**
+ * <p>Properties used by the target leg to partition the data on the target.</p>
+ * @public
+ */
+export interface TargetTableConfig {
+  /**
+   * <p>Specifies how nested objects are flattened to top-level elements. Valid values are: "TOPLEVEL", "FULL", or "NOUNNEST".</p>
+   * @public
+   */
+  UnnestSpec?: UnnestSpec | undefined;
+
+  /**
+   * <p>Determines the file layout on the target.</p>
+   * @public
+   */
+  PartitionSpec?: IntegrationPartition[] | undefined;
+
+  /**
+   * <p>The optional name of a target table.</p>
+   * @public
+   */
+  TargetTableName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateIntegrationTablePropertiesRequest {
+  /**
+   * <p>The connection ARN of the source, or the database ARN of the target.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The name of the table to be replicated.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A structure for the source table configuration.</p>
+   * @public
+   */
+  SourceTableConfig?: SourceTableConfig | undefined;
+
+  /**
+   * <p>A structure for the target table configuration.</p>
+   * @public
+   */
+  TargetTableConfig?: TargetTableConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateIntegrationTablePropertiesResponse {}
 
 /**
  * @public
@@ -3681,6 +4659,22 @@ export interface DeleteBlueprintResponse {
 /**
  * @public
  */
+export interface DeleteCatalogRequest {
+  /**
+   * <p>The ID of the catalog.</p>
+   * @public
+   */
+  CatalogId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCatalogResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteClassifierRequest {
   /**
    * <p>Name of the classifier to remove.</p>
@@ -3964,6 +4958,192 @@ export interface DeleteDevEndpointResponse {}
 /**
  * @public
  */
+export interface DeleteIntegrationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the integration.</p>
+   * @public
+   */
+  IntegrationIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIntegrationResponse {
+  /**
+   * <p>The ARN of the source for the integration.</p>
+   * @public
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>The ARN of the target for the integration.</p>
+   * @public
+   */
+  TargetArn: string | undefined;
+
+  /**
+   * <p>A unique name for an integration in Glue.</p>
+   * @public
+   */
+  IntegrationName: string | undefined;
+
+  /**
+   * <p>A description of the integration.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the integration.</p>
+   * @public
+   */
+  IntegrationArn: string | undefined;
+
+  /**
+   * <p>The ARN of a KMS key used for encrypting the channel.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>An optional set of non-secret key–value pairs that contains additional contextual information for encryption.</p>
+   * @public
+   */
+  AdditionalEncryptionContext?: Record<string, string> | undefined;
+
+  /**
+   * <p>Metadata assigned to the resource consisting of a list of key-value pairs.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The status of the integration being deleted.</p>
+   *          <p>The possible statuses are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATING: The integration is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>ACTIVE: The integration creation succeeds.</p>
+   *             </li>
+   *             <li>
+   *                <p>MODIFYING: The integration is being modified.</p>
+   *             </li>
+   *             <li>
+   *                <p>FAILED: The integration creation fails. </p>
+   *             </li>
+   *             <li>
+   *                <p>DELETING: The integration is deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>SYNCING: The integration is synchronizing.</p>
+   *             </li>
+   *             <li>
+   *                <p>NEEDS_ATTENTION: The integration needs attention, such as synchronization.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status: IntegrationStatus | undefined;
+
+  /**
+   * <p>The time when the integration was created, in UTC.</p>
+   * @public
+   */
+  CreateTime: Date | undefined;
+
+  /**
+   * <p>A list of errors associated with the integration.</p>
+   * @public
+   */
+  Errors?: IntegrationError[] | undefined;
+
+  /**
+   * <p>Selects source tables for the integration using Maxwell filter syntax.</p>
+   * @public
+   */
+  DataFilter?: string | undefined;
+}
+
+/**
+ * <p>The specified integration could not be found.</p>
+ * @public
+ */
+export class IntegrationNotFoundFault extends __BaseException {
+  readonly name: "IntegrationNotFoundFault" = "IntegrationNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IntegrationNotFoundFault, __BaseException>) {
+    super({
+      name: "IntegrationNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IntegrationNotFoundFault.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The integration is in an invalid state.</p>
+ * @public
+ */
+export class InvalidIntegrationStateFault extends __BaseException {
+  readonly name: "InvalidIntegrationStateFault" = "InvalidIntegrationStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidIntegrationStateFault, __BaseException>) {
+    super({
+      name: "InvalidIntegrationStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidIntegrationStateFault.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteIntegrationTablePropertiesRequest {
+  /**
+   * <p>The connection ARN of the source, or the database ARN of the target.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The name of the table to be replicated.</p>
+   * @public
+   */
+  TableName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIntegrationTablePropertiesResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteJobRequest {
   /**
    * <p>The name of the job definition to delete.</p>
@@ -4040,32 +5220,6 @@ export interface DeletePartitionRequest {
  * @public
  */
 export interface DeletePartitionResponse {}
-
-/**
- * <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled.	</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public
@@ -4547,6 +5701,689 @@ export interface DeleteWorkflowResponse {
 /**
  * @public
  */
+export interface DescribeConnectionTypeRequest {
+  /**
+   * <p>The name of the connection type to be described.</p>
+   * @public
+   */
+  ConnectionType: string | undefined;
+}
+
+/**
+ * <p>Specifies the supported authentication types returned by the <code>DescribeConnectionType</code> API.</p>
+ * @public
+ */
+export interface Capabilities {
+  /**
+   * <p>A list of supported authentication types.</p>
+   * @public
+   */
+  SupportedAuthenticationTypes: AuthenticationType[] | undefined;
+
+  /**
+   * <p>A list of supported data operations.</p>
+   * @public
+   */
+  SupportedDataOperations: DataOperation[] | undefined;
+
+  /**
+   * <p>A list of supported compute environments.</p>
+   * @public
+   */
+  SupportedComputeEnvironments: ComputeEnvironment[] | undefined;
+}
+
+/**
+ * <p>An object containing configuration for a compute environment (such as Spark, Python or Athena) returned by the <code>DescribeConnectionType</code> API.</p>
+ * @public
+ */
+export interface ComputeEnvironmentConfiguration {
+  /**
+   * <p>A name for the compute environment configuration.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the compute environment.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The type of compute environment.</p>
+   * @public
+   */
+  ComputeEnvironment: ComputeEnvironment | undefined;
+
+  /**
+   * <p>The supported authentication types for the compute environment.</p>
+   * @public
+   */
+  SupportedAuthenticationTypes: AuthenticationType[] | undefined;
+
+  /**
+   * <p>The parameters used as connection options for the compute environment.</p>
+   * @public
+   */
+  ConnectionOptions: Record<string, Property> | undefined;
+
+  /**
+   * <p>The connection property name overrides for the compute environment.</p>
+   * @public
+   */
+  ConnectionPropertyNameOverrides: Record<string, string> | undefined;
+
+  /**
+   * <p>The connection option name overrides for the compute environment.</p>
+   * @public
+   */
+  ConnectionOptionNameOverrides: Record<string, string> | undefined;
+
+  /**
+   * <p>The connection properties that are required as overrides for the compute environment.</p>
+   * @public
+   */
+  ConnectionPropertiesRequiredOverrides: string[] | undefined;
+
+  /**
+   * <p>Indicates whether <code>PhysicalConnectionProperties</code> are required for the compute environment.</p>
+   * @public
+   */
+  PhysicalConnectionPropertiesRequired?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeConnectionTypeResponse {
+  /**
+   * <p>The name of the connection type.</p>
+   * @public
+   */
+  ConnectionType?: string | undefined;
+
+  /**
+   * <p>A description of the connection type.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The supported authentication types, data interface types (compute environments), and data operations of the connector.</p>
+   * @public
+   */
+  Capabilities?: Capabilities | undefined;
+
+  /**
+   * <p>Connection properties which are common across compute environments.</p>
+   * @public
+   */
+  ConnectionProperties?: Record<string, Property> | undefined;
+
+  /**
+   * <p>Returns properties that can be set when creating a connection in the <code>ConnectionInput.ConnectionProperties</code>. <code>ConnectionOptions</code> defines parameters that can be set in a Spark ETL script in the connection options map passed to a dataframe.</p>
+   * @public
+   */
+  ConnectionOptions?: Record<string, Property> | undefined;
+
+  /**
+   * <p>The type of authentication used for the connection.</p>
+   * @public
+   */
+  AuthenticationConfiguration?: AuthConfiguration | undefined;
+
+  /**
+   * <p>The compute environments that are supported by the connection.</p>
+   * @public
+   */
+  ComputeEnvironmentConfigurations?: Record<string, ComputeEnvironmentConfiguration> | undefined;
+
+  /**
+   * <p>Physical requirements for a connection, such as VPC, Subnet and Security Group specifications.</p>
+   * @public
+   */
+  PhysicalConnectionRequirements?: Record<string, Property> | undefined;
+
+  /**
+   * <p>Connection properties specific to the Athena compute environment.</p>
+   * @public
+   */
+  AthenaConnectionProperties?: Record<string, Property> | undefined;
+
+  /**
+   * <p>Connection properties specific to the Python compute environment.</p>
+   * @public
+   */
+  PythonConnectionProperties?: Record<string, Property> | undefined;
+
+  /**
+   * <p>Connection properties specific to the Spark compute environment.</p>
+   * @public
+   */
+  SparkConnectionProperties?: Record<string, Property> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEntityRequest {
+  /**
+   * <p>The name of the connection that contains the connection type credentials.</p>
+   * @public
+   */
+  ConnectionName: string | undefined;
+
+  /**
+   * <p>The catalog ID of the catalog that contains the connection. This can be null, By default, the Amazon Web Services Account ID is the catalog ID.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The name of the entity that you want to describe from the connection type.</p>
+   * @public
+   */
+  EntityName: string | undefined;
+
+  /**
+   * <p>A continuation token, included if this is a continuation call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The version of the API used for the data store.</p>
+   * @public
+   */
+  DataStoreApiVersion?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FieldDataType = {
+  ARRAY: "ARRAY",
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  BYTE: "BYTE",
+  DATE: "DATE",
+  DECIMAL: "DECIMAL",
+  DOUBLE: "DOUBLE",
+  FLOAT: "FLOAT",
+  INT: "INT",
+  LONG: "LONG",
+  MAP: "MAP",
+  SHORT: "SHORT",
+  SMALLINT: "SMALLINT",
+  STRING: "STRING",
+  STRUCT: "STRUCT",
+  TIMESTAMP: "TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldDataType = (typeof FieldDataType)[keyof typeof FieldDataType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FieldFilterOperator = {
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  NOT_EQUAL_TO: "NOT_EQUAL_TO",
+  ORDER_BY: "ORDER_BY",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldFilterOperator = (typeof FieldFilterOperator)[keyof typeof FieldFilterOperator];
+
+/**
+ * <p>The <code>Field</code> object has information about the different properties associated with a field in the connector.</p>
+ * @public
+ */
+export interface Field {
+  /**
+   * <p>A unique identifier for the field.</p>
+   * @public
+   */
+  FieldName?: string | undefined;
+
+  /**
+   * <p>A readable label used for the field.</p>
+   * @public
+   */
+  Label?: string | undefined;
+
+  /**
+   * <p>A description of the field.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The type of data in the field.</p>
+   * @public
+   */
+  FieldType?: FieldDataType | undefined;
+
+  /**
+   * <p>Indicates whether this field can used as a primary key for the given entity.</p>
+   * @public
+   */
+  IsPrimaryKey?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether this field can be nullable or not.</p>
+   * @public
+   */
+  IsNullable?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether this field can be added in Select clause of SQL query or whether it is retrievable or not.</p>
+   * @public
+   */
+  IsRetrievable?: boolean | undefined;
+
+  /**
+   * <p> Indicates whether this field can used in a filter clause (<code>WHERE</code> clause) of a SQL statement when querying data. </p>
+   * @public
+   */
+  IsFilterable?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether a given field can be used in partitioning the query made to SaaS.</p>
+   * @public
+   */
+  IsPartitionable?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether this field can be created as part of a destination write.</p>
+   * @public
+   */
+  IsCreateable?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether this field can be updated as part of a destination write.</p>
+   * @public
+   */
+  IsUpdateable?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether this field can be upserted as part of a destination write.</p>
+   * @public
+   */
+  IsUpsertable?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether this field is populated automatically when the object is created, such as a created at timestamp.</p>
+   * @public
+   */
+  IsDefaultOnCreate?: boolean | undefined;
+
+  /**
+   * <p>A list of supported values for the field.</p>
+   * @public
+   */
+  SupportedValues?: string[] | undefined;
+
+  /**
+   * <p>Indicates the support filter operators for this field.</p>
+   * @public
+   */
+  SupportedFilterOperators?: FieldFilterOperator[] | undefined;
+
+  /**
+   * <p>A parent field name for a nested field.</p>
+   * @public
+   */
+  ParentField?: string | undefined;
+
+  /**
+   * <p>The data type returned by the SaaS API, such as “picklist” or “textarea” from Salesforce.</p>
+   * @public
+   */
+  NativeDataType?: string | undefined;
+
+  /**
+   * <p>Optional map of keys which may be returned.</p>
+   * @public
+   */
+  CustomProperties?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEntityResponse {
+  /**
+   * <p>Describes the fields for that connector entity. This is the list of <code>Field</code> objects. <code>Field</code> is very similar to column in a database. The <code>Field</code> object has information about different properties associated with fields in the connector.</p>
+   * @public
+   */
+  Fields?: Field[] | undefined;
+
+  /**
+   * <p>A continuation token, present if the current segment is not the last.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInboundIntegrationsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the integration.</p>
+   * @public
+   */
+  IntegrationArn?: string | undefined;
+
+  /**
+   * <p>A token to specify where to start paginating. This is the marker from a previously truncated response.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The total number of items to return in the output.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target resource in the integration.</p>
+   * @public
+   */
+  TargetArn?: string | undefined;
+}
+
+/**
+ * <p>A structure for an integration that writes data into a resource.</p>
+ * @public
+ */
+export interface InboundIntegration {
+  /**
+   * <p>The ARN of the source resource for the integration.</p>
+   * @public
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>The ARN of the target resource for the integration.</p>
+   * @public
+   */
+  TargetArn: string | undefined;
+
+  /**
+   * <p>The ARN of the zero-ETL integration.</p>
+   * @public
+   */
+  IntegrationArn: string | undefined;
+
+  /**
+   * <p>The possible statuses are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATING: The integration is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>ACTIVE: The integration creation succeeds.</p>
+   *             </li>
+   *             <li>
+   *                <p>MODIFYING: The integration is being modified.</p>
+   *             </li>
+   *             <li>
+   *                <p>FAILED: The integration creation fails. </p>
+   *             </li>
+   *             <li>
+   *                <p>DELETING: The integration is deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>SYNCING: The integration is synchronizing.</p>
+   *             </li>
+   *             <li>
+   *                <p>NEEDS_ATTENTION: The integration needs attention, such as synchronization.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status: IntegrationStatus | undefined;
+
+  /**
+   * <p>The time that the integration was created, in UTC.</p>
+   * @public
+   */
+  CreateTime: Date | undefined;
+
+  /**
+   * <p>A list of errors associated with the integration.</p>
+   * @public
+   */
+  Errors?: IntegrationError[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInboundIntegrationsResponse {
+  /**
+   * <p>A list of inbound integrations.</p>
+   * @public
+   */
+  InboundIntegrations?: InboundIntegration[] | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>The target resource could not be found.</p>
+ * @public
+ */
+export class TargetResourceNotFound extends __BaseException {
+  readonly name: "TargetResourceNotFound" = "TargetResourceNotFound";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TargetResourceNotFound, __BaseException>) {
+    super({
+      name: "TargetResourceNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TargetResourceNotFound.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>A filter that can be used when invoking a <code>DescribeIntegrations</code> request.</p>
+ * @public
+ */
+export interface IntegrationFilter {
+  /**
+   * <p>The name of the filter.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A list of filter values.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIntegrationsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the integration.</p>
+   * @public
+   */
+  IntegrationIdentifier?: string | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The total number of items to return in the output.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>A list of key and values, to filter down the results. Supported keys are "Status", "IntegrationName", and "SourceArn". IntegrationName is limited to only one value.</p>
+   * @public
+   */
+  Filters?: IntegrationFilter[] | undefined;
+}
+
+/**
+ * <p>Describes a zero-ETL integration.</p>
+ * @public
+ */
+export interface Integration {
+  /**
+   * <p>The ARN for the source of the integration.</p>
+   * @public
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>The ARN for the target of the integration.</p>
+   * @public
+   */
+  TargetArn: string | undefined;
+
+  /**
+   * <p>A description for the integration.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A unique name for the integration.</p>
+   * @public
+   */
+  IntegrationName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the integration.</p>
+   * @public
+   */
+  IntegrationArn: string | undefined;
+
+  /**
+   * <p>The ARN of a KMS key used for encrypting the channel.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>An optional set of non-secret key–value pairs that contains additional contextual information for encryption. This can only be provided if <code>KMSKeyId</code> is provided.</p>
+   * @public
+   */
+  AdditionalEncryptionContext?: Record<string, string> | undefined;
+
+  /**
+   * <p>Metadata assigned to the resource consisting of a list of key-value pairs.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The possible statuses are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATING: The integration is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>ACTIVE: The integration creation succeeds.</p>
+   *             </li>
+   *             <li>
+   *                <p>MODIFYING: The integration is being modified.</p>
+   *             </li>
+   *             <li>
+   *                <p>FAILED: The integration creation fails. </p>
+   *             </li>
+   *             <li>
+   *                <p>DELETING: The integration is deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>SYNCING: The integration is synchronizing.</p>
+   *             </li>
+   *             <li>
+   *                <p>NEEDS_ATTENTION: The integration needs attention, such as synchronization.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status: IntegrationStatus | undefined;
+
+  /**
+   * <p>The time that the integration was created, in UTC.</p>
+   * @public
+   */
+  CreateTime: Date | undefined;
+
+  /**
+   * <p>A list of errors associated with the integration.</p>
+   * @public
+   */
+  Errors?: IntegrationError[] | undefined;
+
+  /**
+   * <p>Selects source tables for the integration using Maxwell filter syntax.</p>
+   * @public
+   */
+  DataFilter?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIntegrationsResponse {
+  /**
+   * <p>A list of zero-ETL integrations.</p>
+   * @public
+   */
+  Integrations?: Integration[] | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetBlueprintRequest {
   /**
    * <p>The name of the blueprint.</p>
@@ -4745,6 +6582,178 @@ export interface GetBlueprintRunsResponse {
 /**
  * @public
  */
+export interface GetCatalogRequest {
+  /**
+   * <p>The ID of the parent catalog in which the catalog resides. If none is provided, the Amazon Web Services Account Number is used by default.</p>
+   * @public
+   */
+  CatalogId: string | undefined;
+}
+
+/**
+ * <p>The output properties of the data lake access configuration for your catalog resource in the Glue Data Catalog.</p>
+ * @public
+ */
+export interface DataLakeAccessPropertiesOutput {
+  /**
+   * <p>Turns on or off data lake access for Apache Spark applications that access Amazon Redshift databases in the Data Catalog.</p>
+   * @public
+   */
+  DataLakeAccess?: boolean | undefined;
+
+  /**
+   * <p>A role that will be assumed by Glue for transferring data into/out of the staging bucket during a query.</p>
+   * @public
+   */
+  DataTransferRole?: string | undefined;
+
+  /**
+   * <p>An encryption key that will be used for the staging bucket that will be created along with the catalog.</p>
+   * @public
+   */
+  KmsKey?: string | undefined;
+
+  /**
+   * <p>The managed Redshift Serverless compute name that is created for your catalog resource.</p>
+   * @public
+   */
+  ManagedWorkgroupName?: string | undefined;
+
+  /**
+   * <p>The managed Redshift Serverless compute status.</p>
+   * @public
+   */
+  ManagedWorkgroupStatus?: string | undefined;
+
+  /**
+   * <p>The default Redshift database resource name in the managed compute.</p>
+   * @public
+   */
+  RedshiftDatabaseName?: string | undefined;
+
+  /**
+   * <p>A message that gives more detailed information about the managed workgroup status.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>Specifies a federated catalog type for the native catalog resource. The currently supported type is <code>aws:redshift</code>.</p>
+   * @public
+   */
+  CatalogType?: string | undefined;
+}
+
+/**
+ * <p>Property attributes that include configuration properties for the catalog resource.</p>
+ * @public
+ */
+export interface CatalogPropertiesOutput {
+  /**
+   * <p>A <code>DataLakeAccessProperties</code> object with input properties to configure data lake access for your catalog resource in the Glue Data Catalog.</p>
+   * @public
+   */
+  DataLakeAccessProperties?: DataLakeAccessPropertiesOutput | undefined;
+
+  /**
+   * <p>Additional key-value properties for the catalog, such as column statistics optimizations.</p>
+   * @public
+   */
+  CustomProperties?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The catalog object represents a logical grouping of databases in the Glue Data Catalog or a federated source. You can now create a Redshift-federated catalog or a catalog containing resource links to Redshift databases in another account or region.</p>
+ * @public
+ */
+export interface Catalog {
+  /**
+   * <p>The ID of the catalog. To grant access to the default catalog, this field should not be provided.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The name of the catalog. Cannot be the same as the account ID.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) assigned to the catalog resource.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>Description string, not more than 2048 bytes long, matching the URI address multi-line string pattern. A description of the catalog.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p> A map array of key-value pairs that define parameters and properties of the catalog.</p>
+   * @public
+   */
+  Parameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>The time at which the catalog was created.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>The time at which the catalog was last updated.</p>
+   * @public
+   */
+  UpdateTime?: Date | undefined;
+
+  /**
+   * <p>A <code>TargetRedshiftCatalog</code> object that describes a target catalog for database resource linking.</p>
+   * @public
+   */
+  TargetRedshiftCatalog?: TargetRedshiftCatalog | undefined;
+
+  /**
+   * <p>A <code>FederatedCatalog</code> object that points to an entity outside the Glue Data Catalog.</p>
+   * @public
+   */
+  FederatedCatalog?: FederatedCatalog | undefined;
+
+  /**
+   * <p>A <code>CatalogProperties</code> object that specifies data lake access properties and other custom properties.</p>
+   * @public
+   */
+  CatalogProperties?: CatalogPropertiesOutput | undefined;
+
+  /**
+   * <p>An array of <code>PrincipalPermissions</code> objects. Creates a set of default permissions on the table(s) for principals. Used by Amazon Web Services Lake Formation. Not used in the normal course of Glue operations.</p>
+   * @public
+   */
+  CreateTableDefaultPermissions?: PrincipalPermissions[] | undefined;
+
+  /**
+   * <p>An array of <code>PrincipalPermissions</code> objects. Creates a set of default permissions on the database(s) for principals. Used by Amazon Web Services Lake Formation. Not used in the normal course of Glue operations.</p>
+   * @public
+   */
+  CreateDatabaseDefaultPermissions?: PrincipalPermissions[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCatalogResponse {
+  /**
+   * <p>A <code>Catalog</code> object. The definition of the specified catalog in the Glue Data Catalog.</p>
+   * @public
+   */
+  Catalog?: Catalog | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetCatalogImportStatusRequest {
   /**
    * <p>The ID of the catalog to migrate. Currently, this should be the Amazon Web Services account ID.</p>
@@ -4787,6 +6796,52 @@ export interface GetCatalogImportStatusResponse {
    * @public
    */
   ImportStatus?: CatalogImportStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCatalogsRequest {
+  /**
+   * <p>The ID of the parent catalog in which the catalog resides. If none is provided, the Amazon Web Services Account Number is used by default.</p>
+   * @public
+   */
+  ParentCatalogId?: string | undefined;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of catalogs to return in one response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>When specified as true, iterates through the account and returns all catalog resources (including top-level resources and child resources)</p>
+   * @public
+   */
+  Recursive?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCatalogsResponse {
+  /**
+   * <p>An array of <code>Catalog</code> objects. A list of <code>Catalog</code> objects from the specified parent catalog.</p>
+   * @public
+   */
+  CatalogList: Catalog[] | undefined;
+
+  /**
+   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5782,1976 +7837,76 @@ export interface GetColumnStatisticsTaskSettingsRequest {
 }
 
 /**
- * <p>The settings for a column statistics task.</p>
- * @public
- */
-export interface ColumnStatisticsTaskSettings {
-  /**
-   * <p>The name of the database where the table resides.</p>
-   * @public
-   */
-  DatabaseName?: string | undefined;
-
-  /**
-   * <p>The name of the table for which to generate column statistics.</p>
-   * @public
-   */
-  TableName?: string | undefined;
-
-  /**
-   * <p>A schedule for running the column statistics, specified in CRON syntax.</p>
-   * @public
-   */
-  Schedule?: Schedule | undefined;
-
-  /**
-   * <p>A list of column names for which to run statistics.</p>
-   * @public
-   */
-  ColumnNameList?: string[] | undefined;
-
-  /**
-   * <p>The ID of the Data Catalog in which the database resides.</p>
-   * @public
-   */
-  CatalogID?: string | undefined;
-
-  /**
-   * <p>The role used for running the column statistics.</p>
-   * @public
-   */
-  Role?: string | undefined;
-
-  /**
-   * <p>The percentage of data to sample.</p>
-   * @public
-   */
-  SampleSize?: number | undefined;
-
-  /**
-   * <p>Name of the security configuration that is used to encrypt CloudWatch logs.</p>
-   * @public
-   */
-  SecurityConfiguration?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetColumnStatisticsTaskSettingsResponse {
-  /**
-   * <p>A <code>ColumnStatisticsTaskSettings</code> object representing the settings for the column statistics task.</p>
-   * @public
-   */
-  ColumnStatisticsTaskSettings?: ColumnStatisticsTaskSettings | undefined;
-}
-
-/**
- * @public
- */
-export interface GetConnectionRequest {
-  /**
-   * <p>The ID of the Data Catalog in which the connection resides. If none is provided, the Amazon Web Services
-   *       account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>The name of the connection definition to retrieve.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Allows you to retrieve the connection metadata without returning the password. For
-   *       instance, the Glue console uses this flag to retrieve the connection, and does not display
-   *       the password. Set this parameter when the caller might not have permission to use the KMS
-   *       key to decrypt the password, but it does have permission to access the rest of the connection
-   *       properties.</p>
-   * @public
-   */
-  HidePassword?: boolean | undefined;
-}
-
-/**
- * <p>Defines a connection to a data source.</p>
- * @public
- */
-export interface Connection {
-  /**
-   * <p>The name of the connection definition.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the connection.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The type of the connection. Currently, SFTP is not supported.</p>
-   * @public
-   */
-  ConnectionType?: ConnectionType | undefined;
-
-  /**
-   * <p>A list of criteria that can be used in selecting this connection.</p>
-   * @public
-   */
-  MatchCriteria?: string[] | undefined;
-
-  /**
-   * <p>These key-value pairs define parameters for the connection:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>HOST</code> - The host URI: either the
-   *         fully qualified domain name (FQDN) or the IPv4 address of
-   *         the database host.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PORT</code> - The port number, between
-   *         1024 and 65535, of the port on which the database host is
-   *         listening for database connections.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>USER_NAME</code> -  The name under which
-   *         to log in to the database. The value string for <code>USER_NAME</code> is "<code>USERNAME</code>".</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PASSWORD</code> - A password,
-   *         if one is used, for the user name.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENCRYPTED_PASSWORD</code> - When you enable connection password protection by setting <code>ConnectionPasswordEncryption</code> in the Data Catalog encryption settings, this field stores the encrypted password.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>JDBC_DRIVER_JAR_URI</code> - The Amazon Simple Storage Service (Amazon S3) path of the
-   *           JAR file that contains the JDBC driver to use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>JDBC_DRIVER_CLASS_NAME</code> - The class name of the JDBC driver to use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>JDBC_ENGINE</code> - The name of the JDBC engine to use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>JDBC_ENGINE_VERSION</code> - The version of the JDBC engine to use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CONFIG_FILES</code> - (Reserved for future use.)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INSTANCE_ID</code> - The instance ID to use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>JDBC_CONNECTION_URL</code> - The URL for connecting to a JDBC data source.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether Secure
-   *           Sockets Layer (SSL) with hostname matching is enforced for the JDBC connection on the
-   *           client. The default is false.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CUSTOM_JDBC_CERT</code> - An Amazon S3 location specifying the customer's root certificate. Glue uses this root certificate to validate the customer’s certificate when connecting to the customer database. Glue only handles X.509 certificates. The certificate provided must be DER-encoded and supplied in Base64 encoding PEM format.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SKIP_CUSTOM_JDBC_CERT_VALIDATION</code> - By default, this is <code>false</code>. Glue validates the Signature algorithm and Subject Public Key Algorithm for the customer certificate. The only permitted algorithms for the Signature algorithm are SHA256withRSA, SHA384withRSA or SHA512withRSA. For the Subject Public Key Algorithm, the key length must be at least 2048. You can set the value of this property to <code>true</code> to skip Glue’s validation of the customer certificate.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CUSTOM_JDBC_CERT_STRING</code> - A custom JDBC certificate string which is used for domain match or distinguished name match to prevent a man-in-the-middle attack. In Oracle database, this is used as the <code>SSL_SERVER_CERT_DN</code>; in Microsoft SQL Server, this is used as the <code>hostNameInCertificate</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CONNECTION_URL</code> - The URL for connecting to a general (non-JDBC) data source.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SECRET_ID</code> - The secret ID used for the secret manager of credentials.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CONNECTOR_URL</code> - The connector URL for a MARKETPLACE or CUSTOM connection.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CONNECTOR_TYPE</code> - The connector type for a MARKETPLACE or CUSTOM connection.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CONNECTOR_CLASS_NAME</code> - The connector class name for a MARKETPLACE or CUSTOM connection.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_BOOTSTRAP_SERVERS</code> - A comma-separated list of host and port pairs that are the addresses of the Apache Kafka brokers in a Kafka cluster to which a Kafka client will connect to and bootstrap itself.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_SSL_ENABLED</code> - Whether to enable or disable SSL on an Apache Kafka connection. Default value is "true".</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_CUSTOM_CERT</code> - The Amazon S3 URL for the private CA cert file (.pem format). The default is an empty string.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_SKIP_CUSTOM_CERT_VALIDATION</code> - Whether to skip the validation of the CA cert file or not. Glue validates for three algorithms: SHA256withRSA, SHA384withRSA and SHA512withRSA. Default value is "false".</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_CLIENT_KEYSTORE</code> - The Amazon S3 location of the client keystore file for Kafka client side authentication (Optional).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_CLIENT_KEYSTORE_PASSWORD</code> - The password to access the provided keystore (Optional).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_CLIENT_KEY_PASSWORD</code> - A keystore can consist of multiple keys, so this is the password to access the client key to be used with the Kafka server side key (Optional).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD</code> - The encrypted version of the Kafka client keystore password (if the user has the Glue encrypt passwords setting selected).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD</code> - The encrypted version of the Kafka client key password (if the user has the Glue encrypt passwords setting selected).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_SASL_MECHANISM</code> - <code>"SCRAM-SHA-512"</code>, <code>"GSSAPI"</code>, <code>"AWS_MSK_IAM"</code>, or <code>"PLAIN"</code>. These are the supported <a href="https://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml">SASL Mechanisms</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_SASL_PLAIN_USERNAME</code> - A plaintext username used to authenticate with the "PLAIN" mechanism.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_SASL_PLAIN_PASSWORD</code> - A plaintext password used to authenticate with the "PLAIN" mechanism.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENCRYPTED_KAFKA_SASL_PLAIN_PASSWORD</code> - The encrypted version of the Kafka SASL PLAIN password (if the user has the Glue encrypt passwords setting selected).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_SASL_SCRAM_USERNAME</code> - A plaintext username used to authenticate with the "SCRAM-SHA-512" mechanism.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_SASL_SCRAM_PASSWORD</code> - A plaintext password used to authenticate with the "SCRAM-SHA-512" mechanism.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD</code> - The encrypted version of the Kafka SASL SCRAM password (if the user has the Glue encrypt passwords setting selected).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_SASL_SCRAM_SECRETS_ARN</code> - The Amazon Resource Name of a secret in Amazon Web Services Secrets Manager.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_SASL_GSSAPI_KEYTAB</code> - The S3 location of a Kerberos <code>keytab</code> file. A keytab stores long-term keys for one or more principals. For more information, see <a href="https://web.mit.edu/kerberos/krb5-latest/doc/basic/keytab_def.html">MIT Kerberos Documentation: Keytab</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_SASL_GSSAPI_KRB5_CONF</code> - The S3 location of a Kerberos <code>krb5.conf</code> file. A krb5.conf stores Kerberos configuration information, such as the location of the KDC server. For more information, see <a href="https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html">MIT Kerberos Documentation: krb5.conf</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_SASL_GSSAPI_SERVICE</code> - The Kerberos service name, as set with <code>sasl.kerberos.service.name</code> in your <a href="https://kafka.apache.org/documentation/#brokerconfigs_sasl.kerberos.service.name">Kafka Configuration</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KAFKA_SASL_GSSAPI_PRINCIPAL</code> - The name of the Kerberos princial used by Glue. For more information, see <a href="https://kafka.apache.org/documentation/#security_sasl_kerberos_clientconfig">Kafka Documentation: Configuring Kafka Brokers</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ROLE_ARN</code> - The role to be used for running queries.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REGION</code> - The Amazon Web Services Region where queries will be run.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>WORKGROUP_NAME</code> - The name of an Amazon Redshift serverless workgroup or Amazon Athena workgroup in which queries will run.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CLUSTER_IDENTIFIER</code> - The cluster identifier of an Amazon Redshift cluster in which queries will run.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DATABASE</code> - The Amazon Redshift database that you are connecting to.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ConnectionProperties?: Partial<Record<ConnectionPropertyKey, string>> | undefined;
-
-  /**
-   * <p>This field is not currently used.</p>
-   * @public
-   */
-  AthenaProperties?: Record<string, string> | undefined;
-
-  /**
-   * <p>The physical connection requirements, such as virtual private cloud (VPC) and <code>SecurityGroup</code>, that are needed to make this connection successfully.</p>
-   * @public
-   */
-  PhysicalConnectionRequirements?: PhysicalConnectionRequirements | undefined;
-
-  /**
-   * <p>The timestamp of the time that this connection definition was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The timestamp of the last time the connection definition was updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>The user, group, or role that last updated this connection definition.</p>
-   * @public
-   */
-  LastUpdatedBy?: string | undefined;
-
-  /**
-   * <p>The status of the connection. Can be one of: <code>READY</code>, <code>IN_PROGRESS</code>, or <code>FAILED</code>.</p>
-   * @public
-   */
-  Status?: ConnectionStatus | undefined;
-
-  /**
-   * <p>The reason for the connection status.</p>
-   * @public
-   */
-  StatusReason?: string | undefined;
-
-  /**
-   * <p>A timestamp of the time this connection was last validated.</p>
-   * @public
-   */
-  LastConnectionValidationTime?: Date | undefined;
-
-  /**
-   * <p>The authentication properties of the connection.</p>
-   * @public
-   */
-  AuthenticationConfiguration?: AuthenticationConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface GetConnectionResponse {
-  /**
-   * <p>The requested connection definition.</p>
-   * @public
-   */
-  Connection?: Connection | undefined;
-}
-
-/**
- * <p>Filters the connection definitions that are returned by the <code>GetConnections</code>
- *       API operation.</p>
- * @public
- */
-export interface GetConnectionsFilter {
-  /**
-   * <p>A criteria string that must match the criteria recorded in the
-   *        connection definition for that connection definition to be returned.</p>
-   * @public
-   */
-  MatchCriteria?: string[] | undefined;
-
-  /**
-   * <p>The type of connections to return. Currently, SFTP is not supported.</p>
-   * @public
-   */
-  ConnectionType?: ConnectionType | undefined;
-}
-
-/**
- * @public
- */
-export interface GetConnectionsRequest {
-  /**
-   * <p>The ID of the Data Catalog in which the connections reside. If none is provided, the Amazon Web Services
-   *       account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>A filter that controls which connections are returned.</p>
-   * @public
-   */
-  Filter?: GetConnectionsFilter | undefined;
-
-  /**
-   * <p>Allows you to retrieve the connection metadata without returning the password. For
-   *       instance, the Glue console uses this flag to retrieve the connection, and does not display
-   *       the password. Set this parameter when the caller might not have permission to use the KMS
-   *       key to decrypt the password, but it does have permission to access the rest of the connection
-   *       properties.</p>
-   * @public
-   */
-  HidePassword?: boolean | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of connections to return in one response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetConnectionsResponse {
-  /**
-   * <p>A list of requested connection definitions.</p>
-   * @public
-   */
-  ConnectionList?: Connection[] | undefined;
-
-  /**
-   * <p>A continuation token, if the list of connections returned does not
-   *       include the last of the filtered connections.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCrawlerRequest {
-  /**
-   * <p>The name of the crawler to retrieve metadata for.</p>
-   * @public
-   */
-  Name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCrawlerResponse {
-  /**
-   * <p>The metadata for the specified crawler.</p>
-   * @public
-   */
-  Crawler?: Crawler | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCrawlerMetricsRequest {
-  /**
-   * <p>A list of the names of crawlers about which to retrieve metrics.</p>
-   * @public
-   */
-  CrawlerNameList?: string[] | undefined;
-
-  /**
-   * <p>The maximum size of a list to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Metrics for a specified crawler.</p>
- * @public
- */
-export interface CrawlerMetrics {
-  /**
-   * <p>The name of the crawler.</p>
-   * @public
-   */
-  CrawlerName?: string | undefined;
-
-  /**
-   * <p>The estimated time left to complete a running crawl.</p>
-   * @public
-   */
-  TimeLeftSeconds?: number | undefined;
-
-  /**
-   * <p>True if the crawler is still estimating how long it will take to complete this run.</p>
-   * @public
-   */
-  StillEstimating?: boolean | undefined;
-
-  /**
-   * <p>The duration of the crawler's most recent run, in seconds.</p>
-   * @public
-   */
-  LastRuntimeSeconds?: number | undefined;
-
-  /**
-   * <p>The median duration of this crawler's runs, in seconds.</p>
-   * @public
-   */
-  MedianRuntimeSeconds?: number | undefined;
-
-  /**
-   * <p>The number of tables created by this crawler.</p>
-   * @public
-   */
-  TablesCreated?: number | undefined;
-
-  /**
-   * <p>The number of tables updated by this crawler.</p>
-   * @public
-   */
-  TablesUpdated?: number | undefined;
-
-  /**
-   * <p>The number of tables deleted by this crawler.</p>
-   * @public
-   */
-  TablesDeleted?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCrawlerMetricsResponse {
-  /**
-   * <p>A list of metrics for the specified crawler.</p>
-   * @public
-   */
-  CrawlerMetricsList?: CrawlerMetrics[] | undefined;
-
-  /**
-   * <p>A continuation token, if the returned list does not contain the
-   *       last metric available.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCrawlersRequest {
-  /**
-   * <p>The number of crawlers to return on each call.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCrawlersResponse {
-  /**
-   * <p>A list of crawler metadata.</p>
-   * @public
-   */
-  Crawlers?: Crawler[] | undefined;
-
-  /**
-   * <p>A continuation token, if the returned list has not reached the end
-   *       of those defined in this customer account.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCustomEntityTypeRequest {
-  /**
-   * <p>The name of the custom pattern that you want to retrieve.</p>
-   * @public
-   */
-  Name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCustomEntityTypeResponse {
-  /**
-   * <p>The name of the custom pattern that you retrieved.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A regular expression string that is used for detecting sensitive data in a custom pattern.</p>
-   * @public
-   */
-  RegexString?: string | undefined;
-
-  /**
-   * <p>A list of context words if specified when you created the custom pattern. If none of these context words are found within the vicinity of the regular expression the data will not be detected as sensitive data.</p>
-   * @public
-   */
-  ContextWords?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDatabaseRequest {
-  /**
-   * <p>The ID of the Data Catalog in which the database resides. If none is provided, the Amazon Web Services
-   *       account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>The name of the database to retrieve. For Hive compatibility, this
-   *       should be all lowercase.</p>
-   * @public
-   */
-  Name: string | undefined;
-}
-
-/**
- * <p>The <code>Database</code> object represents a logical grouping of tables that might reside
- *       in a Hive metastore or an RDBMS.</p>
- * @public
- */
-export interface Database {
-  /**
-   * <p>The name of the database. For Hive compatibility, this is folded to lowercase when it is
-   *       stored.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A description of the database.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The location of the database (for example, an HDFS path).</p>
-   * @public
-   */
-  LocationUri?: string | undefined;
-
-  /**
-   * <p>These key-value pairs define parameters and properties
-   *       of the database.</p>
-   * @public
-   */
-  Parameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>The time at which the metadata database was created in the catalog.</p>
-   * @public
-   */
-  CreateTime?: Date | undefined;
-
-  /**
-   * <p>Creates a set of default permissions on the table for principals. Used by Lake Formation. Not used in the normal course of Glue operations.</p>
-   * @public
-   */
-  CreateTableDefaultPermissions?: PrincipalPermissions[] | undefined;
-
-  /**
-   * <p>A <code>DatabaseIdentifier</code> structure that describes a target database for resource linking.</p>
-   * @public
-   */
-  TargetDatabase?: DatabaseIdentifier | undefined;
-
-  /**
-   * <p>The ID of the Data Catalog in which the database resides.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>A <code>FederatedDatabase</code> structure that references an entity outside the Glue Data Catalog.</p>
-   * @public
-   */
-  FederatedDatabase?: FederatedDatabase | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDatabaseResponse {
-  /**
-   * <p>The definition of the specified database in the Data Catalog.</p>
-   * @public
-   */
-  Database?: Database | undefined;
-}
-
-/**
  * @public
  * @enum
  */
-export const DatabaseAttributes = {
-  NAME: "NAME",
-} as const;
-
-/**
- * @public
- */
-export type DatabaseAttributes = (typeof DatabaseAttributes)[keyof typeof DatabaseAttributes];
-
-/**
- * @public
- * @enum
- */
-export const ResourceShareType = {
-  ALL: "ALL",
-  FEDERATED: "FEDERATED",
-  FOREIGN: "FOREIGN",
-} as const;
-
-/**
- * @public
- */
-export type ResourceShareType = (typeof ResourceShareType)[keyof typeof ResourceShareType];
-
-/**
- * @public
- */
-export interface GetDatabasesRequest {
-  /**
-   * <p>The ID of the Data Catalog from which to retrieve <code>Databases</code>. If none is
-   *       provided, the Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of databases to return in one response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Allows you to specify that you want to list the databases shared with your account. The allowable values are <code>FEDERATED</code>, <code>FOREIGN</code> or <code>ALL</code>. </p>
-   *          <ul>
-   *             <li>
-   *                <p>If set to <code>FEDERATED</code>, will list the federated databases (referencing an external entity) shared with your account.</p>
-   *             </li>
-   *             <li>
-   *                <p>If set to <code>FOREIGN</code>, will list the databases shared with your account. </p>
-   *             </li>
-   *             <li>
-   *                <p>If set to <code>ALL</code>, will list the databases shared with your account, as well as the databases in yor local account. </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceShareType?: ResourceShareType | undefined;
-
-  /**
-   * <p>Specifies the database fields returned by the <code>GetDatabases</code> call. This parameter doesn’t accept an empty list. The request must include the <code>NAME</code>.</p>
-   * @public
-   */
-  AttributesToGet?: DatabaseAttributes[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDatabasesResponse {
-  /**
-   * <p>A list of <code>Database</code> objects from the specified catalog.</p>
-   * @public
-   */
-  DatabaseList: Database[] | undefined;
-
-  /**
-   * <p>A continuation token for paginating the returned list of tokens,
-   *       returned if the current segment of the list is not the last.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataCatalogEncryptionSettingsRequest {
-  /**
-   * <p>The ID of the Data Catalog to retrieve the security configuration for. If none is
-   *       provided, the Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-}
-
-/**
- * <p>The data structure used by the Data Catalog to encrypt the password as part of
- *         <code>CreateConnection</code> or <code>UpdateConnection</code> and store it in the
- *         <code>ENCRYPTED_PASSWORD</code> field in the connection properties. You can enable catalog
- *       encryption or only password encryption.</p>
- *          <p>When a <code>CreationConnection</code> request arrives containing a password, the Data
- *       Catalog first encrypts the password using your KMS key. It then encrypts the whole
- *       connection object again if catalog encryption is also enabled.</p>
- *          <p>This encryption requires that you set KMS key permissions to enable or restrict access
- *       on the password key according to your security requirements. For example, you might want only
- *       administrators to have decrypt permission on the password key.</p>
- * @public
- */
-export interface ConnectionPasswordEncryption {
-  /**
-   * <p>When the <code>ReturnConnectionPasswordEncrypted</code> flag is set to "true", passwords remain encrypted in the responses of <code>GetConnection</code> and <code>GetConnections</code>. This encryption takes effect independently from catalog encryption. </p>
-   * @public
-   */
-  ReturnConnectionPasswordEncrypted: boolean | undefined;
-
-  /**
-   * <p>An KMS key that is used to encrypt the connection password. </p>
-   *          <p>If connection password protection is enabled, the caller of <code>CreateConnection</code>
-   *       and <code>UpdateConnection</code> needs at least <code>kms:Encrypt</code> permission on the
-   *       specified KMS key, to encrypt passwords before storing them in the Data Catalog. </p>
-   *          <p>You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.</p>
-   * @public
-   */
-  AwsKmsKeyId?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const CatalogEncryptionMode = {
-  DISABLED: "DISABLED",
-  SSEKMS: "SSE-KMS",
-  SSEKMSWITHSERVICEROLE: "SSE-KMS-WITH-SERVICE-ROLE",
-} as const;
-
-/**
- * @public
- */
-export type CatalogEncryptionMode = (typeof CatalogEncryptionMode)[keyof typeof CatalogEncryptionMode];
-
-/**
- * <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
- * @public
- */
-export interface EncryptionAtRest {
-  /**
-   * <p>The encryption-at-rest mode for encrypting Data Catalog data.</p>
-   * @public
-   */
-  CatalogEncryptionMode: CatalogEncryptionMode | undefined;
-
-  /**
-   * <p>The ID of the KMS key to use for encryption at rest.</p>
-   * @public
-   */
-  SseAwsKmsKeyId?: string | undefined;
-
-  /**
-   * <p>The role that Glue assumes to encrypt and decrypt the Data Catalog objects on the caller's behalf.</p>
-   * @public
-   */
-  CatalogEncryptionServiceRole?: string | undefined;
-}
-
-/**
- * <p>Contains configuration information for maintaining Data Catalog security.</p>
- * @public
- */
-export interface DataCatalogEncryptionSettings {
-  /**
-   * <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
-   * @public
-   */
-  EncryptionAtRest?: EncryptionAtRest | undefined;
-
-  /**
-   * <p>When connection password protection is enabled, the Data Catalog uses a customer-provided
-   *       key to encrypt the password as part of <code>CreateConnection</code> or
-   *         <code>UpdateConnection</code> and store it in the <code>ENCRYPTED_PASSWORD</code> field in
-   *       the connection properties. You can enable catalog encryption or only password
-   *       encryption.</p>
-   * @public
-   */
-  ConnectionPasswordEncryption?: ConnectionPasswordEncryption | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataCatalogEncryptionSettingsResponse {
-  /**
-   * <p>The requested security configuration.</p>
-   * @public
-   */
-  DataCatalogEncryptionSettings?: DataCatalogEncryptionSettings | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataflowGraphRequest {
-  /**
-   * <p>The Python script to transform.</p>
-   * @public
-   */
-  PythonScript?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataflowGraphResponse {
-  /**
-   * <p>A list of the nodes in the resulting DAG.</p>
-   * @public
-   */
-  DagNodes?: CodeGenNode[] | undefined;
-
-  /**
-   * <p>A list of the edges in the resulting DAG.</p>
-   * @public
-   */
-  DagEdges?: CodeGenEdge[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityModelRequest {
-  /**
-   * <p>The Statistic ID.</p>
-   * @public
-   */
-  StatisticId?: string | undefined;
-
-  /**
-   * <p>The Profile ID.</p>
-   * @public
-   */
-  ProfileId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DataQualityModelStatus = {
+export const ExecutionStatus = {
   FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  SUCCEEDED: "SUCCEEDED",
+  STARTED: "STARTED",
 } as const;
 
 /**
  * @public
  */
-export type DataQualityModelStatus = (typeof DataQualityModelStatus)[keyof typeof DataQualityModelStatus];
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
 
 /**
+ * <p>A run attempt for a column statistics task run.</p>
  * @public
  */
-export interface GetDataQualityModelResponse {
+export interface ExecutionAttempt {
   /**
-   * <p>The training status of the data quality model.</p>
+   * <p>The status of the last column statistics task run.</p>
    * @public
    */
-  Status?: DataQualityModelStatus | undefined;
+  Status?: ExecutionStatus | undefined;
 
   /**
-   * <p>The timestamp when the data quality model training started.</p>
+   * <p>A task run ID for the last column statistics task run.</p>
    * @public
    */
-  StartedOn?: Date | undefined;
+  ColumnStatisticsTaskRunId?: string | undefined;
 
   /**
-   * <p>The timestamp when the data quality model training completed.</p>
+   * <p>A timestamp when the last column statistics task run occurred.</p>
    * @public
    */
-  CompletedOn?: Date | undefined;
+  ExecutionTimestamp?: Date | undefined;
 
   /**
-   * <p>The training failure reason.</p>
+   * <p>An error message associated with the last column statistics task run.</p>
    * @public
    */
-  FailureReason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityModelResultRequest {
-  /**
-   * <p>The Statistic ID.</p>
-   * @public
-   */
-  StatisticId: string | undefined;
-
-  /**
-   * <p>The Profile ID.</p>
-   * @public
-   */
-  ProfileId: string | undefined;
-}
-
-/**
- * <p>The statistic model result.</p>
- * @public
- */
-export interface StatisticModelResult {
-  /**
-   * <p>The lower bound.</p>
-   * @public
-   */
-  LowerBound?: number | undefined;
-
-  /**
-   * <p>The upper bound.</p>
-   * @public
-   */
-  UpperBound?: number | undefined;
-
-  /**
-   * <p>The predicted value.</p>
-   * @public
-   */
-  PredictedValue?: number | undefined;
-
-  /**
-   * <p>The actual value.</p>
-   * @public
-   */
-  ActualValue?: number | undefined;
-
-  /**
-   * <p>The date.</p>
-   * @public
-   */
-  Date?: Date | undefined;
-
-  /**
-   * <p>The inclusion annotation.</p>
-   * @public
-   */
-  InclusionAnnotation?: InclusionAnnotationValue | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityModelResultResponse {
-  /**
-   * <p>The timestamp when the data quality model training completed.</p>
-   * @public
-   */
-  CompletedOn?: Date | undefined;
-
-  /**
-   * <p>A list of <code>StatisticModelResult</code>
-   *          </p>
-   * @public
-   */
-  Model?: StatisticModelResult[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityResultRequest {
-  /**
-   * <p>A unique result ID for the data quality result.</p>
-   * @public
-   */
-  ResultId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityResultResponse {
-  /**
-   * <p>A unique result ID for the data quality result.</p>
-   * @public
-   */
-  ResultId?: string | undefined;
-
-  /**
-   * <p>The Profile ID for the data quality result.</p>
-   * @public
-   */
-  ProfileId?: string | undefined;
-
-  /**
-   * <p>An aggregate data quality score. Represents the ratio of rules that passed to the total number of rules.</p>
-   * @public
-   */
-  Score?: number | undefined;
-
-  /**
-   * <p>The table associated with the data quality result, if any.</p>
-   * @public
-   */
-  DataSource?: DataSource | undefined;
-
-  /**
-   * <p>The name of the ruleset associated with the data quality result.</p>
-   * @public
-   */
-  RulesetName?: string | undefined;
-
-  /**
-   * <p>In the context of a job in Glue Studio, each node in the canvas is typically assigned some sort of name and data quality nodes will have names. In the case of multiple nodes, the <code>evaluationContext</code> can differentiate the nodes.</p>
-   * @public
-   */
-  EvaluationContext?: string | undefined;
-
-  /**
-   * <p>The date and time when the run for this data quality result started.</p>
-   * @public
-   */
-  StartedOn?: Date | undefined;
-
-  /**
-   * <p>The date and time when the run for this data quality result was completed.</p>
-   * @public
-   */
-  CompletedOn?: Date | undefined;
-
-  /**
-   * <p>The job name associated with the data quality result, if any.</p>
-   * @public
-   */
-  JobName?: string | undefined;
-
-  /**
-   * <p>The job run ID associated with the data quality result, if any.</p>
-   * @public
-   */
-  JobRunId?: string | undefined;
-
-  /**
-   * <p>The unique run ID associated with the ruleset evaluation.</p>
-   * @public
-   */
-  RulesetEvaluationRunId?: string | undefined;
-
-  /**
-   * <p>A list of <code>DataQualityRuleResult</code> objects representing the results for each rule. </p>
-   * @public
-   */
-  RuleResults?: DataQualityRuleResult[] | undefined;
-
-  /**
-   * <p>A list of <code>DataQualityAnalyzerResult</code> objects representing the results for each analyzer. </p>
-   * @public
-   */
-  AnalyzerResults?: DataQualityAnalyzerResult[] | undefined;
-
-  /**
-   * <p>A list of <code>DataQualityObservation</code> objects representing the observations generated after evaluating the rules and analyzers. </p>
-   * @public
-   */
-  Observations?: DataQualityObservation[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityRuleRecommendationRunRequest {
-  /**
-   * <p>The unique run identifier associated with this run.</p>
-   * @public
-   */
-  RunId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityRuleRecommendationRunResponse {
-  /**
-   * <p>The unique run identifier associated with this run.</p>
-   * @public
-   */
-  RunId?: string | undefined;
-
-  /**
-   * <p>The data source (an Glue table) associated with this run.</p>
-   * @public
-   */
-  DataSource?: DataSource | undefined;
-
-  /**
-   * <p>An IAM role supplied to encrypt the results of the run.</p>
-   * @public
-   */
-  Role?: string | undefined;
-
-  /**
-   * <p>The number of <code>G.1X</code> workers to be used in the run. The default is 5.</p>
-   * @public
-   */
-  NumberOfWorkers?: number | undefined;
-
-  /**
-   * <p>The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-   * @public
-   */
-  Timeout?: number | undefined;
-
-  /**
-   * <p>The status for this run.</p>
-   * @public
-   */
-  Status?: TaskStatusType | undefined;
-
-  /**
-   * <p>The error strings that are associated with the run.</p>
-   * @public
-   */
-  ErrorString?: string | undefined;
-
-  /**
-   * <p>The date and time when this run started.</p>
-   * @public
-   */
-  StartedOn?: Date | undefined;
-
-  /**
-   * <p>A timestamp. The last point in time when this data quality rule recommendation run was modified.</p>
-   * @public
-   */
-  LastModifiedOn?: Date | undefined;
-
-  /**
-   * <p>The date and time when this run was completed.</p>
-   * @public
-   */
-  CompletedOn?: Date | undefined;
-
-  /**
-   * <p>The amount of time (in seconds) that the run consumed resources.</p>
-   * @public
-   */
-  ExecutionTime?: number | undefined;
-
-  /**
-   * <p>When a start rule recommendation run completes, it creates a recommended ruleset (a set of rules). This member has those rules in Data Quality Definition Language (DQDL) format.</p>
-   * @public
-   */
-  RecommendedRuleset?: string | undefined;
-
-  /**
-   * <p>The name of the ruleset that was created by the run.</p>
-   * @public
-   */
-  CreatedRulesetName?: string | undefined;
-
-  /**
-   * <p>The name of the security configuration created with the data quality encryption option.</p>
-   * @public
-   */
-  DataQualitySecurityConfiguration?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityRulesetRequest {
-  /**
-   * <p>The name of the ruleset.</p>
-   * @public
-   */
-  Name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityRulesetResponse {
-  /**
-   * <p>The name of the ruleset.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A description of the ruleset.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>
-   * @public
-   */
-  Ruleset?: string | undefined;
-
-  /**
-   * <p>The name and database name of the target table.</p>
-   * @public
-   */
-  TargetTable?: DataQualityTargetTable | undefined;
-
-  /**
-   * <p>A timestamp. The time and date that this data quality ruleset was created.</p>
-   * @public
-   */
-  CreatedOn?: Date | undefined;
-
-  /**
-   * <p>A timestamp. The last point in time when this data quality ruleset was modified.</p>
-   * @public
-   */
-  LastModifiedOn?: Date | undefined;
-
-  /**
-   * <p>When a ruleset was created from a recommendation run, this run ID is generated to link the two together.</p>
-   * @public
-   */
-  RecommendationRunId?: string | undefined;
-
-  /**
-   * <p>The name of the security configuration created with the data quality encryption option.</p>
-   * @public
-   */
-  DataQualitySecurityConfiguration?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityRulesetEvaluationRunRequest {
-  /**
-   * <p>The unique run identifier associated with this run.</p>
-   * @public
-   */
-  RunId: string | undefined;
+  ErrorMessage?: string | undefined;
 }
 
 /**
  * @public
  * @enum
  */
-export const DQCompositeRuleEvaluationMethod = {
-  COLUMN: "COLUMN",
-  ROW: "ROW",
+export const ScheduleType = {
+  AUTO: "AUTO",
+  CRON: "CRON",
 } as const;
 
 /**
  * @public
  */
-export type DQCompositeRuleEvaluationMethod =
-  (typeof DQCompositeRuleEvaluationMethod)[keyof typeof DQCompositeRuleEvaluationMethod];
+export type ScheduleType = (typeof ScheduleType)[keyof typeof ScheduleType];
 
 /**
- * <p>Additional run options you can specify for an evaluation run.</p>
  * @public
+ * @enum
  */
-export interface DataQualityEvaluationRunAdditionalRunOptions {
-  /**
-   * <p>Whether or not to enable CloudWatch metrics.</p>
-   * @public
-   */
-  CloudWatchMetricsEnabled?: boolean | undefined;
-
-  /**
-   * <p>Prefix for Amazon S3 to store results.</p>
-   * @public
-   */
-  ResultsS3Prefix?: string | undefined;
-
-  /**
-   * <p>Set the evaluation method for composite rules in the ruleset to ROW/COLUMN</p>
-   * @public
-   */
-  CompositeRuleEvaluationMethod?: DQCompositeRuleEvaluationMethod | undefined;
-}
+export const SettingSource = {
+  CATALOG: "CATALOG",
+  TABLE: "TABLE",
+} as const;
 
 /**
  * @public
  */
-export interface GetDataQualityRulesetEvaluationRunResponse {
-  /**
-   * <p>The unique run identifier associated with this run.</p>
-   * @public
-   */
-  RunId?: string | undefined;
-
-  /**
-   * <p>The data source (an Glue table) associated with this evaluation run.</p>
-   * @public
-   */
-  DataSource?: DataSource | undefined;
-
-  /**
-   * <p>An IAM role supplied to encrypt the results of the run.</p>
-   * @public
-   */
-  Role?: string | undefined;
-
-  /**
-   * <p>The number of <code>G.1X</code> workers to be used in the run. The default is 5.</p>
-   * @public
-   */
-  NumberOfWorkers?: number | undefined;
-
-  /**
-   * <p>The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-   * @public
-   */
-  Timeout?: number | undefined;
-
-  /**
-   * <p>Additional run options you can specify for an evaluation run.</p>
-   * @public
-   */
-  AdditionalRunOptions?: DataQualityEvaluationRunAdditionalRunOptions | undefined;
-
-  /**
-   * <p>The status for this run.</p>
-   * @public
-   */
-  Status?: TaskStatusType | undefined;
-
-  /**
-   * <p>The error strings that are associated with the run.</p>
-   * @public
-   */
-  ErrorString?: string | undefined;
-
-  /**
-   * <p>The date and time when this run started.</p>
-   * @public
-   */
-  StartedOn?: Date | undefined;
-
-  /**
-   * <p>A timestamp. The last point in time when this data quality rule recommendation run was modified.</p>
-   * @public
-   */
-  LastModifiedOn?: Date | undefined;
-
-  /**
-   * <p>The date and time when this run was completed.</p>
-   * @public
-   */
-  CompletedOn?: Date | undefined;
-
-  /**
-   * <p>The amount of time (in seconds) that the run consumed resources.</p>
-   * @public
-   */
-  ExecutionTime?: number | undefined;
-
-  /**
-   * <p>A list of ruleset names for the run. Currently, this parameter takes only one Ruleset name.</p>
-   * @public
-   */
-  RulesetNames?: string[] | undefined;
-
-  /**
-   * <p>A list of result IDs for the data quality results for the run.</p>
-   * @public
-   */
-  ResultIds?: string[] | undefined;
-
-  /**
-   * <p>A map of reference strings to additional data sources you can specify for an evaluation run.</p>
-   * @public
-   */
-  AdditionalDataSources?: Record<string, DataSource> | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDevEndpointRequest {
-  /**
-   * <p>Name of the <code>DevEndpoint</code> to retrieve information for.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDevEndpointResponse {
-  /**
-   * <p>A <code>DevEndpoint</code> definition.</p>
-   * @public
-   */
-  DevEndpoint?: DevEndpoint | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDevEndpointsRequest {
-  /**
-   * <p>The maximum size of information to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDevEndpointsResponse {
-  /**
-   * <p>A list of <code>DevEndpoint</code> definitions.</p>
-   * @public
-   */
-  DevEndpoints?: DevEndpoint[] | undefined;
-
-  /**
-   * <p>A continuation token, if not all <code>DevEndpoint</code> definitions have yet been
-   *       returned.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetJobRequest {
-  /**
-   * <p>The name of the job definition to retrieve.</p>
-   * @public
-   */
-  JobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetJobBookmarkRequest {
-  /**
-   * <p>The name of the job in question.</p>
-   * @public
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>The unique run identifier associated with this job run.</p>
-   * @public
-   */
-  RunId?: string | undefined;
-}
-
-/**
- * <p>Defines a point that a job can resume processing.</p>
- * @public
- */
-export interface JobBookmarkEntry {
-  /**
-   * <p>The name of the job in question.</p>
-   * @public
-   */
-  JobName?: string | undefined;
-
-  /**
-   * <p>The version of the job.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>The run ID number.</p>
-   * @public
-   */
-  Run?: number | undefined;
-
-  /**
-   * <p>The attempt ID number.</p>
-   * @public
-   */
-  Attempt?: number | undefined;
-
-  /**
-   * <p>The unique run identifier associated with the previous job run.</p>
-   * @public
-   */
-  PreviousRunId?: string | undefined;
-
-  /**
-   * <p>The run ID number.</p>
-   * @public
-   */
-  RunId?: string | undefined;
-
-  /**
-   * <p>The bookmark itself.</p>
-   * @public
-   */
-  JobBookmark?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetJobBookmarkResponse {
-  /**
-   * <p>A structure that defines a point that a job can resume processing.</p>
-   * @public
-   */
-  JobBookmarkEntry?: JobBookmarkEntry | undefined;
-}
-
-/**
- * @public
- */
-export interface GetJobRunRequest {
-  /**
-   * <p>Name of the job definition being run.</p>
-   * @public
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>The ID of the job run.</p>
-   * @public
-   */
-  RunId: string | undefined;
-
-  /**
-   * <p>True if a list of predecessor runs should be returned.</p>
-   * @public
-   */
-  PredecessorsIncluded?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetJobRunResponse {
-  /**
-   * <p>The requested job-run metadata.</p>
-   * @public
-   */
-  JobRun?: JobRun | undefined;
-}
-
-/**
- * @public
- */
-export interface GetJobRunsRequest {
-  /**
-   * <p>The name of the job definition for which to retrieve all job runs.</p>
-   * @public
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum size of the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetJobRunsResponse {
-  /**
-   * <p>A list of job-run metadata objects.</p>
-   * @public
-   */
-  JobRuns?: JobRun[] | undefined;
-
-  /**
-   * <p>A continuation token, if not all requested job runs have been returned.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetJobsRequest {
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum size of the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>The location of resources.</p>
- * @public
- */
-export interface Location {
-  /**
-   * <p>A JDBC location.</p>
-   * @public
-   */
-  Jdbc?: CodeGenNodeArg[] | undefined;
-
-  /**
-   * <p>An Amazon Simple Storage Service (Amazon S3) location.</p>
-   * @public
-   */
-  S3?: CodeGenNodeArg[] | undefined;
-
-  /**
-   * <p>An Amazon DynamoDB table location.</p>
-   * @public
-   */
-  DynamoDB?: CodeGenNodeArg[] | undefined;
-}
-
-/**
- * <p>Specifies a table definition in the Glue Data Catalog.</p>
- * @public
- */
-export interface CatalogEntry {
-  /**
-   * <p>The database in which the table metadata resides.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the table in question.</p>
-   * @public
-   */
-  TableName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMappingRequest {
-  /**
-   * <p>Specifies the source table.</p>
-   * @public
-   */
-  Source: CatalogEntry | undefined;
-
-  /**
-   * <p>A list of target tables.</p>
-   * @public
-   */
-  Sinks?: CatalogEntry[] | undefined;
-
-  /**
-   * <p>Parameters for the mapping.</p>
-   * @public
-   */
-  Location?: Location | undefined;
-}
-
-/**
- * <p>Defines a mapping.</p>
- * @public
- */
-export interface MappingEntry {
-  /**
-   * <p>The name of the source table.</p>
-   * @public
-   */
-  SourceTable?: string | undefined;
-
-  /**
-   * <p>The source path.</p>
-   * @public
-   */
-  SourcePath?: string | undefined;
-
-  /**
-   * <p>The source type.</p>
-   * @public
-   */
-  SourceType?: string | undefined;
-
-  /**
-   * <p>The target table.</p>
-   * @public
-   */
-  TargetTable?: string | undefined;
-
-  /**
-   * <p>The target path.</p>
-   * @public
-   */
-  TargetPath?: string | undefined;
-
-  /**
-   * <p>The target type.</p>
-   * @public
-   */
-  TargetType?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMappingResponse {
-  /**
-   * <p>A list of mappings to the specified targets.</p>
-   * @public
-   */
-  Mapping: MappingEntry[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMLTaskRunRequest {
-  /**
-   * <p>The unique identifier of the machine learning transform.</p>
-   * @public
-   */
-  TransformId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the task run.</p>
-   * @public
-   */
-  TaskRunId: string | undefined;
-}
-
-/**
- * <p>Specifies configuration properties for an exporting labels task run.</p>
- * @public
- */
-export interface ExportLabelsTaskRunProperties {
-  /**
-   * <p>The Amazon Simple Storage Service (Amazon S3) path where you will export the
-   *       labels.</p>
-   * @public
-   */
-  OutputS3Path?: string | undefined;
-}
-
-/**
- * <p>Specifies configuration properties for a Find Matches task run.</p>
- * @public
- */
-export interface FindMatchesTaskRunProperties {
-  /**
-   * <p>The job ID for the Find Matches task run.</p>
-   * @public
-   */
-  JobId?: string | undefined;
-
-  /**
-   * <p>The name assigned to the job for the Find Matches task run.</p>
-   * @public
-   */
-  JobName?: string | undefined;
-
-  /**
-   * <p>The job run ID for the Find Matches task run.</p>
-   * @public
-   */
-  JobRunId?: string | undefined;
-}
-
-/**
- * <p>Specifies configuration properties for an importing labels task run.</p>
- * @public
- */
-export interface ImportLabelsTaskRunProperties {
-  /**
-   * <p>The Amazon Simple Storage Service (Amazon S3) path from where you will import the
-   *       labels.</p>
-   * @public
-   */
-  InputS3Path?: string | undefined;
-
-  /**
-   * <p>Indicates whether to overwrite your existing labels.</p>
-   * @public
-   */
-  Replace?: boolean | undefined;
-}
-
-/**
- * <p>Specifies configuration properties for a labeling set generation task run.</p>
- * @public
- */
-export interface LabelingSetGenerationTaskRunProperties {
-  /**
-   * <p>The Amazon Simple Storage Service (Amazon S3) path where you will generate the labeling
-   *       set.</p>
-   * @public
-   */
-  OutputS3Path?: string | undefined;
-}
+export type SettingSource = (typeof SettingSource)[keyof typeof SettingSource];
 
 /**
  * @internal
@@ -7769,18 +7924,4 @@ export const ConnectionInputFilterSensitiveLog = (obj: ConnectionInput): any => 
 export const CreateConnectionRequestFilterSensitiveLog = (obj: CreateConnectionRequest): any => ({
   ...obj,
   ...(obj.ConnectionInput && { ConnectionInput: ConnectionInputFilterSensitiveLog(obj.ConnectionInput) }),
-});
-
-/**
- * @internal
- */
-export const GetDataQualityResultResponseFilterSensitiveLog = (obj: GetDataQualityResultResponse): any => ({
-  ...obj,
-  ...(obj.RuleResults && { RuleResults: obj.RuleResults.map((item) => DataQualityRuleResultFilterSensitiveLog(item)) }),
-  ...(obj.AnalyzerResults && {
-    AnalyzerResults: obj.AnalyzerResults.map((item) => DataQualityAnalyzerResultFilterSensitiveLog(item)),
-  }),
-  ...(obj.Observations && {
-    Observations: obj.Observations.map((item) => DataQualityObservationFilterSensitiveLog(item)),
-  }),
 });

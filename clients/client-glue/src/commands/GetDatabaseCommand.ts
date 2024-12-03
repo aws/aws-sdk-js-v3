@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetDatabaseRequest, GetDatabaseResponse } from "../models/models_1";
+import { GetDatabaseRequest, GetDatabaseResponse } from "../models/models_2";
 import { de_GetDatabaseCommand, se_GetDatabaseCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -86,6 +86,9 @@ export interface GetDatabaseCommandOutput extends GetDatabaseResponse, __Metadat
  *
  * @throws {@link FederationSourceException} (client fault)
  *  <p>A federation source failed.</p>
+ *
+ * @throws {@link FederationSourceRetryableException} (client fault)
+ *  <p>A federation source failed, but the operation may be retried.</p>
  *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>

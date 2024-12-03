@@ -9,7 +9,7 @@ import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from 
 import {
   GetDataQualityRuleRecommendationRunRequest,
   GetDataQualityRuleRecommendationRunResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   de_GetDataQualityRuleRecommendationRunCommand,
   se_GetDataQualityRuleRecommendationRunCommand,

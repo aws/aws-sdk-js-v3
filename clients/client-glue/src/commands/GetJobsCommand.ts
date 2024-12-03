@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetJobsRequest } from "../models/models_1";
+import { GetJobsRequest } from "../models/models_2";
 import { GetJobsResponse, GetJobsResponseFilterSensitiveLog } from "../models/models_3";
 import { de_GetJobsCommand, se_GetJobsCommand } from "../protocols/Aws_json1_1";
 

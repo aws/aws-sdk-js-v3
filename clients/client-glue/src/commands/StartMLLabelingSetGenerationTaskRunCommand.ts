@@ -9,7 +9,7 @@ import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from 
 import {
   StartMLLabelingSetGenerationTaskRunRequest,
   StartMLLabelingSetGenerationTaskRunResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_StartMLLabelingSetGenerationTaskRunCommand,
   se_StartMLLabelingSetGenerationTaskRunCommand,

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateCrawlerScheduleRequest, UpdateCrawlerScheduleResponse } from "../models/models_2";
+import { UpdateCrawlerScheduleRequest, UpdateCrawlerScheduleResponse } from "../models/models_3";
 import { de_UpdateCrawlerScheduleCommand, se_UpdateCrawlerScheduleCommand } from "../protocols/Aws_json1_1";
 
 /**

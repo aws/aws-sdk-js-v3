@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/models_2";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_3";
 import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_json1_1";
 
 /**

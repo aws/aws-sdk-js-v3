@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { BatchStopJobRunRequest, BatchStopJobRunResponse } from "../models/models_0";
+import { BatchStopJobRunRequest } from "../models/models_0";
+import { BatchStopJobRunResponse } from "../models/models_1";
 import { de_BatchStopJobRunCommand, se_BatchStopJobRunCommand } from "../protocols/Aws_json1_1";
 
 /**

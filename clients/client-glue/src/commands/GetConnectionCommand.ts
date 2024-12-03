@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetConnectionRequest, GetConnectionResponse } from "../models/models_1";
+import { GetConnectionRequest, GetConnectionResponse } from "../models/models_2";
 import { de_GetConnectionCommand, se_GetConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -39,6 +39,7 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  *   CatalogId: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  *   HidePassword: true || false,
+ *   ApplyOverrideForComputeEnvironment: "SPARK" || "ATHENA" || "PYTHON",
  * };
  * const command = new GetConnectionCommand(input);
  * const response = await client.send(command);
@@ -46,14 +47,20 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * //   Connection: { // Connection
  * //     Name: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
- * //     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE" || "VIEW_VALIDATION_REDSHIFT" || "VIEW_VALIDATION_ATHENA",
+ * //     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE" || "VIEW_VALIDATION_REDSHIFT" || "VIEW_VALIDATION_ATHENA" || "GOOGLEADS" || "GOOGLESHEETS" || "GOOGLEANALYTICS4" || "SERVICENOW" || "MARKETO" || "SAPODATA" || "ZENDESK" || "JIRACLOUD" || "NETSUITEERP" || "HUBSPOT" || "FACEBOOKADS" || "INSTAGRAMADS" || "ZOHOCRM" || "SALESFORCEPARDOT" || "SALESFORCEMARKETINGCLOUD" || "SLACK" || "STRIPE" || "INTERCOM" || "SNAPCHATADS",
  * //     MatchCriteria: [ // MatchCriteria
  * //       "STRING_VALUE",
  * //     ],
  * //     ConnectionProperties: { // ConnectionProperties
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     AthenaProperties: { // PropertyMap
+ * //     SparkProperties: { // PropertyMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     AthenaProperties: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     PythonProperties: {
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     PhysicalConnectionRequirements: { // PhysicalConnectionRequirements
@@ -70,7 +77,7 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * //     StatusReason: "STRING_VALUE",
  * //     LastConnectionValidationTime: new Date("TIMESTAMP"),
  * //     AuthenticationConfiguration: { // AuthenticationConfiguration
- * //       AuthenticationType: "BASIC" || "OAUTH2" || "CUSTOM",
+ * //       AuthenticationType: "BASIC" || "OAUTH2" || "CUSTOM" || "IAM",
  * //       SecretArn: "STRING_VALUE",
  * //       OAuth2Properties: { // OAuth2Properties
  * //         OAuth2GrantType: "AUTHORIZATION_CODE" || "CLIENT_CREDENTIALS" || "JWT_BEARER",
@@ -84,6 +91,10 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * //         },
  * //       },
  * //     },
+ * //     ConnectionSchemaVersion: Number("int"),
+ * //     CompatibleComputeEnvironments: [ // ComputeEnvironmentList
+ * //       "SPARK" || "ATHENA" || "PYTHON",
+ * //     ],
  * //   },
  * // };
  *

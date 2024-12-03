@@ -183,6 +183,24 @@ export interface Aggregate {
 }
 
 /**
+ * <p>An object representing a value allowed for a property.</p>
+ * @public
+ */
+export interface AllowedValue {
+  /**
+   * <p>A description of the allowed value.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The value allowed for the property.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
  * <p>A resource to be created or added already exists.</p>
  * @public
  */
@@ -646,9 +664,125 @@ export interface AuditContext {
  * @public
  * @enum
  */
+export const DataOperation = {
+  READ: "READ",
+  WRITE: "WRITE",
+} as const;
+
+/**
+ * @public
+ */
+export type DataOperation = (typeof DataOperation)[keyof typeof DataOperation];
+
+/**
+ * @public
+ * @enum
+ */
+export const PropertyType = {
+  READ_ONLY: "READ_ONLY",
+  SECRET: "SECRET",
+  SECRET_OR_USER_INPUT: "SECRET_OR_USER_INPUT",
+  UNUSED: "UNUSED",
+  USER_INPUT: "USER_INPUT",
+} as const;
+
+/**
+ * @public
+ */
+export type PropertyType = (typeof PropertyType)[keyof typeof PropertyType];
+
+/**
+ * <p>An object that defines a connection type for a compute environment.</p>
+ * @public
+ */
+export interface Property {
+  /**
+   * <p>The name of the property.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the property.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>Indicates whether the property is required.</p>
+   * @public
+   */
+  Required: boolean | undefined;
+
+  /**
+   * <p>The default value for the property.</p>
+   * @public
+   */
+  DefaultValue?: string | undefined;
+
+  /**
+   * <p>Describes the type of property.</p>
+   * @public
+   */
+  PropertyTypes: PropertyType[] | undefined;
+
+  /**
+   * <p>A list of <code>AllowedValue</code> objects representing the values allowed for the property.</p>
+   * @public
+   */
+  AllowedValues?: AllowedValue[] | undefined;
+
+  /**
+   * <p>Indicates which data operations are applicable to the property.</p>
+   * @public
+   */
+  DataOperationScopes?: DataOperation[] | undefined;
+}
+
+/**
+ * <p>The authentication configuration for a connection returned by the <code>DescribeConnectionType</code> API.</p>
+ * @public
+ */
+export interface AuthConfiguration {
+  /**
+   * <p>The type of authentication for a connection.</p>
+   * @public
+   */
+  AuthenticationType: Property | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the Secrets Manager.</p>
+   * @public
+   */
+  SecretArn?: Property | undefined;
+
+  /**
+   * <p>A map of key-value pairs for the OAuth2 properties. Each value is a a <code>Property</code> object.</p>
+   * @public
+   */
+  OAuth2Properties?: Record<string, Property> | undefined;
+
+  /**
+   * <p>A map of key-value pairs for the OAuth2 properties. Each value is a a <code>Property</code> object.</p>
+   * @public
+   */
+  BasicAuthenticationProperties?: Record<string, Property> | undefined;
+
+  /**
+   * <p>A map of key-value pairs for the custom authentication properties. Each value is a a <code>Property</code> object.</p>
+   * @public
+   */
+  CustomAuthenticationProperties?: Record<string, Property> | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const AuthenticationType = {
   BASIC: "BASIC",
   CUSTOM: "CUSTOM",
+  IAM: "IAM",
   OAUTH2: "OAUTH2",
 } as const;
 
@@ -745,6 +879,24 @@ export interface AuthenticationConfiguration {
 }
 
 /**
+ * <p>For supplying basic auth credentials when not providing a <code>SecretArn</code> value.</p>
+ * @public
+ */
+export interface BasicAuthenticationCredentials {
+  /**
+   * <p>The username to connect to the data source.</p>
+   * @public
+   */
+  Username?: string | undefined;
+
+  /**
+   * <p>The password to connect to the data source.</p>
+   * @public
+   */
+  Password?: string | undefined;
+}
+
+/**
  * <p>The set of properties required for the the OAuth2 <code>AUTHORIZATION_CODE</code> grant type workflow.</p>
  * @public
  */
@@ -760,6 +912,36 @@ export interface AuthorizationCodeProperties {
    * @public
    */
   RedirectUri?: string | undefined;
+}
+
+/**
+ * <p>The credentials used when the authentication type is OAuth2 authentication.</p>
+ * @public
+ */
+export interface OAuth2Credentials {
+  /**
+   * <p>The client application client secret if the client application is user managed.</p>
+   * @public
+   */
+  UserManagedClientApplicationClientSecret?: string | undefined;
+
+  /**
+   * <p>The access token used when the authentication type is OAuth2.</p>
+   * @public
+   */
+  AccessToken?: string | undefined;
+
+  /**
+   * <p>The refresh token used when the authentication type is OAuth2.</p>
+   * @public
+   */
+  RefreshToken?: string | undefined;
+
+  /**
+   * <p>The JSON Web Token (JWT) used when the authentication type is OAuth2.</p>
+   * @public
+   */
+  JwtToken?: string | undefined;
 }
 
 /**
@@ -796,6 +978,12 @@ export interface OAuth2PropertiesInput {
    * @public
    */
   AuthorizationCodeProperties?: AuthorizationCodeProperties | undefined;
+
+  /**
+   * <p>The credentials used when the authentication type is OAuth2 authentication.</p>
+   * @public
+   */
+  OAuth2Credentials?: OAuth2Credentials | undefined;
 }
 
 /**
@@ -820,6 +1008,24 @@ export interface AuthenticationConfigurationInput {
    * @public
    */
   SecretArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the KMS key used to encrypt the connection. Only taken an as input in the request and stored in the Secret Manager.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The credentials used when the authentication type is basic authentication.</p>
+   * @public
+   */
+  BasicAuthenticationCredentials?: BasicAuthenticationCredentials | undefined;
+
+  /**
+   * <p>The credentials used when the authentication type is custom authentication.</p>
+   * @public
+   */
+  CustomAuthenticationCredentials?: Record<string, string> | undefined;
 }
 
 /**
@@ -9161,130 +9367,12 @@ export interface BatchStopJobRunError {
 }
 
 /**
- * <p>Records a successful request to stop a specified <code>JobRun</code>.</p>
- * @public
+ * @internal
  */
-export interface BatchStopJobRunSuccessfulSubmission {
-  /**
-   * <p>The name of the job definition used in the job run that was stopped.</p>
-   * @public
-   */
-  JobName?: string | undefined;
-
-  /**
-   * <p>The <code>JobRunId</code> of the job run that was stopped.</p>
-   * @public
-   */
-  JobRunId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchStopJobRunResponse {
-  /**
-   * <p>A list of the JobRuns that were successfully submitted for stopping.</p>
-   * @public
-   */
-  SuccessfulSubmissions?: BatchStopJobRunSuccessfulSubmission[] | undefined;
-
-  /**
-   * <p>A list of the errors that were encountered in trying to stop <code>JobRuns</code>,
-   *       including the <code>JobRunId</code> for which each error was encountered and details about the
-   *       error.</p>
-   * @public
-   */
-  Errors?: BatchStopJobRunError[] | undefined;
-}
-
-/**
- * <p>A structure that contains the values and structure used to update a partition.</p>
- * @public
- */
-export interface BatchUpdatePartitionRequestEntry {
-  /**
-   * <p>A list of values defining the partitions.</p>
-   * @public
-   */
-  PartitionValueList: string[] | undefined;
-
-  /**
-   * <p>The structure used to update a partition.</p>
-   * @public
-   */
-  PartitionInput: PartitionInput | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchUpdatePartitionRequest {
-  /**
-   * <p>The ID of the catalog in which the partition is to be updated. Currently, this should be
-   *       the Amazon Web Services account ID.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>The name of the metadata database in which the partition is
-   *       to be updated.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the metadata table in which the partition is to be updated.</p>
-   * @public
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>A list of up to 100 <code>BatchUpdatePartitionRequestEntry</code> objects to update.</p>
-   * @public
-   */
-  Entries: BatchUpdatePartitionRequestEntry[] | undefined;
-}
-
-/**
- * <p>Contains information about a batch update partition error.</p>
- * @public
- */
-export interface BatchUpdatePartitionFailureEntry {
-  /**
-   * <p>A list of values defining the partitions.</p>
-   * @public
-   */
-  PartitionValueList?: string[] | undefined;
-
-  /**
-   * <p>The details about the batch update partition error.</p>
-   * @public
-   */
-  ErrorDetail?: ErrorDetail | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchUpdatePartitionResponse {
-  /**
-   * <p>The errors encountered when trying to update the requested partitions. A list of <code>BatchUpdatePartitionFailureEntry</code> objects.</p>
-   * @public
-   */
-  Errors?: BatchUpdatePartitionFailureEntry[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CancelDataQualityRuleRecommendationRunRequest {
-  /**
-   * <p>The unique run identifier associated with this run.</p>
-   * @public
-   */
-  RunId: string | undefined;
-}
+export const BasicAuthenticationCredentialsFilterSensitiveLog = (obj: BasicAuthenticationCredentials): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -9297,11 +9385,23 @@ export const AuthorizationCodePropertiesFilterSensitiveLog = (obj: Authorization
 /**
  * @internal
  */
+export const OAuth2CredentialsFilterSensitiveLog = (obj: OAuth2Credentials): any => ({
+  ...obj,
+  ...(obj.UserManagedClientApplicationClientSecret && { UserManagedClientApplicationClientSecret: SENSITIVE_STRING }),
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+  ...(obj.RefreshToken && { RefreshToken: SENSITIVE_STRING }),
+  ...(obj.JwtToken && { JwtToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const OAuth2PropertiesInputFilterSensitiveLog = (obj: OAuth2PropertiesInput): any => ({
   ...obj,
   ...(obj.AuthorizationCodeProperties && {
     AuthorizationCodeProperties: AuthorizationCodePropertiesFilterSensitiveLog(obj.AuthorizationCodeProperties),
   }),
+  ...(obj.OAuth2Credentials && { OAuth2Credentials: OAuth2CredentialsFilterSensitiveLog(obj.OAuth2Credentials) }),
 });
 
 /**
@@ -9310,6 +9410,12 @@ export const OAuth2PropertiesInputFilterSensitiveLog = (obj: OAuth2PropertiesInp
 export const AuthenticationConfigurationInputFilterSensitiveLog = (obj: AuthenticationConfigurationInput): any => ({
   ...obj,
   ...(obj.OAuth2Properties && { OAuth2Properties: OAuth2PropertiesInputFilterSensitiveLog(obj.OAuth2Properties) }),
+  ...(obj.BasicAuthenticationCredentials && {
+    BasicAuthenticationCredentials: BasicAuthenticationCredentialsFilterSensitiveLog(
+      obj.BasicAuthenticationCredentials
+    ),
+  }),
+  ...(obj.CustomAuthenticationCredentials && { CustomAuthenticationCredentials: SENSITIVE_STRING }),
 });
 
 /**

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateDataQualityRulesetRequest, UpdateDataQualityRulesetResponse } from "../models/models_2";
+import { UpdateDataQualityRulesetRequest, UpdateDataQualityRulesetResponse } from "../models/models_3";
 import { de_UpdateDataQualityRulesetCommand, se_UpdateDataQualityRulesetCommand } from "../protocols/Aws_json1_1";
 
 /**

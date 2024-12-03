@@ -89,6 +89,12 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * @throws {@link FederatedResourceAlreadyExistsException} (client fault)
  *  <p>A federated resource already exists.</p>
  *
+ * @throws {@link FederationSourceException} (client fault)
+ *  <p>A federation source failed.</p>
+ *
+ * @throws {@link FederationSourceRetryableException} (client fault)
+ *  <p>A federation source failed, but the operation may be retried.</p>
+ *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>
  *

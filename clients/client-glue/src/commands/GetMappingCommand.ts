@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetMappingRequest, GetMappingResponse } from "../models/models_1";
+import { GetMappingRequest, GetMappingResponse } from "../models/models_2";
 import { de_GetMappingCommand, se_GetMappingCommand } from "../protocols/Aws_json1_1";
 
 /**

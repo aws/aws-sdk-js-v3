@@ -10,7 +10,7 @@ import {
   TestConnectionRequest,
   TestConnectionRequestFilterSensitiveLog,
   TestConnectionResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import { de_TestConnectionCommand, se_TestConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -43,13 +43,14 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * const client = new GlueClient(config);
  * const input = { // TestConnectionRequest
  *   ConnectionName: "STRING_VALUE",
+ *   CatalogId: "STRING_VALUE",
  *   TestConnectionInput: { // TestConnectionInput
- *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE" || "VIEW_VALIDATION_REDSHIFT" || "VIEW_VALIDATION_ATHENA", // required
+ *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE" || "VIEW_VALIDATION_REDSHIFT" || "VIEW_VALIDATION_ATHENA" || "GOOGLEADS" || "GOOGLESHEETS" || "GOOGLEANALYTICS4" || "SERVICENOW" || "MARKETO" || "SAPODATA" || "ZENDESK" || "JIRACLOUD" || "NETSUITEERP" || "HUBSPOT" || "FACEBOOKADS" || "INSTAGRAMADS" || "ZOHOCRM" || "SALESFORCEPARDOT" || "SALESFORCEMARKETINGCLOUD" || "SLACK" || "STRIPE" || "INTERCOM" || "SNAPCHATADS", // required
  *     ConnectionProperties: { // ConnectionProperties // required
  *       "<keys>": "STRING_VALUE",
  *     },
  *     AuthenticationConfiguration: { // AuthenticationConfigurationInput
- *       AuthenticationType: "BASIC" || "OAUTH2" || "CUSTOM",
+ *       AuthenticationType: "BASIC" || "OAUTH2" || "CUSTOM" || "IAM",
  *       OAuth2Properties: { // OAuth2PropertiesInput
  *         OAuth2GrantType: "AUTHORIZATION_CODE" || "CLIENT_CREDENTIALS" || "JWT_BEARER",
  *         OAuth2ClientApplication: { // OAuth2ClientApplication
@@ -64,8 +65,22 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  *           AuthorizationCode: "STRING_VALUE",
  *           RedirectUri: "STRING_VALUE",
  *         },
+ *         OAuth2Credentials: { // OAuth2Credentials
+ *           UserManagedClientApplicationClientSecret: "STRING_VALUE",
+ *           AccessToken: "STRING_VALUE",
+ *           RefreshToken: "STRING_VALUE",
+ *           JwtToken: "STRING_VALUE",
+ *         },
  *       },
  *       SecretArn: "STRING_VALUE",
+ *       KmsKeyArn: "STRING_VALUE",
+ *       BasicAuthenticationCredentials: { // BasicAuthenticationCredentials
+ *         Username: "STRING_VALUE",
+ *         Password: "STRING_VALUE",
+ *       },
+ *       CustomAuthenticationCredentials: { // CredentialMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *     },
  *   },
  * };

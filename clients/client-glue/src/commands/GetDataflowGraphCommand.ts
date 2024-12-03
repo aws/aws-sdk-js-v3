@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetDataflowGraphRequest, GetDataflowGraphResponse } from "../models/models_1";
+import { GetDataflowGraphRequest, GetDataflowGraphResponse } from "../models/models_2";
 import { de_GetDataflowGraphCommand, se_GetDataflowGraphCommand } from "../protocols/Aws_json1_1";
 
 /**

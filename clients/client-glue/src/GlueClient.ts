@@ -116,6 +116,7 @@ import {
   CheckSchemaVersionValidityCommandOutput,
 } from "./commands/CheckSchemaVersionValidityCommand";
 import { CreateBlueprintCommandInput, CreateBlueprintCommandOutput } from "./commands/CreateBlueprintCommand";
+import { CreateCatalogCommandInput, CreateCatalogCommandOutput } from "./commands/CreateCatalogCommand";
 import { CreateClassifierCommandInput, CreateClassifierCommandOutput } from "./commands/CreateClassifierCommand";
 import {
   CreateColumnStatisticsTaskSettingsCommandInput,
@@ -133,6 +134,15 @@ import {
   CreateDataQualityRulesetCommandOutput,
 } from "./commands/CreateDataQualityRulesetCommand";
 import { CreateDevEndpointCommandInput, CreateDevEndpointCommandOutput } from "./commands/CreateDevEndpointCommand";
+import { CreateIntegrationCommandInput, CreateIntegrationCommandOutput } from "./commands/CreateIntegrationCommand";
+import {
+  CreateIntegrationResourcePropertyCommandInput,
+  CreateIntegrationResourcePropertyCommandOutput,
+} from "./commands/CreateIntegrationResourcePropertyCommand";
+import {
+  CreateIntegrationTablePropertiesCommandInput,
+  CreateIntegrationTablePropertiesCommandOutput,
+} from "./commands/CreateIntegrationTablePropertiesCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import { CreateMLTransformCommandInput, CreateMLTransformCommandOutput } from "./commands/CreateMLTransformCommand";
 import { CreatePartitionCommandInput, CreatePartitionCommandOutput } from "./commands/CreatePartitionCommand";
@@ -161,6 +171,7 @@ import {
 } from "./commands/CreateUserDefinedFunctionCommand";
 import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
 import { DeleteBlueprintCommandInput, DeleteBlueprintCommandOutput } from "./commands/DeleteBlueprintCommand";
+import { DeleteCatalogCommandInput, DeleteCatalogCommandOutput } from "./commands/DeleteCatalogCommand";
 import { DeleteClassifierCommandInput, DeleteClassifierCommandOutput } from "./commands/DeleteClassifierCommand";
 import {
   DeleteColumnStatisticsForPartitionCommandInput,
@@ -186,6 +197,11 @@ import {
   DeleteDataQualityRulesetCommandOutput,
 } from "./commands/DeleteDataQualityRulesetCommand";
 import { DeleteDevEndpointCommandInput, DeleteDevEndpointCommandOutput } from "./commands/DeleteDevEndpointCommand";
+import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
+import {
+  DeleteIntegrationTablePropertiesCommandInput,
+  DeleteIntegrationTablePropertiesCommandOutput,
+} from "./commands/DeleteIntegrationTablePropertiesCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import { DeleteMLTransformCommandInput, DeleteMLTransformCommandOutput } from "./commands/DeleteMLTransformCommand";
 import { DeletePartitionCommandInput, DeletePartitionCommandOutput } from "./commands/DeletePartitionCommand";
@@ -221,13 +237,28 @@ import {
   DeleteUserDefinedFunctionCommandOutput,
 } from "./commands/DeleteUserDefinedFunctionCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
+import {
+  DescribeConnectionTypeCommandInput,
+  DescribeConnectionTypeCommandOutput,
+} from "./commands/DescribeConnectionTypeCommand";
+import { DescribeEntityCommandInput, DescribeEntityCommandOutput } from "./commands/DescribeEntityCommand";
+import {
+  DescribeInboundIntegrationsCommandInput,
+  DescribeInboundIntegrationsCommandOutput,
+} from "./commands/DescribeInboundIntegrationsCommand";
+import {
+  DescribeIntegrationsCommandInput,
+  DescribeIntegrationsCommandOutput,
+} from "./commands/DescribeIntegrationsCommand";
 import { GetBlueprintCommandInput, GetBlueprintCommandOutput } from "./commands/GetBlueprintCommand";
 import { GetBlueprintRunCommandInput, GetBlueprintRunCommandOutput } from "./commands/GetBlueprintRunCommand";
 import { GetBlueprintRunsCommandInput, GetBlueprintRunsCommandOutput } from "./commands/GetBlueprintRunsCommand";
+import { GetCatalogCommandInput, GetCatalogCommandOutput } from "./commands/GetCatalogCommand";
 import {
   GetCatalogImportStatusCommandInput,
   GetCatalogImportStatusCommandOutput,
 } from "./commands/GetCatalogImportStatusCommand";
+import { GetCatalogsCommandInput, GetCatalogsCommandOutput } from "./commands/GetCatalogsCommand";
 import { GetClassifierCommandInput, GetClassifierCommandOutput } from "./commands/GetClassifierCommand";
 import { GetClassifiersCommandInput, GetClassifiersCommandOutput } from "./commands/GetClassifiersCommand";
 import {
@@ -292,6 +323,15 @@ import {
 } from "./commands/GetDataQualityRulesetEvaluationRunCommand";
 import { GetDevEndpointCommandInput, GetDevEndpointCommandOutput } from "./commands/GetDevEndpointCommand";
 import { GetDevEndpointsCommandInput, GetDevEndpointsCommandOutput } from "./commands/GetDevEndpointsCommand";
+import { GetEntityRecordsCommandInput, GetEntityRecordsCommandOutput } from "./commands/GetEntityRecordsCommand";
+import {
+  GetIntegrationResourcePropertyCommandInput,
+  GetIntegrationResourcePropertyCommandOutput,
+} from "./commands/GetIntegrationResourcePropertyCommand";
+import {
+  GetIntegrationTablePropertiesCommandInput,
+  GetIntegrationTablePropertiesCommandOutput,
+} from "./commands/GetIntegrationTablePropertiesCommand";
 import { GetJobBookmarkCommandInput, GetJobBookmarkCommandOutput } from "./commands/GetJobBookmarkCommand";
 import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
 import { GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJobRunCommand";
@@ -380,6 +420,10 @@ import {
   ListColumnStatisticsTaskRunsCommandInput,
   ListColumnStatisticsTaskRunsCommandOutput,
 } from "./commands/ListColumnStatisticsTaskRunsCommand";
+import {
+  ListConnectionTypesCommandInput,
+  ListConnectionTypesCommandOutput,
+} from "./commands/ListConnectionTypesCommand";
 import { ListCrawlersCommandInput, ListCrawlersCommandOutput } from "./commands/ListCrawlersCommand";
 import { ListCrawlsCommandInput, ListCrawlsCommandOutput } from "./commands/ListCrawlsCommand";
 import {
@@ -411,6 +455,7 @@ import {
   ListDataQualityStatisticsCommandOutput,
 } from "./commands/ListDataQualityStatisticsCommand";
 import { ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput } from "./commands/ListDevEndpointsCommand";
+import { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "./commands/ListEntitiesCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "./commands/ListMLTransformsCommand";
 import { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "./commands/ListRegistriesCommand";
@@ -425,6 +470,7 @@ import {
 import { ListTriggersCommandInput, ListTriggersCommandOutput } from "./commands/ListTriggersCommand";
 import { ListUsageProfilesCommandInput, ListUsageProfilesCommandOutput } from "./commands/ListUsageProfilesCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
+import { ModifyIntegrationCommandInput, ModifyIntegrationCommandOutput } from "./commands/ModifyIntegrationCommand";
 import {
   PutDataCatalogEncryptionSettingsCommandInput,
   PutDataCatalogEncryptionSettingsCommandOutput,
@@ -519,6 +565,7 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { TestConnectionCommandInput, TestConnectionCommandOutput } from "./commands/TestConnectionCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateBlueprintCommandInput, UpdateBlueprintCommandOutput } from "./commands/UpdateBlueprintCommand";
+import { UpdateCatalogCommandInput, UpdateCatalogCommandOutput } from "./commands/UpdateCatalogCommand";
 import { UpdateClassifierCommandInput, UpdateClassifierCommandOutput } from "./commands/UpdateClassifierCommand";
 import {
   UpdateColumnStatisticsForPartitionCommandInput,
@@ -544,6 +591,14 @@ import {
   UpdateDataQualityRulesetCommandOutput,
 } from "./commands/UpdateDataQualityRulesetCommand";
 import { UpdateDevEndpointCommandInput, UpdateDevEndpointCommandOutput } from "./commands/UpdateDevEndpointCommand";
+import {
+  UpdateIntegrationResourcePropertyCommandInput,
+  UpdateIntegrationResourcePropertyCommandOutput,
+} from "./commands/UpdateIntegrationResourcePropertyCommand";
+import {
+  UpdateIntegrationTablePropertiesCommandInput,
+  UpdateIntegrationTablePropertiesCommandOutput,
+} from "./commands/UpdateIntegrationTablePropertiesCommand";
 import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
 import {
   UpdateJobFromSourceControlCommandInput,
@@ -608,6 +663,7 @@ export type ServiceInputTypes =
   | CancelStatementCommandInput
   | CheckSchemaVersionValidityCommandInput
   | CreateBlueprintCommandInput
+  | CreateCatalogCommandInput
   | CreateClassifierCommandInput
   | CreateColumnStatisticsTaskSettingsCommandInput
   | CreateConnectionCommandInput
@@ -616,6 +672,9 @@ export type ServiceInputTypes =
   | CreateDataQualityRulesetCommandInput
   | CreateDatabaseCommandInput
   | CreateDevEndpointCommandInput
+  | CreateIntegrationCommandInput
+  | CreateIntegrationResourcePropertyCommandInput
+  | CreateIntegrationTablePropertiesCommandInput
   | CreateJobCommandInput
   | CreateMLTransformCommandInput
   | CreatePartitionCommandInput
@@ -632,6 +691,7 @@ export type ServiceInputTypes =
   | CreateUserDefinedFunctionCommandInput
   | CreateWorkflowCommandInput
   | DeleteBlueprintCommandInput
+  | DeleteCatalogCommandInput
   | DeleteClassifierCommandInput
   | DeleteColumnStatisticsForPartitionCommandInput
   | DeleteColumnStatisticsForTableCommandInput
@@ -642,6 +702,8 @@ export type ServiceInputTypes =
   | DeleteDataQualityRulesetCommandInput
   | DeleteDatabaseCommandInput
   | DeleteDevEndpointCommandInput
+  | DeleteIntegrationCommandInput
+  | DeleteIntegrationTablePropertiesCommandInput
   | DeleteJobCommandInput
   | DeleteMLTransformCommandInput
   | DeletePartitionCommandInput
@@ -659,10 +721,16 @@ export type ServiceInputTypes =
   | DeleteUsageProfileCommandInput
   | DeleteUserDefinedFunctionCommandInput
   | DeleteWorkflowCommandInput
+  | DescribeConnectionTypeCommandInput
+  | DescribeEntityCommandInput
+  | DescribeInboundIntegrationsCommandInput
+  | DescribeIntegrationsCommandInput
   | GetBlueprintCommandInput
   | GetBlueprintRunCommandInput
   | GetBlueprintRunsCommandInput
+  | GetCatalogCommandInput
   | GetCatalogImportStatusCommandInput
+  | GetCatalogsCommandInput
   | GetClassifierCommandInput
   | GetClassifiersCommandInput
   | GetColumnStatisticsForPartitionCommandInput
@@ -688,6 +756,9 @@ export type ServiceInputTypes =
   | GetDataflowGraphCommandInput
   | GetDevEndpointCommandInput
   | GetDevEndpointsCommandInput
+  | GetEntityRecordsCommandInput
+  | GetIntegrationResourcePropertyCommandInput
+  | GetIntegrationTablePropertiesCommandInput
   | GetJobBookmarkCommandInput
   | GetJobCommandInput
   | GetJobRunCommandInput
@@ -734,6 +805,7 @@ export type ServiceInputTypes =
   | ImportCatalogToGlueCommandInput
   | ListBlueprintsCommandInput
   | ListColumnStatisticsTaskRunsCommandInput
+  | ListConnectionTypesCommandInput
   | ListCrawlersCommandInput
   | ListCrawlsCommandInput
   | ListCustomEntityTypesCommandInput
@@ -744,6 +816,7 @@ export type ServiceInputTypes =
   | ListDataQualityStatisticAnnotationsCommandInput
   | ListDataQualityStatisticsCommandInput
   | ListDevEndpointsCommandInput
+  | ListEntitiesCommandInput
   | ListJobsCommandInput
   | ListMLTransformsCommandInput
   | ListRegistriesCommandInput
@@ -755,6 +828,7 @@ export type ServiceInputTypes =
   | ListTriggersCommandInput
   | ListUsageProfilesCommandInput
   | ListWorkflowsCommandInput
+  | ModifyIntegrationCommandInput
   | PutDataCatalogEncryptionSettingsCommandInput
   | PutDataQualityProfileAnnotationCommandInput
   | PutResourcePolicyCommandInput
@@ -792,6 +866,7 @@ export type ServiceInputTypes =
   | TestConnectionCommandInput
   | UntagResourceCommandInput
   | UpdateBlueprintCommandInput
+  | UpdateCatalogCommandInput
   | UpdateClassifierCommandInput
   | UpdateColumnStatisticsForPartitionCommandInput
   | UpdateColumnStatisticsForTableCommandInput
@@ -802,6 +877,8 @@ export type ServiceInputTypes =
   | UpdateDataQualityRulesetCommandInput
   | UpdateDatabaseCommandInput
   | UpdateDevEndpointCommandInput
+  | UpdateIntegrationResourcePropertyCommandInput
+  | UpdateIntegrationTablePropertiesCommandInput
   | UpdateJobCommandInput
   | UpdateJobFromSourceControlCommandInput
   | UpdateMLTransformCommandInput
@@ -844,6 +921,7 @@ export type ServiceOutputTypes =
   | CancelStatementCommandOutput
   | CheckSchemaVersionValidityCommandOutput
   | CreateBlueprintCommandOutput
+  | CreateCatalogCommandOutput
   | CreateClassifierCommandOutput
   | CreateColumnStatisticsTaskSettingsCommandOutput
   | CreateConnectionCommandOutput
@@ -852,6 +930,9 @@ export type ServiceOutputTypes =
   | CreateDataQualityRulesetCommandOutput
   | CreateDatabaseCommandOutput
   | CreateDevEndpointCommandOutput
+  | CreateIntegrationCommandOutput
+  | CreateIntegrationResourcePropertyCommandOutput
+  | CreateIntegrationTablePropertiesCommandOutput
   | CreateJobCommandOutput
   | CreateMLTransformCommandOutput
   | CreatePartitionCommandOutput
@@ -868,6 +949,7 @@ export type ServiceOutputTypes =
   | CreateUserDefinedFunctionCommandOutput
   | CreateWorkflowCommandOutput
   | DeleteBlueprintCommandOutput
+  | DeleteCatalogCommandOutput
   | DeleteClassifierCommandOutput
   | DeleteColumnStatisticsForPartitionCommandOutput
   | DeleteColumnStatisticsForTableCommandOutput
@@ -878,6 +960,8 @@ export type ServiceOutputTypes =
   | DeleteDataQualityRulesetCommandOutput
   | DeleteDatabaseCommandOutput
   | DeleteDevEndpointCommandOutput
+  | DeleteIntegrationCommandOutput
+  | DeleteIntegrationTablePropertiesCommandOutput
   | DeleteJobCommandOutput
   | DeleteMLTransformCommandOutput
   | DeletePartitionCommandOutput
@@ -895,10 +979,16 @@ export type ServiceOutputTypes =
   | DeleteUsageProfileCommandOutput
   | DeleteUserDefinedFunctionCommandOutput
   | DeleteWorkflowCommandOutput
+  | DescribeConnectionTypeCommandOutput
+  | DescribeEntityCommandOutput
+  | DescribeInboundIntegrationsCommandOutput
+  | DescribeIntegrationsCommandOutput
   | GetBlueprintCommandOutput
   | GetBlueprintRunCommandOutput
   | GetBlueprintRunsCommandOutput
+  | GetCatalogCommandOutput
   | GetCatalogImportStatusCommandOutput
+  | GetCatalogsCommandOutput
   | GetClassifierCommandOutput
   | GetClassifiersCommandOutput
   | GetColumnStatisticsForPartitionCommandOutput
@@ -924,6 +1014,9 @@ export type ServiceOutputTypes =
   | GetDataflowGraphCommandOutput
   | GetDevEndpointCommandOutput
   | GetDevEndpointsCommandOutput
+  | GetEntityRecordsCommandOutput
+  | GetIntegrationResourcePropertyCommandOutput
+  | GetIntegrationTablePropertiesCommandOutput
   | GetJobBookmarkCommandOutput
   | GetJobCommandOutput
   | GetJobRunCommandOutput
@@ -970,6 +1063,7 @@ export type ServiceOutputTypes =
   | ImportCatalogToGlueCommandOutput
   | ListBlueprintsCommandOutput
   | ListColumnStatisticsTaskRunsCommandOutput
+  | ListConnectionTypesCommandOutput
   | ListCrawlersCommandOutput
   | ListCrawlsCommandOutput
   | ListCustomEntityTypesCommandOutput
@@ -980,6 +1074,7 @@ export type ServiceOutputTypes =
   | ListDataQualityStatisticAnnotationsCommandOutput
   | ListDataQualityStatisticsCommandOutput
   | ListDevEndpointsCommandOutput
+  | ListEntitiesCommandOutput
   | ListJobsCommandOutput
   | ListMLTransformsCommandOutput
   | ListRegistriesCommandOutput
@@ -991,6 +1086,7 @@ export type ServiceOutputTypes =
   | ListTriggersCommandOutput
   | ListUsageProfilesCommandOutput
   | ListWorkflowsCommandOutput
+  | ModifyIntegrationCommandOutput
   | PutDataCatalogEncryptionSettingsCommandOutput
   | PutDataQualityProfileAnnotationCommandOutput
   | PutResourcePolicyCommandOutput
@@ -1028,6 +1124,7 @@ export type ServiceOutputTypes =
   | TestConnectionCommandOutput
   | UntagResourceCommandOutput
   | UpdateBlueprintCommandOutput
+  | UpdateCatalogCommandOutput
   | UpdateClassifierCommandOutput
   | UpdateColumnStatisticsForPartitionCommandOutput
   | UpdateColumnStatisticsForTableCommandOutput
@@ -1038,6 +1135,8 @@ export type ServiceOutputTypes =
   | UpdateDataQualityRulesetCommandOutput
   | UpdateDatabaseCommandOutput
   | UpdateDevEndpointCommandOutput
+  | UpdateIntegrationResourcePropertyCommandOutput
+  | UpdateIntegrationTablePropertiesCommandOutput
   | UpdateJobCommandOutput
   | UpdateJobFromSourceControlCommandOutput
   | UpdateMLTransformCommandOutput

@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { SearchTablesRequest } from "../models/models_2";
-import { SearchTablesResponse } from "../models/models_3";
+import { SearchTablesRequest, SearchTablesResponse } from "../models/models_3";
 import { de_SearchTablesCommand, se_SearchTablesCommand } from "../protocols/Aws_json1_1";
 
 /**

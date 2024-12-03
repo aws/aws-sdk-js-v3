@@ -10,7 +10,7 @@ import {
   GetDataQualityResultRequest,
   GetDataQualityResultResponse,
   GetDataQualityResultResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_GetDataQualityResultCommand, se_GetDataQualityResultCommand } from "../protocols/Aws_json1_1";
 
 /**

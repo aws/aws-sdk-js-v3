@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetColumnStatisticsTaskSettingsRequest, GetColumnStatisticsTaskSettingsResponse } from "../models/models_1";
+import { GetColumnStatisticsTaskSettingsRequest } from "../models/models_1";
+import { GetColumnStatisticsTaskSettingsResponse } from "../models/models_2";
 import {
   de_GetColumnStatisticsTaskSettingsCommand,
   se_GetColumnStatisticsTaskSettingsCommand,
@@ -61,6 +62,14 @@ export interface GetColumnStatisticsTaskSettingsCommandOutput
  * //     Role: "STRING_VALUE",
  * //     SampleSize: Number("double"),
  * //     SecurityConfiguration: "STRING_VALUE",
+ * //     ScheduleType: "CRON" || "AUTO",
+ * //     SettingSource: "CATALOG" || "TABLE",
+ * //     LastExecutionAttempt: { // ExecutionAttempt
+ * //       Status: "FAILED" || "STARTED",
+ * //       ColumnStatisticsTaskRunId: "STRING_VALUE",
+ * //       ExecutionTimestamp: new Date("TIMESTAMP"),
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
