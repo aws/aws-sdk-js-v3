@@ -132,7 +132,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *       ObjectLockMode: "COMPLIANCE" || "GOVERNANCE",
  *       ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
  *       BucketKeyEnabled: true || false,
- *       ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *       ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *     },
  *     S3PutObjectAcl: { // S3SetObjectAclOperation
  *       AccessControlPolicy: { // S3AccessControlPolicy
