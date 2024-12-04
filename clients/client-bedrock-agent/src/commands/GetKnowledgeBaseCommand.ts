@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetKnowledgeBaseRequest, GetKnowledgeBaseResponse } from "../models/models_1";
+import {
+  GetKnowledgeBaseRequest,
+  GetKnowledgeBaseResponse,
+  GetKnowledgeBaseResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { de_GetKnowledgeBaseCommand, se_GetKnowledgeBaseCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -48,13 +52,87 @@ export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse,
  * //     description: "STRING_VALUE",
  * //     roleArn: "STRING_VALUE", // required
  * //     knowledgeBaseConfiguration: { // KnowledgeBaseConfiguration
- * //       type: "VECTOR", // required
+ * //       type: "VECTOR" || "KENDRA" || "SQL", // required
  * //       vectorKnowledgeBaseConfiguration: { // VectorKnowledgeBaseConfiguration
  * //         embeddingModelArn: "STRING_VALUE", // required
  * //         embeddingModelConfiguration: { // EmbeddingModelConfiguration
  * //           bedrockEmbeddingModelConfiguration: { // BedrockEmbeddingModelConfiguration
  * //             dimensions: Number("int"),
  * //             embeddingDataType: "FLOAT32" || "BINARY",
+ * //           },
+ * //         },
+ * //         supplementalDataStorageConfiguration: { // SupplementalDataStorageConfiguration
+ * //           storageLocations: [ // SupplementalDataStorageLocations // required
+ * //             { // SupplementalDataStorageLocation
+ * //               type: "S3", // required
+ * //               s3Location: { // S3Location
+ * //                 uri: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       kendraKnowledgeBaseConfiguration: { // KendraKnowledgeBaseConfiguration
+ * //         kendraIndexArn: "STRING_VALUE", // required
+ * //       },
+ * //       sqlKnowledgeBaseConfiguration: { // SqlKnowledgeBaseConfiguration
+ * //         type: "REDSHIFT", // required
+ * //         redshiftConfiguration: { // RedshiftConfiguration
+ * //           storageConfigurations: [ // RedshiftQueryEngineStorageConfigurations // required
+ * //             { // RedshiftQueryEngineStorageConfiguration
+ * //               type: "REDSHIFT" || "AWS_DATA_CATALOG", // required
+ * //               awsDataCatalogConfiguration: { // RedshiftQueryEngineAwsDataCatalogStorageConfiguration
+ * //                 tableNames: [ // AwsDataCatalogTableNames // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //               redshiftConfiguration: { // RedshiftQueryEngineRedshiftStorageConfiguration
+ * //                 databaseName: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //           ],
+ * //           queryEngineConfiguration: { // RedshiftQueryEngineConfiguration
+ * //             type: "SERVERLESS" || "PROVISIONED", // required
+ * //             serverlessConfiguration: { // RedshiftServerlessConfiguration
+ * //               workgroupArn: "STRING_VALUE", // required
+ * //               authConfiguration: { // RedshiftServerlessAuthConfiguration
+ * //                 type: "IAM" || "USERNAME_PASSWORD", // required
+ * //                 usernamePasswordSecretArn: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //             provisionedConfiguration: { // RedshiftProvisionedConfiguration
+ * //               clusterIdentifier: "STRING_VALUE", // required
+ * //               authConfiguration: { // RedshiftProvisionedAuthConfiguration
+ * //                 type: "IAM" || "USERNAME_PASSWORD" || "USERNAME", // required
+ * //                 databaseUser: "STRING_VALUE",
+ * //                 usernamePasswordSecretArn: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           },
+ * //           queryGenerationConfiguration: { // QueryGenerationConfiguration
+ * //             executionTimeoutSeconds: Number("int"),
+ * //             generationContext: { // QueryGenerationContext
+ * //               tables: [ // QueryGenerationTables
+ * //                 { // QueryGenerationTable
+ * //                   name: "STRING_VALUE", // required
+ * //                   description: "STRING_VALUE",
+ * //                   inclusion: "INCLUDE" || "EXCLUDE",
+ * //                   columns: [ // QueryGenerationColumns
+ * //                     { // QueryGenerationColumn
+ * //                       name: "STRING_VALUE",
+ * //                       description: "STRING_VALUE",
+ * //                       inclusion: "INCLUDE" || "EXCLUDE",
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               ],
+ * //               curatedQueries: [ // CuratedQueries
+ * //                 { // CuratedQuery
+ * //                   naturalLanguage: "STRING_VALUE", // required
+ * //                   sql: "STRING_VALUE", // required
+ * //                 },
+ * //               ],
+ * //             },
  * //           },
  * //         },
  * //       },
@@ -169,7 +247,7 @@ export class GetKnowledgeBaseCommand extends $Command
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "GetKnowledgeBase", {})
   .n("BedrockAgentClient", "GetKnowledgeBaseCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetKnowledgeBaseResponseFilterSensitiveLog)
   .ser(se_GetKnowledgeBaseCommand)
   .de(de_GetKnowledgeBaseCommand)
   .build() {

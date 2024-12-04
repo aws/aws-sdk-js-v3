@@ -3328,6 +3328,7 @@ export interface SharePointDataSourceConfiguration {
 export const DataSourceType = {
   CONFLUENCE: "CONFLUENCE",
   CUSTOM: "CUSTOM",
+  REDSHIFT_METADATA: "REDSHIFT_METADATA",
   S3: "S3",
   SALESFORCE: "SALESFORCE",
   SHAREPOINT: "SHAREPOINT",
@@ -3800,6 +3801,31 @@ export interface CustomTransformationConfiguration {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ParsingModality = {
+  MULTIMODAL: "MULTIMODAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ParsingModality = (typeof ParsingModality)[keyof typeof ParsingModality];
+
+/**
+ * <p>Contains configurations for using Amazon Bedrock Data Automation as the parser for ingesting your data sources.</p>
+ * @public
+ */
+export interface BedrockDataAutomationConfiguration {
+  /**
+   * <p>Specifies whether to enable parsing of multimodal data, including both text and/or images.</p>
+   * @public
+   */
+  parsingModality?: ParsingModality | undefined;
+}
+
+/**
  * <p>Instructions for interpreting the contents of a document.</p>
  * @public
  */
@@ -3817,7 +3843,7 @@ export interface ParsingPrompt {
  */
 export interface BedrockFoundationModelConfiguration {
   /**
-   * <p>The ARN of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a>.</p>
+   * <p>The ARN of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> to use for parsing.</p>
    * @public
    */
   modelArn: string | undefined;
@@ -3827,6 +3853,12 @@ export interface BedrockFoundationModelConfiguration {
    * @public
    */
   parsingPrompt?: ParsingPrompt | undefined;
+
+  /**
+   * <p>Specifies whether to enable parsing of multimodal data, including both text and/or images.</p>
+   * @public
+   */
+  parsingModality?: ParsingModality | undefined;
 }
 
 /**
@@ -3834,6 +3866,7 @@ export interface BedrockFoundationModelConfiguration {
  * @enum
  */
 export const ParsingStrategy = {
+  BEDROCK_DATA_AUTOMATION: "BEDROCK_DATA_AUTOMATION",
   BEDROCK_FOUNDATION_MODEL: "BEDROCK_FOUNDATION_MODEL",
 } as const;
 
@@ -3843,25 +3876,11 @@ export const ParsingStrategy = {
 export type ParsingStrategy = (typeof ParsingStrategy)[keyof typeof ParsingStrategy];
 
 /**
- * <p>Settings for parsing document contents. By default, the service converts the contents of each
- *     document into text before splitting it into chunks. To improve processing of PDF files with tables and images,
- *     you can configure the data source to convert the pages of text into images and use a model to describe the
- *     contents of each page.</p>
- *          <p>To use a model to parse PDF documents, set the parsing strategy to <code>BEDROCK_FOUNDATION_MODEL</code> and
- *       specify the model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> to use by ARN. You can also override the default parsing prompt with instructions for how
- *     to interpret images and tables in your documents. The following models are supported.</p>
- *          <ul>
- *             <li>
- *                <p>Anthropic Claude 3 Sonnet - <code>anthropic.claude-3-sonnet-20240229-v1:0</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Anthropic Claude 3 Haiku - <code>anthropic.claude-3-haiku-20240307-v1:0</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>You can get the ARN of a model with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModels.html">ListFoundationModels</a> action. Standard model usage
- *     charges apply for the foundation model parsing strategy.</p>
+ * <p>Settings for parsing document contents. If you exclude this field, the default parser converts the contents of each
+ *       document into text before splitting it into chunks. Specify the parsing strategy to use in the <code>parsingStrategy</code> field and include the relevant configuration, or omit it to use the Amazon Bedrock default parser. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-advanced-parsing.html">Parsing options for your data source</a>.</p>
+ *          <note>
+ *             <p>If you specify <code>BEDROCK_DATA_AUTOMATION</code> or <code>BEDROCK_FOUNDATION_MODEL</code> and it fails to parse a file, the Amazon Bedrock default parser will be used instead.</p>
+ *          </note>
  * @public
  */
 export interface ParsingConfiguration {
@@ -3872,10 +3891,16 @@ export interface ParsingConfiguration {
   parsingStrategy: ParsingStrategy | undefined;
 
   /**
-   * <p>Settings for a foundation model used to parse documents for a data source.</p>
+   * <p>If you specify <code>BEDROCK_FOUNDATION_MODEL</code> as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.</p>
    * @public
    */
   bedrockFoundationModelConfiguration?: BedrockFoundationModelConfiguration | undefined;
+
+  /**
+   * <p>If you specify <code>BEDROCK_DATA_AUTOMATION</code> as the parsing strategy for ingesting your data source, use this object to modify configurations for using the Amazon Bedrock Data Automation parser.</p>
+   * @public
+   */
+  bedrockDataAutomationConfiguration?: BedrockDataAutomationConfiguration | undefined;
 }
 
 /**
@@ -3896,7 +3921,7 @@ export interface VectorIngestionConfiguration {
   customTransformationConfiguration?: CustomTransformationConfiguration | undefined;
 
   /**
-   * <p>A custom parser for data source documents.</p>
+   * <p>Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.</p>
    * @public
    */
   parsingConfiguration?: ParsingConfiguration | undefined;
@@ -9182,44 +9207,6 @@ export interface TextContentDoc {
 }
 
 /**
- * @public
- * @enum
- */
-export const InlineContentType = {
-  BYTE: "BYTE",
-  TEXT: "TEXT",
-} as const;
-
-/**
- * @public
- */
-export type InlineContentType = (typeof InlineContentType)[keyof typeof InlineContentType];
-
-/**
- * <p>Contains information about content defined inline to ingest into a data source. Choose a <code>type</code> and include the field that corresponds to it.</p>
- * @public
- */
-export interface InlineContent {
-  /**
-   * <p>The type of inline content to define.</p>
-   * @public
-   */
-  type: InlineContentType | undefined;
-
-  /**
-   * <p>Contains information about content defined inline in bytes.</p>
-   * @public
-   */
-  byteContent?: ByteContentDoc | undefined;
-
-  /**
-   * <p>Contains information about content defined inline in text.</p>
-   * @public
-   */
-  textContent?: TextContentDoc | undefined;
-}
-
-/**
  * @internal
  */
 export const APISchemaFilterSensitiveLog = (obj: APISchema): any => {
@@ -9917,13 +9904,4 @@ export const ByteContentDocFilterSensitiveLog = (obj: ByteContentDoc): any => ({
 export const TextContentDocFilterSensitiveLog = (obj: TextContentDoc): any => ({
   ...obj,
   ...(obj.data && { data: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const InlineContentFilterSensitiveLog = (obj: InlineContent): any => ({
-  ...obj,
-  ...(obj.byteContent && { byteContent: ByteContentDocFilterSensitiveLog(obj.byteContent) }),
-  ...(obj.textContent && { textContent: TextContentDocFilterSensitiveLog(obj.textContent) }),
 });

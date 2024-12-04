@@ -10,13 +10,13 @@ import {
   AgentVersion,
   AgentVersionFilterSensitiveLog,
   AgentVersionSummary,
+  ByteContentDoc,
+  ByteContentDocFilterSensitiveLog,
   ContentDataSourceType,
   CustomDocumentIdentifier,
   FlowDefinition,
   FlowValidation,
   FlowValidationFilterSensitiveLog,
-  InlineContent,
-  InlineContentFilterSensitiveLog,
   KnowledgeBaseDocumentDetail,
   KnowledgeBaseState,
   PromptInferenceConfiguration,
@@ -24,7 +24,47 @@ import {
   PromptTemplateConfigurationFilterSensitiveLog,
   PromptTemplateType,
   S3Location,
+  TextContentDoc,
+  TextContentDocFilterSensitiveLog,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const InlineContentType = {
+  BYTE: "BYTE",
+  TEXT: "TEXT",
+} as const;
+
+/**
+ * @public
+ */
+export type InlineContentType = (typeof InlineContentType)[keyof typeof InlineContentType];
+
+/**
+ * <p>Contains information about content defined inline to ingest into a data source. Choose a <code>type</code> and include the field that corresponds to it.</p>
+ * @public
+ */
+export interface InlineContent {
+  /**
+   * <p>The type of inline content to define.</p>
+   * @public
+   */
+  type: InlineContentType | undefined;
+
+  /**
+   * <p>Contains information about content defined inline in bytes.</p>
+   * @public
+   */
+  byteContent?: ByteContentDoc | undefined;
+
+  /**
+   * <p>Contains information about content defined inline in text.</p>
+   * @public
+   */
+  textContent?: TextContentDoc | undefined;
+}
 
 /**
  * <p>Contains information about the Amazon S3 location of the file containing the content to ingest into a knowledge base connected to a custom data source.</p>
@@ -384,10 +424,410 @@ export interface AssociateAgentKnowledgeBaseResponse {
 }
 
 /**
+ * <p>Settings for an Amazon Kendra knowledge base.</p>
+ * @public
+ */
+export interface KendraKnowledgeBaseConfiguration {
+  /**
+   * <p>The ARN of the Amazon Kendra index.</p>
+   * @public
+   */
+  kendraIndexArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RedshiftProvisionedAuthType = {
+  IAM: "IAM",
+  USERNAME: "USERNAME",
+  USERNAME_PASSWORD: "USERNAME_PASSWORD",
+} as const;
+
+/**
+ * @public
+ */
+export type RedshiftProvisionedAuthType =
+  (typeof RedshiftProvisionedAuthType)[keyof typeof RedshiftProvisionedAuthType];
+
+/**
+ * <p>Contains configurations for authentication to an Amazon Redshift provisioned data warehouse. Specify the type of authentication to use in the <code>type</code> field and include the corresponding field. If you specify IAM authentication, you don't need to include another field.</p>
+ * @public
+ */
+export interface RedshiftProvisionedAuthConfiguration {
+  /**
+   * <p>The type of authentication to use.</p>
+   * @public
+   */
+  type: RedshiftProvisionedAuthType | undefined;
+
+  /**
+   * <p>The database username for authentication to an Amazon Redshift provisioned data warehouse.</p>
+   * @public
+   */
+  databaseUser?: string | undefined;
+
+  /**
+   * <p>The ARN of an Secrets Manager secret for authentication.</p>
+   * @public
+   */
+  usernamePasswordSecretArn?: string | undefined;
+}
+
+/**
+ * <p>Contains configurations for a provisioned Amazon Redshift query engine.</p>
+ * @public
+ */
+export interface RedshiftProvisionedConfiguration {
+  /**
+   * <p>The ID of the Amazon Redshift cluster.</p>
+   * @public
+   */
+  clusterIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies configurations for authentication to Amazon Redshift.</p>
+   * @public
+   */
+  authConfiguration: RedshiftProvisionedAuthConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RedshiftServerlessAuthType = {
+  IAM: "IAM",
+  USERNAME_PASSWORD: "USERNAME_PASSWORD",
+} as const;
+
+/**
+ * @public
+ */
+export type RedshiftServerlessAuthType = (typeof RedshiftServerlessAuthType)[keyof typeof RedshiftServerlessAuthType];
+
+/**
+ * <p>Specifies configurations for authentication to a Redshift Serverless. Specify the type of authentication to use in the <code>type</code> field and include the corresponding field. If you specify IAM authentication, you don't need to include another field.</p>
+ * @public
+ */
+export interface RedshiftServerlessAuthConfiguration {
+  /**
+   * <p>The type of authentication to use.</p>
+   * @public
+   */
+  type: RedshiftServerlessAuthType | undefined;
+
+  /**
+   * <p>The ARN of an Secrets Manager secret for authentication.</p>
+   * @public
+   */
+  usernamePasswordSecretArn?: string | undefined;
+}
+
+/**
+ * <p>Contains configurations for authentication to Amazon Redshift Serverless.</p>
+ * @public
+ */
+export interface RedshiftServerlessConfiguration {
+  /**
+   * <p>The ARN of the Amazon Redshift workgroup.</p>
+   * @public
+   */
+  workgroupArn: string | undefined;
+
+  /**
+   * <p>Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.</p>
+   * @public
+   */
+  authConfiguration: RedshiftServerlessAuthConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RedshiftQueryEngineType = {
+  PROVISIONED: "PROVISIONED",
+  SERVERLESS: "SERVERLESS",
+} as const;
+
+/**
+ * @public
+ */
+export type RedshiftQueryEngineType = (typeof RedshiftQueryEngineType)[keyof typeof RedshiftQueryEngineType];
+
+/**
+ * <p>Contains configurations for an Amazon Redshift query engine. Specify the type of query engine in <code>type</code> and include the corresponding field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
+ * @public
+ */
+export interface RedshiftQueryEngineConfiguration {
+  /**
+   * <p>The type of query engine.</p>
+   * @public
+   */
+  type: RedshiftQueryEngineType | undefined;
+
+  /**
+   * <p>Specifies configurations for a serverless Amazon Redshift query engine.</p>
+   * @public
+   */
+  serverlessConfiguration?: RedshiftServerlessConfiguration | undefined;
+
+  /**
+   * <p>Specifies configurations for a provisioned Amazon Redshift query engine.</p>
+   * @public
+   */
+  provisionedConfiguration?: RedshiftProvisionedConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for a query, each of which defines information about example queries to help the query engine generate appropriate SQL queries.</p>
+ * @public
+ */
+export interface CuratedQuery {
+  /**
+   * <p>An example natural language query.</p>
+   * @public
+   */
+  naturalLanguage: string | undefined;
+
+  /**
+   * <p>The SQL equivalent of the natural language query.</p>
+   * @public
+   */
+  sql: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IncludeExclude = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type IncludeExclude = (typeof IncludeExclude)[keyof typeof IncludeExclude];
+
+/**
+ * <p>Contains information about a column in the current table for the query engine to consider.</p>
+ * @public
+ */
+export interface QueryGenerationColumn {
+  /**
+   * <p>The name of the column for which the other fields in this object apply.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A description of the column that helps the query engine understand the contents of the column.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Specifies whether to include or exclude the column during query generation. If you specify <code>EXCLUDE</code>, the column will be ignored. If you specify <code>INCLUDE</code>, all other columns in the table will be ignored.</p>
+   * @public
+   */
+  inclusion?: IncludeExclude | undefined;
+}
+
+/**
+ * <p>Contains information about a table for the query engine to consider.</p>
+ * @public
+ */
+export interface QueryGenerationTable {
+  /**
+   * <p>The name of the table for which the other fields in this object apply.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the table that helps the query engine understand the contents of the table.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Specifies whether to include or exclude the table during query generation. If you specify <code>EXCLUDE</code>, the table will be ignored. If you specify <code>INCLUDE</code>, all other tables will be ignored.</p>
+   * @public
+   */
+  inclusion?: IncludeExclude | undefined;
+
+  /**
+   * <p>An array of objects, each of which defines information about a column in the table.</p>
+   * @public
+   */
+  columns?: QueryGenerationColumn[] | undefined;
+}
+
+/**
+ * <p>&gt;Contains configurations for context to use during query generation.</p>
+ * @public
+ */
+export interface QueryGenerationContext {
+  /**
+   * <p>An array of objects, each of which defines information about a table in the database.</p>
+   * @public
+   */
+  tables?: QueryGenerationTable[] | undefined;
+
+  /**
+   * <p>An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.</p>
+   * @public
+   */
+  curatedQueries?: CuratedQuery[] | undefined;
+}
+
+/**
+ * <p>Contains configurations for query generation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide..</p>
+ * @public
+ */
+export interface QueryGenerationConfiguration {
+  /**
+   * <p>The time after which query generation will time out.</p>
+   * @public
+   */
+  executionTimeoutSeconds?: number | undefined;
+
+  /**
+   * <p>Specifies configurations for context to use during query generation.</p>
+   * @public
+   */
+  generationContext?: QueryGenerationContext | undefined;
+}
+
+/**
+ * <p>Contains configurations for storage in Glue Data Catalog.</p>
+ * @public
+ */
+export interface RedshiftQueryEngineAwsDataCatalogStorageConfiguration {
+  /**
+   * <p>A list of names of the tables to use.</p>
+   * @public
+   */
+  tableNames: string[] | undefined;
+}
+
+/**
+ * <p>Contains configurations for storage in Amazon Redshift.</p>
+ * @public
+ */
+export interface RedshiftQueryEngineRedshiftStorageConfiguration {
+  /**
+   * <p>The name of the Amazon Redshift database.</p>
+   * @public
+   */
+  databaseName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RedshiftQueryEngineStorageType = {
+  AWS_DATA_CATALOG: "AWS_DATA_CATALOG",
+  REDSHIFT: "REDSHIFT",
+} as const;
+
+/**
+ * @public
+ */
+export type RedshiftQueryEngineStorageType =
+  (typeof RedshiftQueryEngineStorageType)[keyof typeof RedshiftQueryEngineStorageType];
+
+/**
+ * <p>Contains configurations for Amazon Redshift data storage. Specify the data storage service to use in the <code>type</code> field and include the corresponding field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
+ * @public
+ */
+export interface RedshiftQueryEngineStorageConfiguration {
+  /**
+   * <p>The data storage service to use.</p>
+   * @public
+   */
+  type: RedshiftQueryEngineStorageType | undefined;
+
+  /**
+   * <p>Specifies configurations for storage in Glue Data Catalog.</p>
+   * @public
+   */
+  awsDataCatalogConfiguration?: RedshiftQueryEngineAwsDataCatalogStorageConfiguration | undefined;
+
+  /**
+   * <p>Specifies configurations for storage in Amazon Redshift.</p>
+   * @public
+   */
+  redshiftConfiguration?: RedshiftQueryEngineRedshiftStorageConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for an Amazon Redshift database. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
+ * @public
+ */
+export interface RedshiftConfiguration {
+  /**
+   * <p>Specifies configurations for Amazon Redshift database storage.</p>
+   * @public
+   */
+  storageConfigurations: RedshiftQueryEngineStorageConfiguration[] | undefined;
+
+  /**
+   * <p>Specifies configurations for an Amazon Redshift query engine.</p>
+   * @public
+   */
+  queryEngineConfiguration: RedshiftQueryEngineConfiguration | undefined;
+
+  /**
+   * <p>Specifies configurations for generating queries.</p>
+   * @public
+   */
+  queryGenerationConfiguration?: QueryGenerationConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryEngineType = {
+  REDSHIFT: "REDSHIFT",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryEngineType = (typeof QueryEngineType)[keyof typeof QueryEngineType];
+
+/**
+ * <p>Contains configurations for a knowledge base connected to an SQL database. Specify the SQL database type in the <code>type</code> field and include the corresponding field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
+ * @public
+ */
+export interface SqlKnowledgeBaseConfiguration {
+  /**
+   * <p>The type of SQL database to connect to the knowledge base.</p>
+   * @public
+   */
+  type: QueryEngineType | undefined;
+
+  /**
+   * <p>Specifies configurations for a knowledge base connected to an Amazon Redshift database.</p>
+   * @public
+   */
+  redshiftConfiguration?: RedshiftConfiguration | undefined;
+}
+
+/**
  * @public
  * @enum
  */
 export const KnowledgeBaseType = {
+  KENDRA: "KENDRA",
+  SQL: "SQL",
   VECTOR: "VECTOR",
 } as const;
 
@@ -445,6 +885,50 @@ export interface EmbeddingModelConfiguration {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SupplementalDataStorageLocationType = {
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type SupplementalDataStorageLocationType =
+  (typeof SupplementalDataStorageLocationType)[keyof typeof SupplementalDataStorageLocationType];
+
+/**
+ * <p>Contains information about a storage location for images extracted from multimodal documents in your data source.</p>
+ * @public
+ */
+export interface SupplementalDataStorageLocation {
+  /**
+   * <p>Specifies the storage service used for this location.</p>
+   * @public
+   */
+  type: SupplementalDataStorageLocationType | undefined;
+
+  /**
+   * <p>Contains information about the Amazon S3 location for the extracted images.</p>
+   * @public
+   */
+  s3Location?: S3Location | undefined;
+}
+
+/**
+ * <p>Specifies configurations for the storage location of the images extracted from multimodal documents in your data source. These images can be retrieved and returned to the end user.</p>
+ * @public
+ */
+export interface SupplementalDataStorageConfiguration {
+  /**
+   * <p>A list of objects specifying storage locations for images extracted from multimodal documents in your data source.</p>
+   * @public
+   */
+  storageLocations: SupplementalDataStorageLocation[] | undefined;
+}
+
+/**
  * <p>Contains details about the model used to create vector embeddings for the knowledge base.</p>
  * @public
  */
@@ -460,6 +944,12 @@ export interface VectorKnowledgeBaseConfiguration {
    * @public
    */
   embeddingModelConfiguration?: EmbeddingModelConfiguration | undefined;
+
+  /**
+   * <p>If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html">RetrieveAndGenerate</a>.</p>
+   * @public
+   */
+  supplementalDataStorageConfiguration?: SupplementalDataStorageConfiguration | undefined;
 }
 
 /**
@@ -478,6 +968,18 @@ export interface KnowledgeBaseConfiguration {
    * @public
    */
   vectorKnowledgeBaseConfiguration?: VectorKnowledgeBaseConfiguration | undefined;
+
+  /**
+   * <p>Settings for an Amazon Kendra knowledge base.</p>
+   * @public
+   */
+  kendraKnowledgeBaseConfiguration?: KendraKnowledgeBaseConfiguration | undefined;
+
+  /**
+   * <p>Specifies configurations for a knowledge base connected to an SQL database.</p>
+   * @public
+   */
+  sqlKnowledgeBaseConfiguration?: SqlKnowledgeBaseConfiguration | undefined;
 }
 
 /**
@@ -866,7 +1368,7 @@ export interface CreateKnowledgeBaseRequest {
    * <p>Contains details about the configuration of the vector database used for the knowledge base.</p>
    * @public
    */
-  storageConfiguration: StorageConfiguration | undefined;
+  storageConfiguration?: StorageConfiguration | undefined;
 
   /**
    * <p>Specify the key-value pairs for the tags that you want to attach to your knowledge base in this object.</p>
@@ -938,7 +1440,7 @@ export interface KnowledgeBase {
    * <p>Contains details about the storage configuration of the knowledge base.</p>
    * @public
    */
-  storageConfiguration: StorageConfiguration | undefined;
+  storageConfiguration?: StorageConfiguration | undefined;
 
   /**
    * <p>The status of the knowledge base. The following statuses are possible:</p>
@@ -1305,7 +1807,7 @@ export interface UpdateKnowledgeBaseRequest {
    * <p>Specifies the configuration for the vector store used for the knowledge base. You must use the same configuration as when the knowledge base was created.</p>
    * @public
    */
-  storageConfiguration: StorageConfiguration | undefined;
+  storageConfiguration?: StorageConfiguration | undefined;
 }
 
 /**
@@ -2172,6 +2674,15 @@ export interface ListAgentVersionsResponse {
 /**
  * @internal
  */
+export const InlineContentFilterSensitiveLog = (obj: InlineContent): any => ({
+  ...obj,
+  ...(obj.byteContent && { byteContent: ByteContentDocFilterSensitiveLog(obj.byteContent) }),
+  ...(obj.textContent && { textContent: TextContentDocFilterSensitiveLog(obj.textContent) }),
+});
+
+/**
+ * @internal
+ */
 export const CustomContentFilterSensitiveLog = (obj: CustomContent): any => ({
   ...obj,
   ...(obj.inlineContent && { inlineContent: InlineContentFilterSensitiveLog(obj.inlineContent) }),
@@ -2231,6 +2742,105 @@ export const IngestKnowledgeBaseDocumentsRequestFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.documents && { documents: obj.documents.map((item) => KnowledgeBaseDocumentFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const QueryGenerationContextFilterSensitiveLog = (obj: QueryGenerationContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryGenerationConfigurationFilterSensitiveLog = (obj: QueryGenerationConfiguration): any => ({
+  ...obj,
+  ...(obj.generationContext && { generationContext: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RedshiftConfigurationFilterSensitiveLog = (obj: RedshiftConfiguration): any => ({
+  ...obj,
+  ...(obj.queryGenerationConfiguration && {
+    queryGenerationConfiguration: QueryGenerationConfigurationFilterSensitiveLog(obj.queryGenerationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const SqlKnowledgeBaseConfigurationFilterSensitiveLog = (obj: SqlKnowledgeBaseConfiguration): any => ({
+  ...obj,
+  ...(obj.redshiftConfiguration && {
+    redshiftConfiguration: RedshiftConfigurationFilterSensitiveLog(obj.redshiftConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseConfigurationFilterSensitiveLog = (obj: KnowledgeBaseConfiguration): any => ({
+  ...obj,
+  ...(obj.sqlKnowledgeBaseConfiguration && {
+    sqlKnowledgeBaseConfiguration: SqlKnowledgeBaseConfigurationFilterSensitiveLog(obj.sqlKnowledgeBaseConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateKnowledgeBaseRequestFilterSensitiveLog = (obj: CreateKnowledgeBaseRequest): any => ({
+  ...obj,
+  ...(obj.knowledgeBaseConfiguration && {
+    knowledgeBaseConfiguration: KnowledgeBaseConfigurationFilterSensitiveLog(obj.knowledgeBaseConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseFilterSensitiveLog = (obj: KnowledgeBase): any => ({
+  ...obj,
+  ...(obj.knowledgeBaseConfiguration && {
+    knowledgeBaseConfiguration: KnowledgeBaseConfigurationFilterSensitiveLog(obj.knowledgeBaseConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateKnowledgeBaseResponseFilterSensitiveLog = (obj: CreateKnowledgeBaseResponse): any => ({
+  ...obj,
+  ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseFilterSensitiveLog(obj.knowledgeBase) }),
+});
+
+/**
+ * @internal
+ */
+export const GetKnowledgeBaseResponseFilterSensitiveLog = (obj: GetKnowledgeBaseResponse): any => ({
+  ...obj,
+  ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseFilterSensitiveLog(obj.knowledgeBase) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateKnowledgeBaseRequestFilterSensitiveLog = (obj: UpdateKnowledgeBaseRequest): any => ({
+  ...obj,
+  ...(obj.knowledgeBaseConfiguration && {
+    knowledgeBaseConfiguration: KnowledgeBaseConfigurationFilterSensitiveLog(obj.knowledgeBaseConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateKnowledgeBaseResponseFilterSensitiveLog = (obj: UpdateKnowledgeBaseResponse): any => ({
+  ...obj,
+  ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseFilterSensitiveLog(obj.knowledgeBase) }),
 });
 
 /**

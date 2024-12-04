@@ -202,6 +202,7 @@ import {
   AnyToolChoice,
   APISchema,
   AutoToolChoice,
+  BedrockDataAutomationConfiguration,
   BedrockFoundationModelConfiguration,
   ByteContentDoc,
   ChatPromptTemplateConfiguration,
@@ -246,7 +247,6 @@ import {
   IngestionJobFilter,
   IngestionJobSortBy,
   IngestionJobSummary,
-  InlineContent,
   InputFlowNodeConfiguration,
   IntermediateStorage,
   InternalServerException,
@@ -318,11 +318,14 @@ import {
 } from "../models/models_0";
 import {
   BedrockEmbeddingModelConfiguration,
+  CuratedQuery,
   CustomContent,
   CustomS3Location,
   DocumentContent,
   DocumentMetadata,
   EmbeddingModelConfiguration,
+  InlineContent,
+  KendraKnowledgeBaseConfiguration,
   KnowledgeBase,
   KnowledgeBaseConfiguration,
   KnowledgeBaseDocument,
@@ -340,12 +343,28 @@ import {
   PromptMetadataEntry,
   PromptSummary,
   PromptVariant,
+  QueryGenerationColumn,
+  QueryGenerationConfiguration,
+  QueryGenerationContext,
+  QueryGenerationTable,
   RdsConfiguration,
   RdsFieldMapping,
   RedisEnterpriseCloudConfiguration,
   RedisEnterpriseCloudFieldMapping,
+  RedshiftConfiguration,
+  RedshiftProvisionedAuthConfiguration,
+  RedshiftProvisionedConfiguration,
+  RedshiftQueryEngineAwsDataCatalogStorageConfiguration,
+  RedshiftQueryEngineConfiguration,
+  RedshiftQueryEngineRedshiftStorageConfiguration,
+  RedshiftQueryEngineStorageConfiguration,
+  RedshiftServerlessAuthConfiguration,
+  RedshiftServerlessConfiguration,
   S3Content,
+  SqlKnowledgeBaseConfiguration,
   StorageConfiguration,
+  SupplementalDataStorageConfiguration,
+  SupplementalDataStorageLocation,
   VectorKnowledgeBaseConfiguration,
 } from "../models/models_1";
 
@@ -3783,6 +3802,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AutoToolChoice omitted.
 
+// se_AwsDataCatalogTableNames omitted.
+
+// se_BedrockDataAutomationConfiguration omitted.
+
 // se_BedrockEmbeddingModelConfiguration omitted.
 
 // se_BedrockFoundationModelConfiguration omitted.
@@ -3826,6 +3849,10 @@ const se_ChatPromptTemplateConfiguration = (input: ChatPromptTemplateConfigurati
 // se_ContentBlocks omitted.
 
 // se_CrawlFilterConfiguration omitted.
+
+// se_CuratedQueries omitted.
+
+// se_CuratedQuery omitted.
 
 /**
  * serializeAws_restJson1CustomContent
@@ -4015,6 +4042,8 @@ const se_InlineContent = (input: InlineContent, context: __SerdeContext): any =>
 // se_IntermediateStorage omitted.
 
 // se_IteratorFlowNodeConfiguration omitted.
+
+// se_KendraKnowledgeBaseConfiguration omitted.
 
 // se_KnowledgeBaseConfiguration omitted.
 
@@ -4268,6 +4297,18 @@ const se_PromptVariantList = (input: PromptVariant[], context: __SerdeContext): 
     });
 };
 
+// se_QueryGenerationColumn omitted.
+
+// se_QueryGenerationColumns omitted.
+
+// se_QueryGenerationConfiguration omitted.
+
+// se_QueryGenerationContext omitted.
+
+// se_QueryGenerationTable omitted.
+
+// se_QueryGenerationTables omitted.
+
 // se_RdsConfiguration omitted.
 
 // se_RdsFieldMapping omitted.
@@ -4275,6 +4316,26 @@ const se_PromptVariantList = (input: PromptVariant[], context: __SerdeContext): 
 // se_RedisEnterpriseCloudConfiguration omitted.
 
 // se_RedisEnterpriseCloudFieldMapping omitted.
+
+// se_RedshiftConfiguration omitted.
+
+// se_RedshiftProvisionedAuthConfiguration omitted.
+
+// se_RedshiftProvisionedConfiguration omitted.
+
+// se_RedshiftQueryEngineAwsDataCatalogStorageConfiguration omitted.
+
+// se_RedshiftQueryEngineConfiguration omitted.
+
+// se_RedshiftQueryEngineRedshiftStorageConfiguration omitted.
+
+// se_RedshiftQueryEngineStorageConfiguration omitted.
+
+// se_RedshiftQueryEngineStorageConfigurations omitted.
+
+// se_RedshiftServerlessAuthConfiguration omitted.
+
+// se_RedshiftServerlessConfiguration omitted.
 
 // se_RetrievalFlowNodeConfiguration omitted.
 
@@ -4316,6 +4377,8 @@ const se_PromptVariantList = (input: PromptVariant[], context: __SerdeContext): 
 
 // se_SpecificToolChoice omitted.
 
+// se_SqlKnowledgeBaseConfiguration omitted.
+
 // se_StopSequences omitted.
 
 // se_StorageConfiguration omitted.
@@ -4327,6 +4390,12 @@ const se_PromptVariantList = (input: PromptVariant[], context: __SerdeContext): 
 // se_StorageFlowNodeServiceConfiguration omitted.
 
 // se_StringListValue omitted.
+
+// se_SupplementalDataStorageConfiguration omitted.
+
+// se_SupplementalDataStorageLocation omitted.
+
+// se_SupplementalDataStorageLocations omitted.
 
 // se_SystemContentBlock omitted.
 
@@ -4751,6 +4820,10 @@ const de_AgentVersionSummary = (output: any, context: __SerdeContext): AgentVers
 
 // de_AutoToolChoice omitted.
 
+// de_AwsDataCatalogTableNames omitted.
+
+// de_BedrockDataAutomationConfiguration omitted.
+
 // de_BedrockEmbeddingModelConfiguration omitted.
 
 // de_BedrockFoundationModelConfiguration omitted.
@@ -4784,6 +4857,10 @@ const de_ChatPromptTemplateConfiguration = (output: any, context: __SerdeContext
 // de_ContentBlocks omitted.
 
 // de_CrawlFilterConfiguration omitted.
+
+// de_CuratedQueries omitted.
+
+// de_CuratedQuery omitted.
 
 // de_CustomDocumentIdentifier omitted.
 
@@ -5154,6 +5231,8 @@ const de_IngestionJobSummary = (output: any, context: __SerdeContext): Ingestion
 
 // de_IteratorFlowNodeConfiguration omitted.
 
+// de_KendraKnowledgeBaseConfiguration omitted.
+
 /**
  * deserializeAws_restJson1KnowledgeBase
  */
@@ -5488,6 +5567,18 @@ const de_PromptVariantList = (output: any, context: __SerdeContext): PromptVaria
   return retVal;
 };
 
+// de_QueryGenerationColumn omitted.
+
+// de_QueryGenerationColumns omitted.
+
+// de_QueryGenerationConfiguration omitted.
+
+// de_QueryGenerationContext omitted.
+
+// de_QueryGenerationTable omitted.
+
+// de_QueryGenerationTables omitted.
+
 // de_RdsConfiguration omitted.
 
 // de_RdsFieldMapping omitted.
@@ -5497,6 +5588,26 @@ const de_PromptVariantList = (output: any, context: __SerdeContext): PromptVaria
 // de_RedisEnterpriseCloudConfiguration omitted.
 
 // de_RedisEnterpriseCloudFieldMapping omitted.
+
+// de_RedshiftConfiguration omitted.
+
+// de_RedshiftProvisionedAuthConfiguration omitted.
+
+// de_RedshiftProvisionedConfiguration omitted.
+
+// de_RedshiftQueryEngineAwsDataCatalogStorageConfiguration omitted.
+
+// de_RedshiftQueryEngineConfiguration omitted.
+
+// de_RedshiftQueryEngineRedshiftStorageConfiguration omitted.
+
+// de_RedshiftQueryEngineStorageConfiguration omitted.
+
+// de_RedshiftQueryEngineStorageConfigurations omitted.
+
+// de_RedshiftServerlessAuthConfiguration omitted.
+
+// de_RedshiftServerlessConfiguration omitted.
 
 // de_RetrievalFlowNodeConfiguration omitted.
 
@@ -5536,6 +5647,8 @@ const de_PromptVariantList = (output: any, context: __SerdeContext): PromptVaria
 
 // de_SpecificToolChoice omitted.
 
+// de_SqlKnowledgeBaseConfiguration omitted.
+
 // de_StopSequences omitted.
 
 // de_StorageConfiguration omitted.
@@ -5545,6 +5658,12 @@ const de_PromptVariantList = (output: any, context: __SerdeContext): PromptVaria
 // de_StorageFlowNodeS3Configuration omitted.
 
 // de_StorageFlowNodeServiceConfiguration omitted.
+
+// de_SupplementalDataStorageConfiguration omitted.
+
+// de_SupplementalDataStorageLocation omitted.
+
+// de_SupplementalDataStorageLocations omitted.
 
 // de_SystemContentBlock omitted.
 

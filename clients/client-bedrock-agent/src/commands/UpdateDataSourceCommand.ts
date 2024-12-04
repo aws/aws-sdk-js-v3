@@ -49,7 +49,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   dataSourceConfiguration: { // DataSourceConfiguration
- *     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM", // required
+ *     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "REDSHIFT_METADATA", // required
  *     s3Configuration: { // S3DataSourceConfiguration
  *       bucketArn: "STRING_VALUE", // required
  *       inclusionPrefixes: [ // S3Prefixes
@@ -199,12 +199,16 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *       ],
  *     },
  *     parsingConfiguration: { // ParsingConfiguration
- *       parsingStrategy: "BEDROCK_FOUNDATION_MODEL", // required
+ *       parsingStrategy: "BEDROCK_FOUNDATION_MODEL" || "BEDROCK_DATA_AUTOMATION", // required
  *       bedrockFoundationModelConfiguration: { // BedrockFoundationModelConfiguration
  *         modelArn: "STRING_VALUE", // required
  *         parsingPrompt: { // ParsingPrompt
  *           parsingPromptText: "STRING_VALUE", // required
  *         },
+ *         parsingModality: "MULTIMODAL",
+ *       },
+ *       bedrockDataAutomationConfiguration: { // BedrockDataAutomationConfiguration
+ *         parsingModality: "MULTIMODAL",
  *       },
  *     },
  *   },
@@ -219,7 +223,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * //     status: "AVAILABLE" || "DELETING" || "DELETE_UNSUCCESSFUL", // required
  * //     description: "STRING_VALUE",
  * //     dataSourceConfiguration: { // DataSourceConfiguration
- * //       type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM", // required
+ * //       type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "REDSHIFT_METADATA", // required
  * //       s3Configuration: { // S3DataSourceConfiguration
  * //         bucketArn: "STRING_VALUE", // required
  * //         inclusionPrefixes: [ // S3Prefixes
@@ -368,12 +372,16 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * //         ],
  * //       },
  * //       parsingConfiguration: { // ParsingConfiguration
- * //         parsingStrategy: "BEDROCK_FOUNDATION_MODEL", // required
+ * //         parsingStrategy: "BEDROCK_FOUNDATION_MODEL" || "BEDROCK_DATA_AUTOMATION", // required
  * //         bedrockFoundationModelConfiguration: { // BedrockFoundationModelConfiguration
  * //           modelArn: "STRING_VALUE", // required
  * //           parsingPrompt: { // ParsingPrompt
  * //             parsingPromptText: "STRING_VALUE", // required
  * //           },
+ * //           parsingModality: "MULTIMODAL",
+ * //         },
+ * //         bedrockDataAutomationConfiguration: { // BedrockDataAutomationConfiguration
+ * //           parsingModality: "MULTIMODAL",
  * //         },
  * //       },
  * //     },
