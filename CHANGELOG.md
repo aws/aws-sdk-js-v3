@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.706.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.705.0...v3.706.0) (2024-12-04)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release introduces the ability to generate SQL using natural language, through a new GenerateQuery API (with native integration into Knowledge Bases); ability to ingest and retrieve images through Bedrock Data Automation; and ability to create a Knowledge Base backed by Kendra GenAI Index. ([99b090b](https://github.com/aws/aws-sdk-js-v3/commit/99b090be601f3a9eaf3943904f192ea531f16342))
+* **client-bedrock-agent:** This release introduces the ability to generate SQL using natural language, through a new GenerateQuery API (with native integration into Knowledge Bases); ability to ingest and retrieve images through Bedrock Data Automation; and ability to create a Knowledge Base backed by Kendra GenAI Index. ([ac7f368](https://github.com/aws/aws-sdk-js-v3/commit/ac7f368ccffe98c63b791a5ef6e9a772562a8fef))
+* **client-bedrock-data-automation-runtime:** Release Bedrock Data Automation Runtime SDK ([b50a556](https://github.com/aws/aws-sdk-js-v3/commit/b50a5564a1052cdfc457cef4d090766e830b098f))
+* **client-bedrock-data-automation:** Release Bedrock Data Automation SDK ([2366a2b](https://github.com/aws/aws-sdk-js-v3/commit/2366a2bcc7f755cfe552edd4436db76f2e4cae74))
+* **client-bedrock-runtime:** Added support for Intelligent Prompt Router in Invoke, InvokeStream, Converse and ConverseStream. Add support for Bedrock Guardrails image content filter. New Bedrock Marketplace feature enabling a wider range of bedrock compatible models with self-hosted capability. ([8b3d71d](https://github.com/aws/aws-sdk-js-v3/commit/8b3d71dcc2a857507d0b140dde9eb38b95a0bd72))
+* **client-bedrock:** Introduced two APIs ListPromptRouters and GetPromptRouter for Intelligent Prompt Router feature. Add support for Bedrock Guardrails image content filter. New Bedrock Marketplace feature enabling a wider range of bedrock compatible models with self-hosted capability. ([0912614](https://github.com/aws/aws-sdk-js-v3/commit/0912614120dff0a569b3e19d2c25a82eb7b88354))
+* **client-kendra:** This release adds GenAI Index in Amazon Kendra for Retrieval Augmented Generation (RAG) and intelligent search. With the Kendra GenAI Index, customers get high retrieval accuracy powered by the latest information retrieval technologies and semantic models. ([796599e](https://github.com/aws/aws-sdk-js-v3/commit/796599ece5e5acd7a75b2d8fd0f882a6658bb70b))
+* **client-sagemaker:** Amazon SageMaker HyperPod launched task governance to help customers maximize accelerator utilization for model development and flexible training plans to meet training timelines and budget while reducing weeks of training time. AI apps from AWS partner is now available in SageMaker. ([9616caf](https://github.com/aws/aws-sdk-js-v3/commit/9616cafe8dd5254bc18d65f176c431c2c8bd0cb1))
+* **clients:** update client endpoints as of 2024-12-04 ([5e15269](https://github.com/aws/aws-sdk-js-v3/commit/5e152699dec7a39e9d39a0ec26a4523954b59d1f))
+
+
+
+
+
 # [3.705.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.704.0...v3.705.0) (2024-12-03)
 
 

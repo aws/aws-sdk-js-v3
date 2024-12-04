@@ -76,6 +76,20 @@ export interface DeleteMultiRegionClustersCommandOutput extends __MetadataBearer
  * <p>Base exception class for all service exceptions from DSQL service.</p>
  *
  * @public
+ * @example Delete Multi Region Clusters
+ * ```javascript
+ * //
+ * const input = {
+ *   "linkedClusterArns": [
+ *     "arn:aws:xanadu:us-east-1:111122223333:cluster/abcdefghijklmnopqrst12345",
+ *     "arn:aws:xanadu:us-east-2:111122223333:cluster/klmnopqrstuvwxyzabcd54321"
+ *   ]
+ * };
+ * const command = new DeleteMultiRegionClustersCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class DeleteMultiRegionClustersCommand extends $Command
   .classBuilder<

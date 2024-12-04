@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.706.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.705.0...v3.706.0) (2024-12-04)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker HyperPod launched task governance to help customers maximize accelerator utilization for model development and flexible training plans to meet training timelines and budget while reducing weeks of training time. AI apps from AWS partner is now available in SageMaker. ([9616caf](https://github.com/aws/aws-sdk-js-v3/commit/9616cafe8dd5254bc18d65f176c431c2c8bd0cb1))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 

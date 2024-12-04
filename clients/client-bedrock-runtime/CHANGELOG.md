@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.706.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.705.0...v3.706.0) (2024-12-04)
+
+
+### Features
+
+* **client-bedrock-runtime:** Added support for Intelligent Prompt Router in Invoke, InvokeStream, Converse and ConverseStream. Add support for Bedrock Guardrails image content filter. New Bedrock Marketplace feature enabling a wider range of bedrock compatible models with self-hosted capability. ([8b3d71d](https://github.com/aws/aws-sdk-js-v3/commit/8b3d71dcc2a857507d0b140dde9eb38b95a0bd72))
+
+
+
+
+
 # [3.705.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.704.0...v3.705.0) (2024-12-03)
 
 

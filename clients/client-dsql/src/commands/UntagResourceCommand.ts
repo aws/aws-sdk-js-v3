@@ -73,6 +73,21 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from DSQL service.</p>
  *
  * @public
+ * @example Untag Resource
+ * ```javascript
+ * //
+ * const input = {
+ *   "resourceArn": "arn:aws:dsql:us-east-1:111111222222:cluster/kiqenqglxyl2snyvkvnj2c3s2e",
+ *   "tagKeys": [
+ *     "MyKeyA",
+ *     "MyKeyB"
+ *   ]
+ * };
+ * const command = new UntagResourceCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

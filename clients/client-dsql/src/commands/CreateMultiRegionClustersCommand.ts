@@ -92,6 +92,29 @@ export interface CreateMultiRegionClustersCommandOutput extends CreateMultiRegio
  * <p>Base exception class for all service exceptions from DSQL service.</p>
  *
  * @public
+ * @example Create Multi Region Clusters
+ * ```javascript
+ * //
+ * const input = {
+ *   "linkedRegionList": [
+ *     "us-east-1",
+ *     "us-east-2"
+ *   ],
+ *   "witnessRegion": "us-west-2"
+ * };
+ * const command = new CreateMultiRegionClustersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "linkedClusterArns": [
+ *     "arn:aws:xanadu:us-east-1:111122223333:cluster/abcdefghijklmnopqrst12345",
+ *     "arn:aws:xanadu:us-east-2:111122223333:cluster/klmnopqrstuvwxyzabcd54321"
+ *   ]
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class CreateMultiRegionClustersCommand extends $Command
   .classBuilder<
