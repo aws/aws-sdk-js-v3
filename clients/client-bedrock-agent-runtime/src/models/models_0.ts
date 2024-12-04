@@ -2165,6 +2165,170 @@ export interface InvokeFlowResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const InputQueryType = {
+  TEXT: "TEXT",
+} as const;
+
+/**
+ * @public
+ */
+export type InputQueryType = (typeof InputQueryType)[keyof typeof InputQueryType];
+
+/**
+ * <p>Contains information about a natural language query to transform into SQL.</p>
+ * @public
+ */
+export interface QueryGenerationInput {
+  /**
+   * <p>The type of the query.</p>
+   * @public
+   */
+  type: InputQueryType | undefined;
+
+  /**
+   * <p>The text of the query.</p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryTransformationMode = {
+  TEXT_TO_SQL: "TEXT_TO_SQL",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryTransformationMode = (typeof QueryTransformationMode)[keyof typeof QueryTransformationMode];
+
+/**
+ * <p>Contains configurations for a knowledge base to use in transformation.</p>
+ * @public
+ */
+export interface TextToSqlKnowledgeBaseConfiguration {
+  /**
+   * <p>The ARN of the knowledge base</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TextToSqlConfigurationType = {
+  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
+} as const;
+
+/**
+ * @public
+ */
+export type TextToSqlConfigurationType = (typeof TextToSqlConfigurationType)[keyof typeof TextToSqlConfigurationType];
+
+/**
+ * <p>Contains configurations for transforming text to SQL.</p>
+ * @public
+ */
+export interface TextToSqlConfiguration {
+  /**
+   * <p>The type of resource to use in transformation.</p>
+   * @public
+   */
+  type: TextToSqlConfigurationType | undefined;
+
+  /**
+   * <p>Specifies configurations for a knowledge base to use in transformation.</p>
+   * @public
+   */
+  knowledgeBaseConfiguration?: TextToSqlKnowledgeBaseConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for transforming the natural language query into SQL.</p>
+ * @public
+ */
+export interface TransformationConfiguration {
+  /**
+   * <p>The mode of the transformation.</p>
+   * @public
+   */
+  mode: QueryTransformationMode | undefined;
+
+  /**
+   * <p>Specifies configurations for transforming text to SQL.</p>
+   * @public
+   */
+  textToSqlConfiguration?: TextToSqlConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GenerateQueryRequest {
+  /**
+   * <p>Specifies information about a natural language query to transform into SQL.</p>
+   * @public
+   */
+  queryGenerationInput: QueryGenerationInput | undefined;
+
+  /**
+   * <p>Specifies configurations for transforming the natural language query into SQL.</p>
+   * @public
+   */
+  transformationConfiguration: TransformationConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GeneratedQueryType = {
+  REDSHIFT_SQL: "REDSHIFT_SQL",
+} as const;
+
+/**
+ * @public
+ */
+export type GeneratedQueryType = (typeof GeneratedQueryType)[keyof typeof GeneratedQueryType];
+
+/**
+ * <p>Contains information about a query generated for a natural language query.</p>
+ * @public
+ */
+export interface GeneratedQuery {
+  /**
+   * <p>The type of transformed query.</p>
+   * @public
+   */
+  type?: GeneratedQueryType | undefined;
+
+  /**
+   * <p>An SQL query that corresponds to the natural language query.</p>
+   * @public
+   */
+  sql?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GenerateQueryResponse {
+  /**
+   * <p>A list of objects, each of which defines a generated query that can correspond to the natural language queries.</p>
+   * @public
+   */
+  queries?: GeneratedQuery[] | undefined;
+}
+
+/**
  * <p>A content block.</p>
  * @public
  */
@@ -2730,7 +2894,65 @@ export interface GeneratedResponsePart {
 }
 
 /**
- * <p>Contains the cited text from the data source.</p>
+ * @public
+ * @enum
+ */
+export const RetrievalResultContentColumnType = {
+  BLOB: "BLOB",
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  LONG: "LONG",
+  NULL: "NULL",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type RetrievalResultContentColumnType =
+  (typeof RetrievalResultContentColumnType)[keyof typeof RetrievalResultContentColumnType];
+
+/**
+ * <p>Contains information about a column with a cell to return in retrieval.</p>
+ * @public
+ */
+export interface RetrievalResultContentColumn {
+  /**
+   * <p>The name of the column.</p>
+   * @public
+   */
+  columnName?: string | undefined;
+
+  /**
+   * <p>The value in the column.</p>
+   * @public
+   */
+  columnValue?: string | undefined;
+
+  /**
+   * <p>The data type of the value.</p>
+   * @public
+   */
+  type?: RetrievalResultContentColumnType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RetrievalResultContentType = {
+  IMAGE: "IMAGE",
+  ROW: "ROW",
+  TEXT: "TEXT",
+} as const;
+
+/**
+ * @public
+ */
+export type RetrievalResultContentType = (typeof RetrievalResultContentType)[keyof typeof RetrievalResultContentType];
+
+/**
+ * <p>Contains information about a chunk of text from a data source in the knowledge base. If the result is from a structured data source, the cell in the database and the type of the value is also identified.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
@@ -2750,10 +2972,28 @@ export interface GeneratedResponsePart {
  */
 export interface RetrievalResultContent {
   /**
+   * <p>The type of content in the retrieval result.</p>
+   * @public
+   */
+  type?: RetrievalResultContentType | undefined;
+
+  /**
    * <p>The cited text from the data source.</p>
    * @public
    */
-  text: string | undefined;
+  text?: string | undefined;
+
+  /**
+   * <p>A data URI with base64-encoded content from the data source. The URI is in the following format: returned in the following format: <code>data:image/jpeg;base64,$\{base64-encoded string\}</code>.</p>
+   * @public
+   */
+  byteContent?: string | undefined;
+
+  /**
+   * <p>Specifies information about the rows with the cells to return in retrieval.</p>
+   * @public
+   */
+  row?: RetrievalResultContentColumn[] | undefined;
 }
 
 /**
@@ -2778,6 +3018,18 @@ export interface RetrievalResultCustomDocumentLocation {
    * @public
    */
   id?: string | undefined;
+}
+
+/**
+ * <p>The location of a result in Amazon Kendra.</p>
+ * @public
+ */
+export interface RetrievalResultKendraDocumentLocation {
+  /**
+   * <p>The document's uri.</p>
+   * @public
+   */
+  uri?: string | undefined;
 }
 
 /**
@@ -2832,15 +3084,29 @@ export interface RetrievalResultSharePointLocation {
 }
 
 /**
+ * <p>Contains information about the SQL query used to retrieve the result.</p>
+ * @public
+ */
+export interface RetrievalResultSqlLocation {
+  /**
+   * <p>The SQL query used to retrieve the result.</p>
+   * @public
+   */
+  query?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
 export const RetrievalResultLocationType = {
   CONFLUENCE: "CONFLUENCE",
   CUSTOM: "CUSTOM",
+  KENDRA: "KENDRA",
   S3: "S3",
   SALESFORCE: "SALESFORCE",
   SHAREPOINT: "SHAREPOINT",
+  SQL: "SQL",
   WEB: "WEB",
 } as const;
 
@@ -2876,7 +3142,7 @@ export interface RetrievalResultWebLocation {
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>locatino</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>location</code> field</p>
  *             </li>
  *          </ul>
  * @public
@@ -2923,6 +3189,18 @@ export interface RetrievalResultLocation {
    * @public
    */
   customDocumentLocation?: RetrievalResultCustomDocumentLocation | undefined;
+
+  /**
+   * <p>The location of a document in Amazon Kendra.</p>
+   * @public
+   */
+  kendraDocumentLocation?: RetrievalResultKendraDocumentLocation | undefined;
+
+  /**
+   * <p>Specifies information about the SQL query used to retrieve the result.</p>
+   * @public
+   */
+  sqlLocation?: RetrievalResultSqlLocation | undefined;
 }
 
 /**
@@ -7392,7 +7670,7 @@ export interface KnowledgeBaseQuery {
  */
 export interface KnowledgeBaseRetrievalResult {
   /**
-   * <p>Contains a chunk of text from a data source in the knowledge base.</p>
+   * <p>Contains information about the content of the chunk.</p>
    * @public
    */
   content: RetrievalResultContent | undefined;
@@ -8693,6 +8971,36 @@ export const InvokeFlowResponseFilterSensitiveLog = (obj: InvokeFlowResponse): a
 /**
  * @internal
  */
+export const QueryGenerationInputFilterSensitiveLog = (obj: QueryGenerationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateQueryRequestFilterSensitiveLog = (obj: GenerateQueryRequest): any => ({
+  ...obj,
+  ...(obj.queryGenerationInput && { queryGenerationInput: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GeneratedQueryFilterSensitiveLog = (obj: GeneratedQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateQueryResponseFilterSensitiveLog = (obj: GenerateQueryResponse): any => ({
+  ...obj,
+  ...(obj.queries && { queries: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const ContentBlockFilterSensitiveLog = (obj: ContentBlock): any => {
   if (obj.text !== undefined) return { text: obj.text };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
@@ -8818,8 +9126,16 @@ export const GeneratedResponsePartFilterSensitiveLog = (obj: GeneratedResponsePa
 /**
  * @internal
  */
+export const RetrievalResultContentColumnFilterSensitiveLog = (obj: RetrievalResultContentColumn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const RetrievalResultContentFilterSensitiveLog = (obj: RetrievalResultContent): any => ({
   ...obj,
+  ...(obj.row && { row: SENSITIVE_STRING }),
 });
 
 /**

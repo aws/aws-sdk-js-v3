@@ -35,6 +35,7 @@ import {
 } from "@smithy/types";
 
 import { DeleteAgentMemoryCommandInput, DeleteAgentMemoryCommandOutput } from "../commands/DeleteAgentMemoryCommand";
+import { GenerateQueryCommandInput, GenerateQueryCommandOutput } from "../commands/GenerateQueryCommand";
 import { GetAgentMemoryCommandInput, GetAgentMemoryCommandOutput } from "../commands/GetAgentMemoryCommand";
 import { InvokeAgentCommandInput, InvokeAgentCommandOutput } from "../commands/InvokeAgentCommand";
 import { InvokeFlowCommandInput, InvokeFlowCommandOutput } from "../commands/InvokeFlowCommand";
@@ -141,6 +142,7 @@ import {
   PromptConfiguration,
   PromptOverrideConfiguration,
   PromptTemplate,
+  QueryGenerationInput,
   QueryTransformationConfiguration,
   RerankDocument,
   RerankingConfiguration,
@@ -168,9 +170,12 @@ import {
   StreamingConfigurations,
   TextInferenceConfig,
   TextPrompt,
+  TextToSqlConfiguration,
+  TextToSqlKnowledgeBaseConfiguration,
   ThrottlingException,
   Trace,
   TracePart,
+  TransformationConfiguration,
   ValidationException,
   VectorSearchBedrockRerankingConfiguration,
   VectorSearchBedrockRerankingModelConfiguration,
@@ -194,6 +199,29 @@ export const se_DeleteAgentMemoryCommand = async (
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GenerateQueryCommand
+ */
+export const se_GenerateQueryCommand = async (
+  input: GenerateQueryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/generateQuery");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      queryGenerationInput: (_) => _json(_),
+      transformationConfiguration: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -445,6 +473,27 @@ export const de_DeleteAgentMemoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GenerateQueryCommand
+ */
+export const de_GenerateQueryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateQueryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    queries: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1855,6 +1904,8 @@ const se_PromptOverrideConfiguration = (input: PromptOverrideConfiguration, cont
 
 // se_PromptTemplate omitted.
 
+// se_QueryGenerationInput omitted.
+
 // se_QueryTransformationConfiguration omitted.
 
 // se_RAGStopSequences omitted.
@@ -2001,6 +2052,12 @@ const se_TextInferenceConfig = (input: TextInferenceConfig, context: __SerdeCont
 };
 
 // se_TextPrompt omitted.
+
+// se_TextToSqlConfiguration omitted.
+
+// se_TextToSqlKnowledgeBaseConfiguration omitted.
+
+// se_TransformationConfiguration omitted.
 
 /**
  * serializeAws_restJson1VectorSearchBedrockRerankingConfiguration
@@ -2329,6 +2386,10 @@ const de_FlowTraceNodeOutputFields = (output: any, context: __SerdeContext): Flo
 // de_FunctionParameters omitted.
 
 // de_FunctionResult omitted.
+
+// de_GeneratedQueries omitted.
+
+// de_GeneratedQuery omitted.
 
 // de_GeneratedResponsePart omitted.
 
@@ -2701,7 +2762,13 @@ const de_RerankResultsList = (output: any, context: __SerdeContext): RerankResul
 
 // de_RetrievalResultContent omitted.
 
+// de_RetrievalResultContentColumn omitted.
+
+// de_RetrievalResultContentRow omitted.
+
 // de_RetrievalResultCustomDocumentLocation omitted.
+
+// de_RetrievalResultKendraDocumentLocation omitted.
 
 // de_RetrievalResultLocation omitted.
 
@@ -2730,6 +2797,8 @@ const de_RetrievalResultMetadataValue = (output: any, context: __SerdeContext): 
 // de_RetrievalResultSalesforceLocation omitted.
 
 // de_RetrievalResultSharePointLocation omitted.
+
+// de_RetrievalResultSqlLocation omitted.
 
 // de_RetrievalResultWebLocation omitted.
 

@@ -9,6 +9,11 @@ import {
   DeleteAgentMemoryCommandOutput,
 } from "./commands/DeleteAgentMemoryCommand";
 import {
+  GenerateQueryCommand,
+  GenerateQueryCommandInput,
+  GenerateQueryCommandOutput,
+} from "./commands/GenerateQueryCommand";
+import {
   GetAgentMemoryCommand,
   GetAgentMemoryCommandInput,
   GetAgentMemoryCommandOutput,
@@ -40,6 +45,7 @@ import { RetrieveCommand, RetrieveCommandInput, RetrieveCommandOutput } from "./
 
 const commands = {
   DeleteAgentMemoryCommand,
+  GenerateQueryCommand,
   GetAgentMemoryCommand,
   InvokeAgentCommand,
   InvokeFlowCommand,
@@ -67,6 +73,17 @@ export interface BedrockAgentRuntime {
     args: DeleteAgentMemoryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAgentMemoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GenerateQueryCommand}
+   */
+  generateQuery(args: GenerateQueryCommandInput, options?: __HttpHandlerOptions): Promise<GenerateQueryCommandOutput>;
+  generateQuery(args: GenerateQueryCommandInput, cb: (err: any, data?: GenerateQueryCommandOutput) => void): void;
+  generateQuery(
+    args: GenerateQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GenerateQueryCommandOutput) => void
   ): void;
 
   /**

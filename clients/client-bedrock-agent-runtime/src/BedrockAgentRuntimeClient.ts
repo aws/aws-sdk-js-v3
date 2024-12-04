@@ -60,6 +60,7 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import { DeleteAgentMemoryCommandInput, DeleteAgentMemoryCommandOutput } from "./commands/DeleteAgentMemoryCommand";
+import { GenerateQueryCommandInput, GenerateQueryCommandOutput } from "./commands/GenerateQueryCommand";
 import { GetAgentMemoryCommandInput, GetAgentMemoryCommandOutput } from "./commands/GetAgentMemoryCommand";
 import { InvokeAgentCommandInput, InvokeAgentCommandOutput } from "./commands/InvokeAgentCommand";
 import { InvokeFlowCommandInput, InvokeFlowCommandOutput } from "./commands/InvokeFlowCommand";
@@ -91,6 +92,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | DeleteAgentMemoryCommandInput
+  | GenerateQueryCommandInput
   | GetAgentMemoryCommandInput
   | InvokeAgentCommandInput
   | InvokeFlowCommandInput
@@ -106,6 +108,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | DeleteAgentMemoryCommandOutput
+  | GenerateQueryCommandOutput
   | GetAgentMemoryCommandOutput
   | InvokeAgentCommandOutput
   | InvokeFlowCommandOutput

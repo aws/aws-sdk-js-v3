@@ -278,10 +278,19 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //             retrievedReferences: [ // RetrievedReferences
  * //               { // RetrievedReference
  * //                 content: { // RetrievalResultContent
- * //                   text: "STRING_VALUE", // required
+ * //                   type: "TEXT" || "IMAGE" || "ROW",
+ * //                   text: "STRING_VALUE",
+ * //                   byteContent: "STRING_VALUE",
+ * //                   row: [ // RetrievalResultContentRow
+ * //                     { // RetrievalResultContentColumn
+ * //                       columnName: "STRING_VALUE",
+ * //                       columnValue: "STRING_VALUE",
+ * //                       type: "BLOB" || "BOOLEAN" || "DOUBLE" || "NULL" || "LONG" || "STRING",
+ * //                     },
+ * //                   ],
  * //                 },
  * //                 location: { // RetrievalResultLocation
- * //                   type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM", // required
+ * //                   type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
  * //                   s3Location: { // RetrievalResultS3Location
  * //                     uri: "STRING_VALUE",
  * //                   },
@@ -299,6 +308,12 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                   },
  * //                   customDocumentLocation: { // RetrievalResultCustomDocumentLocation
  * //                     id: "STRING_VALUE",
+ * //                   },
+ * //                   kendraDocumentLocation: { // RetrievalResultKendraDocumentLocation
+ * //                     uri: "STRING_VALUE",
+ * //                   },
+ * //                   sqlLocation: { // RetrievalResultSqlLocation
+ * //                     query: "STRING_VALUE",
  * //                   },
  * //                 },
  * //                 metadata: { // RetrievalResultMetadata
@@ -610,10 +625,19 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //               retrievedReferences: [
  * //                 {
  * //                   content: {
- * //                     text: "STRING_VALUE", // required
+ * //                     type: "TEXT" || "IMAGE" || "ROW",
+ * //                     text: "STRING_VALUE",
+ * //                     byteContent: "STRING_VALUE",
+ * //                     row: [
+ * //                       {
+ * //                         columnName: "STRING_VALUE",
+ * //                         columnValue: "STRING_VALUE",
+ * //                         type: "BLOB" || "BOOLEAN" || "DOUBLE" || "NULL" || "LONG" || "STRING",
+ * //                       },
+ * //                     ],
  * //                   },
  * //                   location: {
- * //                     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM", // required
+ * //                     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
  * //                     s3Location: {
  * //                       uri: "STRING_VALUE",
  * //                     },
@@ -631,6 +655,12 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                     },
  * //                     customDocumentLocation: {
  * //                       id: "STRING_VALUE",
+ * //                     },
+ * //                     kendraDocumentLocation: {
+ * //                       uri: "STRING_VALUE",
+ * //                     },
+ * //                     sqlLocation: {
+ * //                       query: "STRING_VALUE",
  * //                     },
  * //                   },
  * //                   metadata: {
@@ -858,10 +888,19 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //               retrievedReferences: [
  * //                 {
  * //                   content: {
- * //                     text: "STRING_VALUE", // required
+ * //                     type: "TEXT" || "IMAGE" || "ROW",
+ * //                     text: "STRING_VALUE",
+ * //                     byteContent: "STRING_VALUE",
+ * //                     row: [
+ * //                       {
+ * //                         columnName: "STRING_VALUE",
+ * //                         columnValue: "STRING_VALUE",
+ * //                         type: "BLOB" || "BOOLEAN" || "DOUBLE" || "NULL" || "LONG" || "STRING",
+ * //                       },
+ * //                     ],
  * //                   },
  * //                   location: {
- * //                     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM", // required
+ * //                     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
  * //                     s3Location: {
  * //                       uri: "STRING_VALUE",
  * //                     },
@@ -879,6 +918,12 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                     },
  * //                     customDocumentLocation: {
  * //                       id: "STRING_VALUE",
+ * //                     },
+ * //                     kendraDocumentLocation: {
+ * //                       uri: "STRING_VALUE",
+ * //                     },
+ * //                     sqlLocation: {
+ * //                       query: "STRING_VALUE",
  * //                     },
  * //                   },
  * //                   metadata: {

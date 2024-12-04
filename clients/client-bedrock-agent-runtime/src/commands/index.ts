@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./DeleteAgentMemoryCommand";
+export * from "./GenerateQueryCommand";
 export * from "./GetAgentMemoryCommand";
 export * from "./InvokeAgentCommand";
 export * from "./InvokeFlowCommand";

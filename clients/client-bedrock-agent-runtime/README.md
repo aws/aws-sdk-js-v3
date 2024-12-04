@@ -213,6 +213,14 @@ DeleteAgentMemory
 </details>
 <details>
 <summary>
+GenerateQuery
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agent-runtime/command/GenerateQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agent-runtime/Interface/GenerateQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agent-runtime/Interface/GenerateQueryCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetAgentMemory
 </summary>
 
