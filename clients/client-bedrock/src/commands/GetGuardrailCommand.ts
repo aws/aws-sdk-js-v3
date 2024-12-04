@@ -66,6 +66,12 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //         type: "SEXUAL" || "VIOLENCE" || "HATE" || "INSULTS" || "MISCONDUCT" || "PROMPT_ATTACK", // required
  * //         inputStrength: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
  * //         outputStrength: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
+ * //         inputModalities: [ // GuardrailModalities
+ * //           "TEXT" || "IMAGE",
+ * //         ],
+ * //         outputModalities: [
+ * //           "TEXT" || "IMAGE",
+ * //         ],
  * //       },
  * //     ],
  * //   },

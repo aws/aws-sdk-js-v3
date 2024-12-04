@@ -26,6 +26,606 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * <p>Error occurred because of a conflict while performing an operation.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
+}
+
+/**
+ * <p>The configuration of a virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/usingVPC.html">Protect your data using Amazon Virtual Private Cloud and Amazon Web Services PrivateLink</a>.</p>
+ * @public
+ */
+export interface VpcConfig {
+  /**
+   * <p>An array of IDs for each subnet in the VPC to use.</p>
+   * @public
+   */
+  subnetIds: string[] | undefined;
+
+  /**
+   * <p>An array of IDs for each security group in the VPC to use.</p>
+   * @public
+   */
+  securityGroupIds: string[] | undefined;
+}
+
+/**
+ * <p>Specifies the configuration for a Amazon SageMaker endpoint.</p>
+ * @public
+ */
+export interface SageMakerEndpoint {
+  /**
+   * <p>The number of Amazon EC2 compute instances to deploy for initial endpoint
+   *             creation.</p>
+   * @public
+   */
+  initialInstanceCount: number | undefined;
+
+  /**
+   * <p>The Amazon EC2 compute instance type to deploy for hosting the model.</p>
+   * @public
+   */
+  instanceType: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts
+   *             and docker image for deployment on Amazon EC2 compute instances or for batch
+   *             transform jobs.</p>
+   * @public
+   */
+  executionRole: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key that Amazon SageMaker uses to encrypt data on the storage volume
+   *             attached to the Amazon EC2 compute instance that hosts the endpoint.</p>
+   * @public
+   */
+  kmsEncryptionKey?: string | undefined;
+
+  /**
+   * <p>The VPC configuration for the endpoint.</p>
+   * @public
+   */
+  vpc?: VpcConfig | undefined;
+}
+
+/**
+ * <p>Specifies the configuration for the endpoint.</p>
+ * @public
+ */
+export type EndpointConfig = EndpointConfig.SageMakerMember | EndpointConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EndpointConfig {
+  /**
+   * <p>The configuration specific to Amazon SageMaker for the endpoint.</p>
+   * @public
+   */
+  export interface SageMakerMember {
+    sageMaker: SageMakerEndpoint;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    sageMaker?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    sageMaker: (value: SageMakerEndpoint) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EndpointConfig, visitor: Visitor<T>): T => {
+    if (value.sageMaker !== undefined) return visitor.sageMaker(value.sageMaker);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Definition of the key/value pair for a tag.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>Key for the tag.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>Value for the tag.</p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMarketplaceModelEndpointRequest {
+  /**
+   * <p>The ARN of the model from Amazon Bedrock Marketplace that you want to deploy to the
+   *             endpoint.</p>
+   * @public
+   */
+  modelSourceIdentifier: string | undefined;
+
+  /**
+   * <p>The configuration for the endpoint, including the number and type of instances to
+   *             use.</p>
+   * @public
+   */
+  endpointConfig: EndpointConfig | undefined;
+
+  /**
+   * <p>Indicates whether you accept the end-user license agreement (EULA) for the model. Set
+   *             to <code>true</code> to accept the EULA.</p>
+   * @public
+   */
+  acceptEula?: boolean | undefined;
+
+  /**
+   * <p>The name of the endpoint. This name must be unique within your Amazon Web Services
+   *             account and region.</p>
+   * @public
+   */
+  endpointName: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. This token is listed as not required because Amazon Web Services SDKs
+   *             automatically generate it for you and set this parameter. If you're not using the
+   *                 Amazon Web Services SDK or the CLI, you must provide this token or the
+   *             action will fail.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+
+  /**
+   * <p>An array of key-value pairs to apply to the underlying Amazon SageMaker endpoint. You can use
+   *             these tags to organize and identify your Amazon Web Services resources.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  INCOMPATIBLE_ENDPOINT: "INCOMPATIBLE_ENDPOINT",
+  REGISTERED: "REGISTERED",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * <p>Contains details about an endpoint for a model from Amazon Bedrock Marketplace.</p>
+ * @public
+ */
+export interface MarketplaceModelEndpoint {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   * @public
+   */
+  endpointArn: string | undefined;
+
+  /**
+   * <p>The ARN of the model from Amazon Bedrock Marketplace that is deployed on this endpoint.</p>
+   * @public
+   */
+  modelSourceIdentifier: string | undefined;
+
+  /**
+   * <p>The overall status of the endpoint in Amazon Bedrock Marketplace (e.g., ACTIVE,
+   *             INACTIVE).</p>
+   * @public
+   */
+  status?: Status | undefined;
+
+  /**
+   * <p>Additional information about the overall status, if available.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>The timestamp when the endpoint was registered.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the endpoint was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The configuration of the endpoint, including the number and type of instances
+   *             used.</p>
+   * @public
+   */
+  endpointConfig: EndpointConfig | undefined;
+
+  /**
+   * <p>The current status of the endpoint (e.g., Creating, InService, Updating,
+   *             Failed).</p>
+   * @public
+   */
+  endpointStatus: string | undefined;
+
+  /**
+   * <p>Additional information about the endpoint status, if available.</p>
+   * @public
+   */
+  endpointStatusMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMarketplaceModelEndpointResponse {
+  /**
+   * <p>Details about the created endpoint.</p>
+   * @public
+   */
+  marketplaceModelEndpoint: MarketplaceModelEndpoint | undefined;
+}
+
+/**
+ * <p>An internal server error occurred. Retry your request.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
+ * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * <p>Input validation failed. Check your request parameters and retry the request.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteMarketplaceModelEndpointRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint you want to delete.</p>
+   * @public
+   */
+  endpointArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMarketplaceModelEndpointResponse {}
+
+/**
+ * @public
+ */
+export interface DeregisterMarketplaceModelEndpointRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint you want to deregister.</p>
+   * @public
+   */
+  endpointArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeregisterMarketplaceModelEndpointResponse {}
+
+/**
+ * <p>Returned if the service cannot complete the request.</p>
+ * @public
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface GetMarketplaceModelEndpointRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint you want to get information
+   *             about.</p>
+   * @public
+   */
+  endpointArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMarketplaceModelEndpointResponse {
+  /**
+   * <p>Details about the requested endpoint.</p>
+   * @public
+   */
+  marketplaceModelEndpoint?: MarketplaceModelEndpoint | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMarketplaceModelEndpointsRequest {
+  /**
+   * <p>The maximum number of results to return in a single call. If more results are
+   *             available, the operation returns a <code>NextToken</code> value.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. You receive this token from a previous
+   *                 <code>ListMarketplaceModelEndpoints</code> call.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>If specified, only endpoints for the given model source identifier are
+   *             returned.</p>
+   * @public
+   */
+  modelSourceEquals?: string | undefined;
+}
+
+/**
+ * <p>Provides a summary of an endpoint for a model from Amazon Bedrock Marketplace.</p>
+ * @public
+ */
+export interface MarketplaceModelEndpointSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   * @public
+   */
+  endpointArn: string | undefined;
+
+  /**
+   * <p>The ARN of the model from Amazon Bedrock Marketplace that is deployed on this endpoint.</p>
+   * @public
+   */
+  modelSourceIdentifier: string | undefined;
+
+  /**
+   * <p>The overall status of the endpoint in Amazon Bedrock Marketplace.</p>
+   * @public
+   */
+  status?: Status | undefined;
+
+  /**
+   * <p>Additional information about the overall status, if available.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>The timestamp when the endpoint was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the endpoint was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMarketplaceModelEndpointsResponse {
+  /**
+   * <p>An array of endpoint summaries.</p>
+   * @public
+   */
+  marketplaceModelEndpoints?: MarketplaceModelEndpointSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use this token to get the next set of
+   *             results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterMarketplaceModelEndpointRequest {
+  /**
+   * <p>The ARN of the Amazon SageMaker endpoint you want to register with Amazon Bedrock Marketplace.</p>
+   * @public
+   */
+  endpointIdentifier: string | undefined;
+
+  /**
+   * <p>The ARN of the model from Amazon Bedrock Marketplace that is deployed on the endpoint.</p>
+   * @public
+   */
+  modelSourceIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterMarketplaceModelEndpointResponse {
+  /**
+   * <p>Details about the registered endpoint.</p>
+   * @public
+   */
+  marketplaceModelEndpoint: MarketplaceModelEndpoint | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMarketplaceModelEndpointRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint you want to update.</p>
+   * @public
+   */
+  endpointArn: string | undefined;
+
+  /**
+   * <p>The new configuration for the endpoint, including the number and type of instances to
+   *             use.</p>
+   * @public
+   */
+  endpointConfig: EndpointConfig | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. This token is listed as not required because Amazon Web Services SDKs
+   *             automatically generate it for you and set this parameter. If you're not using the
+   *                 Amazon Web Services SDK or the CLI, you must provide this token or the
+   *             action will fail.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMarketplaceModelEndpointResponse {
+  /**
+   * <p>Details about the updated endpoint.</p>
+   * @public
+   */
+  marketplaceModelEndpoint: MarketplaceModelEndpoint | undefined;
+}
+
+/**
  * @public
  */
 export interface BatchDeleteEvaluationJobRequest {
@@ -111,106 +711,6 @@ export interface BatchDeleteEvaluationJobResponse {
    * @public
    */
   evaluationJobs: BatchDeleteEvaluationJobItem[] | undefined;
-}
-
-/**
- * <p>Error occurred because of a conflict while performing an operation.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * <p>An internal server error occurred. Retry your request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>Input validation failed. Check your request parameters and retry the request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -933,24 +1433,6 @@ export const RetrieveAndGenerateType = {
 export type RetrieveAndGenerateType = (typeof RetrieveAndGenerateType)[keyof typeof RetrieveAndGenerateType];
 
 /**
- * <p>Definition of the key/value pair for a tag.</p>
- * @public
- */
-export interface Tag {
-  /**
-   * <p>Key for the tag.</p>
-   * @public
-   */
-  key: string | undefined;
-
-  /**
-   * <p>Value for the tag.</p>
-   * @public
-   */
-  value: string | undefined;
-}
-
-/**
  * <p>The  Amazon S3 location where the results of your evaluation job are saved.</p>
  * @public
  */
@@ -971,26 +1453,6 @@ export interface CreateEvaluationJobResponse {
    * @public
    */
   jobArn: string | undefined;
-}
-
-/**
- * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
 }
 
 /**
@@ -1207,6 +1669,20 @@ export interface StopEvaluationJobResponse {}
  * @public
  * @enum
  */
+export const GuardrailModality = {
+  IMAGE: "IMAGE",
+  TEXT: "TEXT",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailModality = (typeof GuardrailModality)[keyof typeof GuardrailModality];
+
+/**
+ * @public
+ * @enum
+ */
 export const GuardrailFilterStrength = {
   HIGH: "HIGH",
   LOW: "LOW",
@@ -1290,6 +1766,18 @@ export interface GuardrailContentFilterConfig {
    * @public
    */
   outputStrength: GuardrailFilterStrength | undefined;
+
+  /**
+   * <p>The input modalities selected for the guardrail content filter configuration.</p>
+   * @public
+   */
+  inputModalities?: GuardrailModality[] | undefined;
+
+  /**
+   * <p>The output modalities selected for the guardrail content filter configuration.</p>
+   * @public
+   */
+  outputModalities?: GuardrailModality[] | undefined;
 }
 
 /**
@@ -1435,7 +1923,7 @@ export interface GuardrailPiiEntityConfig {
    *                         <b>AGE</b>
    *                      </p>
    *                      <p>An individual's age, including the quantity and unit of time. For
-   *                      example, in the phrase "I am 40 years old," Guarrails recognizes "40 years"
+   *                      example, in the phrase "I am 40 years old," Guardrails recognizes "40 years"
    *                      as an age.
    *                   </p>
    *                   </li>
@@ -1517,7 +2005,7 @@ export interface GuardrailPiiEntityConfig {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <b>REDIT_DEBIT_CARD_CVV</b>
+   *                         <b>CREDIT_DEBIT_CARD_CVV</b>
    *                      </p>
    *                      <p>A three-digit card verification code (CVV) that is present on VISA,
    *                   MasterCard, and Discover credit and debit cards. For American Express
@@ -2189,6 +2677,18 @@ export interface GuardrailContentFilter {
    * @public
    */
   outputStrength: GuardrailFilterStrength | undefined;
+
+  /**
+   * <p>The input modalities selected for the guardrail content filter.</p>
+   * @public
+   */
+  inputModalities?: GuardrailModality[] | undefined;
+
+  /**
+   * <p>The output modalities selected for the guardrail content filter.</p>
+   * @public
+   */
+  outputModalities?: GuardrailModality[] | undefined;
 }
 
 /**
@@ -2247,7 +2747,7 @@ export interface GuardrailContextualGroundingPolicy {
  */
 export interface GuardrailPiiEntity {
   /**
-   * <p>The type of PII entity. For exampvle, Social Security Number.</p>
+   * <p>The type of PII entity. For example, Social Security Number.</p>
    * @public
    */
   type: GuardrailPiiEntityType | undefined;
@@ -3571,24 +4071,6 @@ export namespace ModelDataSource {
     if (value.s3DataSource !== undefined) return visitor.s3DataSource(value.s3DataSource);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-}
-
-/**
- * <p>The configuration of a virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/usingVPC.html">Protect your data using Amazon Virtual Private Cloud and Amazon Web Services PrivateLink</a>.</p>
- * @public
- */
-export interface VpcConfig {
-  /**
-   * <p>An array of IDs for each subnet in the VPC to use.</p>
-   * @public
-   */
-  subnetIds: string[] | undefined;
-
-  /**
-   * <p>An array of IDs for each security group in the VPC to use.</p>
-   * @public
-   */
-  securityGroupIds: string[] | undefined;
 }
 
 /**
@@ -5610,6 +6092,233 @@ export interface ListFoundationModelsResponse {
 
 /**
  * @public
+ */
+export interface GetPromptRouterRequest {
+  /**
+   * <p>The prompt router's ARN</p>
+   * @public
+   */
+  promptRouterArn: string | undefined;
+}
+
+/**
+ * <p>The target model for a prompt router.</p>
+ * @public
+ */
+export interface PromptRouterTargetModel {
+  /**
+   * <p>The target model's ARN.</p>
+   * @public
+   */
+  modelArn?: string | undefined;
+}
+
+/**
+ * <p>Routing criteria for a prompt router.</p>
+ * @public
+ */
+export interface RoutingCriteria {
+  /**
+   * <p>The criteria's response quality difference.</p>
+   * @public
+   */
+  responseQualityDifference: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PromptRouterStatus = {
+  AVAILABLE: "AVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type PromptRouterStatus = (typeof PromptRouterStatus)[keyof typeof PromptRouterStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PromptRouterType = {
+  CUSTOM: "custom",
+  DEFAULT: "default",
+} as const;
+
+/**
+ * @public
+ */
+export type PromptRouterType = (typeof PromptRouterType)[keyof typeof PromptRouterType];
+
+/**
+ * @public
+ */
+export interface GetPromptRouterResponse {
+  /**
+   * <p>The router's name.</p>
+   * @public
+   */
+  promptRouterName: string | undefined;
+
+  /**
+   * <p>The router's routing criteria.</p>
+   * @public
+   */
+  routingCriteria: RoutingCriteria | undefined;
+
+  /**
+   * <p>The router's description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>When the router was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>When the router was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The prompt router's ARN</p>
+   * @public
+   */
+  promptRouterArn: string | undefined;
+
+  /**
+   * <p>The router's models.</p>
+   * @public
+   */
+  models: PromptRouterTargetModel[] | undefined;
+
+  /**
+   * <p>The router's fallback model.</p>
+   * @public
+   */
+  fallbackModel: PromptRouterTargetModel | undefined;
+
+  /**
+   * <p>The router's status.</p>
+   * @public
+   */
+  status: PromptRouterStatus | undefined;
+
+  /**
+   * <p>The router's type.</p>
+   * @public
+   */
+  type: PromptRouterType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPromptRoutersRequest {
+  /**
+   * <p>The maximum number of prompt routers to return in one page of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Details about a prompt router.</p>
+ * @public
+ */
+export interface PromptRouterSummary {
+  /**
+   * <p>The router's name.</p>
+   * @public
+   */
+  promptRouterName: string | undefined;
+
+  /**
+   * <p>The router's routing criteria.</p>
+   * @public
+   */
+  routingCriteria: RoutingCriteria | undefined;
+
+  /**
+   * <p>The router's description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>When the router was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>When the router was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The router's ARN.</p>
+   * @public
+   */
+  promptRouterArn: string | undefined;
+
+  /**
+   * <p>The router's models.</p>
+   * @public
+   */
+  models: PromptRouterTargetModel[] | undefined;
+
+  /**
+   * <p>The router's fallback model.</p>
+   * @public
+   */
+  fallbackModel: PromptRouterTargetModel | undefined;
+
+  /**
+   * <p>The router's status.</p>
+   * @public
+   */
+  status: PromptRouterStatus | undefined;
+
+  /**
+   * <p>The summary's type.</p>
+   * @public
+   */
+  type: PromptRouterType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPromptRoutersResponse {
+  /**
+   * <p>A list of prompt router summaries.</p>
+   * @public
+   */
+  promptRouterSummaries?: PromptRouterSummary[] | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const CommitmentDuration = {
@@ -7574,6 +8283,25 @@ export const StopEvaluationJobRequestFilterSensitiveLog = (obj: StopEvaluationJo
 /**
  * @internal
  */
+export const GuardrailContentFilterConfigFilterSensitiveLog = (obj: GuardrailContentFilterConfig): any => ({
+  ...obj,
+  ...(obj.inputModalities && { inputModalities: SENSITIVE_STRING }),
+  ...(obj.outputModalities && { outputModalities: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailContentPolicyConfigFilterSensitiveLog = (obj: GuardrailContentPolicyConfig): any => ({
+  ...obj,
+  ...(obj.filtersConfig && {
+    filtersConfig: obj.filtersConfig.map((item) => GuardrailContentFilterConfigFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const GuardrailTopicConfigFilterSensitiveLog = (obj: GuardrailTopicConfig): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
@@ -7601,6 +8329,9 @@ export const CreateGuardrailRequestFilterSensitiveLog = (obj: CreateGuardrailReq
   ...(obj.topicPolicyConfig && {
     topicPolicyConfig: GuardrailTopicPolicyConfigFilterSensitiveLog(obj.topicPolicyConfig),
   }),
+  ...(obj.contentPolicyConfig && {
+    contentPolicyConfig: GuardrailContentPolicyConfigFilterSensitiveLog(obj.contentPolicyConfig),
+  }),
   ...(obj.blockedInputMessaging && { blockedInputMessaging: SENSITIVE_STRING }),
   ...(obj.blockedOutputsMessaging && { blockedOutputsMessaging: SENSITIVE_STRING }),
 });
@@ -7611,6 +8342,23 @@ export const CreateGuardrailRequestFilterSensitiveLog = (obj: CreateGuardrailReq
 export const CreateGuardrailVersionRequestFilterSensitiveLog = (obj: CreateGuardrailVersionRequest): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailContentFilterFilterSensitiveLog = (obj: GuardrailContentFilter): any => ({
+  ...obj,
+  ...(obj.inputModalities && { inputModalities: SENSITIVE_STRING }),
+  ...(obj.outputModalities && { outputModalities: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailContentPolicyFilterSensitiveLog = (obj: GuardrailContentPolicy): any => ({
+  ...obj,
+  ...(obj.filters && { filters: obj.filters.map((item) => GuardrailContentFilterFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -7639,6 +8387,7 @@ export const GetGuardrailResponseFilterSensitiveLog = (obj: GetGuardrailResponse
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.topicPolicy && { topicPolicy: GuardrailTopicPolicyFilterSensitiveLog(obj.topicPolicy) }),
+  ...(obj.contentPolicy && { contentPolicy: GuardrailContentPolicyFilterSensitiveLog(obj.contentPolicy) }),
   ...(obj.statusReasons && { statusReasons: SENSITIVE_STRING }),
   ...(obj.failureRecommendations && { failureRecommendations: SENSITIVE_STRING }),
   ...(obj.blockedInputMessaging && { blockedInputMessaging: SENSITIVE_STRING }),
@@ -7671,6 +8420,9 @@ export const UpdateGuardrailRequestFilterSensitiveLog = (obj: UpdateGuardrailReq
   ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.topicPolicyConfig && {
     topicPolicyConfig: GuardrailTopicPolicyConfigFilterSensitiveLog(obj.topicPolicyConfig),
+  }),
+  ...(obj.contentPolicyConfig && {
+    contentPolicyConfig: GuardrailContentPolicyConfigFilterSensitiveLog(obj.contentPolicyConfig),
   }),
   ...(obj.blockedInputMessaging && { blockedInputMessaging: SENSITIVE_STRING }),
   ...(obj.blockedOutputsMessaging && { blockedOutputsMessaging: SENSITIVE_STRING }),
@@ -7793,6 +8545,32 @@ export const GetCustomModelResponseFilterSensitiveLog = (obj: GetCustomModelResp
   ...obj,
   ...(obj.trainingDataConfig && { trainingDataConfig: TrainingDataConfigFilterSensitiveLog(obj.trainingDataConfig) }),
   ...(obj.customizationConfig && { customizationConfig: obj.customizationConfig }),
+});
+
+/**
+ * @internal
+ */
+export const GetPromptRouterResponseFilterSensitiveLog = (obj: GetPromptRouterResponse): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PromptRouterSummaryFilterSensitiveLog = (obj: PromptRouterSummary): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListPromptRoutersResponseFilterSensitiveLog = (obj: ListPromptRoutersResponse): any => ({
+  ...obj,
+  ...(obj.promptRouterSummaries && {
+    promptRouterSummaries: obj.promptRouterSummaries.map((item) => PromptRouterSummaryFilterSensitiveLog(item)),
+  }),
 });
 
 /**

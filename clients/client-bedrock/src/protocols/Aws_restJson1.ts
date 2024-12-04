@@ -52,6 +52,10 @@ import {
   CreateInferenceProfileCommandInput,
   CreateInferenceProfileCommandOutput,
 } from "../commands/CreateInferenceProfileCommand";
+import {
+  CreateMarketplaceModelEndpointCommandInput,
+  CreateMarketplaceModelEndpointCommandOutput,
+} from "../commands/CreateMarketplaceModelEndpointCommand";
 import { CreateModelCopyJobCommandInput, CreateModelCopyJobCommandOutput } from "../commands/CreateModelCopyJobCommand";
 import {
   CreateModelCustomizationJobCommandInput,
@@ -80,6 +84,10 @@ import {
   DeleteInferenceProfileCommandOutput,
 } from "../commands/DeleteInferenceProfileCommand";
 import {
+  DeleteMarketplaceModelEndpointCommandInput,
+  DeleteMarketplaceModelEndpointCommandOutput,
+} from "../commands/DeleteMarketplaceModelEndpointCommand";
+import {
   DeleteModelInvocationLoggingConfigurationCommandInput,
   DeleteModelInvocationLoggingConfigurationCommandOutput,
 } from "../commands/DeleteModelInvocationLoggingConfigurationCommand";
@@ -87,6 +95,10 @@ import {
   DeleteProvisionedModelThroughputCommandInput,
   DeleteProvisionedModelThroughputCommandOutput,
 } from "../commands/DeleteProvisionedModelThroughputCommand";
+import {
+  DeregisterMarketplaceModelEndpointCommandInput,
+  DeregisterMarketplaceModelEndpointCommandOutput,
+} from "../commands/DeregisterMarketplaceModelEndpointCommand";
 import { GetCustomModelCommandInput, GetCustomModelCommandOutput } from "../commands/GetCustomModelCommand";
 import { GetEvaluationJobCommandInput, GetEvaluationJobCommandOutput } from "../commands/GetEvaluationJobCommand";
 import { GetFoundationModelCommandInput, GetFoundationModelCommandOutput } from "../commands/GetFoundationModelCommand";
@@ -96,6 +108,10 @@ import {
   GetInferenceProfileCommandInput,
   GetInferenceProfileCommandOutput,
 } from "../commands/GetInferenceProfileCommand";
+import {
+  GetMarketplaceModelEndpointCommandInput,
+  GetMarketplaceModelEndpointCommandOutput,
+} from "../commands/GetMarketplaceModelEndpointCommand";
 import { GetModelCopyJobCommandInput, GetModelCopyJobCommandOutput } from "../commands/GetModelCopyJobCommand";
 import {
   GetModelCustomizationJobCommandInput,
@@ -110,6 +126,7 @@ import {
   GetModelInvocationLoggingConfigurationCommandInput,
   GetModelInvocationLoggingConfigurationCommandOutput,
 } from "../commands/GetModelInvocationLoggingConfigurationCommand";
+import { GetPromptRouterCommandInput, GetPromptRouterCommandOutput } from "../commands/GetPromptRouterCommand";
 import {
   GetProvisionedModelThroughputCommandInput,
   GetProvisionedModelThroughputCommandOutput,
@@ -126,6 +143,10 @@ import {
   ListInferenceProfilesCommandInput,
   ListInferenceProfilesCommandOutput,
 } from "../commands/ListInferenceProfilesCommand";
+import {
+  ListMarketplaceModelEndpointsCommandInput,
+  ListMarketplaceModelEndpointsCommandOutput,
+} from "../commands/ListMarketplaceModelEndpointsCommand";
 import { ListModelCopyJobsCommandInput, ListModelCopyJobsCommandOutput } from "../commands/ListModelCopyJobsCommand";
 import {
   ListModelCustomizationJobsCommandInput,
@@ -139,6 +160,7 @@ import {
   ListModelInvocationJobsCommandInput,
   ListModelInvocationJobsCommandOutput,
 } from "../commands/ListModelInvocationJobsCommand";
+import { ListPromptRoutersCommandInput, ListPromptRoutersCommandOutput } from "../commands/ListPromptRoutersCommand";
 import {
   ListProvisionedModelThroughputsCommandInput,
   ListProvisionedModelThroughputsCommandOutput,
@@ -151,6 +173,10 @@ import {
   PutModelInvocationLoggingConfigurationCommandInput,
   PutModelInvocationLoggingConfigurationCommandOutput,
 } from "../commands/PutModelInvocationLoggingConfigurationCommand";
+import {
+  RegisterMarketplaceModelEndpointCommandInput,
+  RegisterMarketplaceModelEndpointCommandOutput,
+} from "../commands/RegisterMarketplaceModelEndpointCommand";
 import { StopEvaluationJobCommandInput, StopEvaluationJobCommandOutput } from "../commands/StopEvaluationJobCommand";
 import {
   StopModelCustomizationJobCommandInput,
@@ -163,6 +189,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateGuardrailCommandInput, UpdateGuardrailCommandOutput } from "../commands/UpdateGuardrailCommand";
+import {
+  UpdateMarketplaceModelEndpointCommandInput,
+  UpdateMarketplaceModelEndpointCommandOutput,
+} from "../commands/UpdateMarketplaceModelEndpointCommand";
 import {
   UpdateProvisionedModelThroughputCommandInput,
   UpdateProvisionedModelThroughputCommandOutput,
@@ -178,6 +208,7 @@ import {
   CustomizationConfig,
   CustomModelSummary,
   DistillationConfig,
+  EndpointConfig,
   EvaluationBedrockModel,
   EvaluationConfig,
   EvaluationDataset,
@@ -201,6 +232,7 @@ import {
   GuardrailContextualGroundingPolicy,
   GuardrailContextualGroundingPolicyConfig,
   GuardrailManagedWordsConfig,
+  GuardrailModality,
   GuardrailPiiEntityConfig,
   GuardrailRegexConfig,
   GuardrailSensitiveInformationPolicyConfig,
@@ -224,6 +256,8 @@ import {
   KnowledgeBaseRetrieveAndGenerateConfiguration,
   KnowledgeBaseVectorSearchConfiguration,
   LoggingConfig,
+  MarketplaceModelEndpoint,
+  MarketplaceModelEndpointSummary,
   ModelCopyJobSummary,
   ModelCustomizationJobSummary,
   ModelDataSource,
@@ -235,6 +269,7 @@ import {
   ModelInvocationJobSummary,
   OrchestrationConfiguration,
   OutputDataConfig,
+  PromptRouterSummary,
   PromptTemplate,
   ProvisionedModelSummary,
   QueryTransformationConfiguration,
@@ -245,10 +280,13 @@ import {
   RetrievalFilter,
   RetrieveAndGenerateConfiguration,
   RetrieveConfig,
+  RoutingCriteria,
   S3Config,
   S3DataSource,
   S3ObjectDoc,
+  SageMakerEndpoint,
   ServiceQuotaExceededException,
+  ServiceUnavailableException,
   Tag,
   TeacherModelConfig,
   TextInferenceConfig,
@@ -392,6 +430,33 @@ export const se_CreateInferenceProfileCommand = async (
       description: [],
       inferenceProfileName: [],
       modelSource: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateMarketplaceModelEndpointCommand
+ */
+export const se_CreateMarketplaceModelEndpointCommand = async (
+  input: CreateMarketplaceModelEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/marketplace-model/endpoints");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      acceptEula: [],
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      endpointConfig: (_) => _json(_),
+      endpointName: [],
+      modelSourceIdentifier: [],
       tags: (_) => _json(_),
     })
   );
@@ -616,6 +681,22 @@ export const se_DeleteInferenceProfileCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteMarketplaceModelEndpointCommand
+ */
+export const se_DeleteMarketplaceModelEndpointCommand = async (
+  input: DeleteMarketplaceModelEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/marketplace-model/endpoints/{endpointArn}");
+  b.p("endpointArn", () => input.endpointArn!, "{endpointArn}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteModelInvocationLoggingConfigurationCommand
  */
 export const se_DeleteModelInvocationLoggingConfigurationCommand = async (
@@ -641,6 +722,22 @@ export const se_DeleteProvisionedModelThroughputCommand = async (
   const headers: any = {};
   b.bp("/provisioned-model-throughput/{provisionedModelId}");
   b.p("provisionedModelId", () => input.provisionedModelId!, "{provisionedModelId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeregisterMarketplaceModelEndpointCommand
+ */
+export const se_DeregisterMarketplaceModelEndpointCommand = async (
+  input: DeregisterMarketplaceModelEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/marketplace-model/endpoints/{endpointArn}/registration");
+  b.p("endpointArn", () => input.endpointArn!, "{endpointArn}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -746,6 +843,22 @@ export const se_GetInferenceProfileCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetMarketplaceModelEndpointCommand
+ */
+export const se_GetMarketplaceModelEndpointCommand = async (
+  input: GetMarketplaceModelEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/marketplace-model/endpoints/{endpointArn}");
+  b.p("endpointArn", () => input.endpointArn!, "{endpointArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetModelCopyJobCommand
  */
 export const se_GetModelCopyJobCommand = async (
@@ -819,6 +932,22 @@ export const se_GetModelInvocationLoggingConfigurationCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/logging/modelinvocations");
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetPromptRouterCommand
+ */
+export const se_GetPromptRouterCommand = async (
+  input: GetPromptRouterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prompt-routers/{promptRouterArn}");
+  b.p("promptRouterArn", () => input.promptRouterArn!, "{promptRouterArn}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -979,6 +1108,26 @@ export const se_ListInferenceProfilesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListMarketplaceModelEndpointsCommand
+ */
+export const se_ListMarketplaceModelEndpointsCommand = async (
+  input: ListMarketplaceModelEndpointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/marketplace-model/endpoints");
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mSI]: [, input[_mSE]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListModelCopyJobsCommand
  */
 export const se_ListModelCopyJobsCommand = async (
@@ -1081,6 +1230,25 @@ export const se_ListModelInvocationJobsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListPromptRoutersCommand
+ */
+export const se_ListPromptRoutersCommand = async (
+  input: ListPromptRoutersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prompt-routers");
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListProvisionedModelThroughputsCommand
  */
 export const se_ListProvisionedModelThroughputsCommand = async (
@@ -1147,6 +1315,29 @@ export const se_PutModelInvocationLoggingConfigurationCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1RegisterMarketplaceModelEndpointCommand
+ */
+export const se_RegisterMarketplaceModelEndpointCommand = async (
+  input: RegisterMarketplaceModelEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/marketplace-model/endpoints/{endpointIdentifier}/registration");
+  b.p("endpointIdentifier", () => input.endpointIdentifier!, "{endpointIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      modelSourceIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1273,6 +1464,30 @@ export const se_UpdateGuardrailCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateMarketplaceModelEndpointCommand
+ */
+export const se_UpdateMarketplaceModelEndpointCommand = async (
+  input: UpdateMarketplaceModelEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/marketplace-model/endpoints/{endpointArn}");
+  b.p("endpointArn", () => input.endpointArn!, "{endpointArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      endpointConfig: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
   return b.build();
 };
 
@@ -1406,6 +1621,27 @@ export const de_CreateInferenceProfileCommand = async (
   const doc = take(data, {
     inferenceProfileArn: __expectString,
     status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateMarketplaceModelEndpointCommand
+ */
+export const de_CreateMarketplaceModelEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMarketplaceModelEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    marketplaceModelEndpoint: (_) => de_MarketplaceModelEndpoint(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1585,6 +1821,23 @@ export const de_DeleteInferenceProfileCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteMarketplaceModelEndpointCommand
+ */
+export const de_DeleteMarketplaceModelEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMarketplaceModelEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteModelInvocationLoggingConfigurationCommand
  */
 export const de_DeleteModelInvocationLoggingConfigurationCommand = async (
@@ -1608,6 +1861,23 @@ export const de_DeleteProvisionedModelThroughputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProvisionedModelThroughputCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeregisterMarketplaceModelEndpointCommand
+ */
+export const de_DeregisterMarketplaceModelEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterMarketplaceModelEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -1805,6 +2075,27 @@ export const de_GetInferenceProfileCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetMarketplaceModelEndpointCommand
+ */
+export const de_GetMarketplaceModelEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMarketplaceModelEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    marketplaceModelEndpoint: (_) => de_MarketplaceModelEndpoint(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetModelCopyJobCommand
  */
 export const de_GetModelCopyJobCommand = async (
@@ -1961,6 +2252,36 @@ export const de_GetModelInvocationLoggingConfigurationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     loggingConfig: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetPromptRouterCommand
+ */
+export const de_GetPromptRouterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPromptRouterCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    fallbackModel: _json,
+    models: _json,
+    promptRouterArn: __expectString,
+    promptRouterName: __expectString,
+    routingCriteria: (_) => de_RoutingCriteria(_, context),
+    status: __expectString,
+    type: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2131,6 +2452,28 @@ export const de_ListInferenceProfilesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListMarketplaceModelEndpointsCommand
+ */
+export const de_ListMarketplaceModelEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMarketplaceModelEndpointsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    marketplaceModelEndpoints: (_) => de_MarketplaceModelEndpointSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListModelCopyJobsCommand
  */
 export const de_ListModelCopyJobsCommand = async (
@@ -2219,6 +2562,28 @@ export const de_ListModelInvocationJobsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListPromptRoutersCommand
+ */
+export const de_ListPromptRoutersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPromptRoutersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    promptRouterSummaries: (_) => de_PromptRouterSummaries(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListProvisionedModelThroughputsCommand
  */
 export const de_ListProvisionedModelThroughputsCommand = async (
@@ -2275,6 +2640,27 @@ export const de_PutModelInvocationLoggingConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1RegisterMarketplaceModelEndpointCommand
+ */
+export const de_RegisterMarketplaceModelEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterMarketplaceModelEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    marketplaceModelEndpoint: (_) => de_MarketplaceModelEndpoint(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2388,6 +2774,27 @@ export const de_UpdateGuardrailCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateMarketplaceModelEndpointCommand
+ */
+export const de_UpdateMarketplaceModelEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMarketplaceModelEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    marketplaceModelEndpoint: (_) => de_MarketplaceModelEndpoint(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateProvisionedModelThroughputCommand
  */
 export const de_UpdateProvisionedModelThroughputCommand = async (
@@ -2438,6 +2845,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TooManyTagsException":
     case "com.amazonaws.bedrock#TooManyTagsException":
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.bedrock#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2547,6 +2957,26 @@ const de_ServiceQuotaExceededExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceUnavailableException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ServiceUnavailableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ThrottlingExceptionRes
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
@@ -2643,6 +3073,8 @@ const se_ByteContentDoc = (input: ByteContentDoc, context: __SerdeContext): any 
 // se_CustomizationConfig omitted.
 
 // se_DistillationConfig omitted.
+
+// se_EndpointConfig omitted.
 
 // se_EvaluationBedrockModel omitted.
 
@@ -2809,6 +3241,8 @@ const se_GuardrailContextualGroundingPolicyConfig = (
 // se_GuardrailManagedWordListsConfig omitted.
 
 // se_GuardrailManagedWordsConfig omitted.
+
+// se_GuardrailModalities omitted.
 
 // se_GuardrailPiiEntitiesConfig omitted.
 
@@ -3025,6 +3459,8 @@ const se_RetrieveConfig = (input: RetrieveConfig, context: __SerdeContext): any 
 
 // se_S3ObjectDoc omitted.
 
+// se_SageMakerEndpoint omitted.
+
 // se_SecurityGroupIds omitted.
 
 // se_SubnetIds omitted.
@@ -3136,6 +3572,8 @@ const de_CustomModelSummaryList = (output: any, context: __SerdeContext): Custom
 };
 
 // de_DistillationConfig omitted.
+
+// de_EndpointConfig omitted.
 
 // de_ErrorMessages omitted.
 
@@ -3357,6 +3795,8 @@ const de_GuardrailContextualGroundingPolicy = (
 
 // de_GuardrailManagedWords omitted.
 
+// de_GuardrailModalities omitted.
+
 // de_GuardrailPiiEntities omitted.
 
 // de_GuardrailPiiEntity omitted.
@@ -3554,6 +3994,52 @@ const de_KnowledgeBaseVectorSearchConfiguration = (
 // de_LoggingConfig omitted.
 
 /**
+ * deserializeAws_restJson1MarketplaceModelEndpoint
+ */
+const de_MarketplaceModelEndpoint = (output: any, context: __SerdeContext): MarketplaceModelEndpoint => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    endpointArn: __expectString,
+    endpointConfig: (_: any) => _json(__expectUnion(_)),
+    endpointStatus: __expectString,
+    endpointStatusMessage: __expectString,
+    modelSourceIdentifier: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MarketplaceModelEndpointSummaries
+ */
+const de_MarketplaceModelEndpointSummaries = (
+  output: any,
+  context: __SerdeContext
+): MarketplaceModelEndpointSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MarketplaceModelEndpointSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1MarketplaceModelEndpointSummary
+ */
+const de_MarketplaceModelEndpointSummary = (output: any, context: __SerdeContext): MarketplaceModelEndpointSummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    endpointArn: __expectString,
+    modelSourceIdentifier: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ModelCopyJobSummaries
  */
 const de_ModelCopyJobSummaries = (output: any, context: __SerdeContext): ModelCopyJobSummary[] => {
@@ -3696,6 +4182,40 @@ const de_ModelInvocationJobSummary = (output: any, context: __SerdeContext): Mod
 // de_OrchestrationConfiguration omitted.
 
 // de_OutputDataConfig omitted.
+
+/**
+ * deserializeAws_restJson1PromptRouterSummaries
+ */
+const de_PromptRouterSummaries = (output: any, context: __SerdeContext): PromptRouterSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PromptRouterSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1PromptRouterSummary
+ */
+const de_PromptRouterSummary = (output: any, context: __SerdeContext): PromptRouterSummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    fallbackModel: _json,
+    models: _json,
+    promptRouterArn: __expectString,
+    promptRouterName: __expectString,
+    routingCriteria: (_: any) => de_RoutingCriteria(_, context),
+    status: __expectString,
+    type: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+// de_PromptRouterTargetModel omitted.
+
+// de_PromptRouterTargetModels omitted.
 
 // de_PromptTemplate omitted.
 
@@ -3877,11 +4397,22 @@ const de_RetrieveConfig = (output: any, context: __SerdeContext): RetrieveConfig
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1RoutingCriteria
+ */
+const de_RoutingCriteria = (output: any, context: __SerdeContext): RoutingCriteria => {
+  return take(output, {
+    responseQualityDifference: __limitedParseDouble,
+  }) as any;
+};
+
 // de_S3Config omitted.
 
 // de_S3DataSource omitted.
 
 // de_S3ObjectDoc omitted.
+
+// de_SageMakerEndpoint omitted.
 
 // de_SecurityGroupIds omitted.
 
@@ -3971,6 +4502,8 @@ const _gV = "guardrailVersion";
 const _iO = "isOwned";
 const _mAE = "modelArnEquals";
 const _mR = "maxResults";
+const _mSE = "modelSourceEquals";
+const _mSI = "modelSourceIdentifier";
 const _nC = "nameContains";
 const _nT = "nextToken";
 const _oMNC = "outputModelNameContains";
