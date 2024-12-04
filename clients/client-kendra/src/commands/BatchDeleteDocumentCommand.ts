@@ -60,6 +60,7 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  * //   FailedDocuments: [ // BatchDeleteDocumentResponseFailedDocuments
  * //     { // BatchDeleteDocumentResponseFailedDocument
  * //       Id: "STRING_VALUE",
+ * //       DataSourceId: "STRING_VALUE",
  * //       ErrorCode: "InternalError" || "InvalidRequest",
  * //       ErrorMessage: "STRING_VALUE",
  * //     },

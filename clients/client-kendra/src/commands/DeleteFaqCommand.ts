@@ -28,7 +28,7 @@ export interface DeleteFaqCommandInput extends DeleteFaqRequest {}
 export interface DeleteFaqCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes an FAQ from an index.</p>
+ * <p>Removes a FAQ from an index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

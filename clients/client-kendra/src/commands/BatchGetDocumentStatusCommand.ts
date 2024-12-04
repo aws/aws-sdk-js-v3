@@ -70,6 +70,7 @@ export interface BatchGetDocumentStatusCommandOutput extends BatchGetDocumentSta
  * //   Errors: [ // BatchGetDocumentStatusResponseErrors
  * //     { // BatchGetDocumentStatusResponseError
  * //       DocumentId: "STRING_VALUE",
+ * //       DataSourceId: "STRING_VALUE",
  * //       ErrorCode: "InternalError" || "InvalidRequest",
  * //       ErrorMessage: "STRING_VALUE",
  * //     },

@@ -64,6 +64,13 @@ export interface RetrieveCommandOutput extends RetrieveResult, __MetadataBearer 
  *                 units</a> that you set for your index. For more information on what's included
  *             in a single capacity unit and the default base capacity for an index, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html">Adjusting
  *                 capacity</a>.</p>
+ *          <important>
+ *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use
+ *                     <code>ATTRIBUTE_FILTER</code> to filter search results by user context. If
+ *                 you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use
+ *                     <code>USER_TOKEN</code> to configure user context policy, Amazon Kendra returns a
+ *                     <code>ValidationException</code> error.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

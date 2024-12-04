@@ -46,7 +46,7 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * const client = new KendraClient(config);
  * const input = { // CreateIndexRequest
  *   Name: "STRING_VALUE", // required
- *   Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION",
+ *   Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION" || "GEN_AI_ENTERPRISE_EDITION",
  *   RoleArn: "STRING_VALUE", // required
  *   ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  *     KmsKeyId: "STRING_VALUE",

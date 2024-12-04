@@ -28,7 +28,7 @@ export interface DescribeFaqCommandInput extends DescribeFaqRequest {}
 export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about an FAQ list.</p>
+ * <p>Gets information about a FAQ.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

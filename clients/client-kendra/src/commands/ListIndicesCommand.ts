@@ -46,7 +46,7 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  * //     { // IndexConfigurationSummary
  * //       Name: "STRING_VALUE",
  * //       Id: "STRING_VALUE",
- * //       Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION",
+ * //       Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION" || "GEN_AI_ENTERPRISE_EDITION",
  * //       CreatedAt: new Date("TIMESTAMP"), // required
  * //       UpdatedAt: new Date("TIMESTAMP"), // required
  * //       Status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED" || "UPDATING" || "SYSTEM_UPDATING", // required

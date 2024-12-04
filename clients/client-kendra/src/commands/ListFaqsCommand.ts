@@ -28,7 +28,7 @@ export interface ListFaqsCommandInput extends ListFaqsRequest {}
 export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of FAQ lists associated with an index.</p>
+ * <p>Gets a list of FAQs associated with an index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

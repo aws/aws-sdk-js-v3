@@ -47,7 +47,7 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  * // { // DescribeIndexResponse
  * //   Name: "STRING_VALUE",
  * //   Id: "STRING_VALUE",
- * //   Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION",
+ * //   Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION" || "GEN_AI_ENTERPRISE_EDITION",
  * //   RoleArn: "STRING_VALUE",
  * //   ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  * //     KmsKeyId: "STRING_VALUE",

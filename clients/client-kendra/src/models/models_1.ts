@@ -558,14 +558,19 @@ export interface SubmitFeedbackRequest {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the index, FAQ, or data source to tag.</p>
+   * <p>The Amazon Resource Name (ARN) of the index, FAQ, data source, or other resource to add a tag.
+   *       For example, the ARN of an index is constructed as follows:
+   *       <i>arn:aws:kendra:your-region:your-account-id:index/index-id</i>
+   *       For information on how to construct an ARN for all types of Amazon Kendra resources, see
+   *       <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkendra.html#amazonkendra-resources-for-iam-policies">Resource
+   *         types</a>.</p>
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>A list of tag keys to add to the index, FAQ, or data source. If a tag already exists, the
-   *       existing value is replaced with the new value.</p>
+   * <p>A list of tag keys to add to the index, FAQ, data source, or other resource. If a tag already
+   *       exists, the existing value is replaced with the new value.</p>
    * @public
    */
   Tags: Tag[] | undefined;
@@ -581,15 +586,19 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the index, FAQ, or data source to remove the tag
-   *       from.</p>
+   * <p>The Amazon Resource Name (ARN) of the index, FAQ, data source, or other resource to remove a tag.
+   *       For example, the ARN of an index is constructed as follows:
+   *       <i>arn:aws:kendra:your-region:your-account-id:index/index-id</i>
+   *       For information on how to construct an ARN for all types of Amazon Kendra resources, see
+   *       <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkendra.html#amazonkendra-resources-for-iam-policies">Resource
+   *         types</a>.</p>
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>A list of tag keys to remove from the index, FAQ, or data source. If a tag key does not
-   *       exist on the resource, it is ignored.</p>
+   * <p>A list of tag keys to remove from the index, FAQ, data source, or other resource. If a tag
+   *       key doesn't exist for the resource, it is ignored.</p>
    * @public
    */
   TagKeys: string[] | undefined;
@@ -697,8 +706,8 @@ export interface UpdateDataSourceRequest {
   Schedule?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a role with permission to access the data source and
-   *       required resources. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for Amazon Kendra</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access
+   *       the data source and required resources. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for Amazon Kendra</a>.</p>
    * @public
    */
   RoleArn?: string | undefined;
@@ -747,9 +756,9 @@ export interface UpdateExperienceRequest {
   IndexId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a role with permission to access <code>Query</code>
-   *             API, <code>QuerySuggestions</code> API, <code>SubmitFeedback</code>
-   *             API, and IAM Identity Center that stores your user and group information.
+   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access
+   *             the <code>Query</code> API, <code>QuerySuggestions</code> API, <code>SubmitFeedback</code>
+   *             API, and IAM Identity Center that stores your users and groups information.
    *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for Amazon Kendra</a>.</p>
    * @public
    */
@@ -885,20 +894,37 @@ export interface UpdateIndexRequest {
 
   /**
    * <p>The user token configuration.</p>
+   *          <important>
+   *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use
+   *                <code>UserTokenConfigurations</code> to configure user context policy, Amazon Kendra returns
+   *             a <code>ValidationException</code> error.</p>
+   *          </important>
    * @public
    */
   UserTokenConfigurations?: UserTokenConfiguration[] | undefined;
 
   /**
    * <p>The user context policy.</p>
+   *          <important>
+   *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use
+   *                <code>ATTRIBUTE_FILTER</code> to filter search results by user context. If you're
+   *             using an Amazon Kendra Gen AI Enterprise Edition index and you try to use
+   *                <code>USER_TOKEN</code> to configure user context policy, Amazon Kendra returns a
+   *                <code>ValidationException</code> error.</p>
+   *          </important>
    * @public
    */
   UserContextPolicy?: UserContextPolicy | undefined;
 
   /**
-   * <p>Gets users and groups from IAM Identity Center
-   *          identity source. To configure this, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>. This is useful for user context filtering, where
-   *          search results are filtered based on the user or their group access to documents.</p>
+   * <p>Gets users and groups from IAM Identity Center identity source. To configure this,
+   *          see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>. This is useful for user context filtering,
+   *          where search results are filtered based on the user or their group access to
+   *          documents.</p>
+   *          <important>
+   *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index,
+   *                <code>UserGroupResolutionConfiguration</code> isn't supported.</p>
+   *          </important>
    * @public
    */
   UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration | undefined;
@@ -1182,7 +1208,7 @@ export interface FacetResult {
  *          "Department", you can filter documents that belong to the "HR" department. You would use
  *          the <code>EqualsTo</code> operation to filter results or documents with "Department" equals
  *          to "HR".</p>
- *          <p>You can use <code>AndAllFilters</code> and <code>AndOrFilters</code> in combination with
+ *          <p>You can use <code>AndAllFilters</code> and <code>OrAllFilters</code> in combination with
  *          each other or with other operations such as <code>EqualsTo</code>. For example:</p>
  *          <p>
  *             <code>AndAllFilters</code>
@@ -1194,7 +1220,7 @@ export interface FacetResult {
  *             </li>
  *             <li>
  *                <p>
- *                   <code>AndOrFilters</code>
+ *                   <code>OrAllFilters</code>
  *                </p>
  *                <ul>
  *                   <li>
@@ -1205,8 +1231,8 @@ export interface FacetResult {
  *             </li>
  *          </ul>
  *          <p>This example filters results or documents that belong to the HR department
- *             <i>and</i> belong to projects that contain "new hires"
- *             <i>or</i> "new hiring" in the project name (must use
+ *             <code>AND</code> belong to projects that contain "new hires"
+ *             <code>OR</code> "new hiring" in the project name (must use
  *             <code>ContainAny</code> with <code>StringListValue</code>). This example is filtering
  *          with a depth of 2.</p>
  *          <p>You cannot filter more than a depth of 2, otherwise you receive a
@@ -1415,6 +1441,11 @@ export interface RetrieveRequest {
    *                 <code>OrAllFilters</code> parameters contain a list of other filters.</p>
    *          <p>The <code>AttributeFilter</code> parameter means you can create a set of filtering
    *             rules that a document must satisfy to be included in the query results.</p>
+   *          <note>
+   *             <p>For Amazon Kendra Gen AI Enterprise Edition indices use <code>AttributeFilter</code> to
+   *                 enable document filtering for end users using <code>_email_id</code> or include
+   *                 public documents (<code>_email_id=null</code>).</p>
+   *          </note>
    * @public
    */
   AttributeFilter?: AttributeFilter | undefined;
@@ -1540,6 +1571,11 @@ export interface QueryRequest {
    *             <code>OrAllFilters</code> parameters contain a list of other filters.</p>
    *          <p>The <code>AttributeFilter</code> parameter means you can create a set of filtering rules
    *          that a document must satisfy to be included in the query results.</p>
+   *          <note>
+   *             <p>For Amazon Kendra Gen AI Enterprise Edition indices use <code>AttributeFilter</code> to
+   *             enable document filtering for end users using <code>_email_id</code> or include public
+   *             documents (<code>_email_id=null</code>).</p>
+   *          </note>
    * @public
    */
   AttributeFilter?: AttributeFilter | undefined;

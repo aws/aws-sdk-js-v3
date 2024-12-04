@@ -58,6 +58,13 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  *          results. If you filter result type to only question-answers, a maximum of four results are
  *          returned. If you filter result type to only answers, a maximum of three results are
  *          returned.</p>
+ *          <important>
+ *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use
+ *                <code>ATTRIBUTE_FILTER</code> to filter search results by user context. If you're
+ *             using an Amazon Kendra Gen AI Enterprise Edition index and you try to use
+ *                <code>USER_TOKEN</code> to configure user context policy, Amazon Kendra returns a
+ *                <code>ValidationException</code> error.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

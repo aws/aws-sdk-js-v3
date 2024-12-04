@@ -28,8 +28,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds the specified tag to the specified index, FAQ, or data source resource. If the tag
- *       already exists, the existing value is replaced with the new value.</p>
+ * <p>Adds the specified tag to the specified index, FAQ, data source, or other resource. If
+ *       the tag already exists, the existing value is replaced with the new value.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

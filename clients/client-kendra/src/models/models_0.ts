@@ -839,6 +839,16 @@ export interface DataSourceGroup {
  *             </li>
  *          </ul>
  *          <p>If you provide both, an exception is thrown.</p>
+ *          <important>
+ *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can use
+ *                <code>UserId</code>, <code>Groups</code>, and <code>DataSourceGroups</code> to filter
+ *             content. If you set the <code>UserId</code> to a particular user ID, it also includes
+ *             all public documents.</p>
+ *             <p>Amazon Kendra Gen AI Enterprise Edition indices don't support token based document filtering.
+ *             If you're using an Amazon Kendra Gen AI Enterprise Edition index, Amazon Kendra returns a
+ *                <code>ValidationException</code> error if the <code>Token</code> field has a non-null
+ *             value.</p>
+ *          </important>
  * @public
  */
 export interface UserContext {
@@ -928,7 +938,8 @@ export interface BasicAuthenticationConfiguration {
   Port: number | undefined;
 
   /**
-   * <p>Your secret ARN, which you can create in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">Secrets Manager</a>
+   * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret. You create a
+   *             secret to store your credentials in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">Secrets Manager</a>
    *          </p>
    *          <p>You use a secret if basic authentication credentials are required to connect to a
    *             website. The secret stores your credentials of user name and password.</p>
@@ -1023,6 +1034,12 @@ export interface BatchDeleteDocumentResponseFailedDocument {
    * @public
    */
   Id?: string | undefined;
+
+  /**
+   * <p> The identifier of the data source connector that the document belongs to. </p>
+   * @public
+   */
+  DataSourceId?: string | undefined;
 
   /**
    * <p>The error code for why the document couldn't be removed from the index.</p>
@@ -1260,6 +1277,13 @@ export interface BatchGetDocumentStatusResponseError {
   DocumentId?: string | undefined;
 
   /**
+   * <p> The identifier of the data source connector that the failed document belongs to.
+   *         </p>
+   * @public
+   */
+  DataSourceId?: string | undefined;
+
+  /**
    * <p>Indicates the source of the error.</p>
    * @public
    */
@@ -1454,8 +1478,8 @@ export interface HookConfiguration {
   InvocationCondition?: DocumentAttributeCondition | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a role with permission to run a Lambda function
-   *             during ingestion. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for Amazon Kendra</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to run a Lambda function
+   *             during ingestion. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">an IAM roles for Amazon Kendra</a>.</p>
    * @public
    */
   LambdaArn: string | undefined;
@@ -1502,10 +1526,10 @@ export interface CustomDocumentEnrichmentConfiguration {
   PostExtractionHookConfiguration?: HookConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a role with permission to run
+   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to run
    *                 <code>PreExtractionHookConfiguration</code> and
    *                 <code>PostExtractionHookConfiguration</code> for altering document metadata and
-   *             content during the document ingestion process. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for Amazon Kendra</a>.</p>
+   *             content during the document ingestion process. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">an IAM roles for Amazon Kendra</a>.</p>
    * @public
    */
   RoleArn?: string | undefined;
@@ -1745,6 +1769,13 @@ export interface BatchPutDocumentResponseFailedDocument {
    * @public
    */
   Id?: string | undefined;
+
+  /**
+   * <p> The identifier of the data source connector that the failed document belongs to.
+   *         </p>
+   * @public
+   */
+  DataSourceId?: string | undefined;
 
   /**
    * <p>The type of error that caused the document to fail to be indexed.</p>
@@ -2274,7 +2305,8 @@ export interface ProxyConfiguration {
   Port: number | undefined;
 
   /**
-   * <p>Your secret ARN, which you can create in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">Secrets Manager</a>
+   * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret. You create a
+   *             secret to store your credentials in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">Secrets Manager</a>
    *          </p>
    *          <p>The credentials are optional. You use a secret if web proxy credentials are required
    *             to connect to a website host. Amazon Kendra currently support basic authentication
@@ -2581,13 +2613,12 @@ export interface ConnectionConfiguration {
   TableName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of credentials stored in Secrets Manager. The
-   *             credentials should be a user/password pair. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html">Using a
+   * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret that stores
+   *             the credentials. The credentials should be a user-password pair. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html">Using a
    *                 Database Data Source</a>. For more information about Secrets Manager, see
-   *                 <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html"> What
-   *                 Is Secrets Manager</a> in the <i>
-   *                 Secrets Manager
-   *             </i> user guide.</p>
+   *             <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html"> What
+   *                 Is Secrets Manager</a> in the <i>Secrets Manager</i>
+   *             user guide.</p>
    * @public
    */
   SecretArn: string | undefined;
@@ -3384,7 +3415,7 @@ export interface OneDriveUsers {
   /**
    * <p>A list of users whose documents should be indexed. Specify the user names in email
    *             format, for example, <code>username@tenantdomain</code>. If you need to index the
-   *             documents of more than 100 users, use the <code>OneDriveUserS3Path</code> field to
+   *             documents of more than 10 users, use the <code>OneDriveUserS3Path</code> field to
    *             specify the location of a file containing a list of users.</p>
    * @public
    */
@@ -5117,15 +5148,15 @@ export interface DataSourceConfiguration {
 }
 
 /**
- * <p>A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values
- *       can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : /
- *       = + - @.</p>
+ * <p>A key-value pair that identifies or categorizes an index, FAQ,
+ *       data source, or other resource. TA tag key and value can consist of Unicode letters,
+ *       digits, white space, and any of the following symbols: _ . : / = + - @.</p>
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key for the tag. Keys are not case sensitive and must be unique for the index, FAQ, or
-   *       data source.</p>
+   * <p>The key for the tag. Keys are not case sensitive and must be unique for the index, FAQ,
+   *       data source, or other resource.</p>
    * @public
    */
   Key: string | undefined;
@@ -5460,7 +5491,7 @@ export interface CreateFaqRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access
-   *             the S3 bucket that contains the FAQs. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM access roles for
+   *             the S3 bucket that contains the FAQ file. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM access roles for
    *                 Amazon Kendra</a>.</p>
    * @public
    */
@@ -5781,6 +5812,7 @@ export class FeaturedResultsConflictException extends __BaseException {
 export const IndexEdition = {
   DEVELOPER_EDITION: "DEVELOPER_EDITION",
   ENTERPRISE_EDITION: "ENTERPRISE_EDITION",
+  GEN_AI_ENTERPRISE_EDITION: "GEN_AI_ENTERPRISE_EDITION",
 } as const;
 
 /**
@@ -5832,12 +5864,10 @@ export const UserGroupResolutionMode = {
 export type UserGroupResolutionMode = (typeof UserGroupResolutionMode)[keyof typeof UserGroupResolutionMode];
 
 /**
- * <p>Provides the configuration information to get users and groups from
- *          an IAM Identity Center identity source. This is useful for user context filtering, where
- *          search results are filtered based on the user or their group access to documents. You can
- *          also use the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html">PutPrincipalMapping</a> API to
- *          map users to their groups so that you only need to provide the user ID when you issue the
- *          query.</p>
+ * <p>Provides the configuration information to get users and groups from an IAM Identity Center identity source. This is useful for user context filtering, where search
+ *          results are filtered based on the user or their group access to documents. You can also use
+ *          the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html">PutPrincipalMapping</a> API to map users to their groups so that you only need to
+ *          provide the user ID when you issue the query.</p>
  *          <p>To set up an IAM Identity Center identity source in the console to use with Amazon Kendra, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/getting-started-aws-sso.html">Getting started with an IAM Identity Center identity source</a>. You must also grant the required permissions to
  *          use IAM Identity Center with Amazon Kendra. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-aws-sso">IAM roles for IAM Identity Center</a>.</p>
  *          <p>Amazon Kendra currently does not support using
@@ -5845,13 +5875,16 @@ export type UserGroupResolutionMode = (typeof UserGroupResolutionMode)[keyof typ
  *          member account for your IAM Identity Center identify source. You must create your index in
  *          the management account for the organization in order to use
  *             <code>UserGroupResolutionConfiguration</code>.</p>
+ *          <important>
+ *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index,
+ *                <code>UserGroupResolutionConfiguration</code> isn't supported.</p>
+ *          </important>
  * @public
  */
 export interface UserGroupResolutionConfiguration {
   /**
-   * <p>The identity store provider (mode) you want to use to get users and groups.
-   *          IAM Identity Center is currently the only available mode. Your users and groups
-   *          must exist in an IAM Identity Center identity source in order to use this mode.</p>
+   * <p>The identity store provider (mode) you want to use to get users and groups. IAM Identity Center is currently the only available mode. Your users and groups must exist in
+   *          an IAM Identity Center identity source in order to use this mode.</p>
    * @public
    */
   UserGroupResolutionMode: UserGroupResolutionMode | undefined;
@@ -5939,6 +5972,11 @@ export interface JwtTokenTypeConfiguration {
 
 /**
  * <p>Provides the configuration information for a token.</p>
+ *          <important>
+ *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use
+ *                <code>UserTokenConfigurations</code> to configure user context policy, Amazon Kendra returns
+ *             a <code>ValidationException</code> error.</p>
+ *          </important>
  * @public
  */
 export interface UserTokenConfiguration {
@@ -5968,19 +6006,21 @@ export interface CreateIndexRequest {
   /**
    * <p>The Amazon Kendra edition to use for the index. Choose <code>DEVELOPER_EDITION</code>
    *       for indexes intended for development, testing, or proof of concept. Use
-   *         <code>ENTERPRISE_EDITION</code> for production. Once you set the edition for
-   *       an index, it can't be changed.</p>
+   *         <code>ENTERPRISE_EDITION</code> for production. Use <code>GEN_AI_ENTERPRISE_EDITION</code>
+   *       for creating generative AI applications. Once you set the edition for an index, it can't be
+   *       changed. </p>
    *          <p>The <code>Edition</code> parameter is optional. If you don't supply a value, the default
    *       is <code>ENTERPRISE_EDITION</code>.</p>
-   *          <p>For more information on quota limits for Enterprise and Developer editions, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</p>
+   *          <p>For more information on quota limits for Gen AI Enterprise Edition, Enterprise Edition, and
+   *       Developer Edition indices, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</p>
    * @public
    */
   Edition?: IndexEdition | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access your
-   *       Amazon CloudWatch logs and metrics. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM access roles for
-   *       Amazon Kendra</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access
+   *       your Amazon CloudWatch logs and metrics. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM access roles
+   *         for Amazon Kendra</a>.</p>
    * @public
    */
   RoleArn: string | undefined;
@@ -6015,12 +6055,24 @@ export interface CreateIndexRequest {
 
   /**
    * <p>The user token configuration.</p>
+   *          <important>
+   *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use
+   *                <code>UserTokenConfigurations</code> to configure user context policy, Amazon Kendra returns
+   *             a <code>ValidationException</code> error.</p>
+   *          </important>
    * @public
    */
   UserTokenConfigurations?: UserTokenConfiguration[] | undefined;
 
   /**
    * <p>The user context policy.</p>
+   *          <important>
+   *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use
+   *                <code>ATTRIBUTE_FILTER</code> to filter search results by user context. If you're
+   *             using an Amazon Kendra Gen AI Enterprise Edition index and you try to use
+   *                <code>USER_TOKEN</code> to configure user context policy, Amazon Kendra returns a
+   *                <code>ValidationException</code> error.</p>
+   *          </important>
    *          <dl>
    *             <dt>ATTRIBUTE_FILTER</dt>
    *             <dd>
@@ -6041,9 +6093,14 @@ export interface CreateIndexRequest {
   UserContextPolicy?: UserContextPolicy | undefined;
 
   /**
-   * <p>Gets users and groups from IAM Identity Center
-   *          identity source. To configure this, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>. This is useful for user context filtering, where
-   *          search results are filtered based on the user or their group access to documents.</p>
+   * <p>Gets users and groups from IAM Identity Center identity source. To configure this,
+   *          see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>. This is useful for user context filtering,
+   *          where search results are filtered based on the user or their group access to
+   *          documents.</p>
+   *          <important>
+   *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index,
+   *                <code>UserGroupResolutionConfiguration</code> isn't supported.</p>
+   *          </important>
    * @public
    */
   UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration | undefined;
@@ -6539,8 +6596,8 @@ export interface DescribeDataSourceResponse {
   Schedule?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role with permission to access the data source and
-   *       required resources.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role with permission to
+   *       access the data source and required resources.</p>
    * @public
    */
   RoleArn?: string | undefined;
@@ -6706,10 +6763,10 @@ export interface DescribeExperienceResponse {
   Status?: ExperienceStatus | undefined;
 
   /**
-   * <p>Shows the Amazon Resource Name (ARN) of a role with permission to access
-   *             <code>Query</code> API, <code>QuerySuggestions</code> API,
+   * <p>The Amazon Resource Name (ARN) of the IAM role with permission to access
+   *             the <code>Query</code> API, <code>QuerySuggestions</code> API,
    *             <code>SubmitFeedback</code> API, and IAM Identity Center that stores
-   *             your user and group information.</p>
+   *             your users and groups information.</p>
    * @public
    */
   RoleArn?: string | undefined;
@@ -6809,8 +6866,8 @@ export interface DescribeFaqResponse {
   Status?: FaqStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role that provides access to the S3 bucket
-   *             containing the input files for the FAQ.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that provides access
+   *             to the S3 bucket containing the FAQ file.</p>
    * @public
    */
   RoleArn?: string | undefined;
@@ -6823,7 +6880,7 @@ export interface DescribeFaqResponse {
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>The file format used by the input files for the FAQ.</p>
+   * <p>The file format used for the FAQ file.</p>
    * @public
    */
   FileFormat?: FaqFileFormat | undefined;
@@ -7178,13 +7235,13 @@ export interface DocumentMetadataConfiguration {
 }
 
 /**
- * <p>Provides statistical information about the FAQ questions and answers contained in an
+ * <p>Provides statistical information about the FAQ questions and answers for an
  *             index.</p>
  * @public
  */
 export interface FaqStatistics {
   /**
-   * <p>The total number of FAQ questions and answers contained in the index.</p>
+   * <p>The total number of FAQ questions and answers for an index.</p>
    * @public
    */
   IndexedQuestionAnswersCount: number | undefined;
@@ -7269,8 +7326,7 @@ export interface DescribeIndexResponse {
   Edition?: IndexEdition | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that gives
-   *       Amazon Kendra permission to write to your Amazon CloudWatch logs.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that gives Amazon Kendra permission to write to your Amazon CloudWatch logs.</p>
    * @public
    */
   RoleArn?: string | undefined;
@@ -7353,9 +7409,9 @@ export interface DescribeIndexResponse {
   UserContextPolicy?: UserContextPolicy | undefined;
 
   /**
-   * <p>Whether you have enabled IAM Identity Center identity source for your
-   *          users and groups. This is useful for user context filtering, where
-   *          search results are filtered based on the user or their group access to documents.</p>
+   * <p>Whether you have enabled IAM Identity Center identity source for your users and
+   *          groups. This is useful for user context filtering, where search results are filtered based
+   *          on the user or their group access to documents.</p>
    * @public
    */
   UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration | undefined;
@@ -8889,7 +8945,7 @@ export interface ListExperiencesResponse {
  */
 export interface ListFaqsRequest {
   /**
-   * <p>The index that contains the FAQ lists.</p>
+   * <p>The index for the FAQs.</p>
    * @public
    */
   IndexId: string | undefined;
@@ -8976,7 +9032,7 @@ export interface ListFaqsResponse {
   NextToken?: string | undefined;
 
   /**
-   * <p>information about the FAQs associated with the specified index.</p>
+   * <p>Summary information about the FAQs for a specified index.</p>
    * @public
    */
   FaqSummaryItems?: FaqSummary[] | undefined;
@@ -9338,8 +9394,12 @@ export interface ListQuerySuggestionsBlockListsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the index, FAQ, or data source to get a list of tags
-   *       for.</p>
+   * <p>The Amazon Resource Name (ARN) of the index, FAQ, data source, or other resource to
+   *       get a list of tags for. For example, the ARN of an index is constructed as follows:
+   *       <i>arn:aws:kendra:your-region:your-account-id:index/index-id</i>
+   *       For information on how to construct an ARN for all types of Amazon Kendra resources, see
+   *       <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkendra.html#amazonkendra-resources-for-iam-policies">Resource
+   *         types</a>.</p>
    * @public
    */
   ResourceARN: string | undefined;
@@ -9350,7 +9410,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A list of tags associated with the index, FAQ, or data source.</p>
+   * <p>A list of tags associated with the index, FAQ, data source, or other resource.</p>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -9492,15 +9552,16 @@ export interface MemberUser {
 }
 
 /**
- * <p>A list of users or sub groups that belong to a group. This is useful for user context
+ * <p>A list of users that belong to a group. This is useful for user context
  *             filtering, where search results are filtered based on the user or their group access to
  *             documents.</p>
  * @public
  */
 export interface GroupMembers {
   /**
-   * <p>A list of sub groups that belong to a group. For example, the sub groups "Research",
-   *             "Engineering", and "Sales and Marketing" all belong to the group "Company".</p>
+   * <p>A list of users that belong to a group. This can also include sub groups. For example,
+   *             the sub groups "Research", "Engineering", and "Sales and Marketing" all belong to the group
+   *             "Company A".</p>
    * @public
    */
   MemberGroups?: MemberGroup[] | undefined;
@@ -9554,8 +9615,9 @@ export interface PutPrincipalMappingRequest {
   GroupId: string | undefined;
 
   /**
-   * <p>The list that contains your users or sub groups that belong the same group.</p>
-   *          <p>For example, the group "Company" includes the user "CEO" and the sub groups
+   * <p>The list that contains your users that belong the same group. This can include sub groups
+   *             that belong to a group.</p>
+   *          <p>For example, the group "Company A" includes the user "CEO" and the sub groups
    *             "Research", "Engineering", and "Sales and Marketing".</p>
    *          <p>If you have more than 1000 users and/or sub groups for a single group, you need to
    *             provide the path to the S3 file that lists your users and sub groups for a group. Your
@@ -9566,7 +9628,7 @@ export interface PutPrincipalMappingRequest {
   GroupMembers: GroupMembers | undefined;
 
   /**
-   * <p>The timestamp identifier you specify to ensure Amazon Kendra does not override
+   * <p>The timestamp identifier you specify to ensure Amazon Kendra doesn't override
    *             the latest <code>PUT</code> action with previous actions. The highest number ID, which
    *             is the ordering ID, is the latest action you want to process and apply on top of other
    *             actions with lower number IDs. This prevents previous actions with lower number IDs from
@@ -9583,9 +9645,10 @@ export interface PutPrincipalMappingRequest {
   OrderingId?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a role that has access to the S3 file that contains
-   *             your list of users or sub groups that belong to a group.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds">IAM roles for Amazon Kendra</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that has access to the
+   *             S3 file that contains your list of users that belong to a group.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds">IAM roles for
+   *             Amazon Kendra</a>.</p>
    * @public
    */
   RoleArn?: string | undefined;

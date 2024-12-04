@@ -167,6 +167,7 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  * //   FailedDocuments: [ // BatchPutDocumentResponseFailedDocuments
  * //     { // BatchPutDocumentResponseFailedDocument
  * //       Id: "STRING_VALUE",
+ * //       DataSourceId: "STRING_VALUE",
  * //       ErrorCode: "InternalError" || "InvalidRequest",
  * //       ErrorMessage: "STRING_VALUE",
  * //     },
