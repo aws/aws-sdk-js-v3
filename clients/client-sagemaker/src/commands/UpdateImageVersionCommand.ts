@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateImageVersionRequest, UpdateImageVersionResponse } from "../models/models_4";
+import { UpdateImageVersionRequest, UpdateImageVersionResponse } from "../models/models_5";
 import { de_UpdateImageVersionCommand, se_UpdateImageVersionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

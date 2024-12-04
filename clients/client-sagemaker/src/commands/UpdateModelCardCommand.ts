@@ -9,7 +9,7 @@ import {
   UpdateModelCardRequest,
   UpdateModelCardRequestFilterSensitiveLog,
   UpdateModelCardResponse,
-} from "../models/models_4";
+} from "../models/models_5";
 import { de_UpdateModelCardCommand, se_UpdateModelCardCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

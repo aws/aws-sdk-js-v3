@@ -243,11 +243,15 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //           FileSystemId: "STRING_VALUE", // required
  * //           FileSystemPath: "STRING_VALUE",
  * //         },
+ * //         FSxLustreFileSystemConfig: { // FSxLustreFileSystemConfig
+ * //           FileSystemId: "STRING_VALUE", // required
+ * //           FileSystemPath: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     StudioWebPortalSettings: { // StudioWebPortalSettings
  * //       HiddenMlTools: [ // HiddenMlToolsList
- * //         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects" || "InferenceOptimization" || "PerformanceEvaluation",
+ * //         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects" || "InferenceOptimization" || "PerformanceEvaluation" || "HyperPodClusters" || "LakeraGuard" || "Comet" || "DeepchecksLLMEvaluation" || "Fiddler",
  * //       ],
  * //       HiddenAppTypes: [ // HiddenAppTypesList
  * //         "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",
@@ -365,6 +369,10 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //     CustomFileSystemConfigs: [
  * //       {//  Union: only one key present
  * //         EFSFileSystemConfig: {
+ * //           FileSystemId: "STRING_VALUE", // required
+ * //           FileSystemPath: "STRING_VALUE",
+ * //         },
+ * //         FSxLustreFileSystemConfig: {
  * //           FileSystemId: "STRING_VALUE", // required
  * //           FileSystemPath: "STRING_VALUE",
  * //         },

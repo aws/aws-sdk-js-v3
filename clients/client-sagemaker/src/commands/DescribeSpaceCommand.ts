@@ -131,6 +131,9 @@ export interface DescribeSpaceCommandOutput extends DescribeSpaceResponse, __Met
  * //         EFSFileSystem: { // EFSFileSystem
  * //           FileSystemId: "STRING_VALUE", // required
  * //         },
+ * //         FSxLustreFileSystem: { // FSxLustreFileSystem
+ * //           FileSystemId: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     ],
  * //   },

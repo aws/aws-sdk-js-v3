@@ -43,6 +43,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  *   NextToken: "STRING_VALUE",
  *   SortBy: "CREATION_TIME" || "NAME",
  *   SortOrder: "Ascending" || "Descending",
+ *   TrainingPlanArn: "STRING_VALUE",
  * };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
@@ -54,6 +55,9 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * //       ClusterName: "STRING_VALUE", // required
  * //       CreationTime: new Date("TIMESTAMP"), // required
  * //       ClusterStatus: "Creating" || "Deleting" || "Failed" || "InService" || "RollingBack" || "SystemUpdating" || "Updating", // required
+ * //       TrainingPlanArns: [ // TrainingPlanArns
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * // };

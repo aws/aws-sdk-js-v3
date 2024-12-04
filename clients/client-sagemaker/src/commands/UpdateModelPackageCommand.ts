@@ -9,7 +9,7 @@ import {
   UpdateModelPackageInput,
   UpdateModelPackageInputFilterSensitiveLog,
   UpdateModelPackageOutput,
-} from "../models/models_4";
+} from "../models/models_5";
 import { de_UpdateModelPackageCommand, se_UpdateModelPackageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

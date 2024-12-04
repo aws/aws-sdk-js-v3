@@ -99,6 +99,20 @@ export interface ActionSummary {
  * @public
  * @enum
  */
+export const ActivationState = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type ActivationState = (typeof ActivationState)[keyof typeof ActivationState];
+
+/**
+ * @public
+ * @enum
+ */
 export const AssociationEdgeType = {
   ASSOCIATED_WITH: "AssociatedWith",
   CONTRIBUTED_TO: "ContributedTo",
@@ -1968,6 +1982,7 @@ export const TrainingInstanceType = {
   ML_P3_8XLARGE: "ml.p3.8xlarge",
   ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
   ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
   ML_R5D_12XLARGE: "ml.r5d.12xlarge",
@@ -1993,6 +2008,7 @@ export const TrainingInstanceType = {
   ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
   ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
   ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
+  ML_TRN2_48XLARGE: "ml.trn2.48xlarge",
 } as const;
 
 /**
@@ -2134,6 +2150,12 @@ export interface ResourceConfig {
    * @public
    */
   InstanceGroups?: InstanceGroup[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN); of the training plan to use for this resource configuration.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
 }
 
 /**
@@ -9402,6 +9424,7 @@ export const ClusterInstanceType = {
   ML_M5_XLARGE: "ml.m5.xlarge",
   ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
   ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
   ML_T3_2XLARGE: "ml.t3.2xlarge",
@@ -9410,6 +9433,7 @@ export const ClusterInstanceType = {
   ML_T3_XLARGE: "ml.t3.xlarge",
   ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
   ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
+  ML_TRN2_48XLARGE: "ml.trn2.48xlarge",
 } as const;
 
 /**
@@ -9456,6 +9480,25 @@ export const DeepHealthCheckType = {
  * @public
  */
 export type DeepHealthCheckType = (typeof DeepHealthCheckType)[keyof typeof DeepHealthCheckType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceGroupStatus = {
+  CREATING: "Creating",
+  DEGRADED: "Degraded",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  INSERVICE: "InService",
+  SYSTEMUPDATING: "SystemUpdating",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceGroupStatus = (typeof InstanceGroupStatus)[keyof typeof InstanceGroupStatus];
 
 /**
  * <p>Details of an instance group in a SageMaker HyperPod cluster.</p>
@@ -9524,6 +9567,57 @@ export interface ClusterInstanceGroupDetails {
    * @public
    */
   OnStartDeepHealthChecks?: DeepHealthCheckType[] | undefined;
+
+  /**
+   * <p>The current status of the cluster instance group.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>InService</code>: The instance group is active and healthy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Creating</code>: The instance group is being provisioned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Updating</code>: The instance group is being updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failed</code>: The instance group has failed to provision or is no longer
+   *                healthy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Degraded</code>: The instance group is degraded, meaning that some instances
+   *                have failed to provision or are no longer healthy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Deleting</code>: The instance group is being deleted.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: InstanceGroupStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN); of the training plan associated with this cluster instance group.</p>
+   *          <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using
+   *          Amazon SageMaker Training Plan, see <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a>
+   *             </code>.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
+
+  /**
+   * <p>The current status of the training plan associated with this cluster instance
+   *          group.</p>
+   * @public
+   */
+  TrainingPlanStatus?: string | undefined;
 
   /**
    * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
@@ -9596,6 +9690,16 @@ export interface ClusterInstanceGroupSpecification {
    * @public
    */
   OnStartDeepHealthChecks?: DeepHealthCheckType[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN); of the training plan to use for this cluster instance group.</p>
+   *          <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using
+   *          Amazon SageMaker Training Plan, see <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a>
+   *             </code>.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
 
   /**
    * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
@@ -9828,6 +9932,84 @@ export interface ClusterOrchestrator {
  * @public
  * @enum
  */
+export const SchedulerResourceStatus = {
+  CREATED: "Created",
+  CREATE_FAILED: "CreateFailed",
+  CREATE_ROLLBACK_FAILED: "CreateRollbackFailed",
+  CREATING: "Creating",
+  DELETED: "Deleted",
+  DELETE_FAILED: "DeleteFailed",
+  DELETE_ROLLBACK_FAILED: "DeleteRollbackFailed",
+  DELETING: "Deleting",
+  UPDATED: "Updated",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATE_ROLLBACK_FAILED: "UpdateRollbackFailed",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type SchedulerResourceStatus = (typeof SchedulerResourceStatus)[keyof typeof SchedulerResourceStatus];
+
+/**
+ * <p>Summary of the cluster policy.</p>
+ * @public
+ */
+export interface ClusterSchedulerConfigSummary {
+  /**
+   * <p>ARN of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigArn: string | undefined;
+
+  /**
+   * <p>ID of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigId: string | undefined;
+
+  /**
+   * <p>Version of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigVersion?: number | undefined;
+
+  /**
+   * <p>Name of the cluster policy.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Creation time of the cluster policy.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Last modified time of the cluster policy.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Status of the cluster policy.</p>
+   * @public
+   */
+  Status: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>ARN of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ClusterSortBy = {
   CREATION_TIME: "CREATION_TIME",
   NAME: "NAME",
@@ -9885,6 +10067,17 @@ export interface ClusterSummary {
    * @public
    */
   ClusterStatus: ClusterStatus | undefined;
+
+  /**
+   * <p>A list of Amazon Resource Names (ARNs) of the training plans associated with this
+   *          cluster.</p>
+   *          <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using
+   *          Amazon SageMaker Training Plan, see <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a>
+   *             </code>.</p>
+   * @public
+   */
+  TrainingPlanArns?: string[] | undefined;
 }
 
 /**
@@ -10414,6 +10607,218 @@ export const CompleteOnConvergence = {
 export type CompleteOnConvergence = (typeof CompleteOnConvergence)[keyof typeof CompleteOnConvergence];
 
 /**
+ * <p>Configuration of the resources used for the compute allocation definition.</p>
+ * @public
+ */
+export interface ComputeQuotaResourceConfig {
+  /**
+   * <p>The instance type of the instance group for the cluster.</p>
+   * @public
+   */
+  InstanceType: ClusterInstanceType | undefined;
+
+  /**
+   * <p>The number of instances to add to the instance group of a SageMaker HyperPod
+   *          cluster.</p>
+   * @public
+   */
+  Count: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PreemptTeamTasks = {
+  LOWERPRIORITY: "LowerPriority",
+  NEVER: "Never",
+} as const;
+
+/**
+ * @public
+ */
+export type PreemptTeamTasks = (typeof PreemptTeamTasks)[keyof typeof PreemptTeamTasks];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceSharingStrategy = {
+  DONTLEND: "DontLend",
+  LEND: "Lend",
+  LENDANDBORROW: "LendAndBorrow",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceSharingStrategy = (typeof ResourceSharingStrategy)[keyof typeof ResourceSharingStrategy];
+
+/**
+ * <p>Resource sharing configuration.</p>
+ * @public
+ */
+export interface ResourceSharingConfig {
+  /**
+   * <p>The strategy of how idle compute is shared within the cluster. The following are the
+   *          options of strategies.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DontLend</code>: entities do not lend idle compute.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Lend</code>: entities can lend idle compute to entities that can
+   *                borrow.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LendandBorrow</code>: entities can lend idle compute and borrow idle compute
+   *                from other entities.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default is <code>LendandBorrow</code>.</p>
+   * @public
+   */
+  Strategy: ResourceSharingStrategy | undefined;
+
+  /**
+   * <p>The limit on how much idle compute can be borrowed.The values can be 1 - 500 percent of
+   *          idle compute that the team is allowed to borrow.</p>
+   *          <p>Default is <code>50</code>.</p>
+   * @public
+   */
+  BorrowLimit?: number | undefined;
+}
+
+/**
+ * <p>Configuration of the compute allocation definition for an entity. This includes the
+ *          resource sharing option and the setting to preempt low priority tasks.</p>
+ * @public
+ */
+export interface ComputeQuotaConfig {
+  /**
+   * <p>Allocate compute resources by instance types.</p>
+   * @public
+   */
+  ComputeQuotaResources?: ComputeQuotaResourceConfig[] | undefined;
+
+  /**
+   * <p>Resource sharing configuration. This defines how an entity can lend and borrow idle
+   *          compute with other entities within the cluster.</p>
+   * @public
+   */
+  ResourceSharingConfig?: ResourceSharingConfig | undefined;
+
+  /**
+   * <p>Allows workloads from within an entity to preempt same-team workloads. When set to
+   *             <code>LowerPriority</code>, the entity's lower priority tasks are preempted by their own
+   *          higher priority tasks.</p>
+   *          <p>Default is <code>LowerPriority</code>.</p>
+   * @public
+   */
+  PreemptTeamTasks?: PreemptTeamTasks | undefined;
+}
+
+/**
+ * <p>The target entity to allocate compute resources to.</p>
+ * @public
+ */
+export interface ComputeQuotaTarget {
+  /**
+   * <p>Name of the team to allocate compute resources to.</p>
+   * @public
+   */
+  TeamName: string | undefined;
+
+  /**
+   * <p>Assigned entity fair-share weight. Idle compute will be shared across entities based on
+   *          these assigned weights. This weight is only used when <code>FairShare</code> is
+   *          enabled.</p>
+   *          <p>A weight of 0 is the lowest priority and 100 is the highest. Weight 0 is the
+   *          default.</p>
+   * @public
+   */
+  FairShareWeight?: number | undefined;
+}
+
+/**
+ * <p>Summary of the compute allocation definition.</p>
+ * @public
+ */
+export interface ComputeQuotaSummary {
+  /**
+   * <p>ARN of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaArn: string | undefined;
+
+  /**
+   * <p>ID of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaId: string | undefined;
+
+  /**
+   * <p>Name of the compute allocation definition.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Version of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaVersion?: number | undefined;
+
+  /**
+   * <p>Status of the compute allocation definition.</p>
+   * @public
+   */
+  Status: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>ARN of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>Configuration of the compute allocation definition. This includes the resource sharing
+   *          option, and the setting to preempt low priority tasks.</p>
+   * @public
+   */
+  ComputeQuotaConfig?: ComputeQuotaConfig | undefined;
+
+  /**
+   * <p>The target entity to allocate compute resources to.</p>
+   * @public
+   */
+  ComputeQuotaTarget: ComputeQuotaTarget | undefined;
+
+  /**
+   * <p>The state of the compute allocation being described. Use to enable or disable compute
+   *          allocation.</p>
+   *          <p>Default is <code>Enabled</code>.</p>
+   * @public
+   */
+  ActivationState?: ActivationState | undefined;
+
+  /**
+   * <p>Creation time of the compute allocation definition.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Last modified time of the compute allocation definition.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -10884,331 +11289,4 @@ export interface ContinuousParameterRangeSpecification {
    * @public
    */
   MaxValue: string | undefined;
-}
-
-/**
- * <p>A flag to indicating that automatic model tuning (AMT) has detected model convergence,
- *             defined as a lack of significant improvement (1% or less) against an objective
- *             metric.</p>
- * @public
- */
-export interface ConvergenceDetected {
-  /**
-   * <p>A flag to stop a tuning job once AMT has detected that the job has converged.</p>
-   * @public
-   */
-  CompleteOnConvergence?: CompleteOnConvergence | undefined;
-}
-
-/**
- * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
- * @public
- */
-export interface MetadataProperties {
-  /**
-   * <p>The commit ID.</p>
-   * @public
-   */
-  CommitId?: string | undefined;
-
-  /**
-   * <p>The repository.</p>
-   * @public
-   */
-  Repository?: string | undefined;
-
-  /**
-   * <p>The entity this entity was generated by.</p>
-   * @public
-   */
-  GeneratedBy?: string | undefined;
-
-  /**
-   * <p>The project ID.</p>
-   * @public
-   */
-  ProjectId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateActionRequest {
-  /**
-   * <p>The name of the action. Must be unique to your account in an Amazon Web Services Region.</p>
-   * @public
-   */
-  ActionName: string | undefined;
-
-  /**
-   * <p>The source type, ID, and URI.</p>
-   * @public
-   */
-  Source: ActionSource | undefined;
-
-  /**
-   * <p>The action type.</p>
-   * @public
-   */
-  ActionType: string | undefined;
-
-  /**
-   * <p>The description of the action.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The status of the action.</p>
-   * @public
-   */
-  Status?: ActionStatus | undefined;
-
-  /**
-   * <p>A list of properties to add to the action.</p>
-   * @public
-   */
-  Properties?: Record<string, string> | undefined;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   * @public
-   */
-  MetadataProperties?: MetadataProperties | undefined;
-
-  /**
-   * <p>A list of tags to apply to the action.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateActionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the action.</p>
-   * @public
-   */
-  ActionArn?: string | undefined;
-}
-
-/**
- * <p>Defines the possible values for an integer hyperparameter.</p>
- * @public
- */
-export interface IntegerParameterRangeSpecification {
-  /**
-   * <p>The minimum integer value allowed.</p>
-   * @public
-   */
-  MinValue: string | undefined;
-
-  /**
-   * <p>The maximum integer value allowed.</p>
-   * @public
-   */
-  MaxValue: string | undefined;
-}
-
-/**
- * <p>Defines the possible values for categorical, continuous, and integer hyperparameters
- *             to be used by an algorithm.</p>
- * @public
- */
-export interface ParameterRange {
-  /**
-   * <p>A <code>IntegerParameterRangeSpecification</code> object that defines the possible
-   *             values for an integer hyperparameter.</p>
-   * @public
-   */
-  IntegerParameterRangeSpecification?: IntegerParameterRangeSpecification | undefined;
-
-  /**
-   * <p>A <code>ContinuousParameterRangeSpecification</code> object that defines the possible
-   *             values for a continuous hyperparameter.</p>
-   * @public
-   */
-  ContinuousParameterRangeSpecification?: ContinuousParameterRangeSpecification | undefined;
-
-  /**
-   * <p>A <code>CategoricalParameterRangeSpecification</code> object that defines the possible
-   *             values for a categorical hyperparameter.</p>
-   * @public
-   */
-  CategoricalParameterRangeSpecification?: CategoricalParameterRangeSpecification | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ParameterType = {
-  CATEGORICAL: "Categorical",
-  CONTINUOUS: "Continuous",
-  FREE_TEXT: "FreeText",
-  INTEGER: "Integer",
-} as const;
-
-/**
- * @public
- */
-export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
-
-/**
- * <p>Defines a hyperparameter to be used by an algorithm.</p>
- * @public
- */
-export interface HyperParameterSpecification {
-  /**
-   * <p>The name of this hyperparameter. The name must be unique.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A brief description of the hyperparameter.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The type of this hyperparameter. The valid types are <code>Integer</code>,
-   *                 <code>Continuous</code>, <code>Categorical</code>, and <code>FreeText</code>.</p>
-   * @public
-   */
-  Type: ParameterType | undefined;
-
-  /**
-   * <p>The allowed range for this hyperparameter.</p>
-   * @public
-   */
-  Range?: ParameterRange | undefined;
-
-  /**
-   * <p>Indicates whether this hyperparameter is tunable in a hyperparameter tuning
-   *             job.</p>
-   * @public
-   */
-  IsTunable?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether this hyperparameter is required.</p>
-   * @public
-   */
-  IsRequired?: boolean | undefined;
-
-  /**
-   * <p>The default value for this hyperparameter. If a default value is specified, a
-   *             hyperparameter cannot be required.</p>
-   * @public
-   */
-  DefaultValue?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const HyperParameterTuningJobObjectiveType = {
-  MAXIMIZE: "Maximize",
-  MINIMIZE: "Minimize",
-} as const;
-
-/**
- * @public
- */
-export type HyperParameterTuningJobObjectiveType =
-  (typeof HyperParameterTuningJobObjectiveType)[keyof typeof HyperParameterTuningJobObjectiveType];
-
-/**
- * <p>Defines the objective metric for a hyperparameter tuning job. Hyperparameter tuning
- *             uses the value of this metric to evaluate the training jobs it launches, and returns the
- *             training job that results in either the highest or lowest value for this metric,
- *             depending on the value you specify for the <code>Type</code> parameter. If you want to
- *             define a custom objective metric, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html">Define metrics and environment variables</a>.</p>
- * @public
- */
-export interface HyperParameterTuningJobObjective {
-  /**
-   * <p>Whether to minimize or maximize the objective metric.</p>
-   * @public
-   */
-  Type: HyperParameterTuningJobObjectiveType | undefined;
-
-  /**
-   * <p>The
-   *             name of the metric to use for the objective metric.</p>
-   * @public
-   */
-  MetricName: string | undefined;
-}
-
-/**
- * <p>Defines how the algorithm is used for a training job.</p>
- * @public
- */
-export interface TrainingSpecification {
-  /**
-   * <p>The Amazon ECR registry path of the Docker image that contains the training
-   *             algorithm.</p>
-   * @public
-   */
-  TrainingImage: string | undefined;
-
-  /**
-   * <p>An MD5 hash of the training algorithm that identifies the Docker image used for
-   *             training.</p>
-   * @public
-   */
-  TrainingImageDigest?: string | undefined;
-
-  /**
-   * <p>A list of the <code>HyperParameterSpecification</code> objects, that define the
-   *             supported hyperparameters. This is required if the algorithm supports automatic model
-   *             tuning.></p>
-   * @public
-   */
-  SupportedHyperParameters?: HyperParameterSpecification[] | undefined;
-
-  /**
-   * <p>A list of the instance types that this algorithm can use for training.</p>
-   * @public
-   */
-  SupportedTrainingInstanceTypes: TrainingInstanceType[] | undefined;
-
-  /**
-   * <p>Indicates whether the algorithm supports distributed training. If set to false, buyers
-   *             can't request more than one instance during training.</p>
-   * @public
-   */
-  SupportsDistributedTraining?: boolean | undefined;
-
-  /**
-   * <p>A list of <code>MetricDefinition</code> objects, which are used for parsing metrics
-   *             generated by the algorithm.</p>
-   * @public
-   */
-  MetricDefinitions?: MetricDefinition[] | undefined;
-
-  /**
-   * <p>A list of <code>ChannelSpecification</code> objects, which specify the input sources
-   *             to be used by the algorithm.</p>
-   * @public
-   */
-  TrainingChannels: ChannelSpecification[] | undefined;
-
-  /**
-   * <p>A list of the metrics that the algorithm emits that can be used as the objective
-   *             metric in a hyperparameter tuning job.</p>
-   * @public
-   */
-  SupportedTuningJobObjectiveMetrics?: HyperParameterTuningJobObjective[] | undefined;
-
-  /**
-   * <p>The additional data source used during the training job.</p>
-   * @public
-   */
-  AdditionalS3DataSource?: AdditionalS3DataSource | undefined;
 }

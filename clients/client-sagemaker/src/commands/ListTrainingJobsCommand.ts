@@ -68,6 +68,7 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  *   SortBy: "Name" || "CreationTime" || "Status",
  *   SortOrder: "Ascending" || "Descending",
  *   WarmPoolStatusEquals: "Available" || "Terminated" || "Reused" || "InUse",
+ *   TrainingPlanArnEquals: "STRING_VALUE",
  * };
  * const command = new ListTrainingJobsCommand(input);
  * const response = await client.send(command);
@@ -86,6 +87,7 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  * //         ResourceRetainedBillableTimeInSeconds: Number("int"),
  * //         ReusedByJob: "STRING_VALUE",
  * //       },
+ * //       TrainingPlanArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

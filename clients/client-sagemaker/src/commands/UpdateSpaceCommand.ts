@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateSpaceRequest, UpdateSpaceResponse } from "../models/models_4";
+import { UpdateSpaceRequest, UpdateSpaceResponse } from "../models/models_5";
 import { de_UpdateSpaceCommand, se_UpdateSpaceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -117,6 +117,9 @@ export interface UpdateSpaceCommandOutput extends UpdateSpaceResponse, __Metadat
  *     CustomFileSystems: [ // CustomFileSystems
  *       { // CustomFileSystem Union: only one key present
  *         EFSFileSystem: { // EFSFileSystem
+ *           FileSystemId: "STRING_VALUE", // required
+ *         },
+ *         FSxLustreFileSystem: { // FSxLustreFileSystem
  *           FileSystemId: "STRING_VALUE", // required
  *         },
  *       },

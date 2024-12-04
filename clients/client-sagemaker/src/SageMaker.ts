@@ -60,6 +60,11 @@ import {
   CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
+  CreateClusterSchedulerConfigCommand,
+  CreateClusterSchedulerConfigCommandInput,
+  CreateClusterSchedulerConfigCommandOutput,
+} from "./commands/CreateClusterSchedulerConfigCommand";
+import {
   CreateCodeRepositoryCommand,
   CreateCodeRepositoryCommandInput,
   CreateCodeRepositoryCommandOutput,
@@ -69,6 +74,11 @@ import {
   CreateCompilationJobCommandInput,
   CreateCompilationJobCommandOutput,
 } from "./commands/CreateCompilationJobCommand";
+import {
+  CreateComputeQuotaCommand,
+  CreateComputeQuotaCommandInput,
+  CreateComputeQuotaCommandOutput,
+} from "./commands/CreateComputeQuotaCommand";
 import {
   CreateContextCommand,
   CreateContextCommandInput,
@@ -233,6 +243,16 @@ import {
   CreateOptimizationJobCommandOutput,
 } from "./commands/CreateOptimizationJobCommand";
 import {
+  CreatePartnerAppCommand,
+  CreatePartnerAppCommandInput,
+  CreatePartnerAppCommandOutput,
+} from "./commands/CreatePartnerAppCommand";
+import {
+  CreatePartnerAppPresignedUrlCommand,
+  CreatePartnerAppPresignedUrlCommandInput,
+  CreatePartnerAppPresignedUrlCommandOutput,
+} from "./commands/CreatePartnerAppPresignedUrlCommand";
+import {
   CreatePipelineCommand,
   CreatePipelineCommandInput,
   CreatePipelineCommandOutput,
@@ -273,6 +293,11 @@ import {
   CreateTrainingJobCommandInput,
   CreateTrainingJobCommandOutput,
 } from "./commands/CreateTrainingJobCommand";
+import {
+  CreateTrainingPlanCommand,
+  CreateTrainingPlanCommandInput,
+  CreateTrainingPlanCommandOutput,
+} from "./commands/CreateTrainingPlanCommand";
 import {
   CreateTransformJobCommand,
   CreateTransformJobCommandInput,
@@ -331,6 +356,11 @@ import {
   DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
 import {
+  DeleteClusterSchedulerConfigCommand,
+  DeleteClusterSchedulerConfigCommandInput,
+  DeleteClusterSchedulerConfigCommandOutput,
+} from "./commands/DeleteClusterSchedulerConfigCommand";
+import {
   DeleteCodeRepositoryCommand,
   DeleteCodeRepositoryCommandInput,
   DeleteCodeRepositoryCommandOutput,
@@ -340,6 +370,11 @@ import {
   DeleteCompilationJobCommandInput,
   DeleteCompilationJobCommandOutput,
 } from "./commands/DeleteCompilationJobCommand";
+import {
+  DeleteComputeQuotaCommand,
+  DeleteComputeQuotaCommandInput,
+  DeleteComputeQuotaCommandOutput,
+} from "./commands/DeleteComputeQuotaCommand";
 import {
   DeleteContextCommand,
   DeleteContextCommandInput,
@@ -494,6 +529,11 @@ import {
   DeleteOptimizationJobCommandOutput,
 } from "./commands/DeleteOptimizationJobCommand";
 import {
+  DeletePartnerAppCommand,
+  DeletePartnerAppCommandInput,
+  DeletePartnerAppCommandOutput,
+} from "./commands/DeletePartnerAppCommand";
+import {
   DeletePipelineCommand,
   DeletePipelineCommandInput,
   DeletePipelineCommandOutput,
@@ -578,6 +618,11 @@ import {
   DescribeClusterNodeCommandOutput,
 } from "./commands/DescribeClusterNodeCommand";
 import {
+  DescribeClusterSchedulerConfigCommand,
+  DescribeClusterSchedulerConfigCommandInput,
+  DescribeClusterSchedulerConfigCommandOutput,
+} from "./commands/DescribeClusterSchedulerConfigCommand";
+import {
   DescribeCodeRepositoryCommand,
   DescribeCodeRepositoryCommandInput,
   DescribeCodeRepositoryCommandOutput,
@@ -587,6 +632,11 @@ import {
   DescribeCompilationJobCommandInput,
   DescribeCompilationJobCommandOutput,
 } from "./commands/DescribeCompilationJobCommand";
+import {
+  DescribeComputeQuotaCommand,
+  DescribeComputeQuotaCommandInput,
+  DescribeComputeQuotaCommandOutput,
+} from "./commands/DescribeComputeQuotaCommand";
 import {
   DescribeContextCommand,
   DescribeContextCommandInput,
@@ -769,6 +819,11 @@ import {
   DescribeOptimizationJobCommandOutput,
 } from "./commands/DescribeOptimizationJobCommand";
 import {
+  DescribePartnerAppCommand,
+  DescribePartnerAppCommandInput,
+  DescribePartnerAppCommandOutput,
+} from "./commands/DescribePartnerAppCommand";
+import {
   DescribePipelineCommand,
   DescribePipelineCommandInput,
   DescribePipelineCommandOutput,
@@ -813,6 +868,11 @@ import {
   DescribeTrainingJobCommandInput,
   DescribeTrainingJobCommandOutput,
 } from "./commands/DescribeTrainingJobCommand";
+import {
+  DescribeTrainingPlanCommand,
+  DescribeTrainingPlanCommandInput,
+  DescribeTrainingPlanCommandOutput,
+} from "./commands/DescribeTrainingPlanCommand";
 import {
   DescribeTransformJobCommand,
   DescribeTransformJobCommandInput,
@@ -932,6 +992,11 @@ import {
   ListClusterNodesCommandOutput,
 } from "./commands/ListClusterNodesCommand";
 import {
+  ListClusterSchedulerConfigsCommand,
+  ListClusterSchedulerConfigsCommandInput,
+  ListClusterSchedulerConfigsCommandOutput,
+} from "./commands/ListClusterSchedulerConfigsCommand";
+import {
   ListClustersCommand,
   ListClustersCommandInput,
   ListClustersCommandOutput,
@@ -946,6 +1011,11 @@ import {
   ListCompilationJobsCommandInput,
   ListCompilationJobsCommandOutput,
 } from "./commands/ListCompilationJobsCommand";
+import {
+  ListComputeQuotasCommand,
+  ListComputeQuotasCommandInput,
+  ListComputeQuotasCommandOutput,
+} from "./commands/ListComputeQuotasCommand";
 import {
   ListContextsCommand,
   ListContextsCommandInput,
@@ -1147,6 +1217,11 @@ import {
   ListOptimizationJobsCommandOutput,
 } from "./commands/ListOptimizationJobsCommand";
 import {
+  ListPartnerAppsCommand,
+  ListPartnerAppsCommandInput,
+  ListPartnerAppsCommandOutput,
+} from "./commands/ListPartnerAppsCommand";
+import {
   ListPipelineExecutionsCommand,
   ListPipelineExecutionsCommandInput,
   ListPipelineExecutionsCommandOutput,
@@ -1209,6 +1284,11 @@ import {
   ListTrainingJobsForHyperParameterTuningJobCommandOutput,
 } from "./commands/ListTrainingJobsForHyperParameterTuningJobCommand";
 import {
+  ListTrainingPlansCommand,
+  ListTrainingPlansCommandInput,
+  ListTrainingPlansCommandOutput,
+} from "./commands/ListTrainingPlansCommand";
+import {
   ListTransformJobsCommand,
   ListTransformJobsCommandInput,
   ListTransformJobsCommandOutput,
@@ -1260,6 +1340,11 @@ import {
   RetryPipelineExecutionCommandOutput,
 } from "./commands/RetryPipelineExecutionCommand";
 import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
+import {
+  SearchTrainingPlanOfferingsCommand,
+  SearchTrainingPlanOfferingsCommandInput,
+  SearchTrainingPlanOfferingsCommandOutput,
+} from "./commands/SearchTrainingPlanOfferingsCommand";
 import {
   SendPipelineExecutionStepFailureCommand,
   SendPipelineExecutionStepFailureCommandInput,
@@ -1401,6 +1486,11 @@ import {
   UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
 import {
+  UpdateClusterSchedulerConfigCommand,
+  UpdateClusterSchedulerConfigCommandInput,
+  UpdateClusterSchedulerConfigCommandOutput,
+} from "./commands/UpdateClusterSchedulerConfigCommand";
+import {
   UpdateClusterSoftwareCommand,
   UpdateClusterSoftwareCommandInput,
   UpdateClusterSoftwareCommandOutput,
@@ -1410,6 +1500,11 @@ import {
   UpdateCodeRepositoryCommandInput,
   UpdateCodeRepositoryCommandOutput,
 } from "./commands/UpdateCodeRepositoryCommand";
+import {
+  UpdateComputeQuotaCommand,
+  UpdateComputeQuotaCommandInput,
+  UpdateComputeQuotaCommandOutput,
+} from "./commands/UpdateComputeQuotaCommand";
 import {
   UpdateContextCommand,
   UpdateContextCommandInput,
@@ -1513,6 +1608,11 @@ import {
   UpdateNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/UpdateNotebookInstanceLifecycleConfigCommand";
 import {
+  UpdatePartnerAppCommand,
+  UpdatePartnerAppCommandInput,
+  UpdatePartnerAppCommandOutput,
+} from "./commands/UpdatePartnerAppCommand";
+import {
   UpdatePipelineCommand,
   UpdatePipelineCommandInput,
   UpdatePipelineCommandOutput,
@@ -1570,8 +1670,10 @@ const commands = {
   CreateAutoMLJobCommand,
   CreateAutoMLJobV2Command,
   CreateClusterCommand,
+  CreateClusterSchedulerConfigCommand,
   CreateCodeRepositoryCommand,
   CreateCompilationJobCommand,
+  CreateComputeQuotaCommand,
   CreateContextCommand,
   CreateDataQualityJobDefinitionCommand,
   CreateDeviceFleetCommand,
@@ -1607,6 +1709,8 @@ const commands = {
   CreateNotebookInstanceCommand,
   CreateNotebookInstanceLifecycleConfigCommand,
   CreateOptimizationJobCommand,
+  CreatePartnerAppCommand,
+  CreatePartnerAppPresignedUrlCommand,
   CreatePipelineCommand,
   CreatePresignedDomainUrlCommand,
   CreatePresignedMlflowTrackingServerUrlCommand,
@@ -1616,6 +1720,7 @@ const commands = {
   CreateSpaceCommand,
   CreateStudioLifecycleConfigCommand,
   CreateTrainingJobCommand,
+  CreateTrainingPlanCommand,
   CreateTransformJobCommand,
   CreateTrialCommand,
   CreateTrialComponentCommand,
@@ -1629,8 +1734,10 @@ const commands = {
   DeleteArtifactCommand,
   DeleteAssociationCommand,
   DeleteClusterCommand,
+  DeleteClusterSchedulerConfigCommand,
   DeleteCodeRepositoryCommand,
   DeleteCompilationJobCommand,
+  DeleteComputeQuotaCommand,
   DeleteContextCommand,
   DeleteDataQualityJobDefinitionCommand,
   DeleteDeviceFleetCommand,
@@ -1664,6 +1771,7 @@ const commands = {
   DeleteNotebookInstanceCommand,
   DeleteNotebookInstanceLifecycleConfigCommand,
   DeleteOptimizationJobCommand,
+  DeletePartnerAppCommand,
   DeletePipelineCommand,
   DeleteProjectCommand,
   DeleteSpaceCommand,
@@ -1684,8 +1792,10 @@ const commands = {
   DescribeAutoMLJobV2Command,
   DescribeClusterCommand,
   DescribeClusterNodeCommand,
+  DescribeClusterSchedulerConfigCommand,
   DescribeCodeRepositoryCommand,
   DescribeCompilationJobCommand,
+  DescribeComputeQuotaCommand,
   DescribeContextCommand,
   DescribeDataQualityJobDefinitionCommand,
   DescribeDeviceCommand,
@@ -1723,6 +1833,7 @@ const commands = {
   DescribeNotebookInstanceCommand,
   DescribeNotebookInstanceLifecycleConfigCommand,
   DescribeOptimizationJobCommand,
+  DescribePartnerAppCommand,
   DescribePipelineCommand,
   DescribePipelineDefinitionForExecutionCommand,
   DescribePipelineExecutionCommand,
@@ -1732,6 +1843,7 @@ const commands = {
   DescribeStudioLifecycleConfigCommand,
   DescribeSubscribedWorkteamCommand,
   DescribeTrainingJobCommand,
+  DescribeTrainingPlanCommand,
   DescribeTransformJobCommand,
   DescribeTrialCommand,
   DescribeTrialComponentCommand,
@@ -1759,8 +1871,10 @@ const commands = {
   ListCandidatesForAutoMLJobCommand,
   ListClusterNodesCommand,
   ListClustersCommand,
+  ListClusterSchedulerConfigsCommand,
   ListCodeRepositoriesCommand,
   ListCompilationJobsCommand,
+  ListComputeQuotasCommand,
   ListContextsCommand,
   ListDataQualityJobDefinitionsCommand,
   ListDeviceFleetsCommand,
@@ -1805,6 +1919,7 @@ const commands = {
   ListNotebookInstanceLifecycleConfigsCommand,
   ListNotebookInstancesCommand,
   ListOptimizationJobsCommand,
+  ListPartnerAppsCommand,
   ListPipelineExecutionsCommand,
   ListPipelineExecutionStepsCommand,
   ListPipelineParametersForExecutionCommand,
@@ -1819,6 +1934,7 @@ const commands = {
   ListTagsCommand,
   ListTrainingJobsCommand,
   ListTrainingJobsForHyperParameterTuningJobCommand,
+  ListTrainingPlansCommand,
   ListTransformJobsCommand,
   ListTrialComponentsCommand,
   ListTrialsCommand,
@@ -1831,6 +1947,7 @@ const commands = {
   RenderUiTemplateCommand,
   RetryPipelineExecutionCommand,
   SearchCommand,
+  SearchTrainingPlanOfferingsCommand,
   SendPipelineExecutionStepFailureCommand,
   SendPipelineExecutionStepSuccessCommand,
   StartEdgeDeploymentStageCommand,
@@ -1859,8 +1976,10 @@ const commands = {
   UpdateAppImageConfigCommand,
   UpdateArtifactCommand,
   UpdateClusterCommand,
+  UpdateClusterSchedulerConfigCommand,
   UpdateClusterSoftwareCommand,
   UpdateCodeRepositoryCommand,
+  UpdateComputeQuotaCommand,
   UpdateContextCommand,
   UpdateDeviceFleetCommand,
   UpdateDevicesCommand,
@@ -1883,6 +2002,7 @@ const commands = {
   UpdateMonitoringScheduleCommand,
   UpdateNotebookInstanceCommand,
   UpdateNotebookInstanceLifecycleConfigCommand,
+  UpdatePartnerAppCommand,
   UpdatePipelineCommand,
   UpdatePipelineExecutionCommand,
   UpdateProjectCommand,
@@ -2082,6 +2202,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link CreateClusterSchedulerConfigCommand}
+   */
+  createClusterSchedulerConfig(
+    args: CreateClusterSchedulerConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateClusterSchedulerConfigCommandOutput>;
+  createClusterSchedulerConfig(
+    args: CreateClusterSchedulerConfigCommandInput,
+    cb: (err: any, data?: CreateClusterSchedulerConfigCommandOutput) => void
+  ): void;
+  createClusterSchedulerConfig(
+    args: CreateClusterSchedulerConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateClusterSchedulerConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateCodeRepositoryCommand}
    */
   createCodeRepository(
@@ -2113,6 +2250,23 @@ export interface SageMaker {
     args: CreateCompilationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCompilationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateComputeQuotaCommand}
+   */
+  createComputeQuota(
+    args: CreateComputeQuotaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateComputeQuotaCommandOutput>;
+  createComputeQuota(
+    args: CreateComputeQuotaCommandInput,
+    cb: (err: any, data?: CreateComputeQuotaCommandOutput) => void
+  ): void;
+  createComputeQuota(
+    args: CreateComputeQuotaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateComputeQuotaCommandOutput) => void
   ): void;
 
   /**
@@ -2676,6 +2830,40 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link CreatePartnerAppCommand}
+   */
+  createPartnerApp(
+    args: CreatePartnerAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePartnerAppCommandOutput>;
+  createPartnerApp(
+    args: CreatePartnerAppCommandInput,
+    cb: (err: any, data?: CreatePartnerAppCommandOutput) => void
+  ): void;
+  createPartnerApp(
+    args: CreatePartnerAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePartnerAppCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePartnerAppPresignedUrlCommand}
+   */
+  createPartnerAppPresignedUrl(
+    args: CreatePartnerAppPresignedUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePartnerAppPresignedUrlCommandOutput>;
+  createPartnerAppPresignedUrl(
+    args: CreatePartnerAppPresignedUrlCommandInput,
+    cb: (err: any, data?: CreatePartnerAppPresignedUrlCommandOutput) => void
+  ): void;
+  createPartnerAppPresignedUrl(
+    args: CreatePartnerAppPresignedUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePartnerAppPresignedUrlCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreatePipelineCommand}
    */
   createPipeline(
@@ -2811,6 +2999,23 @@ export interface SageMaker {
     args: CreateTrainingJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateTrainingJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateTrainingPlanCommand}
+   */
+  createTrainingPlan(
+    args: CreateTrainingPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTrainingPlanCommandOutput>;
+  createTrainingPlan(
+    args: CreateTrainingPlanCommandInput,
+    cb: (err: any, data?: CreateTrainingPlanCommandOutput) => void
+  ): void;
+  createTrainingPlan(
+    args: CreateTrainingPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTrainingPlanCommandOutput) => void
   ): void;
 
   /**
@@ -3000,6 +3205,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DeleteClusterSchedulerConfigCommand}
+   */
+  deleteClusterSchedulerConfig(
+    args: DeleteClusterSchedulerConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteClusterSchedulerConfigCommandOutput>;
+  deleteClusterSchedulerConfig(
+    args: DeleteClusterSchedulerConfigCommandInput,
+    cb: (err: any, data?: DeleteClusterSchedulerConfigCommandOutput) => void
+  ): void;
+  deleteClusterSchedulerConfig(
+    args: DeleteClusterSchedulerConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteClusterSchedulerConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteCodeRepositoryCommand}
    */
   deleteCodeRepository(
@@ -3031,6 +3253,23 @@ export interface SageMaker {
     args: DeleteCompilationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCompilationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteComputeQuotaCommand}
+   */
+  deleteComputeQuota(
+    args: DeleteComputeQuotaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteComputeQuotaCommandOutput>;
+  deleteComputeQuota(
+    args: DeleteComputeQuotaCommandInput,
+    cb: (err: any, data?: DeleteComputeQuotaCommandOutput) => void
+  ): void;
+  deleteComputeQuota(
+    args: DeleteComputeQuotaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteComputeQuotaCommandOutput) => void
   ): void;
 
   /**
@@ -3559,6 +3798,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DeletePartnerAppCommand}
+   */
+  deletePartnerApp(
+    args: DeletePartnerAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePartnerAppCommandOutput>;
+  deletePartnerApp(
+    args: DeletePartnerAppCommandInput,
+    cb: (err: any, data?: DeletePartnerAppCommandOutput) => void
+  ): void;
+  deletePartnerApp(
+    args: DeletePartnerAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePartnerAppCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeletePipelineCommand}
    */
   deletePipeline(
@@ -3854,6 +4110,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DescribeClusterSchedulerConfigCommand}
+   */
+  describeClusterSchedulerConfig(
+    args: DescribeClusterSchedulerConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeClusterSchedulerConfigCommandOutput>;
+  describeClusterSchedulerConfig(
+    args: DescribeClusterSchedulerConfigCommandInput,
+    cb: (err: any, data?: DescribeClusterSchedulerConfigCommandOutput) => void
+  ): void;
+  describeClusterSchedulerConfig(
+    args: DescribeClusterSchedulerConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeClusterSchedulerConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeCodeRepositoryCommand}
    */
   describeCodeRepository(
@@ -3885,6 +4158,23 @@ export interface SageMaker {
     args: DescribeCompilationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeCompilationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeComputeQuotaCommand}
+   */
+  describeComputeQuota(
+    args: DescribeComputeQuotaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeComputeQuotaCommandOutput>;
+  describeComputeQuota(
+    args: DescribeComputeQuotaCommandInput,
+    cb: (err: any, data?: DescribeComputeQuotaCommandOutput) => void
+  ): void;
+  describeComputeQuota(
+    args: DescribeComputeQuotaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeComputeQuotaCommandOutput) => void
   ): void;
 
   /**
@@ -4490,6 +4780,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DescribePartnerAppCommand}
+   */
+  describePartnerApp(
+    args: DescribePartnerAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePartnerAppCommandOutput>;
+  describePartnerApp(
+    args: DescribePartnerAppCommandInput,
+    cb: (err: any, data?: DescribePartnerAppCommandOutput) => void
+  ): void;
+  describePartnerApp(
+    args: DescribePartnerAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePartnerAppCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribePipelineCommand}
    */
   describePipeline(
@@ -4631,6 +4938,23 @@ export interface SageMaker {
     args: DescribeTrainingJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeTrainingJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTrainingPlanCommand}
+   */
+  describeTrainingPlan(
+    args: DescribeTrainingPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTrainingPlanCommandOutput>;
+  describeTrainingPlan(
+    args: DescribeTrainingPlanCommandInput,
+    cb: (err: any, data?: DescribeTrainingPlanCommandOutput) => void
+  ): void;
+  describeTrainingPlan(
+    args: DescribeTrainingPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTrainingPlanCommandOutput) => void
   ): void;
 
   /**
@@ -5062,6 +5386,24 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link ListClusterSchedulerConfigsCommand}
+   */
+  listClusterSchedulerConfigs(): Promise<ListClusterSchedulerConfigsCommandOutput>;
+  listClusterSchedulerConfigs(
+    args: ListClusterSchedulerConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClusterSchedulerConfigsCommandOutput>;
+  listClusterSchedulerConfigs(
+    args: ListClusterSchedulerConfigsCommandInput,
+    cb: (err: any, data?: ListClusterSchedulerConfigsCommandOutput) => void
+  ): void;
+  listClusterSchedulerConfigs(
+    args: ListClusterSchedulerConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListClusterSchedulerConfigsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCodeRepositoriesCommand}
    */
   listCodeRepositories(): Promise<ListCodeRepositoriesCommandOutput>;
@@ -5095,6 +5437,24 @@ export interface SageMaker {
     args: ListCompilationJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCompilationJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListComputeQuotasCommand}
+   */
+  listComputeQuotas(): Promise<ListComputeQuotasCommandOutput>;
+  listComputeQuotas(
+    args: ListComputeQuotasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComputeQuotasCommandOutput>;
+  listComputeQuotas(
+    args: ListComputeQuotasCommandInput,
+    cb: (err: any, data?: ListComputeQuotasCommandOutput) => void
+  ): void;
+  listComputeQuotas(
+    args: ListComputeQuotasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComputeQuotasCommandOutput) => void
   ): void;
 
   /**
@@ -5831,6 +6191,21 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link ListPartnerAppsCommand}
+   */
+  listPartnerApps(): Promise<ListPartnerAppsCommandOutput>;
+  listPartnerApps(
+    args: ListPartnerAppsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPartnerAppsCommandOutput>;
+  listPartnerApps(args: ListPartnerAppsCommandInput, cb: (err: any, data?: ListPartnerAppsCommandOutput) => void): void;
+  listPartnerApps(
+    args: ListPartnerAppsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPartnerAppsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListPipelineExecutionsCommand}
    */
   listPipelineExecutions(
@@ -6054,6 +6429,24 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link ListTrainingPlansCommand}
+   */
+  listTrainingPlans(): Promise<ListTrainingPlansCommandOutput>;
+  listTrainingPlans(
+    args: ListTrainingPlansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTrainingPlansCommandOutput>;
+  listTrainingPlans(
+    args: ListTrainingPlansCommandInput,
+    cb: (err: any, data?: ListTrainingPlansCommandOutput) => void
+  ): void;
+  listTrainingPlans(
+    args: ListTrainingPlansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTrainingPlansCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTransformJobsCommand}
    */
   listTransformJobs(): Promise<ListTransformJobsCommandOutput>;
@@ -6232,6 +6625,23 @@ export interface SageMaker {
     args: SearchCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchTrainingPlanOfferingsCommand}
+   */
+  searchTrainingPlanOfferings(
+    args: SearchTrainingPlanOfferingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchTrainingPlanOfferingsCommandOutput>;
+  searchTrainingPlanOfferings(
+    args: SearchTrainingPlanOfferingsCommandInput,
+    cb: (err: any, data?: SearchTrainingPlanOfferingsCommandOutput) => void
+  ): void;
+  searchTrainingPlanOfferings(
+    args: SearchTrainingPlanOfferingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchTrainingPlanOfferingsCommandOutput) => void
   ): void;
 
   /**
@@ -6684,6 +7094,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link UpdateClusterSchedulerConfigCommand}
+   */
+  updateClusterSchedulerConfig(
+    args: UpdateClusterSchedulerConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateClusterSchedulerConfigCommandOutput>;
+  updateClusterSchedulerConfig(
+    args: UpdateClusterSchedulerConfigCommandInput,
+    cb: (err: any, data?: UpdateClusterSchedulerConfigCommandOutput) => void
+  ): void;
+  updateClusterSchedulerConfig(
+    args: UpdateClusterSchedulerConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateClusterSchedulerConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateClusterSoftwareCommand}
    */
   updateClusterSoftware(
@@ -6715,6 +7142,23 @@ export interface SageMaker {
     args: UpdateCodeRepositoryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCodeRepositoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateComputeQuotaCommand}
+   */
+  updateComputeQuota(
+    args: UpdateComputeQuotaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateComputeQuotaCommandOutput>;
+  updateComputeQuota(
+    args: UpdateComputeQuotaCommandInput,
+    cb: (err: any, data?: UpdateComputeQuotaCommandOutput) => void
+  ): void;
+  updateComputeQuota(
+    args: UpdateComputeQuotaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateComputeQuotaCommandOutput) => void
   ): void;
 
   /**
@@ -7053,6 +7497,23 @@ export interface SageMaker {
     args: UpdateNotebookInstanceLifecycleConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateNotebookInstanceLifecycleConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePartnerAppCommand}
+   */
+  updatePartnerApp(
+    args: UpdatePartnerAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePartnerAppCommandOutput>;
+  updatePartnerApp(
+    args: UpdatePartnerAppCommandInput,
+    cb: (err: any, data?: UpdatePartnerAppCommandOutput) => void
+  ): void;
+  updatePartnerApp(
+    args: UpdatePartnerAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePartnerAppCommandOutput) => void
   ): void;
 
   /**

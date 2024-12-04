@@ -125,6 +125,9 @@ export interface CreateSpaceCommandOutput extends CreateSpaceResponse, __Metadat
  *         EFSFileSystem: { // EFSFileSystem
  *           FileSystemId: "STRING_VALUE", // required
  *         },
+ *         FSxLustreFileSystem: { // FSxLustreFileSystem
+ *           FileSystemId: "STRING_VALUE", // required
+ *         },
  *       },
  *     ],
  *   },

@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_4";
+import { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_5";
 import { de_UpdateDomainCommand, se_UpdateDomainCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -227,11 +227,15 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *           FileSystemId: "STRING_VALUE", // required
  *           FileSystemPath: "STRING_VALUE",
  *         },
+ *         FSxLustreFileSystemConfig: { // FSxLustreFileSystemConfig
+ *           FileSystemId: "STRING_VALUE", // required
+ *           FileSystemPath: "STRING_VALUE",
+ *         },
  *       },
  *     ],
  *     StudioWebPortalSettings: { // StudioWebPortalSettings
  *       HiddenMlTools: [ // HiddenMlToolsList
- *         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects" || "InferenceOptimization" || "PerformanceEvaluation",
+ *         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects" || "InferenceOptimization" || "PerformanceEvaluation" || "HyperPodClusters" || "LakeraGuard" || "Comet" || "DeepchecksLLMEvaluation" || "Fiddler",
  *       ],
  *       HiddenAppTypes: [ // HiddenAppTypesList
  *         "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",
@@ -340,6 +344,10 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *     CustomFileSystemConfigs: [
  *       {//  Union: only one key present
  *         EFSFileSystemConfig: {
+ *           FileSystemId: "STRING_VALUE", // required
+ *           FileSystemPath: "STRING_VALUE",
+ *         },
+ *         FSxLustreFileSystemConfig: {
  *           FileSystemId: "STRING_VALUE", // required
  *           FileSystemPath: "STRING_VALUE",
  *         },
