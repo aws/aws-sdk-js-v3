@@ -74,7 +74,11 @@ import {
   GuardrailContextualGroundingPolicyAssessment,
   GuardrailConverseContentBlock,
   GuardrailConverseContentQualifier,
+  GuardrailConverseImageBlock,
+  GuardrailConverseImageSource,
   GuardrailConverseTextBlock,
+  GuardrailImageBlock,
+  GuardrailImageSource,
   GuardrailStreamConfiguration,
   GuardrailTextBlock,
   GuardrailTraceAssessment,
@@ -131,7 +135,7 @@ export const se_ApplyGuardrailCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      content: (_) => _json(_),
+      content: (_) => se_GuardrailContentBlockList(_, context),
       source: [],
     })
   );
@@ -163,7 +167,7 @@ export const se_ConverseCommand = async (
       performanceConfig: (_) => _json(_),
       promptVariables: (_) => _json(_),
       requestMetadata: (_) => _json(_),
-      system: (_) => _json(_),
+      system: (_) => se_SystemContentBlocks(_, context),
       toolConfig: (_) => se_ToolConfiguration(_, context),
     })
   );
@@ -195,7 +199,7 @@ export const se_ConverseStreamCommand = async (
       performanceConfig: (_) => _json(_),
       promptVariables: (_) => _json(_),
       requestMetadata: (_) => _json(_),
-      system: (_) => _json(_),
+      system: (_) => se_SystemContentBlocks(_, context),
       toolConfig: (_) => se_ToolConfiguration(_, context),
     })
   );
@@ -1034,7 +1038,7 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
 const se_ContentBlock = (input: ContentBlock, context: __SerdeContext): any => {
   return ContentBlock.visit(input, {
     document: (value) => ({ document: se_DocumentBlock(value, context) }),
-    guardContent: (value) => ({ guardContent: _json(value) }),
+    guardContent: (value) => ({ guardContent: se_GuardrailConverseContentBlock(value, context) }),
     image: (value) => ({ image: se_ImageBlock(value, context) }),
     text: (value) => ({ text: value }),
     toolResult: (value) => ({ toolResult: se_ToolResultBlock(value, context) }),
@@ -1078,17 +1082,84 @@ const se_DocumentSource = (input: DocumentSource, context: __SerdeContext): any 
 
 // se_GuardrailConfiguration omitted.
 
-// se_GuardrailContentBlock omitted.
+/**
+ * serializeAws_restJson1GuardrailContentBlock
+ */
+const se_GuardrailContentBlock = (input: GuardrailContentBlock, context: __SerdeContext): any => {
+  return GuardrailContentBlock.visit(input, {
+    image: (value) => ({ image: se_GuardrailImageBlock(value, context) }),
+    text: (value) => ({ text: _json(value) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
 
-// se_GuardrailContentBlockList omitted.
+/**
+ * serializeAws_restJson1GuardrailContentBlockList
+ */
+const se_GuardrailContentBlockList = (input: GuardrailContentBlock[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_GuardrailContentBlock(entry, context);
+    });
+};
 
 // se_GuardrailContentQualifierList omitted.
 
-// se_GuardrailConverseContentBlock omitted.
+/**
+ * serializeAws_restJson1GuardrailConverseContentBlock
+ */
+const se_GuardrailConverseContentBlock = (input: GuardrailConverseContentBlock, context: __SerdeContext): any => {
+  return GuardrailConverseContentBlock.visit(input, {
+    image: (value) => ({ image: se_GuardrailConverseImageBlock(value, context) }),
+    text: (value) => ({ text: _json(value) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
 
 // se_GuardrailConverseContentQualifierList omitted.
 
+/**
+ * serializeAws_restJson1GuardrailConverseImageBlock
+ */
+const se_GuardrailConverseImageBlock = (input: GuardrailConverseImageBlock, context: __SerdeContext): any => {
+  return take(input, {
+    format: [],
+    source: (_) => se_GuardrailConverseImageSource(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1GuardrailConverseImageSource
+ */
+const se_GuardrailConverseImageSource = (input: GuardrailConverseImageSource, context: __SerdeContext): any => {
+  return GuardrailConverseImageSource.visit(input, {
+    bytes: (value) => ({ bytes: context.base64Encoder(value) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
 // se_GuardrailConverseTextBlock omitted.
+
+/**
+ * serializeAws_restJson1GuardrailImageBlock
+ */
+const se_GuardrailImageBlock = (input: GuardrailImageBlock, context: __SerdeContext): any => {
+  return take(input, {
+    format: [],
+    source: (_) => se_GuardrailImageSource(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1GuardrailImageSource
+ */
+const se_GuardrailImageSource = (input: GuardrailImageSource, context: __SerdeContext): any => {
+  return GuardrailImageSource.visit(input, {
+    bytes: (value) => ({ bytes: context.base64Encoder(value) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
 
 // se_GuardrailStreamConfiguration omitted.
 
@@ -1168,9 +1239,27 @@ const se_ModelInputPayload = (input: __DocumentType, context: __SerdeContext): a
 
 // se_SpecificToolChoice omitted.
 
-// se_SystemContentBlock omitted.
+/**
+ * serializeAws_restJson1SystemContentBlock
+ */
+const se_SystemContentBlock = (input: SystemContentBlock, context: __SerdeContext): any => {
+  return SystemContentBlock.visit(input, {
+    guardContent: (value) => ({ guardContent: se_GuardrailConverseContentBlock(value, context) }),
+    text: (value) => ({ text: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
 
-// se_SystemContentBlocks omitted.
+/**
+ * serializeAws_restJson1SystemContentBlocks
+ */
+const se_SystemContentBlocks = (input: SystemContentBlock[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_SystemContentBlock(entry, context);
+    });
+};
 
 // se_Tag omitted.
 
@@ -1349,7 +1438,7 @@ const de_ContentBlock = (output: any, context: __SerdeContext): ContentBlock => 
   }
   if (output.guardContent != null) {
     return {
-      guardContent: _json(__expectUnion(output.guardContent)),
+      guardContent: de_GuardrailConverseContentBlock(__expectUnion(output.guardContent), context),
     };
   }
   if (output.image != null) {
@@ -1434,6 +1523,7 @@ const de_ConverseStreamMetadataEvent = (output: any, context: __SerdeContext): C
 const de_ConverseStreamTrace = (output: any, context: __SerdeContext): ConverseStreamTrace => {
   return take(output, {
     guardrail: (_: any) => de_GuardrailTraceAssessment(_, context),
+    promptRouter: _json,
   }) as any;
 };
 
@@ -1443,6 +1533,7 @@ const de_ConverseStreamTrace = (output: any, context: __SerdeContext): ConverseS
 const de_ConverseTrace = (output: any, context: __SerdeContext): ConverseTrace => {
   return take(output, {
     guardrail: (_: any) => de_GuardrailTraceAssessment(_, context),
+    promptRouter: _json,
   }) as any;
 };
 
@@ -1569,9 +1660,46 @@ const de_GuardrailContextualGroundingPolicyAssessment = (
   }) as any;
 };
 
-// de_GuardrailConverseContentBlock omitted.
+/**
+ * deserializeAws_restJson1GuardrailConverseContentBlock
+ */
+const de_GuardrailConverseContentBlock = (output: any, context: __SerdeContext): GuardrailConverseContentBlock => {
+  if (output.image != null) {
+    return {
+      image: de_GuardrailConverseImageBlock(output.image, context),
+    };
+  }
+  if (output.text != null) {
+    return {
+      text: _json(output.text),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 // de_GuardrailConverseContentQualifierList omitted.
+
+/**
+ * deserializeAws_restJson1GuardrailConverseImageBlock
+ */
+const de_GuardrailConverseImageBlock = (output: any, context: __SerdeContext): GuardrailConverseImageBlock => {
+  return take(output, {
+    format: __expectString,
+    source: (_: any) => de_GuardrailConverseImageSource(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GuardrailConverseImageSource
+ */
+const de_GuardrailConverseImageSource = (output: any, context: __SerdeContext): GuardrailConverseImageSource => {
+  if (output.bytes != null) {
+    return {
+      bytes: context.base64Decoder(output.bytes),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 // de_GuardrailConverseTextBlock omitted.
 
@@ -1580,6 +1708,8 @@ const de_GuardrailContextualGroundingPolicyAssessment = (
 // de_GuardrailCustomWord omitted.
 
 // de_GuardrailCustomWordList omitted.
+
+// de_GuardrailImageCoverage omitted.
 
 // de_GuardrailInvocationMetrics omitted.
 
@@ -1680,6 +1810,8 @@ const de_PayloadPart = (output: any, context: __SerdeContext): PayloadPart => {
 };
 
 // de_PerformanceConfiguration omitted.
+
+// de_PromptRouterTrace omitted.
 
 // de_S3Location omitted.
 

@@ -145,6 +145,12 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *                 "grounding_source" || "query" || "guard_content",
  *               ],
  *             },
+ *             image: { // GuardrailConverseImageBlock
+ *               format: "png" || "jpeg", // required
+ *               source: { // GuardrailConverseImageSource Union: only one key present
+ *                 bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *               },
+ *             },
  *           },
  *         },
  *       ],
@@ -159,6 +165,12 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *           qualifiers: [
  *             "grounding_source" || "query" || "guard_content",
  *           ],
+ *         },
+ *         image: {
+ *           format: "png" || "jpeg", // required
+ *           source: {//  Union: only one key present
+ *             bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *           },
  *         },
  *       },
  *     },
@@ -337,6 +349,10 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                     guarded: Number("int"),
  * //                     total: Number("int"),
  * //                   },
+ * //                   images: { // GuardrailImageCoverage
+ * //                     guarded: Number("int"),
+ * //                     total: Number("int"),
+ * //                   },
  * //                 },
  * //               },
  * //             },
@@ -420,11 +436,18 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                       guarded: Number("int"),
  * //                       total: Number("int"),
  * //                     },
+ * //                     images: {
+ * //                       guarded: Number("int"),
+ * //                       total: Number("int"),
+ * //                     },
  * //                   },
  * //                 },
  * //               },
  * //             ],
  * //           },
+ * //         },
+ * //         promptRouter: { // PromptRouterTrace
+ * //           invokedModelId: "STRING_VALUE",
  * //         },
  * //       },
  * //       performanceConfig: { // PerformanceConfiguration

@@ -539,6 +539,76 @@ export interface StartAsyncInvokeResponse {
  * @public
  * @enum
  */
+export const GuardrailImageFormat = {
+  JPEG: "jpeg",
+  PNG: "png",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailImageFormat = (typeof GuardrailImageFormat)[keyof typeof GuardrailImageFormat];
+
+/**
+ * <p>The image source (image bytes) of the guardrail image source. Object used in independent api.</p>
+ * @public
+ */
+export type GuardrailImageSource = GuardrailImageSource.BytesMember | GuardrailImageSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GuardrailImageSource {
+  /**
+   * <p>The bytes details of the guardrail image source. Object used in independent api.</p>
+   * @public
+   */
+  export interface BytesMember {
+    bytes: Uint8Array;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    bytes?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    bytes: (value: Uint8Array) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: GuardrailImageSource, visitor: Visitor<T>): T => {
+    if (value.bytes !== undefined) return visitor.bytes(value.bytes);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contain an image which user wants guarded. This block is accepted by the guardrails independent API.</p>
+ * @public
+ */
+export interface GuardrailImageBlock {
+  /**
+   * <p>The format details for the file type of the image blocked by the guardrail.</p>
+   * @public
+   */
+  format: GuardrailImageFormat | undefined;
+
+  /**
+   * <p>The image source (image bytes) details of the image blocked by the guardrail.</p>
+   * @public
+   */
+  source: GuardrailImageSource | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const GuardrailContentQualifier = {
   GROUNDING_SOURCE: "grounding_source",
   GUARD_CONTENT: "guard_content",
@@ -572,7 +642,10 @@ export interface GuardrailTextBlock {
  * <p>The content block to be evaluated by the guardrail.</p>
  * @public
  */
-export type GuardrailContentBlock = GuardrailContentBlock.TextMember | GuardrailContentBlock.$UnknownMember;
+export type GuardrailContentBlock =
+  | GuardrailContentBlock.ImageMember
+  | GuardrailContentBlock.TextMember
+  | GuardrailContentBlock.$UnknownMember;
 
 /**
  * @public
@@ -584,6 +657,17 @@ export namespace GuardrailContentBlock {
    */
   export interface TextMember {
     text: GuardrailTextBlock;
+    image?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Image within guardrail content block to be evaluated by the guardrail.</p>
+   * @public
+   */
+  export interface ImageMember {
+    text?: never;
+    image: GuardrailImageBlock;
     $unknown?: never;
   }
 
@@ -592,16 +676,19 @@ export namespace GuardrailContentBlock {
    */
   export interface $UnknownMember {
     text?: never;
+    image?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     text: (value: GuardrailTextBlock) => T;
+    image: (value: GuardrailImageBlock) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: GuardrailContentBlock, visitor: Visitor<T>): T => {
     if (value.text !== undefined) return visitor.text(value.text);
+    if (value.image !== undefined) return visitor.image(value.image);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -844,6 +931,24 @@ export interface GuardrailContextualGroundingPolicyAssessment {
 }
 
 /**
+ * <p>The details of the guardrail image coverage.</p>
+ * @public
+ */
+export interface GuardrailImageCoverage {
+  /**
+   * <p>The count (integer) of images guardrails guarded.</p>
+   * @public
+   */
+  guarded?: number | undefined;
+
+  /**
+   * <p>Represents the total number of images (integer) that were in the request (guarded and unguarded).</p>
+   * @public
+   */
+  total?: number | undefined;
+}
+
+/**
  * <p>The guardrail coverage for the text characters.</p>
  * @public
  */
@@ -871,6 +976,12 @@ export interface GuardrailCoverage {
    * @public
    */
   textCharacters?: GuardrailTextCharactersCoverage | undefined;
+
+  /**
+   * <p>The guardrail coverage for images (the number of images that guardrails guarded).</p>
+   * @public
+   */
+  images?: GuardrailImageCoverage | undefined;
 }
 
 /**
@@ -1499,6 +1610,79 @@ export interface DocumentBlock {
  * @public
  * @enum
  */
+export const GuardrailConverseImageFormat = {
+  JPEG: "jpeg",
+  PNG: "png",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailConverseImageFormat =
+  (typeof GuardrailConverseImageFormat)[keyof typeof GuardrailConverseImageFormat];
+
+/**
+ * <p>The image source (image bytes) of the guardrail converse image source.</p>
+ * @public
+ */
+export type GuardrailConverseImageSource =
+  | GuardrailConverseImageSource.BytesMember
+  | GuardrailConverseImageSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GuardrailConverseImageSource {
+  /**
+   * <p>The raw image bytes for the image.</p>
+   * @public
+   */
+  export interface BytesMember {
+    bytes: Uint8Array;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    bytes?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    bytes: (value: Uint8Array) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: GuardrailConverseImageSource, visitor: Visitor<T>): T => {
+    if (value.bytes !== undefined) return visitor.bytes(value.bytes);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>An image block that contains images that you want to assess with a guardrail.</p>
+ * @public
+ */
+export interface GuardrailConverseImageBlock {
+  /**
+   * <p>The format details for the image type of the guardrail converse image block.</p>
+   * @public
+   */
+  format: GuardrailConverseImageFormat | undefined;
+
+  /**
+   * <p>The image source (image bytes) of the guardrail converse image block.</p>
+   * @public
+   */
+  source: GuardrailConverseImageSource | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const GuardrailConverseContentQualifier = {
   GROUNDING_SOURCE: "grounding_source",
   GUARD_CONTENT: "guard_content",
@@ -1536,6 +1720,7 @@ export interface GuardrailConverseTextBlock {
  * @public
  */
 export type GuardrailConverseContentBlock =
+  | GuardrailConverseContentBlock.ImageMember
   | GuardrailConverseContentBlock.TextMember
   | GuardrailConverseContentBlock.$UnknownMember;
 
@@ -1549,6 +1734,17 @@ export namespace GuardrailConverseContentBlock {
    */
   export interface TextMember {
     text: GuardrailConverseTextBlock;
+    image?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Image within converse content block to be evaluated by the guardrail.</p>
+   * @public
+   */
+  export interface ImageMember {
+    text?: never;
+    image: GuardrailConverseImageBlock;
     $unknown?: never;
   }
 
@@ -1557,16 +1753,19 @@ export namespace GuardrailConverseContentBlock {
    */
   export interface $UnknownMember {
     text?: never;
+    image?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     text: (value: GuardrailConverseTextBlock) => T;
+    image: (value: GuardrailConverseImageBlock) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: GuardrailConverseContentBlock, visitor: Visitor<T>): T => {
     if (value.text !== undefined) return visitor.text(value.text);
+    if (value.image !== undefined) return visitor.image(value.image);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2693,6 +2892,18 @@ export interface GuardrailTraceAssessment {
 }
 
 /**
+ * <p>A prompt router trace.</p>
+ * @public
+ */
+export interface PromptRouterTrace {
+  /**
+   * <p>The ID of the invoked model.</p>
+   * @public
+   */
+  invokedModelId?: string | undefined;
+}
+
+/**
  * <p>The trace object in a response from <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a>. Currently, you can only trace guardrails.</p>
  * @public
  */
@@ -2702,6 +2913,12 @@ export interface ConverseTrace {
    * @public
    */
   guardrail?: GuardrailTraceAssessment | undefined;
+
+  /**
+   * <p>The request's prompt router.</p>
+   * @public
+   */
+  promptRouter?: PromptRouterTrace | undefined;
 }
 
 /**
@@ -3233,6 +3450,12 @@ export interface ConverseStreamTrace {
    * @public
    */
   guardrail?: GuardrailTraceAssessment | undefined;
+
+  /**
+   * <p>The request's prompt router.</p>
+   * @public
+   */
+  promptRouter?: PromptRouterTrace | undefined;
 }
 
 /**
@@ -4042,10 +4265,101 @@ export const StartAsyncInvokeRequestFilterSensitiveLog = (obj: StartAsyncInvokeR
 /**
  * @internal
  */
+export const GuardrailImageSourceFilterSensitiveLog = (obj: GuardrailImageSource): any => {
+  if (obj.bytes !== undefined) return { bytes: obj.bytes };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const GuardrailImageBlockFilterSensitiveLog = (obj: GuardrailImageBlock): any => ({
+  ...obj,
+  ...(obj.source && { source: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailContentBlockFilterSensitiveLog = (obj: GuardrailContentBlock): any => {
+  if (obj.text !== undefined) return { text: obj.text };
+  if (obj.image !== undefined) return { image: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ApplyGuardrailRequestFilterSensitiveLog = (obj: ApplyGuardrailRequest): any => ({
+  ...obj,
+  ...(obj.content && { content: obj.content.map((item) => GuardrailContentBlockFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailConverseImageSourceFilterSensitiveLog = (obj: GuardrailConverseImageSource): any => {
+  if (obj.bytes !== undefined) return { bytes: obj.bytes };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const GuardrailConverseImageBlockFilterSensitiveLog = (obj: GuardrailConverseImageBlock): any => ({
+  ...obj,
+  ...(obj.source && { source: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailConverseContentBlockFilterSensitiveLog = (obj: GuardrailConverseContentBlock): any => {
+  if (obj.text !== undefined) return { text: obj.text };
+  if (obj.image !== undefined) return { image: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ContentBlockFilterSensitiveLog = (obj: ContentBlock): any => {
+  if (obj.text !== undefined) return { text: obj.text };
+  if (obj.image !== undefined) return { image: obj.image };
+  if (obj.document !== undefined) return { document: obj.document };
+  if (obj.video !== undefined) return { video: obj.video };
+  if (obj.toolUse !== undefined) return { toolUse: obj.toolUse };
+  if (obj.toolResult !== undefined) return { toolResult: obj.toolResult };
+  if (obj.guardContent !== undefined)
+    return { guardContent: GuardrailConverseContentBlockFilterSensitiveLog(obj.guardContent) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const MessageFilterSensitiveLog = (obj: Message): any => ({
+  ...obj,
+  ...(obj.content && { content: obj.content.map((item) => ContentBlockFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SystemContentBlockFilterSensitiveLog = (obj: SystemContentBlock): any => {
+  if (obj.text !== undefined) return { text: obj.text };
+  if (obj.guardContent !== undefined)
+    return { guardContent: GuardrailConverseContentBlockFilterSensitiveLog(obj.guardContent) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const ConverseRequestFilterSensitiveLog = (obj: ConverseRequest): any => ({
   ...obj,
-  ...(obj.messages && { messages: obj.messages.map((item) => item) }),
-  ...(obj.system && { system: obj.system.map((item) => item) }),
+  ...(obj.messages && { messages: obj.messages.map((item) => MessageFilterSensitiveLog(item)) }),
+  ...(obj.system && { system: obj.system.map((item) => SystemContentBlockFilterSensitiveLog(item)) }),
   ...(obj.toolConfig && { toolConfig: obj.toolConfig }),
   ...(obj.promptVariables && { promptVariables: SENSITIVE_STRING }),
   ...(obj.requestMetadata && { requestMetadata: SENSITIVE_STRING }),
@@ -4054,10 +4368,26 @@ export const ConverseRequestFilterSensitiveLog = (obj: ConverseRequest): any => 
 /**
  * @internal
  */
+export const ConverseOutputFilterSensitiveLog = (obj: ConverseOutput): any => {
+  if (obj.message !== undefined) return { message: MessageFilterSensitiveLog(obj.message) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ConverseResponseFilterSensitiveLog = (obj: ConverseResponse): any => ({
+  ...obj,
+  ...(obj.output && { output: ConverseOutputFilterSensitiveLog(obj.output) }),
+});
+
+/**
+ * @internal
+ */
 export const ConverseStreamRequestFilterSensitiveLog = (obj: ConverseStreamRequest): any => ({
   ...obj,
-  ...(obj.messages && { messages: obj.messages.map((item) => item) }),
-  ...(obj.system && { system: obj.system.map((item) => item) }),
+  ...(obj.messages && { messages: obj.messages.map((item) => MessageFilterSensitiveLog(item)) }),
+  ...(obj.system && { system: obj.system.map((item) => SystemContentBlockFilterSensitiveLog(item)) }),
   ...(obj.toolConfig && { toolConfig: obj.toolConfig }),
   ...(obj.promptVariables && { promptVariables: SENSITIVE_STRING }),
   ...(obj.requestMetadata && { requestMetadata: SENSITIVE_STRING }),

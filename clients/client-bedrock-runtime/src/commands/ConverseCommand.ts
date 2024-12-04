@@ -6,7 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ConverseRequest, ConverseRequestFilterSensitiveLog, ConverseResponse } from "../models/models_0";
+import {
+  ConverseRequest,
+  ConverseRequestFilterSensitiveLog,
+  ConverseResponse,
+  ConverseResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_ConverseCommand, se_ConverseCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -134,6 +139,12 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *                 "grounding_source" || "query" || "guard_content",
  *               ],
  *             },
+ *             image: { // GuardrailConverseImageBlock
+ *               format: "png" || "jpeg", // required
+ *               source: { // GuardrailConverseImageSource Union: only one key present
+ *                 bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *               },
+ *             },
  *           },
  *         },
  *       ],
@@ -148,6 +159,12 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *           qualifiers: [
  *             "grounding_source" || "query" || "guard_content",
  *           ],
+ *         },
+ *         image: {
+ *           format: "png" || "jpeg", // required
+ *           source: {//  Union: only one key present
+ *             bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *           },
  *         },
  *       },
  *     },
@@ -278,6 +295,12 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //                 "grounding_source" || "query" || "guard_content",
  * //               ],
  * //             },
+ * //             image: { // GuardrailConverseImageBlock
+ * //               format: "png" || "jpeg", // required
+ * //               source: { // GuardrailConverseImageSource Union: only one key present
+ * //                 bytes: new Uint8Array(),
+ * //               },
+ * //             },
  * //           },
  * //         },
  * //       ],
@@ -376,6 +399,10 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //                 guarded: Number("int"),
  * //                 total: Number("int"),
  * //               },
+ * //               images: { // GuardrailImageCoverage
+ * //                 guarded: Number("int"),
+ * //                 total: Number("int"),
+ * //               },
  * //             },
  * //           },
  * //         },
@@ -459,11 +486,18 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //                   guarded: Number("int"),
  * //                   total: Number("int"),
  * //                 },
+ * //                 images: {
+ * //                   guarded: Number("int"),
+ * //                   total: Number("int"),
+ * //                 },
  * //               },
  * //             },
  * //           },
  * //         ],
  * //       },
+ * //     },
+ * //     promptRouter: { // PromptRouterTrace
+ * //       invokedModelId: "STRING_VALUE",
  * //     },
  * //   },
  * //   performanceConfig: { // PerformanceConfiguration
@@ -537,7 +571,7 @@ export class ConverseCommand extends $Command
   })
   .s("AmazonBedrockFrontendService", "Converse", {})
   .n("BedrockRuntimeClient", "ConverseCommand")
-  .f(ConverseRequestFilterSensitiveLog, void 0)
+  .f(ConverseRequestFilterSensitiveLog, ConverseResponseFilterSensitiveLog)
   .ser(se_ConverseCommand)
   .de(de_ConverseCommand)
   .build() {

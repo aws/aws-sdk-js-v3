@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ApplyGuardrailRequest, ApplyGuardrailResponse } from "../models/models_0";
+import {
+  ApplyGuardrailRequest,
+  ApplyGuardrailRequestFilterSensitiveLog,
+  ApplyGuardrailResponse,
+} from "../models/models_0";
 import { de_ApplyGuardrailCommand, se_ApplyGuardrailCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -48,6 +52,12 @@ export interface ApplyGuardrailCommandOutput extends ApplyGuardrailResponse, __M
  *         qualifiers: [ // GuardrailContentQualifierList
  *           "grounding_source" || "query" || "guard_content",
  *         ],
+ *       },
+ *       image: { // GuardrailImageBlock
+ *         format: "png" || "jpeg", // required
+ *         source: { // GuardrailImageSource Union: only one key present
+ *           bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *         },
  *       },
  *     },
  *   ],
@@ -147,12 +157,20 @@ export interface ApplyGuardrailCommandOutput extends ApplyGuardrailResponse, __M
  * //             guarded: Number("int"),
  * //             total: Number("int"),
  * //           },
+ * //           images: { // GuardrailImageCoverage
+ * //             guarded: Number("int"),
+ * //             total: Number("int"),
+ * //           },
  * //         },
  * //       },
  * //     },
  * //   ],
  * //   guardrailCoverage: {
  * //     textCharacters: {
+ * //       guarded: Number("int"),
+ * //       total: Number("int"),
+ * //     },
+ * //     images: {
  * //       guarded: Number("int"),
  * //       total: Number("int"),
  * //     },
@@ -212,7 +230,7 @@ export class ApplyGuardrailCommand extends $Command
   })
   .s("AmazonBedrockFrontendService", "ApplyGuardrail", {})
   .n("BedrockRuntimeClient", "ApplyGuardrailCommand")
-  .f(void 0, void 0)
+  .f(ApplyGuardrailRequestFilterSensitiveLog, void 0)
   .ser(se_ApplyGuardrailCommand)
   .de(de_ApplyGuardrailCommand)
   .build() {
