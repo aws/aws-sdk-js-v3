@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.707.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.706.0...v3.707.0) (2024-12-05)
+
+
+### Features
+
+* **client-partnercentral-selling:** Introducing the preview of new partner central selling APIs designed to transform how AWS partners collaborate and co-sell with multiple partners. This enables multiple partners to seamlessly engage and jointly pursue customer opportunities, fostering a new era of collaborative selling. ([e1c6f60](https://github.com/aws/aws-sdk-js-v3/commit/e1c6f608c72ab71f118d1fa14e84ef4d2a04f74d))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-partnercentral-selling
