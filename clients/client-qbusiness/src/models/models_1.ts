@@ -488,18 +488,6 @@ export interface SearchRelevantContentRequest {
   applicationId: string | undefined;
 
   /**
-   * <p>The ID of the user performing the search. Used for access control.</p>
-   * @public
-   */
-  userId?: string | undefined;
-
-  /**
-   * <p>The groups the user belongs to. Used for access control.</p>
-   * @public
-   */
-  userGroups?: string[] | undefined;
-
-  /**
    * <p>The text to search for.</p>
    * @public
    */

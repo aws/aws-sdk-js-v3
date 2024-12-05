@@ -1505,10 +1505,6 @@ export const se_SearchRelevantContentCommand = async (
   };
   b.bp("/applications/{applicationId}/relevant-content");
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
-  const query: any = map({
-    [_uI]: [, input[_uI]!],
-    [_uG]: [() => input.userGroups !== void 0, () => input[_uG]! || []],
-  });
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1519,7 +1515,7 @@ export const se_SearchRelevantContentCommand = async (
       queryText: [],
     })
   );
-  b.m("POST").h(headers).q(query).b(body);
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 

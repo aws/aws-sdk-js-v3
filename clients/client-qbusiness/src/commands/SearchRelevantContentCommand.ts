@@ -31,7 +31,7 @@ export interface SearchRelevantContentCommandOutput extends SearchRelevantConten
 /**
  * <p>Searches for relevant content in a Q Business application based on a query. This operation takes a
  *         search query text, the Q Business application identifier, and optional filters
- *         (such as user ID, user groups, content source, and maximum results) as input. It returns a list of
+ *         (such as content source and maximum results) as input. It returns a list of
  *         relevant content items, where each item includes the content text, the unique document identifier,
  *         the document title, the document URI, any relevant document attributes, and score attributes
  *         indicating the confidence level of the relevance.</p>
@@ -43,10 +43,6 @@ export interface SearchRelevantContentCommandOutput extends SearchRelevantConten
  * const client = new QBusinessClient(config);
  * const input = { // SearchRelevantContentRequest
  *   applicationId: "STRING_VALUE", // required
- *   userId: "STRING_VALUE",
- *   userGroups: [ // UserGroups
- *     "STRING_VALUE",
- *   ],
  *   queryText: "STRING_VALUE", // required
  *   contentSource: { // ContentSource Union: only one key present
  *     retriever: { // RetrieverContentSource
