@@ -32,29 +32,28 @@ export interface AssociateOpportunityCommandInput extends AssociateOpportunityRe
 export interface AssociateOpportunityCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>
- *             Enables you to create a formal association between an <code>Opportunity</code> and various
- *             related entities, enriching the context and details of the opportunity for better collaboration and
- *             decision making. You can associate an opportunity with the following entity types:
- *         </p>
+ * <p>Enables you to create a formal association between an <code>Opportunity</code> and
+ *             various related entities, enriching the context and details of the opportunity for
+ *             better collaboration and decision making. You can associate an opportunity with the
+ *             following entity types:</p>
  *          <ul>
  *             <li>
- *                <p>
- *                     Partner Solution:
- *                     A software product or consulting practice created and delivered by Partners. Partner Solutions help customers address business challenges using Amazon Web Services services.
- *                 </p>
+ *                <p>Partner Solution: A software product or consulting practice created and
+ *                     delivered by Partners. Partner Solutions help customers address
+ *                     business challenges using Amazon Web Services services.</p>
  *             </li>
  *             <li>
- *                <p>
- *                     Amazon Web Services Products:
- *                     Amazon Web Services offers many products and services that provide scalable, reliable, and cost-effective infrastructure solutions. For the latest list of Amazon Web Services products, see <a href="https://github.com/aws-samples/partner-crm-integration-samples/blob/main/resources/aws_products.json">Amazon Web Services products</a>.
- *                 </p>
+ *                <p>Amazon Web Services Products: Amazon Web Services offers many products and
+ *                     services that provide scalable, reliable, and cost-effective infrastructure
+ *                     solutions. For the latest list of Amazon Web Services products, see <a href="https://github.com/aws-samples/partner-crm-integration-samples/blob/main/resources/aws_products.json">Amazon Web Services products</a>.</p>
  *             </li>
  *             <li>
- *                <p>
- *                     Amazon Web Services Marketplace private offer:
- *                     Allows Amazon Web Services Marketplace sellers to extend custom pricing and terms to individual Amazon Web Services customers. Sellers can negotiate custom prices, payment schedules, and end user license terms through private offers, enabling Amazon Web Services customers to acquire software solutions tailored to their specific needs. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-private-offers.html">Private offers in Amazon Web Services Marketplace</a>.
- *                 </p>
+ *                <p>Amazon Web Services Marketplace private offer: Allows Amazon Web Services Marketplace sellers to extend
+ *                     custom pricing and terms to individual Amazon Web Services customers. Sellers can
+ *                     negotiate custom prices, payment schedules, and end user license terms through
+ *                     private offers, enabling Amazon Web Services customers to acquire software
+ *                     solutions tailored to their specific needs. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-private-offers.html">Private offers
+ *                         in Amazon Web Services Marketplace</a>.</p>
  *             </li>
  *          </ul>
  *          <p>To obtain identifiers for these entities, use the following methods:</p>
@@ -63,14 +62,13 @@ export interface AssociateOpportunityCommandOutput extends __MetadataBearer {}
  *                <p>Solution: Use the <code>ListSolutions</code> operation.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   AWS Products: For the latest list of Amazon Web Services products, see <a href="https://github.com/aws-samples/partner-crm-integration-samples/blob/main/resources/aws_products.json">Amazon Web Services products</a>.
- *                 </p>
+ *                <p>AWS Products: For the latest list of Amazon Web Services products, see <a href="https://github.com/aws-samples/partner-crm-integration-samples/blob/main/resources/aws_products.json">Amazon Web Services products</a>.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   Amazon Web Services Marketplace private offer: Use the <a href="https://docs.aws.amazon.com/marketplace/latest/APIReference/catalog-apis.html">Using the Amazon Web Services Marketplace Catalog API</a> to list entities. Specifically, use the <code>ListEntities</code> operation to retrieve a list of private offers. The request returns the details of available private offers. For more information, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_ListEntities.html">ListEntities</a>.
- *                 </p>
+ *                <p>Amazon Web Services Marketplace private offer: Use the <a href="https://docs.aws.amazon.com/marketplace/latest/APIReference/catalog-apis.html">Using the Amazon Web Services Marketplace Catalog API</a> to list entities. Specifically, use the
+ *                         <code>ListEntities</code> operation to retrieve a list of private offers.
+ *                     The request returns the details of available private offers. For more
+ *                     information, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_ListEntities.html">ListEntities</a>.</p>
  *             </li>
  *          </ul>
  * @example
@@ -98,37 +96,33 @@ export interface AssociateOpportunityCommandOutput extends __MetadataBearer {}
  * @see {@link PartnerCentralSellingClientResolvedConfig | config} for PartnerCentralSellingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>This error occurs when you don't have permission to perform the
- *             requested action.
- *         </p>
- *          <p>You don’t have access to this action or resource. Review IAM policies or contact your AWS administrator for assistance.
- *         </p>
+ *  <p>This error occurs when you don't have permission to perform the requested
+ *             action.</p>
+ *          <p>You don’t have access to this action or resource. Review IAM policies or contact your
+ *             AWS administrator for assistance.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This error occurs when the specified resource can’t be found or doesn't exist. Resource ID and type might be incorrect.
- *         </p>
- *          <p>Suggested action: This is usually a transient error. Retry after the provided retry delay or a short interval. If the problem persists, contact AWS support.
- *         </p>
+ *  <p>This error occurs when the specified resource can’t be found or doesn't exist.
+ *             Resource ID and type might be incorrect.</p>
+ *          <p>Suggested action: This is usually a transient error. Retry after the provided retry
+ *             delay or a short interval. If the problem persists, contact AWS support.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This error occurs when the specified resource can't be found. The resource might not exist, or isn't visible with the current credentials.
- *         </p>
- *          <p>Suggested action: Verify that the resource ID is correct and the resource is in the expected AWS region. Check IAM permissions for accessing the resource.
- *         </p>
+ *  <p>This error occurs when the specified resource can't be found. The resource might not
+ *             exist, or isn't visible with the current credentials.</p>
+ *          <p>Suggested action: Verify that the resource ID is correct and the resource is in the
+ *             expected AWS region. Check IAM permissions for accessing the resource.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This error occurs when there are too many requests sent. Review the provided quotas and adapt your
- *             usage to avoid throttling.
- *         </p>
- *          <p>This error occurs when there are too many requests sent. Review the provided
- *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.
- *         </p>
+ *  <p>This error occurs when there are too many requests sent. Review the provided quotas
+ *             and adapt your usage to avoid throttling.</p>
+ *          <p>This error occurs when there are too many requests sent. Review the provided <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service or business validation rules.
- *         </p>
- *          <p>Suggested action: Review the error message, including the failed fields and reasons, to correct the request payload.
- *         </p>
+ *  <p>The input fails to satisfy the constraints specified by the service or business
+ *             validation rules.</p>
+ *          <p>Suggested action: Review the error message, including the failed fields and reasons,
+ *             to correct the request payload.</p>
  *
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>

@@ -32,17 +32,16 @@ export interface DisassociateOpportunityCommandInput extends DisassociateOpportu
 export interface DisassociateOpportunityCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>
- *             Allows you to remove an existing association between an <code>Opportunity</code> and related entities, such as a Partner Solution, Amazon Web Services product, or an Amazon Web Services Marketplace offer.
- *             This operation is the counterpart to <code>AssociateOpportunity</code>, and it provides flexibility to manage
- *             associations as business needs change.
- *         </p>
- *          <p>
- *             Use this operation to update the associations of an <code>Opportunity</code> due to changes in the related entities,
- *             or if an association was made in error. Ensuring accurate associations helps maintain clarity and accuracy to track
- *             and manage business opportunities. When you replace an entity, first attach the new entity and then disassociate the
- *             one to be removed, especially if it's the last remaining entity that's required.
- *         </p>
+ * <p>Allows you to remove an existing association between an <code>Opportunity</code> and
+ *             related entities, such as a Partner Solution, Amazon Web Services product, or an Amazon Web Services Marketplace offer. This operation is the counterpart to
+ *                 <code>AssociateOpportunity</code>, and it provides flexibility to manage
+ *             associations as business needs change.</p>
+ *          <p>Use this operation to update the associations of an <code>Opportunity</code> due to
+ *             changes in the related entities, or if an association was made in error. Ensuring
+ *             accurate associations helps maintain clarity and accuracy to track and manage business
+ *             opportunities. When you replace an entity, first attach the new entity and then
+ *             disassociate the one to be removed, especially if it's the last remaining entity that's
+ *             required.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,37 +67,33 @@ export interface DisassociateOpportunityCommandOutput extends __MetadataBearer {
  * @see {@link PartnerCentralSellingClientResolvedConfig | config} for PartnerCentralSellingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>This error occurs when you don't have permission to perform the
- *             requested action.
- *         </p>
- *          <p>You don’t have access to this action or resource. Review IAM policies or contact your AWS administrator for assistance.
- *         </p>
+ *  <p>This error occurs when you don't have permission to perform the requested
+ *             action.</p>
+ *          <p>You don’t have access to this action or resource. Review IAM policies or contact your
+ *             AWS administrator for assistance.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This error occurs when the specified resource can’t be found or doesn't exist. Resource ID and type might be incorrect.
- *         </p>
- *          <p>Suggested action: This is usually a transient error. Retry after the provided retry delay or a short interval. If the problem persists, contact AWS support.
- *         </p>
+ *  <p>This error occurs when the specified resource can’t be found or doesn't exist.
+ *             Resource ID and type might be incorrect.</p>
+ *          <p>Suggested action: This is usually a transient error. Retry after the provided retry
+ *             delay or a short interval. If the problem persists, contact AWS support.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This error occurs when the specified resource can't be found. The resource might not exist, or isn't visible with the current credentials.
- *         </p>
- *          <p>Suggested action: Verify that the resource ID is correct and the resource is in the expected AWS region. Check IAM permissions for accessing the resource.
- *         </p>
+ *  <p>This error occurs when the specified resource can't be found. The resource might not
+ *             exist, or isn't visible with the current credentials.</p>
+ *          <p>Suggested action: Verify that the resource ID is correct and the resource is in the
+ *             expected AWS region. Check IAM permissions for accessing the resource.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This error occurs when there are too many requests sent. Review the provided quotas and adapt your
- *             usage to avoid throttling.
- *         </p>
- *          <p>This error occurs when there are too many requests sent. Review the provided
- *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.
- *         </p>
+ *  <p>This error occurs when there are too many requests sent. Review the provided quotas
+ *             and adapt your usage to avoid throttling.</p>
+ *          <p>This error occurs when there are too many requests sent. Review the provided <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service or business validation rules.
- *         </p>
- *          <p>Suggested action: Review the error message, including the failed fields and reasons, to correct the request payload.
- *         </p>
+ *  <p>The input fails to satisfy the constraints specified by the service or business
+ *             validation rules.</p>
+ *          <p>Suggested action: Review the error message, including the failed fields and reasons,
+ *             to correct the request payload.</p>
  *
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>

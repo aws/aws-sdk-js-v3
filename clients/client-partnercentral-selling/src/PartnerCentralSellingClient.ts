@@ -53,12 +53,33 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import {
+  AcceptEngagementInvitationCommandInput,
+  AcceptEngagementInvitationCommandOutput,
+} from "./commands/AcceptEngagementInvitationCommand";
 import { AssignOpportunityCommandInput, AssignOpportunityCommandOutput } from "./commands/AssignOpportunityCommand";
 import {
   AssociateOpportunityCommandInput,
   AssociateOpportunityCommandOutput,
 } from "./commands/AssociateOpportunityCommand";
+import { CreateEngagementCommandInput, CreateEngagementCommandOutput } from "./commands/CreateEngagementCommand";
+import {
+  CreateEngagementInvitationCommandInput,
+  CreateEngagementInvitationCommandOutput,
+} from "./commands/CreateEngagementInvitationCommand";
 import { CreateOpportunityCommandInput, CreateOpportunityCommandOutput } from "./commands/CreateOpportunityCommand";
+import {
+  CreateResourceSnapshotCommandInput,
+  CreateResourceSnapshotCommandOutput,
+} from "./commands/CreateResourceSnapshotCommand";
+import {
+  CreateResourceSnapshotJobCommandInput,
+  CreateResourceSnapshotJobCommandOutput,
+} from "./commands/CreateResourceSnapshotJobCommand";
+import {
+  DeleteResourceSnapshotJobCommandInput,
+  DeleteResourceSnapshotJobCommandOutput,
+} from "./commands/DeleteResourceSnapshotJobCommand";
 import {
   DisassociateOpportunityCommandInput,
   DisassociateOpportunityCommandOutput,
@@ -67,17 +88,59 @@ import {
   GetAwsOpportunitySummaryCommandInput,
   GetAwsOpportunitySummaryCommandOutput,
 } from "./commands/GetAwsOpportunitySummaryCommand";
+import { GetEngagementCommandInput, GetEngagementCommandOutput } from "./commands/GetEngagementCommand";
 import {
   GetEngagementInvitationCommandInput,
   GetEngagementInvitationCommandOutput,
 } from "./commands/GetEngagementInvitationCommand";
 import { GetOpportunityCommandInput, GetOpportunityCommandOutput } from "./commands/GetOpportunityCommand";
 import {
+  GetResourceSnapshotCommandInput,
+  GetResourceSnapshotCommandOutput,
+} from "./commands/GetResourceSnapshotCommand";
+import {
+  GetResourceSnapshotJobCommandInput,
+  GetResourceSnapshotJobCommandOutput,
+} from "./commands/GetResourceSnapshotJobCommand";
+import {
+  GetSellingSystemSettingsCommandInput,
+  GetSellingSystemSettingsCommandOutput,
+} from "./commands/GetSellingSystemSettingsCommand";
+import {
+  ListEngagementByAcceptingInvitationTasksCommandInput,
+  ListEngagementByAcceptingInvitationTasksCommandOutput,
+} from "./commands/ListEngagementByAcceptingInvitationTasksCommand";
+import {
+  ListEngagementFromOpportunityTasksCommandInput,
+  ListEngagementFromOpportunityTasksCommandOutput,
+} from "./commands/ListEngagementFromOpportunityTasksCommand";
+import {
   ListEngagementInvitationsCommandInput,
   ListEngagementInvitationsCommandOutput,
 } from "./commands/ListEngagementInvitationsCommand";
+import {
+  ListEngagementMembersCommandInput,
+  ListEngagementMembersCommandOutput,
+} from "./commands/ListEngagementMembersCommand";
+import {
+  ListEngagementResourceAssociationsCommandInput,
+  ListEngagementResourceAssociationsCommandOutput,
+} from "./commands/ListEngagementResourceAssociationsCommand";
+import { ListEngagementsCommandInput, ListEngagementsCommandOutput } from "./commands/ListEngagementsCommand";
 import { ListOpportunitiesCommandInput, ListOpportunitiesCommandOutput } from "./commands/ListOpportunitiesCommand";
+import {
+  ListResourceSnapshotJobsCommandInput,
+  ListResourceSnapshotJobsCommandOutput,
+} from "./commands/ListResourceSnapshotJobsCommand";
+import {
+  ListResourceSnapshotsCommandInput,
+  ListResourceSnapshotsCommandOutput,
+} from "./commands/ListResourceSnapshotsCommand";
 import { ListSolutionsCommandInput, ListSolutionsCommandOutput } from "./commands/ListSolutionsCommand";
+import {
+  PutSellingSystemSettingsCommandInput,
+  PutSellingSystemSettingsCommandOutput,
+} from "./commands/PutSellingSystemSettingsCommand";
 import {
   RejectEngagementInvitationCommandInput,
   RejectEngagementInvitationCommandOutput,
@@ -90,6 +153,15 @@ import {
   StartEngagementFromOpportunityTaskCommandInput,
   StartEngagementFromOpportunityTaskCommandOutput,
 } from "./commands/StartEngagementFromOpportunityTaskCommand";
+import {
+  StartResourceSnapshotJobCommandInput,
+  StartResourceSnapshotJobCommandOutput,
+} from "./commands/StartResourceSnapshotJobCommand";
+import {
+  StopResourceSnapshotJobCommandInput,
+  StopResourceSnapshotJobCommandOutput,
+} from "./commands/StopResourceSnapshotJobCommand";
+import { SubmitOpportunityCommandInput, SubmitOpportunityCommandOutput } from "./commands/SubmitOpportunityCommand";
 import { UpdateOpportunityCommandInput, UpdateOpportunityCommandOutput } from "./commands/UpdateOpportunityCommand";
 import {
   ClientInputEndpointParameters,
@@ -106,38 +178,80 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AcceptEngagementInvitationCommandInput
   | AssignOpportunityCommandInput
   | AssociateOpportunityCommandInput
+  | CreateEngagementCommandInput
+  | CreateEngagementInvitationCommandInput
   | CreateOpportunityCommandInput
+  | CreateResourceSnapshotCommandInput
+  | CreateResourceSnapshotJobCommandInput
+  | DeleteResourceSnapshotJobCommandInput
   | DisassociateOpportunityCommandInput
   | GetAwsOpportunitySummaryCommandInput
+  | GetEngagementCommandInput
   | GetEngagementInvitationCommandInput
   | GetOpportunityCommandInput
+  | GetResourceSnapshotCommandInput
+  | GetResourceSnapshotJobCommandInput
+  | GetSellingSystemSettingsCommandInput
+  | ListEngagementByAcceptingInvitationTasksCommandInput
+  | ListEngagementFromOpportunityTasksCommandInput
   | ListEngagementInvitationsCommandInput
+  | ListEngagementMembersCommandInput
+  | ListEngagementResourceAssociationsCommandInput
+  | ListEngagementsCommandInput
   | ListOpportunitiesCommandInput
+  | ListResourceSnapshotJobsCommandInput
+  | ListResourceSnapshotsCommandInput
   | ListSolutionsCommandInput
+  | PutSellingSystemSettingsCommandInput
   | RejectEngagementInvitationCommandInput
   | StartEngagementByAcceptingInvitationTaskCommandInput
   | StartEngagementFromOpportunityTaskCommandInput
+  | StartResourceSnapshotJobCommandInput
+  | StopResourceSnapshotJobCommandInput
+  | SubmitOpportunityCommandInput
   | UpdateOpportunityCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | AcceptEngagementInvitationCommandOutput
   | AssignOpportunityCommandOutput
   | AssociateOpportunityCommandOutput
+  | CreateEngagementCommandOutput
+  | CreateEngagementInvitationCommandOutput
   | CreateOpportunityCommandOutput
+  | CreateResourceSnapshotCommandOutput
+  | CreateResourceSnapshotJobCommandOutput
+  | DeleteResourceSnapshotJobCommandOutput
   | DisassociateOpportunityCommandOutput
   | GetAwsOpportunitySummaryCommandOutput
+  | GetEngagementCommandOutput
   | GetEngagementInvitationCommandOutput
   | GetOpportunityCommandOutput
+  | GetResourceSnapshotCommandOutput
+  | GetResourceSnapshotJobCommandOutput
+  | GetSellingSystemSettingsCommandOutput
+  | ListEngagementByAcceptingInvitationTasksCommandOutput
+  | ListEngagementFromOpportunityTasksCommandOutput
   | ListEngagementInvitationsCommandOutput
+  | ListEngagementMembersCommandOutput
+  | ListEngagementResourceAssociationsCommandOutput
+  | ListEngagementsCommandOutput
   | ListOpportunitiesCommandOutput
+  | ListResourceSnapshotJobsCommandOutput
+  | ListResourceSnapshotsCommandOutput
   | ListSolutionsCommandOutput
+  | PutSellingSystemSettingsCommandOutput
   | RejectEngagementInvitationCommandOutput
   | StartEngagementByAcceptingInvitationTaskCommandOutput
   | StartEngagementFromOpportunityTaskCommandOutput
+  | StartResourceSnapshotJobCommandOutput
+  | StopResourceSnapshotJobCommandOutput
+  | SubmitOpportunityCommandOutput
   | UpdateOpportunityCommandOutput;
 
 /**
@@ -314,70 +428,63 @@ export interface PartnerCentralSellingClientResolvedConfig extends PartnerCentra
 /**
  * <fullname>AWS Partner Central API for Selling</fullname>
  *          <p>
- *             <b>AWS Partner Central API for Selling Reference Guide</b>
+ *             <b>AWS Partner Central API for Selling Reference
+ *             Guide</b>
  *          </p>
- *          <p>This Amazon Web Services (AWS) Partner Central API reference is
- *       designed to help <a href="http://aws.amazon.com/partners/programs/">AWS
- *         Partners</a> integrate Customer Relationship Management (CRM)
- *       systems with AWS Partner Central. Partners can automate interactions with
- *       AWS Partner Central, which helps to ensure effective engagements in joint
- *       business activities.</p>
- *          <p>The API provides standard AWS API functionality. Access it by
- *       either using API <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/API_Operations.html">Actions</a> or by using an AWS SDK that's tailored to your
- *       programming language or platform. For more information, see <a href="http://aws.amazon.com/getting-started">Getting Started with
- *         AWS</a> and <a href="http://aws.amazon.com/developer/tools/">Tools to Build on AWS</a>.</p>
+ *          <p>This Amazon Web Services (AWS) Partner Central API reference is designed to help
+ *                 <a href="http://aws.amazon.com/partners/programs/">AWS Partners</a> integrate
+ *             Customer Relationship Management (CRM) systems with AWS Partner Central. Partners can
+ *             automate interactions with AWS Partner Central, which helps to ensure effective
+ *             engagements in joint business activities.</p>
+ *          <p>The API provides standard AWS API functionality. Access it by either using API <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/API_Operations.html">Actions</a> or by using an AWS SDK that's tailored to your programming language
+ *             or platform. For more information, see <a href="http://aws.amazon.com/getting-started">Getting Started with AWS</a> and <a href="http://aws.amazon.com/developer/tools/">Tools to Build on AWS</a>.</p>
  *          <p class="title">
  *             <b>Features offered by AWS Partner Central API</b>
  *          </p>
  *          <ol>
  *             <li>
  *                <p>
- *                   <b>Opportunity management:</b>
- *           Manages coselling opportunities through API actions such as
- *             <code>CreateOpportunity</code>, <code>UpdateOpportunity</code>,
- *             <code>ListOpportunities</code>, <code>GetOpportunity</code>, and
- *             <code>AssignOpportunity</code>.</p>
+ *                   <b>Opportunity management:</b> Manages coselling
+ *                     opportunities through API actions such as <code>CreateOpportunity</code>,
+ *                         <code>UpdateOpportunity</code>, <code>ListOpportunities</code>,
+ *                         <code>GetOpportunity</code>, and <code>AssignOpportunity</code>.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>AWS referral management:</b>
- *           Manages referrals shared by AWS using actions such as
- *             <code>ListEngagementInvitations</code>,
- *             <code>GetEngagementInvitation</code>,
- *             <code>StartEngagementByAcceptingInvitation</code>, and
- *             <code>RejectEngagementInvitation</code>.</p>
+ *                   <b>AWS referral management:</b> Manages referrals
+ *                     shared by AWS using actions such as <code>ListEngagementInvitations</code>,
+ *                         <code>GetEngagementInvitation</code>,
+ *                         <code>StartEngagementByAcceptingInvitation</code>, and
+ *                         <code>RejectEngagementInvitation</code>.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Entity association:</b>
- *           Associates related entities such as <i>AWS Products</i>,
- *             <i>Partner Solutions</i>, and <i>AWS
- *             Marketplace Private Offers</i> with opportunities using the
- *           actions <code>AssociateOpportunity</code>, and
- *             <code>DisassociateOpportunity</code>.</p>
+ *                   <b>Entity association:</b> Associates related
+ *                     entities such as <i>AWS Products</i>, <i>Partner
+ *                         Solutions</i>, and <i>AWS Marketplace Private
+ *                         Offers</i> with opportunities using the actions
+ *                         <code>AssociateOpportunity</code>, and
+ *                     <code>DisassociateOpportunity</code>.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>View AWS opportunity
- *             details:</b> Retrieves real-time summaries of AWS
- *           opportunities using the <code>GetAWSOpportunitySummary</code>
- *           action.</p>
+ *                   <b>View AWS opportunity details:</b> Retrieves
+ *                     real-time summaries of AWS opportunities using the
+ *                         <code>GetAWSOpportunitySummary</code> action.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>List solutions:</b> Provides
- *           list APIs for listing partner offers using
- *           <code>ListSolutions</code>.</p>
+ *                   <b>List solutions:</b> Provides list APIs for
+ *                     listing partner offers using <code>ListSolutions</code>.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Event subscription:</b>
- *           Subscribe to real-time opportunity updates through AWS EventBridge by
- *           using actions such as <i>Opportunity Created</i>,
- *             <i>Opportunity Updated</i>, <i>Engagement
- *             Invitation Accepted</i>, <i>Engagement Invitation
- *             Rejected</i>, and <i>Engagement Invitation
- *             Created</i>.</p>
+ *                   <b>Event subscription:</b> Subscribe to real-time
+ *                     opportunity updates through AWS EventBridge by using actions such as
+ *                         <i>Opportunity Created</i>, <i>Opportunity
+ *                         Updated</i>, <i>Engagement Invitation Accepted</i>,
+ *                         <i>Engagement Invitation Rejected</i>, and
+ *                         <i>Engagement Invitation Created</i>.</p>
  *             </li>
  *          </ol>
  * @public

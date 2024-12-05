@@ -5,13 +5,17 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RejectEngagementInvitationRequest } from "../models/models_0";
+import {
+  ListEngagementMembersRequest,
+  ListEngagementMembersResponse,
+  ListEngagementMembersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   PartnerCentralSellingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { de_RejectEngagementInvitationCommand, se_RejectEngagementInvitationCommand } from "../protocols/Aws_json1_0";
+import { de_ListEngagementMembersCommand, se_ListEngagementMembersCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -21,41 +25,54 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link RejectEngagementInvitationCommand}.
+ * The input for {@link ListEngagementMembersCommand}.
  */
-export interface RejectEngagementInvitationCommandInput extends RejectEngagementInvitationRequest {}
+export interface ListEngagementMembersCommandInput extends ListEngagementMembersRequest {}
 /**
  * @public
  *
- * The output of {@link RejectEngagementInvitationCommand}.
+ * The output of {@link ListEngagementMembersCommand}.
  */
-export interface RejectEngagementInvitationCommandOutput extends __MetadataBearer {}
+export interface ListEngagementMembersCommandOutput extends ListEngagementMembersResponse, __MetadataBearer {}
 
 /**
- * <p>This action rejects an <code>EngagementInvitation</code> that AWS shared. Rejecting an
- *             invitation indicates that the partner doesn't want to pursue the opportunity, and all
- *             related data will become inaccessible thereafter.</p>
+ * <p>
+ *     Retrieves the details of member partners in an engagement. This operation can only be
+ *     invoked by members of the engagement. The <code>ListEngagementMembers</code> operation allows you to
+ *     fetch information about the members of a specific engagement. This action is restricted
+ *     to members of the engagement being queried.
+ * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PartnerCentralSellingClient, RejectEngagementInvitationCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
- * // const { PartnerCentralSellingClient, RejectEngagementInvitationCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * import { PartnerCentralSellingClient, ListEngagementMembersCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
+ * // const { PartnerCentralSellingClient, ListEngagementMembersCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
  * const client = new PartnerCentralSellingClient(config);
- * const input = { // RejectEngagementInvitationRequest
+ * const input = { // ListEngagementMembersRequest
  *   Catalog: "STRING_VALUE", // required
  *   Identifier: "STRING_VALUE", // required
- *   RejectionReason: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
  * };
- * const command = new RejectEngagementInvitationCommand(input);
+ * const command = new ListEngagementMembersCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListEngagementMembersResponse
+ * //   EngagementMemberList: [ // EngagementMembers // required
+ * //     { // EngagementMember
+ * //       CompanyName: "STRING_VALUE",
+ * //       WebsiteUrl: "STRING_VALUE",
+ * //       AccountId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param RejectEngagementInvitationCommandInput - {@link RejectEngagementInvitationCommandInput}
- * @returns {@link RejectEngagementInvitationCommandOutput}
- * @see {@link RejectEngagementInvitationCommandInput} for command's `input` shape.
- * @see {@link RejectEngagementInvitationCommandOutput} for command's `response` shape.
+ * @param ListEngagementMembersCommandInput - {@link ListEngagementMembersCommandInput}
+ * @returns {@link ListEngagementMembersCommandOutput}
+ * @see {@link ListEngagementMembersCommandInput} for command's `input` shape.
+ * @see {@link ListEngagementMembersCommandOutput} for command's `response` shape.
  * @see {@link PartnerCentralSellingClientResolvedConfig | config} for PartnerCentralSellingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -63,12 +80,6 @@ export interface RejectEngagementInvitationCommandOutput extends __MetadataBeare
  *             action.</p>
  *          <p>You don’t have access to this action or resource. Review IAM policies or contact your
  *             AWS administrator for assistance.</p>
- *
- * @throws {@link InternalServerException} (server fault)
- *  <p>This error occurs when the specified resource can’t be found or doesn't exist.
- *             Resource ID and type might be incorrect.</p>
- *          <p>Suggested action: This is usually a transient error. Retry after the provided retry
- *             delay or a short interval. If the problem persists, contact AWS support.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This error occurs when the specified resource can't be found. The resource might not
@@ -92,10 +103,10 @@ export interface RejectEngagementInvitationCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class RejectEngagementInvitationCommand extends $Command
+export class ListEngagementMembersCommand extends $Command
   .classBuilder<
-    RejectEngagementInvitationCommandInput,
-    RejectEngagementInvitationCommandOutput,
+    ListEngagementMembersCommandInput,
+    ListEngagementMembersCommandOutput,
     PartnerCentralSellingClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -107,21 +118,21 @@ export class RejectEngagementInvitationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSPartnerCentralSelling", "RejectEngagementInvitation", {})
-  .n("PartnerCentralSellingClient", "RejectEngagementInvitationCommand")
-  .f(void 0, void 0)
-  .ser(se_RejectEngagementInvitationCommand)
-  .de(de_RejectEngagementInvitationCommand)
+  .s("AWSPartnerCentralSelling", "ListEngagementMembers", {})
+  .n("PartnerCentralSellingClient", "ListEngagementMembersCommand")
+  .f(void 0, ListEngagementMembersResponseFilterSensitiveLog)
+  .ser(se_ListEngagementMembersCommand)
+  .de(de_ListEngagementMembersCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: RejectEngagementInvitationRequest;
-      output: {};
+      input: ListEngagementMembersRequest;
+      output: ListEngagementMembersResponse;
     };
     sdk: {
-      input: RejectEngagementInvitationCommandInput;
-      output: RejectEngagementInvitationCommandOutput;
+      input: ListEngagementMembersCommandInput;
+      output: ListEngagementMembersCommandOutput;
     };
   };
 }

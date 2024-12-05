@@ -5,13 +5,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RejectEngagementInvitationRequest } from "../models/models_0";
+import { StopResourceSnapshotJobRequest } from "../models/models_0";
 import {
   PartnerCentralSellingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { de_RejectEngagementInvitationCommand, se_RejectEngagementInvitationCommand } from "../protocols/Aws_json1_0";
+import { de_StopResourceSnapshotJobCommand, se_StopResourceSnapshotJobCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -21,41 +21,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link RejectEngagementInvitationCommand}.
+ * The input for {@link StopResourceSnapshotJobCommand}.
  */
-export interface RejectEngagementInvitationCommandInput extends RejectEngagementInvitationRequest {}
+export interface StopResourceSnapshotJobCommandInput extends StopResourceSnapshotJobRequest {}
 /**
  * @public
  *
- * The output of {@link RejectEngagementInvitationCommand}.
+ * The output of {@link StopResourceSnapshotJobCommand}.
  */
-export interface RejectEngagementInvitationCommandOutput extends __MetadataBearer {}
+export interface StopResourceSnapshotJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This action rejects an <code>EngagementInvitation</code> that AWS shared. Rejecting an
- *             invitation indicates that the partner doesn't want to pursue the opportunity, and all
- *             related data will become inaccessible thereafter.</p>
+ * <p>
+ *     Stops a resource snapshot job. The job must be started prior to being stopped.
+ * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PartnerCentralSellingClient, RejectEngagementInvitationCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
- * // const { PartnerCentralSellingClient, RejectEngagementInvitationCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * import { PartnerCentralSellingClient, StopResourceSnapshotJobCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
+ * // const { PartnerCentralSellingClient, StopResourceSnapshotJobCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
  * const client = new PartnerCentralSellingClient(config);
- * const input = { // RejectEngagementInvitationRequest
+ * const input = { // StopResourceSnapshotJobRequest
  *   Catalog: "STRING_VALUE", // required
- *   Identifier: "STRING_VALUE", // required
- *   RejectionReason: "STRING_VALUE",
+ *   ResourceSnapshotJobIdentifier: "STRING_VALUE", // required
  * };
- * const command = new RejectEngagementInvitationCommand(input);
+ * const command = new StopResourceSnapshotJobCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param RejectEngagementInvitationCommandInput - {@link RejectEngagementInvitationCommandInput}
- * @returns {@link RejectEngagementInvitationCommandOutput}
- * @see {@link RejectEngagementInvitationCommandInput} for command's `input` shape.
- * @see {@link RejectEngagementInvitationCommandOutput} for command's `response` shape.
+ * @param StopResourceSnapshotJobCommandInput - {@link StopResourceSnapshotJobCommandInput}
+ * @returns {@link StopResourceSnapshotJobCommandOutput}
+ * @see {@link StopResourceSnapshotJobCommandInput} for command's `input` shape.
+ * @see {@link StopResourceSnapshotJobCommandOutput} for command's `response` shape.
  * @see {@link PartnerCentralSellingClientResolvedConfig | config} for PartnerCentralSellingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -63,12 +62,6 @@ export interface RejectEngagementInvitationCommandOutput extends __MetadataBeare
  *             action.</p>
  *          <p>You don’t have access to this action or resource. Review IAM policies or contact your
  *             AWS administrator for assistance.</p>
- *
- * @throws {@link InternalServerException} (server fault)
- *  <p>This error occurs when the specified resource can’t be found or doesn't exist.
- *             Resource ID and type might be incorrect.</p>
- *          <p>Suggested action: This is usually a transient error. Retry after the provided retry
- *             delay or a short interval. If the problem persists, contact AWS support.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This error occurs when the specified resource can't be found. The resource might not
@@ -92,10 +85,10 @@ export interface RejectEngagementInvitationCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class RejectEngagementInvitationCommand extends $Command
+export class StopResourceSnapshotJobCommand extends $Command
   .classBuilder<
-    RejectEngagementInvitationCommandInput,
-    RejectEngagementInvitationCommandOutput,
+    StopResourceSnapshotJobCommandInput,
+    StopResourceSnapshotJobCommandOutput,
     PartnerCentralSellingClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -107,21 +100,21 @@ export class RejectEngagementInvitationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSPartnerCentralSelling", "RejectEngagementInvitation", {})
-  .n("PartnerCentralSellingClient", "RejectEngagementInvitationCommand")
+  .s("AWSPartnerCentralSelling", "StopResourceSnapshotJob", {})
+  .n("PartnerCentralSellingClient", "StopResourceSnapshotJobCommand")
   .f(void 0, void 0)
-  .ser(se_RejectEngagementInvitationCommand)
-  .de(de_RejectEngagementInvitationCommand)
+  .ser(se_StopResourceSnapshotJobCommand)
+  .de(de_StopResourceSnapshotJobCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: RejectEngagementInvitationRequest;
+      input: StopResourceSnapshotJobRequest;
       output: {};
     };
     sdk: {
-      input: RejectEngagementInvitationCommandInput;
-      output: RejectEngagementInvitationCommandOutput;
+      input: StopResourceSnapshotJobCommandInput;
+      output: StopResourceSnapshotJobCommandOutput;
     };
   };
 }

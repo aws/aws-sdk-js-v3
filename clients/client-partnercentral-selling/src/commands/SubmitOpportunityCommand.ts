@@ -5,13 +5,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSolutionsRequest, ListSolutionsResponse } from "../models/models_0";
+import { SubmitOpportunityRequest } from "../models/models_0";
 import {
   PartnerCentralSellingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { de_ListSolutionsCommand, se_ListSolutionsCommand } from "../protocols/Aws_json1_0";
+import { de_SubmitOpportunityCommand, se_SubmitOpportunityCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -21,67 +21,45 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListSolutionsCommand}.
+ * The input for {@link SubmitOpportunityCommand}.
  */
-export interface ListSolutionsCommandInput extends ListSolutionsRequest {}
+export interface SubmitOpportunityCommandInput extends SubmitOpportunityRequest {}
 /**
  * @public
  *
- * The output of {@link ListSolutionsCommand}.
+ * The output of {@link SubmitOpportunityCommand}.
  */
-export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __MetadataBearer {}
+export interface SubmitOpportunityCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of Partner Solutions that the partner registered on Partner Central.
- *             This API is used to generate a list of solutions that an end user selects from for
- *             association with an opportunity.</p>
+ * <p>
+ *     Use this action to submit an opportunity that was previously created by partner for
+ *     AWS review. After you perform this action, the opportunity becomes non-editable until it
+ *     is reviewed by AWS and has <code> LifeCycle.ReviewStatus </code> as either
+ *     <code>Approved</code> or <code>Action Required</code>.
+ * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PartnerCentralSellingClient, ListSolutionsCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
- * // const { PartnerCentralSellingClient, ListSolutionsCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * import { PartnerCentralSellingClient, SubmitOpportunityCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
+ * // const { PartnerCentralSellingClient, SubmitOpportunityCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
  * const client = new PartnerCentralSellingClient(config);
- * const input = { // ListSolutionsRequest
+ * const input = { // SubmitOpportunityRequest
  *   Catalog: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   Sort: { // SolutionSort
- *     SortOrder: "ASCENDING" || "DESCENDING", // required
- *     SortBy: "Identifier" || "Name" || "Status" || "Category" || "CreatedDate", // required
- *   },
- *   Status: [ // FilterStatus
- *     "Active" || "Inactive" || "Draft",
- *   ],
- *   Identifier: [ // SolutionIdentifiers
- *     "STRING_VALUE",
- *   ],
- *   Category: [ // StringList
- *     "STRING_VALUE",
- *   ],
+ *   Identifier: "STRING_VALUE", // required
+ *   InvolvementType: "For Visibility Only" || "Co-Sell", // required
+ *   Visibility: "Full" || "Limited",
  * };
- * const command = new ListSolutionsCommand(input);
+ * const command = new SubmitOpportunityCommand(input);
  * const response = await client.send(command);
- * // { // ListSolutionsResponse
- * //   SolutionSummaries: [ // SolutionList // required
- * //     { // SolutionBase
- * //       Catalog: "STRING_VALUE", // required
- * //       Id: "STRING_VALUE", // required
- * //       Arn: "STRING_VALUE",
- * //       Name: "STRING_VALUE", // required
- * //       Status: "Active" || "Inactive" || "Draft", // required
- * //       Category: "STRING_VALUE", // required
- * //       CreatedDate: new Date("TIMESTAMP"), // required
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListSolutionsCommandInput - {@link ListSolutionsCommandInput}
- * @returns {@link ListSolutionsCommandOutput}
- * @see {@link ListSolutionsCommandInput} for command's `input` shape.
- * @see {@link ListSolutionsCommandOutput} for command's `response` shape.
+ * @param SubmitOpportunityCommandInput - {@link SubmitOpportunityCommandInput}
+ * @returns {@link SubmitOpportunityCommandOutput}
+ * @see {@link SubmitOpportunityCommandInput} for command's `input` shape.
+ * @see {@link SubmitOpportunityCommandOutput} for command's `response` shape.
  * @see {@link PartnerCentralSellingClientResolvedConfig | config} for PartnerCentralSellingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -102,6 +80,11 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  *          <p>Suggested action: Verify that the resource ID is correct and the resource is in the
  *             expected AWS region. Check IAM permissions for accessing the resource.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>This error occurs when there are too many requests sent. Review the provided quotas
+ *             and adapt your usage to avoid throttling.</p>
+ *          <p>This error occurs when there are too many requests sent. Review the provided <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the service or business
  *             validation rules.</p>
@@ -113,10 +96,10 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  *
  * @public
  */
-export class ListSolutionsCommand extends $Command
+export class SubmitOpportunityCommand extends $Command
   .classBuilder<
-    ListSolutionsCommandInput,
-    ListSolutionsCommandOutput,
+    SubmitOpportunityCommandInput,
+    SubmitOpportunityCommandOutput,
     PartnerCentralSellingClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -128,21 +111,21 @@ export class ListSolutionsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSPartnerCentralSelling", "ListSolutions", {})
-  .n("PartnerCentralSellingClient", "ListSolutionsCommand")
+  .s("AWSPartnerCentralSelling", "SubmitOpportunity", {})
+  .n("PartnerCentralSellingClient", "SubmitOpportunityCommand")
   .f(void 0, void 0)
-  .ser(se_ListSolutionsCommand)
-  .de(de_ListSolutionsCommand)
+  .ser(se_SubmitOpportunityCommand)
+  .de(de_SubmitOpportunityCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListSolutionsRequest;
-      output: ListSolutionsResponse;
+      input: SubmitOpportunityRequest;
+      output: {};
     };
     sdk: {
-      input: ListSolutionsCommandInput;
-      output: ListSolutionsCommandOutput;
+      input: SubmitOpportunityCommandInput;
+      output: SubmitOpportunityCommandOutput;
     };
   };
 }

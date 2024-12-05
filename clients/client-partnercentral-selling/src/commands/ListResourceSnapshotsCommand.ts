@@ -5,13 +5,18 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RejectEngagementInvitationRequest } from "../models/models_0";
+import {
+  ListResourceSnapshotsRequest,
+  ListResourceSnapshotsRequestFilterSensitiveLog,
+  ListResourceSnapshotsResponse,
+  ListResourceSnapshotsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   PartnerCentralSellingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { de_RejectEngagementInvitationCommand, se_RejectEngagementInvitationCommand } from "../protocols/Aws_json1_0";
+import { de_ListResourceSnapshotsCommand, se_ListResourceSnapshotsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -21,41 +26,58 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link RejectEngagementInvitationCommand}.
+ * The input for {@link ListResourceSnapshotsCommand}.
  */
-export interface RejectEngagementInvitationCommandInput extends RejectEngagementInvitationRequest {}
+export interface ListResourceSnapshotsCommandInput extends ListResourceSnapshotsRequest {}
 /**
  * @public
  *
- * The output of {@link RejectEngagementInvitationCommand}.
+ * The output of {@link ListResourceSnapshotsCommand}.
  */
-export interface RejectEngagementInvitationCommandOutput extends __MetadataBearer {}
+export interface ListResourceSnapshotsCommandOutput extends ListResourceSnapshotsResponse, __MetadataBearer {}
 
 /**
- * <p>This action rejects an <code>EngagementInvitation</code> that AWS shared. Rejecting an
- *             invitation indicates that the partner doesn't want to pursue the opportunity, and all
- *             related data will become inaccessible thereafter.</p>
+ * <p>
+ *     Retrieves a list of resource view snapshots based on specified criteria.
+ * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PartnerCentralSellingClient, RejectEngagementInvitationCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
- * // const { PartnerCentralSellingClient, RejectEngagementInvitationCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * import { PartnerCentralSellingClient, ListResourceSnapshotsCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
+ * // const { PartnerCentralSellingClient, ListResourceSnapshotsCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
  * const client = new PartnerCentralSellingClient(config);
- * const input = { // RejectEngagementInvitationRequest
+ * const input = { // ListResourceSnapshotsRequest
  *   Catalog: "STRING_VALUE", // required
- *   Identifier: "STRING_VALUE", // required
- *   RejectionReason: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   EngagementIdentifier: "STRING_VALUE", // required
+ *   ResourceType: "Opportunity",
+ *   ResourceIdentifier: "STRING_VALUE",
+ *   ResourceSnapshotTemplateIdentifier: "STRING_VALUE",
+ *   CreatedBy: "STRING_VALUE",
  * };
- * const command = new RejectEngagementInvitationCommand(input);
+ * const command = new ListResourceSnapshotsCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListResourceSnapshotsResponse
+ * //   ResourceSnapshotSummaries: [ // ResourceSnapshotSummaryList // required
+ * //     { // ResourceSnapshotSummary
+ * //       Arn: "STRING_VALUE",
+ * //       Revision: Number("int"),
+ * //       ResourceType: "Opportunity",
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceSnapshotTemplateName: "STRING_VALUE",
+ * //       CreatedBy: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param RejectEngagementInvitationCommandInput - {@link RejectEngagementInvitationCommandInput}
- * @returns {@link RejectEngagementInvitationCommandOutput}
- * @see {@link RejectEngagementInvitationCommandInput} for command's `input` shape.
- * @see {@link RejectEngagementInvitationCommandOutput} for command's `response` shape.
+ * @param ListResourceSnapshotsCommandInput - {@link ListResourceSnapshotsCommandInput}
+ * @returns {@link ListResourceSnapshotsCommandOutput}
+ * @see {@link ListResourceSnapshotsCommandInput} for command's `input` shape.
+ * @see {@link ListResourceSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link PartnerCentralSellingClientResolvedConfig | config} for PartnerCentralSellingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -63,12 +85,6 @@ export interface RejectEngagementInvitationCommandOutput extends __MetadataBeare
  *             action.</p>
  *          <p>You don’t have access to this action or resource. Review IAM policies or contact your
  *             AWS administrator for assistance.</p>
- *
- * @throws {@link InternalServerException} (server fault)
- *  <p>This error occurs when the specified resource can’t be found or doesn't exist.
- *             Resource ID and type might be incorrect.</p>
- *          <p>Suggested action: This is usually a transient error. Retry after the provided retry
- *             delay or a short interval. If the problem persists, contact AWS support.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This error occurs when the specified resource can't be found. The resource might not
@@ -92,10 +108,10 @@ export interface RejectEngagementInvitationCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class RejectEngagementInvitationCommand extends $Command
+export class ListResourceSnapshotsCommand extends $Command
   .classBuilder<
-    RejectEngagementInvitationCommandInput,
-    RejectEngagementInvitationCommandOutput,
+    ListResourceSnapshotsCommandInput,
+    ListResourceSnapshotsCommandOutput,
     PartnerCentralSellingClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -107,21 +123,21 @@ export class RejectEngagementInvitationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSPartnerCentralSelling", "RejectEngagementInvitation", {})
-  .n("PartnerCentralSellingClient", "RejectEngagementInvitationCommand")
-  .f(void 0, void 0)
-  .ser(se_RejectEngagementInvitationCommand)
-  .de(de_RejectEngagementInvitationCommand)
+  .s("AWSPartnerCentralSelling", "ListResourceSnapshots", {})
+  .n("PartnerCentralSellingClient", "ListResourceSnapshotsCommand")
+  .f(ListResourceSnapshotsRequestFilterSensitiveLog, ListResourceSnapshotsResponseFilterSensitiveLog)
+  .ser(se_ListResourceSnapshotsCommand)
+  .de(de_ListResourceSnapshotsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: RejectEngagementInvitationRequest;
-      output: {};
+      input: ListResourceSnapshotsRequest;
+      output: ListResourceSnapshotsResponse;
     };
     sdk: {
-      input: RejectEngagementInvitationCommandInput;
-      output: RejectEngagementInvitationCommandOutput;
+      input: ListResourceSnapshotsCommandInput;
+      output: ListResourceSnapshotsCommandOutput;
     };
   };
 }

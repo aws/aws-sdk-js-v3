@@ -5,19 +5,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartEngagementFromOpportunityTaskRequest,
-  StartEngagementFromOpportunityTaskResponse,
-} from "../models/models_0";
+import { CreateResourceSnapshotJobRequest, CreateResourceSnapshotJobResponse } from "../models/models_0";
 import {
   PartnerCentralSellingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import {
-  de_StartEngagementFromOpportunityTaskCommand,
-  se_StartEngagementFromOpportunityTaskCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateResourceSnapshotJobCommand, se_CreateResourceSnapshotJobCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -27,59 +21,50 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StartEngagementFromOpportunityTaskCommand}.
+ * The input for {@link CreateResourceSnapshotJobCommand}.
  */
-export interface StartEngagementFromOpportunityTaskCommandInput extends StartEngagementFromOpportunityTaskRequest {}
+export interface CreateResourceSnapshotJobCommandInput extends CreateResourceSnapshotJobRequest {}
 /**
  * @public
  *
- * The output of {@link StartEngagementFromOpportunityTaskCommand}.
+ * The output of {@link CreateResourceSnapshotJobCommand}.
  */
-export interface StartEngagementFromOpportunityTaskCommandOutput
-  extends StartEngagementFromOpportunityTaskResponse,
-    __MetadataBearer {}
+export interface CreateResourceSnapshotJobCommandOutput extends CreateResourceSnapshotJobResponse, __MetadataBearer {}
 
 /**
- * <p>This action initiates the engagement process from an existing opportunity by accepting
- *             the engagement invitation and creating a corresponding opportunity in the partner’s
- *             system. Similar to <code>StartEngagementByAcceptingInvitationTask</code>, this action is
- *             asynchronous and performs multiple steps before completion.</p>
+ * <p>
+ *     Use this action to create a job to generate a snapshot of the specified resource
+ *     within an engagement. It initiates an asynchronous process to create a resource
+ *     snapshot. The job creates a new snapshot only if the resource state has changed,
+ *     adhering to the same access control and immutability rules as direct snapshot creation.
+ * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PartnerCentralSellingClient, StartEngagementFromOpportunityTaskCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
- * // const { PartnerCentralSellingClient, StartEngagementFromOpportunityTaskCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * import { PartnerCentralSellingClient, CreateResourceSnapshotJobCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
+ * // const { PartnerCentralSellingClient, CreateResourceSnapshotJobCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
  * const client = new PartnerCentralSellingClient(config);
- * const input = { // StartEngagementFromOpportunityTaskRequest
+ * const input = { // CreateResourceSnapshotJobRequest
  *   Catalog: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE", // required
- *   Identifier: "STRING_VALUE", // required
- *   AwsSubmission: { // AwsSubmission
- *     InvolvementType: "For Visibility Only" || "Co-Sell", // required
- *     Visibility: "Full" || "Limited",
- *   },
+ *   EngagementIdentifier: "STRING_VALUE", // required
+ *   ResourceType: "Opportunity", // required
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ *   ResourceSnapshotTemplateIdentifier: "STRING_VALUE", // required
  * };
- * const command = new StartEngagementFromOpportunityTaskCommand(input);
+ * const command = new CreateResourceSnapshotJobCommand(input);
  * const response = await client.send(command);
- * // { // StartEngagementFromOpportunityTaskResponse
- * //   TaskId: "STRING_VALUE",
- * //   TaskArn: "STRING_VALUE",
- * //   StartTime: new Date("TIMESTAMP"),
- * //   TaskStatus: "IN_PROGRESS" || "COMPLETE" || "FAILED",
- * //   Message: "STRING_VALUE",
- * //   ReasonCode: "InvitationAccessDenied" || "InvitationValidationFailed" || "EngagementAccessDenied" || "OpportunityAccessDenied" || "ResourceSnapshotJobAccessDenied" || "ResourceSnapshotJobValidationFailed" || "ResourceSnapshotJobConflict" || "EngagementValidationFailed" || "EngagementConflict" || "OpportunitySubmissionFailed" || "EngagementInvitationConflict" || "OpportunityValidationFailed" || "OpportunityConflict" || "ResourceSnapshotAccessDenied" || "ResourceSnapshotValidationFailed" || "ResourceSnapshotConflict" || "InternalError" || "ServiceQuotaExceeded" || "RequestThrottled",
- * //   OpportunityId: "STRING_VALUE",
- * //   ResourceSnapshotJobId: "STRING_VALUE",
- * //   EngagementId: "STRING_VALUE",
- * //   EngagementInvitationId: "STRING_VALUE",
+ * // { // CreateResourceSnapshotJobResponse
+ * //   Id: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param StartEngagementFromOpportunityTaskCommandInput - {@link StartEngagementFromOpportunityTaskCommandInput}
- * @returns {@link StartEngagementFromOpportunityTaskCommandOutput}
- * @see {@link StartEngagementFromOpportunityTaskCommandInput} for command's `input` shape.
- * @see {@link StartEngagementFromOpportunityTaskCommandOutput} for command's `response` shape.
+ * @param CreateResourceSnapshotJobCommandInput - {@link CreateResourceSnapshotJobCommandInput}
+ * @returns {@link CreateResourceSnapshotJobCommandOutput}
+ * @see {@link CreateResourceSnapshotJobCommandInput} for command's `input` shape.
+ * @see {@link CreateResourceSnapshotJobCommandOutput} for command's `response` shape.
  * @see {@link PartnerCentralSellingClientResolvedConfig | config} for PartnerCentralSellingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -94,12 +79,6 @@ export interface StartEngagementFromOpportunityTaskCommandOutput
  *             resource.</p>
  *          <p>Suggested action: Fetch the latest state of the resource, verify the state, and retry
  *             the request.</p>
- *
- * @throws {@link InternalServerException} (server fault)
- *  <p>This error occurs when the specified resource can’t be found or doesn't exist.
- *             Resource ID and type might be incorrect.</p>
- *          <p>Suggested action: This is usually a transient error. Retry after the provided retry
- *             delay or a short interval. If the problem persists, contact AWS support.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This error occurs when the specified resource can't be found. The resource might not
@@ -130,10 +109,10 @@ export interface StartEngagementFromOpportunityTaskCommandOutput
  *
  * @public
  */
-export class StartEngagementFromOpportunityTaskCommand extends $Command
+export class CreateResourceSnapshotJobCommand extends $Command
   .classBuilder<
-    StartEngagementFromOpportunityTaskCommandInput,
-    StartEngagementFromOpportunityTaskCommandOutput,
+    CreateResourceSnapshotJobCommandInput,
+    CreateResourceSnapshotJobCommandOutput,
     PartnerCentralSellingClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -145,21 +124,21 @@ export class StartEngagementFromOpportunityTaskCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSPartnerCentralSelling", "StartEngagementFromOpportunityTask", {})
-  .n("PartnerCentralSellingClient", "StartEngagementFromOpportunityTaskCommand")
+  .s("AWSPartnerCentralSelling", "CreateResourceSnapshotJob", {})
+  .n("PartnerCentralSellingClient", "CreateResourceSnapshotJobCommand")
   .f(void 0, void 0)
-  .ser(se_StartEngagementFromOpportunityTaskCommand)
-  .de(de_StartEngagementFromOpportunityTaskCommand)
+  .ser(se_CreateResourceSnapshotJobCommand)
+  .de(de_CreateResourceSnapshotJobCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: StartEngagementFromOpportunityTaskRequest;
-      output: StartEngagementFromOpportunityTaskResponse;
+      input: CreateResourceSnapshotJobRequest;
+      output: CreateResourceSnapshotJobResponse;
     };
     sdk: {
-      input: StartEngagementFromOpportunityTaskCommandInput;
-      output: StartEngagementFromOpportunityTaskCommandOutput;
+      input: CreateResourceSnapshotJobCommandInput;
+      output: CreateResourceSnapshotJobCommandOutput;
     };
   };
 }
