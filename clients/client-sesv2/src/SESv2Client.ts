@@ -749,6 +749,7 @@ export class SESv2Client extends __Client<
         identityProviderConfigProvider: async (config: SESv2ClientResolvedConfig) =>
           new DefaultIdentityProviderConfig({
             "aws.auth#sigv4": config.credentials,
+            "aws.auth#sigv4a": config.credentials,
           }),
       })
     );

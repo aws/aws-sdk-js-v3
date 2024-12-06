@@ -38,7 +38,8 @@ public final class AwsTraitsUtils {
     private static final Set<ShapeId> ENDPOINT_RULESET_HTTP_AUTH_SCHEME_SERVICES = Set.of(
         ShapeId.from("com.amazonaws.s3#AmazonS3"),
         ShapeId.from("com.amazonaws.eventbridge#AWSEvents"),
-        ShapeId.from("com.amazonaws.cloudfrontkeyvaluestore#CloudFrontKeyValueStore")
+        ShapeId.from("com.amazonaws.cloudfrontkeyvaluestore#CloudFrontKeyValueStore"),
+        ShapeId.from("com.amazonaws.sesv2#SimpleEmailService_v2")
     );
 
     private AwsTraitsUtils() {}
