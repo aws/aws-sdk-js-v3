@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.708.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.707.0...v3.708.0) (2024-12-09)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Change `CustomDomainConfig` from a required to an optional parameter for the `UpdateUserPoolDomain` operation. ([7c1425c](https://github.com/aws/aws-sdk-js-v3/commit/7c1425c9e971f59deb515505ad588f71e9ed22be))
+* **client-ec2:** This release includes a new API for modifying instance network-performance-options after launch. ([2f49c14](https://github.com/aws/aws-sdk-js-v3/commit/2f49c14f1a0d86c9bba35757784eb1f317008542))
+* **client-medialive:** H265 outputs now support disabling the deblocking filter. ([4adf1d4](https://github.com/aws/aws-sdk-js-v3/commit/4adf1d4f213a291bed030c31dbe7e3dfd1135561))
+* **clients:** update client endpoints as of 2024-12-09 ([0141da0](https://github.com/aws/aws-sdk-js-v3/commit/0141da01ee57828ec9caaec91bdafc7a7350d35f))
+
+
+
+
+
 # [3.707.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.706.0...v3.707.0) (2024-12-05)
 
 

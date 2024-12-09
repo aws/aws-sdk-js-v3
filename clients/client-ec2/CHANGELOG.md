@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.708.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.707.0...v3.708.0) (2024-12-09)
+
+
+### Features
+
+* **client-ec2:** This release includes a new API for modifying instance network-performance-options after launch. ([2f49c14](https://github.com/aws/aws-sdk-js-v3/commit/2f49c14f1a0d86c9bba35757784eb1f317008542))
+
+
+
+
+
 # [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
 
 

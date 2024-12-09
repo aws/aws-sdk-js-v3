@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.708.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.707.0...v3.708.0) (2024-12-09)
+
+
+### Features
+
+* **client-medialive:** H265 outputs now support disabling the deblocking filter. ([4adf1d4](https://github.com/aws/aws-sdk-js-v3/commit/4adf1d4f213a291bed030c31dbe7e3dfd1135561))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive
