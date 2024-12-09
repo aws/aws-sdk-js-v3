@@ -5240,6 +5240,20 @@ export interface H265ColorSpaceSettings {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const H265Deblocking = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265Deblocking = (typeof H265Deblocking)[keyof typeof H265Deblocking];
+
+/**
  * H265 Filter Settings
  * @public
  */
@@ -5728,6 +5742,14 @@ export interface H265Settings {
    * @public
    */
   MinQp?: number | undefined;
+
+  /**
+   * Enable or disable the deblocking filter for this codec. The filter reduces blocking artifacts at block boundaries,
+   * which improves overall video quality. If the filter is disabled, visible block edges might appear in the output,
+   * especially at lower bitrates.
+   * @public
+   */
+  Deblocking?: H265Deblocking | undefined;
 }
 
 /**
@@ -7131,18 +7153,3 @@ export const GlobalConfigurationOutputTimingSource = {
  */
 export type GlobalConfigurationOutputTimingSource =
   (typeof GlobalConfigurationOutputTimingSource)[keyof typeof GlobalConfigurationOutputTimingSource];
-
-/**
- * @public
- * @enum
- */
-export const GlobalConfigurationLowFramerateInputs = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type GlobalConfigurationLowFramerateInputs =
-  (typeof GlobalConfigurationLowFramerateInputs)[keyof typeof GlobalConfigurationLowFramerateInputs];

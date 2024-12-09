@@ -104,7 +104,6 @@ import {
   ColorCorrectionSettings,
   FeatureActivations,
   GlobalConfigurationInputEndAction,
-  GlobalConfigurationLowFramerateInputs,
   GlobalConfigurationOutputLockingMode,
   GlobalConfigurationOutputTimingSource,
   InputLossBehavior,
@@ -125,6 +124,21 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const GlobalConfigurationLowFramerateInputs = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type GlobalConfigurationLowFramerateInputs =
+  (typeof GlobalConfigurationLowFramerateInputs)[keyof typeof GlobalConfigurationLowFramerateInputs];
 
 /**
  * Global Configuration
@@ -8113,6 +8127,8 @@ export interface UpdateInputSecurityGroupRequest {
   InputSecurityGroupId: string | undefined;
 
   /**
+   * @deprecated
+   *
    * A collection of key-value pairs.
    * @public
    */

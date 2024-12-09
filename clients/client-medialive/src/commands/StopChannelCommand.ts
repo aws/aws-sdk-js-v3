@@ -978,6 +978,7 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * //             TileWidth: Number("int"),
  * //             TreeblockSize: "AUTO" || "TREE_SIZE_32X32",
  * //             MinQp: Number("int"),
+ * //             Deblocking: "DISABLED" || "ENABLED",
  * //           },
  * //           Mpeg2Settings: { // Mpeg2Settings
  * //             AdaptiveQuantization: "AUTO" || "HIGH" || "LOW" || "MEDIUM" || "OFF",
