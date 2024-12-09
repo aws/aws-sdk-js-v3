@@ -28,23 +28,24 @@ export interface DeregisterTaskDefinitionCommandInput extends DeregisterTaskDefi
 export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Deregisters the specified task definition by family and revision. Upon deregistration, the task
- * 			definition is marked as <code>INACTIVE</code>. Existing tasks and services that reference an
- * 				<code>INACTIVE</code> task definition continue to run without disruption. Existing services that
- * 			reference an <code>INACTIVE</code> task definition can still scale up or down by modifying the
- * 			service's desired count. If you want to delete a task definition revision, you must first deregister
- * 			the task definition revision.</p>
- *          <p>You can't use an <code>INACTIVE</code> task definition to run new tasks or create new services, and
- * 			you can't update an existing service to reference an <code>INACTIVE</code> task definition. However,
- * 			there may be up to a 10-minute window following deregistration where these restrictions have not yet
- * 			taken effect.</p>
+ * <p>Deregisters the specified task definition by family and revision. Upon deregistration,
+ * 			the task definition is marked as <code>INACTIVE</code>. Existing tasks and services that
+ * 			reference an <code>INACTIVE</code> task definition continue to run without disruption.
+ * 			Existing services that reference an <code>INACTIVE</code> task definition can still
+ * 			scale up or down by modifying the service's desired count. If you want to delete a task
+ * 			definition revision, you must first deregister the task definition revision.</p>
+ *          <p>You can't use an <code>INACTIVE</code> task definition to run new tasks or create new
+ * 			services, and you can't update an existing service to reference an <code>INACTIVE</code>
+ * 			task definition. However, there may be up to a 10-minute window following deregistration
+ * 			where these restrictions have not yet taken effect.</p>
  *          <note>
- *             <p>At this time, <code>INACTIVE</code> task definitions remain discoverable in your account
- * 				indefinitely. However, this behavior is subject to change in the future. We don't recommend that
- * 				you rely on <code>INACTIVE</code> task definitions persisting beyond the lifecycle of any
- * 				associated tasks and services.</p>
+ *             <p>At this time, <code>INACTIVE</code> task definitions remain discoverable in your
+ * 				account indefinitely. However, this behavior is subject to change in the future. We
+ * 				don't recommend that you rely on <code>INACTIVE</code> task definitions persisting
+ * 				beyond the lifecycle of any associated tasks and services.</p>
  *          </note>
- *          <p>You must deregister a task definition revision before you delete it. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteTaskDefinitions.html">DeleteTaskDefinitions</a>.</p>
+ *          <p>You must deregister a task definition revision before you delete it. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteTaskDefinitions.html">DeleteTaskDefinitions</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -339,21 +340,23 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. This client action might be using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might
- * 			be specifying an identifier that isn't valid.</p>
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *          <p>The following list includes additional causes for the error:</p>
  *          <ul>
  *             <li>
- *                <p>The <code>RunTask</code> could not be processed because you use managed scaling and there is
- * 					a capacity error because the quota of tasks in the <code>PROVISIONING</code> per cluster has
- * 					been reached. For information about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS service
- * 						quotas</a>.</p>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
  *             </li>
  *          </ul>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter isn't valid. Review the available parameters for the API request.</p>
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>

@@ -28,7 +28,8 @@ export interface DeleteAccountSettingCommandInput extends DeleteAccountSettingRe
 export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingResponse, __MetadataBearer {}
 
 /**
- * <p>Disables an account setting for a specified user, role, or the root user for an account.</p>
+ * <p>Disables an account setting for a specified user, role, or the root user for an
+ * 			account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,21 +60,23 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. This client action might be using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might
- * 			be specifying an identifier that isn't valid.</p>
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *          <p>The following list includes additional causes for the error:</p>
  *          <ul>
  *             <li>
- *                <p>The <code>RunTask</code> could not be processed because you use managed scaling and there is
- * 					a capacity error because the quota of tasks in the <code>PROVISIONING</code> per cluster has
- * 					been reached. For information about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS service
- * 						quotas</a>.</p>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
  *             </li>
  *          </ul>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter isn't valid. Review the available parameters for the API request.</p>
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>

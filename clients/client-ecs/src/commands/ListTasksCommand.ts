@@ -28,9 +28,9 @@ export interface ListTasksCommandInput extends ListTasksRequest {}
 export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of tasks. You can filter the results by cluster, task definition family, container
- * 			instance, launch type, what IAM principal started the task, or by the desired status of the
- * 			task.</p>
+ * <p>Returns a list of tasks. You can filter the results by cluster, task definition
+ * 			family, container instance, launch type, what IAM principal started the task, or by
+ * 			the desired status of the task.</p>
  *          <p>Recently stopped tasks might appear in the returned results. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,16 +67,17 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. This client action might be using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might
- * 			be specifying an identifier that isn't valid.</p>
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *          <p>The following list includes additional causes for the error:</p>
  *          <ul>
  *             <li>
- *                <p>The <code>RunTask</code> could not be processed because you use managed scaling and there is
- * 					a capacity error because the quota of tasks in the <code>PROVISIONING</code> per cluster has
- * 					been reached. For information about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS service
- * 						quotas</a>.</p>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
  *             </li>
  *          </ul>
  *
@@ -84,13 +85,15 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter isn't valid. Review the available parameters for the API request.</p>
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
  * @throws {@link ServiceNotFoundException} (client fault)
- *  <p>The specified service wasn't found. You can view your available services with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">ListServices</a>. Amazon ECS services are cluster specific and Region specific.</p>
+ *  <p>The specified service wasn't found. You can view your available services with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">ListServices</a>. Amazon ECS services are cluster specific and Region
+ * 			specific.</p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>

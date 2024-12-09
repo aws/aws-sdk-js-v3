@@ -29,8 +29,8 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
 
 /**
  * <p>Describes one or more service revisions.</p>
- *          <p>A service revision is a version of the service that includes the values for the Amazon ECS
- * 			resources (for example, task definition) and the environment resources (for example,
+ *          <p>A service revision is a version of the service that includes the values for the Amazon
+ * 			ECS resources (for example, task definition) and the environment resources (for example,
  * 			load balancers, subnets, and security groups). For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-revision.html">Amazon ECS service revisions</a>.</p>
  *          <p>You can't describe a service revision that was created before October 25, 2024.</p>
  * @example
@@ -200,16 +200,17 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  *  <p>You don't have authorization to perform the requested action.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. This client action might be using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might
- * 			be specifying an identifier that isn't valid.</p>
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *          <p>The following list includes additional causes for the error:</p>
  *          <ul>
  *             <li>
- *                <p>The <code>RunTask</code> could not be processed because you use managed scaling and there is
- * 					a capacity error because the quota of tasks in the <code>PROVISIONING</code> per cluster has
- * 					been reached. For information about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS service
- * 						quotas</a>.</p>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed
+ * 					scaling and there is a capacity error because the quota of tasks in the
+ * 						<code>PROVISIONING</code> per cluster has been reached. For information
+ * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
+ * 						service quotas</a>.</p>
  *             </li>
  *          </ul>
  *
@@ -217,13 +218,15 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter isn't valid. Review the available parameters for the API request.</p>
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
  * @throws {@link ServiceNotFoundException} (client fault)
- *  <p>The specified service wasn't found. You can view your available services with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">ListServices</a>. Amazon ECS services are cluster specific and Region specific.</p>
+ *  <p>The specified service wasn't found. You can view your available services with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">ListServices</a>. Amazon ECS services are cluster specific and Region
+ * 			specific.</p>
  *
  * @throws {@link UnsupportedFeatureException} (client fault)
  *  <p>The specified task isn't supported in this Region.</p>

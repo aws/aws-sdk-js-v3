@@ -71,10 +71,12 @@ export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse,
  *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter isn't valid. Review the available parameters for the API request.</p>
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
  *
  * @throws {@link TargetNotFoundException} (client fault)
- *  <p>The specified target wasn't found. You can view your available container instances with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html">ListContainerInstances</a>. Amazon ECS container instances are cluster-specific and
+ *  <p>The specified target wasn't found. You can view your available container instances
+ * 			with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html">ListContainerInstances</a>. Amazon ECS container instances are cluster-specific and
  * 			Region-specific.</p>
  *
  * @throws {@link ECSServiceException}
