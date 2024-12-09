@@ -1,5 +1,6 @@
 // smithy-typescript generated code
-import { AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsSdkSigV4ASigner, AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
@@ -28,9 +29,15 @@ export const getRuntimeConfig = (config: SESv2ClientConfig) => {
         identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
+      {
+        schemeId: "aws.auth#sigv4a",
+        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4a"),
+        signer: new AwsSdkSigV4ASigner(),
+      },
     ],
     logger: config?.logger ?? new NoOpLogger(),
     serviceId: config?.serviceId ?? "SESv2",
+    signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
     utf8Encoder: config?.utf8Encoder ?? toUtf8,

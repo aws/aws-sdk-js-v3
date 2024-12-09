@@ -20360,6 +20360,7 @@ __metadata:
     "@aws-sdk/middleware-recursion-detection": "npm:*"
     "@aws-sdk/middleware-user-agent": "npm:*"
     "@aws-sdk/region-config-resolver": "npm:*"
+    "@aws-sdk/signature-v4-multi-region": "npm:*"
     "@aws-sdk/types": "npm:*"
     "@aws-sdk/util-endpoints": "npm:*"
     "@aws-sdk/util-user-agent-browser": "npm:*"
