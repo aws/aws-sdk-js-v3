@@ -115,17 +115,86 @@ import {
   StatisticType,
 } from "./models_3";
 
-import {
-  AttributeBooleanValue,
-  OfferingClassType,
-  OfferingTypeValues,
-  PermissionGroup,
-  ProductCode,
-  RecurringCharge,
-  ReservedInstanceState,
-  RIProductDescription,
-  Scope,
-} from "./models_4";
+import { AttributeBooleanValue, OfferingClassType, OfferingTypeValues, PermissionGroup, ProductCode } from "./models_4";
+
+/**
+ * @public
+ * @enum
+ */
+export const RIProductDescription = {
+  Linux_UNIX: "Linux/UNIX",
+  Linux_UNIX_Amazon_VPC_: "Linux/UNIX (Amazon VPC)",
+  Windows: "Windows",
+  Windows_Amazon_VPC_: "Windows (Amazon VPC)",
+} as const;
+
+/**
+ * @public
+ */
+export type RIProductDescription = (typeof RIProductDescription)[keyof typeof RIProductDescription];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecurringChargeFrequency = {
+  Hourly: "Hourly",
+} as const;
+
+/**
+ * @public
+ */
+export type RecurringChargeFrequency = (typeof RecurringChargeFrequency)[keyof typeof RecurringChargeFrequency];
+
+/**
+ * <p>Describes a recurring charge.</p>
+ * @public
+ */
+export interface RecurringCharge {
+  /**
+   * <p>The amount of the recurring charge.</p>
+   * @public
+   */
+  Amount?: number | undefined;
+
+  /**
+   * <p>The frequency of the recurring charge.</p>
+   * @public
+   */
+  Frequency?: RecurringChargeFrequency | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Scope = {
+  AVAILABILITY_ZONE: "Availability Zone",
+  REGIONAL: "Region",
+} as const;
+
+/**
+ * @public
+ */
+export type Scope = (typeof Scope)[keyof typeof Scope];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReservedInstanceState = {
+  active: "active",
+  payment_failed: "payment-failed",
+  payment_pending: "payment-pending",
+  queued: "queued",
+  queued_deleted: "queued-deleted",
+  retired: "retired",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservedInstanceState = (typeof ReservedInstanceState)[keyof typeof ReservedInstanceState];
 
 /**
  * <p>Describes a Reserved Instance.</p>
@@ -10924,90 +10993,6 @@ export interface EnableAllowedImagesSettingsRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableAllowedImagesSettingsResult {
-  /**
-   * <p>Returns <code>enabled</code> or <code>audit-mode</code> if the request succeeds;
-   *       otherwise, it returns an error.</p>
-   * @public
-   */
-  AllowedImagesSettingsState?: AllowedImagesSettingsEnabledState | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableAwsNetworkPerformanceMetricSubscriptionRequest {
-  /**
-   * <p>The source Region (like <code>us-east-1</code>) or Availability Zone ID (like <code>use1-az1</code>) that the metric subscription is enabled for. If you use Availability Zone IDs, the Source and Destination Availability Zones must be in the same Region.</p>
-   * @public
-   */
-  Source?: string | undefined;
-
-  /**
-   * <p>The target Region (like <code>us-east-2</code>) or Availability Zone ID (like <code>use2-az2</code>) that the metric subscription is enabled for. If you use Availability Zone IDs, the Source and Destination Availability Zones must be in the same Region.</p>
-   * @public
-   */
-  Destination?: string | undefined;
-
-  /**
-   * <p>The metric used for the enabled subscription.</p>
-   * @public
-   */
-  Metric?: MetricType | undefined;
-
-  /**
-   * <p>The statistic used for the enabled subscription.</p>
-   * @public
-   */
-  Statistic?: StatisticType | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableAwsNetworkPerformanceMetricSubscriptionResult {
-  /**
-   * <p>Indicates whether the subscribe action was successful.</p>
-   * @public
-   */
-  Output?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableEbsEncryptionByDefaultRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableEbsEncryptionByDefaultResult {
-  /**
-   * <p>The updated status of encryption by default.</p>
-   * @public
-   */
-  EbsEncryptionByDefault?: boolean | undefined;
 }
 
 /**

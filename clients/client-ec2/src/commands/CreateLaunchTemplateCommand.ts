@@ -313,6 +313,9 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  *     Operator: { // OperatorRequest
  *       Principal: "STRING_VALUE",
  *     },
+ *     NetworkPerformanceOptions: { // LaunchTemplateNetworkPerformanceOptionsRequest
+ *       BandwidthWeighting: "default" || "vpc-1" || "ebs-1",
+ *     },
  *   },
  *   Operator: {
  *     Principal: "STRING_VALUE",

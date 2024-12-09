@@ -2619,6 +2619,11 @@ import {
   ModifyInstanceMetadataOptionsCommandOutput,
 } from "./commands/ModifyInstanceMetadataOptionsCommand";
 import {
+  ModifyInstanceNetworkPerformanceOptionsCommand,
+  ModifyInstanceNetworkPerformanceOptionsCommandInput,
+  ModifyInstanceNetworkPerformanceOptionsCommandOutput,
+} from "./commands/ModifyInstanceNetworkPerformanceOptionsCommand";
+import {
   ModifyInstancePlacementCommand,
   ModifyInstancePlacementCommandInput,
   ModifyInstancePlacementCommandOutput,
@@ -3758,6 +3763,7 @@ const commands = {
   ModifyInstanceMaintenanceOptionsCommand,
   ModifyInstanceMetadataDefaultsCommand,
   ModifyInstanceMetadataOptionsCommand,
+  ModifyInstanceNetworkPerformanceOptionsCommand,
   ModifyInstancePlacementCommand,
   ModifyIpamCommand,
   ModifyIpamPoolCommand,
@@ -12880,6 +12886,23 @@ export interface EC2 {
     args: ModifyInstanceMetadataOptionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyInstanceMetadataOptionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyInstanceNetworkPerformanceOptionsCommand}
+   */
+  modifyInstanceNetworkPerformanceOptions(
+    args: ModifyInstanceNetworkPerformanceOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyInstanceNetworkPerformanceOptionsCommandOutput>;
+  modifyInstanceNetworkPerformanceOptions(
+    args: ModifyInstanceNetworkPerformanceOptionsCommandInput,
+    cb: (err: any, data?: ModifyInstanceNetworkPerformanceOptionsCommandOutput) => void
+  ): void;
+  modifyInstanceNetworkPerformanceOptions(
+    args: ModifyInstanceNetworkPerformanceOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyInstanceNetworkPerformanceOptionsCommandOutput) => void
   ): void;
 
   /**

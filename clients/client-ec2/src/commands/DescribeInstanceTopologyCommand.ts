@@ -63,7 +63,7 @@ export interface DescribeInstanceTopologyCommandOutput extends DescribeInstanceT
  *                      <p>
  *                         <code>p3dn.24xlarge</code> | <code>p4d.24xlarge</code> |
  *                                 <code>p4de.24xlarge</code> | <code>p5.48xlarge</code> |
- *                                 <code>p5e.48xlarge</code>
+ *                                 <code>p5e.48xlarge</code> | <code>p5en.48xlarge</code>
  *                      </p>
  *                   </li>
  *                   <li>

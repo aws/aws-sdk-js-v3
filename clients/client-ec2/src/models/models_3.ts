@@ -4,7 +4,6 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 import {
   AccountAttribute,
   AccountAttributeName,
-  ActiveInstance,
   Address,
   AddressAttribute,
   AddressAttributeName,
@@ -32,6 +31,7 @@ import {
   ClientVpnAuthenticationType,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
+  CoipCidr,
   CoipPool,
   CustomerGateway,
   DhcpOptions,
@@ -73,6 +73,57 @@ import {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteClientVpnRouteResult {
+  /**
+   * <p>The current state of the route.</p>
+   * @public
+   */
+  Status?: ClientVpnRouteStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCoipCidrRequest {
+  /**
+   * <p> A customer-owned IP address range that you want to delete. </p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>
+   *         The ID of the customer-owned address pool.
+   *       </p>
+   * @public
+   */
+  CoipPoolId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCoipCidrResult {
+  /**
+   * <p>
+   *        Information about a range of customer-owned IP addresses.
+   *       </p>
+   * @public
+   */
+  CoipCidr?: CoipCidr | undefined;
+}
 
 /**
  * @public
@@ -7861,121 +7912,6 @@ export interface DescribeFleetInstancesRequest {
    */
   Filters?: Filter[] | undefined;
 }
-
-/**
- * @public
- */
-export interface DescribeFleetInstancesResult {
-  /**
-   * <p>The running instances. This list is refreshed periodically and might be out of
-   *          date.</p>
-   * @public
-   */
-  ActiveInstances?: ActiveInstance[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   * @public
-   */
-  FleetId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFleetsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The IDs of the EC2 Fleets.</p>
-   *          <note>
-   *             <p>If a fleet is of type <code>instant</code>, you must specify the fleet ID, otherwise
-   *             it does not appear in the response.</p>
-   *          </note>
-   * @public
-   */
-  FleetIds?: string[] | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>activity-status</code> - The progress of the EC2 Fleet ( <code>error</code> |
-   *                   <code>pending-fulfillment</code> | <code>pending-termination</code> |
-   *                   <code>fulfilled</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>excess-capacity-termination-policy</code> - Indicates whether to terminate
-   *                running instances if the target capacity is decreased below the current EC2 Fleet size
-   *                   (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fleet-state</code> - The state of the EC2 Fleet (<code>submitted</code> |
-   *                   <code>active</code> | <code>deleted</code> | <code>failed</code> |
-   *                   <code>deleted-running</code> | <code>deleted-terminating</code> |
-   *                   <code>modifying</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>replace-unhealthy-instances</code> - Indicates whether EC2 Fleet should replace
-   *                unhealthy instances (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>type</code> - The type of request (<code>instant</code> |
-   *                   <code>request</code> | <code>maintain</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FleetActivityStatus = {
-  ERROR: "error",
-  FULFILLED: "fulfilled",
-  PENDING_FULFILLMENT: "pending_fulfillment",
-  PENDING_TERMINATION: "pending_termination",
-} as const;
-
-/**
- * @public
- */
-export type FleetActivityStatus = (typeof FleetActivityStatus)[keyof typeof FleetActivityStatus];
 
 /**
  * @internal

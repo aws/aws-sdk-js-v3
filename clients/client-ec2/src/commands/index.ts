@@ -535,6 +535,7 @@ export * from "./ModifyInstanceEventWindowCommand";
 export * from "./ModifyInstanceMaintenanceOptionsCommand";
 export * from "./ModifyInstanceMetadataDefaultsCommand";
 export * from "./ModifyInstanceMetadataOptionsCommand";
+export * from "./ModifyInstanceNetworkPerformanceOptionsCommand";
 export * from "./ModifyInstancePlacementCommand";
 export * from "./ModifyIpamCommand";
 export * from "./ModifyIpamPoolCommand";

@@ -221,6 +221,9 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  *   },
  *   DisableApiStop: true || false,
  *   EnablePrimaryIpv6: true || false,
+ *   NetworkPerformanceOptions: { // InstanceNetworkPerformanceOptionsRequest
+ *     BandwidthWeighting: "default" || "vpc-1" || "ebs-1",
+ *   },
  *   Operator: { // OperatorRequest
  *     Principal: "STRING_VALUE",
  *   },
@@ -494,6 +497,9 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * //         AutoRecovery: "disabled" || "default",
  * //       },
  * //       CurrentInstanceBootMode: "legacy-bios" || "uefi",
+ * //       NetworkPerformanceOptions: { // InstanceNetworkPerformanceOptions
+ * //         BandwidthWeighting: "default" || "vpc-1" || "ebs-1",
+ * //       },
  * //       Operator: "<OperatorResponse>",
  * //       InstanceId: "STRING_VALUE",
  * //       ImageId: "STRING_VALUE",

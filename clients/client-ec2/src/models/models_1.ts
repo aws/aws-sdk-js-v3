@@ -10,7 +10,6 @@ import {
   AcceleratorTotalMemoryMiBRequest,
   AcceleratorType,
   AddIpamOperatingRegion,
-  AddPrefixListEntry,
   AddressFamily,
   AllocationType,
   AttachmentStatus,
@@ -9847,6 +9846,51 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const InstanceBandwidthWeighting = {
+  DEFAULT: "default",
+  EBS_1: "ebs-1",
+  VPC_1: "vpc-1",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceBandwidthWeighting = (typeof InstanceBandwidthWeighting)[keyof typeof InstanceBandwidthWeighting];
+
+/**
+ * <p>When you configure network performance options in your launch template, your instance
+ *     		is geared for performance improvements based on the workload that it runs as soon as it's
+ *     		available.</p>
+ * @public
+ */
+export interface LaunchTemplateNetworkPerformanceOptionsRequest {
+  /**
+   * <p>Specify the bandwidth weighting option to boost the associated type of baseline bandwidth, as follows:</p>
+   *          <dl>
+   *             <dt>default</dt>
+   *             <dd>
+   *                <p>This option uses the standard bandwidth configuration for your instance type.</p>
+   *             </dd>
+   *             <dt>vpc-1</dt>
+   *             <dd>
+   *                <p>This option boosts your networking baseline bandwidth and reduces your EBS
+   *     					baseline bandwidth.</p>
+   *             </dd>
+   *             <dt>ebs-1</dt>
+   *             <dd>
+   *                <p>This option boosts your EBS baseline bandwidth and reduces your networking
+   *     					baseline bandwidth.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  BandwidthWeighting?: InstanceBandwidthWeighting | undefined;
+}
+
+/**
  * <p>The service provider that manages the resource.</p>
  * @public
  */
@@ -10348,6 +10392,13 @@ export interface RequestLaunchTemplateData {
    * @public
    */
   Operator?: OperatorRequest | undefined;
+
+  /**
+   * <p>Contains launch template settings to boost network performance for the type of
+   *         	workload that runs on your instance.</p>
+   * @public
+   */
+  NetworkPerformanceOptions?: LaunchTemplateNetworkPerformanceOptionsRequest | undefined;
 }
 
 /**
@@ -11342,6 +11393,21 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
 }
 
 /**
+ * <p>With network performance options, you can adjust your bandwidth preferences to meet
+ *     		the needs of the workload that runs on your instance at launch.</p>
+ * @public
+ */
+export interface LaunchTemplateNetworkPerformanceOptions {
+  /**
+   * <p>When you configure network bandwidth weighting, you can boost baseline bandwidth for either networking
+   *     		or EBS by up to 25%. The total available baseline bandwidth for your instance remains
+   *             the same. The default option uses the standard bandwidth configuration for your instance type.</p>
+   * @public
+   */
+  BandwidthWeighting?: InstanceBandwidthWeighting | undefined;
+}
+
+/**
  * <p>Describes the placement of an instance.</p>
  * @public
  */
@@ -11693,6 +11759,13 @@ export interface ResponseLaunchTemplateData {
    * @public
    */
   Operator?: OperatorResponse | undefined;
+
+  /**
+   * <p>Contains the launch template settings for network performance options for
+   *         	your instance.</p>
+   * @public
+   */
+  NetworkPerformanceOptions?: LaunchTemplateNetworkPerformanceOptions | undefined;
 }
 
 /**
@@ -12332,96 +12405,6 @@ export interface LocalGatewayRouteTableVpcAssociation {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- */
-export interface CreateLocalGatewayRouteTableVpcAssociationResult {
-  /**
-   * <p>Information about the association.</p>
-   * @public
-   */
-  LocalGatewayRouteTableVpcAssociation?: LocalGatewayRouteTableVpcAssociation | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateManagedPrefixListRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A name for the prefix list.</p>
-   *          <p>Constraints: Up to 255 characters in length. The name cannot start with <code>com.amazonaws</code>.</p>
-   * @public
-   */
-  PrefixListName: string | undefined;
-
-  /**
-   * <p>One or more entries for the prefix list.</p>
-   * @public
-   */
-  Entries?: AddPrefixListEntry[] | undefined;
-
-  /**
-   * <p>The maximum number of entries for the prefix list.</p>
-   * @public
-   */
-  MaxEntries: number | undefined;
-
-  /**
-   * <p>The tags to apply to the prefix list during creation.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>The IP address type.</p>
-   *          <p>Valid Values: <code>IPv4</code> | <code>IPv6</code>
-   *          </p>
-   * @public
-   */
-  AddressFamily: string | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
-   *                 idempotency</a>.</p>
-   *          <p>Constraints: Up to 255 UTF-8 characters in length.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const PrefixListState = {
-  create_complete: "create-complete",
-  create_failed: "create-failed",
-  create_in_progress: "create-in-progress",
-  delete_complete: "delete-complete",
-  delete_failed: "delete-failed",
-  delete_in_progress: "delete-in-progress",
-  modify_complete: "modify-complete",
-  modify_failed: "modify-failed",
-  modify_in_progress: "modify-in-progress",
-  restore_complete: "restore-complete",
-  restore_failed: "restore-failed",
-  restore_in_progress: "restore-in-progress",
-} as const;
-
-/**
- * @public
- */
-export type PrefixListState = (typeof PrefixListState)[keyof typeof PrefixListState];
 
 /**
  * @internal

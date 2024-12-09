@@ -1889,6 +1889,10 @@ import {
   ModifyInstanceMetadataOptionsCommandOutput,
 } from "./commands/ModifyInstanceMetadataOptionsCommand";
 import {
+  ModifyInstanceNetworkPerformanceOptionsCommandInput,
+  ModifyInstanceNetworkPerformanceOptionsCommandOutput,
+} from "./commands/ModifyInstanceNetworkPerformanceOptionsCommand";
+import {
   ModifyInstancePlacementCommandInput,
   ModifyInstancePlacementCommandOutput,
 } from "./commands/ModifyInstancePlacementCommand";
@@ -2848,6 +2852,7 @@ export type ServiceInputTypes =
   | ModifyInstanceMaintenanceOptionsCommandInput
   | ModifyInstanceMetadataDefaultsCommandInput
   | ModifyInstanceMetadataOptionsCommandInput
+  | ModifyInstanceNetworkPerformanceOptionsCommandInput
   | ModifyInstancePlacementCommandInput
   | ModifyIpamCommandInput
   | ModifyIpamPoolCommandInput
@@ -3510,6 +3515,7 @@ export type ServiceOutputTypes =
   | ModifyInstanceMaintenanceOptionsCommandOutput
   | ModifyInstanceMetadataDefaultsCommandOutput
   | ModifyInstanceMetadataOptionsCommandOutput
+  | ModifyInstanceNetworkPerformanceOptionsCommandOutput
   | ModifyInstancePlacementCommandOutput
   | ModifyIpamCommandOutput
   | ModifyIpamPoolCommandOutput

@@ -4496,6 +4496,14 @@ ModifyInstanceMetadataOptions
 </details>
 <details>
 <summary>
+ModifyInstanceNetworkPerformanceOptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyInstanceNetworkPerformanceOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyInstanceNetworkPerformanceOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyInstanceNetworkPerformanceOptionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ModifyInstancePlacement
 </summary>
 

@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateSecurityGroupRuleDescriptionsEgressRequest,
   UpdateSecurityGroupRuleDescriptionsEgressResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import {
   de_UpdateSecurityGroupRuleDescriptionsEgressCommand,
   se_UpdateSecurityGroupRuleDescriptionsEgressCommand,

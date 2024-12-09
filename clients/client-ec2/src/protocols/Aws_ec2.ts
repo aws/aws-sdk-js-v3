@@ -1860,6 +1860,10 @@ import {
   ModifyInstanceMetadataOptionsCommandOutput,
 } from "../commands/ModifyInstanceMetadataOptionsCommand";
 import {
+  ModifyInstanceNetworkPerformanceOptionsCommandInput,
+  ModifyInstanceNetworkPerformanceOptionsCommandOutput,
+} from "../commands/ModifyInstanceNetworkPerformanceOptionsCommand";
+import {
   ModifyInstancePlacementCommandInput,
   ModifyInstancePlacementCommandOutput,
 } from "../commands/ModifyInstancePlacementCommand";
@@ -2608,8 +2612,6 @@ import {
   CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
   CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
   CreateLocalGatewayRouteTableVpcAssociationRequest,
-  CreateLocalGatewayRouteTableVpcAssociationResult,
-  CreateManagedPrefixListRequest,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
@@ -2690,6 +2692,8 @@ import {
   LaunchTemplateInstanceNetworkInterfaceSpecificationRequest,
   LaunchTemplateLicenseConfiguration,
   LaunchTemplateLicenseConfigurationRequest,
+  LaunchTemplateNetworkPerformanceOptions,
+  LaunchTemplateNetworkPerformanceOptionsRequest,
   LaunchTemplatePlacement,
   LaunchTemplatePlacementRequest,
   LaunchTemplatePrivateDnsNameOptions,
@@ -2748,6 +2752,8 @@ import {
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
   ConnectionTrackingConfiguration,
+  CreateLocalGatewayRouteTableVpcAssociationResult,
+  CreateManagedPrefixListRequest,
   CreateManagedPrefixListResult,
   CreateNatGatewayRequest,
   CreateNatGatewayResult,
@@ -2863,9 +2869,6 @@ import {
   DeleteClientVpnEndpointRequest,
   DeleteClientVpnEndpointResult,
   DeleteClientVpnRouteRequest,
-  DeleteClientVpnRouteResult,
-  DeleteCoipCidrRequest,
-  DeleteCoipCidrResult,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -3002,6 +3005,9 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   DeclarativePoliciesReport,
+  DeleteClientVpnRouteResult,
+  DeleteCoipCidrRequest,
+  DeleteCoipCidrResult,
   DeleteCoipPoolRequest,
   DeleteCoipPoolResult,
   DeleteCustomerGatewayRequest,
@@ -3220,8 +3226,6 @@ import {
   DescribeFleetHistoryRequest,
   DescribeFleetHistoryResult,
   DescribeFleetInstancesRequest,
-  DescribeFleetInstancesResult,
-  DescribeFleetsRequest,
   DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
@@ -3255,13 +3259,16 @@ import {
   ArchitectureType,
   AttributeBooleanValue,
   AvailableCapacity,
+  BandwidthWeightingType,
   BootModeType,
   CapacityReservationOptions,
   CapacityReservationSpecificationResponse,
   ConnectionTrackingSpecificationResponse,
   CpuOptions,
   DescribeFleetError,
+  DescribeFleetInstancesResult,
   DescribeFleetsInstances,
+  DescribeFleetsRequest,
   DescribeFleetsResult,
   DescribeFlowLogsRequest,
   DescribeFlowLogsResult,
@@ -3439,6 +3446,7 @@ import {
   InstanceNetworkInterface,
   InstanceNetworkInterfaceAssociation,
   InstanceNetworkInterfaceAttachment,
+  InstanceNetworkPerformanceOptions,
   InstancePrivateIpAddress,
   InstanceState,
   InstanceStatus,
@@ -3486,7 +3494,6 @@ import {
   ProductCode,
   PublicIpv4Pool,
   PublicIpv4PoolRange,
-  RecurringCharge,
   Region,
   Reservation,
   RootDeviceType,
@@ -3712,11 +3719,6 @@ import {
   EnableAddressTransferRequest,
   EnableAddressTransferResult,
   EnableAllowedImagesSettingsRequest,
-  EnableAllowedImagesSettingsResult,
-  EnableAwsNetworkPerformanceMetricSubscriptionRequest,
-  EnableAwsNetworkPerformanceMetricSubscriptionResult,
-  EnableEbsEncryptionByDefaultRequest,
-  EnableEbsEncryptionByDefaultResult,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceNetworkInterfaceSpecification,
@@ -3726,6 +3728,7 @@ import {
   LoadBalancersConfig,
   PricingDetail,
   PrivateDnsDetails,
+  RecurringCharge,
   ReservedInstances,
   ReservedInstancesConfiguration,
   ReservedInstancesId,
@@ -3798,6 +3801,11 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  EnableAllowedImagesSettingsResult,
+  EnableAwsNetworkPerformanceMetricSubscriptionRequest,
+  EnableAwsNetworkPerformanceMetricSubscriptionResult,
+  EnableEbsEncryptionByDefaultRequest,
+  EnableEbsEncryptionByDefaultResult,
   EnableFastLaunchRequest,
   EnableFastLaunchResult,
   EnableFastSnapshotRestoreErrorItem,
@@ -4027,8 +4035,6 @@ import {
   ModifyInstanceEventStartTimeResult,
   ModifyInstanceEventWindowRequest,
   ModifyInstanceEventWindowResult,
-  ModifyInstanceMaintenanceOptionsRequest,
-  ModifyInstanceMaintenanceOptionsResult,
   PrefixListAssociation,
   PrefixListEntry,
   Purchase,
@@ -4073,14 +4079,19 @@ import {
   InstanceMarketOptionsRequest,
   InstanceMetadataOptionsRequest,
   InstanceMonitoring,
+  InstanceNetworkPerformanceOptionsRequest,
   InstanceStateChange,
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyInstanceMaintenanceOptionsRequest,
+  ModifyInstanceMaintenanceOptionsResult,
   ModifyInstanceMetadataDefaultsRequest,
   ModifyInstanceMetadataDefaultsResult,
   ModifyInstanceMetadataOptionsRequest,
   ModifyInstanceMetadataOptionsResult,
+  ModifyInstanceNetworkPerformanceRequest,
+  ModifyInstanceNetworkPerformanceResult,
   ModifyInstancePlacementRequest,
   ModifyInstancePlacementResult,
   ModifyIpamPoolRequest,
@@ -4307,7 +4318,6 @@ import {
   SearchTransitGatewayMulticastGroupsResult,
   SearchTransitGatewayRoutesRequest,
   SearchTransitGatewayRoutesResult,
-  SecurityGroupRuleDescription,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SendDiagnosticInterruptRequest,
@@ -4341,19 +4351,22 @@ import {
   UnassignPrivateNatGatewayAddressResult,
   UnlockSnapshotRequest,
   UnlockSnapshotResult,
+  VerifiedAccessLogCloudWatchLogsDestinationOptions,
+  VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
+  VerifiedAccessLogOptions,
+  VerifiedAccessLogS3DestinationOptions,
+} from "../models/models_7";
+import {
+  SecurityGroupRuleDescription,
   UnmonitorInstancesRequest,
   UnmonitorInstancesResult,
   UpdateSecurityGroupRuleDescriptionsEgressRequest,
   UpdateSecurityGroupRuleDescriptionsEgressResult,
   UpdateSecurityGroupRuleDescriptionsIngressRequest,
   UpdateSecurityGroupRuleDescriptionsIngressResult,
-  VerifiedAccessLogCloudWatchLogsDestinationOptions,
-  VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
-  VerifiedAccessLogOptions,
-  VerifiedAccessLogS3DestinationOptions,
   WithdrawByoipCidrRequest,
-} from "../models/models_7";
-import { WithdrawByoipCidrResult } from "../models/models_8";
+  WithdrawByoipCidrResult,
+} from "../models/models_8";
 
 /**
  * serializeAws_ec2AcceptAddressTransferCommand
@@ -13462,6 +13475,23 @@ export const se_ModifyInstanceMetadataOptionsCommand = async (
   body = buildFormUrlencodedString({
     ...se_ModifyInstanceMetadataOptionsRequest(input, context),
     [_A]: _MIMOo,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2ModifyInstanceNetworkPerformanceOptionsCommand
+ */
+export const se_ModifyInstanceNetworkPerformanceOptionsCommand = async (
+  input: ModifyInstanceNetworkPerformanceOptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyInstanceNetworkPerformanceRequest(input, context),
+    [_A]: _MINPO,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -26121,6 +26151,26 @@ export const de_ModifyInstanceMetadataOptionsCommand = async (
   let contents: any = {};
   contents = de_ModifyInstanceMetadataOptionsResult(data, context);
   const response: ModifyInstanceMetadataOptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2ModifyInstanceNetworkPerformanceOptionsCommand
+ */
+export const de_ModifyInstanceNetworkPerformanceOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyInstanceNetworkPerformanceOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyInstanceNetworkPerformanceResult(data, context);
+  const response: ModifyInstanceNetworkPerformanceOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -45720,6 +45770,20 @@ const se_InstanceNetworkInterfaceSpecificationList = (
 };
 
 /**
+ * serializeAws_ec2InstanceNetworkPerformanceOptionsRequest
+ */
+const se_InstanceNetworkPerformanceOptionsRequest = (
+  input: InstanceNetworkPerformanceOptionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_BW] != null) {
+    entries[_BW] = input[_BW];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2InstanceRequirements
  */
 const se_InstanceRequirements = (input: InstanceRequirements, context: __SerdeContext): any => {
@@ -47097,6 +47161,20 @@ const se_LaunchTemplateNameStringList = (input: string[], context: __SerdeContex
 };
 
 /**
+ * serializeAws_ec2LaunchTemplateNetworkPerformanceOptionsRequest
+ */
+const se_LaunchTemplateNetworkPerformanceOptionsRequest = (
+  input: LaunchTemplateNetworkPerformanceOptionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_BW] != null) {
+    entries[_BW] = input[_BW];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2LaunchTemplateOverrides
  */
 const se_LaunchTemplateOverrides = (input: LaunchTemplateOverrides, context: __SerdeContext): any => {
@@ -48382,6 +48460,26 @@ const se_ModifyInstanceMetadataOptionsRequest = (
   }
   if (input[_IMT] != null) {
     entries[_IMT] = input[_IMT];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ModifyInstanceNetworkPerformanceRequest
+ */
+const se_ModifyInstanceNetworkPerformanceRequest = (
+  input: ModifyInstanceNetworkPerformanceRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_IIn] != null) {
+    entries[_IIn] = input[_IIn];
+  }
+  if (input[_BW] != null) {
+    entries[_BW] = input[_BW];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
   }
   return entries;
 };
@@ -52916,6 +53014,13 @@ const se_RequestLaunchTemplateData = (input: RequestLaunchTemplateData, context:
       entries[loc] = value;
     });
   }
+  if (input[_NPO] != null) {
+    const memberEntries = se_LaunchTemplateNetworkPerformanceOptionsRequest(input[_NPO], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NetworkPerformanceOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -53890,6 +53995,13 @@ const se_RunInstancesRequest = (input: RunInstancesRequest, context: __SerdeCont
   }
   if (input[_EPI] != null) {
     entries[_EPI] = input[_EPI];
+  }
+  if (input[_NPO] != null) {
+    const memberEntries = se_InstanceNetworkPerformanceOptionsRequest(input[_NPO], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NetworkPerformanceOptions.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input[_O] != null) {
     const memberEntries = se_OperatorRequest(input[_O], context);
@@ -58647,6 +58759,17 @@ const de_AvailableInstanceCapacityList = (output: any, context: __SerdeContext):
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_InstanceCapacity(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2BandwidthWeightingTypeList
+ */
+const de_BandwidthWeightingTypeList = (output: any, context: __SerdeContext): BandwidthWeightingType[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
     });
 };
 
@@ -71182,6 +71305,9 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
   if (output[_cIBM] != null) {
     contents[_CIBM] = __expectString(output[_cIBM]);
   }
+  if (output[_nPO] != null) {
+    contents[_NPO] = de_InstanceNetworkPerformanceOptions(output[_nPO], context);
+  }
   if (output[_op] != null) {
     contents[_O] = de_OperatorResponse(output[_op], context);
   }
@@ -72107,6 +72233,20 @@ const de_InstanceNetworkInterfaceSpecificationList = (
     .map((entry: any) => {
       return de_InstanceNetworkInterfaceSpecification(entry, context);
     });
+};
+
+/**
+ * deserializeAws_ec2InstanceNetworkPerformanceOptions
+ */
+const de_InstanceNetworkPerformanceOptions = (
+  output: any,
+  context: __SerdeContext
+): InstanceNetworkPerformanceOptions => {
+  const contents: any = {};
+  if (output[_bW] != null) {
+    contents[_BW] = __expectString(output[_bW]);
+  }
+  return contents;
 };
 
 /**
@@ -74737,6 +74877,20 @@ const de_LaunchTemplateLicenseList = (output: any, context: __SerdeContext): Lau
 };
 
 /**
+ * deserializeAws_ec2LaunchTemplateNetworkPerformanceOptions
+ */
+const de_LaunchTemplateNetworkPerformanceOptions = (
+  output: any,
+  context: __SerdeContext
+): LaunchTemplateNetworkPerformanceOptions => {
+  const contents: any = {};
+  if (output[_bW] != null) {
+    contents[_BW] = __expectString(output[_bW]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2LaunchTemplateOverrides
  */
 const de_LaunchTemplateOverrides = (output: any, context: __SerdeContext): LaunchTemplateOverrides => {
@@ -75964,6 +76118,23 @@ const de_ModifyInstanceMetadataOptionsResult = (
 };
 
 /**
+ * deserializeAws_ec2ModifyInstanceNetworkPerformanceResult
+ */
+const de_ModifyInstanceNetworkPerformanceResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyInstanceNetworkPerformanceResult => {
+  const contents: any = {};
+  if (output[_iI] != null) {
+    contents[_IIn] = __expectString(output[_iI]);
+  }
+  if (output[_bW] != null) {
+    contents[_BW] = __expectString(output[_bW]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2ModifyInstancePlacementResult
  */
 const de_ModifyInstancePlacementResult = (output: any, context: __SerdeContext): ModifyInstancePlacementResult => {
@@ -76938,6 +77109,11 @@ const de_NetworkInfo = (output: any, context: __SerdeContext): NetworkInfo => {
   }
   if (output[_eSSn] != null) {
     contents[_ESSn] = __parseBoolean(output[_eSSn]);
+  }
+  if (output.bandwidthWeightings === "") {
+    contents[_BWa] = [];
+  } else if (output[_bWa] != null && output[_bWa][_i] != null) {
+    contents[_BWa] = de_BandwidthWeightingTypeList(__getArrayIfSingleItem(output[_bWa][_i]), context);
   }
   return contents;
 };
@@ -80034,6 +80210,9 @@ const de_ResponseLaunchTemplateData = (output: any, context: __SerdeContext): Re
   }
   if (output[_op] != null) {
     contents[_O] = de_OperatorResponse(output[_op], context);
+  }
+  if (output[_nPO] != null) {
+    contents[_NPO] = de_LaunchTemplateNetworkPerformanceOptions(output[_nPO], context);
   }
   return contents;
 };
@@ -87317,6 +87496,8 @@ const _BTE = "BundleTaskError";
 const _BTIMB = "BaselineThroughputInMBps";
 const _BTu = "BundleTask";
 const _BTun = "BundleTasks";
+const _BW = "BandwidthWeighting";
+const _BWa = "BandwidthWeightings";
 const _Bl = "Blackhole";
 const _By = "Bytes";
 const _Byo = "Byoasn";
@@ -88682,6 +88863,7 @@ const _MIIF = "ModifyIdentityIdFormat";
 const _MIMD = "ModifyInstanceMetadataDefaults";
 const _MIMO = "ModifyInstanceMaintenanceOptions";
 const _MIMOo = "ModifyInstanceMetadataOptions";
+const _MINPO = "ModifyInstanceNetworkPerformanceOptions";
 const _MIP = "ModifyInstancePlacement";
 const _MIPo = "ModifyIpamPool";
 const _MIRC = "ModifyIpamResourceCidr";
@@ -88843,6 +89025,7 @@ const _NOMA = "NumberOfMatchedAccounts";
 const _NOUA = "NumberOfUnmatchedAccounts";
 const _NP = "NetworkPerformance";
 const _NPF = "NetworkPathFound";
+const _NPO = "NetworkPerformanceOptions";
 const _NPe = "NetworkPlatform";
 const _NR = "NoReboot";
 const _NS = "NvmeSupport";
@@ -89940,6 +90123,8 @@ const _bS = "byoasnSet";
 const _bSg = "bgpStatus";
 const _bT = "bannerText";
 const _bTIMB = "baselineThroughputInMBps";
+const _bW = "bandwidthWeighting";
+const _bWa = "bandwidthWeightings";
 const _bl = "blackhole";
 const _bu = "bucket";
 const _c = "component";
@@ -90792,6 +90977,7 @@ const _nOMA = "numberOfMatchedAccounts";
 const _nOUA = "numberOfUnmatchedAccounts";
 const _nP = "networkPerformance";
 const _nPF = "networkPathFound";
+const _nPO = "networkPerformanceOptions";
 const _nPe = "networkPlatform";
 const _nS = "nvmeSupport";
 const _nSS = "networkServiceSet";

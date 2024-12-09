@@ -2,6 +2,7 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
+  ActiveInstance,
   AllocationState,
   AllowsMultipleInstanceTypes,
   AlternatePathHint,
@@ -37,6 +38,7 @@ import {
   FleetReplacementStrategy,
   FleetType,
   HostnameType,
+  InstanceBandwidthWeighting,
   InstanceIpv6Address,
   InstanceLifecycle,
   InternetGateway,
@@ -79,14 +81,122 @@ import {
   ReplaceRootVolumeTask,
 } from "./models_2";
 
-import {
-  Byoasn,
-  Filter,
-  FleetActivityStatus,
-  FleetStateCode,
-  IdFormat,
-  InstanceTagNotificationAttribute,
-} from "./models_3";
+import { Byoasn, Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeFleetInstancesResult {
+  /**
+   * <p>The running instances. This list is refreshed periodically and might be out of
+   *          date.</p>
+   * @public
+   */
+  ActiveInstances?: ActiveInstance[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The ID of the EC2 Fleet.</p>
+   * @public
+   */
+  FleetId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFleetsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The IDs of the EC2 Fleets.</p>
+   *          <note>
+   *             <p>If a fleet is of type <code>instant</code>, you must specify the fleet ID, otherwise
+   *             it does not appear in the response.</p>
+   *          </note>
+   * @public
+   */
+  FleetIds?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>activity-status</code> - The progress of the EC2 Fleet ( <code>error</code> |
+   *                   <code>pending-fulfillment</code> | <code>pending-termination</code> |
+   *                   <code>fulfilled</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>excess-capacity-termination-policy</code> - Indicates whether to terminate
+   *                running instances if the target capacity is decreased below the current EC2 Fleet size
+   *                   (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fleet-state</code> - The state of the EC2 Fleet (<code>submitted</code> |
+   *                   <code>active</code> | <code>deleted</code> | <code>failed</code> |
+   *                   <code>deleted-running</code> | <code>deleted-terminating</code> |
+   *                   <code>modifying</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>replace-unhealthy-instances</code> - Indicates whether EC2 Fleet should replace
+   *                unhealthy instances (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>type</code> - The type of request (<code>instant</code> |
+   *                   <code>request</code> | <code>maintain</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FleetActivityStatus = {
+  ERROR: "error",
+  FULFILLED: "fulfilled",
+  PENDING_FULFILLMENT: "pending_fulfillment",
+  PENDING_TERMINATION: "pending_termination",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetActivityStatus = (typeof FleetActivityStatus)[keyof typeof FleetActivityStatus];
 
 /**
  * <p>Describes the instances that could not be launched by the fleet.</p>
@@ -4909,6 +5019,12 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>network-performance-options.bandwidth-weighting</code> - Where the performance boost
+   *         			is applied, if applicable. Valid values: <code>default</code>, <code>vpc-1</code>,
+   *         			<code>ebs-1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>operator.managed</code> - A Boolean that indicates whether this is a
    *                     managed instance.</p>
    *             </li>
@@ -5863,6 +5979,21 @@ export interface InstanceNetworkInterface {
 }
 
 /**
+ * <p>With network performance options, you can adjust your bandwidth preferences to meet
+ *     		the needs of the workload that runs on your instance.</p>
+ * @public
+ */
+export interface InstanceNetworkPerformanceOptions {
+  /**
+   * <p>When you configure network bandwidth weighting, you can boost your baseline bandwidth for either
+   *     		networking or EBS by up to 25%. The total available baseline bandwidth for your instance remains
+   *     		the same. The default option uses the standard bandwidth configuration for your instance type.</p>
+   * @public
+   */
+  BandwidthWeighting?: InstanceBandwidthWeighting | undefined;
+}
+
+/**
  * <p>Describes the options for instance hostnames.</p>
  * @public
  */
@@ -6144,6 +6275,12 @@ export interface Instance {
    * @public
    */
   CurrentInstanceBootMode?: InstanceBootModeValues | undefined;
+
+  /**
+   * <p>Contains settings for the network performance options for your instance.</p>
+   * @public
+   */
+  NetworkPerformanceOptions?: InstanceNetworkPerformanceOptions | undefined;
 
   /**
    * <p>The service provider that manages the instance.</p>
@@ -7178,6 +7315,11 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>network-info.bandwidth-weightings</code> - For instances that support bandwidth
+   *      weighting to boost performance (<code>default</code>, <code>vpc-1</code>, <code>ebs-1</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>network-info.efa-info.maximum-efa-interfaces</code> - The maximum number of Elastic
    *      Fabric Adapters (EFAs) per instance.</p>
    *             </li>
@@ -7817,6 +7959,21 @@ export interface MemoryInfo {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const BandwidthWeightingType = {
+  DEFAULT: "default",
+  EBS_1: "ebs-1",
+  VPC_1: "vpc-1",
+} as const;
+
+/**
+ * @public
+ */
+export type BandwidthWeightingType = (typeof BandwidthWeightingType)[keyof typeof BandwidthWeightingType];
+
+/**
  * <p>Describes the Elastic Fabric Adapters for the instance type.</p>
  * @public
  */
@@ -7963,6 +8120,13 @@ export interface NetworkInfo {
    * @public
    */
   EnaSrdSupported?: boolean | undefined;
+
+  /**
+   * <p>A list of valid settings for configurable bandwidth weighting for the instance
+   *   	type, if supported.</p>
+   * @public
+   */
+  BandwidthWeightings?: BandwidthWeightingType[] | undefined;
 }
 
 /**
@@ -11582,17 +11746,6 @@ export interface DescribeNetworkInterfacesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>operator.managed</code> - A Boolean that indicates whether this is a
-   *                     managed network interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>operator.principal</code> - The principal that manages the network
-   *                     interface. Only valid for managed network interfaces, where <code>managed</code>
-   *                     is <code>true</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>owner-id</code> - The Amazon Web Services account ID of the network interface owner.</p>
    *             </li>
    *             <li>
@@ -12342,85 +12495,6 @@ export interface DescribeReservedInstancesRequest {
    */
   OfferingType?: OfferingTypeValues | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RIProductDescription = {
-  Linux_UNIX: "Linux/UNIX",
-  Linux_UNIX_Amazon_VPC_: "Linux/UNIX (Amazon VPC)",
-  Windows: "Windows",
-  Windows_Amazon_VPC_: "Windows (Amazon VPC)",
-} as const;
-
-/**
- * @public
- */
-export type RIProductDescription = (typeof RIProductDescription)[keyof typeof RIProductDescription];
-
-/**
- * @public
- * @enum
- */
-export const RecurringChargeFrequency = {
-  Hourly: "Hourly",
-} as const;
-
-/**
- * @public
- */
-export type RecurringChargeFrequency = (typeof RecurringChargeFrequency)[keyof typeof RecurringChargeFrequency];
-
-/**
- * <p>Describes a recurring charge.</p>
- * @public
- */
-export interface RecurringCharge {
-  /**
-   * <p>The amount of the recurring charge.</p>
-   * @public
-   */
-  Amount?: number | undefined;
-
-  /**
-   * <p>The frequency of the recurring charge.</p>
-   * @public
-   */
-  Frequency?: RecurringChargeFrequency | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const Scope = {
-  AVAILABILITY_ZONE: "Availability Zone",
-  REGIONAL: "Region",
-} as const;
-
-/**
- * @public
- */
-export type Scope = (typeof Scope)[keyof typeof Scope];
-
-/**
- * @public
- * @enum
- */
-export const ReservedInstanceState = {
-  active: "active",
-  payment_failed: "payment-failed",
-  payment_pending: "payment-pending",
-  queued: "queued",
-  queued_deleted: "queued-deleted",
-  retired: "retired",
-} as const;
-
-/**
- * @public
- */
-export type ReservedInstanceState = (typeof ReservedInstanceState)[keyof typeof ReservedInstanceState];
 
 /**
  * @internal

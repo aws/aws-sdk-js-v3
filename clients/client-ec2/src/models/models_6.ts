@@ -4,6 +4,7 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 import {
   AccessScopeAnalysisFinding,
   AddressAttribute,
+  AllowedImagesSettingsEnabledState,
   AutoPlacement,
   CurrencyCodeValues,
   DeviceTrustProviderType,
@@ -84,7 +85,6 @@ import {
   HttpTokensState,
   ImportImageLicenseConfigurationResponse,
   InstanceAttributeName,
-  InstanceAutoRecoveryState,
   InstanceMetadataEndpointState,
   InstanceMetadataTagsState,
   InstanceStatusEvent,
@@ -105,6 +105,90 @@ import {
   TransitGatewayPropagation,
   TransitGatewayPropagationState,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface EnableAllowedImagesSettingsResult {
+  /**
+   * <p>Returns <code>enabled</code> or <code>audit-mode</code> if the request succeeds;
+   *       otherwise, it returns an error.</p>
+   * @public
+   */
+  AllowedImagesSettingsState?: AllowedImagesSettingsEnabledState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableAwsNetworkPerformanceMetricSubscriptionRequest {
+  /**
+   * <p>The source Region (like <code>us-east-1</code>) or Availability Zone ID (like <code>use1-az1</code>) that the metric subscription is enabled for. If you use Availability Zone IDs, the Source and Destination Availability Zones must be in the same Region.</p>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>The target Region (like <code>us-east-2</code>) or Availability Zone ID (like <code>use2-az2</code>) that the metric subscription is enabled for. If you use Availability Zone IDs, the Source and Destination Availability Zones must be in the same Region.</p>
+   * @public
+   */
+  Destination?: string | undefined;
+
+  /**
+   * <p>The metric used for the enabled subscription.</p>
+   * @public
+   */
+  Metric?: MetricType | undefined;
+
+  /**
+   * <p>The statistic used for the enabled subscription.</p>
+   * @public
+   */
+  Statistic?: StatisticType | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableAwsNetworkPerformanceMetricSubscriptionResult {
+  /**
+   * <p>Indicates whether the subscribe action was successful.</p>
+   * @public
+   */
+  Output?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableEbsEncryptionByDefaultRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableEbsEncryptionByDefaultResult {
+  /**
+   * <p>The updated status of encryption by default.</p>
+   * @public
+   */
+  EbsEncryptionByDefault?: boolean | undefined;
+}
 
 /**
  * <p>Request to create a launch template for a Windows fast launch enabled AMI.</p>
@@ -8941,99 +9025,6 @@ export interface ModifyInstanceEventWindowResult {
    */
   InstanceEventWindow?: InstanceEventWindow | undefined;
 }
-
-/**
- * @public
- */
-export interface ModifyInstanceMaintenanceOptionsRequest {
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Disables the automatic recovery behavior of your instance or sets it to
-   *             default.</p>
-   * @public
-   */
-  AutoRecovery?: InstanceAutoRecoveryState | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyInstanceMaintenanceOptionsResult {
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>Provides information on the current automatic recovery behavior of your
-   *             instance.</p>
-   * @public
-   */
-  AutoRecovery?: InstanceAutoRecoveryState | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DefaultInstanceMetadataEndpointState = {
-  disabled: "disabled",
-  enabled: "enabled",
-  no_preference: "no-preference",
-} as const;
-
-/**
- * @public
- */
-export type DefaultInstanceMetadataEndpointState =
-  (typeof DefaultInstanceMetadataEndpointState)[keyof typeof DefaultInstanceMetadataEndpointState];
-
-/**
- * @public
- * @enum
- */
-export const MetadataDefaultHttpTokensState = {
-  no_preference: "no-preference",
-  optional: "optional",
-  required: "required",
-} as const;
-
-/**
- * @public
- */
-export type MetadataDefaultHttpTokensState =
-  (typeof MetadataDefaultHttpTokensState)[keyof typeof MetadataDefaultHttpTokensState];
-
-/**
- * @public
- * @enum
- */
-export const DefaultInstanceMetadataTagsState = {
-  disabled: "disabled",
-  enabled: "enabled",
-  no_preference: "no-preference",
-} as const;
-
-/**
- * @public
- */
-export type DefaultInstanceMetadataTagsState =
-  (typeof DefaultInstanceMetadataTagsState)[keyof typeof DefaultInstanceMetadataTagsState];
 
 /**
  * @internal

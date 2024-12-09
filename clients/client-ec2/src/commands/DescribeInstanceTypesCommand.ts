@@ -145,6 +145,9 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * //         },
  * //         EncryptionInTransitSupported: true || false,
  * //         EnaSrdSupported: true || false,
+ * //         BandwidthWeightings: [ // BandwidthWeightingTypeList
+ * //           "default" || "vpc-1" || "ebs-1",
+ * //         ],
  * //       },
  * //       GpuInfo: { // GpuInfo
  * //         Gpus: [ // GpuDeviceInfoList

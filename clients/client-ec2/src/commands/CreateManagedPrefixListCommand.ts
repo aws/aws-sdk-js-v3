@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateManagedPrefixListRequest } from "../models/models_1";
-import { CreateManagedPrefixListResult } from "../models/models_2";
+import { CreateManagedPrefixListRequest, CreateManagedPrefixListResult } from "../models/models_2";
 import { de_CreateManagedPrefixListCommand, se_CreateManagedPrefixListCommand } from "../protocols/Aws_ec2";
 
 /**

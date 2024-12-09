@@ -46,6 +46,7 @@ import {
   CreditSpecificationRequest,
   ElasticGpuSpecification,
   HostnameType,
+  InstanceBandwidthWeighting,
   InstanceInterruptionBehavior,
   InstanceIpv6Address,
   Ipam,
@@ -155,15 +156,100 @@ import {
   VpcBlockPublicAccessOptions,
 } from "./models_5";
 
-import {
-  CapacityReservationSpecification,
-  DefaultInstanceMetadataEndpointState,
-  DefaultInstanceMetadataTagsState,
-  IpamResourceCidr,
-  MetadataDefaultHttpTokensState,
-  OperationType,
-  Purchase,
-} from "./models_6";
+import { CapacityReservationSpecification, IpamResourceCidr, OperationType, Purchase } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyInstanceMaintenanceOptionsRequest {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Disables the automatic recovery behavior of your instance or sets it to
+   *             default.</p>
+   * @public
+   */
+  AutoRecovery?: InstanceAutoRecoveryState | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceMaintenanceOptionsResult {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>Provides information on the current automatic recovery behavior of your
+   *             instance.</p>
+   * @public
+   */
+  AutoRecovery?: InstanceAutoRecoveryState | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DefaultInstanceMetadataEndpointState = {
+  disabled: "disabled",
+  enabled: "enabled",
+  no_preference: "no-preference",
+} as const;
+
+/**
+ * @public
+ */
+export type DefaultInstanceMetadataEndpointState =
+  (typeof DefaultInstanceMetadataEndpointState)[keyof typeof DefaultInstanceMetadataEndpointState];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetadataDefaultHttpTokensState = {
+  no_preference: "no-preference",
+  optional: "optional",
+  required: "required",
+} as const;
+
+/**
+ * @public
+ */
+export type MetadataDefaultHttpTokensState =
+  (typeof MetadataDefaultHttpTokensState)[keyof typeof MetadataDefaultHttpTokensState];
+
+/**
+ * @public
+ * @enum
+ */
+export const DefaultInstanceMetadataTagsState = {
+  disabled: "disabled",
+  enabled: "enabled",
+  no_preference: "no-preference",
+} as const;
+
+/**
+ * @public
+ */
+export type DefaultInstanceMetadataTagsState =
+  (typeof DefaultInstanceMetadataTagsState)[keyof typeof DefaultInstanceMetadataTagsState];
 
 /**
  * @public
@@ -341,6 +427,64 @@ export interface ModifyInstanceMetadataOptionsResult {
    * @public
    */
   InstanceMetadataOptions?: InstanceMetadataOptionsResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceNetworkPerformanceRequest {
+  /**
+   * <p>The ID of the instance to update.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Specify the bandwidth weighting option to boost the associated type of baseline bandwidth, as follows:</p>
+   *          <dl>
+   *             <dt>default</dt>
+   *             <dd>
+   *                <p>This option uses the standard bandwidth configuration for your instance type.</p>
+   *             </dd>
+   *             <dt>vpc-1</dt>
+   *             <dd>
+   *                <p>This option boosts your networking baseline bandwidth and reduces your EBS
+   *     					baseline bandwidth.</p>
+   *             </dd>
+   *             <dt>ebs-1</dt>
+   *             <dd>
+   *                <p>This option boosts your EBS baseline bandwidth and reduces your networking
+   *     					baseline bandwidth.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  BandwidthWeighting: InstanceBandwidthWeighting | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceNetworkPerformanceResult {
+  /**
+   * <p>The instance ID that was updated.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>Contains the updated configuration for bandwidth weighting on the specified instance.</p>
+   * @public
+   */
+  BandwidthWeighting?: InstanceBandwidthWeighting | undefined;
 }
 
 /**
@@ -7533,6 +7677,36 @@ export interface InstanceMetadataOptionsRequest {
 }
 
 /**
+ * <p>Configure network performance options for your instance that are geared towards performance
+ *     		improvements based on the workload that it runs.</p>
+ * @public
+ */
+export interface InstanceNetworkPerformanceOptionsRequest {
+  /**
+   * <p>Specify the bandwidth weighting option to boost the associated type of baseline bandwidth,
+   *     		as follows:</p>
+   *          <dl>
+   *             <dt>default</dt>
+   *             <dd>
+   *                <p>This option uses the standard bandwidth configuration for your instance type.</p>
+   *             </dd>
+   *             <dt>vpc-1</dt>
+   *             <dd>
+   *                <p>This option boosts your networking baseline bandwidth and reduces your EBS baseline
+   *     					bandwidth.</p>
+   *             </dd>
+   *             <dt>ebs-1</dt>
+   *             <dd>
+   *                <p>This option boosts your EBS baseline bandwidth and reduces your networking baseline
+   *     					bandwidth.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  BandwidthWeighting?: InstanceBandwidthWeighting | undefined;
+}
+
+/**
  * <p>Describes the options for instance hostnames.</p>
  * @public
  */
@@ -7869,6 +8043,12 @@ export interface RunInstancesRequest {
    * @public
    */
   EnablePrimaryIpv6?: boolean | undefined;
+
+  /**
+   * <p>Contains settings for the network performance options for the instance.</p>
+   * @public
+   */
+  NetworkPerformanceOptions?: InstanceNetworkPerformanceOptionsRequest | undefined;
 
   /**
    * <p>Reserved for internal use.</p>
@@ -9293,181 +9473,6 @@ export interface UnlockSnapshotResult {
    * @public
    */
   SnapshotId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UnmonitorInstancesRequest {
-  /**
-   * <p>The IDs of the instances.</p>
-   * @public
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UnmonitorInstancesResult {
-  /**
-   * <p>The monitoring information.</p>
-   * @public
-   */
-  InstanceMonitorings?: InstanceMonitoring[] | undefined;
-}
-
-/**
- * <p>Describes the description of a security group rule.</p>
- *          <p>You can use this when you want to update the security group rule description for either an inbound or outbound rule.</p>
- * @public
- */
-export interface SecurityGroupRuleDescription {
-  /**
-   * <p>The ID of the security group rule.</p>
-   * @public
-   */
-  SecurityGroupRuleId?: string | undefined;
-
-  /**
-   * <p>The description of the security group rule.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the security group. You must specify either the security group ID or the
-   * 			security group name in the request. For security groups in a nondefault VPC, you must
-   * 			specify the security group ID.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>[Default VPC] The name of the security group. You must specify either the security group
-   * 			ID or the security group name.</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-
-  /**
-   * <p>The IP permissions for the security group rule. You must specify either the IP permissions
-   * 		    or the description.</p>
-   * @public
-   */
-  IpPermissions?: IpPermission[] | undefined;
-
-  /**
-   * <p>The description for the egress security group rules. You must specify either the
-   *             description or the IP permissions.</p>
-   * @public
-   */
-  SecurityGroupRuleDescriptions?: SecurityGroupRuleDescription[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSecurityGroupRuleDescriptionsEgressResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSecurityGroupRuleDescriptionsIngressRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the security group. You must specify either the security group ID or the
-   * 			security group name in the request. For security groups in a nondefault VPC, you must
-   * 			specify the security group ID.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>[Default VPC] The name of the security group. You must specify either the
-   *             security group ID or the security group name. For security groups in a
-   *             nondefault VPC, you must specify the security group ID.</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-
-  /**
-   * <p>The IP permissions for the security group rule. You must specify either IP permissions
-   * 		    or a description.</p>
-   * @public
-   */
-  IpPermissions?: IpPermission[] | undefined;
-
-  /**
-   * <p>The description for the ingress security group rules. You must specify either
-   *             a description or IP permissions.</p>
-   * @public
-   */
-  SecurityGroupRuleDescriptions?: SecurityGroupRuleDescription[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSecurityGroupRuleDescriptionsIngressResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface WithdrawByoipCidrRequest {
-  /**
-   * <p>The address range, in CIDR notation.</p>
-   * @public
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

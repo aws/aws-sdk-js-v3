@@ -4,6 +4,7 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 import {
   AccessScopePath,
   AccessScopePathRequest,
+  AddPrefixListEntry,
   ApplianceModeSupportValue,
   AttachmentStatus,
   CurrencyCodeValues,
@@ -38,22 +39,110 @@ import {
 import {
   CarrierGateway,
   ClientVpnEndpointStatus,
-  ClientVpnRouteStatus,
-  CoipCidr,
   ConnectionTrackingSpecificationRequest,
   GatewayType,
   InstanceIpv6Address,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
+  LocalGatewayRouteTableVpcAssociation,
   OperatorRequest,
   OperatorResponse,
-  PrefixListState,
   PrivateIpAddressSpecification,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateLocalGatewayRouteTableVpcAssociationResult {
+  /**
+   * <p>Information about the association.</p>
+   * @public
+   */
+  LocalGatewayRouteTableVpcAssociation?: LocalGatewayRouteTableVpcAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateManagedPrefixListRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A name for the prefix list.</p>
+   *          <p>Constraints: Up to 255 characters in length. The name cannot start with <code>com.amazonaws</code>.</p>
+   * @public
+   */
+  PrefixListName: string | undefined;
+
+  /**
+   * <p>One or more entries for the prefix list.</p>
+   * @public
+   */
+  Entries?: AddPrefixListEntry[] | undefined;
+
+  /**
+   * <p>The maximum number of entries for the prefix list.</p>
+   * @public
+   */
+  MaxEntries: number | undefined;
+
+  /**
+   * <p>The tags to apply to the prefix list during creation.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>The IP address type.</p>
+   *          <p>Valid Values: <code>IPv4</code> | <code>IPv6</code>
+   *          </p>
+   * @public
+   */
+  AddressFamily: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
+   *                 idempotency</a>.</p>
+   *          <p>Constraints: Up to 255 UTF-8 characters in length.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PrefixListState = {
+  create_complete: "create-complete",
+  create_failed: "create-failed",
+  create_in_progress: "create-in-progress",
+  delete_complete: "delete-complete",
+  delete_failed: "delete-failed",
+  delete_in_progress: "delete-in-progress",
+  modify_complete: "modify-complete",
+  modify_failed: "modify-failed",
+  modify_in_progress: "modify-in-progress",
+  restore_complete: "restore-complete",
+  restore_failed: "restore-failed",
+  restore_in_progress: "restore-in-progress",
+} as const;
+
+/**
+ * @public
+ */
+export type PrefixListState = (typeof PrefixListState)[keyof typeof PrefixListState];
 
 /**
  * <p>Describes a managed prefix list.</p>
@@ -10224,57 +10313,6 @@ export interface DeleteClientVpnRouteRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteClientVpnRouteResult {
-  /**
-   * <p>The current state of the route.</p>
-   * @public
-   */
-  Status?: ClientVpnRouteStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteCoipCidrRequest {
-  /**
-   * <p> A customer-owned IP address range that you want to delete. </p>
-   * @public
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>
-   *         The ID of the customer-owned address pool.
-   *       </p>
-   * @public
-   */
-  CoipPoolId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteCoipCidrResult {
-  /**
-   * <p>
-   *        Information about a range of customer-owned IP addresses.
-   *       </p>
-   * @public
-   */
-  CoipCidr?: CoipCidr | undefined;
 }
 
 /**

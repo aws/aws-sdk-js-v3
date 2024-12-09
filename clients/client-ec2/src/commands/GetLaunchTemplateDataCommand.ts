@@ -315,6 +315,9 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * //       Managed: true || false,
  * //       Principal: "STRING_VALUE",
  * //     },
+ * //     NetworkPerformanceOptions: { // LaunchTemplateNetworkPerformanceOptions
+ * //       BandwidthWeighting: "default" || "vpc-1" || "ebs-1",
+ * //     },
  * //   },
  * // };
  *

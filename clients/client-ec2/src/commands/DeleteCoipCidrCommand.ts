@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteCoipCidrRequest, DeleteCoipCidrResult } from "../models/models_2";
+import { DeleteCoipCidrRequest, DeleteCoipCidrResult } from "../models/models_3";
 import { de_DeleteCoipCidrCommand, se_DeleteCoipCidrCommand } from "../protocols/Aws_ec2";
 
 /**

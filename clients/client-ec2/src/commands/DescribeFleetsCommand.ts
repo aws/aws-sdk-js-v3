@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeFleetsRequest } from "../models/models_3";
-import { DescribeFleetsResult } from "../models/models_4";
+import { DescribeFleetsRequest, DescribeFleetsResult } from "../models/models_4";
 import { de_DescribeFleetsCommand, se_DescribeFleetsCommand } from "../protocols/Aws_ec2";
 
 /**
