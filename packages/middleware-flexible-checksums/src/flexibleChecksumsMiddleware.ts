@@ -11,10 +11,11 @@ import {
 } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
-import { ChecksumAlgorithm } from "./constants";
+import { ChecksumAlgorithm, DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation } from "./constants";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { hasHeader } from "./hasHeader";
+import { hasHeaderWithPrefix } from "./hasHeaderWithPrefix";
 import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { stringHasher } from "./stringHasher";
@@ -59,19 +60,33 @@ export const flexibleChecksumsMiddleware =
       return next(args);
     }
 
+    if (hasHeaderWithPrefix("x-amz-checksum-", args.request.headers)) {
+      return next(args);
+    }
+
     const { request, input } = args;
     const { body: requestBody, headers } = request;
     const { base64Encoder, streamHasher } = config;
-    const { requestChecksumRequired, requestAlgorithmMember } = middlewareConfig;
+    const { requestChecksumRequired, requestAlgorithmMember, requestAlgorithmMemberHttpHeader } = middlewareConfig;
+    const requestChecksumCalculation = await config.requestChecksumCalculation();
 
-    const checksumAlgorithm = getChecksumAlgorithmForRequest(
-      input,
-      {
-        requestChecksumRequired,
-        requestAlgorithmMember,
-      },
-      !!context.isS3ExpressBucket
-    );
+    // The value for input member to configure flexible checksum is not set.
+    if (requestAlgorithmMember && !input[requestAlgorithmMember]) {
+      // Set requestAlgorithmMember as default checksum algorithm only if request checksum calculation is supported
+      // or request checksum is required.
+      if (requestChecksumCalculation === RequestChecksumCalculation.WHEN_SUPPORTED || requestChecksumRequired) {
+        input[requestAlgorithmMember] = DEFAULT_CHECKSUM_ALGORITHM;
+        if (requestAlgorithmMemberHttpHeader) {
+          headers[requestAlgorithmMemberHttpHeader] = DEFAULT_CHECKSUM_ALGORITHM;
+        }
+      }
+    }
+
+    const checksumAlgorithm = getChecksumAlgorithmForRequest(input, {
+      requestChecksumRequired,
+      requestAlgorithmMember,
+      requestChecksumCalculation,
+    });
     let updatedBody = requestBody;
     let updatedHeaders = headers;
 
