@@ -3483,7 +3483,7 @@ export interface UpdateUserPoolDomainRequest {
    *             in a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html">SetUserPoolMfaConfig</a> request.</p>
    * @public
    */
-  CustomDomainConfig: CustomDomainConfigType | undefined;
+  CustomDomainConfig?: CustomDomainConfigType | undefined;
 }
 
 /**
