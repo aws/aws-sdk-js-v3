@@ -121,6 +121,7 @@ import {
   ChannelDestinationConfiguration,
   Composition,
   CompositionSummary,
+  CompositionThumbnailConfiguration,
   ConflictException,
   Destination,
   DestinationConfiguration,
@@ -133,6 +134,7 @@ import {
   Participant,
   ParticipantRecordingMediaType,
   ParticipantSummary,
+  ParticipantThumbnailConfiguration,
   ParticipantToken,
   ParticipantTokenCapability,
   ParticipantTokenConfiguration,
@@ -145,6 +147,7 @@ import {
   ServiceQuotaExceededException,
   StageSession,
   StageSessionSummary,
+  ThumbnailStorageType,
   ValidationException,
   Video,
 } from "../models/models_0";
@@ -1895,6 +1898,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ChannelDestinationConfiguration omitted.
 
+// se_CompositionThumbnailConfiguration omitted.
+
+// se_CompositionThumbnailConfigurationList omitted.
+
 // se_DestinationConfiguration omitted.
 
 // se_DestinationConfigurationList omitted.
@@ -1908,6 +1915,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ParticipantAttributes omitted.
 
 // se_ParticipantRecordingMediaTypeList omitted.
+
+// se_ParticipantThumbnailConfiguration omitted.
 
 // se_ParticipantTokenAttributes omitted.
 
@@ -1926,6 +1935,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_S3StorageConfiguration omitted.
 
 // se_Tags omitted.
+
+// se_ThumbnailStorageTypeList omitted.
 
 /**
  * serializeAws_restJson1Video
@@ -1985,6 +1996,10 @@ const de_CompositionSummaryList = (output: any, context: __SerdeContext): Compos
     });
   return retVal;
 };
+
+// de_CompositionThumbnailConfiguration omitted.
+
+// de_CompositionThumbnailConfigurationList omitted.
 
 /**
  * deserializeAws_restJson1Destination
@@ -2147,6 +2162,8 @@ const de_ParticipantSummary = (output: any, context: __SerdeContext): Participan
   }) as any;
 };
 
+// de_ParticipantThumbnailConfiguration omitted.
+
 /**
  * deserializeAws_restJson1ParticipantToken
  */
@@ -2243,6 +2260,8 @@ const de_StageSessionSummary = (output: any, context: __SerdeContext): StageSess
 // de_StorageConfigurationSummaryList omitted.
 
 // de_Tags omitted.
+
+// de_ThumbnailStorageTypeList omitted.
 
 /**
  * deserializeAws_restJson1Video

@@ -593,6 +593,7 @@ export interface CreateParticipantTokenResponse {
 export const ParticipantRecordingMediaType = {
   AUDIO_ONLY: "AUDIO_ONLY",
   AUDIO_VIDEO: "AUDIO_VIDEO",
+  NONE: "NONE",
 } as const;
 
 /**
@@ -600,6 +601,63 @@ export const ParticipantRecordingMediaType = {
  */
 export type ParticipantRecordingMediaType =
   (typeof ParticipantRecordingMediaType)[keyof typeof ParticipantRecordingMediaType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThumbnailRecordingMode = {
+  DISABLED: "DISABLED",
+  INTERVAL: "INTERVAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ThumbnailRecordingMode = (typeof ThumbnailRecordingMode)[keyof typeof ThumbnailRecordingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThumbnailStorageType = {
+  LATEST: "LATEST",
+  SEQUENTIAL: "SEQUENTIAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ThumbnailStorageType = (typeof ThumbnailStorageType)[keyof typeof ThumbnailStorageType];
+
+/**
+ * <p>An object representing a configuration of thumbnails for recorded video from an individual participant.</p>
+ * @public
+ */
+export interface ParticipantThumbnailConfiguration {
+  /**
+   * <p>The targeted thumbnail-generation interval in seconds. This is configurable only if
+   *             <code>recordingMode</code> is <code>INTERVAL</code>. Default: 60.</p>
+   * @public
+   */
+  targetIntervalSeconds?: number | undefined;
+
+  /**
+   * <p>Indicates the format in which thumbnails are recorded. <code>SEQUENTIAL</code> records all generated thumbnails
+   *             in a serial manner, to the media/thumbnails/high directory. <code>LATEST</code> saves the latest thumbnail
+   * 	    in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by
+   * 	    <code>targetIntervalSeconds</code>. You can enable both <code>SEQUENTIAL</code> and <code>LATEST</code>.
+   * 	    Default: <code>SEQUENTIAL</code>.</p>
+   * @public
+   */
+  storage?: ThumbnailStorageType[] | undefined;
+
+  /**
+   * <p>Thumbnail recording mode. Default: <code>DISABLED</code>.</p>
+   * @public
+   */
+  recordingMode?: ThumbnailRecordingMode | undefined;
+}
 
 /**
  * <p>Object specifying a configuration for individual participant recording.</p>
@@ -617,6 +675,13 @@ export interface AutoParticipantRecordingConfiguration {
    * @public
    */
   mediaTypes?: ParticipantRecordingMediaType[] | undefined;
+
+  /**
+   * <p>A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording
+   *             and modify the interval at which thumbnails are generated for the live session.</p>
+   * @public
+   */
+  thumbnailConfiguration?: ParticipantThumbnailConfiguration | undefined;
 }
 
 /**
@@ -1044,6 +1109,29 @@ export interface RecordingConfiguration {
 }
 
 /**
+ * <p>An object representing a configuration of thumbnails for recorded video for a <a>Composition</a>.</p>
+ * @public
+ */
+export interface CompositionThumbnailConfiguration {
+  /**
+   * <p>The targeted thumbnail-generation interval in seconds. Default: 60.</p>
+   * @public
+   */
+  targetIntervalSeconds?: number | undefined;
+
+  /**
+   * <p>Indicates the format in which thumbnails are recorded. <code>SEQUENTIAL</code> records all generated thumbnails
+   *             in a serial manner, to the media/thumbnails/(width)x(height) directory, where (width) and (height) are the width
+   * 	    and height of the thumbnail. <code>LATEST</code> saves the latest thumbnail in
+   * 	    media/latest_thumbnail/(width)x(height)/thumb.jpg and overwrites it at the interval specified by
+   * 	    <code>targetIntervalSeconds</code>.  You can enable both <code>SEQUENTIAL</code> and <code>LATEST</code>.
+   * 	    Default: <code>SEQUENTIAL</code>.</p>
+   * @public
+   */
+  storage?: ThumbnailStorageType[] | undefined;
+}
+
+/**
  * <p>A complex type that describes an S3 location where recorded videos will be stored.</p>
  * @public
  */
@@ -1068,6 +1156,13 @@ export interface S3DestinationConfiguration {
    * @public
    */
   recordingConfiguration?: RecordingConfiguration | undefined;
+
+  /**
+   * <p>A complex type that allows you to enable/disable the recording of thumbnails for a <a>Composition</a>
+   *             and modify the interval at which thumbnails are generated for the live session.</p>
+   * @public
+   */
+  thumbnailConfigurations?: CompositionThumbnailConfiguration[] | undefined;
 }
 
 /**

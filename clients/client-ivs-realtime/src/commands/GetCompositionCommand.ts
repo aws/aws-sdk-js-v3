@@ -86,6 +86,14 @@ export interface GetCompositionCommandOutput extends GetCompositionResponse, __M
  * //             recordingConfiguration: { // RecordingConfiguration
  * //               format: "STRING_VALUE",
  * //             },
+ * //             thumbnailConfigurations: [ // CompositionThumbnailConfigurationList
+ * //               { // CompositionThumbnailConfiguration
+ * //                 targetIntervalSeconds: Number("int"),
+ * //                 storage: [ // ThumbnailStorageTypeList
+ * //                   "SEQUENTIAL" || "LATEST",
+ * //                 ],
+ * //               },
+ * //             ],
  * //           },
  * //         },
  * //         detail: { // DestinationDetail

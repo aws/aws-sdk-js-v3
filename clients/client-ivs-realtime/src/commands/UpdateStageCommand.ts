@@ -41,8 +41,15 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  *   autoParticipantRecordingConfiguration: { // AutoParticipantRecordingConfiguration
  *     storageConfigurationArn: "STRING_VALUE", // required
  *     mediaTypes: [ // ParticipantRecordingMediaTypeList
- *       "STRING_VALUE",
+ *       "AUDIO_VIDEO" || "AUDIO_ONLY" || "NONE",
  *     ],
+ *     thumbnailConfiguration: { // ParticipantThumbnailConfiguration
+ *       targetIntervalSeconds: Number("int"),
+ *       storage: [ // ThumbnailStorageTypeList
+ *         "SEQUENTIAL" || "LATEST",
+ *       ],
+ *       recordingMode: "INTERVAL" || "DISABLED",
+ *     },
  *   },
  * };
  * const command = new UpdateStageCommand(input);
@@ -58,8 +65,15 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * //     autoParticipantRecordingConfiguration: { // AutoParticipantRecordingConfiguration
  * //       storageConfigurationArn: "STRING_VALUE", // required
  * //       mediaTypes: [ // ParticipantRecordingMediaTypeList
- * //         "STRING_VALUE",
+ * //         "AUDIO_VIDEO" || "AUDIO_ONLY" || "NONE",
  * //       ],
+ * //       thumbnailConfiguration: { // ParticipantThumbnailConfiguration
+ * //         targetIntervalSeconds: Number("int"),
+ * //         storage: [ // ThumbnailStorageTypeList
+ * //           "SEQUENTIAL" || "LATEST",
+ * //         ],
+ * //         recordingMode: "INTERVAL" || "DISABLED",
+ * //       },
  * //     },
  * //     endpoints: { // StageEndpoints
  * //       events: "STRING_VALUE",

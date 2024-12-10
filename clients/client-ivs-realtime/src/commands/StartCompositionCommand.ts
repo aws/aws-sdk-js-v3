@@ -97,6 +97,14 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
  *         recordingConfiguration: { // RecordingConfiguration
  *           format: "STRING_VALUE",
  *         },
+ *         thumbnailConfigurations: [ // CompositionThumbnailConfigurationList
+ *           { // CompositionThumbnailConfiguration
+ *             targetIntervalSeconds: Number("int"),
+ *             storage: [ // ThumbnailStorageTypeList
+ *               "SEQUENTIAL" || "LATEST",
+ *             ],
+ *           },
+ *         ],
  *       },
  *     },
  *   ],
@@ -152,6 +160,14 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
  * //             recordingConfiguration: { // RecordingConfiguration
  * //               format: "STRING_VALUE",
  * //             },
+ * //             thumbnailConfigurations: [ // CompositionThumbnailConfigurationList
+ * //               { // CompositionThumbnailConfiguration
+ * //                 targetIntervalSeconds: Number("int"),
+ * //                 storage: [ // ThumbnailStorageTypeList
+ * //                   "SEQUENTIAL" || "LATEST",
+ * //                 ],
+ * //               },
+ * //             ],
  * //           },
  * //         },
  * //         detail: { // DestinationDetail
