@@ -245,11 +245,6 @@ const copyServerTests = async (sourceDir, destinationDir) => {
           overwrite: true,
         });
       }
-      const jestConfigPath = join(destPath, "jest.config.js");
-      writeFileSync(
-        jestConfigPath,
-        'const base = require("../../jest.config.base.js");\n' + "\n" + "module.exports = {\n" + "  ...base,\n" + "};\n"
-      );
     }
   }
 };

@@ -460,7 +460,7 @@ export const de_GetDeviceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     deviceArn: __expectString,
-    deviceCapabilities: (_) => new __LazyJsonString(_),
+    deviceCapabilities: __LazyJsonString.from,
     deviceName: __expectString,
     deviceQueueInfo: _json,
     deviceStatus: __expectString,
@@ -530,7 +530,7 @@ export const de_GetQuantumTaskCommand = async (
     associations: _json,
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     deviceArn: __expectString,
-    deviceParameters: (_) => new __LazyJsonString(_),
+    deviceParameters: __LazyJsonString.from,
     endedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     failureReason: __expectString,
     jobArn: __expectString,

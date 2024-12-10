@@ -1074,7 +1074,7 @@ export const de_GetResourcePolicyCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    Policy: (_) => new __LazyJsonString(_),
+    Policy: __LazyJsonString.from,
     RevisionId: __expectString,
   });
   Object.assign(contents, doc);
@@ -1229,7 +1229,7 @@ export const de_PutResourcePolicyCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    Policy: (_) => new __LazyJsonString(_),
+    Policy: __LazyJsonString.from,
     RevisionId: __expectString,
   });
   Object.assign(contents, doc);

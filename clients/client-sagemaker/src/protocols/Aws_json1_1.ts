@@ -24025,7 +24025,7 @@ const de_HumanLoopActivationConditionsConfig = (
   context: __SerdeContext
 ): HumanLoopActivationConditionsConfig => {
   return take(output, {
-    HumanLoopActivationConditions: (_: any) => new __LazyJsonString(_),
+    HumanLoopActivationConditions: __LazyJsonString.from,
   }) as any;
 };
 

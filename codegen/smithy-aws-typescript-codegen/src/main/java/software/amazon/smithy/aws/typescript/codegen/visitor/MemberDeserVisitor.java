@@ -128,7 +128,7 @@ public class MemberDeserVisitor implements ShapeVisitor<String> {
             if (CodegenUtils.isJsonMediaType(mediaType)) {
                 TypeScriptWriter writer = context.getWriter();
                 writer.addImport("LazyJsonString", "__LazyJsonString", TypeScriptDependency.AWS_SMITHY_CLIENT);
-                return "new __LazyJsonString(" + dataSource + ")";
+                return "__LazyJsonString.from(" + dataSource + ")";
             }
         }
 

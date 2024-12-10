@@ -1228,7 +1228,7 @@ export const de_EvaluateFeatureCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    details: (_) => new __LazyJsonString(_),
+    details: __LazyJsonString.from,
     reason: __expectString,
     value: (_) => de_VariableValue(__expectUnion(_), context),
     variation: __expectString,
@@ -2217,7 +2217,7 @@ const de_DoubleValueList = (output: any, context: __SerdeContext): number[] => {
  */
 const de_EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
   return take(output, {
-    details: (_: any) => new __LazyJsonString(_),
+    details: __LazyJsonString.from,
     entityId: __expectString,
     feature: __expectString,
     project: __expectString,
@@ -2296,7 +2296,7 @@ const de_ExperimentList = (output: any, context: __SerdeContext): Experiment[] =
  */
 const de_ExperimentReport = (output: any, context: __SerdeContext): ExperimentReport => {
   return take(output, {
-    content: (_: any) => new __LazyJsonString(_),
+    content: __LazyJsonString.from,
     metricName: __expectString,
     reportName: __expectString,
     treatmentName: __expectString,
@@ -2459,7 +2459,7 @@ const de_LaunchExecution = (output: any, context: __SerdeContext): LaunchExecuti
 const de_MetricDefinition = (output: any, context: __SerdeContext): MetricDefinition => {
   return take(output, {
     entityIdKey: __expectString,
-    eventPattern: (_: any) => new __LazyJsonString(_),
+    eventPattern: __LazyJsonString.from,
     name: __expectString,
     unitLabel: __expectString,
     valueKey: __expectString,
@@ -2623,7 +2623,7 @@ const de_Segment = (output: any, context: __SerdeContext): Segment => {
     lastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     launchCount: __expectLong,
     name: __expectString,
-    pattern: (_: any) => new __LazyJsonString(_),
+    pattern: __LazyJsonString.from,
     tags: _json,
   }) as any;
 };

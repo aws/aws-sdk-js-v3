@@ -1983,7 +1983,7 @@ const de_GetLendingAnalysisResponse = (output: any, context: __SerdeContext): Ge
  */
 const de_HumanLoopActivationOutput = (output: any, context: __SerdeContext): HumanLoopActivationOutput => {
   return take(output, {
-    HumanLoopActivationConditionsEvaluationResults: (_: any) => new __LazyJsonString(_),
+    HumanLoopActivationConditionsEvaluationResults: __LazyJsonString.from,
     HumanLoopActivationReasons: _json,
     HumanLoopArn: __expectString,
   }) as any;

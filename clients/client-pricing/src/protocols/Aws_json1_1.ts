@@ -450,7 +450,7 @@ const de_PriceListJsonItems = (output: any, context: __SerdeContext): (__Automat
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return new __LazyJsonString(entry);
+      return __LazyJsonString.from(entry);
     });
   return retVal;
 };
