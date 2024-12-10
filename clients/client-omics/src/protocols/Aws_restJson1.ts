@@ -2472,7 +2472,7 @@ export const se_PutS3AccessPolicyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      s3AccessPolicy: (_) => __LazyJsonString.fromObject(_),
+      s3AccessPolicy: (_) => __LazyJsonString.from(_),
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -4182,7 +4182,7 @@ export const de_GetS3AccessPolicyCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     s3AccessPointArn: __expectString,
-    s3AccessPolicy: (_) => new __LazyJsonString(_),
+    s3AccessPolicy: __LazyJsonString.from,
     storeId: __expectString,
     storeType: __expectString,
     updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),

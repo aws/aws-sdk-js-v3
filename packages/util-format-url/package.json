@@ -22,8 +22,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/querystring-builder": "^3.0.10",
-    "@smithy/types": "^3.7.1",
+    "@smithy/querystring-builder": "^3.0.11",
+    "@smithy/types": "^3.7.2",
     "tslib": "^2.6.2"
   },
   "engines": {

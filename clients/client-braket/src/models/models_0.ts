@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
 
 import { BraketServiceException as __BaseException } from "./BraketServiceException";
@@ -260,7 +260,7 @@ export interface GetDeviceResponse {
    * <p>Details about the capabilities of the device.</p>
    * @public
    */
-  deviceCapabilities: __LazyJsonString | string | undefined;
+  deviceCapabilities: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>List of information about tasks and jobs queued on a device.</p>
@@ -1352,7 +1352,7 @@ export interface CreateQuantumTaskRequest {
    * <p>The parameters for the device to run the task on.</p>
    * @public
    */
-  deviceParameters?: __LazyJsonString | string | undefined;
+  deviceParameters?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The number of shots to use for the task.</p>
@@ -1376,7 +1376,7 @@ export interface CreateQuantumTaskRequest {
    * <p>The action associated with the task.</p>
    * @public
    */
-  action: __LazyJsonString | string | undefined;
+  action: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>Tags to be added to the quantum task you're creating.</p>
@@ -1523,7 +1523,7 @@ export interface GetQuantumTaskResponse {
    * <p>The parameters for the device on which the task ran.</p>
    * @public
    */
-  deviceParameters: __LazyJsonString | string | undefined;
+  deviceParameters: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The number of shots used in the task.</p>

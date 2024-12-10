@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
   SENSITIVE_STRING,
 } from "@smithy/smithy-client";
 
@@ -773,7 +773,7 @@ export interface PostContentRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs">Setting Session Attributes</a>.</p>
    * @public
    */
-  sessionAttributes?: __LazyJsonString | string | undefined;
+  sessionAttributes?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>You pass this value as the <code>x-amz-lex-request-attributes</code>
@@ -789,7 +789,7 @@ export interface PostContentRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs">Setting Request Attributes</a>.</p>
    * @public
    */
-  requestAttributes?: __LazyJsonString | string | undefined;
+  requestAttributes?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p> You pass this value as the <code>Content-Type</code> HTTP header. </p>
@@ -899,7 +899,7 @@ export interface PostContentRequest {
    *       contexts for the session are cleared.</p>
    * @public
    */
-  activeContexts?: __LazyJsonString | string | undefined;
+  activeContexts?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -945,7 +945,7 @@ export interface PostContentResponse {
    *       change based on improvements to Amazon Lex. </p>
    * @public
    */
-  nluIntentConfidence?: __LazyJsonString | string | undefined;
+  nluIntentConfidence?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>One to four alternative intents that may be applicable to the user's
@@ -955,7 +955,7 @@ export interface PostContentResponse {
    *       the confidence score.</p>
    * @public
    */
-  alternativeIntents?: __LazyJsonString | string | undefined;
+  alternativeIntents?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>Map of zero or more intent slots (name/value pairs) Amazon Lex detected
@@ -974,14 +974,14 @@ export interface PostContentResponse {
    *         <code>ORIGINAL_VALUE</code>.</p>
    * @public
    */
-  slots?: __LazyJsonString | string | undefined;
+  slots?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p> Map of key/value pairs representing the session-specific context
    *       information. </p>
    * @public
    */
-  sessionAttributes?: __LazyJsonString | string | undefined;
+  sessionAttributes?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The sentiment expressed in an utterance.</p>
@@ -1203,7 +1203,7 @@ export interface PostContentResponse {
    *       intent, or to modify the operation of your application.</p>
    * @public
    */
-  activeContexts?: __LazyJsonString | string | undefined;
+  activeContexts?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -1883,14 +1883,14 @@ export interface PutSessionResponse {
    *         <code>ORIGINAL_VALUE</code>. </p>
    * @public
    */
-  slots?: __LazyJsonString | string | undefined;
+  slots?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>Map of key/value pairs representing session-specific context
    *       information.</p>
    * @public
    */
-  sessionAttributes?: __LazyJsonString | string | undefined;
+  sessionAttributes?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * @deprecated
@@ -2005,7 +2005,7 @@ export interface PutSessionResponse {
    * <p>A list of active contexts for the session.</p>
    * @public
    */
-  activeContexts?: __LazyJsonString | string | undefined;
+  activeContexts?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**

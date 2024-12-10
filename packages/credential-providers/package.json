@@ -43,9 +43,9 @@
     "@aws-sdk/credential-provider-sso": "*",
     "@aws-sdk/credential-provider-web-identity": "*",
     "@aws-sdk/types": "*",
-    "@smithy/credential-provider-imds": "^3.2.6",
-    "@smithy/property-provider": "^3.1.9",
-    "@smithy/types": "^3.7.1",
+    "@smithy/credential-provider-imds": "^3.2.8",
+    "@smithy/property-provider": "^3.1.11",
+    "@smithy/types": "^3.7.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

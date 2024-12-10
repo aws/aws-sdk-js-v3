@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
 
 import { EvidentlyServiceException as __BaseException } from "./EvidentlyServiceException";
@@ -50,7 +50,7 @@ export interface EvaluationRequest {
    *        in the evaluation events sent to Evidently from the user session. </p>
    * @public
    */
-  evaluationContext?: __LazyJsonString | string | undefined;
+  evaluationContext?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -217,7 +217,7 @@ export interface EvaluationResult {
    * <p>If this user was assigned to a launch or experiment, this field lists the launch or experiment name.</p>
    * @public
    */
-  details?: __LazyJsonString | string | undefined;
+  details?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -475,7 +475,7 @@ export interface MetricDefinitionConfig {
    *        <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon EventBridge event patterns</a>.</p>
    * @public
    */
-  eventPattern?: __LazyJsonString | string | undefined;
+  eventPattern?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>A label for the units that the metric is measuring.</p>
@@ -692,7 +692,7 @@ export interface MetricDefinition {
    *        <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon EventBridge event patterns</a>.</p>
    * @public
    */
-  eventPattern?: __LazyJsonString | string | undefined;
+  eventPattern?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The label for the units that the metric is measuring.</p>
@@ -2045,7 +2045,7 @@ export interface CreateSegmentRequest {
    *         Segment rule pattern syntax</a>.</p>
    * @public
    */
-  pattern: __LazyJsonString | string | undefined;
+  pattern: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>An optional description for this segment.</p>
@@ -2091,7 +2091,7 @@ export interface Segment {
    *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html">Segment rule pattern syntax</a>.</p>
    * @public
    */
-  pattern: __LazyJsonString | string | undefined;
+  pattern: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The date and time that this segment was created.</p>
@@ -2314,7 +2314,7 @@ export interface EvaluateFeatureRequest {
    *          <p>If you include this parameter, the value must be a JSON object. A JSON array is not supported.</p>
    * @public
    */
-  evaluationContext?: __LazyJsonString | string | undefined;
+  evaluationContext?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -2348,7 +2348,7 @@ export interface EvaluateFeatureResponse {
    * <p>If this user was assigned to a launch or experiment, this field lists the launch or experiment name.</p>
    * @public
    */
-  details?: __LazyJsonString | string | undefined;
+  details?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -2391,7 +2391,7 @@ export interface Event {
    * <p>The event data.</p>
    * @public
    */
-  data: __LazyJsonString | string | undefined;
+  data: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -2610,7 +2610,7 @@ export interface ExperimentReport {
    * <p>The content of the report.</p>
    * @public
    */
-  content?: __LazyJsonString | string | undefined;
+  content?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -3840,13 +3840,13 @@ export interface TestSegmentPatternRequest {
    * <p>The pattern to test.</p>
    * @public
    */
-  pattern: __LazyJsonString | string | undefined;
+  pattern: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>A sample <code>evaluationContext</code> JSON block to test against the specified pattern.</p>
    * @public
    */
-  payload: __LazyJsonString | string | undefined;
+  payload: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**

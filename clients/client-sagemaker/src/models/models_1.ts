@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
   SENSITIVE_STRING,
 } from "@smithy/smithy-client";
 
@@ -5415,7 +5415,7 @@ export interface HumanLoopActivationConditionsConfig {
    *          in the <i>Amazon SageMaker Developer Guide</i>.</p>
    * @public
    */
-  HumanLoopActivationConditions: __LazyJsonString | string | undefined;
+  HumanLoopActivationConditions: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**

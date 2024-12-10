@@ -1683,7 +1683,7 @@ export const se_MalformedStringCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_amth]: [
       () => isSerializableHeaderValue(input[_bl]),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_bl]!))),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.from(input[_bl]!))),
     ],
   });
   b.bp("/MalformedString");
@@ -1944,7 +1944,7 @@ export const se_MediaTypeHeaderCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xj]: [
       () => isSerializableHeaderValue(input[_j]),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_j]!))),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.from(input[_j]!))),
     ],
   });
   b.bp("/MediaTypeHeader");
@@ -3952,7 +3952,7 @@ export const de_MediaTypeHeaderCommand = async (
     $metadata: deserializeMetadata(output),
     [_j]: [
       () => void 0 !== output.headers[_xj],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xj])).toString("utf8")),
+      () => __LazyJsonString.from(Buffer.from(context.base64Decoder(output.headers[_xj])).toString("utf8")),
     ],
   });
   await collectBody(output.body, context);

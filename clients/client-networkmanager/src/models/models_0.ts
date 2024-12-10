@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
   SENSITIVE_STRING,
 } from "@smithy/smithy-client";
 
@@ -2110,7 +2110,7 @@ export interface CoreNetworkPolicy {
    * <p>Describes a core network policy.</p>
    * @public
    */
-  PolicyDocument?: __LazyJsonString | string | undefined;
+  PolicyDocument?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -5724,7 +5724,7 @@ export interface GetResourcePolicyResponse {
    * <p>The resource policy document.</p>
    * @public
    */
-  PolicyDocument?: __LazyJsonString | string | undefined;
+  PolicyDocument?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -6616,7 +6616,7 @@ export interface PutCoreNetworkPolicyRequest {
    * <p>The policy document.</p>
    * @public
    */
-  PolicyDocument: __LazyJsonString | string | undefined;
+  PolicyDocument: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>a core network policy description.</p>
@@ -6656,7 +6656,7 @@ export interface PutResourcePolicyRequest {
    * <p>The JSON resource policy document.</p>
    * @public
    */
-  PolicyDocument: __LazyJsonString | string | undefined;
+  PolicyDocument: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The ARN of the resource policy. </p>

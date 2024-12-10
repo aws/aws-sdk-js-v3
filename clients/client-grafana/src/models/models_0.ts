@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
   SENSITIVE_STRING,
 } from "@smithy/smithy-client";
 
@@ -1261,7 +1261,7 @@ export interface DescribeWorkspaceConfigurationResponse {
    *                 workspace</a>.</p>
    * @public
    */
-  configuration: __LazyJsonString | string | undefined;
+  configuration: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The supported Grafana version for the workspace.</p>
@@ -1280,7 +1280,7 @@ export interface UpdateWorkspaceConfigurationRequest {
    *                 workspace</a>.</p>
    * @public
    */
-  configuration: __LazyJsonString | string | undefined;
+  configuration: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The ID of the workspace to update.</p>
@@ -2216,7 +2216,7 @@ export interface CreateWorkspaceRequest {
    *                 workspace</a>.</p>
    * @public
    */
-  configuration?: __LazyJsonString | string | undefined;
+  configuration?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>Configuration for network access to your workspace.</p>

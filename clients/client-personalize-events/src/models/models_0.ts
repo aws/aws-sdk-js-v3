@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
   SENSITIVE_STRING,
 } from "@smithy/smithy-client";
 
@@ -30,7 +30,7 @@ export interface Action {
    *       separate each category with a pipe separator (<code>|</code>). For example, <code>\"Deluxe|Premium\"</code>.</p>
    * @public
    */
-  properties?: __LazyJsonString | string | undefined;
+  properties?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -135,7 +135,7 @@ export interface ActionInteraction {
    *          </ul>
    * @public
    */
-  properties?: __LazyJsonString | string | undefined;
+  properties?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -320,7 +320,7 @@ export interface Event {
    *          </ul>
    * @public
    */
-  properties?: __LazyJsonString | string | undefined;
+  properties?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The timestamp (in Unix time) on the client side when the event occurred.</p>
@@ -411,7 +411,7 @@ export interface Item {
    *       separate each category with a pipe separator (<code>|</code>). For example, <code>\"Horror|Action\"</code>.</p>
    * @public
    */
-  properties?: __LazyJsonString | string | undefined;
+  properties?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -454,7 +454,7 @@ export interface User {
    *       For example, <code>\"Member|Frequent shopper\"</code>.</p>
    * @public
    */
-  properties?: __LazyJsonString | string | undefined;
+  properties?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**

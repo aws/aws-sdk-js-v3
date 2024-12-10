@@ -2429,7 +2429,7 @@ export const deserializeMalformedStringRequest = async (
   const contents: any = map({
     [_bl]: [
       () => void 0 !== output.headers[_amth],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_amth])).toString("utf8")),
+      () => __LazyJsonString.from(Buffer.from(context.base64Decoder(output.headers[_amth])).toString("utf8")),
     ],
   });
   await collectBody(output.body, context);
@@ -2869,7 +2869,7 @@ export const deserializeMediaTypeHeaderRequest = async (
   const contents: any = map({
     [_j]: [
       () => void 0 !== output.headers[_xj],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xj])).toString("utf8")),
+      () => __LazyJsonString.from(Buffer.from(context.base64Decoder(output.headers[_xj])).toString("utf8")),
     ],
   });
   await collectBody(output.body, context);
@@ -6501,7 +6501,7 @@ export const serializeMediaTypeHeaderResponse = async (
     "content-type": "application/json",
     [_xj]: [
       () => isSerializableHeaderValue(input[_j]),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_j]!))),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.from(input[_j]!))),
     ],
   });
   let body: any;

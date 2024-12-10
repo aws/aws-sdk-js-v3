@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
 
 import { PricingServiceException as __BaseException } from "./PricingServiceException";
@@ -456,7 +456,7 @@ export interface GetProductsResponse {
    *          the price information.</p>
    * @public
    */
-  PriceList?: (__LazyJsonString | string)[] | undefined;
+  PriceList?: (__AutomaticJsonStringConversion | string)[] | undefined;
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>

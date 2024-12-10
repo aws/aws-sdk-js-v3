@@ -1030,9 +1030,9 @@ const se_AppMonitorConfiguration = (input: AppMonitorConfiguration, context: __S
  */
 const se_RumEvent = (input: RumEvent, context: __SerdeContext): any => {
   return take(input, {
-    details: __LazyJsonString.fromObject,
+    details: __LazyJsonString.from,
     id: [],
-    metadata: __LazyJsonString.fromObject,
+    metadata: __LazyJsonString.from,
     timestamp: (_) => _.getTime() / 1_000,
     type: [],
   });

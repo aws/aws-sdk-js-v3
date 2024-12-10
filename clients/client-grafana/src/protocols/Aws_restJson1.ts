@@ -157,7 +157,7 @@ export const se_CreateWorkspaceCommand = async (
       accountAccessType: [],
       authenticationProviders: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
-      configuration: (_) => __LazyJsonString.fromObject(_),
+      configuration: (_) => __LazyJsonString.from(_),
       grafanaVersion: [],
       networkAccessControl: (_) => _json(_),
       organizationRoleName: [],
@@ -644,7 +644,7 @@ export const se_UpdateWorkspaceConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      configuration: (_) => __LazyJsonString.fromObject(_),
+      configuration: (_) => __LazyJsonString.from(_),
       grafanaVersion: [],
     })
   );
@@ -909,7 +909,7 @@ export const de_DescribeWorkspaceConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    configuration: (_) => new __LazyJsonString(_),
+    configuration: __LazyJsonString.from,
     grafanaVersion: __expectString,
   });
   Object.assign(contents, doc);

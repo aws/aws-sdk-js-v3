@@ -1784,7 +1784,7 @@ export const se_PutCoreNetworkPolicyCommand = async (
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       LatestVersionId: [],
-      PolicyDocument: (_) => __LazyJsonString.fromObject(_),
+      PolicyDocument: (_) => __LazyJsonString.from(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1807,7 +1807,7 @@ export const se_PutResourcePolicyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      PolicyDocument: (_) => __LazyJsonString.fromObject(_),
+      PolicyDocument: (_) => __LazyJsonString.from(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -3345,7 +3345,7 @@ export const de_GetResourcePolicyCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    PolicyDocument: (_) => new __LazyJsonString(_),
+    PolicyDocument: __LazyJsonString.from,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4531,7 +4531,7 @@ const de_CoreNetworkPolicy = (output: any, context: __SerdeContext): CoreNetwork
     CoreNetworkId: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
-    PolicyDocument: (_: any) => new __LazyJsonString(_),
+    PolicyDocument: __LazyJsonString.from,
     PolicyErrors: _json,
     PolicyVersionId: __expectInt32,
   }) as any;

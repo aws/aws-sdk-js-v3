@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
 
 import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
@@ -5526,7 +5526,7 @@ export interface GetS3AccessPolicyResponse {
    * <p>The current resource policy that controls S3 access on the store.</p>
    * @public
    */
-  s3AccessPolicy: __LazyJsonString | string | undefined;
+  s3AccessPolicy: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -8154,7 +8154,7 @@ export interface PutS3AccessPolicyRequest {
    * <p>The resource policy that controls S3 access to the store.</p>
    * @public
    */
-  s3AccessPolicy: __LazyJsonString | string | undefined;
+  s3AccessPolicy: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
