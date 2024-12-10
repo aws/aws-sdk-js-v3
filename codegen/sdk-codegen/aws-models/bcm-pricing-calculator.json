@@ -642,7 +642,7 @@
           "min": 0,
           "max": 32
         },
-        "smithy.api#pattern": "^[-a-zA-Z0-9\\.\\-_:,]*$"
+        "smithy.api#pattern": "^[-a-zA-Z0-9\\.\\-_:, \\/()]*$"
       }
     },
     "com.amazonaws.bcmpricingcalculator#BatchCreateBillScenarioCommitmentModification": {
@@ -2390,6 +2390,7 @@
           "template": "bill-estimate/{billEstimateId}"
         },
         "aws.api#taggable": {},
+        "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "bill-estimate"
         },
@@ -2936,6 +2937,7 @@
           "template": "bill-scenario/{billScenarioId}"
         },
         "aws.api#taggable": {},
+        "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "bill-scenario"
         },
@@ -5705,7 +5707,7 @@
           "min": 0,
           "max": 32
         },
-        "smithy.api#pattern": "^[-a-zA-Z0-9\\.\\-_:,]*$"
+        "smithy.api#pattern": "^[-a-zA-Z0-9\\.\\-_:, \\/()]*$"
       }
     },
     "com.amazonaws.bcmpricingcalculator#PurchaseAgreementType": {
@@ -6587,7 +6589,7 @@
           "min": 0,
           "max": 128
         },
-        "smithy.api#pattern": "^[-a-zA-Z0-9\\.\\-_:,]*$"
+        "smithy.api#pattern": "^[-a-zA-Z0-9\\.\\-_:, \\/()]*$"
       }
     },
     "com.amazonaws.bcmpricingcalculator#Uuid": {
@@ -6758,6 +6760,7 @@
           "template": "workload-estimate/{workloadEstimateId}"
         },
         "aws.api#taggable": {},
+        "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "workload-estimate"
         },
