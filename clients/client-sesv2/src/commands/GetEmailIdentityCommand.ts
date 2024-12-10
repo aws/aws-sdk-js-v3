@@ -52,7 +52,7 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  * //     Tokens: [ // DnsTokenList
  * //       "STRING_VALUE",
  * //     ],
- * //     SigningAttributesOrigin: "AWS_SES" || "EXTERNAL",
+ * //     SigningAttributesOrigin: "AWS_SES" || "EXTERNAL" || "AWS_SES_AF_SOUTH_1" || "AWS_SES_EU_NORTH_1" || "AWS_SES_AP_SOUTH_1" || "AWS_SES_EU_WEST_3" || "AWS_SES_EU_WEST_2" || "AWS_SES_EU_SOUTH_1" || "AWS_SES_EU_WEST_1" || "AWS_SES_AP_NORTHEAST_3" || "AWS_SES_AP_NORTHEAST_2" || "AWS_SES_ME_SOUTH_1" || "AWS_SES_AP_NORTHEAST_1" || "AWS_SES_IL_CENTRAL_1" || "AWS_SES_SA_EAST_1" || "AWS_SES_CA_CENTRAL_1" || "AWS_SES_AP_SOUTHEAST_1" || "AWS_SES_AP_SOUTHEAST_2" || "AWS_SES_AP_SOUTHEAST_3" || "AWS_SES_EU_CENTRAL_1" || "AWS_SES_US_EAST_1" || "AWS_SES_US_EAST_2" || "AWS_SES_US_WEST_1" || "AWS_SES_US_WEST_2",
  * //     NextSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
  * //     CurrentSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
  * //     LastKeyGenerationTimestamp: new Date("TIMESTAMP"),
@@ -76,7 +76,7 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  * //   VerificationInfo: { // VerificationInfo
  * //     LastCheckedTimestamp: new Date("TIMESTAMP"),
  * //     LastSuccessTimestamp: new Date("TIMESTAMP"),
- * //     ErrorType: "SERVICE_ERROR" || "DNS_SERVER_ERROR" || "HOST_NOT_FOUND" || "TYPE_NOT_FOUND" || "INVALID_VALUE",
+ * //     ErrorType: "SERVICE_ERROR" || "DNS_SERVER_ERROR" || "HOST_NOT_FOUND" || "TYPE_NOT_FOUND" || "INVALID_VALUE" || "REPLICATION_ACCESS_DENIED" || "REPLICATION_PRIMARY_NOT_FOUND" || "REPLICATION_PRIMARY_BYO_DKIM_NOT_SUPPORTED" || "REPLICATION_REPLICA_AS_PRIMARY_NOT_SUPPORTED" || "REPLICATION_PRIMARY_INVALID_REGION",
  * //     SOARecord: { // SOARecord
  * //       PrimaryNameServer: "STRING_VALUE",
  * //       AdminEmail: "STRING_VALUE",
