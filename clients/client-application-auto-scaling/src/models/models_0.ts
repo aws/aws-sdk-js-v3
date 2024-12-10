@@ -2492,7 +2492,7 @@ export type PredictiveScalingMode = (typeof PredictiveScalingMode)[keyof typeof 
 
 /**
  * <p>
- *          Represents a predictive scaling policy configuration.
+ *          Represents a predictive scaling policy configuration. Predictive scaling is supported on Amazon ECS services.
  *       </p>
  * @public
  */
