@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-iotfleethub",
   "description": "AWS SDK for JavaScript Iotfleethub Client for Node.js, Browser and React Native",
-  "version": "3.699.0",
+  "version": "3.709.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-iotfleethub",

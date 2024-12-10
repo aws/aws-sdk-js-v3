@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.709.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.708.0...v3.709.0) (2024-12-10)
+
+
+### Features
+
+* **client-bcm-pricing-calculator:** Updated condition key inference from Workload Estimate, Bill Scenario, and Bill Estimate resources. Updated documentation links. ([7e392d4](https://github.com/aws/aws-sdk-js-v3/commit/7e392d423ff4e5dec5da383a5443554e4bf9953e))
+* **client-connect:** Add support for Push Notifications for Amazon Connect chat. With Push Notifications enabled an alert could be sent to customers about new messages even when they aren't actively using the mobile application. ([8f9a63c](https://github.com/aws/aws-sdk-js-v3/commit/8f9a63c69046d3cdd5a8e3817c6f63d4858ed2ed))
+* **client-finspace:** Update KxCommandLineArgument value parameter regex to allow for spaces and semicolons ([db4712c](https://github.com/aws/aws-sdk-js-v3/commit/db4712c89c4e8cb5fbe4e1d1f1754797442e8028))
+* **client-ivs-realtime:** IVS Real-Time now offers customers the ability to customize thumbnails recording mode and interval for both Individual Participant Recording (IPR) and Server-Side Compositions (SSC). ([e9f436e](https://github.com/aws/aws-sdk-js-v3/commit/e9f436eb9744d2e80d730d4ee4953d3331b398ef))
+* **client-sesv2:** Introduces support for creating DEED (Deterministic Easy-DKIM) identities. ([9587ce3](https://github.com/aws/aws-sdk-js-v3/commit/9587ce34c3325ad5398c1d786a72b386dc810300))
+* **clients:** update client endpoints as of 2024-12-10 ([6f523dc](https://github.com/aws/aws-sdk-js-v3/commit/6f523dce14d77f78acde32dc4505c3ba1a523d15))
+
+
+
+
+
 # [3.708.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.707.0...v3.708.0) (2024-12-09)
 
 

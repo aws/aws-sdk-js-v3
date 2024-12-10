@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.709.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.708.0...v3.709.0) (2024-12-10)
+
+
+### Features
+
+* **client-sesv2:** Introduces support for creating DEED (Deterministic Easy-DKIM) identities. ([9587ce3](https://github.com/aws/aws-sdk-js-v3/commit/9587ce34c3325ad5398c1d786a72b386dc810300))
+
+
+
+
+
 # [3.708.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.707.0...v3.708.0) (2024-12-09)
 
 **Note:** Version bump only for package @aws-sdk/client-sesv2
