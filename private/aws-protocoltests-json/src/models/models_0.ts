@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
 import { DocumentType as __DocumentType } from "@smithy/types";
 
@@ -450,7 +450,7 @@ export interface KitchenSink {
   HttpdateTimestamp?: Date | undefined;
   Integer?: number | undefined;
   Iso8601Timestamp?: Date | undefined;
-  JsonValue?: __LazyJsonString | string | undefined;
+  JsonValue?: __AutomaticJsonStringConversion | string | undefined;
   ListOfLists?: string[][] | undefined;
   ListOfMapsOfStrings?: Record<string, string>[] | undefined;
   ListOfStrings?: string[] | undefined;

@@ -157,7 +157,7 @@ export const se_PublishCommand = async (
     "content-type": "application/octet-stream",
     [_xamup]: [
       () => isSerializableHeaderValue(input[_uP]),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_uP]!))),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.from(input[_uP]!))),
     ],
     [_xampfi]: input[_pFI]!,
     [_xamcd]: input[_cD]!,

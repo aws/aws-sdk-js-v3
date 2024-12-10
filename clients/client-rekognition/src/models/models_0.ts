@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
   SENSITIVE_STRING,
 } from "@smithy/smithy-client";
 
@@ -5019,7 +5019,7 @@ export interface HumanLoopActivationOutput {
    *       human review.</p>
    * @public
    */
-  HumanLoopActivationConditionsEvaluationResults?: __LazyJsonString | string | undefined;
+  HumanLoopActivationConditionsEvaluationResults?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**

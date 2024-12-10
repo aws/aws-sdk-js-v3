@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
 
 import { RUMServiceException as __BaseException } from "./RUMServiceException";
@@ -1828,13 +1828,13 @@ export interface RumEvent {
    *          and document interface.</p>
    * @public
    */
-  metadata?: __LazyJsonString | string | undefined;
+  metadata?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>A string containing details about the event.</p>
    * @public
    */
-  details: __LazyJsonString | string | undefined;
+  details: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**

@@ -550,7 +550,7 @@ export const se_PutResourcePolicyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      Policy: (_) => __LazyJsonString.fromObject(_),
+      Policy: (_) => __LazyJsonString.from(_),
       RevisionId: [],
     })
   );

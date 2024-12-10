@@ -161,11 +161,11 @@ export const se_CreateQuantumTaskCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      action: (_) => __LazyJsonString.fromObject(_),
+      action: (_) => __LazyJsonString.from(_),
       associations: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       deviceArn: [],
-      deviceParameters: (_) => __LazyJsonString.fromObject(_),
+      deviceParameters: (_) => __LazyJsonString.from(_),
       jobToken: [],
       outputS3Bucket: [],
       outputS3KeyPrefix: [],

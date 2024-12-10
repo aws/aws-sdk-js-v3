@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
 import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 
@@ -971,7 +971,7 @@ export interface MalformedShortInput {
  * @public
  */
 export interface MalformedStringInput {
-  blob?: __LazyJsonString | string | undefined;
+  blob?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -1112,14 +1112,14 @@ export interface MalformedUnionInput {
  * @public
  */
 export interface MediaTypeHeaderInput {
-  json?: __LazyJsonString | string | undefined;
+  json?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
  * @public
  */
 export interface MediaTypeHeaderOutput {
-  json?: __LazyJsonString | string | undefined;
+  json?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**

@@ -2082,7 +2082,7 @@ const se_CreateRetrainingSchedulerRequest = (input: CreateRetrainingSchedulerReq
  */
 const se_DatasetSchema = (input: DatasetSchema, context: __SerdeContext): any => {
   return take(input, {
-    InlineDataSchema: __LazyJsonString.fromObject,
+    InlineDataSchema: __LazyJsonString.from,
   });
 };
 

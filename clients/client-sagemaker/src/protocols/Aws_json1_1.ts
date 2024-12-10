@@ -15160,7 +15160,7 @@ const se_HumanLoopActivationConditionsConfig = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    HumanLoopActivationConditions: __LazyJsonString.fromObject,
+    HumanLoopActivationConditions: __LazyJsonString.from,
   });
 };
 

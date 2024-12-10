@@ -304,7 +304,7 @@ export const se_CreateSegmentCommand = async (
     take(input, {
       description: [],
       name: [],
-      pattern: (_) => __LazyJsonString.fromObject(_),
+      pattern: (_) => __LazyJsonString.from(_),
       tags: (_) => _json(_),
     })
   );
@@ -413,7 +413,7 @@ export const se_EvaluateFeatureCommand = async (
   body = JSON.stringify(
     take(input, {
       entityId: [],
-      evaluationContext: (_) => __LazyJsonString.fromObject(_),
+      evaluationContext: (_) => __LazyJsonString.from(_),
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -839,8 +839,8 @@ export const se_TestSegmentPatternCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      pattern: (_) => __LazyJsonString.fromObject(_),
-      payload: (_) => __LazyJsonString.fromObject(_),
+      pattern: (_) => __LazyJsonString.from(_),
+      payload: (_) => __LazyJsonString.from(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2003,7 +2003,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_EvaluationRequest = (input: EvaluationRequest, context: __SerdeContext): any => {
   return take(input, {
     entityId: [],
-    evaluationContext: __LazyJsonString.fromObject,
+    evaluationContext: __LazyJsonString.from,
     feature: [],
   });
 };
@@ -2024,7 +2024,7 @@ const se_EvaluationRequestsList = (input: EvaluationRequest[], context: __SerdeC
  */
 const se_Event = (input: Event, context: __SerdeContext): any => {
   return take(input, {
-    data: __LazyJsonString.fromObject,
+    data: __LazyJsonString.from,
     timestamp: (_) => _.getTime() / 1_000,
     type: [],
   });
@@ -2057,7 +2057,7 @@ const se_EventList = (input: Event[], context: __SerdeContext): any => {
 const se_MetricDefinitionConfig = (input: MetricDefinitionConfig, context: __SerdeContext): any => {
   return take(input, {
     entityIdKey: [],
-    eventPattern: __LazyJsonString.fromObject,
+    eventPattern: __LazyJsonString.from,
     name: [],
     unitLabel: [],
     valueKey: [],

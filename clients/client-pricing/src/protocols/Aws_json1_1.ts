@@ -3,6 +3,7 @@ import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody a
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   collectBody,
   decorateServiceException as __decorateServiceException,
   expectString as __expectString,
@@ -445,7 +446,7 @@ const de_GetProductsResponse = (output: any, context: __SerdeContext): GetProduc
 /**
  * deserializeAws_json1_1PriceListJsonItems
  */
-const de_PriceListJsonItems = (output: any, context: __SerdeContext): (__LazyJsonString | string)[] => {
+const de_PriceListJsonItems = (output: any, context: __SerdeContext): (__AutomaticJsonStringConversion | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

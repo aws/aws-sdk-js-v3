@@ -14,8 +14,8 @@ import {
   ValidationFailure as __ValidationFailure,
 } from "@aws-smithy/server-common";
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
 import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 import { Readable } from "stream";
@@ -3778,7 +3778,7 @@ export namespace MalformedShortInput {
  * @public
  */
 export interface MalformedStringInput {
-  blob?: __LazyJsonString | string | undefined;
+  blob?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 export namespace MalformedStringInput {
@@ -4303,7 +4303,7 @@ export namespace MalformedUnionInput {
  * @public
  */
 export interface MediaTypeHeaderInput {
-  json?: __LazyJsonString | string | undefined;
+  json?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 export namespace MediaTypeHeaderInput {
@@ -4335,7 +4335,7 @@ export namespace MediaTypeHeaderInput {
  * @public
  */
 export interface MediaTypeHeaderOutput {
-  json?: __LazyJsonString | string | undefined;
+  json?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 export namespace MediaTypeHeaderOutput {

@@ -32,10 +32,10 @@
   "dependencies": {
     "@aws-sdk/token-providers": "*",
     "@aws-sdk/types": "*",
-    "@smithy/property-provider": "^3.1.9",
-    "@smithy/protocol-http": "^4.1.7",
-    "@smithy/types": "^3.7.1",
-    "@smithy/util-middleware": "^3.0.10",
+    "@smithy/property-provider": "^3.1.11",
+    "@smithy/protocol-http": "^4.1.8",
+    "@smithy/types": "^3.7.2",
+    "@smithy/util-middleware": "^3.0.11",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

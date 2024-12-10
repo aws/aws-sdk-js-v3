@@ -1784,7 +1784,7 @@ export const se_PutCoreNetworkPolicyCommand = async (
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       LatestVersionId: [],
-      PolicyDocument: (_) => __LazyJsonString.fromObject(_),
+      PolicyDocument: (_) => __LazyJsonString.from(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1807,7 +1807,7 @@ export const se_PutResourcePolicyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      PolicyDocument: (_) => __LazyJsonString.fromObject(_),
+      PolicyDocument: (_) => __LazyJsonString.from(_),
     })
   );
   b.m("POST").h(headers).b(body);

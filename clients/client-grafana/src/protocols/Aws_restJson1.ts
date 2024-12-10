@@ -157,7 +157,7 @@ export const se_CreateWorkspaceCommand = async (
       accountAccessType: [],
       authenticationProviders: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
-      configuration: (_) => __LazyJsonString.fromObject(_),
+      configuration: (_) => __LazyJsonString.from(_),
       grafanaVersion: [],
       networkAccessControl: (_) => _json(_),
       organizationRoleName: [],
@@ -644,7 +644,7 @@ export const se_UpdateWorkspaceConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      configuration: (_) => __LazyJsonString.fromObject(_),
+      configuration: (_) => __LazyJsonString.from(_),
       grafanaVersion: [],
     })
   );

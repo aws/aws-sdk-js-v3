@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
 
 import { IoTDataPlaneServiceException as __BaseException } from "./IoTDataPlaneServiceException";
@@ -474,7 +474,7 @@ export interface PublishRequest {
    *          </p>
    * @public
    */
-  userProperties?: __LazyJsonString | string | undefined;
+  userProperties?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>An <code>Enum</code> string value that indicates whether the payload is formatted as

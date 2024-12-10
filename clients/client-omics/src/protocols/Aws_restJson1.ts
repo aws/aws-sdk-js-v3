@@ -2472,7 +2472,7 @@ export const se_PutS3AccessPolicyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      s3AccessPolicy: (_) => __LazyJsonString.fromObject(_),
+      s3AccessPolicy: (_) => __LazyJsonString.from(_),
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();

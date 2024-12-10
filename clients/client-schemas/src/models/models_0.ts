@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
 
 import { SchemasServiceException as __BaseException } from "./SchemasServiceException";
@@ -1138,7 +1138,7 @@ export interface GetResourcePolicyResponse {
    * <p>The resource-based policy.</p>
    * @public
    */
-  Policy?: __LazyJsonString | string | undefined;
+  Policy?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The revision ID.</p>
@@ -1464,7 +1464,7 @@ export interface PutResourcePolicyRequest {
    * <p>The resource-based policy.</p>
    * @public
    */
-  Policy: __LazyJsonString | string | undefined;
+  Policy: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The name of the registry.</p>
@@ -1487,7 +1487,7 @@ export interface PutResourcePolicyResponse {
    * <p>The resource-based policy.</p>
    * @public
    */
-  Policy?: __LazyJsonString | string | undefined;
+  Policy?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The revision ID of the policy.</p>

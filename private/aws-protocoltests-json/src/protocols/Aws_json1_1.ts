@@ -800,7 +800,7 @@ const se_KitchenSink = (input: KitchenSink, context: __SerdeContext): any => {
     HttpdateTimestamp: __dateToUtcString,
     Integer: [],
     Iso8601Timestamp: __serializeDateTime,
-    JsonValue: __LazyJsonString.fromObject,
+    JsonValue: __LazyJsonString.from,
     ListOfLists: _json,
     ListOfMapsOfStrings: _json,
     ListOfStrings: _json,
