@@ -68,6 +68,94 @@ import {
 /**
  * @public
  */
+export interface DeleteUserHierarchyGroupRequest {
+  /**
+   * <p>The identifier of the hierarchy group.</p>
+   * @public
+   */
+  HierarchyGroupId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteViewRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   *    used.</p>
+   * @public
+   */
+  ViewId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteViewResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteViewVersionRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   *    used.</p>
+   * @public
+   */
+  ViewId: string | undefined;
+
+  /**
+   * <p>The version number of the view.</p>
+   * @public
+   */
+  ViewVersion: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteViewVersionResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteVocabularyRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the custom vocabulary.</p>
+   * @public
+   */
+  VocabularyId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteVocabularyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
@@ -1985,8 +2073,9 @@ export interface ClaimedPhoneNumberSummary {
 
   /**
    * <p>The claimed phone number ARN that was previously imported from the external service, such as
-   *    Amazon Web Services End User Messaging. If it is from Amazon Web Services End User Messaging, it looks like the ARN of the phone number
-   *    that was imported from Amazon Web Services End User Messaging.</p>
+   *     Amazon Web Services End User Messaging. If it is from Amazon Web Services End User Messaging, it
+   *    looks like the ARN of the phone number that was imported from Amazon Web Services End User
+   *    Messaging.</p>
    * @public
    */
   SourcePhoneNumberArn?: string | undefined;
@@ -3372,11 +3461,13 @@ export interface DisassociateFlowRequest {
    * <p>The identifier of the resource.</p>
    *          <ul>
    *             <li>
-   *                <p>Amazon Web Services End User Messaging SMS phone number ARN when using <code>SMS_PHONE_NUMBER</code>
+   *                <p>Amazon Web Services End User Messaging SMS phone number ARN when using
+   *       <code>SMS_PHONE_NUMBER</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Amazon Web Services End User Messaging Social phone number ARN when using <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code>
+   *                <p>Amazon Web Services End User Messaging Social phone number ARN when using
+   *       <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -4622,11 +4713,13 @@ export interface GetFlowAssociationRequest {
    * <p>The identifier of the resource.</p>
    *          <ul>
    *             <li>
-   *                <p>Amazon Web Services End User Messaging SMS phone number ARN when using <code>SMS_PHONE_NUMBER</code>
+   *                <p>Amazon Web Services End User Messaging SMS phone number ARN when using
+   *       <code>SMS_PHONE_NUMBER</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Amazon Web Services End User Messaging Social phone number ARN when using <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code>
+   *                <p>Amazon Web Services End User Messaging Social phone number ARN when using
+   *       <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -5194,18 +5287,14 @@ export interface MetricFilterV2 {
    *          <p>For valid values of the metric-level filter <code>FLOWS_OUTCOME_TYPE</code>, see the
    *    description for the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#flows-outcome-historical">Flow outcome</a> metric in the <i>Amazon Connect Administrator
    *    Guide</i>.</p>
-   *          <p>For valid values of the metric-level filter <code>BOT_CONVERSATION_OUTCOME_TYPE</code>, see the
-   *    description for the
-   *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#bot-conversations-completed-metric">Bot conversations completed</a>
-   *
-   *    in the <i>Amazon Connect Administrator
+   *          <p>For valid values of the metric-level filter <code>BOT_CONVERSATION_OUTCOME_TYPE</code>, see
+   *    the description for the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#bot-conversations-completed-metric">Bot
+   *     conversations completed</a> in the <i>Amazon Connect Administrator
    *     Guide</i>.</p>
-   *          <p>For valid values of the metric-level filter <code>BOT_INTENT_OUTCOME_TYPE</code>, see the description for
-   *    the
-   *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#bot-intents-completed-metric">Bot intents completed</a>
-   *
-   *     metric in the <i>Amazon Connect Administrator
-   *     Guide</i>.</p>
+   *          <p>For valid values of the metric-level filter <code>BOT_INTENT_OUTCOME_TYPE</code>, see the
+   *    description for the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#bot-intents-completed-metric">Bot intents
+   *     completed</a> metric in the <i>Amazon Connect Administrator
+   *    Guide</i>.</p>
    * @public
    */
   MetricFilterValues?: string[] | undefined;
@@ -6797,8 +6886,8 @@ export interface ImportPhoneNumberRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The claimed phone number ARN being imported from the external service, such as Amazon Web Services End User Messaging. If it is from Amazon Web Services End User Messaging, it looks like the ARN of the phone number to
-   *    import from Amazon Web Services End User Messaging.</p>
+   * <p>The claimed phone number ARN being imported from the external service, such as Amazon Web Services End User Messaging. If it is from Amazon Web Services End User Messaging, it looks
+   *    like the ARN of the phone number to import from Amazon Web Services End User Messaging.</p>
    * @public
    */
   SourcePhoneNumberArn: string | undefined;
@@ -8982,8 +9071,9 @@ export interface ListPhoneNumbersSummary {
 
   /**
    * <p>The claimed phone number ARN that was previously imported from the external service, such as
-   *    Amazon Web Services End User Messaging. If it is from Amazon Web Services End User Messaging, it looks like the ARN of the phone number
-   *    that was imported from Amazon Web Services End User Messaging.</p>
+   *     Amazon Web Services End User Messaging. If it is from Amazon Web Services End User Messaging, it
+   *    looks like the ARN of the phone number that was imported from Amazon Web Services End User
+   *    Messaging.</p>
    * @public
    */
   SourcePhoneNumberArn?: string | undefined;
@@ -9797,181 +9887,6 @@ export interface RealTimeContactAnalysisSegmentIssues {
    * @public
    */
   IssuesDetected: RealTimeContactAnalysisIssueDetected[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const RealTimeContactAnalysisPostContactSummaryFailureCode = {
-  FAILED_SAFETY_GUIDELINES: "FAILED_SAFETY_GUIDELINES",
-  INSUFFICIENT_CONVERSATION_CONTENT: "INSUFFICIENT_CONVERSATION_CONTENT",
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  INVALID_ANALYSIS_CONFIGURATION: "INVALID_ANALYSIS_CONFIGURATION",
-  QUOTA_EXCEEDED: "QUOTA_EXCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type RealTimeContactAnalysisPostContactSummaryFailureCode =
-  (typeof RealTimeContactAnalysisPostContactSummaryFailureCode)[keyof typeof RealTimeContactAnalysisPostContactSummaryFailureCode];
-
-/**
- * @public
- * @enum
- */
-export const RealTimeContactAnalysisPostContactSummaryStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type RealTimeContactAnalysisPostContactSummaryStatus =
-  (typeof RealTimeContactAnalysisPostContactSummaryStatus)[keyof typeof RealTimeContactAnalysisPostContactSummaryStatus];
-
-/**
- * <p>Information about the post-contact summary for a real-time contact segment.</p>
- * @public
- */
-export interface RealTimeContactAnalysisSegmentPostContactSummary {
-  /**
-   * <p>The content of the summary.</p>
-   * @public
-   */
-  Content?: string | undefined;
-
-  /**
-   * <p>Whether the summary was successfully COMPLETED or FAILED to be generated.</p>
-   * @public
-   */
-  Status: RealTimeContactAnalysisPostContactSummaryStatus | undefined;
-
-  /**
-   * <p>If the summary failed to be generated, one of the following failure codes occurs:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>QUOTA_EXCEEDED</code>: The number of concurrent analytics jobs reached your service
-   *      quota.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INSUFFICIENT_CONVERSATION_CONTENT</code>: The conversation needs to have at least
-   *      one turn from both the participants in order to generate the summary.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED_SAFETY_GUIDELINES</code>: The generated summary cannot be provided because it
-   *      failed to meet system safety guidelines.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INVALID_ANALYSIS_CONFIGURATION</code>: This code occurs when, for example, you're
-   *      using a <a href="https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages.html#supported-languages-contact-lens">language</a> that isn't supported by generative AI-powered post-contact summaries.
-   *     </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INTERNAL_ERROR</code>: Internal system error.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  FailureCode?: RealTimeContactAnalysisPostContactSummaryFailureCode | undefined;
-}
-
-/**
- * <p>Object describing redaction applied to the segment.</p>
- * @public
- */
-export interface RealTimeContactAnalysisTranscriptItemRedaction {
-  /**
-   * <p>List of character intervals each describing a part of the text that was redacted. For
-   *     <code>OutputType.Raw</code>, part of the original text that contains data that can be redacted.
-   *    For <code> OutputType.Redacted</code>, part of the string with redaction tag.</p>
-   * @public
-   */
-  CharacterOffsets?: RealTimeContactAnalysisCharacterInterval[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const RealTimeContactAnalysisSentimentLabel = {
-  NEGATIVE: "NEGATIVE",
-  NEUTRAL: "NEUTRAL",
-  POSITIVE: "POSITIVE",
-} as const;
-
-/**
- * @public
- */
-export type RealTimeContactAnalysisSentimentLabel =
-  (typeof RealTimeContactAnalysisSentimentLabel)[keyof typeof RealTimeContactAnalysisSentimentLabel];
-
-/**
- * <p>The analyzed transcript segment.</p>
- * @public
- */
-export interface RealTimeContactAnalysisSegmentTranscript {
-  /**
-   * <p>The identifier of the transcript.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The identifier of the participant.</p>
-   * @public
-   */
-  ParticipantId: string | undefined;
-
-  /**
-   * <p>The role of the participant. For example, is it a customer, agent, or system.</p>
-   * @public
-   */
-  ParticipantRole: ParticipantRole | undefined;
-
-  /**
-   * <p>The display name of the participant.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The content of the transcript. Can be redacted.</p>
-   * @public
-   */
-  Content: string | undefined;
-
-  /**
-   * <p>The type of content of the item. For example, <code>text/plain</code>.</p>
-   * @public
-   */
-  ContentType?: string | undefined;
-
-  /**
-   * <p>Field describing the time of the event. It can have different representations of time.</p>
-   * @public
-   */
-  Time: RealTimeContactAnalysisTimeData | undefined;
-
-  /**
-   * <p>Object describing redaction that was applied to the transcript. If transcript has the field
-   *    it means part of the transcript was redacted.</p>
-   * @public
-   */
-  Redaction?: RealTimeContactAnalysisTranscriptItemRedaction | undefined;
-
-  /**
-   * <p>The sentiment detected for this piece of transcript.</p>
-   * @public
-   */
-  Sentiment?: RealTimeContactAnalysisSentimentLabel | undefined;
 }
 
 /**

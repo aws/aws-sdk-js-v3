@@ -182,6 +182,11 @@ import {
   CreatePromptCommandInput,
   CreatePromptCommandOutput,
 } from "./commands/CreatePromptCommand";
+import {
+  CreatePushNotificationRegistrationCommand,
+  CreatePushNotificationRegistrationCommandInput,
+  CreatePushNotificationRegistrationCommandOutput,
+} from "./commands/CreatePushNotificationRegistrationCommand";
 import { CreateQueueCommand, CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import {
   CreateQuickConnectCommand,
@@ -291,6 +296,11 @@ import {
   DeletePromptCommandInput,
   DeletePromptCommandOutput,
 } from "./commands/DeletePromptCommand";
+import {
+  DeletePushNotificationRegistrationCommand,
+  DeletePushNotificationRegistrationCommandInput,
+  DeletePushNotificationRegistrationCommandOutput,
+} from "./commands/DeletePushNotificationRegistrationCommand";
 import { DeleteQueueCommand, DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
 import {
   DeleteQuickConnectCommand,
@@ -1311,6 +1321,7 @@ const commands = {
   CreatePersistentContactAssociationCommand,
   CreatePredefinedAttributeCommand,
   CreatePromptCommand,
+  CreatePushNotificationRegistrationCommand,
   CreateQueueCommand,
   CreateQuickConnectCommand,
   CreateRoutingProfileCommand,
@@ -1336,6 +1347,7 @@ const commands = {
   DeleteIntegrationAssociationCommand,
   DeletePredefinedAttributeCommand,
   DeletePromptCommand,
+  DeletePushNotificationRegistrationCommand,
   DeleteQueueCommand,
   DeleteQuickConnectCommand,
   DeleteRoutingProfileCommand,
@@ -2128,6 +2140,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link CreatePushNotificationRegistrationCommand}
+   */
+  createPushNotificationRegistration(
+    args: CreatePushNotificationRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePushNotificationRegistrationCommandOutput>;
+  createPushNotificationRegistration(
+    args: CreatePushNotificationRegistrationCommandInput,
+    cb: (err: any, data?: CreatePushNotificationRegistrationCommandOutput) => void
+  ): void;
+  createPushNotificationRegistration(
+    args: CreatePushNotificationRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePushNotificationRegistrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateQueueCommand}
    */
   createQueue(args: CreateQueueCommandInput, options?: __HttpHandlerOptions): Promise<CreateQueueCommandOutput>;
@@ -2511,6 +2540,23 @@ export interface Connect {
     args: DeletePromptCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeletePromptCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePushNotificationRegistrationCommand}
+   */
+  deletePushNotificationRegistration(
+    args: DeletePushNotificationRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePushNotificationRegistrationCommandOutput>;
+  deletePushNotificationRegistration(
+    args: DeletePushNotificationRegistrationCommandInput,
+    cb: (err: any, data?: DeletePushNotificationRegistrationCommandOutput) => void
+  ): void;
+  deletePushNotificationRegistration(
+    args: DeletePushNotificationRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePushNotificationRegistrationCommandOutput) => void
   ): void;
 
   /**
@@ -5859,8 +5905,8 @@ export interface Connect {
  *    are also limits to the number of requests that you can make per second. For more information, see
  *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator
  *     Guide</i>.</p>
- *          <p>You can use an endpoint to connect programmatically to an Amazon Web Services service. For
- *    a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
+ *          <p>You can use an endpoint to connect programmatically to an Amazon Web Services service. For a
+ *    list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
  * @public
  */
 export class Connect extends ConnectClient implements Connect {}

@@ -28,8 +28,8 @@ touch with the appropriate agents.</p>
 are also limits to the number of requests that you can make per second. For more information, see
 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator
 Guide</i>.</p>
-<p>You can use an endpoint to connect programmatically to an Amazon Web Services service. For
-a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
+<p>You can use an endpoint to connect programmatically to an Amazon Web Services service. For a
+list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
 
 ## Installing
 
@@ -516,6 +516,14 @@ CreatePrompt
 </details>
 <details>
 <summary>
+CreatePushNotificationRegistration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/CreatePushNotificationRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreatePushNotificationRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreatePushNotificationRegistrationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateQueue
 </summary>
 
@@ -712,6 +720,14 @@ DeletePrompt
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DeletePromptCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeletePromptCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeletePromptCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeletePushNotificationRegistration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DeletePushNotificationRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeletePushNotificationRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeletePushNotificationRegistrationCommandOutput/)
 
 </details>
 <details>

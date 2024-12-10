@@ -13,18 +13,14 @@ import {
   AllowedCapabilities,
   Application,
   Channel,
-  ContactFlowStatus,
-  ContactFlowType,
   ContactInitiationMethod,
   ControlPlaneAttributeFilter,
   CreatedByInfo,
   EvaluationFormQuestion,
-  EvaluationFormScoringStrategy,
   EventSourceName,
   FileStatusType,
   FileUseCaseType,
   HoursOfOperationConfig,
-  InitiateAs,
   InstanceStorageConfig,
   InstanceStorageResourceType,
   MediaConcurrency,
@@ -49,7 +45,6 @@ import {
   UseCaseType,
   UserIdentityInfo,
   UserIdentityInfoFilterSensitiveLog,
-  UserInfo,
   UserPhoneConfig,
   UserProficiency,
   View,
@@ -80,19 +75,196 @@ import {
   Queue,
   QueueStatus,
   QuickConnect,
+  RealTimeContactAnalysisCharacterInterval,
   RealTimeContactAnalysisSegmentAttachments,
   RealTimeContactAnalysisSegmentCategories,
   RealTimeContactAnalysisSegmentEvent,
   RealTimeContactAnalysisSegmentIssues,
-  RealTimeContactAnalysisSegmentPostContactSummary,
-  RealTimeContactAnalysisSegmentTranscript,
   RealTimeContactAnalysisSupportedChannel,
+  RealTimeContactAnalysisTimeData,
   RoutingProfile,
   SignInConfig,
   SortOrder,
   TelephonyConfig,
   TrafficDistributionGroupStatus,
 } from "./models_1";
+
+import { EvaluationFormSection } from "./models_3";
+
+/**
+ * @public
+ * @enum
+ */
+export const RealTimeContactAnalysisPostContactSummaryFailureCode = {
+  FAILED_SAFETY_GUIDELINES: "FAILED_SAFETY_GUIDELINES",
+  INSUFFICIENT_CONVERSATION_CONTENT: "INSUFFICIENT_CONVERSATION_CONTENT",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_ANALYSIS_CONFIGURATION: "INVALID_ANALYSIS_CONFIGURATION",
+  QUOTA_EXCEEDED: "QUOTA_EXCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type RealTimeContactAnalysisPostContactSummaryFailureCode =
+  (typeof RealTimeContactAnalysisPostContactSummaryFailureCode)[keyof typeof RealTimeContactAnalysisPostContactSummaryFailureCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RealTimeContactAnalysisPostContactSummaryStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type RealTimeContactAnalysisPostContactSummaryStatus =
+  (typeof RealTimeContactAnalysisPostContactSummaryStatus)[keyof typeof RealTimeContactAnalysisPostContactSummaryStatus];
+
+/**
+ * <p>Information about the post-contact summary for a real-time contact segment.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisSegmentPostContactSummary {
+  /**
+   * <p>The content of the summary.</p>
+   * @public
+   */
+  Content?: string | undefined;
+
+  /**
+   * <p>Whether the summary was successfully COMPLETED or FAILED to be generated.</p>
+   * @public
+   */
+  Status: RealTimeContactAnalysisPostContactSummaryStatus | undefined;
+
+  /**
+   * <p>If the summary failed to be generated, one of the following failure codes occurs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>QUOTA_EXCEEDED</code>: The number of concurrent analytics jobs reached your service
+   *      quota.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INSUFFICIENT_CONVERSATION_CONTENT</code>: The conversation needs to have at least
+   *      one turn from both the participants in order to generate the summary.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED_SAFETY_GUIDELINES</code>: The generated summary cannot be provided because it
+   *      failed to meet system safety guidelines.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID_ANALYSIS_CONFIGURATION</code>: This code occurs when, for example, you're
+   *      using a <a href="https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages.html#supported-languages-contact-lens">language</a> that isn't supported by generative AI-powered post-contact summaries.
+   *     </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INTERNAL_ERROR</code>: Internal system error.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FailureCode?: RealTimeContactAnalysisPostContactSummaryFailureCode | undefined;
+}
+
+/**
+ * <p>Object describing redaction applied to the segment.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisTranscriptItemRedaction {
+  /**
+   * <p>List of character intervals each describing a part of the text that was redacted. For
+   *     <code>OutputType.Raw</code>, part of the original text that contains data that can be redacted.
+   *    For <code> OutputType.Redacted</code>, part of the string with redaction tag.</p>
+   * @public
+   */
+  CharacterOffsets?: RealTimeContactAnalysisCharacterInterval[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RealTimeContactAnalysisSentimentLabel = {
+  NEGATIVE: "NEGATIVE",
+  NEUTRAL: "NEUTRAL",
+  POSITIVE: "POSITIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type RealTimeContactAnalysisSentimentLabel =
+  (typeof RealTimeContactAnalysisSentimentLabel)[keyof typeof RealTimeContactAnalysisSentimentLabel];
+
+/**
+ * <p>The analyzed transcript segment.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisSegmentTranscript {
+  /**
+   * <p>The identifier of the transcript.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the participant.</p>
+   * @public
+   */
+  ParticipantId: string | undefined;
+
+  /**
+   * <p>The role of the participant. For example, is it a customer, agent, or system.</p>
+   * @public
+   */
+  ParticipantRole: ParticipantRole | undefined;
+
+  /**
+   * <p>The display name of the participant.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The content of the transcript. Can be redacted.</p>
+   * @public
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>The type of content of the item. For example, <code>text/plain</code>.</p>
+   * @public
+   */
+  ContentType?: string | undefined;
+
+  /**
+   * <p>Field describing the time of the event. It can have different representations of time.</p>
+   * @public
+   */
+  Time: RealTimeContactAnalysisTimeData | undefined;
+
+  /**
+   * <p>Object describing redaction that was applied to the transcript. If transcript has the field
+   *    it means part of the transcript was redacted.</p>
+   * @public
+   */
+  Redaction?: RealTimeContactAnalysisTranscriptItemRedaction | undefined;
+
+  /**
+   * <p>The sentiment detected for this piece of transcript.</p>
+   * @public
+   */
+  Sentiment?: RealTimeContactAnalysisSentimentLabel | undefined;
+}
 
 /**
  * <p>An analyzed segment for a real-time analysis session.</p>
@@ -3874,9 +4046,8 @@ export interface SendChatIntegrationEventRequest {
 
   /**
    * <p>Chat system identifier, used in part to uniquely identify chat. This is associated with the
-   *     Amazon Connect instance and flow to be used to start chats. For Server Migration Service, this is the phone
-   *    number destination of inbound Server Migration Service messages represented by an Amazon Web Services End User Messaging phone number
-   *    ARN.</p>
+   *     Amazon Connect instance and flow to be used to start chats. For Server Migration Service, this is
+   *    the phone number destination of inbound Server Migration Service messages represented by an Amazon Web Services End User Messaging phone number ARN.</p>
    * @public
    */
   DestinationId: string | undefined;
@@ -7652,293 +7823,6 @@ export namespace EvaluationFormItem {
 }
 
 /**
- * <p>Information about a section from an evaluation form. A section can contain sections and/or
- *    questions. Evaluation forms can only contain sections and subsections (two level nesting).</p>
- * @public
- */
-export interface EvaluationFormSection {
-  /**
-   * <p>The title of the section.</p>
-   * @public
-   */
-  Title: string | undefined;
-
-  /**
-   * <p>The identifier of the section. An identifier must be unique within the evaluation
-   *    form.</p>
-   * @public
-   */
-  RefId: string | undefined;
-
-  /**
-   * <p>The instructions of the section.</p>
-   * @public
-   */
-  Instructions?: string | undefined;
-
-  /**
-   * <p>The items of the section.</p>
-   * @public
-   */
-  Items: EvaluationFormItem[] | undefined;
-
-  /**
-   * <p>The scoring weight of the section.</p>
-   * @public
-   */
-  Weight?: number | undefined;
-}
-
-/**
- * <p>The search criteria to be used to return agent statuses.</p>
- * @public
- */
-export interface AgentStatusSearchCriteria {
-  /**
-   * <p>A list of conditions which would be applied together with an <code>OR</code>
-   *    condition.</p>
-   * @public
-   */
-  OrConditions?: AgentStatusSearchCriteria[] | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   *          <note>
-   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
-   *      <code>description</code>, <code>state</code>, <code>type</code>, <code>displayOrder</code>,
-   *     and <code>resourceID</code>.</p>
-   *          </note>
-   * @public
-   */
-  AndConditions?: AgentStatusSearchCriteria[] | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   *          <note>
-   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
-   *      <code>description</code>, <code>state</code>, <code>type</code>, <code>displayOrder</code>,
-   *     and <code>resourceID</code>.</p>
-   *          </note>
-   * @public
-   */
-  StringCondition?: StringCondition | undefined;
-}
-
-/**
- * <p>The search criteria to be used to return flow modules.</p>
- * @public
- */
-export interface ContactFlowModuleSearchCriteria {
-  /**
-   * <p>A list of conditions which would be applied together with an <code>OR</code>
-   *    condition.</p>
-   * @public
-   */
-  OrConditions?: ContactFlowModuleSearchCriteria[] | undefined;
-
-  /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code>
-   *    condition.</p>
-   * @public
-   */
-  AndConditions?: ContactFlowModuleSearchCriteria[] | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   * @public
-   */
-  StringCondition?: StringCondition | undefined;
-}
-
-/**
- * <p>The search criteria to be used to return flows.</p>
- * @public
- */
-export interface ContactFlowSearchCriteria {
-  /**
-   * <p>A list of conditions which would be applied together with an <code>OR</code>
-   *    condition.</p>
-   * @public
-   */
-  OrConditions?: ContactFlowSearchCriteria[] | undefined;
-
-  /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code>
-   *    condition.</p>
-   * @public
-   */
-  AndConditions?: ContactFlowSearchCriteria[] | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   * @public
-   */
-  StringCondition?: StringCondition | undefined;
-
-  /**
-   * <p>The type of flow.</p>
-   * @public
-   */
-  TypeCondition?: ContactFlowType | undefined;
-
-  /**
-   * <p>The state of the flow.</p>
-   * @public
-   */
-  StateCondition?: ContactFlowState | undefined;
-
-  /**
-   * <p>The status of the flow.</p>
-   * @public
-   */
-  StatusCondition?: ContactFlowStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateContactRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  RelatedContactId?: string | undefined;
-
-  /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes.</p>
-   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
-   *    can include only alphanumeric, dash, and underscore characters.</p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks can have
-   *    the following reference types at the time of creation: URL | NUMBER | STRING | DATE | EMAIL |
-   *    ATTACHMENT.</p>
-   * @public
-   */
-  References?: Record<string, Reference> | undefined;
-
-  /**
-   * <p>The channel for the contact</p>
-   * @public
-   */
-  Channel: Channel | undefined;
-
-  /**
-   * <p>Indicates how the contact was initiated.</p>
-   * @public
-   */
-  InitiationMethod: ContactInitiationMethod | undefined;
-
-  /**
-   * <p>Number of minutes the contact will be active for before expiring</p>
-   * @public
-   */
-  ExpiryDurationInMinutes?: number | undefined;
-
-  /**
-   * <p>User details for the contact</p>
-   * @public
-   */
-  UserInfo?: UserInfo | undefined;
-
-  /**
-   * <p>Initial state of the contact when it's created</p>
-   * @public
-   */
-  InitiateAs?: InitiateAs | undefined;
-
-  /**
-   * <p>The name of a the contact.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A description of the contact.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A set of system defined key-value pairs stored on individual contact segments (unique
-   *    contact ID) using an attribute map. The attributes are standard Amazon Connect attributes.
-   *    They can be accessed in flows.</p>
-   *          <p>Attribute keys can include only alphanumeric, -, and _.</p>
-   *          <p>This field can be used to set Segment Contact Expiry as a duration in minutes.</p>
-   *          <note>
-   *             <p>To set contact expiry, a ValueMap must be specified containing the integer number of
-   *     minutes the contact will be active for before expiring, with <code>SegmentAttributes</code> like
-   *     \{ <code> "connect:ContactExpiry": \{"ValueMap" : \{ "ExpiryDuration": \{ "ValueInteger":
-   *      135\}\}\}\}</code>. </p>
-   *          </note>
-   * @public
-   */
-  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateEvaluationFormRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A title of the evaluation form.</p>
-   * @public
-   */
-  Title: string | undefined;
-
-  /**
-   * <p>The description of the evaluation form.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
-   * @public
-   */
-  Items: EvaluationFormItem[] | undefined;
-
-  /**
-   * <p>A scoring strategy of the evaluation form.</p>
-   * @public
-   */
-  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const ViewSummaryFilterSensitiveLog = (obj: ViewSummary): any => ({
@@ -8287,13 +8171,4 @@ export const UpdateViewContentResponseFilterSensitiveLog = (obj: UpdateViewConte
 export const UpdateViewMetadataRequestFilterSensitiveLog = (obj: UpdateViewMetadataRequest): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateContactRequestFilterSensitiveLog = (obj: CreateContactRequest): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
 });

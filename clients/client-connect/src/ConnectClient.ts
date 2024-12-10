@@ -161,6 +161,10 @@ import {
   CreatePredefinedAttributeCommandOutput,
 } from "./commands/CreatePredefinedAttributeCommand";
 import { CreatePromptCommandInput, CreatePromptCommandOutput } from "./commands/CreatePromptCommand";
+import {
+  CreatePushNotificationRegistrationCommandInput,
+  CreatePushNotificationRegistrationCommandOutput,
+} from "./commands/CreatePushNotificationRegistrationCommand";
 import { CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import { CreateQuickConnectCommandInput, CreateQuickConnectCommandOutput } from "./commands/CreateQuickConnectCommand";
 import {
@@ -219,6 +223,10 @@ import {
   DeletePredefinedAttributeCommandOutput,
 } from "./commands/DeletePredefinedAttributeCommand";
 import { DeletePromptCommandInput, DeletePromptCommandOutput } from "./commands/DeletePromptCommand";
+import {
+  DeletePushNotificationRegistrationCommandInput,
+  DeletePushNotificationRegistrationCommandOutput,
+} from "./commands/DeletePushNotificationRegistrationCommand";
 import { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
 import { DeleteQuickConnectCommandInput, DeleteQuickConnectCommandOutput } from "./commands/DeleteQuickConnectCommand";
 import {
@@ -860,6 +868,7 @@ export type ServiceInputTypes =
   | CreatePersistentContactAssociationCommandInput
   | CreatePredefinedAttributeCommandInput
   | CreatePromptCommandInput
+  | CreatePushNotificationRegistrationCommandInput
   | CreateQueueCommandInput
   | CreateQuickConnectCommandInput
   | CreateRoutingProfileCommandInput
@@ -885,6 +894,7 @@ export type ServiceInputTypes =
   | DeleteIntegrationAssociationCommandInput
   | DeletePredefinedAttributeCommandInput
   | DeletePromptCommandInput
+  | DeletePushNotificationRegistrationCommandInput
   | DeleteQueueCommandInput
   | DeleteQuickConnectCommandInput
   | DeleteRoutingProfileCommandInput
@@ -1135,6 +1145,7 @@ export type ServiceOutputTypes =
   | CreatePersistentContactAssociationCommandOutput
   | CreatePredefinedAttributeCommandOutput
   | CreatePromptCommandOutput
+  | CreatePushNotificationRegistrationCommandOutput
   | CreateQueueCommandOutput
   | CreateQuickConnectCommandOutput
   | CreateRoutingProfileCommandOutput
@@ -1160,6 +1171,7 @@ export type ServiceOutputTypes =
   | DeleteIntegrationAssociationCommandOutput
   | DeletePredefinedAttributeCommandOutput
   | DeletePromptCommandOutput
+  | DeletePushNotificationRegistrationCommandOutput
   | DeleteQueueCommandOutput
   | DeleteQuickConnectCommandOutput
   | DeleteRoutingProfileCommandOutput
@@ -1564,8 +1576,8 @@ export interface ConnectClientResolvedConfig extends ConnectClientResolvedConfig
  *    are also limits to the number of requests that you can make per second. For more information, see
  *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator
  *     Guide</i>.</p>
- *          <p>You can use an endpoint to connect programmatically to an Amazon Web Services service. For
- *    a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
+ *          <p>You can use an endpoint to connect programmatically to an Amazon Web Services service. For a
+ *    list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
  * @public
  */
 export class ConnectClient extends __Client<

@@ -42,8 +42,8 @@ export interface SendChatIntegrationEventCommandOutput extends SendChatIntegrati
  *          </ul>
  *          <p>When a chat integration event is sent with chat identifiers that do not map to an active
  *    chat contact, a new chat contact is also created before handling chat action. </p>
- *          <p>Access to this API is currently restricted to Amazon Web Services End User Messaging for supporting SMS
- *    integration. </p>
+ *          <p>Access to this API is currently restricted to Amazon Web Services End User Messaging for
+ *    supporting SMS integration. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

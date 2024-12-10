@@ -37,8 +37,7 @@ export interface DescribePhoneNumberCommandOutput extends DescribePhoneNumberRes
  *     and you are calling this API in the alternate Amazon Web Services Region associated with the
  *     traffic distribution group, you must provide a full phone number ARN. If a UUID is provided
  *     in
- *     this scenario, you receive a
- *     <code>ResourceNotFoundException</code>.</p>
+ *     this scenario, you receive a <code>ResourceNotFoundException</code>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

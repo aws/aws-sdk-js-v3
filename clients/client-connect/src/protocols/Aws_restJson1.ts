@@ -144,6 +144,10 @@ import {
   CreatePredefinedAttributeCommandOutput,
 } from "../commands/CreatePredefinedAttributeCommand";
 import { CreatePromptCommandInput, CreatePromptCommandOutput } from "../commands/CreatePromptCommand";
+import {
+  CreatePushNotificationRegistrationCommandInput,
+  CreatePushNotificationRegistrationCommandOutput,
+} from "../commands/CreatePushNotificationRegistrationCommand";
 import { CreateQueueCommandInput, CreateQueueCommandOutput } from "../commands/CreateQueueCommand";
 import { CreateQuickConnectCommandInput, CreateQuickConnectCommandOutput } from "../commands/CreateQuickConnectCommand";
 import {
@@ -202,6 +206,10 @@ import {
   DeletePredefinedAttributeCommandOutput,
 } from "../commands/DeletePredefinedAttributeCommand";
 import { DeletePromptCommandInput, DeletePromptCommandOutput } from "../commands/DeletePromptCommand";
+import {
+  DeletePushNotificationRegistrationCommandInput,
+  DeletePushNotificationRegistrationCommandOutput,
+} from "../commands/DeletePushNotificationRegistrationCommand";
 import { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "../commands/DeleteQueueCommand";
 import { DeleteQuickConnectCommandInput, DeleteQuickConnectCommandOutput } from "../commands/DeleteQuickConnectCommand";
 import {
@@ -813,6 +821,7 @@ import {
   Channel,
   CommonAttributeAndCondition,
   ConflictException,
+  ContactConfiguration,
   ContactDataRequest,
   ContactInitiationMethod,
   ContactState,
@@ -964,7 +973,6 @@ import {
   QuickConnectSummary,
   RealTimeContactAnalysisSegmentAttachments,
   RealTimeContactAnalysisSegmentEvent,
-  RealTimeContactAnalysisSegmentTranscript,
   RealTimeContactAnalysisSegmentType,
   RealTimeContactAnalysisTimeData,
   RoutingProfile,
@@ -983,7 +991,6 @@ import {
   Vocabulary,
 } from "../models/models_1";
 import {
-  AgentStatusSearchCriteria,
   AnswerMachineDetectionConfig,
   AttributeAndCondition,
   ChatEvent,
@@ -993,9 +1000,7 @@ import {
   Condition,
   ConditionalOperationFailedException,
   ContactAnalysis,
-  ContactFlowModuleSearchCriteria,
   ContactFlowModuleSearchFilter,
-  ContactFlowSearchCriteria,
   ContactFlowSearchFilter,
   ContactNotFoundException,
   ContactSearchSummary,
@@ -1011,7 +1016,6 @@ import {
   EmailHeaderType,
   EvaluationAnswerInput,
   EvaluationFormItem,
-  EvaluationFormSection,
   HierarchyGroupCondition,
   HierarchyLevelUpdate,
   HierarchyStructureUpdate,
@@ -1037,6 +1041,7 @@ import {
   QueueSearchFilter,
   QuickConnectSearchFilter,
   RealtimeContactAnalysisSegment,
+  RealTimeContactAnalysisSegmentTranscript,
   ResourceTagsSearchCriteria,
   RoutingCriteriaInputStepExpiry,
   RoutingProfileSearchFilter,
@@ -1068,10 +1073,14 @@ import {
   VoiceRecordingConfiguration,
 } from "../models/models_2";
 import {
+  AgentStatusSearchCriteria,
   Contact,
+  ContactFlowModuleSearchCriteria,
+  ContactFlowSearchCriteria,
   EmailAddressSearchCriteria,
   EvaluationForm,
   EvaluationFormContent,
+  EvaluationFormSection,
   Expression,
   HoursOfOperationSearchCriteria,
   PredefinedAttributeSearchCriteria,
@@ -1996,6 +2005,33 @@ export const se_CreatePromptCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreatePushNotificationRegistrationCommand
+ */
+export const se_CreatePushNotificationRegistrationCommand = async (
+  input: CreatePushNotificationRegistrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/push-notification/{InstanceId}/registrations");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      ContactConfiguration: (_) => _json(_),
+      DeviceToken: [],
+      DeviceType: [],
+      PinpointAppArn: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateQueueCommand
  */
 export const se_CreateQueueCommand = async (
@@ -2570,6 +2606,26 @@ export const se_DeletePromptCommand = async (
   b.p("PromptId", () => input.PromptId!, "{PromptId}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeletePushNotificationRegistrationCommand
+ */
+export const se_DeletePushNotificationRegistrationCommand = async (
+  input: DeletePushNotificationRegistrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/push-notification/{InstanceId}/registrations/{RegistrationId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("RegistrationId", () => input.RegistrationId!, "{RegistrationId}", false);
+  const query: any = map({
+    [_cI]: [, __expectNonNull(input[_CI]!, `ContactId`)],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -8008,6 +8064,27 @@ export const de_CreatePromptCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreatePushNotificationRegistrationCommand
+ */
+export const de_CreatePushNotificationRegistrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePushNotificationRegistrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RegistrationId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateQueueCommand
  */
 export const de_CreateQueueCommand = async (
@@ -8492,6 +8569,23 @@ export const de_DeletePromptCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePromptCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeletePushNotificationRegistrationCommand
+ */
+export const de_DeletePushNotificationRegistrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePushNotificationRegistrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -13444,6 +13538,8 @@ const se_AttributeCondition = (input: AttributeCondition, context: __SerdeContex
 // se_Conditions omitted.
 
 // se_ContactAnalysis omitted.
+
+// se_ContactConfiguration omitted.
 
 // se_ContactDataRequest omitted.
 

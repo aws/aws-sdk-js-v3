@@ -1451,11 +1451,13 @@ export interface AssociateFlowRequest {
    * <p>The identifier of the resource.</p>
    *          <ul>
    *             <li>
-   *                <p>Amazon Web Services End User Messaging SMS phone number ARN when using <code>SMS_PHONE_NUMBER</code>
+   *                <p>Amazon Web Services End User Messaging SMS phone number ARN when using
+   *       <code>SMS_PHONE_NUMBER</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Amazon Web Services End User Messaging Social phone number ARN when using <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code>
+   *                <p>Amazon Web Services End User Messaging Social phone number ARN when using
+   *       <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2387,11 +2389,13 @@ export interface BatchGetFlowAssociationRequest {
    * <p>A list of resource identifiers to retrieve flow associations.</p>
    *          <ul>
    *             <li>
-   *                <p>Amazon Web Services End User Messaging SMS phone number ARN when using <code>SMS_PHONE_NUMBER</code>
+   *                <p>Amazon Web Services End User Messaging SMS phone number ARN when using
+   *       <code>SMS_PHONE_NUMBER</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Amazon Web Services End User Messaging Social phone number ARN when using <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code>
+   *                <p>Amazon Web Services End User Messaging Social phone number ARN when using
+   *       <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -4108,8 +4112,8 @@ export interface CreateIntegrationAssociationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the integration.</p>
    *          <note>
-   *             <p>When integrating with Amazon Web Services End User Messaging, the Amazon Connect and Amazon Web Services End User Messaging
-   *     instances must be in the same account.</p>
+   *             <p>When integrating with Amazon Web Services End User Messaging, the Amazon Connect and
+   *      Amazon Web Services End User Messaging instances must be in the same account.</p>
    *          </note>
    * @public
    */
@@ -4541,6 +4545,102 @@ export interface CreatePromptResponse {
    * @public
    */
   PromptId?: string | undefined;
+}
+
+/**
+ * <p>The contact configuration for push notification registration.</p>
+ * @public
+ */
+export interface ContactConfiguration {
+  /**
+   * <p>The identifier of the contact within the Amazon Connect instance.</p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The role of the participant in the chat conversation.</p>
+   * @public
+   */
+  ParticipantRole?: ParticipantRole | undefined;
+
+  /**
+   * <p>Whether to include raw connect message in the push notification payload. Default is
+   *     <code>False</code>.</p>
+   * @public
+   */
+  IncludeRawMessage?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DeviceType = {
+  APNS: "APNS",
+  APNS_SANDBOX: "APNS_SANDBOX",
+  GCM: "GCM",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceType = (typeof DeviceType)[keyof typeof DeviceType];
+
+/**
+ * @public
+ */
+export interface CreatePushNotificationRegistrationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the
+   *    Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Pinpoint application.</p>
+   * @public
+   */
+  PinpointAppArn: string | undefined;
+
+  /**
+   * <p>The push notification token issued by the Apple or Google gateways.</p>
+   * @public
+   */
+  DeviceToken: string | undefined;
+
+  /**
+   * <p>The device type to use when sending the message.</p>
+   * @public
+   */
+  DeviceType: DeviceType | undefined;
+
+  /**
+   * <p>The contact configuration for push notification registration.</p>
+   * @public
+   */
+  ContactConfiguration: ContactConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePushNotificationRegistrationResponse {
+  /**
+   * <p>The identifier for the registration.</p>
+   * @public
+   */
+  RegistrationId: string | undefined;
 }
 
 /**
@@ -6925,6 +7025,35 @@ export interface DeletePromptRequest {
 /**
  * @public
  */
+export interface DeletePushNotificationRegistrationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the
+   *    Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the registration.</p>
+   * @public
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact within the Amazon Connect instance.</p>
+   * @public
+   */
+  ContactId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePushNotificationRegistrationResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteQueueRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -7084,94 +7213,6 @@ export interface DeleteUserRequest {
    * @public
    */
   UserId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteUserHierarchyGroupRequest {
-  /**
-   * <p>The identifier of the hierarchy group.</p>
-   * @public
-   */
-  HierarchyGroupId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteViewRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
-   *    the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
-   *    used.</p>
-   * @public
-   */
-  ViewId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteViewResponse {}
-
-/**
- * @public
- */
-export interface DeleteViewVersionRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
-   *    the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
-   *    used.</p>
-   * @public
-   */
-  ViewId: string | undefined;
-
-  /**
-   * <p>The version number of the view.</p>
-   * @public
-   */
-  ViewVersion: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteViewVersionResponse {}
-
-/**
- * @public
- */
-export interface DeleteVocabularyRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the custom vocabulary.</p>
-   * @public
-   */
-  VocabularyId: string | undefined;
 }
 
 /**

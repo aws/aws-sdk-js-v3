@@ -30,7 +30,7 @@ export interface StartOutboundChatContactCommandOutput extends StartOutboundChat
 
 /**
  * <p>Initiates a new outbound SMS contact to a customer. Response of this API provides the
- *    <code>ContactId</code> of the outbound SMS contact created.</p>
+ *     <code>ContactId</code> of the outbound SMS contact created.</p>
  *          <p>
  *             <b>SourceEndpoint</b> only supports Endpoints with
  *     <code>CONNECT_PHONENUMBER_ARN</code> as Type and <b>DestinationEndpoint</b> only supports Endpoints with <code>TELEPHONE_NUMBER</code> as
