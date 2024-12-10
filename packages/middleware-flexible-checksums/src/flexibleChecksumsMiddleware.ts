@@ -27,15 +27,20 @@ export interface FlexibleChecksumsRequestMiddlewareConfig {
   requestChecksumRequired: boolean;
 
   /**
-   * Defines a top-level operation input member that is used to configure request checksum behavior.
+   * Member that is used to configure request checksum behavior.
    */
-  requestAlgorithmMember?: string;
+  requestAlgorithmMember?: {
+    /**
+     * Defines a top-level operation input member that is used to configure request checksum behavior.
+     */
+    name: string;
 
-  /**
-   * The {@link httpHeader} value for {@link requestAlgorithmMember}, if present.
-   * {@link https://smithy.io/2.0/spec/http-bindings.html#httpheader-trait httpHeader}
-   */
-  requestAlgorithmMemberHttpHeader?: string;
+    /**
+     * The {@link httpHeader} value, if present.
+     * {@link https://smithy.io/2.0/spec/http-bindings.html#httpheader-trait httpHeader}
+     */
+    httpHeader?: string;
+  };
 }
 
 export const flexibleChecksumsMiddlewareOptions: BuildHandlerOptions = {
@@ -68,7 +73,7 @@ export const flexibleChecksumsMiddleware =
       input,
       {
         requestChecksumRequired,
-        requestAlgorithmMember,
+        requestAlgorithmMember: requestAlgorithmMember?.name,
       },
       !!context.isS3ExpressBucket
     );
