@@ -57,6 +57,10 @@ import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from 
 import { GetReportCommandInput, GetReportCommandOutput } from "./commands/GetReportCommand";
 import { GetReportMetadataCommandInput, GetReportMetadataCommandOutput } from "./commands/GetReportMetadataCommand";
 import { GetTermForReportCommandInput, GetTermForReportCommandOutput } from "./commands/GetTermForReportCommand";
+import {
+  ListCustomerAgreementsCommandInput,
+  ListCustomerAgreementsCommandOutput,
+} from "./commands/ListCustomerAgreementsCommand";
 import { ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand";
 import { PutAccountSettingsCommandInput, PutAccountSettingsCommandOutput } from "./commands/PutAccountSettingsCommand";
 import {
@@ -78,6 +82,7 @@ export type ServiceInputTypes =
   | GetReportCommandInput
   | GetReportMetadataCommandInput
   | GetTermForReportCommandInput
+  | ListCustomerAgreementsCommandInput
   | ListReportsCommandInput
   | PutAccountSettingsCommandInput;
 
@@ -89,6 +94,7 @@ export type ServiceOutputTypes =
   | GetReportCommandOutput
   | GetReportMetadataCommandOutput
   | GetTermForReportCommandOutput
+  | ListCustomerAgreementsCommandOutput
   | ListReportsCommandOutput
   | PutAccountSettingsCommandOutput;
 

@@ -237,6 +237,14 @@ GetTermForReport
 </details>
 <details>
 <summary>
+ListCustomerAgreements
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/artifact/command/ListCustomerAgreementsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-artifact/Interface/ListCustomerAgreementsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-artifact/Interface/ListCustomerAgreementsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListReports
 </summary>
 

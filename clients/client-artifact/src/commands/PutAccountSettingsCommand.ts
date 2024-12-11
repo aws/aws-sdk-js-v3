@@ -36,13 +36,13 @@ export interface PutAccountSettingsCommandOutput extends PutAccountSettingsRespo
  * // const { ArtifactClient, PutAccountSettingsCommand } = require("@aws-sdk/client-artifact"); // CommonJS import
  * const client = new ArtifactClient(config);
  * const input = { // PutAccountSettingsRequest
- *   notificationSubscriptionStatus: "STRING_VALUE",
+ *   notificationSubscriptionStatus: "SUBSCRIBED" || "NOT_SUBSCRIBED",
  * };
  * const command = new PutAccountSettingsCommand(input);
  * const response = await client.send(command);
  * // { // PutAccountSettingsResponse
  * //   accountSettings: { // AccountSettings
- * //     notificationSubscriptionStatus: "STRING_VALUE",
+ * //     notificationSubscriptionStatus: "SUBSCRIBED" || "NOT_SUBSCRIBED",
  * //   },
  * // };
  *

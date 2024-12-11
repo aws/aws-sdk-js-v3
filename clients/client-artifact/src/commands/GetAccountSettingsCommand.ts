@@ -40,7 +40,7 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * const response = await client.send(command);
  * // { // GetAccountSettingsResponse
  * //   accountSettings: { // AccountSettings
- * //     notificationSubscriptionStatus: "STRING_VALUE",
+ * //     notificationSubscriptionStatus: "SUBSCRIBED" || "NOT_SUBSCRIBED",
  * //   },
  * // };
  *

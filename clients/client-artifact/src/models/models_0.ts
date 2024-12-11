@@ -9,14 +9,13 @@ import { ArtifactServiceException as __BaseException } from "./ArtifactServiceEx
  */
 export const AcceptanceType = {
   /**
-   * Require explicit click-through acceptance of
-   * the Term associated with this Report.
+   * Require explicit click-through acceptance of the
+   * Term associated with this Report.
    */
   EXPLICIT: "EXPLICIT",
   /**
-   * Do not require explicit click-through
-   * acceptance of the Term associated with
-   * this Report.
+   * Do not require explicit click-through acceptance
+   * of the Term associated with this Report
    */
   PASSTHROUGH: "PASSTHROUGH",
 } as const;
@@ -51,13 +50,7 @@ export class AccessDeniedException extends __BaseException {
  * @enum
  */
 export const NotificationSubscriptionStatus = {
-  /**
-   * The account is not subscribed for notification.
-   */
   NOT_SUBSCRIBED: "NOT_SUBSCRIBED",
-  /**
-   * The account is subscribed for notification.
-   */
   SUBSCRIBED: "SUBSCRIBED",
 } as const;
 
@@ -376,6 +369,154 @@ export interface PutAccountSettingsResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const AgreementType = {
+  CUSTOM: "CUSTOM",
+  DEFAULT: "DEFAULT",
+  MODIFIED: "MODIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type AgreementType = (typeof AgreementType)[keyof typeof AgreementType];
+
+/**
+ * @public
+ */
+export interface ListCustomerAgreementsRequest {
+  /**
+   * <p>Maximum number of resources to return in the paginated response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token to request the next page of resources.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomerAgreementState = {
+  ACTIVE: "ACTIVE",
+  AWS_TERMINATED: "AWS_TERMINATED",
+  CUSTOMER_TERMINATED: "CUSTOMER_TERMINATED",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomerAgreementState = (typeof CustomerAgreementState)[keyof typeof CustomerAgreementState];
+
+/**
+ * <p>Summary for customer-agreement resource.</p>
+ * @public
+ */
+export interface CustomerAgreementSummary {
+  /**
+   * <p>Name of the customer-agreement resource.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>ARN of the customer-agreement resource.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>Identifier of the customer-agreement resource.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>ARN of the agreement resource the customer-agreement resource represents.</p>
+   * @public
+   */
+  agreementArn?: string | undefined;
+
+  /**
+   * <p>AWS account Id that owns the resource.</p>
+   * @public
+   */
+  awsAccountId?: string | undefined;
+
+  /**
+   * <p>ARN of the organization that owns the resource.</p>
+   * @public
+   */
+  organizationArn?: string | undefined;
+
+  /**
+   * <p>Timestamp indicating when the agreement became effective.</p>
+   * @public
+   */
+  effectiveStart?: Date | undefined;
+
+  /**
+   * <p>Timestamp indicating when the agreement was terminated.</p>
+   * @public
+   */
+  effectiveEnd?: Date | undefined;
+
+  /**
+   * <p>State of the resource.</p>
+   * @public
+   */
+  state?: CustomerAgreementState | undefined;
+
+  /**
+   * <p>Description of the resource.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Terms required to accept the agreement resource.</p>
+   * @public
+   */
+  acceptanceTerms?: string[] | undefined;
+
+  /**
+   * <p>Terms required to terminate the customer-agreement resource.</p>
+   * @public
+   */
+  terminateTerms?: string[] | undefined;
+
+  /**
+   * <p>Type of the customer-agreement resource.</p>
+   * @public
+   */
+  type?: AgreementType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomerAgreementsResponse {
+  /**
+   * <p>List of customer-agreement resources.</p>
+   * @public
+   */
+  customerAgreements: CustomerAgreementSummary[] | undefined;
+
+  /**
+   * <p>Pagination token to request the next page of resources.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
  */
 export interface GetReportRequest {
   /**
@@ -430,13 +571,7 @@ export interface GetReportMetadataRequest {
  * @enum
  */
 export const PublishedState = {
-  /**
-   * The resource is published for consumption.
-   */
   PUBLISHED: "PUBLISHED",
-  /**
-   * The resource is not published for consumption.
-   */
   UNPUBLISHED: "UNPUBLISHED",
 } as const;
 
