@@ -24042,7 +24042,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-websocket@workspace:packages/middleware-websocket"
   dependencies:
-    "@aws-sdk/middleware-signing": "npm:*"
     "@aws-sdk/types": "npm:*"
     "@aws-sdk/util-format-url": "npm:*"
     "@smithy/eventstream-codec": "npm:^3.1.10"
