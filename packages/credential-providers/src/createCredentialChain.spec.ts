@@ -1,3 +1,4 @@
+import { RegionalAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { ProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
@@ -78,5 +79,34 @@ describe(createCredentialChain.name, () => {
     }).toThrow(
       "@aws-sdk/credential-providers - createCredentialChain(...).expireAfter(ms) may not be called with a duration lower than five minutes."
     );
+  });
+
+  it("is compatible with contextual-region-aware credential providers", async () => {
+    const provider: RegionalAwsCredentialIdentityProvider = async ({ contextClientConfig } = {}) => {
+      return {
+        accessKeyId: "",
+        secretAccessKey: "",
+        sessionToken: (await contextClientConfig?.region()) ?? "wrong_region",
+      };
+    };
+    const errorProvider = async () => {
+      throw new ProviderError("", { tryNextLink: true });
+    };
+
+    const chain = createCredentialChain(errorProvider, provider);
+
+    expect(
+      await chain({
+        contextClientConfig: {
+          async region() {
+            return "ap-northeast-1";
+          },
+        },
+      })
+    ).toEqual({
+      accessKeyId: "",
+      secretAccessKey: "",
+      sessionToken: "ap-northeast-1",
+    });
   });
 });

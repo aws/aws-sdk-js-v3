@@ -1,4 +1,9 @@
-import { chain as propertyProviderChain } from "@smithy/property-provider";
+import type {
+  AwsIdentityProperties,
+  RegionalAwsCredentialIdentityProvider,
+  RegionalIdentityProvider,
+} from "@aws-sdk/types";
+import { ProviderError } from "@smithy/property-provider";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
 export interface CustomCredentialChainOptions {
@@ -52,11 +57,11 @@ type Mutable<Type> = {
  * providers in sequence until one succeeds or all fail.
  */
 export const createCredentialChain = (
-  ...credentialProviders: AwsCredentialIdentityProvider[]
-): AwsCredentialIdentityProvider & CustomCredentialChainOptions => {
+  ...credentialProviders: RegionalAwsCredentialIdentityProvider[]
+): RegionalAwsCredentialIdentityProvider & CustomCredentialChainOptions => {
   let expireAfter = -1;
-  const baseFunction = async () => {
-    const credentials = await propertyProviderChain(...credentialProviders)();
+  const baseFunction = async (awsIdentityProperties?: AwsIdentityProperties) => {
+    const credentials = await propertyProviderChain(...credentialProviders)(awsIdentityProperties);
     if (!credentials.expiration && expireAfter !== -1) {
       (credentials as Mutable<typeof credentials>).expiration = new Date(Date.now() + expireAfter);
     }
@@ -75,3 +80,29 @@ export const createCredentialChain = (
   });
   return withOptions;
 };
+
+/**
+ * @internal
+ */
+export const propertyProviderChain =
+  <T>(...providers: Array<RegionalIdentityProvider<T>>): RegionalIdentityProvider<T> =>
+  async (awsIdentityProperties?: AwsIdentityProperties) => {
+    if (providers.length === 0) {
+      throw new ProviderError("No providers in chain");
+    }
+
+    let lastProviderError: Error | undefined;
+    for (const provider of providers) {
+      try {
+        const credentials = await provider(awsIdentityProperties);
+        return credentials;
+      } catch (err) {
+        lastProviderError = err;
+        if (err?.tryNextLink) {
+          continue;
+        }
+        throw err;
+      }
+    }
+    throw lastProviderError;
+  };

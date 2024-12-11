@@ -57,13 +57,13 @@ export interface FromIniInit extends SourceProfileInit, CredentialProviderOption
  */
 export const fromIni =
   (_init: FromIniInit = {}): RegionalAwsCredentialIdentityProvider =>
-  async (props = {}) => {
+  async ({ contextClientConfig } = {}) => {
     const init: FromIniInit = {
       ..._init,
     };
-    if (props.contextClientConfig?.region) {
+    if (contextClientConfig?.region) {
       init.parentClientConfig = {
-        region: props.contextClientConfig.region,
+        region: contextClientConfig.region,
         ..._init.parentClientConfig,
       };
     }
