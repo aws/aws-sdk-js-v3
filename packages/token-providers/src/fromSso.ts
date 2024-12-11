@@ -1,4 +1,9 @@
-import { CredentialProviderOptions, TokenIdentity, TokenIdentityProvider } from "@aws-sdk/types";
+import {
+  AwsIdentityProperties,
+  CredentialProviderOptions,
+  RegionalIdentityProvider,
+  TokenIdentity,
+} from "@aws-sdk/types";
 import { TokenProviderError } from "@smithy/property-provider";
 import {
   getProfileName,
@@ -31,8 +36,15 @@ export interface FromSsoInit extends SourceProfileInit, CredentialProviderOption
  * Creates a token provider that will read from SSO token cache or ssoOidc.createToken() call.
  */
 export const fromSso =
-  (init: FromSsoInit = {}): TokenIdentityProvider =>
-  async () => {
+  (_init: FromSsoInit = {}): RegionalIdentityProvider<TokenIdentity> =>
+  async (awsIdentityProperties?: AwsIdentityProperties) => {
+    const init: FromSsoInit = {
+      ..._init,
+      parentClientConfig: {
+        region: awsIdentityProperties?.contextClientConfig?.region,
+        ..._init.parentClientConfig,
+      },
+    };
     init.logger?.debug("@aws-sdk/token-providers - fromSso");
 
     const profiles = await parseKnownFiles(init);

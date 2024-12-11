@@ -1,5 +1,6 @@
 import { STS } from "@aws-sdk/client-sts";
 import * as credentialProviderHttp from "@aws-sdk/credential-provider-http";
+import { fromIni } from "@aws-sdk/credential-providers";
 import { HttpResponse } from "@smithy/protocol-http";
 import type { SourceProfileInit } from "@smithy/shared-ini-file-loader";
 import type { HttpRequest, NodeHttpHandlerOptions, ParsedIniData } from "@smithy/types";
@@ -67,6 +68,8 @@ jest.mock("@smithy/node-http-handler", () => {
         assumeRoleArns.push(request.body.match(/RoleArn=(.*?)&/)?.[1]);
       }
 
+      const region = (request.hostname.match(/sts\.(.*?)\./) || [, "unknown"])[1];
+
       if (request.headers.Authorization === "container-authorization") {
         body.write(
           JSON.stringify({
@@ -94,7 +97,7 @@ jest.mock("@smithy/node-http-handler", () => {
   <Credentials>
     <AccessKeyId>STS_ARWI_ACCESS_KEY_ID</AccessKeyId>
     <SecretAccessKey>STS_ARWI_SECRET_ACCESS_KEY</SecretAccessKey>
-    <SessionToken>STS_ARWI_SESSION_TOKEN</SessionToken>
+    <SessionToken>STS_ARWI_SESSION_TOKEN_${region}</SessionToken>
     <Expiration>3000-01-01T00:00:00.000Z</Expiration>
   </Credentials>
 </AssumeRoleWithWebIdentityResult>
@@ -109,7 +112,7 @@ jest.mock("@smithy/node-http-handler", () => {
   <Credentials>
     <AccessKeyId>STS_AR_ACCESS_KEY_ID</AccessKeyId>
     <SecretAccessKey>STS_AR_SECRET_ACCESS_KEY</SecretAccessKey>
-    <SessionToken>STS_AR_SESSION_TOKEN</SessionToken>
+    <SessionToken>STS_AR_SESSION_TOKEN_${region}</SessionToken>
     <Expiration>3000-01-01T00:00:00.000Z</Expiration>
   </Credentials>
 </AssumeRoleResult>
@@ -379,7 +382,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-        sessionToken: "STS_AR_SESSION_TOKEN",
+        sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
@@ -409,7 +412,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-        sessionToken: "STS_AR_SESSION_TOKEN",
+        sessionToken: "STS_AR_SESSION_TOKEN_eu-west-1",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
@@ -439,9 +442,41 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-        sessionToken: "STS_AR_SESSION_TOKEN",
+        sessionToken: "STS_AR_SESSION_TOKEN_us-gov-stsar-1",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
+          CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+          CREDENTIALS_STS_ASSUME_ROLE: "i",
+        },
+      });
+    });
+
+    it("should use the context client's region for STS even if initialized separately in a code-level provider", async () => {
+      sts = new STS({
+        region: "eu-west-1",
+        credentials: fromIni(),
+      });
+      iniProfileData.assume = {
+        region: "eu-west-1",
+        aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+        aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+      };
+      Object.assign(iniProfileData.default, {
+        region: "eu-west-1",
+        role_arn: "ROLE_ARN",
+        role_session_name: "ROLE_SESSION_NAME",
+        external_id: "EXTERNAL_ID",
+        source_profile: "assume",
+      });
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "STS_AR_ACCESS_KEY_ID",
+        secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+        sessionToken: "STS_AR_SESSION_TOKEN_eu-west-1",
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
+        $source: {
+          CREDENTIALS_CODE: "e",
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
           CREDENTIALS_STS_ASSUME_ROLE: "i",
         },
@@ -458,7 +493,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
         secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
-        sessionToken: "STS_ARWI_SESSION_TOKEN",
+        sessionToken: "STS_ARWI_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_PROFILE_STS_WEB_ID_TOKEN: "q",
@@ -484,7 +519,7 @@ describe("credential-provider-node integration test", () => {
         expect(credentials).toEqual({
           accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
           secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
-          sessionToken: "STS_ARWI_SESSION_TOKEN",
+          sessionToken: "STS_ARWI_SESSION_TOKEN_us-gov-sts-1",
           expiration: new Date("3000-01-01T00:00:00.000Z"),
           $source: {
             CREDENTIALS_PROFILE_STS_WEB_ID_TOKEN: "q",
@@ -562,7 +597,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-        sessionToken: "STS_AR_SESSION_TOKEN",
+        sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_CODE: "e",
@@ -605,7 +640,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-        sessionToken: "STS_AR_SESSION_TOKEN",
+        sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_CODE: "e",
@@ -650,7 +685,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-        sessionToken: "STS_AR_SESSION_TOKEN",
+        sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_CODE: "e",
@@ -702,7 +737,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-        sessionToken: "STS_AR_SESSION_TOKEN",
+        sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_CODE: "e",
@@ -753,7 +788,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
         secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
-        sessionToken: "STS_ARWI_SESSION_TOKEN",
+        sessionToken: "STS_ARWI_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_ENV_VARS_STS_WEB_ID_TOKEN: "h",

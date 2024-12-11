@@ -23,7 +23,6 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
     "@smithy/eventstream-codec": "^3.1.10",

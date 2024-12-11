@@ -106,16 +106,16 @@ export const resolveAwsSdkSigV4Config = <T>(
 ): T & AwsSdkSigV4AuthResolvedConfig => {
   let isUserSupplied = false;
   // Normalize credentials
-  let normalizedCreds: AwsCredentialIdentityProvider | undefined;
+  let credentialsProvider: AwsCredentialIdentityProvider | undefined;
   if (config.credentials) {
     isUserSupplied = true;
-    normalizedCreds = memoizeIdentityProvider(config.credentials, isIdentityExpired, doesIdentityRequireRefresh);
+    credentialsProvider = memoizeIdentityProvider(config.credentials, isIdentityExpired, doesIdentityRequireRefresh);
   }
-  if (!normalizedCreds) {
+  if (!credentialsProvider) {
     // credentialDefaultProvider should always be populated, but in case
     // it isn't, set a default identity provider that throws an error
     if (config.credentialDefaultProvider) {
-      normalizedCreds = normalizeProvider(
+      credentialsProvider = normalizeProvider(
         config.credentialDefaultProvider(
           Object.assign({}, config as any, {
             parentClientConfig: config,
@@ -123,11 +123,15 @@ export const resolveAwsSdkSigV4Config = <T>(
         )
       );
     } else {
-      normalizedCreds = async () => {
+      credentialsProvider = async () => {
         throw new Error("`credentials` is missing");
       };
     }
   }
+
+  const contextBoundCredentialsProvider = async () => {
+    return credentialsProvider!({ contextClientConfig: config });
+  };
 
   // Populate sigv4 arguments
   const {
@@ -170,7 +174,7 @@ export const resolveAwsSdkSigV4Config = <T>(
 
           const params: SignatureV4Init & SignatureV4CryptoInit = {
             ...config,
-            credentials: normalizedCreds!,
+            credentials: contextBoundCredentialsProvider,
             region: config.signingRegion,
             service: config.signingName,
             sha256,
@@ -206,7 +210,7 @@ export const resolveAwsSdkSigV4Config = <T>(
 
       const params: SignatureV4Init & SignatureV4CryptoInit = {
         ...config,
-        credentials: normalizedCreds!,
+        credentials: contextBoundCredentialsProvider,
         region: config.signingRegion,
         service: config.signingName,
         sha256,
@@ -224,10 +228,10 @@ export const resolveAwsSdkSigV4Config = <T>(
     signingEscapePath,
     credentials: isUserSupplied
       ? async () =>
-          normalizedCreds!().then((creds: AttributedAwsCredentialIdentity) =>
+          contextBoundCredentialsProvider!().then((creds: AttributedAwsCredentialIdentity) =>
             setCredentialFeature(creds, "CREDENTIALS_CODE", "e")
           )
-      : normalizedCreds!,
+      : contextBoundCredentialsProvider!,
     signer,
   };
 };
