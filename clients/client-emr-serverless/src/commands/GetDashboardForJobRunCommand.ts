@@ -47,6 +47,7 @@ export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRu
  *   applicationId: "STRING_VALUE", // required
  *   jobRunId: "STRING_VALUE", // required
  *   attempt: Number("int"),
+ *   accessSystemProfileLogs: true || false,
  * };
  * const command = new GetDashboardForJobRunCommand(input);
  * const response = await client.send(command);

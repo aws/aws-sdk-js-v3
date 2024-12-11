@@ -742,6 +742,12 @@ export interface GetDashboardForJobRunRequest {
    * @public
    */
   attempt?: number | undefined;
+
+  /**
+   * <p>Allows access to system profile logs for Lake Formation-enabled jobs. Default is false.</p>
+   * @public
+   */
+  accessSystemProfileLogs?: boolean | undefined;
 }
 
 /**

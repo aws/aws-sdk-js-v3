@@ -193,6 +193,7 @@ export const se_GetDashboardForJobRunCommand = async (
   b.p("jobRunId", () => input.jobRunId!, "{jobRunId}", false);
   const query: any = map({
     [_a]: [() => input.attempt !== void 0, () => input[_a]!.toString()],
+    [_aSPL]: [() => input.accessSystemProfileLogs !== void 0, () => input[_aSPL]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1273,6 +1274,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const _a = "attempt";
+const _aSPL = "accessSystemProfileLogs";
 const _cAA = "createdAtAfter";
 const _cAB = "createdAtBefore";
 const _m = "mode";
