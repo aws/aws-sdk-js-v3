@@ -62,6 +62,10 @@ import {
   AssociateDiscoveredResourceCommandOutput,
 } from "./commands/AssociateDiscoveredResourceCommand";
 import {
+  AssociateSourceResourceCommandInput,
+  AssociateSourceResourceCommandOutput,
+} from "./commands/AssociateSourceResourceCommand";
+import {
   CreateProgressUpdateStreamCommandInput,
   CreateProgressUpdateStreamCommandOutput,
 } from "./commands/CreateProgressUpdateStreamCommand";
@@ -86,6 +90,10 @@ import {
   DisassociateDiscoveredResourceCommandOutput,
 } from "./commands/DisassociateDiscoveredResourceCommand";
 import {
+  DisassociateSourceResourceCommandInput,
+  DisassociateSourceResourceCommandOutput,
+} from "./commands/DisassociateSourceResourceCommand";
+import {
   ImportMigrationTaskCommandInput,
   ImportMigrationTaskCommandOutput,
 } from "./commands/ImportMigrationTaskCommand";
@@ -103,9 +111,17 @@ import {
 } from "./commands/ListDiscoveredResourcesCommand";
 import { ListMigrationTasksCommandInput, ListMigrationTasksCommandOutput } from "./commands/ListMigrationTasksCommand";
 import {
+  ListMigrationTaskUpdatesCommandInput,
+  ListMigrationTaskUpdatesCommandOutput,
+} from "./commands/ListMigrationTaskUpdatesCommand";
+import {
   ListProgressUpdateStreamsCommandInput,
   ListProgressUpdateStreamsCommandOutput,
 } from "./commands/ListProgressUpdateStreamsCommand";
+import {
+  ListSourceResourcesCommandInput,
+  ListSourceResourcesCommandOutput,
+} from "./commands/ListSourceResourcesCommand";
 import {
   NotifyApplicationStateCommandInput,
   NotifyApplicationStateCommandOutput,
@@ -135,18 +151,22 @@ export { __Client };
 export type ServiceInputTypes =
   | AssociateCreatedArtifactCommandInput
   | AssociateDiscoveredResourceCommandInput
+  | AssociateSourceResourceCommandInput
   | CreateProgressUpdateStreamCommandInput
   | DeleteProgressUpdateStreamCommandInput
   | DescribeApplicationStateCommandInput
   | DescribeMigrationTaskCommandInput
   | DisassociateCreatedArtifactCommandInput
   | DisassociateDiscoveredResourceCommandInput
+  | DisassociateSourceResourceCommandInput
   | ImportMigrationTaskCommandInput
   | ListApplicationStatesCommandInput
   | ListCreatedArtifactsCommandInput
   | ListDiscoveredResourcesCommandInput
+  | ListMigrationTaskUpdatesCommandInput
   | ListMigrationTasksCommandInput
   | ListProgressUpdateStreamsCommandInput
+  | ListSourceResourcesCommandInput
   | NotifyApplicationStateCommandInput
   | NotifyMigrationTaskStateCommandInput
   | PutResourceAttributesCommandInput;
@@ -157,18 +177,22 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateCreatedArtifactCommandOutput
   | AssociateDiscoveredResourceCommandOutput
+  | AssociateSourceResourceCommandOutput
   | CreateProgressUpdateStreamCommandOutput
   | DeleteProgressUpdateStreamCommandOutput
   | DescribeApplicationStateCommandOutput
   | DescribeMigrationTaskCommandOutput
   | DisassociateCreatedArtifactCommandOutput
   | DisassociateDiscoveredResourceCommandOutput
+  | DisassociateSourceResourceCommandOutput
   | ImportMigrationTaskCommandOutput
   | ListApplicationStatesCommandOutput
   | ListCreatedArtifactsCommandOutput
   | ListDiscoveredResourcesCommandOutput
+  | ListMigrationTaskUpdatesCommandOutput
   | ListMigrationTasksCommandOutput
   | ListProgressUpdateStreamsCommandOutput
+  | ListSourceResourcesCommandOutput
   | NotifyApplicationStateCommandOutput
   | NotifyMigrationTaskStateCommandOutput
   | PutResourceAttributesCommandOutput;

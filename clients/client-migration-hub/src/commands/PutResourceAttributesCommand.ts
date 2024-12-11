@@ -48,7 +48,6 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  *                </li>
  *             </ul>
  *          </important>
- *
  *          <note>
  *             <p>Because this is an asynchronous call, it will always return 200, whether an
  *             association occurs or not. To confirm if an association was found based on the provided

@@ -400,6 +400,76 @@ export class PolicyErrorException extends __BaseException {
 }
 
 /**
+ * <p>A source resource can be a source server, a migration wave, an application, or any other
+ *          resource that you track.</p>
+ * @public
+ */
+export interface SourceResource {
+  /**
+   * <p>This is the name that you want to use to identify the resource. If the resource is an
+   *          AWS resource, we recommend that you set this parameter to the ARN of the resource.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description that can be free-form text to record additional detail about the resource
+   *          for clarity or later reference.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A free-form description of the status of the resource.</p>
+   * @public
+   */
+  StatusDetail?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateSourceResourceRequest {
+  /**
+   * <p>The name of the progress-update stream, which is used for access control as well as a
+   *          namespace for migration-task names that is implicitly linked to your AWS account. The
+   *          progress-update stream must uniquely identify the migration tool as it is used for all
+   *          updates made by the tool; however, it does not need to be unique for each AWS account
+   *          because it is scoped to the AWS account.</p>
+   * @public
+   */
+  ProgressUpdateStream: string | undefined;
+
+  /**
+   * <p>A unique identifier that references the migration task. <i>Do not include
+   *             sensitive data in this field.</i>
+   *          </p>
+   * @public
+   */
+  MigrationTaskName: string | undefined;
+
+  /**
+   * <p>The source resource that you want to associate.</p>
+   * @public
+   */
+  SourceResource: SourceResource | undefined;
+
+  /**
+   * <p>This is an optional parameter that you can use to test whether the call will succeed.
+   *          Set this parameter to <code>true</code> to verify that you have the permissions that are
+   *          required to make the call, and that you have specified the other parameters in the call
+   *          correctly.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateSourceResourceResult {}
+
+/**
  * @public
  */
 export interface CreateProgressUpdateStreamRequest {
@@ -522,8 +592,6 @@ export type ResourceAttributeType = (typeof ResourceAttributeType)[keyof typeof 
 /**
  * <p>Attribute associated with a resource.</p>
  *          <p>Note the corresponding format required per type listed below:</p>
- *
- *
  *          <dl>
  *             <dt>IPV4</dt>
  *             <dd>
@@ -740,6 +808,49 @@ export interface DisassociateDiscoveredResourceRequest {
  * @public
  */
 export interface DisassociateDiscoveredResourceResult {}
+
+/**
+ * @public
+ */
+export interface DisassociateSourceResourceRequest {
+  /**
+   * <p>The name of the progress-update stream, which is used for access control as well as a
+   *          namespace for migration-task names that is implicitly linked to your AWS account. The
+   *          progress-update stream must uniquely identify the migration tool as it is used for all
+   *          updates made by the tool; however, it does not need to be unique for each AWS account
+   *          because it is scoped to the AWS account.</p>
+   * @public
+   */
+  ProgressUpdateStream: string | undefined;
+
+  /**
+   * <p>A unique identifier that references the migration task. <i>Do not include
+   *             sensitive data in this field.</i>
+   *          </p>
+   * @public
+   */
+  MigrationTaskName: string | undefined;
+
+  /**
+   * <p>The name that was specified for the source resource.</p>
+   * @public
+   */
+  SourceResourceName: string | undefined;
+
+  /**
+   * <p>This is an optional parameter that you can use to test whether the call will succeed.
+   *          Set this parameter to <code>true</code> to verify that you have the permissions that are
+   *          required to make the call, and that you have specified the other parameters in the call
+   *          correctly.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSourceResourceResult {}
 
 /**
  * @public
@@ -1015,6 +1126,107 @@ export interface ListMigrationTasksResult {
 /**
  * @public
  */
+export interface ListMigrationTaskUpdatesRequest {
+  /**
+   * <p>The name of the progress-update stream, which is used for access control as well as a
+   *          namespace for migration-task names that is implicitly linked to your AWS account. The
+   *          progress-update stream must uniquely identify the migration tool as it is used for all
+   *          updates made by the tool; however, it does not need to be unique for each AWS account
+   *          because it is scoped to the AWS account.</p>
+   * @public
+   */
+  ProgressUpdateStream: string | undefined;
+
+  /**
+   * <p>A unique identifier that references the migration task. <i>Do not include
+   *             sensitive data in this field.</i>
+   *          </p>
+   * @public
+   */
+  MigrationTaskName: string | undefined;
+
+  /**
+   * <p>If <code>NextToken</code> was returned by a previous call, there are more results
+   *          available. The value of <code>NextToken</code> is a unique pagination token for each page.
+   *          To retrieve the next page of results, specify the <code>NextToken</code> value that the
+   *          previous call returned. Keep all other arguments unchanged. Each pagination token expires
+   *          after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken
+   *          error.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to include in the response. If more results exist than the
+   *          value that you specify here for <code>MaxResults</code>, the response will include a token
+   *          that you can use to retrieve the next set of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateType = {
+  MigrationTaskStateUpdated: "MIGRATION_TASK_STATE_UPDATED",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateType = (typeof UpdateType)[keyof typeof UpdateType];
+
+/**
+ * <p>A migration-task progress update.</p>
+ * @public
+ */
+export interface MigrationTaskUpdate {
+  /**
+   * <p>The timestamp for the update.</p>
+   * @public
+   */
+  UpdateDateTime?: Date | undefined;
+
+  /**
+   * <p>The type of the update.</p>
+   * @public
+   */
+  UpdateType?: UpdateType | undefined;
+
+  /**
+   * <p>Task object encapsulating task information.</p>
+   * @public
+   */
+  MigrationTaskState?: Task | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMigrationTaskUpdatesResult {
+  /**
+   * <p>If the response includes a <code>NextToken</code> value, that means that there are more
+   *          results available. The value of <code>NextToken</code> is a unique pagination token for
+   *          each page. To retrieve the next page of results, call this API again and specify this
+   *             <code>NextToken</code> value in the request. Keep all other arguments unchanged. Each
+   *          pagination token expires after 24 hours. Using an expired pagination token will return an
+   *          HTTP 400 InvalidToken error.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The list of migration-task updates.</p>
+   * @public
+   */
+  MigrationTaskUpdateList?: MigrationTaskUpdate[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListProgressUpdateStreamsRequest {
   /**
    * <p>If a <code>NextToken</code> was returned by a previous call, there are more results
@@ -1063,6 +1275,70 @@ export interface ListProgressUpdateStreamsResult {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSourceResourcesRequest {
+  /**
+   * <p>The name of the progress-update stream, which is used for access control as well as a
+   *          namespace for migration-task names that is implicitly linked to your AWS account. The
+   *          progress-update stream must uniquely identify the migration tool as it is used for all
+   *          updates made by the tool; however, it does not need to be unique for each AWS account
+   *          because it is scoped to the AWS account.</p>
+   * @public
+   */
+  ProgressUpdateStream: string | undefined;
+
+  /**
+   * <p>A unique identifier that references the migration task. <i>Do not store
+   *             confidential data in this field.</i>
+   *          </p>
+   * @public
+   */
+  MigrationTaskName: string | undefined;
+
+  /**
+   * <p>If <code>NextToken</code> was returned by a previous call, there are more results
+   *          available. The value of <code>NextToken</code> is a unique pagination token for each page.
+   *          To retrieve the next page of results, specify the <code>NextToken</code> value that the
+   *          previous call returned. Keep all other arguments unchanged. Each pagination token expires
+   *          after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken
+   *          error.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to include in the response. If more results exist than the
+   *          value that you specify here for <code>MaxResults</code>, the response will include a token
+   *          that you can use to retrieve the next set of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSourceResourcesResult {
+  /**
+   * <p>If the response includes a <code>NextToken</code> value, that means that there are more
+   *          results available. The value of <code>NextToken</code> is a unique pagination token for
+   *          each page. To retrieve the next page of results, call this API again and specify this
+   *             <code>NextToken</code> value in the request. Keep all other arguments unchanged. Each
+   *          pagination token expires after 24 hours. Using an expired pagination token will return an
+   *          HTTP 400 InvalidToken error.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The list of source resources.</p>
+   * @public
+   */
+  SourceResourceList?: SourceResource[] | undefined;
 }
 
 /**
@@ -1183,7 +1459,6 @@ export interface PutResourceAttributesRequest {
    *          <important>
    *             <ul>
    *                <li>
-   *
    *                   <p>If any "VM" related value is set for a <code>ResourceAttribute</code> object,
    *                   it is required that <code>VM_MANAGER_ID</code>, as a minimum, is always set. If
    *                      <code>VM_MANAGER_ID</code> is not set, then all "VM" fields will be discarded
