@@ -68,11 +68,11 @@ export function fromCognitoIdentityPool({
       identityId,
     });
 
-    return provider();
+    return provider(awsIdentityProperties);
   };
 
-  return () =>
-    provider().catch(async (err) => {
+  return (awsIdentityProperties?: AwsIdentityProperties) =>
+    provider(awsIdentityProperties).catch(async (err) => {
       if (cacheKey) {
         Promise.resolve(cache.removeItem(cacheKey)).catch(() => {});
       }

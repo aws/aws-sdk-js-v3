@@ -107,7 +107,8 @@ export const resolveAssumeRoleCredentials = async (
   visitedProfiles: Record<string, true> = {}
 ) => {
   options.logger?.debug("@aws-sdk/credential-provider-ini - resolveAssumeRoleCredentials (STS)");
-  const data = profiles[profileName];
+  const profileData = profiles[profileName];
+  const { source_profile, region } = profileData;
 
   if (!options.roleAssumer) {
     // @ts-ignore Cannot find module '@aws-sdk/client-sts'
@@ -116,13 +117,18 @@ export const resolveAssumeRoleCredentials = async (
       {
         ...options.clientConfig,
         credentialProviderLogger: options.logger,
-        parentClientConfig: options?.parentClientConfig,
+        parentClientConfig: {
+          ...options?.parentClientConfig,
+          // The profile region is the last fallback, and only applies
+          // if the clientConfig.region is not defined by the user
+          // and no contextual outer client configuration region can be found.
+          region: options?.parentClientConfig?.region ?? region,
+        },
       },
       options.clientPlugins
     );
   }
 
-  const { source_profile } = data;
   if (source_profile && source_profile in visitedProfiles) {
     throw new CredentialsProviderError(
       `Detected a cycle attempting to resolve credentials for profile` +
@@ -149,9 +155,9 @@ export const resolveAssumeRoleCredentials = async (
         },
         isCredentialSourceWithoutRoleArn(profiles[source_profile!] ?? {})
       )
-    : (await resolveCredentialSource(data.credential_source!, profileName, options.logger)(options))();
+    : (await resolveCredentialSource(profileData.credential_source!, profileName, options.logger)(options))();
 
-  if (isCredentialSourceWithoutRoleArn(data)) {
+  if (isCredentialSourceWithoutRoleArn(profileData)) {
     /**
      * This control-flow branch is accessed when in a chained source_profile
      * scenario, and the last step of the chain is a credential_source
@@ -163,13 +169,13 @@ export const resolveAssumeRoleCredentials = async (
     return sourceCredsProvider.then((creds) => setCredentialFeature(creds, "CREDENTIALS_PROFILE_SOURCE_PROFILE", "o"));
   } else {
     const params: AssumeRoleParams = {
-      RoleArn: data.role_arn!,
-      RoleSessionName: data.role_session_name || `aws-sdk-js-${Date.now()}`,
-      ExternalId: data.external_id,
-      DurationSeconds: parseInt(data.duration_seconds || "3600", 10),
+      RoleArn: profileData.role_arn!,
+      RoleSessionName: profileData.role_session_name || `aws-sdk-js-${Date.now()}`,
+      ExternalId: profileData.external_id,
+      DurationSeconds: parseInt(profileData.duration_seconds || "3600", 10),
     };
 
-    const { mfa_serial } = data;
+    const { mfa_serial } = profileData;
     if (mfa_serial) {
       if (!options.mfaCodeProvider) {
         throw new CredentialsProviderError(

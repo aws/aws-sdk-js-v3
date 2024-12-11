@@ -40,10 +40,14 @@ export const fromSso =
   async (awsIdentityProperties?: AwsIdentityProperties) => {
     const init: FromSsoInit = {
       ..._init,
-      parentClientConfig: {
-        region: awsIdentityProperties?.contextClientConfig?.region,
-        ..._init.parentClientConfig,
-      },
+      ...(awsIdentityProperties?.contextClientConfig?.region
+        ? {
+            parentClientConfig: {
+              region: awsIdentityProperties?.contextClientConfig?.region,
+              ..._init.parentClientConfig,
+            },
+          }
+        : {}),
     };
     init.logger?.debug("@aws-sdk/token-providers - fromSso");
 

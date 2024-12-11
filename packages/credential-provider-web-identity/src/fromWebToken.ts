@@ -169,10 +169,14 @@ export const fromWebToken =
         {
           ...init.clientConfig,
           credentialProviderLogger: init.logger,
-          parentClientConfig: {
-            region: awsIdentityProperties?.contextClientConfig?.region,
-            ...init.parentClientConfig,
-          },
+          ...(awsIdentityProperties?.contextClientConfig?.region
+            ? {
+                parentClientConfig: {
+                  region: awsIdentityProperties?.contextClientConfig?.region,
+                  ...init.parentClientConfig,
+                },
+              }
+            : {}),
         },
         init.clientPlugins
       );
