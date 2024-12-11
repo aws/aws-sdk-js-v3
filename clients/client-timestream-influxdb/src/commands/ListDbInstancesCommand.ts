@@ -54,6 +54,7 @@ export interface ListDbInstancesCommandOutput extends ListDbInstancesOutput, __M
  * //       status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED" || "UPDATING_DEPLOYMENT_TYPE" || "UPDATING_INSTANCE_TYPE",
  * //       endpoint: "STRING_VALUE",
  * //       port: Number("int"),
+ * //       networkType: "IPV4" || "DUAL",
  * //       dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge",
  * //       dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
  * //       allocatedStorage: Number("int"),

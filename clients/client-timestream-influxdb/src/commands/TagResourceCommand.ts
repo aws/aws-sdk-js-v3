@@ -60,6 +60,9 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource was not found or does not exist.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request exceeds the service quota.</p>
+ *
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *

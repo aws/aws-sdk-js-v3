@@ -138,6 +138,20 @@ export interface LogDeliveryConfiguration {
 
 /**
  * @public
+ * @enum
+ */
+export const NetworkType = {
+  DUAL: "DUAL",
+  IPV4: "IPV4",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
+
+/**
+ * @public
  */
 export interface CreateDbInstanceInput {
   /**
@@ -153,7 +167,7 @@ export interface CreateDbInstanceInput {
   username?: string | undefined;
 
   /**
-   * <p>The password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a Secret created in AWS SecretManager in your account.</p>
+   * <p>The password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a Secret created in Amazon Web Services SecretManager in your account.</p>
    * @public
    */
   password: string | undefined;
@@ -250,6 +264,12 @@ export interface CreateDbInstanceInput {
    * @public
    */
   port?: number | undefined;
+
+  /**
+   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
 }
 
 /**
@@ -312,6 +332,12 @@ export interface CreateDbInstanceOutput {
    * @public
    */
   port?: number | undefined;
+
+  /**
+   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
 
   /**
    * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
@@ -380,7 +406,7 @@ export interface CreateDbInstanceOutput {
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
@@ -582,6 +608,12 @@ export interface DeleteDbInstanceOutput {
   port?: number | undefined;
 
   /**
+   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
+
+  /**
    * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
    * @public
    */
@@ -648,7 +680,7 @@ export interface DeleteDbInstanceOutput {
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
@@ -706,6 +738,12 @@ export interface GetDbInstanceOutput {
   port?: number | undefined;
 
   /**
+   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
+
+  /**
    * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
    * @public
    */
@@ -772,7 +810,7 @@ export interface GetDbInstanceOutput {
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
@@ -807,7 +845,7 @@ export interface DbInstanceSummary {
   id: string | undefined;
 
   /**
-   * <p>This customer-supplied name uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and AWS CLI commands.</p>
+   * <p>This customer-supplied name uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and Amazon Web Services CLI commands.</p>
    * @public
    */
   name: string | undefined;
@@ -835,6 +873,12 @@ export interface DbInstanceSummary {
    * @public
    */
   port?: number | undefined;
+
+  /**
+   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
 
   /**
    * <p>The Timestream for InfluxDB instance type to run InfluxDB on.</p>
@@ -935,7 +979,7 @@ export interface UpdateDbInstanceOutput {
   id: string | undefined;
 
   /**
-   * <p>This customer-supplied name uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and AWS CLI commands.</p>
+   * <p>This customer-supplied name uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and Amazon Web Services CLI commands.</p>
    * @public
    */
   name: string | undefined;
@@ -963,6 +1007,12 @@ export interface UpdateDbInstanceOutput {
    * @public
    */
   port?: number | undefined;
+
+  /**
+   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
 
   /**
    * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
@@ -1031,7 +1081,7 @@ export interface UpdateDbInstanceOutput {
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
