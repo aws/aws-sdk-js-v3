@@ -36,9 +36,12 @@ export interface CreateUserPoolClientCommandInput extends CreateUserPoolClientRe
 export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientResponse, __MetadataBearer {}
 
 /**
- * <p>Creates the user pool client.</p>
- *          <p>When you create a new user pool client, token revocation is automatically activated.
- *             For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
+ * <p>Creates an app client in a user pool. This operation sets basic and advanced
+ *             configuration options. You can create an app client in the Amazon Cognito console to your
+ *             preferences and use the output of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html">DescribeUserPoolClient</a> to generate requests from that
+ *             baseline.</p>
+ *          <p>New app clients activate token revocation by default. For more information about
+ *             revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
  *          <important>
  *             <p>If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p>
  *          </important>

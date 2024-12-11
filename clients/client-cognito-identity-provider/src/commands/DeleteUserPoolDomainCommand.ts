@@ -32,7 +32,9 @@ export interface DeleteUserPoolDomainCommandInput extends DeleteUserPoolDomainRe
 export interface DeleteUserPoolDomainCommandOutput extends DeleteUserPoolDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a domain for a user pool.</p>
+ * <p>Given a user pool ID and domain identifier, deletes a user pool domain. After you
+ *             delete a user pool domain, your managed login pages and authorization server are no
+ *             longer available.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

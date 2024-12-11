@@ -37,7 +37,10 @@ export interface AdminListDevicesCommandInput extends AdminListDevicesRequest {}
 export interface AdminListDevicesCommandOutput extends AdminListDevicesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists a user's registered devices.</p>
+ * <p>Lists a user's registered devices. Remembered devices are used in authentication
+ *             services where you offer a "Remember me" option for users who you want to permit to sign
+ *             in without MFA from a trusted device. Users can bypass MFA while your application
+ *             performs device SRP authentication on the back end. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with devices</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

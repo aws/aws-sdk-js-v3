@@ -53,13 +53,14 @@ export interface AdminUpdateUserAttributesCommandOutput extends AdminUpdateUserA
  *             of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
  *                 Developer Guide</i>.</p>
  *          </note>
- *          <p>Updates the specified user's attributes, including developer attributes, as an
- *             administrator. Works on any user. To delete an attribute from your user, submit the
- *             attribute in your API request with a blank value.</p>
+ *          <p>Updates the specified user's attributes. To delete an attribute from your user,
+ *             submit the attribute in your API request with a blank value.</p>
  *          <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
  *             attribute name.</p>
- *          <p>In addition to updating user attributes, this API can also be used to mark phone and
- *             email as verified.</p>
+ *          <p>This operation can set a user's email address or phone number as verified and
+ *             permit immediate sign-in in user pools that require verification of these attributes. To
+ *             do this, set the <code>email_verified</code> or <code>phone_number_verified</code>
+ *             attribute to <code>true</code>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

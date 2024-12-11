@@ -42,14 +42,17 @@ export interface CreateManagedLoginBrandingCommandOutput extends CreateManagedLo
  *          <p>Provides values for UI customization in a <code>Settings</code> JSON object and image
  *             files in an <code>Assets</code> array. To send the JSON object <code>Document</code>
  *             type parameter in <code>Settings</code>, you might need to update to the most recent
- *             version of your Amazon Web Services SDK. </p>
+ *             version of your Amazon Web Services SDK. To create a new style with default settings, set
+ *                 <code>UseCognitoProvidedValues</code> to <code>true</code> and don't provide
+ *             values for any other options.</p>
  *          <p> This operation has a 2-megabyte request-size limit and include the CSS settings and
  *             image assets for your app client. Your branding settings might exceed 2MB in size. Amazon Cognito
  *             doesn't require that you pass all parameters in one request and preserves existing
  *             style settings that you don't specify. If your request is larger than 2MB, separate it
  *             into multiple requests, each with a size smaller than the limit. </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api">API and SDK operations for managed login branding</a>
- *          </p>
+ *          <p>As a best practice, modify the output of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBrandingByClient.html">DescribeManagedLoginBrandingByClient</a> into the request parameters for this
+ *             operation. To get all settings, set <code>ReturnMergedResources</code> to
+ *                 <code>true</code>. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api">API and SDK operations for managed login branding</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

@@ -45,6 +45,9 @@ export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceR
  *             unless device tracking is turned on and the device has been trusted. If you want MFA to
  *             be applied selectively based on the assessed risk level of sign-in attempts, deactivate
  *             MFA for users and turn on Adaptive Authentication for the user pool.</p>
+ *          <p>This operation doesn't reset an existing TOTP MFA for a user. To register a new
+ *             TOTP factor for a user, make an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html">AssociateSoftwareToken</a> request. For more information,
+ *             see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa-totp.html">TOTP software token MFA</a>.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For

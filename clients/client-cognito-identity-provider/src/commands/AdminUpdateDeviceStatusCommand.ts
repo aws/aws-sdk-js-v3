@@ -36,7 +36,12 @@ export interface AdminUpdateDeviceStatusCommandInput extends AdminUpdateDeviceSt
 export interface AdminUpdateDeviceStatusCommandOutput extends AdminUpdateDeviceStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the device status as an administrator.</p>
+ * <p>Updates the status of a user's device so that it is marked as remembered or not
+ *             remembered for the purpose of device authentication. Device authentication is a
+ *             "remember me" mechanism that silently completes sign-in from trusted devices with a
+ *             device key instead of a user-provided MFA code. This operation changes the status of a
+ *             device without deleting it, so you can enable it again later. For more information about
+ *             device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with devices</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

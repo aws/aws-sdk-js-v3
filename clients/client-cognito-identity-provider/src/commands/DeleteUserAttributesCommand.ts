@@ -36,7 +36,9 @@ export interface DeleteUserAttributesCommandInput extends DeleteUserAttributesRe
 export interface DeleteUserAttributesCommandOutput extends DeleteUserAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the attributes for a user.</p>
+ * <p>Self-deletes attributes for a user. For example, your application can submit a request
+ *             to this operation when a user wants to remove their <code>birthdate</code> attribute
+ *             value.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For

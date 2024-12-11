@@ -32,7 +32,9 @@ export interface AdminForgetDeviceCommandInput extends AdminForgetDeviceRequest 
 export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Forgets the device, as an administrator.</p>
+ * <p>Forgets, or deletes, a remembered device from a user's profile. After you forget
+ *             the device, the user can no longer complete device authentication with that device and
+ *             when applicable, must submit MFA codes again. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with devices</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

@@ -37,7 +37,11 @@ export interface AdminInitiateAuthCommandInput extends AdminInitiateAuthRequest 
 export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates the authentication flow, as an administrator.</p>
+ * <p>Starts sign-in for applications with a server-side component, for example a
+ *             traditional web application. This operation specifies the authentication flow that
+ *             you'd like to begin. The authentication flow that you specify must be supported in
+ *             your app client configuration. For more information about authentication flows, see
+ *                 <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html">Authentication flows</a>.</p>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *             require you to register an origination phone number before you can send SMS messages

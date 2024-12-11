@@ -37,8 +37,8 @@ export interface DescribeManagedLoginBrandingCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>When given the ID of a managed login branding style, returns detailed information
- *             about the style.</p>
+ * <p>Given the ID of a managed login branding style, returns detailed information about the
+ *             style.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

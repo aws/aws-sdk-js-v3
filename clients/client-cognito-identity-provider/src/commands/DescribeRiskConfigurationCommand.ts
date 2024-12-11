@@ -37,7 +37,10 @@ export interface DescribeRiskConfigurationCommandInput extends DescribeRiskConfi
 export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the risk configuration.</p>
+ * <p>Given an app client or user pool ID where threat protection is configured, describes
+ *             the risk configuration. This operation returns details about adaptive authentication,
+ *             compromised credentials, and IP-address allow- and denylists. For more information about
+ *             threat protection, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html">Threat protection</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

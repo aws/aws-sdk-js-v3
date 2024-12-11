@@ -36,9 +36,15 @@ export interface DeleteWebAuthnCredentialCommandInput extends DeleteWebAuthnCred
 export interface DeleteWebAuthnCredentialCommandOutput extends DeleteWebAuthnCredentialResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a registered passkey, or webauthN, device for the currently signed-in
+ * <p>Deletes a registered passkey, or webauthN, authenticator for the currently signed-in
  *             user.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
+ *          <note>
+ *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ *     this operation, you can't use IAM credentials to authorize requests, and you can't
+ *     grant IAM permissions in policies. For more information about authorization models in
+ *     Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -36,8 +36,10 @@ export interface ConfirmDeviceCommandInput extends ConfirmDeviceRequest {}
 export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __MetadataBearer {}
 
 /**
- * <p>Confirms tracking of the device. This API call is the call that begins device
- *             tracking. For more information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
+ * <p>Confirms a device that a user wants to remember. A remembered device is a "Remember me
+ *             on this device" option for user pools that perform authentication with the device key of
+ *             a trusted device in the back end, instead of a user-provided MFA code. For more
+ *             information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For

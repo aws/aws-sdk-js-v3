@@ -32,7 +32,9 @@ export interface CreateResourceServerCommandInput extends CreateResourceServerRe
 export interface CreateResourceServerCommandOutput extends CreateResourceServerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new OAuth2.0 resource server and defines custom scopes within it.</p>
+ * <p>Creates a new OAuth2.0 resource server and defines custom scopes within it. Resource
+ *             servers are associated with custom scopes and machine-to-machine (M2M) authorization.
+ *             For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html">Access control with resource servers</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

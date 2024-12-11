@@ -60,6 +60,7 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  *     grant IAM permissions in policies. For more information about authorization models in
  *     Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p>
  *          </note>
+ *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

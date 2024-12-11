@@ -86,6 +86,11 @@ V3</a>
 for Ruby V3</a>
 </p>
 </li>
+<li>
+<p>
+<a href="https://sdk.amazonaws.com/kotlin/api/latest/cognitoidentityprovider/aws.sdk.kotlin.services.cognitoidentityprovider/-cognito-identity-provider-client/index.html">Amazon Web Services SDK for Kotlin</a>
+</p>
+</li>
 </ul>
 <p>To get started with an Amazon Web Services SDK, see <a href="http://aws.amazon.com/developer/tools/">Tools to Build on Amazon Web Services</a>. For example actions and scenarios, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/service_code_examples_cognito-identity-provider.html">Code examples for Amazon Cognito Identity Provider using Amazon Web Services
 SDKs</a>.</p>

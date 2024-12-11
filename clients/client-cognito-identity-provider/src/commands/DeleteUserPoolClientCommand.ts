@@ -32,7 +32,8 @@ export interface DeleteUserPoolClientCommandInput extends DeleteUserPoolClientRe
 export interface DeleteUserPoolClientCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Allows the developer to delete the user pool client.</p>
+ * <p>Deletes a user pool app client. After you delete an app client, users can no longer
+ *             sign in to the associated application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

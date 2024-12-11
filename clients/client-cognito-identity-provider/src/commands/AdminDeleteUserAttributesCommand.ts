@@ -36,8 +36,9 @@ export interface AdminDeleteUserAttributesCommandInput extends AdminDeleteUserAt
 export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the user attributes in a user pool as an administrator. Works on any
- *             user.</p>
+ * <p>Deletes attribute values from a user. This operation doesn't affect tokens for
+ *             existing user sessions. The next ID token that the user receives will no longer have
+ *             this attribute.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

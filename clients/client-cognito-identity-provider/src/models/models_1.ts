@@ -114,10 +114,10 @@ export interface WebAuthnConfigurationType {
   RelyingPartyId?: string | undefined;
 
   /**
-   * <p>Sets or displays your user-pool treatment for MFA with a passkey. You can override
-   *             other MFA options and require passkey MFA, or you can set it as preferred. When passkey
-   *             MFA is preferred, the hosted UI encourages users to register a passkey at
-   *             sign-in.</p>
+   * <p>When <code>required</code>, users can only register and sign in users with passkeys
+   *             that are capable of <a href="https://www.w3.org/TR/webauthn-2/#enum-userVerificationRequirement">user
+   *                 verification</a>. When <code>preferred</code>, your user pool doesn't
+   *             require the use of authenticators with user verification but encourages it.</p>
    * @public
    */
   UserVerification?: UserVerificationType | undefined;
@@ -202,8 +202,9 @@ export interface GlobalSignOutResponse {}
  */
 export interface InitiateAuthRequest {
   /**
-   * <p>The authentication flow that you want to initiate. The <code>AuthParameters</code>
-   *             that you must submit are linked to the flow that you submit. For example:</p>
+   * <p>The authentication flow that you want to initiate. Each <code>AuthFlow</code> has
+   *             linked <code>AuthParameters</code> that you must submit. The following are some example
+   *             flows and their parameters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -231,12 +232,14 @@ export interface InitiateAuthRequest {
    *                         <code>PASSWORD</code> parameters.</p>
    *             </li>
    *          </ul>
-   *          <p>Valid values include the following:</p>
+   *          <p>
+   *             <i>All flows</i>
+   *          </p>
    *          <dl>
    *             <dt>USER_AUTH</dt>
    *             <dd>
-   *                <p>The entry point for sign-in with passwords, one-time passwords, biometric
-   *                         devices, and security keys.</p>
+   *                <p>The entry point for sign-in with passwords, one-time passwords, and
+   *                         WebAuthN authenticators.</p>
    *             </dd>
    *             <dt>USER_SRP_AUTH</dt>
    *             <dd>
@@ -362,21 +365,21 @@ export interface InitiateAuthRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
    * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *          <note>
-   *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
+   *             <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the
    *                 following:</p>
    *             <ul>
    *                <li>
-   *                   <p>Store the ClientMetadata value. This data is available only to Lambda
-   *                         triggers that are assigned to a user pool to support custom workflows. If
-   *                         your user pool configuration doesn't include triggers, the ClientMetadata
-   *                         parameter serves no purpose.</p>
+   *                   <p>Store the <code>ClientMetadata</code> value. This data is available only
+   *                         to Lambda triggers that are assigned to a user pool to support custom
+   *                         workflows. If your user pool configuration doesn't include triggers, the
+   *                         <code>ClientMetadata</code> parameter serves no purpose.</p>
    *                </li>
    *                <li>
-   *                   <p>Validate the ClientMetadata value.</p>
+   *                   <p>Validate the <code>ClientMetadata</code> value.</p>
    *                </li>
    *                <li>
-   *                   <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive
-   *                         information.</p>
+   *                   <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive
+   *                         information in this parameter.</p>
    *                </li>
    *             </ul>
    *          </note>
@@ -401,6 +404,8 @@ export interface InitiateAuthRequest {
    * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
    * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
    * when it makes API requests.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in
+   * applications</a>.</p>
    * @public
    */
   UserContextData?: UserContextDataType | undefined;
@@ -623,7 +628,7 @@ export interface ListDevicesResponse {
  */
 export interface ListGroupsRequest {
   /**
-   * <p>The user pool ID for the user pool.</p>
+   * <p>The ID of the user pool.</p>
    * @public
    */
   UserPoolId: string | undefined;
@@ -740,7 +745,7 @@ export interface ListIdentityProvidersResponse {
  */
 export interface ListResourceServersRequest {
   /**
-   * <p>The user pool ID for the user pool.</p>
+   * <p>The ID of the user pool.</p>
    * @public
    */
   UserPoolId: string | undefined;
@@ -803,7 +808,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListUserImportJobsRequest {
   /**
-   * <p>The user pool ID for the user pool that the users are being imported into.</p>
+   * <p>The ID of the user pool that the users are being imported into.</p>
    * @public
    */
   UserPoolId: string | undefined;
@@ -852,7 +857,7 @@ export interface ListUserImportJobsResponse {
  */
 export interface ListUserPoolClientsRequest {
   /**
-   * <p>The user pool ID for the user pool where you want to list user pool clients.</p>
+   * <p>The ID of the user pool where you want to list user pool clients.</p>
    * @public
    */
   UserPoolId: string | undefined;
@@ -1010,7 +1015,7 @@ export interface ListUserPoolsResponse {
  */
 export interface ListUsersRequest {
   /**
-   * <p>The user pool ID for the user pool on which the search should be performed.</p>
+   * <p>The ID of the user pool on which the search should be performed.</p>
    * @public
    */
   UserPoolId: string | undefined;
@@ -1175,7 +1180,7 @@ export interface ListUsersResponse {
  */
 export interface ListUsersInGroupRequest {
   /**
-   * <p>The user pool ID for the user pool.</p>
+   * <p>The ID of the user pool.</p>
    * @public
    */
   UserPoolId: string | undefined;
@@ -1323,7 +1328,8 @@ export interface ResendConfirmationCodeRequest {
 
   /**
    * <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a
-   *             user pool client and username plus the client ID in the message.</p>
+   *             user pool client and username plus the client ID in the message. For more information
+   *             about <code>SecretHash</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>.</p>
    * @public
    */
   SecretHash?: string | undefined;
@@ -1332,6 +1338,8 @@ export interface ResendConfirmationCodeRequest {
    * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
    * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
    * when it makes API requests.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in
+   * applications</a>.</p>
    * @public
    */
   UserContextData?: UserContextDataType | undefined;
@@ -1367,21 +1375,21 @@ export interface ResendConfirmationCodeRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
    * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *          <note>
-   *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
+   *             <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the
    *                 following:</p>
    *             <ul>
    *                <li>
-   *                   <p>Store the ClientMetadata value. This data is available only to Lambda
-   *                         triggers that are assigned to a user pool to support custom workflows. If
-   *                         your user pool configuration doesn't include triggers, the ClientMetadata
-   *                         parameter serves no purpose.</p>
+   *                   <p>Store the <code>ClientMetadata</code> value. This data is available only
+   *                         to Lambda triggers that are assigned to a user pool to support custom
+   *                         workflows. If your user pool configuration doesn't include triggers, the
+   *                         <code>ClientMetadata</code> parameter serves no purpose.</p>
    *                </li>
    *                <li>
-   *                   <p>Validate the ClientMetadata value.</p>
+   *                   <p>Validate the <code>ClientMetadata</code> value.</p>
    *                </li>
    *                <li>
-   *                   <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive
-   *                         information.</p>
+   *                   <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive
+   *                         information in this parameter.</p>
    *                </li>
    *             </ul>
    *          </note>
@@ -1623,6 +1631,8 @@ export interface RespondToAuthChallengeRequest {
    * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
    * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
    * when it makes API requests.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in
+   * applications</a>.</p>
    * @public
    */
   UserContextData?: UserContextDataType | undefined;
@@ -1645,21 +1655,21 @@ export interface RespondToAuthChallengeRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
    * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *          <note>
-   *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
+   *             <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the
    *                 following:</p>
    *             <ul>
    *                <li>
-   *                   <p>Store the ClientMetadata value. This data is available only to Lambda
-   *                         triggers that are assigned to a user pool to support custom workflows. If
-   *                         your user pool configuration doesn't include triggers, the ClientMetadata
-   *                         parameter serves no purpose.</p>
+   *                   <p>Store the <code>ClientMetadata</code> value. This data is available only
+   *                         to Lambda triggers that are assigned to a user pool to support custom
+   *                         workflows. If your user pool configuration doesn't include triggers, the
+   *                         <code>ClientMetadata</code> parameter serves no purpose.</p>
    *                </li>
    *                <li>
-   *                   <p>Validate the ClientMetadata value.</p>
+   *                   <p>Validate the <code>ClientMetadata</code> value.</p>
    *                </li>
    *                <li>
-   *                   <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive
-   *                         information.</p>
+   *                   <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive
+   *                         information in this parameter.</p>
    *                </li>
    *             </ul>
    *          </note>
@@ -1878,7 +1888,7 @@ export interface SetRiskConfigurationResponse {
  */
 export interface SetUICustomizationRequest {
   /**
-   * <p>The user pool ID for the user pool.</p>
+   * <p>The ID of the user pool.</p>
    * @public
    */
   UserPoolId: string | undefined;
@@ -2111,7 +2121,8 @@ export interface SignUpRequest {
 
   /**
    * <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a
-   *             user pool client and username plus the client ID in the message.</p>
+   *             user pool client and username plus the client ID in the message. For more information
+   *             about <code>SecretHash</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>.</p>
    * @public
    */
   SecretHash?: string | undefined;
@@ -2166,6 +2177,8 @@ export interface SignUpRequest {
    * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
    * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
    * when it makes API requests.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in
+   * applications</a>.</p>
    * @public
    */
   UserContextData?: UserContextDataType | undefined;
@@ -2185,21 +2198,21 @@ export interface SignUpRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
    * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *          <note>
-   *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
+   *             <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the
    *                 following:</p>
    *             <ul>
    *                <li>
-   *                   <p>Store the ClientMetadata value. This data is available only to Lambda
-   *                         triggers that are assigned to a user pool to support custom workflows. If
-   *                         your user pool configuration doesn't include triggers, the ClientMetadata
-   *                         parameter serves no purpose.</p>
+   *                   <p>Store the <code>ClientMetadata</code> value. This data is available only
+   *                         to Lambda triggers that are assigned to a user pool to support custom
+   *                         workflows. If your user pool configuration doesn't include triggers, the
+   *                         <code>ClientMetadata</code> parameter serves no purpose.</p>
    *                </li>
    *                <li>
-   *                   <p>Validate the ClientMetadata value.</p>
+   *                   <p>Validate the <code>ClientMetadata</code> value.</p>
    *                </li>
    *                <li>
-   *                   <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive
-   *                         information.</p>
+   *                   <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive
+   *                         information in this parameter.</p>
    *                </li>
    *             </ul>
    *          </note>
@@ -2249,7 +2262,7 @@ export interface SignUpResponse {
  */
 export interface StartUserImportJobRequest {
   /**
-   * <p>The user pool ID for the user pool that the users are being imported into.</p>
+   * <p>The ID of the user pool that the users are being imported into.</p>
    * @public
    */
   UserPoolId: string | undefined;
@@ -2325,7 +2338,7 @@ export class WebAuthnConfigurationMissingException extends __BaseException {
  */
 export interface StopUserImportJobRequest {
   /**
-   * <p>The user pool ID for the user pool that the users are being imported into.</p>
+   * <p>The ID of the user pool that the users are being imported into.</p>
    * @public
    */
   UserPoolId: string | undefined;
@@ -2484,7 +2497,7 @@ export interface UpdateGroupRequest {
   GroupName: string | undefined;
 
   /**
-   * <p>The user pool ID for the user pool.</p>
+   * <p>The ID of the user pool.</p>
    * @public
    */
   UserPoolId: string | undefined;
@@ -2745,7 +2758,7 @@ export interface UpdateManagedLoginBrandingResponse {
  */
 export interface UpdateResourceServerRequest {
   /**
-   * <p>The user pool ID for the user pool.</p>
+   * <p>The ID of the user pool.</p>
    * @public
    */
   UserPoolId: string | undefined;
@@ -2824,21 +2837,21 @@ export interface UpdateUserAttributesRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
    * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *          <note>
-   *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
+   *             <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the
    *                 following:</p>
    *             <ul>
    *                <li>
-   *                   <p>Store the ClientMetadata value. This data is available only to Lambda
-   *                         triggers that are assigned to a user pool to support custom workflows. If
-   *                         your user pool configuration doesn't include triggers, the ClientMetadata
-   *                         parameter serves no purpose.</p>
+   *                   <p>Store the <code>ClientMetadata</code> value. This data is available only
+   *                         to Lambda triggers that are assigned to a user pool to support custom
+   *                         workflows. If your user pool configuration doesn't include triggers, the
+   *                         <code>ClientMetadata</code> parameter serves no purpose.</p>
    *                </li>
    *                <li>
-   *                   <p>Validate the ClientMetadata value.</p>
+   *                   <p>Validate the <code>ClientMetadata</code> value.</p>
    *                </li>
    *                <li>
-   *                   <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive
-   *                         information.</p>
+   *                   <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive
+   *                         information in this parameter.</p>
    *                </li>
    *             </ul>
    *          </note>
@@ -2867,7 +2880,7 @@ export interface UpdateUserAttributesResponse {
  */
 export interface UpdateUserPoolRequest {
   /**
-   * <p>The user pool ID for the user pool you want to update.</p>
+   * <p>The ID of the user pool you want to update.</p>
    * @public
    */
   UserPoolId: string | undefined;
@@ -3058,8 +3071,7 @@ export interface UpdateUserPoolResponse {}
  */
 export interface UpdateUserPoolClientRequest {
   /**
-   * <p>The user pool ID for the user pool where you want to update the user pool
-   *             client.</p>
+   * <p>The ID of the user pool where you want to update the user pool client.</p>
    * @public
    */
   UserPoolId: string | undefined;
@@ -3238,8 +3250,8 @@ export interface UpdateUserPoolClientRequest {
    *                 <code>Google</code>, <code>SignInWithApple</code>, and <code>LoginWithAmazon</code>.
    *             You can also specify the names that you configured for the SAML and OIDC IdPs in your
    *             user pool, for example <code>MySAMLIdP</code> or <code>MyOIDCIdP</code>.</p>
-   *          <p>This setting applies to providers that you can access with the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html">hosted
-   *                 UI and OAuth 2.0 authorization server</a>. The removal of <code>COGNITO</code>
+   *          <p>This setting applies to providers that you can access with <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">managed
+   *                 login</a>. The removal of <code>COGNITO</code>
    *             from this list doesn't prevent authentication operations for local users with the
    *             user pools API in an Amazon Web Services SDK. The only way to prevent API-based authentication is to
    *             block access with a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html">WAF rule</a>.</p>

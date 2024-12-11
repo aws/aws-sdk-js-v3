@@ -37,8 +37,8 @@ export interface ConfirmSignUpCommandInput extends ConfirmSignUpRequest {}
 export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __MetadataBearer {}
 
 /**
- * <p>This public API operation provides a code that Amazon Cognito sent to your user when they
- *             signed up in your user pool via the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html">SignUp</a>
+ * <p>This public API operation submits a code that Amazon Cognito sent to your user when they signed
+ *             up in your user pool via the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html">SignUp</a>
  *             API operation. After your user enters their code, they confirm ownership of the email
  *             address or phone number that they provided, and their user account becomes active.
  *             Depending on your user pool configuration, your users will receive their confirmation

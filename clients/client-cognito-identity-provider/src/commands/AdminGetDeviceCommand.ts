@@ -37,7 +37,8 @@ export interface AdminGetDeviceCommandInput extends AdminGetDeviceRequest {}
 export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the device, as an administrator.</p>
+ * <p>Given the device key, returns details for a user' device. For more information,
+ *             see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with devices</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

@@ -32,7 +32,12 @@ export interface AddCustomAttributesCommandInput extends AddCustomAttributesRequ
 export interface AddCustomAttributesCommandOutput extends AddCustomAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Adds additional user attributes to the user pool schema.</p>
+ * <p>Adds additional user attributes to the user pool schema. Custom attributes can be
+ *             mutable or immutable and have a <code>custom:</code> or <code>dev:</code> prefix. For
+ *             more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-custom-attributes">Custom attributes</a>.</p>
+ *          <p>You can also create custom attributes in the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html#CognitoUserPools-CreateUserPool-request-Schema">Schema parameter</a> of <code>CreateUserPool</code> and
+ *                 <code>UpdateUserPool</code>. You can't delete custom attributes after you
+ *             create them.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

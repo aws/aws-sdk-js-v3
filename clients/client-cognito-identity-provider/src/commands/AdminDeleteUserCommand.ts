@@ -32,7 +32,7 @@ export interface AdminDeleteUserCommandInput extends AdminDeleteUserRequest {}
 export interface AdminDeleteUserCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a user as an administrator. Works on any user.</p>
+ * <p>Deletes a user profile in your user pool.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

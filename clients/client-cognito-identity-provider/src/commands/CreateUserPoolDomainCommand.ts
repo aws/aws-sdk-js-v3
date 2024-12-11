@@ -32,8 +32,16 @@ export interface CreateUserPoolDomainCommandInput extends CreateUserPoolDomainRe
 export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new domain for a user pool. The domain hosts user pool domain services like
- *             managed login, the hosted UI (classic), and the user pool authorization server.</p>
+ * <p>A user pool domain hosts managed login, an authorization server and web server for
+ *             authentication in your application. This operation creates a new user pool prefix or
+ *             custom domain and sets the managed login branding version. Set the branding version to
+ *                 <code>1</code> for hosted UI (classic) or <code>2</code> for managed login. When you
+ *             choose a custom domain, you must provide an SSL certificate in the US East (N. Virginia)
+ *             Amazon Web Services Region in your request.</p>
+ *          <p>Your prefix domain might take up to one minute to take effect. Your custom domain is
+ *             online within five minutes, but it can take up to one hour to distribute your SSL
+ *             certificate.</p>
+ *          <p>For more information about adding a custom domain to your user pool, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Configuring a user pool domain</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

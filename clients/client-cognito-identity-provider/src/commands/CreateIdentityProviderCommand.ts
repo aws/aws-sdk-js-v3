@@ -33,7 +33,8 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
 
 /**
  * <p>Adds a configuration and trust relationship between a third-party identity provider
- *             (IdP) and a user pool.</p>
+ *             (IdP) and a user pool. Amazon Cognito accepts sign-in with third-party identity providers through
+ *             managed login and OIDC relying-party libraries. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html">Third-party IdP sign-in</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

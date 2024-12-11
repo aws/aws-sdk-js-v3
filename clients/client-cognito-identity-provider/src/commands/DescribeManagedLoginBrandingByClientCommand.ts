@@ -41,8 +41,8 @@ export interface DescribeManagedLoginBrandingByClientCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>When given the ID of a user pool app client, returns detailed information about the
- *             style assigned to the app client.</p>
+ * <p>Given the ID of a user pool app client, returns detailed information about the style
+ *             assigned to the app client.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

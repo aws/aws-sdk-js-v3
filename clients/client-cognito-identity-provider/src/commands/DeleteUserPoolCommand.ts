@@ -32,7 +32,9 @@ export interface DeleteUserPoolCommandInput extends DeleteUserPoolRequest {}
 export interface DeleteUserPoolCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified Amazon Cognito user pool.</p>
+ * <p>Deletes a user pool. After you delete a user pool, users can no longer sign in to any
+ *             associated applications. </p>
+ *          <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

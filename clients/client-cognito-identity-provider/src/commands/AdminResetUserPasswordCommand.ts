@@ -36,8 +36,18 @@ export interface AdminResetUserPasswordCommandInput extends AdminResetUserPasswo
 export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPasswordResponse, __MetadataBearer {}
 
 /**
- * <p>Resets the specified user's password in a user pool as an administrator. Works on any
- *             user.</p>
+ * <p>Resets the specified user's password in a user pool. This operation doesn't
+ *             change the user's password, but sends a password-reset code. This operation is the
+ *             administrative authentication API equivalent to <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.html">ForgotPassword</a>.</p>
+ *          <p>This operation deactivates a user's password, requiring them to change it. If a user
+ *             tries to sign in after the API request, Amazon Cognito responds with a
+ *                 <code>PasswordResetRequiredException</code> error. Your app must then complete the
+ *             forgot-password flow by prompting the user for their code and a new password, then
+ *             submitting those values in a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html">ConfirmForgotPassword</a> request. In addition, if the user
+ *             pool has phone verification selected and a verified phone number exists for the user, or
+ *             if email verification is selected and a verified email exists for the user, calling this
+ *             API will also result in sending a message to the end user with the code to change their
+ *             password.</p>
  *          <p>To use this API operation, your user pool must have self-service account recovery
  *             configured. Use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserPassword.html">AdminSetUserPassword</a> if you manage passwords as an administrator.</p>
  *          <note>
@@ -57,14 +67,6 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  *             of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
  *                 Developer Guide</i>.</p>
  *          </note>
- *          <p>Deactivates a user's password, requiring them to change it. If a user tries to sign in
- *             after the API is called, Amazon Cognito responds with a
- *                 <code>PasswordResetRequiredException</code> error. Your app must then perform the
- *             actions that reset your user's password: the forgot-password flow. In addition, if the
- *             user pool has phone verification selected and a verified phone number exists for the
- *             user, or if email verification is selected and a verified email exists for the user,
- *             calling this API will also result in sending a message to the end user with the code to
- *             change their password.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

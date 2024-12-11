@@ -38,7 +38,7 @@ export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSign
 /**
  * <p>Invalidates the identity, access, and refresh tokens that Amazon Cognito issued to a user. Call
  *             this operation with your administrative credentials when your user signs out of your
- *             app. This results in the following behavior. </p>
+ *             app. This results in the following behavior.</p>
  *          <ul>
  *             <li>
  *                <p>Amazon Cognito no longer accepts <i>token-authorized</i> user operations
@@ -59,7 +59,10 @@ export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSign
  *                     requests.</p>
  *             </li>
  *          </ul>
- *          <p>Other requests might be valid until your user's token expires.</p>
+ *          <p>Other requests might be valid until your user's token expires. This operation
+ *             doesn't clear the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">managed login</a> session cookie. To clear the session for
+ *             a user who signed in with managed login or the classic hosted UI, direct their browser
+ *             session to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">logout endpoint</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

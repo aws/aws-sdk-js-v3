@@ -37,8 +37,9 @@ export interface DescribeUserPoolClientCommandInput extends DescribeUserPoolClie
 export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolClientResponse, __MetadataBearer {}
 
 /**
- * <p>Client method for returning the configuration information and metadata of the
- *             specified user pool app client.</p>
+ * <p>Given an app client ID, returns configuration information. This operation is useful
+ *             when you want to inspect an existing app client and programmatically replicate the
+ *             configuration to another app client. For more information about app clients, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html">App clients</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

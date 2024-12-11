@@ -32,7 +32,9 @@ export interface DescribeUserPoolCommandInput extends DescribeUserPoolRequest {}
 export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the configuration information and metadata of the specified user pool.</p>
+ * <p>Given a user pool ID, returns configuration information. This operation is useful when
+ *             you want to inspect an existing user pool and programmatically replicate the
+ *             configuration to another user pool.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

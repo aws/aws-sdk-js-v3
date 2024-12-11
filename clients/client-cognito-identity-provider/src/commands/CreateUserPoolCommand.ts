@@ -49,8 +49,10 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  *             of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
  *                 Developer Guide</i>.</p>
  *          </note>
- *          <p>Creates a new Amazon Cognito user pool and sets the password policy for the
- *             pool.</p>
+ *          <p>Creates a new Amazon Cognito user pool. This operation sets basic and advanced configuration
+ *             options. You can create a user pool in the Amazon Cognito console to your preferences and use the
+ *             output of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a> to generate requests from that
+ *             baseline.</p>
  *          <important>
  *             <p>If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p>
  *          </important>

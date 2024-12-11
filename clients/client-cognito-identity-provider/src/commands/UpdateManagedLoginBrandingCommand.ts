@@ -41,7 +41,10 @@ export interface UpdateManagedLoginBrandingCommandOutput extends UpdateManagedLo
  *             doesn't require that you pass all parameters in one request and preserves existing
  *             style settings that you don't specify. If your request is larger than 2MB, separate it
  *             into multiple requests, each with a size smaller than the limit. </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api">API and SDK operations for managed login branding</a>.</p>
+ *          <p>As a best practice, modify the output of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBrandingByClient.html">DescribeManagedLoginBrandingByClient</a> into the request parameters for this
+ *             operation. To get all settings, set <code>ReturnMergedResources</code> to
+ *                 <code>true</code>. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api">API and SDK operations for managed login branding</a>
+ *          </p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

@@ -36,7 +36,8 @@ export interface AdminEnableUserCommandInput extends AdminEnableUserRequest {}
 export interface AdminEnableUserCommandOutput extends AdminEnableUserResponse, __MetadataBearer {}
 
 /**
- * <p>Enables the specified user as an administrator. Works on any user.</p>
+ * <p>Activate sign-in for a user profile that previously had sign-in access
+ *             disabled.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

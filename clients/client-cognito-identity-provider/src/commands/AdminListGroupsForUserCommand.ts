@@ -36,7 +36,9 @@ export interface AdminListGroupsForUserCommandInput extends AdminListGroupsForUs
 export interface AdminListGroupsForUserCommandOutput extends AdminListGroupsForUserResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the groups that a user belongs to.</p>
+ * <p>Lists the groups that a user belongs to. User pool groups are identifiers that you can
+ *             reference from the contents of ID and access tokens, and set preferred IAM roles for
+ *             identity-pool authentication. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html">Adding groups to a user pool</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

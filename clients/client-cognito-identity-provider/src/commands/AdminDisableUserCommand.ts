@@ -36,9 +36,9 @@ export interface AdminDisableUserCommandInput extends AdminDisableUserRequest {}
 export interface AdminDisableUserCommandOutput extends AdminDisableUserResponse, __MetadataBearer {}
 
 /**
- * <p>Deactivates a user and revokes all access tokens for the user. A deactivated user
- *             can't sign in, but still appears in the responses to <code>GetUser</code> and
- *                 <code>ListUsers</code> API requests.</p>
+ * <p>Deactivates a user profile and revokes all access tokens for the user. A deactivated
+ *             user can't sign in, but still appears in the responses to <code>ListUsers</code>
+ *             API requests.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
