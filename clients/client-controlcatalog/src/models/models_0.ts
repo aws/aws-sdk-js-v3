@@ -316,7 +316,7 @@ export interface GetControlRequest {
  *          <p>For example, <code>AWS::Organizations::Policy::SERVICE_CONTROL_POLICY</code>
  *             <b>or</b>
  *             <code>AWS::CloudFormation::Type::HOOK</code> have the format with four segments.</p>
- *          <p>Although the format is similar, the values for the <code>Type</code> field do not match any Amazon Web Services CloudFormation values, and we do not use CloudFormation to implement these controls.</p>
+ *          <p>Although the format is similar, the values for the <code>Type</code> field do not match any Amazon Web Services CloudFormation values.</p>
  * @public
  */
 export interface ImplementationDetails {
