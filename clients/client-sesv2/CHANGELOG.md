@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.710.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.709.0...v3.710.0) (2024-12-11)
+
+
+### Features
+
+* **client-sesv2:** Introduces support for multi-region endpoint. ([6931902](https://github.com/aws/aws-sdk-js-v3/commit/69319022cb1108296eb81d0dfde9511f5cda7b09))
+
+
+
+
+
 # [3.709.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.708.0...v3.709.0) (2024-12-10)
 
 

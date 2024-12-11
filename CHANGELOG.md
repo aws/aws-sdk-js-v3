@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.710.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.709.0...v3.710.0) (2024-12-11)
+
+
+### Features
+
+* **client-artifact:** Add support for listing active customer agreements for the calling AWS Account. ([5c0fbe3](https://github.com/aws/aws-sdk-js-v3/commit/5c0fbe3ea37d1625ba8382ab0ee426536f236ba7))
+* **client-emr-serverless:** This release adds support for accessing system profile logs in Lake Formation-enabled jobs. ([056dae2](https://github.com/aws/aws-sdk-js-v3/commit/056dae2d20437dfc4770d0dc5009fbdc4ac0b861))
+* **client-migration-hub:** API and documentation updates for AWS MigrationHub related to adding support for listing migration task updates and associating, disassociating and listing source resources ([bfb97ab](https://github.com/aws/aws-sdk-js-v3/commit/bfb97abea30f3b582b520798047626e302dd9028))
+* **client-sesv2:** Introduces support for multi-region endpoint. ([6931902](https://github.com/aws/aws-sdk-js-v3/commit/69319022cb1108296eb81d0dfde9511f5cda7b09))
+* **client-timestream-influxdb:** Adds networkType parameter to CreateDbInstance API which allows IPv6 support to the InfluxDB endpoint ([a69d90c](https://github.com/aws/aws-sdk-js-v3/commit/a69d90ce4b42392c27f9e020667e9f72652ea942))
+* **clients:** update client endpoints as of 2024-12-11 ([6e55901](https://github.com/aws/aws-sdk-js-v3/commit/6e559013226c0500fae19fc3de7b06d9da26127c))
+
+
+
+
+
 # [3.709.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.708.0...v3.709.0) (2024-12-10)
 
 

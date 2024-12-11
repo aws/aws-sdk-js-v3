@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.710.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.709.0...v3.710.0) (2024-12-11)
+
+
+### Features
+
+* **client-emr-serverless:** This release adds support for accessing system profile logs in Lake Formation-enabled jobs. ([056dae2](https://github.com/aws/aws-sdk-js-v3/commit/056dae2d20437dfc4770d0dc5009fbdc4ac0b861))
+
+
+
+
+
 # [3.709.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.708.0...v3.709.0) (2024-12-10)
 
 **Note:** Version bump only for package @aws-sdk/client-emr-serverless
