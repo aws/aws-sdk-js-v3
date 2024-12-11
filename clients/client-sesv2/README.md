@@ -324,6 +324,14 @@ CreateImportJob
 </details>
 <details>
 <summary>
+CreateMultiRegionEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/CreateMultiRegionEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/CreateMultiRegionEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/CreateMultiRegionEndpointCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteConfigurationSet
 </summary>
 
@@ -392,6 +400,14 @@ DeleteEmailTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/DeleteEmailTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/DeleteEmailTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/DeleteEmailTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteMultiRegionEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/DeleteMultiRegionEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/DeleteMultiRegionEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/DeleteMultiRegionEndpointCommandOutput/)
 
 </details>
 <details>
@@ -564,6 +580,14 @@ GetMessageInsights
 </details>
 <details>
 <summary>
+GetMultiRegionEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/GetMultiRegionEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/GetMultiRegionEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/GetMultiRegionEndpointCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetSuppressedDestination
 </summary>
 
@@ -656,6 +680,14 @@ ListImportJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/ListImportJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/ListImportJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/ListImportJobsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListMultiRegionEndpoints
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/ListMultiRegionEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/ListMultiRegionEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/ListMultiRegionEndpointsCommandOutput/)
 
 </details>
 <details>

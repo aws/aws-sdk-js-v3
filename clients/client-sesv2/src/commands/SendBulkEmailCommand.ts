@@ -100,6 +100,7 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
  *     },
  *   ],
  *   ConfigurationSetName: "STRING_VALUE",
+ *   EndpointId: "STRING_VALUE",
  * };
  * const command = new SendBulkEmailCommand(input);
  * const response = await client.send(command);
@@ -160,7 +161,10 @@ export class SendBulkEmailCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep(commonParams)
+  .ep({
+    ...commonParams,
+    EndpointId: { type: "contextParams", name: "EndpointId" },
+  })
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),

@@ -67,6 +67,10 @@ import {
 import { CreateExportJobCommandInput, CreateExportJobCommandOutput } from "../commands/CreateExportJobCommand";
 import { CreateImportJobCommandInput, CreateImportJobCommandOutput } from "../commands/CreateImportJobCommand";
 import {
+  CreateMultiRegionEndpointCommandInput,
+  CreateMultiRegionEndpointCommandOutput,
+} from "../commands/CreateMultiRegionEndpointCommand";
+import {
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
 } from "../commands/DeleteConfigurationSetCommand";
@@ -96,6 +100,10 @@ import {
   DeleteEmailTemplateCommandInput,
   DeleteEmailTemplateCommandOutput,
 } from "../commands/DeleteEmailTemplateCommand";
+import {
+  DeleteMultiRegionEndpointCommandInput,
+  DeleteMultiRegionEndpointCommandOutput,
+} from "../commands/DeleteMultiRegionEndpointCommand";
 import {
   DeleteSuppressedDestinationCommandInput,
   DeleteSuppressedDestinationCommandOutput,
@@ -148,6 +156,10 @@ import { GetExportJobCommandInput, GetExportJobCommandOutput } from "../commands
 import { GetImportJobCommandInput, GetImportJobCommandOutput } from "../commands/GetImportJobCommand";
 import { GetMessageInsightsCommandInput, GetMessageInsightsCommandOutput } from "../commands/GetMessageInsightsCommand";
 import {
+  GetMultiRegionEndpointCommandInput,
+  GetMultiRegionEndpointCommandOutput,
+} from "../commands/GetMultiRegionEndpointCommand";
+import {
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput,
 } from "../commands/GetSuppressedDestinationCommand";
@@ -180,6 +192,10 @@ import {
 import { ListEmailTemplatesCommandInput, ListEmailTemplatesCommandOutput } from "../commands/ListEmailTemplatesCommand";
 import { ListExportJobsCommandInput, ListExportJobsCommandOutput } from "../commands/ListExportJobsCommand";
 import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "../commands/ListImportJobsCommand";
+import {
+  ListMultiRegionEndpointsCommandInput,
+  ListMultiRegionEndpointsCommandOutput,
+} from "../commands/ListMultiRegionEndpointsCommand";
 import {
   ListRecommendationsCommandInput,
   ListRecommendationsCommandOutput,
@@ -327,6 +343,7 @@ import {
   DeliveryEventType,
   DeliveryOptions,
   Destination,
+  Details,
   DkimAttributes,
   DkimSigningAttributes,
   DomainDeliverabilityCampaign,
@@ -369,6 +386,7 @@ import {
   MetricDataResult,
   MetricDimensionName,
   MetricsDataSource,
+  MultiRegionEndpoint,
   NotFoundException,
   OverallVolume,
   PinpointDestination,
@@ -378,6 +396,7 @@ import {
   ReplacementEmailContent,
   ReplacementTemplate,
   ReputationOptions,
+  RouteDetails,
   SendingOptions,
   SendingPausedException,
   SendQuota,
@@ -737,6 +756,30 @@ export const se_CreateImportJobCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateMultiRegionEndpointCommand
+ */
+export const se_CreateMultiRegionEndpointCommand = async (
+  input: CreateMultiRegionEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/multi-region-endpoints");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Details: (_) => _json(_),
+      EndpointName: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteConfigurationSetCommand
  */
 export const se_DeleteConfigurationSetCommand = async (
@@ -878,6 +921,22 @@ export const se_DeleteEmailTemplateCommand = async (
   const headers: any = {};
   b.bp("/v2/email/templates/{TemplateName}");
   b.p("TemplateName", () => input.TemplateName!, "{TemplateName}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteMultiRegionEndpointCommand
+ */
+export const se_DeleteMultiRegionEndpointCommand = async (
+  input: DeleteMultiRegionEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/email/multi-region-endpoints/{EndpointName}");
+  b.p("EndpointName", () => input.EndpointName!, "{EndpointName}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -1229,6 +1288,22 @@ export const se_GetMessageInsightsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetMultiRegionEndpointCommand
+ */
+export const se_GetMultiRegionEndpointCommand = async (
+  input: GetMultiRegionEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/email/multi-region-endpoints/{EndpointName}");
+  b.p("EndpointName", () => input.EndpointName!, "{EndpointName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetSuppressedDestinationCommand
  */
 export const se_GetSuppressedDestinationCommand = async (
@@ -1470,6 +1545,25 @@ export const se_ListImportJobsCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListMultiRegionEndpointsCommand
+ */
+export const se_ListMultiRegionEndpointsCommand = async (
+  input: ListMultiRegionEndpointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/email/multi-region-endpoints");
+  const query: any = map({
+    [_NT]: [, input[_NT]!],
+    [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -2044,6 +2138,7 @@ export const se_SendBulkEmailCommand = async (
       ConfigurationSetName: [],
       DefaultContent: (_) => _json(_),
       DefaultEmailTags: (_) => _json(_),
+      EndpointId: [],
       FeedbackForwardingEmailAddress: [],
       FeedbackForwardingEmailAddressIdentityArn: [],
       FromEmailAddress: [],
@@ -2098,6 +2193,7 @@ export const se_SendEmailCommand = async (
       Content: (_) => se_EmailContent(_, context),
       Destination: (_) => _json(_),
       EmailTags: (_) => _json(_),
+      EndpointId: [],
       FeedbackForwardingEmailAddress: [],
       FeedbackForwardingEmailAddressIdentityArn: [],
       FromEmailAddress: [],
@@ -2586,6 +2682,28 @@ export const de_CreateImportJobCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateMultiRegionEndpointCommand
+ */
+export const de_CreateMultiRegionEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMultiRegionEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EndpointId: __expectString,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteConfigurationSetCommand
  */
 export const de_DeleteConfigurationSetCommand = async (
@@ -2735,6 +2853,27 @@ export const de_DeleteEmailTemplateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteMultiRegionEndpointCommand
+ */
+export const de_DeleteMultiRegionEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMultiRegionEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3247,6 +3386,32 @@ export const de_GetMessageInsightsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetMultiRegionEndpointCommand
+ */
+export const de_GetMultiRegionEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMultiRegionEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndpointId: __expectString,
+    EndpointName: __expectString,
+    LastUpdatedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Routes: _json,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetSuppressedDestinationCommand
  */
 export const de_GetSuppressedDestinationCommand = async (
@@ -3503,6 +3668,28 @@ export const de_ListImportJobsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     ImportJobs: (_) => de_ImportJobSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListMultiRegionEndpointsCommand
+ */
+export const de_ListMultiRegionEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMultiRegionEndpointsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MultiRegionEndpoints: (_) => de_MultiRegionEndpoints(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -4517,6 +4704,8 @@ const se_BatchGetMetricDataQuery = (input: BatchGetMetricDataQuery, context: __S
 
 // se_Destination omitted.
 
+// se_Details omitted.
+
 // se_Dimensions omitted.
 
 // se_DkimSigningAttributes omitted.
@@ -4682,6 +4871,10 @@ const se_ReputationOptions = (input: ReputationOptions, context: __SerdeContext)
     ReputationMetricsEnabled: [],
   });
 };
+
+// se_RouteDetails omitted.
+
+// se_RoutesDetails omitted.
 
 // se_SendingOptions omitted.
 
@@ -5265,6 +5458,32 @@ const de_MetricsDataSource = (output: any, context: __SerdeContext): MetricsData
 // de_MetricValueList omitted.
 
 /**
+ * deserializeAws_restJson1MultiRegionEndpoint
+ */
+const de_MultiRegionEndpoint = (output: any, context: __SerdeContext): MultiRegionEndpoint => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndpointId: __expectString,
+    EndpointName: __expectString,
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Regions: _json,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MultiRegionEndpoints
+ */
+const de_MultiRegionEndpoints = (output: any, context: __SerdeContext): MultiRegionEndpoint[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MultiRegionEndpoint(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1OverallVolume
  */
 const de_OverallVolume = (output: any, context: __SerdeContext): OverallVolume => {
@@ -5319,6 +5538,8 @@ const de_RecommendationsList = (output: any, context: __SerdeContext): Recommend
   return retVal;
 };
 
+// de_Regions omitted.
+
 /**
  * deserializeAws_restJson1ReputationOptions
  */
@@ -5330,6 +5551,10 @@ const de_ReputationOptions = (output: any, context: __SerdeContext): ReputationO
 };
 
 // de_ReviewDetails omitted.
+
+// de_Route omitted.
+
+// de_Routes omitted.
 
 // de_SendingOptions omitted.
 

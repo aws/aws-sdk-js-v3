@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutDedicatedIpInPoolRequest, PutDedicatedIpInPoolResponse } from "../models/models_0";
+import { PutDedicatedIpInPoolRequest, PutDedicatedIpInPoolResponse } from "../models/models_1";
 import { de_PutDedicatedIpInPoolCommand, se_PutDedicatedIpInPoolCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 

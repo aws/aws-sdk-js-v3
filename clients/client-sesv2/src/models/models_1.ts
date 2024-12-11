@@ -5,17 +5,228 @@ import {
   BulkEmailEntry,
   BulkEmailEntryResult,
   Destination,
+  DkimSigningAttributes,
+  DkimSigningAttributesFilterSensitiveLog,
+  DkimSigningAttributesOrigin,
   DkimStatus,
+  DomainDeliverabilityTrackingOption,
   EmailContent,
   EmailTemplateContent,
   EventDestinationDefinition,
   ListManagementOptions,
   MessageTag,
+  ScalingMode,
   SuppressionListReason,
   Tag,
   Topic,
   TopicPreference,
 } from "./models_0";
+
+/**
+ * <p>A request to move a dedicated IP address to a dedicated IP pool.</p>
+ * @public
+ */
+export interface PutDedicatedIpInPoolRequest {
+  /**
+   * <p>The IP address that you want to move to the dedicated IP pool. The value you specify
+   *             has to be a dedicated IP address that's associated with your Amazon Web Services account.</p>
+   * @public
+   */
+  Ip: string | undefined;
+
+  /**
+   * <p>The name of the IP pool that you want to add the dedicated IP address to. You have to
+   *             specify an IP pool that already exists.</p>
+   * @public
+   */
+  DestinationPoolName: string | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutDedicatedIpInPoolResponse {}
+
+/**
+ * <p>A request to convert a dedicated IP pool to a different scaling mode.</p>
+ * @public
+ */
+export interface PutDedicatedIpPoolScalingAttributesRequest {
+  /**
+   * <p>The name of the dedicated IP pool.</p>
+   * @public
+   */
+  PoolName: string | undefined;
+
+  /**
+   * <p>The scaling mode to apply to the dedicated IP pool.</p>
+   *          <note>
+   *             <p>Changing the scaling mode from <code>MANAGED</code> to <code>STANDARD</code> is not supported.</p>
+   *          </note>
+   * @public
+   */
+  ScalingMode: ScalingMode | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutDedicatedIpPoolScalingAttributesResponse {}
+
+/**
+ * <p>A request to change the warm-up attributes for a dedicated IP address. This operation
+ *             is useful when you want to resume the warm-up process for an existing IP address.</p>
+ * @public
+ */
+export interface PutDedicatedIpWarmupAttributesRequest {
+  /**
+   * <p>The dedicated IP address that you want to update the warm-up attributes for.</p>
+   * @public
+   */
+  Ip: string | undefined;
+
+  /**
+   * <p>The warm-up percentage that you want to associate with the dedicated IP
+   *             address.</p>
+   * @public
+   */
+  WarmupPercentage: number | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutDedicatedIpWarmupAttributesResponse {}
+
+/**
+ * <p>Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain
+ *             access to reputation, deliverability, and other metrics for the domains that you use to
+ *             send email using Amazon SES API v2. You also gain the ability to perform predictive inbox placement tests.</p>
+ *          <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
+ *             to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
+ *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/pinpoint/pricing/">Amazon Pinpoint Pricing</a>.</p>
+ * @public
+ */
+export interface PutDeliverabilityDashboardOptionRequest {
+  /**
+   * <p>Specifies whether to enable the Deliverability dashboard. To enable the dashboard, set this
+   *             value to <code>true</code>.</p>
+   * @public
+   */
+  DashboardEnabled: boolean | undefined;
+
+  /**
+   * <p>An array of objects, one for each verified domain that you use to send email and
+   *             enabled the Deliverability dashboard for.</p>
+   * @public
+   */
+  SubscribedDomains?: DomainDeliverabilityTrackingOption[] | undefined;
+}
+
+/**
+ * <p>A response that indicates whether the Deliverability dashboard is enabled.</p>
+ * @public
+ */
+export interface PutDeliverabilityDashboardOptionResponse {}
+
+/**
+ * <p>A request to associate a configuration set with an email identity.</p>
+ * @public
+ */
+export interface PutEmailIdentityConfigurationSetAttributesRequest {
+  /**
+   * <p>The email address or domain to associate with a configuration set.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>The configuration set to associate with an email identity.</p>
+   * @public
+   */
+  ConfigurationSetName?: string | undefined;
+}
+
+/**
+ * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
+ *             HTTP body.</p>
+ * @public
+ */
+export interface PutEmailIdentityConfigurationSetAttributesResponse {}
+
+/**
+ * <p>A request to enable or disable DKIM signing of email that you send from an email
+ *             identity.</p>
+ * @public
+ */
+export interface PutEmailIdentityDkimAttributesRequest {
+  /**
+   * <p>The email identity.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>Sets the DKIM signing configuration for the identity.</p>
+   *          <p>When you set this value <code>true</code>, then the messages that are sent from the
+   *             identity are signed using DKIM. If you set this value to <code>false</code>, your
+   *             messages are sent without DKIM signing.</p>
+   * @public
+   */
+  SigningEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutEmailIdentityDkimAttributesResponse {}
+
+/**
+ * <p>A request to change the DKIM attributes for an email identity.</p>
+ * @public
+ */
+export interface PutEmailIdentityDkimSigningAttributesRequest {
+  /**
+   * <p>The email identity.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>The method to use to configure DKIM for the identity. There are the following possible
+   *             values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES</code> – Configure DKIM for the identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
+   *                         DKIM</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXTERNAL</code> – Configure DKIM for the identity by using Bring
+   *                     Your Own DKIM (BYODKIM).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SigningAttributesOrigin: DkimSigningAttributesOrigin | undefined;
+
+  /**
+   * <p>An object that contains information about the private key and selector that you want
+   *             to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the
+   *             identity, or, configures the key length to be used for <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
+   * @public
+   */
+  SigningAttributes?: DkimSigningAttributes | undefined;
+}
 
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
@@ -280,6 +491,12 @@ export interface SendBulkEmailRequest {
    * @public
    */
   ConfigurationSetName?: string | undefined;
+
+  /**
+   * <p>The ID of the multi-region endpoint (global-endpoint).</p>
+   * @public
+   */
+  EndpointId?: string | undefined;
 }
 
 /**
@@ -424,6 +641,12 @@ export interface SendEmailRequest {
    * @public
    */
   ConfigurationSetName?: string | undefined;
+
+  /**
+   * <p>The ID of the multi-region endpoint (global-endpoint).</p>
+   * @public
+   */
+  EndpointId?: string | undefined;
 
   /**
    * <p>An object used to specify a list or topic to which an email belongs, which will be
@@ -762,3 +985,13 @@ export interface UpdateEmailTemplateRequest {
  * @public
  */
 export interface UpdateEmailTemplateResponse {}
+
+/**
+ * @internal
+ */
+export const PutEmailIdentityDkimSigningAttributesRequestFilterSensitiveLog = (
+  obj: PutEmailIdentityDkimSigningAttributesRequest
+): any => ({
+  ...obj,
+  ...(obj.SigningAttributes && { SigningAttributes: DkimSigningAttributesFilterSensitiveLog(obj.SigningAttributes) }),
+});

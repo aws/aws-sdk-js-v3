@@ -8,8 +8,8 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutEmailIdentityDkimSigningAttributesRequest,
   PutEmailIdentityDkimSigningAttributesRequestFilterSensitiveLog,
-} from "../models/models_0";
-import { PutEmailIdentityDkimSigningAttributesResponse } from "../models/models_1";
+  PutEmailIdentityDkimSigningAttributesResponse,
+} from "../models/models_1";
 import {
   de_PutEmailIdentityDkimSigningAttributesCommand,
   se_PutEmailIdentityDkimSigningAttributesCommand,

@@ -127,6 +127,7 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *     },
  *   ],
  *   ConfigurationSetName: "STRING_VALUE",
+ *   EndpointId: "STRING_VALUE",
  *   ListManagementOptions: { // ListManagementOptions
  *     ContactListName: "STRING_VALUE", // required
  *     TopicName: "STRING_VALUE",
@@ -185,7 +186,10 @@ export class SendEmailCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep(commonParams)
+  .ep({
+    ...commonParams,
+    EndpointId: { type: "contextParams", name: "EndpointId" },
+  })
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),

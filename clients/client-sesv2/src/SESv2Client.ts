@@ -92,6 +92,10 @@ import {
 import { CreateExportJobCommandInput, CreateExportJobCommandOutput } from "./commands/CreateExportJobCommand";
 import { CreateImportJobCommandInput, CreateImportJobCommandOutput } from "./commands/CreateImportJobCommand";
 import {
+  CreateMultiRegionEndpointCommandInput,
+  CreateMultiRegionEndpointCommandOutput,
+} from "./commands/CreateMultiRegionEndpointCommand";
+import {
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
 } from "./commands/DeleteConfigurationSetCommand";
@@ -121,6 +125,10 @@ import {
   DeleteEmailTemplateCommandInput,
   DeleteEmailTemplateCommandOutput,
 } from "./commands/DeleteEmailTemplateCommand";
+import {
+  DeleteMultiRegionEndpointCommandInput,
+  DeleteMultiRegionEndpointCommandOutput,
+} from "./commands/DeleteMultiRegionEndpointCommand";
 import {
   DeleteSuppressedDestinationCommandInput,
   DeleteSuppressedDestinationCommandOutput,
@@ -173,6 +181,10 @@ import { GetExportJobCommandInput, GetExportJobCommandOutput } from "./commands/
 import { GetImportJobCommandInput, GetImportJobCommandOutput } from "./commands/GetImportJobCommand";
 import { GetMessageInsightsCommandInput, GetMessageInsightsCommandOutput } from "./commands/GetMessageInsightsCommand";
 import {
+  GetMultiRegionEndpointCommandInput,
+  GetMultiRegionEndpointCommandOutput,
+} from "./commands/GetMultiRegionEndpointCommand";
+import {
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput,
 } from "./commands/GetSuppressedDestinationCommand";
@@ -205,6 +217,10 @@ import {
 import { ListEmailTemplatesCommandInput, ListEmailTemplatesCommandOutput } from "./commands/ListEmailTemplatesCommand";
 import { ListExportJobsCommandInput, ListExportJobsCommandOutput } from "./commands/ListExportJobsCommand";
 import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "./commands/ListImportJobsCommand";
+import {
+  ListMultiRegionEndpointsCommandInput,
+  ListMultiRegionEndpointsCommandOutput,
+} from "./commands/ListMultiRegionEndpointsCommand";
 import {
   ListRecommendationsCommandInput,
   ListRecommendationsCommandOutput,
@@ -357,6 +373,7 @@ export type ServiceInputTypes =
   | CreateEmailTemplateCommandInput
   | CreateExportJobCommandInput
   | CreateImportJobCommandInput
+  | CreateMultiRegionEndpointCommandInput
   | DeleteConfigurationSetCommandInput
   | DeleteConfigurationSetEventDestinationCommandInput
   | DeleteContactCommandInput
@@ -366,6 +383,7 @@ export type ServiceInputTypes =
   | DeleteEmailIdentityCommandInput
   | DeleteEmailIdentityPolicyCommandInput
   | DeleteEmailTemplateCommandInput
+  | DeleteMultiRegionEndpointCommandInput
   | DeleteSuppressedDestinationCommandInput
   | GetAccountCommandInput
   | GetBlacklistReportsCommandInput
@@ -387,6 +405,7 @@ export type ServiceInputTypes =
   | GetExportJobCommandInput
   | GetImportJobCommandInput
   | GetMessageInsightsCommandInput
+  | GetMultiRegionEndpointCommandInput
   | GetSuppressedDestinationCommandInput
   | ListConfigurationSetsCommandInput
   | ListContactListsCommandInput
@@ -399,6 +418,7 @@ export type ServiceInputTypes =
   | ListEmailTemplatesCommandInput
   | ListExportJobsCommandInput
   | ListImportJobsCommandInput
+  | ListMultiRegionEndpointsCommandInput
   | ListRecommendationsCommandInput
   | ListSuppressedDestinationsCommandInput
   | ListTagsForResourceCommandInput
@@ -454,6 +474,7 @@ export type ServiceOutputTypes =
   | CreateEmailTemplateCommandOutput
   | CreateExportJobCommandOutput
   | CreateImportJobCommandOutput
+  | CreateMultiRegionEndpointCommandOutput
   | DeleteConfigurationSetCommandOutput
   | DeleteConfigurationSetEventDestinationCommandOutput
   | DeleteContactCommandOutput
@@ -463,6 +484,7 @@ export type ServiceOutputTypes =
   | DeleteEmailIdentityCommandOutput
   | DeleteEmailIdentityPolicyCommandOutput
   | DeleteEmailTemplateCommandOutput
+  | DeleteMultiRegionEndpointCommandOutput
   | DeleteSuppressedDestinationCommandOutput
   | GetAccountCommandOutput
   | GetBlacklistReportsCommandOutput
@@ -484,6 +506,7 @@ export type ServiceOutputTypes =
   | GetExportJobCommandOutput
   | GetImportJobCommandOutput
   | GetMessageInsightsCommandOutput
+  | GetMultiRegionEndpointCommandOutput
   | GetSuppressedDestinationCommandOutput
   | ListConfigurationSetsCommandOutput
   | ListContactListsCommandOutput
@@ -496,6 +519,7 @@ export type ServiceOutputTypes =
   | ListEmailTemplatesCommandOutput
   | ListExportJobsCommandOutput
   | ListImportJobsCommandOutput
+  | ListMultiRegionEndpointsCommandOutput
   | ListRecommendationsCommandOutput
   | ListSuppressedDestinationsCommandOutput
   | ListTagsForResourceCommandOutput

@@ -73,6 +73,11 @@ import {
   CreateImportJobCommandOutput,
 } from "./commands/CreateImportJobCommand";
 import {
+  CreateMultiRegionEndpointCommand,
+  CreateMultiRegionEndpointCommandInput,
+  CreateMultiRegionEndpointCommandOutput,
+} from "./commands/CreateMultiRegionEndpointCommand";
+import {
   DeleteConfigurationSetCommand,
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
@@ -117,6 +122,11 @@ import {
   DeleteEmailTemplateCommandInput,
   DeleteEmailTemplateCommandOutput,
 } from "./commands/DeleteEmailTemplateCommand";
+import {
+  DeleteMultiRegionEndpointCommand,
+  DeleteMultiRegionEndpointCommandInput,
+  DeleteMultiRegionEndpointCommandOutput,
+} from "./commands/DeleteMultiRegionEndpointCommand";
 import {
   DeleteSuppressedDestinationCommand,
   DeleteSuppressedDestinationCommandInput,
@@ -215,6 +225,11 @@ import {
   GetMessageInsightsCommandOutput,
 } from "./commands/GetMessageInsightsCommand";
 import {
+  GetMultiRegionEndpointCommand,
+  GetMultiRegionEndpointCommandInput,
+  GetMultiRegionEndpointCommandOutput,
+} from "./commands/GetMultiRegionEndpointCommand";
+import {
   GetSuppressedDestinationCommand,
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput,
@@ -274,6 +289,11 @@ import {
   ListImportJobsCommandInput,
   ListImportJobsCommandOutput,
 } from "./commands/ListImportJobsCommand";
+import {
+  ListMultiRegionEndpointsCommand,
+  ListMultiRegionEndpointsCommandInput,
+  ListMultiRegionEndpointsCommandOutput,
+} from "./commands/ListMultiRegionEndpointsCommand";
 import {
   ListRecommendationsCommand,
   ListRecommendationsCommandInput,
@@ -463,6 +483,7 @@ const commands = {
   CreateEmailTemplateCommand,
   CreateExportJobCommand,
   CreateImportJobCommand,
+  CreateMultiRegionEndpointCommand,
   DeleteConfigurationSetCommand,
   DeleteConfigurationSetEventDestinationCommand,
   DeleteContactCommand,
@@ -472,6 +493,7 @@ const commands = {
   DeleteEmailIdentityCommand,
   DeleteEmailIdentityPolicyCommand,
   DeleteEmailTemplateCommand,
+  DeleteMultiRegionEndpointCommand,
   DeleteSuppressedDestinationCommand,
   GetAccountCommand,
   GetBlacklistReportsCommand,
@@ -493,6 +515,7 @@ const commands = {
   GetExportJobCommand,
   GetImportJobCommand,
   GetMessageInsightsCommand,
+  GetMultiRegionEndpointCommand,
   GetSuppressedDestinationCommand,
   ListConfigurationSetsCommand,
   ListContactListsCommand,
@@ -505,6 +528,7 @@ const commands = {
   ListEmailTemplatesCommand,
   ListExportJobsCommand,
   ListImportJobsCommand,
+  ListMultiRegionEndpointsCommand,
   ListRecommendationsCommand,
   ListSuppressedDestinationsCommand,
   ListTagsForResourceCommand,
@@ -768,6 +792,23 @@ export interface SESv2 {
   ): void;
 
   /**
+   * @see {@link CreateMultiRegionEndpointCommand}
+   */
+  createMultiRegionEndpoint(
+    args: CreateMultiRegionEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMultiRegionEndpointCommandOutput>;
+  createMultiRegionEndpoint(
+    args: CreateMultiRegionEndpointCommandInput,
+    cb: (err: any, data?: CreateMultiRegionEndpointCommandOutput) => void
+  ): void;
+  createMultiRegionEndpoint(
+    args: CreateMultiRegionEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMultiRegionEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteConfigurationSetCommand}
    */
   deleteConfigurationSet(
@@ -912,6 +953,23 @@ export interface SESv2 {
     args: DeleteEmailTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEmailTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteMultiRegionEndpointCommand}
+   */
+  deleteMultiRegionEndpoint(
+    args: DeleteMultiRegionEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMultiRegionEndpointCommandOutput>;
+  deleteMultiRegionEndpoint(
+    args: DeleteMultiRegionEndpointCommandInput,
+    cb: (err: any, data?: DeleteMultiRegionEndpointCommandOutput) => void
+  ): void;
+  deleteMultiRegionEndpoint(
+    args: DeleteMultiRegionEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMultiRegionEndpointCommandOutput) => void
   ): void;
 
   /**
@@ -1242,6 +1300,23 @@ export interface SESv2 {
   ): void;
 
   /**
+   * @see {@link GetMultiRegionEndpointCommand}
+   */
+  getMultiRegionEndpoint(
+    args: GetMultiRegionEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMultiRegionEndpointCommandOutput>;
+  getMultiRegionEndpoint(
+    args: GetMultiRegionEndpointCommandInput,
+    cb: (err: any, data?: GetMultiRegionEndpointCommandOutput) => void
+  ): void;
+  getMultiRegionEndpoint(
+    args: GetMultiRegionEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMultiRegionEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetSuppressedDestinationCommand}
    */
   getSuppressedDestination(
@@ -1440,6 +1515,24 @@ export interface SESv2 {
     args: ListImportJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListImportJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListMultiRegionEndpointsCommand}
+   */
+  listMultiRegionEndpoints(): Promise<ListMultiRegionEndpointsCommandOutput>;
+  listMultiRegionEndpoints(
+    args: ListMultiRegionEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMultiRegionEndpointsCommandOutput>;
+  listMultiRegionEndpoints(
+    args: ListMultiRegionEndpointsCommandInput,
+    cb: (err: any, data?: ListMultiRegionEndpointsCommandOutput) => void
+  ): void;
+  listMultiRegionEndpoints(
+    args: ListMultiRegionEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMultiRegionEndpointsCommandOutput) => void
   ): void;
 
   /**

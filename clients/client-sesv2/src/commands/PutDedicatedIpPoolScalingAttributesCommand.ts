@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutDedicatedIpPoolScalingAttributesRequest,
   PutDedicatedIpPoolScalingAttributesResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_PutDedicatedIpPoolScalingAttributesCommand,
   se_PutDedicatedIpPoolScalingAttributesCommand,

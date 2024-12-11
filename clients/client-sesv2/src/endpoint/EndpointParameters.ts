@@ -38,4 +38,5 @@ export interface EndpointParameters extends __EndpointParameters {
   UseDualStack?: boolean;
   UseFIPS?: boolean;
   Endpoint?: string;
+  EndpointId?: string;
 }

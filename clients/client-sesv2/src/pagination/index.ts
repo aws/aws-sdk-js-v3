@@ -12,5 +12,6 @@ export * from "./ListEmailIdentitiesPaginator";
 export * from "./ListEmailTemplatesPaginator";
 export * from "./ListExportJobsPaginator";
 export * from "./ListImportJobsPaginator";
+export * from "./ListMultiRegionEndpointsPaginator";
 export * from "./ListRecommendationsPaginator";
 export * from "./ListSuppressedDestinationsPaginator";
