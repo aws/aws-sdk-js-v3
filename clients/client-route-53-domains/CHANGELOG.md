@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.711.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.710.0...v3.711.0) (2024-12-12)
+
+
+### Features
+
+* **client-route-53-domains:** This release includes the following API updates: added the enumeration type RESTORE_DOMAIN to the OperationType; constrained the Price attribute to non-negative values; updated the LangCode to allow 2 or 3 alphabetical characters. ([c149c7a](https://github.com/aws/aws-sdk-js-v3/commit/c149c7ab089bc5be94512c19820ed6545bdd89dc))
+
+
+
+
+
 # [3.709.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.708.0...v3.709.0) (2024-12-10)
 
 **Note:** Version bump only for package @aws-sdk/client-route-53-domains

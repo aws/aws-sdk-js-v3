@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.711.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.710.0...v3.711.0) (2024-12-12)
+
+
+### Features
+
+* **client-connect:** Configure holidays and other overrides to hours of operation in advance. During contact handling, Amazon Connect automatically checks for overrides and provides customers with an appropriate flow path. After an override period passes call center automatically reverts to standard hours of operation. ([6398b6f](https://github.com/aws/aws-sdk-js-v3/commit/6398b6f3ba711532872e39c5affd5b07ffb5ec80))
+* **client-database-migration-service:** Add parameters to support for kerberos authentication. Add parameter for disabling the Unicode source filter with PostgreSQL settings. Add parameter to use large integer value with Kinesis/Kafka settings. ([97520fc](https://github.com/aws/aws-sdk-js-v3/commit/97520fc08adb83d5bf6c73c253b3b378762fe5dc))
+* **client-glue:** To support customer-managed encryption in Data Quality to allow customers encrypt data with their own KMS key, we will add a DataQualityEncryption field to the SecurityConfiguration API where customers can provide their KMS keys. ([6d74002](https://github.com/aws/aws-sdk-js-v3/commit/6d74002aebb817c6abecd77b3318b40a46cc8072))
+* **client-route-53-domains:** This release includes the following API updates: added the enumeration type RESTORE_DOMAIN to the OperationType; constrained the Price attribute to non-negative values; updated the LangCode to allow 2 or 3 alphabetical characters. ([c149c7a](https://github.com/aws/aws-sdk-js-v3/commit/c149c7ab089bc5be94512c19820ed6545bdd89dc))
+* **clients:** update client endpoints as of 2024-12-12 ([8d22e42](https://github.com/aws/aws-sdk-js-v3/commit/8d22e42b6f475b3bccce9bd2fa2266d4899c848e))
+
+
+
+
+
 # [3.710.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.709.0...v3.710.0) (2024-12-11)
 
 

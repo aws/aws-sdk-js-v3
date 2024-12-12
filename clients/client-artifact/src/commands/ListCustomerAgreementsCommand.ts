@@ -90,6 +90,39 @@ export interface ListCustomerAgreementsCommandOutput extends ListCustomerAgreeme
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
  * @public
+ * @example Invoke ListCustomerAgreements operation
+ * ```javascript
+ * // The ListCustomerAgreements operation returns a collection of customer-agreement resources in the ACTIVE state for the calling credential.
+ * const input = {};
+ * const command = new ListCustomerAgreementsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "customerAgreements": [
+ *     {
+ *       "name": "Name of agreement",
+ *       "type": "DEFAULT",
+ *       "acceptanceTerms": [
+ *         "terms acknowledged when agreement was accepted"
+ *       ],
+ *       "agreementArn": "arn:aws:artifact:::agreement/agreement-abcdef0123456789",
+ *       "arn": "arn:aws:artifact::111111111111:customer-agreement/customer-agreement-abcdef0123456789",
+ *       "awsAccountId": "111111111111",
+ *       "description": "Description of agreement",
+ *       "effectiveStart": "2022-04-01T20:32:04Z",
+ *       "id": "customer-agreement-abcdef0123456789",
+ *       "state": "ACTIVE",
+ *       "terminateTerms": [
+ *         "terms that must be acknowledged to terminate this agreement"
+ *       ]
+ *     }
+ *   ],
+ *   "nextToken": "gPFEGk7CF4wS901w7ppYclt7gPFEGk7CF4wS901w7ppYclt7gPFEGk7CF4wS901w7ppYclt7"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class ListCustomerAgreementsCommand extends $Command
   .classBuilder<
