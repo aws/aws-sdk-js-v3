@@ -29,6 +29,8 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
 
 /**
  * <p>Retrieves metadata for all runs of a given job definition.</p>
+ *          <p>
+ *             <code>GetJobRuns</code> returns the job runs in chronological order, with the newest jobs returned first.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

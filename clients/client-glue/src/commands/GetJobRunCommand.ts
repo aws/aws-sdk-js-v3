@@ -28,7 +28,7 @@ export interface GetJobRunCommandInput extends GetJobRunRequest {}
 export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the metadata for a given job run. Job run history is accessible for 90 days for your workflow and job run.</p>
+ * <p>Retrieves the metadata for a given job run. Job run history is accessible for 365 days for your workflow and job run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

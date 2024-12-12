@@ -61,6 +61,10 @@ export interface GetSecurityConfigurationsCommandOutput extends GetSecurityConfi
  * //           JobBookmarksEncryptionMode: "DISABLED" || "CSE-KMS",
  * //           KmsKeyArn: "STRING_VALUE",
  * //         },
+ * //         DataQualityEncryption: { // DataQualityEncryption
+ * //           DataQualityEncryptionMode: "DISABLED" || "SSE-KMS",
+ * //           KmsKeyArn: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //   ],

@@ -64,11 +64,9 @@ import {
   RegistryId,
   RegistryStatus,
   ResourceUri,
-  ScheduleType,
   SchemaStatus,
   SchemaVersionStatus,
   Session,
-  SettingSource,
   SourceProcessingProperties,
   SourceTableConfig,
   Tag,
@@ -80,6 +78,34 @@ import {
   TransformType,
   ViewDialect,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const ScheduleType = {
+  AUTO: "AUTO",
+  CRON: "CRON",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduleType = (typeof ScheduleType)[keyof typeof ScheduleType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SettingSource = {
+  CATALOG: "CATALOG",
+  TABLE: "TABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type SettingSource = (typeof SettingSource)[keyof typeof SettingSource];
 
 /**
  * <p>The settings for a column statistics task.</p>
@@ -8118,6 +8144,7 @@ export interface PutWorkflowRunPropertiesRequest {
 
   /**
    * <p>The properties to put for the specified run.</p>
+   *          <p>Run properties may be logged. Do not pass plaintext secrets as properties. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to use them within the workflow run.</p>
    * @public
    */
   RunProperties: Record<string, string> | undefined;
@@ -8557,38 +8584,6 @@ export interface PropertyPredicate {
    * @public
    */
   Comparator?: Comparator | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const Sort = {
-  ASCENDING: "ASC",
-  DESCENDING: "DESC",
-} as const;
-
-/**
- * @public
- */
-export type Sort = (typeof Sort)[keyof typeof Sort];
-
-/**
- * <p>Specifies a field to sort by and a sort order.</p>
- * @public
- */
-export interface SortCriterion {
-  /**
-   * <p>The name of the field on which to sort.</p>
-   * @public
-   */
-  FieldName?: string | undefined;
-
-  /**
-   * <p>An ascending or descending sort.</p>
-   * @public
-   */
-  Sort?: Sort | undefined;
 }
 
 /**

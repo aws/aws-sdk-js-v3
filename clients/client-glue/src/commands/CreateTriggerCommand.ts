@@ -29,6 +29,7 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
 
 /**
  * <p>Creates a new trigger.</p>
+ *          <p>Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to keep them within the Job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

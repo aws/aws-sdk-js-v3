@@ -3500,6 +3500,39 @@ export interface CloudWatchEncryption {
  * @public
  * @enum
  */
+export const DataQualityEncryptionMode = {
+  DISABLED: "DISABLED",
+  SSEKMS: "SSE-KMS",
+} as const;
+
+/**
+ * @public
+ */
+export type DataQualityEncryptionMode = (typeof DataQualityEncryptionMode)[keyof typeof DataQualityEncryptionMode];
+
+/**
+ * <p>Specifies how Data Quality assets in your account should be encrypted.</p>
+ * @public
+ */
+export interface DataQualityEncryption {
+  /**
+   * <p>The encryption mode to use for encrypting Data Quality assets. These assets include data quality rulesets, results, statistics, anomaly detection models and observations.</p>
+   *          <p>Valid values are <code>SSEKMS</code> for encryption using a customer-managed KMS key, or <code>DISABLED</code>.</p>
+   * @public
+   */
+  DataQualityEncryptionMode?: DataQualityEncryptionMode | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const JobBookmarksEncryptionMode = {
   CSEKMS: "CSE-KMS",
   DISABLED: "DISABLED",
@@ -3583,6 +3616,12 @@ export interface EncryptionConfiguration {
    * @public
    */
   JobBookmarksEncryption?: JobBookmarksEncryption | undefined;
+
+  /**
+   * <p>The encryption configuration for Glue Data Quality assets.</p>
+   * @public
+   */
+  DataQualityEncryption?: DataQualityEncryption | undefined;
 }
 
 /**
@@ -3716,19 +3755,19 @@ export interface CreateSessionRequest {
    *       G.1X, G.2X, G.4X, or G.8X for Spark jobs. Accepts the value Z.2X for Ray notebooks.</p>
    *          <ul>
    *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 84GB disk (approximately 34GB free), and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
+   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 94GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 128GB disk (approximately 77GB free), and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
+   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 138GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>G.4X</code> worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk (approximately 235GB free), and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), and Europe (Stockholm).</p>
+   *                <p>For the <code>G.4X</code> worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), and Europe (Stockholm).</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>G.8X</code> worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk (approximately 487GB free), and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions as supported for the <code>G.4X</code> worker type.</p>
+   *                <p>For the <code>G.8X</code> worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions as supported for the <code>G.4X</code> worker type.</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>Z.2X</code> worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk (approximately 120GB free), and provides up to 8 Ray workers based on the autoscaler.</p>
+   *                <p>For the <code>Z.2X</code> worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk, and provides up to 8 Ray workers based on the autoscaler.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4606,6 +4645,7 @@ export interface CreateWorkflowRequest {
 
   /**
    * <p>A collection of properties to be used as part of each execution of the workflow.</p>
+   *          <p>Run properties may be logged. Do not pass plaintext secrets as properties. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to use them within the workflow run.</p>
    * @public
    */
   DefaultRunProperties?: Record<string, string> | undefined;
@@ -7879,34 +7919,6 @@ export interface ExecutionAttempt {
    */
   ErrorMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ScheduleType = {
-  AUTO: "AUTO",
-  CRON: "CRON",
-} as const;
-
-/**
- * @public
- */
-export type ScheduleType = (typeof ScheduleType)[keyof typeof ScheduleType];
-
-/**
- * @public
- * @enum
- */
-export const SettingSource = {
-  CATALOG: "CATALOG",
-  TABLE: "TABLE",
-} as const;
-
-/**
- * @public
- */
-export type SettingSource = (typeof SettingSource)[keyof typeof SettingSource];
 
 /**
  * @internal

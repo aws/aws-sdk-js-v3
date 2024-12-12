@@ -893,6 +893,7 @@ import {
   DatabaseInput,
   DataLakeAccessProperties,
   DataLakePrincipal,
+  DataQualityEncryption,
   DataQualityTargetTable,
   DateColumnStatisticsData,
   DecimalColumnStatisticsData,
@@ -1211,7 +1212,6 @@ import {
   SchemaVersionNumber,
   SecurityConfiguration,
   Segment,
-  SortCriterion,
   Statement,
   StatisticModelResult,
   StatisticSummary,
@@ -1256,6 +1256,7 @@ import {
   SchedulerRunningException,
   SearchTablesRequest,
   SearchTablesResponse,
+  SortCriterion,
   StartBlueprintRunRequest,
   StartColumnStatisticsTaskRunRequest,
   StartColumnStatisticsTaskRunScheduleRequest,
@@ -11178,6 +11179,8 @@ const se_CreateTableRequest = (input: CreateTableRequest, context: __SerdeContex
 
 // se_DatapointInclusionAnnotation omitted.
 
+// se_DataQualityEncryption omitted.
+
 // se_DataQualityEvaluationRunAdditionalRunOptions omitted.
 
 /**
@@ -14023,6 +14026,8 @@ const de_DataQualityAnalyzerResults = (output: any, context: __SerdeContext): Da
     });
   return retVal;
 };
+
+// de_DataQualityEncryption omitted.
 
 // de_DataQualityEvaluationRunAdditionalRunOptions omitted.
 
