@@ -398,7 +398,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-        sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
+        sessionToken: "STS_AR_SESSION_TOKEN_us-stsar-1",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
@@ -805,7 +805,7 @@ describe("credential-provider-node integration test", () => {
   });
 
   describe("Region resolution for code-level providers given to a client", () => {
-    it("fromCognitoIdentity provider should use context client region", async () => {
+    it("fromCognitoIdentity provider should use caller client region", async () => {
       sts = new STS({
         region: "ap-northeast-1",
         credentials: fromCognitoIdentity({
@@ -824,7 +824,7 @@ describe("credential-provider-node integration test", () => {
       });
     });
 
-    it("fromCognitoIdentityPool provider should use context client region", async () => {
+    it("fromCognitoIdentityPool provider should use caller client region", async () => {
       sts = new STS({
         region: "ap-northeast-1",
         credentials: fromCognitoIdentityPool({
@@ -843,7 +843,7 @@ describe("credential-provider-node integration test", () => {
       });
     });
 
-    it("fromIni assumeRole provider should use the context client's region for STS", async () => {
+    it("fromIni assumeRole provider should use the caller client's region for STS", async () => {
       sts = new STS({
         region: "eu-west-1",
         credentials: fromIni(),
@@ -875,7 +875,7 @@ describe("credential-provider-node integration test", () => {
       });
     });
 
-    it("fromWebToken provider should use context client region", async () => {
+    it("fromWebToken provider should use caller client region", async () => {
       sts = new STS({
         region: "ap-northeast-1",
         credentials: fromWebToken({
@@ -899,7 +899,7 @@ describe("credential-provider-node integration test", () => {
 
     it.skip(
       "fromSSO (SSO) provider is excluded from testing because the SSO_REGION is a required parameter and is used " +
-        "instead of any fallback to the context client region",
+        "instead of any fallback to the caller client region",
       async () => {}
     );
 

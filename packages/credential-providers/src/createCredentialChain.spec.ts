@@ -82,11 +82,11 @@ describe(createCredentialChain.name, () => {
   });
 
   it("is compatible with contextual-region-aware credential providers", async () => {
-    const provider: RegionalAwsCredentialIdentityProvider = async ({ contextClientConfig } = {}) => {
+    const provider: RegionalAwsCredentialIdentityProvider = async ({ callerClientConfig } = {}) => {
       return {
         accessKeyId: "",
         secretAccessKey: "",
-        sessionToken: (await contextClientConfig?.region()) ?? "wrong_region",
+        sessionToken: (await callerClientConfig?.region()) ?? "wrong_region",
       };
     };
     const errorProvider = async () => {
@@ -97,7 +97,7 @@ describe(createCredentialChain.name, () => {
 
     expect(
       await chain({
-        contextClientConfig: {
+        callerClientConfig: {
           async region() {
             return "ap-northeast-1";
           },

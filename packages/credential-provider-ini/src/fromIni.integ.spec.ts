@@ -174,7 +174,29 @@ describe("fromIni region search order", () => {
     });
   });
 
-  it("should use 2nd priority for the context client", async () => {
+  it("should use 2nd priority for the profile region", async () => {
+    const sts = new STS({
+      requestHandler: new MockNodeHttpHandler(),
+      region: "ap-northeast-2",
+      credentials: fromIni({
+        clientConfig: {
+          requestHandler: new MockNodeHttpHandler(),
+        },
+      }),
+    });
+
+    await sts.getCallerIdentity({});
+    const credentials = await sts.config.credentials();
+    expect(credentials).toContain({
+      accessKeyId: "STS_AR_ACCESS_KEY_ID",
+      secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+      sessionToken: "STS_AR_SESSION_TOKEN_us-stsar-1",
+    });
+  });
+
+  it("should use 3rd priority for the caller client", async () => {
+    delete iniProfileData.default.region;
+
     const sts = new STS({
       requestHandler: new MockNodeHttpHandler(),
       region: "ap-northeast-2",
@@ -191,28 +213,6 @@ describe("fromIni region search order", () => {
       accessKeyId: "STS_AR_ACCESS_KEY_ID",
       secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
       sessionToken: "STS_AR_SESSION_TOKEN_ap-northeast-2",
-    });
-  });
-
-  it("should use 3rd priority for the profile region if not used in the context of a client with a region", async () => {
-    const credentialsData = await fromIni({
-      clientConfig: {
-        requestHandler: new MockNodeHttpHandler(),
-      },
-    })();
-
-    const sts = new STS({
-      requestHandler: new MockNodeHttpHandler(),
-      region: "ap-northeast-2",
-      credentials: credentialsData,
-    });
-
-    await sts.getCallerIdentity({});
-    const credentials = await sts.config.credentials();
-    expect(credentials).toContain({
-      accessKeyId: "STS_AR_ACCESS_KEY_ID",
-      secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-      sessionToken: "STS_AR_SESSION_TOKEN_us-stsar-1",
     });
   });
 

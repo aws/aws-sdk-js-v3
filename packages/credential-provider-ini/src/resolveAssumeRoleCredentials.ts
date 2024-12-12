@@ -119,10 +119,7 @@ export const resolveAssumeRoleCredentials = async (
         credentialProviderLogger: options.logger,
         parentClientConfig: {
           ...options?.parentClientConfig,
-          // The profile region is the last fallback, and only applies
-          // if the clientConfig.region is not defined by the user
-          // and no contextual outer client configuration region can be found.
-          region: options?.parentClientConfig?.region ?? region,
+          region: region ?? options?.parentClientConfig?.region,
         },
       },
       options.clientPlugins
