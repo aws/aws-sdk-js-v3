@@ -153,6 +153,11 @@ import {
   CreateHoursOfOperationCommandOutput,
 } from "./commands/CreateHoursOfOperationCommand";
 import {
+  CreateHoursOfOperationOverrideCommand,
+  CreateHoursOfOperationOverrideCommandInput,
+  CreateHoursOfOperationOverrideCommandOutput,
+} from "./commands/CreateHoursOfOperationOverrideCommand";
+import {
   CreateInstanceCommand,
   CreateInstanceCommandInput,
   CreateInstanceCommandOutput,
@@ -277,6 +282,11 @@ import {
   DeleteHoursOfOperationCommandOutput,
 } from "./commands/DeleteHoursOfOperationCommand";
 import {
+  DeleteHoursOfOperationOverrideCommand,
+  DeleteHoursOfOperationOverrideCommandInput,
+  DeleteHoursOfOperationOverrideCommandOutput,
+} from "./commands/DeleteHoursOfOperationOverrideCommand";
+import {
   DeleteInstanceCommand,
   DeleteInstanceCommandInput,
   DeleteInstanceCommandOutput,
@@ -395,6 +405,11 @@ import {
   DescribeHoursOfOperationCommandInput,
   DescribeHoursOfOperationCommandOutput,
 } from "./commands/DescribeHoursOfOperationCommand";
+import {
+  DescribeHoursOfOperationOverrideCommand,
+  DescribeHoursOfOperationOverrideCommandInput,
+  DescribeHoursOfOperationOverrideCommandOutput,
+} from "./commands/DescribeHoursOfOperationOverrideCommand";
 import {
   DescribeInstanceAttributeCommand,
   DescribeInstanceAttributeCommandInput,
@@ -571,6 +586,11 @@ import {
   GetCurrentUserDataCommandOutput,
 } from "./commands/GetCurrentUserDataCommand";
 import {
+  GetEffectiveHoursOfOperationsCommand,
+  GetEffectiveHoursOfOperationsCommandInput,
+  GetEffectiveHoursOfOperationsCommandOutput,
+} from "./commands/GetEffectiveHoursOfOperationsCommand";
+import {
   GetFederationTokenCommand,
   GetFederationTokenCommandInput,
   GetFederationTokenCommandOutput,
@@ -681,6 +701,11 @@ import {
   ListFlowAssociationsCommandInput,
   ListFlowAssociationsCommandOutput,
 } from "./commands/ListFlowAssociationsCommand";
+import {
+  ListHoursOfOperationOverridesCommand,
+  ListHoursOfOperationOverridesCommandInput,
+  ListHoursOfOperationOverridesCommandOutput,
+} from "./commands/ListHoursOfOperationOverridesCommand";
 import {
   ListHoursOfOperationsCommand,
   ListHoursOfOperationsCommandInput,
@@ -882,6 +907,11 @@ import {
   SearchEmailAddressesCommandInput,
   SearchEmailAddressesCommandOutput,
 } from "./commands/SearchEmailAddressesCommand";
+import {
+  SearchHoursOfOperationOverridesCommand,
+  SearchHoursOfOperationOverridesCommandInput,
+  SearchHoursOfOperationOverridesCommandOutput,
+} from "./commands/SearchHoursOfOperationOverridesCommand";
 import {
   SearchHoursOfOperationsCommand,
   SearchHoursOfOperationsCommandInput,
@@ -1117,6 +1147,11 @@ import {
   UpdateHoursOfOperationCommandOutput,
 } from "./commands/UpdateHoursOfOperationCommand";
 import {
+  UpdateHoursOfOperationOverrideCommand,
+  UpdateHoursOfOperationOverrideCommandInput,
+  UpdateHoursOfOperationOverrideCommandOutput,
+} from "./commands/UpdateHoursOfOperationOverrideCommand";
+import {
   UpdateInstanceAttributeCommand,
   UpdateInstanceAttributeCommandInput,
   UpdateInstanceAttributeCommandOutput,
@@ -1315,6 +1350,7 @@ const commands = {
   CreateEmailAddressCommand,
   CreateEvaluationFormCommand,
   CreateHoursOfOperationCommand,
+  CreateHoursOfOperationOverrideCommand,
   CreateInstanceCommand,
   CreateIntegrationAssociationCommand,
   CreateParticipantCommand,
@@ -1343,6 +1379,7 @@ const commands = {
   DeleteEmailAddressCommand,
   DeleteEvaluationFormCommand,
   DeleteHoursOfOperationCommand,
+  DeleteHoursOfOperationOverrideCommand,
   DeleteInstanceCommand,
   DeleteIntegrationAssociationCommand,
   DeletePredefinedAttributeCommand,
@@ -1370,6 +1407,7 @@ const commands = {
   DescribeEmailAddressCommand,
   DescribeEvaluationFormCommand,
   DescribeHoursOfOperationCommand,
+  DescribeHoursOfOperationOverrideCommand,
   DescribeInstanceCommand,
   DescribeInstanceAttributeCommand,
   DescribeInstanceStorageConfigCommand,
@@ -1405,6 +1443,7 @@ const commands = {
   GetContactAttributesCommand,
   GetCurrentMetricDataCommand,
   GetCurrentUserDataCommand,
+  GetEffectiveHoursOfOperationsCommand,
   GetFederationTokenCommand,
   GetFlowAssociationCommand,
   GetMetricDataCommand,
@@ -1428,6 +1467,7 @@ const commands = {
   ListEvaluationFormsCommand,
   ListEvaluationFormVersionsCommand,
   ListFlowAssociationsCommand,
+  ListHoursOfOperationOverridesCommand,
   ListHoursOfOperationsCommand,
   ListInstanceAttributesCommand,
   ListInstancesCommand,
@@ -1473,6 +1513,7 @@ const commands = {
   SearchContactFlowsCommand,
   SearchContactsCommand,
   SearchEmailAddressesCommand,
+  SearchHoursOfOperationOverridesCommand,
   SearchHoursOfOperationsCommand,
   SearchPredefinedAttributesCommand,
   SearchPromptsCommand,
@@ -1523,6 +1564,7 @@ const commands = {
   UpdateEmailAddressMetadataCommand,
   UpdateEvaluationFormCommand,
   UpdateHoursOfOperationCommand,
+  UpdateHoursOfOperationOverrideCommand,
   UpdateInstanceAttributeCommand,
   UpdateInstanceStorageConfigCommand,
   UpdateParticipantRoleConfigCommand,
@@ -2047,6 +2089,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link CreateHoursOfOperationOverrideCommand}
+   */
+  createHoursOfOperationOverride(
+    args: CreateHoursOfOperationOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHoursOfOperationOverrideCommandOutput>;
+  createHoursOfOperationOverride(
+    args: CreateHoursOfOperationOverrideCommandInput,
+    cb: (err: any, data?: CreateHoursOfOperationOverrideCommandOutput) => void
+  ): void;
+  createHoursOfOperationOverride(
+    args: CreateHoursOfOperationOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateHoursOfOperationOverrideCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateInstanceCommand}
    */
   createInstance(
@@ -2484,6 +2543,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DeleteHoursOfOperationOverrideCommand}
+   */
+  deleteHoursOfOperationOverride(
+    args: DeleteHoursOfOperationOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHoursOfOperationOverrideCommandOutput>;
+  deleteHoursOfOperationOverride(
+    args: DeleteHoursOfOperationOverrideCommandInput,
+    cb: (err: any, data?: DeleteHoursOfOperationOverrideCommandOutput) => void
+  ): void;
+  deleteHoursOfOperationOverride(
+    args: DeleteHoursOfOperationOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteHoursOfOperationOverrideCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteInstanceCommand}
    */
   deleteInstance(
@@ -2898,6 +2974,23 @@ export interface Connect {
     args: DescribeHoursOfOperationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeHoursOfOperationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeHoursOfOperationOverrideCommand}
+   */
+  describeHoursOfOperationOverride(
+    args: DescribeHoursOfOperationOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeHoursOfOperationOverrideCommandOutput>;
+  describeHoursOfOperationOverride(
+    args: DescribeHoursOfOperationOverrideCommandInput,
+    cb: (err: any, data?: DescribeHoursOfOperationOverrideCommandOutput) => void
+  ): void;
+  describeHoursOfOperationOverride(
+    args: DescribeHoursOfOperationOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeHoursOfOperationOverrideCommandOutput) => void
   ): void;
 
   /**
@@ -3463,6 +3556,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link GetEffectiveHoursOfOperationsCommand}
+   */
+  getEffectiveHoursOfOperations(
+    args: GetEffectiveHoursOfOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEffectiveHoursOfOperationsCommandOutput>;
+  getEffectiveHoursOfOperations(
+    args: GetEffectiveHoursOfOperationsCommandInput,
+    cb: (err: any, data?: GetEffectiveHoursOfOperationsCommandOutput) => void
+  ): void;
+  getEffectiveHoursOfOperations(
+    args: GetEffectiveHoursOfOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEffectiveHoursOfOperationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetFederationTokenCommand}
    */
   getFederationToken(
@@ -3827,6 +3937,23 @@ export interface Connect {
     args: ListFlowAssociationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFlowAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListHoursOfOperationOverridesCommand}
+   */
+  listHoursOfOperationOverrides(
+    args: ListHoursOfOperationOverridesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHoursOfOperationOverridesCommandOutput>;
+  listHoursOfOperationOverrides(
+    args: ListHoursOfOperationOverridesCommandInput,
+    cb: (err: any, data?: ListHoursOfOperationOverridesCommandOutput) => void
+  ): void;
+  listHoursOfOperationOverrides(
+    args: ListHoursOfOperationOverridesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHoursOfOperationOverridesCommandOutput) => void
   ): void;
 
   /**
@@ -4523,6 +4650,23 @@ export interface Connect {
     args: SearchEmailAddressesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchEmailAddressesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchHoursOfOperationOverridesCommand}
+   */
+  searchHoursOfOperationOverrides(
+    args: SearchHoursOfOperationOverridesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchHoursOfOperationOverridesCommandOutput>;
+  searchHoursOfOperationOverrides(
+    args: SearchHoursOfOperationOverridesCommandInput,
+    cb: (err: any, data?: SearchHoursOfOperationOverridesCommandOutput) => void
+  ): void;
+  searchHoursOfOperationOverrides(
+    args: SearchHoursOfOperationOverridesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchHoursOfOperationOverridesCommandOutput) => void
   ): void;
 
   /**
@@ -5316,6 +5460,23 @@ export interface Connect {
     args: UpdateHoursOfOperationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateHoursOfOperationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateHoursOfOperationOverrideCommand}
+   */
+  updateHoursOfOperationOverride(
+    args: UpdateHoursOfOperationOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateHoursOfOperationOverrideCommandOutput>;
+  updateHoursOfOperationOverride(
+    args: UpdateHoursOfOperationOverrideCommandInput,
+    cb: (err: any, data?: UpdateHoursOfOperationOverrideCommandOutput) => void
+  ): void;
+  updateHoursOfOperationOverride(
+    args: UpdateHoursOfOperationOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateHoursOfOperationOverrideCommandOutput) => void
   ): void;
 
   /**

@@ -3977,6 +3977,127 @@ export interface CreateHoursOfOperationResponse {
  * @public
  * @enum
  */
+export const OverrideDays = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
+
+/**
+ * @public
+ */
+export type OverrideDays = (typeof OverrideDays)[keyof typeof OverrideDays];
+
+/**
+ * <p>The start time or end time for an hours of operation override.</p>
+ * @public
+ */
+export interface OverrideTimeSlice {
+  /**
+   * <p>The hours.</p>
+   * @public
+   */
+  Hours: number | undefined;
+
+  /**
+   * <p>The minutes.</p>
+   * @public
+   */
+  Minutes: number | undefined;
+}
+
+/**
+ * <p>Information about the hours of operation override config: day, start time, and end
+ *    time.</p>
+ * @public
+ */
+export interface HoursOfOperationOverrideConfig {
+  /**
+   * <p>The day that the hours of operation override applies to.</p>
+   * @public
+   */
+  Day?: OverrideDays | undefined;
+
+  /**
+   * <p>The start time when your contact center opens if overrides are applied.</p>
+   * @public
+   */
+  StartTime?: OverrideTimeSlice | undefined;
+
+  /**
+   * <p>The end time that your contact center closes if overrides are applied.</p>
+   * @public
+   */
+  EndTime?: OverrideTimeSlice | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateHoursOfOperationOverrideRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The name of the hours of operation override.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the hours of operation override.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Configuration information for the hours of operation override: day, start time, and end
+   *    time.</p>
+   * @public
+   */
+  Config: HoursOfOperationOverrideConfig[] | undefined;
+
+  /**
+   * <p>The date from when the hours of operation override would be effective.</p>
+   * @public
+   */
+  EffectiveFrom: string | undefined;
+
+  /**
+   * <p>The date until when the hours of operation override would be effective.</p>
+   * @public
+   */
+  EffectiveTill: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateHoursOfOperationOverrideResponse {
+  /**
+   * <p>The identifier for the hours of operation override.</p>
+   * @public
+   */
+  HoursOfOperationOverrideId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const DirectoryType = {
   CONNECT_MANAGED: "CONNECT_MANAGED",
   EXISTING_DIRECTORY: "EXISTING_DIRECTORY",
@@ -4560,6 +4681,10 @@ export interface ContactConfiguration {
 
   /**
    * <p>The role of the participant in the chat conversation.</p>
+   *          <note>
+   *             <p>Only <code>CUSTOMER</code> is currently supported. Any other values other than
+   *      <code>CUSTOMER</code> will result in an exception (4xx error).</p>
+   *          </note>
    * @public
    */
   ParticipantRole?: ParticipantRole | undefined;
@@ -6086,14 +6211,16 @@ export interface CreateUseCaseResponse {
 export interface UserIdentityInfo {
   /**
    * <p>The first name. This is required if you are using Amazon Connect or SAML for identity
-   *    management.</p>
+   *    management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a
+   *    non-NFC form (for example, decomposed characters or combining marks) are not accepted.</p>
    * @public
    */
   FirstName?: string | undefined;
 
   /**
    * <p>The last name. This is required if you are using Amazon Connect or SAML for identity
-   *    management.</p>
+   *    management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a
+   *    non-NFC form (for example, decomposed characters or combining marks) are not accepted.</p>
    * @public
    */
   LastName?: string | undefined;
@@ -6962,6 +7089,29 @@ export interface DeleteHoursOfOperationRequest {
 /**
  * @public
  */
+export interface DeleteHoursOfOperationOverrideRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation override.</p>
+   * @public
+   */
+  HoursOfOperationOverrideId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteInstanceRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -7134,85 +7284,6 @@ export interface DeleteSecurityProfileRequest {
    * @public
    */
   SecurityProfileId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTaskTemplateRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the task template.</p>
-   * @public
-   */
-  TaskTemplateId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTaskTemplateResponse {}
-
-/**
- * @public
- */
-export interface DeleteTrafficDistributionGroupRequest {
-  /**
-   * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN of the traffic distribution group.</p>
-   * @public
-   */
-  TrafficDistributionGroupId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTrafficDistributionGroupResponse {}
-
-/**
- * @public
- */
-export interface DeleteUseCaseRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the integration association.</p>
-   * @public
-   */
-  IntegrationAssociationId: string | undefined;
-
-  /**
-   * <p>The identifier for the use case.</p>
-   * @public
-   */
-  UseCaseId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteUserRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the user.</p>
-   * @public
-   */
-  UserId: string | undefined;
 }
 
 /**

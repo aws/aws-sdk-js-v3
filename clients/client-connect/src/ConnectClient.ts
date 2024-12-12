@@ -146,6 +146,10 @@ import {
   CreateHoursOfOperationCommandInput,
   CreateHoursOfOperationCommandOutput,
 } from "./commands/CreateHoursOfOperationCommand";
+import {
+  CreateHoursOfOperationOverrideCommandInput,
+  CreateHoursOfOperationOverrideCommandOutput,
+} from "./commands/CreateHoursOfOperationOverrideCommand";
 import { CreateInstanceCommandInput, CreateInstanceCommandOutput } from "./commands/CreateInstanceCommand";
 import {
   CreateIntegrationAssociationCommandInput,
@@ -213,6 +217,10 @@ import {
   DeleteHoursOfOperationCommandInput,
   DeleteHoursOfOperationCommandOutput,
 } from "./commands/DeleteHoursOfOperationCommand";
+import {
+  DeleteHoursOfOperationOverrideCommandInput,
+  DeleteHoursOfOperationOverrideCommandOutput,
+} from "./commands/DeleteHoursOfOperationOverrideCommand";
 import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "./commands/DeleteInstanceCommand";
 import {
   DeleteIntegrationAssociationCommandInput,
@@ -285,6 +293,10 @@ import {
   DescribeHoursOfOperationCommandInput,
   DescribeHoursOfOperationCommandOutput,
 } from "./commands/DescribeHoursOfOperationCommand";
+import {
+  DescribeHoursOfOperationOverrideCommandInput,
+  DescribeHoursOfOperationOverrideCommandOutput,
+} from "./commands/DescribeHoursOfOperationOverrideCommand";
 import {
   DescribeInstanceAttributeCommandInput,
   DescribeInstanceAttributeCommandOutput,
@@ -386,6 +398,10 @@ import {
   GetCurrentMetricDataCommandOutput,
 } from "./commands/GetCurrentMetricDataCommand";
 import { GetCurrentUserDataCommandInput, GetCurrentUserDataCommandOutput } from "./commands/GetCurrentUserDataCommand";
+import {
+  GetEffectiveHoursOfOperationsCommandInput,
+  GetEffectiveHoursOfOperationsCommandOutput,
+} from "./commands/GetEffectiveHoursOfOperationsCommand";
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "./commands/GetFederationTokenCommand";
 import { GetFlowAssociationCommandInput, GetFlowAssociationCommandOutput } from "./commands/GetFlowAssociationCommand";
 import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand";
@@ -448,6 +464,10 @@ import {
   ListFlowAssociationsCommandInput,
   ListFlowAssociationsCommandOutput,
 } from "./commands/ListFlowAssociationsCommand";
+import {
+  ListHoursOfOperationOverridesCommandInput,
+  ListHoursOfOperationOverridesCommandOutput,
+} from "./commands/ListHoursOfOperationOverridesCommand";
 import {
   ListHoursOfOperationsCommandInput,
   ListHoursOfOperationsCommandOutput,
@@ -562,6 +582,10 @@ import {
   SearchEmailAddressesCommandInput,
   SearchEmailAddressesCommandOutput,
 } from "./commands/SearchEmailAddressesCommand";
+import {
+  SearchHoursOfOperationOverridesCommandInput,
+  SearchHoursOfOperationOverridesCommandOutput,
+} from "./commands/SearchHoursOfOperationOverridesCommand";
 import {
   SearchHoursOfOperationsCommandInput,
   SearchHoursOfOperationsCommandOutput,
@@ -705,6 +729,10 @@ import {
   UpdateHoursOfOperationCommandInput,
   UpdateHoursOfOperationCommandOutput,
 } from "./commands/UpdateHoursOfOperationCommand";
+import {
+  UpdateHoursOfOperationOverrideCommandInput,
+  UpdateHoursOfOperationOverrideCommandOutput,
+} from "./commands/UpdateHoursOfOperationOverrideCommand";
 import {
   UpdateInstanceAttributeCommandInput,
   UpdateInstanceAttributeCommandOutput,
@@ -862,6 +890,7 @@ export type ServiceInputTypes =
   | CreateEmailAddressCommandInput
   | CreateEvaluationFormCommandInput
   | CreateHoursOfOperationCommandInput
+  | CreateHoursOfOperationOverrideCommandInput
   | CreateInstanceCommandInput
   | CreateIntegrationAssociationCommandInput
   | CreateParticipantCommandInput
@@ -890,6 +919,7 @@ export type ServiceInputTypes =
   | DeleteEmailAddressCommandInput
   | DeleteEvaluationFormCommandInput
   | DeleteHoursOfOperationCommandInput
+  | DeleteHoursOfOperationOverrideCommandInput
   | DeleteInstanceCommandInput
   | DeleteIntegrationAssociationCommandInput
   | DeletePredefinedAttributeCommandInput
@@ -917,6 +947,7 @@ export type ServiceInputTypes =
   | DescribeEmailAddressCommandInput
   | DescribeEvaluationFormCommandInput
   | DescribeHoursOfOperationCommandInput
+  | DescribeHoursOfOperationOverrideCommandInput
   | DescribeInstanceAttributeCommandInput
   | DescribeInstanceCommandInput
   | DescribeInstanceStorageConfigCommandInput
@@ -952,6 +983,7 @@ export type ServiceInputTypes =
   | GetContactAttributesCommandInput
   | GetCurrentMetricDataCommandInput
   | GetCurrentUserDataCommandInput
+  | GetEffectiveHoursOfOperationsCommandInput
   | GetFederationTokenCommandInput
   | GetFlowAssociationCommandInput
   | GetMetricDataCommandInput
@@ -975,6 +1007,7 @@ export type ServiceInputTypes =
   | ListEvaluationFormVersionsCommandInput
   | ListEvaluationFormsCommandInput
   | ListFlowAssociationsCommandInput
+  | ListHoursOfOperationOverridesCommandInput
   | ListHoursOfOperationsCommandInput
   | ListInstanceAttributesCommandInput
   | ListInstanceStorageConfigsCommandInput
@@ -1020,6 +1053,7 @@ export type ServiceInputTypes =
   | SearchContactFlowsCommandInput
   | SearchContactsCommandInput
   | SearchEmailAddressesCommandInput
+  | SearchHoursOfOperationOverridesCommandInput
   | SearchHoursOfOperationsCommandInput
   | SearchPredefinedAttributesCommandInput
   | SearchPromptsCommandInput
@@ -1070,6 +1104,7 @@ export type ServiceInputTypes =
   | UpdateEmailAddressMetadataCommandInput
   | UpdateEvaluationFormCommandInput
   | UpdateHoursOfOperationCommandInput
+  | UpdateHoursOfOperationOverrideCommandInput
   | UpdateInstanceAttributeCommandInput
   | UpdateInstanceStorageConfigCommandInput
   | UpdateParticipantRoleConfigCommandInput
@@ -1139,6 +1174,7 @@ export type ServiceOutputTypes =
   | CreateEmailAddressCommandOutput
   | CreateEvaluationFormCommandOutput
   | CreateHoursOfOperationCommandOutput
+  | CreateHoursOfOperationOverrideCommandOutput
   | CreateInstanceCommandOutput
   | CreateIntegrationAssociationCommandOutput
   | CreateParticipantCommandOutput
@@ -1167,6 +1203,7 @@ export type ServiceOutputTypes =
   | DeleteEmailAddressCommandOutput
   | DeleteEvaluationFormCommandOutput
   | DeleteHoursOfOperationCommandOutput
+  | DeleteHoursOfOperationOverrideCommandOutput
   | DeleteInstanceCommandOutput
   | DeleteIntegrationAssociationCommandOutput
   | DeletePredefinedAttributeCommandOutput
@@ -1194,6 +1231,7 @@ export type ServiceOutputTypes =
   | DescribeEmailAddressCommandOutput
   | DescribeEvaluationFormCommandOutput
   | DescribeHoursOfOperationCommandOutput
+  | DescribeHoursOfOperationOverrideCommandOutput
   | DescribeInstanceAttributeCommandOutput
   | DescribeInstanceCommandOutput
   | DescribeInstanceStorageConfigCommandOutput
@@ -1229,6 +1267,7 @@ export type ServiceOutputTypes =
   | GetContactAttributesCommandOutput
   | GetCurrentMetricDataCommandOutput
   | GetCurrentUserDataCommandOutput
+  | GetEffectiveHoursOfOperationsCommandOutput
   | GetFederationTokenCommandOutput
   | GetFlowAssociationCommandOutput
   | GetMetricDataCommandOutput
@@ -1252,6 +1291,7 @@ export type ServiceOutputTypes =
   | ListEvaluationFormVersionsCommandOutput
   | ListEvaluationFormsCommandOutput
   | ListFlowAssociationsCommandOutput
+  | ListHoursOfOperationOverridesCommandOutput
   | ListHoursOfOperationsCommandOutput
   | ListInstanceAttributesCommandOutput
   | ListInstanceStorageConfigsCommandOutput
@@ -1297,6 +1337,7 @@ export type ServiceOutputTypes =
   | SearchContactFlowsCommandOutput
   | SearchContactsCommandOutput
   | SearchEmailAddressesCommandOutput
+  | SearchHoursOfOperationOverridesCommandOutput
   | SearchHoursOfOperationsCommandOutput
   | SearchPredefinedAttributesCommandOutput
   | SearchPromptsCommandOutput
@@ -1347,6 +1388,7 @@ export type ServiceOutputTypes =
   | UpdateEmailAddressMetadataCommandOutput
   | UpdateEvaluationFormCommandOutput
   | UpdateHoursOfOperationCommandOutput
+  | UpdateHoursOfOperationOverrideCommandOutput
   | UpdateInstanceAttributeCommandOutput
   | UpdateInstanceStorageConfigCommandOutput
   | UpdateParticipantRoleConfigCommandOutput

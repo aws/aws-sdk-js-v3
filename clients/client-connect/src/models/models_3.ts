@@ -3,6 +3,7 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   AdditionalEmailRecipients,
+  AgentConfig,
   AgentInfo,
   AgentStatusSearchFilter,
   Campaign,
@@ -11,16 +12,32 @@ import {
   ContactFlowType,
   ContactInitiationMethod,
   Endpoint,
+  EvaluationFormQuestion,
   EvaluationFormScoringStrategy,
   InitiateAs,
   Reference,
   StringCondition,
+  TaskTemplateConstraints,
+  TaskTemplateDefaults,
+  TaskTemplateField,
+  TaskTemplateStatus,
+  UserIdentityInfo,
+  UserIdentityInfoFilterSensitiveLog,
   UserInfo,
+  UserPhoneConfig,
+  UserProficiency,
+  View,
+  ViewFilterSensitiveLog,
+  ViewInputContent,
+  ViewInputContentFilterSensitiveLog,
+  ViewStatus,
 } from "./models_0";
 
 import {
   AnsweringMachineDetectionStatus,
   AttributeCondition,
+  ContactFlowModuleState,
+  ContactFlowModuleStatus,
   ContactFlowState,
   Customer,
   CustomerVoiceActivity,
@@ -32,6 +49,8 @@ import {
   QualityMetrics,
   QueueInfo,
   RoutingCriteriaStepStatus,
+  SignInConfig,
+  TelephonyConfig,
   WisdomInfo,
 } from "./models_1";
 
@@ -39,11 +58,11 @@ import {
   ChatMessage,
   ContactFlowModuleSearchFilter,
   ContactFlowSearchFilter,
+  DateCondition,
   EmailAddressInfo,
   EmailAddressInfoFilterSensitiveLog,
   EmailAddressSearchFilter,
   EmailAttachment,
-  EvaluationFormItem,
   HierarchyGroupCondition,
   HoursOfOperationSearchFilter,
   InboundAdditionalRecipients,
@@ -61,10 +80,524 @@ import {
   RoutingProfileSearchFilter,
   SearchableQueueType,
   SecurityProfilesSearchFilter,
-  SegmentAttributeValue,
   UserHierarchyGroupSearchFilter,
   UserSearchFilter,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface UpdateTaskTemplateResponse {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The identifier of the task template resource.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the task template resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the task template.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the task template.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
+   * @public
+   */
+  ContactFlowId?: string | undefined;
+
+  /**
+   * <p>The ContactFlowId for the flow that will be run if this template is used to create a
+   *    self-assigned task.</p>
+   * @public
+   */
+  SelfAssignFlowId?: string | undefined;
+
+  /**
+   * <p>Constraints that are applicable to the fields listed.</p>
+   * @public
+   */
+  Constraints?: TaskTemplateConstraints | undefined;
+
+  /**
+   * <p>The default values for fields when a task is created by referencing this template.</p>
+   * @public
+   */
+  Defaults?: TaskTemplateDefaults | undefined;
+
+  /**
+   * <p>Fields that are part of the template.</p>
+   * @public
+   */
+  Fields?: TaskTemplateField[] | undefined;
+
+  /**
+   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
+   * Tasks can only be created from <code>ACTIVE</code> templates.
+   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
+   * @public
+   */
+  Status?: TaskTemplateStatus | undefined;
+
+  /**
+   * <p>The timestamp when the task template was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the task template was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTrafficDistributionRequest {
+  /**
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+   * The ARN must be provided if the call is from the replicated Region. </p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The distribution of traffic between the instance and its replica(s).</p>
+   * @public
+   */
+  TelephonyConfig?: TelephonyConfig | undefined;
+
+  /**
+   * <p>The distribution that determines which Amazon Web Services Regions should be used to sign in
+   *    agents in to both the instance and its replica(s).</p>
+   * @public
+   */
+  SignInConfig?: SignInConfig | undefined;
+
+  /**
+   * <p>The distribution of agents between the instance and its replica(s).</p>
+   * @public
+   */
+  AgentConfig?: AgentConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTrafficDistributionResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateUserHierarchyRequest {
+  /**
+   * <p>The identifier of the hierarchy group.</p>
+   * @public
+   */
+  HierarchyGroupId?: string | undefined;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserHierarchyGroupNameRequest {
+  /**
+   * <p>The name of the hierarchy group. Must not be more than 100 characters.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The identifier of the hierarchy group.</p>
+   * @public
+   */
+  HierarchyGroupId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * <p>Contains information about the hierarchy level to update.</p>
+ * @public
+ */
+export interface HierarchyLevelUpdate {
+  /**
+   * <p>The name of the user hierarchy level. Must not be more than 50 characters.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * <p>Contains information about the level hierarchy to update.</p>
+ * @public
+ */
+export interface HierarchyStructureUpdate {
+  /**
+   * <p>The
+   *    update
+   *    for level one.</p>
+   * @public
+   */
+  LevelOne?: HierarchyLevelUpdate | undefined;
+
+  /**
+   * <p>The update for level two.</p>
+   * @public
+   */
+  LevelTwo?: HierarchyLevelUpdate | undefined;
+
+  /**
+   * <p>The update for level three.</p>
+   * @public
+   */
+  LevelThree?: HierarchyLevelUpdate | undefined;
+
+  /**
+   * <p>The update for level four.</p>
+   * @public
+   */
+  LevelFour?: HierarchyLevelUpdate | undefined;
+
+  /**
+   * <p>The update for level five.</p>
+   * @public
+   */
+  LevelFive?: HierarchyLevelUpdate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserHierarchyStructureRequest {
+  /**
+   * <p>The hierarchy levels to update.</p>
+   * @public
+   */
+  HierarchyStructure: HierarchyStructureUpdate | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserIdentityInfoRequest {
+  /**
+   * <p>The identity information for the user.</p>
+   * @public
+   */
+  IdentityInfo: UserIdentityInfo | undefined;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserPhoneConfigRequest {
+  /**
+   * <p>Information about phone configuration settings for the user.</p>
+   * @public
+   */
+  PhoneConfig: UserPhoneConfig | undefined;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserProficienciesRequest {
+  /**
+   * <p> The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The proficiencies to be updated for the user. Proficiencies must first be associated to the
+   *    user. You can do this using AssociateUserProficiencies API.</p>
+   * @public
+   */
+  UserProficiencies: UserProficiency[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserRoutingProfileRequest {
+  /**
+   * <p>The identifier of the routing profile for the user.</p>
+   * @public
+   */
+  RoutingProfileId: string | undefined;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserSecurityProfilesRequest {
+  /**
+   * <p>The identifiers of the security profiles for the user.</p>
+   * @public
+   */
+  SecurityProfileIds: string[] | undefined;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateViewContentRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   *    used.</p>
+   * @public
+   */
+  ViewId: string | undefined;
+
+  /**
+   * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
+   *     <code>PUBLISHED</code> status will initiate validation on the content.</p>
+   * @public
+   */
+  Status: ViewStatus | undefined;
+
+  /**
+   * <p>View content containing all content necessary to render a view except for runtime input data
+   *    and the runtime input schema, which is auto-generated by this operation.</p>
+   *          <p>The total uncompressed content has a maximum file size of 400kB.</p>
+   * @public
+   */
+  Content: ViewInputContent | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateViewContentResponse {
+  /**
+   * <p>A view resource object. Contains metadata and content necessary to render the view.</p>
+   * @public
+   */
+  View?: View | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateViewMetadataRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   *    used.</p>
+   * @public
+   */
+  ViewId: string | undefined;
+
+  /**
+   * <p>The name of the view.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the view.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateViewMetadataResponse {}
+
+/**
+ * <p>A value for a segment attribute. This is structured as a map where the key is
+ *     <code>valueString</code> and the value is a string.</p>
+ * @public
+ */
+export interface SegmentAttributeValue {
+  /**
+   * <p>The value of a segment attribute.</p>
+   * @public
+   */
+  ValueString?: string | undefined;
+
+  /**
+   * <p>The value of a segment attribute.</p>
+   * @public
+   */
+  ValueMap?: Record<string, SegmentAttributeValue> | undefined;
+
+  /**
+   * <p>The value of a segment attribute.</p>
+   * @public
+   */
+  ValueInteger?: number | undefined;
+}
+
+/**
+ * <p>Information about an item from an evaluation form. The item must be either a section or a
+ *    question.</p>
+ * @public
+ */
+export type EvaluationFormItem =
+  | EvaluationFormItem.QuestionMember
+  | EvaluationFormItem.SectionMember
+  | EvaluationFormItem.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationFormItem {
+  /**
+   * <p>The information of the section.</p>
+   * @public
+   */
+  export interface SectionMember {
+    Section: EvaluationFormSection;
+    Question?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The information of the question.</p>
+   * @public
+   */
+  export interface QuestionMember {
+    Section?: never;
+    Question: EvaluationFormQuestion;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Section?: never;
+    Question?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Section: (value: EvaluationFormSection) => T;
+    Question: (value: EvaluationFormQuestion) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EvaluationFormItem, visitor: Visitor<T>): T => {
+    if (value.Section !== undefined) return visitor.Section(value.Section);
+    if (value.Question !== undefined) return visitor.Question(value.Question);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
 
 /**
  * <p>Information about a section from an evaluation form. A section can contain sections and/or
@@ -163,6 +696,18 @@ export interface ContactFlowModuleSearchCriteria {
    * @public
    */
   StringCondition?: StringCondition | undefined;
+
+  /**
+   * <p>The state of the flow.</p>
+   * @public
+   */
+  StateCondition?: ContactFlowModuleState | undefined;
+
+  /**
+   * <p>The status of the flow.</p>
+   * @public
+   */
+  StatusCondition?: ContactFlowModuleStatus | undefined;
 }
 
 /**
@@ -537,6 +1082,36 @@ export interface Expression {
    * @public
    */
   OrExpression?: Expression[] | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return hours of operations overrides.</p>
+ * @public
+ */
+export interface HoursOfOperationOverrideSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: HoursOfOperationOverrideSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: HoursOfOperationOverrideSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a date condition.</p>
+   * @public
+   */
+  DateCondition?: DateCondition | undefined;
 }
 
 /**
@@ -1685,6 +2260,44 @@ export interface SearchEmailAddressesRequest {
 /**
  * @public
  */
+export interface SearchHoursOfOperationOverridesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results. Length Constraints: Minimum length of 1.
+   *    Maximum length of 2500.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. Valid Range: Minimum value of 1. Maximum
+   *    value of 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: HoursOfOperationSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return hours of operations overrides.</p>
+   * @public
+   */
+  SearchCriteria?: HoursOfOperationOverrideSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
 export interface SearchHoursOfOperationsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -2393,6 +3006,38 @@ export interface DescribeContactResponse {
    */
   Contact?: Contact | undefined;
 }
+
+/**
+ * @internal
+ */
+export const UpdateUserIdentityInfoRequestFilterSensitiveLog = (obj: UpdateUserIdentityInfoRequest): any => ({
+  ...obj,
+  ...(obj.IdentityInfo && { IdentityInfo: UserIdentityInfoFilterSensitiveLog(obj.IdentityInfo) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateViewContentRequestFilterSensitiveLog = (obj: UpdateViewContentRequest): any => ({
+  ...obj,
+  ...(obj.Content && { Content: ViewInputContentFilterSensitiveLog(obj.Content) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateViewContentResponseFilterSensitiveLog = (obj: UpdateViewContentResponse): any => ({
+  ...obj,
+  ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateViewMetadataRequestFilterSensitiveLog = (obj: UpdateViewMetadataRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

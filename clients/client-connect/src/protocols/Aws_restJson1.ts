@@ -129,6 +129,10 @@ import {
   CreateHoursOfOperationCommandInput,
   CreateHoursOfOperationCommandOutput,
 } from "../commands/CreateHoursOfOperationCommand";
+import {
+  CreateHoursOfOperationOverrideCommandInput,
+  CreateHoursOfOperationOverrideCommandOutput,
+} from "../commands/CreateHoursOfOperationOverrideCommand";
 import { CreateInstanceCommandInput, CreateInstanceCommandOutput } from "../commands/CreateInstanceCommand";
 import {
   CreateIntegrationAssociationCommandInput,
@@ -196,6 +200,10 @@ import {
   DeleteHoursOfOperationCommandInput,
   DeleteHoursOfOperationCommandOutput,
 } from "../commands/DeleteHoursOfOperationCommand";
+import {
+  DeleteHoursOfOperationOverrideCommandInput,
+  DeleteHoursOfOperationOverrideCommandOutput,
+} from "../commands/DeleteHoursOfOperationOverrideCommand";
 import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "../commands/DeleteInstanceCommand";
 import {
   DeleteIntegrationAssociationCommandInput,
@@ -268,6 +276,10 @@ import {
   DescribeHoursOfOperationCommandInput,
   DescribeHoursOfOperationCommandOutput,
 } from "../commands/DescribeHoursOfOperationCommand";
+import {
+  DescribeHoursOfOperationOverrideCommandInput,
+  DescribeHoursOfOperationOverrideCommandOutput,
+} from "../commands/DescribeHoursOfOperationOverrideCommand";
 import {
   DescribeInstanceAttributeCommandInput,
   DescribeInstanceAttributeCommandOutput,
@@ -369,6 +381,10 @@ import {
   GetCurrentMetricDataCommandOutput,
 } from "../commands/GetCurrentMetricDataCommand";
 import { GetCurrentUserDataCommandInput, GetCurrentUserDataCommandOutput } from "../commands/GetCurrentUserDataCommand";
+import {
+  GetEffectiveHoursOfOperationsCommandInput,
+  GetEffectiveHoursOfOperationsCommandOutput,
+} from "../commands/GetEffectiveHoursOfOperationsCommand";
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "../commands/GetFederationTokenCommand";
 import { GetFlowAssociationCommandInput, GetFlowAssociationCommandOutput } from "../commands/GetFlowAssociationCommand";
 import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "../commands/GetMetricDataCommand";
@@ -431,6 +447,10 @@ import {
   ListFlowAssociationsCommandInput,
   ListFlowAssociationsCommandOutput,
 } from "../commands/ListFlowAssociationsCommand";
+import {
+  ListHoursOfOperationOverridesCommandInput,
+  ListHoursOfOperationOverridesCommandOutput,
+} from "../commands/ListHoursOfOperationOverridesCommand";
 import {
   ListHoursOfOperationsCommandInput,
   ListHoursOfOperationsCommandOutput,
@@ -545,6 +565,10 @@ import {
   SearchEmailAddressesCommandInput,
   SearchEmailAddressesCommandOutput,
 } from "../commands/SearchEmailAddressesCommand";
+import {
+  SearchHoursOfOperationOverridesCommandInput,
+  SearchHoursOfOperationOverridesCommandOutput,
+} from "../commands/SearchHoursOfOperationOverridesCommand";
 import {
   SearchHoursOfOperationsCommandInput,
   SearchHoursOfOperationsCommandOutput,
@@ -688,6 +712,10 @@ import {
   UpdateHoursOfOperationCommandInput,
   UpdateHoursOfOperationCommandOutput,
 } from "../commands/UpdateHoursOfOperationCommand";
+import {
+  UpdateHoursOfOperationOverrideCommandInput,
+  UpdateHoursOfOperationOverrideCommandOutput,
+} from "../commands/UpdateHoursOfOperationOverrideCommand";
 import {
   UpdateInstanceAttributeCommandInput,
   UpdateInstanceAttributeCommandOutput,
@@ -849,6 +877,7 @@ import {
   FieldValue,
   FieldValueUnion,
   HoursOfOperationConfig,
+  HoursOfOperationOverrideConfig,
   HoursOfOperationTimeSlice,
   IdempotencyException,
   InstanceStorageConfig,
@@ -870,6 +899,7 @@ import {
   NumericQuestionPropertyValueAutomation,
   OutboundCallerConfig,
   OutboundEmailConfig,
+  OverrideTimeSlice,
   ParticipantCapabilities,
   ParticipantDetailsToAdd,
   PhoneNumberQuickConnectConfig,
@@ -971,10 +1001,7 @@ import {
   QueueSummary,
   QuickConnect,
   QuickConnectSummary,
-  RealTimeContactAnalysisSegmentAttachments,
-  RealTimeContactAnalysisSegmentEvent,
   RealTimeContactAnalysisSegmentType,
-  RealTimeContactAnalysisTimeData,
   RoutingProfile,
   Rule,
   SecurityProfile,
@@ -1008,6 +1035,7 @@ import {
   ContactSearchSummaryQueueInfo,
   ControlPlaneTagFilter,
   ControlPlaneUserAttributeFilter,
+  DateCondition,
   DestinationNotAllowedException,
   DisconnectReason,
   EmailAddressInfo,
@@ -1015,10 +1043,7 @@ import {
   EmailAttachment,
   EmailHeaderType,
   EvaluationAnswerInput,
-  EvaluationFormItem,
   HierarchyGroupCondition,
-  HierarchyLevelUpdate,
-  HierarchyStructureUpdate,
   HoursOfOperationSearchFilter,
   InboundAdditionalRecipients,
   InboundEmailContent,
@@ -1041,7 +1066,10 @@ import {
   QueueSearchFilter,
   QuickConnectSearchFilter,
   RealtimeContactAnalysisSegment,
+  RealTimeContactAnalysisSegmentAttachments,
+  RealTimeContactAnalysisSegmentEvent,
   RealTimeContactAnalysisSegmentTranscript,
+  RealTimeContactAnalysisTimeData,
   ResourceTagsSearchCriteria,
   RoutingCriteriaInputStepExpiry,
   RoutingProfileSearchFilter,
@@ -1056,7 +1084,6 @@ import {
   SecurityKey,
   SecurityProfilesSearchFilter,
   SecurityProfileSummary,
-  SegmentAttributeValue,
   Sort,
   SourceCampaign,
   TagSearchCondition,
@@ -1080,8 +1107,12 @@ import {
   EmailAddressSearchCriteria,
   EvaluationForm,
   EvaluationFormContent,
+  EvaluationFormItem,
   EvaluationFormSection,
   Expression,
+  HierarchyLevelUpdate,
+  HierarchyStructureUpdate,
+  HoursOfOperationOverrideSearchCriteria,
   HoursOfOperationSearchCriteria,
   PredefinedAttributeSearchCriteria,
   PromptSearchCriteria,
@@ -1092,6 +1123,7 @@ import {
   RoutingCriteriaInputStep,
   RoutingProfileSearchCriteria,
   SecurityProfileSearchCriteria,
+  SegmentAttributeValue,
   Step,
   UserHierarchyGroupSearchCriteria,
   UserSearchCriteria,
@@ -1848,6 +1880,34 @@ export const se_CreateHoursOfOperationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateHoursOfOperationOverrideCommand
+ */
+export const se_CreateHoursOfOperationOverrideCommand = async (
+  input: CreateHoursOfOperationOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("HoursOfOperationId", () => input.HoursOfOperationId!, "{HoursOfOperationId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Config: (_) => _json(_),
+      Description: [],
+      EffectiveFrom: [],
+      EffectiveTill: [],
+      Name: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateInstanceCommand
  */
 export const se_CreateInstanceCommand = async (
@@ -2543,6 +2603,24 @@ export const se_DeleteHoursOfOperationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteHoursOfOperationOverrideCommand
+ */
+export const se_DeleteHoursOfOperationOverrideCommand = async (
+  input: DeleteHoursOfOperationOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides/{HoursOfOperationOverrideId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("HoursOfOperationId", () => input.HoursOfOperationId!, "{HoursOfOperationId}", false);
+  b.p("HoursOfOperationOverrideId", () => input.HoursOfOperationOverrideId!, "{HoursOfOperationOverrideId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteInstanceCommand
  */
 export const se_DeleteInstanceCommand = async (
@@ -3002,6 +3080,24 @@ export const se_DescribeHoursOfOperationCommand = async (
   b.bp("/hours-of-operations/{InstanceId}/{HoursOfOperationId}");
   b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   b.p("HoursOfOperationId", () => input.HoursOfOperationId!, "{HoursOfOperationId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeHoursOfOperationOverrideCommand
+ */
+export const se_DescribeHoursOfOperationOverrideCommand = async (
+  input: DescribeHoursOfOperationOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides/{HoursOfOperationOverrideId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("HoursOfOperationId", () => input.HoursOfOperationId!, "{HoursOfOperationId}", false);
+  b.p("HoursOfOperationOverrideId", () => input.HoursOfOperationOverrideId!, "{HoursOfOperationOverrideId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -3683,6 +3779,27 @@ export const se_GetCurrentUserDataCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetEffectiveHoursOfOperationsCommand
+ */
+export const se_GetEffectiveHoursOfOperationsCommand = async (
+  input: GetEffectiveHoursOfOperationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/effective-hours-of-operations/{InstanceId}/{HoursOfOperationId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("HoursOfOperationId", () => input.HoursOfOperationId!, "{HoursOfOperationId}", false);
+  const query: any = map({
+    [_fD]: [, __expectNonNull(input[_FD]!, `FromDate`)],
+    [_tD]: [, __expectNonNull(input[_TD]!, `ToDate`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetFederationTokenCommand
  */
 export const se_GetFederationTokenCommand = async (
@@ -4161,6 +4278,27 @@ export const se_ListFlowAssociationsCommand = async (
   b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
     [_RT]: [, input[_RT]!],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListHoursOfOperationOverridesCommand
+ */
+export const se_ListHoursOfOperationOverridesCommand = async (
+  input: ListHoursOfOperationOverridesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("HoursOfOperationId", () => input.HoursOfOperationId!, "{HoursOfOperationId}", false);
+  const query: any = map({
     [_nT]: [, input[_NT]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
@@ -5157,6 +5295,32 @@ export const se_SearchEmailAddressesCommand = async (
       MaxResults: [],
       NextToken: [],
       SearchCriteria: (_) => se_EmailAddressSearchCriteria(_, context),
+      SearchFilter: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SearchHoursOfOperationOverridesCommand
+ */
+export const se_SearchHoursOfOperationOverridesCommand = async (
+  input: SearchHoursOfOperationOverridesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/search-hours-of-operation-overrides");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => se_HoursOfOperationOverrideSearchCriteria(_, context),
       SearchFilter: (_) => _json(_),
     })
   );
@@ -6487,6 +6651,35 @@ export const se_UpdateHoursOfOperationCommand = async (
       Description: [],
       Name: [],
       TimeZone: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateHoursOfOperationOverrideCommand
+ */
+export const se_UpdateHoursOfOperationOverrideCommand = async (
+  input: UpdateHoursOfOperationOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides/{HoursOfOperationOverrideId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("HoursOfOperationId", () => input.HoursOfOperationId!, "{HoursOfOperationId}", false);
+  b.p("HoursOfOperationOverrideId", () => input.HoursOfOperationOverrideId!, "{HoursOfOperationOverrideId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Config: (_) => _json(_),
+      Description: [],
+      EffectiveFrom: [],
+      EffectiveTill: [],
+      Name: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -7938,6 +8131,27 @@ export const de_CreateHoursOfOperationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateHoursOfOperationOverrideCommand
+ */
+export const de_CreateHoursOfOperationOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHoursOfOperationOverrideCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    HoursOfOperationOverrideId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateInstanceCommand
  */
 export const de_CreateInstanceCommand = async (
@@ -8512,6 +8726,23 @@ export const de_DeleteHoursOfOperationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteHoursOfOperationOverrideCommand
+ */
+export const de_DeleteHoursOfOperationOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHoursOfOperationOverrideCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteInstanceCommand
  */
 export const de_DeleteInstanceCommand = async (
@@ -9015,6 +9246,27 @@ export const de_DescribeHoursOfOperationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     HoursOfOperation: (_) => de_HoursOfOperation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeHoursOfOperationOverrideCommand
+ */
+export const de_DescribeHoursOfOperationOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHoursOfOperationOverrideCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    HoursOfOperationOverride: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -9716,6 +9968,28 @@ export const de_GetCurrentUserDataCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetEffectiveHoursOfOperationsCommand
+ */
+export const de_GetEffectiveHoursOfOperationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEffectiveHoursOfOperationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EffectiveHoursOfOperationList: _json,
+    TimeZone: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetFederationTokenCommand
  */
 export const de_GetFederationTokenCommand = async (
@@ -10234,6 +10508,30 @@ export const de_ListFlowAssociationsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     FlowAssociationSummaryList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListHoursOfOperationOverridesCommand
+ */
+export const de_ListHoursOfOperationOverridesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHoursOfOperationOverridesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    HoursOfOperationOverrideList: _json,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -11215,6 +11513,29 @@ export const de_SearchEmailAddressesCommand = async (
   const doc = take(data, {
     ApproximateTotalCount: __expectLong,
     EmailAddresses: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchHoursOfOperationOverridesCommand
+ */
+export const de_SearchHoursOfOperationOverridesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchHoursOfOperationOverridesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApproximateTotalCount: __expectLong,
+    HoursOfOperationOverrides: _json,
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -12208,6 +12529,23 @@ export const de_UpdateHoursOfOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateHoursOfOperationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateHoursOfOperationOverrideCommand
+ */
+export const de_UpdateHoursOfOperationOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHoursOfOperationOverrideCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -13568,6 +13906,8 @@ const se_ContactFlowModuleSearchCriteria = (input: ContactFlowModuleSearchCriter
   return take(input, {
     AndConditions: (_) => se_ContactFlowModuleSearchConditionList(_, context),
     OrConditions: (_) => se_ContactFlowModuleSearchConditionList(_, context),
+    StateCondition: [],
+    StatusCondition: [],
     StringCondition: _json,
   });
 };
@@ -13636,6 +13976,8 @@ const se_CreateCaseActionDefinition = (input: CreateCaseActionDefinition, contex
 // se_CurrentMetricSortCriteriaMaxOne omitted.
 
 // se_DataSetIds omitted.
+
+// se_DateCondition omitted.
 
 // se_DisconnectReason omitted.
 
@@ -13905,6 +14247,39 @@ const se_HistoricalMetrics = (input: HistoricalMetric[], context: __SerdeContext
 
 // se_HoursOfOperationConfigList omitted.
 
+// se_HoursOfOperationOverrideConfig omitted.
+
+// se_HoursOfOperationOverrideConfigList omitted.
+
+/**
+ * serializeAws_restJson1HoursOfOperationOverrideSearchConditionList
+ */
+const se_HoursOfOperationOverrideSearchConditionList = (
+  input: HoursOfOperationOverrideSearchCriteria[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_HoursOfOperationOverrideSearchCriteria(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1HoursOfOperationOverrideSearchCriteria
+ */
+const se_HoursOfOperationOverrideSearchCriteria = (
+  input: HoursOfOperationOverrideSearchCriteria,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    AndConditions: (_) => se_HoursOfOperationOverrideSearchConditionList(_, context),
+    DateCondition: _json,
+    OrConditions: (_) => se_HoursOfOperationOverrideSearchConditionList(_, context),
+    StringCondition: _json,
+  });
+};
+
 /**
  * serializeAws_restJson1HoursOfOperationSearchConditionList
  */
@@ -14015,6 +14390,8 @@ const se_MetricV2 = (input: MetricV2, context: __SerdeContext): any => {
 // se_OutboundEmailContent omitted.
 
 // se_OutboundRawMessage omitted.
+
+// se_OverrideTimeSlice omitted.
 
 // se_ParticipantCapabilities omitted.
 
@@ -15121,6 +15498,10 @@ const de_CustomerVoiceActivity = (output: any, context: __SerdeContext): Custome
 
 // de_DownloadUrlMetadata omitted.
 
+// de_EffectiveHoursOfOperationList omitted.
+
+// de_EffectiveHoursOfOperations omitted.
+
 // de_EmailAddressList omitted.
 
 // de_EmailAddressMetadata omitted.
@@ -15708,6 +16089,14 @@ const de_HoursOfOperationList = (output: any, context: __SerdeContext): HoursOfO
   return retVal;
 };
 
+// de_HoursOfOperationOverride omitted.
+
+// de_HoursOfOperationOverrideConfig omitted.
+
+// de_HoursOfOperationOverrideConfigList omitted.
+
+// de_HoursOfOperationOverrideList omitted.
+
 /**
  * deserializeAws_restJson1HoursOfOperationSummary
  */
@@ -15914,11 +16303,17 @@ const de_MetricV2 = (output: any, context: __SerdeContext): MetricV2 => {
 
 // de_NumericQuestionPropertyValueAutomation omitted.
 
+// de_OperationalHour omitted.
+
+// de_OperationalHours omitted.
+
 // de_OriginsList omitted.
 
 // de_OutboundCallerConfig omitted.
 
 // de_OutboundEmailConfig omitted.
+
+// de_OverrideTimeSlice omitted.
 
 // de_ParticipantCapabilities omitted.
 
@@ -17012,6 +17407,7 @@ const _DSI = "DataSetId";
 const _EFV = "EvaluationFormVersion";
 const _ESN = "EventSourceName";
 const _FA = "FunctionArn";
+const _FD = "FromDate";
 const _IA = "IntegrationArn";
 const _II = "InstanceId";
 const _IT = "IntegrationType";
@@ -17031,6 +17427,7 @@ const _RTe = "ReferenceTypes";
 const _S = "Status";
 const _SV = "SnapshotVersion";
 const _T = "Type";
+const _TD = "ToDate";
 const _TK = "TagKeys";
 const _UEIS = "UrlExpiryInSeconds";
 const _UI = "UserId";
@@ -17041,6 +17438,7 @@ const _cI = "contactId";
 const _cT = "clientToken";
 const _eSN = "eventSourceName";
 const _fA = "functionArn";
+const _fD = "fromDate";
 const _iA = "integrationArn";
 const _iI = "instanceId";
 const _iT = "integrationType";
@@ -17060,6 +17458,7 @@ const _s = "state";
 const _sV = "snapshotVersion";
 const _st = "status";
 const _t = "type";
+const _tD = "toDate";
 const _tK = "tagKeys";
 const _uEIS = "urlExpiryInSeconds";
 const _v = "version";

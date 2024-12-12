@@ -30,6 +30,7 @@ import {
   FlowAssociationResourceType,
   FlowAssociationSummary,
   HoursOfOperationConfig,
+  HoursOfOperationOverrideConfig,
   InstanceStorageConfig,
   InstanceStorageResourceType,
   IntegrationType,
@@ -39,8 +40,8 @@ import {
   MediaConcurrency,
   OutboundCallerConfig,
   OutboundEmailConfig,
+  OverrideTimeSlice,
   ParticipantCapabilities,
-  ParticipantRole,
   PredefinedAttributeValues,
   QueueReference,
   QuickConnectConfig,
@@ -64,6 +65,85 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DeleteTaskTemplateRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the task template.</p>
+   * @public
+   */
+  TaskTemplateId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTaskTemplateResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteTrafficDistributionGroupRequest {
+  /**
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN of the traffic distribution group.</p>
+   * @public
+   */
+  TrafficDistributionGroupId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTrafficDistributionGroupResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteUseCaseRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the integration association.</p>
+   * @public
+   */
+  IntegrationAssociationId: string | undefined;
+
+  /**
+   * <p>The identifier for the use case.</p>
+   * @public
+   */
+  UseCaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteUserRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the user.</p>
+   * @public
+   */
+  UserId: string | undefined;
+}
 
 /**
  * @public
@@ -1314,6 +1394,95 @@ export interface DescribeHoursOfOperationResponse {
    * @public
    */
   HoursOfOperation?: HoursOfOperation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeHoursOfOperationOverrideRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation override.</p>
+   * @public
+   */
+  HoursOfOperationOverrideId: string | undefined;
+}
+
+/**
+ * <p>Information about the hours of operations override.</p>
+ * @public
+ */
+export interface HoursOfOperationOverride {
+  /**
+   * <p>The identifier for the hours of operation override.</p>
+   * @public
+   */
+  HoursOfOperationOverrideId?: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationArn?: string | undefined;
+
+  /**
+   * <p>The name of the hours of operation override.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the hours of operation override.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Configuration information for the hours of operation override: day, start time, and end
+   *    time.</p>
+   * @public
+   */
+  Config?: HoursOfOperationOverrideConfig[] | undefined;
+
+  /**
+   * <p>The date from which the hours of operation override would be effective.</p>
+   * @public
+   */
+  EffectiveFrom?: string | undefined;
+
+  /**
+   * <p>The date till which the hours of operation override would be effective.</p>
+   * @public
+   */
+  EffectiveTill?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeHoursOfOperationOverrideResponse {
+  /**
+   * <p>Information about the hours of operations override. </p>
+   * @public
+   */
+  HoursOfOperationOverride?: HoursOfOperationOverride | undefined;
 }
 
 /**
@@ -4605,6 +4774,88 @@ export interface GetCurrentUserDataResponse {
    * @public
    */
   ApproximateTotalCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEffectiveHoursOfOperationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The Date from when the hours of operation are listed.</p>
+   * @public
+   */
+  FromDate: string | undefined;
+
+  /**
+   * <p>The Date until when the hours of operation are listed.</p>
+   * @public
+   */
+  ToDate: string | undefined;
+}
+
+/**
+ * <p>Information about the hours of operations with the effective override applied.</p>
+ * @public
+ */
+export interface OperationalHour {
+  /**
+   * <p>The start time that your contact center opens.</p>
+   * @public
+   */
+  Start?: OverrideTimeSlice | undefined;
+
+  /**
+   * <p>The end time that your contact center closes.</p>
+   * @public
+   */
+  End?: OverrideTimeSlice | undefined;
+}
+
+/**
+ * <p>Information about the hours of operations with the effective override applied.</p>
+ * @public
+ */
+export interface EffectiveHoursOfOperations {
+  /**
+   * <p>The date that the hours of operation or overrides applies to.</p>
+   * @public
+   */
+  Date?: string | undefined;
+
+  /**
+   * <p>Information about the hours of operations with the effective override applied.</p>
+   * @public
+   */
+  OperationalHours?: OperationalHour[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEffectiveHoursOfOperationsResponse {
+  /**
+   * <p>Information about the effective hours of operations</p>
+   * @public
+   */
+  EffectiveHoursOfOperationList?: EffectiveHoursOfOperations[] | undefined;
+
+  /**
+   * <p>The time zone for the hours of operation.</p>
+   * @public
+   */
+  TimeZone?: string | undefined;
 }
 
 /**
@@ -8410,6 +8661,67 @@ export interface ListFlowAssociationsResponse {
 /**
  * @public
  */
+export interface ListHoursOfOperationOverridesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100. Valid
+   *    Range: Minimum value of 1. Maximum value of 1000.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHoursOfOperationOverridesResponse {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the hours of operation override.</p>
+   * @public
+   */
+  HoursOfOperationOverrideList?: HoursOfOperationOverride[] | undefined;
+
+  /**
+   * <p>The AWS Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListHoursOfOperationsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -9526,368 +9838,6 @@ export const RealTimeContactAnalysisSegmentType = {
  */
 export type RealTimeContactAnalysisSegmentType =
   (typeof RealTimeContactAnalysisSegmentType)[keyof typeof RealTimeContactAnalysisSegmentType];
-
-/**
- * @public
- */
-export interface ListRealtimeContactAnalysisSegmentsV2Request {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Contact Lens output type to be returned.</p>
-   * @public
-   */
-  OutputType: RealTimeContactAnalysisOutputType | undefined;
-
-  /**
-   * <p>Enum with segment types . Each value corresponds to a segment type returned in the segments
-   *    list of the API. Each segment type has its own structure. Different channels may have different
-   *    sets of supported segment types.</p>
-   * @public
-   */
-  SegmentTypes: RealTimeContactAnalysisSegmentType[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const RealTimeContactAnalysisSupportedChannel = {
-  CHAT: "CHAT",
-  VOICE: "VOICE",
-} as const;
-
-/**
- * @public
- */
-export type RealTimeContactAnalysisSupportedChannel =
-  (typeof RealTimeContactAnalysisSupportedChannel)[keyof typeof RealTimeContactAnalysisSupportedChannel];
-
-/**
- * @public
- * @enum
- */
-export const ArtifactStatus = {
-  APPROVED: "APPROVED",
-  IN_PROGRESS: "IN_PROGRESS",
-  REJECTED: "REJECTED",
-} as const;
-
-/**
- * @public
- */
-export type ArtifactStatus = (typeof ArtifactStatus)[keyof typeof ArtifactStatus];
-
-/**
- * <p>Object that describes attached file. </p>
- * @public
- */
-export interface RealTimeContactAnalysisAttachment {
-  /**
-   * <p>A case-sensitive name of the attachment being uploaded. Can be redacted.</p>
-   * @public
-   */
-  AttachmentName: string | undefined;
-
-  /**
-   * <p>Describes the MIME file type of the attachment. For a list of supported file types, see
-   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html">Feature
-   *     specifications</a> in the <i>Amazon Connect Administrator
-   *    Guide</i>.</p>
-   * @public
-   */
-  ContentType?: string | undefined;
-
-  /**
-   * <p>A unique identifier for the attachment.</p>
-   * @public
-   */
-  AttachmentId: string | undefined;
-
-  /**
-   * <p>Status of the attachment.</p>
-   * @public
-   */
-  Status?: ArtifactStatus | undefined;
-}
-
-/**
- * <p>Object describing time with which the segment is associated. It can have different
- *    representations of time. Currently supported: absoluteTime</p>
- * @public
- */
-export type RealTimeContactAnalysisTimeData =
-  | RealTimeContactAnalysisTimeData.AbsoluteTimeMember
-  | RealTimeContactAnalysisTimeData.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RealTimeContactAnalysisTimeData {
-  /**
-   * <p>Time represented in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
-   *    2019-11-08T02:41:28.172Z.</p>
-   * @public
-   */
-  export interface AbsoluteTimeMember {
-    AbsoluteTime: Date;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    AbsoluteTime?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    AbsoluteTime: (value: Date) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: RealTimeContactAnalysisTimeData, visitor: Visitor<T>): T => {
-    if (value.AbsoluteTime !== undefined) return visitor.AbsoluteTime(value.AbsoluteTime);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>Segment containing list of attachments.</p>
- * @public
- */
-export interface RealTimeContactAnalysisSegmentAttachments {
-  /**
-   * <p>The identifier of the segment.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The identifier of the participant.</p>
-   * @public
-   */
-  ParticipantId: string | undefined;
-
-  /**
-   * <p>The role of the participant. For example, is it a customer, agent, or system.</p>
-   * @public
-   */
-  ParticipantRole: ParticipantRole | undefined;
-
-  /**
-   * <p>The display name of the participant. Can be redacted. </p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>List of objects describing an individual attachment.</p>
-   * @public
-   */
-  Attachments: RealTimeContactAnalysisAttachment[] | undefined;
-
-  /**
-   * <p>Field describing the time of the event. It can have different representations of time.</p>
-   * @public
-   */
-  Time: RealTimeContactAnalysisTimeData | undefined;
-}
-
-/**
- * <p>Begin and end offsets for a part of text.</p>
- * @public
- */
-export interface RealTimeContactAnalysisCharacterInterval {
-  /**
-   * <p>The beginning of the character interval.</p>
-   * @public
-   */
-  BeginOffsetChar: number | undefined;
-
-  /**
-   * <p>The end of the character interval.</p>
-   * @public
-   */
-  EndOffsetChar: number | undefined;
-}
-
-/**
- * <p>Transcript representation containing Id and list of character intervals that are associated
- *    with analysis data. For example, this object within a
- *     <code>RealTimeContactAnalysisPointOfInterest</code> in <code>Category.MatchedDetails</code>
- *    would have character interval describing part of the text that matched category.</p>
- * @public
- */
-export interface RealTimeContactAnalysisTranscriptItemWithCharacterOffsets {
-  /**
-   * <p>Transcript identifier. Matches the identifier from one of the TranscriptSegments.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>List of character intervals within transcript content/text.</p>
-   * @public
-   */
-  CharacterOffsets?: RealTimeContactAnalysisCharacterInterval | undefined;
-}
-
-/**
- * <p>The section of the contact transcript segment that category rule was detected.</p>
- * @public
- */
-export interface RealTimeContactAnalysisPointOfInterest {
-  /**
-   * <p>List of the transcript items (segments) that are associated with a given point of interest.
-   *   </p>
-   * @public
-   */
-  TranscriptItems?: RealTimeContactAnalysisTranscriptItemWithCharacterOffsets[] | undefined;
-}
-
-/**
- * <p>Provides information about the category rule that was matched.</p>
- * @public
- */
-export interface RealTimeContactAnalysisCategoryDetails {
-  /**
-   * <p>List of PointOfInterest - objects describing a single match of a rule.</p>
-   * @public
-   */
-  PointsOfInterest: RealTimeContactAnalysisPointOfInterest[] | undefined;
-}
-
-/**
- * <p>The matched category rules.</p>
- * @public
- */
-export interface RealTimeContactAnalysisSegmentCategories {
-  /**
-   * <p>Map between the name of the matched rule and RealTimeContactAnalysisCategoryDetails.</p>
-   * @public
-   */
-  MatchedDetails: Record<string, RealTimeContactAnalysisCategoryDetails> | undefined;
-}
-
-/**
- * <p>Segment type describing a contact event.</p>
- * @public
- */
-export interface RealTimeContactAnalysisSegmentEvent {
-  /**
-   * <p>The identifier of the contact event.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The identifier of the participant.</p>
-   * @public
-   */
-  ParticipantId?: string | undefined;
-
-  /**
-   * <p>The role of the participant. For example, is it a customer, agent, or system.</p>
-   * @public
-   */
-  ParticipantRole?: ParticipantRole | undefined;
-
-  /**
-   * <p>The display name of the participant. Can be redacted.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>Type of the event. For example,
-   *     <code>application/vnd.amazonaws.connect.event.participant.left</code>.</p>
-   * @public
-   */
-  EventType: string | undefined;
-
-  /**
-   * <p>Field describing the time of the event. It can have different representations of time.</p>
-   * @public
-   */
-  Time: RealTimeContactAnalysisTimeData | undefined;
-}
-
-/**
- * <p>Transcript representation containing Id, Content and list of character intervals that are
- *    associated with analysis data. For example, this object within an issue detected would describe
- *    both content that contains identified issue and intervals where that content is taken
- *    from.</p>
- * @public
- */
-export interface RealTimeContactAnalysisTranscriptItemWithContent {
-  /**
-   * <p>Part of the transcript content that contains identified issue. Can be redacted</p>
-   * @public
-   */
-  Content?: string | undefined;
-
-  /**
-   * <p>Transcript identifier. Matches the identifier from one of the TranscriptSegments.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>Begin and end offsets for a part of text.</p>
-   * @public
-   */
-  CharacterOffsets?: RealTimeContactAnalysisCharacterInterval | undefined;
-}
-
-/**
- * <p>Potential issues that are detected based on an artificial intelligence analysis of each turn
- *    in the conversation.</p>
- * @public
- */
-export interface RealTimeContactAnalysisIssueDetected {
-  /**
-   * <p>List of the transcript items (segments) that are associated with a given issue.</p>
-   * @public
-   */
-  TranscriptItems: RealTimeContactAnalysisTranscriptItemWithContent[] | undefined;
-}
-
-/**
- * <p>Segment type containing a list of detected issues.</p>
- * @public
- */
-export interface RealTimeContactAnalysisSegmentIssues {
-  /**
-   * <p>List of the issues detected.</p>
-   * @public
-   */
-  IssuesDetected: RealTimeContactAnalysisIssueDetected[] | undefined;
-}
 
 /**
  * @internal

@@ -11,7 +11,7 @@ import {
   UpdateViewContentRequestFilterSensitiveLog,
   UpdateViewContentResponse,
   UpdateViewContentResponseFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import { de_UpdateViewContentCommand, se_UpdateViewContentCommand } from "../protocols/Aws_restJson1";
 
 /**

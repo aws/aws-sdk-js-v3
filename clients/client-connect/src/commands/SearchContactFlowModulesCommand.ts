@@ -73,6 +73,8 @@ export interface SearchContactFlowModulesCommandOutput extends SearchContactFlow
  *           Value: "STRING_VALUE",
  *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
  *         },
+ *         StateCondition: "ACTIVE" || "ARCHIVED",
+ *         StatusCondition: "PUBLISHED" || "SAVED",
  *       },
  *     ],
  *     AndConditions: [
@@ -83,6 +85,8 @@ export interface SearchContactFlowModulesCommandOutput extends SearchContactFlow
  *       Value: "STRING_VALUE",
  *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
  *     },
+ *     StateCondition: "ACTIVE" || "ARCHIVED",
+ *     StatusCondition: "PUBLISHED" || "SAVED",
  *   },
  * };
  * const command = new SearchContactFlowModulesCommand(input);

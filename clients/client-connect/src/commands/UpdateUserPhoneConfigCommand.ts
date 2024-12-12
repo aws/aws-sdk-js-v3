@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateUserPhoneConfigRequest } from "../models/models_2";
+import { UpdateUserPhoneConfigRequest } from "../models/models_3";
 import { de_UpdateUserPhoneConfigCommand, se_UpdateUserPhoneConfigCommand } from "../protocols/Aws_restJson1";
 
 /**

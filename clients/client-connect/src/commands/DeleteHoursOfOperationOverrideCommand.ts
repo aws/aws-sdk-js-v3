@@ -6,8 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateUserHierarchyRequest } from "../models/models_3";
-import { de_UpdateUserHierarchyCommand, se_UpdateUserHierarchyCommand } from "../protocols/Aws_restJson1";
+import { DeleteHoursOfOperationOverrideRequest } from "../models/models_0";
+import {
+  de_DeleteHoursOfOperationOverrideCommand,
+  se_DeleteHoursOfOperationOverrideCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,39 +20,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateUserHierarchyCommand}.
+ * The input for {@link DeleteHoursOfOperationOverrideCommand}.
  */
-export interface UpdateUserHierarchyCommandInput extends UpdateUserHierarchyRequest {}
+export interface DeleteHoursOfOperationOverrideCommandInput extends DeleteHoursOfOperationOverrideRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateUserHierarchyCommand}.
+ * The output of {@link DeleteHoursOfOperationOverrideCommand}.
  */
-export interface UpdateUserHierarchyCommandOutput extends __MetadataBearer {}
+export interface DeleteHoursOfOperationOverrideCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Assigns the specified hierarchy group to the specified user.</p>
+ * <p>Deletes an hours of operation override in an Amazon Connect hours of operation
+ *    resource</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateUserHierarchyCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateUserHierarchyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DeleteHoursOfOperationOverrideCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DeleteHoursOfOperationOverrideCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // UpdateUserHierarchyRequest
- *   HierarchyGroupId: "STRING_VALUE",
- *   UserId: "STRING_VALUE", // required
+ * const input = { // DeleteHoursOfOperationOverrideRequest
  *   InstanceId: "STRING_VALUE", // required
+ *   HoursOfOperationId: "STRING_VALUE", // required
+ *   HoursOfOperationOverrideId: "STRING_VALUE", // required
  * };
- * const command = new UpdateUserHierarchyCommand(input);
+ * const command = new DeleteHoursOfOperationOverrideCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param UpdateUserHierarchyCommandInput - {@link UpdateUserHierarchyCommandInput}
- * @returns {@link UpdateUserHierarchyCommandOutput}
- * @see {@link UpdateUserHierarchyCommandInput} for command's `input` shape.
- * @see {@link UpdateUserHierarchyCommandOutput} for command's `response` shape.
+ * @param DeleteHoursOfOperationOverrideCommandInput - {@link DeleteHoursOfOperationOverrideCommandInput}
+ * @returns {@link DeleteHoursOfOperationOverrideCommandOutput}
+ * @see {@link DeleteHoursOfOperationOverrideCommandInput} for command's `input` shape.
+ * @see {@link DeleteHoursOfOperationOverrideCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
@@ -72,10 +76,10 @@ export interface UpdateUserHierarchyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateUserHierarchyCommand extends $Command
+export class DeleteHoursOfOperationOverrideCommand extends $Command
   .classBuilder<
-    UpdateUserHierarchyCommandInput,
-    UpdateUserHierarchyCommandOutput,
+    DeleteHoursOfOperationOverrideCommandInput,
+    DeleteHoursOfOperationOverrideCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -87,21 +91,21 @@ export class UpdateUserHierarchyCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectService", "UpdateUserHierarchy", {})
-  .n("ConnectClient", "UpdateUserHierarchyCommand")
+  .s("AmazonConnectService", "DeleteHoursOfOperationOverride", {})
+  .n("ConnectClient", "DeleteHoursOfOperationOverrideCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateUserHierarchyCommand)
-  .de(de_UpdateUserHierarchyCommand)
+  .ser(se_DeleteHoursOfOperationOverrideCommand)
+  .de(de_DeleteHoursOfOperationOverrideCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateUserHierarchyRequest;
+      input: DeleteHoursOfOperationOverrideRequest;
       output: {};
     };
     sdk: {
-      input: UpdateUserHierarchyCommandInput;
-      output: UpdateUserHierarchyCommandOutput;
+      input: DeleteHoursOfOperationOverrideCommandInput;
+      output: DeleteHoursOfOperationOverrideCommandOutput;
     };
   };
 }

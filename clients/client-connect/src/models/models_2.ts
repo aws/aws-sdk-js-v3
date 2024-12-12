@@ -6,7 +6,6 @@ import { ConnectServiceException as __BaseException } from "./ConnectServiceExce
 import {
   ActionSummary,
   AgentAvailabilityTimer,
-  AgentConfig,
   AgentHierarchyGroups,
   AgentStatus,
   AgentStatusState,
@@ -16,11 +15,11 @@ import {
   ContactInitiationMethod,
   ControlPlaneAttributeFilter,
   CreatedByInfo,
-  EvaluationFormQuestion,
   EventSourceName,
   FileStatusType,
   FileUseCaseType,
   HoursOfOperationConfig,
+  HoursOfOperationOverrideConfig,
   InstanceStorageConfig,
   InstanceStorageResourceType,
   MediaConcurrency,
@@ -43,14 +42,8 @@ import {
   TaskTemplateField,
   TaskTemplateStatus,
   UseCaseType,
-  UserIdentityInfo,
-  UserIdentityInfoFilterSensitiveLog,
   UserPhoneConfig,
   UserProficiency,
-  View,
-  ViewFilterSensitiveLog,
-  ViewInputContent,
-  ViewInputContentFilterSensitiveLog,
   ViewStatus,
   ViewType,
   VocabularyLanguageCode,
@@ -67,6 +60,7 @@ import {
   HierarchyGroup,
   HierarchyGroupSummary,
   HoursOfOperation,
+  HoursOfOperationOverride,
   InstanceAttributeType,
   PhoneNumberCountryCode,
   PhoneNumberType,
@@ -75,21 +69,374 @@ import {
   Queue,
   QueueStatus,
   QuickConnect,
-  RealTimeContactAnalysisCharacterInterval,
-  RealTimeContactAnalysisSegmentAttachments,
-  RealTimeContactAnalysisSegmentCategories,
-  RealTimeContactAnalysisSegmentEvent,
-  RealTimeContactAnalysisSegmentIssues,
-  RealTimeContactAnalysisSupportedChannel,
-  RealTimeContactAnalysisTimeData,
+  RealTimeContactAnalysisOutputType,
+  RealTimeContactAnalysisSegmentType,
   RoutingProfile,
-  SignInConfig,
   SortOrder,
-  TelephonyConfig,
   TrafficDistributionGroupStatus,
 } from "./models_1";
 
-import { EvaluationFormSection } from "./models_3";
+/**
+ * @public
+ */
+export interface ListRealtimeContactAnalysisSegmentsV2Request {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Contact Lens output type to be returned.</p>
+   * @public
+   */
+  OutputType: RealTimeContactAnalysisOutputType | undefined;
+
+  /**
+   * <p>Enum with segment types . Each value corresponds to a segment type returned in the segments
+   *    list of the API. Each segment type has its own structure. Different channels may have different
+   *    sets of supported segment types.</p>
+   * @public
+   */
+  SegmentTypes: RealTimeContactAnalysisSegmentType[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RealTimeContactAnalysisSupportedChannel = {
+  CHAT: "CHAT",
+  VOICE: "VOICE",
+} as const;
+
+/**
+ * @public
+ */
+export type RealTimeContactAnalysisSupportedChannel =
+  (typeof RealTimeContactAnalysisSupportedChannel)[keyof typeof RealTimeContactAnalysisSupportedChannel];
+
+/**
+ * @public
+ * @enum
+ */
+export const ArtifactStatus = {
+  APPROVED: "APPROVED",
+  IN_PROGRESS: "IN_PROGRESS",
+  REJECTED: "REJECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ArtifactStatus = (typeof ArtifactStatus)[keyof typeof ArtifactStatus];
+
+/**
+ * <p>Object that describes attached file. </p>
+ * @public
+ */
+export interface RealTimeContactAnalysisAttachment {
+  /**
+   * <p>A case-sensitive name of the attachment being uploaded. Can be redacted.</p>
+   * @public
+   */
+  AttachmentName: string | undefined;
+
+  /**
+   * <p>Describes the MIME file type of the attachment. For a list of supported file types, see
+   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html">Feature
+   *     specifications</a> in the <i>Amazon Connect Administrator
+   *    Guide</i>.</p>
+   * @public
+   */
+  ContentType?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the attachment.</p>
+   * @public
+   */
+  AttachmentId: string | undefined;
+
+  /**
+   * <p>Status of the attachment.</p>
+   * @public
+   */
+  Status?: ArtifactStatus | undefined;
+}
+
+/**
+ * <p>Object describing time with which the segment is associated. It can have different
+ *    representations of time. Currently supported: absoluteTime</p>
+ * @public
+ */
+export type RealTimeContactAnalysisTimeData =
+  | RealTimeContactAnalysisTimeData.AbsoluteTimeMember
+  | RealTimeContactAnalysisTimeData.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RealTimeContactAnalysisTimeData {
+  /**
+   * <p>Time represented in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *    2019-11-08T02:41:28.172Z.</p>
+   * @public
+   */
+  export interface AbsoluteTimeMember {
+    AbsoluteTime: Date;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    AbsoluteTime?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    AbsoluteTime: (value: Date) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RealTimeContactAnalysisTimeData, visitor: Visitor<T>): T => {
+    if (value.AbsoluteTime !== undefined) return visitor.AbsoluteTime(value.AbsoluteTime);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Segment containing list of attachments.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisSegmentAttachments {
+  /**
+   * <p>The identifier of the segment.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the participant.</p>
+   * @public
+   */
+  ParticipantId: string | undefined;
+
+  /**
+   * <p>The role of the participant. For example, is it a customer, agent, or system.</p>
+   * @public
+   */
+  ParticipantRole: ParticipantRole | undefined;
+
+  /**
+   * <p>The display name of the participant. Can be redacted. </p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>List of objects describing an individual attachment.</p>
+   * @public
+   */
+  Attachments: RealTimeContactAnalysisAttachment[] | undefined;
+
+  /**
+   * <p>Field describing the time of the event. It can have different representations of time.</p>
+   * @public
+   */
+  Time: RealTimeContactAnalysisTimeData | undefined;
+}
+
+/**
+ * <p>Begin and end offsets for a part of text.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisCharacterInterval {
+  /**
+   * <p>The beginning of the character interval.</p>
+   * @public
+   */
+  BeginOffsetChar: number | undefined;
+
+  /**
+   * <p>The end of the character interval.</p>
+   * @public
+   */
+  EndOffsetChar: number | undefined;
+}
+
+/**
+ * <p>Transcript representation containing Id and list of character intervals that are associated
+ *    with analysis data. For example, this object within a
+ *     <code>RealTimeContactAnalysisPointOfInterest</code> in <code>Category.MatchedDetails</code>
+ *    would have character interval describing part of the text that matched category.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisTranscriptItemWithCharacterOffsets {
+  /**
+   * <p>Transcript identifier. Matches the identifier from one of the TranscriptSegments.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>List of character intervals within transcript content/text.</p>
+   * @public
+   */
+  CharacterOffsets?: RealTimeContactAnalysisCharacterInterval | undefined;
+}
+
+/**
+ * <p>The section of the contact transcript segment that category rule was detected.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisPointOfInterest {
+  /**
+   * <p>List of the transcript items (segments) that are associated with a given point of interest.
+   *   </p>
+   * @public
+   */
+  TranscriptItems?: RealTimeContactAnalysisTranscriptItemWithCharacterOffsets[] | undefined;
+}
+
+/**
+ * <p>Provides information about the category rule that was matched.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisCategoryDetails {
+  /**
+   * <p>List of PointOfInterest - objects describing a single match of a rule.</p>
+   * @public
+   */
+  PointsOfInterest: RealTimeContactAnalysisPointOfInterest[] | undefined;
+}
+
+/**
+ * <p>The matched category rules.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisSegmentCategories {
+  /**
+   * <p>Map between the name of the matched rule and RealTimeContactAnalysisCategoryDetails.</p>
+   * @public
+   */
+  MatchedDetails: Record<string, RealTimeContactAnalysisCategoryDetails> | undefined;
+}
+
+/**
+ * <p>Segment type describing a contact event.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisSegmentEvent {
+  /**
+   * <p>The identifier of the contact event.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the participant.</p>
+   * @public
+   */
+  ParticipantId?: string | undefined;
+
+  /**
+   * <p>The role of the participant. For example, is it a customer, agent, or system.</p>
+   * @public
+   */
+  ParticipantRole?: ParticipantRole | undefined;
+
+  /**
+   * <p>The display name of the participant. Can be redacted.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>Type of the event. For example,
+   *     <code>application/vnd.amazonaws.connect.event.participant.left</code>.</p>
+   * @public
+   */
+  EventType: string | undefined;
+
+  /**
+   * <p>Field describing the time of the event. It can have different representations of time.</p>
+   * @public
+   */
+  Time: RealTimeContactAnalysisTimeData | undefined;
+}
+
+/**
+ * <p>Transcript representation containing Id, Content and list of character intervals that are
+ *    associated with analysis data. For example, this object within an issue detected would describe
+ *    both content that contains identified issue and intervals where that content is taken
+ *    from.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisTranscriptItemWithContent {
+  /**
+   * <p>Part of the transcript content that contains identified issue. Can be redacted</p>
+   * @public
+   */
+  Content?: string | undefined;
+
+  /**
+   * <p>Transcript identifier. Matches the identifier from one of the TranscriptSegments.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>Begin and end offsets for a part of text.</p>
+   * @public
+   */
+  CharacterOffsets?: RealTimeContactAnalysisCharacterInterval | undefined;
+}
+
+/**
+ * <p>Potential issues that are detected based on an artificial intelligence analysis of each turn
+ *    in the conversation.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisIssueDetected {
+  /**
+   * <p>List of the transcript items (segments) that are associated with a given issue.</p>
+   * @public
+   */
+  TranscriptItems: RealTimeContactAnalysisTranscriptItemWithContent[] | undefined;
+}
+
+/**
+ * <p>Segment type containing a list of detected issues.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisSegmentIssues {
+  /**
+   * <p>List of the issues detected.</p>
+   * @public
+   */
+  IssuesDetected: RealTimeContactAnalysisIssueDetected[] | undefined;
+}
 
 /**
  * @public
@@ -2854,6 +3201,48 @@ export interface SearchEmailAddressesResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DateComparisonType = {
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+} as const;
+
+/**
+ * @public
+ */
+export type DateComparisonType = (typeof DateComparisonType)[keyof typeof DateComparisonType];
+
+/**
+ * <p>An object to specify the hours of operation override date condition.</p>
+ * @public
+ */
+export interface DateCondition {
+  /**
+   * <p>An object to specify the hours of operation override date field.</p>
+   * @public
+   */
+  FieldName?: string | undefined;
+
+  /**
+   * <p>An object to specify the hours of operation override date value.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>An object to specify the hours of operation override date condition
+   *    <code>comparisonType</code>.</p>
+   * @public
+   */
+  ComparisonType?: DateComparisonType | undefined;
+}
+
+/**
  * <p>Filters to be applied to search results.</p>
  * @public
  */
@@ -2874,6 +3263,31 @@ export interface HoursOfOperationSearchFilter {
    * @public
    */
   TagFilter?: ControlPlaneTagFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchHoursOfOperationOverridesResponse {
+  /**
+   * <p>Information about the hours of operations overrides.</p>
+   * @public
+   */
+  HoursOfOperationOverrides?: HoursOfOperationOverride[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results. Length Constraints: Minimum length of 1.
+   *    Maximum length of 2500.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of hours of operations which matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
 }
 
 /**
@@ -6367,6 +6781,82 @@ export interface UpdateHoursOfOperationRequest {
 }
 
 /**
+ * <p>Request processing failed because dependent condition failed.</p>
+ * @public
+ */
+export class ConditionalOperationFailedException extends __BaseException {
+  readonly name: "ConditionalOperationFailedException" = "ConditionalOperationFailedException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConditionalOperationFailedException, __BaseException>) {
+    super({
+      name: "ConditionalOperationFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConditionalOperationFailedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface UpdateHoursOfOperationOverrideRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation override.</p>
+   * @public
+   */
+  HoursOfOperationOverrideId: string | undefined;
+
+  /**
+   * <p>The name of the hours of operation override.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the hours of operation override.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Configuration information for the hours of operation override: day, start time, and end
+   *    time.</p>
+   * @public
+   */
+  Config?: HoursOfOperationOverrideConfig[] | undefined;
+
+  /**
+   * <p>The date from when the hours of operation override would be effective.</p>
+   * @public
+   */
+  EffectiveFrom?: string | undefined;
+
+  /**
+   * <p>The date till when the hours of operation override would be effective.</p>
+   * @public
+   */
+  EffectiveTill?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateInstanceAttributeRequest {
@@ -6890,28 +7380,6 @@ export interface UpdateQueueOutboundCallerConfigRequest {
 }
 
 /**
- * <p>A conditional check failed.</p>
- * @public
- */
-export class ConditionalOperationFailedException extends __BaseException {
-  readonly name: "ConditionalOperationFailedException" = "ConditionalOperationFailedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConditionalOperationFailedException, __BaseException>) {
-    super({
-      name: "ConditionalOperationFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConditionalOperationFailedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface UpdateQueueOutboundEmailConfigRequest {
@@ -7308,521 +7776,6 @@ export interface UpdateTaskTemplateRequest {
 }
 
 /**
- * @public
- */
-export interface UpdateTaskTemplateResponse {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The identifier of the task template resource.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the task template resource.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the task template.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the task template.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
-   * @public
-   */
-  ContactFlowId?: string | undefined;
-
-  /**
-   * <p>The ContactFlowId for the flow that will be run if this template is used to create a
-   *    self-assigned task.</p>
-   * @public
-   */
-  SelfAssignFlowId?: string | undefined;
-
-  /**
-   * <p>Constraints that are applicable to the fields listed.</p>
-   * @public
-   */
-  Constraints?: TaskTemplateConstraints | undefined;
-
-  /**
-   * <p>The default values for fields when a task is created by referencing this template.</p>
-   * @public
-   */
-  Defaults?: TaskTemplateDefaults | undefined;
-
-  /**
-   * <p>Fields that are part of the template.</p>
-   * @public
-   */
-  Fields?: TaskTemplateField[] | undefined;
-
-  /**
-   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
-   * Tasks can only be created from <code>ACTIVE</code> templates.
-   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
-   * @public
-   */
-  Status?: TaskTemplateStatus | undefined;
-
-  /**
-   * <p>The timestamp when the task template was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The timestamp when the task template was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTrafficDistributionRequest {
-  /**
-   * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
-   * The ARN must be provided if the call is from the replicated Region. </p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The distribution of traffic between the instance and its replica(s).</p>
-   * @public
-   */
-  TelephonyConfig?: TelephonyConfig | undefined;
-
-  /**
-   * <p>The distribution that determines which Amazon Web Services Regions should be used to sign in
-   *    agents in to both the instance and its replica(s).</p>
-   * @public
-   */
-  SignInConfig?: SignInConfig | undefined;
-
-  /**
-   * <p>The distribution of agents between the instance and its replica(s).</p>
-   * @public
-   */
-  AgentConfig?: AgentConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTrafficDistributionResponse {}
-
-/**
- * @public
- */
-export interface UpdateUserHierarchyRequest {
-  /**
-   * <p>The identifier of the hierarchy group.</p>
-   * @public
-   */
-  HierarchyGroupId?: string | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserHierarchyGroupNameRequest {
-  /**
-   * <p>The name of the hierarchy group. Must not be more than 100 characters.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The identifier of the hierarchy group.</p>
-   * @public
-   */
-  HierarchyGroupId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * <p>Contains information about the hierarchy level to update.</p>
- * @public
- */
-export interface HierarchyLevelUpdate {
-  /**
-   * <p>The name of the user hierarchy level. Must not be more than 50 characters.</p>
-   * @public
-   */
-  Name: string | undefined;
-}
-
-/**
- * <p>Contains information about the level hierarchy to update.</p>
- * @public
- */
-export interface HierarchyStructureUpdate {
-  /**
-   * <p>The
-   *    update
-   *    for level one.</p>
-   * @public
-   */
-  LevelOne?: HierarchyLevelUpdate | undefined;
-
-  /**
-   * <p>The update for level two.</p>
-   * @public
-   */
-  LevelTwo?: HierarchyLevelUpdate | undefined;
-
-  /**
-   * <p>The update for level three.</p>
-   * @public
-   */
-  LevelThree?: HierarchyLevelUpdate | undefined;
-
-  /**
-   * <p>The update for level four.</p>
-   * @public
-   */
-  LevelFour?: HierarchyLevelUpdate | undefined;
-
-  /**
-   * <p>The update for level five.</p>
-   * @public
-   */
-  LevelFive?: HierarchyLevelUpdate | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserHierarchyStructureRequest {
-  /**
-   * <p>The hierarchy levels to update.</p>
-   * @public
-   */
-  HierarchyStructure: HierarchyStructureUpdate | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserIdentityInfoRequest {
-  /**
-   * <p>The identity information for the user.</p>
-   * @public
-   */
-  IdentityInfo: UserIdentityInfo | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserPhoneConfigRequest {
-  /**
-   * <p>Information about phone configuration settings for the user.</p>
-   * @public
-   */
-  PhoneConfig: UserPhoneConfig | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserProficienciesRequest {
-  /**
-   * <p> The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
-   *    Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The proficiencies to be updated for the user. Proficiencies must first be associated to the
-   *    user. You can do this using AssociateUserProficiencies API.</p>
-   * @public
-   */
-  UserProficiencies: UserProficiency[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserRoutingProfileRequest {
-  /**
-   * <p>The identifier of the routing profile for the user.</p>
-   * @public
-   */
-  RoutingProfileId: string | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserSecurityProfilesRequest {
-  /**
-   * <p>The identifiers of the security profiles for the user.</p>
-   * @public
-   */
-  SecurityProfileIds: string[] | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateViewContentRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
-   *    the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
-   *    used.</p>
-   * @public
-   */
-  ViewId: string | undefined;
-
-  /**
-   * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
-   *     <code>PUBLISHED</code> status will initiate validation on the content.</p>
-   * @public
-   */
-  Status: ViewStatus | undefined;
-
-  /**
-   * <p>View content containing all content necessary to render a view except for runtime input data
-   *    and the runtime input schema, which is auto-generated by this operation.</p>
-   *          <p>The total uncompressed content has a maximum file size of 400kB.</p>
-   * @public
-   */
-  Content: ViewInputContent | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateViewContentResponse {
-  /**
-   * <p>A view resource object. Contains metadata and content necessary to render the view.</p>
-   * @public
-   */
-  View?: View | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateViewMetadataRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
-   *    the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
-   *    used.</p>
-   * @public
-   */
-  ViewId: string | undefined;
-
-  /**
-   * <p>The name of the view.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the view.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateViewMetadataResponse {}
-
-/**
- * <p>A value for a segment attribute. This is structured as a map where the key is
- *     <code>valueString</code> and the value is a string.</p>
- * @public
- */
-export interface SegmentAttributeValue {
-  /**
-   * <p>The value of a segment attribute.</p>
-   * @public
-   */
-  ValueString?: string | undefined;
-
-  /**
-   * <p>The value of a segment attribute.</p>
-   * @public
-   */
-  ValueMap?: Record<string, SegmentAttributeValue> | undefined;
-
-  /**
-   * <p>The value of a segment attribute.</p>
-   * @public
-   */
-  ValueInteger?: number | undefined;
-}
-
-/**
- * <p>Information about an item from an evaluation form. The item must be either a section or a
- *    question.</p>
- * @public
- */
-export type EvaluationFormItem =
-  | EvaluationFormItem.QuestionMember
-  | EvaluationFormItem.SectionMember
-  | EvaluationFormItem.$UnknownMember;
-
-/**
- * @public
- */
-export namespace EvaluationFormItem {
-  /**
-   * <p>The information of the section.</p>
-   * @public
-   */
-  export interface SectionMember {
-    Section: EvaluationFormSection;
-    Question?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The information of the question.</p>
-   * @public
-   */
-  export interface QuestionMember {
-    Section?: never;
-    Question: EvaluationFormQuestion;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    Section?: never;
-    Question?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    Section: (value: EvaluationFormSection) => T;
-    Question: (value: EvaluationFormQuestion) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: EvaluationFormItem, visitor: Visitor<T>): T => {
-    if (value.Section !== undefined) return visitor.Section(value.Section);
-    if (value.Question !== undefined) return visitor.Question(value.Question);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
  * @internal
  */
 export const ViewSummaryFilterSensitiveLog = (obj: ViewSummary): any => ({
@@ -8139,36 +8092,4 @@ export const UpdateEmailAddressMetadataRequestFilterSensitiveLog = (obj: UpdateE
   ...obj,
   ...(obj.Description && { Description: SENSITIVE_STRING }),
   ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateUserIdentityInfoRequestFilterSensitiveLog = (obj: UpdateUserIdentityInfoRequest): any => ({
-  ...obj,
-  ...(obj.IdentityInfo && { IdentityInfo: UserIdentityInfoFilterSensitiveLog(obj.IdentityInfo) }),
-});
-
-/**
- * @internal
- */
-export const UpdateViewContentRequestFilterSensitiveLog = (obj: UpdateViewContentRequest): any => ({
-  ...obj,
-  ...(obj.Content && { Content: ViewInputContentFilterSensitiveLog(obj.Content) }),
-});
-
-/**
- * @internal
- */
-export const UpdateViewContentResponseFilterSensitiveLog = (obj: UpdateViewContentResponse): any => ({
-  ...obj,
-  ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
-});
-
-/**
- * @internal
- */
-export const UpdateViewMetadataRequestFilterSensitiveLog = (obj: UpdateViewMetadataRequest): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
 });

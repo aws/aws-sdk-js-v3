@@ -61,7 +61,7 @@ export interface UpdateQueueOutboundEmailConfigCommandOutput extends __MetadataB
  *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link ConditionalOperationFailedException} (client fault)
- *  <p>A conditional check failed.</p>
+ *  <p>Request processing failed because dependent condition failed.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
