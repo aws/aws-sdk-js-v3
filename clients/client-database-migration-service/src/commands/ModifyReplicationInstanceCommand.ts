@@ -57,6 +57,11 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  *   AutoMinorVersionUpgrade: true || false,
  *   ReplicationInstanceIdentifier: "STRING_VALUE",
  *   NetworkType: "STRING_VALUE",
+ *   KerberosAuthenticationSettings: { // KerberosAuthenticationSettings
+ *     KeyCacheSecretId: "STRING_VALUE",
+ *     KeyCacheSecretIamArn: "STRING_VALUE",
+ *     Krb5FileContents: "STRING_VALUE",
+ *   },
  * };
  * const command = new ModifyReplicationInstanceCommand(input);
  * const response = await client.send(command);
@@ -121,6 +126,11 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  * //     FreeUntil: new Date("TIMESTAMP"),
  * //     DnsNameServers: "STRING_VALUE",
  * //     NetworkType: "STRING_VALUE",
+ * //     KerberosAuthenticationSettings: { // KerberosAuthenticationSettings
+ * //       KeyCacheSecretId: "STRING_VALUE",
+ * //       KeyCacheSecretIamArn: "STRING_VALUE",
+ * //       Krb5FileContents: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

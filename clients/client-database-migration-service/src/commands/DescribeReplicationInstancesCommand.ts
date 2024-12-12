@@ -122,6 +122,11 @@ export interface DescribeReplicationInstancesCommandOutput
  * //       FreeUntil: new Date("TIMESTAMP"),
  * //       DnsNameServers: "STRING_VALUE",
  * //       NetworkType: "STRING_VALUE",
+ * //       KerberosAuthenticationSettings: { // KerberosAuthenticationSettings
+ * //         KeyCacheSecretId: "STRING_VALUE",
+ * //         KeyCacheSecretIamArn: "STRING_VALUE",
+ * //         Krb5FileContents: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };

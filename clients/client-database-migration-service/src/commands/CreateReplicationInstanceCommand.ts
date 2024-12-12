@@ -74,6 +74,11 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  *   DnsNameServers: "STRING_VALUE",
  *   ResourceIdentifier: "STRING_VALUE",
  *   NetworkType: "STRING_VALUE",
+ *   KerberosAuthenticationSettings: { // KerberosAuthenticationSettings
+ *     KeyCacheSecretId: "STRING_VALUE",
+ *     KeyCacheSecretIamArn: "STRING_VALUE",
+ *     Krb5FileContents: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateReplicationInstanceCommand(input);
  * const response = await client.send(command);
@@ -138,6 +143,11 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  * //     FreeUntil: new Date("TIMESTAMP"),
  * //     DnsNameServers: "STRING_VALUE",
  * //     NetworkType: "STRING_VALUE",
+ * //     KerberosAuthenticationSettings: { // KerberosAuthenticationSettings
+ * //       KeyCacheSecretId: "STRING_VALUE",
+ * //       KeyCacheSecretIamArn: "STRING_VALUE",
+ * //       Krb5FileContents: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

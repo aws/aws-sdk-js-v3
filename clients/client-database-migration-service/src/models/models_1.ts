@@ -21,6 +21,7 @@ import {
   Endpoint,
   EndpointFilterSensitiveLog,
   EventSubscription,
+  Filter,
   GcpMySQLSettings,
   GcpMySQLSettingsFilterSensitiveLog,
   IBMDb2Settings,
@@ -28,6 +29,7 @@ import {
   InstanceProfile,
   KafkaSettings,
   KafkaSettingsFilterSensitiveLog,
+  KerberosAuthenticationSettings,
   KinesisSettings,
   MicrosoftSQLServerSettings,
   MicrosoftSQLServerSettingsFilterSensitiveLog,
@@ -64,6 +66,95 @@ import {
   Tag,
   TimestreamSettings,
 } from "./models_0";
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeSchemasMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
+   * @public
+   */
+  EndpointArn: string | undefined;
+
+  /**
+   * <p> The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
+   *          in the response so that the remaining results can be retrieved. </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeSchemasResponse {
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The described schema.</p>
+   * @public
+   */
+  Schemas?: string[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeTableStatisticsMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replication task.</p>
+   * @public
+   */
+  ReplicationTaskArn: string | undefined;
+
+  /**
+   * <p> The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
+   *          in the response so that the remaining results can be retrieved. </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 500.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Filters applied to table statistics.</p>
+   *          <p>Valid filter names: schema-name | table-name | table-state</p>
+   *          <p>A combination of filters creates an AND condition where each record matches all
+   *          specified filters.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
 
 /**
  * <p></p>
@@ -1150,6 +1241,12 @@ export interface ModifyReplicationInstanceMessage {
    * @public
    */
   NetworkType?: string | undefined;
+
+  /**
+   * <p>Specifies the ID of the secret that stores the key cache file required for kerberos authentication, when modifying a replication instance.</p>
+   * @public
+   */
+  KerberosAuthenticationSettings?: KerberosAuthenticationSettings | undefined;
 }
 
 /**
@@ -1889,6 +1986,16 @@ export interface StartReplicationMessage {
 
   /**
    * <p>The replication type.</p>
+   *          <p>When the replication type is <code>full-load</code> or <code>full-load-and-cdc</code>, the only valid value
+   *          for the first run of the replication is <code>start-replication</code>. This option will start the replication.</p>
+   *          <p>You can also use <a>ReloadTables</a> to reload specific tables that failed during replication instead
+   *          of restarting the replication.</p>
+   *          <p>The <code>resume-processing</code> option isn't applicable for a full-load replication,
+   *          because you can't resume partially loaded tables during the full load phase.</p>
+   *          <p>For a <code>full-load-and-cdc</code> replication, DMS migrates table data, and then applies data changes
+   *          that occur on the source. To load all the tables again, and start capturing source changes,
+   *          use <code>reload-target</code>. Otherwise use <code>resume-processing</code>, to replicate the
+   *          changes from the last stop position.</p>
    * @public
    */
   StartReplicationType: string | undefined;

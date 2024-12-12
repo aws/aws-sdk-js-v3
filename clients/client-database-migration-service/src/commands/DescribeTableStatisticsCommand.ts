@@ -10,8 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeTableStatisticsMessage } from "../models/models_0";
-import { DescribeTableStatisticsResponse } from "../models/models_1";
+import { DescribeTableStatisticsMessage, DescribeTableStatisticsResponse } from "../models/models_1";
 import { de_DescribeTableStatisticsCommand, se_DescribeTableStatisticsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -98,6 +97,10 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  * @see {@link DescribeTableStatisticsCommandInput} for command's `input` shape.
  * @see {@link DescribeTableStatisticsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>

@@ -10,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSchemasMessage, DescribeSchemasResponse } from "../models/models_0";
+import { DescribeSchemasMessage, DescribeSchemasResponse } from "../models/models_1";
 import { de_DescribeSchemasCommand, se_DescribeSchemasCommand } from "../protocols/Aws_json1_1";
 
 /**

@@ -526,6 +526,10 @@ export interface ReplicationTaskAssessmentRun {
    *                   <code>"starting"</code> – The assessment run is starting, but resources are not yet
    *                being provisioned for individual assessments.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"warning"</code> – At least one individual assessment completed with a <code>warning</code> status.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -2384,6 +2388,12 @@ export interface KafkaSettings {
    * @public
    */
   SslEndpointIdentificationAlgorithm?: KafkaSslEndpointIdentificationAlgorithm | undefined;
+
+  /**
+   * <p>Specifies using the large integer value with Kafka.</p>
+   * @public
+   */
+  UseLargeIntegerValue?: boolean | undefined;
 }
 
 /**
@@ -2471,7 +2481,28 @@ export interface KinesisSettings {
    * @public
    */
   NoHexPrefix?: boolean | undefined;
+
+  /**
+   * <p>Specifies using the large integer value with Kinesis.</p>
+   * @public
+   */
+  UseLargeIntegerValue?: boolean | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const SqlServerAuthenticationMethod = {
+  Kerberos: "kerberos",
+  Password: "password",
+} as const;
+
+/**
+ * @public
+ */
+export type SqlServerAuthenticationMethod =
+  (typeof SqlServerAuthenticationMethod)[keyof typeof SqlServerAuthenticationMethod];
 
 /**
  * @public
@@ -2666,6 +2697,12 @@ export interface MicrosoftSQLServerSettings {
    * @public
    */
   ForceLobLookup?: boolean | undefined;
+
+  /**
+   * <p>Specifies using Kerberos authentication with Microsoft SQL Server.</p>
+   * @public
+   */
+  AuthenticationMethod?: SqlServerAuthenticationMethod | undefined;
 }
 
 /**
@@ -3035,6 +3072,20 @@ export interface NeptuneSettings {
  * @public
  * @enum
  */
+export const OracleAuthenticationMethod = {
+  Kerberos: "kerberos",
+  Password: "password",
+} as const;
+
+/**
+ * @public
+ */
+export type OracleAuthenticationMethod = (typeof OracleAuthenticationMethod)[keyof typeof OracleAuthenticationMethod];
+
+/**
+ * @public
+ * @enum
+ */
 export const CharLengthSemantics = {
   BYTE: "byte",
   CHAR: "char",
@@ -3205,7 +3256,7 @@ export interface OracleSettings {
   DirectPathNoLog?: boolean | undefined;
 
   /**
-   * <p>When this field is set to <code>Y</code>, DMS only accesses the
+   * <p>When this field is set to <code>True</code>, DMS only accesses the
    *          archived redo logs. If the archived redo logs are stored on
    *          Automatic Storage Management (ASM) only, the DMS user account needs to be
    *          granted ASM privileges.</p>
@@ -3386,8 +3437,8 @@ export interface OracleSettings {
   Username?: string | undefined;
 
   /**
-   * <p>Set this attribute to Y to capture change data using the Binary Reader utility. Set
-   *             <code>UseLogminerReader</code> to N to set this attribute to Y. To use Binary Reader
+   * <p>Set this attribute to True to capture change data using the Binary Reader utility. Set
+   *             <code>UseLogminerReader</code> to False to set this attribute to True. To use Binary Reader
    *          with Amazon RDS for Oracle as the source, you set additional attributes. For more information
    *          about using this setting with Oracle Automatic Storage Management (ASM), see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC"> Using Oracle LogMiner or DMS Binary Reader for
    *          CDC</a>.</p>
@@ -3396,7 +3447,7 @@ export interface OracleSettings {
   UseBFile?: boolean | undefined;
 
   /**
-   * <p>Set this attribute to Y to have DMS use a direct path full load.
+   * <p>Set this attribute to True to have DMS use a direct path full load.
    *          Specify this value to use the direct path protocol in the Oracle Call Interface (OCI).
    *          By using this OCI protocol, you can bulk-load Oracle target tables during a full load.</p>
    * @public
@@ -3404,9 +3455,9 @@ export interface OracleSettings {
   UseDirectPathFullLoad?: boolean | undefined;
 
   /**
-   * <p>Set this attribute to Y to capture change data using the Oracle LogMiner utility (the
-   *          default). Set this attribute to N if you want to access the redo logs as a binary file.
-   *          When you set <code>UseLogminerReader</code> to N, also set <code>UseBfile</code> to Y. For
+   * <p>Set this attribute to True to capture change data using the Oracle LogMiner utility (the
+   *          default). Set this attribute to False if you want to access the redo logs as a binary file.
+   *          When you set <code>UseLogminerReader</code> to False, also set <code>UseBfile</code> to True. For
    *          more information on this setting and using Oracle ASM, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC"> Using Oracle LogMiner or DMS Binary Reader for CDC</a> in
    *          the <i>DMS User Guide</i>.</p>
    * @public
@@ -3486,12 +3537,17 @@ export interface OracleSettings {
    *          <p>You can
    *          specify an integer value between 0 (the default) and 240 (the maximum). </p>
    *          <note>
-   *             <p>This parameter is only valid in DMS version 3.5.0 and later. DMS supports
-   *       a window of up to 9.5 hours including the value for <code>OpenTransactionWindow</code>.</p>
+   *             <p>This parameter is only valid in DMS version 3.5.0 and later.</p>
    *          </note>
    * @public
    */
   OpenTransactionWindow?: number | undefined;
+
+  /**
+   * <p>Specifies using Kerberos authentication with Oracle.</p>
+   * @public
+   */
+  AuthenticationMethod?: OracleAuthenticationMethod | undefined;
 }
 
 /**
@@ -3558,6 +3614,7 @@ export interface PostgreSQLSettings {
    * <p>To capture DDL events, DMS creates various artifacts in
    *          the PostgreSQL database when the task starts. You can later
    *          remove these artifacts.</p>
+   *          <p>The default value is <code>true</code>.</p>
    *          <p>If this value is set to <code>N</code>, you don't have to create tables or
    *          triggers on the source database.</p>
    * @public
@@ -3567,6 +3624,7 @@ export interface PostgreSQLSettings {
   /**
    * <p>Specifies the maximum size (in KB) of any .csv file used to
    *          transfer data to PostgreSQL.</p>
+   *          <p>The default value is 32,768 KB (32 MB).</p>
    *          <p>Example: <code>maxFileSize=512</code>
    *          </p>
    * @public
@@ -3582,6 +3640,7 @@ export interface PostgreSQLSettings {
   /**
    * <p>The schema in which the operational DDL database artifacts
    *          are created.</p>
+   *          <p>The default value is <code>public</code>.</p>
    *          <p>Example: <code>ddlArtifactsSchema=xyzddlschema;</code>
    *          </p>
    * @public
@@ -3601,6 +3660,7 @@ export interface PostgreSQLSettings {
    * <p>When set to <code>true</code>, this value causes a task to fail if the
    *          actual size of a LOB column is greater than the specified
    *          <code>LobMaxSize</code>.</p>
+   *          <p>The default value is <code>false</code>.</p>
    *          <p>If task is set to Limited LOB mode and this option is set to
    *          true, the task fails instead of truncating the LOB data.</p>
    * @public
@@ -3612,18 +3672,21 @@ export interface PostgreSQLSettings {
    *          it prevents idle logical replication slots from holding onto old WAL logs, which can result in
    *          storage full situations on the source. This heartbeat keeps <code>restart_lsn</code> moving
    *          and prevents storage full scenarios.</p>
+   *          <p>The default value is <code>false</code>.</p>
    * @public
    */
   HeartbeatEnable?: boolean | undefined;
 
   /**
    * <p>Sets the schema in which the heartbeat artifacts are created.</p>
+   *          <p>The default value is <code>public</code>.</p>
    * @public
    */
   HeartbeatSchema?: string | undefined;
 
   /**
    * <p>Sets the WAL heartbeat frequency (in minutes).</p>
+   *          <p>The default value is 5 minutes.</p>
    * @public
    */
   HeartbeatFrequency?: number | undefined;
@@ -3681,6 +3744,7 @@ export interface PostgreSQLSettings {
 
   /**
    * <p>Specifies the plugin to use to create a replication slot.</p>
+   *          <p>The default value is <code>pglogical</code>.</p>
    * @public
    */
   PluginName?: PluginNameValue | undefined;
@@ -3722,18 +3786,21 @@ export interface PostgreSQLSettings {
   /**
    * <p>When true, lets PostgreSQL migrate the boolean type as boolean. By default, PostgreSQL migrates booleans as
    *          <code>varchar(5)</code>. You must set this setting on both the source and target endpoints for it to take effect.</p>
+   *          <p>The default value is <code>false</code>.</p>
    * @public
    */
   MapBooleanAsBoolean?: boolean | undefined;
 
   /**
    * <p>When true, DMS migrates JSONB values as CLOB.</p>
+   *          <p>The default value is <code>false</code>.</p>
    * @public
    */
   MapJsonbAsClob?: boolean | undefined;
 
   /**
-   * <p>When true, DMS migrates LONG values as VARCHAR.</p>
+   * <p>Sets what datatype to map LONG values as.</p>
+   *          <p>The default value is <code>wstring</code>.</p>
    * @public
    */
   MapLongVarcharAs?: LongVarcharMappingType | undefined;
@@ -3749,6 +3816,14 @@ export interface PostgreSQLSettings {
    * @public
    */
   BabelfishDatabaseName?: string | undefined;
+
+  /**
+   * <p>Disables the Unicode source filter with PostgreSQL, for values passed into the Selection rule filter on Source Endpoint column values.
+   *          By default DMS performs source filter comparisons using a Unicode string which can cause look ups to ignore the indexes in the text columns and slow down migrations.</p>
+   *          <p>Unicode support should only be disabled when using a selection rule filter is on a text column in the Source database that is indexed.</p>
+   * @public
+   */
+  DisableUnicodeSourceFilter?: boolean | undefined;
 }
 
 /**
@@ -6691,6 +6766,30 @@ export class ReplicationSubnetGroupDoesNotCoverEnoughAZs extends __BaseException
 }
 
 /**
+ * <p>Specifies using Kerberos authentication settings for use with DMS.</p>
+ * @public
+ */
+export interface KerberosAuthenticationSettings {
+  /**
+   * <p>Specifies the secret ID of the key cache for the replication instance.</p>
+   * @public
+   */
+  KeyCacheSecretId?: string | undefined;
+
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the IAM role that grants Amazon Web Services DMS access to the secret containing key cache file for the replication instance.</p>
+   * @public
+   */
+  KeyCacheSecretIamArn?: string | undefined;
+
+  /**
+   * <p>Specifies the ID of the secret that stores the key cache file required for kerberos authentication of the replication instance.</p>
+   * @public
+   */
+  Krb5FileContents?: string | undefined;
+}
+
+/**
  * <p></p>
  * @public
  */
@@ -6853,6 +6952,12 @@ export interface CreateReplicationInstanceMessage {
    * @public
    */
   NetworkType?: string | undefined;
+
+  /**
+   * <p>Specifies the ID of the secret that stores the key cache file required for kerberos authentication, when creating a replication instance.</p>
+   * @public
+   */
+  KerberosAuthenticationSettings?: KerberosAuthenticationSettings | undefined;
 }
 
 /**
@@ -7280,6 +7385,12 @@ export interface ReplicationInstance {
    * @public
    */
   NetworkType?: string | undefined;
+
+  /**
+   * <p>Specifies the ID of the secret that stores the key cache file required for kerberos authentication, when replicating an instance.</p>
+   * @public
+   */
+  KerberosAuthenticationSettings?: KerberosAuthenticationSettings | undefined;
 }
 
 /**
@@ -7775,8 +7886,7 @@ export interface ReplicationTask {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>"Stop Reason NORMAL"</code>
-   *                </p>
+   *                   <code>"Stop Reason NORMAL"</code> – The task completed successfully with no additional information returned.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7790,8 +7900,8 @@ export interface ReplicationTask {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>"Stop Reason FULL_LOAD_ONLY_FINISHED"</code>
-   *                </p>
+   *                   <code>"Stop Reason FULL_LOAD_ONLY_FINISHED"</code>  – The task completed the full load phase.
+   *                DMS applied cached changes if you set <code>StopTaskCachedChangesApplied</code> to <code>true</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8753,7 +8863,7 @@ export interface DescribeDataMigrationsResponse {
 export interface DescribeDataProvidersMessage {
   /**
    * <p>Filters applied to the data providers described in the form of key-value pairs.</p>
-   *          <p>Valid filter names: data-provider-identifier</p>
+   *          <p>Valid filter names and values: data-provider-identifier, data provider arn or name</p>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -10449,6 +10559,7 @@ export interface DescribeFleetAdvisorSchemasResponse {
 export interface DescribeInstanceProfilesMessage {
   /**
    * <p>Filters applied to the instance profiles described in the form of key-value pairs.</p>
+   *          <p>Valid filter names and values: instance-profile-identifier, instance profile arn or name</p>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -10789,6 +10900,18 @@ export interface DescribeMetadataModelImportsResponse {
 export interface DescribeMigrationProjectsMessage {
   /**
    * <p>Filters applied to the migration projects described in the form of key-value pairs.</p>
+   *          <p>Valid filter names and values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>instance-profile-identifier, instance profile arn or name</p>
+   *             </li>
+   *             <li>
+   *                <p>data-provider-identifier, data provider arn or name</p>
+   *             </li>
+   *             <li>
+   *                <p>migration-project-identifier, migration project arn or name</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -11918,7 +12041,7 @@ export interface Replication {
   ReplicationStats?: ReplicationStats | undefined;
 
   /**
-   * <p>The replication type.</p>
+   * <p>The type of replication to start.</p>
    * @public
    */
   StartReplicationType?: string | undefined;
@@ -12649,95 +12772,6 @@ export interface DescribeReplicationTasksResponse {
 }
 
 /**
- * <p></p>
- * @public
- */
-export interface DescribeSchemasMessage {
-  /**
-   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
-   * @public
-   */
-  EndpointArn: string | undefined;
-
-  /**
-   * <p> The maximum number of records to include in the response. If more records exist than
-   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
-   *          in the response so that the remaining results can be retrieved. </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   * @public
-   */
-  MaxRecords?: number | undefined;
-
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   * @public
-   */
-  Marker?: string | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeSchemasResponse {
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>The described schema.</p>
-   * @public
-   */
-  Schemas?: string[] | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeTableStatisticsMessage {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the replication task.</p>
-   * @public
-   */
-  ReplicationTaskArn: string | undefined;
-
-  /**
-   * <p> The maximum number of records to include in the response. If more records exist than
-   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
-   *          in the response so that the remaining results can be retrieved. </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 500.</p>
-   * @public
-   */
-  MaxRecords?: number | undefined;
-
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>Filters applied to table statistics.</p>
-   *          <p>Valid filter names: schema-name | table-name | table-state</p>
-   *          <p>A combination of filters creates an AND condition where each record matches all
-   *          specified filters.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
  * @internal
  */
 export const CreateDataMigrationMessageFilterSensitiveLog = (obj: CreateDataMigrationMessage): any => ({
@@ -12954,4 +12988,26 @@ export const DescribeDataMigrationsResponseFilterSensitiveLog = (obj: DescribeDa
 export const DescribeEndpointsResponseFilterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
   ...obj,
   ...(obj.Endpoints && { Endpoints: obj.Endpoints.map((item) => EndpointFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ReplicationTaskAssessmentResultFilterSensitiveLog = (obj: ReplicationTaskAssessmentResult): any => ({
+  ...obj,
+  ...(obj.S3ObjectUrl && { S3ObjectUrl: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeReplicationTaskAssessmentResultsResponseFilterSensitiveLog = (
+  obj: DescribeReplicationTaskAssessmentResultsResponse
+): any => ({
+  ...obj,
+  ...(obj.ReplicationTaskAssessmentResults && {
+    ReplicationTaskAssessmentResults: obj.ReplicationTaskAssessmentResults.map((item) =>
+      ReplicationTaskAssessmentResultFilterSensitiveLog(item)
+    ),
+  }),
 });

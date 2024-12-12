@@ -76,6 +76,10 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
  * @throws {@link KMSAccessDeniedFault} (client fault)
  *  <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
  *

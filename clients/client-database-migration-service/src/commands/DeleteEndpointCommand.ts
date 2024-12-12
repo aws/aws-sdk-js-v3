@@ -151,6 +151,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * //       IncludeControlDetails: true || false,
  * //       IncludeNullAndEmpty: true || false,
  * //       NoHexPrefix: true || false,
+ * //       UseLargeIntegerValue: true || false,
  * //     },
  * //     KafkaSettings: { // KafkaSettings
  * //       Broker: "STRING_VALUE",
@@ -173,6 +174,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * //       NoHexPrefix: true || false,
  * //       SaslMechanism: "scram-sha-512" || "plain",
  * //       SslEndpointIdentificationAlgorithm: "none" || "https",
+ * //       UseLargeIntegerValue: true || false,
  * //     },
  * //     ElasticsearchSettings: { // ElasticsearchSettings
  * //       ServiceAccessRoleArn: "STRING_VALUE", // required
@@ -248,6 +250,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * //       MapLongVarcharAs: "wstring" || "clob" || "nclob",
  * //       DatabaseMode: "default" || "babelfish",
  * //       BabelfishDatabaseName: "STRING_VALUE",
+ * //       DisableUnicodeSourceFilter: true || false,
  * //     },
  * //     MySQLSettings: { // MySQLSettings
  * //       AfterConnectScript: "STRING_VALUE",
@@ -312,6 +315,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * //       TrimSpaceInChar: true || false,
  * //       ConvertTimestampWithZoneToUTC: true || false,
  * //       OpenTransactionWindow: Number("int"),
+ * //       AuthenticationMethod: "password" || "kerberos",
  * //     },
  * //     SybaseSettings: { // SybaseSettings
  * //       DatabaseName: "STRING_VALUE",
@@ -340,6 +344,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * //       TrimSpaceInChar: true || false,
  * //       TlogAccessMode: "BackupOnly" || "PreferBackup" || "PreferTlog" || "TlogOnly",
  * //       ForceLobLookup: true || false,
+ * //       AuthenticationMethod: "password" || "kerberos",
  * //     },
  * //     IBMDb2Settings: { // IBMDb2Settings
  * //       DatabaseName: "STRING_VALUE",

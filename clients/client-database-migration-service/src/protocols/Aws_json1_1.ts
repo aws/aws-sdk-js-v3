@@ -538,8 +538,6 @@ import {
   DescribeReplicationTaskIndividualAssessmentsResponse,
   DescribeReplicationTasksMessage,
   DescribeReplicationTasksResponse,
-  DescribeSchemasMessage,
-  DescribeTableStatisticsMessage,
   DmsTransferSettings,
   DocDbDataProviderSettings,
   DocDbSettings,
@@ -557,6 +555,7 @@ import {
   InvalidResourceStateFault,
   InvalidSubnet,
   KafkaSettings,
+  KerberosAuthenticationSettings,
   KinesisSettings,
   KMSAccessDeniedFault,
   KMSDisabledFault,
@@ -620,6 +619,8 @@ import {
 } from "../models/models_0";
 import {
   AssessmentReportType,
+  DescribeSchemasMessage,
+  DescribeTableStatisticsMessage,
   DescribeTableStatisticsResponse,
   ExportMetadataModelAssessmentMessage,
   ImportCertificateMessage,
@@ -5116,6 +5117,8 @@ const se_ImportCertificateMessage = (input: ImportCertificateMessage, context: _
 
 // se_KafkaSettings omitted.
 
+// se_KerberosAuthenticationSettings omitted.
+
 // se_KeyList omitted.
 
 // se_KinesisSettings omitted.
@@ -6146,6 +6149,8 @@ const de_InstanceProfileList = (output: any, context: __SerdeContext): InstanceP
 
 // de_KafkaSettings omitted.
 
+// de_KerberosAuthenticationSettings omitted.
+
 // de_KinesisSettings omitted.
 
 // de_KMSAccessDeniedFault omitted.
@@ -6559,6 +6564,7 @@ const de_ReplicationInstance = (output: any, context: __SerdeContext): Replicati
     EngineVersion: __expectString,
     FreeUntil: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     InstanceCreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    KerberosAuthenticationSettings: _json,
     KmsKeyId: __expectString,
     MultiAZ: __expectBoolean,
     NetworkType: __expectString,

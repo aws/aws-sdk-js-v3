@@ -13,6 +13,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeReplicationTaskAssessmentResultsMessage,
   DescribeReplicationTaskAssessmentResultsResponse,
+  DescribeReplicationTaskAssessmentResultsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   de_DescribeReplicationTaskAssessmentResultsCommand,
@@ -109,7 +110,7 @@ export class DescribeReplicationTaskAssessmentResultsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeReplicationTaskAssessmentResults", {})
   .n("DatabaseMigrationServiceClient", "DescribeReplicationTaskAssessmentResultsCommand")
-  .f(void 0, void 0)
+  .f(void 0, DescribeReplicationTaskAssessmentResultsResponseFilterSensitiveLog)
   .ser(se_DescribeReplicationTaskAssessmentResultsCommand)
   .de(de_DescribeReplicationTaskAssessmentResultsCommand)
   .build() {
