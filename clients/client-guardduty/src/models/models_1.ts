@@ -2547,12 +2547,13 @@ export interface OrganizationDataSourceConfigurations {
 
 /**
  * <p>A list of additional configurations which will be configured for the organization. </p>
+ *          <p>Additional configuration applies to only GuardDuty Runtime Monitoring protection plan.</p>
  * @public
  */
 export interface OrganizationAdditionalConfiguration {
   /**
    * <p>The name of the additional configuration that will be configured for the
-   *       organization.</p>
+   *       organization. These values are applicable to only Runtime Monitoring protection plan.</p>
    * @public
    */
   Name?: OrgFeatureAdditionalConfiguration | undefined;
@@ -2652,7 +2653,9 @@ export interface UpdateOrganizationConfigurationRequest {
   /**
    * @deprecated
    *
-   * <p>Represents whether or not to automatically enable member accounts in the organization.</p>
+   * <p>Represents whether to automatically enable member accounts in the organization. This
+   *     applies to only new member accounts, not the existing member accounts. When a new account joins the organization,
+   *     the chosen features will be enabled for them by default.</p>
    *          <p>Even though this is still supported, we recommend using
    *    <code>AutoEnableOrganizationMembers</code> to achieve the similar results. You must provide a
    *     value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>.</p>
