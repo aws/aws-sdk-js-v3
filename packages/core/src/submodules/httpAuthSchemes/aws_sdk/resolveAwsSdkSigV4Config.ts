@@ -129,9 +129,7 @@ export const resolveAwsSdkSigV4Config = <T>(
     }
   }
 
-  const boundCredentialsProvider = async () => {
-    return credentialsProvider!({ callerClientConfig: config });
-  };
+  const boundCredentialsProvider = async () => credentialsProvider!({ callerClientConfig: config });
 
   // Populate sigv4 arguments
   const {
