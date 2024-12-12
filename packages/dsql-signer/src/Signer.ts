@@ -12,7 +12,8 @@ type DsqlSignerAction = "DbConnect" | "DbConnectAdmin";
 
 export interface DsqlSignerConfig {
   /**
-   * The AWS credentials to sign requests with. Uses the default credential provider chain if not specified.
+   * The AWS credentials to sign requests with.
+   * Uses the default credential provider chain if not specified.
    */
   credentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider;
 
@@ -22,7 +23,8 @@ export interface DsqlSignerConfig {
   hostname: string;
 
   /**
-   * The region the database is located in. Uses the region inferred from the runtime if omitted.
+   * The region the database is located in.
+   * Uses the region from the profile or inferred from the runtime if omitted.
    */
   region?: string;
 
@@ -35,6 +37,16 @@ export interface DsqlSignerConfig {
    * The amount of time in seconds the generated token is valid.
    */
   expiresIn?: number;
+
+  /**
+   * Optional. Can be provided to configure region from a profile
+   * if operating in an environment with a file system having
+   * an AWS configuration file.
+   *
+   * The credentials will also resolve based on this profile, if using
+   * a credentials provider that includes the AWS configuration file.
+   */
+  profile?: string;
 }
 
 /**

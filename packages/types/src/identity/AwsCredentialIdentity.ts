@@ -10,6 +10,7 @@ export { AwsCredentialIdentity, AwsCredentialIdentityProvider, IdentityProvider 
 export interface AwsIdentityProperties {
   callerClientConfig?: {
     region(): Promise<string>;
+    profile?: string;
   };
 }
 

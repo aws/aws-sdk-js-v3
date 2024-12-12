@@ -1,10 +1,10 @@
 import { STS } from "@aws-sdk/client-sts";
 import * as credentialProviderHttp from "@aws-sdk/credential-provider-http";
 import { fromCognitoIdentity, fromCognitoIdentityPool, fromIni, fromWebToken } from "@aws-sdk/credential-providers";
-import { fromSso } from "@aws-sdk/token-providers";
 import { HttpResponse } from "@smithy/protocol-http";
-import type { SourceProfileInit } from "@smithy/shared-ini-file-loader";
-import type { HttpRequest, NodeHttpHandlerOptions, ParsedIniData } from "@smithy/types";
+import type { SharedConfigInit, SourceProfileInit } from "@smithy/shared-ini-file-loader";
+import type { HttpRequest, NodeHttpHandlerOptions, ParsedIniData, SharedConfigFiles } from "@smithy/types";
+import { AdaptiveRetryStrategy, StandardRetryStrategy } from "@smithy/util-retry";
 import { PassThrough } from "stream";
 
 import { defaultProvider } from "./defaultProvider";
@@ -41,6 +41,12 @@ jest.mock("@smithy/shared-ini-file-loader", () => {
     async parseKnownFiles(init: SourceProfileInit): Promise<ParsedIniData> {
       return iniProfileData;
     },
+    async loadSharedConfigFiles(init: SharedConfigInit): Promise<SharedConfigFiles> {
+      return {
+        configFile: iniProfileData,
+        credentialsFile: iniProfileData,
+      };
+    },
     async getSSOTokenFromFile() {
       return {
         accessToken: "mock_sso_token",
@@ -69,7 +75,7 @@ jest.mock("@smithy/node-http-handler", () => {
         assumeRoleArns.push(request.body.match(/RoleArn=(.*?)&/)?.[1]);
       }
 
-      const region = (request.hostname.match(/(sts|cognito-identity)\.(.*?)\./) || [, , "unknown"])[2];
+      const region = (request.hostname.match(/(sts|cognito-identity|portal\.sso)\.(.*?)\./) || [, , "unknown"])[2];
 
       if (request.headers.Authorization === "container-authorization") {
         body.write(
@@ -86,7 +92,7 @@ jest.mock("@smithy/node-http-handler", () => {
             roleCredentials: {
               accessKeyId: "SSO_ACCESS_KEY_ID",
               secretAccessKey: "SSO_SECRET_ACCESS_KEY",
-              sessionToken: "SSO_SESSION_TOKEN",
+              sessionToken: `SSO_SESSION_TOKEN_${region}`,
               expiration: "3000-01-01T00:00:00.000Z",
             },
           })
@@ -353,7 +359,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "SSO_ACCESS_KEY_ID",
         secretAccessKey: "SSO_SECRET_ACCESS_KEY",
-        sessionToken: "SSO_SESSION_TOKEN",
+        sessionToken: "SSO_SESSION_TOKEN_us-sso-region-1",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_CODE: "e",
@@ -547,7 +553,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "SSO_ACCESS_KEY_ID",
         secretAccessKey: "SSO_SECRET_ACCESS_KEY",
-        sessionToken: "SSO_SESSION_TOKEN",
+        sessionToken: "SSO_SESSION_TOKEN_us-sso-region-1",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_PROFILE_SSO: "r",
@@ -908,6 +914,327 @@ describe("credential-provider-node integration test", () => {
         "not used in a client initialization context",
       async () => {}
     );
+  });
+
+  describe("client-scoped code configuration of AWS profile", () => {
+    it("should allow clients to resolve credentials from different profiles", async () => {
+      iniProfileData.aaa = {
+        aws_access_key_id: "aaa",
+        aws_secret_access_key: "aaa",
+        aws_session_token: "aaa",
+        region: "ap-northeast-1",
+      };
+      iniProfileData.bbb = {
+        aws_access_key_id: "bbb",
+        aws_secret_access_key: "bbb",
+        aws_session_token: "bbb",
+        region: "us-east-1",
+      };
+
+      const clientA = new STS({
+        profile: "aaa",
+      });
+      const clientB = new STS({
+        profile: "bbb",
+      });
+
+      await clientA.getCallerIdentity();
+      await clientB.getCallerIdentity();
+
+      expect(await clientA.config.credentials()).toEqual({
+        $source: {
+          CREDENTIALS_PROFILE: "n",
+        },
+        accessKeyId: "aaa",
+        secretAccessKey: "aaa",
+        sessionToken: "aaa",
+      });
+      expect(await clientB.config.credentials()).toEqual({
+        $source: {
+          CREDENTIALS_PROFILE: "n",
+        },
+        accessKeyId: "bbb",
+        secretAccessKey: "bbb",
+        sessionToken: "bbb",
+      });
+    });
+    it("should load various configuration properties from different profiles", async () => {
+      // set AWS_PROFILE to show that client code-level profile takes priority over env.
+      process.env.AWS_PROFILE = "default";
+      iniProfileData.aaa = {
+        aws_access_key_id: "aaa",
+        aws_secret_access_key: "aaa",
+        aws_session_token: "aaa",
+        region: "ap-northeast-1",
+        retry_mode: "adaptive",
+        max_attempts: "33",
+        use_fips_endpoint: "true",
+        use_dualstack_endpoint: "true",
+      };
+      iniProfileData.bbb = {
+        aws_access_key_id: "bbb",
+        aws_secret_access_key: "bbb",
+        aws_session_token: "bbb",
+        region: "us-east-1",
+        retry_mode: "standard",
+        max_attempts: "12",
+        use_fips_endpoint: "false",
+        use_dualstack_endpoint: "false",
+      };
+
+      const clientA = new STS({
+        profile: "aaa",
+      });
+      const clientB = new STS({
+        profile: "bbb",
+      });
+
+      await clientA.getCallerIdentity();
+      await clientB.getCallerIdentity();
+
+      expect(await clientA.config.region()).toEqual(iniProfileData.aaa.region);
+      expect(await clientA.config.retryStrategy()).toBeInstanceOf(AdaptiveRetryStrategy);
+      expect(await clientA.config.maxAttempts()).toEqual(Number(iniProfileData.aaa.max_attempts));
+      expect(await clientA.config.useFipsEndpoint()).toEqual(iniProfileData.aaa.use_fips_endpoint === "true");
+      expect(await clientA.config.useDualstackEndpoint()).toEqual(iniProfileData.aaa.use_dualstack_endpoint === "true");
+
+      expect(await clientB.config.region()).toEqual(iniProfileData.bbb.region);
+      expect(await clientB.config.retryStrategy()).toBeInstanceOf(StandardRetryStrategy);
+      expect(await clientB.config.maxAttempts()).toEqual(Number(iniProfileData.bbb.max_attempts));
+      expect(await clientB.config.useFipsEndpoint()).toEqual(iniProfileData.bbb.use_fips_endpoint === "true");
+      expect(await clientB.config.useDualstackEndpoint()).toEqual(iniProfileData.bbb.use_dualstack_endpoint === "true");
+    });
+
+    it("should allow client profile to control fromIni init profile in implicit (default) credentials provider", async () => {
+      sts = new STS({
+        profile: "assume",
+      });
+      iniProfileData.static = {
+        aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+        aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+      };
+      iniProfileData.assume = {
+        region: "eu-west-1",
+        role_arn: "ROLE_ARN",
+        role_session_name: "ROLE_SESSION_NAME",
+        external_id: "EXTERNAL_ID",
+        source_profile: "static",
+      };
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "STS_AR_ACCESS_KEY_ID",
+        secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+        sessionToken: "STS_AR_SESSION_TOKEN_eu-west-1",
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
+        $source: {
+          CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+          CREDENTIALS_STS_ASSUME_ROLE: "i",
+        },
+      });
+    });
+
+    it(
+      "should allow client profile to control fromIni init profile in explicit credentials provider " +
+        "without requiring redundant setting of profile or region on the provider factory",
+      async () => {
+        sts = new STS({
+          profile: "assume",
+          // no profile is given to fromIni(), but it is used in
+          // the context of this client and should fall back to the client's
+          // profile.
+          credentials: fromIni(),
+        });
+        const sts2 = new STS({});
+        Object.assign(iniProfileData.default, {
+          aws_access_key_id: "DEFAULT",
+          aws_secret_access_key: "DEFAULT",
+        });
+        iniProfileData.static = {
+          aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+          aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+        };
+        iniProfileData.assume = {
+          region: "ap-northeast-1",
+          role_arn: "ROLE_ARN",
+          role_session_name: "ROLE_SESSION_NAME",
+          external_id: "EXTERNAL_ID",
+          source_profile: "static",
+        };
+        await sts.getCallerIdentity({});
+        const credentials = await sts.config.credentials();
+        expect(credentials).toEqual({
+          accessKeyId: "STS_AR_ACCESS_KEY_ID",
+          secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+          sessionToken: "STS_AR_SESSION_TOKEN_ap-northeast-1",
+          expiration: new Date("3000-01-01T00:00:00.000Z"),
+          $source: {
+            CREDENTIALS_CODE: "e",
+            CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+            CREDENTIALS_STS_ASSUME_ROLE: "i",
+          },
+        });
+        expect(await sts2.config.credentials()).toEqual({
+          accessKeyId: "DEFAULT",
+          secretAccessKey: "DEFAULT",
+          sessionToken: undefined,
+          $source: {
+            CREDENTIALS_PROFILE: "n",
+          },
+        });
+      }
+    );
+
+    it("credential provider factory init still overrides profile setting", async () => {
+      sts = new STS({
+        profile: "assume",
+        credentials: fromIni({
+          profile: "default",
+        }),
+      });
+      Object.assign(iniProfileData.default, {
+        aws_access_key_id: "DEFAULT",
+        aws_secret_access_key: "DEFAULT",
+        region: "us-east-1",
+      });
+      iniProfileData.static = {
+        aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+        aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+      };
+      iniProfileData.assume = {
+        region: "ap-northeast-1",
+        role_arn: "ROLE_ARN",
+        role_session_name: "ROLE_SESSION_NAME",
+        external_id: "EXTERNAL_ID",
+        source_profile: "static",
+      };
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "DEFAULT",
+        secretAccessKey: "DEFAULT",
+        sessionToken: undefined,
+        $source: {
+          CREDENTIALS_CODE: "e",
+          CREDENTIALS_PROFILE: "n",
+        },
+      });
+      expect(await sts.config.region()).toEqual("ap-northeast-1");
+    });
+
+    describe("sso", () => {
+      it(
+        "should allow SSO region to be used in the SSO client request if " +
+          "a profile includes a region but also SSO credentials",
+        async () => {
+          sts = new STS({
+            profile: "sso_root",
+          });
+          iniProfileData["sso-session.ssoNew"] = {
+            sso_region: "us-sso-region-2",
+            sso_start_url: "SSO_START_URL",
+            sso_registration_scopes: "sso:account:access",
+          };
+          iniProfileData.sso_root = {
+            sso_region: "us-sso-region-1",
+            sso_session: "ssoNew",
+            sso_account_id: "1234",
+            sso_role_name: "integration-test",
+            region: "ap-northeast-1",
+          };
+          await sts.getCallerIdentity({});
+          const credentials = await sts.config.credentials();
+          expect(credentials).toEqual({
+            accessKeyId: "SSO_ACCESS_KEY_ID",
+            secretAccessKey: "SSO_SECRET_ACCESS_KEY",
+            sessionToken: "SSO_SESSION_TOKEN_us-sso-region-2",
+            expiration: new Date("3000-01-01T00:00:00.000Z"),
+            $source: {
+              CREDENTIALS_PROFILE_SSO: "r",
+              CREDENTIALS_SSO: "s",
+            },
+          });
+          expect(await sts.config.region()).toEqual("ap-northeast-1");
+        }
+      );
+      it(
+        "should allow SSO region to be used in the SSO client request if " +
+          "a client has set a region in code but selects a profile with SSO creds",
+        async () => {
+          sts = new STS({
+            region: "eu-west-1",
+            credentials: fromIni({
+              profile: "sso_root",
+            }),
+          });
+          iniProfileData["sso-session.ssoNew"] = {
+            sso_region: "us-sso-region-2",
+            sso_start_url: "SSO_START_URL",
+            sso_registration_scopes: "sso:account:access",
+          };
+          iniProfileData.sso_root = {
+            sso_region: "us-sso-region-1",
+            sso_session: "ssoNew",
+            sso_account_id: "1234",
+            sso_role_name: "integration-test",
+            region: "ap-northeast-1",
+          };
+          await sts.getCallerIdentity({});
+          const credentials = await sts.config.credentials();
+          expect(credentials).toEqual({
+            accessKeyId: "SSO_ACCESS_KEY_ID",
+            secretAccessKey: "SSO_SECRET_ACCESS_KEY",
+            sessionToken: "SSO_SESSION_TOKEN_us-sso-region-2",
+            expiration: new Date("3000-01-01T00:00:00.000Z"),
+            $source: {
+              CREDENTIALS_CODE: "e",
+              CREDENTIALS_PROFILE_SSO: "r",
+              CREDENTIALS_SSO: "s",
+            },
+          });
+          expect(await sts.config.region()).toEqual("eu-west-1");
+        }
+      );
+    });
+
+    it("source_profile does not bring over any client configuration options", async () => {
+      sts = new STS({
+        profile: "assume",
+      });
+      iniProfileData.static = {
+        aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+        aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+        region: "us-west-2",
+        retry_mode: "adaptive",
+        max_attempts: "33",
+        use_fips_endpoint: "true",
+        use_dualstack_endpoint: "true",
+      };
+      iniProfileData.assume = {
+        region: "ap-northeast-1",
+        role_arn: "ROLE_ARN",
+        role_session_name: "ROLE_SESSION_NAME",
+        external_id: "EXTERNAL_ID",
+        source_profile: "static",
+      };
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "STS_AR_ACCESS_KEY_ID",
+        secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+        sessionToken: "STS_AR_SESSION_TOKEN_ap-northeast-1",
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
+        $source: {
+          CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+          CREDENTIALS_STS_ASSUME_ROLE: "i",
+        },
+      });
+      expect(await sts.config.region()).toEqual("ap-northeast-1");
+      expect(await sts.config.retryStrategy()).toBeInstanceOf(StandardRetryStrategy);
+      expect(await sts.config.maxAttempts()).toEqual(3);
+      expect(await sts.config.useFipsEndpoint()).toEqual(false);
+      expect(await sts.config.useDualstackEndpoint()).toEqual(false);
+    });
   });
 
   describe("No credentials available", () => {
