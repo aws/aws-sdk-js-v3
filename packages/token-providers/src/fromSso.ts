@@ -40,10 +40,10 @@ export const fromSso =
   async (awsIdentityProperties?: AwsIdentityProperties) => {
     const init: FromSsoInit = {
       ..._init,
-      ...(awsIdentityProperties?.contextClientConfig?.region
+      ...(awsIdentityProperties?.callerClientConfig?.region
         ? {
             parentClientConfig: {
-              region: awsIdentityProperties?.contextClientConfig?.region,
+              region: awsIdentityProperties?.callerClientConfig?.region,
               ..._init.parentClientConfig,
             },
           }

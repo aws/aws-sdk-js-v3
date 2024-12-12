@@ -8,7 +8,7 @@ export { AwsCredentialIdentity, AwsCredentialIdentityProvider, IdentityProvider 
  * @public
  */
 export interface AwsIdentityProperties {
-  contextClientConfig?: {
+  callerClientConfig?: {
     region(): Promise<string>;
   };
 }

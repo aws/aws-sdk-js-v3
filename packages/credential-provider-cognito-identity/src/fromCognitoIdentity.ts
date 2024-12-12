@@ -47,7 +47,7 @@ export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): 
           region:
             parameters.clientConfig?.region ??
             parameters.parentClientConfig?.region ??
-            awsIdentityProperties?.contextClientConfig?.region,
+            awsIdentityProperties?.callerClientConfig?.region,
         })
       )
     ).send(

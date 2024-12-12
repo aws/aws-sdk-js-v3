@@ -328,7 +328,7 @@ const createConfigBoundCredentialProvider = (input: {
       );
   const normalizedCreds = async () =>
     (normalizedCredentialsProvider as RegionalAwsCredentialIdentityProvider)({
-      contextClientConfig: {
+      callerClientConfig: {
         region: normalizeProvider(input.region),
       },
     });

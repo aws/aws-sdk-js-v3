@@ -129,8 +129,8 @@ export const resolveAwsSdkSigV4Config = <T>(
     }
   }
 
-  const contextBoundCredentialsProvider = async () => {
-    return credentialsProvider!({ contextClientConfig: config });
+  const boundCredentialsProvider = async () => {
+    return credentialsProvider!({ callerClientConfig: config });
   };
 
   // Populate sigv4 arguments
@@ -174,7 +174,7 @@ export const resolveAwsSdkSigV4Config = <T>(
 
           const params: SignatureV4Init & SignatureV4CryptoInit = {
             ...config,
-            credentials: contextBoundCredentialsProvider,
+            credentials: boundCredentialsProvider,
             region: config.signingRegion,
             service: config.signingName,
             sha256,
@@ -210,7 +210,7 @@ export const resolveAwsSdkSigV4Config = <T>(
 
       const params: SignatureV4Init & SignatureV4CryptoInit = {
         ...config,
-        credentials: contextBoundCredentialsProvider,
+        credentials: boundCredentialsProvider,
         region: config.signingRegion,
         service: config.signingName,
         sha256,
@@ -228,10 +228,10 @@ export const resolveAwsSdkSigV4Config = <T>(
     signingEscapePath,
     credentials: isUserSupplied
       ? async () =>
-          contextBoundCredentialsProvider!().then((creds: AttributedAwsCredentialIdentity) =>
+          boundCredentialsProvider!().then((creds: AttributedAwsCredentialIdentity) =>
             setCredentialFeature(creds, "CREDENTIALS_CODE", "e")
           )
-      : contextBoundCredentialsProvider!,
+      : boundCredentialsProvider!,
     signer,
   };
 };

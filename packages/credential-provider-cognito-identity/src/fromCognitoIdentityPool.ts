@@ -42,7 +42,7 @@ export function fromCognitoIdentityPool({
       new CognitoIdentityClient(
         Object.assign({}, clientConfig ?? {}, {
           region:
-            clientConfig?.region ?? parentClientConfig?.region ?? awsIdentityProperties?.contextClientConfig?.region,
+            clientConfig?.region ?? parentClientConfig?.region ?? awsIdentityProperties?.callerClientConfig?.region,
         })
       );
 
