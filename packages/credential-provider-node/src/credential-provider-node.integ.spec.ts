@@ -1,5 +1,7 @@
 import { STS } from "@aws-sdk/client-sts";
 import * as credentialProviderHttp from "@aws-sdk/credential-provider-http";
+import { fromCognitoIdentity, fromCognitoIdentityPool, fromIni, fromWebToken } from "@aws-sdk/credential-providers";
+import { fromSso } from "@aws-sdk/token-providers";
 import { HttpResponse } from "@smithy/protocol-http";
 import type { SourceProfileInit } from "@smithy/shared-ini-file-loader";
 import type { HttpRequest, NodeHttpHandlerOptions, ParsedIniData } from "@smithy/types";
@@ -67,6 +69,8 @@ jest.mock("@smithy/node-http-handler", () => {
         assumeRoleArns.push(request.body.match(/RoleArn=(.*?)&/)?.[1]);
       }
 
+      const region = (request.hostname.match(/(sts|cognito-identity)\.(.*?)\./) || [, , "unknown"])[2];
+
       if (request.headers.Authorization === "container-authorization") {
         body.write(
           JSON.stringify({
@@ -94,7 +98,7 @@ jest.mock("@smithy/node-http-handler", () => {
   <Credentials>
     <AccessKeyId>STS_ARWI_ACCESS_KEY_ID</AccessKeyId>
     <SecretAccessKey>STS_ARWI_SECRET_ACCESS_KEY</SecretAccessKey>
-    <SessionToken>STS_ARWI_SESSION_TOKEN</SessionToken>
+    <SessionToken>STS_ARWI_SESSION_TOKEN_${region}</SessionToken>
     <Expiration>3000-01-01T00:00:00.000Z</Expiration>
   </Credentials>
 </AssumeRoleWithWebIdentityResult>
@@ -109,7 +113,7 @@ jest.mock("@smithy/node-http-handler", () => {
   <Credentials>
     <AccessKeyId>STS_AR_ACCESS_KEY_ID</AccessKeyId>
     <SecretAccessKey>STS_AR_SECRET_ACCESS_KEY</SecretAccessKey>
-    <SessionToken>STS_AR_SESSION_TOKEN</SessionToken>
+    <SessionToken>STS_AR_SESSION_TOKEN_${region}</SessionToken>
     <Expiration>3000-01-01T00:00:00.000Z</Expiration>
   </Credentials>
 </AssumeRoleResult>
@@ -129,7 +133,22 @@ jest.mock("@smithy/node-http-handler", () => {
   <RequestId>01234567-89ab-cdef-0123-456789abcdef</RequestId>
 </ResponseMetadata>
 </GetCallerIdentityResponse>`);
+      } else if (request.headers["x-amz-target"] === "AWSCognitoIdentityService.GetCredentialsForIdentity") {
+        body.write(`{
+          "Credentials":{
+            "SecretKey":"COGNITO_SECRET_KEY",
+            "SessionToken":"COGNITO_SESSION_TOKEN_${region}",
+            "Expiration":${new Date("3000-01-01T00:00:00.000Z").getTime() / 1000},
+            "AccessKeyId":"COGNITO_ACCESS_KEY_ID"
+          },
+          "IdentityId":"${region}:COGNITO_IDENTITY_ID"
+        }`);
+      } else if (request.headers["x-amz-target"] === "AWSCognitoIdentityService.GetId") {
+        body.write(`{
+          "IdentityId":"${region}:COGNITO_IDENTITY_ID"
+        }`);
       } else {
+        console.log(request);
         throw new Error("request not supported.");
       }
       body.end();
@@ -379,7 +398,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-        sessionToken: "STS_AR_SESSION_TOKEN",
+        sessionToken: "STS_AR_SESSION_TOKEN_us-stsar-1",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
@@ -409,7 +428,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-        sessionToken: "STS_AR_SESSION_TOKEN",
+        sessionToken: "STS_AR_SESSION_TOKEN_eu-west-1",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
@@ -439,7 +458,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-        sessionToken: "STS_AR_SESSION_TOKEN",
+        sessionToken: "STS_AR_SESSION_TOKEN_us-gov-stsar-1",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
@@ -458,7 +477,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
         secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
-        sessionToken: "STS_ARWI_SESSION_TOKEN",
+        sessionToken: "STS_ARWI_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_PROFILE_STS_WEB_ID_TOKEN: "q",
@@ -484,7 +503,7 @@ describe("credential-provider-node integration test", () => {
         expect(credentials).toEqual({
           accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
           secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
-          sessionToken: "STS_ARWI_SESSION_TOKEN",
+          sessionToken: "STS_ARWI_SESSION_TOKEN_us-gov-sts-1",
           expiration: new Date("3000-01-01T00:00:00.000Z"),
           $source: {
             CREDENTIALS_PROFILE_STS_WEB_ID_TOKEN: "q",
@@ -562,7 +581,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-        sessionToken: "STS_AR_SESSION_TOKEN",
+        sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_CODE: "e",
@@ -605,7 +624,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-        sessionToken: "STS_AR_SESSION_TOKEN",
+        sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_CODE: "e",
@@ -650,7 +669,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-        sessionToken: "STS_AR_SESSION_TOKEN",
+        sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_CODE: "e",
@@ -702,7 +721,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-        sessionToken: "STS_AR_SESSION_TOKEN",
+        sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_CODE: "e",
@@ -753,7 +772,7 @@ describe("credential-provider-node integration test", () => {
       expect(credentials).toEqual({
         accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
         secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
-        sessionToken: "STS_ARWI_SESSION_TOKEN",
+        sessionToken: "STS_ARWI_SESSION_TOKEN_us-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_ENV_VARS_STS_WEB_ID_TOKEN: "h",
@@ -783,6 +802,112 @@ describe("credential-provider-node integration test", () => {
     xit("should use instance metadata unless IMDS is disabled", async () => {
       // TODO
     });
+  });
+
+  describe("Region resolution for code-level providers given to a client", () => {
+    it("fromCognitoIdentity provider should use caller client region", async () => {
+      sts = new STS({
+        region: "ap-northeast-1",
+        credentials: fromCognitoIdentity({
+          identityId: "",
+        }),
+      });
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "COGNITO_ACCESS_KEY_ID",
+        secretAccessKey: "COGNITO_SECRET_KEY",
+        sessionToken: "COGNITO_SESSION_TOKEN_ap-northeast-1",
+        identityId: "",
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
+        $source: { CREDENTIALS_CODE: "e" },
+      });
+    });
+
+    it("fromCognitoIdentityPool provider should use caller client region", async () => {
+      sts = new STS({
+        region: "ap-northeast-1",
+        credentials: fromCognitoIdentityPool({
+          identityPoolId: "",
+        }),
+      });
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "COGNITO_ACCESS_KEY_ID",
+        secretAccessKey: "COGNITO_SECRET_KEY",
+        sessionToken: "COGNITO_SESSION_TOKEN_ap-northeast-1",
+        identityId: "ap-northeast-1:COGNITO_IDENTITY_ID",
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
+        $source: { CREDENTIALS_CODE: "e" },
+      });
+    });
+
+    it("fromIni assumeRole provider should use the caller client's region for STS", async () => {
+      sts = new STS({
+        region: "eu-west-1",
+        credentials: fromIni(),
+      });
+      iniProfileData.assume = {
+        region: "eu-west-1",
+        aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+        aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+      };
+      Object.assign(iniProfileData.default, {
+        region: "eu-west-1",
+        role_arn: "ROLE_ARN",
+        role_session_name: "ROLE_SESSION_NAME",
+        external_id: "EXTERNAL_ID",
+        source_profile: "assume",
+      });
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "STS_AR_ACCESS_KEY_ID",
+        secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+        sessionToken: "STS_AR_SESSION_TOKEN_eu-west-1",
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
+        $source: {
+          CREDENTIALS_CODE: "e",
+          CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+          CREDENTIALS_STS_ASSUME_ROLE: "i",
+        },
+      });
+    });
+
+    it("fromWebToken provider should use caller client region", async () => {
+      sts = new STS({
+        region: "ap-northeast-1",
+        credentials: fromWebToken({
+          roleArn: "",
+          webIdentityToken: "",
+        }),
+      });
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
+        secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
+        sessionToken: "STS_ARWI_SESSION_TOKEN_ap-northeast-1",
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
+        $source: {
+          CREDENTIALS_CODE: "e",
+          CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
+        },
+      });
+    });
+
+    it.skip(
+      "fromSSO (SSO) provider is excluded from testing because the SSO_REGION is a required parameter and is used " +
+        "instead of any fallback to the caller client region",
+      async () => {}
+    );
+
+    it.skip(
+      "fromSso (SSO-OIDC) provider is excluded from testing because it is " +
+        "not used in a client initialization context",
+      async () => {}
+    );
   });
 
   describe("No credentials available", () => {

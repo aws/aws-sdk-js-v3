@@ -16,7 +16,7 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "yarn g:vitest run",
-    "test:integration": "jest -c jest.config.integ.js",
+    "test:integration": "yarn g:jest -c jest.config.integ.js",
     "test:watch": "yarn g:vitest watch"
   },
   "keywords": [

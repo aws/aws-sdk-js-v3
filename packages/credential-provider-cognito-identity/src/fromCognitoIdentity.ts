@@ -1,6 +1,6 @@
-import type { CredentialProviderOptions } from "@aws-sdk/types";
+import type { AwsIdentityProperties, CredentialProviderOptions, RuntimeConfigIdentityProvider } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentity, Logger, Provider } from "@smithy/types";
+import type { AwsCredentialIdentity, Logger } from "@smithy/types";
 
 import { CognitoProviderParameters } from "./CognitoProviderParameters";
 import { resolveLogins } from "./resolveLogins";
@@ -18,7 +18,7 @@ export interface CognitoIdentityCredentials extends AwsCredentialIdentity {
 /**
  * @internal
  */
-export type CognitoIdentityCredentialProvider = Provider<CognitoIdentityCredentials>;
+export type CognitoIdentityCredentialProvider = RuntimeConfigIdentityProvider<CognitoIdentityCredentials>;
 
 /**
  * @internal
@@ -29,7 +29,7 @@ export type CognitoIdentityCredentialProvider = Provider<CognitoIdentityCredenti
  * Results from this function call are not cached internally.
  */
 export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): CognitoIdentityCredentialProvider {
-  return async (): Promise<CognitoIdentityCredentials> => {
+  return async (awsIdentityProperties?: AwsIdentityProperties): Promise<CognitoIdentityCredentials> => {
     parameters.logger?.debug("@aws-sdk/credential-provider-cognito-identity - fromCognitoIdentity");
     const { GetCredentialsForIdentityCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity");
 
@@ -44,7 +44,10 @@ export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): 
       parameters.client ??
       new CognitoIdentityClient(
         Object.assign({}, parameters.clientConfig ?? {}, {
-          region: parameters.clientConfig?.region ?? parameters.parentClientConfig?.region,
+          region:
+            parameters.clientConfig?.region ??
+            parameters.parentClientConfig?.region ??
+            awsIdentityProperties?.callerClientConfig?.region,
         })
       )
     ).send(
