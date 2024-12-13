@@ -12,7 +12,7 @@ export const UA_APP_ID_ENV_NAME = "AWS_SDK_UA_APP_ID";
 export const UA_APP_ID_INI_NAME = "sdk_ua_app_id";
 
 /**
- * @internal
+ * @deprecated
  */
 export const UA_APP_ID_INI_NAME_DEPRECATED = "sdk-ua-app-id";
 
