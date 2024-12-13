@@ -23446,6 +23446,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/crt-loader@workspace:packages/crt-loader":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/crt-loader@workspace:packages/crt-loader"
+  dependencies:
+    "@aws-sdk/util-user-agent-node": "npm:*"
+    "@tsconfig/recommended": "npm:1.0.1"
+    aws-crt: "npm:^1.18.3"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    rimraf: "npm:3.0.2"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~4.9.5"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/dsql-signer@workspace:packages/dsql-signer":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/dsql-signer@workspace:packages/dsql-signer"
