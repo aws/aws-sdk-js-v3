@@ -1,3 +1,4 @@
+import { auth as crtAuth, http as crtHttp, io as crtIO } from "@aws-sdk/crt-loader";
 import { AwsCredentialIdentity } from "@aws-sdk/types";
 import { parseQueryString } from "@smithy/querystring-parser";
 import {
@@ -18,7 +19,6 @@ import {
   RequestSigningArguments,
 } from "@smithy/types";
 import { normalizeProvider } from "@smithy/util-middleware";
-import { auth as crtAuth, http as crtHttp, io as crtIO } from "aws-crt";
 
 import { MAX_PRESIGNED_TTL, SHA256_HEADER } from "./constants";
 import { deleteHeader } from "./headerUtil";
