@@ -117,6 +117,18 @@ export interface AddBridgeFlowSourceRequest {
 }
 
 /**
+ * The settings related to the multicast source.
+ * @public
+ */
+export interface MulticastSourceSettings {
+  /**
+   * The IP address of the source for source-specific multicast (SSM).
+   * @public
+   */
+  MulticastSourceIp?: string | undefined;
+}
+
+/**
  * Add a network source to an existing bridge.
  * @public
  */
@@ -126,6 +138,12 @@ export interface AddBridgeNetworkSourceRequest {
    * @public
    */
   MulticastIp: string | undefined;
+
+  /**
+   * The settings related to the multicast source.
+   * @public
+   */
+  MulticastSourceSettings?: MulticastSourceSettings | undefined;
 
   /**
    * The name of the network source. This name is used to reference the source and must be unique among sources in this bridge.
@@ -813,6 +831,12 @@ export interface BridgeNetworkSource {
    * @public
    */
   MulticastIp: string | undefined;
+
+  /**
+   * The settings related to the multicast source.
+   * @public
+   */
+  MulticastSourceSettings?: MulticastSourceSettings | undefined;
 
   /**
    * The name of the network source.
@@ -4798,6 +4822,12 @@ export interface UpdateBridgeNetworkSourceRequest {
    * @public
    */
   MulticastIp?: string | undefined;
+
+  /**
+   * The settings related to the multicast source.
+   * @public
+   */
+  MulticastSourceSettings?: MulticastSourceSettings | undefined;
 
   /**
    * The network source's gateway network name.

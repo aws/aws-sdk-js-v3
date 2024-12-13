@@ -191,6 +191,7 @@ import {
   MessageDetail,
   Messages,
   MonitoringConfig,
+  MulticastSourceSettings,
   NotFoundException,
   Offering,
   Output,
@@ -2900,6 +2901,7 @@ const se_AddBridgeNetworkOutputRequest = (input: AddBridgeNetworkOutputRequest, 
 const se_AddBridgeNetworkSourceRequest = (input: AddBridgeNetworkSourceRequest, context: __SerdeContext): any => {
   return take(input, {
     multicastIp: [, , `MulticastIp`],
+    multicastSourceSettings: [, (_) => se_MulticastSourceSettings(_, context), `MulticastSourceSettings`],
     name: [, , `Name`],
     networkName: [, , `NetworkName`],
     port: [, , `Port`],
@@ -3159,6 +3161,15 @@ const se_MonitoringConfig = (input: MonitoringConfig, context: __SerdeContext): 
 };
 
 /**
+ * serializeAws_restJson1MulticastSourceSettings
+ */
+const se_MulticastSourceSettings = (input: MulticastSourceSettings, context: __SerdeContext): any => {
+  return take(input, {
+    multicastSourceIp: [, , `MulticastSourceIp`],
+  });
+};
+
+/**
  * serializeAws_restJson1SetGatewayBridgeSourceRequest
  */
 const se_SetGatewayBridgeSourceRequest = (input: SetGatewayBridgeSourceRequest, context: __SerdeContext): any => {
@@ -3237,6 +3248,7 @@ const se_UpdateBridgeNetworkOutputRequest = (input: UpdateBridgeNetworkOutputReq
 const se_UpdateBridgeNetworkSourceRequest = (input: UpdateBridgeNetworkSourceRequest, context: __SerdeContext): any => {
   return take(input, {
     multicastIp: [, , `MulticastIp`],
+    multicastSourceSettings: [, (_) => se_MulticastSourceSettings(_, context), `MulticastSourceSettings`],
     networkName: [, , `NetworkName`],
     port: [, , `Port`],
     protocol: [, , `Protocol`],
@@ -3674,6 +3686,7 @@ const de_BridgeNetworkOutput = (output: any, context: __SerdeContext): BridgeNet
 const de_BridgeNetworkSource = (output: any, context: __SerdeContext): BridgeNetworkSource => {
   return take(output, {
     MulticastIp: [, __expectString, `multicastIp`],
+    MulticastSourceSettings: [, (_: any) => de_MulticastSourceSettings(_, context), `multicastSourceSettings`],
     Name: [, __expectString, `name`],
     NetworkName: [, __expectString, `networkName`],
     Port: [, __expectInt32, `port`],
@@ -4059,6 +4072,15 @@ const de_Messages = (output: any, context: __SerdeContext): Messages => {
 const de_MonitoringConfig = (output: any, context: __SerdeContext): MonitoringConfig => {
   return take(output, {
     ThumbnailState: [, __expectString, `thumbnailState`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MulticastSourceSettings
+ */
+const de_MulticastSourceSettings = (output: any, context: __SerdeContext): MulticastSourceSettings => {
+  return take(output, {
+    MulticastSourceIp: [, __expectString, `multicastSourceIp`],
   }) as any;
 };
 

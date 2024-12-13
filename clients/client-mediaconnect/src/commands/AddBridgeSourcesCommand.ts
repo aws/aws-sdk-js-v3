@@ -48,6 +48,9 @@ export interface AddBridgeSourcesCommandOutput extends AddBridgeSourcesResponse,
  *       },
  *       NetworkSource: { // AddBridgeNetworkSourceRequest
  *         MulticastIp: "STRING_VALUE", // required
+ *         MulticastSourceSettings: { // MulticastSourceSettings
+ *           MulticastSourceIp: "STRING_VALUE",
+ *         },
  *         Name: "STRING_VALUE", // required
  *         NetworkName: "STRING_VALUE", // required
  *         Port: Number("int"), // required
@@ -72,6 +75,9 @@ export interface AddBridgeSourcesCommandOutput extends AddBridgeSourcesResponse,
  * //       },
  * //       NetworkSource: { // BridgeNetworkSource
  * //         MulticastIp: "STRING_VALUE", // required
+ * //         MulticastSourceSettings: { // MulticastSourceSettings
+ * //           MulticastSourceIp: "STRING_VALUE",
+ * //         },
  * //         Name: "STRING_VALUE", // required
  * //         NetworkName: "STRING_VALUE", // required
  * //         Port: Number("int"), // required
