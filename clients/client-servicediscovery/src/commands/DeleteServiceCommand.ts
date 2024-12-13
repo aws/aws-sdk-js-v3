@@ -28,7 +28,7 @@ export interface DeleteServiceCommandInput extends DeleteServiceRequest {}
 export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specified service. If the service still contains one or more registered instances, the request
+ * <p>Deletes a specified service and all associated service attributes. If the service still contains one or more registered instances, the request
  *    fails.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

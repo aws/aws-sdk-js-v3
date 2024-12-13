@@ -574,10 +574,6 @@ export type RoutingPolicy = (typeof RoutingPolicy)[keyof typeof RoutingPolicy];
 /**
  * <p>A complex type that contains information about the Amazon Route 53 DNS records that you want Cloud Map to create
  *    when you register an instance.</p>
- *          <important>
- *             <p>The record types of a service can only be changed by deleting the service and recreating it with a new
- *      <code>Dnsconfig</code>.</p>
- *          </important>
  * @public
  */
 export interface DnsConfig {
@@ -638,6 +634,10 @@ export interface DnsConfig {
   /**
    * <p>An array that contains one <code>DnsRecord</code> object for each Route 53 DNS record that you want Cloud Map
    *    to create when you register an instance.</p>
+   *          <important>
+   *             <p>The record type of a service specified in a <code>DnsRecord</code> object can't be updated. To change a record type, you need to delete the service and recreate it with a new
+   *     <code>DnsConfig</code>.</p>
+   *          </important>
    * @public
    */
   DnsRecords: DnsRecord[] | undefined;
@@ -1285,6 +1285,28 @@ export class ServiceNotFound extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * @public
+ */
+export interface DeleteServiceAttributesRequest {
+  /**
+   * <p>The ID of the service from which the attributes will be deleted.</p>
+   * @public
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * <p>A list of keys corresponding to each attribute that you want to delete.</p>
+   * @public
+   */
+  Attributes: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteServiceAttributesResponse {}
 
 /**
  * @public
@@ -2228,6 +2250,56 @@ export interface GetServiceResponse {
    * @public
    */
   Service?: Service | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetServiceAttributesRequest {
+  /**
+   * <p>The ID of the service that you want to get attributes for.</p>
+   * @public
+   */
+  ServiceId: string | undefined;
+}
+
+/**
+ * <p>A complex type that contains information about attributes associated with a specific service.</p>
+ * @public
+ */
+export interface ServiceAttributes {
+  /**
+   * <p>The ARN of the service that the attributes are associated with.</p>
+   * @public
+   */
+  ServiceArn?: string | undefined;
+
+  /**
+   * <p>A string map that contains the following information for the service that you specify in
+   *    <code>ServiceArn</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The attributes that apply to the service. </p>
+   *             </li>
+   *             <li>
+   *                <p>For each attribute, the applicable value.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can specify a total of 30 attributes.</p>
+   * @public
+   */
+  Attributes?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetServiceAttributesResponse {
+  /**
+   * <p>A complex type that contains the service ARN and a list of attribute key-value pairs associated with the service.</p>
+   * @public
+   */
+  ServiceAttributes?: ServiceAttributes | undefined;
 }
 
 /**
@@ -3548,7 +3620,7 @@ export interface UpdateServiceRequest {
   Id: string | undefined;
 
   /**
-   * <p>A complex type that contains the new settings for the service.</p>
+   * <p>A complex type that contains the new settings for the service. You can specify a maximum of 30 attributes (key-value pairs).</p>
    * @public
    */
   Service: ServiceChange | undefined;
@@ -3565,3 +3637,47 @@ export interface UpdateServiceResponse {
    */
   OperationId?: string | undefined;
 }
+
+/**
+ * <p>The attribute can't be added to the service because you've exceeded the quota for the number of attributes you can add to a service.</p>
+ * @public
+ */
+export class ServiceAttributesLimitExceededException extends __BaseException {
+  readonly name: "ServiceAttributesLimitExceededException" = "ServiceAttributesLimitExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceAttributesLimitExceededException, __BaseException>) {
+    super({
+      name: "ServiceAttributesLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceAttributesLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface UpdateServiceAttributesRequest {
+  /**
+   * <p>The ID of the service that you want to update.</p>
+   * @public
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * <p>A string map that contains attribute key-value pairs.</p>
+   * @public
+   */
+  Attributes: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateServiceAttributesResponse {}

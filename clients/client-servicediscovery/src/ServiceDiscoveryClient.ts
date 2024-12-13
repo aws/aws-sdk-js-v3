@@ -67,6 +67,10 @@ import {
 } from "./commands/CreatePublicDnsNamespaceCommand";
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
 import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
+import {
+  DeleteServiceAttributesCommandInput,
+  DeleteServiceAttributesCommandOutput,
+} from "./commands/DeleteServiceAttributesCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
 import { DeregisterInstanceCommandInput, DeregisterInstanceCommandOutput } from "./commands/DeregisterInstanceCommand";
 import { DiscoverInstancesCommandInput, DiscoverInstancesCommandOutput } from "./commands/DiscoverInstancesCommand";
@@ -81,6 +85,10 @@ import {
 } from "./commands/GetInstancesHealthStatusCommand";
 import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/GetNamespaceCommand";
 import { GetOperationCommandInput, GetOperationCommandOutput } from "./commands/GetOperationCommand";
+import {
+  GetServiceAttributesCommandInput,
+  GetServiceAttributesCommandOutput,
+} from "./commands/GetServiceAttributesCommand";
 import { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
@@ -109,6 +117,10 @@ import {
   UpdatePublicDnsNamespaceCommandInput,
   UpdatePublicDnsNamespaceCommandOutput,
 } from "./commands/UpdatePublicDnsNamespaceCommand";
+import {
+  UpdateServiceAttributesCommandInput,
+  UpdateServiceAttributesCommandOutput,
+} from "./commands/UpdateServiceAttributesCommand";
 import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand";
 import {
   ClientInputEndpointParameters,
@@ -130,6 +142,7 @@ export type ServiceInputTypes =
   | CreatePublicDnsNamespaceCommandInput
   | CreateServiceCommandInput
   | DeleteNamespaceCommandInput
+  | DeleteServiceAttributesCommandInput
   | DeleteServiceCommandInput
   | DeregisterInstanceCommandInput
   | DiscoverInstancesCommandInput
@@ -138,6 +151,7 @@ export type ServiceInputTypes =
   | GetInstancesHealthStatusCommandInput
   | GetNamespaceCommandInput
   | GetOperationCommandInput
+  | GetServiceAttributesCommandInput
   | GetServiceCommandInput
   | ListInstancesCommandInput
   | ListNamespacesCommandInput
@@ -151,6 +165,7 @@ export type ServiceInputTypes =
   | UpdateInstanceCustomHealthStatusCommandInput
   | UpdatePrivateDnsNamespaceCommandInput
   | UpdatePublicDnsNamespaceCommandInput
+  | UpdateServiceAttributesCommandInput
   | UpdateServiceCommandInput;
 
 /**
@@ -162,6 +177,7 @@ export type ServiceOutputTypes =
   | CreatePublicDnsNamespaceCommandOutput
   | CreateServiceCommandOutput
   | DeleteNamespaceCommandOutput
+  | DeleteServiceAttributesCommandOutput
   | DeleteServiceCommandOutput
   | DeregisterInstanceCommandOutput
   | DiscoverInstancesCommandOutput
@@ -170,6 +186,7 @@ export type ServiceOutputTypes =
   | GetInstancesHealthStatusCommandOutput
   | GetNamespaceCommandOutput
   | GetOperationCommandOutput
+  | GetServiceAttributesCommandOutput
   | GetServiceCommandOutput
   | ListInstancesCommandOutput
   | ListNamespacesCommandOutput
@@ -183,6 +200,7 @@ export type ServiceOutputTypes =
   | UpdateInstanceCustomHealthStatusCommandOutput
   | UpdatePrivateDnsNamespaceCommandOutput
   | UpdatePublicDnsNamespaceCommandOutput
+  | UpdateServiceAttributesCommandOutput
   | UpdateServiceCommandOutput;
 
 /**
