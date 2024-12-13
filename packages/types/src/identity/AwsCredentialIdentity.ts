@@ -17,23 +17,25 @@ export interface AwsIdentityProperties {
  * @public
  *
  * Variation of {@link IdentityProvider} which accepts a contextual
- * client configuration that includes an AWS region.
+ * client configuration that includes an AWS region and potentially other
+ * configurable fields.
  *
- * Used to link a credential provider to a client region if it is being called
+ * Used to link a credential provider to a client if it is being called
  * in the context of a client.
  */
-export type RegionalIdentityProvider<T> = (awsIdentityProperties?: AwsIdentityProperties) => Promise<T>;
+export type RuntimeConfigIdentityProvider<T> = (awsIdentityProperties?: AwsIdentityProperties) => Promise<T>;
 
 /**
  * @public
  *
  * Variation of {@link AwsCredentialIdentityProvider} which accepts a contextual
- * client configuration that includes an AWS region.
+ * client configuration that includes an AWS region and potentially other
+ * configurable fields.
  *
- * Used to link a credential provider to a client region if it is being called
+ * Used to link a credential provider to a client if it is being called
  * in the context of a client.
  */
-export type RegionalAwsCredentialIdentityProvider = RegionalIdentityProvider<AwsCredentialIdentity>;
+export type RuntimeConfigAwsCredentialIdentityProvider = RuntimeConfigIdentityProvider<AwsCredentialIdentity>;
 
 /**
  * @public

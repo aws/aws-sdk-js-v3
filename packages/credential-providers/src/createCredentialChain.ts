@@ -1,7 +1,7 @@
 import type {
   AwsIdentityProperties,
-  RegionalAwsCredentialIdentityProvider,
-  RegionalIdentityProvider,
+  RuntimeConfigAwsCredentialIdentityProvider,
+  RuntimeConfigIdentityProvider,
 } from "@aws-sdk/types";
 import { ProviderError } from "@smithy/property-provider";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
@@ -57,8 +57,8 @@ type Mutable<Type> = {
  * providers in sequence until one succeeds or all fail.
  */
 export const createCredentialChain = (
-  ...credentialProviders: RegionalAwsCredentialIdentityProvider[]
-): RegionalAwsCredentialIdentityProvider & CustomCredentialChainOptions => {
+  ...credentialProviders: RuntimeConfigAwsCredentialIdentityProvider[]
+): RuntimeConfigAwsCredentialIdentityProvider & CustomCredentialChainOptions => {
   let expireAfter = -1;
   const baseFunction = async (awsIdentityProperties?: AwsIdentityProperties) => {
     const credentials = await propertyProviderChain(...credentialProviders)(awsIdentityProperties);
@@ -85,7 +85,7 @@ export const createCredentialChain = (
  * @internal
  */
 export const propertyProviderChain =
-  <T>(...providers: Array<RegionalIdentityProvider<T>>): RegionalIdentityProvider<T> =>
+  <T>(...providers: Array<RuntimeConfigIdentityProvider<T>>): RuntimeConfigIdentityProvider<T> =>
   async (awsIdentityProperties?: AwsIdentityProperties) => {
     if (providers.length === 0) {
       throw new ProviderError("No providers in chain");

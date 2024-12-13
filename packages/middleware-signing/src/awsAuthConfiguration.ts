@@ -1,4 +1,4 @@
-import type { AwsCredentialIdentityProvider, RegionalAwsCredentialIdentityProvider } from "@aws-sdk/types";
+import type { AwsCredentialIdentityProvider, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { memoize } from "@smithy/property-provider";
 import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
 import {
@@ -293,7 +293,7 @@ export const resolveSigV4AuthConfig = <T>(
  * @deprecated only used in legacy auth.
  */
 const normalizeCredentialProvider = (
-  credentials: AwsCredentialIdentity | Provider<AwsCredentialIdentity> | RegionalAwsCredentialIdentityProvider
+  credentials: AwsCredentialIdentity | Provider<AwsCredentialIdentity> | RuntimeConfigAwsCredentialIdentityProvider
 ): MemoizedProvider<AwsCredentialIdentity> => {
   if (typeof credentials === "function") {
     return memoize(
@@ -315,7 +315,7 @@ const normalizeCredentialProvider = (
  * a binding to the config itself.
  */
 const createConfigBoundCredentialProvider = (input: {
-  credentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider | RegionalAwsCredentialIdentityProvider;
+  credentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider | RuntimeConfigAwsCredentialIdentityProvider;
   credentialDefaultProvider: PreviouslyResolved["credentialDefaultProvider"];
   region: PreviouslyResolved["region"];
 }): AwsCredentialIdentityProvider => {
@@ -327,7 +327,7 @@ const createConfigBoundCredentialProvider = (input: {
         })
       );
   const normalizedCreds = async () =>
-    (normalizedCredentialsProvider as RegionalAwsCredentialIdentityProvider)({
+    (normalizedCredentialsProvider as RuntimeConfigAwsCredentialIdentityProvider)({
       callerClientConfig: {
         region: normalizeProvider(input.region),
       },

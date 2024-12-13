@@ -1,4 +1,4 @@
-import type { AwsIdentityProperties, CredentialProviderOptions, RegionalIdentityProvider } from "@aws-sdk/types";
+import type { AwsIdentityProperties, CredentialProviderOptions, RuntimeConfigIdentityProvider } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import type { AwsCredentialIdentity, Logger } from "@smithy/types";
 
@@ -18,7 +18,7 @@ export interface CognitoIdentityCredentials extends AwsCredentialIdentity {
 /**
  * @internal
  */
-export type CognitoIdentityCredentialProvider = RegionalIdentityProvider<CognitoIdentityCredentials>;
+export type CognitoIdentityCredentialProvider = RuntimeConfigIdentityProvider<CognitoIdentityCredentials>;
 
 /**
  * @internal

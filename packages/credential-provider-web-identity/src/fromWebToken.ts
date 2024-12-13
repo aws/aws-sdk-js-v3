@@ -1,7 +1,7 @@
 import type {
   AwsIdentityProperties,
   CredentialProviderOptions,
-  RegionalAwsCredentialIdentityProvider,
+  RuntimeConfigAwsCredentialIdentityProvider,
 } from "@aws-sdk/types";
 import type { AwsCredentialIdentity, Pluggable } from "@smithy/types";
 
@@ -155,7 +155,7 @@ export interface FromWebTokenInit
  * @internal
  */
 export const fromWebToken =
-  (init: FromWebTokenInit): RegionalAwsCredentialIdentityProvider =>
+  (init: FromWebTokenInit): RuntimeConfigAwsCredentialIdentityProvider =>
   async (awsIdentityProperties?: AwsIdentityProperties) => {
     init.logger?.debug("@aws-sdk/credential-provider-web-identity - fromWebToken");
     const { roleArn, roleSessionName, webIdentityToken, providerId, policyArns, policy, durationSeconds } = init;

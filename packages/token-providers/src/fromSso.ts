@@ -1,7 +1,7 @@
 import {
   AwsIdentityProperties,
   CredentialProviderOptions,
-  RegionalIdentityProvider,
+  RuntimeConfigIdentityProvider,
   TokenIdentity,
 } from "@aws-sdk/types";
 import { TokenProviderError } from "@smithy/property-provider";
@@ -36,7 +36,7 @@ export interface FromSsoInit extends SourceProfileInit, CredentialProviderOption
  * Creates a token provider that will read from SSO token cache or ssoOidc.createToken() call.
  */
 export const fromSso =
-  (_init: FromSsoInit = {}): RegionalIdentityProvider<TokenIdentity> =>
+  (_init: FromSsoInit = {}): RuntimeConfigIdentityProvider<TokenIdentity> =>
   async (awsIdentityProperties?: AwsIdentityProperties) => {
     const init: FromSsoInit = {
       ..._init,

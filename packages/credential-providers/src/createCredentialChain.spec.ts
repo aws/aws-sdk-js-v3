@@ -1,4 +1,4 @@
-import { RegionalAwsCredentialIdentityProvider } from "@aws-sdk/types";
+import { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { ProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
@@ -82,7 +82,7 @@ describe(createCredentialChain.name, () => {
   });
 
   it("is compatible with contextual-region-aware credential providers", async () => {
-    const provider: RegionalAwsCredentialIdentityProvider = async ({ callerClientConfig } = {}) => {
+    const provider: RuntimeConfigAwsCredentialIdentityProvider = async ({ callerClientConfig } = {}) => {
       return {
         accessKeyId: "",
         secretAccessKey: "",

@@ -1,5 +1,5 @@
 import { fromIni as _fromIni, FromIniInit } from "@aws-sdk/credential-provider-ini";
-import type { RegionalAwsCredentialIdentityProvider } from "@aws-sdk/types";
+import type { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 
 /**
  * Creates a credential provider function that reads from a shared credentials file at `~/.aws/credentials` and a
@@ -40,7 +40,7 @@ import type { RegionalAwsCredentialIdentityProvider } from "@aws-sdk/types";
  * });
  * ```
  */
-export const fromIni = (init: FromIniInit = {}): RegionalAwsCredentialIdentityProvider =>
+export const fromIni = (init: FromIniInit = {}): RuntimeConfigAwsCredentialIdentityProvider =>
   _fromIni({
     ...init,
   });
