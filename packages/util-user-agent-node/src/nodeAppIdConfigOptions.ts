@@ -14,7 +14,7 @@ export const UA_APP_ID_INI_NAME = "sdk_ua_app_id";
 /**
  * @deprecated
  */
-export const UA_APP_ID_INI_NAME_DEPRECATED = "sdk-ua-app-id";
+const UA_APP_ID_INI_NAME_DEPRECATED = "sdk-ua-app-id";
 
 /**
  * @internal
