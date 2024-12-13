@@ -24224,7 +24224,6 @@ __metadata:
     "@aws-sdk/crt-loader": "npm:*"
     "@aws-sdk/signature-v4-multi-region": "npm:*"
     "@aws-sdk/types": "npm:*"
-    "@aws-sdk/util-user-agent-node": "npm:*"
     "@smithy/protocol-http": "npm:^4.1.8"
     "@smithy/querystring-parser": "npm:^3.0.11"
     "@smithy/signature-v4": "npm:^4.2.4"
