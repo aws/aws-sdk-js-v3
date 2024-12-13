@@ -3,7 +3,7 @@ import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { SourceProfileInit } from "@smithy/shared-ini-file-loader";
 import type { NodeHttpHandlerOptions, ParsedIniData } from "@smithy/types";
 import { PassThrough } from "node:stream";
-import { beforeEach, describe, expect, test as it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromIni } from "./fromIni";
 
@@ -133,6 +133,7 @@ class MockNodeHttpHandler {
 
 describe("fromIni region search order", () => {
   beforeEach(() => {
+    process.env.AWS_PROFILE = "default";
     iniProfileData = {
       default: {
         region: "us-west-2",
@@ -151,6 +152,10 @@ describe("fromIni region search order", () => {
       external_id: "EXTERNAL_ID",
       source_profile: "assume",
     });
+  });
+
+  afterEach(() => {
+    delete process.env.AWS_PROFILE;
   });
 
   it("should use 1st priority for the clientConfig given to the provider factory", async () => {
