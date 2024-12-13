@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.712.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.711.0...v3.712.0) (2024-12-13)
+
+
+### Features
+
+* **client-eks:** Add NodeRepairConfig in CreateNodegroupRequest and UpdateNodegroupConfigRequest ([ce39697](https://github.com/aws/aws-sdk-js-v3/commit/ce39697db7d1c6fe63b9e987cdb048c989c8d2ab))
+
+
+
+
+
 # [3.709.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.708.0...v3.709.0) (2024-12-10)
 
 **Note:** Version bump only for package @aws-sdk/client-eks

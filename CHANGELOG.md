@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.712.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.711.0...v3.712.0) (2024-12-13)
+
+
+### Bug Fixes
+
+* **util-user-agent-node:** appId config file name correction ([#6729](https://github.com/aws/aws-sdk-js-v3/issues/6729)) ([718151a](https://github.com/aws/aws-sdk-js-v3/commit/718151ab64c7c40740231463339bc8b09419b625))
+
+
+### Features
+
+* **client-cloudhsm-v2:** Add support for Dual-Stack hsm2m.medium clusters. The customers will now be able to create hsm2m.medium clusters having both IPv4 and IPv6 connection capabilities by specifying a new param called NetworkType=DUALSTACK during cluster creation. ([50cf29a](https://github.com/aws/aws-sdk-js-v3/commit/50cf29a6404f6d2aa3418c5cc08123b97ebc72b2))
+* **client-cloudwatch-logs:** Limit PutIntegration IntegrationName and ListIntegrations IntegrationNamePrefix parameters to 50 characters ([6e1313e](https://github.com/aws/aws-sdk-js-v3/commit/6e1313e0a487dee75340db1d5330ec657d85d045))
+* **client-ec2:** This release adds GroupId to the response for DeleteSecurityGroup. ([537aeca](https://github.com/aws/aws-sdk-js-v3/commit/537aeca538d1256bb1583fc2a7574b7729fed159))
+* **client-eks:** Add NodeRepairConfig in CreateNodegroupRequest and UpdateNodegroupConfigRequest ([ce39697](https://github.com/aws/aws-sdk-js-v3/commit/ce39697db7d1c6fe63b9e987cdb048c989c8d2ab))
+* **client-mediaconnect:** AWS Elemental MediaConnect Gateway now supports Source Specific Multicast (SSM) for ingress bridges. This enables you to specify a source IP address in addition to a multicast IP when creating or updating an ingress bridge source. ([b525bd5](https://github.com/aws/aws-sdk-js-v3/commit/b525bd5452778a5928e2dad11d60a6f1082bbe94))
+* **client-servicediscovery:** AWS Cloud Map now supports service-level attributes, allowing you to associate custom metadata directly with services. These attributes can be retrieved, updated, and deleted using the new GetServiceAttributes, UpdateServiceAttributes, and DeleteServiceAttributes API calls. ([c908c6c](https://github.com/aws/aws-sdk-js-v3/commit/c908c6c6ea7e6aa08d5d5665cb5a719c34eb7de6))
+* **clients:** update client endpoints as of 2024-12-13 ([f135fb6](https://github.com/aws/aws-sdk-js-v3/commit/f135fb6890e39f8edf326a71a6111dcb1a3682ad))
+
+
+
+
+
 # [3.711.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.710.0...v3.711.0) (2024-12-12)
 
 
