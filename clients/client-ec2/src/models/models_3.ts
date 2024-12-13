@@ -1621,6 +1621,23 @@ export interface DeleteSecurityGroupRequest {
 /**
  * @public
  */
+export interface DeleteSecurityGroupResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+
+  /**
+   * <p>The ID of the deleted security group.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteSnapshotRequest {
   /**
    * <p>The ID of the EBS snapshot.</p>
@@ -3133,6 +3150,7 @@ export interface DescribeAccountAttributesResult {
  *          Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.</p>
  *          <p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and the request returns only
  *            results that match all of the specified filters.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html#Filtering_Resources_CLI">List and filter using the CLI and API</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface Filter {
@@ -7866,51 +7884,6 @@ export interface DescribeFleetHistoryResult {
    * @public
    */
   StartTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFleetInstancesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   * @public
-   */
-  FleetId: string | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
 }
 
 /**

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteSecurityGroupRequest } from "../models/models_3";
+import { DeleteSecurityGroupRequest, DeleteSecurityGroupResult } from "../models/models_3";
 import { de_DeleteSecurityGroupCommand, se_DeleteSecurityGroupCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -25,7 +25,7 @@ export interface DeleteSecurityGroupCommandInput extends DeleteSecurityGroupRequ
  *
  * The output of {@link DeleteSecurityGroupCommand}.
  */
-export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
+export interface DeleteSecurityGroupCommandOutput extends DeleteSecurityGroupResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a security group.</p>
@@ -45,7 +45,10 @@ export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSecurityGroupCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DeleteSecurityGroupResult
+ * //   Return: true || false,
+ * //   GroupId: "STRING_VALUE",
+ * // };
  *
  * ```
  *
@@ -96,7 +99,7 @@ export class DeleteSecurityGroupCommand extends $Command
   protected declare static __types: {
     api: {
       input: DeleteSecurityGroupRequest;
-      output: {};
+      output: DeleteSecurityGroupResult;
     };
     sdk: {
       input: DeleteSecurityGroupCommandInput;

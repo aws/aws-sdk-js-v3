@@ -10,7 +10,6 @@ import {
   DeviceTrustProviderType,
   HostMaintenance,
   HostRecovery,
-  InstanceEventWindow,
   IpamPoolAllocation,
   SubnetAssociation,
   Tag,
@@ -105,6 +104,27 @@ import {
   TransitGatewayPropagation,
   TransitGatewayPropagationState,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface EnableAllowedImagesSettingsRequest {
+  /**
+   * <p>Specify <code>enabled</code> to apply the image criteria specified by the Allowed AMIs
+   *       settings. Specify <code>audit-mode</code> so that you can check which AMIs will be allowed or
+   *       not allowed by the image criteria.</p>
+   * @public
+   */
+  AllowedImagesSettingsState: AllowedImagesSettingsEnabledState | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -9013,17 +9033,6 @@ export interface ModifyInstanceEventWindowRequest {
    * @public
    */
   CronExpression?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyInstanceEventWindowResult {
-  /**
-   * <p>Information about the event window.</p>
-   * @public
-   */
-  InstanceEventWindow?: InstanceEventWindow | undefined;
 }
 
 /**

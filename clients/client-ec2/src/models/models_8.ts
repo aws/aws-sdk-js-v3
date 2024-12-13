@@ -6,6 +6,17 @@ import { InstanceMonitoring } from "./models_7";
 /**
  * @public
  */
+export interface UnlockSnapshotResult {
+  /**
+   * <p>The ID of the snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UnmonitorInstancesRequest {
   /**
    * <p>The IDs of the instances.</p>

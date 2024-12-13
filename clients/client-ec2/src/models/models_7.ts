@@ -17,6 +17,7 @@ import {
   EnaSrdSpecification,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
+  InstanceEventWindow,
   IpPermission,
   Ipv6SupportValue,
   NatGatewayAddress,
@@ -157,6 +158,17 @@ import {
 } from "./models_5";
 
 import { CapacityReservationSpecification, IpamResourceCidr, OperationType, Purchase } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyInstanceEventWindowResult {
+  /**
+   * <p>Information about the event window.</p>
+   * @public
+   */
+  InstanceEventWindow?: InstanceEventWindow | undefined;
+}
 
 /**
  * @public
@@ -8927,7 +8939,8 @@ export interface StartDeclarativePoliciesReportRequest {
   DryRun?: boolean | undefined;
 
   /**
-   * <p>The name of the S3 bucket where the report will be saved.</p>
+   * <p>The name of the S3 bucket where the report will be saved. The bucket must be in the
+   *             same Region where the report generation request is made.</p>
    * @public
    */
   S3Bucket: string | undefined;
@@ -9462,17 +9475,6 @@ export interface UnlockSnapshotRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UnlockSnapshotResult {
-  /**
-   * <p>The ID of the snapshot.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
 }
 
 /**

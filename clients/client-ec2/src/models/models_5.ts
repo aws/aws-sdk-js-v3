@@ -7,7 +7,6 @@ import {
   AddressTransfer,
   AllocationStrategy,
   AllowedImagesSettingsDisabledState,
-  AllowedImagesSettingsEnabledState,
   AllowedPrincipal,
   AsnAssociation,
   AssociationStatus,
@@ -116,6 +115,108 @@ import {
 } from "./models_3";
 
 import { AttributeBooleanValue, OfferingClassType, OfferingTypeValues, PermissionGroup, ProductCode } from "./models_4";
+
+/**
+ * <p>Contains the parameters for DescribeReservedInstances.</p>
+ * @public
+ */
+export interface DescribeReservedInstancesRequest {
+  /**
+   * <p>Describes whether the Reserved Instance is Standard or Convertible.</p>
+   * @public
+   */
+  OfferingClass?: OfferingClassType | undefined;
+
+  /**
+   * <p>One or more Reserved Instance IDs.</p>
+   *          <p>Default: Describes all your Reserved Instances, or only those otherwise specified.</p>
+   * @public
+   */
+  ReservedInstancesIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone where the Reserved Instance can be used.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>duration</code> - The duration of the Reserved Instance (one year or three years), in seconds (<code>31536000</code> | <code>94608000</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>end</code> - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fixed-price</code> - The purchase price of the Reserved Instance (for example, 9800.0).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type that is covered by the reservation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scope</code> - The scope of the Reserved Instance (<code>Region</code> or <code>Availability Zone</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>product-description</code> - The Reserved Instance product platform description
+   *              (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> |
+   *               <code>Linux with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> |
+   *               <code>SUSE Linux</code> |
+   *               <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> |
+   *               <code>Windows</code> | <code>Windows with SQL Server Standard</code> |
+   *               <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>start</code> - The time at which the Reserved Instance purchase request was placed (for example, 2014-08-07T11:54:42.000Z).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the Reserved Instance (<code>payment-pending</code> | <code>active</code> | <code>payment-failed</code> | <code>retired</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for example, 0.84).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API
+   * 			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
+   * 			offering type.</p>
+   * @public
+   */
+  OfferingType?: OfferingTypeValues | undefined;
+}
 
 /**
  * @public
@@ -10972,27 +11073,6 @@ export interface EnableAddressTransferResult {
    * @public
    */
   AddressTransfer?: AddressTransfer | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableAllowedImagesSettingsRequest {
-  /**
-   * <p>Specify <code>enabled</code> to apply the image criteria specified by the Allowed AMIs
-   *       settings. Specify <code>audit-mode</code> so that you can check which AMIs will be allowed or
-   *       not allowed by the image criteria.</p>
-   * @public
-   */
-  AllowedImagesSettingsState: AllowedImagesSettingsEnabledState | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

@@ -3080,6 +3080,7 @@ import {
   DeleteRouteRequest,
   DeleteRouteTableRequest,
   DeleteSecurityGroupRequest,
+  DeleteSecurityGroupResult,
   DeleteSnapshotRequest,
   DeleteSpotDatafeedSubscriptionRequest,
   DeleteSubnetCidrReservationRequest,
@@ -3225,7 +3226,6 @@ import {
   DescribeFastSnapshotRestoreSuccessItem,
   DescribeFleetHistoryRequest,
   DescribeFleetHistoryResult,
-  DescribeFleetInstancesRequest,
   DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
@@ -3266,6 +3266,7 @@ import {
   ConnectionTrackingSpecificationResponse,
   CpuOptions,
   DescribeFleetError,
+  DescribeFleetInstancesRequest,
   DescribeFleetInstancesResult,
   DescribeFleetsInstances,
   DescribeFleetsRequest,
@@ -3390,7 +3391,6 @@ import {
   DescribeRegionsResult,
   DescribeReplaceRootVolumeTasksRequest,
   DescribeReplaceRootVolumeTasksResult,
-  DescribeReservedInstancesRequest,
   DestinationOptionsResponse,
   DiskInfo,
   EbsInfo,
@@ -3518,6 +3518,7 @@ import {
   DescribeReservedInstancesModificationsResult,
   DescribeReservedInstancesOfferingsRequest,
   DescribeReservedInstancesOfferingsResult,
+  DescribeReservedInstancesRequest,
   DescribeReservedInstancesResult,
   DescribeRouteTablesRequest,
   DescribeRouteTablesResult,
@@ -3718,7 +3719,6 @@ import {
   DisassociateVpcCidrBlockResult,
   EnableAddressTransferRequest,
   EnableAddressTransferResult,
-  EnableAllowedImagesSettingsRequest,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceNetworkInterfaceSpecification,
@@ -3801,6 +3801,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  EnableAllowedImagesSettingsRequest,
   EnableAllowedImagesSettingsResult,
   EnableAwsNetworkPerformanceMetricSubscriptionRequest,
   EnableAwsNetworkPerformanceMetricSubscriptionResult,
@@ -4034,7 +4035,6 @@ import {
   ModifyInstanceEventStartTimeRequest,
   ModifyInstanceEventStartTimeResult,
   ModifyInstanceEventWindowRequest,
-  ModifyInstanceEventWindowResult,
   PrefixListAssociation,
   PrefixListEntry,
   Purchase,
@@ -4084,6 +4084,7 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyInstanceEventWindowResult,
   ModifyInstanceMaintenanceOptionsRequest,
   ModifyInstanceMaintenanceOptionsResult,
   ModifyInstanceMetadataDefaultsRequest,
@@ -4350,7 +4351,6 @@ import {
   UnassignPrivateNatGatewayAddressRequest,
   UnassignPrivateNatGatewayAddressResult,
   UnlockSnapshotRequest,
-  UnlockSnapshotResult,
   VerifiedAccessLogCloudWatchLogsDestinationOptions,
   VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
   VerifiedAccessLogOptions,
@@ -4358,6 +4358,7 @@ import {
 } from "../models/models_7";
 import {
   SecurityGroupRuleDescription,
+  UnlockSnapshotResult,
   UnmonitorInstancesRequest,
   UnmonitorInstancesResult,
   UpdateSecurityGroupRuleDescriptionsEgressRequest,
@@ -19216,9 +19217,12 @@ export const de_DeleteSecurityGroupCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  await collectBody(output.body, context);
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteSecurityGroupResult(data, context);
   const response: DeleteSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -62614,6 +62618,20 @@ const de_DeleteQueuedReservedInstancesResult = (
     contents[_FQPD] = [];
   } else if (output[_fQPDS] != null && output[_fQPDS][_i] != null) {
     contents[_FQPD] = de_FailedQueuedPurchaseDeletionSet(__getArrayIfSingleItem(output[_fQPDS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DeleteSecurityGroupResult
+ */
+const de_DeleteSecurityGroupResult = (output: any, context: __SerdeContext): DeleteSecurityGroupResult => {
+  const contents: any = {};
+  if (output[_r] != null) {
+    contents[_Ret] = __parseBoolean(output[_r]);
+  }
+  if (output[_gIr] != null) {
+    contents[_GIr] = __expectString(output[_gIr]);
   }
   return contents;
 };
