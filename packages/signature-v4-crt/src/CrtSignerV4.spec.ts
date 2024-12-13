@@ -1,5 +1,5 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { auth as crtAuth } from "aws-crt";
+import { auth as crtAuth } from "@aws-sdk/crt-loader";
 
 import {
   ALGORITHM_IDENTIFIER_V4A,

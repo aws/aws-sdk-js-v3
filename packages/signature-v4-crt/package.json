@@ -22,14 +22,13 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/crt-loader": "*",
     "@aws-sdk/signature-v4-multi-region": "*",
     "@aws-sdk/types": "*",
-    "@aws-sdk/util-user-agent-node": "*",
     "@smithy/querystring-parser": "^3.0.11",
     "@smithy/signature-v4": "^4.2.4",
     "@smithy/types": "^3.7.2",
     "@smithy/util-middleware": "^3.0.11",
-    "aws-crt": "^1.18.3",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
