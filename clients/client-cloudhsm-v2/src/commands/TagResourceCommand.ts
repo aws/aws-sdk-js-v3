@@ -69,6 +69,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
  *  <p>The request was rejected because it is not a valid request.</p>
  *
+ * @throws {@link CloudHsmResourceLimitExceededException} (client fault)
+ *  <p>The request was rejected because it exceeds an CloudHSM limit.</p>
+ *
  * @throws {@link CloudHsmResourceNotFoundException} (client fault)
  *  <p>The request was rejected because it refers to a resource that cannot be
  *       found.</p>

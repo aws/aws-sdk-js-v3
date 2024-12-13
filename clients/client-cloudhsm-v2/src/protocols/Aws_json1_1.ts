@@ -51,6 +51,7 @@ import {
   CloudHsmAccessDeniedException,
   CloudHsmInternalFailureException,
   CloudHsmInvalidRequestException,
+  CloudHsmResourceLimitExceededException,
   CloudHsmResourceNotFoundException,
   CloudHsmServiceException,
   CloudHsmTagException,
@@ -708,6 +709,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
       throw await de_CloudHsmTagExceptionRes(parsedOutput, context);
+    case "CloudHsmResourceLimitExceededException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmResourceLimitExceededException":
+      throw await de_CloudHsmResourceLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -760,6 +764,22 @@ const de_CloudHsmInvalidRequestExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new CloudHsmInvalidRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1CloudHsmResourceLimitExceededExceptionRes
+ */
+const de_CloudHsmResourceLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CloudHsmResourceLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new CloudHsmResourceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -908,6 +928,8 @@ const de_Backups = (output: any, context: __SerdeContext): Backup[] => {
 
 // de_CloudHsmInvalidRequestException omitted.
 
+// de_CloudHsmResourceLimitExceededException omitted.
+
 // de_CloudHsmResourceNotFoundException omitted.
 
 // de_CloudHsmServiceException omitted.
@@ -927,6 +949,7 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     HsmType: __expectString,
     Hsms: _json,
     Mode: __expectString,
+    NetworkType: __expectString,
     PreCoPassword: __expectString,
     SecurityGroup: __expectString,
     SourceBackupId: __expectString,

@@ -48,6 +48,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *   SubnetIds: [ // SubnetIds // required
  *     "STRING_VALUE",
  *   ],
+ *   NetworkType: "IPV4" || "DUALSTACK",
  *   TagList: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -74,6 +75,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //         SubnetId: "STRING_VALUE",
  * //         EniId: "STRING_VALUE",
  * //         EniIp: "STRING_VALUE",
+ * //         EniIpV6: "STRING_VALUE",
  * //         HsmId: "STRING_VALUE", // required
  * //         State: "CREATE_IN_PROGRESS" || "ACTIVE" || "DEGRADED" || "DELETE_IN_PROGRESS" || "DELETED",
  * //         StateMessage: "STRING_VALUE",
@@ -83,12 +85,13 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //     PreCoPassword: "STRING_VALUE",
  * //     SecurityGroup: "STRING_VALUE",
  * //     SourceBackupId: "STRING_VALUE",
- * //     State: "CREATE_IN_PROGRESS" || "UNINITIALIZED" || "INITIALIZE_IN_PROGRESS" || "INITIALIZED" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DEGRADED",
+ * //     State: "CREATE_IN_PROGRESS" || "UNINITIALIZED" || "INITIALIZE_IN_PROGRESS" || "INITIALIZED" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "MODIFY_IN_PROGRESS" || "ROLLBACK_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DEGRADED",
  * //     StateMessage: "STRING_VALUE",
  * //     SubnetMapping: { // ExternalSubnetMapping
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     VpcId: "STRING_VALUE",
+ * //     NetworkType: "IPV4" || "DUALSTACK",
  * //     Certificates: { // Certificates
  * //       ClusterCsr: "STRING_VALUE",
  * //       HsmCertificate: "STRING_VALUE",

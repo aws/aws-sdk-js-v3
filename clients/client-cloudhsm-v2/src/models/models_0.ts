@@ -401,6 +401,20 @@ export interface CopyBackupToRegionResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const NetworkType = {
+  DUALSTACK: "DUALSTACK",
+  IPV4: "IPV4",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
+
+/**
+ * @public
  */
 export interface CreateClusterRequest {
   /**
@@ -439,6 +453,14 @@ export interface CreateClusterRequest {
    * @public
    */
   SubnetIds: string[] | undefined;
+
+  /**
+   * <p>The NetworkType to create a cluster with. The allowed values are
+   *           <code>IPV4</code> and <code>DUALSTACK</code>.
+   *       </p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 
   /**
    * <p>Tags to apply to the CloudHSM cluster during creation.</p>
@@ -546,6 +568,12 @@ export interface Hsm {
   EniIp?: string | undefined;
 
   /**
+   * <p>The IPv6 address (if any) of the HSM's elastic network interface (ENI).</p>
+   * @public
+   */
+  EniIpV6?: string | undefined;
+
+  /**
    * <p>The HSM's identifier (ID).</p>
    * @public
    */
@@ -576,6 +604,8 @@ export const ClusterState = {
   DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
   INITIALIZED: "INITIALIZED",
   INITIALIZE_IN_PROGRESS: "INITIALIZE_IN_PROGRESS",
+  MODIFY_IN_PROGRESS: "MODIFY_IN_PROGRESS",
+  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
   UNINITIALIZED: "UNINITIALIZED",
   UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
 } as const;
@@ -669,6 +699,16 @@ export interface Cluster {
    * @public
    */
   VpcId?: string | undefined;
+
+  /**
+   * <p>The cluster's NetworkType can be set to either IPV4 (which is the default) or DUALSTACK.
+   *         When set to IPV4, communication between your application and the Hardware Security Modules (HSMs) is restricted to the IPv4 protocol only.
+   *         In contrast, the DUALSTACK network type enables communication over both the IPv4 and IPv6 protocols.
+   *         To use the DUALSTACK option, you'll need to configure your Virtual Private Cloud (VPC) and subnets to support both IPv4 and IPv6. This involves adding IPv6 Classless Inter-Domain Routing (CIDR) blocks to the existing IPv4 CIDR blocks in your subnets.
+   *         The choice between IPV4 and DUALSTACK network types determines the flexibility of the network addressing setup for your cluster. The DUALSTACK option provides more flexibility by allowing both IPv4 and IPv6 communication.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 
   /**
    * <p>Contains one or more certificates or a certificate signing request (CSR).</p>
@@ -1208,6 +1248,28 @@ export interface RestoreBackupResponse {
    * @public
    */
   Backup?: Backup | undefined;
+}
+
+/**
+ * <p>The request was rejected because it exceeds an CloudHSM limit.</p>
+ * @public
+ */
+export class CloudHsmResourceLimitExceededException extends __BaseException {
+  readonly name: "CloudHsmResourceLimitExceededException" = "CloudHsmResourceLimitExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudHsmResourceLimitExceededException, __BaseException>) {
+    super({
+      name: "CloudHsmResourceLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudHsmResourceLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
