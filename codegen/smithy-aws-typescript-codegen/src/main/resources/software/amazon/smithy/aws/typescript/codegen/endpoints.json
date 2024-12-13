@@ -24962,6 +24962,28 @@
             }
           }
         },
+        "trustedadvisor": {
+          "endpoints": {
+            "fips-us-east-1": {
+              "credentialScope": {
+                "region": "us-east-1"
+              },
+              "hostname": "trustedadvisor-fips.us-east-1.api.aws"
+            },
+            "fips-us-east-2": {
+              "credentialScope": {
+                "region": "us-east-2"
+              },
+              "hostname": "trustedadvisor-fips.us-east-2.api.aws"
+            },
+            "fips-us-west-2": {
+              "credentialScope": {
+                "region": "us-west-2"
+              },
+              "hostname": "trustedadvisor-fips.us-west-2.api.aws"
+            }
+          }
+        },
         "verifiedpermissions": {
           "endpoints": {
             "af-south-1": {},
@@ -29900,10 +29922,6 @@
             "us-gov-east-1": {
               "variants": [
                 {
-                  "hostname": "dlm-fips.us-gov-east-1.api.aws",
-                  "tags": ["dualstack", "fips"]
-                },
-                {
                   "hostname": "dlm.us-gov-east-1.amazonaws.com",
                   "tags": ["fips"]
                 }
@@ -29918,10 +29936,6 @@
             },
             "us-gov-west-1": {
               "variants": [
-                {
-                  "hostname": "dlm-fips.us-gov-west-1.api.aws",
-                  "tags": ["dualstack", "fips"]
-                },
                 {
                   "hostname": "dlm.us-gov-west-1.amazonaws.com",
                   "tags": ["fips"]
@@ -34477,6 +34491,12 @@
             }
           }
         },
+        "codebuild": {
+          "endpoints": {
+            "us-iso-east-1": {},
+            "us-iso-west-1": {}
+          }
+        },
         "codedeploy": {
           "endpoints": {
             "us-iso-east-1": {},
@@ -34544,22 +34564,8 @@
         },
         "dlm": {
           "endpoints": {
-            "us-iso-east-1": {
-              "variants": [
-                {
-                  "hostname": "dlm-fips.us-iso-east-1.api.aws.ic.gov",
-                  "tags": ["dualstack", "fips"]
-                }
-              ]
-            },
-            "us-iso-west-1": {
-              "variants": [
-                {
-                  "hostname": "dlm-fips.us-iso-west-1.api.aws.ic.gov",
-                  "tags": ["dualstack", "fips"]
-                }
-              ]
-            }
+            "us-iso-east-1": {},
+            "us-iso-west-1": {}
           }
         },
         "dms": {
@@ -35226,6 +35232,12 @@
             }
           }
         },
+        "scheduler": {
+          "endpoints": {
+            "us-iso-east-1": {},
+            "us-iso-west-1": {}
+          }
+        },
         "secretsmanager": {
           "endpoints": {
             "us-iso-east-1": {},
@@ -35522,14 +35534,7 @@
         },
         "dlm": {
           "endpoints": {
-            "us-isob-east-1": {
-              "variants": [
-                {
-                  "hostname": "dlm-fips.us-isob-east-1.api.aws.scloud",
-                  "tags": ["dualstack", "fips"]
-                }
-              ]
-            }
+            "us-isob-east-1": {}
           }
         },
         "dms": {
@@ -35979,6 +35984,11 @@
                 }
               ]
             }
+          }
+        },
+        "scheduler": {
+          "endpoints": {
+            "us-isob-east-1": {}
           }
         },
         "secretsmanager": {
