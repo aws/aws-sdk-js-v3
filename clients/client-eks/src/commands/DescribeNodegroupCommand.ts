@@ -103,6 +103,9 @@ export interface DescribeNodegroupCommandOutput extends DescribeNodegroupRespons
  * //       maxUnavailable: Number("int"),
  * //       maxUnavailablePercentage: Number("int"),
  * //     },
+ * //     nodeRepairConfig: { // NodeRepairConfig
+ * //       enabled: true || false,
+ * //     },
  * //     launchTemplate: { // LaunchTemplateSpecification
  * //       name: "STRING_VALUE",
  * //       version: "STRING_VALUE",

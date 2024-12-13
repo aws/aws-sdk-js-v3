@@ -93,6 +93,9 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *     maxUnavailable: Number("int"),
  *     maxUnavailablePercentage: Number("int"),
  *   },
+ *   nodeRepairConfig: { // NodeRepairConfig
+ *     enabled: true || false,
+ *   },
  *   capacityType: "ON_DEMAND" || "SPOT" || "CAPACITY_BLOCK",
  *   version: "STRING_VALUE",
  *   releaseVersion: "STRING_VALUE",
@@ -160,6 +163,9 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * //     updateConfig: { // NodegroupUpdateConfig
  * //       maxUnavailable: Number("int"),
  * //       maxUnavailablePercentage: Number("int"),
+ * //     },
+ * //     nodeRepairConfig: { // NodeRepairConfig
+ * //       enabled: true || false,
  * //     },
  * //     launchTemplate: { // LaunchTemplateSpecification
  * //       name: "STRING_VALUE",
