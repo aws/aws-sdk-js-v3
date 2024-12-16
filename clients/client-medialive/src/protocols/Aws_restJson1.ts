@@ -7216,7 +7216,11 @@ const se_ClusterNetworkSettingsUpdateRequest = (
 const se_CmafIngestGroupSettings = (input: CmafIngestGroupSettings, context: __SerdeContext): any => {
   return take(input, {
     destination: [, (_) => se_OutputLocationRef(_, context), `Destination`],
+    klvBehavior: [, , `KlvBehavior`],
+    klvNameModifier: [, , `KlvNameModifier`],
     nielsenId3Behavior: [, , `NielsenId3Behavior`],
+    nielsenId3NameModifier: [, , `NielsenId3NameModifier`],
+    scte35NameModifier: [, , `Scte35NameModifier`],
     scte35Type: [, , `Scte35Type`],
     segmentLength: [, , `SegmentLength`],
     segmentLengthUnits: [, , `SegmentLengthUnits`],
@@ -8365,7 +8369,9 @@ const se_MediaPackageOutputDestinationSettings = (
   context: __SerdeContext
 ): any => {
   return take(input, {
+    channelGroup: [, , `ChannelGroup`],
     channelId: [, , `ChannelId`],
+    channelName: [, , `ChannelName`],
   });
 };
 
@@ -11076,7 +11082,11 @@ const de_ClusterNetworkSettings = (output: any, context: __SerdeContext): Cluste
 const de_CmafIngestGroupSettings = (output: any, context: __SerdeContext): CmafIngestGroupSettings => {
   return take(output, {
     Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
+    KlvBehavior: [, __expectString, `klvBehavior`],
+    KlvNameModifier: [, __expectString, `klvNameModifier`],
     NielsenId3Behavior: [, __expectString, `nielsenId3Behavior`],
+    NielsenId3NameModifier: [, __expectString, `nielsenId3NameModifier`],
+    Scte35NameModifier: [, __expectString, `scte35NameModifier`],
     Scte35Type: [, __expectString, `scte35Type`],
     SegmentLength: [, __expectInt32, `segmentLength`],
     SegmentLengthUnits: [, __expectString, `segmentLengthUnits`],
@@ -12416,7 +12426,9 @@ const de_MediaPackageOutputDestinationSettings = (
   context: __SerdeContext
 ): MediaPackageOutputDestinationSettings => {
   return take(output, {
+    ChannelGroup: [, __expectString, `channelGroup`],
     ChannelId: [, __expectString, `channelId`],
+    ChannelName: [, __expectString, `channelName`],
   }) as any;
 };
 

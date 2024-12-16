@@ -105,7 +105,6 @@ import {
   FeatureActivations,
   GlobalConfigurationInputEndAction,
   GlobalConfigurationOutputLockingMode,
-  GlobalConfigurationOutputTimingSource,
   InputLossBehavior,
   OutputGroup,
   OutputLockingSettings,
@@ -124,6 +123,21 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const GlobalConfigurationOutputTimingSource = {
+  INPUT_CLOCK: "INPUT_CLOCK",
+  SYSTEM_CLOCK: "SYSTEM_CLOCK",
+} as const;
+
+/**
+ * @public
+ */
+export type GlobalConfigurationOutputTimingSource =
+  (typeof GlobalConfigurationOutputTimingSource)[keyof typeof GlobalConfigurationOutputTimingSource];
 
 /**
  * @public

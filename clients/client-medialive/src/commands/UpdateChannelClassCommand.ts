@@ -44,6 +44,8 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  *       MediaPackageSettings: [ // __listOfMediaPackageOutputDestinationSettings
  *         { // MediaPackageOutputDestinationSettings
  *           ChannelId: "STRING_VALUE",
+ *           ChannelGroup: "STRING_VALUE",
+ *           ChannelName: "STRING_VALUE",
  *         },
  *       ],
  *       MultiplexSettings: { // MultiplexProgramChannelDestinationSettings
@@ -83,6 +85,8 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //         MediaPackageSettings: [ // __listOfMediaPackageOutputDestinationSettings
  * //           { // MediaPackageOutputDestinationSettings
  * //             ChannelId: "STRING_VALUE",
+ * //             ChannelGroup: "STRING_VALUE",
+ * //             ChannelName: "STRING_VALUE",
  * //           },
  * //         ],
  * //         MultiplexSettings: { // MultiplexProgramChannelDestinationSettings
@@ -560,6 +564,10 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //               SegmentLength: Number("int"),
  * //               SegmentLengthUnits: "MILLISECONDS" || "SECONDS",
  * //               SendDelayMs: Number("int"),
+ * //               KlvBehavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ * //               KlvNameModifier: "STRING_VALUE",
+ * //               NielsenId3NameModifier: "STRING_VALUE",
+ * //               Scte35NameModifier: "STRING_VALUE",
  * //             },
  * //             SrtGroupSettings: { // SrtGroupSettings
  * //               InputLossAction: "DROP_PROGRAM" || "DROP_TS" || "EMIT_PROGRAM",

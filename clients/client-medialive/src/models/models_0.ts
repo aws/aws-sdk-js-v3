@@ -2752,6 +2752,18 @@ export interface MediaPackageOutputDestinationSettings {
    * @public
    */
   ChannelId?: string | undefined;
+
+  /**
+   * Name of the channel group in MediaPackageV2. Only use if you are sending CMAF Ingest output to a CMAF ingest endpoint on a MediaPackage channel that uses MediaPackage v2.
+   * @public
+   */
+  ChannelGroup?: string | undefined;
+
+  /**
+   * Name of the channel in MediaPackageV2. Only use if you are sending CMAF Ingest output to a CMAF ingest endpoint on a MediaPackage channel that uses MediaPackage v2.
+   * @public
+   */
+  ChannelName?: string | undefined;
 }
 
 /**

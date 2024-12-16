@@ -177,7 +177,7 @@ export interface Fmp4HlsSettings {
   NielsenId3Behavior?: Fmp4NielsenId3Behavior | undefined;
 
   /**
-   * When set to passthrough, timed metadata is passed through from input to output.
+   * Set to PASSTHROUGH to enable ID3 metadata insertion. To include metadata, you configure other parameters in the output group or individual outputs, or you add an ID3 action to the channel schedule.
    * @public
    */
   TimedMetadataBehavior?: Fmp4TimedMetadataBehavior | undefined;
@@ -343,7 +343,7 @@ export interface M3u8Settings {
   Scte35Pid?: string | undefined;
 
   /**
-   * When set to passthrough, timed metadata is passed through from input to output.
+   * Set to PASSTHROUGH to enable ID3 metadata insertion. To include metadata, you configure other parameters in the output group or individual outputs, or you add an ID3 action to the channel schedule.
    * @public
    */
   TimedMetadataBehavior?: M3u8TimedMetadataBehavior | undefined;
@@ -974,6 +974,20 @@ export interface ArchiveGroupSettings {
  * @public
  * @enum
  */
+export const CmafKLVBehavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafKLVBehavior = (typeof CmafKLVBehavior)[keyof typeof CmafKLVBehavior];
+
+/**
+ * @public
+ * @enum
+ */
 export const CmafNielsenId3Behavior = {
   NO_PASSTHROUGH: "NO_PASSTHROUGH",
   PASSTHROUGH: "PASSTHROUGH",
@@ -1053,6 +1067,30 @@ export interface CmafIngestGroupSettings {
    * @public
    */
   SendDelayMs?: number | undefined;
+
+  /**
+   * If set to passthrough, passes any KLV data from the input source to this output.
+   * @public
+   */
+  KlvBehavior?: CmafKLVBehavior | undefined;
+
+  /**
+   * Change the modifier that MediaLive automatically adds to the Streams() name that identifies a KLV track. The default is "klv", which means the default name will be Streams(klv.cmfm). Any string you enter here will replace the "klv" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters.
+   * @public
+   */
+  KlvNameModifier?: string | undefined;
+
+  /**
+   * Change the modifier that MediaLive automatically adds to the Streams() name that identifies a Nielsen ID3 track. The default is "nid3", which means the default name will be Streams(nid3.cmfm). Any string you enter here will replace the "nid3" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters.
+   * @public
+   */
+  NielsenId3NameModifier?: string | undefined;
+
+  /**
+   * Change the modifier that MediaLive automatically adds to the Streams() name for a SCTE 35 track. The default is "scte", which means the default name will be Streams(scte.cmfm). Any string you enter here will replace the "scte" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters.
+   * @public
+   */
+  Scte35NameModifier?: string | undefined;
 }
 
 /**
@@ -2842,30 +2880,30 @@ export interface RouteUpdateRequest {
 }
 
 /**
- * Settings for the action to insert a user-defined ID3 tag in each HLS segment
+ * Settings for the action to insert ID3 metadata in every segment, in HLS output groups.
  * @public
  */
 export interface HlsId3SegmentTaggingScheduleActionSettings {
   /**
-   * ID3 tag to insert into each segment. Supports special keyword identifiers to substitute in segment-related values.\nSupported keyword identifiers: https://docs.aws.amazon.com/medialive/latest/ug/variable-data-identifiers.html
+   * Complete this parameter if you want to specify only the metadata, not the entire frame. MediaLive will insert the metadata in a TXXX frame. Enter the value as plain text. You can include standard MediaLive variable data such as the current segment number.
    * @public
    */
   Tag?: string | undefined;
 
   /**
-   * Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
+   * Complete this parameter if you want to specify the entire ID3 metadata. Enter a base64 string that contains one or more fully formed ID3 tags, according to the ID3 specification: http://id3.org/id3v2.4.0-structure
    * @public
    */
   Id3?: string | undefined;
 }
 
 /**
- * Settings for the action to emit HLS metadata
+ * Settings for the action to insert ID3 metadata (as a one-time action) in HLS output groups.
  * @public
  */
 export interface HlsTimedMetadataScheduleActionSettings {
   /**
-   * Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
+   * Enter a base64 string that contains one or more fully formed ID3 tags.See the ID3 specification: http://id3.org/id3v2.4.0-structure
    * @public
    */
   Id3: string | undefined;
@@ -3510,13 +3548,13 @@ export interface StaticImageOutputDeactivateScheduleActionSettings {
  */
 export interface ScheduleActionSettings {
   /**
-   * Action to insert HLS ID3 segment tagging
+   * Action to insert ID3 metadata in every segment, in HLS output groups
    * @public
    */
   HlsId3SegmentTaggingSettings?: HlsId3SegmentTaggingScheduleActionSettings | undefined;
 
   /**
-   * Action to insert HLS metadata
+   * Action to insert ID3 metadata once, in HLS output groups
    * @public
    */
   HlsTimedMetadataSettings?: HlsTimedMetadataScheduleActionSettings | undefined;
@@ -7138,18 +7176,3 @@ export interface OutputLockingSettings {
    */
   PipelineLockingSettings?: PipelineLockingSettings | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GlobalConfigurationOutputTimingSource = {
-  INPUT_CLOCK: "INPUT_CLOCK",
-  SYSTEM_CLOCK: "SYSTEM_CLOCK",
-} as const;
-
-/**
- * @public
- */
-export type GlobalConfigurationOutputTimingSource =
-  (typeof GlobalConfigurationOutputTimingSource)[keyof typeof GlobalConfigurationOutputTimingSource];
