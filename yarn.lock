@@ -23452,7 +23452,7 @@ __metadata:
   dependencies:
     "@aws-sdk/util-user-agent-node": "npm:*"
     "@tsconfig/recommended": "npm:1.0.1"
-    aws-crt: "npm:^1.18.3"
+    aws-crt: "npm:^1.24.0"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     rimraf: "npm:3.0.2"
@@ -24954,7 +24954,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.23.8, @babel/runtime@npm:^7.24.5":
+"@babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.21.0":
   version: 7.26.0
   resolution: "@babel/runtime@npm:7.26.0"
   dependencies:
@@ -28991,16 +28991,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/readable-stream@npm:^4.0.0, @types/readable-stream@npm:^4.0.5":
-  version: 4.0.18
-  resolution: "@types/readable-stream@npm:4.0.18"
-  dependencies:
-    "@types/node": "npm:*"
-    safe-buffer: "npm:~5.1.1"
-  checksum: 10c0/641e0e91b9ecfeed72f7509089f25923e06e19e79ed36f962785c41c07b0c9ecb2ecfdf6d290a101b9b5a669a3b89ee3aff0cad57b66a05e2a30cd199052e3e1
-  languageName: node
-  linkType: hard
-
 "@types/semver@npm:^7.3.12":
   version: 7.5.8
   resolution: "@types/semver@npm:7.5.8"
@@ -29036,7 +29026,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ws@npm:*, @types/ws@npm:^8.5.9":
+"@types/ws@npm:*":
   version: 8.5.13
   resolution: "@types/ws@npm:8.5.13"
   dependencies:
@@ -30175,18 +30165,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-crt@npm:^1.18.3":
-  version: 1.23.0
-  resolution: "aws-crt@npm:1.23.0"
+"aws-crt@npm:^1.24.0":
+  version: 1.24.0
+  resolution: "aws-crt@npm:1.24.0"
   dependencies:
     "@aws-sdk/util-utf8-browser": "npm:^3.259.0"
     "@httptoolkit/websocket-stream": "npm:^6.0.1"
     axios: "npm:^1.7.4"
     buffer: "npm:^6.0.3"
     crypto-js: "npm:^4.2.0"
-    mqtt: "npm:^5.9.1"
+    mqtt: "npm:^4.3.8"
     process: "npm:^0.11.10"
-  checksum: 10c0/cf374d7226362fb24351fdd688fd0f8066ff92a970fe6b52002b8fb8ad2904b747a41729b5310935d1f034a8f9b7eca7c33d03015424d003da88871b6cb8372f
+  checksum: 10c0/25f9f234702bc953aee6f96a025f638716ffbaa6d3c1f39d390f00d194398013a0d13c20bc047b9d85d4e8d8120f824d61c8a1195dcd61518c36772bd670766d
   languageName: node
   linkType: hard
 
@@ -30444,7 +30434,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bl@npm:^4.0.3, bl@npm:^4.1.0":
+"bl@npm:^4.0.2, bl@npm:^4.0.3, bl@npm:^4.1.0":
   version: 4.1.0
   resolution: "bl@npm:4.1.0"
   dependencies:
@@ -30452,18 +30442,6 @@ __metadata:
     inherits: "npm:^2.0.4"
     readable-stream: "npm:^3.4.0"
   checksum: 10c0/02847e1d2cb089c9dc6958add42e3cdeaf07d13f575973963335ac0fdece563a50ac770ac4c8fa06492d2dd276f6cc3b7f08c7cd9c7a7ad0f8d388b2a28def5f
-  languageName: node
-  linkType: hard
-
-"bl@npm:^6.0.8":
-  version: 6.0.16
-  resolution: "bl@npm:6.0.16"
-  dependencies:
-    "@types/readable-stream": "npm:^4.0.0"
-    buffer: "npm:^6.0.3"
-    inherits: "npm:^2.0.4"
-    readable-stream: "npm:^4.2.0"
-  checksum: 10c0/b509bfa5dfd73a7bf538cdce85ad74248990f71ec434c6e6b4e403c42a52670bd8faae73201a7021a392a172f7c4b2aa7caec9fb71fa1046266062aff6af6c65
   languageName: node
   linkType: hard
 
@@ -31131,10 +31109,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commist@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "commist@npm:3.2.0"
-  checksum: 10c0/ab2d14921d30f649889adbec5dbf1712d45681bbc3f863ee5078e02465b2e8510d47a5643e137ffa0698b8199b5ce787d8be131982bcae4f294c8225d1046def
+"commist@npm:^1.0.0":
+  version: 1.1.0
+  resolution: "commist@npm:1.1.0"
+  dependencies:
+    leven: "npm:^2.1.0"
+    minimist: "npm:^1.1.0"
+  checksum: 10c0/d21312ce6eb515776f956d5659c94dc956c09eb2f4f437b3a0b8b9dbadee54e22c1a9f27316c2cb3639953bdbb0551b54aaf0d8593d140f84cc65f07b8781d0c
   languageName: node
   linkType: hard
 
@@ -33004,16 +32985,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-unique-numbers@npm:^8.0.13":
-  version: 8.0.13
-  resolution: "fast-unique-numbers@npm:8.0.13"
-  dependencies:
-    "@babel/runtime": "npm:^7.23.8"
-    tslib: "npm:^2.6.2"
-  checksum: 10c0/bf826d92345083c3146debf44e7dc93414d428eb81bd095dd46fcc6654f77977e0d04a2f65bccfcf0b9fc495a4276259afe99dbee009f463d19a1503f4e9bfac
-  languageName: node
-  linkType: hard
-
 "fast-uri@npm:^2.0.0, fast-uri@npm:^2.1.0":
   version: 2.4.0
   resolution: "fast-uri@npm:2.4.0"
@@ -33931,10 +33902,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"help-me@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "help-me@npm:5.0.0"
-  checksum: 10c0/054c0e2e9ae2231c85ab5e04f75109b9d068ffcc54e58fb22079822a5ace8ff3d02c66fd45379c902ad5ab825e5d2e1451fcc2f7eab1eb49e7d488133ba4cacb
+"help-me@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "help-me@npm:3.0.0"
+  dependencies:
+    glob: "npm:^7.1.6"
+    readable-stream: "npm:^3.6.0"
+  checksum: 10c0/8e3f1fa5ec8442a95c7b3ea17bf58549bf36a946e5cbbc144edf549818c51533ec93f62a04cd78ecb34f00fb4424b082509ea5e342921011579f1bc53b7b4ec1
   languageName: node
   linkType: hard
 
@@ -35917,6 +35891,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"leven@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "leven@npm:2.1.0"
+  checksum: 10c0/e685243900aad7e854212001c9b7fe6d0806081e184d5077a561a91d07425852e8b7d1edf76b948f4be520b64e0015960be3a5f3e9acb0bec75a0e4134b422df
+  languageName: node
+  linkType: hard
+
 "leven@npm:^3.1.0":
   version: 3.1.0
   resolution: "leven@npm:3.1.0"
@@ -36581,7 +36562,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimist@npm:^1.1.1, minimist@npm:^1.2.0, minimist@npm:^1.2.5, minimist@npm:^1.2.6, minimist@npm:^1.2.8":
+"minimist@npm:^1.1.0, minimist@npm:^1.1.1, minimist@npm:^1.2.0, minimist@npm:^1.2.5, minimist@npm:^1.2.6":
   version: 1.2.8
   resolution: "minimist@npm:1.2.8"
   checksum: 10c0/19d3fcdca050087b84c2029841a093691a91259a47def2f18222f41e7645a0b7c44ef4b40e88a1e58a40c84d2ef0ee6047c55594d298146d0eb3f6b737c20ce6
@@ -36779,42 +36760,43 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mqtt-packet@npm:^9.0.0":
-  version: 9.0.1
-  resolution: "mqtt-packet@npm:9.0.1"
+"mqtt-packet@npm:^6.8.0":
+  version: 6.10.0
+  resolution: "mqtt-packet@npm:6.10.0"
   dependencies:
-    bl: "npm:^6.0.8"
-    debug: "npm:^4.3.4"
+    bl: "npm:^4.0.2"
+    debug: "npm:^4.1.1"
     process-nextick-args: "npm:^2.0.1"
-  checksum: 10c0/0fb78ad73064e7a3d2e97ffebc09c47bb3e3e2894abef6f88a4f4daf817dfd7b6c1792effc6c39e746abb8e7a9f47b576e97ec3eb2497bd3b1d5c6279b797894
+  checksum: 10c0/bcae227a7b8fb6147338bd0af287b0b372080c6c12f1603821673bab08eb73ba8e26aa550f2263edbce7cf2c7ca3cc2ba57e771307ad40eb5e9f3efe7a9fb62e
   languageName: node
   linkType: hard
 
-"mqtt@npm:^5.9.1":
-  version: 5.10.1
-  resolution: "mqtt@npm:5.10.1"
+"mqtt@npm:^4.3.8":
+  version: 4.3.8
+  resolution: "mqtt@npm:4.3.8"
   dependencies:
-    "@types/readable-stream": "npm:^4.0.5"
-    "@types/ws": "npm:^8.5.9"
-    commist: "npm:^3.2.0"
+    commist: "npm:^1.0.0"
     concat-stream: "npm:^2.0.0"
-    debug: "npm:^4.3.4"
-    help-me: "npm:^5.0.0"
-    lru-cache: "npm:^10.0.1"
-    minimist: "npm:^1.2.8"
-    mqtt-packet: "npm:^9.0.0"
-    number-allocator: "npm:^1.0.14"
-    readable-stream: "npm:^4.4.2"
+    debug: "npm:^4.1.1"
+    duplexify: "npm:^4.1.1"
+    help-me: "npm:^3.0.0"
+    inherits: "npm:^2.0.3"
+    lru-cache: "npm:^6.0.0"
+    minimist: "npm:^1.2.5"
+    mqtt-packet: "npm:^6.8.0"
+    number-allocator: "npm:^1.0.9"
+    pump: "npm:^3.0.0"
+    readable-stream: "npm:^3.6.0"
     reinterval: "npm:^1.1.0"
     rfdc: "npm:^1.3.0"
-    split2: "npm:^4.2.0"
-    worker-timers: "npm:^7.1.4"
-    ws: "npm:^8.17.1"
+    split2: "npm:^3.1.0"
+    ws: "npm:^7.5.5"
+    xtend: "npm:^4.0.2"
   bin:
-    mqtt: build/bin/mqtt.js
-    mqtt_pub: build/bin/pub.js
-    mqtt_sub: build/bin/sub.js
-  checksum: 10c0/1f96fc2afca962b2914daf3e34349f78950296cbbda96d62ff95cdc3e134e724311ad7c08548aa6f607e6a543ce6ed9f198d874562e7ec4658efc9fc68081ee2
+    mqtt: bin/mqtt.js
+    mqtt_pub: bin/pub.js
+    mqtt_sub: bin/sub.js
+  checksum: 10c0/cfc02b080c942bf5df8c64d2e12d0e7e5a35f2bd6c8c297a38cca8e3c5786d15f275f4b074c72768f8821acb1151e11f497b59f797662d9359387457bc5e355a
   languageName: node
   linkType: hard
 
@@ -37263,7 +37245,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"number-allocator@npm:^1.0.14":
+"number-allocator@npm:^1.0.9":
   version: 1.0.14
   resolution: "number-allocator@npm:1.0.14"
   dependencies:
@@ -38492,7 +38474,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"readable-stream@npm:^4.0.0, readable-stream@npm:^4.2.0, readable-stream@npm:^4.4.2":
+"readable-stream@npm:^4.0.0":
   version: 4.5.2
   resolution: "readable-stream@npm:4.5.2"
   dependencies:
@@ -39404,7 +39386,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"split2@npm:^3.0.0, split2@npm:^3.2.2":
+"split2@npm:^3.0.0, split2@npm:^3.1.0, split2@npm:^3.2.2":
   version: 3.2.2
   resolution: "split2@npm:3.2.2"
   dependencies:
@@ -39413,7 +39395,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"split2@npm:^4.0.0, split2@npm:^4.2.0":
+"split2@npm:^4.0.0":
   version: 4.2.0
   resolution: "split2@npm:4.2.0"
   checksum: 10c0/b292beb8ce9215f8c642bb68be6249c5a4c7f332fc8ecadae7be5cbdf1ea95addc95f0459ef2e7ad9d45fd1064698a097e4eb211c83e772b49bc0ee423e91534
@@ -41298,40 +41280,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"worker-timers-broker@npm:^6.1.8":
-  version: 6.1.8
-  resolution: "worker-timers-broker@npm:6.1.8"
-  dependencies:
-    "@babel/runtime": "npm:^7.24.5"
-    fast-unique-numbers: "npm:^8.0.13"
-    tslib: "npm:^2.6.2"
-    worker-timers-worker: "npm:^7.0.71"
-  checksum: 10c0/95257411662bd4f23b17f33fc17872d61c4bfc5ea4f438c370b525d40dc33a4fd7d89e2efb60b38a6d42b5c6f36ab5a9ca8220a6dab1aabb2fc9b7346037dbb7
-  languageName: node
-  linkType: hard
-
-"worker-timers-worker@npm:^7.0.71":
-  version: 7.0.71
-  resolution: "worker-timers-worker@npm:7.0.71"
-  dependencies:
-    "@babel/runtime": "npm:^7.24.5"
-    tslib: "npm:^2.6.2"
-  checksum: 10c0/3e1eb4f500688540554bcd20d5abd4bceb80f2ee085aef6558a081c2fc3e1aa0dec9426e3f447cd811cd42a60d9ba13da951658378519f6ca4d2571c9bb525b5
-  languageName: node
-  linkType: hard
-
-"worker-timers@npm:^7.1.4":
-  version: 7.1.8
-  resolution: "worker-timers@npm:7.1.8"
-  dependencies:
-    "@babel/runtime": "npm:^7.24.5"
-    tslib: "npm:^2.6.2"
-    worker-timers-broker: "npm:^6.1.8"
-    worker-timers-worker: "npm:^7.0.71"
-  checksum: 10c0/ca36aee2bf7b9fd8a2d2c6da237f1bb8e6c9af09b14113532606966fd6c5df9cb903e321525a11d16642a8249e56e2d22c03ebbcb0cf69a23bb1e43f840dfe94
-  languageName: node
-  linkType: hard
-
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0, wrap-ansi@npm:^7.0.0":
   version: 7.0.0
   resolution: "wrap-ansi@npm:7.0.0"
@@ -41444,7 +41392,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:*, ws@npm:^8.17.1":
+"ws@npm:*":
   version: 8.18.0
   resolution: "ws@npm:8.18.0"
   peerDependencies:
@@ -41459,7 +41407,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:^7.4.5":
+"ws@npm:^7.4.5, ws@npm:^7.5.5":
   version: 7.5.10
   resolution: "ws@npm:7.5.10"
   peerDependencies:
@@ -41474,7 +41422,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"xtend@npm:^4.0.0, xtend@npm:~4.0.0, xtend@npm:~4.0.1":
+"xtend@npm:^4.0.0, xtend@npm:^4.0.2, xtend@npm:~4.0.0, xtend@npm:~4.0.1":
   version: 4.0.2
   resolution: "xtend@npm:4.0.2"
   checksum: 10c0/366ae4783eec6100f8a02dff02ac907bf29f9a00b82ac0264b4d8b832ead18306797e283cf19de776538babfdcb2101375ec5646b59f08c52128ac4ab812ed0e
