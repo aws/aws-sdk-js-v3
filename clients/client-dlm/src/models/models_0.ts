@@ -419,6 +419,7 @@ export type PolicyTypeValues = (typeof PolicyTypeValues)[keyof typeof PolicyType
  */
 export const ResourceLocationValues = {
   CLOUD: "CLOUD",
+  LOCAL_ZONE: "LOCAL_ZONE",
   OUTPOST: "OUTPOST",
 } as const;
 
@@ -460,6 +461,7 @@ export type IntervalUnitValues = (typeof IntervalUnitValues)[keyof typeof Interv
  */
 export const LocationValues = {
   CLOUD: "CLOUD",
+  LOCAL_ZONE: "LOCAL_ZONE",
   OUTPOST_LOCAL: "OUTPOST_LOCAL",
 } as const;
 
@@ -646,14 +648,39 @@ export interface Script {
 export interface CreateRule {
   /**
    * <p>
-   *             <b>[Custom snapshot policies only]</b> Specifies the destination for snapshots created by the policy. To create
-   * 			snapshots in the same Region as the source resource, specify <code>CLOUD</code>. To create
-   * 			snapshots on the same Outpost as the source resource, specify <code>OUTPOST_LOCAL</code>.
-   * 			If you omit this parameter, <code>CLOUD</code> is used by default.</p>
-   *          <p>If the policy targets resources in an Amazon Web Services Region, then you must create
-   * 			snapshots in the same Region as the source resource. If the policy targets resources on an
-   * 			Outpost, then you can create snapshots on the same Outpost as the source resource, or in
-   * 			the Region of that Outpost.</p>
+   *             <b>[Custom snapshot policies only]</b> Specifies the destination for snapshots created by the policy. The
+   * 			allowed destinations depend on the location of the targeted resources.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the policy targets resources in a Region, then you must create snapshots
+   * 					in the same Region as the source resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the policy targets resources in a Local Zone, you can create snapshots in
+   * 					the same Local Zone or in its parent Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the policy targets resources on an Outpost, then you can create snapshots
+   * 					on the same Outpost or in its parent Region.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Specify one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>To create snapshots in the same Region as the source resource, specify
+   * 					<code>CLOUD</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To create snapshots in the same Local Zone as the source resource, specify
+   * 					<code>LOCAL_ZONE</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To create snapshots on the same Outpost as the source resource, specify
+   * 					<code>OUTPOST_LOCAL</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>CLOUD</code>
+   *          </p>
    * @public
    */
   Location?: LocationValues | undefined;
@@ -680,8 +707,8 @@ export interface CreateRule {
 
   /**
    * <p>The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1
-   * 			year. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
-   * 				expressions</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+   * 			year. For more information, see the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html">Cron expressions reference</a> in
+   * 			the <i>Amazon EventBridge User Guide</i>.</p>
    * @public
    */
   CronExpression?: string | undefined;
@@ -1011,11 +1038,11 @@ export interface Schedule {
   FastRestoreRule?: FastRestoreRule | undefined;
 
   /**
-   * <p>Specifies a rule for copying snapshots or AMIs across regions.</p>
+   * <p>Specifies a rule for copying snapshots or AMIs across Regions.</p>
    *          <note>
-   *             <p>You can't specify cross-Region copy rules for policies that create snapshots on an Outpost.
-   * 			If the policy creates snapshots in a Region, then snapshots can be copied to up to three
-   * 			Regions or Outposts.</p>
+   *             <p>You can't specify cross-Region copy rules for policies that create snapshots on an
+   * 				Outpost or in a Local Zone. If the policy creates snapshots in a Region, then snapshots
+   * 				can be copied to up to three Regions or Outposts.</p>
    *          </note>
    * @public
    */
@@ -1054,8 +1081,7 @@ export interface Schedule {
  */
 export interface PolicyDetails {
   /**
-   * <p>
-   *             <b>[Custom policies only]</b> The valid target resource types and actions a policy can manage. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code>
+   * <p>The type of policy. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code>
    * 			to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify <code>IMAGE_MANAGEMENT</code>
    * 			to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify <code>EVENT_BASED_POLICY </code>
    * 			to create an event-based policy that performs specific actions when a defined event occurs in your Amazon Web Services account.</p>
@@ -1075,11 +1101,26 @@ export interface PolicyDetails {
 
   /**
    * <p>
-   *             <b>[Custom snapshot and AMI policies only]</b> The location of the resources to backup. If the source resources are located in an
-   * 			Amazon Web Services Region, specify <code>CLOUD</code>. If the source resources are located on an Outpost
-   * 			in your account, specify <code>OUTPOST</code>.</p>
-   *          <p>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources
-   * 				of the specified type with matching target tags across all of the Outposts in your account.</p>
+   *             <b>[Custom snapshot and AMI policies only]</b> The location of the resources to backup.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the source resources are located in a Region, specify <code>CLOUD</code>. In this case,
+   * 					the policy targets all resources of the specified type with matching target tags across all
+   * 					Availability Zones in the Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>[Custom snapshot policies only]</b> If the source resources are located in a Local Zone, specify <code>LOCAL_ZONE</code>.
+   * 					In this case, the policy targets all resources of the specified type with matching target
+   * 					tags across all Local Zones in the Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the source resources are located on an Outpost in your account, specify <code>OUTPOST</code>.
+   * 					In this case, the policy targets all resources of the specified type with matching target
+   * 					tags across all of the Outposts in your account.</p>
+   *             </li>
+   *          </ul>
+   *          <p></p>
    * @public
    */
   ResourceLocations?: ResourceLocationValues[] | undefined;
@@ -1712,8 +1753,7 @@ export interface GetLifecyclePolicyRequest {
 }
 
 /**
- * <p>
- *             <b>[Custom policies only]</b> Detailed information about a snapshot, AMI, or event-based lifecycle policy.</p>
+ * <p>Information about a lifecycle policy.</p>
  * @public
  */
 export interface LifecyclePolicy {
@@ -1779,16 +1819,16 @@ export interface LifecyclePolicy {
   PolicyArn?: string | undefined;
 
   /**
-   * <p>
-   *             <b>[Default policies only]</b> The type of default policy. Values include:</p>
+   * <p>Indicates whether the policy is a default lifecycle policy or a custom
+   * 			lifecycle policy.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>VOLUME</code> - Default policy for EBS snapshots</p>
+   *                   <code>true</code> - the policy is a default policy.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INSTANCE</code> - Default policy for EBS-backed AMIs</p>
+   *                   <code>false</code> - the policy is a custom policy.</p>
    *             </li>
    *          </ul>
    * @public

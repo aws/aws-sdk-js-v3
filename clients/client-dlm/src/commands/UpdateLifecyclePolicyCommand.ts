@@ -48,7 +48,7 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  *       "VOLUME" || "INSTANCE",
  *     ],
  *     ResourceLocations: [ // ResourceLocationList
- *       "CLOUD" || "OUTPOST",
+ *       "CLOUD" || "OUTPOST" || "LOCAL_ZONE",
  *     ],
  *     TargetTags: [ // TargetTagList
  *       { // Tag
@@ -73,7 +73,7 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  *           },
  *         ],
  *         CreateRule: { // CreateRule
- *           Location: "CLOUD" || "OUTPOST_LOCAL",
+ *           Location: "CLOUD" || "OUTPOST_LOCAL" || "LOCAL_ZONE",
  *           Interval: Number("int"),
  *           IntervalUnit: "HOURS",
  *           Times: [ // TimesList
