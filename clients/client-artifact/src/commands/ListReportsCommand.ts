@@ -107,11 +107,11 @@ export interface ListReportsCommandOutput extends ListReportsResponse, __Metadat
  *     {
  *       "version": 1,
  *       "name": "Name of report",
- *       "arn": "arn:aws:artifact:us-east-1::report/report-bqhUJF3FrQZsMJpb",
+ *       "arn": "arn:aws:artifact:us-east-1::report/report-abcdef0123456789",
  *       "category": "Artifact Category",
  *       "companyName": "AWS",
  *       "description": "Description of report",
- *       "id": "report-bqhUJF3FrQZsMJpb",
+ *       "id": "report-abcdef0123456789",
  *       "periodEnd": "2022-04-01T20:32:04Z",
  *       "periodStart": "2022-04-01T20:32:04Z",
  *       "productName": "Product of report",

@@ -110,18 +110,18 @@ export interface GetReportMetadataCommandOutput extends GetReportMetadataRespons
  *   "reportDetails": {
  *     "version": 1,
  *     "name": "Name of report",
- *     "arn": "arn:aws:artifact:us-east-1::report/report-bqhUJF3FrQZsMJpb:1",
+ *     "arn": "arn:aws:artifact:us-east-1::report/report-abcdef0123456789:1",
  *     "category": "Artifact Category",
  *     "companyName": "AWS",
  *     "createdAt": "2022-05-27T23:17:00.343940Z",
  *     "description": "Description of report",
- *     "id": "report-bqhUJF3FrQZsMJpb",
+ *     "id": "report-abcdef0123456789",
  *     "periodEnd": "2022-04-01T20:32:04Z",
  *     "periodStart": "2022-04-01T20:32:04Z",
  *     "productName": "Product of report",
  *     "series": "Artifact Series",
  *     "state": "PUBLISHED",
- *     "termArn": "arn:aws:artifact:us-east-1::term/term-gLJGG12NyPtYcmtu:1"
+ *     "termArn": "arn:aws:artifact:us-east-1::term/term-abcdef0123456789:1"
  *   }
  * }
  * *\/

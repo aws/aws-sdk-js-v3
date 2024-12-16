@@ -82,26 +82,6 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @public
- * @example To update a private DNS namespace
- * ```javascript
- * // The following example updates the description of a private DNS namespace.
- * const input = {
- *   "Id": "ns-bk3aEXAMPLE",
- *   "Namespace": {
- *     "Description": "The updated namespace description."
- *   },
- *   "UpdaterRequestId": ""
- * };
- * const command = new UpdatePrivateDnsNamespaceCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "OperationId": "ft52xe2koxhoeormaceymagglsdjyvEXAMPLE"
- * }
- * *\/
- * // example id: to-update-a-private-dns-namespace-1712868389604
- * ```
- *
  * @example To update a public DNS namespace
  * ```javascript
  * // The following example updates the description of a public DNS namespace.
@@ -120,6 +100,26 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  * }
  * *\/
  * // example id: to-update-a-public-dns-namespace-1712868389604
+ * ```
+ *
+ * @example To update a private DNS namespace
+ * ```javascript
+ * // The following example updates the description of a private DNS namespace.
+ * const input = {
+ *   "Id": "ns-bk3aEXAMPLE",
+ *   "Namespace": {
+ *     "Description": "The updated namespace description."
+ *   },
+ *   "UpdaterRequestId": ""
+ * };
+ * const command = new UpdatePrivateDnsNamespaceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OperationId": "ft52xe2koxhoeormaceymagglsdjyvEXAMPLE"
+ * }
+ * *\/
+ * // example id: to-update-a-private-dns-namespace-1712868389604
  * ```
  *
  */

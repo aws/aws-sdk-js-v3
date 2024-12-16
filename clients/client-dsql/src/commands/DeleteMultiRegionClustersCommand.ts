@@ -81,8 +81,8 @@ export interface DeleteMultiRegionClustersCommandOutput extends __MetadataBearer
  * //
  * const input = {
  *   "linkedClusterArns": [
- *     "arn:aws:xanadu:us-east-1:111122223333:cluster/abcdefghijklmnopqrst12345",
- *     "arn:aws:xanadu:us-east-2:111122223333:cluster/klmnopqrstuvwxyzabcd54321"
+ *     "arn:aws:dsql:us-east-1:111122223333:cluster/abcdefghijklmnopqrst12345",
+ *     "arn:aws:dsql:us-east-2:111122223333:cluster/klmnopqrstuvwxyzabcd54321"
  *   ]
  * };
  * const command = new DeleteMultiRegionClustersCommand(input);

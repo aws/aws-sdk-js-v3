@@ -86,8 +86,8 @@ export interface GetReportCommandOutput extends GetReportResponse, __MetadataBea
  * //                         operation. If callers do not provide a version, it will default to the
  * //                         report's latest version
  * const input = {
- *   "reportId": "report-1hVFddebtfDNJAUf",
- *   "termToken": "term-token-gPFEGk7CF4wS901w7ppYclt7"
+ *   "reportId": "report-abcdef0123456789",
+ *   "termToken": "term-token-abcdefghijklm01234567890"
  * };
  * const command = new GetReportCommand(input);
  * const response = await client.send(command);
