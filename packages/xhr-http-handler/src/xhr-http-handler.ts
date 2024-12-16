@@ -216,19 +216,28 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler<XhrHttpH
       }),
       requestTimeout(requestTimeoutInMs),
     ];
+    let removeSignalEventListener = () => {};
     if (abortSignal) {
       raceOfPromises.push(
         new Promise<never>((resolve, reject) => {
-          abortSignal.onabort = () => {
+          const onAbort = () => {
             xhr.abort();
             const abortError = new Error("Request aborted");
             abortError.name = "AbortError";
             reject(abortError);
           };
+          if (typeof (abortSignal as any).addEventListener === "function") {
+            const signal = abortSignal as any;
+            signal.addEventListener("abort", onAbort, { once: true });
+            removeSignalEventListener = () => signal.removeEventListener("abort", onAbort);
+          } else {
+            // backwards compatibility
+            abortSignal.onabort = onAbort;
+          }
         })
       );
     }
-    return Promise.race(raceOfPromises);
+    return Promise.race(raceOfPromises).finally(removeSignalEventListener);
   }
 
   /**
