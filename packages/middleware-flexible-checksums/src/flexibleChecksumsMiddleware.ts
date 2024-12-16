@@ -72,15 +72,17 @@ export const flexibleChecksumsMiddleware =
     const { request, input } = args;
     const { body: requestBody, headers } = request;
     const { base64Encoder, streamHasher } = config;
-    const { requestChecksumRequired, requestAlgorithmMember, requestAlgorithmMemberHttpHeader } = middlewareConfig;
+    const { requestChecksumRequired, requestAlgorithmMember } = middlewareConfig;
     const requestChecksumCalculation = await config.requestChecksumCalculation();
 
+    const requestAlgorithmMemberName = requestAlgorithmMember?.name;
+    const requestAlgorithmMemberHttpHeader = requestAlgorithmMember?.httpHeader;
     // The value for input member to configure flexible checksum is not set.
-    if (requestAlgorithmMember && !input[requestAlgorithmMember]) {
+    if (requestAlgorithmMemberName && !input[requestAlgorithmMemberName]) {
       // Set requestAlgorithmMember as default checksum algorithm only if request checksum calculation is supported
       // or request checksum is required.
       if (requestChecksumCalculation === RequestChecksumCalculation.WHEN_SUPPORTED || requestChecksumRequired) {
-        input[requestAlgorithmMember] = DEFAULT_CHECKSUM_ALGORITHM;
+        input[requestAlgorithmMemberName] = DEFAULT_CHECKSUM_ALGORITHM;
         if (requestAlgorithmMemberHttpHeader) {
           headers[requestAlgorithmMemberHttpHeader] = DEFAULT_CHECKSUM_ALGORITHM;
         }

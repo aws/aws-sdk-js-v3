@@ -10,24 +10,14 @@ import {
 } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
-import { DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
+import { RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
 
 export interface FlexibleChecksumsInputMiddlewareConfig {
-  /**
-   * Indicates an operation requires a checksum in its HTTP request.
-   */
-  requestChecksumRequired: boolean;
-
   /**
    * Defines a top-level operation input member used to opt-in to best-effort validation
    * of a checksum returned in the HTTP response of the operation.
    */
   requestValidationModeMember?: string;
-
-  /**
-   * Defines a top-level operation input member that is used to configure request checksum behavior.
-   */
-  requestAlgorithmMember?: string;
 }
 
 /**
@@ -57,7 +47,7 @@ export const flexibleChecksumsInputMiddleware =
   ): SerializeHandler<any, Output> =>
   async (args: SerializeHandlerArguments<any>): Promise<SerializeHandlerOutput<Output>> => {
     const input = args.input;
-    const { requestValidationModeMember, requestAlgorithmMember, requestChecksumRequired } = middlewareConfig;
+    const { requestValidationModeMember } = middlewareConfig;
 
     const requestChecksumCalculation = await config.requestChecksumCalculation();
     const responseChecksumValidation = await config.responseChecksumValidation();

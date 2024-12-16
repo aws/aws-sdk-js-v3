@@ -9,10 +9,7 @@ vi.mock("@aws-sdk/core");
 
 describe(flexibleChecksumsInputMiddleware.name, () => {
   const mockNext = vi.fn();
-
-  const mockRequestAlgorithmMember = "mockRequestAlgorithmMember";
   const mockRequestValidationModeMember = "mockRequestValidationModeMember";
-  const mockMiddlewareConfig = { requestChecksumRequired: false };
 
   const mockConfig = {
     requestChecksumCalculation: () => Promise.resolve(RequestChecksumCalculation.WHEN_SUPPORTED),
@@ -27,7 +24,6 @@ describe(flexibleChecksumsInputMiddleware.name, () => {
   describe("sets input.requestValidationModeMember", () => {
     it("when requestValidationModeMember is defined and responseChecksumValidation is supported", async () => {
       const mockMiddlewareConfigWithMockRequestValidationModeMember = {
-        ...mockMiddlewareConfig,
         requestValidationModeMember: mockRequestValidationModeMember,
       };
       const handler = flexibleChecksumsInputMiddleware(
@@ -43,7 +39,7 @@ describe(flexibleChecksumsInputMiddleware.name, () => {
     const mockArgs = { input: {} };
 
     it("when requestValidationModeMember is not defined", async () => {
-      const handler = flexibleChecksumsInputMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
+      const handler = flexibleChecksumsInputMiddleware(mockConfig, {})(mockNext, {});
       await handler(mockArgs);
       expect(mockNext).toHaveBeenCalledWith(mockArgs);
     });
@@ -54,7 +50,7 @@ describe(flexibleChecksumsInputMiddleware.name, () => {
         responseChecksumValidation: () => Promise.resolve(ResponseChecksumValidation.WHEN_REQUIRED),
       } as PreviouslyResolved;
 
-      const handler = flexibleChecksumsInputMiddleware(mockConfigResWhenRequired, mockMiddlewareConfig)(mockNext, {});
+      const handler = flexibleChecksumsInputMiddleware(mockConfigResWhenRequired, {})(mockNext, {});
       await handler(mockArgs);
 
       expect(mockNext).toHaveBeenCalledWith(mockArgs);
@@ -93,7 +89,7 @@ describe(flexibleChecksumsInputMiddleware.name, () => {
         [configKey]: () => Promise.resolve(configValue),
       } as PreviouslyResolved;
 
-      const handler = flexibleChecksumsInputMiddleware(mockConfigOverride, mockMiddlewareConfig)(mockNext, {});
+      const handler = flexibleChecksumsInputMiddleware(mockConfigOverride, {})(mockNext, {});
       await handler({ input: {} });
 
       expect(setFeature).toHaveBeenCalledTimes(2);

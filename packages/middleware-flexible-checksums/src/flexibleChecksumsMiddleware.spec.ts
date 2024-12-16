@@ -108,8 +108,10 @@ describe(flexibleChecksumsMiddleware.name, () => {
       describe("input[requestAlgorithmMember] is not defined and", () => {
         const mockMwConfigWithReqAlgoMember = {
           ...mockMiddlewareConfig,
-          requestAlgorithmMember: mockRequestAlgorithmMember,
-          requestAlgorithmMemberHttpHeader: mockRequestAlgorithmMemberHttpHeader,
+          requestAlgorithmMember: {
+            name: mockRequestAlgorithmMember,
+            httpHeader: mockRequestAlgorithmMemberHttpHeader,
+          },
         };
 
         it("requestChecksumCalculation is supported", async () => {
