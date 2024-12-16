@@ -1,5 +1,5 @@
 import { checksums } from "@aws-sdk/crt-loader";
-import { Checksum } from "@aws-sdk/types";
+import { Checksum } from "@smithy/types";
 import { toUint8Array } from "@smithy/util-utf8";
 
 export class CrtCrc64Nvme implements Checksum {
