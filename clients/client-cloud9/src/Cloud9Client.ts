@@ -313,6 +313,12 @@ export interface Cloud9ClientResolvedConfig extends Cloud9ClientResolvedConfigTy
  *          <p>Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and
  *       release software in the cloud.</p>
  *          <p>For more information about Cloud9, see the <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide">Cloud9 User Guide</a>.</p>
+ *          <important>
+ *             <p>Cloud9 is no longer available to new customers. Existing customers of
+ *         Cloud9 can continue to use the service as normal.
+ *         <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn more"</a>
+ *             </p>
+ *          </important>
  *          <p>Cloud9 supports these operations:</p>
  *          <ul>
  *             <li>
