@@ -60,7 +60,7 @@ export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __Met
  * //         AuthScheme: "SECRETS",
  * //         SecretArn: "STRING_VALUE",
  * //         IAMAuth: "DISABLED" || "REQUIRED" || "ENABLED",
- * //         ClientPasswordAuthType: "MYSQL_NATIVE_PASSWORD" || "POSTGRES_SCRAM_SHA_256" || "POSTGRES_MD5" || "SQL_SERVER_AUTHENTICATION",
+ * //         ClientPasswordAuthType: "MYSQL_NATIVE_PASSWORD" || "MYSQL_CACHING_SHA2_PASSWORD" || "POSTGRES_SCRAM_SHA_256" || "POSTGRES_MD5" || "SQL_SERVER_AUTHENTICATION",
  * //       },
  * //     ],
  * //     RoleArn: "STRING_VALUE",

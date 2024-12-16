@@ -10920,6 +10920,7 @@ export type AuthScheme = (typeof AuthScheme)[keyof typeof AuthScheme];
  * @enum
  */
 export const ClientPasswordAuthType = {
+  MYSQL_CACHING_SHA2_PASSWORD: "MYSQL_CACHING_SHA2_PASSWORD",
   MYSQL_NATIVE_PASSWORD: "MYSQL_NATIVE_PASSWORD",
   POSTGRES_MD5: "POSTGRES_MD5",
   POSTGRES_SCRAM_SHA_256: "POSTGRES_SCRAM_SHA_256",
