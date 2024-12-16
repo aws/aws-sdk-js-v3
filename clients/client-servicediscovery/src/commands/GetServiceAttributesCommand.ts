@@ -68,6 +68,27 @@ export interface GetServiceAttributesCommandOutput extends GetServiceAttributesR
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @public
+ * @example GetServiceAttributes Example
+ * ```javascript
+ * // This example gets the attributes for a specified service.
+ * const input = {
+ *   "ServiceId": "srv-e4anhexample0004"
+ * };
+ * const command = new GetServiceAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ServiceAttributes": {
+ *     "Attributes": {
+ *       "port": "80"
+ *     },
+ *     "ServiceArn": "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-e4anhexample0004"
+ *   }
+ * }
+ * *\/
+ * // example id: get-service-attributes-example-1590117234294
+ * ```
+ *
  */
 export class GetServiceAttributesCommand extends $Command
   .classBuilder<

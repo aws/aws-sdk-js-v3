@@ -67,6 +67,20 @@ export interface UpdateServiceAttributesCommandOutput extends UpdateServiceAttri
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @public
+ * @example UpdateServiceAttributes Example
+ * ```javascript
+ * // This example submits a request to update the specified service to add a port attribute with the value 80.
+ * const input = {
+ *   "Attributes": {
+ *     "port": "80"
+ *   },
+ *   "ServiceId": "srv-e4anhexample0004"
+ * };
+ * const command = new UpdateServiceAttributesCommand(input);
+ * await client.send(command);
+ * // example id: update-service-attributes-example-1590117830880
+ * ```
+ *
  */
 export class UpdateServiceAttributesCommand extends $Command
   .classBuilder<

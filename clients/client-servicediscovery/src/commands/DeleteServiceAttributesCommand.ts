@@ -64,6 +64,20 @@ export interface DeleteServiceAttributesCommandOutput extends DeleteServiceAttri
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @public
+ * @example DeleteServiceAttributes example
+ * ```javascript
+ * // Example: Delete service attribute by providing attribute key and service ID
+ * const input = {
+ *   "Attributes": [
+ *     "port"
+ *   ],
+ *   "ServiceId": "srv-e4anhexample0004"
+ * };
+ * const command = new DeleteServiceAttributesCommand(input);
+ * await client.send(command);
+ * // example id: example-delete-service-attributes-1587416462902
+ * ```
+ *
  */
 export class DeleteServiceAttributesCommand extends $Command
   .classBuilder<
