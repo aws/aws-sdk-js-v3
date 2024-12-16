@@ -214,8 +214,7 @@ export class PutBucketEncryptionCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: "ChecksumAlgorithm",
-        requestAlgorithmMemberHttpHeader: "x-amz-sdk-checksum-algorithm",
+        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
         requestChecksumRequired: true,
       }),
     ];
