@@ -23,6 +23,7 @@ export const getRuntimeConfig = (config: RpcV2ProtocolClientConfig) => {
   const defaultsMode = resolveDefaultsModeConfig(config);
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
+  const profileConfig = { profile: config?.profile };
   return {
     ...clientSharedValues,
     ...config,

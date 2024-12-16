@@ -25,6 +25,7 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
   const defaultsMode = resolveDefaultsModeConfig(config);
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
+  const profileConfig = { profile: config?.profile };
   return {
     ...clientSharedValues,
     ...config,

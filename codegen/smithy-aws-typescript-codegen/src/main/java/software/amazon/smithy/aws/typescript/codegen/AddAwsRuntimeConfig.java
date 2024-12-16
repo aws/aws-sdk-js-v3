@@ -99,9 +99,9 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                     ? "The AWS region to which this client will send requests"
                     : "The AWS region to use as signing region for AWS Auth")
                 .write("region?: string | __Provider<string>;\n");
+        }
 
-
-            writer.writeDocs(
+        writer.writeDocs(
                 """
                 Setting a client profile is similar to setting a value for the
                 AWS_PROFILE environment variable. Setting a profile on a client
@@ -119,7 +119,6 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                 provider options.
                 """)
                 .write("profile?: string;\n");
-        }
     }
 
     @Override
@@ -165,6 +164,8 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             writer.addDependency(AwsDependency.AWS_SDK_CORE);
             writer.addImport("emitWarningIfUnsupportedVersion", "awsCheckVersion", AwsDependency.AWS_SDK_CORE);
             writer.write("awsCheckVersion(process.version);");
+        }
+        if (target.equals(LanguageTarget.NODE)) {
             writer.write("const profileConfig = { profile: config?.profile };");
         }
     }
