@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.713.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.712.0...v3.713.0) (2024-12-16)
+
+
+### Features
+
+* **client-dlm:** This release adds support for Local Zones in Amazon Data Lifecycle Manager EBS snapshot lifecycle policies. ([36c9b5a](https://github.com/aws/aws-sdk-js-v3/commit/36c9b5add4913254dfb4cbec876b985366f4d96d))
+* **client-ec2:** This release adds support for EBS local snapshots in AWS Dedicated Local Zones, which allows you to store snapshots of EBS volumes locally in Dedicated Local Zones. ([0a3b2ac](https://github.com/aws/aws-sdk-js-v3/commit/0a3b2ac392812b1959d28336025b20ff5425233f))
+* **client-greengrassv2:** Add support for runtime in GetCoreDevice and ListCoreDevices APIs. ([8ea87b4](https://github.com/aws/aws-sdk-js-v3/commit/8ea87b47f9c38ed7116297d911891df9baa417f8))
+* **client-medialive:** AWS Elemental MediaLive adds three new features: MediaPackage v2 endpoint support for live stream delivery, KLV metadata passthrough in CMAF Ingest output groups, and Metadata Name Modifier in CMAF Ingest output groups for customizing metadata track names in output streams. ([7567d64](https://github.com/aws/aws-sdk-js-v3/commit/7567d643e3d1b8520b334aeba8622880e80dc690))
+* **client-rds:** This release adds support for the "MYSQL_CACHING_SHA2_PASSWORD" enum value for RDS Proxy ClientPasswordAuthType. ([8afc56c](https://github.com/aws/aws-sdk-js-v3/commit/8afc56c5ef9f1d290b73ea48626b83604589d7d2))
+* **clients:** update command documentation examples as of 2024-12-16 ([fbec847](https://github.com/aws/aws-sdk-js-v3/commit/fbec847b4559c412584471de2273c81ce72d87bf))
+* **credential-providers:** make credential providers aware of caller client region ([#6726](https://github.com/aws/aws-sdk-js-v3/issues/6726)) ([a65995f](https://github.com/aws/aws-sdk-js-v3/commit/a65995fd23de4a96b737b10398f9855795283a89))
+
+
+
+
+
 # [3.712.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.711.0...v3.712.0) (2024-12-13)
 
 

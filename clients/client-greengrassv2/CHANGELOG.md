@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.713.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.712.0...v3.713.0) (2024-12-16)
+
+
+### Features
+
+* **client-greengrassv2:** Add support for runtime in GetCoreDevice and ListCoreDevices APIs. ([8ea87b4](https://github.com/aws/aws-sdk-js-v3/commit/8ea87b47f9c38ed7116297d911891df9baa417f8))
+
+
+
+
+
 # [3.712.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.711.0...v3.712.0) (2024-12-13)
 
 **Note:** Version bump only for package @aws-sdk/client-greengrassv2

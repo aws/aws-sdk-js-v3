@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.713.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.712.0...v3.713.0) (2024-12-16)
+
+
+### Features
+
+* **client-dlm:** This release adds support for Local Zones in Amazon Data Lifecycle Manager EBS snapshot lifecycle policies. ([36c9b5a](https://github.com/aws/aws-sdk-js-v3/commit/36c9b5add4913254dfb4cbec876b985366f4d96d))
+
+
+
+
+
 # [3.712.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.711.0...v3.712.0) (2024-12-13)
 
 **Note:** Version bump only for package @aws-sdk/client-dlm
