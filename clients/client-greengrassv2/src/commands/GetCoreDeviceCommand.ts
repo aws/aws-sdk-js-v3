@@ -72,6 +72,7 @@ export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __Met
  * //   coreVersion: "STRING_VALUE",
  * //   platform: "STRING_VALUE",
  * //   architecture: "STRING_VALUE",
+ * //   runtime: "STRING_VALUE",
  * //   status: "HEALTHY" || "UNHEALTHY",
  * //   lastStatusUpdateTimestamp: new Date("TIMESTAMP"),
  * //   tags: { // TagMap

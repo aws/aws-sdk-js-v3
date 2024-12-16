@@ -548,6 +548,7 @@ export const se_ListCoreDevicesCommand = async (
     [_st]: [, input[_st]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
+    [_r]: [, input[_r]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1040,6 +1041,7 @@ export const de_GetCoreDeviceCommand = async (
     coreVersion: __expectString,
     lastStatusUpdateTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     platform: __expectString,
+    runtime: __expectString,
     status: __expectString,
     tags: _json,
   });
@@ -1916,8 +1918,11 @@ const de_connectivityInfoList = (output: any, context: __SerdeContext): Connecti
  */
 const de_CoreDevice = (output: any, context: __SerdeContext): CoreDevice => {
   return take(output, {
+    architecture: __expectString,
     coreDeviceThingName: __expectString,
     lastStatusUpdateTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    platform: __expectString,
+    runtime: __expectString,
     status: __expectString,
   }) as any;
 };
@@ -2172,6 +2177,7 @@ const _iET = "iotEndpointType";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _pTA = "parentTargetArn";
+const _r = "runtime";
 const _rAS = "retryAfterSeconds";
 const _rOF = "recipeOutputFormat";
 const _ra = "retry-after";

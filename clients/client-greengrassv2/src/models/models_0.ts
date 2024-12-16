@@ -935,6 +935,36 @@ export interface CoreDevice {
    * @public
    */
   lastStatusUpdateTimestamp?: Date | undefined;
+
+  /**
+   * <p>The operating system platform that the core device runs.</p>
+   * @public
+   */
+  platform?: string | undefined;
+
+  /**
+   * <p>The computer architecture of the core device.</p>
+   * @public
+   */
+  architecture?: string | undefined;
+
+  /**
+   * <p>The runtime for the core device. The runtime can be:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws_nucleus_classic</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws_nucleus_lite</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  runtime?: string | undefined;
 }
 
 /**
@@ -2424,6 +2454,24 @@ export interface GetCoreDeviceResponse {
   architecture?: string | undefined;
 
   /**
+   * <p>The runtime for the core device. The runtime can be:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws_nucleus_classic</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws_nucleus_lite</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  runtime?: string | undefined;
+
+  /**
    * <p>The status of the core device. The core device status can be:</p>
    *          <ul>
    *             <li>
@@ -2749,6 +2797,24 @@ export interface ListCoreDevicesRequest {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p>The runtime to be used by the core device. The runtime can be:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws_nucleus_classic</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws_nucleus_lite</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  runtime?: string | undefined;
 }
 
 /**
