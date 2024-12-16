@@ -11,11 +11,19 @@ import { getCrc32ChecksumAlgorithmFunction } from "./getCrc32ChecksumAlgorithmFu
 export const selectChecksumAlgorithmFunction = (
   checksumAlgorithm: ChecksumAlgorithm,
   config: PreviouslyResolved
-): ChecksumConstructor | HashConstructor =>
-  ({
-    [ChecksumAlgorithm.MD5]: config.md5,
-    [ChecksumAlgorithm.CRC32]: getCrc32ChecksumAlgorithmFunction(),
-    [ChecksumAlgorithm.CRC32C]: AwsCrc32c,
-    [ChecksumAlgorithm.SHA1]: config.sha1,
-    [ChecksumAlgorithm.SHA256]: config.sha256,
-  }[checksumAlgorithm]);
+): ChecksumConstructor | HashConstructor => {
+  switch (checksumAlgorithm) {
+    case ChecksumAlgorithm.MD5:
+      return config.md5;
+    case ChecksumAlgorithm.CRC32:
+      return getCrc32ChecksumAlgorithmFunction();
+    case ChecksumAlgorithm.CRC32C:
+      return AwsCrc32c;
+    case ChecksumAlgorithm.SHA1:
+      return config.sha1;
+    case ChecksumAlgorithm.SHA256:
+      return config.sha256;
+    default:
+      throw new Error(`Unsupported checksum algorithm: ${checksumAlgorithm}`);
+  }
+};
