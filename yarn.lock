@@ -23246,6 +23246,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/crc64-nvme-crt@workspace:packages/crc64-nvme-crt":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/crc64-nvme-crt@workspace:packages/crc64-nvme-crt"
+  dependencies:
+    "@aws-sdk/crt-loader": "npm:*"
+    "@smithy/types": "npm:^3.7.2"
+    "@smithy/util-base64": "npm:^3.0.0"
+    "@smithy/util-utf8": "npm:^3.0.0"
+    "@tsconfig/recommended": "npm:1.0.1"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    rimraf: "npm:3.0.2"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~4.9.5"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/credential-provider-cognito-identity@npm:*, @aws-sdk/credential-provider-cognito-identity@workspace:packages/credential-provider-cognito-identity":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/credential-provider-cognito-identity@workspace:packages/credential-provider-cognito-identity"
