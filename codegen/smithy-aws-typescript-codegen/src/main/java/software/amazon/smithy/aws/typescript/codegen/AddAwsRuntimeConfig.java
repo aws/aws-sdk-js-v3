@@ -194,7 +194,13 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS",
                             TypeScriptDependency.CONFIG_RESOLVER);
                         writer.write(
-                            "loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, {...NODE_REGION_CONFIG_FILE_OPTIONS, ...profileConfig})");
+                            """
+                            loadNodeConfig(
+                                NODE_REGION_CONFIG_OPTIONS,
+                                {...NODE_REGION_CONFIG_FILE_OPTIONS, ...profileConfig}
+                            )
+                            """
+                        );
                     });
                 default:
                     return Collections.emptyMap();
