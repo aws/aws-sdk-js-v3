@@ -12,6 +12,7 @@ describe(fromIni.name, () => {
   const mockMasterProfileName = "mockMasterProfileName";
   const mockProfileName = "mockProfileName";
   const mockInit = { profile: mockProfileName };
+  const mockInitWithParentClientConfig = { profile: mockProfileName, parentClientConfig: {} };
   const mockProfiles = { [mockProfileName]: { key: "value" } };
 
   beforeEach(() => {
@@ -32,7 +33,7 @@ describe(fromIni.name, () => {
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }
-    expect(parseKnownFiles).toHaveBeenCalledWith(mockInit);
+    expect(parseKnownFiles).toHaveBeenCalledWith(mockInitWithParentClientConfig);
     expect(getProfileName).not.toHaveBeenCalled();
     expect(resolveProfileData).not.toHaveBeenCalled();
   });
@@ -46,9 +47,13 @@ describe(fromIni.name, () => {
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }
-    expect(parseKnownFiles).toHaveBeenCalledWith(mockInit);
+    expect(parseKnownFiles).toHaveBeenCalledWith(mockInitWithParentClientConfig);
     expect(getProfileName).toHaveBeenCalledWith(mockInit);
-    expect(resolveProfileData).toHaveBeenCalledWith(mockMasterProfileName, mockProfiles, mockInit);
+    expect(resolveProfileData).toHaveBeenCalledWith(
+      mockMasterProfileName,
+      mockProfiles,
+      mockInitWithParentClientConfig
+    );
   });
 
   it("returns resolved process creds", async () => {
@@ -59,8 +64,12 @@ describe(fromIni.name, () => {
     vi.mocked(resolveProfileData).mockResolvedValue(expectedCreds);
     const receivedCreds = await fromIni(mockInit)();
     expect(receivedCreds).toStrictEqual(expectedCreds);
-    expect(parseKnownFiles).toHaveBeenCalledWith(mockInit);
+    expect(parseKnownFiles).toHaveBeenCalledWith(mockInitWithParentClientConfig);
     expect(getProfileName).toHaveBeenCalledWith(mockInit);
-    expect(resolveProfileData).toHaveBeenCalledWith(mockMasterProfileName, mockProfiles, mockInit);
+    expect(resolveProfileData).toHaveBeenCalledWith(
+      mockMasterProfileName,
+      mockProfiles,
+      mockInitWithParentClientConfig
+    );
   });
 });
