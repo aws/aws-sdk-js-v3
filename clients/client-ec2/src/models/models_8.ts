@@ -6,6 +6,25 @@ import { InstanceMonitoring } from "./models_7";
 /**
  * @public
  */
+export interface UnlockSnapshotRequest {
+  /**
+   * <p>The ID of the snapshot to unlock.</p>
+   * @public
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UnlockSnapshotResult {
   /**
    * <p>The ID of the snapshot.</p>

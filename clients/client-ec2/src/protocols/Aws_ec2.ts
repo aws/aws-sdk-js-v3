@@ -2868,7 +2868,6 @@ import {
   DeleteCarrierGatewayResult,
   DeleteClientVpnEndpointRequest,
   DeleteClientVpnEndpointResult,
-  DeleteClientVpnRouteRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -3005,6 +3004,7 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   DeclarativePoliciesReport,
+  DeleteClientVpnRouteRequest,
   DeleteClientVpnRouteResult,
   DeleteCoipCidrRequest,
   DeleteCoipCidrResult,
@@ -3225,7 +3225,6 @@ import {
   DescribeFastSnapshotRestoresResult,
   DescribeFastSnapshotRestoreSuccessItem,
   DescribeFleetHistoryRequest,
-  DescribeFleetHistoryResult,
   DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
@@ -3266,6 +3265,7 @@ import {
   ConnectionTrackingSpecificationResponse,
   CpuOptions,
   DescribeFleetError,
+  DescribeFleetHistoryResult,
   DescribeFleetInstancesRequest,
   DescribeFleetInstancesResult,
   DescribeFleetsInstances,
@@ -3718,7 +3718,6 @@ import {
   DisassociateVpcCidrBlockRequest,
   DisassociateVpcCidrBlockResult,
   EnableAddressTransferRequest,
-  EnableAddressTransferResult,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceNetworkInterfaceSpecification,
@@ -3801,6 +3800,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  EnableAddressTransferResult,
   EnableAllowedImagesSettingsRequest,
   EnableAllowedImagesSettingsResult,
   EnableAwsNetworkPerformanceMetricSubscriptionRequest,
@@ -4034,7 +4034,6 @@ import {
   ModifyInstanceCreditSpecificationResult,
   ModifyInstanceEventStartTimeRequest,
   ModifyInstanceEventStartTimeResult,
-  ModifyInstanceEventWindowRequest,
   PrefixListAssociation,
   PrefixListEntry,
   Purchase,
@@ -4084,6 +4083,7 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyInstanceEventWindowRequest,
   ModifyInstanceEventWindowResult,
   ModifyInstanceMaintenanceOptionsRequest,
   ModifyInstanceMaintenanceOptionsResult,
@@ -4350,7 +4350,6 @@ import {
   UnassignPrivateIpAddressesRequest,
   UnassignPrivateNatGatewayAddressRequest,
   UnassignPrivateNatGatewayAddressResult,
-  UnlockSnapshotRequest,
   VerifiedAccessLogCloudWatchLogsDestinationOptions,
   VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
   VerifiedAccessLogOptions,
@@ -4358,6 +4357,7 @@ import {
 } from "../models/models_7";
 import {
   SecurityGroupRuleDescription,
+  UnlockSnapshotRequest,
   UnlockSnapshotResult,
   UnmonitorInstancesRequest,
   UnmonitorInstancesResult,
@@ -33020,6 +33020,9 @@ const se_CreateSnapshotRequest = (input: CreateSnapshotRequest, context: __Serde
       entries[loc] = value;
     });
   }
+  if (input[_Lo] != null) {
+    entries[_Lo] = input[_Lo];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -33056,6 +33059,9 @@ const se_CreateSnapshotsRequest = (input: CreateSnapshotsRequest, context: __Ser
   }
   if (input[_CTFS] != null) {
     entries[_CTFS] = input[_CTFS];
+  }
+  if (input[_Lo] != null) {
+    entries[_Lo] = input[_Lo];
   }
   return entries;
 };
@@ -81431,6 +81437,9 @@ const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   if (output[_sTs] != null) {
     contents[_STs] = __expectString(output[_sTs]);
   }
+  if (output[_aZ] != null) {
+    contents[_AZ] = __expectString(output[_aZ]);
+  }
   if (output[_tTr] != null) {
     contents[_TTr] = __expectString(output[_tTr]);
   }
@@ -81570,6 +81579,9 @@ const de_SnapshotInfo = (output: any, context: __SerdeContext): SnapshotInfo => 
   }
   if (output[_sTs] != null) {
     contents[_STs] = __expectString(output[_sTs]);
+  }
+  if (output[_aZ] != null) {
+    contents[_AZ] = __expectString(output[_aZ]);
   }
   return contents;
 };

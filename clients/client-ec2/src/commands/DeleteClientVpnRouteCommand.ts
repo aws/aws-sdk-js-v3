@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteClientVpnRouteRequest } from "../models/models_2";
-import { DeleteClientVpnRouteResult } from "../models/models_3";
+import { DeleteClientVpnRouteRequest, DeleteClientVpnRouteResult } from "../models/models_3";
 import { de_DeleteClientVpnRouteCommand, se_DeleteClientVpnRouteCommand } from "../protocols/Aws_ec2";
 
 /**

@@ -114,7 +114,25 @@ import {
   StatisticType,
 } from "./models_3";
 
-import { AttributeBooleanValue, OfferingClassType, OfferingTypeValues, PermissionGroup, ProductCode } from "./models_4";
+import { AttributeBooleanValue, OfferingClassType, PermissionGroup, ProductCode } from "./models_4";
+
+/**
+ * @public
+ * @enum
+ */
+export const OfferingTypeValues = {
+  All_Upfront: "All Upfront",
+  Heavy_Utilization: "Heavy Utilization",
+  Light_Utilization: "Light Utilization",
+  Medium_Utilization: "Medium Utilization",
+  No_Upfront: "No Upfront",
+  Partial_Upfront: "Partial Upfront",
+} as const;
+
+/**
+ * @public
+ */
+export type OfferingTypeValues = (typeof OfferingTypeValues)[keyof typeof OfferingTypeValues];
 
 /**
  * <p>Contains the parameters for DescribeReservedInstances.</p>
@@ -11062,17 +11080,6 @@ export interface EnableAddressTransferRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableAddressTransferResult {
-  /**
-   * <p>An Elastic IP address transfer.</p>
-   * @public
-   */
-  AddressTransfer?: AddressTransfer | undefined;
 }
 
 /**

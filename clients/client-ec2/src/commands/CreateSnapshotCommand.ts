@@ -31,10 +31,21 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  * <p>Creates a snapshot of an EBS volume and stores it in Amazon S3. You can use snapshots for
  *   	backups, to make copies of EBS volumes, and to save data before shutting down an
  *   	instance.</p>
- *          <p>You can create snapshots of volumes in a Region and volumes on an Outpost. If you
- *     	create a snapshot of a volume in a Region, the snapshot must be stored in the same
- *     	Region as the volume. If you create a snapshot of a volume on an Outpost, the snapshot
- *     	can be stored on the same Outpost as the volume, or in the Region for that Outpost.</p>
+ *          <p>The location of the source EBS volume determines where you can create the snapshot.</p>
+ *          <ul>
+ *             <li>
+ *                <p>If the source volume is in a Region, you must create the snapshot in the same
+ *           Region as the volume.</p>
+ *             </li>
+ *             <li>
+ *                <p>If the source volume is in a Local Zone, you can create the snapshot in the same
+ *           Local Zone or in parent Amazon Web Services Region.</p>
+ *             </li>
+ *             <li>
+ *                <p>If the source volume is on an Outpost, you can create the snapshot on the same
+ *           Outpost or in its parent Amazon Web Services Region.</p>
+ *             </li>
+ *          </ul>
  *          <p>When a snapshot is created, any Amazon Web Services Marketplace product codes that are associated with the
  *       source volume are propagated to the snapshot.</p>
  *          <p>You can take a snapshot of an attached volume that is in use. However, snapshots only
@@ -49,10 +60,9 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  *       that you stop the instance before taking the snapshot.</p>
  *          <p>Snapshots that are taken from encrypted volumes are automatically encrypted. Volumes that
  *       are created from encrypted snapshots are also automatically encrypted. Your encrypted volumes
- *       and any associated snapshots always remain protected.</p>
- *          <p>You can tag your snapshots during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2
- *         resources</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/what-is-ebs.html">Amazon EBS</a> and <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
+ *       and any associated snapshots always remain protected. For more information,
+ *       <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a>
+ *       in the <i>Amazon EBS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +84,7 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  *       ],
  *     },
  *   ],
+ *   Location: "regional" || "local",
  *   DryRun: true || false,
  * };
  * const command = new CreateSnapshotCommand(input);
@@ -90,6 +101,7 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  * //   StorageTier: "archive" || "standard",
  * //   RestoreExpiryTime: new Date("TIMESTAMP"),
  * //   SseType: "sse-ebs" || "sse-kms" || "none",
+ * //   AvailabilityZone: "STRING_VALUE",
  * //   TransferType: "time-based" || "standard",
  * //   CompletionDurationMinutes: Number("int"),
  * //   CompletionTime: new Date("TIMESTAMP"),

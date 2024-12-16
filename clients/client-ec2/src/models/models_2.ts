@@ -3014,6 +3014,20 @@ export interface CreateSecurityGroupResult {
 
 /**
  * @public
+ * @enum
+ */
+export const SnapshotLocationEnum = {
+  LOCAL: "local",
+  REGIONAL: "regional",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapshotLocationEnum = (typeof SnapshotLocationEnum)[keyof typeof SnapshotLocationEnum];
+
+/**
+ * @public
  */
 export interface CreateSnapshotRequest {
   /**
@@ -3023,22 +3037,17 @@ export interface CreateSnapshotRequest {
   Description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost on which to create a local
-   *   	snapshot.</p>
+   * <note>
+   *             <p>Only supported for volumes on Outposts. If the source volume is not on an Outpost,
+   *         omit this parameter.</p>
+   *          </note>
    *          <ul>
    *             <li>
-   *                <p>To create a snapshot of a volume in a Region, omit this parameter. The snapshot
-   *   				is created in the same Region as the volume.</p>
+   *                <p>To create the snapshot on the same Outpost as the source volume, specify the
+   *           ARN of that Outpost. The snapshot must be created on the same Outpost as the volume.</p>
    *             </li>
    *             <li>
-   *                <p>To create a snapshot of a volume on an Outpost and store the snapshot in the
-   *   				Region, omit this parameter. The snapshot is created in the Region for the
-   *   				Outpost.</p>
-   *             </li>
-   *             <li>
-   *                <p>To create a snapshot of a volume on an Outpost and store the snapshot on an
-   *   			Outpost, specify the ARN of the destination Outpost. The snapshot must be created on
-   *   			the same Outpost as the volume.</p>
+   *                <p>To create the snapshot in the parent Region of the Outpost, omit this parameter.</p>
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#create-snapshot">Create local snapshots from volumes on an Outpost</a> in the <i>Amazon EBS User Guide</i>.</p>
@@ -3057,6 +3066,27 @@ export interface CreateSnapshotRequest {
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <note>
+   *             <p>Only supported for volumes in Local Zones. If the source volume is not in a Local Zone,
+   *         omit this parameter.</p>
+   *          </note>
+   *          <ul>
+   *             <li>
+   *                <p>To create a local snapshot in the same Local Zone as the source volume, specify
+   *           <code>local</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To create a regional snapshot in the parent Region of the Local Zone, specify
+   *           <code>regional</code> or omit this parameter.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default value: <code>regional</code>
+   *          </p>
+   * @public
+   */
+  Location?: SnapshotLocationEnum | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3173,6 +3203,13 @@ export interface Snapshot {
    * @public
    */
   SseType?: SSEType | undefined;
+
+  /**
+   * <p>The Availability Zone or Local Zone of the snapshot. For example, <code>us-west-1a</code>
+   *       (Availability Zone) or <code>us-west-2-lax-1a</code> (Local Zone).</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
 
   /**
    * <note>
@@ -3353,27 +3390,21 @@ export interface CreateSnapshotsRequest {
   InstanceSpecification: InstanceSpecification | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost on which to create the local
-   *   		snapshots.</p>
+   * <note>
+   *             <p>Only supported for instances on Outposts. If the source instance is not on an Outpost,
+   *         omit this parameter.</p>
+   *          </note>
    *          <ul>
    *             <li>
-   *                <p>To create snapshots from an instance in a Region, omit this parameter. The
-   *   				snapshots are created in the same Region as the instance.</p>
+   *                <p>To create the snapshots on the same Outpost as the source instance, specify the
+   *           ARN of that Outpost. The snapshots must be created on the same Outpost as the instance.</p>
    *             </li>
    *             <li>
-   *                <p>To create snapshots from an instance on an Outpost and store the snapshots
-   *   				in the Region, omit this parameter. The snapshots are created in the Region
-   *   				for the Outpost.</p>
-   *             </li>
-   *             <li>
-   *                <p>To create snapshots from an instance on an Outpost and store the snapshots
-   *   				on an Outpost, specify the ARN of the destination Outpost. The snapshots must
-   *   				be created on the same Outpost as the instance.</p>
+   *                <p>To create the snapshots in the parent Region of the Outpost, omit this parameter.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#create-multivol-snapshot">
-   *   		Create multi-volume local snapshots from instances on an Outpost</a> in the
-   *   		<i>Amazon EBS User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#create-snapshot">
+   *       Create local snapshots from volumes on an Outpost</a> in the <i>Amazon EBS User Guide</i>.</p>
    * @public
    */
   OutpostArn?: string | undefined;
@@ -3397,6 +3428,27 @@ export interface CreateSnapshotsRequest {
    * @public
    */
   CopyTagsFromSource?: CopyTagsFromSource | undefined;
+
+  /**
+   * <note>
+   *             <p>Only supported for instances in Local Zones. If the source instance is not in a Local Zone,
+   *         omit this parameter.</p>
+   *          </note>
+   *          <ul>
+   *             <li>
+   *                <p>To create local snapshots in the same Local Zone as the source instance, specify
+   *           <code>local</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To create a regional snapshots in the parent Region of the Local Zone, specify
+   *           <code>regional</code> or omit this parameter.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default value: <code>regional</code>
+   *          </p>
+   * @public
+   */
+  Location?: SnapshotLocationEnum | undefined;
 }
 
 /**
@@ -3478,6 +3530,13 @@ export interface SnapshotInfo {
    * @public
    */
   SseType?: SSEType | undefined;
+
+  /**
+   * <p>The Availability Zone or Local Zone of the snapshots. For example, <code>us-west-1a</code>
+   *       (Availability Zone) or <code>us-west-2-lax-1a</code> (Local Zone).</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
 }
 
 /**
@@ -10284,35 +10343,6 @@ export interface DeleteClientVpnEndpointResult {
    * @public
    */
   Status?: ClientVpnEndpointStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteClientVpnRouteRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint from which the route is to be deleted.</p>
-   * @public
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The ID of the target subnet used by the route.</p>
-   * @public
-   */
-  TargetVpcSubnetId?: string | undefined;
-
-  /**
-   * <p>The IPv4 address range, in CIDR notation, of the route to be deleted.</p>
-   * @public
-   */
-  DestinationCidrBlock: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

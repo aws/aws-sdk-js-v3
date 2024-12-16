@@ -81,7 +81,55 @@ import {
   ReplaceRootVolumeTask,
 } from "./models_2";
 
-import { Byoasn, Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+import {
+  Byoasn,
+  Filter,
+  FleetStateCode,
+  HistoryRecordEntry,
+  IdFormat,
+  InstanceTagNotificationAttribute,
+} from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeFleetHistoryResult {
+  /**
+   * <p>Information about the events in the history of the EC2 Fleet.</p>
+   * @public
+   */
+  HistoryRecords?: HistoryRecordEntry[] | undefined;
+
+  /**
+   * <p>The last date and time for the events, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *          All records up to this time were retrieved.</p>
+   *          <p>If <code>nextToken</code> indicates that there are more items, this value is not
+   *          present.</p>
+   * @public
+   */
+  LastEvaluatedTime?: Date | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The ID of the EC Fleet.</p>
+   * @public
+   */
+  FleetId?: string | undefined;
+
+  /**
+   * <p>The start date and time for the events, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+}
 
 /**
  * @public
@@ -12420,24 +12468,6 @@ export const OfferingClassType = {
  * @public
  */
 export type OfferingClassType = (typeof OfferingClassType)[keyof typeof OfferingClassType];
-
-/**
- * @public
- * @enum
- */
-export const OfferingTypeValues = {
-  All_Upfront: "All Upfront",
-  Heavy_Utilization: "Heavy Utilization",
-  Light_Utilization: "Light Utilization",
-  Medium_Utilization: "Medium Utilization",
-  No_Upfront: "No Upfront",
-  Partial_Upfront: "Partial Upfront",
-} as const;
-
-/**
- * @public
- */
-export type OfferingTypeValues = (typeof OfferingTypeValues)[keyof typeof OfferingTypeValues];
 
 /**
  * @internal
