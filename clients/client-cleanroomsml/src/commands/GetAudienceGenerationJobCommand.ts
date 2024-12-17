@@ -68,6 +68,12 @@ export interface GetAudienceGenerationJobCommandOutput extends GetAudienceGenera
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //     },
+ * //     sqlComputeConfiguration: { // ComputeConfiguration Union: only one key present
+ * //       worker: { // WorkerComputeConfiguration
+ * //         type: "CR.1X" || "CR.4X",
+ * //         number: Number("int"),
+ * //       },
+ * //     },
  * //   },
  * //   includeSeedInOutput: true || false,
  * //   collaborationId: "STRING_VALUE",

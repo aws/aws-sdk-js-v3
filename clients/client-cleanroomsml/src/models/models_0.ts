@@ -384,6 +384,76 @@ export interface AudienceQualityMetrics {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const WorkerComputeType = {
+  CR1X: "CR.1X",
+  CR4X: "CR.4X",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkerComputeType = (typeof WorkerComputeType)[keyof typeof WorkerComputeType];
+
+/**
+ * <p>Configuration information about the compute workers that perform the transform job.</p>
+ * @public
+ */
+export interface WorkerComputeConfiguration {
+  /**
+   * <p>The instance type of the compute workers that are used.</p>
+   * @public
+   */
+  type?: WorkerComputeType | undefined;
+
+  /**
+   * <p>The number of compute workers that are used.</p>
+   * @public
+   */
+  number?: number | undefined;
+}
+
+/**
+ * <p>Provides configuration information for the instances that will perform the compute work.</p>
+ * @public
+ */
+export type ComputeConfiguration = ComputeConfiguration.WorkerMember | ComputeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ComputeConfiguration {
+  /**
+   * <p>The worker instances that will perform the compute work.</p>
+   * @public
+   */
+  export interface WorkerMember {
+    worker: WorkerComputeConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    worker?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    worker: (value: WorkerComputeConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ComputeConfiguration, visitor: Visitor<T>): T => {
+    if (value.worker !== undefined) return visitor.worker(value.worker);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>The parameters for the SQL type Protected Query.</p>
  * @public
  */
@@ -439,6 +509,12 @@ export interface AudienceGenerationJobDataSource {
    * @public
    */
   sqlParameters?: ProtectedQuerySQLParameters | undefined;
+
+  /**
+   * <p>Provides configuration information for the instances that will perform the compute work.</p>
+   * @public
+   */
+  sqlComputeConfiguration?: ComputeConfiguration | undefined;
 }
 
 /**
@@ -3338,76 +3414,6 @@ export interface PutMLConfigurationRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const WorkerComputeType = {
-  CR1X: "CR.1X",
-  CR4X: "CR.4X",
-} as const;
-
-/**
- * @public
- */
-export type WorkerComputeType = (typeof WorkerComputeType)[keyof typeof WorkerComputeType];
-
-/**
- * <p>Configuration information about the compute workers that perform the transform job.</p>
- * @public
- */
-export interface WorkerComputeConfiguration {
-  /**
-   * <p>The instance type of the compute workers that are used.</p>
-   * @public
-   */
-  type?: WorkerComputeType | undefined;
-
-  /**
-   * <p>The number of compute workers that are used.</p>
-   * @public
-   */
-  number?: number | undefined;
-}
-
-/**
- * <p>Provides configuration information for the instances that will perform the compute work.</p>
- * @public
- */
-export type ComputeConfiguration = ComputeConfiguration.WorkerMember | ComputeConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ComputeConfiguration {
-  /**
-   * <p>The worker instances that will perform the compute work.</p>
-   * @public
-   */
-  export interface WorkerMember {
-    worker: WorkerComputeConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    worker?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    worker: (value: WorkerComputeConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: ComputeConfiguration, visitor: Visitor<T>): T => {
-    if (value.worker !== undefined) return visitor.worker(value.worker);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
  * <p>Provides information necessary to perform the protected query.</p>
  * @public
  */
@@ -5260,7 +5266,7 @@ export interface StartTrainedModelInferenceJobRequest {
   outputConfiguration: InferenceOutputConfiguration | undefined;
 
   /**
-   * <p>Defines he data source that is used for the trained model inference job.</p>
+   * <p>Defines the data source that is used for the trained model inference job.</p>
    * @public
    */
   dataSource: ModelInferenceDataSource | undefined;
@@ -5727,6 +5733,7 @@ export const ProtectedQuerySQLParametersFilterSensitiveLog = (obj: ProtectedQuer
 export const AudienceGenerationJobDataSourceFilterSensitiveLog = (obj: AudienceGenerationJobDataSource): any => ({
   ...obj,
   ...(obj.sqlParameters && { sqlParameters: SENSITIVE_STRING }),
+  ...(obj.sqlComputeConfiguration && { sqlComputeConfiguration: obj.sqlComputeConfiguration }),
 });
 
 /**
