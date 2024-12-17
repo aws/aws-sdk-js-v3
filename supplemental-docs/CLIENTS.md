@@ -151,6 +151,50 @@ const client = new S3Client({
 });
 ```
 
+### AWS Profile `profile`
+
+Available since [v3.714.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.714.0).
+
+You can set a `profile: string` value at the client initialization point in code.
+
+```js
+// Example: setting a non-default profile for a single client.
+new S3Client({
+  profile: "my-profile",
+});
+```
+
+```js
+import { fromIni } from "@aws-sdk/credential-providers";
+// Example: setting a non-default profile affects credential resolution.
+// the fromIni function will use the client's designated profile if no
+// profile is set on the `fromIni({ profile: "..." })` function.
+new S3Client({
+  profile: "my-profile",
+  credentials: fromIni(),
+});
+```
+
+```js
+import { fromIni } from "@aws-sdk/credential-providers";
+// Example: you can set different profiles for credentials and the client itself if needed.
+// We expect this to be rarely needed.
+new S3Client({
+  profile: "my-profile",
+  credentials: fromIni({ profile: "my-other-profile" }),
+});
+```
+
+- This profile applies only to the client on which it is set, and overrides the AWS_PROFILE environment variable in that case.
+- Setting a profile does nothing if running in an environment that does not have an AWS configuration file, such as browsers.
+- Values configured in the profile will be used _unless_ an overriding environment variable or code level configuration exists.
+  - This includes fields such as `region`, `retry_mode`, `max_attempts`, `use_fips_endpoint` etc.
+- Different client instances may have different profiles set.
+- If this profile is set, and the client's credentials are resolved through the AWS configuration file, the profile will be
+  used unless another profile is set in the credentials provider function.
+- Setting a profile only reads configuration from that one profile. If the profile points to another profile for e.g.
+  `source_profile` credentials, the source profile is only used for credentials, and not other configuration fields.
+
 ### Custom Endpoint `endpoint`
 
 Each SDK client, by default, resolves the target endpoint with rule-based system
@@ -262,7 +306,7 @@ new S3Client({
 });
 ```
 
-A note on **socket exhaustion**: 
+A note on **socket exhaustion**:
 
 The SDK may emit the following warning when detecting socket exhaustion:
 
@@ -270,8 +314,8 @@ The SDK may emit the following warning when detecting socket exhaustion:
 @smithy/node-http-handler:WARN - socket usage at capacity=${socketsInUse} and ${requestsEnqueued} additional requests are enqueued.
 ```
 
-Socket exhaustion detection is not an exact determination. 
-We only warn on this when there is a high count of `requestsEnqueued`, 
+Socket exhaustion detection is not an exact determination.
+We only warn on this when there is a high count of `requestsEnqueued`,
 because running at socket capacity may be intentional and normal in your application.
 
 If you encounter the above warning or an error that indicates
