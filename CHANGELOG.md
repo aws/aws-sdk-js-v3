@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
+
+
+### Bug Fixes
+
+* **xhr-http-handler:** fix abort signal sharing for multiple requests ([#6740](https://github.com/aws/aws-sdk-js-v3/issues/6740)) ([5d7500f](https://github.com/aws/aws-sdk-js-v3/commit/5d7500ffd7649ab40bbce669268063fe0783fa4e))
+
+
+### Features
+
+* **client-account:** Update endpoint configuration. ([104dcc7](https://github.com/aws/aws-sdk-js-v3/commit/104dcc7dafee87250bad40af60c32236e6dc9bb2))
+* **client-backup:** Add Support for Backup Indexing ([e03d20d](https://github.com/aws/aws-sdk-js-v3/commit/e03d20d5099f5f3b0966c25d93daa773ac485631))
+* **client-backupsearch:** Add support for searching backups ([d9ef47c](https://github.com/aws/aws-sdk-js-v3/commit/d9ef47c00dcaad7cc4f2d2d0f594543b57e8fe1f))
+* **client-batch:** This feature allows AWS Batch on Amazon EKS to support configuration of Pod Annotations, overriding Namespace on which the Batch job's Pod runs on, and allows Subpath and Persistent Volume claim to be set for AWS Batch on Amazon EKS jobs. ([00737e5](https://github.com/aws/aws-sdk-js-v3/commit/00737e53d6271118d081ced7ec44d1e51e23b073))
+* **client-cleanroomsml:** Add support for SQL compute configuration for StartAudienceGenerationJob API. ([119c1d2](https://github.com/aws/aws-sdk-js-v3/commit/119c1d21b444781b015906931b49ad401ed31c4a))
+* **client-cloudfront:** Adds support for OriginReadTimeout and OriginKeepaliveTimeout to create CloudFront Distributions with VPC Origins. ([a4d166e](https://github.com/aws/aws-sdk-js-v3/commit/a4d166e896b997060425906062597cb49ed55034))
+* **client-codepipeline:** AWS CodePipeline V2 type pipelines now support Managed Compute Rule. ([9287267](https://github.com/aws/aws-sdk-js-v3/commit/92872670acdf999b3b2cb0d3f1abf5578e2ec21e))
+* **client-ecs:** Added support for enableFaultInjection task definition parameter which can be used to enable Fault Injection feature on ECS tasks. ([5e299dd](https://github.com/aws/aws-sdk-js-v3/commit/5e299dd2febfc136905baf54bf6cf9c853ac5c3d))
+* **client-m2:** This release adds support for AWS Mainframe Modernization(M2) Service to allow specifying network type(ipv4, dual) for the environment instances. For dual network type, m2 environment applications will serve both IPv4 and IPv6 requests, whereas for ipv4 it will serve only IPv4 requests. ([c8d1a9a](https://github.com/aws/aws-sdk-js-v3/commit/c8d1a9a2941a7170fd882fd8496677bd0b02ce3a))
+* **client-synthetics:** Add support to toggle outbound IPv6 traffic on canaries connected to dualstack subnets.  This behavior can be controlled via the new Ipv6AllowedForDualStack parameter of the VpcConfig input object in CreateCanary and UpdateCanary APIs. ([bc1080b](https://github.com/aws/aws-sdk-js-v3/commit/bc1080bbabc298de0c8bc93cc473f586d9b2001a))
+* **clients:** profile setting for clients ([#6728](https://github.com/aws/aws-sdk-js-v3/issues/6728)) ([afd9eea](https://github.com/aws/aws-sdk-js-v3/commit/afd9eea89fd0d63a377123f1ca999daeefd904a7))
+* **clients:** update client endpoints as of 2024-12-17 ([38482d0](https://github.com/aws/aws-sdk-js-v3/commit/38482d0945404c728a3c75d74b12a99a74f9efa3))
+
+
+
+
+
 # [3.713.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.712.0...v3.713.0) (2024-12-16)
 
 

@@ -5,12 +5,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
 
-**Note:** Version bump only for package @aws-sdk/crt-loader
 
+### Features
 
-
-
-
-# [3.713.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.712.0...v3.713.0) (2024-12-16)
-
-**Note:** Version bump only for package @aws-sdk/crt-loader
+* **client-backupsearch:** Add support for searching backups ([d9ef47c](https://github.com/aws/aws-sdk-js-v3/commit/d9ef47c00dcaad7cc4f2d2d0f594543b57e8fe1f))
