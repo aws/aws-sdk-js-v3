@@ -849,18 +849,17 @@ describe("credential-provider-node integration test", () => {
       });
     });
 
-    it("fromIni assumeRole provider should use the caller client's region for STS", async () => {
+    it("fromIni assumeRole provider should use the caller client's region for STS if profile does not set region", async () => {
       sts = new STS({
         region: "eu-west-1",
-        credentials: fromIni(),
+        credentials: fromIni({}),
       });
       iniProfileData.assume = {
-        region: "eu-west-1",
         aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
         aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
       };
+      delete iniProfileData.default.region;
       Object.assign(iniProfileData.default, {
-        region: "eu-west-1",
         role_arn: "ROLE_ARN",
         role_session_name: "ROLE_SESSION_NAME",
         external_id: "EXTERNAL_ID",
@@ -872,6 +871,37 @@ describe("credential-provider-node integration test", () => {
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
         sessionToken: "STS_AR_SESSION_TOKEN_eu-west-1",
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
+        $source: {
+          CREDENTIALS_CODE: "e",
+          CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+          CREDENTIALS_STS_ASSUME_ROLE: "i",
+        },
+      });
+    });
+
+    it("fromIni assumeRole provider should prefer profile region for STS", async () => {
+      sts = new STS({
+        region: "eu-west-1",
+        credentials: fromIni({}),
+      });
+      iniProfileData.assume = {
+        aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+        aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+      };
+      Object.assign(iniProfileData.default, {
+        region: "eu-west-2",
+        role_arn: "ROLE_ARN",
+        role_session_name: "ROLE_SESSION_NAME",
+        external_id: "EXTERNAL_ID",
+        source_profile: "assume",
+      });
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "STS_AR_ACCESS_KEY_ID",
+        secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+        sessionToken: "STS_AR_SESSION_TOKEN_eu-west-2",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         $source: {
           CREDENTIALS_CODE: "e",
