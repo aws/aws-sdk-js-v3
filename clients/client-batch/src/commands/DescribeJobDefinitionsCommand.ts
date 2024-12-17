@@ -375,6 +375,7 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                       { // EksContainerVolumeMount
  * //                         name: "STRING_VALUE",
  * //                         mountPath: "STRING_VALUE",
+ * //                         subPath: "STRING_VALUE",
  * //                         readOnly: true || false,
  * //                       },
  * //                     ],
@@ -413,6 +414,7 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                       {
  * //                         name: "STRING_VALUE",
  * //                         mountPath: "STRING_VALUE",
+ * //                         subPath: "STRING_VALUE",
  * //                         readOnly: true || false,
  * //                       },
  * //                     ],
@@ -440,12 +442,20 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                       secretName: "STRING_VALUE", // required
  * //                       optional: true || false,
  * //                     },
+ * //                     persistentVolumeClaim: { // EksPersistentVolumeClaim
+ * //                       claimName: "STRING_VALUE", // required
+ * //                       readOnly: true || false,
+ * //                     },
  * //                   },
  * //                 ],
  * //                 metadata: { // EksMetadata
  * //                   labels: { // EksLabelsMap
  * //                     "<keys>": "STRING_VALUE",
  * //                   },
+ * //                   annotations: { // EksAnnotationsMap
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                   namespace: "STRING_VALUE",
  * //                 },
  * //                 shareProcessNamespace: true || false,
  * //               },
@@ -535,6 +545,7 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                 {
  * //                   name: "STRING_VALUE",
  * //                   mountPath: "STRING_VALUE",
+ * //                   subPath: "STRING_VALUE",
  * //                   readOnly: true || false,
  * //                 },
  * //               ],
@@ -573,6 +584,7 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                 {
  * //                   name: "STRING_VALUE",
  * //                   mountPath: "STRING_VALUE",
+ * //                   subPath: "STRING_VALUE",
  * //                   readOnly: true || false,
  * //                 },
  * //               ],
@@ -600,12 +612,20 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                 secretName: "STRING_VALUE", // required
  * //                 optional: true || false,
  * //               },
+ * //               persistentVolumeClaim: {
+ * //                 claimName: "STRING_VALUE", // required
+ * //                 readOnly: true || false,
+ * //               },
  * //             },
  * //           ],
  * //           metadata: {
  * //             labels: {
  * //               "<keys>": "STRING_VALUE",
  * //             },
+ * //             annotations: {
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             namespace: "STRING_VALUE",
  * //           },
  * //           shareProcessNamespace: true || false,
  * //         },

@@ -177,6 +177,10 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *               labels: { // EksLabelsMap
  *                 "<keys>": "STRING_VALUE",
  *               },
+ *               annotations: { // EksAnnotationsMap
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *               namespace: "STRING_VALUE",
  *             },
  *           },
  *         },
@@ -251,6 +255,10 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *         labels: {
  *           "<keys>": "STRING_VALUE",
  *         },
+ *         annotations: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         namespace: "STRING_VALUE",
  *       },
  *     },
  *   },

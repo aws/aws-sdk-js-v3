@@ -431,6 +431,7 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //                       { // EksContainerVolumeMount
  * //                         name: "STRING_VALUE",
  * //                         mountPath: "STRING_VALUE",
+ * //                         subPath: "STRING_VALUE",
  * //                         readOnly: true || false,
  * //                       },
  * //                     ],
@@ -469,6 +470,7 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //                       {
  * //                         name: "STRING_VALUE",
  * //                         mountPath: "STRING_VALUE",
+ * //                         subPath: "STRING_VALUE",
  * //                         readOnly: true || false,
  * //                       },
  * //                     ],
@@ -496,12 +498,20 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //                       secretName: "STRING_VALUE", // required
  * //                       optional: true || false,
  * //                     },
+ * //                     persistentVolumeClaim: { // EksPersistentVolumeClaim
+ * //                       claimName: "STRING_VALUE", // required
+ * //                       readOnly: true || false,
+ * //                     },
  * //                   },
  * //                 ],
  * //                 metadata: { // EksMetadata
  * //                   labels: { // EksLabelsMap
  * //                     "<keys>": "STRING_VALUE",
  * //                   },
+ * //                   annotations: { // EksAnnotationsMap
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                   namespace: "STRING_VALUE",
  * //                 },
  * //                 shareProcessNamespace: true || false,
  * //               },
@@ -563,6 +573,7 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //                 {
  * //                   name: "STRING_VALUE",
  * //                   mountPath: "STRING_VALUE",
+ * //                   subPath: "STRING_VALUE",
  * //                   readOnly: true || false,
  * //                 },
  * //               ],
@@ -603,6 +614,7 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //                 {
  * //                   name: "STRING_VALUE",
  * //                   mountPath: "STRING_VALUE",
+ * //                   subPath: "STRING_VALUE",
  * //                   readOnly: true || false,
  * //                 },
  * //               ],
@@ -630,6 +642,10 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //                 secretName: "STRING_VALUE", // required
  * //                 optional: true || false,
  * //               },
+ * //               persistentVolumeClaim: {
+ * //                 claimName: "STRING_VALUE", // required
+ * //                 readOnly: true || false,
+ * //               },
  * //             },
  * //           ],
  * //           podName: "STRING_VALUE",
@@ -638,6 +654,10 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //             labels: {
  * //               "<keys>": "STRING_VALUE",
  * //             },
+ * //             annotations: {
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             namespace: "STRING_VALUE",
  * //           },
  * //           shareProcessNamespace: true || false,
  * //         },

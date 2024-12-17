@@ -344,6 +344,7 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *                   { // EksContainerVolumeMount
  *                     name: "STRING_VALUE",
  *                     mountPath: "STRING_VALUE",
+ *                     subPath: "STRING_VALUE",
  *                     readOnly: true || false,
  *                   },
  *                 ],
@@ -382,6 +383,7 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *                   {
  *                     name: "STRING_VALUE",
  *                     mountPath: "STRING_VALUE",
+ *                     subPath: "STRING_VALUE",
  *                     readOnly: true || false,
  *                   },
  *                 ],
@@ -409,12 +411,20 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *                   secretName: "STRING_VALUE", // required
  *                   optional: true || false,
  *                 },
+ *                 persistentVolumeClaim: { // EksPersistentVolumeClaim
+ *                   claimName: "STRING_VALUE", // required
+ *                   readOnly: true || false,
+ *                 },
  *               },
  *             ],
  *             metadata: { // EksMetadata
  *               labels: { // EksLabelsMap
  *                 "<keys>": "STRING_VALUE",
  *               },
+ *               annotations: { // EksAnnotationsMap
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *               namespace: "STRING_VALUE",
  *             },
  *             shareProcessNamespace: true || false,
  *           },
@@ -478,6 +488,7 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *             {
  *               name: "STRING_VALUE",
  *               mountPath: "STRING_VALUE",
+ *               subPath: "STRING_VALUE",
  *               readOnly: true || false,
  *             },
  *           ],
@@ -516,6 +527,7 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *             {
  *               name: "STRING_VALUE",
  *               mountPath: "STRING_VALUE",
+ *               subPath: "STRING_VALUE",
  *               readOnly: true || false,
  *             },
  *           ],
@@ -543,12 +555,20 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *             secretName: "STRING_VALUE", // required
  *             optional: true || false,
  *           },
+ *           persistentVolumeClaim: {
+ *             claimName: "STRING_VALUE", // required
+ *             readOnly: true || false,
+ *           },
  *         },
  *       ],
  *       metadata: {
  *         labels: {
  *           "<keys>": "STRING_VALUE",
  *         },
+ *         annotations: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         namespace: "STRING_VALUE",
  *       },
  *       shareProcessNamespace: true || false,
  *     },

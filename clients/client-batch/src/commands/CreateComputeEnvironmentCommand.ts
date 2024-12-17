@@ -94,11 +94,9 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *                </li>
  *                <li>
  *                   <p>Set the update to latest image version (<code>updateToLatestImageVersion</code>)
- *             parameter to
- *             <code>true</code>.
- *             The <code>updateToLatestImageVersion</code> parameter is used when you update a compute
- *             environment. This parameter is ignored when you create a compute
- *             environment.</p>
+ *             parameter to <code>true</code>. The <code>updateToLatestImageVersion</code> parameter
+ *             is used when you update a compute environment. This parameter is ignored when you create
+ *             a compute environment.</p>
  *                </li>
  *                <li>
  *                   <p>Don't specify an AMI ID in <code>imageId</code>, <code>imageIdOverride</code> (in

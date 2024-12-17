@@ -673,21 +673,17 @@ export interface ComputeResource {
    *             </dd>
    *          </dl>
    *          <p>With <code>BEST_FIT_PROGRESSIVE</code>,<code>SPOT_CAPACITY_OPTIMIZED</code> and
-   *     <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
-   *    (recommended) strategies using On-Demand or Spot Instances, and the
-   *     <code>BEST_FIT</code> strategy using Spot Instances, Batch might need to exceed
-   *     <code>maxvCpus</code> to meet your capacity requirements. In this event, Batch never exceeds
-   *     <code>maxvCpus</code> by more than a single instance.</p>
+   *     <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code> (recommended) strategies using On-Demand or Spot
+   *     Instances, and the <code>BEST_FIT</code> strategy using Spot Instances, Batch might need to
+   *     exceed <code>maxvCpus</code> to meet your capacity requirements. In this event, Batch never
+   *     exceeds <code>maxvCpus</code> by more than a single instance.</p>
    * @public
    */
   allocationStrategy?: CRAllocationStrategy | undefined;
 
   /**
-   * <p>The minimum number of
-   *     vCPUs that
-   *    a
-   *    compute
-   *    environment should maintain (even if the compute environment is <code>DISABLED</code>).</p>
+   * <p>The minimum number of vCPUs that a compute environment should maintain (even if the compute
+   *    environment is <code>DISABLED</code>).</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
    *          </note>
@@ -696,15 +692,11 @@ export interface ComputeResource {
   minvCpus?: number | undefined;
 
   /**
-   * <p>The maximum number of
-   *    vCPUs that a
-   *    compute environment can
-   *    support.</p>
+   * <p>The maximum number of vCPUs that a compute environment can support.</p>
    *          <note>
    *             <p>With <code>BEST_FIT_PROGRESSIVE</code>,<code>SPOT_CAPACITY_OPTIMIZED</code> and
-   *      <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
-   *     (recommended) strategies using On-Demand or Spot Instances, and the
-   *      <code>BEST_FIT</code> strategy using Spot Instances, Batch might need to exceed
+   *      <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code> (recommended) strategies using On-Demand or Spot Instances,
+   *      and the <code>BEST_FIT</code> strategy using Spot Instances, Batch might need to exceed
    *      <code>maxvCpus</code> to meet your capacity requirements. In this event, Batch never exceeds
    *      <code>maxvCpus</code> by more than a single instance.</p>
    *          </note>
@@ -713,10 +705,8 @@ export interface ComputeResource {
   maxvCpus: number | undefined;
 
   /**
-   * <p>The desired number of
-   *     vCPUS in the
-   *    compute environment. Batch modifies this value between the minimum and maximum values based on
-   *    job queue demand.</p>
+   * <p>The desired number of vCPUS in the compute environment. Batch modifies this value between
+   *    the minimum and maximum values based on job queue demand.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
    *          </note>
@@ -859,8 +849,7 @@ export interface ComputeResource {
    *    percentage is 20%, then the Spot price must be less than 20% of the current On-Demand price for
    *    that Amazon EC2 instance. You always pay the lowest (market) price and never more than your maximum
    *    percentage. If you leave this field empty, the default value is 100% of the On-Demand
-   *    price. For most use cases,
-   *    we recommend leaving this field empty.</p>
+   *    price. For most use cases, we recommend leaving this field empty.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
    *          </note>
@@ -2447,35 +2436,26 @@ export interface ResourceRequirement {
  */
 export interface RuntimePlatform {
   /**
-   * <p>The operating system for the compute environment.
-   *    Valid values are:
+   * <p>The operating system for the compute environment. Valid values are:
    *     <code>LINUX</code> (default), <code>WINDOWS_SERVER_2019_CORE</code>,
    *     <code>WINDOWS_SERVER_2019_FULL</code>, <code>WINDOWS_SERVER_2022_CORE</code>, and
    *     <code>WINDOWS_SERVER_2022_FULL</code>.</p>
    *          <note>
    *             <p>The following parameters can’t be set for Windows containers: <code>linuxParameters</code>,
    *      <code>privileged</code>, <code>user</code>, <code>ulimits</code>,
-   *      <code>readonlyRootFilesystem</code>,
-   *     and <code>efsVolumeConfiguration</code>.</p>
+   *      <code>readonlyRootFilesystem</code>, and <code>efsVolumeConfiguration</code>.</p>
    *          </note>
    *          <note>
-   *             <p>The Batch Scheduler checks
-   *     the compute environments
-   *     that are attached to the job queue before registering a task definition with
-   *     Fargate. In this
-   *     scenario, the job queue is where the job is submitted. If the job requires a
-   *     Windows container and the first compute environment is <code>LINUX</code>, the compute
-   *     environment is skipped and the next compute environment is checked until a Windows-based compute
-   *     environment is found.</p>
+   *             <p>The Batch Scheduler checks the compute environments that are attached to the job queue before
+   *     registering a task definition with Fargate. In this scenario, the job queue is where the job is
+   *     submitted. If the job requires a Windows container and the first compute environment is <code>LINUX</code>,
+   *     the compute environment is skipped and the next compute environment is checked until a Windows-based
+   *     compute environment is found.</p>
    *          </note>
    *          <note>
-   *             <p>Fargate Spot is not supported for
-   *      <code>ARM64</code> and
-   *     Windows-based containers on Fargate. A job queue will be blocked if a
-   *     Fargate
-   *      <code>ARM64</code> or
-   *     Windows job is submitted to a job queue with only Fargate Spot compute environments.
-   *     However, you can attach both <code>FARGATE</code> and
+   *             <p>Fargate Spot is not supported for <code>ARM64</code> and Windows-based containers on Fargate.
+   *     A job queue will be blocked if a Fargate <code>ARM64</code> or Windows job is submitted to a job
+   *     queue with only Fargate Spot compute environments. However, you can attach both <code>FARGATE</code> and
    *      <code>FARGATE_SPOT</code> compute environments to the same job queue.</p>
    *          </note>
    * @public
@@ -2486,9 +2466,7 @@ export interface RuntimePlatform {
    * <p> The vCPU architecture. The default value is <code>X86_64</code>. Valid values are
    *     <code>X86_64</code> and <code>ARM64</code>.</p>
    *          <note>
-   *             <p>This parameter must be set to
-   *     <code>X86_64</code>
-   *     for Windows containers.</p>
+   *             <p>This parameter must be set to <code>X86_64</code> for Windows containers.</p>
    *          </note>
    *          <note>
    *             <p>Fargate Spot is not supported for <code>ARM64</code> and Windows-based containers on
@@ -2702,16 +2680,13 @@ export interface Volume {
 }
 
 /**
- * <p>Container properties are used
- *    for
- *    Amazon ECS based job definitions. These properties to describe the container that's
- *    launched as part of a job.</p>
+ * <p>Container properties are used for Amazon ECS based job definitions. These properties to describe the
+ *    container that's launched as part of a job.</p>
  * @public
  */
 export interface ContainerProperties {
   /**
-   * <p>Required.
-   *    The image used to start a container. This string is passed directly to the
+   * <p>Required. The image used to start a container. This string is passed directly to the
    *    Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are
    *    specified with
    *      <code>
@@ -3579,6 +3554,12 @@ export interface EksContainerVolumeMount {
   mountPath?: string | undefined;
 
   /**
+   * <p>A sub-path inside the referenced volume instead of its root.</p>
+   * @public
+   */
+  subPath?: string | undefined;
+
+  /**
    * <p>If this value is <code>true</code>, the container has read-only access to the volume.
    *    Otherwise, the container can write to the volume. The default value is <code>false</code>.</p>
    * @public
@@ -3701,7 +3682,8 @@ export interface ImagePullSecret {
 /**
  * <p>Describes and uniquely identifies Kubernetes resources. For example, the compute environment that
  *    a pod runs in or the <code>jobID</code> for a job running in the pod. For more information, see
- *     <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/">Understanding Kubernetes Objects</a> in the <i>Kubernetes documentation</i>.</p>
+ *    <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/">
+ *    Understanding Kubernetes Objects</a> in the <i>Kubernetes documentation</i>.</p>
  * @public
  */
 export interface EksMetadata {
@@ -3713,6 +3695,63 @@ export interface EksMetadata {
    * @public
    */
   labels?: Record<string, string> | undefined;
+
+  /**
+   * <p>Key-value pairs used to attach arbitrary, non-identifying metadata to Kubernetes objects.
+   *         Valid annotation keys have two segments: an optional prefix and a name, separated by a
+   *         slash (/). </p>
+   *          <ul>
+   *             <li>
+   *                <p>The prefix is optional and must be 253 characters or less. If specified, the prefix
+   *                 must be a DNS subdomain− a series of DNS labels separated by dots (.), and it must
+   *                 end with a slash (/).</p>
+   *             </li>
+   *             <li>
+   *                <p>The name segment is required and must be 63 characters or less. It can include alphanumeric
+   *                 characters ([a-z0-9A-Z]), dashes (-), underscores (_), and dots (.), but must begin and end
+   *                 with an alphanumeric character.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Annotation values must be 255 characters or less.</p>
+   *          </note>
+   *          <p>Annotations can be added or modified at any time. Each resource can have multiple annotations. </p>
+   * @public
+   */
+  annotations?: Record<string, string> | undefined;
+
+  /**
+   * <p>The namespace of the Amazon EKS cluster. In Kubernetes, namespaces provide a mechanism for isolating
+   *       groups of resources within a single cluster. Names of resources need to be unique within a namespace,
+   *       but not across namespaces. Batch places Batch Job pods in this namespace. If this field is provided,
+   *       the value can't be empty or null. It must meet the following requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>1-63 characters long</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be set to default</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't start with <code>kube</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Must match the following regular expression:
+   *   <code>^[a-z0-9]([-a-z0-9]*[a-z0-9])?$</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *    For more information, see
+   *    <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">Namespaces</a> in the <i>Kubernetes documentation</i>. This namespace can be
+   *    different from the <code>kubernetesNamespace</code> set in the compute environment's
+   *    <code>EksConfiguration</code>, but must have identical role-based access control (RBAC) roles as
+   *    the compute environment's <code>kubernetesNamespace</code>. For multi-node parallel jobs,
+   *    the same value must be provided across all the node ranges.</p>
+   * @public
+   */
+  namespace?: string | undefined;
 }
 
 /**
@@ -3766,6 +3805,31 @@ export interface EksHostPath {
    * @public
    */
   path?: string | undefined;
+}
+
+/**
+ * <p>A <code>persistentVolumeClaim</code> volume is used to mount a <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">PersistentVolume</a>
+ *          into a Pod. PersistentVolumeClaims are a way for users to "claim" durable storage without knowing
+ *          the details of the particular cloud environment. See the information about <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">PersistentVolumes</a>
+ *          in the <i>Kubernetes documentation</i>.</p>
+ * @public
+ */
+export interface EksPersistentVolumeClaim {
+  /**
+   * <p>The name of the <code>persistentVolumeClaim</code> bounded to a <code>persistentVolume</code>.
+   *          For more information, see <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims">
+   *          Persistent Volume Claims</a> in the <i>Kubernetes documentation</i>.</p>
+   * @public
+   */
+  claimName: string | undefined;
+
+  /**
+   * <p>An optional boolean value indicating if the mount is read only. Default is false. For more
+   *          information, see <a href="https://kubernetes.io/docs/concepts/storage/volumes/#read-only-mounts">
+   *          Read Only Mounts</a> in the <i>Kubernetes documentation</i>.</p>
+   * @public
+   */
+  readOnly?: boolean | undefined;
 }
 
 /**
@@ -3824,6 +3888,14 @@ export interface EksVolume {
    * @public
    */
   secret?: EksSecret | undefined;
+
+  /**
+   * <p>Specifies the configuration of a Kubernetes <code>persistentVolumeClaim</code> bounded to a
+   *         <code>persistentVolume</code>. For more information, see <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims">
+   *         Persistent Volume Claims</a> in the <i>Kubernetes documentation</i>.</p>
+   * @public
+   */
+  persistentVolumeClaim?: EksPersistentVolumeClaim | undefined;
 }
 
 /**
@@ -3903,10 +3975,7 @@ export interface EksPodProperties {
   volumes?: EksVolume[] | undefined;
 
   /**
-   * <p>Metadata about the
-   *    Kubernetes
-   *    pod. For
-   *    more information, see <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/">Understanding Kubernetes Objects</a> in the <i>Kubernetes
+   * <p>Metadata about the Kubernetes pod. For more information, see <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/">Understanding Kubernetes Objects</a> in the <i>Kubernetes
    *    documentation</i>.</p>
    * @public
    */
@@ -4050,10 +4119,8 @@ export interface EvaluateOnExit {
   /**
    * <p>Contains a glob pattern to match against the <code>StatusReason</code> returned for a job.
    *    The pattern can contain up to 512 characters. It can contain letters, numbers, periods (.),
-   *    colons (:), and white spaces (including spaces or tabs).
-   *    It can
-   *    optionally end with an asterisk (*) so that only the start of the string needs to be an exact
-   *    match.</p>
+   *    colons (:), and white spaces (including spaces or tabs). It can optionally end with an asterisk (*)
+   *    so that only the start of the string needs to be an exact match.</p>
    * @public
    */
   onStatusReason?: string | undefined;
@@ -4503,9 +4570,7 @@ export interface ContainerDetail {
   jobRoleArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the
-   *    execution
-   *    role that Batch can assume. For more information,
+   * <p>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For more information,
    *    see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">Batch execution IAM
    *     role</a> in the <i>Batch User Guide</i>.</p>
    * @public
@@ -6613,8 +6678,7 @@ export interface EksPodPropertiesOverride {
   initContainers?: EksContainerOverride[] | undefined;
 
   /**
-   * <p>Metadata about the
-   *    overrides for the container that's used on the Amazon EKS pod.</p>
+   * <p>Metadata about the overrides for the container that's used on the Amazon EKS pod.</p>
    * @public
    */
   metadata?: EksMetadata | undefined;
@@ -6747,10 +6811,8 @@ export interface SubmitJobRequest {
   /**
    * <p>The scheduling priority for the job. This only affects jobs in job queues with a fair
    *       share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower
-   *       scheduling priority.
-   *       This
-   *       overrides any scheduling priority in the job definition and works only within a single share
-   *       identifier.</p>
+   *       scheduling priority. This overrides any scheduling priority in the job definition and works only
+   *       within a single share identifier.</p>
    *          <p>The minimum supported value is 0 and the maximum supported value is 9999.</p>
    * @public
    */
@@ -6994,9 +7056,8 @@ export type CRUpdateAllocationStrategy = (typeof CRUpdateAllocationStrategy)[key
  */
 export interface ComputeResourceUpdate {
   /**
-   * <p>The minimum number of
-   *    vCPUs that
-   *    an environment should maintain (even if the compute environment is <code>DISABLED</code>).</p>
+   * <p>The minimum number of vCPUs that an environment should maintain (even if the compute environment
+   *    is <code>DISABLED</code>).</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
    *          </note>
@@ -7008,21 +7069,18 @@ export interface ComputeResourceUpdate {
    * <p>The maximum number of Amazon EC2 vCPUs that an environment can reach.</p>
    *          <note>
    *             <p>With <code>BEST_FIT_PROGRESSIVE</code>,<code>SPOT_CAPACITY_OPTIMIZED</code> and
-   *      <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
-   *     (recommended) strategies using On-Demand or Spot Instances, and the
-   *      <code>BEST_FIT</code> strategy using Spot Instances, Batch might need to exceed
-   *      <code>maxvCpus</code> to meet your capacity requirements. In this event, Batch never exceeds
-   *      <code>maxvCpus</code> by more than a single instance.</p>
+   *      <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code> (recommended) strategies using On-Demand or Spot
+   *      Instances, and the <code>BEST_FIT</code> strategy using Spot Instances, Batch might need to
+   *      exceed <code>maxvCpus</code> to meet your capacity requirements. In this event, Batch never
+   *      exceeds <code>maxvCpus</code> by more than a single instance.</p>
    *          </note>
    * @public
    */
   maxvCpus?: number | undefined;
 
   /**
-   * <p>The desired number of
-   *    vCPUS in the
-   *    compute environment. Batch modifies this value between the minimum and maximum values based on
-   *    job queue demand.</p>
+   * <p>The desired number of vCPUS in the compute environment. Batch modifies this value between
+   *    the minimum and maximum values based on job queue demand.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
    *          </note>
@@ -7112,9 +7170,8 @@ export interface ComputeResourceUpdate {
    *             </dd>
    *          </dl>
    *          <p>With <code>BEST_FIT_PROGRESSIVE</code>,<code>SPOT_CAPACITY_OPTIMIZED</code> and
-   *     <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
-   *    (recommended) strategies using On-Demand or Spot Instances, and the
-   *     <code>BEST_FIT</code> strategy using Spot Instances, Batch might need to exceed
+   *     <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code> (recommended) strategies using On-Demand or Spot Instances,
+   *     and the <code>BEST_FIT</code> strategy using Spot Instances, Batch might need to exceed
    *     <code>maxvCpus</code> to meet your capacity requirements. In this event, Batch never exceeds
    *     <code>maxvCpus</code> by more than a single instance.</p>
    * @public
@@ -7163,8 +7220,7 @@ export interface ComputeResourceUpdate {
 
   /**
    * <p>The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment.
-   *    Required for Amazon EC2
-   *    instances. You can specify the short name or full Amazon Resource Name (ARN) of an instance
+   *    Required for Amazon EC2 instances. You can specify the short name or full Amazon Resource Name (ARN) of an instance
    *    profile. For example, <code>
    *                <i>ecsInstanceRole</i>
    *             </code> or
@@ -7220,8 +7276,7 @@ export interface ComputeResourceUpdate {
    *    price for that instance type before instances are launched. For example, if your maximum
    *    percentage is 20%, the Spot price must be less than 20% of the current On-Demand price for that
    *    Amazon EC2 instance. You always pay the lowest (market) price and never more than your maximum
-   *    percentage. For most use
-   *    cases, we recommend leaving this field empty.</p>
+   *    percentage. For most use cases, we recommend leaving this field empty.</p>
    *          <p>When updating a compute environment, changing the bid percentage requires an infrastructure
    *    update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the
    *     <i>Batch User Guide</i>.</p>

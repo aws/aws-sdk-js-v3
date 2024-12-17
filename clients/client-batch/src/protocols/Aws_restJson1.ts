@@ -120,6 +120,7 @@ import {
   EksEmptyDir,
   EksHostPath,
   EksMetadata,
+  EksPersistentVolumeClaim,
   EksPodProperties,
   EksPodPropertiesOverride,
   EksProperties,
@@ -1380,6 +1381,8 @@ const de_ServerExceptionRes = async (parsedOutput: any, context: __SerdeContext)
 
 // se_EFSVolumeConfiguration omitted.
 
+// se_EksAnnotationsMap omitted.
+
 // se_EksConfiguration omitted.
 
 // se_EksContainer omitted.
@@ -1411,6 +1414,8 @@ const de_ServerExceptionRes = async (parsedOutput: any, context: __SerdeContext)
 // se_EksLimits omitted.
 
 // se_EksMetadata omitted.
+
+// se_EksPersistentVolumeClaim omitted.
 
 // se_EksPodProperties omitted.
 
@@ -1650,6 +1655,8 @@ const se_ShareAttributesList = (input: ShareAttributes[], context: __SerdeContex
 
 // de_EFSVolumeConfiguration omitted.
 
+// de_EksAnnotationsMap omitted.
+
 // de_EksAttemptContainerDetail omitted.
 
 // de_EksAttemptContainerDetails omitted.
@@ -1689,6 +1696,8 @@ const se_ShareAttributesList = (input: ShareAttributes[], context: __SerdeContex
 // de_EksLimits omitted.
 
 // de_EksMetadata omitted.
+
+// de_EksPersistentVolumeClaim omitted.
 
 // de_EksPodProperties omitted.
 
