@@ -88,6 +88,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * //     engineVersion: "STRING_VALUE",
  * //   },
  * //   kmsKeyId: "STRING_VALUE",
+ * //   networkType: "STRING_VALUE",
  * // };
  *
  * ```

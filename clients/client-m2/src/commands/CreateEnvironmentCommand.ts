@@ -67,6 +67,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *     "<keys>": "STRING_VALUE",
  *   },
  *   preferredMaintenanceWindow: "STRING_VALUE",
+ *   networkType: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  *   kmsKeyId: "STRING_VALUE",
  * };

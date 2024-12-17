@@ -3149,6 +3149,20 @@ export interface HighAvailabilityConfig {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const NetworkType = {
+  DUAL: "dual",
+  IPV4: "ipv4",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
+
+/**
  * <p>Defines the storage configuration for an Amazon EFS file system.</p>
  * @public
  */
@@ -3315,6 +3329,12 @@ export interface CreateEnvironmentRequest {
    * @public
    */
   preferredMaintenanceWindow?: string | undefined;
+
+  /**
+   * <p>The network type required for the runtime environment.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request
@@ -3568,6 +3588,12 @@ export interface GetEnvironmentResponse {
    * @public
    */
   kmsKeyId?: string | undefined;
+
+  /**
+   * <p>The network type supported by the runtime environment.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
 }
 
 /**
@@ -3653,6 +3679,12 @@ export interface EnvironmentSummary {
    * @public
    */
   creationTime: Date | undefined;
+
+  /**
+   * <p>The network type supported by the runtime environment.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
 }
 
 /**

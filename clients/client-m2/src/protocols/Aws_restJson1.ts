@@ -277,6 +277,7 @@ export const se_CreateEnvironmentCommand = async (
       instanceType: [],
       kmsKeyId: [],
       name: [],
+      networkType: [],
       preferredMaintenanceWindow: [],
       publiclyAccessible: [],
       securityGroupIds: (_) => _json(_),
@@ -1215,6 +1216,7 @@ export const de_GetEnvironmentCommand = async (
     kmsKeyId: __expectString,
     loadBalancerArn: __expectString,
     name: __expectString,
+    networkType: __expectString,
     pendingMaintenance: (_) => de_PendingMaintenance(_, context),
     preferredMaintenanceWindow: __expectString,
     publiclyAccessible: __expectBoolean,
@@ -2143,6 +2145,7 @@ const de_EnvironmentSummary = (output: any, context: __SerdeContext): Environmen
     environmentId: __expectString,
     instanceType: __expectString,
     name: __expectString,
+    networkType: __expectString,
     status: __expectString,
   }) as any;
 };

@@ -56,6 +56,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * //       engineType: "STRING_VALUE", // required
  * //       engineVersion: "STRING_VALUE", // required
  * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       networkType: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
