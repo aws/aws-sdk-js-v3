@@ -25,8 +25,8 @@ A collection of all credential providers.
    1. [Supported Configuration](#supported-configuration)
    1. [SSO login with AWS CLI](#sso-login-with-the-aws-cli)
    1. [Sample Files](#sample-files-2)
-1. [From Node.js default credentials provider chain](#fromNodeProviderChain)
-1. [Creating a custom credentials chain](#createCredentialChain)
+1. [From Node.js default credentials provider chain](#fromnodeproviderchain)
+1. [Creating a custom credentials chain](#createcredentialchain)
 
 ## Terminology
 
