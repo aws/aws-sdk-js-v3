@@ -3,7 +3,34 @@
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-providers/latest.svg)](https://www.npmjs.com/package/@aws-sdk/credential-providers)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-providers.svg)](https://www.npmjs.com/package/@aws-sdk/credential-providers)
 
-A collection of all credential providers, with default clients.
+A collection of all credential providers.
+
+# Table of Contents
+
+1. [Terminology](#terminology)
+1. [From Cognito Identity](#fromcognitoidentity)
+1. [From Cognito Identity Pool](#fromcognitoidentitypool)
+1. [From Temporary Credentials](#fromtemporarycredentials)
+1. [From Web Token](#fromwebtoken)
+   1. [Examples](#examples)
+1. [From Token File](#fromtokenfile)
+1. [From Instance and Container Metadata Service](#fromcontainermetadata-and-frominstancemetadata)
+1. [From HTTP(S)](#fromhttp)
+1. [From Shared INI files](#fromini)
+   1. [Sample Files](#sample-files)
+1. [From Environmental Variables](#fromenv)
+1. [From Credential Process](#fromprocess)
+   1. [Sample files](#sample-files-1)
+1. [From Single Sign-On Service](#fromsso)
+   1. [Supported Configuration](#supported-configuration)
+   1. [SSO login with AWS CLI](#sso-login-with-the-aws-cli)
+   1. [Sample Files](#sample-files-2)
+1. [From Node.js default credentials provider chain](#fromNodeProviderChain)
+1. [Creating a custom credentials chain](#createCredentialChain)
+
+## Terminology
+
+#### Credentials Provider
 
 An `AwsCredentialIdentityProvider` is any function that matches the signature:
 
@@ -32,27 +59,26 @@ An `AwsCredentialIdentityProvider` is any function that matches the signature:
   }>;
 ```
 
-# Table of Contents
+#### Outer and inner clients
 
-1. [From Cognito Identity](#fromcognitoidentity)
-1. [From Cognito Identity Pool](#fromcognitoidentitypool)
-1. [From Temporary Credentials](#fromtemporarycredentials)
-1. [From Web Token](#fromwebtoken)
-   1. [Examples](#examples)
-1. [From Token File](#fromtokenfile)
-1. [From Instance and Container Metadata Service](#fromcontainermetadata-and-frominstancemetadata)
-1. [From HTTP(S)](#fromhttp)
-1. [From Shared INI files](#fromini)
-   1. [Sample Files](#sample-files)
-1. [From Environmental Variables](#fromenv)
-1. [From Credential Process](#fromprocess)
-   1. [Sample files](#sample-files-1)
-1. [From Single Sign-On Service](#fromsso)
-   1. [Supported Configuration](#supported-configuration)
-   1. [SSO login with AWS CLI](#sso-login-with-the-aws-cli)
-   1. [Sample Files](#sample-files-2)
-1. [From Node.js default credentials provider chain](#fromNodeProviderChain)
-1. [Creating a custom credentials chain](#createCredentialChain)
+A "parent/outer/upper/caller" (position), or "data" (purpose) client refers
+to a client being initialized explicitly by the SDK user.
+
+An "inner" (position), or "credentials" (purpose) client
+refers to a client being initialized by the SDK in the course
+of retrieving credentials. Several AWS SDK credentials providers
+make use of inner clients such as Cognito, SSO, STS, and SSO-OIDC.
+
+```ts
+// Example: outer client and inner client
+const s3 = new S3Client({
+  credentials: fromIni(),
+});
+```
+
+In the above example, `S3Client` is the outer client, and
+if the `fromIni` credentials provider uses STS::AssumeRole, the
+`STSClient` initialized by the SDK is the inner client.
 
 ## `fromCognitoIdentity()`
 
