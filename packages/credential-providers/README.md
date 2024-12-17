@@ -438,6 +438,14 @@ const client = new FooClient({
   // 2. AWS_PROFILE environment variable (affects all clients).
   // 3. the default profile.
   profile: "my-profile",
+
+  // Please note that the data client's region
+  // will not be used by STS requests originating from the `fromIni`
+  // provider if the profile(s) used have their own configured regions.
+  // If the profile(s) have no regions set, then the data client's
+  // region will be the fallback for the inner STS client.
+  region: "us-west-2",
+
   credentials: fromIni({
     // Optional. Defaults to the client's profile if that is set.
     // You can specify a profile here as well, but this applies
