@@ -494,6 +494,12 @@ export interface VpcConfigOutput {
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether this canary allows outbound IPv6 traffic if it is connected to dual-stack subnets.</p>
+   * @public
+   */
+  Ipv6AllowedForDualStack?: boolean | undefined;
 }
 
 /**
@@ -947,6 +953,13 @@ export interface VpcConfigInput {
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>Set this to <code>true</code> to allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is <code>false</code>
+   *          </p>
+   * @public
+   */
+  Ipv6AllowedForDualStack?: boolean | undefined;
 }
 
 /**
@@ -1930,7 +1943,8 @@ export interface VisualReferenceInput {
    * <p>Specifies which canary run to use the screenshots from as the baseline for future visual monitoring with this canary. Valid values are
    *          <code>nextrun</code> to use the screenshots from the next run after this update is made, <code>lastrun</code> to use the screenshots from the most recent run
    *          before this update was made, or the value of <code>Id</code> in the <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRun.html">
-   *             CanaryRun</a> from any past run of this canary.</p>
+   *             CanaryRun</a> from a run of this a canary in the past 31 days. If you specify the <code>Id</code> of a canary run older than 31 days,
+   *          the operation returns a 400 validation exception error..</p>
    * @public
    */
   BaseCanaryRunId: string | undefined;

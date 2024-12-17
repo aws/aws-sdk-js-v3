@@ -84,6 +84,7 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * //       SecurityGroupIds: [ // SecurityGroupIds
  * //         "STRING_VALUE",
  * //       ],
+ * //       Ipv6AllowedForDualStack: true || false,
  * //     },
  * //     VisualReference: { // VisualReferenceOutput
  * //       BaseScreenshots: [ // BaseScreenshots

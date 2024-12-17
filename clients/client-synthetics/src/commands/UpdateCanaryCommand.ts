@@ -71,6 +71,7 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *     SecurityGroupIds: [ // SecurityGroupIds
  *       "STRING_VALUE",
  *     ],
+ *     Ipv6AllowedForDualStack: true || false,
  *   },
  *   VisualReference: { // VisualReferenceInput
  *     BaseScreenshots: [ // BaseScreenshots

@@ -81,6 +81,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  *     SecurityGroupIds: [ // SecurityGroupIds
  *       "STRING_VALUE",
  *     ],
+ *     Ipv6AllowedForDualStack: true || false,
  *   },
  *   ResourcesToReplicateTags: [ // ResourceList
  *     "lambda-function",
@@ -140,6 +141,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * //       SecurityGroupIds: [ // SecurityGroupIds
  * //         "STRING_VALUE",
  * //       ],
+ * //       Ipv6AllowedForDualStack: true || false,
  * //     },
  * //     VisualReference: { // VisualReferenceOutput
  * //       BaseScreenshots: [ // BaseScreenshots

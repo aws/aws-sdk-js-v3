@@ -96,6 +96,7 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * //         SecurityGroupIds: [ // SecurityGroupIds
  * //           "STRING_VALUE",
  * //         ],
+ * //         Ipv6AllowedForDualStack: true || false,
  * //       },
  * //       VisualReference: { // VisualReferenceOutput
  * //         BaseScreenshots: [ // BaseScreenshots
