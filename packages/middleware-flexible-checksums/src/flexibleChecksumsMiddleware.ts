@@ -15,6 +15,7 @@ import { ChecksumAlgorithm } from "./constants";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { hasHeader } from "./hasHeader";
+import { hasHeaderWithPrefix } from "./hasHeaderWithPrefix";
 import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { stringHasher } from "./stringHasher";
@@ -61,6 +62,10 @@ export const flexibleChecksumsMiddleware =
   ): BuildHandler<any, Output> =>
   async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
     if (!HttpRequest.isInstance(args.request)) {
+      return next(args);
+    }
+
+    if (hasHeaderWithPrefix("x-amz-checksum-", args.request.headers)) {
       return next(args);
     }
 
