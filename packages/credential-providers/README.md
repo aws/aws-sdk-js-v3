@@ -444,6 +444,7 @@ const client = new FooClient({
   // provider if the profile(s) used have their own configured regions.
   // If the profile(s) have no regions set, then the data client's
   // region will be the fallback for the inner STS client.
+  // For SSO via `fromIni`, the `sso_region` value will be used, since it is required.
   region: "us-west-2",
 
   credentials: fromIni({
