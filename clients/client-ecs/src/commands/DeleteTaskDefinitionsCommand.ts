@@ -333,6 +333,7 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * //       ephemeralStorage: { // EphemeralStorage
  * //         sizeInGiB: Number("int"), // required
  * //       },
+ * //       enableFaultInjection: true || false,
  * //     },
  * //   ],
  * //   failures: [ // Failures

@@ -321,6 +321,7 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * //     ephemeralStorage: { // EphemeralStorage
  * //       sizeInGiB: Number("int"), // required
  * //     },
+ * //     enableFaultInjection: true || false,
  * //   },
  * //   tags: [ // Tags
  * //     { // Tag

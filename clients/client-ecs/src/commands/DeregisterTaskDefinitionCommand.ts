@@ -328,6 +328,7 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * //     ephemeralStorage: { // EphemeralStorage
  * //       sizeInGiB: Number("int"), // required
  * //     },
+ * //     enableFaultInjection: true || false,
  * //   },
  * // };
  *

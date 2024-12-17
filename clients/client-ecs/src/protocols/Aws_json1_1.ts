@@ -4423,6 +4423,7 @@ const de_TaskDefinition = (output: any, context: __SerdeContext): TaskDefinition
     containerDefinitions: _json,
     cpu: __expectString,
     deregisteredAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    enableFaultInjection: __expectBoolean,
     ephemeralStorage: _json,
     executionRoleArn: __expectString,
     family: __expectString,

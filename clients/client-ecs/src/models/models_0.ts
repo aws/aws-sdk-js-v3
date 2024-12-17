@@ -1470,8 +1470,9 @@ export interface DeploymentConfiguration {
    * 				uses either the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code>
    * 				deployment types and has tasks that use the EC2 launch type.</p>
    *          </note>
-   *          <p>If the tasks in the service use the Fargate launch type, the maximum
-   * 			percent value is not used, although it is returned when describing your service.</p>
+   *          <p>If the service uses either the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code>
+   * 			deployment types, and the tasks in the service use the Fargate launch type, the maximum
+   * 			percent value is not used. The value is still returned when describing your service.</p>
    * @public
    */
   maximumPercent?: number | undefined;
@@ -2150,7 +2151,7 @@ export interface LogConfiguration {
    * 				<code>Host</code> (OpenSearch Service endpoint without protocol), <code>Port</code>,
    * 				<code>Index</code>, <code>Type</code>, <code>Aws_auth</code>,
    * 				<code>Aws_region</code>, <code>Suppress_Type_Name</code>, and
-   * 			<code>tls</code>.</p>
+   * 			<code>tls</code>. For more information, see <a href="http://aws.amazon.com/blogs/containers/under-the-hood-firelens-for-amazon-ecs-tasks/">Under the hood: FireLens for Amazon ECS Tasks</a>.</p>
    *          <p>When you export logs to Amazon S3, you can specify the bucket using the <code>bucket</code>
    * 			option. You can also specify <code>region</code>, <code>total_file_size</code>,
    * 				<code>upload_timeout</code>, and <code>use_put_object</code> as options.</p>
@@ -7555,6 +7556,13 @@ export interface TaskDefinition {
    * @public
    */
   ephemeralStorage?: EphemeralStorage | undefined;
+
+  /**
+   * <p>Enables fault injection and allows for fault injection requests to be accepted from the task's containers.
+   * 			The default value is <code>false</code>.</p>
+   * @public
+   */
+  enableFaultInjection?: boolean | undefined;
 }
 
 /**
@@ -10565,7 +10573,7 @@ export interface ListServiceDeploymentsRequest {
    * <p>The cluster that hosts the service. This can either be the cluster name or ARN.
    * 			Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon
    * 			Elastic Inference (EI), and will help current customers migrate their workloads to
-   * 			options that offer better price and performanceIf you don't specify a cluster,
+   * 			options that offer better price and performance. If you don't specify a cluster,
    * 				<code>default</code> is used.</p>
    * @public
    */
@@ -12135,6 +12143,13 @@ export interface RegisterTaskDefinitionRequest {
    * @public
    */
   runtimePlatform?: RuntimePlatform | undefined;
+
+  /**
+   * <p>Enables fault injection when you register your task definition and allows for fault injection requests
+   * 			to be accepted from the task's containers. The default value is <code>false</code>.</p>
+   * @public
+   */
+  enableFaultInjection?: boolean | undefined;
 }
 
 /**
