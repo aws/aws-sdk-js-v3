@@ -2470,6 +2470,14 @@
                 }
               ]
             },
+            "ap-southeast-5": {
+              "variants": [
+                {
+                  "hostname": "athena.ap-southeast-5.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "ca-central-1": {
               "variants": [
                 {
@@ -12115,37 +12123,103 @@
           },
           "endpoints": {
             "af-south-1": {
-              "hostname": "internetmonitor.af-south-1.api.aws"
+              "hostname": "internetmonitor.af-south-1.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.af-south-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "ap-east-1": {
-              "hostname": "internetmonitor.ap-east-1.api.aws"
+              "hostname": "internetmonitor.ap-east-1.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.ap-east-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "ap-northeast-1": {
-              "hostname": "internetmonitor.ap-northeast-1.api.aws"
+              "hostname": "internetmonitor.ap-northeast-1.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.ap-northeast-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "ap-northeast-2": {
-              "hostname": "internetmonitor.ap-northeast-2.api.aws"
+              "hostname": "internetmonitor.ap-northeast-2.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.ap-northeast-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "ap-northeast-3": {
-              "hostname": "internetmonitor.ap-northeast-3.api.aws"
+              "hostname": "internetmonitor.ap-northeast-3.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.ap-northeast-3.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "ap-south-1": {
-              "hostname": "internetmonitor.ap-south-1.api.aws"
+              "hostname": "internetmonitor.ap-south-1.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.ap-south-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "ap-south-2": {
-              "hostname": "internetmonitor.ap-south-2.api.aws"
+              "hostname": "internetmonitor.ap-south-2.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.ap-south-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "ap-southeast-1": {
-              "hostname": "internetmonitor.ap-southeast-1.api.aws"
+              "hostname": "internetmonitor.ap-southeast-1.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.ap-southeast-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "ap-southeast-2": {
-              "hostname": "internetmonitor.ap-southeast-2.api.aws"
+              "hostname": "internetmonitor.ap-southeast-2.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.ap-southeast-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "ap-southeast-3": {
-              "hostname": "internetmonitor.ap-southeast-3.api.aws"
+              "hostname": "internetmonitor.ap-southeast-3.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.ap-southeast-3.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "ap-southeast-4": {
-              "hostname": "internetmonitor.ap-southeast-4.api.aws"
+              "hostname": "internetmonitor.ap-southeast-4.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.ap-southeast-4.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "ap-southeast-5": {
               "hostname": "internetmonitor.ap-southeast-5.api.aws"
@@ -12156,6 +12230,14 @@
                 {
                   "hostname": "internetmonitor-fips.ca-central-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "internetmonitor-fips.ca-central-1.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "internetmonitor.ca-central-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -12163,40 +12245,106 @@
               "hostname": "internetmonitor.ca-west-1.api.aws"
             },
             "eu-central-1": {
-              "hostname": "internetmonitor.eu-central-1.api.aws"
+              "hostname": "internetmonitor.eu-central-1.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.eu-central-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "eu-central-2": {
-              "hostname": "internetmonitor.eu-central-2.api.aws"
+              "hostname": "internetmonitor.eu-central-2.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.eu-central-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "eu-north-1": {
-              "hostname": "internetmonitor.eu-north-1.api.aws"
+              "hostname": "internetmonitor.eu-north-1.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.eu-north-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "eu-south-1": {
-              "hostname": "internetmonitor.eu-south-1.api.aws"
+              "hostname": "internetmonitor.eu-south-1.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.eu-south-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "eu-south-2": {
-              "hostname": "internetmonitor.eu-south-2.api.aws"
+              "hostname": "internetmonitor.eu-south-2.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.eu-south-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "eu-west-1": {
-              "hostname": "internetmonitor.eu-west-1.api.aws"
+              "hostname": "internetmonitor.eu-west-1.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.eu-west-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "eu-west-2": {
-              "hostname": "internetmonitor.eu-west-2.api.aws"
+              "hostname": "internetmonitor.eu-west-2.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.eu-west-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "eu-west-3": {
-              "hostname": "internetmonitor.eu-west-3.api.aws"
+              "hostname": "internetmonitor.eu-west-3.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.eu-west-3.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "il-central-1": {
               "hostname": "internetmonitor.il-central-1.api.aws"
             },
             "me-central-1": {
-              "hostname": "internetmonitor.me-central-1.api.aws"
+              "hostname": "internetmonitor.me-central-1.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.me-central-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "me-south-1": {
-              "hostname": "internetmonitor.me-south-1.api.aws"
+              "hostname": "internetmonitor.me-south-1.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.me-south-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "sa-east-1": {
-              "hostname": "internetmonitor.sa-east-1.api.aws"
+              "hostname": "internetmonitor.sa-east-1.api.aws",
+              "variants": [
+                {
+                  "hostname": "internetmonitor.sa-east-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "us-east-1": {
               "hostname": "internetmonitor.us-east-1.api.aws",
@@ -12204,6 +12352,14 @@
                 {
                   "hostname": "internetmonitor-fips.us-east-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "internetmonitor-fips.us-east-1.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "internetmonitor.us-east-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -12213,6 +12369,14 @@
                 {
                   "hostname": "internetmonitor-fips.us-east-2.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "internetmonitor-fips.us-east-2.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "internetmonitor.us-east-2.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -12222,6 +12386,14 @@
                 {
                   "hostname": "internetmonitor-fips.us-west-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "internetmonitor-fips.us-west-1.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "internetmonitor.us-west-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -12231,6 +12403,14 @@
                 {
                   "hostname": "internetmonitor-fips.us-west-2.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "internetmonitor-fips.us-west-2.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "internetmonitor.us-west-2.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             }
@@ -13979,28 +14159,182 @@
         },
         "lakeformation": {
           "endpoints": {
-            "af-south-1": {},
-            "ap-east-1": {},
-            "ap-northeast-1": {},
-            "ap-northeast-2": {},
-            "ap-northeast-3": {},
-            "ap-south-1": {},
-            "ap-south-2": {},
-            "ap-southeast-1": {},
-            "ap-southeast-2": {},
-            "ap-southeast-3": {},
-            "ap-southeast-4": {},
-            "ap-southeast-5": {},
-            "ca-central-1": {},
-            "ca-west-1": {},
-            "eu-central-1": {},
-            "eu-central-2": {},
-            "eu-north-1": {},
-            "eu-south-1": {},
-            "eu-south-2": {},
-            "eu-west-1": {},
-            "eu-west-2": {},
-            "eu-west-3": {},
+            "af-south-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.af-south-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-east-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.ap-east-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-northeast-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.ap-northeast-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-northeast-2": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.ap-northeast-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-northeast-3": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.ap-northeast-3.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-south-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.ap-south-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-south-2": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.ap-south-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-southeast-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.ap-southeast-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-southeast-2": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.ap-southeast-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-southeast-3": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.ap-southeast-3.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-southeast-4": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.ap-southeast-4.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-southeast-5": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.ap-southeast-5.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ca-central-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.ca-central-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ca-west-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.ca-west-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-central-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.eu-central-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-central-2": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.eu-central-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-north-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.eu-north-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-south-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.eu-south-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-south-2": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.eu-south-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-west-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.eu-west-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-west-2": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.eu-west-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-west-3": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.eu-west-3.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "fips-us-east-1": {
               "credentialScope": {
                 "region": "us-east-1"
@@ -14029,15 +14363,51 @@
               "deprecated": true,
               "hostname": "lakeformation-fips.us-west-2.amazonaws.com"
             },
-            "il-central-1": {},
-            "me-central-1": {},
-            "me-south-1": {},
-            "sa-east-1": {},
+            "il-central-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.il-central-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "me-central-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.me-central-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "me-south-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.me-south-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "sa-east-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.sa-east-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "us-east-1": {
               "variants": [
                 {
                   "hostname": "lakeformation-fips.us-east-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "lakeformation-fips.us-east-1.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "lakeformation.us-east-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -14046,6 +14416,14 @@
                 {
                   "hostname": "lakeformation-fips.us-east-2.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "lakeformation-fips.us-east-2.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "lakeformation.us-east-2.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -14054,6 +14432,14 @@
                 {
                   "hostname": "lakeformation-fips.us-west-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "lakeformation-fips.us-west-1.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "lakeformation.us-west-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -14062,6 +14448,14 @@
                 {
                   "hostname": "lakeformation-fips.us-west-2.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "lakeformation-fips.us-west-2.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "lakeformation.us-west-2.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             }
@@ -25225,10 +25619,12 @@
             "ap-southeast-3": {},
             "ap-southeast-4": {},
             "ca-central-1": {},
+            "ca-west-1": {},
             "eu-central-1": {},
             "eu-central-2": {},
             "eu-north-1": {},
             "eu-south-1": {},
+            "eu-south-2": {},
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
@@ -27605,8 +28001,22 @@
         },
         "lakeformation": {
           "endpoints": {
-            "cn-north-1": {},
-            "cn-northwest-1": {}
+            "cn-north-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.cn-north-1.api.amazonwebservices.com.cn",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "cn-northwest-1": {
+              "variants": [
+                {
+                  "hostname": "lakeformation.cn-northwest-1.api.amazonwebservices.com.cn",
+                  "tags": ["dualstack"]
+                }
+              ]
+            }
           }
         },
         "lambda": {
