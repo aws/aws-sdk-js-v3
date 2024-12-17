@@ -37,22 +37,20 @@ export interface FromSsoInit extends SourceProfileInit, CredentialProviderOption
  */
 export const fromSso =
   (_init: FromSsoInit = {}): RuntimeConfigIdentityProvider<TokenIdentity> =>
-  async (awsIdentityProperties?: AwsIdentityProperties) => {
+  async ({ callerClientConfig } = {}) => {
     const init: FromSsoInit = {
       ..._init,
-      ...(awsIdentityProperties?.callerClientConfig?.region
-        ? {
-            parentClientConfig: {
-              region: awsIdentityProperties?.callerClientConfig?.region,
-              ..._init.parentClientConfig,
-            },
-          }
-        : {}),
+      parentClientConfig: {
+        ...callerClientConfig,
+        ..._init.parentClientConfig,
+      },
     };
     init.logger?.debug("@aws-sdk/token-providers - fromSso");
 
     const profiles = await parseKnownFiles(init);
-    const profileName = getProfileName(init);
+    const profileName = getProfileName({
+      profile: init.profile ?? callerClientConfig?.profile,
+    });
     const profile = profiles[profileName];
 
     if (!profile) {

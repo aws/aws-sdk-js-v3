@@ -33,6 +33,11 @@ export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): 
     parameters.logger?.debug("@aws-sdk/credential-provider-cognito-identity - fromCognitoIdentity");
     const { GetCredentialsForIdentityCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity");
 
+    const fromConfigs = (property: "region" | "profile"): any =>
+      parameters.clientConfig?.[property] ??
+      parameters.parentClientConfig?.[property] ??
+      awsIdentityProperties?.callerClientConfig?.[property];
+
     const {
       Credentials: {
         AccessKeyId = throwOnMissingAccessKeyId(parameters.logger),
@@ -44,10 +49,8 @@ export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): 
       parameters.client ??
       new CognitoIdentityClient(
         Object.assign({}, parameters.clientConfig ?? {}, {
-          region:
-            parameters.clientConfig?.region ??
-            parameters.parentClientConfig?.region ??
-            awsIdentityProperties?.callerClientConfig?.region,
+          region: fromConfigs("region"),
+          profile: fromConfigs("profile"),
         })
       )
     ).send(

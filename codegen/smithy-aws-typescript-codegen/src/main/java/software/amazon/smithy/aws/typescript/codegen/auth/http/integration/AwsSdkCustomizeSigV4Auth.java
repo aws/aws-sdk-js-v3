@@ -133,7 +133,7 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                                     null,
                                     AwsDependency.AWS_SDK_CORE
                                 );
-                                writer.write("loadNodeConfig(NODE_SIGV4A_CONFIG_OPTIONS)");
+                                writer.write("loadNodeConfig(NODE_SIGV4A_CONFIG_OPTIONS, profileConfig)");
                             }
                         );
                     }

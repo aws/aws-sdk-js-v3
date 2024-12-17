@@ -318,6 +318,7 @@ const createConfigBoundCredentialProvider = (input: {
   credentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider | RuntimeConfigAwsCredentialIdentityProvider;
   credentialDefaultProvider: PreviouslyResolved["credentialDefaultProvider"];
   region: PreviouslyResolved["region"];
+  profile?: string;
 }): AwsCredentialIdentityProvider => {
   const normalizedCredentialsProvider = input.credentials
     ? normalizeCredentialProvider(input.credentials)
@@ -330,6 +331,7 @@ const createConfigBoundCredentialProvider = (input: {
     (normalizedCredentialsProvider as RuntimeConfigAwsCredentialIdentityProvider)({
       callerClientConfig: {
         region: normalizeProvider(input.region),
+        profile: input.profile,
       },
     });
   return normalizedCreds;

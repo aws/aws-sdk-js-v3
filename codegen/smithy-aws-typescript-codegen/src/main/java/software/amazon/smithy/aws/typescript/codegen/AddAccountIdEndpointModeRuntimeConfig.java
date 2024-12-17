@@ -89,7 +89,7 @@ public final class AddAccountIdEndpointModeRuntimeConfig implements TypeScriptIn
                                     null, AwsDependency.AWS_SDK_CORE,
                                     "/account-id-endpoint");
                                 writer.write(
-                                    "loadNodeConfig(NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS)");
+                                    "loadNodeConfig(NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS, profileConfig)");
                             });
                             break;
                         default:

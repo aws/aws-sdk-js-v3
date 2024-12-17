@@ -1,4 +1,4 @@
-import type { CredentialProviderOptions } from "@aws-sdk/types";
+import type { CredentialProviderOptions, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName, loadSsoSessionData, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
 import { AwsCredentialIdentityProvider } from "@smithy/types";
@@ -79,12 +79,14 @@ export interface FromSSOInit extends SourceProfileInit, CredentialProviderOption
  * ```
  */
 export const fromSSO =
-  (init: FromSSOInit & Partial<SsoCredentialsParameters> = {}): AwsCredentialIdentityProvider =>
-  async () => {
+  (init: FromSSOInit & Partial<SsoCredentialsParameters> = {}): RuntimeConfigAwsCredentialIdentityProvider =>
+  async ({ callerClientConfig } = {}) => {
     init.logger?.debug("@aws-sdk/credential-provider-sso - fromSSO");
     const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoSession } = init;
     const { ssoClient } = init;
-    const profileName = getProfileName(init);
+    const profileName = getProfileName({
+      profile: init.profile ?? callerClientConfig?.profile,
+    });
 
     if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
       // Load the SSO config from shared AWS config file.

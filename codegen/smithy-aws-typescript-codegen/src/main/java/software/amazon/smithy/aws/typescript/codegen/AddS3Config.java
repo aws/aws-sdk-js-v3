@@ -256,7 +256,7 @@ public final class AddS3Config implements TypeScriptIntegration {
                         .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
                         .addImport("NODE_USE_ARN_REGION_CONFIG_OPTIONS", "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
                             AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
-                        .write("loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS)");
+                        .write("loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS, profileConfig)");
                     },
                     "disableS3ExpressSessionAuth", writer -> {
                         writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER)
@@ -268,7 +268,7 @@ public final class AddS3Config implements TypeScriptIntegration {
                             "NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS",
                             AwsDependency.S3_MIDDLEWARE
                         )
-                        .write("loadNodeConfig(NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS)");
+                        .write("loadNodeConfig(NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS, profileConfig)");
                     }
                 );
             default:

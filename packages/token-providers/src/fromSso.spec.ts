@@ -34,6 +34,7 @@ describe(fromSso.name, () => {
 
   const mockProfileName = "mockProfileName";
   const mockInit = { profile: mockProfileName };
+  const mockInitWithParentClientConfig = { profile: mockProfileName, parentClientConfig: {} };
   const mockProfiles = { [mockProfileName]: mockSsoProfile };
 
   const mockSsoToken = {
@@ -68,7 +69,7 @@ describe(fromSso.name, () => {
   });
 
   afterEach(() => {
-    expect(parseKnownFiles).toHaveBeenCalledWith(mockInit);
+    expect(parseKnownFiles).toHaveBeenCalledWith(mockInitWithParentClientConfig);
     expect(getProfileName).toHaveBeenCalledWith(mockInit);
     vi.clearAllMocks();
   });
@@ -167,7 +168,11 @@ describe(fromSso.name, () => {
       const { fromSso } = await import("./fromSso");
       await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
       expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
-      expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region, mockInit);
+      expect(getNewSsoOidcToken).toHaveBeenCalledWith(
+        mockSsoToken,
+        mockSsoSession.sso_region,
+        mockInitWithParentClientConfig
+      );
 
       // Simulate token expiration.
       const ssoTokenExpiryError = new TokenProviderError(`SSO Token is expired. ${REFRESH_MESSAGE}`, false);
@@ -183,7 +188,11 @@ describe(fromSso.name, () => {
       const { fromSso } = await import("./fromSso");
       await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
       expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
-      expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region, mockInit);
+      expect(getNewSsoOidcToken).toHaveBeenCalledWith(
+        mockSsoToken,
+        mockSsoSession.sso_region,
+        mockInitWithParentClientConfig
+      );
 
       // Return a valid token for second call.
       const mockValidSsoToken = {
@@ -234,7 +243,7 @@ describe(fromSso.name, () => {
       expect(getNewSsoOidcToken).toHaveBeenCalledWith(
         mockValidSsoTokenInExpiryWindow,
         mockSsoSession.sso_region,
-        mockInit
+        mockInitWithParentClientConfig
       );
     };
 
@@ -244,7 +253,11 @@ describe(fromSso.name, () => {
         throw ssoTokenExpiryError;
       });
       await expect(fromSsoImpl(mockInit)()).rejects.toStrictEqual(ssoTokenExpiryError);
-      expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region, mockInit);
+      expect(getNewSsoOidcToken).toHaveBeenCalledWith(
+        mockSsoToken,
+        mockSsoSession.sso_region,
+        mockInitWithParentClientConfig
+      );
     };
 
     afterEach(() => {
@@ -290,7 +303,11 @@ describe(fromSso.name, () => {
     const { fromSso } = await import("./fromSso");
     await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
     expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
-    expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region, mockInit);
+    expect(getNewSsoOidcToken).toHaveBeenCalledWith(
+      mockSsoToken,
+      mockSsoSession.sso_region,
+      mockInitWithParentClientConfig
+    );
 
     expect(writeSSOTokenToFile).toHaveBeenCalledWith(mockSsoSessionName, {
       ...mockSsoToken,

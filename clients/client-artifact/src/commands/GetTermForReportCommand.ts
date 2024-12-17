@@ -84,14 +84,14 @@ export interface GetTermForReportCommandOutput extends GetTermForReportResponse,
  * // The GetTermForReport operation is invoked on a reportId and on a optional version.
  * //                         If callers do not provide a version, it will default to the report's latest version.
  * const input = {
- *   "reportId": "report-bqhUJF3FrQZsMJpb"
+ *   "reportId": "report-abcdef0123456789"
  * };
  * const command = new GetTermForReportCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
  *   "documentPresignedUrl": "<Presigned S3 URL>",
- *   "termToken": "term-token-gPFEGk7CF4wS901w7ppYclt7"
+ *   "termToken": "term-token-abcdefghijklm01234567890"
  * }
  * *\/
  * // example id: example-1

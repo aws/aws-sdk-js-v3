@@ -41,6 +41,7 @@ export const initializeWithMaximalConfiguration = () => {
 
   const config: Required<S3ClientConfigType> = {
     // BEGIN user options
+    profile: "default",
     region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
     credentials: defaultProvider({}),
     endpoint: "endpoint",

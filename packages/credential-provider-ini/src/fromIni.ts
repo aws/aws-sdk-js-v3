@@ -60,14 +60,18 @@ export const fromIni =
   async ({ callerClientConfig } = {}) => {
     const init: FromIniInit = {
       ..._init,
-    };
-    if (callerClientConfig?.region) {
-      init.parentClientConfig = {
-        region: callerClientConfig.region,
+      parentClientConfig: {
+        ...callerClientConfig,
         ..._init.parentClientConfig,
-      };
-    }
+      },
+    };
     init.logger?.debug("@aws-sdk/credential-provider-ini - fromIni");
     const profiles = await parseKnownFiles(init);
-    return resolveProfileData(getProfileName(init), profiles, init);
+    return resolveProfileData(
+      getProfileName({
+        profile: _init.profile ?? callerClientConfig?.profile,
+      }),
+      profiles,
+      init
+    );
   };
