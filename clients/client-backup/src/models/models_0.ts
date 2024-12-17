@@ -526,6 +526,30 @@ export interface CopyAction {
 }
 
 /**
+ * <p>This is an optional array within a BackupRule.</p>
+ *          <p>IndexAction consists of one ResourceTypes.</p>
+ * @public
+ */
+export interface IndexAction {
+  /**
+   * <p>0 or 1 index action will be accepted for each BackupRule.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EBS</code> for Amazon Elastic Block Store</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> for Amazon Simple Storage Service (Amazon S3)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceTypes?: string[] | undefined;
+}
+
+/**
  * <p>Specifies a scheduled task used to back up a selection of resources.</p>
  * @public
  */
@@ -626,6 +650,16 @@ export interface BackupRule {
    * @public
    */
   ScheduleExpressionTimezone?: string | undefined;
+
+  /**
+   * <p>IndexActions is an array you use to specify how backup data should
+   *          be indexed.</p>
+   *          <p>eEach BackupRule can have 0 or 1 IndexAction, as each backup can have up
+   *          to one index associated with it.</p>
+   *          <p>Within the array is ResourceType. Only one will be accepted for each BackupRule.</p>
+   * @public
+   */
+  IndexActions?: IndexAction[] | undefined;
 }
 
 /**
@@ -750,6 +784,25 @@ export interface BackupRuleInput {
    * @public
    */
   ScheduleExpressionTimezone?: string | undefined;
+
+  /**
+   * <p>There can up to one IndexAction in each BackupRule, as each backup
+   *          can have 0 or 1 backup index associated with it.</p>
+   *          <p>Within the array is ResourceTypes. Only 1 resource type will
+   *          be accepted for each BackupRule. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EBS</code> for Amazon Elastic Block Store</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> for Amazon Simple Storage Service (Amazon S3)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  IndexActions?: IndexAction[] | undefined;
 }
 
 /**
@@ -3969,6 +4022,22 @@ export interface DescribeRecoveryPointInput {
  * @public
  * @enum
  */
+export const IndexStatus = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const RecoveryPointStatus = {
   COMPLETED: "COMPLETED",
   DELETING: "DELETING",
@@ -4206,6 +4275,25 @@ export interface DescribeRecoveryPointOutput {
    * @public
    */
   VaultType?: VaultType | undefined;
+
+  /**
+   * <p>This is the current status for the backup index associated with the specified recovery
+   *          point.</p>
+   *          <p>Statuses are: <code>PENDING</code> | <code>ACTIVE</code> | <code>FAILED</code> |
+   *          <code>DELETING</code>
+   *          </p>
+   *          <p>A recovery point with an index that has the status of <code>ACTIVE</code> can be
+   *          included in a search.</p>
+   * @public
+   */
+  IndexStatus?: IndexStatus | undefined;
+
+  /**
+   * <p>A string in the form of a detailed message explaining the status of a backup index
+   *          associated with the recovery point.</p>
+   * @public
+   */
+  IndexStatusMessage?: string | undefined;
 }
 
 /**
@@ -5096,6 +5184,107 @@ export interface GetLegalHoldOutput {
    * @public
    */
   RecoveryPointSelection?: RecoveryPointSelection | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRecoveryPointIndexDetailsInput {
+  /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified
+   *          by names that are unique to the account used to create them and the Region where they are
+   *          created.</p>
+   *          <p>Accepted characters include lowercase letters, numbers, and hyphens.</p>
+   * @public
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * <p>An ARN that uniquely identifies a recovery point; for example,
+   *          <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+   * @public
+   */
+  RecoveryPointArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRecoveryPointIndexDetailsOutput {
+  /**
+   * <p>An ARN that uniquely identifies a recovery point; for example,
+   *          <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+   * @public
+   */
+  RecoveryPointArn?: string | undefined;
+
+  /**
+   * <p>An ARN that uniquely identifies the backup vault where the recovery
+   *          point index is stored.</p>
+   *          <p>For example,
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
+   * @public
+   */
+  BackupVaultArn?: string | undefined;
+
+  /**
+   * <p>A string of the  Amazon Resource Name (ARN) that uniquely identifies
+   *          the source resource.</p>
+   * @public
+   */
+  SourceResourceArn?: string | undefined;
+
+  /**
+   * <p>The date and time that a backup index was created, in Unix format and Coordinated
+   *          Universal Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds.
+   *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   * @public
+   */
+  IndexCreationDate?: Date | undefined;
+
+  /**
+   * <p>The date and time that a backup index was deleted, in Unix format and Coordinated
+   *          Universal Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds.
+   *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   * @public
+   */
+  IndexDeletionDate?: Date | undefined;
+
+  /**
+   * <p>The date and time that a backup index finished creation, in Unix format and Coordinated
+   *          Universal Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds.
+   *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   * @public
+   */
+  IndexCompletionDate?: Date | undefined;
+
+  /**
+   * <p>This is the current status for the backup index associated
+   *          with the specified recovery point.</p>
+   *          <p>Statuses are: <code>PENDING</code> | <code>ACTIVE</code> | <code>FAILED</code> | <code>DELETING</code>
+   *          </p>
+   *          <p>A recovery point with an index that has the status of <code>ACTIVE</code>
+   *          can be included in a search.</p>
+   * @public
+   */
+  IndexStatus?: IndexStatus | undefined;
+
+  /**
+   * <p>A detailed message explaining the status of a backup index associated
+   *          with the recovery point.</p>
+   * @public
+   */
+  IndexStatusMessage?: string | undefined;
+
+  /**
+   * <p>Count of items within the backup index associated with the
+   *          recovery point.</p>
+   * @public
+   */
+  TotalItemsIndexed?: number | undefined;
 }
 
 /**
@@ -6552,6 +6741,190 @@ export interface ListFrameworksOutput {
 /**
  * @public
  */
+export interface ListIndexedRecoveryPointsInput {
+  /**
+   * <p>The next item following a partial list of returned recovery points.</p>
+   *          <p>For example, if a request
+   *          is made to return <code>MaxResults</code> number of indexed recovery points, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of resource list items to be returned.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A string of the  Amazon Resource Name (ARN) that uniquely identifies
+   *          the source resource.</p>
+   * @public
+   */
+  SourceResourceArn?: string | undefined;
+
+  /**
+   * <p>Returns only indexed recovery points that were created before the
+   *          specified date.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>Returns only indexed recovery points that were created after the
+   *          specified date.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>Returns a list of indexed recovery points for the specified
+   *          resource type(s).</p>
+   *          <p>Accepted values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EBS</code> for Amazon Elastic Block Store</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> for Amazon Simple Storage Service (Amazon S3)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>Include this parameter to filter the returned list by
+   *          the indicated statuses.</p>
+   *          <p>Accepted values: <code>PENDING</code> | <code>ACTIVE</code> | <code>FAILED</code> | <code>DELETING</code>
+   *          </p>
+   *          <p>A recovery point with an index that has the status of <code>ACTIVE</code>
+   *          can be included in a search.</p>
+   * @public
+   */
+  IndexStatus?: IndexStatus | undefined;
+}
+
+/**
+ * <p>This is a recovery point that has an associated backup index.</p>
+ *          <p>Only recovery points with a backup index can be
+ *          included in a search.</p>
+ * @public
+ */
+export interface IndexedRecoveryPoint {
+  /**
+   * <p>An ARN that uniquely identifies a recovery point; for example,
+   *          <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>
+   *          </p>
+   * @public
+   */
+  RecoveryPointArn?: string | undefined;
+
+  /**
+   * <p>A string of the  Amazon Resource Name (ARN) that uniquely identifies
+   *          the source resource.</p>
+   * @public
+   */
+  SourceResourceArn?: string | undefined;
+
+  /**
+   * <p>This specifies the IAM role ARN used for this operation.</p>
+   *          <p>For example, arn:aws:iam::123456789012:role/S3Access</p>
+   * @public
+   */
+  IamRoleArn?: string | undefined;
+
+  /**
+   * <p>The date and time that a backup was created, in Unix format and Coordinated
+   *          Universal Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds.
+   *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   * @public
+   */
+  BackupCreationDate?: Date | undefined;
+
+  /**
+   * <p>The resource type of the indexed recovery point.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EBS</code> for Amazon Elastic Block Store</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> for Amazon Simple Storage Service (Amazon S3)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>The date and time that a backup index was created, in Unix format and Coordinated
+   *          Universal Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds.
+   *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   * @public
+   */
+  IndexCreationDate?: Date | undefined;
+
+  /**
+   * <p>This is the current status for the backup index associated
+   *          with the specified recovery point.</p>
+   *          <p>Statuses are: <code>PENDING</code> | <code>ACTIVE</code> | <code>FAILED</code> | <code>DELETING</code>
+   *          </p>
+   *          <p>A recovery point with an index that has the status of <code>ACTIVE</code>
+   *          can be included in a search.</p>
+   * @public
+   */
+  IndexStatus?: IndexStatus | undefined;
+
+  /**
+   * <p>A string in the form of a detailed message explaining the status of a backup index associated
+   *          with the recovery point.</p>
+   * @public
+   */
+  IndexStatusMessage?: string | undefined;
+
+  /**
+   * <p>An ARN that uniquely identifies the backup vault where the recovery
+   *          point index is stored.</p>
+   *          <p>For example,
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
+   * @public
+   */
+  BackupVaultArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIndexedRecoveryPointsOutput {
+  /**
+   * <p>This is a list of recovery points that have an
+   *          associated index, belonging to the specified account.</p>
+   * @public
+   */
+  IndexedRecoveryPoints?: IndexedRecoveryPoint[] | undefined;
+
+  /**
+   * <p>The next item following a partial list of returned recovery points.</p>
+   *          <p>For example, if a request
+   *          is made to return <code>MaxResults</code> number of indexed recovery points, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListLegalHoldsInput {
   /**
    * <p>The next item following a partial list of returned resources. For example, if a request
@@ -7114,6 +7487,25 @@ export interface RecoveryPointByBackupVault {
    * @public
    */
   VaultType?: VaultType | undefined;
+
+  /**
+   * <p>This is the current status for the backup index associated
+   *          with the specified recovery point.</p>
+   *          <p>Statuses are: <code>PENDING</code> | <code>ACTIVE</code> | <code>FAILED</code> |
+   *          <code>DELETING</code>
+   *          </p>
+   *          <p>A recovery point with an index that has the status of <code>ACTIVE</code>
+   *          can be included in a search.</p>
+   * @public
+   */
+  IndexStatus?: IndexStatus | undefined;
+
+  /**
+   * <p>A string in the form of a detailed message explaining the status of a backup index associated
+   *          with the recovery point.</p>
+   * @public
+   */
+  IndexStatusMessage?: string | undefined;
 }
 
 /**
@@ -7340,6 +7732,24 @@ export interface RecoveryPointByResource {
    * @public
    */
   VaultType?: VaultType | undefined;
+
+  /**
+   * <p>This is the current status for the backup index associated
+   *          with the specified recovery point.</p>
+   *          <p>Statuses are: <code>PENDING</code> | <code>ACTIVE</code> | <code>FAILED</code> | <code>DELETING</code>
+   *          </p>
+   *          <p>A recovery point with an index that has the status of <code>ACTIVE</code>
+   *          can be included in a search.</p>
+   * @public
+   */
+  IndexStatus?: IndexStatus | undefined;
+
+  /**
+   * <p>A string in the form of a detailed message explaining the status of a backup index
+   *          associated with the recovery point.</p>
+   * @public
+   */
+  IndexStatusMessage?: string | undefined;
 }
 
 /**
@@ -8488,6 +8898,20 @@ export interface PutRestoreValidationResultInput {
 
 /**
  * @public
+ * @enum
+ */
+export const Index = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Index = (typeof Index)[keyof typeof Index];
+
+/**
+ * @public
  */
 export interface StartBackupJobInput {
   /**
@@ -8579,6 +9003,29 @@ export interface StartBackupJobInput {
    * @public
    */
   BackupOptions?: Record<string, string> | undefined;
+
+  /**
+   * <p>Include this parameter to enable index creation if your backup
+   *          job has a resource type that supports backup indexes.</p>
+   *          <p>Resource types that support backup indexes include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EBS</code> for Amazon Elastic Block Store</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> for Amazon Simple Storage Service (Amazon S3)</p>
+   *             </li>
+   *          </ul>
+   *          <p>Index can have 1 of 2 possible values, either <code>ENABLED</code> or
+   *          <code>DISABLED</code>.</p>
+   *          <p>To create a backup index for an eligible <code>ACTIVE</code> recovery point
+   *          that does not yet have a backup index, set value to <code>ENABLED</code>.</p>
+   *          <p>To delete a backup index, set value to <code>DISABLED</code>.</p>
+   * @public
+   */
+  Index?: Index | undefined;
 }
 
 /**
@@ -9129,6 +9576,85 @@ export interface UpdateGlobalSettingsInput {
    * @public
    */
   GlobalSettings?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRecoveryPointIndexSettingsInput {
+  /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified
+   *          by names that are unique to the account used to create them and the Region where they are
+   *          created.</p>
+   *          <p>Accepted characters include lowercase letters, numbers, and hyphens.</p>
+   * @public
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * <p>An ARN that uniquely identifies a recovery point; for example,
+   *          <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+   * @public
+   */
+  RecoveryPointArn: string | undefined;
+
+  /**
+   * <p>This specifies the IAM role ARN used for this operation.</p>
+   *          <p>For example, arn:aws:iam::123456789012:role/S3Access</p>
+   * @public
+   */
+  IamRoleArn?: string | undefined;
+
+  /**
+   * <p>Index can have 1 of 2 possible values, either <code>ENABLED</code> or
+   *          <code>DISABLED</code>.</p>
+   *          <p>To create a backup index for an eligible <code>ACTIVE</code> recovery point
+   *          that does not yet have a backup index, set value to <code>ENABLED</code>.</p>
+   *          <p>To delete a backup index, set value to <code>DISABLED</code>.</p>
+   * @public
+   */
+  Index: Index | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRecoveryPointIndexSettingsOutput {
+  /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified
+   *          by names that are unique to the account used to create them and the Region where they are
+   *          created.</p>
+   * @public
+   */
+  BackupVaultName?: string | undefined;
+
+  /**
+   * <p>An ARN that uniquely identifies a recovery point; for example,
+   *          <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+   * @public
+   */
+  RecoveryPointArn?: string | undefined;
+
+  /**
+   * <p>This is the current status for the backup index associated
+   *          with the specified recovery point.</p>
+   *          <p>Statuses are: <code>PENDING</code> | <code>ACTIVE</code> | <code>FAILED</code> | <code>DELETING</code>
+   *          </p>
+   *          <p>A recovery point with an index that has the status of <code>ACTIVE</code>
+   *          can be included in a search.</p>
+   * @public
+   */
+  IndexStatus?: IndexStatus | undefined;
+
+  /**
+   * <p>Index can have 1 of 2 possible values, either <code>ENABLED</code> or
+   *          <code>DISABLED</code>.</p>
+   *          <p>A value of <code>ENABLED</code> means a backup index for an eligible <code>ACTIVE</code>
+   *          recovery point has been created.</p>
+   *          <p>A value of <code>DISABLED</code> means a backup index was deleted.</p>
+   * @public
+   */
+  Index?: Index | undefined;
 }
 
 /**

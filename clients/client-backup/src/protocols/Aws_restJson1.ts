@@ -140,6 +140,10 @@ import {
 } from "../commands/GetBackupVaultNotificationsCommand";
 import { GetLegalHoldCommandInput, GetLegalHoldCommandOutput } from "../commands/GetLegalHoldCommand";
 import {
+  GetRecoveryPointIndexDetailsCommandInput,
+  GetRecoveryPointIndexDetailsCommandOutput,
+} from "../commands/GetRecoveryPointIndexDetailsCommand";
+import {
   GetRecoveryPointRestoreMetadataCommandInput,
   GetRecoveryPointRestoreMetadataCommandOutput,
 } from "../commands/GetRecoveryPointRestoreMetadataCommand";
@@ -188,6 +192,10 @@ import {
   ListCopyJobSummariesCommandOutput,
 } from "../commands/ListCopyJobSummariesCommand";
 import { ListFrameworksCommandInput, ListFrameworksCommandOutput } from "../commands/ListFrameworksCommand";
+import {
+  ListIndexedRecoveryPointsCommandInput,
+  ListIndexedRecoveryPointsCommandOutput,
+} from "../commands/ListIndexedRecoveryPointsCommand";
 import { ListLegalHoldsCommandInput, ListLegalHoldsCommandOutput } from "../commands/ListLegalHoldsCommand";
 import {
   ListProtectedResourcesByBackupVaultCommandInput,
@@ -259,6 +267,10 @@ import {
   UpdateGlobalSettingsCommandOutput,
 } from "../commands/UpdateGlobalSettingsCommand";
 import {
+  UpdateRecoveryPointIndexSettingsCommandInput,
+  UpdateRecoveryPointIndexSettingsCommandOutput,
+} from "../commands/UpdateRecoveryPointIndexSettingsCommand";
+import {
   UpdateRecoveryPointLifecycleCommandInput,
   UpdateRecoveryPointLifecycleCommandOutput,
 } from "../commands/UpdateRecoveryPointLifecycleCommand";
@@ -302,6 +314,8 @@ import {
   DependencyFailureException,
   Framework,
   FrameworkControl,
+  IndexAction,
+  IndexedRecoveryPoint,
   InvalidParameterValueException,
   InvalidRequestException,
   InvalidResourceStateException,
@@ -1114,6 +1128,23 @@ export const se_GetLegalHoldCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetRecoveryPointIndexDetailsCommand
+ */
+export const se_GetRecoveryPointIndexDetailsCommand = async (
+  input: GetRecoveryPointIndexDetailsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/index");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
+  b.p("RecoveryPointArn", () => input.RecoveryPointArn!, "{RecoveryPointArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetRecoveryPointRestoreMetadataCommand
  */
 export const se_GetRecoveryPointRestoreMetadataCommand = async (
@@ -1445,6 +1476,30 @@ export const se_ListFrameworksCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListIndexedRecoveryPointsCommand
+ */
+export const se_ListIndexedRecoveryPointsCommand = async (
+  input: ListIndexedRecoveryPointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/indexes/recovery-point");
+  const query: any = map({
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_sRA]: [, input[_SRA]!],
+    [_cB]: [() => input.CreatedBefore !== void 0, () => __serializeDateTime(input[_CB]!).toString()],
+    [_cA]: [() => input.CreatedAfter !== void 0, () => __serializeDateTime(input[_CA]!).toString()],
+    [_rT]: [, input[_RT]!],
+    [_iS]: [, input[_IS]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListLegalHoldsCommand
  */
 export const se_ListLegalHoldsCommand = async (
@@ -1583,8 +1638,8 @@ export const se_ListReportJobsCommand = async (
   b.bp("/audit/report-jobs");
   const query: any = map({
     [_RPN]: [, input[_BRPN]!],
-    [_CB]: [() => input.ByCreationBefore !== void 0, () => __serializeDateTime(input[_BCByr]!).toString()],
-    [_CA]: [() => input.ByCreationAfter !== void 0, () => __serializeDateTime(input[_BCAyr]!).toString()],
+    [_CBr]: [() => input.ByCreationBefore !== void 0, () => __serializeDateTime(input[_BCByr]!).toString()],
+    [_CAr]: [() => input.ByCreationAfter !== void 0, () => __serializeDateTime(input[_BCAyr]!).toString()],
     [_St]: [, input[_BSyt]!],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_NT]: [, input[_NT]!],
@@ -1867,6 +1922,7 @@ export const se_StartBackupJobCommand = async (
       CompleteWindowMinutes: [],
       IamRoleArn: [],
       IdempotencyToken: [],
+      Index: [],
       Lifecycle: (_) => _json(_),
       RecoveryPointTags: (_) => _json(_),
       ResourceArn: [],
@@ -2083,6 +2139,31 @@ export const se_UpdateGlobalSettingsCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateRecoveryPointIndexSettingsCommand
+ */
+export const se_UpdateRecoveryPointIndexSettingsCommand = async (
+  input: UpdateRecoveryPointIndexSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/index");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
+  b.p("RecoveryPointArn", () => input.RecoveryPointArn!, "{RecoveryPointArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      IamRoleArn: [],
+      Index: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -2835,6 +2916,8 @@ export const de_DescribeRecoveryPointCommand = async (
     CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EncryptionKeyArn: __expectString,
     IamRoleArn: __expectString,
+    IndexStatus: __expectString,
+    IndexStatusMessage: __expectString,
     IsEncrypted: __expectBoolean,
     IsParent: __expectBoolean,
     LastRestoreTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -3186,6 +3269,35 @@ export const de_GetLegalHoldCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetRecoveryPointIndexDetailsCommand
+ */
+export const de_GetRecoveryPointIndexDetailsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRecoveryPointIndexDetailsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupVaultArn: __expectString,
+    IndexCompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IndexCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IndexDeletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IndexStatus: __expectString,
+    IndexStatusMessage: __expectString,
+    RecoveryPointArn: __expectString,
+    SourceResourceArn: __expectString,
+    TotalItemsIndexed: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommand
  */
 export const de_GetRecoveryPointRestoreMetadataCommand = async (
@@ -3531,6 +3643,28 @@ export const de_ListFrameworksCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Frameworks: (_) => de_FrameworkList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListIndexedRecoveryPointsCommand
+ */
+export const de_ListIndexedRecoveryPointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIndexedRecoveryPointsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    IndexedRecoveryPoints: (_) => de_IndexedRecoveryPointList(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -4120,6 +4254,30 @@ export const de_UpdateGlobalSettingsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateRecoveryPointIndexSettingsCommand
+ */
+export const de_UpdateRecoveryPointIndexSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRecoveryPointIndexSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupVaultName: __expectString,
+    Index: __expectString,
+    IndexStatus: __expectString,
+    RecoveryPointArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateRecoveryPointLifecycleCommand
  */
 export const de_UpdateRecoveryPointLifecycleCommand = async (
@@ -4566,6 +4724,10 @@ const se_DateRange = (input: DateRange, context: __SerdeContext): any => {
 
 // se_GlobalSettings omitted.
 
+// se_IndexAction omitted.
+
+// se_IndexActions omitted.
+
 // se_KeyValue omitted.
 
 // se_KeyValueList omitted.
@@ -4602,6 +4764,8 @@ const se_RecoveryPointSelection = (input: RecoveryPointSelection, context: __Ser
 // se_ResourceTypeManagementPreference omitted.
 
 // se_ResourceTypeOptInPreference omitted.
+
+// se_ResourceTypes omitted.
 
 // se_RestoreTestingPlanForCreate omitted.
 
@@ -4967,6 +5131,39 @@ const de_FrameworkList = (output: any, context: __SerdeContext): Framework[] => 
 
 // de_GlobalSettings omitted.
 
+// de_IndexAction omitted.
+
+// de_IndexActions omitted.
+
+/**
+ * deserializeAws_restJson1IndexedRecoveryPoint
+ */
+const de_IndexedRecoveryPoint = (output: any, context: __SerdeContext): IndexedRecoveryPoint => {
+  return take(output, {
+    BackupCreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    BackupVaultArn: __expectString,
+    IamRoleArn: __expectString,
+    IndexCreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IndexStatus: __expectString,
+    IndexStatusMessage: __expectString,
+    RecoveryPointArn: __expectString,
+    ResourceType: __expectString,
+    SourceResourceArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1IndexedRecoveryPointList
+ */
+const de_IndexedRecoveryPointList = (output: any, context: __SerdeContext): IndexedRecoveryPoint[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IndexedRecoveryPoint(entry, context);
+    });
+  return retVal;
+};
+
 // de_KeyValue omitted.
 
 // de_KeyValueList omitted.
@@ -5047,6 +5244,8 @@ const de_RecoveryPointByBackupVault = (output: any, context: __SerdeContext): Re
     CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EncryptionKeyArn: __expectString,
     IamRoleArn: __expectString,
+    IndexStatus: __expectString,
+    IndexStatusMessage: __expectString,
     IsEncrypted: __expectBoolean,
     IsParent: __expectBoolean,
     LastRestoreTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -5084,6 +5283,8 @@ const de_RecoveryPointByResource = (output: any, context: __SerdeContext): Recov
     BackupVaultName: __expectString,
     CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EncryptionKeyArn: __expectString,
+    IndexStatus: __expectString,
+    IndexStatusMessage: __expectString,
     IsParent: __expectBoolean,
     ParentRecoveryPointArn: __expectString,
     RecoveryPointArn: __expectString,
@@ -5409,10 +5610,13 @@ const _BSyt = "ByStatus";
 const _BVAI = "BackupVaultAccountId";
 const _BVN = "BackupVaultName";
 const _BVT = "ByVaultType";
-const _CA = "CreationAfter";
-const _CB = "CreationBefore";
+const _CA = "CreatedAfter";
+const _CAr = "CreationAfter";
+const _CB = "CreatedBefore";
+const _CBr = "CreationBefore";
 const _CD = "CancelDescription";
 const _ID = "IncludeDeleted";
+const _IS = "IndexStatus";
 const _MBAWSBO = "ManagedByAWSBackupOnly";
 const _MC = "MessageCategory";
 const _MR = "MaxResults";
@@ -5422,6 +5626,7 @@ const _RPN = "ReportPlanName";
 const _RRID = "RetainRecordInDays";
 const _RT = "ResourceType";
 const _S = "State";
+const _SRA = "SourceResourceArn";
 const _St = "Status";
 const _VI = "VersionId";
 const _aI = "accountId";
@@ -5435,6 +5640,7 @@ const _cBo = "completeBefore";
 const _cD = "cancelDescription";
 const _dVA = "destinationVaultArn";
 const _iD = "includeDeleted";
+const _iS = "indexStatus";
 const _mBAWSBO = "managedByAWSBackupOnly";
 const _mC = "messageCategory";
 const _mR = "maxResults";
@@ -5448,6 +5654,7 @@ const _rRID = "retainRecordInDays";
 const _rT = "resourceType";
 const _rTPA = "restoreTestingPlanArn";
 const _s = "state";
+const _sRA = "sourceResourceArn";
 const _sh = "shared";
 const _st = "status";
 const _vI = "versionId";

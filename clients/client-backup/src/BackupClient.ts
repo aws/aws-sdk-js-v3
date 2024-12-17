@@ -165,6 +165,10 @@ import {
 } from "./commands/GetBackupVaultNotificationsCommand";
 import { GetLegalHoldCommandInput, GetLegalHoldCommandOutput } from "./commands/GetLegalHoldCommand";
 import {
+  GetRecoveryPointIndexDetailsCommandInput,
+  GetRecoveryPointIndexDetailsCommandOutput,
+} from "./commands/GetRecoveryPointIndexDetailsCommand";
+import {
   GetRecoveryPointRestoreMetadataCommandInput,
   GetRecoveryPointRestoreMetadataCommandOutput,
 } from "./commands/GetRecoveryPointRestoreMetadataCommand";
@@ -213,6 +217,10 @@ import {
   ListCopyJobSummariesCommandOutput,
 } from "./commands/ListCopyJobSummariesCommand";
 import { ListFrameworksCommandInput, ListFrameworksCommandOutput } from "./commands/ListFrameworksCommand";
+import {
+  ListIndexedRecoveryPointsCommandInput,
+  ListIndexedRecoveryPointsCommandOutput,
+} from "./commands/ListIndexedRecoveryPointsCommand";
 import { ListLegalHoldsCommandInput, ListLegalHoldsCommandOutput } from "./commands/ListLegalHoldsCommand";
 import {
   ListProtectedResourcesByBackupVaultCommandInput,
@@ -283,6 +291,10 @@ import {
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand";
+import {
+  UpdateRecoveryPointIndexSettingsCommandInput,
+  UpdateRecoveryPointIndexSettingsCommandOutput,
+} from "./commands/UpdateRecoveryPointIndexSettingsCommand";
 import {
   UpdateRecoveryPointLifecycleCommandInput,
   UpdateRecoveryPointLifecycleCommandOutput,
@@ -357,6 +369,7 @@ export type ServiceInputTypes =
   | GetBackupVaultAccessPolicyCommandInput
   | GetBackupVaultNotificationsCommandInput
   | GetLegalHoldCommandInput
+  | GetRecoveryPointIndexDetailsCommandInput
   | GetRecoveryPointRestoreMetadataCommandInput
   | GetRestoreJobMetadataCommandInput
   | GetRestoreTestingInferredMetadataCommandInput
@@ -373,6 +386,7 @@ export type ServiceInputTypes =
   | ListCopyJobSummariesCommandInput
   | ListCopyJobsCommandInput
   | ListFrameworksCommandInput
+  | ListIndexedRecoveryPointsCommandInput
   | ListLegalHoldsCommandInput
   | ListProtectedResourcesByBackupVaultCommandInput
   | ListProtectedResourcesCommandInput
@@ -401,6 +415,7 @@ export type ServiceInputTypes =
   | UpdateBackupPlanCommandInput
   | UpdateFrameworkCommandInput
   | UpdateGlobalSettingsCommandInput
+  | UpdateRecoveryPointIndexSettingsCommandInput
   | UpdateRecoveryPointLifecycleCommandInput
   | UpdateRegionSettingsCommandInput
   | UpdateReportPlanCommandInput
@@ -453,6 +468,7 @@ export type ServiceOutputTypes =
   | GetBackupVaultAccessPolicyCommandOutput
   | GetBackupVaultNotificationsCommandOutput
   | GetLegalHoldCommandOutput
+  | GetRecoveryPointIndexDetailsCommandOutput
   | GetRecoveryPointRestoreMetadataCommandOutput
   | GetRestoreJobMetadataCommandOutput
   | GetRestoreTestingInferredMetadataCommandOutput
@@ -469,6 +485,7 @@ export type ServiceOutputTypes =
   | ListCopyJobSummariesCommandOutput
   | ListCopyJobsCommandOutput
   | ListFrameworksCommandOutput
+  | ListIndexedRecoveryPointsCommandOutput
   | ListLegalHoldsCommandOutput
   | ListProtectedResourcesByBackupVaultCommandOutput
   | ListProtectedResourcesCommandOutput
@@ -497,6 +514,7 @@ export type ServiceOutputTypes =
   | UpdateBackupPlanCommandOutput
   | UpdateFrameworkCommandOutput
   | UpdateGlobalSettingsCommandOutput
+  | UpdateRecoveryPointIndexSettingsCommandOutput
   | UpdateRecoveryPointLifecycleCommandOutput
   | UpdateRegionSettingsCommandOutput
   | UpdateReportPlanCommandOutput

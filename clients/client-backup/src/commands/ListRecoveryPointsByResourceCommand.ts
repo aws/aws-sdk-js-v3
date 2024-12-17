@@ -68,6 +68,8 @@ export interface ListRecoveryPointsByResourceCommandOutput
  * //       ParentRecoveryPointArn: "STRING_VALUE",
  * //       ResourceName: "STRING_VALUE",
  * //       VaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
+ * //       IndexStatus: "PENDING" || "ACTIVE" || "FAILED" || "DELETING",
+ * //       IndexStatusMessage: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

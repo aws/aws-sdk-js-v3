@@ -53,6 +53,7 @@ export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __Met
  *   BackupOptions: { // BackupOptions
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   Index: "ENABLED" || "DISABLED",
  * };
  * const command = new StartBackupJobCommand(input);
  * const response = await client.send(command);

@@ -10,6 +10,7 @@ export * from "./ListBackupVaultsPaginator";
 export * from "./ListCopyJobSummariesPaginator";
 export * from "./ListCopyJobsPaginator";
 export * from "./ListFrameworksPaginator";
+export * from "./ListIndexedRecoveryPointsPaginator";
 export * from "./ListLegalHoldsPaginator";
 export * from "./ListProtectedResourcesByBackupVaultPaginator";
 export * from "./ListProtectedResourcesPaginator";
