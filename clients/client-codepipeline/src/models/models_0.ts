@@ -342,6 +342,9 @@ export interface ActionTypeId {
    *             <li>
    *                <p>Approval</p>
    *             </li>
+   *             <li>
+   *                <p>Compute</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -1861,13 +1864,16 @@ export interface RuleTypeId {
 /**
  * <p>Represents information about the rule to be created for an associated condition. An
  *             example would be creating a new rule for an entry condition, such as a rule that checks
- *             for a test result before allowing the run to enter the deployment stage.</p>
+ *             for a test result before allowing the run to enter the deployment stage. For more
+ *             information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage conditions</a>.
+ *             For more information about rules, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">CodePipeline rule
+ *                 reference</a>.</p>
  * @public
  */
 export interface RuleDeclaration {
   /**
    * <p>The name of the rule that is created for the condition, such as
-   *             CheckAllResults.</p>
+   *                 <code>VariableCheck</code>.</p>
    * @public
    */
   name: string | undefined;
@@ -1884,6 +1890,17 @@ export interface RuleDeclaration {
    * @public
    */
   configuration?: Record<string, string> | undefined;
+
+  /**
+   * <p>The shell commands to run with your commands rule in CodePipeline. All commands
+   *             are supported except multi-line formats. While CodeBuild logs and permissions
+   *             are used, you do not need to create any resources in CodeBuild.</p>
+   *          <note>
+   *             <p>Using compute time for this action will incur separate charges in CodeBuild.</p>
+   *          </note>
+   * @public
+   */
+  commands?: string[] | undefined;
 
   /**
    * <p>The input artifacts fields for the rule, such as specifying an input file for the
@@ -1913,7 +1930,9 @@ export interface RuleDeclaration {
 
 /**
  * <p>The condition for the stage. A condition is made up of the rules and the result for
- *             the condition.</p>
+ *             the condition. For more information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage conditions</a>.
+ *             For more information about rules, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">CodePipeline rule
+ *                 reference</a>.</p>
  * @public
  */
 export interface Condition {
@@ -3033,6 +3052,11 @@ export interface GetActionTypeInput {
    *             <li>
    *                <p>
    *                   <code>Invoke</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Compute</code>
    *                </p>
    *             </li>
    *          </ul>

@@ -130,6 +130,9 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  *                   configuration: { // RuleConfigurationMap
  *                     "<keys>": "STRING_VALUE",
  *                   },
+ *                   commands: [
+ *                     "STRING_VALUE",
+ *                   ],
  *                   inputArtifacts: [
  *                     {
  *                       name: "STRING_VALUE", // required
@@ -159,6 +162,9 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  *                   configuration: {
  *                     "<keys>": "STRING_VALUE",
  *                   },
+ *                   commands: [
+ *                     "STRING_VALUE",
+ *                   ],
  *                   inputArtifacts: [
  *                     {
  *                       name: "STRING_VALUE", // required
@@ -188,6 +194,9 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  *                   configuration: {
  *                     "<keys>": "STRING_VALUE",
  *                   },
+ *                   commands: [
+ *                     "STRING_VALUE",
+ *                   ],
  *                   inputArtifacts: [
  *                     {
  *                       name: "STRING_VALUE", // required
@@ -371,6 +380,9 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * //                   configuration: { // RuleConfigurationMap
  * //                     "<keys>": "STRING_VALUE",
  * //                   },
+ * //                   commands: [
+ * //                     "STRING_VALUE",
+ * //                   ],
  * //                   inputArtifacts: [
  * //                     {
  * //                       name: "STRING_VALUE", // required
@@ -400,6 +412,9 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * //                   configuration: {
  * //                     "<keys>": "STRING_VALUE",
  * //                   },
+ * //                   commands: [
+ * //                     "STRING_VALUE",
+ * //                   ],
  * //                   inputArtifacts: [
  * //                     {
  * //                       name: "STRING_VALUE", // required
@@ -429,6 +444,9 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * //                   configuration: {
  * //                     "<keys>": "STRING_VALUE",
  * //                   },
+ * //                   commands: [
+ * //                     "STRING_VALUE",
+ * //                   ],
  * //                   inputArtifacts: [
  * //                     {
  * //                       name: "STRING_VALUE", // required

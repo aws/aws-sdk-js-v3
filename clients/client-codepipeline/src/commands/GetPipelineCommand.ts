@@ -132,6 +132,9 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * //                   configuration: { // RuleConfigurationMap
  * //                     "<keys>": "STRING_VALUE",
  * //                   },
+ * //                   commands: [
+ * //                     "STRING_VALUE",
+ * //                   ],
  * //                   inputArtifacts: [
  * //                     {
  * //                       name: "STRING_VALUE", // required
@@ -161,6 +164,9 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * //                   configuration: {
  * //                     "<keys>": "STRING_VALUE",
  * //                   },
+ * //                   commands: [
+ * //                     "STRING_VALUE",
+ * //                   ],
  * //                   inputArtifacts: [
  * //                     {
  * //                       name: "STRING_VALUE", // required
@@ -190,6 +196,9 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * //                   configuration: {
  * //                     "<keys>": "STRING_VALUE",
  * //                   },
+ * //                   commands: [
+ * //                     "STRING_VALUE",
+ * //                   ],
  * //                   inputArtifacts: [
  * //                     {
  * //                       name: "STRING_VALUE", // required

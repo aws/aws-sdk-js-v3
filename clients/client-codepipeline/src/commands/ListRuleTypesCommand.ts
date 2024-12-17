@@ -28,7 +28,8 @@ export interface ListRuleTypesCommandInput extends ListRuleTypesInput {}
 export interface ListRuleTypesCommandOutput extends ListRuleTypesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the rules for the condition.</p>
+ * <p>Lists the rules for the condition. For more information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage
+ *                 conditions</a>. For more information about rules, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">CodePipeline rule reference</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
