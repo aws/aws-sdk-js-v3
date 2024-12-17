@@ -2852,7 +2852,7 @@ export interface CustomOriginConfig {
    * 			also known as the <i>origin response timeout</i>. The minimum timeout is 1
    * 			second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is
    * 			30 seconds.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout">Origin Response Timeout</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout">Response timeout (custom origins only)</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
@@ -2862,7 +2862,7 @@ export interface CustomOriginConfig {
    * <p>Specifies how long, in seconds, CloudFront persists its connection to the origin. The
    * 			minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't
    * 			specify otherwise) is 5 seconds.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout">Origin Keep-alive Timeout</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout">Keep-alive timeout (custom origins only)</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
@@ -2949,6 +2949,27 @@ export interface VpcOriginConfig {
    * @public
    */
   VpcOriginId: string | undefined;
+
+  /**
+   * <p>Specifies how long, in seconds, CloudFront waits for a response from the origin. This is
+   * 			also known as the <i>origin response timeout</i>. The minimum timeout is 1
+   * 			second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is
+   * 			30 seconds.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout">Response timeout (custom origins only)</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * @public
+   */
+  OriginReadTimeout?: number | undefined;
+
+  /**
+   * <p>Specifies how long, in seconds, CloudFront persists its connection to the origin. The
+   * 			minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't
+   * 			specify otherwise) is 5 seconds.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout">Keep-alive timeout (custom origins only)</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * @public
+   */
+  OriginKeepaliveTimeout?: number | undefined;
 }
 
 /**
@@ -3488,13 +3509,18 @@ export interface DistributionConfig {
   Aliases?: Aliases | undefined;
 
   /**
-   * <p>The object that you want CloudFront to request from your origin (for example,
-   * 				<code>index.html</code>) when a viewer requests the root URL for your distribution
-   * 				(<code>https://www.example.com</code>) instead of an object in your distribution
-   * 				(<code>https://www.example.com/product-description.html</code>). Specifying a
-   * 			default root object avoids exposing the contents of your distribution.</p>
-   *          <p>Specify only the object name, for example, <code>index.html</code>. Don't add a
-   * 				<code>/</code> before the object name.</p>
+   * <p>When a viewer requests the root URL for your distribution, the default root object is the
+   * 			object that you want CloudFront to request from your origin. For example, if your root URL is
+   * 				<code>https://www.example.com</code>, you can specify CloudFront to return the
+   * 				<code>index.html</code> file as the default root object. You can specify a default
+   * 			root object so that viewers see a specific file or object, instead of  another object in
+   * 			your distribution (for example,
+   * 				<code>https://www.example.com/product-description.html</code>). A default root
+   * 			object avoids exposing the contents of your distribution.</p>
+   *          <p>You can specify the object name or a path to the object name (for example,
+   * 				<code>index.html</code> or <code>exampleFolderName/index.html</code>). Your string
+   * 			can't begin with a forward slash (<code>/</code>). Only specify the object name or the
+   * 			path to the object.</p>
    *          <p>If you don't want to specify a default root object when you create a distribution,
    * 			include an empty <code>DefaultRootObject</code> element.</p>
    *          <p>To delete the default root object from an existing distribution, update the
@@ -3502,8 +3528,7 @@ export interface DistributionConfig {
    * 			element.</p>
    *          <p>To replace the default root object, update the distribution configuration and specify
    * 			the new object.</p>
-   *          <p>For more information about the default root object, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html">Creating a
-   * 				Default Root Object</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   *          <p>For more information about the default root object, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html">Specify a default root object</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    * @public
    */
   DefaultRootObject?: string | undefined;

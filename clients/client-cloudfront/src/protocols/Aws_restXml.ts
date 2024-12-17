@@ -11029,6 +11029,12 @@ const se_VpcOriginConfig = (input: VpcOriginConfig, context: __SerdeContext): an
   if (input[_VOI] != null) {
     bn.c(__XmlNode.of(_st, input[_VOI]).n(_VOI));
   }
+  if (input[_ORT] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_ORT])).n(_ORT));
+  }
+  if (input[_OKT] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_OKT])).n(_OKT));
+  }
   return bn;
 };
 
@@ -15055,6 +15061,12 @@ const de_VpcOriginConfig = (output: any, context: __SerdeContext): VpcOriginConf
   const contents: any = {};
   if (output[_VOI] != null) {
     contents[_VOI] = __expectString(output[_VOI]);
+  }
+  if (output[_ORT] != null) {
+    contents[_ORT] = __strictParseInt32(output[_ORT]) as number;
+  }
+  if (output[_OKT] != null) {
+    contents[_OKT] = __strictParseInt32(output[_OKT]) as number;
   }
   return contents;
 };

@@ -115,6 +115,8 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //               },
  * //               VpcOriginConfig: { // VpcOriginConfig
  * //                 VpcOriginId: "STRING_VALUE", // required
+ * //                 OriginReadTimeout: Number("int"),
+ * //                 OriginKeepaliveTimeout: Number("int"),
  * //               },
  * //               ConnectionAttempts: Number("int"),
  * //               ConnectionTimeout: Number("int"),
