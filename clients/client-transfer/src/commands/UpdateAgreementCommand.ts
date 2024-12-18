@@ -46,6 +46,8 @@ export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, _
  *   PartnerProfileId: "STRING_VALUE",
  *   BaseDirectory: "STRING_VALUE",
  *   AccessRole: "STRING_VALUE",
+ *   PreserveFilename: "ENABLED" || "DISABLED",
+ *   EnforceMessageSigning: "ENABLED" || "DISABLED",
  * };
  * const command = new UpdateAgreementCommand(input);
  * const response = await client.send(command);

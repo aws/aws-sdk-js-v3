@@ -58,6 +58,8 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementRespons
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     PreserveFilename: "ENABLED" || "DISABLED",
+ * //     EnforceMessageSigning: "ENABLED" || "DISABLED",
  * //   },
  * // };
  *

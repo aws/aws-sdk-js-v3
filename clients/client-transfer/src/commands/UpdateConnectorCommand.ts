@@ -50,6 +50,7 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *     MdnSigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE" || "DEFAULT",
  *     MdnResponse: "SYNC" || "NONE",
  *     BasicAuthSecretId: "STRING_VALUE",
+ *     PreserveContentType: "ENABLED" || "DISABLED",
  *   },
  *   AccessRole: "STRING_VALUE",
  *   LoggingRole: "STRING_VALUE",

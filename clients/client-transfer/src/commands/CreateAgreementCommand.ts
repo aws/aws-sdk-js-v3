@@ -54,6 +54,8 @@ export interface CreateAgreementCommandOutput extends CreateAgreementResponse, _
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   PreserveFilename: "ENABLED" || "DISABLED",
+ *   EnforceMessageSigning: "ENABLED" || "DISABLED",
  * };
  * const command = new CreateAgreementCommand(input);
  * const response = await client.send(command);

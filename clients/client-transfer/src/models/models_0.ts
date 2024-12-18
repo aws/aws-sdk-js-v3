@@ -29,6 +29,34 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * @enum
  */
+export const EnforceMessageSigningType = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type EnforceMessageSigningType = (typeof EnforceMessageSigningType)[keyof typeof EnforceMessageSigningType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreserveFilenameType = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type PreserveFilenameType = (typeof PreserveFilenameType)[keyof typeof PreserveFilenameType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AgreementStatusType = {
   ACTIVE: "ACTIVE",
   INACTIVE: "INACTIVE",
@@ -142,6 +170,44 @@ export interface CreateAgreementRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>
+   *     Determines whether or not Transfer Family appends a unique string of characters to the end of the AS2 message payload
+   *     filename when saving it.
+   *  </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: the filename provided by your trading parter is preserved when the file is saved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> (default value): when Transfer Family  saves the file, the filename is adjusted, as
+   *       described in <a href="https://docs.aws.amazon.com/transfer/latest/userguide/send-as2-messages.html#file-names-as2">File names and locations</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PreserveFilename?: PreserveFilenameType | undefined;
+
+  /**
+   * <p>
+   *      Determines whether or not unsigned messages from your trading partners will be accepted.
+   *   </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: Transfer Family rejects unsigned messages from your trading partner.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> (default value): Transfer Family accepts unsigned messages from your trading partner.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EnforceMessageSigning?: EnforceMessageSigningType | undefined;
 }
 
 /**
@@ -425,6 +491,44 @@ export interface DescribedAgreement {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>
+   *     Determines whether or not Transfer Family appends a unique string of characters to the end of the AS2 message payload
+   *     filename when saving it.
+   *  </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: the filename provided by your trading parter is preserved when the file is saved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> (default value): when Transfer Family  saves the file, the filename is adjusted, as
+   *       described in <a href="https://docs.aws.amazon.com/transfer/latest/userguide/send-as2-messages.html#file-names-as2">File names and locations</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PreserveFilename?: PreserveFilenameType | undefined;
+
+  /**
+   * <p>
+   *      Determines whether or not unsigned messages from your trading partners will be accepted.
+   *   </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: Transfer Family rejects unsigned messages from your trading partner.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> (default value): Transfer Family accepts unsigned messages from your trading partner.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EnforceMessageSigning?: EnforceMessageSigningType | undefined;
 }
 
 /**
@@ -638,6 +742,44 @@ export interface UpdateAgreementRequest {
    * @public
    */
   AccessRole?: string | undefined;
+
+  /**
+   * <p>
+   *     Determines whether or not Transfer Family appends a unique string of characters to the end of the AS2 message payload
+   *     filename when saving it.
+   *  </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: the filename provided by your trading parter is preserved when the file is saved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> (default value): when Transfer Family  saves the file, the filename is adjusted, as
+   *       described in <a href="https://docs.aws.amazon.com/transfer/latest/userguide/send-as2-messages.html#file-names-as2">File names and locations</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PreserveFilename?: PreserveFilenameType | undefined;
+
+  /**
+   * <p>
+   *      Determines whether or not unsigned messages from your trading partners will be accepted.
+   *   </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: Transfer Family rejects unsigned messages from your trading partner.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> (default value): Transfer Family accepts unsigned messages from your trading partner.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EnforceMessageSigning?: EnforceMessageSigningType | undefined;
 }
 
 /**
@@ -713,6 +855,20 @@ export const MdnSigningAlg = {
  * @public
  */
 export type MdnSigningAlg = (typeof MdnSigningAlg)[keyof typeof MdnSigningAlg];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreserveContentType = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type PreserveContentType = (typeof PreserveContentType)[keyof typeof PreserveContentType];
 
 /**
  * @public
@@ -838,6 +994,14 @@ export interface As2ConnectorConfig {
    * @public
    */
   BasicAuthSecretId?: string | undefined;
+
+  /**
+   * <p>Allows you to use the Amazon S3 <code>Content-Type</code> that is associated with objects in S3 instead of
+   *           having the content type mapped based on the file extension. This parameter is enabled by default when you create an AS2 connector
+   *           from the console, but disabled by default when you create an AS2 connector by calling the API directly.</p>
+   * @public
+   */
+  PreserveContentType?: PreserveContentType | undefined;
 }
 
 /**
@@ -957,9 +1121,7 @@ export interface DescribedCertificate {
   Usage?: CertificateUsageType | undefined;
 
   /**
-   * <p>The certificate can be either <code>ACTIVE</code>, <code>PENDING_ROTATION</code>, or
-   *         <code>INACTIVE</code>. <code>PENDING_ROTATION</code> means that this certificate will
-   *       replace the current certificate when it expires.</p>
+   * <p>Currently, the only available status is <code>ACTIVE</code>: all other values are reserved for future use.</p>
    * @public
    */
   Status?: CertificateStatusType | undefined;
