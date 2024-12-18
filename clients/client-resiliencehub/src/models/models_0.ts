@@ -568,6 +568,26 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * <p>Indicates the Amazon CloudWatch alarm detected while running an assessment.</p>
+ * @public
+ */
+export interface Alarm {
+  /**
+   * <p>Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.</p>
+   * @public
+   */
+  alarmArn?: string | undefined;
+
+  /**
+   * <p>Indicates the source of the Amazon CloudWatch alarm. That is, it indicates if the
+   *       alarm was created using Resilience Hub recommendation (<code>AwsResilienceHub</code>),
+   *       or if you had created the alarm in Amazon CloudWatch (<code>Customer</code>).</p>
+   * @public
+   */
+  source?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -582,6 +602,24 @@ export const ExcludeRecommendationReason = {
  */
 export type ExcludeRecommendationReason =
   (typeof ExcludeRecommendationReason)[keyof typeof ExcludeRecommendationReason];
+
+/**
+ * <p>Indicates the FIS experiment detected while running an assessment.</p>
+ * @public
+ */
+export interface Experiment {
+  /**
+   * <p>Amazon Resource Name (ARN) of the FIS experiment.</p>
+   * @public
+   */
+  experimentArn?: string | undefined;
+
+  /**
+   * <p>Identifier of the FIS experiment template.</p>
+   * @public
+   */
+  experimentTemplateId?: string | undefined;
+}
 
 /**
  * <p>Defines a recommendation.</p>
@@ -623,6 +661,18 @@ export interface RecommendationItem {
    * @public
    */
   excludeReason?: ExcludeRecommendationReason | undefined;
+
+  /**
+   * <p>Indicates the experiment created in FIS that was discovered by Resilience Hub, which matches the recommendation.</p>
+   * @public
+   */
+  latestDiscoveredExperiment?: Experiment | undefined;
+
+  /**
+   * <p>Indicates the previously implemented Amazon CloudWatch alarm discovered by Resilience Hub.</p>
+   * @public
+   */
+  discoveredAlarm?: Alarm | undefined;
 }
 
 /**
@@ -853,7 +903,10 @@ export interface PermissionModel {
    * <p>Existing Amazon Web Services
    *       IAM role name in the primary Amazon Web Services account that will be assumed by
    *         Resilience Hub Service Principle to obtain a read-only access to your application
-   *       resources while running an assessment.</p>
+   *       resources while running an assessment. </p>
+   *          <p>If your IAM role includes a path, you must include the path in the <code>invokerRoleName</code> parameter.
+   *       For example, if your IAM role's ARN is <code>arn:aws:iam:123456789012:role/my-path/role-name</code>, you should pass <code>my-path/role-name</code>.
+   *     </p>
    *          <note>
    *             <ul>
    *                <li>
@@ -1492,8 +1545,7 @@ export interface ResourceErrorsDetails {
   resourceErrors?: ResourceError[] | undefined;
 
   /**
-   * <p> This indicates if there are more errors not listed in the
-   *         <code>resourceErrors</code>
+   * <p> This indicates if there are more errors not listed in the <code>resourceErrors</code>
    *       list. </p>
    * @public
    */
@@ -1535,7 +1587,7 @@ export interface AssessmentRiskRecommendation {
 
   /**
    * <p>Indicates the Application Components (AppComponents) that were assessed as part of the
-   *       assessnent and are associated with the identified risk and recommendation.</p>
+   *       assessment and are associated with the identified risk and recommendation.</p>
    *          <note>
    *             <p>This property is available only in the US East (N. Virginia) Region.</p>
    *          </note>
@@ -1774,8 +1826,7 @@ export interface AppAssessmentSummary {
   assessmentArn: string | undefined;
 
   /**
-   * <p>Current
-   *       status of compliance for the resiliency policy.</p>
+   * <p>Current status of compliance for the resiliency policy.</p>
    * @public
    */
   complianceStatus?: ComplianceStatus | undefined;
@@ -2145,6 +2196,12 @@ export interface UpdateRecommendationStatusRequestEntry {
   excluded: boolean | undefined;
 
   /**
+   * <p>Indicates the identifier of the AppComponent.</p>
+   * @public
+   */
+  appComponentId?: string | undefined;
+
+  /**
    * <p>Indicates the reason for excluding an operational recommendation.</p>
    * @public
    */
@@ -2225,6 +2282,12 @@ export interface BatchUpdateRecommendationStatusSuccessfulEntry {
    * @public
    */
   excluded: boolean | undefined;
+
+  /**
+   * <p>Indicates the identifier of an AppComponent.</p>
+   * @public
+   */
+  appComponentId?: string | undefined;
 
   /**
    * <p>Indicates the reason for excluding an operational recommendation.</p>
@@ -4491,7 +4554,7 @@ export interface ComplianceDrift {
   /**
    * <p>Difference type between actual and expected recovery point objective (RPO) and recovery
    *       time objective (RTO) values. Currently, Resilience Hub supports only
-   *           <code>NotEqual</code> difference type.</p>
+   *         <code>NotEqual</code> difference type.</p>
    * @public
    */
   diffType?: DifferenceType | undefined;
@@ -6081,6 +6144,12 @@ export interface TestRecommendation {
    * @public
    */
   referenceId: string | undefined;
+
+  /**
+   * <p>Indicates the identifier of the AppComponent.</p>
+   * @public
+   */
+  appComponentId?: string | undefined;
 
   /**
    * <p>Name of the Application Component.</p>

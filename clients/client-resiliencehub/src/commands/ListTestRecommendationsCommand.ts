@@ -48,6 +48,7 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  * //     { // TestRecommendation
  * //       recommendationId: "STRING_VALUE",
  * //       referenceId: "STRING_VALUE", // required
+ * //       appComponentId: "STRING_VALUE",
  * //       appComponentName: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //       intent: "STRING_VALUE",
@@ -62,6 +63,14 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  * //           alreadyImplemented: true || false,
  * //           excluded: true || false,
  * //           excludeReason: "AlreadyImplemented" || "NotRelevant" || "ComplexityOfImplementation",
+ * //           latestDiscoveredExperiment: { // Experiment
+ * //             experimentArn: "STRING_VALUE",
+ * //             experimentTemplateId: "STRING_VALUE",
+ * //           },
+ * //           discoveredAlarm: { // Alarm
+ * //             alarmArn: "STRING_VALUE",
+ * //             source: "STRING_VALUE",
+ * //           },
  * //         },
  * //       ],
  * //       prerequisite: "STRING_VALUE",

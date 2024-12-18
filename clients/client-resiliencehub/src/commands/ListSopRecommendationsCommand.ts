@@ -59,6 +59,14 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  * //           alreadyImplemented: true || false,
  * //           excluded: true || false,
  * //           excludeReason: "AlreadyImplemented" || "NotRelevant" || "ComplexityOfImplementation",
+ * //           latestDiscoveredExperiment: { // Experiment
+ * //             experimentArn: "STRING_VALUE",
+ * //             experimentTemplateId: "STRING_VALUE",
+ * //           },
+ * //           discoveredAlarm: { // Alarm
+ * //             alarmArn: "STRING_VALUE",
+ * //             source: "STRING_VALUE",
+ * //           },
  * //         },
  * //       ],
  * //       referenceId: "STRING_VALUE", // required
