@@ -583,8 +583,7 @@ export type EfsInTransitEncryption = (typeof EfsInTransitEncryption)[keyof typeo
  */
 export interface CreateLocationEfsRequest {
   /**
-   * <p>Specifies a mount path for your Amazon EFS file system. This is where DataSync reads or writes data (depending on if this is a source or destination location)
-   *       on your file system.</p>
+   * <p>Specifies a mount path for your Amazon EFS file system. This is where DataSync reads or writes data on your file system (depending on if this is a source or destination location).</p>
    *          <p>By default, DataSync uses the root directory (or <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">access point</a> if you provide one by using
    *         <code>AccessPointArn</code>). You can also include subdirectories using forward slashes (for
    *       example, <code>/path/to/folder</code>).</p>
@@ -657,30 +656,32 @@ export interface CreateLocationEfsResponse {
  */
 export interface CreateLocationFsxLustreRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for the FSx for Lustre file system.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the FSx for Lustre file system.</p>
    * @public
    */
   FsxFilesystemArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the security groups that are used to configure the
+   * <p>Specifies the Amazon Resource Names (ARNs) of up to five security groups that provide access to your
    *         FSx for Lustre file system.</p>
+   *          <p>The security groups must be able to access the file system's ports. The file system must
+   *       also allow access from the security groups. For information about file system access, see the
+   *       <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/limit-access-security-groups.html">
+   *                <i>Amazon FSx for Lustre User Guide</i>
+   *             </a>.</p>
    * @public
    */
   SecurityGroupArns: string[] | undefined;
 
   /**
-   * <p>A subdirectory in the location's path. This subdirectory in the FSx for Lustre
-   *       file system is used to read data from the FSx for Lustre source location or write
-   *       data to the FSx for Lustre destination.</p>
+   * <p>Specifies a mount path for your FSx for Lustre file system. The path can include subdirectories.</p>
+   *          <p>When the location is used as a source, DataSync reads data from the mount path. When the location is used as a destination, DataSync writes data to the mount path. If you don't include this parameter, DataSync uses the file system's root directory (<code>/</code>).</p>
    * @public
    */
   Subdirectory?: string | undefined;
 
   /**
-   * <p>The key-value pair that represents a tag that you want to add to the resource. The value
-   *       can be an empty string. This value helps you manage, filter, and search for your resources. We
-   *       recommend that you create a name tag for your location.</p>
+   * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources. We recommend creating at least a name tag for your location.</p>
    * @public
    */
   Tags?: TagListEntry[] | undefined;
@@ -691,8 +692,8 @@ export interface CreateLocationFsxLustreRequest {
  */
 export interface CreateLocationFsxLustreResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the FSx for Lustre file system location that's
-   *       created. </p>
+   * <p>The Amazon Resource Name (ARN) of the FSx for Lustre file system location that
+   *       you created. </p>
    * @public
    */
   LocationArn?: string | undefined;
@@ -755,8 +756,8 @@ export interface NfsMountOptions {
 
 /**
  * <p>Specifies the Network File System (NFS) protocol configuration that DataSync
- *       uses to access your Amazon FSx for OpenZFS or Amazon FSx for NetApp ONTAP file
- *       system.</p>
+ *       uses to access your FSx for OpenZFS file system or FSx for ONTAP file
+ *       system's storage virtual machine (SVM).</p>
  * @public
  */
 export interface FsxProtocolNfs {
@@ -832,16 +833,16 @@ export interface SmbMountOptions {
 }
 
 /**
- * <p>Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your Amazon FSx for NetApp ONTAP file system. For more information, see
- *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access">Accessing FSx for ONTAP file systems</a>.</p>
+ * <p>Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your Amazon FSx for NetApp ONTAP file system's storage virtual machine (SVM). For more information, see
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access">Providing DataSync access to FSx for ONTAP file systems</a>.</p>
  * @public
  */
 export interface FsxProtocolSmb {
   /**
-   * <p>Specifies the fully qualified domain name (FQDN) of the Microsoft Active Directory that
-   *       your storage virtual machine (SVM) belongs to.</p>
+   * <p>Specifies the name of the Windows domain that your storage virtual machine (SVM) belongs to.</p>
    *          <p>If you have multiple domains in your environment, configuring this setting makes sure that
    *       DataSync connects to the right SVM.</p>
+   *          <p>If you have multiple Active Directory domains in your environment, configuring this parameter makes sure that DataSync connects to the right SVM.</p>
    * @public
    */
   Domain?: string | undefined;
@@ -930,7 +931,7 @@ export interface CreateLocationFsxOntapRequest {
   StorageVirtualMachineArn: string | undefined;
 
   /**
-   * <p>Specifies a path to the file share in the SVM where you'll copy your data.</p>
+   * <p>Specifies a path to the file share in the SVM where you want to transfer data to or from.</p>
    *          <p>You can specify a junction path (also known as a mount point), qtree path (for NFS file
    *       shares), or share name (for SMB file shares). For example, your mount path might be
    *         <code>/vol1</code>, <code>/vol1/tree1</code>, or <code>/share1</code>.</p>
@@ -1069,7 +1070,7 @@ export interface CreateLocationFsxWindowsRequest {
   User: string | undefined;
 
   /**
-   * <p>Specifies the name of the Microsoft Active Directory domain that the FSx for Windows File Server file system belongs to.</p>
+   * <p>Specifies the name of the Windows domain that the FSx for Windows File Server file system belongs to.</p>
    *          <p>If you have multiple Active Directory domains in your environment, configuring this
    *       parameter makes sure that DataSync connects to the right file system.</p>
    * @public
@@ -1515,8 +1516,7 @@ export interface CreateLocationObjectStorageResponse {
 
 /**
  * <p>Specifies the Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Accessing
- *         S3 buckets</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Providing DataSync access to S3 buckets</a>.</p>
  * @public
  */
 export interface S3Config {
@@ -1612,8 +1612,7 @@ export interface CreateLocationS3Request {
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Accessing
-   *         S3 buckets</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Providing DataSync access to S3 buckets</a>.</p>
    * @public
    */
   S3Config: S3Config | undefined;
@@ -3661,8 +3660,7 @@ export interface DescribeLocationS3Response {
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Accessing
-   *         S3 buckets</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Providing DataSync access to S3 buckets</a>.</p>
    * @public
    */
   S3Config?: S3Config | undefined;
@@ -6196,6 +6194,247 @@ export interface UpdateLocationAzureBlobResponse {}
 /**
  * @public
  */
+export interface UpdateLocationEfsRequest {
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the Amazon EFS transfer location that you're updating.</p>
+   * @public
+   */
+  LocationArn: string | undefined;
+
+  /**
+   * <p>Specifies a mount path for your Amazon EFS file system. This is where DataSync reads or writes data on your file system (depending on if this is a source or destination location).</p>
+   *          <p>By default, DataSync uses the root directory (or <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">access point</a> if you provide one by using
+   *       <code>AccessPointArn</code>). You can also include subdirectories using forward slashes (for
+   *       example, <code>/path/to/folder</code>).</p>
+   * @public
+   */
+  Subdirectory?: string | undefined;
+
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses
+   *       to mount your Amazon EFS file system.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam">Accessing restricted Amazon EFS file systems</a>.</p>
+   * @public
+   */
+  AccessPointArn?: string | undefined;
+
+  /**
+   * <p>Specifies an Identity and Access Management (IAM) role that allows DataSync to access your Amazon EFS file system.</p>
+   *          <p>For information on creating this role, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam-role">Creating a DataSync IAM role for Amazon EFS file system access</a>.</p>
+   * @public
+   */
+  FileSystemAccessRoleArn?: string | undefined;
+
+  /**
+   * <p>Specifies whether you want DataSync to use Transport Layer Security (TLS) 1.2
+   *       encryption when it transfers data to or from your Amazon EFS file system.</p>
+   *          <p>If you specify an access point using <code>AccessPointArn</code> or an IAM
+   *       role using <code>FileSystemAccessRoleArn</code>, you must set this parameter to
+   *       <code>TLS1_2</code>.</p>
+   * @public
+   */
+  InTransitEncryption?: EfsInTransitEncryption | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLocationEfsResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateLocationFsxLustreRequest {
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the FSx for Lustre transfer location that you're updating.</p>
+   * @public
+   */
+  LocationArn: string | undefined;
+
+  /**
+   * <p>Specifies a mount path for your FSx for Lustre file system. The path can include subdirectories.</p>
+   *          <p>When the location is used as a source, DataSync reads data from the mount path. When the location is used as a destination, DataSync writes data to the mount path. If you don't include this parameter, DataSync uses the file system's root directory (<code>/</code>).</p>
+   * @public
+   */
+  Subdirectory?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLocationFsxLustreResponse {}
+
+/**
+ * <p>Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your Amazon FSx for NetApp ONTAP file system's storage virtual machine (SVM). For more information, see
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access">Providing DataSync access to FSx for ONTAP file systems</a>.</p>
+ * @public
+ */
+export interface FsxUpdateProtocolSmb {
+  /**
+   * <p>Specifies the name of the Windows domain that your storage virtual machine (SVM) belongs to.</p>
+   *          <p>If you have multiple Active Directory domains in your environment, configuring this parameter makes sure that DataSync connects to the right SVM.</p>
+   * @public
+   */
+  Domain?: string | undefined;
+
+  /**
+   * <p>Specifies the version of the Server Message Block (SMB) protocol that DataSync uses to access an SMB file server.</p>
+   * @public
+   */
+  MountOptions?: SmbMountOptions | undefined;
+
+  /**
+   * <p>Specifies the password of a user who has permission to access your SVM.</p>
+   * @public
+   */
+  Password?: string | undefined;
+
+  /**
+   * <p>Specifies a user that can mount and access the files, folders, and metadata in your SVM.</p>
+   *          <p>For information about choosing a user with the right level of access for your transfer, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-smb">Using
+   *       the SMB protocol</a>.</p>
+   * @public
+   */
+  User?: string | undefined;
+}
+
+/**
+ * <p>Specifies the data transfer protocol that DataSync uses to access your
+ *       Amazon FSx file system.</p>
+ *          <note>
+ *             <p>You can't update the Network File System (NFS) protocol configuration for FSx for ONTAP locations. DataSync currently only supports NFS version 3 with this location type.</p>
+ *          </note>
+ * @public
+ */
+export interface FsxUpdateProtocol {
+  /**
+   * <p>Specifies the Network File System (NFS) protocol configuration that DataSync
+   *       uses to access your FSx for OpenZFS file system or FSx for ONTAP file
+   *       system's storage virtual machine (SVM).</p>
+   * @public
+   */
+  NFS?: FsxProtocolNfs | undefined;
+
+  /**
+   * <p>Specifies the Server Message Block (SMB) protocol configuration that DataSync
+   *       uses to access your FSx for ONTAP file system's storage virtual machine (SVM).</p>
+   * @public
+   */
+  SMB?: FsxUpdateProtocolSmb | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLocationFsxOntapRequest {
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the FSx for ONTAP transfer location that you're updating.</p>
+   * @public
+   */
+  LocationArn: string | undefined;
+
+  /**
+   * <p>Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.</p>
+   * @public
+   */
+  Protocol?: FsxUpdateProtocol | undefined;
+
+  /**
+   * <p>Specifies a path to the file share in the storage virtual machine (SVM) where you want to transfer data to or from.</p>
+   *          <p>You can specify a junction path (also known as a mount point), qtree path (for NFS file
+   *       shares), or share name (for SMB file shares). For example, your mount path might be
+   *       <code>/vol1</code>, <code>/vol1/tree1</code>, or <code>/share1</code>.</p>
+   *          <note>
+   *             <p>Don't specify a junction path in the SVM's root volume. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing FSx for ONTAP storage virtual machines</a> in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  Subdirectory?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLocationFsxOntapResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateLocationFsxOpenZfsRequest {
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the FSx for OpenZFS transfer location that you're updating.</p>
+   * @public
+   */
+  LocationArn: string | undefined;
+
+  /**
+   * <p>Specifies the data transfer protocol that DataSync uses to access your
+   *         Amazon FSx file system.</p>
+   * @public
+   */
+  Protocol?: FsxProtocol | undefined;
+
+  /**
+   * <p>Specifies a subdirectory in the location's path that must begin with <code>/fsx</code>. DataSync uses this subdirectory to read or write data (depending on whether the file
+   *       system is a source or destination location).</p>
+   * @public
+   */
+  Subdirectory?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLocationFsxOpenZfsResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateLocationFsxWindowsRequest {
+  /**
+   * <p>Specifies the ARN of the FSx for Windows File Server transfer location that you're updating.</p>
+   * @public
+   */
+  LocationArn: string | undefined;
+
+  /**
+   * <p>Specifies a mount path for your file system using forward slashes. DataSync uses this subdirectory to read or write data (depending on whether the file
+   *       system is a source or destination location).</p>
+   * @public
+   */
+  Subdirectory?: string | undefined;
+
+  /**
+   * <p>Specifies the name of the Windows domain that your FSx for Windows File Server file system belongs to.</p>
+   *          <p>If you have multiple Active Directory domains in your environment, configuring this parameter makes sure that DataSync connects to the right file system.</p>
+   * @public
+   */
+  Domain?: string | undefined;
+
+  /**
+   * <p>Specifies the user with the permissions to mount and access the files, folders, and file
+   *       metadata in your FSx for Windows File Server file system.</p>
+   *          <p>For information about choosing a user with the right level of access for your transfer, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">required permissions</a> for FSx for Windows File Server locations.</p>
+   * @public
+   */
+  User?: string | undefined;
+
+  /**
+   * <p>Specifies the password of the user with the permissions to mount and access the files,
+   *       folders, and file metadata in your FSx for Windows File Server file system.</p>
+   * @public
+   */
+  Password?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLocationFsxWindowsResponse {}
+
+/**
+ * @public
+ */
 export interface UpdateLocationHdfsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the source HDFS cluster location.</p>
@@ -6418,6 +6657,75 @@ export interface UpdateLocationObjectStorageRequest {
  * @public
  */
 export interface UpdateLocationObjectStorageResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateLocationS3Request {
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the Amazon S3 transfer location that you're updating.</p>
+   * @public
+   */
+  LocationArn: string | undefined;
+
+  /**
+   * <p>Specifies a prefix in the S3 bucket that DataSync  reads from or writes to
+   *       (depending on whether the bucket is a source or destination location).</p>
+   *          <note>
+   *             <p>DataSync can't transfer objects with a prefix that begins with a slash
+   *         (<code>/</code>) or includes <code>//</code>, <code>/./</code>, or
+   *         <code>/../</code> patterns. For example:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *                      <code>/photos</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>photos//2006/January</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>photos/./2006/February</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>photos/../2006/March</code>
+   *                   </p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  Subdirectory?: string | undefined;
+
+  /**
+   * <p>Specifies the storage class that you want your objects to use when Amazon S3 is a
+   *       transfer destination.</p>
+   *          <p>For buckets in Amazon Web Services Regions, the storage class defaults to
+   *       <code>STANDARD</code>. For buckets on Outposts, the storage class defaults to
+   *       <code>OUTPOSTS</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage class
+   *       considerations with Amazon S3 transfers</a>.</p>
+   * @public
+   */
+  S3StorageClass?: S3StorageClass | undefined;
+
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Providing DataSync access to S3 buckets</a>.</p>
+   * @public
+   */
+  S3Config?: S3Config | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLocationS3Response {}
 
 /**
  * @public
@@ -6758,6 +7066,46 @@ export const DescribeLocationFsxOpenZfsResponseFilterSensitiveLog = (obj: Descri
 export const UpdateLocationAzureBlobRequestFilterSensitiveLog = (obj: UpdateLocationAzureBlobRequest): any => ({
   ...obj,
   ...(obj.SasConfiguration && { SasConfiguration: AzureBlobSasConfigurationFilterSensitiveLog(obj.SasConfiguration) }),
+});
+
+/**
+ * @internal
+ */
+export const FsxUpdateProtocolSmbFilterSensitiveLog = (obj: FsxUpdateProtocolSmb): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FsxUpdateProtocolFilterSensitiveLog = (obj: FsxUpdateProtocol): any => ({
+  ...obj,
+  ...(obj.SMB && { SMB: FsxUpdateProtocolSmbFilterSensitiveLog(obj.SMB) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateLocationFsxOntapRequestFilterSensitiveLog = (obj: UpdateLocationFsxOntapRequest): any => ({
+  ...obj,
+  ...(obj.Protocol && { Protocol: FsxUpdateProtocolFilterSensitiveLog(obj.Protocol) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateLocationFsxOpenZfsRequestFilterSensitiveLog = (obj: UpdateLocationFsxOpenZfsRequest): any => ({
+  ...obj,
+  ...(obj.Protocol && { Protocol: FsxProtocolFilterSensitiveLog(obj.Protocol) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateLocationFsxWindowsRequestFilterSensitiveLog = (obj: UpdateLocationFsxWindowsRequest): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
 });
 
 /**

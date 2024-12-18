@@ -184,12 +184,30 @@ import {
   UpdateLocationAzureBlobCommandInput,
   UpdateLocationAzureBlobCommandOutput,
 } from "./commands/UpdateLocationAzureBlobCommand";
+import { UpdateLocationEfsCommandInput, UpdateLocationEfsCommandOutput } from "./commands/UpdateLocationEfsCommand";
+import {
+  UpdateLocationFsxLustreCommandInput,
+  UpdateLocationFsxLustreCommandOutput,
+} from "./commands/UpdateLocationFsxLustreCommand";
+import {
+  UpdateLocationFsxOntapCommandInput,
+  UpdateLocationFsxOntapCommandOutput,
+} from "./commands/UpdateLocationFsxOntapCommand";
+import {
+  UpdateLocationFsxOpenZfsCommandInput,
+  UpdateLocationFsxOpenZfsCommandOutput,
+} from "./commands/UpdateLocationFsxOpenZfsCommand";
+import {
+  UpdateLocationFsxWindowsCommandInput,
+  UpdateLocationFsxWindowsCommandOutput,
+} from "./commands/UpdateLocationFsxWindowsCommand";
 import { UpdateLocationHdfsCommandInput, UpdateLocationHdfsCommandOutput } from "./commands/UpdateLocationHdfsCommand";
 import { UpdateLocationNfsCommandInput, UpdateLocationNfsCommandOutput } from "./commands/UpdateLocationNfsCommand";
 import {
   UpdateLocationObjectStorageCommandInput,
   UpdateLocationObjectStorageCommandOutput,
 } from "./commands/UpdateLocationObjectStorageCommand";
+import { UpdateLocationS3CommandInput, UpdateLocationS3CommandOutput } from "./commands/UpdateLocationS3Command";
 import { UpdateLocationSmbCommandInput, UpdateLocationSmbCommandOutput } from "./commands/UpdateLocationSmbCommand";
 import {
   UpdateStorageSystemCommandInput,
@@ -268,9 +286,15 @@ export type ServiceInputTypes =
   | UpdateAgentCommandInput
   | UpdateDiscoveryJobCommandInput
   | UpdateLocationAzureBlobCommandInput
+  | UpdateLocationEfsCommandInput
+  | UpdateLocationFsxLustreCommandInput
+  | UpdateLocationFsxOntapCommandInput
+  | UpdateLocationFsxOpenZfsCommandInput
+  | UpdateLocationFsxWindowsCommandInput
   | UpdateLocationHdfsCommandInput
   | UpdateLocationNfsCommandInput
   | UpdateLocationObjectStorageCommandInput
+  | UpdateLocationS3CommandInput
   | UpdateLocationSmbCommandInput
   | UpdateStorageSystemCommandInput
   | UpdateTaskCommandInput
@@ -333,9 +357,15 @@ export type ServiceOutputTypes =
   | UpdateAgentCommandOutput
   | UpdateDiscoveryJobCommandOutput
   | UpdateLocationAzureBlobCommandOutput
+  | UpdateLocationEfsCommandOutput
+  | UpdateLocationFsxLustreCommandOutput
+  | UpdateLocationFsxOntapCommandOutput
+  | UpdateLocationFsxOpenZfsCommandOutput
+  | UpdateLocationFsxWindowsCommandOutput
   | UpdateLocationHdfsCommandOutput
   | UpdateLocationNfsCommandOutput
   | UpdateLocationObjectStorageCommandOutput
+  | UpdateLocationS3CommandOutput
   | UpdateLocationSmbCommandOutput
   | UpdateStorageSystemCommandOutput
   | UpdateTaskCommandOutput

@@ -159,12 +159,30 @@ import {
   UpdateLocationAzureBlobCommandInput,
   UpdateLocationAzureBlobCommandOutput,
 } from "../commands/UpdateLocationAzureBlobCommand";
+import { UpdateLocationEfsCommandInput, UpdateLocationEfsCommandOutput } from "../commands/UpdateLocationEfsCommand";
+import {
+  UpdateLocationFsxLustreCommandInput,
+  UpdateLocationFsxLustreCommandOutput,
+} from "../commands/UpdateLocationFsxLustreCommand";
+import {
+  UpdateLocationFsxOntapCommandInput,
+  UpdateLocationFsxOntapCommandOutput,
+} from "../commands/UpdateLocationFsxOntapCommand";
+import {
+  UpdateLocationFsxOpenZfsCommandInput,
+  UpdateLocationFsxOpenZfsCommandOutput,
+} from "../commands/UpdateLocationFsxOpenZfsCommand";
+import {
+  UpdateLocationFsxWindowsCommandInput,
+  UpdateLocationFsxWindowsCommandOutput,
+} from "../commands/UpdateLocationFsxWindowsCommand";
 import { UpdateLocationHdfsCommandInput, UpdateLocationHdfsCommandOutput } from "../commands/UpdateLocationHdfsCommand";
 import { UpdateLocationNfsCommandInput, UpdateLocationNfsCommandOutput } from "../commands/UpdateLocationNfsCommand";
 import {
   UpdateLocationObjectStorageCommandInput,
   UpdateLocationObjectStorageCommandOutput,
 } from "../commands/UpdateLocationObjectStorageCommand";
+import { UpdateLocationS3CommandInput, UpdateLocationS3CommandOutput } from "../commands/UpdateLocationS3Command";
 import { UpdateLocationSmbCommandInput, UpdateLocationSmbCommandOutput } from "../commands/UpdateLocationSmbCommand";
 import {
   UpdateStorageSystemCommandInput,
@@ -240,6 +258,8 @@ import {
   FsxProtocol,
   FsxProtocolNfs,
   FsxProtocolSmb,
+  FsxUpdateProtocol,
+  FsxUpdateProtocolSmb,
   GenerateRecommendationsRequest,
   HdfsNameNode,
   InternalException,
@@ -289,9 +309,15 @@ import {
   UpdateAgentRequest,
   UpdateDiscoveryJobRequest,
   UpdateLocationAzureBlobRequest,
+  UpdateLocationEfsRequest,
+  UpdateLocationFsxLustreRequest,
+  UpdateLocationFsxOntapRequest,
+  UpdateLocationFsxOpenZfsRequest,
+  UpdateLocationFsxWindowsRequest,
   UpdateLocationHdfsRequest,
   UpdateLocationNfsRequest,
   UpdateLocationObjectStorageRequest,
+  UpdateLocationS3Request,
   UpdateLocationSmbRequest,
   UpdateStorageSystemRequest,
   UpdateTaskExecutionRequest,
@@ -1072,6 +1098,71 @@ export const se_UpdateLocationAzureBlobCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateLocationEfsCommand
+ */
+export const se_UpdateLocationEfsCommand = async (
+  input: UpdateLocationEfsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateLocationEfs");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateLocationFsxLustreCommand
+ */
+export const se_UpdateLocationFsxLustreCommand = async (
+  input: UpdateLocationFsxLustreCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateLocationFsxLustre");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateLocationFsxOntapCommand
+ */
+export const se_UpdateLocationFsxOntapCommand = async (
+  input: UpdateLocationFsxOntapCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateLocationFsxOntap");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateLocationFsxOpenZfsCommand
+ */
+export const se_UpdateLocationFsxOpenZfsCommand = async (
+  input: UpdateLocationFsxOpenZfsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateLocationFsxOpenZfs");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateLocationFsxWindowsCommand
+ */
+export const se_UpdateLocationFsxWindowsCommand = async (
+  input: UpdateLocationFsxWindowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateLocationFsxWindows");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1UpdateLocationHdfsCommand
  */
 export const se_UpdateLocationHdfsCommand = async (
@@ -1107,6 +1198,19 @@ export const se_UpdateLocationObjectStorageCommand = async (
   const headers: __HeaderBag = sharedHeaders("UpdateLocationObjectStorage");
   let body: any;
   body = JSON.stringify(se_UpdateLocationObjectStorageRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateLocationS3Command
+ */
+export const se_UpdateLocationS3Command = async (
+  input: UpdateLocationS3CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateLocationS3");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2230,6 +2334,106 @@ export const de_UpdateLocationAzureBlobCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateLocationEfsCommand
+ */
+export const de_UpdateLocationEfsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLocationEfsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateLocationEfsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateLocationFsxLustreCommand
+ */
+export const de_UpdateLocationFsxLustreCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLocationFsxLustreCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateLocationFsxLustreCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateLocationFsxOntapCommand
+ */
+export const de_UpdateLocationFsxOntapCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLocationFsxOntapCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateLocationFsxOntapCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateLocationFsxOpenZfsCommand
+ */
+export const de_UpdateLocationFsxOpenZfsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLocationFsxOpenZfsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateLocationFsxOpenZfsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateLocationFsxWindowsCommand
+ */
+export const de_UpdateLocationFsxWindowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLocationFsxWindowsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateLocationFsxWindowsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1UpdateLocationHdfsCommand
  */
 export const de_UpdateLocationHdfsCommand = async (
@@ -2283,6 +2487,26 @@ export const de_UpdateLocationObjectStorageCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: UpdateLocationObjectStorageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateLocationS3Command
+ */
+export const de_UpdateLocationS3Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLocationS3CommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateLocationS3CommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2592,6 +2816,10 @@ const se_DescribeStorageSystemResourceMetricsRequest = (
 
 // se_FsxProtocolSmb omitted.
 
+// se_FsxUpdateProtocol omitted.
+
+// se_FsxUpdateProtocolSmb omitted.
+
 // se_GenerateRecommendationsRequest omitted.
 
 // se_HdfsNameNode omitted.
@@ -2692,6 +2920,16 @@ const se_StartDiscoveryJobRequest = (input: StartDiscoveryJobRequest, context: _
 
 // se_UpdateLocationAzureBlobRequest omitted.
 
+// se_UpdateLocationEfsRequest omitted.
+
+// se_UpdateLocationFsxLustreRequest omitted.
+
+// se_UpdateLocationFsxOntapRequest omitted.
+
+// se_UpdateLocationFsxOpenZfsRequest omitted.
+
+// se_UpdateLocationFsxWindowsRequest omitted.
+
 /**
  * serializeAws_json1_1UpdateLocationHdfsRequest
  */
@@ -2733,6 +2971,8 @@ const se_UpdateLocationObjectStorageRequest = (
     Subdirectory: [],
   });
 };
+
+// se_UpdateLocationS3Request omitted.
 
 // se_UpdateLocationSmbRequest omitted.
 
@@ -3455,11 +3695,23 @@ const de_Throughput = (output: any, context: __SerdeContext): Throughput => {
 
 // de_UpdateLocationAzureBlobResponse omitted.
 
+// de_UpdateLocationEfsResponse omitted.
+
+// de_UpdateLocationFsxLustreResponse omitted.
+
+// de_UpdateLocationFsxOntapResponse omitted.
+
+// de_UpdateLocationFsxOpenZfsResponse omitted.
+
+// de_UpdateLocationFsxWindowsResponse omitted.
+
 // de_UpdateLocationHdfsResponse omitted.
 
 // de_UpdateLocationNfsResponse omitted.
 
 // de_UpdateLocationObjectStorageResponse omitted.
+
+// de_UpdateLocationS3Response omitted.
 
 // de_UpdateLocationSmbResponse omitted.
 

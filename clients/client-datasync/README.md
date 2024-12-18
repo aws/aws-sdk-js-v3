@@ -638,6 +638,46 @@ UpdateLocationAzureBlob
 </details>
 <details>
 <summary>
+UpdateLocationEfs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datasync/command/UpdateLocationEfsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datasync/Interface/UpdateLocationEfsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datasync/Interface/UpdateLocationEfsCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateLocationFsxLustre
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datasync/command/UpdateLocationFsxLustreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datasync/Interface/UpdateLocationFsxLustreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datasync/Interface/UpdateLocationFsxLustreCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateLocationFsxOntap
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datasync/command/UpdateLocationFsxOntapCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datasync/Interface/UpdateLocationFsxOntapCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datasync/Interface/UpdateLocationFsxOntapCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateLocationFsxOpenZfs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datasync/command/UpdateLocationFsxOpenZfsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datasync/Interface/UpdateLocationFsxOpenZfsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datasync/Interface/UpdateLocationFsxOpenZfsCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateLocationFsxWindows
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datasync/command/UpdateLocationFsxWindowsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datasync/Interface/UpdateLocationFsxWindowsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datasync/Interface/UpdateLocationFsxWindowsCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateLocationHdfs
 </summary>
 
@@ -658,6 +698,14 @@ UpdateLocationObjectStorage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datasync/command/UpdateLocationObjectStorageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datasync/Interface/UpdateLocationObjectStorageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datasync/Interface/UpdateLocationObjectStorageCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateLocationS3
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datasync/command/UpdateLocationS3Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datasync/Interface/UpdateLocationS3CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datasync/Interface/UpdateLocationS3CommandOutput/)
 
 </details>
 <details>

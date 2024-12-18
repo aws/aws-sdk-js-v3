@@ -28,9 +28,8 @@ export interface UpdateLocationNfsCommandInput extends UpdateLocationNfsRequest 
 export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies some configurations of the Network File System (NFS) transfer location that
- *       you're using with DataSync.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Configuring transfers to or from an
+ * <p>Modifies the following configuration parameters of the Network File System (NFS) transfer location that you're using with DataSync.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Configuring transfers with an
  *         NFS file server</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
