@@ -1381,6 +1381,14 @@ GetStatistics
 </details>
 <details>
 <summary>
+GetThingConnectivityData
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot/command/GetThingConnectivityDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot/Interface/GetThingConnectivityDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot/Interface/GetThingConnectivityDataCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetTopicRule
 </summary>
 

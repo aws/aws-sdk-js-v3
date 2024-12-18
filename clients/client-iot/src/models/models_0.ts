@@ -4522,7 +4522,10 @@ export interface CreateCommandRequest {
   mandatoryParameters?: CommandParameter[] | undefined;
 
   /**
-   * <p>The IAM role that allows access to create the command.</p>
+   * <p>The IAM role that you must provide when using the <code>AWS-IoT-FleetWise</code> namespace.
+   *         The role grants IoT Device Management the permission to access IoT FleetWise resources
+   *         for generating the payload for the command. This field is not required when you use the
+   *         <code>AWS-IoT</code> namespace.</p>
    * @public
    */
   roleArn?: string | undefined;

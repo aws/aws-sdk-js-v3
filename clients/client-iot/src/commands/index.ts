@@ -144,6 +144,7 @@ export * from "./GetPolicyCommand";
 export * from "./GetPolicyVersionCommand";
 export * from "./GetRegistrationCodeCommand";
 export * from "./GetStatisticsCommand";
+export * from "./GetThingConnectivityDataCommand";
 export * from "./GetTopicRuleCommand";
 export * from "./GetTopicRuleDestinationCommand";
 export * from "./GetV2LoggingOptionsCommand";

@@ -4763,7 +4763,8 @@ export interface GetCommandResponse {
   payload?: CommandPayload | undefined;
 
   /**
-   * <p>The IAM role that allows access to retrieve information about the command.</p>
+   * <p>The IAM role that you provided when creating the command with <code>AWS-IoT-FleetWise</code>
+   *         as the namespace.</p>
    * @public
    */
   roleArn?: string | undefined;
@@ -4989,7 +4990,8 @@ export interface GetCommandExecutionResponse {
   completedAt?: Date | undefined;
 
   /**
-   * <p>The time to live (TTL) parameter for the <code>GetCommandExecution</code> API.</p>
+   * <p>The time to live (TTL) parameter that indicates the duration for which executions will
+   *         be retained in your account. The default value is six months.</p>
    * @public
    */
   timeToLive?: Date | undefined;
@@ -6102,6 +6104,72 @@ export interface GetStatisticsResponse {
    * @public
    */
   statistics?: Statistics | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetThingConnectivityDataRequest {
+  /**
+   * <p>The name of your IoT thing.</p>
+   * @public
+   */
+  thingName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DisconnectReasonValue = {
+  AUTH_ERROR: "AUTH_ERROR",
+  CLIENT_ERROR: "CLIENT_ERROR",
+  CLIENT_INITIATED_DISCONNECT: "CLIENT_INITIATED_DISCONNECT",
+  CONNECTION_LOST: "CONNECTION_LOST",
+  CUSTOMAUTH_TTL_EXPIRATION: "CUSTOMAUTH_TTL_EXPIRATION",
+  DUPLICATE_CLIENTID: "DUPLICATE_CLIENTID",
+  FORBIDDEN_ACCESS: "FORBIDDEN_ACCESS",
+  MQTT_KEEP_ALIVE_TIMEOUT: "MQTT_KEEP_ALIVE_TIMEOUT",
+  NONE: "NONE",
+  SERVER_ERROR: "SERVER_ERROR",
+  SERVER_INITIATED_DISCONNECT: "SERVER_INITIATED_DISCONNECT",
+  THROTTLED: "THROTTLED",
+  UNKNOWN: "UNKNOWN",
+  WEBSOCKET_TTL_EXPIRATION: "WEBSOCKET_TTL_EXPIRATION",
+} as const;
+
+/**
+ * @public
+ */
+export type DisconnectReasonValue = (typeof DisconnectReasonValue)[keyof typeof DisconnectReasonValue];
+
+/**
+ * @public
+ */
+export interface GetThingConnectivityDataResponse {
+  /**
+   * <p>The name of your IoT thing.</p>
+   * @public
+   */
+  thingName?: string | undefined;
+
+  /**
+   * <p>A Boolean that indicates the connectivity status.</p>
+   * @public
+   */
+  connected?: boolean | undefined;
+
+  /**
+   * <p>The timestamp of when the event occurred.</p>
+   * @public
+   */
+  timestamp?: Date | undefined;
+
+  /**
+   * <p>The reason why the client is disconnecting.</p>
+   * @public
+   */
+  disconnectReason?: DisconnectReasonValue | undefined;
 }
 
 /**
@@ -7401,165 +7469,6 @@ export interface ListCustomMetricsResponse {
 }
 
 /**
- * @public
- */
-export interface ListDetectMitigationActionsExecutionsRequest {
-  /**
-   * <p>
-   *       The unique identifier of the task.
-   *     </p>
-   * @public
-   */
-  taskId?: string | undefined;
-
-  /**
-   * <p>
-   *       The unique identifier of the violation.
-   *     </p>
-   * @public
-   */
-  violationId?: string | undefined;
-
-  /**
-   * <p>
-   *       The name of the thing whose mitigation actions are listed.
-   *     </p>
-   * @public
-   */
-  thingName?: string | undefined;
-
-  /**
-   * <p>
-   *       A filter to limit results to those found after the specified time. You must
-   *       specify either the startTime and endTime or the taskId, but not both.
-   *     </p>
-   * @public
-   */
-  startTime?: Date | undefined;
-
-  /**
-   * <p>
-   *       The end of the time period for which ML Detect mitigation actions executions are returned.
-   *     </p>
-   * @public
-   */
-  endTime?: Date | undefined;
-
-  /**
-   * <p>
-   *       The maximum number of results to return at one time. The default is 25.
-   *     </p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>
-   *       The token for the next set of results.
-   *     </p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DetectMitigationActionExecutionStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SKIPPED: "SKIPPED",
-  SUCCESSFUL: "SUCCESSFUL",
-} as const;
-
-/**
- * @public
- */
-export type DetectMitigationActionExecutionStatus =
-  (typeof DetectMitigationActionExecutionStatus)[keyof typeof DetectMitigationActionExecutionStatus];
-
-/**
- * <p>
- *             Describes which mitigation actions should be executed.
- *         </p>
- * @public
- */
-export interface DetectMitigationActionExecution {
-  /**
-   * <p>
-   *             The unique identifier of the task.
-   *         </p>
-   * @public
-   */
-  taskId?: string | undefined;
-
-  /**
-   * <p>
-   *             The unique identifier of the violation.
-   *         </p>
-   * @public
-   */
-  violationId?: string | undefined;
-
-  /**
-   * <p>
-   *             The friendly name that uniquely identifies the mitigation action.
-   *         </p>
-   * @public
-   */
-  actionName?: string | undefined;
-
-  /**
-   * <p>
-   *             The name of the thing.
-   *         </p>
-   * @public
-   */
-  thingName?: string | undefined;
-
-  /**
-   * <p>
-   *             The date a mitigation action was started.
-   *         </p>
-   * @public
-   */
-  executionStartDate?: Date | undefined;
-
-  /**
-   * <p>
-   *             The date a mitigation action ended.
-   *         </p>
-   * @public
-   */
-  executionEndDate?: Date | undefined;
-
-  /**
-   * <p>
-   *             The status of a mitigation action.
-   *         </p>
-   * @public
-   */
-  status?: DetectMitigationActionExecutionStatus | undefined;
-
-  /**
-   * <p>
-   *             The error code of a mitigation action.
-   *         </p>
-   * @public
-   */
-  errorCode?: string | undefined;
-
-  /**
-   * <p>
-   *             The message of a mitigation action.
-   *         </p>
-   * @public
-   */
-  message?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const GetPackageResponseFilterSensitiveLog = (obj: GetPackageResponse): any => ({
@@ -7575,4 +7484,20 @@ export const GetPackageVersionResponseFilterSensitiveLog = (obj: GetPackageVersi
   ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.attributes && { attributes: SENSITIVE_STRING }),
   ...(obj.recipe && { recipe: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetThingConnectivityDataRequestFilterSensitiveLog = (obj: GetThingConnectivityDataRequest): any => ({
+  ...obj,
+  ...(obj.thingName && { thingName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetThingConnectivityDataResponseFilterSensitiveLog = (obj: GetThingConnectivityDataResponse): any => ({
+  ...obj,
+  ...(obj.thingName && { thingName: SENSITIVE_STRING }),
 });

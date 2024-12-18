@@ -30,11 +30,24 @@ export interface ListCommandExecutionsCommandOutput extends ListCommandExecution
 /**
  * <p>List all command executions.</p>
  *          <important>
- *             <p>You must provide only the
- *                 <code>startedTimeFilter</code> or the <code>completedTimeFilter</code> information. If you
- *                 provide both time filters, the API will generate an error.
- *                 You can use this information to find command executions that started within
- *                 a specific timeframe.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>You must provide only the <code>startedTimeFilter</code> or
+ *                     the <code>completedTimeFilter</code> information. If you provide
+ *                     both time filters, the API will generate an error. You can use
+ *                     this information to retrieve a list of command executions
+ *                     within a specific timeframe.</p>
+ *                </li>
+ *                <li>
+ *                   <p>You must provide only the <code>commandArn</code> or
+ *                     the <code>thingArn</code> information depending on whether you want
+ *                     to list executions for a specific command or an IoT thing. If you provide
+ *                     both fields, the API will generate an error.</p>
+ *                </li>
+ *             </ul>
+ *             <p>For more information about considerations for using this API, see
+ *                 <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-remote-command-execution-start-monitor.html#iot-remote-command-execution-list-cli">List
+ *                 command executions in your account (CLI)</a>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

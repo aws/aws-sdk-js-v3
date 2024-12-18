@@ -68,7 +68,6 @@ import {
   CertificateMode,
   CertificateStatus,
   Configuration,
-  DetectMitigationActionExecution,
   DetectMitigationActionsTaskSummary,
   DetectMitigationActionsTaskTarget,
   DomainConfigurationStatus,
@@ -86,6 +85,165 @@ import {
   VersionUpdateByJobsConfig,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListDetectMitigationActionsExecutionsRequest {
+  /**
+   * <p>
+   *       The unique identifier of the task.
+   *     </p>
+   * @public
+   */
+  taskId?: string | undefined;
+
+  /**
+   * <p>
+   *       The unique identifier of the violation.
+   *     </p>
+   * @public
+   */
+  violationId?: string | undefined;
+
+  /**
+   * <p>
+   *       The name of the thing whose mitigation actions are listed.
+   *     </p>
+   * @public
+   */
+  thingName?: string | undefined;
+
+  /**
+   * <p>
+   *       A filter to limit results to those found after the specified time. You must
+   *       specify either the startTime and endTime or the taskId, but not both.
+   *     </p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>
+   *       The end of the time period for which ML Detect mitigation actions executions are returned.
+   *     </p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>
+   *       The maximum number of results to return at one time. The default is 25.
+   *     </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>
+   *       The token for the next set of results.
+   *     </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DetectMitigationActionExecutionStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SKIPPED: "SKIPPED",
+  SUCCESSFUL: "SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type DetectMitigationActionExecutionStatus =
+  (typeof DetectMitigationActionExecutionStatus)[keyof typeof DetectMitigationActionExecutionStatus];
+
+/**
+ * <p>
+ *             Describes which mitigation actions should be executed.
+ *         </p>
+ * @public
+ */
+export interface DetectMitigationActionExecution {
+  /**
+   * <p>
+   *             The unique identifier of the task.
+   *         </p>
+   * @public
+   */
+  taskId?: string | undefined;
+
+  /**
+   * <p>
+   *             The unique identifier of the violation.
+   *         </p>
+   * @public
+   */
+  violationId?: string | undefined;
+
+  /**
+   * <p>
+   *             The friendly name that uniquely identifies the mitigation action.
+   *         </p>
+   * @public
+   */
+  actionName?: string | undefined;
+
+  /**
+   * <p>
+   *             The name of the thing.
+   *         </p>
+   * @public
+   */
+  thingName?: string | undefined;
+
+  /**
+   * <p>
+   *             The date a mitigation action was started.
+   *         </p>
+   * @public
+   */
+  executionStartDate?: Date | undefined;
+
+  /**
+   * <p>
+   *             The date a mitigation action ended.
+   *         </p>
+   * @public
+   */
+  executionEndDate?: Date | undefined;
+
+  /**
+   * <p>
+   *             The status of a mitigation action.
+   *         </p>
+   * @public
+   */
+  status?: DetectMitigationActionExecutionStatus | undefined;
+
+  /**
+   * <p>
+   *             The error code of a mitigation action.
+   *         </p>
+   * @public
+   */
+  errorCode?: string | undefined;
+
+  /**
+   * <p>
+   *             The message of a mitigation action.
+   *         </p>
+   * @public
+   */
+  message?: string | undefined;
+}
 
 /**
  * @public

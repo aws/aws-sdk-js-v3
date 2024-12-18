@@ -441,6 +441,10 @@ import {
   GetRegistrationCodeCommandOutput,
 } from "./commands/GetRegistrationCodeCommand";
 import { GetStatisticsCommandInput, GetStatisticsCommandOutput } from "./commands/GetStatisticsCommand";
+import {
+  GetThingConnectivityDataCommandInput,
+  GetThingConnectivityDataCommandOutput,
+} from "./commands/GetThingConnectivityDataCommand";
 import { GetTopicRuleCommandInput, GetTopicRuleCommandOutput } from "./commands/GetTopicRuleCommand";
 import {
   GetTopicRuleDestinationCommandInput,
@@ -956,6 +960,7 @@ export type ServiceInputTypes =
   | GetPolicyVersionCommandInput
   | GetRegistrationCodeCommandInput
   | GetStatisticsCommandInput
+  | GetThingConnectivityDataCommandInput
   | GetTopicRuleCommandInput
   | GetTopicRuleDestinationCommandInput
   | GetV2LoggingOptionsCommandInput
@@ -1230,6 +1235,7 @@ export type ServiceOutputTypes =
   | GetPolicyVersionCommandOutput
   | GetRegistrationCodeCommandOutput
   | GetStatisticsCommandOutput
+  | GetThingConnectivityDataCommandOutput
   | GetTopicRuleCommandOutput
   | GetTopicRuleDestinationCommandOutput
   | GetV2LoggingOptionsCommandOutput

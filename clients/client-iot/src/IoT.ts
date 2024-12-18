@@ -692,6 +692,11 @@ import {
   GetStatisticsCommandOutput,
 } from "./commands/GetStatisticsCommand";
 import {
+  GetThingConnectivityDataCommand,
+  GetThingConnectivityDataCommandInput,
+  GetThingConnectivityDataCommandOutput,
+} from "./commands/GetThingConnectivityDataCommand";
+import {
   GetTopicRuleCommand,
   GetTopicRuleCommandInput,
   GetTopicRuleCommandOutput,
@@ -1427,6 +1432,7 @@ const commands = {
   GetPolicyVersionCommand,
   GetRegistrationCodeCommand,
   GetStatisticsCommand,
+  GetThingConnectivityDataCommand,
   GetTopicRuleCommand,
   GetTopicRuleDestinationCommand,
   GetV2LoggingOptionsCommand,
@@ -3847,6 +3853,23 @@ export interface IoT {
     args: GetStatisticsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetStatisticsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetThingConnectivityDataCommand}
+   */
+  getThingConnectivityData(
+    args: GetThingConnectivityDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetThingConnectivityDataCommandOutput>;
+  getThingConnectivityData(
+    args: GetThingConnectivityDataCommandInput,
+    cb: (err: any, data?: GetThingConnectivityDataCommandOutput) => void
+  ): void;
+  getThingConnectivityData(
+    args: GetThingConnectivityDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetThingConnectivityDataCommandOutput) => void
   ): void;
 
   /**

@@ -413,6 +413,10 @@ import {
   GetRegistrationCodeCommandOutput,
 } from "../commands/GetRegistrationCodeCommand";
 import { GetStatisticsCommandInput, GetStatisticsCommandOutput } from "../commands/GetStatisticsCommand";
+import {
+  GetThingConnectivityDataCommandInput,
+  GetThingConnectivityDataCommandOutput,
+} from "../commands/GetThingConnectivityDataCommand";
 import { GetTopicRuleCommandInput, GetTopicRuleCommandOutput } from "../commands/GetTopicRuleCommand";
 import {
   GetTopicRuleDestinationCommandInput,
@@ -934,7 +938,6 @@ import {
   CommandSummary,
   Configuration,
   DeleteConflictException,
-  DetectMitigationActionExecution,
   DetectMitigationActionsTaskSummary,
   DetectMitigationActionsTaskTarget,
   EventType,
@@ -964,6 +967,7 @@ import {
 } from "../models/models_1";
 import {
   CertificateConflictException,
+  DetectMitigationActionExecution,
   HttpContext,
   InvalidResponseException,
   JobExecutionSummary,
@@ -3898,6 +3902,22 @@ export const se_GetStatisticsCommand = async (
       queryVersion: [],
     })
   );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetThingConnectivityDataCommand
+ */
+export const se_GetThingConnectivityDataCommand = async (
+  input: GetThingConnectivityDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/things/{thingName}/connectivity-data");
+  b.p("thingName", () => input.thingName!, "{thingName}", false);
+  let body: any;
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -9805,6 +9825,30 @@ export const de_GetStatisticsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     statistics: (_) => de_Statistics(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetThingConnectivityDataCommand
+ */
+export const de_GetThingConnectivityDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetThingConnectivityDataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    connected: __expectBoolean,
+    disconnectReason: __expectString,
+    thingName: __expectString,
+    timestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   });
   Object.assign(contents, doc);
   return contents;
