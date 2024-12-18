@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.715.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.714.0...v3.715.0) (2024-12-18)
+
+
+### Features
+
+* **client-quicksight:** Add support for PerformanceConfiguration attribute to Dataset entity. Allow PerformanceConfiguration specification in CreateDataset and UpdateDataset APIs. ([2c03dc7](https://github.com/aws/aws-sdk-js-v3/commit/2c03dc7892b79582892f72e5c49256a84db41772))
+
+
+
+
+
 # [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
 
 

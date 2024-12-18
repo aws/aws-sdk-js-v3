@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.715.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.714.0...v3.715.0) (2024-12-18)
+
+
+### Features
+
+* **client-connect:** This release adds support for the UpdateParticipantAuthentication API used for customer authentication within Amazon Connect chats. ([4e1a96b](https://github.com/aws/aws-sdk-js-v3/commit/4e1a96b295ea0ee861e6c5f0016b65e5cc00f169))
+
+
+
+
+
 # [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
 
 

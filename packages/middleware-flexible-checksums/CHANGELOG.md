@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.715.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.714.0...v3.715.0) (2024-12-18)
+
+
+### Bug Fixes
+
+* **middleware-flexible-checksums:** skip checksum computation if provided ([#6745](https://github.com/aws/aws-sdk-js-v3/issues/6745)) ([e1678f8](https://github.com/aws/aws-sdk-js-v3/commit/e1678f80a99cb65924a7d8b92ed51be45fec96f8))
+
+
+
+
+
 # [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
 
 **Note:** Version bump only for package @aws-sdk/middleware-flexible-checksums

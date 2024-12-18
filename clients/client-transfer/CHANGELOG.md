@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.715.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.714.0...v3.715.0) (2024-12-18)
+
+
+### Features
+
+* **client-transfer:** Added AS2 agreement configurations to control filename preservation and message signing enforcement. Added AS2 connector configuration to preserve content type from S3 objects. ([c7611a4](https://github.com/aws/aws-sdk-js-v3/commit/c7611a42215c596298abd1c740c3789a2a8d7d77))
+
+
+
+
+
 # [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
 
 

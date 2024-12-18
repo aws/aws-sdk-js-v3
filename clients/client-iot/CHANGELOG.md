@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.715.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.714.0...v3.715.0) (2024-12-18)
+
+
+### Features
+
+* **client-iot:** Release connectivity status query API which is a dedicated high throughput(TPS) API to query a specific device's most recent connectivity state and metadata. ([8709403](https://github.com/aws/aws-sdk-js-v3/commit/870940385a30e46e44a3a975e513a4eded041cd3))
+
+
+
+
+
 # [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
 
 

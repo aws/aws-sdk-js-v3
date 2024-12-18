@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.715.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.714.0...v3.715.0) (2024-12-18)
+
+
+### Bug Fixes
+
+* **middleware-flexible-checksums:** skip checksum computation if provided ([#6745](https://github.com/aws/aws-sdk-js-v3/issues/6745)) ([e1678f8](https://github.com/aws/aws-sdk-js-v3/commit/e1678f80a99cb65924a7d8b92ed51be45fec96f8))
+
+
+### Features
+
+* **client-amplify:** Added WAF Configuration to Amplify Apps ([be98eba](https://github.com/aws/aws-sdk-js-v3/commit/be98eba208ec1f15aa58c55f5384c59a0f1891d7))
+* **client-budgets:** Releasing minor partition endpoint updates ([1f0b1f3](https://github.com/aws/aws-sdk-js-v3/commit/1f0b1f32cfab0233bf7e62ccbd86bee7da84f98b))
+* **client-connectparticipant:** This release adds support for the GetAuthenticationUrl and CancelParticipantAuthentication APIs used for customer authentication within Amazon Connect chats. There are also minor updates to the GetAttachment API. ([16bb7db](https://github.com/aws/aws-sdk-js-v3/commit/16bb7dbaa22e6093d2d4b4d48271880847b74b1a))
+* **client-connect:** This release adds support for the UpdateParticipantAuthentication API used for customer authentication within Amazon Connect chats. ([4e1a96b](https://github.com/aws/aws-sdk-js-v3/commit/4e1a96b295ea0ee861e6c5f0016b65e5cc00f169))
+* **client-datasync:** AWS DataSync introduces the ability to update attributes for in-cloud locations. ([1c7cb38](https://github.com/aws/aws-sdk-js-v3/commit/1c7cb389268943fd534cee31398c146e65740446))
+* **client-iot:** Release connectivity status query API which is a dedicated high throughput(TPS) API to query a specific device's most recent connectivity state and metadata. ([8709403](https://github.com/aws/aws-sdk-js-v3/commit/870940385a30e46e44a3a975e513a4eded041cd3))
+* **client-quicksight:** Add support for PerformanceConfiguration attribute to Dataset entity. Allow PerformanceConfiguration specification in CreateDataset and UpdateDataset APIs. ([2c03dc7](https://github.com/aws/aws-sdk-js-v3/commit/2c03dc7892b79582892f72e5c49256a84db41772))
+* **client-resiliencehub:** AWS Resilience Hub now automatically detects already configured CloudWatch alarms and FIS experiments as part of the assessment process and returns the discovered resources in the corresponding list API responses. It also allows you to include or exclude test recommendations for an AppComponent. ([2014889](https://github.com/aws/aws-sdk-js-v3/commit/201488950c6d1d1a3dd8cb3f091b38225bb376ed))
+* **client-transfer:** Added AS2 agreement configurations to control filename preservation and message signing enforcement. Added AS2 connector configuration to preserve content type from S3 objects. ([c7611a4](https://github.com/aws/aws-sdk-js-v3/commit/c7611a42215c596298abd1c740c3789a2a8d7d77))
+* **clients:** update client endpoints as of 2024-12-18 ([e919afa](https://github.com/aws/aws-sdk-js-v3/commit/e919afa96ddd4d87e0d917c9daad17d1bd15066b))
+
+
+
+
+
 # [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
 
 
