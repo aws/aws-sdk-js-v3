@@ -106,6 +106,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     WisdomInfo: { // WisdomInfo
  * //       SessionArn: "STRING_VALUE",
  * //     },
+ * //     CustomerId: "STRING_VALUE",
  * //     CustomerEndpoint: { // EndpointInfo
  * //       Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
  * //       Address: "STRING_VALUE",

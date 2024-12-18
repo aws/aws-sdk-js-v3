@@ -37,9 +37,6 @@ import {
   StringComparisonType,
   StringCondition,
   TagCondition,
-  TaskTemplateConstraints,
-  TaskTemplateDefaults,
-  TaskTemplateField,
   TaskTemplateStatus,
   UseCaseType,
   UserPhoneConfig,
@@ -3236,7 +3233,7 @@ export interface DateCondition {
 
   /**
    * <p>An object to specify the hours of operation override date condition
-   *    <code>comparisonType</code>.</p>
+   *     <code>comparisonType</code>.</p>
    * @public
    */
   ComparisonType?: DateComparisonType | undefined;
@@ -5074,6 +5071,7 @@ export interface VoiceRecordingConfiguration {
 
   /**
    * <p>Identifies which IVR track is being recorded.</p>
+   *          <p>One and only one of the track configurations should be presented in the request.</p>
    * @public
    */
   IvrRecordingTrack?: IvrRecordingTrack | undefined;
@@ -6914,6 +6912,52 @@ export interface UpdateInstanceStorageConfigRequest {
 
 /**
  * @public
+ */
+export interface UpdateParticipantAuthenticationRequest {
+  /**
+   * <p>The <code>state</code> query parameter that was provided by Cognito in the
+   *     <code>redirectUri</code>. This will also match the <code>state</code> parameter provided in the
+   *     <code>AuthenticationUrl</code> from the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetAuthenticationUrl.html">GetAuthenticationUrl</a>
+   *    response.</p>
+   * @public
+   */
+  State: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The <code>code</code> query parameter provided by Cognito in the
+   *    <code>redirectUri</code>.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>The <code>error</code> query parameter provided by Cognito in the
+   *    <code>redirectUri</code>.</p>
+   * @public
+   */
+  Error?: string | undefined;
+
+  /**
+   * <p>The <code>error_description</code> parameter provided by Cognito in the
+   *     <code>redirectUri</code>.</p>
+   * @public
+   */
+  ErrorDescription?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateParticipantAuthenticationResponse {}
+
+/**
+ * @public
  * @enum
  */
 export const TimerEligibleParticipantRoles = {
@@ -7647,135 +7691,6 @@ export interface UpdateRuleRequest {
 }
 
 /**
- * @public
- */
-export interface UpdateSecurityProfileRequest {
-  /**
-   * <p>The description of the security profile.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The permissions granted to a security profile. For a list of valid permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List of security
-   *     profile permissions</a>.</p>
-   * @public
-   */
-  Permissions?: string[] | undefined;
-
-  /**
-   * <p>The identifier for the security profle.</p>
-   * @public
-   */
-  SecurityProfileId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The list of tags that a security profile uses to restrict access to resources in Amazon Connect.</p>
-   * @public
-   */
-  AllowedAccessControlTags?: Record<string, string> | undefined;
-
-  /**
-   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect.</p>
-   * @public
-   */
-  TagRestrictedResources?: string[] | undefined;
-
-  /**
-   * <p>A list of the third-party application's metadata.</p>
-   * @public
-   */
-  Applications?: Application[] | undefined;
-
-  /**
-   * <p>The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code>.</p>
-   * @public
-   */
-  HierarchyRestrictedResources?: string[] | undefined;
-
-  /**
-   * <p>The identifier of the hierarchy group that a security profile uses to restrict access to
-   *    resources in Amazon Connect.</p>
-   * @public
-   */
-  AllowedAccessControlHierarchyGroupId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTaskTemplateRequest {
-  /**
-   * <p>A unique identifier for the task template.</p>
-   * @public
-   */
-  TaskTemplateId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The name of the task template.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the task template.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
-   * @public
-   */
-  ContactFlowId?: string | undefined;
-
-  /**
-   * <p>The ContactFlowId for the flow that will be run if this template is used to create a
-   *    self-assigned task.</p>
-   * @public
-   */
-  SelfAssignFlowId?: string | undefined;
-
-  /**
-   * <p>Constraints that are applicable to the fields listed.</p>
-   * @public
-   */
-  Constraints?: TaskTemplateConstraints | undefined;
-
-  /**
-   * <p>The default values for fields when a task is created by referencing this template.</p>
-   * @public
-   */
-  Defaults?: TaskTemplateDefaults | undefined;
-
-  /**
-   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
-   * Tasks can only be created from <code>ACTIVE</code> templates.
-   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
-   * @public
-   */
-  Status?: TaskTemplateStatus | undefined;
-
-  /**
-   * <p>Fields that are part of the template.</p>
-   * @public
-   */
-  Fields?: TaskTemplateField[] | undefined;
-}
-
-/**
  * @internal
  */
 export const ViewSummaryFilterSensitiveLog = (obj: ViewSummary): any => ({
@@ -8092,4 +8007,16 @@ export const UpdateEmailAddressMetadataRequestFilterSensitiveLog = (obj: UpdateE
   ...obj,
   ...(obj.Description && { Description: SENSITIVE_STRING }),
   ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateParticipantAuthenticationRequestFilterSensitiveLog = (
+  obj: UpdateParticipantAuthenticationRequest
+): any => ({
+  ...obj,
+  ...(obj.Code && { Code: SENSITIVE_STRING }),
+  ...(obj.Error && { Error: SENSITIVE_STRING }),
+  ...(obj.ErrorDescription && { ErrorDescription: SENSITIVE_STRING }),
 });

@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateTaskTemplateRequest } from "../models/models_2";
-import { UpdateTaskTemplateResponse } from "../models/models_3";
+import { UpdateTaskTemplateRequest, UpdateTaskTemplateResponse } from "../models/models_3";
 import { de_UpdateTaskTemplateCommand, se_UpdateTaskTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**

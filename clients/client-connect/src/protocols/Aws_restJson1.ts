@@ -725,6 +725,10 @@ import {
   UpdateInstanceStorageConfigCommandOutput,
 } from "../commands/UpdateInstanceStorageConfigCommand";
 import {
+  UpdateParticipantAuthenticationCommandInput,
+  UpdateParticipantAuthenticationCommandOutput,
+} from "../commands/UpdateParticipantAuthenticationCommand";
+import {
   UpdateParticipantRoleConfigCommandInput,
   UpdateParticipantRoleConfigCommandOutput,
 } from "../commands/UpdateParticipantRoleConfigCommand";
@@ -5720,6 +5724,7 @@ export const se_StartChatContactCommand = async (
       ChatDurationInMinutes: [],
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ContactFlowId: [],
+      CustomerId: [],
       InitialMessage: (_) => _json(_),
       InstanceId: [],
       ParticipantDetails: (_) => _json(_),
@@ -6734,6 +6739,32 @@ export const se_UpdateInstanceStorageConfigCommand = async (
     })
   );
   b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateParticipantAuthenticationCommand
+ */
+export const se_UpdateParticipantAuthenticationCommand = async (
+  input: UpdateParticipantAuthenticationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contact/update-participant-authentication");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Code: [],
+      Error: [],
+      ErrorDescription: [],
+      InstanceId: [],
+      State: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -12591,6 +12622,23 @@ export const de_UpdateInstanceStorageConfigCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateParticipantAuthenticationCommand
+ */
+export const de_UpdateParticipantAuthenticationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateParticipantAuthenticationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateParticipantRoleConfigCommand
  */
 export const de_UpdateParticipantRoleConfigCommand = async (
@@ -15244,6 +15292,7 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
     ContactAssociationId: __expectString,
     Customer: _json,
     CustomerEndpoint: _json,
+    CustomerId: __expectString,
     CustomerVoiceActivity: (_: any) => de_CustomerVoiceActivity(_, context),
     Description: __expectString,
     DisconnectDetails: _json,

@@ -742,6 +742,10 @@ import {
   UpdateInstanceStorageConfigCommandOutput,
 } from "./commands/UpdateInstanceStorageConfigCommand";
 import {
+  UpdateParticipantAuthenticationCommandInput,
+  UpdateParticipantAuthenticationCommandOutput,
+} from "./commands/UpdateParticipantAuthenticationCommand";
+import {
   UpdateParticipantRoleConfigCommandInput,
   UpdateParticipantRoleConfigCommandOutput,
 } from "./commands/UpdateParticipantRoleConfigCommand";
@@ -1107,6 +1111,7 @@ export type ServiceInputTypes =
   | UpdateHoursOfOperationOverrideCommandInput
   | UpdateInstanceAttributeCommandInput
   | UpdateInstanceStorageConfigCommandInput
+  | UpdateParticipantAuthenticationCommandInput
   | UpdateParticipantRoleConfigCommandInput
   | UpdatePhoneNumberCommandInput
   | UpdatePhoneNumberMetadataCommandInput
@@ -1391,6 +1396,7 @@ export type ServiceOutputTypes =
   | UpdateHoursOfOperationOverrideCommandOutput
   | UpdateInstanceAttributeCommandOutput
   | UpdateInstanceStorageConfigCommandOutput
+  | UpdateParticipantAuthenticationCommandOutput
   | UpdateParticipantRoleConfigCommandOutput
   | UpdatePhoneNumberCommandOutput
   | UpdatePhoneNumberMetadataCommandOutput

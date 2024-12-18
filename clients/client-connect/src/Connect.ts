@@ -1162,6 +1162,11 @@ import {
   UpdateInstanceStorageConfigCommandOutput,
 } from "./commands/UpdateInstanceStorageConfigCommand";
 import {
+  UpdateParticipantAuthenticationCommand,
+  UpdateParticipantAuthenticationCommandInput,
+  UpdateParticipantAuthenticationCommandOutput,
+} from "./commands/UpdateParticipantAuthenticationCommand";
+import {
   UpdateParticipantRoleConfigCommand,
   UpdateParticipantRoleConfigCommandInput,
   UpdateParticipantRoleConfigCommandOutput,
@@ -1567,6 +1572,7 @@ const commands = {
   UpdateHoursOfOperationOverrideCommand,
   UpdateInstanceAttributeCommand,
   UpdateInstanceStorageConfigCommand,
+  UpdateParticipantAuthenticationCommand,
   UpdateParticipantRoleConfigCommand,
   UpdatePhoneNumberCommand,
   UpdatePhoneNumberMetadataCommand,
@@ -5511,6 +5517,23 @@ export interface Connect {
     args: UpdateInstanceStorageConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateInstanceStorageConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateParticipantAuthenticationCommand}
+   */
+  updateParticipantAuthentication(
+    args: UpdateParticipantAuthenticationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateParticipantAuthenticationCommandOutput>;
+  updateParticipantAuthentication(
+    args: UpdateParticipantAuthenticationCommandInput,
+    cb: (err: any, data?: UpdateParticipantAuthenticationCommandOutput) => void
+  ): void;
+  updateParticipantAuthentication(
+    args: UpdateParticipantAuthenticationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateParticipantAuthenticationCommandOutput) => void
   ): void;
 
   /**

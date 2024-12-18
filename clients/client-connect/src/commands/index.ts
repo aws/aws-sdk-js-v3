@@ -246,6 +246,7 @@ export * from "./UpdateHoursOfOperationCommand";
 export * from "./UpdateHoursOfOperationOverrideCommand";
 export * from "./UpdateInstanceAttributeCommand";
 export * from "./UpdateInstanceStorageConfigCommand";
+export * from "./UpdateParticipantAuthenticationCommand";
 export * from "./UpdateParticipantRoleConfigCommand";
 export * from "./UpdatePhoneNumberCommand";
 export * from "./UpdatePhoneNumberMetadataCommand";

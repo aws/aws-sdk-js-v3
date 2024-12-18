@@ -6,6 +6,7 @@ import {
   AgentConfig,
   AgentInfo,
   AgentStatusSearchFilter,
+  Application,
   Campaign,
   Channel,
   ContactFlowStatus,
@@ -83,6 +84,135 @@ import {
   UserHierarchyGroupSearchFilter,
   UserSearchFilter,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface UpdateSecurityProfileRequest {
+  /**
+   * <p>The description of the security profile.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The permissions granted to a security profile. For a list of valid permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List of security
+   *     profile permissions</a>.</p>
+   * @public
+   */
+  Permissions?: string[] | undefined;
+
+  /**
+   * <p>The identifier for the security profle.</p>
+   * @public
+   */
+  SecurityProfileId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The list of tags that a security profile uses to restrict access to resources in Amazon Connect.</p>
+   * @public
+   */
+  AllowedAccessControlTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect.</p>
+   * @public
+   */
+  TagRestrictedResources?: string[] | undefined;
+
+  /**
+   * <p>A list of the third-party application's metadata.</p>
+   * @public
+   */
+  Applications?: Application[] | undefined;
+
+  /**
+   * <p>The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code>.</p>
+   * @public
+   */
+  HierarchyRestrictedResources?: string[] | undefined;
+
+  /**
+   * <p>The identifier of the hierarchy group that a security profile uses to restrict access to
+   *    resources in Amazon Connect.</p>
+   * @public
+   */
+  AllowedAccessControlHierarchyGroupId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTaskTemplateRequest {
+  /**
+   * <p>A unique identifier for the task template.</p>
+   * @public
+   */
+  TaskTemplateId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the task template.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the task template.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
+   * @public
+   */
+  ContactFlowId?: string | undefined;
+
+  /**
+   * <p>The ContactFlowId for the flow that will be run if this template is used to create a
+   *    self-assigned task.</p>
+   * @public
+   */
+  SelfAssignFlowId?: string | undefined;
+
+  /**
+   * <p>Constraints that are applicable to the fields listed.</p>
+   * @public
+   */
+  Constraints?: TaskTemplateConstraints | undefined;
+
+  /**
+   * <p>The default values for fields when a task is created by referencing this template.</p>
+   * @public
+   */
+  Defaults?: TaskTemplateDefaults | undefined;
+
+  /**
+   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
+   * Tasks can only be created from <code>ACTIVE</code> templates.
+   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
+   * @public
+   */
+  Status?: TaskTemplateStatus | undefined;
+
+  /**
+   * <p>Fields that are part of the template.</p>
+   * @public
+   */
+  Fields?: TaskTemplateField[] | undefined;
+}
 
 /**
  * @public
@@ -1438,6 +1568,13 @@ export interface StartChatContactRequest {
    * @public
    */
   SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
+
+  /**
+   * <p>The customer's identification number. For example, the <code>CustomerId</code> may be a
+   *    customer number from your CRM.</p>
+   * @public
+   */
+  CustomerId?: string | undefined;
 }
 
 /**
@@ -2892,6 +3029,15 @@ export interface Contact {
   WisdomInfo?: WisdomInfo | undefined;
 
   /**
+   * <p>The customer's identification number. For example, the <code>CustomerId</code> may be a
+   *    customer number from your CRM. You can create a Lambda function to pull the unique customer ID of
+   *    the caller from your CRM system. If you enable Amazon Connect Voice ID capability, this
+   *    attribute is populated with the <code>CustomerSpeakerId</code> of the caller.</p>
+   * @public
+   */
+  CustomerId?: string | undefined;
+
+  /**
    * <p>The customer or external third party participant endpoint.</p>
    * @public
    */
@@ -3046,6 +3192,14 @@ export const CreateContactRequestFilterSensitiveLog = (obj: CreateContactRequest
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartChatContactRequestFilterSensitiveLog = (obj: StartChatContactRequest): any => ({
+  ...obj,
+  ...(obj.CustomerId && { CustomerId: SENSITIVE_STRING }),
 });
 
 /**

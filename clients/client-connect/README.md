@@ -2204,6 +2204,14 @@ UpdateInstanceStorageConfig
 </details>
 <details>
 <summary>
+UpdateParticipantAuthentication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/UpdateParticipantAuthenticationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateParticipantAuthenticationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateParticipantAuthenticationCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateParticipantRoleConfig
 </summary>
 
