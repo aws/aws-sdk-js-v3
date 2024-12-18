@@ -36,6 +36,7 @@ import {
   LinkSharingConfiguration,
   LogicalTable,
   LogicalTableFilterSensitiveLog,
+  PerformanceConfiguration,
   PhysicalTable,
   RefreshSchedule,
   ResourcePermission,
@@ -64,6 +65,46 @@ import {
   User,
   UserRole,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateApplicationWithTokenExchangeGrantResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBrandRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon QuickSight brand.</p>
+   * @public
+   */
+  BrandId: string | undefined;
+
+  /**
+   * <p>The definition of the brand.</p>
+   * @public
+   */
+  BrandDefinition?: BrandDefinition | undefined;
+}
 
 /**
  * @public
@@ -668,6 +709,12 @@ export interface UpdateDataSetRequest {
    * @public
    */
   DatasetParameters?: DatasetParameter[] | undefined;
+
+  /**
+   * <p>The configuration for the performance optimization of the dataset that contains a <code>UniqueKey</code> configuration.</p>
+   * @public
+   */
+  PerformanceConfiguration?: PerformanceConfiguration | undefined;
 }
 
 /**

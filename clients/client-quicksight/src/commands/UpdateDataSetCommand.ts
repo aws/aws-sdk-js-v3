@@ -278,6 +278,15 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *       },
  *     },
  *   ],
+ *   PerformanceConfiguration: { // PerformanceConfiguration
+ *     UniqueKeys: [ // UniqueKeyList
+ *       { // UniqueKey
+ *         ColumnNames: [ // UniqueKeyColumnNameList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new UpdateDataSetCommand(input);
  * const response = await client.send(command);

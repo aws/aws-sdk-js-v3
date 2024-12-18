@@ -5,10 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateApplicationWithTokenExchangeGrantRequest,
-  UpdateApplicationWithTokenExchangeGrantResponse,
-} from "../models/models_4";
+import { UpdateApplicationWithTokenExchangeGrantRequest } from "../models/models_4";
+import { UpdateApplicationWithTokenExchangeGrantResponse } from "../models/models_5";
 import {
   de_UpdateApplicationWithTokenExchangeGrantCommand,
   se_UpdateApplicationWithTokenExchangeGrantCommand,

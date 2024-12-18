@@ -296,6 +296,15 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  * //         },
  * //       },
  * //     ],
+ * //     PerformanceConfiguration: { // PerformanceConfiguration
+ * //       UniqueKeys: [ // UniqueKeyList
+ * //         { // UniqueKey
+ * //           ColumnNames: [ // UniqueKeyColumnNameList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),

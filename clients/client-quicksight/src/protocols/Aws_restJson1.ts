@@ -1403,6 +1403,7 @@ import {
   NamedEntityDefinitionMetric,
   NewDefaultValues,
   OverrideDatasetParameterOperation,
+  PerformanceConfiguration,
   PhysicalTable,
   PreconditionNotMetException,
   ProjectOperation,
@@ -1453,6 +1454,7 @@ import {
   TransformOperation,
   Typography,
   UIColorPalette,
+  UniqueKey,
   UnsupportedUserEditionException,
   UntagColumnOperation,
   UploadSettings,
@@ -1780,6 +1782,7 @@ export const se_CreateDataSetCommand = async (
       ImportMode: [],
       LogicalTableMap: (_) => se_LogicalTableMap(_, context),
       Name: [],
+      PerformanceConfiguration: (_) => _json(_),
       Permissions: (_) => _json(_),
       PhysicalTableMap: (_) => _json(_),
       RowLevelPermissionDataSet: (_) => _json(_),
@@ -5308,6 +5311,7 @@ export const se_UpdateDataSetCommand = async (
       ImportMode: [],
       LogicalTableMap: (_) => se_LogicalTableMap(_, context),
       Name: [],
+      PerformanceConfiguration: (_) => _json(_),
       PhysicalTableMap: (_) => _json(_),
       RowLevelPermissionDataSet: (_) => _json(_),
       RowLevelPermissionTagConfiguration: (_) => _json(_),
@@ -15707,6 +15711,8 @@ const se_PercentVisibleRange = (input: PercentVisibleRange, context: __SerdeCont
   });
 };
 
+// se_PerformanceConfiguration omitted.
+
 /**
  * serializeAws_restJson1PeriodOverPeriodComputation
  */
@@ -17431,6 +17437,12 @@ const se_TreeMapVisual = (input: TreeMapVisual, context: __SerdeContext): any =>
 // se_UnaggregatedField omitted.
 
 // se_UnaggregatedFieldList omitted.
+
+// se_UniqueKey omitted.
+
+// se_UniqueKeyColumnNameList omitted.
+
+// se_UniqueKeyList omitted.
 
 // se_UniqueValuesComputation omitted.
 
@@ -19228,6 +19240,7 @@ const de_DataSet = (output: any, context: __SerdeContext): DataSet => {
     LogicalTableMap: (_: any) => de_LogicalTableMap(_, context),
     Name: __expectString,
     OutputColumns: _json,
+    PerformanceConfiguration: _json,
     PhysicalTableMap: _json,
     RowLevelPermissionDataSet: _json,
     RowLevelPermissionTagConfiguration: _json,
@@ -21948,6 +21961,8 @@ const de_PercentVisibleRange = (output: any, context: __SerdeContext): PercentVi
   }) as any;
 };
 
+// de_PerformanceConfiguration omitted.
+
 /**
  * deserializeAws_restJson1PeriodOverPeriodComputation
  */
@@ -23998,6 +24013,12 @@ const de_TreeMapVisual = (output: any, context: __SerdeContext): TreeMapVisual =
 // de_UnaggregatedField omitted.
 
 // de_UnaggregatedFieldList omitted.
+
+// de_UniqueKey omitted.
+
+// de_UniqueKeyColumnNameList omitted.
+
+// de_UniqueKeyList omitted.
 
 // de_UniqueValuesComputation omitted.
 

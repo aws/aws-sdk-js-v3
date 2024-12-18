@@ -8,7 +8,6 @@ import {
   AdHocFilteringOption,
   Analysis,
   AnalysisDefaults,
-  AnalysisError,
   AssetOptions,
   CalculatedField,
   CalculatedFieldFilterSensitiveLog,
@@ -2329,6 +2328,30 @@ export interface LogicalTable {
 }
 
 /**
+ * <p>A <code>UniqueKey</code> configuration that references a dataset column.</p>
+ * @public
+ */
+export interface UniqueKey {
+  /**
+   * <p>The name of the column that is referenced in the <code>UniqueKey</code> configuration.</p>
+   * @public
+   */
+  ColumnNames: string[] | undefined;
+}
+
+/**
+ * <p>The configuration for the performance optimization of the dataset that contains a <code>UniqueKey</code> configuration.</p>
+ * @public
+ */
+export interface PerformanceConfiguration {
+  /**
+   * <p>A <code>UniqueKey</code> configuration.</p>
+   * @public
+   */
+  UniqueKeys?: UniqueKey[] | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -2847,6 +2870,12 @@ export interface CreateDataSetRequest {
    * @public
    */
   FolderArns?: string[] | undefined;
+
+  /**
+   * <p>The configuration for the performance optimization of the dataset that contains a <code>UniqueKey</code> configuration.</p>
+   * @public
+   */
+  PerformanceConfiguration?: PerformanceConfiguration | undefined;
 }
 
 /**
@@ -6817,6 +6846,12 @@ export interface DataSet {
    * @public
    */
   DatasetParameters?: DatasetParameter[] | undefined;
+
+  /**
+   * <p>The performance optimization configuration of a dataset.</p>
+   * @public
+   */
+  PerformanceConfiguration?: PerformanceConfiguration | undefined;
 }
 
 /**
@@ -8864,116 +8899,6 @@ export interface DescribeAnalysisResponse {
 }
 
 /**
- * @public
- */
-export interface DescribeAnalysisDefinitionRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the
-   *             Amazon Web Services account that the analysis is in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the analysis that you're describing. The ID is part of the URL of the
-   *             analysis.</p>
-   * @public
-   */
-  AnalysisId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisDefinitionResponse {
-  /**
-   * <p>The ID of the analysis described.</p>
-   * @public
-   */
-  AnalysisId?: string | undefined;
-
-  /**
-   * <p>The descriptive name of the analysis.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Errors associated with the analysis.</p>
-   * @public
-   */
-  Errors?: AnalysisError[] | undefined;
-
-  /**
-   * <p>Status associated with the analysis.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceStatus?: ResourceStatus | undefined;
-
-  /**
-   * <p>The ARN of the theme of the analysis.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>The definition of an analysis.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   * @public
-   */
-  Definition?: AnalysisDefinition | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const ColumnTagFilterSensitiveLog = (obj: ColumnTag): any => ({
@@ -9381,12 +9306,5 @@ export const DataSetFilterSensitiveLog = (obj: DataSet): any => ({
  * @internal
  */
 export const DescribeAnalysisResponseFilterSensitiveLog = (obj: DescribeAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAnalysisDefinitionResponseFilterSensitiveLog = (obj: DescribeAnalysisDefinitionResponse): any => ({
   ...obj,
 });

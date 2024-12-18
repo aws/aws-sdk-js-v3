@@ -295,6 +295,15 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *   FolderArns: [ // FolderArnList
  *     "STRING_VALUE",
  *   ],
+ *   PerformanceConfiguration: { // PerformanceConfiguration
+ *     UniqueKeys: [ // UniqueKeyList
+ *       { // UniqueKey
+ *         ColumnNames: [ // UniqueKeyColumnNameList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new CreateDataSetCommand(input);
  * const response = await client.send(command);

@@ -1,7 +1,14 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
-import { AccountCustomization, ActiveIAMPolicyAssignment, Entity, ResourceStatus, Sheet } from "./models_0";
+import {
+  AccountCustomization,
+  ActiveIAMPolicyAssignment,
+  AnalysisError,
+  Entity,
+  ResourceStatus,
+  Sheet,
+} from "./models_0";
 
 import {
   AnalysisDefinition,
@@ -90,6 +97,116 @@ import {
 } from "./models_3";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ */
+export interface DescribeAnalysisDefinitionRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the
+   *             Amazon Web Services account that the analysis is in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the analysis that you're describing. The ID is part of the URL of the
+   *             analysis.</p>
+   * @public
+   */
+  AnalysisId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAnalysisDefinitionResponse {
+  /**
+   * <p>The ID of the analysis described.</p>
+   * @public
+   */
+  AnalysisId?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the analysis.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Errors associated with the analysis.</p>
+   * @public
+   */
+  Errors?: AnalysisError[] | undefined;
+
+  /**
+   * <p>Status associated with the analysis.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceStatus?: ResourceStatus | undefined;
+
+  /**
+   * <p>The ARN of the theme of the analysis.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>The definition of an analysis.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   * @public
+   */
+  Definition?: AnalysisDefinition | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
 
 /**
  * @public
@@ -9067,44 +9184,11 @@ export interface UpdateApplicationWithTokenExchangeGrantRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface UpdateApplicationWithTokenExchangeGrantResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateBrandRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon QuickSight brand.</p>
-   * @public
-   */
-  BrandId: string | undefined;
-
-  /**
-   * <p>The definition of the brand.</p>
-   * @public
-   */
-  BrandDefinition?: BrandDefinition | undefined;
-}
+export const DescribeAnalysisDefinitionResponseFilterSensitiveLog = (obj: DescribeAnalysisDefinitionResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
