@@ -6509,23 +6509,115 @@
         },
         "datasync": {
           "endpoints": {
-            "af-south-1": {},
-            "ap-east-1": {},
-            "ap-northeast-1": {},
-            "ap-northeast-2": {},
-            "ap-northeast-3": {},
-            "ap-south-1": {},
-            "ap-south-2": {},
-            "ap-southeast-1": {},
-            "ap-southeast-2": {},
-            "ap-southeast-3": {},
-            "ap-southeast-4": {},
-            "ap-southeast-5": {},
+            "af-south-1": {
+              "variants": [
+                {
+                  "hostname": "datasync.af-south-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-east-1": {
+              "variants": [
+                {
+                  "hostname": "datasync.ap-east-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-northeast-1": {
+              "variants": [
+                {
+                  "hostname": "datasync.ap-northeast-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-northeast-2": {
+              "variants": [
+                {
+                  "hostname": "datasync.ap-northeast-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-northeast-3": {
+              "variants": [
+                {
+                  "hostname": "datasync.ap-northeast-3.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-south-1": {
+              "variants": [
+                {
+                  "hostname": "datasync.ap-south-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-south-2": {
+              "variants": [
+                {
+                  "hostname": "datasync.ap-south-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-southeast-1": {
+              "variants": [
+                {
+                  "hostname": "datasync.ap-southeast-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-southeast-2": {
+              "variants": [
+                {
+                  "hostname": "datasync.ap-southeast-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-southeast-3": {
+              "variants": [
+                {
+                  "hostname": "datasync.ap-southeast-3.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-southeast-4": {
+              "variants": [
+                {
+                  "hostname": "datasync.ap-southeast-4.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-southeast-5": {
+              "variants": [
+                {
+                  "hostname": "datasync.ap-southeast-5.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "ca-central-1": {
               "variants": [
                 {
                   "hostname": "datasync-fips.ca-central-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "datasync-fips.ca-central-1.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "datasync.ca-central-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -6534,17 +6626,81 @@
                 {
                   "hostname": "datasync-fips.ca-west-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "datasync-fips.ca-west-1.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "datasync.ca-west-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
-            "eu-central-1": {},
-            "eu-central-2": {},
-            "eu-north-1": {},
-            "eu-south-1": {},
-            "eu-south-2": {},
-            "eu-west-1": {},
-            "eu-west-2": {},
-            "eu-west-3": {},
+            "eu-central-1": {
+              "variants": [
+                {
+                  "hostname": "datasync.eu-central-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-central-2": {
+              "variants": [
+                {
+                  "hostname": "datasync.eu-central-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-north-1": {
+              "variants": [
+                {
+                  "hostname": "datasync.eu-north-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-south-1": {
+              "variants": [
+                {
+                  "hostname": "datasync.eu-south-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-south-2": {
+              "variants": [
+                {
+                  "hostname": "datasync.eu-south-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-west-1": {
+              "variants": [
+                {
+                  "hostname": "datasync.eu-west-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-west-2": {
+              "variants": [
+                {
+                  "hostname": "datasync.eu-west-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "eu-west-3": {
+              "variants": [
+                {
+                  "hostname": "datasync.eu-west-3.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "fips-ca-central-1": {
               "credentialScope": {
                 "region": "ca-central-1"
@@ -6587,15 +6743,51 @@
               "deprecated": true,
               "hostname": "datasync-fips.us-west-2.amazonaws.com"
             },
-            "il-central-1": {},
-            "me-central-1": {},
-            "me-south-1": {},
-            "sa-east-1": {},
+            "il-central-1": {
+              "variants": [
+                {
+                  "hostname": "datasync.il-central-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "me-central-1": {
+              "variants": [
+                {
+                  "hostname": "datasync.me-central-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "me-south-1": {
+              "variants": [
+                {
+                  "hostname": "datasync.me-south-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "sa-east-1": {
+              "variants": [
+                {
+                  "hostname": "datasync.sa-east-1.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "us-east-1": {
               "variants": [
                 {
                   "hostname": "datasync-fips.us-east-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "datasync-fips.us-east-1.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "datasync.us-east-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -6604,6 +6796,14 @@
                 {
                   "hostname": "datasync-fips.us-east-2.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "datasync-fips.us-east-2.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "datasync.us-east-2.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -6612,6 +6812,14 @@
                 {
                   "hostname": "datasync-fips.us-west-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "datasync-fips.us-west-1.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "datasync.us-west-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -6620,6 +6828,14 @@
                 {
                   "hostname": "datasync-fips.us-west-2.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "datasync-fips.us-west-2.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "datasync.us-west-2.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             }
@@ -13152,6 +13368,7 @@
             "ap-southeast-2": {},
             "ap-southeast-3": {},
             "ap-southeast-4": {},
+            "ap-southeast-5": {},
             "ca-central-1": {
               "variants": [
                 {
@@ -27497,8 +27714,22 @@
         },
         "datasync": {
           "endpoints": {
-            "cn-north-1": {},
-            "cn-northwest-1": {}
+            "cn-north-1": {
+              "variants": [
+                {
+                  "hostname": "datasync.cn-north-1.api.amazonwebservices.com.cn",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "cn-northwest-1": {
+              "variants": [
+                {
+                  "hostname": "datasync.cn-northwest-1.api.amazonwebservices.com.cn",
+                  "tags": ["dualstack"]
+                }
+              ]
+            }
           }
         },
         "datazone": {
@@ -30260,6 +30491,14 @@
                 {
                   "hostname": "datasync-fips.us-gov-east-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "datasync-fips.us-gov-east-1.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "datasync.us-gov-east-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -30268,6 +30507,14 @@
                 {
                   "hostname": "datasync-fips.us-gov-west-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "datasync-fips.us-gov-west-1.api.aws",
+                  "tags": ["dualstack", "fips"]
+                },
+                {
+                  "hostname": "datasync.us-gov-west-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             }
