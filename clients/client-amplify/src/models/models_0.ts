@@ -422,6 +422,51 @@ export const RepositoryCloneMethod = {
 export type RepositoryCloneMethod = (typeof RepositoryCloneMethod)[keyof typeof RepositoryCloneMethod];
 
 /**
+ * @public
+ * @enum
+ */
+export const WafStatus = {
+  ASSOCIATING: "ASSOCIATING",
+  ASSOCIATION_FAILED: "ASSOCIATION_FAILED",
+  ASSOCIATION_SUCCESS: "ASSOCIATION_SUCCESS",
+  DISASSOCIATING: "DISASSOCIATING",
+  DISASSOCIATION_FAILED: "DISASSOCIATION_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type WafStatus = (typeof WafStatus)[keyof typeof WafStatus];
+
+/**
+ * <p>Describes the Firewall configuration for a hosted Amplify application.
+ *             Firewall support enables you to protect your web applications with a direct integration
+ *             with WAF. For more information about using WAF protections for an Amplify application, see
+ *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/WAF-integration.html">Firewall support for hosted sites</a> in the <i>Amplify
+ *                     User Guide</i>. </p>
+ * @public
+ */
+export interface WafConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the web ACL associated with an Amplify app.</p>
+   * @public
+   */
+  webAclArn?: string | undefined;
+
+  /**
+   * <p>The status of the process to associate or disassociate a web ACL to an Amplify app.</p>
+   * @public
+   */
+  wafStatus?: WafStatus | undefined;
+
+  /**
+   * <p>The reason for the current status of the Firewall configuration.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
  * <p>Represents the different branches of a repository for building, deploying, and hosting
  *             an Amplify app. </p>
  * @public
@@ -475,13 +520,13 @@ export interface App {
   platform: Platform | undefined;
 
   /**
-   * <p>Creates a date and time for the Amplify app. </p>
+   * <p>A timestamp of when Amplify created the application.</p>
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>Updates the date and time for the Amplify app. </p>
+   * <p>A timestamp of when Amplify updated the application.</p>
    * @public
    */
   updateTime: Date | undefined;
@@ -598,6 +643,19 @@ export interface App {
    * @public
    */
   cacheConfig?: CacheConfig | undefined;
+
+  /**
+   * <p>A timestamp of when Amplify created the webhook in your Git repository.</p>
+   * @public
+   */
+  webhookCreateTime?: Date | undefined;
+
+  /**
+   * <p>Describes the Firewall configuration for the Amplify app. Firewall support enables you to protect your hosted applications with a direct integration
+   *             with WAF.</p>
+   * @public
+   */
+  wafConfiguration?: WafConfiguration | undefined;
 }
 
 /**
@@ -999,13 +1057,13 @@ export interface Branch {
   enableNotification: boolean | undefined;
 
   /**
-   * <p> The creation date and time for a branch that is part of an Amplify app. </p>
+   * <p>A timestamp of when Amplify created the branch.</p>
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p> The last updated date and time for a branch that is part of an Amplify app. </p>
+   * <p>A timestamp for the last updated time for a branch.</p>
    * @public
    */
   updateTime: Date | undefined;
@@ -1615,13 +1673,13 @@ export interface Webhook {
   description: string | undefined;
 
   /**
-   * <p>The create date and time for a webhook. </p>
+   * <p>A timestamp of when Amplify created the webhook in your Git repository.</p>
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>Updates the date and time for a webhook. </p>
+   * <p>A timestamp of when Amplify updated the webhook in your Git repository.</p>
    * @public
    */
   updateTime: Date | undefined;
@@ -1814,6 +1872,7 @@ export type SourceUrlType = (typeof SourceUrlType)[keyof typeof SourceUrlType];
 export const JobStatus = {
   CANCELLED: "CANCELLED",
   CANCELLING: "CANCELLING",
+  CREATED: "CREATED",
   FAILED: "FAILED",
   PENDING: "PENDING",
   PROVISIONING: "PROVISIONING",
@@ -1856,7 +1915,7 @@ export interface JobSummary {
   commitMessage: string | undefined;
 
   /**
-   * <p> The commit date and time for the job. </p>
+   * <p>The commit date and time for the job. </p>
    * @public
    */
   commitTime: Date | undefined;

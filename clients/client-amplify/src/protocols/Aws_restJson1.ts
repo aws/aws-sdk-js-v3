@@ -1953,6 +1953,8 @@ const de_App = (output: any, context: __SerdeContext): App => {
     repositoryCloneMethod: __expectString,
     tags: _json,
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    wafConfiguration: _json,
+    webhookCreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
 
@@ -2167,6 +2169,8 @@ const de_Steps = (output: any, context: __SerdeContext): Step[] => {
 // de_SubDomainSetting omitted.
 
 // de_TagMap omitted.
+
+// de_WafConfiguration omitted.
 
 /**
  * deserializeAws_restJson1Webhook

@@ -55,7 +55,7 @@ export interface StartJobCommandOutput extends StartJobResult, __MetadataBearer 
  * //     commitMessage: "STRING_VALUE", // required
  * //     commitTime: new Date("TIMESTAMP"), // required
  * //     startTime: new Date("TIMESTAMP"), // required
- * //     status: "PENDING" || "PROVISIONING" || "RUNNING" || "FAILED" || "SUCCEED" || "CANCELLING" || "CANCELLED", // required
+ * //     status: "CREATED" || "PENDING" || "PROVISIONING" || "RUNNING" || "FAILED" || "SUCCEED" || "CANCELLING" || "CANCELLED", // required
  * //     endTime: new Date("TIMESTAMP"),
  * //     jobType: "RELEASE" || "RETRY" || "MANUAL" || "WEB_HOOK", // required
  * //     sourceUrl: "STRING_VALUE",

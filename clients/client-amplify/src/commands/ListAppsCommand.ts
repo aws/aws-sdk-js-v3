@@ -102,6 +102,12 @@ export interface ListAppsCommandOutput extends ListAppsResult, __MetadataBearer 
  * //       cacheConfig: { // CacheConfig
  * //         type: "AMPLIFY_MANAGED" || "AMPLIFY_MANAGED_NO_COOKIES", // required
  * //       },
+ * //       webhookCreateTime: new Date("TIMESTAMP"),
+ * //       wafConfiguration: { // WafConfiguration
+ * //         webAclArn: "STRING_VALUE",
+ * //         wafStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ASSOCIATION_SUCCESS" || "DISASSOCIATING" || "DISASSOCIATION_FAILED",
+ * //         statusReason: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
