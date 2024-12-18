@@ -60,6 +60,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  CancelParticipantAuthenticationCommandInput,
+  CancelParticipantAuthenticationCommandOutput,
+} from "./commands/CancelParticipantAuthenticationCommand";
+import {
   CompleteAttachmentUploadCommandInput,
   CompleteAttachmentUploadCommandOutput,
 } from "./commands/CompleteAttachmentUploadCommand";
@@ -73,6 +77,10 @@ import {
   DisconnectParticipantCommandOutput,
 } from "./commands/DisconnectParticipantCommand";
 import { GetAttachmentCommandInput, GetAttachmentCommandOutput } from "./commands/GetAttachmentCommand";
+import {
+  GetAuthenticationUrlCommandInput,
+  GetAuthenticationUrlCommandOutput,
+} from "./commands/GetAuthenticationUrlCommand";
 import { GetTranscriptCommandInput, GetTranscriptCommandOutput } from "./commands/GetTranscriptCommand";
 import { SendEventCommandInput, SendEventCommandOutput } from "./commands/SendEventCommand";
 import { SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
@@ -95,11 +103,13 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CancelParticipantAuthenticationCommandInput
   | CompleteAttachmentUploadCommandInput
   | CreateParticipantConnectionCommandInput
   | DescribeViewCommandInput
   | DisconnectParticipantCommandInput
   | GetAttachmentCommandInput
+  | GetAuthenticationUrlCommandInput
   | GetTranscriptCommandInput
   | SendEventCommandInput
   | SendMessageCommandInput
@@ -109,11 +119,13 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CancelParticipantAuthenticationCommandOutput
   | CompleteAttachmentUploadCommandOutput
   | CreateParticipantConnectionCommandOutput
   | DescribeViewCommandOutput
   | DisconnectParticipantCommandOutput
   | GetAttachmentCommandOutput
+  | GetAuthenticationUrlCommandOutput
   | GetTranscriptCommandOutput
   | SendEventCommandOutput
   | SendMessageCommandOutput
@@ -310,7 +322,19 @@ export type ConnectParticipantClientResolvedConfigType = __SmithyResolvedConfigu
 export interface ConnectParticipantClientResolvedConfig extends ConnectParticipantClientResolvedConfigType {}
 
 /**
- * <p>Amazon Connect is an easy-to-use omnichannel cloud contact center service that
+ * <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Participant_Service.html">Participant Service actions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Participant_Service.html">Participant Service data types</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>Amazon Connect is an easy-to-use omnichannel cloud contact center service that
  *             enables companies of any size to deliver superior customer service at a lower cost.
  *                 Amazon Connect communications capabilities make it easy for companies to deliver
  *             personalized interactions across communication channels, including chat. </p>

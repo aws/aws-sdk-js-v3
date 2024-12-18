@@ -6,6 +6,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
@@ -23,6 +24,10 @@ import {
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
+  CancelParticipantAuthenticationCommandInput,
+  CancelParticipantAuthenticationCommandOutput,
+} from "../commands/CancelParticipantAuthenticationCommand";
+import {
   CompleteAttachmentUploadCommandInput,
   CompleteAttachmentUploadCommandOutput,
 } from "../commands/CompleteAttachmentUploadCommand";
@@ -36,6 +41,10 @@ import {
   DisconnectParticipantCommandOutput,
 } from "../commands/DisconnectParticipantCommand";
 import { GetAttachmentCommandInput, GetAttachmentCommandOutput } from "../commands/GetAttachmentCommand";
+import {
+  GetAuthenticationUrlCommandInput,
+  GetAuthenticationUrlCommandOutput,
+} from "../commands/GetAuthenticationUrlCommand";
 import { GetTranscriptCommandInput, GetTranscriptCommandOutput } from "../commands/GetTranscriptCommand";
 import { SendEventCommandInput, SendEventCommandOutput } from "../commands/SendEventCommand";
 import { SendMessageCommandInput, SendMessageCommandOutput } from "../commands/SendMessageCommand";
@@ -55,6 +64,29 @@ import {
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1CancelParticipantAuthenticationCommand
+ */
+export const se_CancelParticipantAuthenticationCommand = async (
+  input: CancelParticipantAuthenticationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_xab]: input[_CT]!,
+  });
+  b.bp("/participant/cancel-authentication");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      SessionId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CompleteAttachmentUploadCommand
@@ -162,6 +194,31 @@ export const se_GetAttachmentCommand = async (
   body = JSON.stringify(
     take(input, {
       AttachmentId: [],
+      UrlExpiryInSeconds: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAuthenticationUrlCommand
+ */
+export const se_GetAuthenticationUrlCommand = async (
+  input: GetAuthenticationUrlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_xab]: input[_CT]!,
+  });
+  b.bp("/participant/authentication-url");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      RedirectUri: [],
+      SessionId: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -273,6 +330,23 @@ export const se_StartAttachmentUploadCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CancelParticipantAuthenticationCommand
+ */
+export const de_CancelParticipantAuthenticationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelParticipantAuthenticationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CompleteAttachmentUploadCommand
  */
 export const de_CompleteAttachmentUploadCommand = async (
@@ -364,8 +438,30 @@ export const de_GetAttachmentCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AttachmentSizeInBytes: __expectLong,
     Url: __expectString,
     UrlExpiry: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAuthenticationUrlCommand
+ */
+export const de_GetAuthenticationUrlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAuthenticationUrlCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AuthenticationUrl: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -473,21 +569,21 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.connectparticipant#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.connectparticipant#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectparticipant#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.connectparticipant#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectparticipant#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectparticipant#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.connectparticipant#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connectparticipant#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectparticipant#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);

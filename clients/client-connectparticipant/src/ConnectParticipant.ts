@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  CancelParticipantAuthenticationCommand,
+  CancelParticipantAuthenticationCommandInput,
+  CancelParticipantAuthenticationCommandOutput,
+} from "./commands/CancelParticipantAuthenticationCommand";
+import {
   CompleteAttachmentUploadCommand,
   CompleteAttachmentUploadCommandInput,
   CompleteAttachmentUploadCommandOutput,
@@ -28,6 +33,11 @@ import {
   GetAttachmentCommandOutput,
 } from "./commands/GetAttachmentCommand";
 import {
+  GetAuthenticationUrlCommand,
+  GetAuthenticationUrlCommandInput,
+  GetAuthenticationUrlCommandOutput,
+} from "./commands/GetAuthenticationUrlCommand";
+import {
   GetTranscriptCommand,
   GetTranscriptCommandInput,
   GetTranscriptCommandOutput,
@@ -42,11 +52,13 @@ import {
 import { ConnectParticipantClient, ConnectParticipantClientConfig } from "./ConnectParticipantClient";
 
 const commands = {
+  CancelParticipantAuthenticationCommand,
   CompleteAttachmentUploadCommand,
   CreateParticipantConnectionCommand,
   DescribeViewCommand,
   DisconnectParticipantCommand,
   GetAttachmentCommand,
+  GetAuthenticationUrlCommand,
   GetTranscriptCommand,
   SendEventCommand,
   SendMessageCommand,
@@ -54,6 +66,23 @@ const commands = {
 };
 
 export interface ConnectParticipant {
+  /**
+   * @see {@link CancelParticipantAuthenticationCommand}
+   */
+  cancelParticipantAuthentication(
+    args: CancelParticipantAuthenticationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelParticipantAuthenticationCommandOutput>;
+  cancelParticipantAuthentication(
+    args: CancelParticipantAuthenticationCommandInput,
+    cb: (err: any, data?: CancelParticipantAuthenticationCommandOutput) => void
+  ): void;
+  cancelParticipantAuthentication(
+    args: CancelParticipantAuthenticationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelParticipantAuthenticationCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CompleteAttachmentUploadCommand}
    */
@@ -128,6 +157,23 @@ export interface ConnectParticipant {
   ): void;
 
   /**
+   * @see {@link GetAuthenticationUrlCommand}
+   */
+  getAuthenticationUrl(
+    args: GetAuthenticationUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAuthenticationUrlCommandOutput>;
+  getAuthenticationUrl(
+    args: GetAuthenticationUrlCommandInput,
+    cb: (err: any, data?: GetAuthenticationUrlCommandOutput) => void
+  ): void;
+  getAuthenticationUrl(
+    args: GetAuthenticationUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAuthenticationUrlCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTranscriptCommand}
    */
   getTranscript(args: GetTranscriptCommandInput, options?: __HttpHandlerOptions): Promise<GetTranscriptCommandOutput>;
@@ -179,7 +225,19 @@ export interface ConnectParticipant {
 }
 
 /**
- * <p>Amazon Connect is an easy-to-use omnichannel cloud contact center service that
+ * <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Participant_Service.html">Participant Service actions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Participant_Service.html">Participant Service data types</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>Amazon Connect is an easy-to-use omnichannel cloud contact center service that
  *             enables companies of any size to deliver superior customer service at a lower cost.
  *                 Amazon Connect communications capabilities make it easy for companies to deliver
  *             personalized interactions across communication channels, including chat. </p>

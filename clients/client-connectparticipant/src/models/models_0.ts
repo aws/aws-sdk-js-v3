@@ -28,21 +28,13 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export interface CompleteAttachmentUploadRequest {
+export interface CancelParticipantAuthenticationRequest {
   /**
-   * <p>A list of unique identifiers for the attachments.</p>
+   * <p>The <code>sessionId</code> provided in the <code>authenticationInitiated</code>
+   *             event.</p>
    * @public
    */
-  AttachmentIds: string[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
+  SessionId: string | undefined;
 
   /**
    * <p>The authentication token associated with the participant's connection.</p>
@@ -54,30 +46,7 @@ export interface CompleteAttachmentUploadRequest {
 /**
  * @public
  */
-export interface CompleteAttachmentUploadResponse {}
-
-/**
- * <p>The requested operation conflicts with the current state of a service
- *             resource associated with the request. </p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
+export interface CancelParticipantAuthenticationResponse {}
 
 /**
  * <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
@@ -97,28 +66,6 @@ export class InternalServerException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The number of attachments per contact exceeds the quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -163,6 +110,82 @@ export class ValidationException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CompleteAttachmentUploadRequest {
+  /**
+   * <p>A list of unique identifiers for the attachments.</p>
+   * @public
+   */
+  AttachmentIds: string[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The authentication token associated with the participant's connection.</p>
+   * @public
+   */
+  ConnectionToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CompleteAttachmentUploadResponse {}
+
+/**
+ * <p>The requested operation conflicts with the current state of a service resource
+ *             associated with the request. </p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The number of attachments per contact exceeds the quota.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -457,6 +480,13 @@ export interface GetAttachmentRequest {
    * @public
    */
   ConnectionToken: string | undefined;
+
+  /**
+   * <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format:
+   *             yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
+   * @public
+   */
+  UrlExpiryInSeconds?: number | undefined;
 }
 
 /**
@@ -475,6 +505,48 @@ export interface GetAttachmentResponse {
    * @public
    */
   UrlExpiry?: string | undefined;
+
+  /**
+   * <p>The size of the attachment in bytes.</p>
+   * @public
+   */
+  AttachmentSizeInBytes: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAuthenticationUrlRequest {
+  /**
+   * <p>The sessionId provided in the authenticationInitiated event.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>The URL where the customer will be redirected after Amazon Cognito authorizes the
+   *             user.</p>
+   * @public
+   */
+  RedirectUri: string | undefined;
+
+  /**
+   * <p>The authentication token associated with the participant's connection.</p>
+   * @public
+   */
+  ConnectionToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAuthenticationUrlResponse {
+  /**
+   * <p>The URL where the customer will sign in to the identity provider. This URL contains
+   *             the authorize endpoint for the Cognito UserPool used in the authentication.</p>
+   * @public
+   */
+  AuthenticationUrl?: string | undefined;
 }
 
 /**
@@ -1029,7 +1101,7 @@ export interface StartAttachmentUploadResponse {
   AttachmentId?: string | undefined;
 
   /**
-   * <p>Fields to be used while uploading the attachment.</p>
+   * <p>The headers to be provided while uploading the file to the URL.</p>
    * @public
    */
   UploadMetadata?: UploadMetadata | undefined;

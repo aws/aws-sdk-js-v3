@@ -6,6 +6,18 @@
 
 AWS SDK for JavaScript ConnectParticipant Client for Node.js, Browser and React Native.
 
+<ul>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Participant_Service.html">Participant Service actions</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Participant_Service.html">Participant Service data types</a>
+</p>
+</li>
+</ul>
 <p>Amazon Connect is an easy-to-use omnichannel cloud contact center service that
 enables companies of any size to deliver superior customer service at a lower cost.
 Amazon Connect communications capabilities make it easy for companies to deliver
@@ -213,6 +225,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CancelParticipantAuthentication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectparticipant/command/CancelParticipantAuthenticationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/CancelParticipantAuthenticationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/CancelParticipantAuthenticationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CompleteAttachmentUpload
 </summary>
 
@@ -249,6 +269,14 @@ GetAttachment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectparticipant/command/GetAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/GetAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/GetAttachmentCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAuthenticationUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectparticipant/command/GetAuthenticationUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/GetAuthenticationUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectparticipant/Interface/GetAuthenticationUrlCommandOutput/)
 
 </details>
 <details>
