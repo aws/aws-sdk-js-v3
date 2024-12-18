@@ -308,7 +308,7 @@ export interface CreateEnvironmentInput {
    *             For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache Airflow versions on Amazon Managed Workflows for Apache Airflow (Amazon MWAA)</a>.</p>
    *          <p>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>,
    *                 <code>2.4.3</code>, <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>,
-   *                 <code>2.8.1</code>, <code>2.9.2</code>, and <code>2.10.1</code>.</p>
+   *             <code>2.8.1</code>, <code>2.9.2</code>, <code>2.10.1</code>, and <code>2.10.3</code>.</p>
    * @public
    */
   AirflowVersion?: string | undefined;
@@ -779,7 +779,7 @@ export interface Environment {
    * <p>The Apache Airflow version on your environment.</p>
    *          <p>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>,
    *                 <code>2.4.3</code>, <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>,
-   *                 <code>2.8.1</code>, <code>2.9.2</code>, and <code>2.10.1</code>.</p>
+   *             <code>2.8.1</code>, <code>2.9.2</code>, <code>2.10.1</code>, and <code>2.10.3</code>.</p>
    * @public
    */
   AirflowVersion?: string | undefined;
@@ -1457,7 +1457,7 @@ export interface UpdateEnvironmentInput {
    *             your resources, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/upgrading-environment.html">Upgrading an Amazon MWAA environment</a>.</p>
    *          <p>Valid values: <code>1.10.12</code>, <code>2.0.2</code>, <code>2.2.2</code>,
    *                 <code>2.4.3</code>, <code>2.5.1</code>, <code>2.6.3</code>, <code>2.7.2</code>,
-   *                 <code>2.8.1</code>, <code>2.9.2</code>, and <code>2.10.1</code>.</p>
+   *             <code>2.8.1</code>, <code>2.9.2</code>, <code>2.10.1</code>, and <code>2.10.3</code>.</p>
    * @public
    */
   AirflowVersion?: string | undefined;
