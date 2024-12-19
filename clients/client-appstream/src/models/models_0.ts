@@ -533,6 +533,7 @@ export type AppBlockBuilderAttribute = (typeof AppBlockBuilderAttribute)[keyof t
 export const PlatformType = {
   AMAZON_LINUX2: "AMAZON_LINUX2",
   RHEL8: "RHEL8",
+  ROCKY_LINUX8: "ROCKY_LINUX8",
   WINDOWS: "WINDOWS",
   WINDOWS_SERVER_2016: "WINDOWS_SERVER_2016",
   WINDOWS_SERVER_2019: "WINDOWS_SERVER_2019",

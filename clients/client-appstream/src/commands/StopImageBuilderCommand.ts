@@ -56,7 +56,7 @@ export interface StopImageBuilderCommandOutput extends StopImageBuilderResult, _
  * //       ],
  * //     },
  * //     InstanceType: "STRING_VALUE",
- * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8",
+ * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
  * //     IamRoleArn: "STRING_VALUE",
  * //     State: "PENDING" || "UPDATING_AGENT" || "RUNNING" || "STOPPING" || "STOPPED" || "REBOOTING" || "SNAPSHOTTING" || "DELETING" || "FAILED" || "UPDATING" || "PENDING_QUALIFICATION",
  * //     StateChangeReason: { // ImageBuilderStateChangeReason

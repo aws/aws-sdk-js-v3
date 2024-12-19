@@ -59,7 +59,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //       Visibility: "PUBLIC" || "PRIVATE" || "SHARED",
  * //       ImageBuilderSupported: true || false,
  * //       ImageBuilderName: "STRING_VALUE",
- * //       Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8",
+ * //       Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
  * //       Description: "STRING_VALUE",
  * //       StateChangeReason: { // ImageStateChangeReason
  * //         Code: "INTERNAL_ERROR" || "IMAGE_BUILDER_NOT_AVAILABLE" || "IMAGE_COPY_FAILURE",
@@ -85,7 +85,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //             S3Key: "STRING_VALUE",
  * //           },
  * //           Platforms: [ // Platforms
- * //             "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8",
+ * //             "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
  * //           ],
  * //           InstanceFamilies: [ // StringList
  * //             "STRING_VALUE",
