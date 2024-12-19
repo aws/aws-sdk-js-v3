@@ -227,6 +227,7 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * //                 HexFontColor: "STRING_VALUE",
  * //                 OutlineColor: "BLACK" || "WHITE" || "YELLOW" || "RED" || "GREEN" || "BLUE" || "AUTO",
  * //                 OutlineSize: Number("int"),
+ * //                 RemoveRubyReserveAttributes: "DISABLED" || "ENABLED",
  * //                 ShadowColor: "NONE" || "BLACK" || "WHITE" || "AUTO",
  * //                 ShadowOpacity: Number("int"),
  * //                 ShadowXOffset: Number("int"),
@@ -761,6 +762,7 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * //           ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "FIT" || "FIT_NO_UPSCALE" || "FILL",
  * //           Sharpness: Number("int"),
  * //           TimecodeInsertion: "DISABLED" || "PIC_TIMING_SEI",
+ * //           TimecodeTrack: "DISABLED" || "ENABLED",
  * //           VideoPreprocessors: { // VideoPreprocessor
  * //             ColorCorrector: { // ColorCorrector
  * //               Brightness: Number("int"),

@@ -850,6 +850,7 @@ export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateRespons
  *                     HexFontColor: "STRING_VALUE",
  *                     OutlineColor: "BLACK" || "WHITE" || "YELLOW" || "RED" || "GREEN" || "BLUE" || "AUTO",
  *                     OutlineSize: Number("int"),
+ *                     RemoveRubyReserveAttributes: "DISABLED" || "ENABLED",
  *                     ShadowColor: "NONE" || "BLACK" || "WHITE" || "AUTO",
  *                     ShadowOpacity: Number("int"),
  *                     ShadowXOffset: Number("int"),
@@ -1398,6 +1399,7 @@ export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateRespons
  *               ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "FIT" || "FIT_NO_UPSCALE" || "FILL",
  *               Sharpness: Number("int"),
  *               TimecodeInsertion: "DISABLED" || "PIC_TIMING_SEI",
+ *               TimecodeTrack: "DISABLED" || "ENABLED",
  *               VideoPreprocessors: { // VideoPreprocessor
  *                 ColorCorrector: { // ColorCorrector
  *                   Brightness: Number("int"),
@@ -2342,6 +2344,7 @@ export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateRespons
  * //                       HexFontColor: "STRING_VALUE",
  * //                       OutlineColor: "BLACK" || "WHITE" || "YELLOW" || "RED" || "GREEN" || "BLUE" || "AUTO",
  * //                       OutlineSize: Number("int"),
+ * //                       RemoveRubyReserveAttributes: "DISABLED" || "ENABLED",
  * //                       ShadowColor: "NONE" || "BLACK" || "WHITE" || "AUTO",
  * //                       ShadowOpacity: Number("int"),
  * //                       ShadowXOffset: Number("int"),
@@ -2890,6 +2893,7 @@ export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateRespons
  * //                 ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "FIT" || "FIT_NO_UPSCALE" || "FILL",
  * //                 Sharpness: Number("int"),
  * //                 TimecodeInsertion: "DISABLED" || "PIC_TIMING_SEI",
+ * //                 TimecodeTrack: "DISABLED" || "ENABLED",
  * //                 VideoPreprocessors: { // VideoPreprocessor
  * //                   ColorCorrector: { // ColorCorrector
  * //                     Brightness: Number("int"),

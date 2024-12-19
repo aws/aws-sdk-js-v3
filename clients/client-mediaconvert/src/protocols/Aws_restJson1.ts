@@ -2302,6 +2302,7 @@ const se_BurninDestinationSettings = (input: BurninDestinationSettings, context:
     hexFontColor: [, , `HexFontColor`],
     outlineColor: [, , `OutlineColor`],
     outlineSize: [, , `OutlineSize`],
+    removeRubyReserveAttributes: [, , `RemoveRubyReserveAttributes`],
     shadowColor: [, , `ShadowColor`],
     shadowOpacity: [, , `ShadowOpacity`],
     shadowXOffset: [, , `ShadowXOffset`],
@@ -4269,6 +4270,7 @@ const se_VideoDescription = (input: VideoDescription, context: __SerdeContext): 
     scalingBehavior: [, , `ScalingBehavior`],
     sharpness: [, , `Sharpness`],
     timecodeInsertion: [, , `TimecodeInsertion`],
+    timecodeTrack: [, , `TimecodeTrack`],
     videoPreprocessors: [, (_) => se_VideoPreprocessor(_, context), `VideoPreprocessors`],
     width: [, , `Width`],
   });
@@ -5367,6 +5369,7 @@ const de_BurninDestinationSettings = (output: any, context: __SerdeContext): Bur
     HexFontColor: [, __expectString, `hexFontColor`],
     OutlineColor: [, __expectString, `outlineColor`],
     OutlineSize: [, __expectInt32, `outlineSize`],
+    RemoveRubyReserveAttributes: [, __expectString, `removeRubyReserveAttributes`],
     ShadowColor: [, __expectString, `shadowColor`],
     ShadowOpacity: [, __expectInt32, `shadowOpacity`],
     ShadowXOffset: [, __expectInt32, `shadowXOffset`],
@@ -7555,6 +7558,7 @@ const de_VideoDescription = (output: any, context: __SerdeContext): VideoDescrip
     ScalingBehavior: [, __expectString, `scalingBehavior`],
     Sharpness: [, __expectInt32, `sharpness`],
     TimecodeInsertion: [, __expectString, `timecodeInsertion`],
+    TimecodeTrack: [, __expectString, `timecodeTrack`],
     VideoPreprocessors: [, (_: any) => de_VideoPreprocessor(_, context), `videoPreprocessors`],
     Width: [, __expectInt32, `width`],
   }) as any;

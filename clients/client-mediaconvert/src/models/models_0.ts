@@ -2080,6 +2080,21 @@ export type BurninSubtitleOutlineColor = (typeof BurninSubtitleOutlineColor)[key
  * @public
  * @enum
  */
+export const RemoveRubyReserveAttributes = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type RemoveRubyReserveAttributes =
+  (typeof RemoveRubyReserveAttributes)[keyof typeof RemoveRubyReserveAttributes];
+
+/**
+ * @public
+ * @enum
+ */
 export const BurninSubtitleShadowColor = {
   AUTO: "AUTO",
   BLACK: "BLACK",
@@ -2231,6 +2246,12 @@ export interface BurninDestinationSettings {
    * @public
    */
   OutlineSize?: number | undefined;
+
+  /**
+   * Optionally remove any tts:rubyReserve attributes present in your input, that do   not have a tts:ruby attribute in the same element, from your output. Use if your vertical Japanese output captions have alignment issues. To remove ruby reserve attributes when present: Choose Enabled. To not remove any ruby reserve attributes: Keep the default value, Disabled.
+   * @public
+   */
+  RemoveRubyReserveAttributes?: RemoveRubyReserveAttributes | undefined;
 
   /**
    * Specify the color of the shadow cast by the captions. Leave Shadow color blank and set Style passthrough to enabled to use the shadow color data from your input captions, if present.
@@ -7494,20 +7515,3 @@ export interface MsSmoothGroupSettings {
    */
   ManifestEncoding?: MsSmoothManifestEncoding | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OutputGroupType = {
-  CMAF_GROUP_SETTINGS: "CMAF_GROUP_SETTINGS",
-  DASH_ISO_GROUP_SETTINGS: "DASH_ISO_GROUP_SETTINGS",
-  FILE_GROUP_SETTINGS: "FILE_GROUP_SETTINGS",
-  HLS_GROUP_SETTINGS: "HLS_GROUP_SETTINGS",
-  MS_SMOOTH_GROUP_SETTINGS: "MS_SMOOTH_GROUP_SETTINGS",
-} as const;
-
-/**
- * @public
- */
-export type OutputGroupType = (typeof OutputGroupType)[keyof typeof OutputGroupType];

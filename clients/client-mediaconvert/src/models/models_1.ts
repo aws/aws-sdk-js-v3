@@ -29,10 +29,26 @@ import {
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
   OutputGroupDetail,
-  OutputGroupType,
   QueueTransition,
   Rectangle,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const OutputGroupType = {
+  CMAF_GROUP_SETTINGS: "CMAF_GROUP_SETTINGS",
+  DASH_ISO_GROUP_SETTINGS: "DASH_ISO_GROUP_SETTINGS",
+  FILE_GROUP_SETTINGS: "FILE_GROUP_SETTINGS",
+  HLS_GROUP_SETTINGS: "HLS_GROUP_SETTINGS",
+  MS_SMOOTH_GROUP_SETTINGS: "MS_SMOOTH_GROUP_SETTINGS",
+} as const;
+
+/**
+ * @public
+ */
+export type OutputGroupType = (typeof OutputGroupType)[keyof typeof OutputGroupType];
 
 /**
  * Output Group settings, including type
@@ -5829,6 +5845,20 @@ export const VideoTimecodeInsertion = {
 export type VideoTimecodeInsertion = (typeof VideoTimecodeInsertion)[keyof typeof VideoTimecodeInsertion];
 
 /**
+ * @public
+ * @enum
+ */
+export const TimecodeTrack = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type TimecodeTrack = (typeof TimecodeTrack)[keyof typeof TimecodeTrack];
+
+/**
  * Specify YUV limits and RGB tolerances when you set Sample range conversion to Limited range clip.
  * @public
  */
@@ -6514,7 +6544,7 @@ export interface VideoDescription {
   Crop?: Rectangle | undefined;
 
   /**
-   * Applies only to 29.97 fps outputs. When this feature is enabled, the service will use drop-frame timecode on outputs. If it is not possible to use drop-frame timecode, the system will fall back to non-drop-frame. This setting is enabled by default when Timecode insertion is enabled.
+   * Applies only to 29.97 fps outputs. When this feature is enabled, the service will use drop-frame timecode on outputs. If it is not possible to use drop-frame timecode, the system will fall back to non-drop-frame. This setting is enabled by default when Timecode insertion or Timecode track is enabled.
    * @public
    */
   DropFrameTimecode?: DropFrameTimecode | undefined;
@@ -6560,6 +6590,12 @@ export interface VideoDescription {
    * @public
    */
   TimecodeInsertion?: VideoTimecodeInsertion | undefined;
+
+  /**
+   * To include a timecode track in your MP4 output: Choose Enabled. MediaConvert writes the timecode track in the Null Media Header box (NMHD), without any timecode text formatting information. You can also specify dropframe or non-dropframe timecode under the Drop Frame Timecode setting. To not include a timecode track: Keep the default value, Disabled.
+   * @public
+   */
+  TimecodeTrack?: TimecodeTrack | undefined;
 
   /**
    * Find additional transcoding features under Preprocessors. Enable the features at each output individually. These features are disabled by default.
@@ -6757,7 +6793,7 @@ export interface JobSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -7145,7 +7181,7 @@ export interface JobTemplateSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -7407,31 +7443,3 @@ export const Commitment = {
  * @public
  */
 export type Commitment = (typeof Commitment)[keyof typeof Commitment];
-
-/**
- * @public
- * @enum
- */
-export const RenewalType = {
-  AUTO_RENEW: "AUTO_RENEW",
-  EXPIRE: "EXPIRE",
-} as const;
-
-/**
- * @public
- */
-export type RenewalType = (typeof RenewalType)[keyof typeof RenewalType];
-
-/**
- * @public
- * @enum
- */
-export const ReservationPlanStatus = {
-  ACTIVE: "ACTIVE",
-  EXPIRED: "EXPIRED",
-} as const;
-
-/**
- * @public
- */
-export type ReservationPlanStatus = (typeof ReservationPlanStatus)[keyof typeof ReservationPlanStatus];
