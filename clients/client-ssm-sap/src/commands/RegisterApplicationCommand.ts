@@ -65,6 +65,13 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  *     },
  *   ],
  *   DatabaseArn: "STRING_VALUE",
+ *   ComponentsInfo: [ // ComponentInfoList
+ *     { // ComponentInfo
+ *       ComponentType: "HANA" || "HANA_NODE" || "ABAP" || "ASCS" || "DIALOG" || "WEBDISP" || "WD" || "ERS", // required
+ *       Sid: "STRING_VALUE", // required
+ *       Ec2InstanceId: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new RegisterApplicationCommand(input);
  * const response = await client.send(command);

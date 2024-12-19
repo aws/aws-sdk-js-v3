@@ -77,6 +77,7 @@ import {
   ApplicationCredential,
   BackintConfig,
   Component,
+  ComponentInfo,
   ConflictException,
   Database,
   Filter,
@@ -432,6 +433,7 @@ export const se_RegisterApplicationCommand = async (
     take(input, {
       ApplicationId: [],
       ApplicationType: [],
+      ComponentsInfo: (_) => _json(_),
       Credentials: (_) => _json(_),
       DatabaseArn: [],
       Instances: (_) => _json(_),
@@ -1154,6 +1156,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ApplicationCredentialList omitted.
 
 // se_BackintConfig omitted.
+
+// se_ComponentInfo omitted.
+
+// se_ComponentInfoList omitted.
 
 // se_Filter omitted.
 

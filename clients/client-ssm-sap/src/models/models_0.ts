@@ -683,6 +683,34 @@ export interface Component {
 }
 
 /**
+ * <p>This is information about the component of
+ *          your SAP application, such as Web Dispatcher.</p>
+ * @public
+ */
+export interface ComponentInfo {
+  /**
+   * <p>This string is the type of the component.</p>
+   *          <p>Accepted value is <code>WD</code>.</p>
+   * @public
+   */
+  ComponentType: ComponentType | undefined;
+
+  /**
+   * <p>This string is the SAP System ID of the component.</p>
+   *          <p>Accepted values are alphanumeric.</p>
+   * @public
+   */
+  Sid: string | undefined;
+
+  /**
+   * <p>This is the Amazon EC2 instance on which your SAP component is running.</p>
+   *          <p>Accepted values are alphanumeric.</p>
+   * @public
+   */
+  Ec2InstanceId: string | undefined;
+}
+
+/**
  * <p>The summary of the component.</p>
  * @public
  */
@@ -1800,6 +1828,16 @@ export interface RegisterApplicationInput {
    * @public
    */
   DatabaseArn?: string | undefined;
+
+  /**
+   * <p>This is an optional parameter for component details
+   *          to which the SAP ABAP application is attached,
+   *          such as Web Dispatcher.</p>
+   *          <p>This is an array of ApplicationComponent objects.
+   *          You may input 0 to 5 items.</p>
+   * @public
+   */
+  ComponentsInfo?: ComponentInfo[] | undefined;
 }
 
 /**
