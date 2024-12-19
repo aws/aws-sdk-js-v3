@@ -1220,6 +1220,10 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *     ChannelPlacementGroupId: "STRING_VALUE",
  *     ClusterId: "STRING_VALUE",
  *   },
+ *   ChannelEngineVersion: { // ChannelEngineVersionRequest
+ *     Version: "STRING_VALUE",
+ *   },
+ *   DryRun: true || false,
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
@@ -2410,6 +2414,10 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //         ActiveMotionGraphicsActionName: "STRING_VALUE",
  * //         ActiveMotionGraphicsUri: "STRING_VALUE",
  * //         PipelineId: "STRING_VALUE",
+ * //         ChannelEngineVersion: { // ChannelEngineVersionResponse
+ * //           ExpirationDate: new Date("TIMESTAMP"),
+ * //           Version: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     PipelinesRunningCount: Number("int"),
@@ -2427,6 +2435,10 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //     AnywhereSettings: { // DescribeAnywhereSettings
  * //       ChannelPlacementGroupId: "STRING_VALUE",
  * //       ClusterId: "STRING_VALUE",
+ * //     },
+ * //     ChannelEngineVersion: {
+ * //       ExpirationDate: new Date("TIMESTAMP"),
+ * //       Version: "STRING_VALUE",
  * //     },
  * //   },
  * // };

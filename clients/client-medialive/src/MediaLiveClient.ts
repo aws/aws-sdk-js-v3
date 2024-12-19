@@ -249,6 +249,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListVersionsCommandInput, ListVersionsCommandOutput } from "./commands/ListVersionsCommand";
 import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand";
 import { RebootInputDeviceCommandInput, RebootInputDeviceCommandOutput } from "./commands/RebootInputDeviceCommand";
 import {
@@ -423,6 +424,7 @@ export type ServiceInputTypes =
   | ListReservationsCommandInput
   | ListSignalMapsCommandInput
   | ListTagsForResourceCommandInput
+  | ListVersionsCommandInput
   | PurchaseOfferingCommandInput
   | RebootInputDeviceCommandInput
   | RejectInputDeviceTransferCommandInput
@@ -542,6 +544,7 @@ export type ServiceOutputTypes =
   | ListReservationsCommandOutput
   | ListSignalMapsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListVersionsCommandOutput
   | PurchaseOfferingCommandOutput
   | RebootInputDeviceCommandOutput
   | RejectInputDeviceTransferCommandOutput

@@ -9,7 +9,7 @@ import {
   BatchFailedResultModel,
   BatchSuccessfulResultModel,
   CaptionLanguageMapping,
-  CmafIngestOutputSettings,
+  ChannelEngineVersionResponse,
   ColorCorrection,
   Hdr10Settings,
   HlsAdMarkers,
@@ -30,6 +30,18 @@ import {
   OfferingType,
   ReservationResourceSpecification,
 } from "./models_0";
+
+/**
+ * Cmaf Ingest Output Settings
+ * @public
+ */
+export interface CmafIngestOutputSettings {
+  /**
+   * String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
+   * @public
+   */
+  NameModifier?: string | undefined;
+}
 
 /**
  * Frame Capture Output Settings
@@ -2645,6 +2657,12 @@ export interface PipelineDetail {
    * @public
    */
   PipelineId?: string | undefined;
+
+  /**
+   * Current engine version of the encoder for this pipeline.
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
 }
 
 /**
@@ -7158,21 +7176,3 @@ export interface EpochLockingSettings {
  * @public
  */
 export interface PipelineLockingSettings {}
-
-/**
- * Output Locking Settings
- * @public
- */
-export interface OutputLockingSettings {
-  /**
-   * Epoch Locking Settings
-   * @public
-   */
-  EpochLockingSettings?: EpochLockingSettings | undefined;
-
-  /**
-   * Pipeline Locking Settings
-   * @public
-   */
-  PipelineLockingSettings?: PipelineLockingSettings | undefined;
-}

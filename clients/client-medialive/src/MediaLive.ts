@@ -360,6 +360,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListVersionsCommand,
+  ListVersionsCommandInput,
+  ListVersionsCommandOutput,
+} from "./commands/ListVersionsCommand";
+import {
   PurchaseOfferingCommand,
   PurchaseOfferingCommandInput,
   PurchaseOfferingCommandOutput,
@@ -596,6 +601,7 @@ const commands = {
   ListReservationsCommand,
   ListSignalMapsCommand,
   ListTagsForResourceCommand,
+  ListVersionsCommand,
   PurchaseOfferingCommand,
   RebootInputDeviceCommand,
   RejectInputDeviceTransferCommand,
@@ -1851,6 +1857,18 @@ export interface MediaLive {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVersionsCommand}
+   */
+  listVersions(): Promise<ListVersionsCommandOutput>;
+  listVersions(args: ListVersionsCommandInput, options?: __HttpHandlerOptions): Promise<ListVersionsCommandOutput>;
+  listVersions(args: ListVersionsCommandInput, cb: (err: any, data?: ListVersionsCommandOutput) => void): void;
+  listVersions(
+    args: ListVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVersionsCommandOutput) => void
   ): void;
 
   /**

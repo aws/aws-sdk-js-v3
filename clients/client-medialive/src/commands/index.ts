@@ -80,6 +80,7 @@ export * from "./ListOfferingsCommand";
 export * from "./ListReservationsCommand";
 export * from "./ListSignalMapsCommand";
 export * from "./ListTagsForResourceCommand";
+export * from "./ListVersionsCommand";
 export * from "./PurchaseOfferingCommand";
 export * from "./RebootInputDeviceCommand";
 export * from "./RejectInputDeviceTransferCommand";

@@ -227,6 +227,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListVersionsCommandInput, ListVersionsCommandOutput } from "../commands/ListVersionsCommand";
 import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "../commands/PurchaseOfferingCommand";
 import { RebootInputDeviceCommandInput, RebootInputDeviceCommandOutput } from "../commands/RebootInputDeviceCommand";
 import {
@@ -340,12 +341,12 @@ import {
   CaptionSelectorSettings,
   CdiInputSpecification,
   ChannelEgressEndpoint,
+  ChannelEngineVersionResponse,
   ChannelPipelineIdToRestart,
   ChannelSummary,
   CloudWatchAlarmTemplateGroupSummary,
   CloudWatchAlarmTemplateSummary,
   ClusterNetworkSettings,
-  CmafIngestOutputSettings,
   ColorCorrection,
   DashRoleAudio,
   DashRoleCaption,
@@ -482,6 +483,7 @@ import {
   BatchScheduleActionDeleteResult,
   BlackoutSlate,
   CmafIngestGroupSettings,
+  CmafIngestOutputSettings,
   ColorCorrectionSettings,
   ColorSpacePassthroughSettings,
   ConflictException,
@@ -543,7 +545,6 @@ import {
   OutputGroup,
   OutputGroupSettings,
   OutputLocationRef,
-  OutputLockingSettings,
   OutputSettings,
   PauseStateScheduleActionSettings,
   PipelineDetail,
@@ -600,6 +601,7 @@ import {
 } from "../models/models_1";
 import {
   Channel,
+  ChannelEngineVersionRequest,
   ClusterNetworkSettingsCreateRequest,
   ClusterNetworkSettingsUpdateRequest,
   EncoderSettings,
@@ -625,6 +627,7 @@ import {
   MultiplexStatmuxVideoSettings,
   MultiplexVideoSettings,
   NielsenConfiguration,
+  OutputLockingSettings,
   SrtSettingsRequest,
   SuccessfulMonitorDeployment,
   ThumbnailConfiguration,
@@ -799,7 +802,9 @@ export const se_CreateChannelCommand = async (
       anywhereSettings: [, (_) => se_AnywhereSettings(_, context), `AnywhereSettings`],
       cdiInputSpecification: [, (_) => se_CdiInputSpecification(_, context), `CdiInputSpecification`],
       channelClass: [, , `ChannelClass`],
+      channelEngineVersion: [, (_) => se_ChannelEngineVersionRequest(_, context), `ChannelEngineVersion`],
       destinations: [, (_) => se___listOfOutputDestination(_, context), `Destinations`],
+      dryRun: [, , `DryRun`],
       encoderSettings: [, (_) => se_EncoderSettings(_, context), `EncoderSettings`],
       inputAttachments: [, (_) => se___listOfInputAttachment(_, context), `InputAttachments`],
       inputSpecification: [, (_) => se_InputSpecification(_, context), `InputSpecification`],
@@ -2263,6 +2268,21 @@ export const se_ListTagsForResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListVersionsCommand
+ */
+export const se_ListVersionsCommand = async (
+  input: ListVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/versions");
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1PurchaseOfferingCommand
  */
 export const se_PurchaseOfferingCommand = async (
@@ -2595,7 +2615,9 @@ export const se_UpdateChannelCommand = async (
   body = JSON.stringify(
     take(input, {
       cdiInputSpecification: [, (_) => se_CdiInputSpecification(_, context), `CdiInputSpecification`],
+      channelEngineVersion: [, (_) => se_ChannelEngineVersionRequest(_, context), `ChannelEngineVersion`],
       destinations: [, (_) => se___listOfOutputDestination(_, context), `Destinations`],
+      dryRun: [, , `DryRun`],
       encoderSettings: [, (_) => se_EncoderSettings(_, context), `EncoderSettings`],
       inputAttachments: [, (_) => se___listOfInputAttachment(_, context), `InputAttachments`],
       inputSpecification: [, (_) => se_InputSpecification(_, context), `InputSpecification`],
@@ -3614,6 +3636,7 @@ export const de_DeleteChannelCommand = async (
     Arn: [, __expectString, `arn`],
     CdiInputSpecification: [, (_) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
     ChannelClass: [, __expectString, `channelClass`],
+    ChannelEngineVersion: [, (_) => de_ChannelEngineVersionResponse(_, context), `channelEngineVersion`],
     Destinations: [, (_) => de___listOfOutputDestination(_, context), `destinations`],
     EgressEndpoints: [, (_) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
     EncoderSettings: [, (_) => de_EncoderSettings(_, context), `encoderSettings`],
@@ -4033,6 +4056,7 @@ export const de_DescribeChannelCommand = async (
     Arn: [, __expectString, `arn`],
     CdiInputSpecification: [, (_) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
     ChannelClass: [, __expectString, `channelClass`],
+    ChannelEngineVersion: [, (_) => de_ChannelEngineVersionResponse(_, context), `channelEngineVersion`],
     Destinations: [, (_) => de___listOfOutputDestination(_, context), `destinations`],
     EgressEndpoints: [, (_) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
     EncoderSettings: [, (_) => de_EncoderSettings(_, context), `encoderSettings`],
@@ -5058,6 +5082,27 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListVersionsCommand
+ */
+export const de_ListVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Versions: [, (_) => de___listOfChannelEngineVersionResponse(_, context), `versions`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1PurchaseOfferingCommand
  */
 export const de_PurchaseOfferingCommand = async (
@@ -5131,6 +5176,7 @@ export const de_RestartChannelPipelinesCommand = async (
     Arn: [, __expectString, `arn`],
     CdiInputSpecification: [, (_) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
     ChannelClass: [, __expectString, `channelClass`],
+    ChannelEngineVersion: [, (_) => de_ChannelEngineVersionResponse(_, context), `channelEngineVersion`],
     Destinations: [, (_) => de___listOfOutputDestination(_, context), `destinations`],
     EgressEndpoints: [, (_) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
     EncoderSettings: [, (_) => de_EncoderSettings(_, context), `encoderSettings`],
@@ -5171,6 +5217,7 @@ export const de_StartChannelCommand = async (
     Arn: [, __expectString, `arn`],
     CdiInputSpecification: [, (_) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
     ChannelClass: [, __expectString, `channelClass`],
+    ChannelEngineVersion: [, (_) => de_ChannelEngineVersionResponse(_, context), `channelEngineVersion`],
     Destinations: [, (_) => de___listOfOutputDestination(_, context), `destinations`],
     EgressEndpoints: [, (_) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
     EncoderSettings: [, (_) => de_EncoderSettings(_, context), `encoderSettings`],
@@ -5400,6 +5447,7 @@ export const de_StopChannelCommand = async (
     Arn: [, __expectString, `arn`],
     CdiInputSpecification: [, (_) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
     ChannelClass: [, __expectString, `channelClass`],
+    ChannelEngineVersion: [, (_) => de_ChannelEngineVersionResponse(_, context), `channelEngineVersion`],
     Destinations: [, (_) => de___listOfOutputDestination(_, context), `destinations`],
     EgressEndpoints: [, (_) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
     EncoderSettings: [, (_) => de_EncoderSettings(_, context), `encoderSettings`],
@@ -7181,6 +7229,15 @@ const se_CaptionSelectorSettings = (input: CaptionSelectorSettings, context: __S
 const se_CdiInputSpecification = (input: CdiInputSpecification, context: __SerdeContext): any => {
   return take(input, {
     resolution: [, , `Resolution`],
+  });
+};
+
+/**
+ * serializeAws_restJson1ChannelEngineVersionRequest
+ */
+const se_ChannelEngineVersionRequest = (input: ChannelEngineVersionRequest, context: __SerdeContext): any => {
+  return take(input, {
+    version: [, , `Version`],
   });
 };
 
@@ -9746,6 +9803,21 @@ const de___listOfChannelEgressEndpoint = (output: any, context: __SerdeContext):
 };
 
 /**
+ * deserializeAws_restJson1__listOfChannelEngineVersionResponse
+ */
+const de___listOfChannelEngineVersionResponse = (
+  output: any,
+  context: __SerdeContext
+): ChannelEngineVersionResponse[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ChannelEngineVersionResponse(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfChannelSummary
  */
 const de___listOfChannelSummary = (output: any, context: __SerdeContext): ChannelSummary[] => {
@@ -10970,6 +11042,7 @@ const de_Channel = (output: any, context: __SerdeContext): Channel => {
     Arn: [, __expectString, `arn`],
     CdiInputSpecification: [, (_: any) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
     ChannelClass: [, __expectString, `channelClass`],
+    ChannelEngineVersion: [, (_: any) => de_ChannelEngineVersionResponse(_, context), `channelEngineVersion`],
     Destinations: [, (_: any) => de___listOfOutputDestination(_, context), `destinations`],
     EgressEndpoints: [, (_: any) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
     EncoderSettings: [, (_: any) => de_EncoderSettings(_, context), `encoderSettings`],
@@ -10998,6 +11071,16 @@ const de_ChannelEgressEndpoint = (output: any, context: __SerdeContext): Channel
 };
 
 /**
+ * deserializeAws_restJson1ChannelEngineVersionResponse
+ */
+const de_ChannelEngineVersionResponse = (output: any, context: __SerdeContext): ChannelEngineVersionResponse => {
+  return take(output, {
+    ExpirationDate: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `expirationDate`],
+    Version: [, __expectString, `version`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ChannelSummary
  */
 const de_ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary => {
@@ -11006,6 +11089,7 @@ const de_ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary
     Arn: [, __expectString, `arn`],
     CdiInputSpecification: [, (_: any) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
     ChannelClass: [, __expectString, `channelClass`],
+    ChannelEngineVersion: [, (_: any) => de_ChannelEngineVersionResponse(_, context), `channelEngineVersion`],
     Destinations: [, (_: any) => de___listOfOutputDestination(_, context), `destinations`],
     EgressEndpoints: [, (_: any) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
     Id: [, __expectString, `id`],
@@ -11018,6 +11102,11 @@ const de_ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary
     RoleArn: [, __expectString, `roleArn`],
     State: [, __expectString, `state`],
     Tags: [, _json, `tags`],
+    UsedChannelEngineVersions: [
+      ,
+      (_: any) => de___listOfChannelEngineVersionResponse(_, context),
+      `usedChannelEngineVersions`,
+    ],
     Vpc: [, (_: any) => de_VpcOutputSettingsDescription(_, context), `vpc`],
   }) as any;
 };
@@ -13084,6 +13173,7 @@ const de_PipelineDetail = (output: any, context: __SerdeContext): PipelineDetail
     ActiveInputSwitchActionName: [, __expectString, `activeInputSwitchActionName`],
     ActiveMotionGraphicsActionName: [, __expectString, `activeMotionGraphicsActionName`],
     ActiveMotionGraphicsUri: [, __expectString, `activeMotionGraphicsUri`],
+    ChannelEngineVersion: [, (_: any) => de_ChannelEngineVersionResponse(_, context), `channelEngineVersion`],
     PipelineId: [, __expectString, `pipelineId`],
   }) as any;
 };

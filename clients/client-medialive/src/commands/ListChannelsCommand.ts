@@ -261,6 +261,16 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //         ChannelPlacementGroupId: "STRING_VALUE",
  * //         ClusterId: "STRING_VALUE",
  * //       },
+ * //       ChannelEngineVersion: { // ChannelEngineVersionResponse
+ * //         ExpirationDate: new Date("TIMESTAMP"),
+ * //         Version: "STRING_VALUE",
+ * //       },
+ * //       UsedChannelEngineVersions: [ // __listOfChannelEngineVersionResponse
+ * //         {
+ * //           ExpirationDate: new Date("TIMESTAMP"),
+ * //           Version: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

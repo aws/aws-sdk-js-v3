@@ -853,6 +853,14 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+ListVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/ListVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/ListVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/ListVersionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 PurchaseOffering
 </summary>
 

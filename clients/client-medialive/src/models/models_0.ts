@@ -2669,6 +2669,24 @@ export interface ChannelEgressEndpoint {
 }
 
 /**
+ * Placeholder documentation for ChannelEngineVersionResponse
+ * @public
+ */
+export interface ChannelEngineVersionResponse {
+  /**
+   * The UTC time when the version expires.
+   * @public
+   */
+  ExpirationDate?: Date | undefined;
+
+  /**
+   * The build identifier for this version of the channel version.
+   * @public
+   */
+  Version?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -3725,6 +3743,18 @@ export interface ChannelSummary {
    * @public
    */
   AnywhereSettings?: DescribeAnywhereSettings | undefined;
+
+  /**
+   * The engine version that you requested for this channel.
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
+
+  /**
+   * The engine version that the running pipelines are using.
+   * @public
+   */
+  UsedChannelEngineVersions?: ChannelEngineVersionResponse[] | undefined;
 }
 
 /**
@@ -7040,18 +7070,6 @@ export interface ArchiveOutputSettings {
    */
   Extension?: string | undefined;
 
-  /**
-   * String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
-   * @public
-   */
-  NameModifier?: string | undefined;
-}
-
-/**
- * Cmaf Ingest Output Settings
- * @public
- */
-export interface CmafIngestOutputSettings {
   /**
    * String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
    * @public

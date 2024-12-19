@@ -7,6 +7,7 @@ import {
   CdiInputSpecification,
   ChannelClass,
   ChannelEgressEndpoint,
+  ChannelEngineVersionResponse,
   ChannelPipelineIdToRestart,
   ChannelPlacementGroupState,
   ChannelState,
@@ -102,13 +103,14 @@ import {
   AvailConfiguration,
   BlackoutSlate,
   ColorCorrectionSettings,
+  EpochLockingSettings,
   FeatureActivations,
   GlobalConfigurationInputEndAction,
   GlobalConfigurationOutputLockingMode,
   InputLossBehavior,
   OutputGroup,
-  OutputLockingSettings,
   PipelineDetail,
+  PipelineLockingSettings,
   RenewalSettings,
   Reservation,
   ReservationState,
@@ -123,6 +125,24 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * Output Locking Settings
+ * @public
+ */
+export interface OutputLockingSettings {
+  /**
+   * Epoch Locking Settings
+   * @public
+   */
+  EpochLockingSettings?: EpochLockingSettings | undefined;
+
+  /**
+   * Pipeline Locking Settings
+   * @public
+   */
+  PipelineLockingSettings?: PipelineLockingSettings | undefined;
+}
 
 /**
  * @public
@@ -560,6 +580,24 @@ export interface Channel {
    * @public
    */
   AnywhereSettings?: DescribeAnywhereSettings | undefined;
+
+  /**
+   * Requested engine version for this channel.
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
+}
+
+/**
+ * Placeholder documentation for ChannelEngineVersionRequest
+ * @public
+ */
+export interface ChannelEngineVersionRequest {
+  /**
+   * The build identifier of the engine version to use for this channel. Specify 'DEFAULT' to reset to the default version.
+   * @public
+   */
+  Version?: string | undefined;
 }
 
 /**
@@ -772,6 +810,18 @@ export interface CreateChannelRequest {
    * @public
    */
   AnywhereSettings?: AnywhereSettings | undefined;
+
+  /**
+   * The desired engine version for this channel.
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionRequest | undefined;
+
+  /**
+   * Placeholder documentation for __boolean
+   * @public
+   */
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -2692,6 +2742,12 @@ export interface DeleteChannelResponse {
    * @public
    */
   AnywhereSettings?: DescribeAnywhereSettings | undefined;
+
+  /**
+   * Requested engine version for this channel.
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
 }
 
 /**
@@ -3516,6 +3572,12 @@ export interface DescribeChannelResponse {
    * @public
    */
   AnywhereSettings?: DescribeAnywhereSettings | undefined;
+
+  /**
+   * Requested engine version for this channel.
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
 }
 
 /**
@@ -5958,6 +6020,24 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * Placeholder documentation for ListVersionsRequest
+ * @public
+ */
+export interface ListVersionsRequest {}
+
+/**
+ * Placeholder documentation for ListVersionsResponse
+ * @public
+ */
+export interface ListVersionsResponse {
+  /**
+   * List of engine versions that are available for this AWS account.
+   * @public
+   */
+  Versions?: ChannelEngineVersionResponse[] | undefined;
+}
+
+/**
  * Placeholder documentation for MaintenanceUpdateSettings
  * @public
  */
@@ -6241,6 +6321,12 @@ export interface RestartChannelPipelinesResponse {
    * @public
    */
   AnywhereSettings?: DescribeAnywhereSettings | undefined;
+
+  /**
+   * Requested engine version for this channel.
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
 }
 
 /**
@@ -6375,6 +6461,12 @@ export interface StartChannelResponse {
    * @public
    */
   AnywhereSettings?: DescribeAnywhereSettings | undefined;
+
+  /**
+   * Requested engine version for this channel.
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
 }
 
 /**
@@ -7043,6 +7135,12 @@ export interface StopChannelResponse {
    * @public
    */
   AnywhereSettings?: DescribeAnywhereSettings | undefined;
+
+  /**
+   * Requested engine version for this channel.
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
 }
 
 /**
@@ -7265,6 +7363,18 @@ export interface UpdateChannelRequest {
    * @public
    */
   RoleArn?: string | undefined;
+
+  /**
+   * Channel engine version for this channel
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionRequest | undefined;
+
+  /**
+   * Placeholder documentation for __boolean
+   * @public
+   */
+  DryRun?: boolean | undefined;
 }
 
 /**

@@ -1207,6 +1207,10 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *   },
  *   Name: "STRING_VALUE",
  *   RoleArn: "STRING_VALUE",
+ *   ChannelEngineVersion: { // ChannelEngineVersionRequest
+ *     Version: "STRING_VALUE",
+ *   },
+ *   DryRun: true || false,
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
@@ -2397,6 +2401,10 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //         ActiveMotionGraphicsActionName: "STRING_VALUE",
  * //         ActiveMotionGraphicsUri: "STRING_VALUE",
  * //         PipelineId: "STRING_VALUE",
+ * //         ChannelEngineVersion: { // ChannelEngineVersionResponse
+ * //           ExpirationDate: new Date("TIMESTAMP"),
+ * //           Version: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     PipelinesRunningCount: Number("int"),
@@ -2414,6 +2422,10 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //     AnywhereSettings: { // DescribeAnywhereSettings
  * //       ChannelPlacementGroupId: "STRING_VALUE",
  * //       ClusterId: "STRING_VALUE",
+ * //     },
+ * //     ChannelEngineVersion: {
+ * //       ExpirationDate: new Date("TIMESTAMP"),
+ * //       Version: "STRING_VALUE",
  * //     },
  * //   },
  * // };

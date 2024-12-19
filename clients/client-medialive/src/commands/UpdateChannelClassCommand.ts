@@ -1259,6 +1259,10 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //         ActiveMotionGraphicsActionName: "STRING_VALUE",
  * //         ActiveMotionGraphicsUri: "STRING_VALUE",
  * //         PipelineId: "STRING_VALUE",
+ * //         ChannelEngineVersion: { // ChannelEngineVersionResponse
+ * //           ExpirationDate: new Date("TIMESTAMP"),
+ * //           Version: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     PipelinesRunningCount: Number("int"),
@@ -1276,6 +1280,10 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //     AnywhereSettings: { // DescribeAnywhereSettings
  * //       ChannelPlacementGroupId: "STRING_VALUE",
  * //       ClusterId: "STRING_VALUE",
+ * //     },
+ * //     ChannelEngineVersion: {
+ * //       ExpirationDate: new Date("TIMESTAMP"),
+ * //       Version: "STRING_VALUE",
  * //     },
  * //   },
  * // };
