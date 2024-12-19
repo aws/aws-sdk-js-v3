@@ -65,7 +65,7 @@ describe(getChecksumAlgorithmForRequest.name, () => {
     };
     expect(() => {
       getChecksumAlgorithmForRequest(mockInput, mockOptions);
-    }).toThrow(
+    }).toThrowError(
       `The checksum algorithm "${unsupportedAlgo}" is not supported by the client.` +
         ` Select one of ${CLIENT_SUPPORTED_ALGORITHMS}.`
     );
