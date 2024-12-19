@@ -25,7 +25,7 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/middleware-endpoint": "^3.2.5",
+    "@smithy/middleware-endpoint": "^3.2.6",
     "@smithy/protocol-http": "^4.1.8",
     "@smithy/signature-v4": "^4.2.4",
     "@smithy/types": "^3.7.2",
