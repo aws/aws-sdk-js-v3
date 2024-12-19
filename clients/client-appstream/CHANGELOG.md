@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
+
+
+### Features
+
+* **client-appstream:** Added support for Rocky Linux 8 on Amazon AppStream 2.0 ([41e19ac](https://github.com/aws/aws-sdk-js-v3/commit/41e19ac15e5f81c181a78e174057cd02c70c3658))
+
+
+
+
+
 # [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
 
 

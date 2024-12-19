@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
+
+
+### Features
+
+* **client-workspaces:** Added AWS Global Accelerator (AGA) support for WorkSpaces Personal. ([19c98c2](https://github.com/aws/aws-sdk-js-v3/commit/19c98c2cac036e2ccb29ecebf85fd1d9a9e86799))
+
+
+
+
+
 # [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
 
 

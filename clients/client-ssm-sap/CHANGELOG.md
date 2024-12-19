@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
+
+
+### Features
+
+* **client-ssm-sap:** AWS Systems Manager for SAP added support for registration and discovery of distributed ABAP applications ([f8fee42](https://github.com/aws/aws-sdk-js-v3/commit/f8fee42ab21389b0fdcc2cd5ba0c46fb719a4750))
+
+
+
+
+
 # [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
 
 

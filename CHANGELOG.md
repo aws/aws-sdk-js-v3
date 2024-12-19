@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
+
+
+### Features
+
+* **client-appstream:** Added support for Rocky Linux 8 on Amazon AppStream 2.0 ([41e19ac](https://github.com/aws/aws-sdk-js-v3/commit/41e19ac15e5f81c181a78e174057cd02c70c3658))
+* **client-mediaconvert:** This release adds support for inserting timecode tracks into MP4 container outputs. ([1f67291](https://github.com/aws/aws-sdk-js-v3/commit/1f67291c1a5b629dc8a06ef2a47d95e18f65591b))
+* **client-medialive:** MediaLive is releasing ListVersions api ([c6e1d2f](https://github.com/aws/aws-sdk-js-v3/commit/c6e1d2f3a425f3f77770734f4f334acfbb61dae4))
+* **client-qconnect:** Amazon Q in Connect enables agents to ask Q for assistance in multiple languages and Q will provide answers and recommended step-by-step guides in those languages. Qs default language is English (United States) and you can switch this by setting the locale configuration on the AI Agent. ([81aee61](https://github.com/aws/aws-sdk-js-v3/commit/81aee610010a8787d43bc52c982579aa3550773b))
+* **client-ssm-sap:** AWS Systems Manager for SAP added support for registration and discovery of distributed ABAP applications ([f8fee42](https://github.com/aws/aws-sdk-js-v3/commit/f8fee42ab21389b0fdcc2cd5ba0c46fb719a4750))
+* **client-workspaces:** Added AWS Global Accelerator (AGA) support for WorkSpaces Personal. ([19c98c2](https://github.com/aws/aws-sdk-js-v3/commit/19c98c2cac036e2ccb29ecebf85fd1d9a9e86799))
+* **clients:** update client endpoints as of 2024-12-19 ([989582c](https://github.com/aws/aws-sdk-js-v3/commit/989582c874d3d9e78cc67ac453e88b04750e98ef))
+
+
+
+
+
 # [3.715.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.714.0...v3.715.0) (2024-12-18)
 
 
