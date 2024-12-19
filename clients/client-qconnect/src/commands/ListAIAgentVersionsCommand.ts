@@ -92,6 +92,7 @@ export interface ListAIAgentVersionsCommandOutput extends ListAIAgentVersionsRes
  * //                 },
  * //               },
  * //             ],
+ * //             locale: "STRING_VALUE",
  * //           },
  * //           answerRecommendationAIAgentConfiguration: { // AnswerRecommendationAIAgentConfiguration
  * //             intentLabelingGenerationAIPromptId: "STRING_VALUE",
@@ -124,6 +125,7 @@ export interface ListAIAgentVersionsCommandOutput extends ListAIAgentVersionsRes
  * //                 },
  * //               },
  * //             ],
+ * //             locale: "STRING_VALUE",
  * //           },
  * //           selfServiceAIAgentConfiguration: { // SelfServiceAIAgentConfiguration
  * //             selfServicePreProcessingAIPromptId: "STRING_VALUE",

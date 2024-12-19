@@ -90,6 +90,7 @@ export interface ListAIAgentsCommandOutput extends ListAIAgentsResponse, __Metad
  * //               },
  * //             },
  * //           ],
+ * //           locale: "STRING_VALUE",
  * //         },
  * //         answerRecommendationAIAgentConfiguration: { // AnswerRecommendationAIAgentConfiguration
  * //           intentLabelingGenerationAIPromptId: "STRING_VALUE",
@@ -122,6 +123,7 @@ export interface ListAIAgentsCommandOutput extends ListAIAgentsResponse, __Metad
  * //               },
  * //             },
  * //           ],
+ * //           locale: "STRING_VALUE",
  * //         },
  * //         selfServiceAIAgentConfiguration: { // SelfServiceAIAgentConfiguration
  * //           selfServicePreProcessingAIPromptId: "STRING_VALUE",

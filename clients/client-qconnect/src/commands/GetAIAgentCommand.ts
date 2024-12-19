@@ -85,6 +85,7 @@ export interface GetAIAgentCommandOutput extends GetAIAgentResponse, __MetadataB
  * //             },
  * //           },
  * //         ],
+ * //         locale: "STRING_VALUE",
  * //       },
  * //       answerRecommendationAIAgentConfiguration: { // AnswerRecommendationAIAgentConfiguration
  * //         intentLabelingGenerationAIPromptId: "STRING_VALUE",
@@ -117,6 +118,7 @@ export interface GetAIAgentCommandOutput extends GetAIAgentResponse, __MetadataB
  * //             },
  * //           },
  * //         ],
+ * //         locale: "STRING_VALUE",
  * //       },
  * //       selfServiceAIAgentConfiguration: { // SelfServiceAIAgentConfiguration
  * //         selfServicePreProcessingAIPromptId: "STRING_VALUE",

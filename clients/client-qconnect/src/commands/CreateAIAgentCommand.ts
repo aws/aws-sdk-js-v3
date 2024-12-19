@@ -76,6 +76,7 @@ export interface CreateAIAgentCommandOutput extends CreateAIAgentResponse, __Met
  *           },
  *         },
  *       ],
+ *       locale: "STRING_VALUE",
  *     },
  *     answerRecommendationAIAgentConfiguration: { // AnswerRecommendationAIAgentConfiguration
  *       intentLabelingGenerationAIPromptId: "STRING_VALUE",
@@ -108,6 +109,7 @@ export interface CreateAIAgentCommandOutput extends CreateAIAgentResponse, __Met
  *           },
  *         },
  *       ],
+ *       locale: "STRING_VALUE",
  *     },
  *     selfServiceAIAgentConfiguration: { // SelfServiceAIAgentConfiguration
  *       selfServicePreProcessingAIPromptId: "STRING_VALUE",
@@ -191,6 +193,7 @@ export interface CreateAIAgentCommandOutput extends CreateAIAgentResponse, __Met
  * //             },
  * //           },
  * //         ],
+ * //         locale: "STRING_VALUE",
  * //       },
  * //       answerRecommendationAIAgentConfiguration: { // AnswerRecommendationAIAgentConfiguration
  * //         intentLabelingGenerationAIPromptId: "STRING_VALUE",
@@ -223,6 +226,7 @@ export interface CreateAIAgentCommandOutput extends CreateAIAgentResponse, __Met
  * //             },
  * //           },
  * //         ],
+ * //         locale: "STRING_VALUE",
  * //       },
  * //       selfServiceAIAgentConfiguration: { // SelfServiceAIAgentConfiguration
  * //         selfServicePreProcessingAIPromptId: "STRING_VALUE",

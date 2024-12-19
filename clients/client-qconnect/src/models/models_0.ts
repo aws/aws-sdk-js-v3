@@ -486,6 +486,18 @@ export interface AnswerRecommendationAIAgentConfiguration {
    * @public
    */
   associationConfigurations?: AssociationConfiguration[] | undefined;
+
+  /**
+   * <p>The locale to which specifies the language and region settings that determine the response
+   *       language for <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_QueryAssistant.html">QueryAssistant</a>.</p>
+   *          <note>
+   *             <p>Changing this locale to anything other than <code>en_US</code> will turn off
+   *         recommendations triggered by contact transcripts for agent assistance, as this feature is
+   *         not supported in multiple languages.</p>
+   *          </note>
+   * @public
+   */
+  locale?: string | undefined;
 }
 
 /**
@@ -512,6 +524,13 @@ export interface ManualSearchAIAgentConfiguration {
    * @public
    */
   associationConfigurations?: AssociationConfiguration[] | undefined;
+
+  /**
+   * <p>The locale to which specifies the language and region settings that determine the response
+   *       language for <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_QueryAssistant.html">QueryAssistant</a>.</p>
+   * @public
+   */
+  locale?: string | undefined;
 }
 
 /**
@@ -1602,7 +1621,7 @@ export interface GuardrailPiiEntityConfig {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <b>REDIT_DEBIT_CARD_CVV</b>
+   *                         <b>CREDIT_DEBIT_CARD_CVV</b>
    *                      </p>
    *                      <p>A three-digit card verification code (CVV) that is present on VISA, MasterCard,
    *               and Discover credit and debit cards. For American Express credit or debit cards, the
