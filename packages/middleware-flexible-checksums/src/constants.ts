@@ -52,6 +52,9 @@ export const DEFAULT_RESPONSE_CHECKSUM_VALIDATION = RequestChecksumCalculation.W
  * Checksum Algorithms supported by the SDK.
  */
 export enum ChecksumAlgorithm {
+  /**
+   * @deprecated Use {@link ChecksumAlgorithm.CRC32} instead.
+   */
   MD5 = "MD5",
   CRC32 = "CRC32",
   CRC32C = "CRC32C",
@@ -70,9 +73,4 @@ export enum ChecksumLocation {
 /**
  * @internal
  */
-export const DEFAULT_CHECKSUM_ALGORITHM = ChecksumAlgorithm.MD5;
-
-/**
- * @internal
- */
-export const S3_EXPRESS_DEFAULT_CHECKSUM_ALGORITHM = ChecksumAlgorithm.CRC32;
+export const DEFAULT_CHECKSUM_ALGORITHM = ChecksumAlgorithm.CRC32;
