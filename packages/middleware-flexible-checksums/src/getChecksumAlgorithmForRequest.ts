@@ -1,4 +1,4 @@
-import { ChecksumAlgorithm, DEFAULT_CHECKSUM_ALGORITHM } from "./constants";
+import { ChecksumAlgorithm, DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation } from "./constants";
 import { CLIENT_SUPPORTED_ALGORITHMS } from "./types";
 
 export interface GetChecksumAlgorithmForRequestOptions {
@@ -11,6 +11,11 @@ export interface GetChecksumAlgorithmForRequestOptions {
    * Defines a top-level operation input member that is used to configure request checksum behavior.
    */
   requestAlgorithmMember?: string;
+
+  /**
+   * Determines when a checksum will be calculated for request payloads
+   */
+  requestChecksumCalculation: RequestChecksumCalculation;
 }
 
 /**
@@ -20,13 +25,19 @@ export interface GetChecksumAlgorithmForRequestOptions {
  */
 export const getChecksumAlgorithmForRequest = (
   input: any,
-  { requestChecksumRequired, requestAlgorithmMember }: GetChecksumAlgorithmForRequestOptions
+  { requestChecksumRequired, requestAlgorithmMember, requestChecksumCalculation }: GetChecksumAlgorithmForRequestOptions
 ): ChecksumAlgorithm | undefined => {
-  // Either the Operation input member that is used to configure request checksum behavior is not set, or
-  // the value for input member to configure flexible checksum is not set.
-  if (!requestAlgorithmMember || !input[requestAlgorithmMember]) {
-    // Select an algorithm only if request checksum is required.
-    return requestChecksumRequired ? DEFAULT_CHECKSUM_ALGORITHM : undefined;
+  // The Operation input member that is used to configure request checksum behavior is not set.
+  if (!requestAlgorithmMember) {
+    // Select an algorithm only if request checksum calculation is supported
+    // or request checksum is required.
+    return requestChecksumCalculation === RequestChecksumCalculation.WHEN_SUPPORTED || requestChecksumRequired
+      ? DEFAULT_CHECKSUM_ALGORITHM
+      : undefined;
+  }
+
+  if (!input[requestAlgorithmMember]) {
+    return undefined;
   }
 
   const checksumAlgorithm = input[requestAlgorithmMember];
