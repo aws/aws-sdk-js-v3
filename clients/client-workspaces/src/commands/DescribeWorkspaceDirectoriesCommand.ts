@@ -148,6 +148,10 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //             Status: "ENABLED" || "DISABLED", // required
  * //           },
  * //         ],
+ * //         GlobalAccelerator: { // GlobalAcceleratorForDirectory
+ * //           Mode: "ENABLED_AUTO" || "DISABLED", // required
+ * //           PreferredProtocol: "TCP" || "NONE",
+ * //         },
  * //       },
  * //       ErrorMessage: "STRING_VALUE",
  * //     },

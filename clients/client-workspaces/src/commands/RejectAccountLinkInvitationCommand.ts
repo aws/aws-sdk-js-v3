@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RejectAccountLinkInvitationRequest, RejectAccountLinkInvitationResult } from "../models/models_0";
+import { RejectAccountLinkInvitationRequest, RejectAccountLinkInvitationResult } from "../models/models_1";
 import { de_RejectAccountLinkInvitationCommand, se_RejectAccountLinkInvitationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 

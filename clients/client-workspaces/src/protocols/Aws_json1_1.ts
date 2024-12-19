@@ -404,6 +404,8 @@ import {
   DisassociateWorkspaceApplicationRequest,
   DisassociateWorkspaceApplicationResult,
   GetAccountLinkRequest,
+  GlobalAcceleratorForDirectory,
+  GlobalAcceleratorForWorkSpace,
   ImageAssociatedResourceType,
   ImageResourceAssociation,
   ImportClientBrandingRequest,
@@ -437,8 +439,6 @@ import {
   RebootWorkspacesRequest,
   RebuildRequest,
   RebuildWorkspacesRequest,
-  RegisterWorkspaceDirectoryRequest,
-  RejectAccountLinkInvitationRequest,
   ResourceAlreadyExistsException,
   ResourceAssociatedException,
   ResourceCreationFailedException,
@@ -456,7 +456,6 @@ import {
   StreamingProperties,
   Tag,
   TimeoutSettings,
-  UnsupportedNetworkConfigurationException,
   UnsupportedWorkspaceConfigurationException,
   UserSetting,
   UserStorage,
@@ -473,11 +472,12 @@ import {
   WorkspaceProperties,
   WorkspaceRequest,
   WorkspaceResourceAssociation,
-  WorkspacesDefaultRoleNotFoundException,
   WorkspacesPool,
   WorkspacesPoolSession,
 } from "../models/models_0";
 import {
+  RegisterWorkspaceDirectoryRequest,
+  RejectAccountLinkInvitationRequest,
   RestoreWorkspaceRequest,
   RevokeIpRulesRequest,
   StartRequest,
@@ -490,6 +490,7 @@ import {
   TerminateWorkspacesPoolRequest,
   TerminateWorkspacesPoolSessionRequest,
   TerminateWorkspacesRequest,
+  UnsupportedNetworkConfigurationException,
   UpdateConnectClientAddInRequest,
   UpdateConnectionAliasPermissionRequest,
   UpdateRulesOfIpGroupRequest,
@@ -497,6 +498,7 @@ import {
   UpdateWorkspaceImagePermissionRequest,
   UpdateWorkspacesPoolRequest,
   UpdateWorkspacesPoolResult,
+  WorkspacesDefaultRoleNotFoundException,
 } from "../models/models_1";
 import { WorkSpacesServiceException as __BaseException } from "../models/WorkSpacesServiceException";
 
@@ -4006,6 +4008,10 @@ const se_DefaultImportClientBrandingAttributes = (
 
 // se_GetAccountLinkRequest omitted.
 
+// se_GlobalAcceleratorForDirectory omitted.
+
+// se_GlobalAcceleratorForWorkSpace omitted.
+
 // se_ImageAssociatedResourceTypeList omitted.
 
 /**
@@ -4683,6 +4689,10 @@ const de_DisassociateWorkspaceApplicationResult = (
 // de_FailedWorkspaceChangeRequest omitted.
 
 // de_GetAccountLinkResult omitted.
+
+// de_GlobalAcceleratorForDirectory omitted.
+
+// de_GlobalAcceleratorForWorkSpace omitted.
 
 // de_IDCConfig omitted.
 

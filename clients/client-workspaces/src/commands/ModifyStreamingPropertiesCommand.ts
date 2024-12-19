@@ -52,6 +52,10 @@ export interface ModifyStreamingPropertiesCommandOutput extends ModifyStreamingP
  *         Status: "ENABLED" || "DISABLED", // required
  *       },
  *     ],
+ *     GlobalAccelerator: { // GlobalAcceleratorForDirectory
+ *       Mode: "ENABLED_AUTO" || "DISABLED", // required
+ *       PreferredProtocol: "TCP" || "NONE",
+ *     },
  *   },
  * };
  * const command = new ModifyStreamingPropertiesCommand(input);
