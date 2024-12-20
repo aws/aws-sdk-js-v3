@@ -41,7 +41,7 @@ export interface CreateDataAutomationProjectCommandOutput
     __MetadataBearer {}
 
 /**
- * Creates an Amazon Bedrock Keystone DataAutomationProject
+ * Creates an Amazon Bedrock Data Automation Project
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -37,7 +37,7 @@ export interface DeleteDataAutomationProjectCommandOutput
     __MetadataBearer {}
 
 /**
- * Deletes an existing Amazon Bedrock Keystone DataAutomationProject
+ * Deletes an existing Amazon Bedrock Data Automation Project
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

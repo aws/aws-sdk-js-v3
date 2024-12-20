@@ -37,7 +37,7 @@ export interface UpdateBlueprintCommandInput extends UpdateBlueprintRequest {}
 export interface UpdateBlueprintCommandOutput extends UpdateBlueprintResponse, __MetadataBearer {}
 
 /**
- * Updates an existing Amazon Bedrock Blueprint
+ * Updates an existing Amazon Bedrock Data Automation Blueprint
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -36,7 +36,7 @@ export interface CreateBlueprintVersionCommandInput extends CreateBlueprintVersi
 export interface CreateBlueprintVersionCommandOutput extends CreateBlueprintVersionResponse, __MetadataBearer {}
 
 /**
- * Creates a new version of an existing Amazon Bedrock Keystone Blueprint
+ * Creates a new version of an existing Amazon Bedrock Data Automation Blueprint
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

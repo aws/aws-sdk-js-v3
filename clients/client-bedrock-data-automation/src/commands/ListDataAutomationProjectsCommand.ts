@@ -36,7 +36,7 @@ export interface ListDataAutomationProjectsCommandInput extends ListDataAutomati
 export interface ListDataAutomationProjectsCommandOutput extends ListDataAutomationProjectsResponse, __MetadataBearer {}
 
 /**
- * Lists all existing Amazon Bedrock Keystone DataAutomationProjects
+ * Lists all existing Amazon Bedrock Data Automation Projects
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

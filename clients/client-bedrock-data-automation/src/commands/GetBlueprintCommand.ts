@@ -32,7 +32,7 @@ export interface GetBlueprintCommandInput extends GetBlueprintRequest {}
 export interface GetBlueprintCommandOutput extends GetBlueprintResponse, __MetadataBearer {}
 
 /**
- * Gets an existing Amazon Bedrock Keystone Blueprint
+ * Gets an existing Amazon Bedrock Data Automation Blueprint
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -32,7 +32,7 @@ export interface DeleteBlueprintCommandInput extends DeleteBlueprintRequest {}
 export interface DeleteBlueprintCommandOutput extends DeleteBlueprintResponse, __MetadataBearer {}
 
 /**
- * Deletes an existing Amazon Bedrock Keystone Blueprint
+ * Deletes an existing Amazon Bedrock Data Automation Blueprint
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

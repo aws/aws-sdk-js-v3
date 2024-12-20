@@ -36,7 +36,7 @@ export interface ListBlueprintsCommandInput extends ListBlueprintsRequest {}
 export interface ListBlueprintsCommandOutput extends ListBlueprintsResponse, __MetadataBearer {}
 
 /**
- * Lists all existing Amazon Bedrock Keystone Blueprints
+ * Lists all existing Amazon Bedrock Data Automation Blueprints
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

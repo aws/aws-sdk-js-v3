@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * Amazon Bedrock Keystone Build
+ * Amazon Bedrock Data Automation BuildTime
  *
  * @packageDocumentation
  */

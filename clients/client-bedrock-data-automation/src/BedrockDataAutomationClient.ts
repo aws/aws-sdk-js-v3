@@ -316,7 +316,7 @@ export type BedrockDataAutomationClientResolvedConfigType = __SmithyResolvedConf
 export interface BedrockDataAutomationClientResolvedConfig extends BedrockDataAutomationClientResolvedConfigType {}
 
 /**
- * Amazon Bedrock Keystone Build
+ * Amazon Bedrock Data Automation BuildTime
  * @public
  */
 export class BedrockDataAutomationClient extends __Client<

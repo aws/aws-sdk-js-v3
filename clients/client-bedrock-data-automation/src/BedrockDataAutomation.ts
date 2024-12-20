@@ -247,7 +247,7 @@ export interface BedrockDataAutomation {
 }
 
 /**
- * Amazon Bedrock Keystone Build
+ * Amazon Bedrock Data Automation BuildTime
  * @public
  */
 export class BedrockDataAutomation extends BedrockDataAutomationClient implements BedrockDataAutomation {}
