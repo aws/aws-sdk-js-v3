@@ -72,7 +72,7 @@ export interface GetAgentCommandOutput extends GetAgentResponse, __MetadataBeare
  * //     promptOverrideConfiguration: { // PromptOverrideConfiguration
  * //       promptConfigurations: [ // PromptConfigurations // required
  * //         { // PromptConfiguration
- * //           promptType: "PRE_PROCESSING" || "ORCHESTRATION" || "POST_PROCESSING" || "KNOWLEDGE_BASE_RESPONSE_GENERATION",
+ * //           promptType: "PRE_PROCESSING" || "ORCHESTRATION" || "POST_PROCESSING" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "MEMORY_SUMMARIZATION",
  * //           promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //           promptState: "ENABLED" || "DISABLED",
  * //           basePromptTemplate: "STRING_VALUE",
@@ -100,6 +100,9 @@ export interface GetAgentCommandOutput extends GetAgentResponse, __MetadataBeare
  * //         "SESSION_SUMMARY",
  * //       ],
  * //       storageDays: Number("int"),
+ * //       sessionSummaryConfiguration: { // SessionSummaryConfiguration
+ * //         maxRecentSessions: Number("int"),
+ * //       },
  * //     },
  * //     agentCollaboration: "SUPERVISOR" || "SUPERVISOR_ROUTER" || "DISABLED",
  * //   },

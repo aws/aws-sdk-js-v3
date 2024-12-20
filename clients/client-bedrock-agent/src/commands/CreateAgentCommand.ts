@@ -92,7 +92,7 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  *   promptOverrideConfiguration: { // PromptOverrideConfiguration
  *     promptConfigurations: [ // PromptConfigurations // required
  *       { // PromptConfiguration
- *         promptType: "PRE_PROCESSING" || "ORCHESTRATION" || "POST_PROCESSING" || "KNOWLEDGE_BASE_RESPONSE_GENERATION",
+ *         promptType: "PRE_PROCESSING" || "ORCHESTRATION" || "POST_PROCESSING" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "MEMORY_SUMMARIZATION",
  *         promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  *         promptState: "ENABLED" || "DISABLED",
  *         basePromptTemplate: "STRING_VALUE",
@@ -120,6 +120,9 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  *       "SESSION_SUMMARY",
  *     ],
  *     storageDays: Number("int"),
+ *     sessionSummaryConfiguration: { // SessionSummaryConfiguration
+ *       maxRecentSessions: Number("int"),
+ *     },
  *   },
  *   agentCollaboration: "SUPERVISOR" || "SUPERVISOR_ROUTER" || "DISABLED",
  * };
@@ -157,7 +160,7 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * //     promptOverrideConfiguration: { // PromptOverrideConfiguration
  * //       promptConfigurations: [ // PromptConfigurations // required
  * //         { // PromptConfiguration
- * //           promptType: "PRE_PROCESSING" || "ORCHESTRATION" || "POST_PROCESSING" || "KNOWLEDGE_BASE_RESPONSE_GENERATION",
+ * //           promptType: "PRE_PROCESSING" || "ORCHESTRATION" || "POST_PROCESSING" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "MEMORY_SUMMARIZATION",
  * //           promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //           promptState: "ENABLED" || "DISABLED",
  * //           basePromptTemplate: "STRING_VALUE",
@@ -185,6 +188,9 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * //         "SESSION_SUMMARY",
  * //       ],
  * //       storageDays: Number("int"),
+ * //       sessionSummaryConfiguration: { // SessionSummaryConfiguration
+ * //         maxRecentSessions: Number("int"),
+ * //       },
  * //     },
  * //     agentCollaboration: "SUPERVISOR" || "SUPERVISOR_ROUTER" || "DISABLED",
  * //   },

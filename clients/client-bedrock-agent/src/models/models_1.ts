@@ -24,9 +24,19 @@ import {
   PromptTemplateConfigurationFilterSensitiveLog,
   PromptTemplateType,
   S3Location,
-  TextContentDoc,
-  TextContentDocFilterSensitiveLog,
 } from "./models_0";
+
+/**
+ * <p>Contains information about content defined inline in text.</p>
+ * @public
+ */
+export interface TextContentDoc {
+  /**
+   * <p>The text of the content.</p>
+   * @public
+   */
+  data: string | undefined;
+}
 
 /**
  * @public
@@ -2670,6 +2680,14 @@ export interface ListAgentVersionsResponse {
    */
   nextToken?: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const TextContentDocFilterSensitiveLog = (obj: TextContentDoc): any => ({
+  ...obj,
+  ...(obj.data && { data: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

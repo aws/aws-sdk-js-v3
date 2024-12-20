@@ -289,6 +289,7 @@ import {
   SemanticChunkingConfiguration,
   ServerSideEncryptionConfiguration,
   ServiceQuotaExceededException,
+  SessionSummaryConfiguration,
   SharePointCrawlerConfiguration,
   SharePointDataSourceConfiguration,
   SharePointSourceConfiguration,
@@ -297,7 +298,6 @@ import {
   StorageFlowNodeS3Configuration,
   StorageFlowNodeServiceConfiguration,
   SystemContentBlock,
-  TextContentDoc,
   TextPromptTemplateConfiguration,
   ThrottlingException,
   Tool,
@@ -365,6 +365,7 @@ import {
   StorageConfiguration,
   SupplementalDataStorageConfiguration,
   SupplementalDataStorageLocation,
+  TextContentDoc,
   VectorKnowledgeBaseConfiguration,
 } from "../models/models_1";
 
@@ -4367,6 +4368,8 @@ const se_PromptVariantList = (input: PromptVariant[], context: __SerdeContext): 
 
 // se_ServerSideEncryptionConfiguration omitted.
 
+// se_SessionSummaryConfiguration omitted.
+
 // se_SharePointCrawlerConfiguration omitted.
 
 // se_SharePointDataSourceConfiguration omitted.
@@ -5636,6 +5639,8 @@ const de_PromptVariantList = (output: any, context: __SerdeContext): PromptVaria
 // de_SemanticChunkingConfiguration omitted.
 
 // de_ServerSideEncryptionConfiguration omitted.
+
+// de_SessionSummaryConfiguration omitted.
 
 // de_SharePointCrawlerConfiguration omitted.
 

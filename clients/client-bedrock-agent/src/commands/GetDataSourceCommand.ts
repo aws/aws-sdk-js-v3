@@ -74,6 +74,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
  * //         crawlerConfiguration: { // WebCrawlerConfiguration
  * //           crawlerLimits: { // WebCrawlerLimits
  * //             rateLimit: Number("int"),
+ * //             maxPages: Number("int"),
  * //           },
  * //           inclusionFilters: [ // FilterList
  * //             "STRING_VALUE",
@@ -82,6 +83,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
  * //             "STRING_VALUE",
  * //           ],
  * //           scope: "HOST_ONLY" || "SUBDOMAINS",
+ * //           userAgent: "STRING_VALUE",
  * //         },
  * //       },
  * //       confluenceConfiguration: { // ConfluenceDataSourceConfiguration
@@ -141,7 +143,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
  * //             "STRING_VALUE",
  * //           ],
  * //           hostType: "ONLINE", // required
- * //           authType: "OAUTH2_CLIENT_CREDENTIALS", // required
+ * //           authType: "OAUTH2_CLIENT_CREDENTIALS" || "OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS", // required
  * //           credentialsSecretArn: "STRING_VALUE", // required
  * //         },
  * //         crawlerConfiguration: { // SharePointCrawlerConfiguration

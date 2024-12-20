@@ -1062,6 +1062,18 @@ export const MemoryType = {
 export type MemoryType = (typeof MemoryType)[keyof typeof MemoryType];
 
 /**
+ * <p>Configuration for SESSION_SUMMARY memory type enabled for the agent.</p>
+ * @public
+ */
+export interface SessionSummaryConfiguration {
+  /**
+   * <p>Maximum number of recent session summaries to include in the agent's prompt context.</p>
+   * @public
+   */
+  maxRecentSessions?: number | undefined;
+}
+
+/**
  * <p>Details of the memory configuration.</p>
  * @public
  */
@@ -1077,6 +1089,12 @@ export interface MemoryConfiguration {
    * @public
    */
   storageDays?: number | undefined;
+
+  /**
+   * <p>Contains the configuration for SESSION_SUMMARY memory type enabled for the agent. </p>
+   * @public
+   */
+  sessionSummaryConfiguration?: SessionSummaryConfiguration | undefined;
 }
 
 /**
@@ -1163,6 +1181,7 @@ export type PromptState = (typeof PromptState)[keyof typeof PromptState];
  */
 export const PromptType = {
   KNOWLEDGE_BASE_RESPONSE_GENERATION: "KNOWLEDGE_BASE_RESPONSE_GENERATION",
+  MEMORY_SUMMARIZATION: "MEMORY_SUMMARIZATION",
   ORCHESTRATION: "ORCHESTRATION",
   POST_PROCESSING: "POST_PROCESSING",
   PRE_PROCESSING: "PRE_PROCESSING",
@@ -3235,6 +3254,7 @@ export interface SharePointCrawlerConfiguration {
  */
 export const SharePointAuthType = {
   OAUTH2_CLIENT_CREDENTIALS: "OAUTH2_CLIENT_CREDENTIALS",
+  OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS: "OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS",
 } as const;
 
 /**
@@ -3351,6 +3371,15 @@ export interface WebCrawlerLimits {
    * @public
    */
   rateLimit?: number | undefined;
+
+  /**
+   * <p>
+   *             The max number of web pages crawled from your source URLs, up to 25,000 pages.  If
+   *             the web pages exceed this limit, the data source sync will fail and no web pages will be ingested.
+   *         </p>
+   * @public
+   */
+  maxPages?: number | undefined;
 }
 
 /**
@@ -3408,6 +3437,15 @@ export interface WebCrawlerConfiguration {
    * @public
    */
   scope?: WebScopeType | undefined;
+
+  /**
+   * <p>A string used for identifying the crawler or a bot when it accesses a web server. By default,
+   *             this is set to <code>bedrockbot_UUID</code> for your crawler.  You can optionally append a custom
+   *             string to <code>bedrockbot_UUID</code> to allowlist a specific user agent permitted to access your source URLs.
+   *         </p>
+   * @public
+   */
+  userAgent?: string | undefined;
 }
 
 /**
@@ -9195,18 +9233,6 @@ export interface ByteContentDoc {
 }
 
 /**
- * <p>Contains information about content defined inline in text.</p>
- * @public
- */
-export interface TextContentDoc {
-  /**
-   * <p>The text of the content.</p>
-   * @public
-   */
-  data: string | undefined;
-}
-
-/**
  * @internal
  */
 export const APISchemaFilterSensitiveLog = (obj: APISchema): any => {
@@ -9521,6 +9547,7 @@ export const WebCrawlerConfigurationFilterSensitiveLog = (obj: WebCrawlerConfigu
   ...obj,
   ...(obj.inclusionFilters && { inclusionFilters: SENSITIVE_STRING }),
   ...(obj.exclusionFilters && { exclusionFilters: SENSITIVE_STRING }),
+  ...(obj.userAgent && { userAgent: SENSITIVE_STRING }),
 });
 
 /**
@@ -9894,14 +9921,6 @@ export const UpdateFlowResponseFilterSensitiveLog = (obj: UpdateFlowResponse): a
  * @internal
  */
 export const ByteContentDocFilterSensitiveLog = (obj: ByteContentDoc): any => ({
-  ...obj,
-  ...(obj.data && { data: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TextContentDocFilterSensitiveLog = (obj: TextContentDoc): any => ({
   ...obj,
   ...(obj.data && { data: SENSITIVE_STRING }),
 });
