@@ -1342,6 +1342,7 @@ export type OpticalStandard = (typeof OpticalStandard)[keyof typeof OpticalStand
 export const PowerConnector = {
   AH530P7W: "AH530P7W",
   AH532P6W: "AH532P6W",
+  CS8365C: "CS8365C",
   IEC309: "IEC309",
   L6_30P: "L6_30P",
 } as const;
@@ -3053,6 +3054,10 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    *                      <p>
    *                         <b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three
    *               phase</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>CS8365C</b> – (common in US); 3P+E, 50A; three phase</p>
    *                   </li>
    *                </ul>
    *             </li>

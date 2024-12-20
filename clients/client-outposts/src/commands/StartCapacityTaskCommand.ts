@@ -28,7 +28,7 @@ export interface StartCapacityTaskCommandInput extends StartCapacityTaskInput {}
 export interface StartCapacityTaskCommandOutput extends StartCapacityTaskOutput, __MetadataBearer {}
 
 /**
- * <p>Starts the specified capacity task. You can have one active capacity task per order or Outpost.</p>
+ * <p>Starts the specified capacity task. You can have one active capacity task for each order and each Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

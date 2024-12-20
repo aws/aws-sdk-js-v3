@@ -71,7 +71,7 @@ export interface CreateSiteCommandOutput extends CreateSiteOutput, __MetadataBea
  *   RackPhysicalProperties: { // RackPhysicalProperties
  *     PowerDrawKva: "POWER_5_KVA" || "POWER_10_KVA" || "POWER_15_KVA" || "POWER_30_KVA",
  *     PowerPhase: "SINGLE_PHASE" || "THREE_PHASE",
- *     PowerConnector: "L6_30P" || "IEC309" || "AH530P7W" || "AH532P6W",
+ *     PowerConnector: "L6_30P" || "IEC309" || "AH530P7W" || "AH532P6W" || "CS8365C",
  *     PowerFeedDrop: "ABOVE_RACK" || "BELOW_RACK",
  *     UplinkGbps: "UPLINK_1G" || "UPLINK_10G" || "UPLINK_40G" || "UPLINK_100G",
  *     UplinkCount: "UPLINK_COUNT_1" || "UPLINK_COUNT_2" || "UPLINK_COUNT_3" || "UPLINK_COUNT_4" || "UPLINK_COUNT_5" || "UPLINK_COUNT_6" || "UPLINK_COUNT_7" || "UPLINK_COUNT_8" || "UPLINK_COUNT_12" || "UPLINK_COUNT_16",
@@ -99,7 +99,7 @@ export interface CreateSiteCommandOutput extends CreateSiteOutput, __MetadataBea
  * //     RackPhysicalProperties: { // RackPhysicalProperties
  * //       PowerDrawKva: "POWER_5_KVA" || "POWER_10_KVA" || "POWER_15_KVA" || "POWER_30_KVA",
  * //       PowerPhase: "SINGLE_PHASE" || "THREE_PHASE",
- * //       PowerConnector: "L6_30P" || "IEC309" || "AH530P7W" || "AH532P6W",
+ * //       PowerConnector: "L6_30P" || "IEC309" || "AH530P7W" || "AH532P6W" || "CS8365C",
  * //       PowerFeedDrop: "ABOVE_RACK" || "BELOW_RACK",
  * //       UplinkGbps: "UPLINK_1G" || "UPLINK_10G" || "UPLINK_40G" || "UPLINK_100G",
  * //       UplinkCount: "UPLINK_COUNT_1" || "UPLINK_COUNT_2" || "UPLINK_COUNT_3" || "UPLINK_COUNT_4" || "UPLINK_COUNT_5" || "UPLINK_COUNT_6" || "UPLINK_COUNT_7" || "UPLINK_COUNT_8" || "UPLINK_COUNT_12" || "UPLINK_COUNT_16",
