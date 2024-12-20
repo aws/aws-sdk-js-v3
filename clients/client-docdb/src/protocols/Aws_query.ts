@@ -216,6 +216,7 @@ import {
   CertificateMessage,
   CertificateNotFoundFault,
   CloudwatchLogsExportConfiguration,
+  ClusterMasterUserSecret,
   CopyDBClusterParameterGroupMessage,
   CopyDBClusterParameterGroupResult,
   CopyDBClusterSnapshotMessage,
@@ -3801,6 +3802,12 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
   if (input[_ST] != null) {
     entries[_ST] = input[_ST];
   }
+  if (input[_MMUP] != null) {
+    entries[_MMUP] = input[_MMUP];
+  }
+  if (input[_MUSKKI] != null) {
+    entries[_MUSKKI] = input[_MUSKKI];
+  }
   return entries;
 };
 
@@ -4829,6 +4836,15 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
   if (input[_ST] != null) {
     entries[_ST] = input[_ST];
   }
+  if (input[_MMUP] != null) {
+    entries[_MMUP] = input[_MMUP];
+  }
+  if (input[_MUSKKI] != null) {
+    entries[_MUSKKI] = input[_MUSKKI];
+  }
+  if (input[_RMUP] != null) {
+    entries[_RMUP] = input[_RMUP];
+  }
   return entries;
 };
 
@@ -5600,6 +5616,23 @@ const de_CertificateNotFoundFault = (output: any, context: __SerdeContext): Cert
 };
 
 /**
+ * deserializeAws_queryClusterMasterUserSecret
+ */
+const de_ClusterMasterUserSecret = (output: any, context: __SerdeContext): ClusterMasterUserSecret => {
+  const contents: any = {};
+  if (output[_SA] != null) {
+    contents[_SA] = __expectString(output[_SA]);
+  }
+  if (output[_SS] != null) {
+    contents[_SS] = __expectString(output[_SS]);
+  }
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryCopyDBClusterParameterGroupResult
  */
 const de_CopyDBClusterParameterGroupResult = (
@@ -5819,6 +5852,9 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   }
   if (output[_ST] != null) {
     contents[_ST] = __expectString(output[_ST]);
+  }
+  if (output[_MUS] != null) {
+    contents[_MUS] = de_ClusterMasterUserSecret(output[_MUS], context);
   }
   return contents;
 };
@@ -6784,8 +6820,8 @@ const de_Event = (output: any, context: __SerdeContext): Event => {
   if (output[_Da] != null) {
     contents[_Da] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Da]));
   }
-  if (output[_SA] != null) {
-    contents[_SA] = __expectString(output[_SA]);
+  if (output[_SAo] != null) {
+    contents[_SAo] = __expectString(output[_SAo]);
   }
   return contents;
 };
@@ -7898,8 +7934,8 @@ const de_Subnet = (output: any, context: __SerdeContext): Subnet => {
   if (output[_SAZ] != null) {
     contents[_SAZ] = de_AvailabilityZone(output[_SAZ], context);
   }
-  if (output[_SS] != null) {
-    contents[_SS] = __expectString(output[_SS]);
+  if (output[_SSu] != null) {
+    contents[_SSu] = __expectString(output[_SSu]);
   }
   return contents;
 };
@@ -8294,9 +8330,12 @@ const _MDBSG = "ModifyDBSubnetGroup";
 const _MES = "ModifyEventSubscription";
 const _MEV = "MinimumEngineVersion";
 const _MGC = "ModifyGlobalCluster";
+const _MMUP = "ManageMasterUserPassword";
 const _MR = "MaxRecords";
 const _MU = "MasterUsername";
 const _MUP = "MasterUserPassword";
+const _MUS = "MasterUserSecret";
+const _MUSKKI = "MasterUserSecretKmsKeyId";
 const _Me = "Message";
 const _N = "Name";
 const _NDBCI = "NewDBClusterIdentifier";
@@ -8335,6 +8374,7 @@ const _RDBI = "RebootDBInstance";
 const _RE = "ReaderEndpoint";
 const _RFGC = "RemoveFromGlobalCluster";
 const _RI = "ResourceIdentifier";
+const _RMUP = "RotateMasterUserPassword";
 const _RN = "ResourceName";
 const _RPMA = "ResourcePendingMaintenanceActions";
 const _RRI = "ReadReplicaIdentifiers";
@@ -8345,8 +8385,9 @@ const _RT = "RestoreType";
 const _RTFR = "RemoveTagsFromResource";
 const _RTT = "RestoreToTime";
 const _S = "Source";
-const _SA = "SourceArn";
+const _SA = "SecretArn";
 const _SAZ = "SubnetAvailabilityZone";
+const _SAo = "SourceArn";
 const _SCACI = "SupportedCACertificateIdentifiers";
 const _SCRWR = "SupportsCertificateRotationWithoutRestart";
 const _SCT = "SnapshotCreateTime";
@@ -8371,7 +8412,8 @@ const _SIu = "SubnetIds";
 const _SIub = "SubnetIdentifier";
 const _SLETCL = "SupportsLogExportsToCloudwatchLogs";
 const _SN = "SubscriptionName";
-const _SS = "SubnetStatus";
+const _SS = "SecretStatus";
+const _SSu = "SubnetStatus";
 const _ST = "StorageType";
 const _STA = "SnsTopicArn";
 const _STn = "SnapshotType";

@@ -62,6 +62,9 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   AllowMajorVersionUpgrade: true || false,
  *   DeletionProtection: true || false,
  *   StorageType: "STRING_VALUE",
+ *   ManageMasterUserPassword: true || false,
+ *   MasterUserSecretKmsKeyId: "STRING_VALUE",
+ *   RotateMasterUserPassword: true || false,
  * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
@@ -123,6 +126,11 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //     ],
  * //     DeletionProtection: true || false,
  * //     StorageType: "STRING_VALUE",
+ * //     MasterUserSecret: { // ClusterMasterUserSecret
+ * //       SecretArn: "STRING_VALUE",
+ * //       SecretStatus: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

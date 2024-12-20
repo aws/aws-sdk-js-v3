@@ -68,6 +68,8 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   DeletionProtection: true || false,
  *   GlobalClusterIdentifier: "STRING_VALUE",
  *   StorageType: "STRING_VALUE",
+ *   ManageMasterUserPassword: true || false,
+ *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
@@ -129,6 +131,11 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //     ],
  * //     DeletionProtection: true || false,
  * //     StorageType: "STRING_VALUE",
+ * //     MasterUserSecret: { // ClusterMasterUserSecret
+ * //       SecretArn: "STRING_VALUE",
+ * //       SecretStatus: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

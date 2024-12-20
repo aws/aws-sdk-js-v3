@@ -100,6 +100,11 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * //     ],
  * //     DeletionProtection: true || false,
  * //     StorageType: "STRING_VALUE",
+ * //     MasterUserSecret: { // ClusterMasterUserSecret
+ * //       SecretArn: "STRING_VALUE",
+ * //       SecretStatus: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
