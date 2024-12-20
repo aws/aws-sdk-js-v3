@@ -2202,6 +2202,7 @@ const se_GetAnomaliesRequest = (input: GetAnomaliesRequest, context: __SerdeCont
  */
 const se_GetCostAndUsageRequest = (input: GetCostAndUsageRequest, context: __SerdeContext): any => {
   return take(input, {
+    BillingViewArn: [],
     Filter: (_) => se_Expression(_, context),
     Granularity: [],
     GroupBy: _json,
@@ -2219,6 +2220,7 @@ const se_GetCostAndUsageWithResourcesRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
+    BillingViewArn: [],
     Filter: (_) => se_Expression(_, context),
     Granularity: [],
     GroupBy: _json,
@@ -2233,6 +2235,7 @@ const se_GetCostAndUsageWithResourcesRequest = (
  */
 const se_GetCostCategoriesRequest = (input: GetCostCategoriesRequest, context: __SerdeContext): any => {
   return take(input, {
+    BillingViewArn: [],
     CostCategoryName: [],
     Filter: (_) => se_Expression(_, context),
     MaxResults: [],
@@ -2248,6 +2251,7 @@ const se_GetCostCategoriesRequest = (input: GetCostCategoriesRequest, context: _
  */
 const se_GetCostForecastRequest = (input: GetCostForecastRequest, context: __SerdeContext): any => {
   return take(input, {
+    BillingViewArn: [],
     Filter: (_) => se_Expression(_, context),
     Granularity: [],
     Metric: [],
@@ -2261,6 +2265,7 @@ const se_GetCostForecastRequest = (input: GetCostForecastRequest, context: __Ser
  */
 const se_GetDimensionValuesRequest = (input: GetDimensionValuesRequest, context: __SerdeContext): any => {
   return take(input, {
+    BillingViewArn: [],
     Context: [],
     Dimension: [],
     Filter: (_) => se_Expression(_, context),
@@ -2414,6 +2419,7 @@ const se_GetSavingsPlansUtilizationRequest = (
  */
 const se_GetTagsRequest = (input: GetTagsRequest, context: __SerdeContext): any => {
   return take(input, {
+    BillingViewArn: [],
     Filter: (_) => se_Expression(_, context),
     MaxResults: [],
     NextPageToken: [],
@@ -2429,6 +2435,7 @@ const se_GetTagsRequest = (input: GetTagsRequest, context: __SerdeContext): any 
  */
 const se_GetUsageForecastRequest = (input: GetUsageForecastRequest, context: __SerdeContext): any => {
   return take(input, {
+    BillingViewArn: [],
     Filter: (_) => se_Expression(_, context),
     Granularity: [],
     Metric: [],

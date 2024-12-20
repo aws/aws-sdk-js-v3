@@ -110,6 +110,7 @@ export interface GetCostForecastCommandOutput extends GetCostForecastResponse, _
  *       MatchOptions: "<MatchOptions>",
  *     },
  *   },
+ *   BillingViewArn: "STRING_VALUE",
  *   PredictionIntervalLevel: Number("int"),
  * };
  * const command = new GetCostForecastCommand(input);
@@ -145,6 +146,9 @@ export interface GetCostForecastCommandOutput extends GetCostForecastResponse, _
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ARN in the request doesn't exist. </p>
  *
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>

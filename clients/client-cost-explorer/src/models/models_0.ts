@@ -6507,6 +6507,16 @@ export interface GetCostAndUsageRequest {
   GroupBy?: GroupDefinition[] | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN
+   *       is used to specify which particular billing view you want to interact with or retrieve
+   *       information from when making API calls related to Amazon Web Services Billing and Cost
+   *       Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
+   *       API.</p>
+   * @public
+   */
+  BillingViewArn?: string | undefined;
+
+  /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token
    *       when the response from a previous call has more results than the maximum page size.</p>
    * @public
@@ -6585,6 +6595,16 @@ export interface GetCostAndUsageWithResourcesRequest {
    * @public
    */
   GroupBy?: GroupDefinition[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN
+   *       is used to specify which particular billing view you want to interact with or retrieve
+   *       information from when making API calls related to Amazon Web Services Billing and Cost
+   *       Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
+   *       API.</p>
+   * @public
+   */
+  BillingViewArn?: string | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token
@@ -6796,6 +6816,16 @@ export interface GetCostCategoriesRequest {
   SortBy?: SortDefinition[] | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN
+   *       is used to specify which particular billing view you want to interact with or retrieve
+   *       information from when making API calls related to Amazon Web Services Billing and Cost
+   *       Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
+   *       API.</p>
+   * @public
+   */
+  BillingViewArn?: string | undefined;
+
+  /**
    * <p>This field is only used when the <code>SortBy</code> value is provided in the
    *       request.</p>
    *          <p>The maximum number of objects that are returned for this request. If
@@ -6983,6 +7013,16 @@ export interface GetCostForecastRequest {
    * @public
    */
   Filter?: Expression | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN
+   *       is used to specify which particular billing view you want to interact with or retrieve
+   *       information from when making API calls related to Amazon Web Services Billing and Cost
+   *       Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
+   *       API.</p>
+   * @public
+   */
+  BillingViewArn?: string | undefined;
 
   /**
    * <p>Cost Explorer always returns the mean forecast as a single point. You can request a
@@ -7379,6 +7419,16 @@ export interface GetDimensionValuesRequest {
    * @public
    */
   SortBy?: SortDefinition[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN
+   *       is used to specify which particular billing view you want to interact with or retrieve
+   *       information from when making API calls related to Amazon Web Services Billing and Cost
+   *       Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
+   *       API.</p>
+   * @public
+   */
+  BillingViewArn?: string | undefined;
 
   /**
    * <p>This field is only used when SortBy is provided in the request. The maximum number of
@@ -8773,6 +8823,16 @@ export interface GetTagsRequest {
   SortBy?: SortDefinition[] | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN
+   *       is used to specify which particular billing view you want to interact with or retrieve
+   *       information from when making API calls related to Amazon Web Services Billing and Cost
+   *       Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
+   *       API.</p>
+   * @public
+   */
+  BillingViewArn?: string | undefined;
+
+  /**
    * <p>This field is only used when SortBy is provided in the request. The maximum number of
    *       objects that are returned for this request. If MaxResults isn't specified with SortBy, the
    *       request returns 1000 results as the default value for this parameter.</p>
@@ -8952,6 +9012,16 @@ export interface GetUsageForecastRequest {
    * @public
    */
   Filter?: Expression | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN
+   *       is used to specify which particular billing view you want to interact with or retrieve
+   *       information from when making API calls related to Amazon Web Services Billing and Cost
+   *       Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
+   *       API.</p>
+   * @public
+   */
+  BillingViewArn?: string | undefined;
 
   /**
    * <p>Amazon Web Services Cost Explorer always returns the mean forecast as a single point.

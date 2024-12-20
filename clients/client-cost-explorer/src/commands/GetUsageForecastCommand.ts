@@ -110,6 +110,7 @@ export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse,
  *       MatchOptions: "<MatchOptions>",
  *     },
  *   },
+ *   BillingViewArn: "STRING_VALUE",
  *   PredictionIntervalLevel: Number("int"),
  * };
  * const command = new GetUsageForecastCommand(input);
@@ -145,6 +146,9 @@ export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse,
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ARN in the request doesn't exist. </p>
  *
  * @throws {@link UnresolvableUsageUnitException} (client fault)
  *  <p>Cost Explorer was unable to identify the usage unit. Provide

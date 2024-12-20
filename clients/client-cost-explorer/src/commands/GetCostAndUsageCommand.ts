@@ -123,6 +123,7 @@ export interface GetCostAndUsageCommandOutput extends GetCostAndUsageResponse, _
  *       Key: "STRING_VALUE",
  *     },
  *   ],
+ *   BillingViewArn: "STRING_VALUE",
  *   NextPageToken: "STRING_VALUE",
  * };
  * const command = new GetCostAndUsageCommand(input);
@@ -196,6 +197,9 @@ export interface GetCostAndUsageCommandOutput extends GetCostAndUsageResponse, _
  * @throws {@link RequestChangedException} (client fault)
  *  <p>Your request parameters changed between pages. Try again with the old parameters or
  *             without a pagination token.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ARN in the request doesn't exist. </p>
  *
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>

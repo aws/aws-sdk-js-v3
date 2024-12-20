@@ -116,6 +116,7 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *   ],
+ *   BillingViewArn: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextPageToken: "STRING_VALUE",
  * };
@@ -153,6 +154,9 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  * @throws {@link RequestChangedException} (client fault)
  *  <p>Your request parameters changed between pages. Try again with the old parameters or
  *             without a pagination token.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ARN in the request doesn't exist. </p>
  *
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
