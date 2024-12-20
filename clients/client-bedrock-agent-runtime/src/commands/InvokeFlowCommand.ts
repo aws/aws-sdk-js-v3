@@ -60,6 +60,11 @@ export interface InvokeFlowCommandOutput extends InvokeFlowResponse, __MetadataB
  *     },
  *   ],
  *   enableTrace: true || false,
+ *   modelPerformanceConfiguration: { // ModelPerformanceConfiguration
+ *     performanceConfig: { // PerformanceConfiguration
+ *       latency: "standard" || "optimized",
+ *     },
+ *   },
  * };
  * const command = new InvokeFlowCommand(input);
  * const response = await client.send(command);

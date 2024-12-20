@@ -173,6 +173,9 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  *         additionalModelRequestFields: {
  *           "<keys>": "DOCUMENT_VALUE",
  *         },
+ *         performanceConfig: { // PerformanceConfiguration
+ *           latency: "standard" || "optimized",
+ *         },
  *       },
  *       orchestrationConfiguration: { // OrchestrationConfiguration
  *         promptTemplate: {
@@ -193,6 +196,9 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  *         },
  *         queryTransformationConfiguration: { // QueryTransformationConfiguration
  *           type: "QUERY_DECOMPOSITION", // required
+ *         },
+ *         performanceConfig: {
+ *           latency: "standard" || "optimized",
  *         },
  *       },
  *     },
@@ -231,6 +237,9 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  *         },
  *         additionalModelRequestFields: {
  *           "<keys>": "DOCUMENT_VALUE",
+ *         },
+ *         performanceConfig: {
+ *           latency: "standard" || "optimized",
  *         },
  *       },
  *     },

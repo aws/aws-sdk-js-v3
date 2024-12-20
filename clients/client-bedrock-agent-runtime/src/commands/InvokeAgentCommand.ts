@@ -49,6 +49,25 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *                <p>To activate trace enablement, turn <code>enableTrace</code> to <code>true</code>. Trace enablement helps you follow the agent's reasoning process that led it to the information it processed, the actions it took, and the final result it yielded. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace enablement</a>.</p>
  *             </li>
  *             <li>
+ *                <p>To stream agent responses, make sure that only orchestration prompt is enabled. Agent streaming is not supported for the following steps:
+ *         </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>Pre-processing</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>Post-processing</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Agent with 1 Knowledge base and <code>User Input</code> not enabled</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
  *                <p>End a conversation by setting <code>endSession</code> to <code>true</code>.</p>
  *             </li>
  *             <li>
@@ -91,13 +110,13 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *           httpMethod: "STRING_VALUE",
  *           apiPath: "STRING_VALUE",
  *           confirmationState: "CONFIRM" || "DENY",
+ *           responseState: "FAILURE" || "REPROMPT",
+ *           httpStatusCode: Number("int"),
  *           responseBody: { // ResponseBody
  *             "<keys>": { // ContentBody
  *               body: "STRING_VALUE",
  *             },
  *           },
- *           httpStatusCode: Number("int"),
- *           responseState: "FAILURE" || "REPROMPT",
  *           agentId: "STRING_VALUE",
  *         },
  *         functionResult: { // FunctionResult
@@ -251,6 +270,11 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *   enableTrace: true || false,
  *   inputText: "STRING_VALUE",
  *   memoryId: "STRING_VALUE",
+ *   bedrockModelConfigurations: { // BedrockModelConfigurations
+ *     performanceConfig: { // PerformanceConfiguration
+ *       latency: "standard" || "optimized",
+ *     },
+ *   },
  *   streamingConfigurations: { // StreamingConfigurations
  *     streamFinalResponse: true || false,
  *     applyGuardrailInterval: Number("int"),
@@ -535,13 +559,13 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                         httpMethod: "STRING_VALUE",
  * //                         apiPath: "STRING_VALUE",
  * //                         confirmationState: "CONFIRM" || "DENY",
+ * //                         responseState: "FAILURE" || "REPROMPT",
+ * //                         httpStatusCode: Number("int"),
  * //                         responseBody: { // ResponseBody
  * //                           "<keys>": { // ContentBody
  * //                             body: "STRING_VALUE",
  * //                           },
  * //                         },
- * //                         httpStatusCode: Number("int"),
- * //                         responseState: "FAILURE" || "REPROMPT",
  * //                         agentId: "STRING_VALUE",
  * //                       },
  * //                       functionResult: { // FunctionResult
@@ -798,13 +822,13 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                         httpMethod: "STRING_VALUE",
  * //                         apiPath: "STRING_VALUE",
  * //                         confirmationState: "CONFIRM" || "DENY",
+ * //                         responseState: "FAILURE" || "REPROMPT",
+ * //                         httpStatusCode: Number("int"),
  * //                         responseBody: {
  * //                           "<keys>": {
  * //                             body: "STRING_VALUE",
  * //                           },
  * //                         },
- * //                         httpStatusCode: Number("int"),
- * //                         responseState: "FAILURE" || "REPROMPT",
  * //                         agentId: "STRING_VALUE",
  * //                       },
  * //                       functionResult: {
@@ -1074,6 +1098,9 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //       message: "STRING_VALUE",
  * //       resourceName: "STRING_VALUE",
  * //     },
+ * //     modelNotReadyException: { // ModelNotReadyException
+ * //       message: "STRING_VALUE",
+ * //     },
  * //     files: { // FilePart
  * //       files: [ // OutputFiles
  * //         { // OutputFile
@@ -1111,6 +1138,14 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link ModelNotReadyException} (client fault)
+ *  <p>
+ *       The model specified in the request is not ready to serve inference requests. The AWS SDK
+ *       will automatically retry the operation up to 5 times. For information about configuring
+ *       automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i>
+ *       reference guide.
+ *     </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>

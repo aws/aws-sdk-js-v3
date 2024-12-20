@@ -43,6 +43,7 @@ export interface DeleteAgentMemoryCommandOutput extends DeleteAgentMemoryRespons
  *   agentId: "STRING_VALUE", // required
  *   agentAliasId: "STRING_VALUE", // required
  *   memoryId: "STRING_VALUE",
+ *   sessionId: "STRING_VALUE",
  * };
  * const command = new DeleteAgentMemoryCommand(input);
  * const response = await client.send(command);

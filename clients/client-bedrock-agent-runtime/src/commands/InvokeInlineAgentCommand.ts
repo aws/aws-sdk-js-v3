@@ -89,13 +89,13 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  *           httpMethod: "STRING_VALUE",
  *           apiPath: "STRING_VALUE",
  *           confirmationState: "CONFIRM" || "DENY",
+ *           responseState: "FAILURE" || "REPROMPT",
+ *           httpStatusCode: Number("int"),
  *           responseBody: { // ResponseBody
  *             "<keys>": { // ContentBody
  *               body: "STRING_VALUE",
  *             },
  *           },
- *           httpStatusCode: Number("int"),
- *           responseState: "FAILURE" || "REPROMPT",
  *           agentId: "STRING_VALUE",
  *         },
  *         functionResult: { // FunctionResult
@@ -292,6 +292,11 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  *       },
  *     ],
  *     overrideLambda: "STRING_VALUE",
+ *   },
+ *   bedrockModelConfigurations: { // InlineBedrockModelConfigurations
+ *     performanceConfig: { // PerformanceConfiguration
+ *       latency: "standard" || "optimized",
+ *     },
  *   },
  * };
  * const command = new InvokeInlineAgentCommand(input);
@@ -572,13 +577,13 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //                         httpMethod: "STRING_VALUE",
  * //                         apiPath: "STRING_VALUE",
  * //                         confirmationState: "CONFIRM" || "DENY",
+ * //                         responseState: "FAILURE" || "REPROMPT",
+ * //                         httpStatusCode: Number("int"),
  * //                         responseBody: { // ResponseBody
  * //                           "<keys>": { // ContentBody
  * //                             body: "STRING_VALUE",
  * //                           },
  * //                         },
- * //                         httpStatusCode: Number("int"),
- * //                         responseState: "FAILURE" || "REPROMPT",
  * //                         agentId: "STRING_VALUE",
  * //                       },
  * //                       functionResult: { // FunctionResult
@@ -835,13 +840,13 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //                         httpMethod: "STRING_VALUE",
  * //                         apiPath: "STRING_VALUE",
  * //                         confirmationState: "CONFIRM" || "DENY",
+ * //                         responseState: "FAILURE" || "REPROMPT",
+ * //                         httpStatusCode: Number("int"),
  * //                         responseBody: {
  * //                           "<keys>": {
  * //                             body: "STRING_VALUE",
  * //                           },
  * //                         },
- * //                         httpStatusCode: Number("int"),
- * //                         responseState: "FAILURE" || "REPROMPT",
  * //                         agentId: "STRING_VALUE",
  * //                       },
  * //                       functionResult: {

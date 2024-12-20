@@ -62,6 +62,7 @@ import {
   APISchema,
   Attribution,
   BadGatewayException,
+  BedrockModelConfigurations,
   BedrockRerankingConfiguration,
   BedrockRerankingModelConfiguration,
   ByteContentDoc,
@@ -110,6 +111,7 @@ import {
   InlineAgentResponseStream,
   InlineAgentReturnControlPayload,
   InlineAgentTracePart,
+  InlineBedrockModelConfigurations,
   InlineSessionState,
   InputFile,
   InputPrompt,
@@ -129,6 +131,8 @@ import {
   MetadataAttributeSchema,
   MetadataConfigurationForReranking,
   ModelInvocationInput,
+  ModelNotReadyException,
+  ModelPerformanceConfiguration,
   Observation,
   OptimizedPromptEvent,
   OptimizedPromptStream,
@@ -137,6 +141,7 @@ import {
   OutputFile,
   ParameterDetail,
   PayloadPart,
+  PerformanceConfiguration,
   PostProcessingTrace,
   PreProcessingTrace,
   PromptConfiguration,
@@ -196,6 +201,7 @@ export const se_DeleteAgentMemoryCommand = async (
   b.p("agentAliasId", () => input.agentAliasId!, "{agentAliasId}", false);
   const query: any = map({
     [_mI]: [, input[_mI]!],
+    [_sI]: [, input[_sI]!],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -267,6 +273,7 @@ export const se_InvokeAgentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      bedrockModelConfigurations: (_) => _json(_),
       enableTrace: [],
       endSession: [],
       inputText: [],
@@ -298,6 +305,7 @@ export const se_InvokeFlowCommand = async (
     take(input, {
       enableTrace: [],
       inputs: (_) => se_FlowInputs(_, context),
+      modelPerformanceConfiguration: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -321,6 +329,7 @@ export const se_InvokeInlineAgentCommand = async (
   body = JSON.stringify(
     take(input, {
       actionGroups: (_) => _json(_),
+      bedrockModelConfigurations: (_) => _json(_),
       customerEncryptionKeyArn: [],
       enableTrace: [],
       endSession: [],
@@ -721,6 +730,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.bedrockagentruntime#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ModelNotReadyException":
+    case "com.amazonaws.bedrockagentruntime#ModelNotReadyException":
+      throw await de_ModelNotReadyExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -822,6 +834,26 @@ const de_InternalServerExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new InternalServerException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ModelNotReadyExceptionRes
+ */
+const de_ModelNotReadyExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ModelNotReadyException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ModelNotReadyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -1198,6 +1230,11 @@ const de_ResponseStream = (
         badGatewayException: await de_BadGatewayException_event(event["badGatewayException"], context),
       };
     }
+    if (event["modelNotReadyException"] != null) {
+      return {
+        modelNotReadyException: await de_ModelNotReadyException_event(event["modelNotReadyException"], context),
+      };
+    }
     if (event["files"] != null) {
       return {
         files: await de_FilePart_event(event["files"], context),
@@ -1399,6 +1436,16 @@ const de_InternalServerException_event = async (
   };
   return de_InternalServerExceptionRes(parsedOutput, context);
 };
+const de_ModelNotReadyException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ModelNotReadyException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return de_ModelNotReadyExceptionRes(parsedOutput, context);
+};
 const de_OptimizedPromptEvent_event = async (output: any, context: __SerdeContext): Promise<OptimizedPromptEvent> => {
   const contents: OptimizedPromptEvent = {} as any;
   const data: any = await parseBody(output.body, context);
@@ -1496,6 +1543,8 @@ const se_AdditionalModelRequestFieldsValue = (input: __DocumentType, context: __
 
 // se_APISchema omitted.
 
+// se_BedrockModelConfigurations omitted.
+
 /**
  * serializeAws_restJson1BedrockRerankingConfiguration
  */
@@ -1581,6 +1630,7 @@ const se_ExternalSourcesGenerationConfiguration = (
     additionalModelRequestFields: (_) => se_AdditionalModelRequestFields(_, context),
     guardrailConfiguration: _json,
     inferenceConfig: (_) => se_InferenceConfig(_, context),
+    performanceConfig: _json,
     promptTemplate: _json,
   });
 };
@@ -1679,6 +1729,7 @@ const se_GenerationConfiguration = (input: GenerationConfiguration, context: __S
     additionalModelRequestFields: (_) => se_AdditionalModelRequestFields(_, context),
     guardrailConfiguration: _json,
     inferenceConfig: (_) => se_InferenceConfig(_, context),
+    performanceConfig: _json,
     promptTemplate: _json,
   });
 };
@@ -1710,6 +1761,8 @@ const se_InferenceConfiguration = (input: InferenceConfiguration, context: __Ser
     topP: __serializeFloat,
   });
 };
+
+// se_InlineBedrockModelConfigurations omitted.
 
 /**
  * serializeAws_restJson1InlineSessionState
@@ -1849,6 +1902,8 @@ const se_KnowledgeBaseVectorSearchConfiguration = (
 
 // se_MetadataConfigurationForReranking omitted.
 
+// se_ModelPerformanceConfiguration omitted.
+
 /**
  * serializeAws_restJson1OrchestrationConfiguration
  */
@@ -1856,6 +1911,7 @@ const se_OrchestrationConfiguration = (input: OrchestrationConfiguration, contex
   return take(input, {
     additionalModelRequestFields: (_) => se_AdditionalModelRequestFields(_, context),
     inferenceConfig: (_) => se_InferenceConfig(_, context),
+    performanceConfig: _json,
     promptTemplate: _json,
     queryTransformationConfiguration: _json,
   });
@@ -1864,6 +1920,8 @@ const se_OrchestrationConfiguration = (input: OrchestrationConfiguration, contex
 // se_ParameterDetail omitted.
 
 // se_ParameterMap omitted.
+
+// se_PerformanceConfiguration omitted.
 
 /**
  * serializeAws_restJson1PromptConfiguration

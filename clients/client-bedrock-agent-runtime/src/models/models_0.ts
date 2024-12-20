@@ -504,7 +504,7 @@ export interface AgentActionGroup {
    *          <p>To allow your agent to generate, run, and troubleshoot code when trying to complete a task, set this field to <code>AMAZON.CodeInterpreter</code>. You must
    *             leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields blank for this action group.</p>
    *          <p>During orchestration, if your agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request,
-   *             it will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a> reprompting the user for more information.</p>
+   *             it will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a> reprompting the user for more information.</p>
    * @public
    */
   parentActionGroupSignature?: ActionGroupSignature | undefined;
@@ -620,10 +620,10 @@ export interface ApiResult {
   confirmationState?: ConfirmationState | undefined;
 
   /**
-   * <p>The response body from the API operation. The key of the object is the content type (currently, only <code>TEXT</code> is supported). The response may be returned directly or from the Lambda function.</p>
+   * <p>Controls the final response state returned to end user when API/Function execution failed. When this state is FAILURE, the request would fail with dependency failure exception. When this state is REPROMPT, the API/function response will be sent to model for re-prompt</p>
    * @public
    */
-  responseBody?: Record<string, ContentBody> | undefined;
+  responseState?: ResponseState | undefined;
 
   /**
    * <p>http status code from API execution response (for example: 200, 400, 500).</p>
@@ -632,10 +632,10 @@ export interface ApiResult {
   httpStatusCode?: number | undefined;
 
   /**
-   * <p>Controls the final response state returned to end user when API/Function execution failed. When this state is FAILURE, the request would fail with dependency failure exception. When this state is REPROMPT, the API/function response will be sent to model for re-prompt</p>
+   * <p>The response body from the API operation. The key of the object is the content type (currently, only <code>TEXT</code> is supported). The response may be returned directly or from the Lambda function.</p>
    * @public
    */
-  responseState?: ResponseState | undefined;
+  responseBody?: Record<string, ContentBody> | undefined;
 
   /**
    * <p>The agent's ID.</p>
@@ -1336,6 +1336,44 @@ export interface FlowInput {
 
 /**
  * @public
+ * @enum
+ */
+export const PerformanceConfigLatency = {
+  OPTIMIZED: "optimized",
+  STANDARD: "standard",
+} as const;
+
+/**
+ * @public
+ */
+export type PerformanceConfigLatency = (typeof PerformanceConfigLatency)[keyof typeof PerformanceConfigLatency];
+
+/**
+ * <p>Performance settings for a model.</p>
+ * @public
+ */
+export interface PerformanceConfiguration {
+  /**
+   * <p>To use a latency-optimized version of the model, set to <code>optimized</code>.</p>
+   * @public
+   */
+  latency?: PerformanceConfigLatency | undefined;
+}
+
+/**
+ * <p>The performance configuration for a model called with <a>InvokeFlow</a>.</p>
+ * @public
+ */
+export interface ModelPerformanceConfiguration {
+  /**
+   * <p>The latency configuration for the model.</p>
+   * @public
+   */
+  performanceConfig?: PerformanceConfiguration | undefined;
+}
+
+/**
+ * @public
  */
 export interface InvokeFlowRequest {
   /**
@@ -1361,6 +1399,12 @@ export interface InvokeFlowRequest {
    * @public
    */
   enableTrace?: boolean | undefined;
+
+  /**
+   * <p>Model performance settings for the request.</p>
+   * @public
+   */
+  modelPerformanceConfiguration?: ModelPerformanceConfiguration | undefined;
 }
 
 /**
@@ -2329,6 +2373,18 @@ export interface GenerateQueryResponse {
 }
 
 /**
+ * <p>Settings for a model called with <a>InvokeAgent</a>.</p>
+ * @public
+ */
+export interface BedrockModelConfigurations {
+  /**
+   * <p>The performance configuration for the model.</p>
+   * @public
+   */
+  performanceConfig?: PerformanceConfiguration | undefined;
+}
+
+/**
  * <p>A content block.</p>
  * @public
  */
@@ -2790,8 +2846,7 @@ export interface VectorSearchRerankingConfiguration {
 
 /**
  * <p>
- *             Configurations for streaming.
- *         </p>
+ *             Configurations for streaming.</p>
  * @public
  */
 export interface StreamingConfigurations {
@@ -3331,6 +3386,31 @@ export interface FilePart {
    * @public
    */
   files?: OutputFile[] | undefined;
+}
+
+/**
+ * <p>
+ *       The model specified in the request is not ready to serve inference requests. The AWS SDK
+ *       will automatically retry the operation up to 5 times. For information about configuring
+ *       automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i>
+ *       reference guide.
+ *     </p>
+ * @public
+ */
+export class ModelNotReadyException extends __BaseException {
+  readonly name: "ModelNotReadyException" = "ModelNotReadyException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ModelNotReadyException, __BaseException>) {
+    super({
+      name: "ModelNotReadyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ModelNotReadyException.prototype);
+  }
 }
 
 /**
@@ -5049,6 +5129,7 @@ export type ResponseStream =
   | ResponseStream.DependencyFailedExceptionMember
   | ResponseStream.FilesMember
   | ResponseStream.InternalServerExceptionMember
+  | ResponseStream.ModelNotReadyExceptionMember
   | ResponseStream.ResourceNotFoundExceptionMember
   | ResponseStream.ReturnControlMember
   | ResponseStream.ServiceQuotaExceededExceptionMember
@@ -5078,6 +5159,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    modelNotReadyException?: never;
     files?: never;
     $unknown?: never;
   }
@@ -5099,6 +5181,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    modelNotReadyException?: never;
     files?: never;
     $unknown?: never;
   }
@@ -5120,6 +5203,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    modelNotReadyException?: never;
     files?: never;
     $unknown?: never;
   }
@@ -5141,6 +5225,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    modelNotReadyException?: never;
     files?: never;
     $unknown?: never;
   }
@@ -5162,6 +5247,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    modelNotReadyException?: never;
     files?: never;
     $unknown?: never;
   }
@@ -5183,6 +5269,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    modelNotReadyException?: never;
     files?: never;
     $unknown?: never;
   }
@@ -5204,6 +5291,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    modelNotReadyException?: never;
     files?: never;
     $unknown?: never;
   }
@@ -5225,6 +5313,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    modelNotReadyException?: never;
     files?: never;
     $unknown?: never;
   }
@@ -5246,6 +5335,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    modelNotReadyException?: never;
     files?: never;
     $unknown?: never;
   }
@@ -5267,6 +5357,7 @@ export namespace ResponseStream {
     conflictException: ConflictException;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    modelNotReadyException?: never;
     files?: never;
     $unknown?: never;
   }
@@ -5288,6 +5379,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException: DependencyFailedException;
     badGatewayException?: never;
+    modelNotReadyException?: never;
     files?: never;
     $unknown?: never;
   }
@@ -5309,6 +5401,34 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException: BadGatewayException;
+    modelNotReadyException?: never;
+    files?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>
+   *       The model specified in the request is not ready to serve Inference requests. The AWS SDK
+   *       will automatically retry the operation up to 5 times. For information about configuring
+   *       automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i>
+   *       reference guide.
+   *     </p>
+   * @public
+   */
+  export interface ModelNotReadyExceptionMember {
+    chunk?: never;
+    trace?: never;
+    returnControl?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    modelNotReadyException: ModelNotReadyException;
     files?: never;
     $unknown?: never;
   }
@@ -5330,6 +5450,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    modelNotReadyException?: never;
     files: FilePart;
     $unknown?: never;
   }
@@ -5350,6 +5471,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    modelNotReadyException?: never;
     files?: never;
     $unknown: [string, any];
   }
@@ -5367,6 +5489,7 @@ export namespace ResponseStream {
     conflictException: (value: ConflictException) => T;
     dependencyFailedException: (value: DependencyFailedException) => T;
     badGatewayException: (value: BadGatewayException) => T;
+    modelNotReadyException: (value: ModelNotReadyException) => T;
     files: (value: FilePart) => T;
     _: (name: string, value: any) => T;
   }
@@ -5388,6 +5511,7 @@ export namespace ResponseStream {
     if (value.dependencyFailedException !== undefined)
       return visitor.dependencyFailedException(value.dependencyFailedException);
     if (value.badGatewayException !== undefined) return visitor.badGatewayException(value.badGatewayException);
+    if (value.modelNotReadyException !== undefined) return visitor.modelNotReadyException(value.modelNotReadyException);
     if (value.files !== undefined) return visitor.files(value.files);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
@@ -5420,6 +5544,18 @@ export interface InvokeAgentResponse {
    * @public
    */
   memoryId?: string | undefined;
+}
+
+/**
+ * <p>Settings for a model called with <a>InvokeInlineAgent</a>.</p>
+ * @public
+ */
+export interface InlineBedrockModelConfigurations {
+  /**
+   * <p>The latency configuration for the model.</p>
+   * @public
+   */
+  performanceConfig?: PerformanceConfiguration | undefined;
 }
 
 /**
@@ -6086,6 +6222,12 @@ export interface DeleteAgentMemoryRequest {
    * @public
    */
   memoryId?: string | undefined;
+
+  /**
+   * <p>The unique session identifier of the memory.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
 }
 
 /**
@@ -6972,6 +7114,12 @@ export interface ExternalSourcesGenerationConfiguration {
    * @public
    */
   additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
+
+  /**
+   * <p>The latency configuration for the model.</p>
+   * @public
+   */
+  performanceConfig?: PerformanceConfiguration | undefined;
 }
 
 /**
@@ -7108,6 +7256,12 @@ export interface GenerationConfiguration {
    * @public
    */
   additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
+
+  /**
+   * <p>The latency configuration for the model.</p>
+   * @public
+   */
+  performanceConfig?: PerformanceConfiguration | undefined;
 }
 
 /**
@@ -7165,6 +7319,12 @@ export interface OrchestrationConfiguration {
    * @public
    */
   queryTransformationConfiguration?: QueryTransformationConfiguration | undefined;
+
+  /**
+   * <p>The latency configuration for the model.</p>
+   * @public
+   */
+  performanceConfig?: PerformanceConfiguration | undefined;
 }
 
 /**
@@ -8484,6 +8644,12 @@ export interface InvokeInlineAgentRequest {
    * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration | undefined;
+
+  /**
+   * <p>Model settings for the request.</p>
+   * @public
+   */
+  bedrockModelConfigurations?: InlineBedrockModelConfigurations | undefined;
 }
 
 /**
@@ -8654,9 +8820,18 @@ export interface InvokeAgentRequest {
   memoryId?: string | undefined;
 
   /**
+   * <p>Model performance settings for the request.</p>
+   * @public
+   */
+  bedrockModelConfigurations?: BedrockModelConfigurations | undefined;
+
+  /**
    * <p>
    *            Specifies the configurations for streaming.
    *         </p>
+   *          <note>
+   *             <p>To use agent streaming, you need permissions to perform the <code>bedrock:InvokeModelWithResponseStream</code> action.</p>
+   *          </note>
    * @public
    */
   streamingConfigurations?: StreamingConfigurations | undefined;
@@ -9573,6 +9748,7 @@ export const ResponseStreamFilterSensitiveLog = (obj: ResponseStream): any => {
   if (obj.conflictException !== undefined) return { conflictException: obj.conflictException };
   if (obj.dependencyFailedException !== undefined) return { dependencyFailedException: obj.dependencyFailedException };
   if (obj.badGatewayException !== undefined) return { badGatewayException: obj.badGatewayException };
+  if (obj.modelNotReadyException !== undefined) return { modelNotReadyException: obj.modelNotReadyException };
   if (obj.files !== undefined) return { files: FilePartFilterSensitiveLog(obj.files) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
