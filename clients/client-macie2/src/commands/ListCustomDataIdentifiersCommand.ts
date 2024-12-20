@@ -28,7 +28,7 @@ export interface ListCustomDataIdentifiersCommandInput extends ListCustomDataIde
 export interface ListCustomDataIdentifiersCommandOutput extends ListCustomDataIdentifiersResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a subset of information about all the custom data identifiers for an account.</p>
+ * <p>Retrieves a subset of information about the custom data identifiers for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

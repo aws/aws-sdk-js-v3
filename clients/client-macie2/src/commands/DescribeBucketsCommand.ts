@@ -71,7 +71,7 @@ export interface DescribeBucketsCommandOutput extends DescribeBucketsResponse, _
  * //       bucketName: "STRING_VALUE",
  * //       classifiableObjectCount: Number("long"),
  * //       classifiableSizeInBytes: Number("long"),
- * //       errorCode: "ACCESS_DENIED",
+ * //       errorCode: "ACCESS_DENIED" || "BUCKET_COUNT_EXCEEDS_QUOTA",
  * //       errorMessage: "STRING_VALUE",
  * //       jobDetails: { // JobDetails
  * //         isDefinedInJob: "TRUE" || "FALSE" || "UNKNOWN",
