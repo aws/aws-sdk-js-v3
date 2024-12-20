@@ -59,7 +59,7 @@ export interface BedrockDataAutomationRuntime {
 }
 
 /**
- * Amazon Bedrock Keystone Runtime
+ * Amazon Bedrock Data Automation Runtime
  * @public
  */
 export class BedrockDataAutomationRuntime

@@ -274,7 +274,7 @@ export interface BedrockDataAutomationRuntimeClientResolvedConfig
   extends BedrockDataAutomationRuntimeClientResolvedConfigType {}
 
 /**
- * Amazon Bedrock Keystone Runtime
+ * Amazon Bedrock Data Automation Runtime
  * @public
  */
 export class BedrockDataAutomationRuntimeClient extends __Client<

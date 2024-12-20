@@ -6,7 +6,7 @@
 
 AWS SDK for JavaScript BedrockDataAutomationRuntime Client for Node.js, Browser and React Native.
 
-Amazon Bedrock Keystone Runtime
+Amazon Bedrock Data Automation Runtime
 
 ## Installing
 
