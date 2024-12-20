@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.717.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.716.0...v3.717.0) (2024-12-20)
+
+
+### Features
+
+* **client-eks:** This release expands the catalog of upgrade insight checks ([a4d9117](https://github.com/aws/aws-sdk-js-v3/commit/a4d9117e59a6868ae01f4caa1247076103f526a7))
+
+
+
+
+
 # [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
 
 **Note:** Version bump only for package @aws-sdk/client-eks

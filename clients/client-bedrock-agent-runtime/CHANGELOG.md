@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.717.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.716.0...v3.717.0) (2024-12-20)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** bedrock agents now supports long term memory and performance configs. Invokeflow supports performance configs. RetrieveAndGenerate performance configs ([8cc6104](https://github.com/aws/aws-sdk-js-v3/commit/8cc610482d61041e10d2904042a8e877727ef128))
+
+
+
+
+
 # [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent-runtime

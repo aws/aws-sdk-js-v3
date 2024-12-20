@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.717.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.716.0...v3.717.0) (2024-12-20)
+
+
+### Features
+
+* **client-connect:** This release supports adding NotAttributeCondition and Range to the RoutingCriteria object. ([329a39d](https://github.com/aws/aws-sdk-js-v3/commit/329a39d934a963883eeeabbe93cc8866645a35d9))
+
+
+
+
+
 # [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

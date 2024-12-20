@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.717.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.716.0...v3.717.0) (2024-12-20)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** bedrock agents now supports long term memory and performance configs. Invokeflow supports performance configs. RetrieveAndGenerate performance configs ([8cc6104](https://github.com/aws/aws-sdk-js-v3/commit/8cc610482d61041e10d2904042a8e877727ef128))
+* **client-bedrock-agent:** Support for custom user agent and max web pages crawled for web connector. Support app only credentials for SharePoint connector. Increase agents memory duration limit to 365 days. Support to specify max number of session summaries to include in agent invocation context. ([808e71b](https://github.com/aws/aws-sdk-js-v3/commit/808e71b35b5482bd424d07953cccbcd450657dfe))
+* **client-billing:** Added new API's for defining and fetching Billing Views. ([3398a2a](https://github.com/aws/aws-sdk-js-v3/commit/3398a2ac167c7f8f53a1cd45b4795d1e15a8d9c6))
+* **client-connect:** This release supports adding NotAttributeCondition and Range to the RoutingCriteria object. ([329a39d](https://github.com/aws/aws-sdk-js-v3/commit/329a39d934a963883eeeabbe93cc8866645a35d9))
+* **client-cost-explorer:** Support for retrieving cost, usage, and forecast for billing view. ([e4e1078](https://github.com/aws/aws-sdk-js-v3/commit/e4e1078b6bb7c07674053fbe5e7600f64a4a4ffa))
+* **client-docdb:** Support AWS Secret Manager managed password for AWS DocumentDB instance-based cluster. ([ba90110](https://github.com/aws/aws-sdk-js-v3/commit/ba9011074665efd86e2671e57099efbfd0e3547a))
+* **client-eks:** This release expands the catalog of upgrade insight checks ([a4d9117](https://github.com/aws/aws-sdk-js-v3/commit/a4d9117e59a6868ae01f4caa1247076103f526a7))
+* **client-macie2:** This release adds support for identifying S3 general purpose buckets that exceed the Amazon Macie quota for preventative control monitoring. ([5f8c6de](https://github.com/aws/aws-sdk-js-v3/commit/5f8c6dee33c0d864aa41adaeb57d025e17129cb7))
+* **client-outposts:** Add CS8365C as a supported power connector for Outpost sites. ([fb7afd4](https://github.com/aws/aws-sdk-js-v3/commit/fb7afd4fcf712de1419e3bd3f24b95d0ebe47723))
+* **client-sagemaker:** This release adds support for c6i, m6i and r6i instance on SageMaker Hyperpod and trn1 instances in batch ([47d77a9](https://github.com/aws/aws-sdk-js-v3/commit/47d77a9ae89b832623054ae43eccc1ddcd92755b))
+* **clients:** update client endpoints as of 2024-12-20 ([2330ab1](https://github.com/aws/aws-sdk-js-v3/commit/2330ab1bc4826319d8c10a74bce9ec62f1f04665))
+
+
+
+
+
 # [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
 
 

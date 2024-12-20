@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.717.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.716.0...v3.717.0) (2024-12-20)
+
+
+### Features
+
+* **client-macie2:** This release adds support for identifying S3 general purpose buckets that exceed the Amazon Macie quota for preventative control monitoring. ([5f8c6de](https://github.com/aws/aws-sdk-js-v3/commit/5f8c6dee33c0d864aa41adaeb57d025e17129cb7))
+
+
+
+
+
 # [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
 
 **Note:** Version bump only for package @aws-sdk/client-macie2

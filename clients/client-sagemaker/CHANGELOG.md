@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.717.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.716.0...v3.717.0) (2024-12-20)
+
+
+### Features
+
+* **client-sagemaker:** This release adds support for c6i, m6i and r6i instance on SageMaker Hyperpod and trn1 instances in batch ([47d77a9](https://github.com/aws/aws-sdk-js-v3/commit/47d77a9ae89b832623054ae43eccc1ddcd92755b))
+
+
+
+
+
 # [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker
