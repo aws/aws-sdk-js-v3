@@ -1005,7 +1005,7 @@ import {
   QueueSummary,
   QuickConnect,
   QuickConnectSummary,
-  RealTimeContactAnalysisSegmentType,
+  Range,
   RoutingProfile,
   Rule,
   SecurityProfile,
@@ -1073,6 +1073,7 @@ import {
   RealTimeContactAnalysisSegmentAttachments,
   RealTimeContactAnalysisSegmentEvent,
   RealTimeContactAnalysisSegmentTranscript,
+  RealTimeContactAnalysisSegmentType,
   RealTimeContactAnalysisTimeData,
   ResourceTagsSearchCriteria,
   RoutingCriteriaInputStepExpiry,
@@ -13893,6 +13894,7 @@ const se_AttributeCondition = (input: AttributeCondition, context: __SerdeContex
     MatchCriteria: _json,
     Name: [],
     ProficiencyLevel: __serializeFloat,
+    Range: (_) => se_Range(_, context),
     Value: [],
   });
 };
@@ -14196,6 +14198,7 @@ const se_Expression = (input: Expression, context: __SerdeContext): any => {
   return take(input, {
     AndExpression: (_) => se_Expressions(_, context),
     AttributeCondition: (_) => se_AttributeCondition(_, context),
+    NotAttributeCondition: (_) => se_AttributeCondition(_, context),
     OrExpression: (_) => se_Expressions(_, context),
   });
 };
@@ -14579,6 +14582,16 @@ const se_QuickConnectSearchCriteria = (input: QuickConnectSearchCriteria, contex
 // se_QuickConnectSearchFilter omitted.
 
 // se_QuickConnectsList omitted.
+
+/**
+ * serializeAws_restJson1Range
+ */
+const se_Range = (input: Range, context: __SerdeContext): any => {
+  return take(input, {
+    MaxProficiencyLevel: __serializeFloat,
+    MinProficiencyLevel: __serializeFloat,
+  });
+};
 
 // se_ReadOnlyFieldInfo omitted.
 
@@ -15199,6 +15212,7 @@ const de_AttributeCondition = (output: any, context: __SerdeContext): AttributeC
     MatchCriteria: _json,
     Name: __expectString,
     ProficiencyLevel: __limitedParseFloat32,
+    Range: (_: any) => de_Range(_, context),
     Value: __expectString,
   }) as any;
 };
@@ -15901,6 +15915,7 @@ const de_Expression = (output: any, context: __SerdeContext): Expression => {
   return take(output, {
     AndExpression: (_: any) => de_Expressions(_, context),
     AttributeCondition: (_: any) => de_AttributeCondition(_, context),
+    NotAttributeCondition: (_: any) => de_AttributeCondition(_, context),
     OrExpression: (_: any) => de_Expressions(_, context),
   }) as any;
 };
@@ -16627,6 +16642,16 @@ const de_QuickConnectSummaryList = (output: any, context: __SerdeContext): Quick
       return de_QuickConnectSummary(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_restJson1Range
+ */
+const de_Range = (output: any, context: __SerdeContext): Range => {
+  return take(output, {
+    MaxProficiencyLevel: __limitedParseFloat32,
+    MinProficiencyLevel: __limitedParseFloat32,
+  }) as any;
 };
 
 // de_ReadOnlyFieldInfo omitted.

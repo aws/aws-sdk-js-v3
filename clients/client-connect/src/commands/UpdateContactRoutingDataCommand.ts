@@ -64,6 +64,10 @@ export interface UpdateContactRoutingDataCommandOutput extends UpdateContactRout
  *             Name: "STRING_VALUE",
  *             Value: "STRING_VALUE",
  *             ProficiencyLevel: Number("float"),
+ *             Range: { // Range
+ *               MinProficiencyLevel: Number("float"),
+ *               MaxProficiencyLevel: Number("float"),
+ *             },
  *             MatchCriteria: { // MatchCriteria
  *               AgentsCriteria: { // AgentsCriteria
  *                 AgentIds: [ // AgentIds
@@ -79,6 +83,10 @@ export interface UpdateContactRoutingDataCommandOutput extends UpdateContactRout
  *                 Name: "STRING_VALUE",
  *                 Value: "STRING_VALUE",
  *                 ProficiencyLevel: Number("float"),
+ *                 Range: {
+ *                   MinProficiencyLevel: Number("float"),
+ *                   MaxProficiencyLevel: Number("float"),
+ *                 },
  *                 MatchCriteria: {
  *                   AgentsCriteria: {
  *                     AgentIds: [
@@ -94,11 +102,45 @@ export interface UpdateContactRoutingDataCommandOutput extends UpdateContactRout
  *               OrExpression: [
  *                 "<Expression>",
  *               ],
+ *               NotAttributeCondition: {
+ *                 Name: "STRING_VALUE",
+ *                 Value: "STRING_VALUE",
+ *                 ProficiencyLevel: Number("float"),
+ *                 Range: {
+ *                   MinProficiencyLevel: Number("float"),
+ *                   MaxProficiencyLevel: Number("float"),
+ *                 },
+ *                 MatchCriteria: {
+ *                   AgentsCriteria: {
+ *                     AgentIds: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                 },
+ *                 ComparisonOperator: "STRING_VALUE",
+ *               },
  *             },
  *           ],
  *           OrExpression: [
  *             "<Expression>",
  *           ],
+ *           NotAttributeCondition: {
+ *             Name: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             ProficiencyLevel: Number("float"),
+ *             Range: {
+ *               MinProficiencyLevel: Number("float"),
+ *               MaxProficiencyLevel: Number("float"),
+ *             },
+ *             MatchCriteria: {
+ *               AgentsCriteria: {
+ *                 AgentIds: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *             ComparisonOperator: "STRING_VALUE",
+ *           },
  *         },
  *       },
  *     ],

@@ -17,6 +17,8 @@ import {
   EvaluationFormScoringStrategy,
   InitiateAs,
   Reference,
+  RuleAction,
+  RulePublishStatus,
   StringCondition,
   TaskTemplateConstraints,
   TaskTemplateDefaults,
@@ -84,6 +86,50 @@ import {
   UserHierarchyGroupSearchFilter,
   UserSearchFilter,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface UpdateRuleRequest {
+  /**
+   * <p>A unique identifier for the rule.</p>
+   * @public
+   */
+  RuleId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the rule. You can change the name only if <code>TriggerEventSource</code> is one
+   *    of the following values: <code>OnZendeskTicketCreate</code> |
+   *     <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code>
+   *          </p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The conditions of the rule.</p>
+   * @public
+   */
+  Function: string | undefined;
+
+  /**
+   * <p>A list of actions to be run when the rule is triggered.</p>
+   * @public
+   */
+  Actions: RuleAction[] | undefined;
+
+  /**
+   * <p>The publish status of the rule.</p>
+   * @public
+   */
+  PublishStatus: RulePublishStatus | undefined;
+}
 
 /**
  * @public
@@ -1212,6 +1258,12 @@ export interface Expression {
    * @public
    */
   OrExpression?: Expression[] | undefined;
+
+  /**
+   * <p>An object to specify the predefined attribute condition.</p>
+   * @public
+   */
+  NotAttributeCondition?: AttributeCondition | undefined;
 }
 
 /**

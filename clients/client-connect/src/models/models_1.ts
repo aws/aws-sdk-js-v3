@@ -608,6 +608,24 @@ export interface MatchCriteria {
 }
 
 /**
+ * <p>An Object to define the minimum and maximum proficiency levels.</p>
+ * @public
+ */
+export interface Range {
+  /**
+   * <p>The minimum proficiency level of the range.</p>
+   * @public
+   */
+  MinProficiencyLevel?: number | undefined;
+
+  /**
+   * <p>The maximum proficiency level of the range.</p>
+   * @public
+   */
+  MaxProficiencyLevel?: number | undefined;
+}
+
+/**
  * <p>An object to specify the predefined attribute condition.</p>
  * @public
  */
@@ -629,6 +647,12 @@ export interface AttributeCondition {
    * @public
    */
   ProficiencyLevel?: number | undefined;
+
+  /**
+   * <p>An Object to define the minimum and maximum proficiency levels.</p>
+   * @public
+   */
+  Range?: Range | undefined;
 
   /**
    * <p>An object to define <code>AgentsCriteria</code>.</p>
@@ -9820,25 +9844,6 @@ export const RealTimeContactAnalysisOutputType = {
  */
 export type RealTimeContactAnalysisOutputType =
   (typeof RealTimeContactAnalysisOutputType)[keyof typeof RealTimeContactAnalysisOutputType];
-
-/**
- * @public
- * @enum
- */
-export const RealTimeContactAnalysisSegmentType = {
-  Attachments: "Attachments",
-  Categories: "Categories",
-  Event: "Event",
-  Issues: "Issues",
-  PostContactSummary: "PostContactSummary",
-  Transcript: "Transcript",
-} as const;
-
-/**
- * @public
- */
-export type RealTimeContactAnalysisSegmentType =
-  (typeof RealTimeContactAnalysisSegmentType)[keyof typeof RealTimeContactAnalysisSegmentType];
 
 /**
  * @internal
