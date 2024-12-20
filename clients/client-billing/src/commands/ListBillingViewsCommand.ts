@@ -46,6 +46,13 @@ export interface ListBillingViewsCommandOutput extends ListBillingViewsResponse,
  *     activeAfterInclusive: new Date("TIMESTAMP"), // required
  *     activeBeforeInclusive: new Date("TIMESTAMP"), // required
  *   },
+ *   arns: [ // BillingViewArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   billingViewTypes: [ // BillingViewTypeList
+ *     "PRIMARY" || "BILLING_GROUP" || "CUSTOM",
+ *   ],
+ *   ownerAccountId: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };
@@ -56,8 +63,9 @@ export interface ListBillingViewsCommandOutput extends ListBillingViewsResponse,
  * //     { // BillingViewListElement
  * //       arn: "STRING_VALUE",
  * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
  * //       ownerAccountId: "STRING_VALUE",
- * //       billingViewType: "PRIMARY" || "BILLING_GROUP",
+ * //       billingViewType: "PRIMARY" || "BILLING_GROUP" || "CUSTOM",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

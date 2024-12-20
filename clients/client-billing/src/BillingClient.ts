@@ -53,7 +53,22 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { CreateBillingViewCommandInput, CreateBillingViewCommandOutput } from "./commands/CreateBillingViewCommand";
+import { DeleteBillingViewCommandInput, DeleteBillingViewCommandOutput } from "./commands/DeleteBillingViewCommand";
+import { GetBillingViewCommandInput, GetBillingViewCommandOutput } from "./commands/GetBillingViewCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import { ListBillingViewsCommandInput, ListBillingViewsCommandOutput } from "./commands/ListBillingViewsCommand";
+import {
+  ListSourceViewsForBillingViewCommandInput,
+  ListSourceViewsForBillingViewCommandOutput,
+} from "./commands/ListSourceViewsForBillingViewCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateBillingViewCommandInput, UpdateBillingViewCommandOutput } from "./commands/UpdateBillingViewCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -68,12 +83,32 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = ListBillingViewsCommandInput;
+export type ServiceInputTypes =
+  | CreateBillingViewCommandInput
+  | DeleteBillingViewCommandInput
+  | GetBillingViewCommandInput
+  | GetResourcePolicyCommandInput
+  | ListBillingViewsCommandInput
+  | ListSourceViewsForBillingViewCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateBillingViewCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = ListBillingViewsCommandOutput;
+export type ServiceOutputTypes =
+  | CreateBillingViewCommandOutput
+  | DeleteBillingViewCommandOutput
+  | GetBillingViewCommandOutput
+  | GetResourcePolicyCommandOutput
+  | ListBillingViewsCommandOutput
+  | ListSourceViewsForBillingViewCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateBillingViewCommandOutput;
 
 /**
  * @public
