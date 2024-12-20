@@ -3155,6 +3155,10 @@ const de_Addon = (output: any, context: __SerdeContext): Addon => {
   }) as any;
 };
 
+// de_AddonCompatibilityDetail omitted.
+
+// de_AddonCompatibilityDetails omitted.
+
 // de_AddonHealth omitted.
 
 // de_AddonInfo omitted.
@@ -3421,6 +3425,7 @@ const de_Insight = (output: any, context: __SerdeContext): Insight => {
  */
 const de_InsightCategorySpecificSummary = (output: any, context: __SerdeContext): InsightCategorySpecificSummary => {
   return take(output, {
+    addonCompatibilityDetails: _json,
     deprecationDetails: (_: any) => de_DeprecationDetails(_, context),
   }) as any;
 };

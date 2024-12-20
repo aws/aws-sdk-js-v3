@@ -397,6 +397,25 @@ export interface Addon {
 }
 
 /**
+ * <p>The summary information about the Amazon EKS add-on compatibility for the next Kubernetes
+ *             version for an insight check in the <code>UPGRADE_READINESS</code> category.</p>
+ * @public
+ */
+export interface AddonCompatibilityDetail {
+  /**
+   * <p>The name of the Amazon EKS add-on.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The list of compatible Amazon EKS add-on versions for the next Kubernetes version.</p>
+   * @public
+   */
+  compatibleVersions?: string[] | undefined;
+}
+
+/**
  * <p>Compatibility information.</p>
  * @public
  */
@@ -5281,6 +5300,12 @@ export interface InsightCategorySpecificSummary {
    * @public
    */
   deprecationDetails?: DeprecationDetail[] | undefined;
+
+  /**
+   * <p>A list of <code>AddonCompatibilityDetail</code> objects for Amazon EKS add-ons.</p>
+   * @public
+   */
+  addonCompatibilityDetails?: AddonCompatibilityDetail[] | undefined;
 }
 
 /**

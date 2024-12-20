@@ -84,6 +84,14 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  * //           ],
  * //         },
  * //       ],
+ * //       addonCompatibilityDetails: [ // AddonCompatibilityDetails
+ * //         { // AddonCompatibilityDetail
+ * //           name: "STRING_VALUE",
+ * //           compatibleVersions: [ // StringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * // };
