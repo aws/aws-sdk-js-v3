@@ -31,7 +31,7 @@ export interface DeleteModelBiasJobDefinitionCommandInput extends DeleteModelBia
 export interface DeleteModelBiasJobDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon SageMaker model bias job definition.</p>
+ * <p>Deletes an Amazon SageMaker AI model bias job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

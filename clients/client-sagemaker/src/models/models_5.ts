@@ -531,7 +531,7 @@ export interface UpdateDomainRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon SageMaker, which allows direct internet access.</p>
+   *                   <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon SageMaker AI, which allows direct internet access.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -927,7 +927,7 @@ export interface UpdateImageRequest {
   ImageName: string | undefined;
 
   /**
-   * <p>The new ARN for the IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
+   * <p>The new ARN for the IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.</p>
    * @public
    */
   RoleArn?: string | undefined;
@@ -1003,19 +1003,19 @@ export interface UpdateImageVersionRequest {
   VendorGuidance?: VendorGuidance | undefined;
 
   /**
-   * <p>Indicates SageMaker job type compatibility.</p>
+   * <p>Indicates SageMaker AI job type compatibility.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>TRAINING</code>: The image version is compatible with SageMaker training jobs.</p>
+   *                   <code>TRAINING</code>: The image version is compatible with SageMaker AI training jobs.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INFERENCE</code>: The image version is compatible with SageMaker inference jobs.</p>
+   *                   <code>INFERENCE</code>: The image version is compatible with SageMaker AI inference jobs.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker notebook kernels.</p>
+   *                   <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker AI notebook kernels.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1516,10 +1516,10 @@ export interface UpdateNotebookInstanceInput {
   InstanceType?: _InstanceType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to
-   *             access the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker Roles</a>. </p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that SageMaker AI can assume to
+   *             access the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker AI Roles</a>. </p>
    *          <note>
-   *             <p>To be able to pass this role to SageMaker, the caller of this API must
+   *             <p>To be able to pass this role to SageMaker AI, the caller of this API must
    *                 have the <code>iam:PassRole</code> permission.</p>
    *          </note>
    * @public
@@ -1545,7 +1545,7 @@ export interface UpdateNotebookInstanceInput {
 
   /**
    * <p>The size, in GB, of the ML storage volume to attach to the notebook instance. The
-   *             default value is 5 GB. ML storage volumes are encrypted, so SageMaker can't
+   *             default value is 5 GB. ML storage volumes are encrypted, so SageMaker AI can't
    *             determine the amount of available free space on the volume. Because of this, you can
    *             increase the volume size when you update a notebook instance, but you can't decrease the
    *             volume size. If you want to decrease the size of the ML storage volume in use, create a
@@ -1560,7 +1560,7 @@ export interface UpdateNotebookInstanceInput {
    *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
    *             or in any other Git repository. When you open a notebook instance, it opens in the
    *             directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with SageMaker Notebook Instances</a>.</p>
+   *                 Repositories with SageMaker AI Notebook Instances</a>.</p>
    * @public
    */
   DefaultCodeRepository?: string | undefined;
@@ -1571,7 +1571,7 @@ export interface UpdateNotebookInstanceInput {
    *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
    *             or in any other Git repository. These repositories are cloned at the same level as the
    *             default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with SageMaker Notebook Instances</a>.</p>
+   *                 Repositories with SageMaker AI Notebook Instances</a>.</p>
    * @public
    */
   AdditionalCodeRepositories?: string[] | undefined;

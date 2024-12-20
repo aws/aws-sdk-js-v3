@@ -28,9 +28,9 @@ export interface CreateCodeRepositoryCommandInput extends CreateCodeRepositoryIn
 export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a Git repository as a resource in your SageMaker account. You can
+ * <p>Creates a Git repository as a resource in your SageMaker AI account. You can
  *             associate the repository with notebook instances so that you can use Git source control
- *             for the notebooks you create. The Git repository is a resource in your SageMaker
+ *             for the notebooks you create. The Git repository is a resource in your SageMaker AI
  *             account, so it can be associated with more than one notebook instance, and it persists
  *             independently from the lifecycle of any notebook instances it is associated with.</p>
  *          <p>The repository can be hosted either in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>

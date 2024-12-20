@@ -29,7 +29,7 @@ export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Launches an ML compute instance with the latest version of the libraries and
- *             attaches your ML storage volume. After configuring the notebook instance, SageMaker sets the notebook instance status to <code>InService</code>. A notebook
+ *             attaches your ML storage volume. After configuring the notebook instance, SageMaker AI sets the notebook instance status to <code>InService</code>. A notebook
  *             instance's status must be <code>InService</code> before you can connect to your Jupyter
  *             notebook. </p>
  * @example

@@ -34,8 +34,8 @@ export interface CreatePresignedNotebookInstanceUrlCommandOutput
 
 /**
  * <p>Returns a URL that you can use to connect to the Jupyter server from a notebook
- *             instance. In the SageMaker console, when you choose <code>Open</code> next to a
- *             notebook instance, SageMaker opens a new tab showing the Jupyter server home
+ *             instance. In the SageMaker AI console, when you choose <code>Open</code> next to a
+ *             notebook instance, SageMaker AI opens a new tab showing the Jupyter server home
  *             page from the notebook instance. The console uses this API to get the URL and show the
  *             page.</p>
  *          <p> The IAM role or user used to call this API defines the permissions to

@@ -576,7 +576,7 @@ export interface CreateAppRequest {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker image
+   * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image
    *       created on the instance.</p>
    *          <note>
    *             <p>The value of <code>InstanceType</code> passed as part of the <code>ResourceSpec</code>
@@ -1691,7 +1691,7 @@ export interface TargetPlatform {
  */
 export interface OutputConfig {
   /**
-   * <p>Identifies the S3 bucket where you want Amazon SageMaker to store the model artifacts. For
+   * <p>Identifies the S3 bucket where you want Amazon SageMaker AI to store the model artifacts. For
    *             example, <code>s3://bucket-name/key-name-prefix</code>.</p>
    * @public
    */
@@ -1905,9 +1905,9 @@ export interface OutputConfig {
   CompilerOptions?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Key Management Service key (Amazon Web Services KMS) that Amazon SageMaker
+   * <p>The Amazon Web Services Key Management Service key (Amazon Web Services KMS) that Amazon SageMaker AI
    *             uses to encrypt your output models with Amazon S3 server-side encryption after compilation
-   *             job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your
+   *             job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your
    *             role's account. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed Encryption
    *                 Keys</a> in the <i>Amazon Simple Storage Service Developer
    *                 Guide.</i>
@@ -1941,7 +1941,7 @@ export interface OutputConfig {
 /**
  * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> configuration object that specifies the VPC that you want the
  *             compilation jobs to connect to. For more information on controlling access to your Amazon S3
- *             buckets used for compilation job, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Give Amazon SageMaker Compilation Jobs Access to
+ *             buckets used for compilation job, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Give Amazon SageMaker AI Compilation Jobs Access to
  *                 Resources in Your Amazon VPC</a>.</p>
  * @public
  */
@@ -1972,9 +1972,9 @@ export interface CreateCompilationJobRequest {
   CompilationJobName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on
+   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on
    *             your behalf. </p>
-   *          <p>During model compilation, Amazon SageMaker needs your permission to:</p>
+   *          <p>During model compilation, Amazon SageMaker AI needs your permission to:</p>
    *          <ul>
    *             <li>
    *                <p>Read input data from an S3 bucket</p>
@@ -1990,8 +1990,8 @@ export interface CreateCompilationJobRequest {
    *             </li>
    *          </ul>
    *          <p>You grant permissions for all of these tasks to an IAM role. To pass this role to
-   *             Amazon SageMaker, the caller of this API must have the <code>iam:PassRole</code> permission. For
-   *             more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker
+   *             Amazon SageMaker AI, the caller of this API must have the <code>iam:PassRole</code> permission. For
+   *             more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker AI
    *                 Roles.</a>
    *          </p>
    * @public
@@ -2031,7 +2031,7 @@ export interface CreateCompilationJobRequest {
 
   /**
    * <p>Specifies a limit to how long a model compilation job can run. When the job reaches
-   *             the time limit, Amazon SageMaker ends the compilation job. Use this API to cap model training
+   *             the time limit, Amazon SageMaker AI ends the compilation job. Use this API to cap model training
    *             costs.</p>
    * @public
    */
@@ -2051,7 +2051,7 @@ export interface CreateCompilationJobRequest {
  */
 export interface CreateCompilationJobResponse {
   /**
-   * <p>If the action is successful, the service sends back an HTTP 200 response. Amazon SageMaker returns
+   * <p>If the action is successful, the service sends back an HTTP 200 response. Amazon SageMaker AI returns
    *             the following data in JSON format:</p>
    *          <ul>
    *             <li>
@@ -2401,14 +2401,14 @@ export type ProcessingS3UploadMode = (typeof ProcessingS3UploadMode)[keyof typeo
  */
 export interface MonitoringS3Output {
   /**
-   * <p>A URI that identifies the Amazon S3 storage location where Amazon SageMaker
+   * <p>A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI
    *          saves the results of a monitoring job.</p>
    * @public
    */
   S3Uri: string | undefined;
 
   /**
-   * <p>The local path to the Amazon S3 storage location where Amazon SageMaker
+   * <p>The local path to the Amazon S3 storage location where Amazon SageMaker AI
    *          saves the results of a monitoring job. LocalPath is an absolute path for the output
    *          data.</p>
    * @public
@@ -2449,7 +2449,7 @@ export interface MonitoringOutputConfig {
   MonitoringOutputs: MonitoringOutput[] | undefined;
 
   /**
-   * <p>The Key Management Service (KMS) key that Amazon SageMaker uses to
+   * <p>The Key Management Service (KMS) key that Amazon SageMaker AI uses to
    *          encrypt the model artifacts at rest using Amazon S3 server-side encryption.</p>
    * @public
    */
@@ -2554,7 +2554,7 @@ export interface MonitoringClusterConfig {
   VolumeSizeInGB: number | undefined;
 
   /**
-   * <p>The Key Management Service (KMS) key that Amazon SageMaker uses to
+   * <p>The Key Management Service (KMS) key that Amazon SageMaker AI uses to
    *          encrypt data on the storage volume attached to the ML compute instance(s) that run the
    *          model monitoring job.</p>
    * @public
@@ -2670,7 +2670,7 @@ export interface CreateDataQualityJobDefinitionRequest {
   NetworkConfig?: MonitoringNetworkConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can
    *    assume to perform tasks on your behalf.</p>
    * @public
    */
@@ -2827,7 +2827,7 @@ export interface CreateDeviceFleetRequest {
 
 /**
  * <p>The settings for assigning a custom Amazon EFS file system to a user profile or
- *       space for an Amazon SageMaker Domain.</p>
+ *       space for an Amazon SageMaker AI Domain.</p>
  * @public
  */
 export interface EFSFileSystemConfig {
@@ -2838,7 +2838,7 @@ export interface EFSFileSystemConfig {
   FileSystemId: string | undefined;
 
   /**
-   * <p>The path to the file system directory that is accessible in Amazon SageMaker Studio.
+   * <p>The path to the file system directory that is accessible in Amazon SageMaker AI Studio.
    *       Permitted users can access only this directory and below.</p>
    * @public
    */
@@ -2866,7 +2866,7 @@ export interface FSxLustreFileSystemConfig {
 }
 
 /**
- * <p>The settings for assigning a custom file system to a user profile or space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker
+ * <p>The settings for assigning a custom file system to a user profile or space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI
  *       Studio.</p>
  * @public
  */
@@ -2977,7 +2977,7 @@ export interface EmrSettings {
  */
 export interface JupyterLabAppSettings {
   /**
-   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that
    *          the version runs on.</p>
    * @public
    */
@@ -3030,7 +3030,7 @@ export interface JupyterLabAppSettings {
  */
 export interface JupyterServerAppSettings {
   /**
-   * <p>The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the
+   * <p>The default instance type and the Amazon Resource Name (ARN) of the default SageMaker AI image used by the JupyterServer app. If you use the
    *         <code>LifecycleConfigArns</code> parameter, then this parameter is also required.</p>
    * @public
    */
@@ -3049,7 +3049,7 @@ export interface JupyterServerAppSettings {
   LifecycleConfigArns?: string[] | undefined;
 
   /**
-   * <p>A list of Git repositories that SageMaker automatically displays to users for
+   * <p>A list of Git repositories that SageMaker AI automatically displays to users for
    *       cloning in the JupyterServer application.</p>
    * @public
    */
@@ -3062,9 +3062,9 @@ export interface JupyterServerAppSettings {
  */
 export interface KernelGatewayAppSettings {
   /**
-   * <p>The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.</p>
+   * <p>The default instance type and the Amazon Resource Name (ARN) of the default SageMaker AI image used by the KernelGateway app.</p>
    *          <note>
-   *             <p>The Amazon SageMaker Studio UI does not use the default instance type value set
+   *             <p>The Amazon SageMaker AI Studio UI does not use the default instance type value set
    *         here. The default instance type set here is used when Apps are created using the CLI or CloudFormation and the instance type parameter value is not
    *         passed.</p>
    *          </note>
@@ -3073,7 +3073,7 @@ export interface KernelGatewayAppSettings {
   DefaultResourceSpec?: ResourceSpec | undefined;
 
   /**
-   * <p>A list of custom SageMaker images that are configured to run as a KernelGateway
+   * <p>A list of custom SageMaker AI images that are configured to run as a KernelGateway
    *       app.</p>
    * @public
    */
@@ -3173,7 +3173,7 @@ export interface DefaultSpaceSettings {
 
   /**
    * <p>The settings for assigning a custom file system to a domain. Permitted users can access
-   *       this file system in Amazon SageMaker Studio.</p>
+   *       this file system in Amazon SageMaker AI Studio.</p>
    * @public
    */
   CustomFileSystemConfigs?: CustomFileSystemConfig[] | undefined;
@@ -3185,14 +3185,14 @@ export interface DefaultSpaceSettings {
  */
 export interface RSessionAppSettings {
   /**
-   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that
    *          the version runs on.</p>
    * @public
    */
   DefaultResourceSpec?: ResourceSpec | undefined;
 
   /**
-   * <p>A list of custom SageMaker images that are configured to run as a RSession
+   * <p>A list of custom SageMaker AI images that are configured to run as a RSession
    *       app.</p>
    * @public
    */
@@ -3265,7 +3265,7 @@ export const NotebookOutputOption = {
 export type NotebookOutputOption = (typeof NotebookOutputOption)[keyof typeof NotebookOutputOption];
 
 /**
- * <p>Specifies options for sharing Amazon SageMaker Studio notebooks. These settings are
+ * <p>Specifies options for sharing Amazon SageMaker AI Studio notebooks. These settings are
  *       specified as part of <code>DefaultUserSettings</code> when the <code>CreateDomain</code> API
  *       is called, and as part of <code>UserSettings</code> when the <code>CreateUserProfile</code>
  *       API is called. When <code>SharingSettings</code> is not specified, notebook sharing isn't
@@ -3412,7 +3412,7 @@ export interface StudioWebPortalSettings {
  */
 export interface TensorBoardAppSettings {
   /**
-   * <p>The default instance type and the Amazon Resource Name (ARN) of the SageMaker
+   * <p>The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI
    *       image created on the instance.</p>
    * @public
    */
@@ -3445,7 +3445,7 @@ export interface UserSettings {
    *          <p>Required when the <code>CreateDomain.AppNetworkAccessType</code> parameter is set to
    *         <code>VpcOnly</code>, unless specified as part of the <code>DefaultUserSettings</code> for
    *       the domain.</p>
-   *          <p>Amazon SageMaker adds a security group to allow NFS traffic from Amazon SageMaker Studio. Therefore, the number of security groups that you can specify is one less than the
+   *          <p>Amazon SageMaker AI adds a security group to allow NFS traffic from Amazon SageMaker AI Studio. Therefore, the number of security groups that you can specify is one less than the
    *       maximum number shown.</p>
    *          <p>SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.</p>
    * @public
@@ -3453,7 +3453,7 @@ export interface UserSettings {
   SecurityGroups?: string[] | undefined;
 
   /**
-   * <p>Specifies options for sharing Amazon SageMaker Studio notebooks.</p>
+   * <p>Specifies options for sharing Amazon SageMaker AI Studio notebooks.</p>
    * @public
    */
   SharingSettings?: SharingSettings | undefined;
@@ -3553,7 +3553,7 @@ export interface UserSettings {
 
   /**
    * <p>The settings for assigning a custom file system to a user profile. Permitted users can
-   *       access this file system in Amazon SageMaker Studio.</p>
+   *       access this file system in Amazon SageMaker AI Studio.</p>
    *          <p>SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.</p>
    * @public
    */
@@ -3636,7 +3636,7 @@ export interface RStudioServerProDomainSettings {
   RStudioPackageManagerUrl?: string | undefined;
 
   /**
-   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that
    *          the version runs on.</p>
    * @public
    */
@@ -3664,7 +3664,7 @@ export interface DomainSettings {
   RStudioServerProDomainSettings?: RStudioServerProDomainSettings | undefined;
 
   /**
-   * <p>The configuration for attaching a SageMaker user profile name to the execution
+   * <p>The configuration for attaching a SageMaker AI user profile name to the execution
    *       role as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>.</p>
    * @public
    */
@@ -3759,7 +3759,7 @@ export interface CreateDomainRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon SageMaker, which allows direct internet access</p>
+   *                   <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon SageMaker AI, which allows direct internet access</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3779,7 +3779,7 @@ export interface CreateDomainRequest {
   HomeEfsFileSystemKmsKeyId?: string | undefined;
 
   /**
-   * <p>SageMaker uses Amazon Web Services KMS to encrypt EFS and EBS volumes attached to
+   * <p>SageMaker AI uses Amazon Web Services KMS to encrypt EFS and EBS volumes attached to
    *       the domain with an Amazon Web Services managed key by default. For more control, specify a
    *       customer managed key.</p>
    * @public
@@ -4174,7 +4174,7 @@ export interface CreateEndpointOutput {
 }
 
 /**
- * <p>Configuration to control how SageMaker captures inference data.</p>
+ * <p>Configuration to control how SageMaker AI captures inference data.</p>
  * @public
  */
 export interface DataCaptureConfig {
@@ -4185,7 +4185,7 @@ export interface DataCaptureConfig {
   EnableCapture?: boolean | undefined;
 
   /**
-   * <p>The percentage of requests SageMaker will capture. A lower value is recommended
+   * <p>The percentage of requests SageMaker AI will capture. A lower value is recommended
    *          for Endpoints with high traffic.</p>
    * @public
    */
@@ -4198,7 +4198,7 @@ export interface DataCaptureConfig {
   DestinationS3Uri: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an Key Management Service key that SageMaker
+   * <p>The Amazon Resource Name (ARN) of an Key Management Service key that SageMaker AI
    *          uses to encrypt the captured data at rest using Amazon S3 server-side
    *          encryption.</p>
    *          <p>The KmsKeyId can be any of the following formats: </p>
@@ -4235,7 +4235,7 @@ export interface DataCaptureConfig {
 
   /**
    * <p>Configuration specifying how to treat different headers. If no headers are specified
-   *             SageMaker will by default base64 encode when capturing the data.</p>
+   *             SageMaker AI will by default base64 encode when capturing the data.</p>
    * @public
    */
   CaptureContentTypeHeader?: CaptureContentTypeHeader | undefined;
@@ -4624,7 +4624,7 @@ export interface CreateEndpointConfigInput {
   ProductionVariants: ProductionVariant[] | undefined;
 
   /**
-   * <p>Configuration to control how SageMaker captures inference data.</p>
+   * <p>Configuration to control how SageMaker AI captures inference data.</p>
    * @public
    */
   DataCaptureConfig?: DataCaptureConfig | undefined;
@@ -4708,10 +4708,10 @@ export interface CreateEndpointConfigInput {
   ShadowProductionVariants?: ProductionVariant[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform actions on your behalf. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform actions on your behalf. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker AI
    *             Roles</a>. </p>
    *          <note>
-   *             <p>To be able to pass this role to Amazon SageMaker, the caller of this action must
+   *             <p>To be able to pass this role to Amazon SageMaker AI, the caller of this action must
    *             have the <code>iam:PassRole</code> permission.</p>
    *          </note>
    * @public
@@ -7412,7 +7412,7 @@ export interface CreateImageRequest {
   ImageName: string | undefined;
 
   /**
-   * <p>The ARN of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
+   * <p>The ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.</p>
    * @public
    */
   RoleArn: string | undefined;
@@ -7538,19 +7538,19 @@ export interface CreateImageVersionRequest {
   VendorGuidance?: VendorGuidance | undefined;
 
   /**
-   * <p>Indicates SageMaker job type compatibility.</p>
+   * <p>Indicates SageMaker AI job type compatibility.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>TRAINING</code>: The image version is compatible with SageMaker training jobs.</p>
+   *                   <code>TRAINING</code>: The image version is compatible with SageMaker AI training jobs.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INFERENCE</code>: The image version is compatible with SageMaker inference jobs.</p>
+   *                   <code>INFERENCE</code>: The image version is compatible with SageMaker AI inference jobs.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker notebook kernels.</p>
+   *                   <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker AI notebook kernels.</p>
    *             </li>
    *          </ul>
    * @public
@@ -7715,7 +7715,7 @@ export interface InferenceComponentStartupParameters {
  */
 export interface InferenceComponentSpecification {
   /**
-   * <p>The name of an existing SageMaker model object in your account that you want to
+   * <p>The name of an existing SageMaker AI model object in your account that you want to
    *          deploy with the inference component.</p>
    * @public
    */
@@ -7841,7 +7841,7 @@ export interface InferenceExperimentDataStorageConfig {
 
   /**
    * <p>Configuration specifying how to treat different headers. If no headers are specified
-   *             Amazon SageMaker will by default base64 encode when capturing the data.</p>
+   *             Amazon SageMaker AI will by default base64 encode when capturing the data.</p>
    * @public
    */
   ContentType?: CaptureContentTypeHeader | undefined;
@@ -11463,7 +11463,7 @@ export interface CreateModelBiasJobDefinitionRequest {
   NetworkConfig?: MonitoringNetworkConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can
    *    assume to perform tasks on your behalf.</p>
    * @public
    */
@@ -11753,7 +11753,7 @@ export interface CreateModelExplainabilityJobDefinitionRequest {
   NetworkConfig?: MonitoringNetworkConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can
    *    assume to perform tasks on your behalf.</p>
    * @public
    */
@@ -12605,7 +12605,7 @@ export interface CreateModelQualityJobDefinitionRequest {
   NetworkConfig?: MonitoringNetworkConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can
    *    assume to perform tasks on your behalf.</p>
    * @public
    */
@@ -12767,7 +12767,7 @@ export interface MonitoringJobDefinition {
   BaselineConfig?: MonitoringBaselineConfig | undefined;
 
   /**
-   * <p>The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.</p>
+   * <p>The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.</p>
    * @public
    */
   MonitoringInputs: MonitoringInput[] | undefined;
@@ -12810,7 +12810,7 @@ export interface MonitoringJobDefinition {
   NetworkConfig?: NetworkConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can
    *    assume to perform tasks on your behalf.</p>
    * @public
    */
@@ -12897,7 +12897,7 @@ export interface ScheduleConfig {
    *                </li>
    *                <li>
    *                   <p>We recommend that if you would like a daily schedule, you do not provide this
-   *                   parameter. Amazon SageMaker will pick a time for running every day.</p>
+   *                   parameter. Amazon SageMaker AI will pick a time for running every day.</p>
    *                </li>
    *             </ul>
    *          </note>

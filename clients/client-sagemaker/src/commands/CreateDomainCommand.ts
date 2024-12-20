@@ -38,7 +38,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *          <p>When a domain is created, an EFS volume is created for use by all of the users within the
  *       domain. Each user receives a private home directory within the EFS volume for notebooks, Git
  *       repositories, and data files.</p>
- *          <p>SageMaker uses the Amazon Web Services Key Management Service (Amazon Web Services
+ *          <p>SageMaker AI uses the Amazon Web Services Key Management Service (Amazon Web Services
  *       KMS) to encrypt the EFS volume attached to the domain with an Amazon Web Services managed key
  *       by default. For more control, you can specify a customer managed key. For more information,
  *       see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html">Protect Data
@@ -54,24 +54,24 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *             <li>
  *                <p>
  *                   <code>PublicInternetOnly</code> - Non-EFS traffic goes through a VPC managed by
- *             Amazon SageMaker, which allows internet access. This is the default value.</p>
+ *             Amazon SageMaker AI, which allows internet access. This is the default value.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>VpcOnly</code> - All traffic is through the specified VPC and subnets. Internet
  *           access is disabled by default. To allow internet access, you must specify a NAT
  *           gateway.</p>
- *                <p>When internet access is disabled, you won't be able to run a Amazon SageMaker
+ *                <p>When internet access is disabled, you won't be able to run a Amazon SageMaker AI
  *           Studio notebook or to train or host models unless your VPC has an interface endpoint to
- *           the SageMaker API and runtime or a NAT gateway and your security groups allow
+ *           the SageMaker AI API and runtime or a NAT gateway and your security groups allow
  *           outbound connections.</p>
  *             </li>
  *          </ul>
  *          <important>
  *             <p>NFS traffic over TCP on port 2049 needs to be allowed in both inbound and outbound rules
- *         in order to launch a Amazon SageMaker Studio app successfully.</p>
+ *         in order to launch a Amazon SageMaker AI Studio app successfully.</p>
  *          </important>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html">Connect Amazon SageMaker Studio Notebooks to Resources in a VPC</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html">Connect Amazon SageMaker AI Studio Notebooks to Resources in a VPC</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -279,7 +279,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *     ],
  *     StudioWebPortalSettings: { // StudioWebPortalSettings
  *       HiddenMlTools: [ // HiddenMlToolsList
- *         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects" || "InferenceOptimization" || "PerformanceEvaluation" || "HyperPodClusters" || "LakeraGuard" || "Comet" || "DeepchecksLLMEvaluation" || "Fiddler",
+ *         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects" || "InferenceOptimization" || "PerformanceEvaluation" || "LakeraGuard" || "Comet" || "DeepchecksLLMEvaluation" || "Fiddler" || "HyperPodClusters",
  *       ],
  *       HiddenAppTypes: [ // HiddenAppTypesList
  *         "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",

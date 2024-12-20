@@ -235,7 +235,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *     ],
  *     StudioWebPortalSettings: { // StudioWebPortalSettings
  *       HiddenMlTools: [ // HiddenMlToolsList
- *         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects" || "InferenceOptimization" || "PerformanceEvaluation" || "HyperPodClusters" || "LakeraGuard" || "Comet" || "DeepchecksLLMEvaluation" || "Fiddler",
+ *         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects" || "InferenceOptimization" || "PerformanceEvaluation" || "LakeraGuard" || "Comet" || "DeepchecksLLMEvaluation" || "Fiddler" || "HyperPodClusters",
  *       ],
  *       HiddenAppTypes: [ // HiddenAppTypesList
  *         "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",

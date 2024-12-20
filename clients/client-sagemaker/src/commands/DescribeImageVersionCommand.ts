@@ -28,7 +28,7 @@ export interface DescribeImageVersionCommandInput extends DescribeImageVersionRe
 export interface DescribeImageVersionCommandOutput extends DescribeImageVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a version of a SageMaker image.</p>
+ * <p>Describes a version of a SageMaker AI image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

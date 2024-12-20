@@ -220,12 +220,12 @@ export interface CreateNotebookInstanceInput {
 
   /**
    * <p> When you send any requests to Amazon Web Services resources from the notebook
-   *             instance, SageMaker assumes this role to perform tasks on your behalf. You must
-   *             grant this role necessary permissions so SageMaker can perform these tasks. The
-   *             policy must allow the SageMaker service principal (sagemaker.amazonaws.com)
-   *             permissions to assume this role. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker Roles</a>. </p>
+   *             instance, SageMaker AI assumes this role to perform tasks on your behalf. You must
+   *             grant this role necessary permissions so SageMaker AI can perform these tasks. The
+   *             policy must allow the SageMaker AI service principal (sagemaker.amazonaws.com)
+   *             permissions to assume this role. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker AI Roles</a>. </p>
    *          <note>
-   *             <p>To be able to pass this role to SageMaker, the caller of this API must
+   *             <p>To be able to pass this role to SageMaker AI, the caller of this API must
    *                 have the <code>iam:PassRole</code> permission.</p>
    *          </note>
    * @public
@@ -234,7 +234,7 @@ export interface CreateNotebookInstanceInput {
 
   /**
    * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that
-   *                 SageMaker uses to encrypt data on the storage volume attached to your
+   *                 SageMaker AI uses to encrypt data on the storage volume attached to your
    *             notebook instance. The KMS key you provide must be enabled. For information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html">Enabling and
    *                 Disabling Keys</a> in the <i>Amazon Web Services Key Management Service
    *                 Developer Guide</i>.</p>
@@ -259,9 +259,9 @@ export interface CreateNotebookInstanceInput {
   LifecycleConfigName?: string | undefined;
 
   /**
-   * <p>Sets whether SageMaker provides internet access to the notebook instance. If
+   * <p>Sets whether SageMaker AI provides internet access to the notebook instance. If
    *             you set this to <code>Disabled</code> this notebook instance is able to access resources
-   *             only in your VPC, and is not be able to connect to SageMaker training and
+   *             only in your VPC, and is not be able to connect to SageMaker AI training and
    *             endpoint services unless you configure a NAT Gateway in your VPC.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>. You can set the value
    *             of this parameter to <code>Disabled</code> only if you set a value for the
@@ -292,7 +292,7 @@ export interface CreateNotebookInstanceInput {
    *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
    *             or in any other Git repository. When you open a notebook instance, it opens in the
    *             directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with SageMaker Notebook Instances</a>.</p>
+   *                 Repositories with SageMaker AI Notebook Instances</a>.</p>
    * @public
    */
   DefaultCodeRepository?: string | undefined;
@@ -303,7 +303,7 @@ export interface CreateNotebookInstanceInput {
    *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
    *             or in any other Git repository. These repositories are cloned at the same level as the
    *             default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with SageMaker Notebook Instances</a>.</p>
+   *                 Repositories with SageMaker AI Notebook Instances</a>.</p>
    * @public
    */
   AdditionalCodeRepositories?: string[] | undefined;
@@ -671,8 +671,8 @@ export interface CreateOptimizationJobRequest {
   OptimizationJobName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf. </p>
-   *          <p>During model optimization, Amazon SageMaker needs your permission to:</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf. </p>
+   *          <p>During model optimization, Amazon SageMaker AI needs your permission to:</p>
    *          <ul>
    *             <li>
    *                <p>Read input data from an S3 bucket</p>
@@ -688,8 +688,8 @@ export interface CreateOptimizationJobRequest {
    *             </li>
    *          </ul>
    *          <p>You grant permissions for all of these tasks to an IAM role. To pass this
-   *          role to Amazon SageMaker, the caller of this API must have the
-   *             <code>iam:PassRole</code> permission. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker Roles.</a>
+   *          role to Amazon SageMaker AI, the caller of this API must have the
+   *             <code>iam:PassRole</code> permission. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker AI Roles.</a>
    *          </p>
    * @public
    */
@@ -1971,7 +1971,7 @@ export interface SpaceAppLifecycleManagement {
  */
 export interface SpaceCodeEditorAppSettings {
   /**
-   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that
    *          the version runs on.</p>
    * @public
    */
@@ -1987,8 +1987,8 @@ export interface SpaceCodeEditorAppSettings {
 
 /**
  * <p>A file system, created by you in Amazon EFS, that you assign to a user profile or
- *       space for an Amazon SageMaker Domain. Permitted users can access this file system in
- *         Amazon SageMaker Studio.</p>
+ *       space for an Amazon SageMaker AI Domain. Permitted users can access this file system in
+ *         Amazon SageMaker AI Studio.</p>
  * @public
  */
 export interface EFSFileSystem {
@@ -2012,7 +2012,7 @@ export interface FSxLustreFileSystem {
 }
 
 /**
- * <p>A file system, created by you, that you assign to a user profile or space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker
+ * <p>A file system, created by you, that you assign to a user profile or space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI
  *       Studio.</p>
  * @public
  */
@@ -2073,7 +2073,7 @@ export namespace CustomFileSystem {
  */
 export interface SpaceJupyterLabAppSettings {
   /**
-   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that
    *          the version runs on.</p>
    * @public
    */
@@ -2148,6 +2148,9 @@ export interface SpaceSettings {
 
   /**
    * <p>The type of app created within the space.</p>
+   *          <p>If using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateSpace.html">
+   *             UpdateSpace</a> API, you can't change the app type of your
+   *             space by specifying a different value for this field.</p>
    * @public
    */
   AppType?: AppType | undefined;
@@ -2159,8 +2162,8 @@ export interface SpaceSettings {
   SpaceStorageSettings?: SpaceStorageSettings | undefined;
 
   /**
-   * <p>A file system, created by you, that you assign to a space for an Amazon SageMaker
-   *       Domain. Permitted users can access this file system in Amazon SageMaker Studio.</p>
+   * <p>A file system, created by you, that you assign to a space for an Amazon SageMaker AI
+   *       Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.</p>
    * @public
    */
   CustomFileSystems?: CustomFileSystem[] | undefined;
@@ -2274,13 +2277,13 @@ export type StudioLifecycleConfigAppType =
  */
 export interface CreateStudioLifecycleConfigRequest {
   /**
-   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration to create.</p>
+   * <p>The name of the Amazon SageMaker AI Studio Lifecycle Configuration to create.</p>
    * @public
    */
   StudioLifecycleConfigName: string | undefined;
 
   /**
-   * <p>The content of your Amazon SageMaker Studio Lifecycle Configuration script. This
+   * <p>The content of your Amazon SageMaker AI Studio Lifecycle Configuration script. This
    *       content must be base64 encoded.</p>
    * @public
    */
@@ -4656,7 +4659,7 @@ export interface DeleteMonitoringScheduleRequest {
  */
 export interface DeleteNotebookInstanceInput {
   /**
-   * <p>The name of the SageMaker notebook instance to delete.</p>
+   * <p>The name of the SageMaker AI notebook instance to delete.</p>
    * @public
    */
   NotebookInstanceName: string | undefined;
@@ -4774,7 +4777,7 @@ export interface DeleteSpaceRequest {
  */
 export interface DeleteStudioLifecycleConfigRequest {
   /**
-   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration to delete.</p>
+   * <p>The name of the Amazon SageMaker AI Studio Lifecycle Configuration to delete.</p>
    * @public
    */
   StudioLifecycleConfigName: string | undefined;
@@ -5392,7 +5395,7 @@ export interface DescribeAppResponse {
 
   /**
    * <p>The timestamp of the last user's activity. <code>LastUserActivityTimestamp</code> is also
-   *       updated when SageMaker performs health checks without user activity. As a result, this
+   *       updated when SageMaker AI performs health checks without user activity. As a result, this
    *       value is set to the same value as <code>LastHealthCheckTimestamp</code>.</p>
    * @public
    */
@@ -5401,7 +5404,7 @@ export interface DescribeAppResponse {
   /**
    * <p>The creation time of the application.</p>
    *          <note>
-   *             <p>After an application has been shut down for 24 hours, SageMaker deletes all
+   *             <p>After an application has been shut down for 24 hours, SageMaker AI deletes all
    *         metadata for the application. To be considered an update and retain application metadata,
    *         applications must be restarted within 24 hours after the previous application has been shut
    *         down. After this time window, creation of an application is considered a new application
@@ -5418,7 +5421,7 @@ export interface DescribeAppResponse {
   FailureReason?: string | undefined;
 
   /**
-   * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker image
+   * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image
    *       created on the instance.</p>
    * @public
    */
@@ -5708,7 +5711,7 @@ export interface DescribeAutoMLJobResponse {
   PartialFailureReasons?: AutoMLPartialFailureReason[] | undefined;
 
   /**
-   * <p>The best model candidate selected by SageMaker Autopilot using both the best
+   * <p>The best model candidate selected by SageMaker AI Autopilot using both the best
    *          objective metric and lowest <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html">InferenceLatency</a> for
    *          an experiment.</p>
    * @public
@@ -6254,14 +6257,14 @@ export interface DescribeCompilationJobResponse {
   /**
    * <p>The time when the model compilation job on a compilation job instance ended. For a
    *             successful or stopped job, this is when the job's model artifacts have finished
-   *             uploading. For a failed job, this is when Amazon SageMaker detected that the job failed. </p>
+   *             uploading. For a failed job, this is when Amazon SageMaker AI detected that the job failed. </p>
    * @public
    */
   CompilationEndTime?: Date | undefined;
 
   /**
    * <p>Specifies a limit to how long a model compilation job can run. When the job reaches
-   *             the time limit, Amazon SageMaker ends the compilation job. Use this API to cap model training
+   *             the time limit, Amazon SageMaker AI ends the compilation job. Use this API to cap model training
    *             costs.</p>
    * @public
    */
@@ -6316,7 +6319,7 @@ export interface DescribeCompilationJobResponse {
   ModelDigests?: ModelDigests | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker assumes to perform the model
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI assumes to perform the model
    *             compilation job.</p>
    * @public
    */
@@ -6624,7 +6627,7 @@ export interface DescribeDataQualityJobDefinitionResponse {
   NetworkConfig?: MonitoringNetworkConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can
    *    assume to perform tasks on your behalf.</p>
    * @public
    */
@@ -6890,7 +6893,7 @@ export interface DescribeDomainResponse {
   SingleSignOnManagedApplicationInstanceId?: string | undefined;
 
   /**
-   * <p>The ARN of the application managed by SageMaker in IAM Identity Center. This value
+   * <p>The ARN of the application managed by SageMaker AI in IAM Identity Center. This value
    *       is only returned for domains created after October 1, 2023.</p>
    * @public
    */
@@ -6952,7 +6955,7 @@ export interface DescribeDomainResponse {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon SageMaker, which allows direct internet access</p>
+   *                   <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon SageMaker AI, which allows direct internet access</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7782,7 +7785,7 @@ export interface DescribeEndpointConfigOutput {
   ProductionVariants: ProductionVariant[] | undefined;
 
   /**
-   * <p>Configuration to control how SageMaker captures inference data.</p>
+   * <p>Configuration to control how SageMaker AI captures inference data.</p>
    * @public
    */
   DataCaptureConfig?: DataCaptureConfig | undefined;

@@ -32,7 +32,7 @@ export interface DeleteModelExplainabilityJobDefinitionCommandInput
 export interface DeleteModelExplainabilityJobDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon SageMaker model explainability job definition.</p>
+ * <p>Deletes an Amazon SageMaker AI model explainability job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

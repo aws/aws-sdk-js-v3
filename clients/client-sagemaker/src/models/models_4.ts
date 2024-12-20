@@ -3389,7 +3389,7 @@ export interface ListModelQualityJobDefinitionsResponse {
   JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
 
   /**
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the
+   * <p>If the response is truncated, Amazon SageMaker AI returns this token. To retrieve the
    *          next set of model quality monitoring job definitions, use it in the next request.</p>
    * @public
    */
@@ -4207,7 +4207,7 @@ export interface NotebookInstanceLifecycleConfigSummary {
  */
 export interface ListNotebookInstanceLifecycleConfigsOutput {
   /**
-   * <p>If the response is truncated, SageMaker returns this token. To get the next
+   * <p>If the response is truncated, SageMaker AI returns this token. To get the next
    *             set of lifecycle configurations, use it in the next request. </p>
    * @public
    */
@@ -4352,7 +4352,7 @@ export interface ListNotebookInstancesInput {
 }
 
 /**
- * <p>Provides summary information for an SageMaker notebook instance.</p>
+ * <p>Provides summary information for an SageMaker AI notebook instance.</p>
  * @public
  */
 export interface NotebookInstanceSummary {
@@ -4414,7 +4414,7 @@ export interface NotebookInstanceSummary {
    *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
    *             or in any other Git repository. When you open a notebook instance, it opens in the
    *             directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with SageMaker Notebook Instances</a>.</p>
+   *                 Repositories with SageMaker AI Notebook Instances</a>.</p>
    * @public
    */
   DefaultCodeRepository?: string | undefined;
@@ -4425,7 +4425,7 @@ export interface NotebookInstanceSummary {
    *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
    *             or in any other Git repository. These repositories are cloned at the same level as the
    *             default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with SageMaker Notebook Instances</a>.</p>
+   *                 Repositories with SageMaker AI Notebook Instances</a>.</p>
    * @public
    */
   AdditionalCodeRepositories?: string[] | undefined;
@@ -4437,7 +4437,7 @@ export interface NotebookInstanceSummary {
 export interface ListNotebookInstancesOutput {
   /**
    * <p>If the response to the previous <code>ListNotebookInstances</code> request was
-   *             truncated, SageMaker returns this token. To retrieve the next set of notebook
+   *             truncated, SageMaker AI returns this token. To retrieve the next set of notebook
    *             instances, use the token in the next request.</p>
    * @public
    */
@@ -6229,7 +6229,7 @@ export interface ListStudioLifecycleConfigsRequest {
 }
 
 /**
- * <p>Details of the Amazon SageMaker Studio Lifecycle Configuration.</p>
+ * <p>Details of the Amazon SageMaker AI Studio Lifecycle Configuration.</p>
  * @public
  */
 export interface StudioLifecycleConfigDetails {
@@ -6240,19 +6240,19 @@ export interface StudioLifecycleConfigDetails {
   StudioLifecycleConfigArn?: string | undefined;
 
   /**
-   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration.</p>
+   * <p>The name of the Amazon SageMaker AI Studio Lifecycle Configuration.</p>
    * @public
    */
   StudioLifecycleConfigName?: string | undefined;
 
   /**
-   * <p>The creation time of the Amazon SageMaker Studio Lifecycle Configuration.</p>
+   * <p>The creation time of the Amazon SageMaker AI Studio Lifecycle Configuration.</p>
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>This value is equivalent to CreationTime because Amazon SageMaker Studio Lifecycle
+   * <p>This value is equivalent to CreationTime because Amazon SageMaker AI Studio Lifecycle
    *       Configurations are immutable.</p>
    * @public
    */

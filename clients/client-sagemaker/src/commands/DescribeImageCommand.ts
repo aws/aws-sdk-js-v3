@@ -28,7 +28,7 @@ export interface DescribeImageCommandInput extends DescribeImageRequest {}
 export interface DescribeImageCommandOutput extends DescribeImageResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a SageMaker image.</p>
+ * <p>Describes a SageMaker AI image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -767,7 +767,7 @@ export interface DescribeImageResponse {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The ARN of the IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
+   * <p>The ARN of the IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.</p>
    * @public
    */
   RoleArn?: string | undefined;
@@ -896,19 +896,19 @@ export interface DescribeImageVersionResponse {
   VendorGuidance?: VendorGuidance | undefined;
 
   /**
-   * <p>Indicates SageMaker job type compatibility.</p>
+   * <p>Indicates SageMaker AI job type compatibility.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>TRAINING</code>: The image version is compatible with SageMaker training jobs.</p>
+   *                   <code>TRAINING</code>: The image version is compatible with SageMaker AI training jobs.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INFERENCE</code>: The image version is compatible with SageMaker inference jobs.</p>
+   *                   <code>INFERENCE</code>: The image version is compatible with SageMaker AI inference jobs.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker notebook kernels.</p>
+   *                   <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker AI notebook kernels.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1039,7 +1039,7 @@ export interface InferenceComponentContainerSpecificationSummary {
  */
 export interface InferenceComponentSpecificationSummary {
   /**
-   * <p>The name of the SageMaker model object that is deployed with the inference
+   * <p>The name of the SageMaker AI model object that is deployed with the inference
    *          component.</p>
    * @public
    */
@@ -3221,7 +3221,7 @@ export interface DescribeModelQualityJobDefinitionResponse {
   NetworkConfig?: MonitoringNetworkConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can
    *    assume to perform tasks on your behalf.</p>
    * @public
    */
@@ -3476,7 +3476,7 @@ export interface DescribeNotebookInstanceOutput {
   NotebookInstanceArn?: string | undefined;
 
   /**
-   * <p>The name of the SageMaker notebook instance. </p>
+   * <p>The name of the SageMaker AI notebook instance. </p>
    * @public
    */
   NotebookInstanceName?: string | undefined;
@@ -3526,14 +3526,14 @@ export interface DescribeNotebookInstanceOutput {
   RoleArn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key ID SageMaker uses to encrypt data when
+   * <p>The Amazon Web Services KMS key ID SageMaker AI uses to encrypt data when
    *             storing it on the ML storage volume attached to the instance. </p>
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>The network interface IDs that SageMaker created at the time of creating
+   * <p>The network interface IDs that SageMaker AI created at the time of creating
    *             the instance. </p>
    * @public
    */
@@ -3563,9 +3563,9 @@ export interface DescribeNotebookInstanceOutput {
   NotebookInstanceLifecycleConfigName?: string | undefined;
 
   /**
-   * <p>Describes whether SageMaker provides internet access to the notebook instance.
+   * <p>Describes whether SageMaker AI provides internet access to the notebook instance.
    *             If this value is set to <i>Disabled</i>, the notebook instance does not
-   *             have internet access, and cannot connect to SageMaker training and endpoint
+   *             have internet access, and cannot connect to SageMaker AI training and endpoint
    *             services.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>.</p>
    * @public
@@ -3593,7 +3593,7 @@ export interface DescribeNotebookInstanceOutput {
    *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
    *             or in any other Git repository. When you open a notebook instance, it opens in the
    *             directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with SageMaker Notebook Instances</a>.</p>
+   *                 Repositories with SageMaker AI Notebook Instances</a>.</p>
    * @public
    */
   DefaultCodeRepository?: string | undefined;
@@ -3604,7 +3604,7 @@ export interface DescribeNotebookInstanceOutput {
    *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
    *             or in any other Git repository. These repositories are cloned at the same level as the
    *             default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with SageMaker Notebook Instances</a>.</p>
+   *                 Repositories with SageMaker AI Notebook Instances</a>.</p>
    * @public
    */
   AdditionalCodeRepositories?: string[] | undefined;
@@ -4754,7 +4754,7 @@ export interface DescribeSpaceResponse {
  */
 export interface DescribeStudioLifecycleConfigRequest {
   /**
-   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration to describe.</p>
+   * <p>The name of the Amazon SageMaker AI Studio Lifecycle Configuration to describe.</p>
    * @public
    */
   StudioLifecycleConfigName: string | undefined;
@@ -4771,27 +4771,27 @@ export interface DescribeStudioLifecycleConfigResponse {
   StudioLifecycleConfigArn?: string | undefined;
 
   /**
-   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration that is
+   * <p>The name of the Amazon SageMaker AI Studio Lifecycle Configuration that is
    *       described.</p>
    * @public
    */
   StudioLifecycleConfigName?: string | undefined;
 
   /**
-   * <p>The creation time of the Amazon SageMaker Studio Lifecycle Configuration.</p>
+   * <p>The creation time of the Amazon SageMaker AI Studio Lifecycle Configuration.</p>
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>This value is equivalent to CreationTime because Amazon SageMaker Studio Lifecycle
+   * <p>This value is equivalent to CreationTime because Amazon SageMaker AI Studio Lifecycle
    *       Configurations are immutable.</p>
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The content of your Amazon SageMaker Studio Lifecycle Configuration script.</p>
+   * <p>The content of your Amazon SageMaker AI Studio Lifecycle Configuration script.</p>
    * @public
    */
   StudioLifecycleConfigContent?: string | undefined;
@@ -7318,7 +7318,7 @@ export interface RStudioServerProDomainSettingsForUpdate {
   DomainExecutionRoleArn: string | undefined;
 
   /**
-   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that
    *          the version runs on.</p>
    * @public
    */
@@ -7350,7 +7350,7 @@ export interface DomainSettingsForUpdate {
   RStudioServerProDomainSettingsForUpdate?: RStudioServerProDomainSettingsForUpdate | undefined;
 
   /**
-   * <p>The configuration for attaching a SageMaker user profile name to the execution
+   * <p>The configuration for attaching a SageMaker AI user profile name to the execution
    *       role as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>. This configuration can only be modified if there are no
    *       apps in the <code>InService</code> or <code>Pending</code> state.</p>
    * @public
@@ -9553,8 +9553,8 @@ export interface HyperParameterTuningJobSummary {
 }
 
 /**
- * <p>A SageMaker image. A SageMaker image represents a set of container images that are derived from
- *         a common base container image. Each of these container images is represented by a SageMaker
+ * <p>A SageMaker AI image. A SageMaker AI image represents a set of container images that are derived from
+ *         a common base container image. Each of these container images is represented by a SageMaker AI
  *         <code>ImageVersion</code>.</p>
  * @public
  */
@@ -9638,7 +9638,7 @@ export const ImageSortOrder = {
 export type ImageSortOrder = (typeof ImageSortOrder)[keyof typeof ImageSortOrder];
 
 /**
- * <p>A version of a SageMaker <code>Image</code>. A version represents an existing container
+ * <p>A version of a SageMaker AI <code>Image</code>. A version represents an existing container
  *         image.</p>
  * @public
  */
@@ -10572,7 +10572,7 @@ export interface ListAliasesRequest {
  */
 export interface ListAliasesResponse {
   /**
-   * <p>A list of SageMaker image version aliases.</p>
+   * <p>A list of SageMaker AI image version aliases.</p>
    * @public
    */
   SageMakerImageVersionAliases?: string[] | undefined;
@@ -11595,7 +11595,7 @@ export interface ListCompilationJobsResponse {
   CompilationJobSummaries: CompilationJobSummary[] | undefined;
 
   /**
-   * <p>If the response is truncated, Amazon SageMaker returns this <code>NextToken</code>. To retrieve
+   * <p>If the response is truncated, Amazon SageMaker AI returns this <code>NextToken</code>. To retrieve
    *             the next set of model compilation jobs, use this token in the next request.</p>
    * @public
    */

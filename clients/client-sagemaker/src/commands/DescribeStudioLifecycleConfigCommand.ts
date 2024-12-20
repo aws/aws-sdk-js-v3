@@ -33,7 +33,7 @@ export interface DescribeStudioLifecycleConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the Amazon SageMaker Studio Lifecycle Configuration.</p>
+ * <p>Describes the Amazon SageMaker AI Studio Lifecycle Configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

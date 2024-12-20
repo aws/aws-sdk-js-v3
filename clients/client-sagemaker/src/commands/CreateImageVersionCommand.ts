@@ -28,7 +28,7 @@ export interface CreateImageVersionCommandInput extends CreateImageVersionReques
 export interface CreateImageVersionCommandOutput extends CreateImageVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a version of the SageMaker image specified by <code>ImageName</code>. The version
+ * <p>Creates a version of the SageMaker AI image specified by <code>ImageName</code>. The version
  *         represents the Amazon ECR container image specified by <code>BaseImage</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

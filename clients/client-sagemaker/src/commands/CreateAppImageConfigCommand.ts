@@ -28,7 +28,7 @@ export interface CreateAppImageConfigCommandInput extends CreateAppImageConfigRe
 export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a configuration for running a SageMaker image as a KernelGateway app. The
+ * <p>Creates a configuration for running a SageMaker AI image as a KernelGateway app. The
  *          configuration specifies the Amazon Elastic File System storage volume on the image, and a list of the
  *          kernels in the image.</p>
  * @example

@@ -924,6 +924,8 @@ export const TransformInstanceType = {
   ML_R7I_8XLARGE: "ml.r7i.8xlarge",
   ML_R7I_LARGE: "ml.r7i.large",
   ML_R7I_XLARGE: "ml.r7i.xlarge",
+  ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
+  ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
 } as const;
 
 /**
@@ -1214,6 +1216,13 @@ export type TrainingInputMode = (typeof TrainingInputMode)[keyof typeof Training
 
 /**
  * <p>Specifies the training algorithm to use in a <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> request.</p>
+ *          <important>
+ *             <p>SageMaker uses its own SageMaker account credentials to pull and access built-in algorithms
+ *                 so built-in algorithms are universally accessible across all Amazon Web Services accounts. As a
+ *                 result, built-in algorithms have standard, unrestricted access. You cannot restrict
+ *                 built-in algorithms using IAM roles. Use custom algorithms if you require specific
+ *                 access controls.</p>
+ *          </important>
  *          <p>For more information about algorithms provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For
  *             information about using your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
  *                 Amazon SageMaker</a>. </p>
@@ -4461,13 +4470,13 @@ export const AppInstanceType = {
 export type AppInstanceType = (typeof AppInstanceType)[keyof typeof AppInstanceType];
 
 /**
- * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+ * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that
  *          the version runs on.</p>
  * @public
  */
 export interface ResourceSpec {
   /**
-   * <p>The ARN of the SageMaker image that the image version belongs to.</p>
+   * <p>The ARN of the SageMaker AI image that the image version belongs to.</p>
    * @public
    */
   SageMakerImageArn?: string | undefined;
@@ -4523,7 +4532,7 @@ export const AppStatus = {
 export type AppStatus = (typeof AppStatus)[keyof typeof AppStatus];
 
 /**
- * <p>Details about an Amazon SageMaker app.</p>
+ * <p>Details about an Amazon SageMaker AI app.</p>
  * @public
  */
 export interface AppDetails {
@@ -4570,7 +4579,7 @@ export interface AppDetails {
   CreationTime?: Date | undefined;
 
   /**
-   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that
    *          the version runs on.</p>
    * @public
    */
@@ -4602,7 +4611,7 @@ export interface ContainerConfig {
 }
 
 /**
- * <p>The Amazon Elastic File System storage configuration for a SageMaker image.</p>
+ * <p>The Amazon Elastic File System storage configuration for a SageMaker AI image.</p>
  * @public
  */
 export interface FileSystemConfig {
@@ -4633,7 +4642,7 @@ export interface FileSystemConfig {
  */
 export interface CodeEditorAppImageConfig {
   /**
-   * <p>The Amazon Elastic File System storage configuration for a SageMaker image.</p>
+   * <p>The Amazon Elastic File System storage configuration for a SageMaker AI image.</p>
    * @public
    */
   FileSystemConfig?: FileSystemConfig | undefined;
@@ -4646,12 +4655,12 @@ export interface CodeEditorAppImageConfig {
 }
 
 /**
- * <p>The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app. The <code>FileSystemConfig</code> object is not supported.</p>
+ * <p>The configuration for the file system and kernels in a SageMaker AI image running as a JupyterLab app. The <code>FileSystemConfig</code> object is not supported.</p>
  * @public
  */
 export interface JupyterLabAppImageConfig {
   /**
-   * <p>The Amazon Elastic File System storage configuration for a SageMaker image.</p>
+   * <p>The Amazon Elastic File System storage configuration for a SageMaker AI image.</p>
    * @public
    */
   FileSystemConfig?: FileSystemConfig | undefined;
@@ -4682,7 +4691,7 @@ export interface KernelSpec {
 }
 
 /**
- * <p>The configuration for the file system and kernels in a SageMaker image running as a
+ * <p>The configuration for the file system and kernels in a SageMaker AI image running as a
  *          KernelGateway app.</p>
  * @public
  */
@@ -4694,14 +4703,14 @@ export interface KernelGatewayImageConfig {
   KernelSpecs: KernelSpec[] | undefined;
 
   /**
-   * <p>The Amazon Elastic File System storage configuration for a SageMaker image.</p>
+   * <p>The Amazon Elastic File System storage configuration for a SageMaker AI image.</p>
    * @public
    */
   FileSystemConfig?: FileSystemConfig | undefined;
 }
 
 /**
- * <p>The configuration for running a SageMaker image as a KernelGateway app.</p>
+ * <p>The configuration for running a SageMaker AI image as a KernelGateway app.</p>
  * @public
  */
 export interface AppImageConfigDetails {
@@ -4730,7 +4739,7 @@ export interface AppImageConfigDetails {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The configuration for the file system and kernels in the SageMaker image.</p>
+   * <p>The configuration for the file system and kernels in the SageMaker AI image.</p>
    * @public
    */
   KernelGatewayImageConfig?: KernelGatewayImageConfig | undefined;
@@ -5995,7 +6004,7 @@ export interface AutoMLS3DataSource {
    *          <ul>
    *             <li>
    *                <p>If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key name
-   *                prefix. SageMaker uses all objects that match the specified key name prefix
+   *                prefix. SageMaker AI uses all objects that match the specified key name prefix
    *                for model training.</p>
    *                <p>The <code>S3Prefix</code> should have the following format:</p>
    *                <p>
@@ -6004,7 +6013,7 @@ export interface AutoMLS3DataSource {
    *             </li>
    *             <li>
    *                <p>If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object
-   *                that is a manifest file containing a list of object keys that you want SageMaker to use for model training.</p>
+   *                that is a manifest file containing a list of object keys that you want SageMaker AI to use for model training.</p>
    *                <p>A <code>ManifestFile</code> should have the format shown below:</p>
    *                <p>
    *                   <code>[ \{"prefix":
@@ -8679,19 +8688,19 @@ export interface CanvasAppSettings {
 
 /**
  * <p>Configuration specifying how to treat different headers. If no headers are specified
- *             Amazon SageMaker will by default base64 encode when capturing the data.</p>
+ *             Amazon SageMaker AI will by default base64 encode when capturing the data.</p>
  * @public
  */
 export interface CaptureContentTypeHeader {
   /**
-   * <p>The list of all content type headers that Amazon SageMaker will treat as CSV and
+   * <p>The list of all content type headers that Amazon SageMaker AI will treat as CSV and
    *          capture accordingly.</p>
    * @public
    */
   CsvContentTypes?: string[] | undefined;
 
   /**
-   * <p>The list of all content type headers that SageMaker will treat as JSON and
+   * <p>The list of all content type headers that SageMaker AI will treat as JSON and
    *          capture accordingly.</p>
    * @public
    */
@@ -9388,6 +9397,15 @@ export const ClusterInstanceType = {
   ML_C5_9XLARGE: "ml.c5.9xlarge",
   ML_C5_LARGE: "ml.c5.large",
   ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_C6I_12XLARGE: "ml.c6i.12xlarge",
+  ML_C6I_16XLARGE: "ml.c6i.16xlarge",
+  ML_C6I_24XLARGE: "ml.c6i.24xlarge",
+  ML_C6I_2XLARGE: "ml.c6i.2xlarge",
+  ML_C6I_32XLARGE: "ml.c6i.32xlarge",
+  ML_C6I_4XLARGE: "ml.c6i.4xlarge",
+  ML_C6I_8XLARGE: "ml.c6i.8xlarge",
+  ML_C6I_LARGE: "ml.c6i.large",
+  ML_C6I_XLARGE: "ml.c6i.xlarge",
   ML_G5_12XLARGE: "ml.g5.12xlarge",
   ML_G5_16XLARGE: "ml.g5.16xlarge",
   ML_G5_24XLARGE: "ml.g5.24xlarge",
@@ -9422,11 +9440,29 @@ export const ClusterInstanceType = {
   ML_M5_8XLARGE: "ml.m5.8xlarge",
   ML_M5_LARGE: "ml.m5.large",
   ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_M6I_12XLARGE: "ml.m6i.12xlarge",
+  ML_M6I_16XLARGE: "ml.m6i.16xlarge",
+  ML_M6I_24XLARGE: "ml.m6i.24xlarge",
+  ML_M6I_2XLARGE: "ml.m6i.2xlarge",
+  ML_M6I_32XLARGE: "ml.m6i.32xlarge",
+  ML_M6I_4XLARGE: "ml.m6i.4xlarge",
+  ML_M6I_8XLARGE: "ml.m6i.8xlarge",
+  ML_M6I_LARGE: "ml.m6i.large",
+  ML_M6I_XLARGE: "ml.m6i.xlarge",
   ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
   ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
   ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
+  ML_R6I_12XLARGE: "ml.r6i.12xlarge",
+  ML_R6I_16XLARGE: "ml.r6i.16xlarge",
+  ML_R6I_24XLARGE: "ml.r6i.24xlarge",
+  ML_R6I_2XLARGE: "ml.r6i.2xlarge",
+  ML_R6I_32XLARGE: "ml.r6i.32xlarge",
+  ML_R6I_4XLARGE: "ml.r6i.4xlarge",
+  ML_R6I_8XLARGE: "ml.r6i.8xlarge",
+  ML_R6I_LARGE: "ml.r6i.large",
+  ML_R6I_XLARGE: "ml.r6i.xlarge",
   ML_T3_2XLARGE: "ml.t3.2xlarge",
   ML_T3_LARGE: "ml.t3.large",
   ML_T3_MEDIUM: "ml.t3.medium",
@@ -10081,8 +10117,8 @@ export interface ClusterSummary {
 }
 
 /**
- * <p>A custom SageMaker image. For more information, see
- *          <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker image</a>.</p>
+ * <p>A custom SageMaker AI image. For more information, see
+ *          <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker AI image</a>.</p>
  * @public
  */
 export interface CustomImage {
@@ -10113,7 +10149,7 @@ export interface CustomImage {
  */
 export interface CodeEditorAppSettings {
   /**
-   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that
    *          the version runs on.</p>
    * @public
    */
@@ -10148,7 +10184,7 @@ export interface CodeEditorAppSettings {
 }
 
 /**
- * <p>A Git repository that SageMaker automatically displays to users for cloning in the
+ * <p>A Git repository that SageMaker AI automatically displays to users for cloning in the
  *       JupyterServer application.</p>
  * @public
  */

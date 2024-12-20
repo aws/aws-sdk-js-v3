@@ -28,7 +28,7 @@ export interface DeleteStudioLifecycleConfigCommandInput extends DeleteStudioLif
 export interface DeleteStudioLifecycleConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the Amazon SageMaker Studio Lifecycle Configuration. In order to delete the
+ * <p>Deletes the Amazon SageMaker AI Studio Lifecycle Configuration. In order to delete the
  *       Lifecycle Configuration, there must be no running apps using the Lifecycle Configuration. You
  *       must also remove the Lifecycle Configuration from UserSettings in all Domains and
  *       UserProfiles.</p>

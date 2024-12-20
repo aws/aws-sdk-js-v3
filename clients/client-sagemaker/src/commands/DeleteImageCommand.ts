@@ -28,7 +28,7 @@ export interface DeleteImageCommandInput extends DeleteImageRequest {}
 export interface DeleteImageCommandOutput extends DeleteImageResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a SageMaker image and all versions of the image. The container images aren't
+ * <p>Deletes a SageMaker AI image and all versions of the image. The container images aren't
  *         deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

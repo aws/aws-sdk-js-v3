@@ -28,7 +28,7 @@ export interface UpdateImageVersionCommandInput extends UpdateImageVersionReques
 export interface UpdateImageVersionCommandOutput extends UpdateImageVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the properties of a SageMaker image version.</p>
+ * <p>Updates the properties of a SageMaker AI image version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
