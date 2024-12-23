@@ -40,6 +40,7 @@ export interface GetCatalogsCommandOutput extends GetCatalogsResponse, __Metadat
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   Recursive: true || false,
+ *   IncludeRoot: true || false,
  * };
  * const command = new GetCatalogsCommand(input);
  * const response = await client.send(command);

@@ -6861,10 +6861,17 @@ export interface GetCatalogsRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>When specified as true, iterates through the account and returns all catalog resources (including top-level resources and child resources)</p>
+   * <p>Whether to list all catalogs across the catalog hierarchy, starting from the <code>ParentCatalogId</code>. Defaults to <code>false</code> . When <code>true</code>, all catalog objects in the <code>ParentCatalogID</code> hierarchy are enumerated in the response.</p>
    * @public
    */
   Recursive?: boolean | undefined;
+
+  /**
+   * <p>Whether to list the default catalog in the account and region in the response. Defaults to <code>false</code>. When <code>true</code> and <code>ParentCatalogId = NULL | Amazon Web Services Account ID</code>, all catalogs and the default catalog are enumerated in the response.</p>
+   *          <p>When the <code>ParentCatalogId</code> is not equal to null, and this attribute is passed as <code>false</code> or <code>true</code>, an <code>InvalidInputException</code> is thrown.</p>
+   * @public
+   */
+  IncludeRoot?: boolean | undefined;
 }
 
 /**
