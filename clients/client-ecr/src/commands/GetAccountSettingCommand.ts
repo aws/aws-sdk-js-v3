@@ -28,7 +28,7 @@ export interface GetAccountSettingCommandInput extends GetAccountSettingRequest 
 export interface GetAccountSettingCommandOutput extends GetAccountSettingResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the basic scan type version name.</p>
+ * <p>Retrieves the account setting value for the specified setting name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

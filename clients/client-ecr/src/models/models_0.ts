@@ -1065,14 +1065,14 @@ export interface EncryptionConfiguration {
    *             for Amazon ECR, or specify your own KMS key, which you already created.</p>
    *          <p>If you use the <code>KMS_DSSE</code> encryption type, the contents of the repository
    *             will be encrypted with two layers of encryption using server-side encryption with the
-   *             KMS Management Service key stored in KMS. Similar to the <code>KMS</code> encryption type, you
-   *             can either use the default Amazon Web Services managed KMS key for Amazon ECR, or specify your own KMS
-   *             key, which you've already created. </p>
+   *             KMS Management Service key stored in KMS. Similar to the <code>KMS</code> encryption
+   *             type, you can either use the default Amazon Web Services managed KMS key for Amazon ECR, or specify your
+   *             own KMS key, which you've already created. </p>
    *          <p>If you use the <code>AES256</code> encryption type, Amazon ECR uses server-side encryption
    *             with Amazon S3-managed encryption keys which encrypts the images in the repository using an
    *             AES256 encryption algorithm.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html">Amazon ECR encryption at
-   *             rest</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+   *                 rest</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
    * @public
    */
   encryptionType: EncryptionType | undefined;
@@ -3370,7 +3370,8 @@ export interface DescribeRepositoryCreationTemplatesResponse {
  */
 export interface GetAccountSettingRequest {
   /**
-   * <p>Basic scan type version name. </p>
+   * <p>The name of the account setting, such as <code>BASIC_SCAN_TYPE_VERSION</code> or
+   *                 <code>REGISTRY_POLICY_SCOPE</code>. </p>
    * @public
    */
   name: string | undefined;
@@ -3381,14 +3382,16 @@ export interface GetAccountSettingRequest {
  */
 export interface GetAccountSettingResponse {
   /**
-   * <p>Retrieves the basic scan type version name.</p>
+   * <p>Retrieves the name of the account setting.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Retrieves the value that specifies what basic scan type is being used:
-   *                 <code>AWS_NATIVE</code> or <code>CLAIR</code>.</p>
+   * <p>The setting value for the setting name. The following are valid values for the basic scan
+   *             type being used: <code>AWS_NATIVE</code> or <code>CLAIR</code>. The following are valid
+   *             values for the registry policy scope being used: <code>V1</code> or
+   *             <code>V2</code>.</p>
    * @public
    */
   value?: string | undefined;
@@ -4126,14 +4129,17 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutAccountSettingRequest {
   /**
-   * <p>Basic scan type version name. </p>
+   * <p>The name of the account setting, such as <code>BASIC_SCAN_TYPE_VERSION</code> or
+   *                 <code>REGISTRY_POLICY_SCOPE</code>. </p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Setting value that determines what basic scan type is being used:
-   *                 <code>AWS_NATIVE</code> or <code>CLAIR</code>.</p>
+   * <p>Setting value that is specified. The following are valid values for the basic scan
+   *             type being used: <code>AWS_NATIVE</code> or <code>CLAIR</code>. The following are valid
+   *             values for the registry policy scope being used: <code>V1</code> or
+   *             <code>V2</code>.</p>
    * @public
    */
   value: string | undefined;
@@ -4144,14 +4150,13 @@ export interface PutAccountSettingRequest {
  */
 export interface PutAccountSettingResponse {
   /**
-   * <p>Retrieves the the basic scan type version name.</p>
+   * <p>Retrieves the name of the account setting.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Retrieves the basic scan type value, either <code>AWS_NATIVE</code> or
-   *             <code>-</code>.</p>
+   * <p>Retrieves the value of the specified account setting.</p>
    * @public
    */
   value?: string | undefined;

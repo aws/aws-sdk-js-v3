@@ -28,8 +28,7 @@ export interface PutAccountSettingCommandInput extends PutAccountSettingRequest 
 export interface PutAccountSettingCommandOutput extends PutAccountSettingResponse, __MetadataBearer {}
 
 /**
- * <p>Allows you to change the basic scan type version by setting the <code>name</code>
- *             parameter to either <code>CLAIR</code> to <code>AWS_NATIVE</code>.</p>
+ * <p>Allows you to change the basic scan type version or registry policy scope.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
