@@ -54,11 +54,11 @@ public class AddAwsRuntimeConfigTest {
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString(
                 "useDualstackEndpoint: config?.useDualstackEndpoint ?? (() => Promise.resolve(DEFAULT_USE_DUALSTACK_ENDPOINT))"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString(
-                "useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS)"));
+                "useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, profileConfig)"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString(
                 "useFipsEndpoint: config?.useFipsEndpoint ?? (() => Promise.resolve(DEFAULT_USE_FIPS_ENDPOINT))"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString(
-                "useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS),"));
+                "useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, profileConfig),"));
     }
 
     @Test
