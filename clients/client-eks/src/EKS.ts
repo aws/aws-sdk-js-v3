@@ -110,6 +110,11 @@ import {
   DescribeClusterCommandOutput,
 } from "./commands/DescribeClusterCommand";
 import {
+  DescribeClusterVersionsCommand,
+  DescribeClusterVersionsCommandInput,
+  DescribeClusterVersionsCommandOutput,
+} from "./commands/DescribeClusterVersionsCommand";
+import {
   DescribeEksAnywhereSubscriptionCommand,
   DescribeEksAnywhereSubscriptionCommandInput,
   DescribeEksAnywhereSubscriptionCommandOutput,
@@ -284,6 +289,7 @@ const commands = {
   DescribeAddonConfigurationCommand,
   DescribeAddonVersionsCommand,
   DescribeClusterCommand,
+  DescribeClusterVersionsCommand,
   DescribeEksAnywhereSubscriptionCommand,
   DescribeFargateProfileCommand,
   DescribeIdentityProviderConfigCommand,
@@ -671,6 +677,24 @@ export interface EKS {
     args: DescribeClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeClusterVersionsCommand}
+   */
+  describeClusterVersions(): Promise<DescribeClusterVersionsCommandOutput>;
+  describeClusterVersions(
+    args: DescribeClusterVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeClusterVersionsCommandOutput>;
+  describeClusterVersions(
+    args: DescribeClusterVersionsCommandInput,
+    cb: (err: any, data?: DescribeClusterVersionsCommandOutput) => void
+  ): void;
+  describeClusterVersions(
+    args: DescribeClusterVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeClusterVersionsCommandOutput) => void
   ): void;
 
   /**

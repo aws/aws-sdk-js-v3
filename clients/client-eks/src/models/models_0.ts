@@ -397,8 +397,7 @@ export interface Addon {
 }
 
 /**
- * <p>The summary information about the Amazon EKS add-on compatibility for the next Kubernetes
- *             version for an insight check in the <code>UPGRADE_READINESS</code> category.</p>
+ * <p>Contains compatibility information for an Amazon EKS add-on.</p>
  * @public
  */
 export interface AddonCompatibilityDetail {
@@ -409,7 +408,7 @@ export interface AddonCompatibilityDetail {
   name?: string | undefined;
 
   /**
-   * <p>The list of compatible Amazon EKS add-on versions for the next Kubernetes version.</p>
+   * <p>A list of compatible add-on versions.</p>
    * @public
    */
   compatibleVersions?: string[] | undefined;
@@ -4982,6 +4981,145 @@ export interface DescribeClusterResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const ClusterVersionStatus = {
+  extended_support: "extended-support",
+  standard_support: "standard-support",
+  unsupported: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterVersionStatus = (typeof ClusterVersionStatus)[keyof typeof ClusterVersionStatus];
+
+/**
+ * @public
+ */
+export interface DescribeClusterVersionsRequest {
+  /**
+   * <p>The type of cluster to filter versions by.</p>
+   * @public
+   */
+  clusterType?: string | undefined;
+
+  /**
+   * <p>Maximum number of results to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Filter to show only default versions.</p>
+   * @public
+   */
+  defaultOnly?: boolean | undefined;
+
+  /**
+   * <p>Include all available versions in the response.</p>
+   * @public
+   */
+  includeAll?: boolean | undefined;
+
+  /**
+   * <p>List of specific cluster versions to describe.</p>
+   * @public
+   */
+  clusterVersions?: string[] | undefined;
+
+  /**
+   * <p>Filter versions by their current status.</p>
+   * @public
+   */
+  status?: ClusterVersionStatus | undefined;
+}
+
+/**
+ * <p>Contains details about a specific EKS cluster version.</p>
+ * @public
+ */
+export interface ClusterVersionInformation {
+  /**
+   * <p>The Kubernetes version for the cluster.</p>
+   * @public
+   */
+  clusterVersion?: string | undefined;
+
+  /**
+   * <p>The type of cluster this version is for.</p>
+   * @public
+   */
+  clusterType?: string | undefined;
+
+  /**
+   * <p>Default platform version for this Kubernetes version.</p>
+   * @public
+   */
+  defaultPlatformVersion?: string | undefined;
+
+  /**
+   * <p>Indicates if this is a default version.</p>
+   * @public
+   */
+  defaultVersion?: boolean | undefined;
+
+  /**
+   * <p>The release date of this cluster version.</p>
+   * @public
+   */
+  releaseDate?: Date | undefined;
+
+  /**
+   * <p>Date when standard support ends for this version.</p>
+   * @public
+   */
+  endOfStandardSupportDate?: Date | undefined;
+
+  /**
+   * <p>Date when extended support ends for this version.</p>
+   * @public
+   */
+  endOfExtendedSupportDate?: Date | undefined;
+
+  /**
+   * <p>Current status of this cluster version.</p>
+   * @public
+   */
+  status?: ClusterVersionStatus | undefined;
+
+  /**
+   * <p>The patch version of Kubernetes for this cluster version.</p>
+   * @public
+   */
+  kubernetesPatchVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterVersionsResponse {
+  /**
+   * <p>Pagination token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>List of cluster version information objects.</p>
+   * @public
+   */
+  clusterVersions?: ClusterVersionInformation[] | undefined;
+}
+
+/**
+ * @public
  */
 export interface DescribeEksAnywhereSubscriptionRequest {
   /**
@@ -5302,7 +5440,7 @@ export interface InsightCategorySpecificSummary {
   deprecationDetails?: DeprecationDetail[] | undefined;
 
   /**
-   * <p>A list of <code>AddonCompatibilityDetail</code> objects for Amazon EKS add-ons.</p>
+   * <p>A list of AddonCompatibilityDetail objects for Amazon EKS add-ons.</p>
    * @public
    */
   addonCompatibilityDetails?: AddonCompatibilityDetail[] | undefined;

@@ -113,6 +113,10 @@ import {
 } from "./commands/DescribeAddonVersionsCommand";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import {
+  DescribeClusterVersionsCommandInput,
+  DescribeClusterVersionsCommandOutput,
+} from "./commands/DescribeClusterVersionsCommand";
+import {
   DescribeEksAnywhereSubscriptionCommandInput,
   DescribeEksAnywhereSubscriptionCommandOutput,
 } from "./commands/DescribeEksAnywhereSubscriptionCommand";
@@ -237,6 +241,7 @@ export type ServiceInputTypes =
   | DescribeAddonConfigurationCommandInput
   | DescribeAddonVersionsCommandInput
   | DescribeClusterCommandInput
+  | DescribeClusterVersionsCommandInput
   | DescribeEksAnywhereSubscriptionCommandInput
   | DescribeFargateProfileCommandInput
   | DescribeIdentityProviderConfigCommandInput
@@ -298,6 +303,7 @@ export type ServiceOutputTypes =
   | DescribeAddonConfigurationCommandOutput
   | DescribeAddonVersionsCommandOutput
   | DescribeClusterCommandOutput
+  | DescribeClusterVersionsCommandOutput
   | DescribeEksAnywhereSubscriptionCommandOutput
   | DescribeFargateProfileCommandOutput
   | DescribeIdentityProviderConfigCommandOutput

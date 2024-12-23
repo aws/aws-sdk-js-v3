@@ -397,6 +397,14 @@ DescribeCluster
 </details>
 <details>
 <summary>
+DescribeClusterVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/DescribeClusterVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/DescribeClusterVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/DescribeClusterVersionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeEksAnywhereSubscription
 </summary>
 
