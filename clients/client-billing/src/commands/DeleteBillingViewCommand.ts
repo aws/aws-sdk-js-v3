@@ -76,6 +76,22 @@ export interface DeleteBillingViewCommandOutput extends DeleteBillingViewRespons
  * <p>Base exception class for all service exceptions from Billing service.</p>
  *
  * @public
+ * @example Invoke DeleteBillingView
+ * ```javascript
+ * //
+ * const input = {
+ *   "arn": "arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899"
+ * };
+ * const command = new DeleteBillingViewCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "arn": "arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class DeleteBillingViewCommand extends $Command
   .classBuilder<

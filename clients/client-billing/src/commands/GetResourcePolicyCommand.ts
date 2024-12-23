@@ -78,6 +78,23 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * <p>Base exception class for all service exceptions from Billing service.</p>
  *
  * @public
+ * @example Invoke GetResourcePolicy
+ * ```javascript
+ * //
+ * const input = {
+ *   "resourceArn": "arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899"
+ * };
+ * const command = new GetResourcePolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "policy": "{\"Version\":\"2012-10-17\",\"Id\":\"46f47cb2-a11d-43f3-983d-470b5708a899\",\"Statement\":[{\"Sid\":\"ExampleStatement1\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::000000000000:root\"},\"Action\":[\"ce:GetDimensionValues\",\"ce:GetCostAndUsageWithResources\",\"ce:GetCostAndUsage\",\"ce:GetCostForecast\",\"ce:GetTags\",\"ce:GetUsageForecast\",\"ce:GetCostCategories\",\"billing:GetBillingView\"],\"Resource\":\"arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899\"}]}",
+ *   "resourceArn": "arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class GetResourcePolicyCommand extends $Command
   .classBuilder<

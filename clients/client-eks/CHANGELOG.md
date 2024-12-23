@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.718.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.717.0...v3.718.0) (2024-12-23)
+
+
+### Features
+
+* **client-eks:** This release adds support for DescribeClusterVersions API that provides important information about Kubernetes versions along with end of support dates ([81d94a2](https://github.com/aws/aws-sdk-js-v3/commit/81d94a2b5ced1bdac4ab101b40f5f380f8de384f))
+
+
+
+
+
 # [3.717.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.716.0...v3.717.0) (2024-12-20)
 
 

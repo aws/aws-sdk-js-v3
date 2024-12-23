@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.718.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.717.0...v3.718.0) (2024-12-23)
+
+
+### Features
+
+* **client-ecr-public:** Add support for Dualstack endpoints ([f8dab61](https://github.com/aws/aws-sdk-js-v3/commit/f8dab61ad7ca35fe145a6d12d9ad46d3d736adbd))
+* **client-eks:** This release adds support for DescribeClusterVersions API that provides important information about Kubernetes versions along with end of support dates ([81d94a2](https://github.com/aws/aws-sdk-js-v3/commit/81d94a2b5ced1bdac4ab101b40f5f380f8de384f))
+* **client-glue:** Add IncludeRoot parameters to GetCatalogs API to return root catalog. ([f88136b](https://github.com/aws/aws-sdk-js-v3/commit/f88136b1d88b8dfdf3f52045acacb87d79964173))
+* **clients:** update client endpoints as of 2024-12-23 ([d1d0cae](https://github.com/aws/aws-sdk-js-v3/commit/d1d0cae17e77cda731ec6032e2d46bcd7f61bedc))
+
+
+
+
+
 # [3.717.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.716.0...v3.717.0) (2024-12-20)
 
 

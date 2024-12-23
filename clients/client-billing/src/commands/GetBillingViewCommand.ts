@@ -103,6 +103,36 @@ export interface GetBillingViewCommandOutput extends GetBillingViewResponse, __M
  * <p>Base exception class for all service exceptions from Billing service.</p>
  *
  * @public
+ * @example Invoke GetBillingView
+ * ```javascript
+ * //
+ * const input = {
+ *   "arn": "arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899"
+ * };
+ * const command = new GetBillingViewCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "billingView": {
+ *     "name": "Example Custom Billing View",
+ *     "arn": "arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899",
+ *     "billingViewType": "CUSTOM",
+ *     "dataFilterExpression": {
+ *       "dimensions": {
+ *         "key": "LINKED_ACCOUNT",
+ *         "values": [
+ *           "000000000000"
+ *         ]
+ *       }
+ *     },
+ *     "description": "Custom Billing View Example -- updated description",
+ *     "ownerAccountId": "123456789101"
+ *   }
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class GetBillingViewCommand extends $Command
   .classBuilder<
