@@ -6,27 +6,14 @@ import { RuleSetObject } from "@smithy/types";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/ecr-public.json */
 
-const s="required",
-t="fn",
-u="argv",
-v="ref";
-const a=true,
-b="isSet",
-c="booleanEquals",
-d="error",
-e="endpoint",
-f="tree",
-g="PartitionResult",
-h={[s]:false,"type":"String"},
-i={[s]:true,"default":false,"type":"Boolean"},
-j={[v]:"Endpoint"},
-k={[t]:c,[u]:[{[v]:"UseFIPS"},true]},
-l={[t]:c,[u]:[{[v]:"UseDualStack"},true]},
-m={},
-n={[t]:"getAttr",[u]:[{[v]:g},"supportsFIPS"]},
-o={[t]:c,[u]:[true,{[t]:"getAttr",[u]:[{[v]:g},"supportsDualStack"]}]},
-p=[k],
-q=[l],
-r=[{[v]:"Region"}];
-const _data={version:"1.0",parameters:{Region:h,UseDualStack:i,UseFIPS:i,Endpoint:h},rules:[{conditions:[{[t]:b,[u]:[j]}],rules:[{conditions:p,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:d},{conditions:q,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:d},{endpoint:{url:j,properties:m,headers:m},type:e}],type:f},{conditions:[{[t]:b,[u]:r}],rules:[{conditions:[{[t]:"aws.partition",[u]:r,assign:g}],rules:[{conditions:[k,l],rules:[{conditions:[{[t]:c,[u]:[a,n]},o],rules:[{endpoint:{url:"https://api.ecr-public-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:e}],type:f},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:d}],type:f},{conditions:p,rules:[{conditions:[{[t]:c,[u]:[n,a]}],rules:[{endpoint:{url:"https://api.ecr-public-fips.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:e}],type:f},{error:"FIPS is enabled but this partition does not support FIPS",type:d}],type:f},{conditions:q,rules:[{conditions:[o],rules:[{endpoint:{url:"https://api.ecr-public.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:e}],type:f},{error:"DualStack is enabled but this partition does not support DualStack",type:d}],type:f},{endpoint:{url:"https://api.ecr-public.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:e}],type:f}],type:f},{error:"Invalid Configuration: Missing Region",type:d}]};
+const a=false,
+b=true,
+c="PartitionResult",
+d="booleanEquals",
+e="error",
+f="endpoint",
+g="tree",
+h={"required":true,"default":false,"type":"Boolean"},
+i=[{"ref":"Region"}];
+const _data={version:"1.0",parameters:{Region:{required:a,type:"String"},UseFIPS:h,UseDualStack:h},rules:[{conditions:[{fn:"isSet",argv:i},{fn:"aws.partition",argv:i,assign:c}],rules:[{conditions:[{fn:d,argv:[{ref:"UseFIPS"},b]}],error:"ECR Public does not support FIPS",type:e},{conditions:[{fn:d,argv:[{ref:"UseDualStack"},b]}],rules:[{conditions:[{fn:d,argv:[b,{fn:"getAttr",argv:[{ref:c},"supportsDualStack"]}]}],rules:[{endpoint:{url:"https://ecr-public.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:{},headers:{}},type:f}],type:g},{error:"Dualstack is enabled but this partition does not support dualstack",type:e}],type:g},{endpoint:{url:"https://api.ecr-public.{Region}.{PartitionResult#dnsSuffix}",properties:{},headers:{}},type:f}],type:g}]};
 export const ruleSet: RuleSetObject = _data;
