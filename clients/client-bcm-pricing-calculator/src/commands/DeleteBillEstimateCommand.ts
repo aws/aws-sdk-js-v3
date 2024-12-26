@@ -56,6 +56,11 @@ export interface DeleteBillEstimateCommandOutput extends DeleteBillEstimateRespo
  * @see {@link DeleteBillEstimateCommandOutput} for command's `response` shape.
  * @see {@link BCMPricingCalculatorClientResolvedConfig | config} for BCMPricingCalculatorClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>
+ *         The request could not be processed because of conflict in the current state of the resource.
+ *         </p>
+ *
  * @throws {@link DataUnavailableException} (client fault)
  *  <p>
  *         The requested data is currently unavailable.
