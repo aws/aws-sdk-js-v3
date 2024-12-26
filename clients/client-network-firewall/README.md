@@ -8,26 +8,26 @@ AWS SDK for JavaScript NetworkFirewall Client for Node.js, Browser and React Nat
 
 <p>This is the API Reference for Network Firewall. This guide is for developers who need
 detailed information about the Network Firewall API actions, data types, and errors. </p>
-<ul>
-<li>
 <p>The REST API requires you to handle connection details, such as calculating
 signatures, handling request retries, and error handling. For general information
 about using the Amazon Web Services REST APIs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-apis.html">Amazon Web Services APIs</a>. </p>
-<p>To access Network Firewall using the REST API endpoint:
+<p>To view the complete list of Amazon Web Services Regions where Network Firewall is available, see
+<a href="https://docs.aws.amazon.com/general/latest/gr/network-firewall.html">Service
+endpoints and quotas</a> in the <i>Amazon Web Services General
+Reference</i>.
+</p>
+<p>To access Network Firewall using the IPv4 REST API endpoint:
 <code>https://network-firewall.<region>.amazonaws.com </code>
 </p>
-</li>
-<li>
+<p>To access Network Firewall using the Dualstack (IPv4 and IPv6) REST API endpoint:
+<code>https://network-firewall.<region>.aws.api </code>
+</p>
 <p>Alternatively, you can use one of the Amazon Web Services SDKs to access an API that's tailored to
 the programming language or platform that you're using. For more information, see
 <a href="http://aws.amazon.com/tools/#SDKs">Amazon Web Services SDKs</a>.</p>
-</li>
-<li>
 <p>For descriptions of Network Firewall features, including and step-by-step
 instructions on how to use them through the Network Firewall console, see the <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/">Network Firewall Developer
 Guide</a>.</p>
-</li>
-</ul>
 <p>Network Firewall is a stateful, managed, network firewall and intrusion detection and
 prevention service for Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the
 perimeter of your VPC. This includes filtering traffic going to and coming from an internet
