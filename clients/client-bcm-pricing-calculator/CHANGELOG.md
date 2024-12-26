@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.719.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.718.0...v3.719.0) (2024-12-26)
+
+
+### Features
+
+* **client-bcm-pricing-calculator:** Added ConflictException to DeleteBillEstimate. ([993e46d](https://github.com/aws/aws-sdk-js-v3/commit/993e46d2883464639e0d15adbb95ff30b0a7c4c9))
+
+
+
+
+
 # [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
 
 **Note:** Version bump only for package @aws-sdk/client-bcm-pricing-calculator

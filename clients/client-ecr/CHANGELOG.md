@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.719.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.718.0...v3.719.0) (2024-12-26)
+
+
+### Features
+
+* **client-ecr:** Add support for Dualstack Endpoints ([aac320c](https://github.com/aws/aws-sdk-js-v3/commit/aac320cd5d109e85f10e466184d7b4a8989124f2))
+
+
+
+
+
 # [3.718.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.717.0...v3.718.0) (2024-12-23)
 
 **Note:** Version bump only for package @aws-sdk/client-ecr

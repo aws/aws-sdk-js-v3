@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.719.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.718.0...v3.719.0) (2024-12-26)
+
+
+### Features
+
+* **client-bcm-pricing-calculator:** Added ConflictException to DeleteBillEstimate. ([993e46d](https://github.com/aws/aws-sdk-js-v3/commit/993e46d2883464639e0d15adbb95ff30b0a7c4c9))
+* **client-ecr:** Add support for Dualstack Endpoints ([aac320c](https://github.com/aws/aws-sdk-js-v3/commit/aac320cd5d109e85f10e466184d7b4a8989124f2))
+* **clients:** update client endpoints as of 2024-12-26 ([5bd37e0](https://github.com/aws/aws-sdk-js-v3/commit/5bd37e0ee3c4cb42c726ccba512ca5953bfce7ac))
+
+
+
+
+
 # [3.718.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.717.0...v3.718.0) (2024-12-23)
 
 
