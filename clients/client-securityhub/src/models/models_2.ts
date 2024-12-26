@@ -1606,31 +1606,7 @@ export interface ContainerDetails {
 
   /**
    * <p>Indicates when the container started.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   LaunchedAt?: string | undefined;
@@ -2173,7 +2149,7 @@ export interface ResourceDetails {
 
   /**
    * <p>
-   *          Provides details about an Amazon SageMaker notebook instance.
+   *          Provides details about an Amazon SageMaker AI notebook instance.
    *       </p>
    * @public
    */
@@ -2606,31 +2582,7 @@ export interface ThreatIntelIndicator {
   /**
    * <p>Indicates when the most recent instance of a threat intelligence indicator was
    *          observed.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   LastObservedAt?: string | undefined;
@@ -2890,62 +2842,14 @@ export interface VulnerabilityVendor {
 
   /**
    * <p>Indicates when the vulnerability advisory was created.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   VendorCreatedAt?: string | undefined;
 
   /**
    * <p>Indicates when the vulnerability advisory was last updated.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   VendorUpdatedAt?: string | undefined;
@@ -3280,63 +3184,14 @@ export interface AwsSecurityFinding {
   /**
    * <p>Indicates when the security findings provider first observed the potential security
    *          issue that a finding captured.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   FirstObservedAt?: string | undefined;
 
   /**
-   * <p>Indicates when the security findings provider most recently observed the potential
-   *          security issue that a finding captured.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   * <p>Indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   LastObservedAt?: string | undefined;
@@ -3344,62 +3199,14 @@ export interface AwsSecurityFinding {
   /**
    * <p>Indicates when the security findings provider created the potential security issue that
    *          a finding captured.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   CreatedAt: string | undefined;
 
   /**
    * <p>Indicates when the security findings provider last updated the finding record.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   UpdatedAt: string | undefined;
@@ -3609,31 +3416,7 @@ export interface AwsSecurityFinding {
 
   /**
    * <p>A timestamp that indicates when Security Hub received a finding and begins to process it.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   ProcessedAt?: string | undefined;
@@ -3651,7 +3434,7 @@ export interface AwsSecurityFinding {
    * <p>
    *             Provides details about an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
    *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
-   * 				must have GuardDuty and GuardDuty S3 Protection enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
+   * 				must have GuardDuty enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
    *         </p>
    * @public
    */
@@ -3745,63 +3528,14 @@ export interface AwsSecurityFindingFilters {
   /**
    * <p>A timestamp that indicates when the security findings provider first
    *          observed the potential security issue that a finding captured.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   FirstObservedAt?: DateFilter[] | undefined;
 
   /**
-   * <p>A timestamp that indicates when the security findings provider most
-   *          recently observed the potential security issue that a finding captured.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   * <p>A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   LastObservedAt?: DateFilter[] | undefined;
@@ -3809,31 +3543,7 @@ export interface AwsSecurityFindingFilters {
   /**
    * <p>A timestamp that indicates when the security findings provider
    *          created the potential security issue that a finding reflects.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   CreatedAt?: DateFilter[] | undefined;
@@ -3841,31 +3551,7 @@ export interface AwsSecurityFindingFilters {
   /**
    * <p>A timestamp that indicates when the security findings provider last
    *          updated the finding record.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   UpdatedAt?: DateFilter[] | undefined;
@@ -4079,62 +3765,14 @@ export interface AwsSecurityFindingFilters {
 
   /**
    * <p>A timestamp that identifies when the process was launched.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   ProcessLaunchedAt?: DateFilter[] | undefined;
 
   /**
    * <p>A timestamp that identifies when the process was terminated.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   ProcessTerminatedAt?: DateFilter[] | undefined;
@@ -4159,6 +3797,7 @@ export interface AwsSecurityFindingFilters {
 
   /**
    * <p>A timestamp that identifies the last observation of a threat intelligence indicator.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   ThreatIntelIndicatorLastObservedAt?: DateFilter[] | undefined;
@@ -4324,31 +3963,7 @@ export interface AwsSecurityFindingFilters {
 
   /**
    * <p>A timestamp that identifies when the container was started.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   ResourceContainerLaunchedAt?: DateFilter[] | undefined;
@@ -7634,6 +7249,12 @@ export interface DescribeHubResponse {
    *          enabled.</p>
    *          <p>If set to <code>true</code>, then new controls for enabled standards are enabled
    *          automatically. If set to <code>false</code>, then new controls are not enabled.</p>
+   *          <p>When you automatically enable new controls, you can interact with the controls in
+   *            the console and programmatically immediately after release. However, automatically enabled controls have a temporary default status of
+   *            <code>DISABLED</code>. It can take up to several days for Security Hub to process the control release and designate the
+   *            control as <code>ENABLED</code> in your account. During the processing period, you can manually enable or disable a
+   *            control, and Security Hub will maintain that designation regardless of whether you have <code>AutoEnableControls</code> set to
+   *            <code>true</code>.</p>
    * @public
    */
   AutoEnableControls?: boolean | undefined;
@@ -8401,31 +8022,7 @@ export interface FindingHistoryRecord {
   /**
    * <p> A timestamp that indicates when Security Hub
    *             processed the updated finding record.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   UpdateTime?: Date | undefined;
@@ -8779,31 +8376,7 @@ export interface GetFindingHistoryRequest {
    *             returns finding history from the CreatedAt timestamp of the finding to the time at which
    *             the API is called. In all of these scenarios, the response is limited to 100 results, and the maximum time period is
    *             limited to 90 days.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   StartTime?: Date | undefined;
@@ -8820,31 +8393,7 @@ export interface GetFindingHistoryRequest {
    *             returns finding history from the CreatedAt timestamp of the finding to the time at which
    *             the API is called. In all of these scenarios, the response is limited to 100 results, and the maximum time period is
    *             limited to 90 days.</p>
-   *          <p>This field accepts only the specified formats. Timestamps
-   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
-   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   EndTime?: Date | undefined;
@@ -10562,6 +10111,12 @@ export interface UpdateSecurityHubConfigurationRequest {
    *          <p>By default, this is set to <code>true</code>, and new controls are enabled
    *          automatically. To not automatically enable new controls, set this to <code>false</code>.
    *       </p>
+   *          <p>When you automatically enable new controls, you can interact with the controls in
+   *            the console and programmatically immediately after release. However, automatically enabled controls have a temporary default status of
+   *            <code>DISABLED</code>. It can take up to several days for Security Hub to process the control release and designate the
+   *            control as <code>ENABLED</code> in your account. During the processing period, you can manually enable or disable a
+   *            control, and Security Hub will maintain that designation regardless of whether you have <code>AutoEnableControls</code> set to
+   *            <code>true</code>.</p>
    * @public
    */
   AutoEnableControls?: boolean | undefined;
