@@ -5227,7 +5227,7 @@ export interface CreateDBClusterMessage {
   /**
    * <p>Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window.
    *             By default, minor engine upgrades are applied automatically.</p>
-   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster</p>
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
@@ -5237,7 +5237,7 @@ export interface CreateDBClusterMessage {
    *             collecting Enhanced Monitoring metrics, specify <code>0</code>.</p>
    *          <p>If <code>MonitoringRoleArn</code> is specified, also set <code>MonitoringInterval</code>
    *             to a value other than <code>0</code>.</p>
-   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    *          <p>Valid Values: <code>0 | 1 | 5 | 10 | 15 | 30 | 60</code>
    *          </p>
    *          <p>Default: <code>0</code>
@@ -5252,13 +5252,16 @@ export interface CreateDBClusterMessage {
    *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling">Setting
    *                 up and enabling Enhanced Monitoring</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>If <code>MonitoringInterval</code> is set to a value other than <code>0</code>, supply a <code>MonitoringRoleArn</code> value.</p>
-   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    * @public
    */
   MonitoringRoleArn?: string | undefined;
 
   /**
-   * <p>Specifies the mode of Database Insights to enable for the cluster.</p>
+   * <p>The mode of Database Insights to enable for the DB cluster.</p>
+   *          <p>If you set this value to <code>advanced</code>, you must also set the <code>PerformanceInsightsEnabled</code>
+   *             parameter to <code>true</code> and the <code>PerformanceInsightsRetentionPeriod</code> parameter to 465.</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
    * @public
    */
   DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
@@ -5267,7 +5270,7 @@ export interface CreateDBClusterMessage {
    * <p>Specifies whether to turn on Performance Insights for the DB cluster.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">
    *             Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    * @public
    */
   EnablePerformanceInsights?: boolean | undefined;
@@ -5278,14 +5281,14 @@ export interface CreateDBClusterMessage {
    *          <p>If you don't specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
    *             uses your default KMS key. There is a default KMS key for your Amazon Web Services account.
    *             Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
-   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    * @public
    */
   PerformanceInsightsKMSKeyId?: string | undefined;
 
   /**
    * <p>The number of days to retain Performance Insights data.</p>
-   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    *          <p>Valid Values:</p>
    *          <ul>
    *             <li>
@@ -6412,34 +6415,34 @@ export interface DBCluster {
 
   /**
    * <p>Indicates whether minor version patches are applied automatically.</p>
-   *          <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
+   *          <p>This setting is for Aurora DB clusters and Multi-AZ DB clusters.</p>
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster.</p>
-   *          <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
+   *          <p>This setting is only for -Aurora DB clusters and Multi-AZ DB clusters.</p>
    * @public
    */
   MonitoringInterval?: number | undefined;
 
   /**
    * <p>The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.</p>
-   *          <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
+   *          <p>This setting is only for Aurora DB clusters and Multi-AZ DB clusters.</p>
    * @public
    */
   MonitoringRoleArn?: string | undefined;
 
   /**
-   * <p>The mode of Database Insights that is enabled for the cluster.</p>
+   * <p>The mode of Database Insights that is enabled for the DB cluster.</p>
    * @public
    */
   DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
 
   /**
    * <p>Indicates whether Performance Insights is enabled for the DB cluster.</p>
-   *          <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
+   *          <p>This setting is only for Aurora DB clusters and Multi-AZ DB clusters.</p>
    * @public
    */
   PerformanceInsightsEnabled?: boolean | undefined;
@@ -6447,14 +6450,14 @@ export interface DBCluster {
   /**
    * <p>The Amazon Web Services KMS key identifier for encryption of Performance Insights data.</p>
    *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
-   *          <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
+   *          <p>This setting is only for Aurora DB clusters and Multi-AZ DB clusters.</p>
    * @public
    */
   PerformanceInsightsKMSKeyId?: string | undefined;
 
   /**
    * <p>The number of days to retain Performance Insights data.</p>
-   *          <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
+   *          <p>This setting is only for Aurora DB clusters and Multi-AZ DB clusters.</p>
    *          <p>Valid Values:</p>
    *          <ul>
    *             <li>
@@ -8413,7 +8416,11 @@ export interface CreateDBInstanceMessage {
   EnableIAMDatabaseAuthentication?: boolean | undefined;
 
   /**
-   * <p>Specifies the mode of Database Insights to enable for the instance.</p>
+   * <p>The mode of Database Insights to enable for the DB instance.</p>
+   *          <p>This setting only applies to Amazon Aurora DB instances.</p>
+   *          <note>
+   *             <p>Currently, this value is inherited from the DB cluster and can't be changed.</p>
+   *          </note>
    * @public
    */
   DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
@@ -10406,7 +10413,10 @@ export interface CreateDBInstanceReadReplicaMessage {
   EnableIAMDatabaseAuthentication?: boolean | undefined;
 
   /**
-   * <p>Specifies the mode of Database Insights.</p>
+   * <p>The mode of Database Insights to enable for the read replica.</p>
+   *          <note>
+   *             <p>Currently, this setting is not supported.</p>
+   *          </note>
    * @public
    */
   DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
@@ -10665,6 +10675,7 @@ export interface CreateDBInstanceReadReplicaMessage {
   /**
    * <p>The amount of storage (in gibibytes) to allocate initially for the read replica.
    *             Follow the allocation rules specified in <code>CreateDBInstance</code>.</p>
+   *          <p>This setting isn't valid for RDS for SQL Server.</p>
    *          <note>
    *             <p>Be sure to allocate enough storage for your read replica so that the create operation can succeed.
    *                 You can also allocate additional storage for future growth.</p>

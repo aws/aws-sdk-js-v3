@@ -976,17 +976,17 @@ export interface DescribeDBClusterParametersMessage {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>customer</code>
+   *                   <code>engine-default</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>engine</code>
+   *                   <code>system</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>service</code>
+   *                   <code>user</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -995,7 +995,8 @@ export interface DescribeDBClusterParametersMessage {
   Source?: string | undefined;
 
   /**
-   * <p>This parameter isn't currently supported.</p>
+   * <p>A filter that specifies one or more DB cluster parameters to describe.</p>
+   *          <p>The only supported filter is <code>parameter-name</code>. The results list only includes information about the DB cluster parameters with these names.</p>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -2076,7 +2077,8 @@ export interface DescribeDBParametersMessage {
   Source?: string | undefined;
 
   /**
-   * <p>This parameter isn't currently supported.</p>
+   * <p>A filter that specifies one or more DB parameters to describe.</p>
+   *          <p>The only supported filter is <code>parameter-name</code>. The results list only includes information about the DB parameters with these names.</p>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -4398,7 +4400,8 @@ export interface DescribeEngineDefaultParametersMessage {
   DBParameterGroupFamily: string | undefined;
 
   /**
-   * <p>This parameter isn't currently supported.</p>
+   * <p>A filter that specifies one or more parameters to describe.</p>
+   *          <p>The only supported filter is <code>parameter-name</code>. The results list only includes information about the parameters with these names.</p>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -7413,12 +7416,50 @@ export interface ModifyCustomDBEngineVersionMessage {
 export interface CloudwatchLogsExportConfiguration {
   /**
    * <p>The list of log types to enable.</p>
+   *          <p>The following values are valid for each DB engine:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Aurora MySQL - <code>audit | error | general | slowquery</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Aurora PostgreSQL - <code>postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for MySQL - <code>error | general | slowquery</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for PostgreSQL - <code>postgresql | upgrade</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   EnableLogTypes?: string[] | undefined;
 
   /**
    * <p>The list of log types to disable.</p>
+   *          <p>The following values are valid for each DB engine:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Aurora MySQL - <code>audit | error | general | slowquery</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Aurora PostgreSQL - <code>postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for MySQL - <code>error | general | slowquery</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for PostgreSQL - <code>postgresql | upgrade</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   DisableLogTypes?: string[] | undefined;
@@ -7863,7 +7904,7 @@ export interface ModifyDBClusterMessage {
   /**
    * <p>Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window.
    *             By default, minor engine upgrades are applied automatically.</p>
-   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
@@ -7895,7 +7936,13 @@ export interface ModifyDBClusterMessage {
   MonitoringRoleArn?: string | undefined;
 
   /**
-   * <p>Specifies the mode of Database Insights to enable for the cluster.</p>
+   * <p>Specifies the mode of Database Insights to enable for the DB cluster.</p>
+   *          <p>If you change the value from <code>standard</code> to <code>advanced</code>, you must set the
+   *             <code>PerformanceInsightsEnabled</code> parameter to <code>true</code> and the
+   *             <code>PerformanceInsightsRetentionPeriod</code> parameter to 465.</p>
+   *          <p>If you change the value from <code>advanced</code> to <code>standard</code>, you must
+   *             set the <code>PerformanceInsightsEnabled</code> parameter to <code>false</code>.</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
    * @public
    */
   DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
@@ -7915,14 +7962,14 @@ export interface ModifyDBClusterMessage {
    *          <p>If you don't specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
    *             uses your default KMS key. There is a default KMS key for your Amazon Web Services account.
    *             Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
-   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    * @public
    */
   PerformanceInsightsKMSKeyId?: string | undefined;
 
   /**
    * <p>The number of days to retain Performance Insights data.</p>
-   *          <p>Valid for Cluster Type: Multi-AZ DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    *          <p>Valid Values:</p>
    *          <ul>
    *             <li>
@@ -9079,7 +9126,11 @@ export interface ModifyDBInstanceMessage {
   EnableIAMDatabaseAuthentication?: boolean | undefined;
 
   /**
-   * <p>Specifies the mode of Database Insights to enable for the instance.</p>
+   * <p>Specifies the mode of Database Insights to enable for the DB instance.</p>
+   *          <p>This setting only applies to Amazon Aurora DB instances.</p>
+   *          <note>
+   *             <p>Currently, this value is inherited from the DB cluster and can't be changed.</p>
+   *          </note>
    * @public
    */
   DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
@@ -9137,6 +9188,28 @@ export interface ModifyDBInstanceMessage {
    *          <p>A change to the <code>CloudwatchLogsExportConfiguration</code> parameter is always applied to the DB instance
    *             immediately. Therefore, the <code>ApplyImmediately</code> parameter has no effect.</p>
    *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
+   *          <p>The following values are valid for each DB engine:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Aurora MySQL - <code>audit | error | general | slowquery</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Aurora PostgreSQL - <code>postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for MySQL - <code>error | general | slowquery</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>RDS for PostgreSQL - <code>postgresql | upgrade</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">
+   *             Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
    * @public
    */
   CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration | undefined;
@@ -13198,6 +13271,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   /**
    * <p>The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow the allocation rules specified in
    *             CreateDBInstance.</p>
+   *          <p>This setting isn't valid for RDS for SQL Server.</p>
    *          <note>
    *             <p>Be sure to allocate enough storage for your new DB instance so that the restore operation can succeed. You can also
    *                 allocate additional storage for future growth.</p>
@@ -13293,6 +13367,7 @@ export interface RestoreDBInstanceFromS3Message {
   /**
    * <p>The amount of storage (in gibibytes) to allocate initially for the DB instance.
    *             Follow the allocation rules specified in <code>CreateDBInstance</code>.</p>
+   *          <p>This setting isn't valid for RDS for SQL Server.</p>
    *          <note>
    *             <p>Be sure to allocate enough storage for your new DB instance so that the restore operation can succeed.
    *                 You can also allocate additional storage for future growth.</p>
@@ -13678,7 +13753,11 @@ export interface RestoreDBInstanceFromS3Message {
   S3IngestionRoleArn: string | undefined;
 
   /**
-   * <p>Specifies the mode of Database Insights to enable for the instance.</p>
+   * <p>Specifies the mode of Database Insights to enable for the DB instance.</p>
+   *          <p>This setting only applies to Amazon Aurora DB instances.</p>
+   *          <note>
+   *             <p>Currently, this value is inherited from the DB cluster and can't be changed.</p>
+   *          </note>
    * @public
    */
   DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
@@ -14561,6 +14640,7 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   /**
    * <p>The amount of storage (in gibibytes) to allocate initially for the DB instance.
    *             Follow the allocation rules specified in <code>CreateDBInstance</code>.</p>
+   *          <p>This setting isn't valid for RDS for SQL Server.</p>
    *          <note>
    *             <p>Be sure to allocate enough storage for your new DB instance so that the restore operation can succeed.
    *                 You can also allocate additional storage for future growth.</p>
