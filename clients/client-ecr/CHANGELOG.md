@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.720.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.719.1...v3.720.0) (2024-12-28)
+
+
+### Features
+
+* **client-ecr:** Restoring custom endpoint functionality for ECR ([53504cc](https://github.com/aws/aws-sdk-js-v3/commit/53504cc1cb6a79409b3f4007c6e1846f759883c4))
+
+
+
+
+
 # [3.719.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.718.0...v3.719.0) (2024-12-26)
 
 
