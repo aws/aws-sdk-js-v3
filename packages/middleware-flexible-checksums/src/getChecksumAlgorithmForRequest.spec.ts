@@ -1,6 +1,6 @@
 import { describe, expect, test as it } from "vitest";
 
-import { ChecksumAlgorithm } from "./constants";
+import { ChecksumAlgorithm, DEFAULT_CHECKSUM_ALGORITHM } from "./constants";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { CLIENT_SUPPORTED_ALGORITHMS } from "./types";
 
@@ -8,8 +8,8 @@ describe(getChecksumAlgorithmForRequest.name, () => {
   const mockRequestAlgorithmMember = "mockRequestAlgorithmMember";
 
   describe("when requestAlgorithmMember is not provided", () => {
-    it("returns MD5 if requestChecksumRequired is set", () => {
-      expect(getChecksumAlgorithmForRequest({}, { requestChecksumRequired: true })).toEqual(ChecksumAlgorithm.MD5);
+    it(`returns ${DEFAULT_CHECKSUM_ALGORITHM} if requestChecksumRequired is set`, () => {
+      expect(getChecksumAlgorithmForRequest({}, { requestChecksumRequired: true })).toEqual(DEFAULT_CHECKSUM_ALGORITHM);
     });
 
     it("returns undefined if requestChecksumRequired is false", () => {
@@ -20,9 +20,9 @@ describe(getChecksumAlgorithmForRequest.name, () => {
   describe("when requestAlgorithmMember is not set in input", () => {
     const mockOptions = { requestAlgorithmMember: mockRequestAlgorithmMember };
 
-    it("returns MD5 if requestChecksumRequired is set", () => {
+    it(`returns ${DEFAULT_CHECKSUM_ALGORITHM} if requestChecksumRequired is set`, () => {
       expect(getChecksumAlgorithmForRequest({}, { ...mockOptions, requestChecksumRequired: true })).toEqual(
-        ChecksumAlgorithm.MD5
+        DEFAULT_CHECKSUM_ALGORITHM
       );
     });
 
