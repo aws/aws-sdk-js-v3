@@ -5,6 +5,9 @@ import {
   FromCognitoIdentityParameters as _FromCognitoIdentityParameters,
 } from "@aws-sdk/credential-provider-cognito-identity";
 
+/**
+ * @public
+ */
 export interface FromCognitoIdentityParameters extends Omit<_FromCognitoIdentityParameters, "client"> {
   /**
    * Custom client configuration if you need overwrite default Cognito Identity client configuration.
@@ -48,6 +51,8 @@ export type CognitoIdentityCredentialProvider = _CognitoIdentityCredentialProvid
  *   }),
  * });
  * ```
+ *
+ * @public
  */
 export const fromCognitoIdentity = (options: FromCognitoIdentityParameters): CognitoIdentityCredentialProvider =>
   _fromCognitoIdentity({

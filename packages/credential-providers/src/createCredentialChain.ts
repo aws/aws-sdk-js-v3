@@ -55,6 +55,8 @@ type Mutable<Type> = {
  * @param credentialProviders - one or more credential providers.
  * @returns a single AwsCredentialIdentityProvider that calls the given
  * providers in sequence until one succeeds or all fail.
+ *
+ * @public
  */
 export const createCredentialChain = (
   ...credentialProviders: RuntimeConfigAwsCredentialIdentityProvider[]

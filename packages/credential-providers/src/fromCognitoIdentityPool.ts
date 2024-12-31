@@ -48,6 +48,8 @@ export interface FromCognitoIdentityPoolParameters extends Omit<_FromCognitoIden
  *   }),
  * });
  * ```
+ *
+ * @public
  */
 export const fromCognitoIdentityPool = (
   options: FromCognitoIdentityPoolParameters

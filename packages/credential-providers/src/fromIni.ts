@@ -39,6 +39,8 @@ import type { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types"
  *   }),
  * });
  * ```
+ *
+ * @public
  */
 export const fromIni = (init: FromIniInit = {}): RuntimeConfigAwsCredentialIdentityProvider =>
   _fromIni({

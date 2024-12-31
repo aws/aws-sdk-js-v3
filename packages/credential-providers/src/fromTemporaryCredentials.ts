@@ -50,6 +50,8 @@ export interface FromTemporaryCredentialsOptions extends CredentialProviderOptio
  *   ),
  * });
  * ```
+ *
+ * @public
  */
 export const fromTemporaryCredentials = (options: FromTemporaryCredentialsOptions): AwsCredentialIdentityProvider => {
   let stsClient: STSClient;
