@@ -25,6 +25,8 @@ export interface RemoteProviderInit extends _RemoteProviderInit, CredentialProvi
  *   }),
  * });
  * ```
+ *
+ * @public
  */
 export const fromContainerMetadata = (init?: RemoteProviderInit): AwsCredentialIdentityProvider => {
   init?.logger?.debug("@smithy/credential-provider-imds", "fromContainerMetadata");

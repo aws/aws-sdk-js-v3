@@ -7,6 +7,7 @@ export interface FromStaticInit extends CredentialProviderOptions {
 
 /**
  * Creates a token provider that will read from static token.
+ * @public
  */
 export const fromStatic =
   ({ token, logger }: FromStaticInit): TokenIdentityProvider =>

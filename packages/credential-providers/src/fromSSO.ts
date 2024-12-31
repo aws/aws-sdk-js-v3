@@ -41,6 +41,8 @@ import { AwsCredentialIdentityProvider } from "@smithy/types";
  *   }),
  * });
  * ```
+ *
+ * @public
  */
 export const fromSSO = (init: FromSSOInit = {}): AwsCredentialIdentityProvider => {
   return _fromSSO({ ...init });

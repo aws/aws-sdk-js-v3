@@ -282,7 +282,7 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler<XhrHttpH
 
 /**
  * Used to omit headers that will be ignored by XHR to prevent excessive logging.
- * @private
+ * @internal
  */
 const isForbiddenRequestHeader = (header: string): boolean => {
   header = header.toLowerCase();
@@ -296,7 +296,7 @@ const isForbiddenRequestHeader = (header: string): boolean => {
 };
 
 /**
- * @private
+ * @internal
  */
 const forbiddenHeaders = [
   "Accept-Charset",

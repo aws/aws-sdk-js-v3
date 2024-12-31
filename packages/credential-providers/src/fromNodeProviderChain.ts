@@ -31,6 +31,8 @@ import type { AwsCredentialIdentityProvider } from "@smithy/types";
  *   clientPlugins: [addFooHeadersPlugin],
  * })
  * ```
+ *
+ * @public
  */
 export const fromNodeProviderChain = (init: DefaultProviderInit = {}): AwsCredentialIdentityProvider =>
   defaultProvider({

@@ -249,7 +249,7 @@ export const validateNoFIPS = (useFipsEndpoint?: boolean) => {
 
 /**
  * Validate the multi-region access point alias.
- * @private
+ * @internal
  */
 export const validateMrapAlias = (name: string) => {
   try {

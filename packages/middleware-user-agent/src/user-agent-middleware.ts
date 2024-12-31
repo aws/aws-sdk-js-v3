@@ -99,7 +99,7 @@ export const userAgentMiddleware =
 /**
  * Escape the each pair according to https://tools.ietf.org/html/rfc5234 and join the pair with pattern `name/version`.
  * User agent name may include prefix like `md/`, `api/`, `os/` etc., we should not escape the `/` after the prefix.
- * @private
+ * @internal
  */
 const escapeUserAgent = (userAgentPair: UserAgentPair): string => {
   const name = userAgentPair[0]
