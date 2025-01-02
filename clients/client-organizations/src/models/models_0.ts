@@ -893,6 +893,7 @@ export const ConstraintViolationExceptionReason = {
   ACCOUNT_CREATION_NOT_COMPLETE: "ACCOUNT_CREATION_NOT_COMPLETE",
   ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED: "ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED",
   ACCOUNT_NUMBER_LIMIT_EXCEEDED: "ACCOUNT_NUMBER_LIMIT_EXCEEDED",
+  ALL_FEATURES_MIGRATION_ORGANIZATION_SIZE_LIMIT_EXCEEDED: "ALL_FEATURES_MIGRATION_ORGANIZATION_SIZE_LIMIT_EXCEEDED",
   CANNOT_CLOSE_MANAGEMENT_ACCOUNT: "CANNOT_CLOSE_MANAGEMENT_ACCOUNT",
   CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: "CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR",
   CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR:
@@ -978,6 +979,11 @@ export type ConstraintViolationExceptionReason =
  *                         creating the organization, wait one hour and try again. After an hour, if
  *                         the command continues to fail with this error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                </important>
+ *             </li>
+ *             <li>
+ *                <p>ALL_FEATURES_MIGRATION_ORGANIZATION_SIZE_LIMIT_EXCEEDED:
+ *                     Your organization has more than 5000 accounts, and you can only use the standard migration process for organizations with less than 5000 accounts.
+ *                     Use the assisted migration process to enable all features mode, or create a support case for assistance if you are unable to use assisted migration.</p>
  *             </li>
  *             <li>
  *                <p>CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR: You cannot
