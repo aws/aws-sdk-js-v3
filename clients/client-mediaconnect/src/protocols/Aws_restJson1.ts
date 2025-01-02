@@ -138,7 +138,9 @@ import {
   AddMaintenance,
   AddMediaStreamRequest,
   AddOutputRequest,
+  AudioMonitoringSetting,
   BadRequestException,
+  BlackFrames,
   Bridge,
   BridgeFlowOutput,
   BridgeFlowSource,
@@ -163,6 +165,7 @@ import {
   FmtpRequest,
   ForbiddenException,
   FrameResolution,
+  FrozenFrames,
   Gateway,
   GatewayBridgeSource,
   GatewayInstance,
@@ -200,6 +203,7 @@ import {
   ServiceUnavailableException,
   SetGatewayBridgeSourceRequest,
   SetSourceRequest,
+  SilentAudio,
   Source,
   SourcePriority,
   ThumbnailDetails,
@@ -217,6 +221,7 @@ import {
   UpdateGatewayBridgeSourceRequest,
   UpdateIngressGatewayBridgeRequest,
   UpdateMaintenance,
+  VideoMonitoringSetting,
   VpcInterface,
   VpcInterfaceAttachment,
   VpcInterfaceRequest,
@@ -2772,6 +2777,17 @@ const se___listOfAddOutputRequest = (input: AddOutputRequest[], context: __Serde
 };
 
 /**
+ * serializeAws_restJson1__listOfAudioMonitoringSetting
+ */
+const se___listOfAudioMonitoringSetting = (input: AudioMonitoringSetting[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_AudioMonitoringSetting(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1__listOfDestinationConfigurationRequest
  */
 const se___listOfDestinationConfigurationRequest = (
@@ -2854,6 +2870,17 @@ const se___listOfSetSourceRequest = (input: SetSourceRequest[], context: __Serde
     .filter((e: any) => e != null)
     .map((entry) => {
       return se_SetSourceRequest(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfVideoMonitoringSetting
+ */
+const se___listOfVideoMonitoringSetting = (input: VideoMonitoringSetting[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_VideoMonitoringSetting(entry, context);
     });
 };
 
@@ -3001,6 +3028,25 @@ const se_AddOutputRequest = (input: AddOutputRequest, context: __SerdeContext): 
 };
 
 /**
+ * serializeAws_restJson1AudioMonitoringSetting
+ */
+const se_AudioMonitoringSetting = (input: AudioMonitoringSetting, context: __SerdeContext): any => {
+  return take(input, {
+    silentAudio: [, (_) => se_SilentAudio(_, context), `SilentAudio`],
+  });
+};
+
+/**
+ * serializeAws_restJson1BlackFrames
+ */
+const se_BlackFrames = (input: BlackFrames, context: __SerdeContext): any => {
+  return take(input, {
+    state: [, , `State`],
+    thresholdSeconds: [, , `ThresholdSeconds`],
+  });
+};
+
+/**
  * serializeAws_restJson1DestinationConfigurationRequest
  */
 const se_DestinationConfigurationRequest = (input: DestinationConfigurationRequest, context: __SerdeContext): any => {
@@ -3062,6 +3108,16 @@ const se_FmtpRequest = (input: FmtpRequest, context: __SerdeContext): any => {
     range: [, , `Range`],
     scanMode: [, , `ScanMode`],
     tcs: [, , `Tcs`],
+  });
+};
+
+/**
+ * serializeAws_restJson1FrozenFrames
+ */
+const se_FrozenFrames = (input: FrozenFrames, context: __SerdeContext): any => {
+  return take(input, {
+    state: [, , `State`],
+    thresholdSeconds: [, , `ThresholdSeconds`],
   });
 };
 
@@ -3156,7 +3212,10 @@ const se_MediaStreamSourceConfigurationRequest = (
  */
 const se_MonitoringConfig = (input: MonitoringConfig, context: __SerdeContext): any => {
   return take(input, {
+    audioMonitoringSettings: [, (_) => se___listOfAudioMonitoringSetting(_, context), `AudioMonitoringSettings`],
+    contentQualityAnalysisState: [, , `ContentQualityAnalysisState`],
     thumbnailState: [, , `ThumbnailState`],
+    videoMonitoringSettings: [, (_) => se___listOfVideoMonitoringSetting(_, context), `VideoMonitoringSettings`],
   });
 };
 
@@ -3207,6 +3266,16 @@ const se_SetSourceRequest = (input: SetSourceRequest, context: __SerdeContext): 
     streamId: [, , `StreamId`],
     vpcInterfaceName: [, , `VpcInterfaceName`],
     whitelistCidr: [, , `WhitelistCidr`],
+  });
+};
+
+/**
+ * serializeAws_restJson1SilentAudio
+ */
+const se_SilentAudio = (input: SilentAudio, context: __SerdeContext): any => {
+  return take(input, {
+    state: [, , `State`],
+    thresholdSeconds: [, , `ThresholdSeconds`],
   });
 };
 
@@ -3328,6 +3397,16 @@ const se_UpdateMaintenance = (input: UpdateMaintenance, context: __SerdeContext)
 };
 
 /**
+ * serializeAws_restJson1VideoMonitoringSetting
+ */
+const se_VideoMonitoringSetting = (input: VideoMonitoringSetting, context: __SerdeContext): any => {
+  return take(input, {
+    blackFrames: [, (_) => se_BlackFrames(_, context), `BlackFrames`],
+    frozenFrames: [, (_) => se_FrozenFrames(_, context), `FrozenFrames`],
+  });
+};
+
+/**
  * serializeAws_restJson1VpcInterfaceAttachment
  */
 const se_VpcInterfaceAttachment = (input: VpcInterfaceAttachment, context: __SerdeContext): any => {
@@ -3352,6 +3431,18 @@ const se_VpcInterfaceRequest = (input: VpcInterfaceRequest, context: __SerdeCont
 // de___listOf__integer omitted.
 
 // de___listOf__string omitted.
+
+/**
+ * deserializeAws_restJson1__listOfAudioMonitoringSetting
+ */
+const de___listOfAudioMonitoringSetting = (output: any, context: __SerdeContext): AudioMonitoringSetting[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AudioMonitoringSetting(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1__listOfBridgeOutput
@@ -3612,6 +3703,18 @@ const de___listOfTransportStreamProgram = (output: any, context: __SerdeContext)
 };
 
 /**
+ * deserializeAws_restJson1__listOfVideoMonitoringSetting
+ */
+const de___listOfVideoMonitoringSetting = (output: any, context: __SerdeContext): VideoMonitoringSetting[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_VideoMonitoringSetting(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfVpcInterface
  */
 const de___listOfVpcInterface = (output: any, context: __SerdeContext): VpcInterface[] => {
@@ -3624,6 +3727,25 @@ const de___listOfVpcInterface = (output: any, context: __SerdeContext): VpcInter
 };
 
 // de___mapOf__string omitted.
+
+/**
+ * deserializeAws_restJson1AudioMonitoringSetting
+ */
+const de_AudioMonitoringSetting = (output: any, context: __SerdeContext): AudioMonitoringSetting => {
+  return take(output, {
+    SilentAudio: [, (_: any) => de_SilentAudio(_, context), `silentAudio`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1BlackFrames
+ */
+const de_BlackFrames = (output: any, context: __SerdeContext): BlackFrames => {
+  return take(output, {
+    State: [, __expectString, `state`],
+    ThresholdSeconds: [, __expectInt32, `thresholdSeconds`],
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1Bridge
@@ -3835,6 +3957,16 @@ const de_FrameResolution = (output: any, context: __SerdeContext): FrameResoluti
   return take(output, {
     FrameHeight: [, __expectInt32, `frameHeight`],
     FrameWidth: [, __expectInt32, `frameWidth`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FrozenFrames
+ */
+const de_FrozenFrames = (output: any, context: __SerdeContext): FrozenFrames => {
+  return take(output, {
+    State: [, __expectString, `state`],
+    ThresholdSeconds: [, __expectInt32, `thresholdSeconds`],
   }) as any;
 };
 
@@ -4071,7 +4203,10 @@ const de_Messages = (output: any, context: __SerdeContext): Messages => {
  */
 const de_MonitoringConfig = (output: any, context: __SerdeContext): MonitoringConfig => {
   return take(output, {
+    AudioMonitoringSettings: [, (_: any) => de___listOfAudioMonitoringSetting(_, context), `audioMonitoringSettings`],
+    ContentQualityAnalysisState: [, __expectString, `contentQualityAnalysisState`],
     ThumbnailState: [, __expectString, `thumbnailState`],
+    VideoMonitoringSettings: [, (_: any) => de___listOfVideoMonitoringSetting(_, context), `videoMonitoringSettings`],
   }) as any;
 };
 
@@ -4156,6 +4291,16 @@ const de_ResourceSpecification = (output: any, context: __SerdeContext): Resourc
   return take(output, {
     ReservedBitrate: [, __expectInt32, `reservedBitrate`],
     ResourceType: [, __expectString, `resourceType`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SilentAudio
+ */
+const de_SilentAudio = (output: any, context: __SerdeContext): SilentAudio => {
+  return take(output, {
+    State: [, __expectString, `state`],
+    ThresholdSeconds: [, __expectInt32, `thresholdSeconds`],
   }) as any;
 };
 
@@ -4264,6 +4409,16 @@ const de_TransportStreamProgram = (output: any, context: __SerdeContext): Transp
     ProgramNumber: [, __expectInt32, `programNumber`],
     ProgramPid: [, __expectInt32, `programPid`],
     Streams: [, (_: any) => de___listOfTransportStream(_, context), `streams`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VideoMonitoringSetting
+ */
+const de_VideoMonitoringSetting = (output: any, context: __SerdeContext): VideoMonitoringSetting => {
+  return take(output, {
+    BlackFrames: [, (_: any) => de_BlackFrames(_, context), `blackFrames`],
+    FrozenFrames: [, (_: any) => de_FrozenFrames(_, context), `frozenFrames`],
   }) as any;
 };
 

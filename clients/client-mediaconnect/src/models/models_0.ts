@@ -708,6 +708,50 @@ export interface AddOutputRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const State = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type State = (typeof State)[keyof typeof State];
+
+/**
+ * Configures settings for the SilentAudio metric.
+ * @public
+ */
+export interface SilentAudio {
+  /**
+   * Indicates whether the SilentAudio metric is enabled or disabled.
+   * @public
+   */
+  State?: State | undefined;
+
+  /**
+   * Specifies the number of consecutive seconds of silence that triggers an event or alert.
+   * @public
+   */
+  ThresholdSeconds?: number | undefined;
+}
+
+/**
+ * Specifies the configuration for audio stream metrics monitoring.
+ * @public
+ */
+export interface AudioMonitoringSetting {
+  /**
+   * Detects periods of silence.
+   * @public
+   */
+  SilentAudio?: SilentAudio | undefined;
+}
+
+/**
  * The output of the bridge. A flow output is delivered to the AWS cloud.
  * @public
  */
@@ -2378,6 +2422,60 @@ export interface TransportStreamProgram {
 }
 
 /**
+ * Configures settings for the BlackFrames metric.
+ * @public
+ */
+export interface BlackFrames {
+  /**
+   * Indicates whether the BlackFrames metric is enabled or disabled.
+   * @public
+   */
+  State?: State | undefined;
+
+  /**
+   * Specifies the number of consecutive seconds of black frames that triggers an event or alert.
+   * @public
+   */
+  ThresholdSeconds?: number | undefined;
+}
+
+/**
+ * Configures settings for the FrozenFrames metric.
+ * @public
+ */
+export interface FrozenFrames {
+  /**
+   * Indicates whether the FrozenFrames metric is enabled or disabled.
+   * @public
+   */
+  State?: State | undefined;
+
+  /**
+   * Specifies the number of consecutive seconds of a static image that triggers an event or alert.
+   * @public
+   */
+  ThresholdSeconds?: number | undefined;
+}
+
+/**
+ * Specifies the configuration for video stream metrics monitoring.
+ * @public
+ */
+export interface VideoMonitoringSetting {
+  /**
+   * Detects video frames that are black.
+   * @public
+   */
+  BlackFrames?: BlackFrames | undefined;
+
+  /**
+   * Detects video frames that have not changed.
+   * @public
+   */
+  FrozenFrames?: FrozenFrames | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -3000,20 +3098,6 @@ export interface SourcePriority {
 }
 
 /**
- * @public
- * @enum
- */
-export const State = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type State = (typeof State)[keyof typeof State];
-
-/**
  * The settings for source failover.
  * @public
  */
@@ -3112,6 +3196,21 @@ export const ConnectionStatus = {
  * @public
  */
 export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentQualityAnalysisState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentQualityAnalysisState =
+  (typeof ContentQualityAnalysisState)[keyof typeof ContentQualityAnalysisState];
 
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
@@ -3248,6 +3347,24 @@ export interface MonitoringConfig {
    * @public
    */
   ThumbnailState?: ThumbnailState | undefined;
+
+  /**
+   * Contains the settings for audio stream metrics monitoring.
+   * @public
+   */
+  AudioMonitoringSettings?: AudioMonitoringSetting[] | undefined;
+
+  /**
+   * Indicates whether content quality analysis is enabled or disabled.
+   * @public
+   */
+  ContentQualityAnalysisState?: ContentQualityAnalysisState | undefined;
+
+  /**
+   * Contains the settings for video stream metrics monitoring.
+   * @public
+   */
+  VideoMonitoringSettings?: VideoMonitoringSetting[] | undefined;
 }
 
 /**

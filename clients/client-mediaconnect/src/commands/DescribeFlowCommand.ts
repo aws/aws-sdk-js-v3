@@ -317,6 +317,27 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //     },
  * //     SourceMonitoringConfig: { // MonitoringConfig
  * //       ThumbnailState: "ENABLED" || "DISABLED",
+ * //       AudioMonitoringSettings: [ // __listOfAudioMonitoringSetting
+ * //         { // AudioMonitoringSetting
+ * //           SilentAudio: { // SilentAudio
+ * //             State: "ENABLED" || "DISABLED",
+ * //             ThresholdSeconds: Number("int"),
+ * //           },
+ * //         },
+ * //       ],
+ * //       ContentQualityAnalysisState: "ENABLED" || "DISABLED",
+ * //       VideoMonitoringSettings: [ // __listOfVideoMonitoringSetting
+ * //         { // VideoMonitoringSetting
+ * //           BlackFrames: { // BlackFrames
+ * //             State: "ENABLED" || "DISABLED",
+ * //             ThresholdSeconds: Number("int"),
+ * //           },
+ * //           FrozenFrames: { // FrozenFrames
+ * //             State: "ENABLED" || "DISABLED",
+ * //             ThresholdSeconds: Number("int"),
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * //   Messages: { // Messages
