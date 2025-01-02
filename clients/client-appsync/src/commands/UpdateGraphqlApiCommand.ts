@@ -43,7 +43,7 @@ export interface UpdateGraphqlApiCommandOutput extends UpdateGraphqlApiResponse,
  *     cloudWatchLogsRoleArn: "STRING_VALUE", // required
  *     excludeVerboseContent: true || false,
  *   },
- *   authenticationType: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT" || "AWS_LAMBDA",
+ *   authenticationType: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT" || "AWS_LAMBDA", // required
  *   userPoolConfig: { // UserPoolConfig
  *     userPoolId: "STRING_VALUE", // required
  *     awsRegion: "STRING_VALUE", // required
