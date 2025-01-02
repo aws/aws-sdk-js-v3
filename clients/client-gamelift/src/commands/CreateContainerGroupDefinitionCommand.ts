@@ -41,7 +41,7 @@ export interface CreateContainerGroupDefinitionCommandOutput
  * <p>Creates a <code>ContainerGroupDefinition</code> that describes a set of containers for
  *       hosting your game server with Amazon GameLift managed containers hosting. An Amazon GameLift container group
  *       is similar to a container task or pod. Use container group definitions when you create a
- *       container fleet with <a>CreateContainerFleet</a>. </p>
+ *       container fleet with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerFleet.html">CreateContainerFleet</a>. </p>
  *          <p>A container group definition determines how Amazon GameLift deploys your containers to each
  *       instance in a container fleet. You can maintain multiple versions of a container group
  *       definition.</p>
@@ -188,7 +188,7 @@ export interface CreateContainerGroupDefinitionCommandOutput
  *          </p>
  *          <p>If successful, this request creates a <code>ContainerGroupDefinition</code> resource and
  *       assigns a unique ARN value. You can update most properties of a container group definition by
- *       calling <a>UpdateContainerGroupDefinition</a>, and optionally save the update as a new version.</p>
+ *       calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerGroupDefinition.html">UpdateContainerGroupDefinition</a>, and optionally save the update as a new version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -39,8 +39,6 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  *                 <code>InboundPermissionAuthorizations</code>, and permissions you want to remove in
  *                 <code>InboundPermissionRevocations</code>. Permissions to be removed must match
  *             existing fleet permissions. </p>
- *          <p>For a container fleet, inbound permissions must specify port numbers that are defined
- *             in the fleet's connection port settings.</p>
  *          <p>If successful, the fleet ID for the updated fleet is returned. For fleets with remote
  *             locations, port setting updates can take time to propagate across all locations. You can
  *             check the status of updates in each location by calling

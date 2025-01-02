@@ -40,7 +40,7 @@ export interface ListContainerGroupDefinitionsCommandOutput
  * <p>Retrieves container group definitions for the Amazon Web Services account and Amazon Web Services Region. Use the pagination parameters to retrieve results in a set of sequential
  *       pages.</p>
  *          <p>This operation returns only the latest version of each definition. To retrieve all
- *       versions of a container group definition, use <a>ListContainerGroupDefinitionVersions</a>.</p>
+ *       versions of a container group definition, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitionVersions.html">ListContainerGroupDefinitionVersions</a>.</p>
  *          <p>
  *             <b>Request options:</b>
  *          </p>
@@ -61,16 +61,6 @@ export interface ListContainerGroupDefinitionsCommandOutput
  *          <note>
  *             <p>This operation returns the list of container group definitions in no particular order. </p>
  *          </note>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-create-groups.html">Manage a container group definition</a>
- *                </p>
- *             </li>
- *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

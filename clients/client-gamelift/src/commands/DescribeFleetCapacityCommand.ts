@@ -32,7 +32,7 @@ export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacit
  *             fleet, this operation also returns counts for game server container groups.</p>
  *          <p>With multi-location fleets, this operation retrieves data for the fleet's home Region
  *             only. To retrieve capacity for remote locations, see
- *             <a>DescribeFleetLocationCapacity</a>.</p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html">https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html</a>.</p>
  *          <p>This operation can be used in the following ways: </p>
  *          <ul>
  *             <li>

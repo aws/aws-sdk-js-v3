@@ -337,6 +337,10 @@ import {
   SuspendGameServerGroupCommandOutput,
 } from "./commands/SuspendGameServerGroupCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  TerminateGameSessionCommandInput,
+  TerminateGameSessionCommandOutput,
+} from "./commands/TerminateGameSessionCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
 import { UpdateBuildCommandInput, UpdateBuildCommandOutput } from "./commands/UpdateBuildCommand";
@@ -499,6 +503,7 @@ export type ServiceInputTypes =
   | StopMatchmakingCommandInput
   | SuspendGameServerGroupCommandInput
   | TagResourceCommandInput
+  | TerminateGameSessionCommandInput
   | UntagResourceCommandInput
   | UpdateAliasCommandInput
   | UpdateBuildCommandInput
@@ -621,6 +626,7 @@ export type ServiceOutputTypes =
   | StopMatchmakingCommandOutput
   | SuspendGameServerGroupCommandOutput
   | TagResourceCommandOutput
+  | TerminateGameSessionCommandOutput
   | UntagResourceCommandOutput
   | UpdateAliasCommandOutput
   | UpdateBuildCommandOutput

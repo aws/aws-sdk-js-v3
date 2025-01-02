@@ -1070,6 +1070,14 @@ TagResource
 </details>
 <details>
 <summary>
+TerminateGameSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/TerminateGameSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/TerminateGameSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/TerminateGameSessionCommandOutput/)
+
+</details>
+<details>
+<summary>
 UntagResource
 </summary>
 

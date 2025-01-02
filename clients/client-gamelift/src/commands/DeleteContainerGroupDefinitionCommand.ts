@@ -33,8 +33,7 @@ export interface DeleteContainerGroupDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes a container group definition. You can delete a container group definition if there
- *       are no fleets using the definition. </p>
+ * <p>Deletes a container group definition. </p>
  *          <p>
  *             <b>Request options:</b>
  *          </p>
@@ -52,6 +51,22 @@ export interface DeleteContainerGroupDefinitionCommandOutput
  *           definition name and the number of versions to retain. For example, set
  *             <code>VersionCountToRetain</code> to 5 to delete all but the five most recent
  *           versions.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Result</b>
+ *          </p>
+ *          <p>If successful, Amazon GameLift removes the container group definition versions that you request deletion for.
+ *     This request will fail for any requested versions if the following is true: </p>
+ *          <ul>
+ *             <li>
+ *                <p>If the version is being used in an active fleet</p>
+ *             </li>
+ *             <li>
+ *                <p>If the version is being deployed to a fleet in a deployment that's currently in progress.</p>
+ *             </li>
+ *             <li>
+ *                <p>If the version is designated as a rollback definition in a fleet deployment that's currently in progress.</p>
  *             </li>
  *          </ul>
  *          <p>

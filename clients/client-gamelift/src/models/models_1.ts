@@ -1337,6 +1337,81 @@ export interface TagResourceResponse {}
 
 /**
  * @public
+ * @enum
+ */
+export const TerminationMode = {
+  FORCE_TERMINATE: "FORCE_TERMINATE",
+  TRIGGER_ON_PROCESS_TERMINATE: "TRIGGER_ON_PROCESS_TERMINATE",
+} as const;
+
+/**
+ * @public
+ */
+export type TerminationMode = (typeof TerminationMode)[keyof typeof TerminationMode];
+
+/**
+ * @public
+ */
+export interface TerminateGameSessionInput {
+  /**
+   * <p>A unique identifier for the game session to be terminated. A game session ARN has the following format:
+   *     <code>arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token></code>.</p>
+   * @public
+   */
+  GameSessionId: string | undefined;
+
+  /**
+   * <p>The method to use to terminate the game session. Available methods include: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TRIGGER_ON_PROCESS_TERMINATE</code> – Sends an
+   *                         <code>OnProcessTerminate()</code> callback to the server process to initiate
+   *                     the normal game session shutdown sequence. At a minimum, the callback method
+   *                     must include a call to the server SDK action <code>ProcessEnding()</code>, which
+   *                     is how the server process signals that a game session is ending. If the server
+   *                     process doesn't call <code>ProcessEnding()</code>, this termination method won't
+   *                     be successful.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FORCE_TERMINATE</code> – Takes action to stop the server process, using
+   *                     existing methods to control how server processes run on an Amazon GameLift managed
+   *                     compute. </p>
+   *                <note>
+   *                   <p>This method is not available for game sessions that are running on
+   *                         Anywhere fleets unless the fleet is deployed with the Amazon GameLift Agent. In this
+   *                         scenario, a force terminate request results in an invalid or bad request
+   *                         exception.</p>
+   *                </note>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TerminationMode: TerminationMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TerminateGameSessionOutput {
+  /**
+   * <p>Properties describing a game session.</p>
+   *          <p>A game session in ACTIVE status can host players. When a game session ends, its status
+   *             is set to <code>TERMINATED</code>. </p>
+   *          <p>Amazon GameLift retains a game session resource for 30 days after the game session ends. You
+   *             can reuse idempotency token values after this time. Game session logs are retained for
+   *             14 days.</p>
+   *          <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+   *          </p>
+   * @public
+   */
+  GameSession?: GameSession | undefined;
+}
+
+/**
+ * @public
  */
 export interface UntagResourceRequest {
   /**
@@ -1454,7 +1529,11 @@ export interface UpdateContainerFleetInput {
    *             fleet to the latest version of a container group definition, you can use the name value.
    *             You can't remove a fleet's game server container group definition, you can only update
    *             or replace it with another definition.</p>
-   *          <p>Update a container group definition by calling <a>UpdateContainerGroupDefinition</a>. This operation creates a <a>ContainerGroupDefinition</a> resource with an incremented version. </p>
+   *          <p>Update a container group definition by calling
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerGroupDefinition.html">UpdateContainerGroupDefinition</a>.
+   *             This operation creates a
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html">ContainerGroupDefinition</a>
+   *             resource with an incremented version. </p>
    * @public
    */
   GameServerContainerGroupDefinitionName?: string | undefined;
@@ -1465,7 +1544,11 @@ export interface UpdateContainerFleetInput {
    *             definition, use the ARN value and include the version number. If you're updating the
    *             fleet to the latest version of a container group definition, you can use the name
    *             value.</p>
-   *          <p>Update a container group definition by calling <a>UpdateContainerGroupDefinition</a>. This operation creates a <a>ContainerGroupDefinition</a> resource with an incremented version. </p>
+   *          <p>Update a container group definition by calling
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerGroupDefinition.html">UpdateContainerGroupDefinition</a>.
+   *             This operation creates a
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html">ContainerGroupDefinition</a>
+   *             resource with an incremented version. </p>
    *          <p>To remove a fleet's per-instance container group definition, leave this parameter empty
    *             and use the parameter <code>RemoveAttributes</code>.</p>
    * @public
@@ -1670,7 +1753,7 @@ export interface UpdateFleetAttributesInput {
   /**
    * <p>The game session protection policy to apply to all new game sessions created in this
    *             fleet. Game sessions that already exist are not affected. You can set protection for
-   *             individual game sessions using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a>.</p>
+   *             individual game sessions using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a> .</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2018,12 +2101,12 @@ export interface UpdateGameSessionInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>NoProtection</b> -- The game session can be
-   *                     terminated during a scale-down event.</p>
+   *                   <code>NoProtection</code> -- The game session can be terminated during a
+   *                     scale-down event.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>FullProtection</b> -- If the game session is in an
+   *                   <code>FullProtection</code> -- If the game session is in an
    *                         <code>ACTIVE</code> status, it cannot be terminated during a scale-down
    *                     event.</p>
    *             </li>
@@ -2498,6 +2581,14 @@ export const StopGameSessionPlacementOutputFilterSensitiveLog = (obj: StopGameSe
   ...(obj.GameSessionPlacement && {
     GameSessionPlacement: GameSessionPlacementFilterSensitiveLog(obj.GameSessionPlacement),
   }),
+});
+
+/**
+ * @internal
+ */
+export const TerminateGameSessionOutputFilterSensitiveLog = (obj: TerminateGameSessionOutput): any => ({
+  ...obj,
+  ...(obj.GameSession && { GameSession: GameSessionFilterSensitiveLog(obj.GameSession) }),
 });
 
 /**

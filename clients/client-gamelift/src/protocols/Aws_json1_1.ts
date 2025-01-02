@@ -309,6 +309,10 @@ import {
   SuspendGameServerGroupCommandOutput,
 } from "../commands/SuspendGameServerGroupCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import {
+  TerminateGameSessionCommandInput,
+  TerminateGameSessionCommandOutput,
+} from "../commands/TerminateGameSessionCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "../commands/UpdateAliasCommand";
 import { UpdateBuildCommandInput, UpdateBuildCommandOutput } from "../commands/UpdateBuildCommand";
@@ -597,6 +601,8 @@ import {
   SuspendGameServerGroupInput,
   SuspendGameServerGroupOutput,
   TagResourceRequest,
+  TerminateGameSessionInput,
+  TerminateGameSessionOutput,
   UntagResourceRequest,
   UpdateAliasInput,
   UpdateAliasOutput,
@@ -1932,6 +1938,19 @@ export const se_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1TerminateGameSessionCommand
+ */
+export const se_TerminateGameSessionCommand = async (
+  input: TerminateGameSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TerminateGameSession");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4148,6 +4167,26 @@ export const de_TagResourceCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1TerminateGameSessionCommand
+ */
+export const de_TerminateGameSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TerminateGameSessionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_TerminateGameSessionOutput(data, context);
+  const response: TerminateGameSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -5364,6 +5403,8 @@ const se_TargetTrackingConfiguration = (input: TargetTrackingConfiguration, cont
     TargetValue: __serializeFloat,
   });
 };
+
+// se_TerminateGameSessionInput omitted.
 
 // se_UntagResourceRequest omitted.
 
@@ -7023,6 +7064,15 @@ const de_TargetConfiguration = (output: any, context: __SerdeContext): TargetCon
 };
 
 // de_TerminalRoutingStrategyException omitted.
+
+/**
+ * deserializeAws_json1_1TerminateGameSessionOutput
+ */
+const de_TerminateGameSessionOutput = (output: any, context: __SerdeContext): TerminateGameSessionOutput => {
+  return take(output, {
+    GameSession: (_: any) => de_GameSession(_, context),
+  }) as any;
+};
 
 // de_UnauthorizedException omitted.
 

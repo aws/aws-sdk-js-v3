@@ -55,7 +55,7 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  *          <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
  *          <p>If successful, a <code>GameSession</code> object is returned for each game session
  *             that matches the request. Search finds game sessions that are in <code>ACTIVE</code>
- *             status only. To retrieve information on game sessions in other statuses, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessions.html">DescribeGameSessions</a> .</p>
+ *             status only. To retrieve information on game sessions in other statuses, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessions.html">DescribeGameSessions</a>.</p>
  *          <p>To set search and sort criteria, create a filter expression using the following game session attributes. For game session search examples, see the Examples section of this topic.</p>
  *          <ul>
  *             <li>
@@ -72,7 +72,7 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  *                <p>
  *                   <b>gameSessionProperties</b> -- A set of key-value pairs that can store custom data in a game session.
  *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.
- *                     The filter expression must specify the <a>GameProperty</a> -- a <code>Key</code> and a string <code>Value</code> to search for the game sessions.</p>
+ *                     The filter expression must specify the <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GameProperty">https://docs.aws.amazon.com/gamelift/latest/apireference/API_GameProperty</a> -- a <code>Key</code> and a string <code>Value</code> to search for the game sessions.</p>
  *                <p>For example, to search for the above key-value pair, specify the following search filter: <code>gameSessionProperties.difficulty = "novice"</code>.
  *                     All game property values are searched as strings.</p>
  *                <p>
@@ -143,7 +143,7 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  * //       CurrentPlayerSessionCount: Number("int"),
  * //       MaximumPlayerSessionCount: Number("int"),
  * //       Status: "ACTIVE" || "ACTIVATING" || "TERMINATED" || "TERMINATING" || "ERROR",
- * //       StatusReason: "INTERRUPTED",
+ * //       StatusReason: "INTERRUPTED" || "TRIGGERED_ON_PROCESS_TERMINATE" || "FORCE_TERMINATED",
  * //       GameProperties: [ // GamePropertyList
  * //         { // GameProperty
  * //           Key: "STRING_VALUE", // required

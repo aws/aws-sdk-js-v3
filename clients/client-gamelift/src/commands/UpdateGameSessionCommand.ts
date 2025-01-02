@@ -71,7 +71,7 @@ export interface UpdateGameSessionCommandOutput extends UpdateGameSessionOutput,
  * //     CurrentPlayerSessionCount: Number("int"),
  * //     MaximumPlayerSessionCount: Number("int"),
  * //     Status: "ACTIVE" || "ACTIVATING" || "TERMINATED" || "TERMINATING" || "ERROR",
- * //     StatusReason: "INTERRUPTED",
+ * //     StatusReason: "INTERRUPTED" || "TRIGGERED_ON_PROCESS_TERMINATE" || "FORCE_TERMINATED",
  * //     GameProperties: [ // GamePropertyList
  * //       { // GameProperty
  * //         Key: "STRING_VALUE", // required

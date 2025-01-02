@@ -79,7 +79,7 @@ export interface UpdateContainerGroupDefinitionCommandOutput
  *       definition version.</p>
  *          <p>If the container group definition version is used in an active fleets, the update
  *       automatically initiates a new fleet deployment of the new version. You can track a fleet's
- *       deployments using <a>ListFleetDeployments</a>.</p>
+ *       deployments using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListFleetDeployments.html">ListFleetDeployments</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

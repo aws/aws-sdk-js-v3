@@ -28,7 +28,8 @@ export interface ListFleetDeploymentsCommandInput extends ListFleetDeploymentsIn
 export interface ListFleetDeploymentsCommandOutput extends ListFleetDeploymentsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a collection of container fleet deployments in an Amazon Web Services Region. </p>
+ * <p>Retrieves a collection of container fleet deployments in an Amazon Web Services Region. Use the
+ *             pagination parameters to retrieve results as a set of sequential pages.  </p>
  *          <p>
  *             <b>Request options</b>
  *          </p>
@@ -39,12 +40,7 @@ export interface ListFleetDeploymentsCommandOutput extends ListFleetDeploymentsO
  *             <li>
  *                <p>Get a list of all deployments for a fleet. Specify the container fleet ID or ARN value.</p>
  *             </li>
- *             <li>
- *                <p>To get a list of all Realtime Servers fleets with a specific configuration script,
- *                     provide the script ID. </p>
- *             </li>
  *          </ul>
- *          <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
  *          <p>
  *             <b>Results</b>
  *          </p>
@@ -52,7 +48,7 @@ export interface ListFleetDeploymentsCommandOutput extends ListFleetDeploymentsO
  *             parameters. A NextToken value is also returned if there are more result pages to
  *             retrieve.</p>
  *          <note>
- *             <p>Fleet IDs are returned in no particular order.</p>
+ *             <p>Deployments are returned starting with the latest.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

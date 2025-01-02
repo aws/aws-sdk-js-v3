@@ -35,7 +35,7 @@ export interface UpdateContainerFleetCommandOutput extends UpdateContainerFleetO
 /**
  * <p>Updates the properties of a managed container fleet. Depending on the properties being
  *             updated, this operation might initiate a fleet deployment. You can track deployments for
- *             a fleet using <a>DescribeFleetDeployment</a>.</p>
+ *             a fleet using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetDeployment.html">https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetDeployment.html</a>.</p>
  *          <p>
  *             <b>Request options</b>
  *          </p>

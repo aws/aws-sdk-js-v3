@@ -100,6 +100,7 @@ export * from "./StopGameSessionPlacementCommand";
 export * from "./StopMatchmakingCommand";
 export * from "./SuspendGameServerGroupCommand";
 export * from "./TagResourceCommand";
+export * from "./TerminateGameSessionCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateAliasCommand";
 export * from "./UpdateBuildCommand";

@@ -28,13 +28,13 @@ export interface CreateScriptCommandInput extends CreateScriptInput {}
 export interface CreateScriptCommandOutput extends CreateScriptOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a script resource for your Realtime Servers script. Realtime scripts are JavaScript files
- *             that provide configuration settings and optional custom game logic for your game. Script
- *             logic is executed during an active game session. To deploy Realtime Servers for hosting, create an
- *             Amazon GameLift managed fleet with the script.</p>
- *          <p>To create a script resource, specify a script name and provide the script file(s). The
- *             script files and all dependencies must be combined into a single .zip file. You can
- *             upload the .zip file from either of these locations: </p>
+ * <p>Creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that
+ *             provide configuration settings and optional custom game logic for your game. The script
+ *             is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is
+ *             executed during an active game session. </p>
+ *          <p>To create a new script record, specify a script name and provide the script file(s).
+ *             The script files and all dependencies must be zipped into a single file. You can pull
+ *             the zip file from either of these locations: </p>
  *          <ul>
  *             <li>
  *                <p>A locally available directory. Use the <i>ZipFile</i> parameter
@@ -47,8 +47,11 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  *                     to access your S3 bucket. </p>
  *             </li>
  *          </ul>
- *          <p>If the call is successful, Amazon GameLift creates a new script resource with a unique script
- *             ID. The script is uploaded to an Amazon S3 bucket that is owned by Amazon GameLift.</p>
+ *          <p>If the call is successful, a new script record is created with a unique script ID. If
+ *             the script file is provided as a local file, the file is uploaded to an Amazon GameLift-owned S3
+ *             bucket and the script record's storage location reflects this location. If the script
+ *             file is provided as an S3 bucket, Amazon GameLift accesses the file at this storage location as
+ *             needed for deployment.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>

@@ -35,7 +35,7 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  * <p>Creates a multiplayer game session for players in a specific fleet location. This
  *             operation prompts an available server process to start a game session and retrieves
  *             connection information for the new game session. As an alternative, consider using the
- *             Amazon GameLift game session placement feature with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a> , which uses the FleetIQ algorithm and queues to
+ *             Amazon GameLift game session placement feature with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a>, which uses the FleetIQ algorithm and queues to
  *             optimize the placement process.</p>
  *          <p>When creating a game session, you specify exactly where you want to place it and
  *             provide a set of game session configuration settings. The target fleet must be in
@@ -112,7 +112,7 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  * //     CurrentPlayerSessionCount: Number("int"),
  * //     MaximumPlayerSessionCount: Number("int"),
  * //     Status: "ACTIVE" || "ACTIVATING" || "TERMINATED" || "TERMINATING" || "ERROR",
- * //     StatusReason: "INTERRUPTED",
+ * //     StatusReason: "INTERRUPTED" || "TRIGGERED_ON_PROCESS_TERMINATE" || "FORCE_TERMINATED",
  * //     GameProperties: [ // GamePropertyList
  * //       { // GameProperty
  * //         Key: "STRING_VALUE", // required

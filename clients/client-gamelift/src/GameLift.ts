@@ -456,6 +456,11 @@ import {
 } from "./commands/SuspendGameServerGroupCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  TerminateGameSessionCommand,
+  TerminateGameSessionCommandInput,
+  TerminateGameSessionCommandOutput,
+} from "./commands/TerminateGameSessionCommand";
+import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
@@ -631,6 +636,7 @@ const commands = {
   StopMatchmakingCommand,
   SuspendGameServerGroupCommand,
   TagResourceCommand,
+  TerminateGameSessionCommand,
   UntagResourceCommand,
   UpdateAliasCommand,
   UpdateBuildCommand,
@@ -2251,6 +2257,23 @@ export interface GameLift {
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TerminateGameSessionCommand}
+   */
+  terminateGameSession(
+    args: TerminateGameSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TerminateGameSessionCommandOutput>;
+  terminateGameSession(
+    args: TerminateGameSessionCommandInput,
+    cb: (err: any, data?: TerminateGameSessionCommandOutput) => void
+  ): void;
+  terminateGameSession(
+    args: TerminateGameSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TerminateGameSessionCommandOutput) => void
   ): void;
 
   /**

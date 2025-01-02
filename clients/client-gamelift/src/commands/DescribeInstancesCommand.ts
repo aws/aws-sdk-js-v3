@@ -35,7 +35,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesOutput,
  * <p>Retrieves information about the EC2 instances in an Amazon GameLift managed fleet, including
  *             instance ID, connection data, and status. You can use this operation with a
  *             multi-location fleet to get location-specific instance information. As an alternative,
- *             use the operations <a>ListCompute</a> and <a>DescribeCompute</a>
+ *             use the operations <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute">https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute</a> and <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeCompute">https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeCompute</a>
  *             to retrieve information for compute resources, including EC2 and Anywhere fleets.</p>
  *          <p>You can call this operation in the following ways:</p>
  *          <ul>
