@@ -48,7 +48,7 @@ export interface AddPermissionRequest {
 }
 
 /**
- * <p>The <code>accountId</code> is invalid.</p>
+ * <p>The specified ID is invalid.</p>
  * @public
  */
 export class InvalidAddress extends __BaseException {
@@ -68,7 +68,7 @@ export class InvalidAddress extends __BaseException {
 }
 
 /**
- * <p>When the request to a queue is not HTTPS and SigV4.</p>
+ * <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
  * @public
  */
 export class InvalidSecurity extends __BaseException {
@@ -111,7 +111,8 @@ export class OverLimit extends __BaseException {
 }
 
 /**
- * <p>The specified queue doesn't exist.</p>
+ * <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been
+ *             deleted.</p>
  * @public
  */
 export class QueueDoesNotExist extends __BaseException {
@@ -134,18 +135,13 @@ export class QueueDoesNotExist extends __BaseException {
  * <p>The request was denied due to request throttling.</p>
  *          <ul>
  *             <li>
- *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request
- *                     quota for an account and Region. </p>
+ *                <p>Exceeds the permitted request rate for the queue or for the recipient of the
+ *                     request.</p>
  *             </li>
  *             <li>
- *                <p>A burst or sustained high rate of requests to change the state of the same KMS
- *                     key. This condition is often known as a "hot key."</p>
- *             </li>
- *             <li>
- *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
- *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
- *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
- *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
+ *                <p>Ensure that the request rate is within the Amazon SQS limits for
+ *                     sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS
+ *                         Developer Guide</i>.</p>
  *             </li>
  *          </ul>
  * @public
@@ -484,7 +480,8 @@ export class InvalidBatchEntryId extends __BaseException {
 }
 
 /**
- * <p>The batch request contains more entries than permissible.</p>
+ * <p>The batch request contains more entries than permissible. For Amazon SQS, the
+ *             maximum number of entries you can include in a single <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html">SendMessageBatch</a>, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html">DeleteMessageBatch</a>, or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html">ChangeMessageVisibilityBatch</a> request is 10.</p>
  * @public
  */
 export class TooManyEntriesInBatchRequest extends __BaseException {
@@ -1329,21 +1326,23 @@ export interface GetQueueAttributesResult {
 }
 
 /**
- * <p></p>
+ * <p>Retrieves the URL of an existing queue based on its name and, optionally, the Amazon Web Services
+ *             account ID. </p>
  * @public
  */
 export interface GetQueueUrlRequest {
   /**
-   * <p>The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values:
-   *             alphanumeric characters, hyphens (<code>-</code>), and underscores
-   *             (<code>_</code>).</p>
-   *          <p>Queue URLs and names are case-sensitive.</p>
+   * <p>(Required) The name of the queue for which you want to fetch the URL. The name can be
+   *             up to 80 characters long and can include alphanumeric characters, hyphens (-), and
+   *             underscores (_). Queue URLs and names are case-sensitive.</p>
    * @public
    */
   QueueName: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the account that created the queue.</p>
+   * <p>(Optional) The Amazon Web Services account ID of the account that created the queue. This is only
+   *             required when you are attempting to access a queue owned by another
+   *             Amazon Web Services account.</p>
    * @public
    */
   QueueOwnerAWSAccountId?: string | undefined;
@@ -1793,7 +1792,7 @@ export const MessageSystemAttributeName = {
 export type MessageSystemAttributeName = (typeof MessageSystemAttributeName)[keyof typeof MessageSystemAttributeName];
 
 /**
- * <p></p>
+ * <p>Retrieves one or more messages from a specified queue.</p>
  * @public
  */
 export interface ReceiveMessageRequest {
@@ -1808,7 +1807,7 @@ export interface ReceiveMessageRequest {
    * @deprecated
    *
    * <important>
-   *             <p> This parameter has been deprecated but will be supported for backward
+   *             <p>This parameter has been discontinued but will be supported for backward
    *                 compatibility. To provide attribute names, you are encouraged to use
    *                     <code>MessageSystemAttributeNames</code>. </p>
    *          </important>
@@ -2009,7 +2008,40 @@ export interface ReceiveMessageRequest {
 
   /**
    * <p>The duration (in seconds) that the received messages are hidden from subsequent
-   *             retrieve requests after being retrieved by a <code>ReceiveMessage</code> request.</p>
+   *             retrieve requests after being retrieved by a <code>ReceiveMessage</code> request. If not
+   *             specified, the default visibility timeout for the queue is used, which is 30
+   *             seconds.</p>
+   *          <p>Understanding <code>VisibilityTimeout</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>When a message is received from a queue, it becomes temporarily invisible to
+   *                     other consumers for the duration of the visibility timeout. This prevents
+   *                     multiple consumers from processing the same message simultaneously. If the
+   *                     message is not deleted or its visibility timeout is not extended before the
+   *                     timeout expires, it becomes visible again and can be retrieved by other
+   *                     consumers.</p>
+   *             </li>
+   *             <li>
+   *                <p>Setting an appropriate visibility timeout is crucial. If it's too short, the
+   *                     message might become visible again before processing is complete, leading to
+   *                     duplicate processing. If it's too long, it delays the reprocessing of messages
+   *                     if the initial processing fails.</p>
+   *             </li>
+   *             <li>
+   *                <p>You can adjust the visibility timeout using the
+   *                         <code>--visibility-timeout</code> parameter in the
+   *                         <code>receive-message</code> command to match the processing time required
+   *                     by your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>A message that isn't deleted or a message whose visibility isn't extended
+   *                     before the visibility timeout expires counts as a failed receive. Depending on
+   *                     the configuration of the queue, the message might be sent to the dead-letter
+   *                     queue.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer
+   *             Guide</i>.</p>
    * @public
    */
   VisibilityTimeout?: number | undefined;
@@ -2018,7 +2050,9 @@ export interface ReceiveMessageRequest {
    * <p>The duration (in seconds) for which the call waits for a message to arrive in the
    *             queue before returning. If a message is available, the call returns sooner than
    *                 <code>WaitTimeSeconds</code>. If no messages are available and the wait time
-   *             expires, the call does not return a message list.</p>
+   *             expires, the call does not return a message list. If you are using the Java SDK, it
+   *             returns a <code>ReceiveMessageResponse</code> object, which has a empty list instead of
+   *             a Null object.</p>
    *          <important>
    *             <p>To avoid HTTP errors, ensure that the HTTP response timeout for
    *                     <code>ReceiveMessage</code> requests is longer than the
