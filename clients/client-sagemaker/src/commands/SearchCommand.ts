@@ -1103,6 +1103,8 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                     HubContentArn: "STRING_VALUE", // required
  * //                   },
  * //                   ManifestS3Uri: "STRING_VALUE",
+ * //                   ETag: "STRING_VALUE",
+ * //                   ManifestEtag: "STRING_VALUE",
  * //                 },
  * //               },
  * //               ProductId: "STRING_VALUE",
@@ -1119,7 +1121,9 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                 S3DataType: "S3Object" || "S3Prefix", // required
  * //                 S3Uri: "STRING_VALUE", // required
  * //                 CompressionType: "None" || "Gzip",
+ * //                 ETag: "STRING_VALUE",
  * //               },
+ * //               ModelDataETag: "STRING_VALUE",
  * //             },
  * //           ],
  * //           SupportedTransformInstanceTypes: [ // TransformInstanceTypes
@@ -1151,8 +1155,11 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                     HubContentArn: "STRING_VALUE", // required
  * //                   },
  * //                   ManifestS3Uri: "STRING_VALUE",
+ * //                   ETag: "STRING_VALUE",
+ * //                   ManifestEtag: "STRING_VALUE",
  * //                 },
  * //               },
+ * //               ModelDataETag: "STRING_VALUE",
  * //               AlgorithmName: "STRING_VALUE", // required
  * //             },
  * //           ],
@@ -1287,6 +1294,8 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                       HubContentArn: "STRING_VALUE", // required
  * //                     },
  * //                     ManifestS3Uri: "STRING_VALUE",
+ * //                     ETag: "STRING_VALUE",
+ * //                     ManifestEtag: "STRING_VALUE",
  * //                   },
  * //                 },
  * //                 ProductId: "STRING_VALUE",
@@ -1303,7 +1312,9 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                   S3DataType: "S3Object" || "S3Prefix", // required
  * //                   S3Uri: "STRING_VALUE", // required
  * //                   CompressionType: "None" || "Gzip",
+ * //                   ETag: "STRING_VALUE",
  * //                 },
+ * //                 ModelDataETag: "STRING_VALUE",
  * //               },
  * //             ],
  * //             SupportedTransformInstanceTypes: [
@@ -1856,6 +1867,8 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                     HubContentArn: "STRING_VALUE", // required
  * //                   },
  * //                   ManifestS3Uri: "STRING_VALUE",
+ * //                   ETag: "STRING_VALUE",
+ * //                   ManifestEtag: "STRING_VALUE",
  * //                 },
  * //               },
  * //             ],
@@ -1893,6 +1906,8 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                       HubContentArn: "STRING_VALUE", // required
  * //                     },
  * //                     ManifestS3Uri: "STRING_VALUE",
+ * //                     ETag: "STRING_VALUE",
+ * //                     ManifestEtag: "STRING_VALUE",
  * //                   },
  * //                 },
  * //               ],

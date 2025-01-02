@@ -287,6 +287,12 @@ export interface AdditionalS3DataSource {
    * @public
    */
   CompressionType?: CompressionType | undefined;
+
+  /**
+   * <p>The ETag associated with S3 URI.</p>
+   * @public
+   */
+  ETag?: string | undefined;
 }
 
 /**
@@ -473,6 +479,18 @@ export interface S3ModelDataSource {
    * @public
    */
   ManifestS3Uri?: string | undefined;
+
+  /**
+   * <p>The ETag associated with S3 URI.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+
+  /**
+   * <p>The ETag associated with Manifest S3URI.</p>
+   * @public
+   */
+  ManifestEtag?: string | undefined;
 }
 
 /**
@@ -593,6 +611,12 @@ export interface ModelPackageContainerDefinition {
    * @public
    */
   AdditionalS3DataSource?: AdditionalS3DataSource | undefined;
+
+  /**
+   * <p>The ETag associated with Model Data URL.</p>
+   * @public
+   */
+  ModelDataETag?: string | undefined;
 }
 
 /**

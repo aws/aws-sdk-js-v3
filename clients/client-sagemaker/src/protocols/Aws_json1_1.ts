@@ -17664,6 +17664,7 @@ const de_AdditionalModelDataSources = (output: any, context: __SerdeContext): Ad
 const de_AdditionalS3DataSource = (output: any, context: __SerdeContext): AdditionalS3DataSource => {
   return take(output, {
     CompressionType: __expectString,
+    ETag: __expectString,
     S3DataType: __expectString,
     S3Uri: __expectString,
   }) as any;
@@ -26914,6 +26915,7 @@ const de_ModelPackageContainerDefinition = (output: any, context: __SerdeContext
     FrameworkVersion: __expectString,
     Image: __expectString,
     ImageDigest: __expectString,
+    ModelDataETag: __expectString,
     ModelDataSource: (_: any) => de_ModelDataSource(_, context),
     ModelDataUrl: __expectString,
     ModelInput: (_: any) => de_ModelInput(_, context),
@@ -29733,7 +29735,9 @@ const de_S3DataSource = (output: any, context: __SerdeContext): S3DataSource => 
 const de_S3ModelDataSource = (output: any, context: __SerdeContext): S3ModelDataSource => {
   return take(output, {
     CompressionType: __expectString,
+    ETag: __expectString,
     HubAccessConfig: (_: any) => de_InferenceHubAccessConfig(_, context),
+    ManifestEtag: __expectString,
     ManifestS3Uri: __expectString,
     ModelAccessConfig: (_: any) => de_ModelAccessConfig(_, context),
     S3DataType: __expectString,
@@ -30093,6 +30097,7 @@ const de_ShuffleConfig = (output: any, context: __SerdeContext): ShuffleConfig =
 const de_SourceAlgorithm = (output: any, context: __SerdeContext): SourceAlgorithm => {
   return take(output, {
     AlgorithmName: __expectString,
+    ModelDataETag: __expectString,
     ModelDataSource: (_: any) => de_ModelDataSource(_, context),
     ModelDataUrl: __expectString,
   }) as any;

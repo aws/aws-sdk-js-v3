@@ -12138,6 +12138,12 @@ export interface SourceAlgorithm {
   ModelDataSource?: ModelDataSource | undefined;
 
   /**
+   * <p>The ETag associated with Model Data URL.</p>
+   * @public
+   */
+  ModelDataETag?: string | undefined;
+
+  /**
    * <p>The name of an algorithm that was used to create the model package. The algorithm must
    *             be either an algorithm resource in your SageMaker account or an algorithm in Amazon Web Services Marketplace that you are subscribed to.</p>
    * @public

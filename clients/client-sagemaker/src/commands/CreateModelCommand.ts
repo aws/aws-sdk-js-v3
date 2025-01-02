@@ -76,6 +76,8 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *           HubContentArn: "STRING_VALUE", // required
  *         },
  *         ManifestS3Uri: "STRING_VALUE",
+ *         ETag: "STRING_VALUE",
+ *         ManifestEtag: "STRING_VALUE",
  *       },
  *     },
  *     AdditionalModelDataSources: [ // AdditionalModelDataSources
@@ -92,6 +94,8 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *             HubContentArn: "STRING_VALUE", // required
  *           },
  *           ManifestS3Uri: "STRING_VALUE",
+ *           ETag: "STRING_VALUE",
+ *           ManifestEtag: "STRING_VALUE",
  *         },
  *       },
  *     ],
@@ -128,6 +132,8 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *             HubContentArn: "STRING_VALUE", // required
  *           },
  *           ManifestS3Uri: "STRING_VALUE",
+ *           ETag: "STRING_VALUE",
+ *           ManifestEtag: "STRING_VALUE",
  *         },
  *       },
  *       AdditionalModelDataSources: [

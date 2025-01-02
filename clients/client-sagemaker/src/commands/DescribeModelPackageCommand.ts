@@ -78,6 +78,8 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //               HubContentArn: "STRING_VALUE", // required
  * //             },
  * //             ManifestS3Uri: "STRING_VALUE",
+ * //             ETag: "STRING_VALUE",
+ * //             ManifestEtag: "STRING_VALUE",
  * //           },
  * //         },
  * //         ProductId: "STRING_VALUE",
@@ -94,7 +96,9 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //           S3DataType: "S3Object" || "S3Prefix", // required
  * //           S3Uri: "STRING_VALUE", // required
  * //           CompressionType: "None" || "Gzip",
+ * //           ETag: "STRING_VALUE",
  * //         },
+ * //         ModelDataETag: "STRING_VALUE",
  * //       },
  * //     ],
  * //     SupportedTransformInstanceTypes: [ // TransformInstanceTypes
@@ -126,8 +130,11 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //               HubContentArn: "STRING_VALUE", // required
  * //             },
  * //             ManifestS3Uri: "STRING_VALUE",
+ * //             ETag: "STRING_VALUE",
+ * //             ManifestEtag: "STRING_VALUE",
  * //           },
  * //         },
+ * //         ModelDataETag: "STRING_VALUE",
  * //         AlgorithmName: "STRING_VALUE", // required
  * //       },
  * //     ],
@@ -310,6 +317,8 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //                 HubContentArn: "STRING_VALUE", // required
  * //               },
  * //               ManifestS3Uri: "STRING_VALUE",
+ * //               ETag: "STRING_VALUE",
+ * //               ManifestEtag: "STRING_VALUE",
  * //             },
  * //           },
  * //           ProductId: "STRING_VALUE",
@@ -326,7 +335,9 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //             S3DataType: "S3Object" || "S3Prefix", // required
  * //             S3Uri: "STRING_VALUE", // required
  * //             CompressionType: "None" || "Gzip",
+ * //             ETag: "STRING_VALUE",
  * //           },
+ * //           ModelDataETag: "STRING_VALUE",
  * //         },
  * //       ],
  * //       SupportedTransformInstanceTypes: [
