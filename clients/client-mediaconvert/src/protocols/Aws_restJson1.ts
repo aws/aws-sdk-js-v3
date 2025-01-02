@@ -3020,6 +3020,7 @@ const se_H264Settings = (input: H264Settings, context: __SerdeContext): any => {
     telecine: [, , `Telecine`],
     temporalAdaptiveQuantization: [, , `TemporalAdaptiveQuantization`],
     unregisteredSeiTimecode: [, , `UnregisteredSeiTimecode`],
+    writeMp4PackagingType: [, , `WriteMp4PackagingType`],
   });
 };
 
@@ -6107,6 +6108,7 @@ const de_H264Settings = (output: any, context: __SerdeContext): H264Settings => 
     Telecine: [, __expectString, `telecine`],
     TemporalAdaptiveQuantization: [, __expectString, `temporalAdaptiveQuantization`],
     UnregisteredSeiTimecode: [, __expectString, `unregisteredSeiTimecode`],
+    WriteMp4PackagingType: [, __expectString, `writeMp4PackagingType`],
   }) as any;
 };
 

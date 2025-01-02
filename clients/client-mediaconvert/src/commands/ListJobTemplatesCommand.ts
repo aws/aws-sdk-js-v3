@@ -1194,6 +1194,7 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * //                       Telecine: "NONE" || "SOFT" || "HARD",
  * //                       TemporalAdaptiveQuantization: "DISABLED" || "ENABLED",
  * //                       UnregisteredSeiTimecode: "DISABLED" || "ENABLED",
+ * //                       WriteMp4PackagingType: "AVC1" || "AVC3",
  * //                     },
  * //                     H265Settings: { // H265Settings
  * //                       AdaptiveQuantization: "OFF" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX" || "AUTO",

@@ -2826,6 +2826,20 @@ export type H264UnregisteredSeiTimecode =
   (typeof H264UnregisteredSeiTimecode)[keyof typeof H264UnregisteredSeiTimecode];
 
 /**
+ * @public
+ * @enum
+ */
+export const H264WriteMp4PackagingType = {
+  AVC1: "AVC1",
+  AVC3: "AVC3",
+} as const;
+
+/**
+ * @public
+ */
+export type H264WriteMp4PackagingType = (typeof H264WriteMp4PackagingType)[keyof typeof H264WriteMp4PackagingType];
+
+/**
  * Required when you set Codec to the value H_264.
  * @public
  */
@@ -3093,6 +3107,12 @@ export interface H264Settings {
    * @public
    */
   UnregisteredSeiTimecode?: H264UnregisteredSeiTimecode | undefined;
+
+  /**
+   * Specify how SPS and PPS NAL units are written in your output MP4 container, according to ISO/IEC 14496-15. If the location of these parameters doesn't matter in your workflow: Keep the default value, AVC1. MediaConvert writes SPS and PPS NAL units in the sample description ('stsd') box (but not into samples directly). To write SPS and PPS NAL units directly into samples (but not in the 'stsd' box): Choose AVC3. When you do, note that your output might not play properly with some downstream systems or players.
+   * @public
+   */
+  WriteMp4PackagingType?: H264WriteMp4PackagingType | undefined;
 }
 
 /**
@@ -6793,7 +6813,7 @@ export interface JobSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -7181,7 +7201,7 @@ export interface JobTemplateSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -7430,16 +7450,3 @@ export const PricingPlan = {
  * @public
  */
 export type PricingPlan = (typeof PricingPlan)[keyof typeof PricingPlan];
-
-/**
- * @public
- * @enum
- */
-export const Commitment = {
-  ONE_YEAR: "ONE_YEAR",
-} as const;
-
-/**
- * @public
- */
-export type Commitment = (typeof Commitment)[keyof typeof Commitment];

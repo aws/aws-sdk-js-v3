@@ -6,7 +6,6 @@ import { MediaConvertServiceException as __BaseException } from "./MediaConvertS
 import { AccelerationSettings, BillingTagsSource, Endpoint, HopDestination } from "./models_0";
 
 import {
-  Commitment,
   Job,
   JobEngineVersion,
   JobSettings,
@@ -20,6 +19,19 @@ import {
   StatusUpdateInterval,
   Type,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const Commitment = {
+  ONE_YEAR: "ONE_YEAR",
+} as const;
+
+/**
+ * @public
+ */
+export type Commitment = (typeof Commitment)[keyof typeof Commitment];
 
 /**
  * @public
