@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.721.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.720.0...v3.721.0) (2025-01-02)
+
+
+### Features
+
+* **client-appsync:** Modify UpdateGraphQLAPI operation and flag authenticationType as required. ([66363a2](https://github.com/aws/aws-sdk-js-v3/commit/66363a29aee81a79ba0dbb9fa9c03ece22c6675f))
+* **client-gamelift:** Amazon GameLift releases a new game session shutdown feature. Use the Amazon GameLift console or AWS CLI to terminate an in-progress game session that's entered a bad state or is no longer needed. ([fb4238d](https://github.com/aws/aws-sdk-js-v3/commit/fb4238dbbc372ce2d2f0ab6bf4f6461ef2a423d3))
+* **client-mediaconnect:** AWS Elemental MediaConnect now supports Content Quality Analysis for enhanced source stream monitoring. This enables you to track specific audio and video metrics in transport stream source flows, ensuring your content meets quality standards. ([c0288fd](https://github.com/aws/aws-sdk-js-v3/commit/c0288fd180b264f517c0b8a18aa1f2c66d88efcd))
+* **client-mediaconvert:** This release adds support for the AVC3 codec and fixes an alignment issue with Japanese vertical captions. ([08f266e](https://github.com/aws/aws-sdk-js-v3/commit/08f266e9ecec1e52ef71a1029f1a670f94c63474))
+* **client-organizations:** Added ALL_FEATURES_MIGRATION_ORGANIZATION_SIZE_LIMIT_EXCEEDED to ConstraintViolationException for the EnableAllFeatures operation. ([f509e1d](https://github.com/aws/aws-sdk-js-v3/commit/f509e1df4383677c0d3bd68521b695807917d6e1))
+* **client-sagemaker:** Adding ETag information with Model Artifacts for Model Registry ([c5a3b23](https://github.com/aws/aws-sdk-js-v3/commit/c5a3b23a2601c171dca943ee244e7a5c8043aa67))
+* **clients:** update client endpoints as of 2025-01-02 ([195db96](https://github.com/aws/aws-sdk-js-v3/commit/195db96add5d18bd4b5f0c5574eb735761a9531f))
+
+
+
+
+
 # [3.720.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.719.1...v3.720.0) (2024-12-28)
 
 

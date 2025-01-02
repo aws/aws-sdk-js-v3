@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.721.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.720.0...v3.721.0) (2025-01-02)
+
+
+### Features
+
+* **client-organizations:** Added ALL_FEATURES_MIGRATION_ORGANIZATION_SIZE_LIMIT_EXCEEDED to ConstraintViolationException for the EnableAllFeatures operation. ([f509e1d](https://github.com/aws/aws-sdk-js-v3/commit/f509e1df4383677c0d3bd68521b695807917d6e1))
+
+
+
+
+
 # [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
 
 **Note:** Version bump only for package @aws-sdk/client-organizations
