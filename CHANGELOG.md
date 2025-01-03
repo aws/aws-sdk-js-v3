@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.722.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.721.0...v3.722.0) (2025-01-03)
+
+
+### Features
+
+* **client-s3:** This change is only for updating the model regexp of CopySource which is not for validation but only for documentation and user guide change. ([3bb74c5](https://github.com/aws/aws-sdk-js-v3/commit/3bb74c5bd68087528d9710906ba186c7b211843d))
+* **clients:** update client endpoints as of 2025-01-03 ([726fcf5](https://github.com/aws/aws-sdk-js-v3/commit/726fcf5e98988df32e5a5af65b6b3b7ed23585f7))
+
+
+
+
+
 # [3.721.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.720.0...v3.721.0) (2025-01-02)
 
 
