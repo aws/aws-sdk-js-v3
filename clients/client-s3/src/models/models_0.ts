@@ -1963,7 +1963,7 @@ export type LocationType = (typeof LocationType)[keyof typeof LocationType];
 /**
  * <p>Specifies the location where the bucket will be created.</p>
  *          <p>For directory buckets, the location type is Availability Zone or Local Zone. For more information about directory buckets, see
- *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">Directory buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">Working with directory buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <note>
  *             <p>This functionality is only supported by directory buckets.</p>
  *          </note>
@@ -2033,10 +2033,11 @@ export interface CreateBucketConfiguration {
    * <p>Specifies the Region where the bucket will be created. You might choose a Region to
    *          optimize latency, minimize costs, or address regulatory requirements. For example, if you
    *          reside in Europe, you will probably find it advantageous to create buckets in the Europe
-   *          (Ireland) Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro">Accessing a
-   *             bucket</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          (Ireland) Region.</p>
    *          <p>If you don't specify a Region, the bucket is created in the US East (N. Virginia) Region
    *          (us-east-1) by default.</p>
+   *          <p>For a list of the valid values for all of the Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and
+   *             Endpoints</a>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -2048,8 +2049,8 @@ export interface CreateBucketConfiguration {
    * <p>Specifies the location where the bucket will be created.</p>
    *          <p>
    *             <b>Directory buckets </b> - The location type is Availability Zone or Local Zone.
-   *       When the location type is Local Zone, your Local Zone must be  in opt-in status. Otherwise, you get an HTTP <code>400 Bad Request</code> error with the
-   *          error code <code>Access denied</code>. To learn more about opt-in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/opt-in-directory-bucket-lz.html">Opt-in Dedicated Local Zones</a>in the <i>Amazon S3 User Guide</i>.
+   *          To use the Local Zone location type, your account must be  enabled for Dedicated Local Zones. Otherwise, you get an HTTP <code>403 Forbidden</code> error with the
+   *          error code <code>AccessDenied</code>. To learn more, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/opt-in-directory-bucket-lz.html">Enable accounts for Dedicated Local Zones</a> in the <i>Amazon S3 User Guide</i>.
    *       </p>
    *          <note>
    *             <p>This functionality is only supported by directory buckets.</p>
