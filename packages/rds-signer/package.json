@@ -18,7 +18,7 @@
     "test:watch": "yarn g:vitest watch"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
