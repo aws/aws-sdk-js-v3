@@ -305,7 +305,7 @@ export interface BillingRecord {
   Operation?: OperationType | undefined;
 
   /**
-   * <p>The ID of the invoice that is associated with the billing record.</p>
+   * <p>Deprecated property. This field is retained in report structure for backwards compatibility, but will appear blank.</p>
    * @public
    */
   InvoiceId?: string | undefined;
