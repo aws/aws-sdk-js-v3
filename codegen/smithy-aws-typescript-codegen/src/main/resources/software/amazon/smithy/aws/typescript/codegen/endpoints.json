@@ -731,6 +731,7 @@
               "hostname": "api.ecr.af-south-1.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.af-south-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -742,6 +743,7 @@
               "hostname": "api.ecr.ap-east-1.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.ap-east-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -753,6 +755,7 @@
               "hostname": "api.ecr.ap-northeast-1.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.ap-northeast-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -764,6 +767,7 @@
               "hostname": "api.ecr.ap-northeast-2.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.ap-northeast-2.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -775,6 +779,7 @@
               "hostname": "api.ecr.ap-northeast-3.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.ap-northeast-3.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -786,6 +791,7 @@
               "hostname": "api.ecr.ap-south-1.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.ap-south-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -797,6 +803,7 @@
               "hostname": "api.ecr.ap-south-2.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.ap-south-2.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -808,6 +815,7 @@
               "hostname": "api.ecr.ap-southeast-1.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.ap-southeast-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -819,6 +827,7 @@
               "hostname": "api.ecr.ap-southeast-2.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.ap-southeast-2.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -830,6 +839,7 @@
               "hostname": "api.ecr.ap-southeast-3.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.ap-southeast-3.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -841,6 +851,7 @@
               "hostname": "api.ecr.ap-southeast-4.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.ap-southeast-4.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -852,6 +863,7 @@
               "hostname": "api.ecr.ap-southeast-5.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.ap-southeast-5.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -863,6 +875,7 @@
               "hostname": "api.ecr.ca-central-1.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.ca-central-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -874,214 +887,7 @@
               "hostname": "api.ecr.ca-west-1.amazonaws.com",
               "variants": [
                 {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-af-south-1": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-ap-east-1": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-ap-northeast-1": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-ap-northeast-2": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-ap-northeast-3": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-ap-south-1": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-ap-south-2": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-ap-southeast-1": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-ap-southeast-2": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-ap-southeast-3": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-ap-southeast-4": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-ap-southeast-5": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-ca-central-1": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-ca-west-1": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-eu-central-1": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-eu-central-2": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-eu-north-1": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-eu-south-1": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-eu-south-2": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-eu-west-1": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-eu-west-2": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-eu-west-3": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-il-central-1": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-me-central-1": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-me-south-1": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-sa-east-1": {
-              "deprecated": true,
-              "variants": [
-                {
+                  "hostname": "ecr.ca-west-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -1092,12 +898,6 @@
               },
               "deprecated": true,
               "variants": [
-                {
-                  "tags": ["dualstack"]
-                },
-                {
-                  "tags": ["dualstack", "fips"]
-                },
                 {
                   "hostname": "ecr-fips.us-east-1.amazonaws.com",
                   "tags": ["fips"]
@@ -1111,12 +911,6 @@
               "deprecated": true,
               "variants": [
                 {
-                  "tags": ["dualstack"]
-                },
-                {
-                  "tags": ["dualstack", "fips"]
-                },
-                {
                   "hostname": "ecr-fips.us-east-2.amazonaws.com",
                   "tags": ["fips"]
                 }
@@ -1128,12 +922,6 @@
               },
               "deprecated": true,
               "variants": [
-                {
-                  "tags": ["dualstack"]
-                },
-                {
-                  "tags": ["dualstack", "fips"]
-                },
                 {
                   "hostname": "ecr-fips.us-west-1.amazonaws.com",
                   "tags": ["fips"]
@@ -1147,12 +935,6 @@
               "deprecated": true,
               "variants": [
                 {
-                  "tags": ["dualstack"]
-                },
-                {
-                  "tags": ["dualstack", "fips"]
-                },
-                {
                   "hostname": "ecr-fips.us-west-2.amazonaws.com",
                   "tags": ["fips"]
                 }
@@ -1165,6 +947,7 @@
               "hostname": "api.ecr.eu-central-1.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.eu-central-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -1176,6 +959,7 @@
               "hostname": "api.ecr.eu-central-2.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.eu-central-2.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -1187,6 +971,7 @@
               "hostname": "api.ecr.eu-north-1.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.eu-north-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -1198,6 +983,7 @@
               "hostname": "api.ecr.eu-south-1.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.eu-south-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -1209,6 +995,7 @@
               "hostname": "api.ecr.eu-south-2.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.eu-south-2.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -1220,6 +1007,7 @@
               "hostname": "api.ecr.eu-west-1.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.eu-west-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -1231,6 +1019,7 @@
               "hostname": "api.ecr.eu-west-2.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.eu-west-2.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -1242,6 +1031,7 @@
               "hostname": "api.ecr.eu-west-3.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.eu-west-3.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -1309,6 +1099,7 @@
               "hostname": "api.ecr.il-central-1.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.il-central-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -1320,6 +1111,7 @@
               "hostname": "api.ecr.me-central-1.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.me-central-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -1331,6 +1123,7 @@
               "hostname": "api.ecr.me-south-1.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.me-south-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -1342,6 +1135,7 @@
               "hostname": "api.ecr.sa-east-1.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr.sa-east-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -1353,14 +1147,16 @@
               "hostname": "api.ecr.us-east-1.amazonaws.com",
               "variants": [
                 {
-                  "tags": ["dualstack"]
+                  "hostname": "ecr-fips.us-east-1.amazonaws.com",
+                  "tags": ["fips"]
                 },
                 {
+                  "hostname": "ecr-fips.us-east-1.api.aws",
                   "tags": ["dualstack", "fips"]
                 },
                 {
-                  "hostname": "ecr-fips.us-east-1.amazonaws.com",
-                  "tags": ["fips"]
+                  "hostname": "ecr.us-east-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -1371,14 +1167,16 @@
               "hostname": "api.ecr.us-east-2.amazonaws.com",
               "variants": [
                 {
-                  "tags": ["dualstack"]
+                  "hostname": "ecr-fips.us-east-2.amazonaws.com",
+                  "tags": ["fips"]
                 },
                 {
+                  "hostname": "ecr-fips.us-east-2.api.aws",
                   "tags": ["dualstack", "fips"]
                 },
                 {
-                  "hostname": "ecr-fips.us-east-2.amazonaws.com",
-                  "tags": ["fips"]
+                  "hostname": "ecr.us-east-2.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -1389,14 +1187,16 @@
               "hostname": "api.ecr.us-west-1.amazonaws.com",
               "variants": [
                 {
-                  "tags": ["dualstack"]
+                  "hostname": "ecr-fips.us-west-1.amazonaws.com",
+                  "tags": ["fips"]
                 },
                 {
+                  "hostname": "ecr-fips.us-west-1.api.aws",
                   "tags": ["dualstack", "fips"]
                 },
                 {
-                  "hostname": "ecr-fips.us-west-1.amazonaws.com",
-                  "tags": ["fips"]
+                  "hostname": "ecr.us-west-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -1407,14 +1207,16 @@
               "hostname": "api.ecr.us-west-2.amazonaws.com",
               "variants": [
                 {
-                  "tags": ["dualstack"]
+                  "hostname": "ecr-fips.us-west-2.amazonaws.com",
+                  "tags": ["fips"]
                 },
                 {
+                  "hostname": "ecr-fips.us-west-2.api.aws",
                   "tags": ["dualstack", "fips"]
                 },
                 {
-                  "hostname": "ecr-fips.us-west-2.amazonaws.com",
-                  "tags": ["fips"]
+                  "hostname": "ecr.us-west-2.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             }
@@ -1429,6 +1231,7 @@
               "hostname": "api.ecr-public.us-east-1.amazonaws.com",
               "variants": [
                 {
+                  "hostname": "ecr-public.us-east-1.api.aws",
                   "tags": ["dualstack"]
                 }
               ]
@@ -11953,6 +11756,7 @@
             "ap-southeast-2": {},
             "ap-southeast-3": {},
             "ap-southeast-4": {},
+            "ap-southeast-5": {},
             "ca-central-1": {
               "variants": [
                 {
@@ -17517,6 +17321,7 @@
             "ap-southeast-2": {},
             "ap-southeast-3": {},
             "ap-southeast-4": {},
+            "ap-southeast-5": {},
             "ca-central-1": {
               "variants": [
                 {
@@ -18667,15 +18472,9 @@
         },
         "opsworks-cm": {
           "endpoints": {
-            "ap-northeast-1": {},
-            "ap-southeast-1": {},
             "ap-southeast-2": {},
-            "eu-central-1": {},
             "eu-west-1": {},
-            "us-east-1": {},
-            "us-east-2": {},
-            "us-west-1": {},
-            "us-west-2": {}
+            "us-east-1": {}
           }
         },
         "organizations": {
@@ -29087,6 +28886,7 @@
               "hostname": "api.ecr.cn-north-1.amazonaws.com.cn",
               "variants": [
                 {
+                  "hostname": "ecr.cn-north-1.api.amazonwebservices.com.cn",
                   "tags": ["dualstack"]
                 }
               ]
@@ -29098,22 +28898,7 @@
               "hostname": "api.ecr.cn-northwest-1.amazonaws.com.cn",
               "variants": [
                 {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-cn-north-1": {
-              "deprecated": true,
-              "variants": [
-                {
-                  "tags": ["dualstack"]
-                }
-              ]
-            },
-            "dkr-cn-northwest-1": {
-              "deprecated": true,
-              "variants": [
-                {
+                  "hostname": "ecr.cn-northwest-1.api.amazonwebservices.com.cn",
                   "tags": ["dualstack"]
                 }
               ]
@@ -31016,12 +30801,6 @@
               "deprecated": true,
               "variants": [
                 {
-                  "tags": ["dualstack"]
-                },
-                {
-                  "tags": ["dualstack", "fips"]
-                },
-                {
                   "hostname": "ecr-fips.us-gov-east-1.amazonaws.com",
                   "tags": ["fips"]
                 }
@@ -31033,12 +30812,6 @@
               },
               "deprecated": true,
               "variants": [
-                {
-                  "tags": ["dualstack"]
-                },
-                {
-                  "tags": ["dualstack", "fips"]
-                },
                 {
                   "hostname": "ecr-fips.us-gov-west-1.amazonaws.com",
                   "tags": ["fips"]
@@ -31080,14 +30853,16 @@
               "hostname": "api.ecr.us-gov-east-1.amazonaws.com",
               "variants": [
                 {
-                  "tags": ["dualstack"]
+                  "hostname": "ecr-fips.us-gov-east-1.amazonaws.com",
+                  "tags": ["fips"]
                 },
                 {
+                  "hostname": "ecr-fips.us-gov-east-1.api.aws",
                   "tags": ["dualstack", "fips"]
                 },
                 {
-                  "hostname": "ecr-fips.us-gov-east-1.amazonaws.com",
-                  "tags": ["fips"]
+                  "hostname": "ecr.us-gov-east-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -31098,14 +30873,16 @@
               "hostname": "api.ecr.us-gov-west-1.amazonaws.com",
               "variants": [
                 {
-                  "tags": ["dualstack"]
+                  "hostname": "ecr-fips.us-gov-west-1.amazonaws.com",
+                  "tags": ["fips"]
                 },
                 {
+                  "hostname": "ecr-fips.us-gov-west-1.api.aws",
                   "tags": ["dualstack", "fips"]
                 },
                 {
-                  "hostname": "ecr-fips.us-gov-west-1.amazonaws.com",
-                  "tags": ["fips"]
+                  "hostname": "ecr.us-gov-west-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             }
