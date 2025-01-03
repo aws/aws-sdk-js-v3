@@ -20,7 +20,7 @@
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.ts"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
