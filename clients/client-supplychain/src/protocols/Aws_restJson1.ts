@@ -209,6 +209,7 @@ export const se_CreateInstanceCommand = async (
       instanceName: [],
       kmsKeyArn: [],
       tags: (_) => _json(_),
+      webAppDnsDomain: [],
     })
   );
   b.m("POST").h(headers).b(body);

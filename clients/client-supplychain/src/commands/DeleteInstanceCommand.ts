@@ -29,8 +29,7 @@ export interface DeleteInstanceCommandOutput extends DeleteInstanceResponse, __M
 
 /**
  * <p>Enables you to programmatically delete an Amazon Web Services Supply Chain instance by deleting the KMS keys and relevant information associated with the API without using the Amazon Web Services console.</p>
- *          <p>This is an asynchronous operation. Upon receiving a DeleteInstance request, Amazon Web Services Supply Chain immediately returns a response with the instance resource, delete state while cleaning up all Amazon Web Services resources created during
- *             the instance creation process. You can use the GetInstance action to check the instance status.</p>
+ *          <p>This is an asynchronous operation. Upon receiving a DeleteInstance request, Amazon Web Services Supply Chain immediately returns a response with the instance resource, delete state while cleaning up all Amazon Web Services resources created during the instance creation process. You can use the GetInstance action to check the instance status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

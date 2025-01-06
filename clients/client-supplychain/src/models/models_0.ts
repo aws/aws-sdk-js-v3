@@ -693,7 +693,7 @@ export interface CreateDataLakeDatasetRequest {
   name: string | undefined;
 
   /**
-   * <p>The custom schema of the data lake dataset and is only required when the name space is <i>default</i>.</p>
+   * <p>The custom schema of the data lake dataset and is only required when the name space is <b>default</b>.</p>
    * @public
    */
   schema?: DataLakeDatasetSchema | undefined;
@@ -809,6 +809,12 @@ export interface CreateInstanceRequest {
    * @public
    */
   kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The DNS subdomain of the web app. This would be "example" in the URL "example.scn.global.on.aws". You can set this to a custom value, as long as the domain isn't already being used by someone else. The name may only include alphanumeric characters and hyphens.</p>
+   * @public
+   */
+  webAppDnsDomain?: string | undefined;
 
   /**
    * <p>The Amazon Web Services tags of an instance to be created.</p>
@@ -970,8 +976,7 @@ export interface SendDataIntegrationEventRequest {
   eventType: DataIntegrationEventType | undefined;
 
   /**
-   * <p>The data payload of the event. For more information on the data schema to use, see <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">Data entities supported in AWS Supply Chain
-   *         </a>.</p>
+   * <p>The data payload of the event. For more information on the data schema to use, see <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">Data entities supported in AWS Supply Chain</a>.</p>
    * @public
    */
   data: string | undefined;
@@ -1223,15 +1228,15 @@ export interface DeleteDataLakeDatasetRequest {
   instanceId: string | undefined;
 
   /**
-   * <p>The namespace of the dataset. The available values are:</p>
+   * <p>The name space of the dataset. The available values are:</p>
    *          <ul>
    *             <li>
-   *                <p>asc: for <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">
-   *                 AWS Supply Chain supported datasets
-   *             </a>.</p>
+   *                <p>
+   *                   <b>asc</b> - For information on the  Amazon Web Services Supply Chain supported datasets see <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
    *             </li>
    *             <li>
-   *                <p>default: for datasets with custom user-defined schemas.</p>
+   *                <p>
+   *                   <b>default</b> - For datasets with custom user-defined schemas.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1239,8 +1244,7 @@ export interface DeleteDataLakeDatasetRequest {
   namespace: string | undefined;
 
   /**
-   * <p>The name of the dataset. If the namespace is <i>asc</i>, the name must be one of the supported <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">data entities
-   *         </a>.</p>
+   * <p>The name of the dataset. For <b>asc</b> name space, the name must be one of the supported data entities under <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
    * @public
    */
   name: string | undefined;
@@ -1258,7 +1262,7 @@ export interface DeleteDataLakeDatasetResponse {
   instanceId: string | undefined;
 
   /**
-   * <p>The namespace of deleted dataset.</p>
+   * <p>The name space of deleted dataset.</p>
    * @public
    */
   namespace: string | undefined;
@@ -1328,15 +1332,15 @@ export interface ListDataLakeDatasetsRequest {
   instanceId: string | undefined;
 
   /**
-   * <p>The namespace of the dataset. The available values are:</p>
+   * <p>The name space of the dataset. The available values are:</p>
    *          <ul>
    *             <li>
-   *                <p>asc: for <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">
-   *                 AWS Supply Chain supported datasets
-   *             </a>.</p>
+   *                <p>
+   *                   <b>asc</b> - For information on the  Amazon Web Services Supply Chain supported datasets see <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
    *             </li>
    *             <li>
-   *                <p>default: for datasets with custom user-defined schemas.</p>
+   *                <p>
+   *                   <b>default</b> - For datasets with custom user-defined schemas.</p>
    *             </li>
    *          </ul>
    * @public

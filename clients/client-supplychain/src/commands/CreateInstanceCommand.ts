@@ -40,6 +40,7 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  *   instanceName: "STRING_VALUE",
  *   instanceDescription: "STRING_VALUE",
  *   kmsKeyArn: "STRING_VALUE",
+ *   webAppDnsDomain: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
