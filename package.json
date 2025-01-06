@@ -115,10 +115,12 @@
     "yargs": "17.5.1"
   },
   "overrides": {
-    "vite": "4.5.5"
+    "vite": "4.5.5",
+    "typescript": "~5.2.2"
   },
   "resolutions": {
-    "vite": "4.5.5"
+    "vite": "4.5.5",
+    "typescript": "~5.2.2"
   },
   "workspaces": {
     "packages": [
