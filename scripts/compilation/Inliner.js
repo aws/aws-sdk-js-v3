@@ -160,7 +160,7 @@ module.exports = class Inliner {
 
     const buildOptions = {
       platform: this.platform,
-      target: ["node16"],
+      target: ["node18"],
       bundle: true,
       format: "cjs",
       mainFields: ["main"],

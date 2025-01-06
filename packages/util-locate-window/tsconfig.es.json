@@ -4,7 +4,6 @@
     "lib": ["dom"],
     "noImplicitAny": true,
     "noImplicitThis": true,
-    "noImplicitUseStrict": true,
     "outDir": "dist-es",
     "rootDir": "src",
     "strict": false,
