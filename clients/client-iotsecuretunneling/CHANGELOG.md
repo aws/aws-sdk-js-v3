@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
+
+
+### Features
+
+* **client-iotsecuretunneling:** Adds dualstack endpoint support for IoT Secure Tunneling ([513f9c4](https://github.com/aws/aws-sdk-js-v3/commit/513f9c4e85a9c06e89137f70b7a7578fefc5e450))
+
+
+
+
+
 # [3.721.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.720.0...v3.721.0) (2025-01-02)
 
 **Note:** Version bump only for package @aws-sdk/client-iotsecuretunneling

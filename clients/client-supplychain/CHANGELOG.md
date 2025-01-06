@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
+
+
+### Features
+
+* **client-supplychain:** Allow vanity DNS domain when creating a new ASC instance ([0cdf2e3](https://github.com/aws/aws-sdk-js-v3/commit/0cdf2e3eeb7934754e1d0651125b56e09ed46889))
+
+
+
+
+
 # [3.721.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.720.0...v3.721.0) (2025-01-02)
 
 **Note:** Version bump only for package @aws-sdk/client-supplychain

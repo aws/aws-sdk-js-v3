@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
+
+
+### Features
+
+* **client-iotsecuretunneling:** Adds dualstack endpoint support for IoT Secure Tunneling ([513f9c4](https://github.com/aws/aws-sdk-js-v3/commit/513f9c4e85a9c06e89137f70b7a7578fefc5e450))
+* **client-supplychain:** Allow vanity DNS domain when creating a new ASC instance ([0cdf2e3](https://github.com/aws/aws-sdk-js-v3/commit/0cdf2e3eeb7934754e1d0651125b56e09ed46889))
+* **clients:** update client endpoints as of 2025-01-06 ([db366a2](https://github.com/aws/aws-sdk-js-v3/commit/db366a247fc633b41bc068f31da76a7052c9a367))
+
+
+
+
+
 # [3.722.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.721.0...v3.722.0) (2025-01-03)
 
 
