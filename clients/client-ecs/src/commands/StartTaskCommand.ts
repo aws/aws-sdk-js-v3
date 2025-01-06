@@ -363,6 +363,62 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @public
+ * @example To start a new task
+ * ```javascript
+ * // This example starts a new task in the cluster "MyCluster" on the specified container instance using the latest revision of the "hello-world" task definition.
+ * const input = {
+ *   "cluster": "MyCluster",
+ *   "containerInstances": [
+ *     "4c543eed-f83f-47da-b1d8-3d23f1da4c64"
+ *   ],
+ *   "taskDefinition": "hello-world"
+ * };
+ * const command = new StartTaskCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failures": [],
+ *   "tasks": [
+ *     {
+ *       "version": 1,
+ *       "clusterArn": "arn:aws:ecs:us-east-1:012345678910:cluster/default",
+ *       "containerInstanceArn": "arn:aws:ecs:us-east-1:012345678910:container-instance/default/4c543eed-f83f-47da-b1d8-3d23f1da4c64",
+ *       "containers": [
+ *         {
+ *           "name": "wordpress",
+ *           "containerArn": "arn:aws:ecs:us-east-1:012345678910:container/e76594d4-27e1-4c74-98b5-46a6435eb769",
+ *           "lastStatus": "PENDING",
+ *           "taskArn": "arn:aws:ecs:us-east-1:012345678910:task/default/fdf2c302-468c-4e55-b884-5331d816e7fb"
+ *         },
+ *         {
+ *           "name": "mysql",
+ *           "containerArn": "arn:aws:ecs:us-east-1:012345678910:container/default/b19106ea-4fa8-4f1d-9767-96922c82b070",
+ *           "lastStatus": "PENDING",
+ *           "taskArn": "arn:aws:ecs:us-east-1:012345678910:task/default/fdf2c302-468c-4e55-b884-5331d816e7fb"
+ *         }
+ *       ],
+ *       "createdAt": 1479765460.842,
+ *       "desiredStatus": "RUNNING",
+ *       "lastStatus": "PENDING",
+ *       "overrides": {
+ *         "containerOverrides": [
+ *           {
+ *             "name": "wordpress"
+ *           },
+ *           {
+ *             "name": "mysql"
+ *           }
+ *         ]
+ *       },
+ *       "taskArn": "arn:aws:ecs:us-east-1:012345678910:task/default/fdf2c302-468c-4e55-b884-5331d816e7fb",
+ *       "taskDefinitionArn": "arn:aws:ecs:us-east-1:012345678910:task-definition/hello_world:6"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-start-a-new-task-1734455482966
+ * ```
+ *
  */
 export class StartTaskCommand extends $Command
   .classBuilder<

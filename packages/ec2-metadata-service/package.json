@@ -24,17 +24,17 @@
   "types": "./dist-types/index.d.ts",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/node-config-provider": "^3.1.12",
-    "@smithy/node-http-handler": "^3.3.2",
-    "@smithy/protocol-http": "^4.1.8",
-    "@smithy/types": "^3.7.2",
-    "@smithy/util-stream": "^3.3.2",
+    "@smithy/node-config-provider": "^4.0.0",
+    "@smithy/node-http-handler": "^4.0.0",
+    "@smithy/protocol-http": "^5.0.0",
+    "@smithy/types": "^4.0.0",
+    "@smithy/util-stream": "^4.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@aws-sdk/credential-providers": "*",
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^16.18.96",
+    "@types/node": "^18.19.69",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",

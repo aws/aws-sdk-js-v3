@@ -235,6 +235,47 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @public
+ * @example To describe a service revision
+ * ```javascript
+ * // This example describes a service revision with the specified ARN
+ * const input = {
+ *   "serviceRevisionArns": [
+ *     "arn:aws:ecs:us-west-2:123456789012:service-revision/testc/sd1/4980306466373577095"
+ *   ]
+ * };
+ * const command = new DescribeServiceRevisionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failures": [],
+ *   "serviceRevisions": [
+ *     {
+ *       "clusterArn": "arn:aws:ecs:us-west-2:123456789012:cluster/example",
+ *       "createdAt": "2024-09-10T16:49:26.388000+00:00",
+ *       "launchType": "FARGATE",
+ *       "networkConfiguration": {
+ *         "awsvpcConfiguration": {
+ *           "assignPublicIp": "ENABLED",
+ *           "securityGroups": [
+ *             "sg-09605d60a6bc1b296"
+ *           ],
+ *           "subnets": [
+ *             "subnet-0a4040e73895f04e1"
+ *           ]
+ *         }
+ *       },
+ *       "platformFamily": "DockerLinux",
+ *       "platformVersion": "1.4.0",
+ *       "serviceArn": "arn:aws:ecs:us-west-2:123456789012:service/example/sd-example",
+ *       "serviceRevisionArn": "arn:aws:ecs:us-west-2:123456789012:service-revision/example/sd-example/4980306466373577095",
+ *       "taskDefinition": "arn:aws:ecs:us-west-2:123456789012:task-definition/large-ngingx:1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-a-service-revision--1734033215738
+ * ```
+ *
  */
 export class DescribeServiceRevisionsCommand extends $Command
   .classBuilder<

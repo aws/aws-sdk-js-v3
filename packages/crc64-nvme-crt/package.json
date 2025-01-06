@@ -24,12 +24,12 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/crt-loader": "*",
-    "@smithy/types": "^3.7.2",
-    "@smithy/util-utf8": "^3.0.0",
+    "@smithy/types": "^4.0.0",
+    "@smithy/util-utf8": "^4.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/util-base64": "^3.0.0",
+    "@smithy/util-base64": "^4.0.0",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",

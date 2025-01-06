@@ -27,13 +27,13 @@
   "dependencies": {
     "@aws-sdk/core": "*",
     "@aws-sdk/types": "*",
-    "@smithy/property-provider": "^3.1.11",
-    "@smithy/types": "^3.7.2",
+    "@smithy/property-provider": "^4.0.0",
+    "@smithy/types": "^4.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^16.18.96",
+    "@types/node": "^18.19.69",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",

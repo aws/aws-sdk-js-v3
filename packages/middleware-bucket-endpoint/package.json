@@ -24,10 +24,10 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-arn-parser": "*",
-    "@smithy/node-config-provider": "^3.1.12",
-    "@smithy/protocol-http": "^4.1.8",
-    "@smithy/types": "^3.7.2",
-    "@smithy/util-config-provider": "^3.0.0",
+    "@smithy/node-config-provider": "^4.0.0",
+    "@smithy/protocol-http": "^5.0.0",
+    "@smithy/types": "^4.0.0",
+    "@smithy/util-config-provider": "^4.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

@@ -164,6 +164,47 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @public
+ * @example To describe a service deployment
+ * ```javascript
+ * // This example describes a service deployment for the service sd-example in the example cluster.
+ * const input = {
+ *   "serviceDeploymentArns": [
+ *     "arn:aws:ecs:us-west-2:123456789012:service-deployment/example/sd-example/NCWGC2ZR-taawPAYrIaU5"
+ *   ]
+ * };
+ * const command = new DescribeServiceDeploymentsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failures": [],
+ *   "serviceDeployments": [
+ *     {
+ *       "clusterArn": "arn:aws:ecs:us-west-2:123456789012:cluster/example",
+ *       "deploymentConfiguration": {
+ *         "deploymentCircuitBreaker": {
+ *           "enable": false,
+ *           "rollback": false
+ *         },
+ *         "maximumPercent": 200,
+ *         "minimumHealthyPercent": 100
+ *       },
+ *       "serviceArn": "arn:aws:ecs:us-west-2:123456789012:service/example/sd-example",
+ *       "serviceDeploymentArn": "arn:aws:ecs:us-west-2:123456789012:service-deployment/example/sd-example/NCWGC2ZR-taawPAYrIaU5",
+ *       "status": "PENDING",
+ *       "targetServiceRevision": {
+ *         "arn": "arn:aws:ecs:us-west-2:123456789012:service-revision/example/sd-example/4980306466373577095",
+ *         "pendingTaskCount": 0,
+ *         "requestedTaskCount": 0,
+ *         "runningTaskCount": 0
+ *       },
+ *       "updatedAt": "2024-09-10T16:49:35.572000+00:00"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-a-service-deployment--1733954961143
+ * ```
+ *
  */
 export class DescribeServiceDeploymentsCommand extends $Command
   .classBuilder<

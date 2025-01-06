@@ -229,6 +229,64 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @public
+ * @example To create a task set
+ * ```javascript
+ * // This example creates a task set in a service that uses the EXTERNAL deployment controller.
+ * const input = {
+ *   "cluster": "MyCluster",
+ *   "networkConfiguration": {
+ *     "awsvpcConfiguration": {
+ *       "securityGroups": [
+ *         "sg-12344321"
+ *       ],
+ *       "subnets": [
+ *         "subnet-12344321"
+ *       ]
+ *     }
+ *   },
+ *   "service": "MyService",
+ *   "taskDefinition": "MyTaskDefinition:2"
+ * };
+ * const command = new CreateTaskSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "taskSet": {
+ *     "computedDesiredCount": 0,
+ *     "createdAt": 1557128360.711,
+ *     "id": "ecs-svc/1234567890123456789",
+ *     "launchType": "EC2",
+ *     "loadBalancers": [],
+ *     "networkConfiguration": {
+ *       "awsvpcConfiguration": {
+ *         "assignPublicIp": "DISABLED",
+ *         "securityGroups": [
+ *           "sg-12344321"
+ *         ],
+ *         "subnets": [
+ *           "subnet-12344321"
+ *         ]
+ *       }
+ *     },
+ *     "pendingCount": 0,
+ *     "runningCount": 0,
+ *     "scale": {
+ *       "value": 0,
+ *       "unit": "PERCENT"
+ *     },
+ *     "serviceRegistries": [],
+ *     "stabilityStatus": "STABILIZING",
+ *     "stabilityStatusAt": 1557128360.711,
+ *     "status": "ACTIVE",
+ *     "taskDefinition": "arn:aws:ecs:us-west-2:123456789012:task-definition/MyTaskDefinition:2",
+ *     "taskSetArn": "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789",
+ *     "updatedAt": 1557128360.711
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-task-set-1733864092815
+ * ```
+ *
  */
 export class CreateTaskSetCommand extends $Command
   .classBuilder<

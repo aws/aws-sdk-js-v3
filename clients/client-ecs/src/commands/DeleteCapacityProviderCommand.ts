@@ -115,6 +115,38 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @public
+ * @example To delete a specified capacity provider
+ * ```javascript
+ * // This example deletes a specified capacity provider.
+ * const input = {
+ *   "capacityProvider": "arn:aws:ecs:us-west-2:123456789012:capacity-provider/ExampleCapacityProvider"
+ * };
+ * const command = new DeleteCapacityProviderCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "capacityProvider": {
+ *     "name": "ExampleCapacityProvider",
+ *     "autoScalingGroupProvider": {
+ *       "autoScalingGroupArn": "arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup",
+ *       "managedScaling": {
+ *         "maximumScalingStepSize": 10000,
+ *         "minimumScalingStepSize": 1,
+ *         "status": "ENABLED",
+ *         "targetCapacity": 100
+ *       },
+ *       "managedTerminationProtection": "DISABLED"
+ *     },
+ *     "capacityProviderArn": "arn:aws:ecs:us-west-2:123456789012:capacity-provider/ExampleCapacityProvider",
+ *     "status": "ACTIVE",
+ *     "tags": [],
+ *     "updateStatus": "DELETE_IN_PROGRESS"
+ *   }
+ * }
+ * *\/
+ * // example id: to-delete-a-specified-capacity-provider-1733868702678
+ * ```
+ *
  */
 export class DeleteCapacityProviderCommand extends $Command
   .classBuilder<
