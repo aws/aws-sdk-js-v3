@@ -382,6 +382,53 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @public
+ * @example To delete a task definition that has been deregistered
+ * ```javascript
+ * // This example deletes a specified deregistered task definition.
+ * const input = {
+ *   "taskDefinitions": [
+ *     "Example-task-definition:1"
+ *   ]
+ * };
+ * const command = new DeleteTaskDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failures": [],
+ *   "taskDefinitions": [
+ *     {
+ *       "containerDefinitions": [
+ *         {
+ *           "name": "wave",
+ *           "command": [
+ *             "apt-get update; apt-get install stress; while true; do stress --cpu $(( RANDOM % 4 )) -t $(( RANDOM % 10 )); done"
+ *           ],
+ *           "cpu": 50,
+ *           "entryPoint": [
+ *             "bash",
+ *             "-c"
+ *           ],
+ *           "environment": [],
+ *           "essential": true,
+ *           "image": "ubuntu",
+ *           "memory": 100,
+ *           "mountPoints": [],
+ *           "portMappings": [],
+ *           "volumesFrom": []
+ *         }
+ *       ],
+ *       "family": "cpu-wave",
+ *       "revision": 1,
+ *       "status": "DELETE_IN_PROGRESS",
+ *       "taskDefinitionArn": "arn:aws:ecs:us-east-1:012345678910:task-definition/Example-task-definition:1",
+ *       "volumes": []
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-delete-a-task-definition-that-has-been-deregistered-1733940790186
+ * ```
+ *
  */
 export class DeleteTaskDefinitionsCommand extends $Command
   .classBuilder<

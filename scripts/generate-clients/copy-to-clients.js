@@ -45,7 +45,7 @@ const mergeManifest = (fromContent = {}, toContent = {}, parentKey = "root") => 
         // After moving to yarn modern, we'll use constraints feature to enforce
         // consistency in dependency versions https://yarnpkg.com/features/constraints
         const devDepToVersionHash = {
-          "@tsconfig/node16": "16.1.3",
+          "@tsconfig/node18": "18.2.4",
           concurrently: "7.0.0",
           "downlevel-dts": "0.10.1",
           rimraf: "3.0.2",

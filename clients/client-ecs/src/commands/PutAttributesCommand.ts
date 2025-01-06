@@ -90,6 +90,35 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @public
+ * @example To create or update an attribute on a resource
+ * ```javascript
+ * // This example adds an attribute "stack" with the value "production" to a container instance.
+ * const input = {
+ *   "attributes": [
+ *     {
+ *       "name": "stack",
+ *       "value": "production",
+ *       "targetId": "arn:aws:ecs:us-west-2:123456789012:container-instance/1c3be8ed-df30-47b4-8f1e-6e68ebd01f34"
+ *     }
+ *   ],
+ *   "cluster": "MyCluster"
+ * };
+ * const command = new PutAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "attributes": [
+ *     {
+ *       "name": "stack",
+ *       "value": "production",
+ *       "targetId": "arn:aws:ecs:us-west-2:123456789012:container-instance/1c3be8ed-df30-47b4-8f1e-6e68ebd01f34"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-create-or-update-an-attribute-on-a-resource-1734382423405
+ * ```
+ *
  */
 export class PutAttributesCommand extends $Command
   .classBuilder<

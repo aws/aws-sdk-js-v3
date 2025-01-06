@@ -27,24 +27,24 @@
     "@aws-sdk/client-s3": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/middleware-endpoint": "^3.2.6",
-    "@smithy/signature-v4": "^4.2.4",
-    "@smithy/types": "^3.7.2",
-    "@smithy/util-hex-encoding": "^3.0.0",
-    "@smithy/util-utf8": "^3.0.0",
+    "@smithy/middleware-endpoint": "^4.0.0",
+    "@smithy/signature-v4": "^5.0.0",
+    "@smithy/types": "^4.0.0",
+    "@smithy/util-hex-encoding": "^4.0.0",
+    "@smithy/util-utf8": "^4.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^16.18.96",
+    "@types/node": "^18.19.69",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "form-data": "^4.0.0",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
+    "typescript": "~5.2.2"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "typesVersions": {
     "<4.0": {

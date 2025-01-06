@@ -169,6 +169,55 @@ export interface DeleteTaskSetCommandOutput extends DeleteTaskSetResponse, __Met
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @public
+ * @example To delete a task set within a service that uses the EXTERNAL deployment controller type
+ * ```javascript
+ * // This example deletes a task set and uses the force flag to force deletion if it hasn't scaled to zero.
+ * const input = {
+ *   "cluster": "MyCluster",
+ *   "force": true,
+ *   "service": "MyService",
+ *   "taskSet": "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789"
+ * };
+ * const command = new DeleteTaskSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "taskSet": {
+ *     "computedDesiredCount": 0,
+ *     "createdAt": 1557130260.276,
+ *     "id": "ecs-svc/1234567890123456789",
+ *     "launchType": "EC2",
+ *     "loadBalancers": [],
+ *     "networkConfiguration": {
+ *       "awsvpcConfiguration": {
+ *         "assignPublicIp": "DISABLED",
+ *         "securityGroups": [
+ *           "sg-12345678"
+ *         ],
+ *         "subnets": [
+ *           "subnet-12345678"
+ *         ]
+ *       }
+ *     },
+ *     "pendingCount": 0,
+ *     "runningCount": 0,
+ *     "scale": {
+ *       "value": 0,
+ *       "unit": "PERCENT"
+ *     },
+ *     "serviceRegistries": [],
+ *     "stabilityStatus": "STABILIZING",
+ *     "stabilityStatusAt": 1557130290.707,
+ *     "status": "DRAINING",
+ *     "taskDefinition": "arn:aws:ecs:us-west-2:123456789012:task-definition/sample-fargate:2",
+ *     "taskSetArn": "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789",
+ *     "updatedAt": 1557130290.707
+ *   }
+ * }
+ * *\/
+ * // example id: to-delete-a-task-set-within-a-service-that-uses-the-external-deployment-controller-type-1733949897807
+ * ```
+ *
  */
 export class DeleteTaskSetCommand extends $Command
   .classBuilder<

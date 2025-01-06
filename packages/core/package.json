@@ -82,14 +82,14 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/core": "^2.5.5",
-    "@smithy/node-config-provider": "^3.1.12",
-    "@smithy/property-provider": "^3.1.11",
-    "@smithy/protocol-http": "^4.1.8",
-    "@smithy/signature-v4": "^4.2.4",
-    "@smithy/smithy-client": "^3.5.1",
-    "@smithy/types": "^3.7.2",
-    "@smithy/util-middleware": "^3.0.11",
+    "@smithy/core": "^3.0.0",
+    "@smithy/node-config-provider": "^4.0.0",
+    "@smithy/property-provider": "^4.0.0",
+    "@smithy/protocol-http": "^5.0.0",
+    "@smithy/signature-v4": "^5.0.0",
+    "@smithy/smithy-client": "^4.0.0",
+    "@smithy/types": "^4.0.0",
+    "@smithy/util-middleware": "^4.0.0",
     "fast-xml-parser": "4.4.1",
     "tslib": "^2.6.2"
   },
@@ -98,10 +98,10 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
+    "typescript": "~5.2.2"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "typesVersions": {
     "<4.0": {

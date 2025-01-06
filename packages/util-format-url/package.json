@@ -22,12 +22,12 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/querystring-builder": "^3.0.11",
-    "@smithy/types": "^3.7.2",
+    "@smithy/querystring-builder": "^4.0.0",
+    "@smithy/types": "^4.0.0",
     "tslib": "^2.6.2"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "typesVersions": {
     "<4.0": {
@@ -50,6 +50,6 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
+    "typescript": "~5.2.2"
   }
 }

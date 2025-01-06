@@ -169,9 +169,9 @@ const convertToNumberAttr = (num: number | Number, options?: marshallOptions): {
     throw new Error(`Special numeric value ${num.toString()} is not allowed`);
   } else if (!options?.allowImpreciseNumbers) {
     // Only perform these checks if allowImpreciseNumbers is false
-    if (num > Number.MAX_SAFE_INTEGER) {
+    if (Number(num) > Number.MAX_SAFE_INTEGER) {
       validateBigIntAndThrow(`Number ${num.toString()} is greater than Number.MAX_SAFE_INTEGER.`);
-    } else if (num < Number.MIN_SAFE_INTEGER) {
+    } else if (Number(num) < Number.MIN_SAFE_INTEGER) {
       validateBigIntAndThrow(`Number ${num.toString()} is lesser than Number.MIN_SAFE_INTEGER.`);
     }
   }

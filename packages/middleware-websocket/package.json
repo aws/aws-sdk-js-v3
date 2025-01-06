@@ -25,13 +25,13 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/eventstream-codec": "^3.1.10",
-    "@smithy/eventstream-serde-browser": "^3.0.14",
-    "@smithy/fetch-http-handler": "^4.1.2",
-    "@smithy/protocol-http": "^4.1.8",
-    "@smithy/signature-v4": "^4.2.4",
-    "@smithy/types": "^3.7.2",
-    "@smithy/util-hex-encoding": "^3.0.0",
+    "@smithy/eventstream-codec": "^4.0.0",
+    "@smithy/eventstream-serde-browser": "^4.0.0",
+    "@smithy/fetch-http-handler": "^5.0.0",
+    "@smithy/protocol-http": "^5.0.0",
+    "@smithy/signature-v4": "^5.0.0",
+    "@smithy/types": "^4.0.0",
+    "@smithy/util-hex-encoding": "^4.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -40,7 +40,7 @@
     "downlevel-dts": "0.10.1",
     "mock-socket": "9.1.5",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5",
+    "typescript": "~5.2.2",
     "vitest-websocket-mock": "0.2.3",
     "web-streams-polyfill": "3.2.1"
   },

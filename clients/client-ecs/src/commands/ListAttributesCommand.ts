@@ -82,6 +82,31 @@ export interface ListAttributesCommandOutput extends ListAttributesResponse, __M
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @public
+ * @example To list container instances that have a specific attribute
+ * ```javascript
+ * // This example lists attributes for a container instance with the attribute "stack" equal to the value "production".
+ * const input = {
+ *   "attributeName": "stack",
+ *   "attributeValue": "production",
+ *   "cluster": "MyCluster",
+ *   "targetType": "container-instance"
+ * };
+ * const command = new ListAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "attributes": [
+ *     {
+ *       "name": "stack",
+ *       "value": "production",
+ *       "targetId": "arn:aws:ecs:us-west-2:123456789012:container-instance/1c3be8ed-df30-47b4-8f1e-6e68ebd01f34"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-container-instances-that-have-a-specific-attribute-1734368946577
+ * ```
+ *
  */
 export class ListAttributesCommand extends $Command
   .classBuilder<
