@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.724.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.723.0...v3.724.0) (2025-01-07)
+
+
+### Features
+
+* **client-cloudhsm-v2:** Adds support to ModifyCluster for modifying a Cluster's Hsm Type. ([b2cbba5](https://github.com/aws/aws-sdk-js-v3/commit/b2cbba5e2b76d299b612b3185e25ba2a93de4fcf))
+
+
+
+
+
 # [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudhsm-v2

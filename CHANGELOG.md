@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.724.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.723.0...v3.724.0) (2025-01-07)
+
+
+### Features
+
+* **client-cloudhsm-v2:** Adds support to ModifyCluster for modifying a Cluster's Hsm Type. ([b2cbba5](https://github.com/aws/aws-sdk-js-v3/commit/b2cbba5e2b76d299b612b3185e25ba2a93de4fcf))
+* **client-dynamodb:** This release makes Amazon DynamoDB point-in-time-recovery (PITR) to be configurable. You can set PITR recovery period for each table individually to between 1 and 35 days. ([5e4350e](https://github.com/aws/aws-sdk-js-v3/commit/5e4350e9af2143756776927f2ce6390087a15c76))
+* **client-imagebuilder:** This release adds support for importing images from ISO disk files. Added new ImportDiskImage API operation. ([225a408](https://github.com/aws/aws-sdk-js-v3/commit/225a408e940b3a4ac1cc5ca383631af76e1361cf))
+
+
+
+
+
 # [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
 
 

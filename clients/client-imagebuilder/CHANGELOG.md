@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.724.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.723.0...v3.724.0) (2025-01-07)
+
+
+### Features
+
+* **client-imagebuilder:** This release adds support for importing images from ISO disk files. Added new ImportDiskImage API operation. ([225a408](https://github.com/aws/aws-sdk-js-v3/commit/225a408e940b3a4ac1cc5ca383631af76e1361cf))
+
+
+
+
+
 # [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
 
 **Note:** Version bump only for package @aws-sdk/client-imagebuilder
