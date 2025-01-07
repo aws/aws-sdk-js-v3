@@ -285,6 +285,7 @@ export interface AmiDistributionConfiguration {
  */
 export const BuildType = {
   IMPORT: "IMPORT",
+  IMPORT_ISO: "IMPORT_ISO",
   SCHEDULED: "SCHEDULED",
   USER_INITIATED: "USER_INITIATED",
 } as const;
@@ -2152,7 +2153,7 @@ export interface ImageTestsConfiguration {
   /**
    * <p>The maximum time in minutes that tests are permitted to run.</p>
    *          <note>
-   *             <p>The timeout attribute is not currently active. This value is
+   *             <p>The timeout property is not currently active. This value is
    * 				ignored.</p>
    *          </note>
    * @public
@@ -2370,14 +2371,26 @@ export interface Schedule {
   timezone?: string | undefined;
 
   /**
-   * <p>The condition configures when the pipeline should trigger a new image build. When the
-   * 				<code>pipelineExecutionStartCondition</code> is set to
-   * 				<code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>, and you use semantic
-   * 			version filters on the base image or components in your image recipe, EC2 Image Builder will
-   * 			build a new image only when there are new versions of the image or components in your
-   * 			recipe that match the semantic version filter. When it is set to
-   * 				<code>EXPRESSION_MATCH_ONLY</code>, it will build a new image every time the CRON
-   * 			expression matches the current time. For semantic version syntax, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html">CreateComponent</a> in the <i> EC2 Image Builder API Reference</i>.</p>
+   * <p>The start condition configures when the pipeline should trigger a new image build,
+   * 			as follows. If no value is set Image Builder defaults to
+   * 			<code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code> (default) –
+   * 					When you use semantic version filters on the base image or components in your
+   * 					image recipe, EC2 Image Builder builds a new image only when there are new versions of
+   * 					the base image or components in your recipe that match the filter.</p>
+   *                <note>
+   *                   <p>For semantic version syntax, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html">CreateComponent</a>.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXPRESSION_MATCH_ONLY</code> – This condition builds a new
+   * 					image every time the CRON expression matches the current time.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   pipelineExecutionStartCondition?: PipelineExecutionStartCondition | undefined;
@@ -4529,6 +4542,11 @@ export interface Image {
    *                   <b>IMPORT</b> – A VM import created
    * 					the image to use as the base image for the recipe.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>IMPORT_ISO</b> – An ISO disk import created
+   * 					the image.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -5757,6 +5775,95 @@ export interface ImportComponentResponse {
 /**
  * @public
  */
+export interface ImportDiskImageRequest {
+  /**
+   * <p>The name of the image resource that's created from the import.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The semantic version to attach to the image that's created during the import
+   * 			process. This version follows the semantic version syntax.</p>
+   * @public
+   */
+  semanticVersion: string | undefined;
+
+  /**
+   * <p>The description for your disk image import.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The operating system platform for the imported image. Allowed values include
+   * 			the following: <code>Windows</code>.</p>
+   * @public
+   */
+  platform: string | undefined;
+
+  /**
+   * <p>The operating system version for the imported image. Allowed values include
+   * 			the following: <code>Microsoft Windows 11</code>.</p>
+   * @public
+   */
+  osVersion: string | undefined;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access
+   * 			to perform workflow actions to import an image from a Microsoft ISO file.</p>
+   * @public
+   */
+  executionRole?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration resource that's used for
+   * 			launching the EC2 instance on which the ISO image is built.</p>
+   * @public
+   */
+  infrastructureConfigurationArn: string | undefined;
+
+  /**
+   * <p>The <code>uri</code> of the ISO disk file that's stored in Amazon S3.</p>
+   * @public
+   */
+  uri: string | undefined;
+
+  /**
+   * <p>Tags that are attached to image resources created from the import.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportDiskImageResponse {
+  /**
+   * <p>The client token that uniquely identifies the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the output AMI that was created from the ISO disk file.</p>
+   * @public
+   */
+  imageBuildVersionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ImportVmImageRequest {
   /**
    * <p>The name of the base image that is created by the import process.</p>
@@ -6311,6 +6418,11 @@ export interface ImageSummary {
    *                <p>
    *                   <b>IMPORT</b> – A VM import created
    * 					the image to use as the base image for the recipe.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>IMPORT_ISO</b> – An ISO disk import created
+   * 					the image.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6882,6 +6994,11 @@ export interface ImageVersion {
    *                <p>
    *                   <b>IMPORT</b> – A VM import created
    * 					the image to use as the base image for the recipe.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>IMPORT_ISO</b> – An ISO disk import created
+   * 					the image.</p>
    *             </li>
    *          </ul>
    * @public

@@ -65,7 +65,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * //       osVersion: "STRING_VALUE",
  * //       owner: "STRING_VALUE",
  * //       dateCreated: "STRING_VALUE",
- * //       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT",
+ * //       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT" || "IMPORT_ISO",
  * //       imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
  * //     },
  * //   ],

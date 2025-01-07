@@ -125,6 +125,7 @@ import {
   GetWorkflowStepExecutionCommandOutput,
 } from "../commands/GetWorkflowStepExecutionCommand";
 import { ImportComponentCommandInput, ImportComponentCommandOutput } from "../commands/ImportComponentCommand";
+import { ImportDiskImageCommandInput, ImportDiskImageCommandOutput } from "../commands/ImportDiskImageCommand";
 import { ImportVmImageCommandInput, ImportVmImageCommandOutput } from "../commands/ImportVmImageCommand";
 import {
   ListComponentBuildVersionsCommandInput,
@@ -1146,6 +1147,37 @@ export const se_ImportComponentCommand = async (
       semanticVersion: [],
       tags: (_) => _json(_),
       type: [],
+      uri: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ImportDiskImageCommand
+ */
+export const se_ImportDiskImageCommand = async (
+  input: ImportDiskImageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ImportDiskImage");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      executionRole: [],
+      infrastructureConfigurationArn: [],
+      name: [],
+      osVersion: [],
+      platform: [],
+      semanticVersion: [],
+      tags: (_) => _json(_),
       uri: [],
     })
   );
@@ -2909,6 +2941,28 @@ export const de_ImportComponentCommand = async (
     clientToken: __expectString,
     componentBuildVersionArn: __expectString,
     requestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ImportDiskImageCommand
+ */
+export const de_ImportDiskImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportDiskImageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    imageBuildVersionArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;

@@ -92,7 +92,7 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * //       tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
- * //       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT",
+ * //       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT" || "IMPORT_ISO",
  * //       imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
  * //       deprecationTime: new Date("TIMESTAMP"),
  * //       lifecycleExecutionId: "STRING_VALUE",

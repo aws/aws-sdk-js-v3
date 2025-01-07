@@ -512,6 +512,14 @@ ImportComponent
 </details>
 <details>
 <summary>
+ImportDiskImage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/ImportDiskImageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ImportDiskImageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/ImportDiskImageCommandOutput/)
+
+</details>
+<details>
+<summary>
 ImportVmImage
 </summary>
 

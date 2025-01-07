@@ -37,6 +37,7 @@ export * from "./GetWorkflowCommand";
 export * from "./GetWorkflowExecutionCommand";
 export * from "./GetWorkflowStepExecutionCommand";
 export * from "./ImportComponentCommand";
+export * from "./ImportDiskImageCommand";
 export * from "./ImportVmImageCommand";
 export * from "./ListComponentBuildVersionsCommand";
 export * from "./ListComponentsCommand";

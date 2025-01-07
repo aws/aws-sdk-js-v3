@@ -177,6 +177,11 @@ import {
   ImportComponentCommandOutput,
 } from "./commands/ImportComponentCommand";
 import {
+  ImportDiskImageCommand,
+  ImportDiskImageCommandInput,
+  ImportDiskImageCommandOutput,
+} from "./commands/ImportDiskImageCommand";
+import {
   ImportVmImageCommand,
   ImportVmImageCommandInput,
   ImportVmImageCommandOutput,
@@ -389,6 +394,7 @@ const commands = {
   GetWorkflowExecutionCommand,
   GetWorkflowStepExecutionCommand,
   ImportComponentCommand,
+  ImportDiskImageCommand,
   ImportVmImageCommand,
   ListComponentBuildVersionsCommand,
   ListComponentsCommand,
@@ -1021,6 +1027,20 @@ export interface Imagebuilder {
     args: ImportComponentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ImportComponentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ImportDiskImageCommand}
+   */
+  importDiskImage(
+    args: ImportDiskImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportDiskImageCommandOutput>;
+  importDiskImage(args: ImportDiskImageCommandInput, cb: (err: any, data?: ImportDiskImageCommandOutput) => void): void;
+  importDiskImage(
+    args: ImportDiskImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportDiskImageCommandOutput) => void
   ): void;
 
   /**

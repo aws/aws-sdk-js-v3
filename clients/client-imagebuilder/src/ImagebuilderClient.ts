@@ -151,6 +151,7 @@ import {
   GetWorkflowStepExecutionCommandOutput,
 } from "./commands/GetWorkflowStepExecutionCommand";
 import { ImportComponentCommandInput, ImportComponentCommandOutput } from "./commands/ImportComponentCommand";
+import { ImportDiskImageCommandInput, ImportDiskImageCommandOutput } from "./commands/ImportDiskImageCommand";
 import { ImportVmImageCommandInput, ImportVmImageCommandOutput } from "./commands/ImportVmImageCommand";
 import {
   ListComponentBuildVersionsCommandInput,
@@ -315,6 +316,7 @@ export type ServiceInputTypes =
   | GetWorkflowExecutionCommandInput
   | GetWorkflowStepExecutionCommandInput
   | ImportComponentCommandInput
+  | ImportDiskImageCommandInput
   | ImportVmImageCommandInput
   | ListComponentBuildVersionsCommandInput
   | ListComponentsCommandInput
@@ -394,6 +396,7 @@ export type ServiceOutputTypes =
   | GetWorkflowExecutionCommandOutput
   | GetWorkflowStepExecutionCommandOutput
   | ImportComponentCommandOutput
+  | ImportDiskImageCommandOutput
   | ImportVmImageCommandOutput
   | ListComponentBuildVersionsCommandOutput
   | ListComponentsCommandOutput
