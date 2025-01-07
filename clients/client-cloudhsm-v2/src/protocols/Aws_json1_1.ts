@@ -947,6 +947,7 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     ClusterId: __expectString,
     CreateTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     HsmType: __expectString,
+    HsmTypeRollbackExpiration: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Hsms: _json,
     Mode: __expectString,
     NetworkType: __expectString,

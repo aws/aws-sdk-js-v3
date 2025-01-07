@@ -38,6 +38,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __Met
  * // const { CloudHSMV2Client, ModifyClusterCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
  * const input = { // ModifyClusterRequest
+ *   HsmType: "STRING_VALUE",
  *   BackupRetentionPolicy: { // BackupRetentionPolicy
  *     Type: "DAYS",
  *     Value: "STRING_VALUE",
@@ -64,11 +65,13 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __Met
  * //         EniIp: "STRING_VALUE",
  * //         EniIpV6: "STRING_VALUE",
  * //         HsmId: "STRING_VALUE", // required
+ * //         HsmType: "STRING_VALUE",
  * //         State: "CREATE_IN_PROGRESS" || "ACTIVE" || "DEGRADED" || "DELETE_IN_PROGRESS" || "DELETED",
  * //         StateMessage: "STRING_VALUE",
  * //       },
  * //     ],
  * //     HsmType: "STRING_VALUE",
+ * //     HsmTypeRollbackExpiration: new Date("TIMESTAMP"),
  * //     PreCoPassword: "STRING_VALUE",
  * //     SecurityGroup: "STRING_VALUE",
  * //     SourceBackupId: "STRING_VALUE",
