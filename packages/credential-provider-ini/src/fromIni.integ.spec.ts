@@ -172,7 +172,7 @@ describe("fromIni region search order", () => {
 
     await sts.getCallerIdentity({});
     const credentials = await sts.config.credentials();
-    expect(credentials).toContain({
+    expect(credentials).toMatchObject({
       accessKeyId: "STS_AR_ACCESS_KEY_ID",
       secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
       sessionToken: "STS_AR_SESSION_TOKEN_ap-northeast-1",
@@ -192,7 +192,7 @@ describe("fromIni region search order", () => {
 
     await sts.getCallerIdentity({});
     const credentials = await sts.config.credentials();
-    expect(credentials).toContain({
+    expect(credentials).toMatchObject({
       accessKeyId: "STS_AR_ACCESS_KEY_ID",
       secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
       sessionToken: "STS_AR_SESSION_TOKEN_us-stsar-1",
@@ -214,7 +214,7 @@ describe("fromIni region search order", () => {
 
     await sts.getCallerIdentity({});
     const credentials = await sts.config.credentials();
-    expect(credentials).toContain({
+    expect(credentials).toMatchObject({
       accessKeyId: "STS_AR_ACCESS_KEY_ID",
       secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
       sessionToken: "STS_AR_SESSION_TOKEN_ap-northeast-2",
@@ -238,7 +238,7 @@ describe("fromIni region search order", () => {
 
     await sts.getCallerIdentity({});
     const credentials = await sts.config.credentials();
-    expect(credentials).toContain({
+    expect(credentials).toMatchObject({
       accessKeyId: "STS_AR_ACCESS_KEY_ID",
       secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
       sessionToken: "STS_AR_SESSION_TOKEN_us-east-1",

@@ -566,7 +566,7 @@ describe("bucketHostname", () => {
           clientRegion: region,
           isCustomEndpoint: false,
         })
-      ).toThrow("");
+      ).toThrow();
     });
 
     it('should populate endpoint from MRAP ARN with access point name "myendpoint"', () => {

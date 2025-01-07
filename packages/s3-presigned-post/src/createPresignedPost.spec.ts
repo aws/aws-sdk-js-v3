@@ -102,7 +102,7 @@ describe("createPresignedPost", () => {
       Bucket,
       Key: "path/to/${filename}",
     });
-    const { conditions } = JSON.parse(mockS3Client.config.utf8Decoder.mock.calls[0]);
+    const { conditions } = JSON.parse(mockS3Client.config.utf8Decoder.mock.calls[0] as any);
     expect(conditions).toContainEqual(["starts-with", "$key", "path/to/"]);
   });
 
@@ -112,7 +112,7 @@ describe("createPresignedPost", () => {
       Bucket,
       Key,
     });
-    const policy = JSON.parse(mockS3Client.config.utf8Decoder.mock.calls[0]);
+    const policy = JSON.parse(mockS3Client.config.utf8Decoder.mock.calls[0] as any);
     expect(policy).toMatchObject({
       expiration: "2020-10-28T23:56:49Z",
     });
@@ -125,7 +125,7 @@ describe("createPresignedPost", () => {
       Key,
       Expires: 7200,
     });
-    expect(JSON.parse(mockS3Client.config.utf8Decoder.mock.calls[0])).toMatchObject({
+    expect(JSON.parse(mockS3Client.config.utf8Decoder.mock.calls[0] as any)).toMatchObject({
       expiration: "2020-10-29T00:56:49Z",
     });
   });
@@ -139,7 +139,7 @@ describe("createPresignedPost", () => {
       Fields: { acl: "public-read" },
     });
     expect(fields).toMatchObject({ bucket: Bucket, key: Key, acl: "public-read" });
-    const { conditions } = JSON.parse(mockS3Client.config.utf8Decoder.mock.calls[0]);
+    const { conditions } = JSON.parse(mockS3Client.config.utf8Decoder.mock.calls[0] as any);
     expect(conditions).toContainEqual({ acl: "public-read" });
   });
 });
