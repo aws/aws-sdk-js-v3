@@ -84,8 +84,7 @@ export const ScalarAttributeType = {
 export type ScalarAttributeType = (typeof ScalarAttributeType)[keyof typeof ScalarAttributeType];
 
 /**
- * <p>Represents an attribute for describing the schema for the table and
- *             indexes.</p>
+ * <p>Represents an attribute for describing the schema for the table and indexes.</p>
  * @public
  */
 export interface AttributeDefinition {
@@ -493,20 +492,28 @@ export interface KeySchemaElement {
 }
 
 /**
- * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+ * <p>Sets the maximum number of read and write units for the specified on-demand table. If
+ *             you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+ *                 <code>MaxWriteRequestUnits</code>, or both.</p>
  * @public
  */
 export interface OnDemandThroughput {
   /**
    * <p>Maximum number of read request units for the specified table.</p>
-   *          <p>To specify a maximum <code>OnDemandThroughput</code> on your table, set the value of <code>MaxReadRequestUnits</code> as greater than or equal to 1. To remove the maximum <code>OnDemandThroughput</code> that is currently set on your table, set the value of <code>MaxReadRequestUnits</code> to -1.</p>
+   *          <p>To specify a maximum <code>OnDemandThroughput</code> on your table, set the value of
+   *                 <code>MaxReadRequestUnits</code> as greater than or equal to 1. To remove the
+   *             maximum <code>OnDemandThroughput</code> that is currently set on your table, set the
+   *             value of <code>MaxReadRequestUnits</code> to -1.</p>
    * @public
    */
   MaxReadRequestUnits?: number | undefined;
 
   /**
    * <p>Maximum number of write request units for the specified table.</p>
-   *          <p>To specify a maximum <code>OnDemandThroughput</code> on your table, set the value of <code>MaxWriteRequestUnits</code> as greater than or equal to 1. To remove the maximum <code>OnDemandThroughput</code> that is currently set on your table, set the value of <code>MaxWriteRequestUnits</code> to -1.</p>
+   *          <p>To specify a maximum <code>OnDemandThroughput</code> on your table, set the value of
+   *                 <code>MaxWriteRequestUnits</code> as greater than or equal to 1. To remove the
+   *             maximum <code>OnDemandThroughput</code> that is currently set on your table, set the
+   *             value of <code>MaxWriteRequestUnits</code> to -1.</p>
    * @public
    */
   MaxWriteRequestUnits?: number | undefined;
@@ -523,8 +530,9 @@ export interface OnDemandThroughput {
 export interface ProvisionedThroughput {
   /**
    * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB
-   *             returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB
-   *                 Developer Guide</i>.</p>
+   *             returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying
+   *                 Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
    *          <p>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to
    *             0.</p>
    * @public
@@ -533,8 +541,9 @@ export interface ProvisionedThroughput {
 
   /**
    * <p>The maximum number of writes consumed per second before DynamoDB returns a
-   *                 <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB
-   *                 Developer Guide</i>.</p>
+   *                 <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying
+   *                 Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
    *          <p>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to
    *             0.</p>
    * @public
@@ -590,7 +599,9 @@ export interface SourceTableDetails {
   ProvisionedThroughput: ProvisionedThroughput | undefined;
 
   /**
-   * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>Sets the maximum number of read and write units for the specified on-demand table. If
+   *             you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
@@ -735,7 +746,9 @@ export interface GlobalSecondaryIndexInfo {
   ProvisionedThroughput?: ProvisionedThroughput | undefined;
 
   /**
-   * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>Sets the maximum number of read and write units for the specified on-demand table. If
+   *             you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
@@ -1239,7 +1252,8 @@ export interface Capacity {
  */
 export interface ConsumedCapacity {
   /**
-   * <p>The name of the table that was affected by the operation. If you had specified the Amazon Resource Name (ARN) of a table in the input, you'll see the table ARN in the response.</p>
+   * <p>The name of the table that was affected by the operation. If you had specified the
+   *             Amazon Resource Name (ARN) of a table in the input, you'll see the table ARN in the response.</p>
    * @public
    */
   TableName?: string | undefined;
@@ -1579,6 +1593,15 @@ export interface PointInTimeRecoveryDescription {
   PointInTimeRecoveryStatus?: PointInTimeRecoveryStatus | undefined;
 
   /**
+   * <p>The number of preceding days for which continuous backups are taken and maintained.
+   *             Your table data is only recoverable to any point-in-time from within the configured
+   *             recovery period. This parameter is optional. If no value is provided, the value will
+   *             default to 35.</p>
+   * @public
+   */
+  RecoveryPeriodInDays?: number | undefined;
+
+  /**
    * <p>Specifies the earliest point in time you can restore your table to. You can restore
    *             your table to any point in time during the last 35 days. </p>
    * @public
@@ -1796,18 +1819,23 @@ export class TableNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the <code>UpdateTable</code> operation to meet the throughput requirements of an upcoming peak event.</p>
+ * <p>Provides visibility into the number of read and write operations your table or
+ *             secondary index can instantaneously support. The settings can be modified using the
+ *                 <code>UpdateTable</code> operation to meet the throughput requirements of an
+ *             upcoming peak event.</p>
  * @public
  */
 export interface WarmThroughput {
   /**
-   * <p>Represents the number of read operations your base table can instantaneously support.</p>
+   * <p>Represents the number of read operations your base table can instantaneously
+   *             support.</p>
    * @public
    */
   ReadUnitsPerSecond?: number | undefined;
 
   /**
-   * <p>Represents the number of write operations your base table can instantaneously support.</p>
+   * <p>Represents the number of write operations your base table can instantaneously
+   *             support.</p>
    * @public
    */
   WriteUnitsPerSecond?: number | undefined;
@@ -1849,13 +1877,16 @@ export interface CreateGlobalSecondaryIndexAction {
   ProvisionedThroughput?: ProvisionedThroughput | undefined;
 
   /**
-   * <p>The maximum number of read and write units for the global secondary index being created. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>The maximum number of read and write units for the global secondary index being
+   *             created. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
 
   /**
-   * <p>Represents the warm throughput value (in read units per second and write units per second) when creating a secondary index.</p>
+   * <p>Represents the warm throughput value (in read units per second and write units per
+   *             second) when creating a secondary index.</p>
    * @public
    */
   WarmThroughput?: WarmThroughput | undefined;
@@ -1907,7 +1938,9 @@ export const GlobalTableStatus = {
 export type GlobalTableStatus = (typeof GlobalTableStatus)[keyof typeof GlobalTableStatus];
 
 /**
- * <p>Overrides the on-demand throughput settings for this replica table. If you don't specify a value for this parameter, it uses the source table's on-demand throughput settings.</p>
+ * <p>Overrides the on-demand throughput settings for this replica table. If you don't
+ *             specify a value for this parameter, it uses the source table's on-demand throughput
+ *             settings.</p>
  * @public
  */
 export interface OnDemandThroughputOverride {
@@ -1954,19 +1987,22 @@ export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
  */
 export interface GlobalSecondaryIndexWarmThroughputDescription {
   /**
-   * <p>Represents warm throughput read units per second value for a global secondary index.</p>
+   * <p>Represents warm throughput read units per second value for a global secondary
+   *             index.</p>
    * @public
    */
   ReadUnitsPerSecond?: number | undefined;
 
   /**
-   * <p>Represents warm throughput write units per second value for a global secondary index.</p>
+   * <p>Represents warm throughput write units per second value for a global secondary
+   *             index.</p>
    * @public
    */
   WriteUnitsPerSecond?: number | undefined;
 
   /**
-   * <p>Represents the warm throughput status being created or updated on a global secondary index. The status can only be <code>UPDATING</code> or <code>ACTIVE</code>.</p>
+   * <p>Represents the warm throughput status being created or updated on a global secondary
+   *             index. The status can only be <code>UPDATING</code> or <code>ACTIVE</code>.</p>
    * @public
    */
   Status?: IndexStatus | undefined;
@@ -1990,7 +2026,8 @@ export interface ReplicaGlobalSecondaryIndexDescription {
   ProvisionedThroughputOverride?: ProvisionedThroughputOverride | undefined;
 
   /**
-   * <p>Overrides the maximum on-demand throughput for the specified global secondary index in the specified replica table.</p>
+   * <p>Overrides the maximum on-demand throughput for the specified global secondary index in
+   *             the specified replica table.</p>
    * @public
    */
   OnDemandThroughputOverride?: OnDemandThroughputOverride | undefined;
@@ -2074,7 +2111,8 @@ export const TableStatus = {
 export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
 
 /**
- * <p>Represents the warm throughput value (in read units per second and write units per second) of the base table.</p>
+ * <p>Represents the warm throughput value (in read units per second and write units per
+ *             second) of the base table.</p>
  * @public
  */
 export interface TableWarmThroughputDescription {
@@ -2181,7 +2219,8 @@ export interface ReplicaDescription {
   ProvisionedThroughputOverride?: ProvisionedThroughputOverride | undefined;
 
   /**
-   * <p>Overrides the maximum on-demand throughput settings for the specified replica table.</p>
+   * <p>Overrides the maximum on-demand throughput settings for the specified replica
+   *             table.</p>
    * @public
    */
   OnDemandThroughputOverride?: OnDemandThroughputOverride | undefined;
@@ -2328,7 +2367,8 @@ export interface ReplicaGlobalSecondaryIndex {
   ProvisionedThroughputOverride?: ProvisionedThroughputOverride | undefined;
 
   /**
-   * <p>Overrides the maximum on-demand throughput settings for the specified global secondary index in the specified replica table.</p>
+   * <p>Overrides the maximum on-demand throughput settings for the specified global secondary
+   *             index in the specified replica table.</p>
    * @public
    */
   OnDemandThroughputOverride?: OnDemandThroughputOverride | undefined;
@@ -2363,8 +2403,9 @@ export interface CreateReplicationGroupMemberAction {
   ProvisionedThroughputOverride?: ProvisionedThroughputOverride | undefined;
 
   /**
-   * <p>The maximum on-demand throughput settings for the specified replica table being created. You can only modify <code>MaxReadRequestUnits</code>, because you can't modify <code>MaxWriteRequestUnits</code> for individual replica tables.
-   *         </p>
+   * <p>The maximum on-demand throughput settings for the specified replica table being
+   *             created. You can only modify <code>MaxReadRequestUnits</code>, because you can't modify
+   *                 <code>MaxWriteRequestUnits</code> for individual replica tables. </p>
    * @public
    */
   OnDemandThroughputOverride?: OnDemandThroughputOverride | undefined;
@@ -2441,13 +2482,17 @@ export interface GlobalSecondaryIndex {
   ProvisionedThroughput?: ProvisionedThroughput | undefined;
 
   /**
-   * <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>The maximum number of read and write units for the specified global secondary index.
+   *             If you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
 
   /**
-   * <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify <code>ReadUnitsPerSecond</code>, <code>WriteUnitsPerSecond</code>, or both.</p>
+   * <p>Represents the warm throughput value (in read units per second and write units per
+   *             second) for the specified secondary index. If you use this parameter, you must specify
+   *                 <code>ReadUnitsPerSecond</code>, <code>WriteUnitsPerSecond</code>, or both.</p>
    * @public
    */
   WarmThroughput?: WarmThroughput | undefined;
@@ -3062,13 +3107,16 @@ export interface GlobalSecondaryIndexDescription {
   IndexArn?: string | undefined;
 
   /**
-   * <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>The maximum number of read and write units for the specified global secondary index.
+   *             If you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
 
   /**
-   * <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index.</p>
+   * <p>Represents the warm throughput value (in read units per second and write units per
+   *             second) for the specified secondary index.</p>
    * @public
    */
   WarmThroughput?: GlobalSecondaryIndexWarmThroughputDescription | undefined;
@@ -3610,13 +3658,16 @@ export interface TableDescription {
   TableClassSummary?: TableClassSummary | undefined;
 
   /**
-   * <p>Indicates whether deletion protection is enabled (true) or disabled (false) on the table.</p>
+   * <p>Indicates whether deletion protection is enabled (true) or disabled (false) on the
+   *             table.</p>
    * @public
    */
   DeletionProtectionEnabled?: boolean | undefined;
 
   /**
-   * <p>The maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>The maximum number of read and write units for the specified on-demand table. If you
+   *             use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
@@ -4164,19 +4215,26 @@ export type ExportViewType = (typeof ExportViewType)[keyof typeof ExportViewType
  */
 export interface IncrementalExportSpecification {
   /**
-   * <p>Time in the past which provides the inclusive start range for the export table's data, counted in seconds from the start of the Unix epoch. The incremental export will reflect the table's state including and after this point in time.</p>
+   * <p>Time in the past which provides the inclusive start range for the export table's data,
+   *             counted in seconds from the start of the Unix epoch. The incremental export will reflect
+   *             the table's state including and after this point in time.</p>
    * @public
    */
   ExportFromTime?: Date | undefined;
 
   /**
-   * <p>Time in the past which provides the exclusive end range for the export table's data, counted in seconds from the start of the Unix epoch. The incremental export will reflect the table's state just prior to this point in time. If this is not provided, the latest time with data available will be used.</p>
+   * <p>Time in the past which provides the exclusive end range for the export table's data,
+   *             counted in seconds from the start of the Unix epoch. The incremental export will reflect
+   *             the table's state just prior to this point in time. If this is not provided, the latest
+   *             time with data available will be used.</p>
    * @public
    */
   ExportToTime?: Date | undefined;
 
   /**
-   * <p>The view type that was chosen for the export. Valid values are <code>NEW_AND_OLD_IMAGES</code> and <code>NEW_IMAGES</code>. The default value is <code>NEW_AND_OLD_IMAGES</code>.</p>
+   * <p>The view type that was chosen for the export. Valid values are
+   *                 <code>NEW_AND_OLD_IMAGES</code> and <code>NEW_IMAGES</code>. The default value is
+   *                 <code>NEW_AND_OLD_IMAGES</code>.</p>
    * @public
    */
   ExportViewType?: ExportViewType | undefined;
@@ -4336,7 +4394,8 @@ export interface ExportDescription {
   ItemCount?: number | undefined;
 
   /**
-   * <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
+   * <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or
+   *                 <code>INCREMENTAL_EXPORT</code>.</p>
    * @public
    */
   ExportType?: ExportType | undefined;
@@ -4735,7 +4794,9 @@ export interface TableCreationParameters {
   ProvisionedThroughput?: ProvisionedThroughput | undefined;
 
   /**
-   * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>Sets the maximum number of read and write units for the specified on-demand table. If
+   *             you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
@@ -4977,7 +5038,8 @@ export interface KinesisDataStreamDestination {
   DestinationStatusDescription?: string | undefined;
 
   /**
-   * <p>The precision of the Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
+   * <p>The precision of the Kinesis data stream timestamp. The values are either
+   *                 <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
    * @public
    */
   ApproximateCreationDateTimePrecision?: ApproximateCreationDateTimePrecision | undefined;
@@ -5271,7 +5333,8 @@ export interface DescribeTimeToLiveOutput {
  */
 export interface EnableKinesisStreamingConfiguration {
   /**
-   * <p>Toggle for the precision of Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
+   * <p>Toggle for the precision of Kinesis data stream timestamp. The values are either
+   *                 <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
    * @public
    */
   ApproximateCreationDateTimePrecision?: ApproximateCreationDateTimePrecision | undefined;
@@ -5929,7 +5992,8 @@ export interface ExportSummary {
   ExportStatus?: ExportStatus | undefined;
 
   /**
-   * <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
+   * <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or
+   *                 <code>INCREMENTAL_EXPORT</code>.</p>
    * @public
    */
   ExportType?: ExportType | undefined;
@@ -6336,7 +6400,9 @@ export interface RestoreTableFromBackupInput {
   ProvisionedThroughputOverride?: ProvisionedThroughput | undefined;
 
   /**
-   * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>Sets the maximum number of read and write units for the specified on-demand table. If
+   *             you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
   OnDemandThroughputOverride?: OnDemandThroughput | undefined;
@@ -6465,7 +6531,9 @@ export interface RestoreTableToPointInTimeInput {
   ProvisionedThroughputOverride?: ProvisionedThroughput | undefined;
 
   /**
-   * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>Sets the maximum number of read and write units for the specified on-demand table. If
+   *             you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
   OnDemandThroughputOverride?: OnDemandThroughput | undefined;
@@ -6536,6 +6604,15 @@ export interface PointInTimeRecoverySpecification {
    * @public
    */
   PointInTimeRecoveryEnabled: boolean | undefined;
+
+  /**
+   * <p>The number of preceding days for which continuous backups are taken and maintained.
+   *             Your table data is only recoverable to any point-in-time from within the configured
+   *             recovery period. This parameter is optional. If no value is provided, the value will
+   *             default to 35.</p>
+   * @public
+   */
+  RecoveryPeriodInDays?: number | undefined;
 }
 
 /**
@@ -6995,13 +7072,16 @@ export interface UpdateGlobalSecondaryIndexAction {
   ProvisionedThroughput?: ProvisionedThroughput | undefined;
 
   /**
-   * <p>Updates the maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>Updates the maximum number of read and write units for the specified global secondary
+   *             index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
 
   /**
-   * <p>Represents the warm throughput value of the new provisioned throughput settings to be applied to a global secondary index.</p>
+   * <p>Represents the warm throughput value of the new provisioned throughput settings to be
+   *             applied to a global secondary index.</p>
    * @public
    */
   WarmThroughput?: WarmThroughput | undefined;
@@ -7919,7 +7999,8 @@ export interface BatchStatementError {
   Message?: string | undefined;
 
   /**
-   * <p>The item which caused the condition check to fail. This will be set if ReturnValuesOnConditionCheckFailure is specified as <code>ALL_OLD</code>.</p>
+   * <p>The item which caused the condition check to fail. This will be set if
+   *             ReturnValuesOnConditionCheckFailure is specified as <code>ALL_OLD</code>.</p>
    * @public
    */
   Item?: Record<string, AttributeValue> | undefined;
@@ -8355,7 +8436,8 @@ export interface Get {
   Key: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p>The name of the table from which to retrieve the specified item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table from which to retrieve the specified item. You can also provide
+   *             the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -8598,7 +8680,7 @@ export interface ParameterizedStatement {
 
   /**
    * <p>An optional parameter that returns the item attributes for a PartiQL
-   *             <code>ParameterizedStatement</code> operation that failed a condition check.</p>
+   *                 <code>ParameterizedStatement</code> operation that failed a condition check.</p>
    *          <p>There is no additional cost associated with requesting a return value aside from the
    *             small network and processing overhead of receiving a larger response. No read capacity
    *             units are consumed.</p>
@@ -9597,29 +9679,32 @@ export interface ConditionCheck {
   Key: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p>Name of the table for the check item request. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>Name of the table for the check item request. You can also provide the Amazon Resource Name (ARN) of
+   *             the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
 
   /**
-   * <p>A condition that must be satisfied in order for a conditional update to
-   *             succeed. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer
-   *                     Guide</i>.</p>
+   * <p>A condition that must be satisfied in order for a conditional update to succeed. For
+   *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
    * @public
    */
   ConditionExpression: string | undefined;
 
   /**
-   * <p>One or more substitution tokens for attribute names in an expression. For more information, see
-   *             <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html">Expression attribute names</a>
-   *             in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   * <p>One or more substitution tokens for attribute names in an expression. For more
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html">Expression attribute names</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
    * @public
    */
   ExpressionAttributeNames?: Record<string, string> | undefined;
 
   /**
-   * <p>One or more values that can be substituted in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   * <p>One or more values that can be substituted in an expression. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
    * @public
    */
   ExpressionAttributeValues?: Record<string, AttributeValue> | undefined;
@@ -9647,7 +9732,8 @@ export interface Delete {
   Key: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p>Name of the table in which the item to be deleted resides. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>Name of the table in which the item to be deleted resides. You can also provide the
+   *             Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -9697,7 +9783,8 @@ export interface Put {
   Item: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p>Name of the table in which to write the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>Name of the table in which to write the item. You can also provide the Amazon Resource Name (ARN) of
+   *             the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -9751,7 +9838,8 @@ export interface Update {
   UpdateExpression: string | undefined;
 
   /**
-   * <p>Name of the table for the <code>UpdateItem</code> request. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>Name of the table for the <code>UpdateItem</code> request. You can also provide the
+   *             Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;

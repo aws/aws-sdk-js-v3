@@ -5084,6 +5084,7 @@ const de_PointInTimeRecoveryDescription = (output: any, context: __SerdeContext)
     EarliestRestorableDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LatestRestorableDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     PointInTimeRecoveryStatus: __expectString,
+    RecoveryPeriodInDays: __expectInt32,
   }) as any;
 };
 
