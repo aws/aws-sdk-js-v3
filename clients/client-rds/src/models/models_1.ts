@@ -8800,17 +8800,18 @@ export interface ModifyDBInstanceMessage {
    *             unless the <code>ApplyImmediately</code> parameter is enabled for this request.
    *           If you are migrating from Provisioned IOPS to standard storage, set this value to 0.
    *           The DB instance will require a reboot for the change in storage type to take effect.</p>
-   *          <p>If you choose to migrate your DB instance from using standard storage to using
-   *             Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process
-   *             can take time. The duration of the migration depends on several factors such as database
-   *             load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS
-   *             provisioned (if any), and the number of prior scale storage operations. Typical
-   *             migration times are under 24 hours, but the process can take up to several days in some
-   *             cases. During the migration, the DB instance is available for use, but might experience
-   *             performance degradation. While the migration takes place, nightly backups for the
-   *             instance are suspended. No other Amazon RDS operations can take place for the instance,
-   *             including modifying the instance, rebooting the instance, deleting the instance,
-   *             creating a read replica for the instance, and creating a DB snapshot of the instance.</p>
+   *          <p>If you choose to migrate your DB instance from using standard storage to Provisioned
+   *             IOPS (io1), or from Provisioned IOPS to standard storage, the process can take time. The
+   *             duration of the migration depends on several factors such as database load, storage
+   *             size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned (if any),
+   *             and the number of prior scale storage operations. Typical migration times are under 24
+   *             hours, but the process can take up to several days in some cases. During the migration,
+   *             the DB instance is available for use, but might experience performance degradation.
+   *             While the migration takes place, nightly backups for the instance are suspended. No
+   *             other Amazon RDS operations can take place for the instance, including modifying the
+   *             instance, rebooting the instance, deleting the instance, creating a read replica for the
+   *             instance, and creating a DB snapshot of the instance.</p>
+   *          <p></p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -8870,17 +8871,18 @@ export interface ModifyDBInstanceMessage {
    * <p>The storage type to associate with the DB instance.</p>
    *          <p>If you specify <code>io1</code>, <code>io2</code>, or <code>gp3</code>
    *           you must also include a value for the <code>Iops</code> parameter.</p>
-   *          <p>If you choose to migrate your DB instance from using standard storage to using
-   *             Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process
-   *             can take time. The duration of the migration depends on several factors such as database
-   *             load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS
-   *             provisioned (if any), and the number of prior scale storage operations. Typical
-   *             migration times are under 24 hours, but the process can take up to several days in some
-   *             cases. During the migration, the DB instance is available for use, but might experience
-   *             performance degradation. While the migration takes place, nightly backups for the
-   *             instance are suspended. No other Amazon RDS operations can take place for the instance,
-   *             including modifying the instance, rebooting the instance, deleting the instance,
-   *             creating a read replica for the instance, and creating a DB snapshot of the instance.</p>
+   *          <p>If you choose to migrate your DB instance from using standard storage to gp2 (General
+   *             Purpose SSD), gp3, or Provisioned IOPS (io1), or from these storage types to standard
+   *             storage, the process can take time. The duration of the migration depends on several
+   *             factors such as database load, storage size, storage type (standard or Provisioned
+   *             IOPS), amount of IOPS provisioned (if any), and the number of prior scale storage
+   *             operations. Typical migration times are under 24 hours, but the process can take up to
+   *             several days in some cases. During the migration, the DB instance is available for use,
+   *             but might experience performance degradation. While the migration takes place, nightly
+   *             backups for the instance are suspended. No other Amazon RDS operations can take place
+   *             for the instance, including modifying the instance, rebooting the instance, deleting the
+   *             instance, creating a read replica for the instance, and creating a DB snapshot of the
+   *             instance.</p>
    *          <p>Valid Values: <code>gp2 | gp3 | io1 | io2 | standard</code>
    *          </p>
    *          <p>Default: <code>io1</code>, if the <code>Iops</code> parameter
@@ -12451,7 +12453,8 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *       depending on the type of the cluster you are creating. You can create an Aurora Serverless v1 clone
    *       from a provisioned cluster, or a provisioned clone from an Aurora Serverless v1 cluster. To create a clone
    *       that is an Aurora Serverless v1 cluster, the original cluster must be an Aurora Serverless v1 cluster or
-   *       an encrypted provisioned cluster.</p>
+   *       an encrypted provisioned cluster. To create a full copy that is an Aurora Serverless v1 cluster, specify
+   *       the engine mode <code>serverless</code>.</p>
    *          <p>Valid for: Aurora DB clusters only</p>
    * @public
    */

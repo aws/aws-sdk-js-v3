@@ -5067,15 +5067,6 @@ export interface CreateDBClusterMessage {
    *          <p>When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data API) for running
    *             SQL queries on the DB cluster. You can also query your database
    *             from inside the RDS console with the RDS query editor.</p>
-   *          <p>RDS Data API is supported with the following DB clusters:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Aurora PostgreSQL Serverless v2 and provisioned</p>
-   *             </li>
-   *             <li>
-   *                <p>Aurora PostgreSQL and Aurora MySQL Serverless v1</p>
-   *             </li>
-   *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using RDS Data API</a> in the
    *             <i>Amazon Aurora User Guide</i>.</p>
    *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
