@@ -73,6 +73,7 @@ export interface DescribeClusterNodeCommandOutput extends DescribeClusterNodeRes
  * //       },
  * //     ],
  * //     PrivatePrimaryIp: "STRING_VALUE",
+ * //     PrivatePrimaryIpv6: "STRING_VALUE",
  * //     PrivateDnsHostname: "STRING_VALUE",
  * //     Placement: { // ClusterInstancePlacement
  * //       AvailabilityZone: "STRING_VALUE",

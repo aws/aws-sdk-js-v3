@@ -19227,6 +19227,7 @@ const de_ClusterNodeDetails = (output: any, context: __SerdeContext): ClusterNod
     Placement: (_: any) => de_ClusterInstancePlacement(_, context),
     PrivateDnsHostname: __expectString,
     PrivatePrimaryIp: __expectString,
+    PrivatePrimaryIpv6: __expectString,
     ThreadsPerCore: __expectInt32,
   }) as any;
 };

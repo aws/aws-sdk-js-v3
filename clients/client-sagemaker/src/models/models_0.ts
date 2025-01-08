@@ -487,7 +487,7 @@ export interface S3ModelDataSource {
   ETag?: string | undefined;
 
   /**
-   * <p>The ETag associated with Manifest S3URI.</p>
+   * <p>The ETag associated with Manifest S3 URI.</p>
    * @public
    */
   ManifestEtag?: string | undefined;
@@ -530,7 +530,7 @@ export interface ModelPackageContainerDefinition {
   ContainerHostname?: string | undefined;
 
   /**
-   * <p>The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.</p>
+   * <p>The Amazon EC2 Container Registry path where inference code is stored.</p>
    *          <p>If you are using your own custom algorithm instead of an algorithm provided by SageMaker,
    *             the inference code must meet SageMaker requirements. SageMaker supports both
    *             <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
@@ -1606,7 +1606,7 @@ export interface S3DataSource {
    *          <p>If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object that
    *             is a manifest file containing a list of object keys that you want SageMaker to use for model
    *             training. </p>
-   *          <p>If you choose <code>AugmentedManifestFile</code>, S3Uri identifies an object that is
+   *          <p>If you choose <code>AugmentedManifestFile</code>, <code>S3Uri</code> identifies an object that is
    *             an augmented manifest file in JSON lines format. This file contains the data you want to
    *             use for model training. <code>AugmentedManifestFile</code> can only be used if the
    *             Channel's input mode is <code>Pipe</code>.</p>
@@ -9897,6 +9897,12 @@ export interface ClusterNodeDetails {
    * @public
    */
   PrivatePrimaryIp?: string | undefined;
+
+  /**
+   * <p>The private primary IPv6 address of the SageMaker HyperPod cluster node.</p>
+   * @public
+   */
+  PrivatePrimaryIpv6?: string | undefined;
 
   /**
    * <p>The private DNS hostname of the SageMaker HyperPod cluster node.</p>
