@@ -5,4 +5,5 @@ export default defineConfig({
     include: ["**/*.browser.e2e.spec.ts", "test/unit/**/*.spec.ts"],
     environment: "happy-dom",
   },
+  mode: "development",
 });

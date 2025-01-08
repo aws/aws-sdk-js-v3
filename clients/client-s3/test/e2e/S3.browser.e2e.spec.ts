@@ -1,6 +1,7 @@
 import type { S3, SelectObjectContentEventStream, waitUntilObjectExists } from "@aws-sdk/client-s3";
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
+import { Browser } from "happy-dom";
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, onTestFailed, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
@@ -21,6 +22,9 @@ describe("@aws-sdk/client-s3", () => {
   };
 
   beforeAll(async () => {
+    const browser = new Browser();
+    browser.settings.fetch.disableSameOriginPolicy = true;
+
     const integTestResourcesEnv = await getIntegTestResources();
     Object.assign(process.env, integTestResourcesEnv);
 
@@ -28,11 +32,16 @@ describe("@aws-sdk/client-s3", () => {
     Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
     mrapArn = (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_MRAP_ARN || process?.env?.AWS_SMOKE_TEST_MRAP_ARN;
 
+    const provider = fromNodeProviderChain();
+    const credentials = await provider();
+
     client = new S3Impl(
       getRuntimeConfig({
         region,
-        credentials: fromNodeProviderChain(),
-        requestHandler: new FetchHttpHandler(),
+        credentials,
+        requestHandler: FetchHttpHandler.create({
+          credentials: "include",
+        }),
         logger: {
           trace() {},
           debug() {},
@@ -44,6 +53,24 @@ describe("@aws-sdk/client-s3", () => {
         },
       })
     ) as unknown as S3;
+
+    client.middlewareStack.addRelativeTo(
+      (next: any) => async (args: any) => {
+        const result = await next(args);
+        const { response } = result;
+        for (const [key, value] of Object.entries(response.headers)) {
+          delete response.headers[key];
+          response.headers[String(key).toLowerCase()] = value;
+        }
+        return result;
+      },
+      {
+        toMiddleware: "deserializerMiddleware",
+        name: "header-casing-middleware",
+        override: true,
+        relation: "after",
+      }
+    );
   });
 
   afterAll(() => {
@@ -66,10 +93,7 @@ describe("@aws-sdk/client-s3", () => {
 
     const buf = createBuffer("1KB");
 
-    // TODO(vitest)
-    // Caused by: RequestContentLengthMismatchError: Request body length does not match content-length header
-    // only in vitest + happy-dom.
-    it.skip("should succeed with blob body", async () => {
+    it("should succeed with blob body", async () => {
       onTestFailed(setTestFailed);
       const blob = new Blob([buf]);
       const result = await client.putObject({
@@ -91,7 +115,10 @@ describe("@aws-sdk/client-s3", () => {
       expect(result.$metadata.httpStatusCode).toEqual(200);
     });
 
-    it("should succeed with ReadableStream body", async () => {
+    // TODO(vitest)
+    // Caused by: SignatureDoesNotMatch
+    // only in vitest + happy-dom.
+    it.skip("should succeed with ReadableStream body", async () => {
       onTestFailed(setTestFailed);
       const length = 10 * 1000; // 10KB
       const chunkSize = 10;
@@ -170,9 +197,9 @@ describe("@aws-sdk/client-s3", () => {
       expect(result.Contents).toBeInstanceOf(Array);
     });
 
-    it("should throw with invalid bucket", () => {
+    it("should throw with invalid bucket", async () => {
       onTestFailed(setTestFailed);
-      expect(() => client.listObjects({ Bucket: "invalid-bucket" })).rejects.toThrow();
+      await expect(() => client.listObjects({ Bucket: "invalid-bucket" })).rejects.toThrow();
     });
   });
 

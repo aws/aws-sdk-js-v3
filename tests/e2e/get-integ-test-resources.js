@@ -3,6 +3,7 @@ const { join } = require("path");
 const { STSClient, GetCallerIdentityCommand } = require("@aws-sdk/client-sts");
 const { CloudFormationClient, DescribeStackResourcesCommand } = require("@aws-sdk/client-cloudformation");
 const { S3ControlClient, ListMultiRegionAccessPointsCommand } = require("@aws-sdk/client-s3-control");
+const { S3 } = require("@aws-sdk/client-s3");
 const { ensureTestStack } = require("./ensure-test-stack");
 const { deleteStaleChangesets } = require("./delete-stale-changesets");
 
@@ -41,6 +42,21 @@ exports.getIntegTestResources = async () => {
   const { AccessPoints } = await s3Control.send(new ListMultiRegionAccessPointsCommand({ AccountId }));
   const { Alias } = AccessPoints.find((accesspoint) => accesspoint.Name === multiRegionAccessPointName);
   const mrapArn = `arn:aws:s3::${AccountId}:accesspoint/${Alias}`;
+
+  const s3 = new S3({ region });
+  await s3.putBucketCors({
+    Bucket: bucketName,
+    CORSConfiguration: {
+      CORSRules: [
+        {
+          AllowedOrigins: ["*"],
+          AllowedMethods: ["GET", "PUT", "POST", "DELETE", "HEAD"],
+          AllowedHeaders: ["*"],
+          ExposeHeaders: ["ETag"],
+        },
+      ],
+    },
+  });
 
   return {
     AWS_SMOKE_TEST_REGION: region,
