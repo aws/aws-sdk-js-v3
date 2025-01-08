@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.725.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.724.0...v3.725.0) (2025-01-08)
+
+
+### Features
+
+* **client-route-53:** Amazon Route 53 now supports the Asia Pacific (Thailand) Region (ap-southeast-7) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region ([444cdc9](https://github.com/aws/aws-sdk-js-v3/commit/444cdc9a5c5c58f10ad15a78905d7c68104a2ab9))
+* **client-sagemaker:** Adds support for IPv6 for SageMaker HyperPod cluster nodes. ([85ce553](https://github.com/aws/aws-sdk-js-v3/commit/85ce553050848fefc8c70f50c150b0bd4e3337ff))
+* **clients:** update client endpoints as of 2025-01-08 ([c164b87](https://github.com/aws/aws-sdk-js-v3/commit/c164b87ed5e6ff6974daa3cf568f77fde41131d6))
+
+
+
+
+
 # [3.724.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.723.0...v3.724.0) (2025-01-07)
 
 

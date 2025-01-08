@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.725.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.724.0...v3.725.0) (2025-01-08)
+
+
+### Features
+
+* **client-route-53:** Amazon Route 53 now supports the Asia Pacific (Thailand) Region (ap-southeast-7) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region ([444cdc9](https://github.com/aws/aws-sdk-js-v3/commit/444cdc9a5c5c58f10ad15a78905d7c68104a2ab9))
+
+
+
+
+
 # [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
 
 **Note:** Version bump only for package @aws-sdk/client-route-53

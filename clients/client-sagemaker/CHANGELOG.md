@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.725.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.724.0...v3.725.0) (2025-01-08)
+
+
+### Features
+
+* **client-sagemaker:** Adds support for IPv6 for SageMaker HyperPod cluster nodes. ([85ce553](https://github.com/aws/aws-sdk-js-v3/commit/85ce553050848fefc8c70f50c150b0bd4e3337ff))
+
+
+
+
+
 # [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker
