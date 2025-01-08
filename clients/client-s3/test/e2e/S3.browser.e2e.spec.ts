@@ -28,10 +28,13 @@ describe("@aws-sdk/client-s3", () => {
     Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
     mrapArn = (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_MRAP_ARN || process?.env?.AWS_SMOKE_TEST_MRAP_ARN;
 
+    const provider = fromNodeProviderChain();
+    const credentials = await provider();
+
     client = new S3Impl(
       getRuntimeConfig({
         region,
-        credentials: fromNodeProviderChain(),
+        credentials,
         requestHandler: new FetchHttpHandler(),
         logger: {
           trace() {},

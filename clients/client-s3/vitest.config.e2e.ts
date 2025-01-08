@@ -6,4 +6,5 @@ export default defineConfig({
     include: ["**/*.e2e.spec.ts"],
     environment: "node",
   },
+  mode: "development",
 });
