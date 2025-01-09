@@ -24043,6 +24043,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/nested-clients@workspace:packages/nested-clients":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/nested-clients@workspace:packages/nested-clients"
+  dependencies:
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    rimraf: "npm:3.0.2"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.2.2"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/polly-request-presigner@workspace:packages/polly-request-presigner":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/polly-request-presigner@workspace:packages/polly-request-presigner"
