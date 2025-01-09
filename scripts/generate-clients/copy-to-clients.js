@@ -49,7 +49,7 @@ const mergeManifest = (fromContent = {}, toContent = {}, parentKey = "root") => 
           concurrently: "7.0.0",
           "downlevel-dts": "0.10.1",
           rimraf: "3.0.2",
-          typescript: "~4.9.5",
+          typescript: "~5.2.2",
         };
 
         fromContent[name] = Object.keys(fromContent[name])
