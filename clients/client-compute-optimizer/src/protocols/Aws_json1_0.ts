@@ -139,6 +139,7 @@ import { ComputeOptimizerServiceException as __BaseException } from "../models/C
 import {
   AccessDeniedException,
   AccountEnrollmentStatus,
+  AutoScalingGroupConfiguration,
   AutoScalingGroupEstimatedMonthlySavings,
   AutoScalingGroupRecommendation,
   AutoScalingGroupRecommendationOption,
@@ -1608,7 +1609,21 @@ const de_AccountEnrollmentStatuses = (output: any, context: __SerdeContext): Acc
   return retVal;
 };
 
-// de_AutoScalingGroupConfiguration omitted.
+/**
+ * deserializeAws_json1_0AutoScalingGroupConfiguration
+ */
+const de_AutoScalingGroupConfiguration = (output: any, context: __SerdeContext): AutoScalingGroupConfiguration => {
+  return take(output, {
+    allocationStrategy: __expectString,
+    desiredCapacity: __expectInt32,
+    estimatedInstanceHourReductionPercentage: __limitedParseDouble,
+    instanceType: __expectString,
+    maxSize: __expectInt32,
+    minSize: __expectInt32,
+    mixedInstanceTypes: _json,
+    type: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0AutoScalingGroupEstimatedMonthlySavings
@@ -1631,7 +1646,7 @@ const de_AutoScalingGroupRecommendation = (output: any, context: __SerdeContext)
     accountId: __expectString,
     autoScalingGroupArn: __expectString,
     autoScalingGroupName: __expectString,
-    currentConfiguration: _json,
+    currentConfiguration: (_: any) => de_AutoScalingGroupConfiguration(_, context),
     currentInstanceGpuInfo: _json,
     currentPerformanceRisk: __expectString,
     effectiveRecommendationPreferences: _json,
@@ -1652,7 +1667,7 @@ const de_AutoScalingGroupRecommendationOption = (
   context: __SerdeContext
 ): AutoScalingGroupRecommendationOption => {
   return take(output, {
-    configuration: _json,
+    configuration: (_: any) => de_AutoScalingGroupConfiguration(_, context),
     instanceGpuInfo: _json,
     migrationEffort: __expectString,
     performanceRisk: __limitedParseDouble,
@@ -2666,6 +2681,8 @@ const de_MetricValues = (output: any, context: __SerdeContext): number[] => {
 };
 
 // de_MissingAuthenticationToken omitted.
+
+// de_MixedInstanceTypes omitted.
 
 // de_OptInRequiredException omitted.
 

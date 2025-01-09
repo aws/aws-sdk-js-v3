@@ -76,6 +76,34 @@ export interface AccountEnrollmentStatus {
  * @public
  * @enum
  */
+export const AllocationStrategy = {
+  LOWEST_PRICE: "LowestPrice",
+  PRIORITIZED: "Prioritized",
+} as const;
+
+/**
+ * @public
+ */
+export type AllocationStrategy = (typeof AllocationStrategy)[keyof typeof AllocationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const AsgType = {
+  MIXED_INSTANCE_TYPE: "MixedInstanceTypes",
+  SINGLE_INSTANCE_TYPE: "SingleInstanceType",
+} as const;
+
+/**
+ * @public
+ */
+export type AsgType = (typeof AsgType)[keyof typeof AsgType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AutoScalingConfiguration = {
   TARGET_TRACKING_SCALING_CPU: "TargetTrackingScalingCpu",
   TARGET_TRACKING_SCALING_MEMORY: "TargetTrackingScalingMemory",
@@ -87,35 +115,67 @@ export const AutoScalingConfiguration = {
 export type AutoScalingConfiguration = (typeof AutoScalingConfiguration)[keyof typeof AutoScalingConfiguration];
 
 /**
- * <p>Describes the configuration of an Auto Scaling group.</p>
+ * <p>Describes the configuration of an EC2 Auto Scaling group.</p>
  * @public
  */
 export interface AutoScalingGroupConfiguration {
   /**
-   * <p>The desired capacity, or number of instances, for the Auto Scaling group.</p>
+   * <p>The desired capacity, or number of instances, for the EC2 Auto Scaling group.</p>
    * @public
    */
   desiredCapacity?: number | undefined;
 
   /**
-   * <p>The minimum size, or minimum number of instances, for the Auto Scaling
+   * <p>The minimum size, or minimum number of instances, for the EC2 Auto Scaling
    *             group.</p>
    * @public
    */
   minSize?: number | undefined;
 
   /**
-   * <p>The maximum size, or maximum number of instances, for the Auto Scaling
+   * <p>The maximum size, or maximum number of instances, for the EC2 Auto Scaling
    *             group.</p>
    * @public
    */
   maxSize?: number | undefined;
 
   /**
-   * <p>The instance type for the Auto Scaling group.</p>
+   * <p>The instance type for the EC2 Auto Scaling group.</p>
    * @public
    */
   instanceType?: string | undefined;
+
+  /**
+   * <p>
+   *             Describes the allocation strategy that the EC2 Auto Scaling group uses. This field is only available for EC2 Auto Scaling groups with mixed instance types.
+   *         </p>
+   * @public
+   */
+  allocationStrategy?: AllocationStrategy | undefined;
+
+  /**
+   * <p>
+   *             Describes the projected percentage reduction in instance hours after adopting the recommended configuration. This field is only available for EC2 Auto Scaling groups with scaling policies.
+   *         </p>
+   * @public
+   */
+  estimatedInstanceHourReductionPercentage?: number | undefined;
+
+  /**
+   * <p>
+   *             Describes whether the EC2 Auto Scaling group has a single instance type or a mixed instance type configuration.
+   *         </p>
+   * @public
+   */
+  type?: AsgType | undefined;
+
+  /**
+   * <p>
+   *             List the instance types within an EC2 Auto Scaling group that has mixed instance types.
+   *         </p>
+   * @public
+   */
+  mixedInstanceTypes?: string[] | undefined;
 }
 
 /**
@@ -1719,10 +1779,13 @@ export const ExportableAutoScalingGroupField = {
   ACCOUNT_ID: "AccountId",
   AUTO_SCALING_GROUP_ARN: "AutoScalingGroupArn",
   AUTO_SCALING_GROUP_NAME: "AutoScalingGroupName",
+  CURRENT_CONFIGURATION_ALLOCATION_STRATEGY: "CurrentConfigurationAllocationStrategy",
   CURRENT_CONFIGURATION_DESIRED_CAPACITY: "CurrentConfigurationDesiredCapacity",
   CURRENT_CONFIGURATION_INSTANCE_TYPE: "CurrentConfigurationInstanceType",
   CURRENT_CONFIGURATION_MAX_SIZE: "CurrentConfigurationMaxSize",
   CURRENT_CONFIGURATION_MIN_SIZE: "CurrentConfigurationMinSize",
+  CURRENT_CONFIGURATION_MIXED_INSTANCE_TYPES: "CurrentConfigurationMixedInstanceTypes",
+  CURRENT_CONFIGURATION_TYPE: "CurrentConfigurationType",
   CURRENT_INSTANCE_GPU_INFO: "CurrentInstanceGpuInfo",
   CURRENT_MEMORY: "CurrentMemory",
   CURRENT_NETWORK: "CurrentNetwork",
@@ -1746,10 +1809,15 @@ export const ExportableAutoScalingGroupField = {
   INFERRED_WORKLOAD_TYPES: "InferredWorkloadTypes",
   LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
   LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_ALLOCATION_STRATEGY: "RecommendationOptionsConfigurationAllocationStrategy",
   RECOMMENDATION_OPTIONS_CONFIGURATION_DESIRED_CAPACITY: "RecommendationOptionsConfigurationDesiredCapacity",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_ESTIMATED_INSTANCE_HOUR_REDUCTION_PERCENTAGE:
+    "RecommendationOptionsConfigurationEstimatedInstanceHourReductionPercentage",
   RECOMMENDATION_OPTIONS_CONFIGURATION_INSTANCE_TYPE: "RecommendationOptionsConfigurationInstanceType",
   RECOMMENDATION_OPTIONS_CONFIGURATION_MAX_SIZE: "RecommendationOptionsConfigurationMaxSize",
   RECOMMENDATION_OPTIONS_CONFIGURATION_MIN_SIZE: "RecommendationOptionsConfigurationMinSize",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_MIXED_INSTANCE_TYPES: "RecommendationOptionsConfigurationMixedInstanceTypes",
+  RECOMMENDATION_OPTIONS_CONFIGURATION_TYPE: "RecommendationOptionsConfigurationType",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS:
     "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",

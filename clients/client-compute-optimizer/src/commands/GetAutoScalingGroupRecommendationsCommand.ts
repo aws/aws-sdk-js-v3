@@ -93,6 +93,12 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //         minSize: Number("int"),
  * //         maxSize: Number("int"),
  * //         instanceType: "STRING_VALUE",
+ * //         allocationStrategy: "Prioritized" || "LowestPrice",
+ * //         estimatedInstanceHourReductionPercentage: Number("double"),
+ * //         type: "SingleInstanceType" || "MixedInstanceTypes",
+ * //         mixedInstanceTypes: [ // MixedInstanceTypes
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       currentInstanceGpuInfo: { // GpuInfo
  * //         gpus: [ // Gpus
@@ -109,6 +115,12 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //             minSize: Number("int"),
  * //             maxSize: Number("int"),
  * //             instanceType: "STRING_VALUE",
+ * //             allocationStrategy: "Prioritized" || "LowestPrice",
+ * //             estimatedInstanceHourReductionPercentage: Number("double"),
+ * //             type: "SingleInstanceType" || "MixedInstanceTypes",
+ * //             mixedInstanceTypes: [
+ * //               "STRING_VALUE",
+ * //             ],
  * //           },
  * //           instanceGpuInfo: {
  * //             gpus: [
