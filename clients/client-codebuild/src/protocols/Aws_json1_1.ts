@@ -2117,6 +2117,8 @@ const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, contex
 
 // se_FleetProxyRules omitted.
 
+// se_FleetsAllowed omitted.
+
 // se_GetReportGroupTrendInput omitted.
 
 // se_GetResourcePolicyInput omitted.
@@ -2780,6 +2782,8 @@ const de_Fleets = (output: any, context: __SerdeContext): Fleet[] => {
     });
   return retVal;
 };
+
+// de_FleetsAllowed omitted.
 
 // de_FleetStatus omitted.
 

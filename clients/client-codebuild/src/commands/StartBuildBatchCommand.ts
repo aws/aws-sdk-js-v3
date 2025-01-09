@@ -155,6 +155,9 @@ export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __M
  *       computeTypesAllowed: [ // ComputeTypesAllowed
  *         "STRING_VALUE",
  *       ],
+ *       fleetsAllowed: [ // FleetsAllowed
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *     timeoutInMins: Number("int"),
  *     batchReportMode: "REPORT_INDIVIDUAL_BUILDS" || "REPORT_AGGREGATED_BATCH",
@@ -336,6 +339,9 @@ export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __M
  * //       restrictions: { // BatchRestrictions
  * //         maximumBuildsAllowed: Number("int"),
  * //         computeTypesAllowed: [ // ComputeTypesAllowed
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         fleetsAllowed: [ // FleetsAllowed
  * //           "STRING_VALUE",
  * //         ],
  * //       },

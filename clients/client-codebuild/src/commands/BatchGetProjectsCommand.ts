@@ -236,6 +236,9 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //           computeTypesAllowed: [ // ComputeTypesAllowed
  * //             "STRING_VALUE",
  * //           ],
+ * //           fleetsAllowed: [ // FleetsAllowed
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //         timeoutInMins: Number("int"),
  * //         batchReportMode: "REPORT_INDIVIDUAL_BUILDS" || "REPORT_AGGREGATED_BATCH",

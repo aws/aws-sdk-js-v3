@@ -198,6 +198,9 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *       computeTypesAllowed: [ // ComputeTypesAllowed
  *         "STRING_VALUE",
  *       ],
+ *       fleetsAllowed: [ // FleetsAllowed
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *     timeoutInMins: Number("int"),
  *     batchReportMode: "REPORT_INDIVIDUAL_BUILDS" || "REPORT_AGGREGATED_BATCH",
@@ -398,6 +401,9 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //       restrictions: { // BatchRestrictions
  * //         maximumBuildsAllowed: Number("int"),
  * //         computeTypesAllowed: [ // ComputeTypesAllowed
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         fleetsAllowed: [ // FleetsAllowed
  * //           "STRING_VALUE",
  * //         ],
  * //       },

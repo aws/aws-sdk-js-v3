@@ -346,6 +346,14 @@ export interface BatchRestrictions {
    * @public
    */
   computeTypesAllowed?: string[] | undefined;
+
+  /**
+   * <p>An array of strings that specify the fleets that are allowed
+   *             for the batch build. See <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/fleets.html">Run builds on reserved capacity fleets</a> in the <i>CodeBuild User Guide</i>
+   *                 for more information. </p>
+   * @public
+   */
+  fleetsAllowed?: string[] | undefined;
 }
 
 /**
@@ -1825,7 +1833,7 @@ export interface ProjectSource {
   /**
    * <p> Set to true to report the status of a build's start and finish to your source
    *             provider. This option is valid only when your source provider is GitHub, GitHub
-   *             Enterprise, GitLab, GitLab Self Managed, or Bitbucket. If this is set and you use a different source provider, an
+   *             Enterprise, GitLab, GitLab Self Managed, GitLab, GitLab Self Managed, or Bitbucket. If this is set and you use a different source provider, an
    *             <code>invalidInputException</code> is thrown. </p>
    *          <p>To be able to report the build status to the source provider, the user associated with the source provider must
    * have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p>
@@ -7616,7 +7624,7 @@ export interface StartBuildInput {
   /**
    * <p> Set to true to report to your source provider the status of a build's start and
    *             completion. If you use this option with a source provider other than GitHub, GitHub
-   *             Enterprise, or Bitbucket, an <code>invalidInputException</code> is thrown. </p>
+   *             Enterprise, GitLab, GitLab Self Managed, or Bitbucket, an <code>invalidInputException</code> is thrown. </p>
    *          <p>To be able to report the build status to the source provider, the user associated with the source provider must
    * have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p>
    *          <note>
