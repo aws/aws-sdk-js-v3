@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.726.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.725.0...v3.726.0) (2025-01-09)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudhsm-v2
+
+
+
+
+
 # [3.724.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.723.0...v3.724.0) (2025-01-07)
 
 

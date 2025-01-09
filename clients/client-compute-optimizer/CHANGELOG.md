@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.726.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.725.0...v3.726.0) (2025-01-09)
+
+
+### Features
+
+* **client-compute-optimizer:** This release expands AWS Compute Optimizer rightsizing recommendation support for Amazon EC2 Auto Scaling groups to include those with scaling policies and multiple instance types. ([b33aa6f](https://github.com/aws/aws-sdk-js-v3/commit/b33aa6f1d003c6e55ee94afe57d650f0a5aa54ba))
+
+
+
+
+
 # [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
 
 **Note:** Version bump only for package @aws-sdk/client-compute-optimizer

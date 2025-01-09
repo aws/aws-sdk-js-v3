@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.726.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.725.0...v3.726.0) (2025-01-09)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild Now Supports BuildBatch in Reserved Capacity and Lambda ([4fb5b7e](https://github.com/aws/aws-sdk-js-v3/commit/4fb5b7ee64872d25732ee4637903543b934f50e8))
+
+
+
+
+
 # [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
 
 **Note:** Version bump only for package @aws-sdk/client-codebuild

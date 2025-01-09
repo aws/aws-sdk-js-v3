@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.726.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.725.0...v3.726.0) (2025-01-09)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild Now Supports BuildBatch in Reserved Capacity and Lambda ([4fb5b7e](https://github.com/aws/aws-sdk-js-v3/commit/4fb5b7ee64872d25732ee4637903543b934f50e8))
+* **client-compute-optimizer:** This release expands AWS Compute Optimizer rightsizing recommendation support for Amazon EC2 Auto Scaling groups to include those with scaling policies and multiple instance types. ([b33aa6f](https://github.com/aws/aws-sdk-js-v3/commit/b33aa6f1d003c6e55ee94afe57d650f0a5aa54ba))
+* **client-fms:** AWS Firewall Manager now lets you combine multiple resource tags using the logical AND operator or the logical OR operator. ([e43d607](https://github.com/aws/aws-sdk-js-v3/commit/e43d607d9744f765c3ca478443b974c9a77d73ed))
+
+
+
+
+
 # [3.725.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.724.0...v3.725.0) (2025-01-08)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.726.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.725.0...v3.726.0) (2025-01-09)
+
+
+### Features
+
+* **client-fms:** AWS Firewall Manager now lets you combine multiple resource tags using the logical AND operator or the logical OR operator. ([e43d607](https://github.com/aws/aws-sdk-js-v3/commit/e43d607d9744f765c3ca478443b974c9a77d73ed))
+
+
+
+
+
 # [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
 
 **Note:** Version bump only for package @aws-sdk/client-fms
