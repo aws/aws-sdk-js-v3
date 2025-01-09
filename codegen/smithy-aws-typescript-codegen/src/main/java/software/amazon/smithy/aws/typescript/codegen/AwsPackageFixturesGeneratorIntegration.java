@@ -106,10 +106,14 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             OperationShape sampleOperation =
                 getPreferredExampleOperation(topDownIndex.getContainedOperations(service), model);
 
-            String operationName = sampleOperation.getId().getName(service);
+            String operationName =
+                sampleOperation == null
+                ? "Example"
+                : sampleOperation.getId().getName(service);
+
             resource = resource.replaceAll(Pattern.quote("${commandName}"), operationName);
             resource = resource.replaceAll(Pattern.quote("${operationName}"),
-                    operationName.substring(0, 1).toLowerCase() + operationName.substring(1));
+                operationName.substring(0, 1).toLowerCase() + operationName.substring(1));
 
             writer.write(resource.replaceAll(Pattern.quote("$"), Matcher.quoteReplacement("$$")));
             writeOperationList(writer, model, settings);
