@@ -125,6 +125,7 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * //     ],
  * //     PolicyDescription: "STRING_VALUE",
  * //     PolicyStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ * //     ResourceTagLogicalOperator: "AND" || "OR",
  * //   },
  * //   PolicyArn: "STRING_VALUE",
  * // };

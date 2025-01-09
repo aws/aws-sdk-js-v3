@@ -176,6 +176,7 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  *     ],
  *     PolicyDescription: "STRING_VALUE",
  *     PolicyStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ *     ResourceTagLogicalOperator: "AND" || "OR",
  *   },
  *   TagList: [ // TagList
  *     { // Tag
@@ -271,6 +272,7 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * //     ],
  * //     PolicyDescription: "STRING_VALUE",
  * //     PolicyStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ * //     ResourceTagLogicalOperator: "AND" || "OR",
  * //   },
  * //   PolicyArn: "STRING_VALUE",
  * // };
