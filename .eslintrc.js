@@ -29,4 +29,5 @@ module.exports = {
     "simple-import-sort/imports": "error",
     "sort-export-all/sort-export-all": "error",
   },
+  ignorePatterns: ["packages/nested-clients/**/protocols/**.ts"],
 };
