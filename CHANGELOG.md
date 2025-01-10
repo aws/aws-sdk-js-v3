@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.726.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.0...v3.726.1) (2025-01-10)
+
+
+### Bug Fixes
+
+* **codegen:** handle case when sample operation not found ([#6788](https://github.com/aws/aws-sdk-js-v3/issues/6788)) ([a4fb2d4](https://github.com/aws/aws-sdk-js-v3/commit/a4fb2d43bf262e3c8d53499e5324dc3a24dc80a0))
+
+
+### Features
+
+* **clients:** update client endpoints as of 2025-01-10 ([9f3d4f9](https://github.com/aws/aws-sdk-js-v3/commit/9f3d4f997e0e49dfad7af5b433166de82c4076a3))
+
+
+
+
+
 # [3.726.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.725.0...v3.726.0) (2025-01-09)
 
 
