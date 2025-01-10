@@ -8,7 +8,7 @@ const { getPrunedRulesetObject } = require("./getPrunedRulesetObject");
 /**
  * Run compression on ruleset objects for SDK clients.
  */
-const main = (singleModel = undefined) => {
+const main = (singleModel = undefined, rulesetTsFile = undefined) => {
   const root = path.join(__dirname, "..", "..");
   const clientsFolder = path.join(root, "clients");
   const modelsFolder = path.join(root, "codegen", "sdk-codegen", "aws-models");
@@ -30,7 +30,7 @@ const main = (singleModel = undefined) => {
   for (const serviceName of modelsList) {
     const client = serviceName.replace(".json", "");
     const rulesetFolder = path.join(clientsFolder, "client-" + client, "src", "endpoint");
-    const rulesetTs = path.join(rulesetFolder, "ruleset.ts");
+    const rulesetTs = rulesetTsFile ?? path.join(rulesetFolder, "ruleset.ts");
     const serviceJson = path.join(modelsFolder, serviceName);
 
     const service = require(serviceJson);

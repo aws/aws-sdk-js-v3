@@ -90,10 +90,6 @@ export interface STSHttpAuthSchemeProvider extends HttpAuthSchemeProvider<STSHtt
 export const defaultSTSHttpAuthSchemeProvider: STSHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
-    case "AssumeRoleWithSAML": {
-      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
-      break;
-    }
     case "AssumeRoleWithWebIdentity": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;

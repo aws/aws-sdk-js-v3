@@ -3,28 +3,10 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CreateTokenCommand, CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
-import {
-  CreateTokenWithIAMCommand,
-  CreateTokenWithIAMCommandInput,
-  CreateTokenWithIAMCommandOutput,
-} from "./commands/CreateTokenWithIAMCommand";
-import {
-  RegisterClientCommand,
-  RegisterClientCommandInput,
-  RegisterClientCommandOutput,
-} from "./commands/RegisterClientCommand";
-import {
-  StartDeviceAuthorizationCommand,
-  StartDeviceAuthorizationCommandInput,
-  StartDeviceAuthorizationCommandOutput,
-} from "./commands/StartDeviceAuthorizationCommand";
 import { SSOOIDCClient, SSOOIDCClientConfig } from "./SSOOIDCClient";
 
 const commands = {
   CreateTokenCommand,
-  CreateTokenWithIAMCommand,
-  RegisterClientCommand,
-  StartDeviceAuthorizationCommand,
 };
 
 export interface SSOOIDC {
@@ -37,54 +19,6 @@ export interface SSOOIDC {
     args: CreateTokenCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateTokenCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link CreateTokenWithIAMCommand}
-   */
-  createTokenWithIAM(
-    args: CreateTokenWithIAMCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateTokenWithIAMCommandOutput>;
-  createTokenWithIAM(
-    args: CreateTokenWithIAMCommandInput,
-    cb: (err: any, data?: CreateTokenWithIAMCommandOutput) => void
-  ): void;
-  createTokenWithIAM(
-    args: CreateTokenWithIAMCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateTokenWithIAMCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link RegisterClientCommand}
-   */
-  registerClient(
-    args: RegisterClientCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterClientCommandOutput>;
-  registerClient(args: RegisterClientCommandInput, cb: (err: any, data?: RegisterClientCommandOutput) => void): void;
-  registerClient(
-    args: RegisterClientCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterClientCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link StartDeviceAuthorizationCommand}
-   */
-  startDeviceAuthorization(
-    args: StartDeviceAuthorizationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartDeviceAuthorizationCommandOutput>;
-  startDeviceAuthorization(
-    args: StartDeviceAuthorizationCommandInput,
-    cb: (err: any, data?: StartDeviceAuthorizationCommandOutput) => void
-  ): void;
-  startDeviceAuthorization(
-    args: StartDeviceAuthorizationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartDeviceAuthorizationCommandOutput) => void
   ): void;
 }
 

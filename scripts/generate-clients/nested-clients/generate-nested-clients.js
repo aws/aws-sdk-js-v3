@@ -10,9 +10,10 @@ const clients = [
 ];
 
 const { join, relative, normalize } = require("path");
-const { emptyDirSync, rmSync, copyFileSync, copySync, rmdirSync } = require("fs-extra");
+const { emptyDirSync, rmSync, copyFileSync, copySync, rmdirSync, writeFileSync } = require("fs-extra");
 const { copyToClients } = require("../copy-to-clients");
 const { spawnProcess } = require("../../utils/spawn-process");
+const compressRuleset = require("../../endpoints-ruleset/compress");
 const {
   CODE_GEN_ROOT,
   CODE_GEN_SDK_ROOT,
@@ -54,12 +55,13 @@ async function generateNestedClients() {
     ]);
     await spawnProcess("npx", ["prettier", "--write", "--loglevel", "warn", `${clientFolder}/README.md`]);
 
-    console.log("TODO: copy compressed endpoint ruleset from canonical clients");
+    await compressRuleset(name, join(NESTED_SDK_CLIENTS_DIR, `client-${name}`, "src", "endpoint", "ruleset.ts"));
 
     const srcFolder = join(NESTED_SDK_CLIENTS_DIR, `client-${name}`, "src");
     const srcContainer = join(NESTED_SDK_CLIENTS_DIR, `client-${name}`);
     const destinationFolder = join(NESTED_SDK_CLIENTS_DIR, `nested-${name}`);
 
+    emptyDirSync(destinationFolder);
     copySync(srcFolder, destinationFolder);
     emptyDirSync(srcContainer);
     rmdirSync(srcContainer);
@@ -88,7 +90,21 @@ async function generateNestedClient(clientName, operations) {
   emptyDirSync(TEMP_CODE_GEN_INPUT_DIR_SERVICE);
 
   const filename = `${clientName}.json`;
-  copyFileSync(join(DEFAULT_CODE_GEN_INPUT_DIR, filename), join(TEMP_CODE_GEN_INPUT_DIR_SERVICE, filename));
+  const targetModelPath = join(TEMP_CODE_GEN_INPUT_DIR_SERVICE, filename);
+  copyFileSync(join(DEFAULT_CODE_GEN_INPUT_DIR, filename), targetModelPath);
+
+  const model = require(targetModelPath);
+  Object.entries(model.shapes).forEach(([key, value]) => {
+    if (value.type === "service") {
+      // remove operations not in list.
+      value.operations = value.operations.filter((operationObj) => {
+        return !!operations.find((opName) => operationObj.target.endsWith(`#${opName}`));
+      });
+      // prevent validation from complaining about unused operations.
+      delete value.traits["smithy.rules#endpointTests"];
+    }
+  });
+  writeFileSync(targetModelPath, JSON.stringify(model, null, 2) + "\n");
 
   await spawnProcess("./gradlew", options, { cwd: CODE_GEN_ROOT });
   rmSync(join(__dirname, "..", "..", "..", "codegen", "sdk-codegen", `smithy-build-${clientName}.json`));

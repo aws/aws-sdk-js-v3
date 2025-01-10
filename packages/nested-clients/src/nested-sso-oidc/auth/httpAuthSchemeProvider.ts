@@ -93,14 +93,6 @@ export const defaultSSOOIDCHttpAuthSchemeProvider: SSOOIDCHttpAuthSchemeProvider
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     }
-    case "RegisterClient": {
-      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
-      break;
-    }
-    case "StartDeviceAuthorization": {
-      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
-      break;
-    }
     default: {
       options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
     }

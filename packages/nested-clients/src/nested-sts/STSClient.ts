@@ -54,20 +54,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import { AssumeRoleCommandInput, AssumeRoleCommandOutput } from "./commands/AssumeRoleCommand";
-import { AssumeRoleWithSAMLCommandInput, AssumeRoleWithSAMLCommandOutput } from "./commands/AssumeRoleWithSAMLCommand";
 import {
   AssumeRoleWithWebIdentityCommandInput,
   AssumeRoleWithWebIdentityCommandOutput,
 } from "./commands/AssumeRoleWithWebIdentityCommand";
-import { AssumeRootCommandInput, AssumeRootCommandOutput } from "./commands/AssumeRootCommand";
-import {
-  DecodeAuthorizationMessageCommandInput,
-  DecodeAuthorizationMessageCommandOutput,
-} from "./commands/DecodeAuthorizationMessageCommand";
-import { GetAccessKeyInfoCommandInput, GetAccessKeyInfoCommandOutput } from "./commands/GetAccessKeyInfoCommand";
-import { GetCallerIdentityCommandInput, GetCallerIdentityCommandOutput } from "./commands/GetCallerIdentityCommand";
-import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "./commands/GetFederationTokenCommand";
-import { GetSessionTokenCommandInput, GetSessionTokenCommandOutput } from "./commands/GetSessionTokenCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -82,30 +72,12 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes =
-  | AssumeRoleCommandInput
-  | AssumeRoleWithSAMLCommandInput
-  | AssumeRoleWithWebIdentityCommandInput
-  | AssumeRootCommandInput
-  | DecodeAuthorizationMessageCommandInput
-  | GetAccessKeyInfoCommandInput
-  | GetCallerIdentityCommandInput
-  | GetFederationTokenCommandInput
-  | GetSessionTokenCommandInput;
+export type ServiceInputTypes = AssumeRoleCommandInput | AssumeRoleWithWebIdentityCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes =
-  | AssumeRoleCommandOutput
-  | AssumeRoleWithSAMLCommandOutput
-  | AssumeRoleWithWebIdentityCommandOutput
-  | AssumeRootCommandOutput
-  | DecodeAuthorizationMessageCommandOutput
-  | GetAccessKeyInfoCommandOutput
-  | GetCallerIdentityCommandOutput
-  | GetFederationTokenCommandOutput
-  | GetSessionTokenCommandOutput;
+export type ServiceOutputTypes = AssumeRoleCommandOutput | AssumeRoleWithWebIdentityCommandOutput;
 
 /**
  * @public

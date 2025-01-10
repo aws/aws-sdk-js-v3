@@ -30,7 +30,6 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
-  AwsCredentialIdentityProvider,
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
   ChecksumConstructor as __ChecksumConstructor,
@@ -54,12 +53,6 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import { CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
-import { CreateTokenWithIAMCommandInput, CreateTokenWithIAMCommandOutput } from "./commands/CreateTokenWithIAMCommand";
-import { RegisterClientCommandInput, RegisterClientCommandOutput } from "./commands/RegisterClientCommand";
-import {
-  StartDeviceAuthorizationCommandInput,
-  StartDeviceAuthorizationCommandOutput,
-} from "./commands/StartDeviceAuthorizationCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -74,20 +67,12 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes =
-  | CreateTokenCommandInput
-  | CreateTokenWithIAMCommandInput
-  | RegisterClientCommandInput
-  | StartDeviceAuthorizationCommandInput;
+export type ServiceInputTypes = CreateTokenCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes =
-  | CreateTokenCommandOutput
-  | CreateTokenWithIAMCommandOutput
-  | RegisterClientCommandOutput
-  | StartDeviceAuthorizationCommandOutput;
+export type ServiceOutputTypes = CreateTokenCommandOutput;
 
 /**
  * @public
@@ -204,13 +189,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @deprecated
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
