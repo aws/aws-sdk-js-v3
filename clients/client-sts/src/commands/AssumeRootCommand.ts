@@ -28,14 +28,14 @@ export interface AssumeRootCommandInput extends AssumeRootRequest {}
 export interface AssumeRootCommandOutput extends AssumeRootResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a set of short term credentials you can use to perform privileged tasks in a
- *          member account.</p>
- *          <p>Before you can launch a privileged session, you must have enabled centralized root
- *          access in your organization. For steps to enable this feature, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html">Centralize root access for member accounts</a> in the <i>IAM User
- *             Guide</i>.</p>
+ * <p>Returns a set of short term credentials you can use to perform privileged tasks on a
+ *          member account in your organization.</p>
+ *          <p>Before you can launch a privileged session, you must have centralized root access in
+ *          your organization. For steps to enable this feature, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html">Centralize root access for
+ *             member accounts</a> in the <i>IAM User Guide</i>.</p>
  *          <note>
- *             <p>The global endpoint is not supported for AssumeRoot. You must send this request to a
- *             Regional STS endpoint. For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html#sts-endpoints">Endpoints</a>.</p>
+ *             <p>The STS global endpoint is not supported for AssumeRoot. You must send this request
+ *             to a Regional STS endpoint. For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html#sts-endpoints">Endpoints</a>.</p>
  *          </note>
  *          <p>You can track AssumeRoot in CloudTrail logs to determine what actions were performed in a
  *          session. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-track-privileged-tasks.html">Track privileged tasks
