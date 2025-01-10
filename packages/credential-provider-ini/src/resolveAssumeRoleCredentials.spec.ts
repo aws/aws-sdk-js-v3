@@ -6,7 +6,7 @@ import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssu
 import { resolveCredentialSource } from "./resolveCredentialSource";
 import { resolveProfileData } from "./resolveProfileData";
 
-vi.mock("@aws-sdk/client-sts", () => {
+vi.mock("@aws-sdk/nested-clients", () => {
   return {
     getDefaultRoleAssumer: vi.fn().mockReturnValue(async () => ({})),
   };

@@ -1,5 +1,5 @@
-import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
 import { defaultProvider } from "@aws-sdk/credential-provider-node";
+import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/nested-clients";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromNodeProviderChain } from "./fromNodeProviderChain";
@@ -7,7 +7,7 @@ import { fromNodeProviderChain } from "./fromNodeProviderChain";
 const mockRoleAssumer = vi.fn().mockResolvedValue("ROLE_ASSUMER");
 const mockRoleAssumerWithWebIdentity = vi.fn().mockResolvedValue("ROLE_ASSUMER_WITH_WEB_IDENTITY");
 
-vi.mock("@aws-sdk/client-sts", () => ({
+vi.mock("@aws-sdk/nested-clients", () => ({
   getDefaultRoleAssumer: vi.fn().mockImplementation(() => mockRoleAssumer),
   getDefaultRoleAssumerWithWebIdentity: vi.fn().mockImplementation(() => mockRoleAssumerWithWebIdentity),
 }));

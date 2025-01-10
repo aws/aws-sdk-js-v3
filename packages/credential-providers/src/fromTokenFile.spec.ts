@@ -1,12 +1,12 @@
-import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
 import { fromTokenFile as coreProvider } from "@aws-sdk/credential-provider-web-identity";
+import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/nested-clients";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromTokenFile } from "./fromTokenFile";
 
 const mockRoleAssumerWithWebIdentity = vi.fn().mockResolvedValue("ROLE_ASSUMER_WITH_WEB_IDENTITY");
 
-vi.mock("@aws-sdk/client-sts", () => ({
+vi.mock("@aws-sdk/nested-clients", () => ({
   getDefaultRoleAssumerWithWebIdentity: vi.fn().mockImplementation(() => mockRoleAssumerWithWebIdentity),
 }));
 

@@ -1,10 +1,10 @@
-import { CreateTokenCommand } from "@aws-sdk/client-sso-oidc";
+import { CreateTokenCommand } from "@aws-sdk/nested-clients";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { getNewSsoOidcToken } from "./getNewSsoOidcToken";
 import { getSsoOidcClient } from "./getSsoOidcClient";
 
-vi.mock("@aws-sdk/client-sso-oidc");
+vi.mock("@aws-sdk/nested-clients");
 vi.mock("./getSsoOidcClient");
 
 describe(getNewSsoOidcToken.name, () => {
