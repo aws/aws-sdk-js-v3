@@ -33,6 +33,7 @@
     "@aws-sdk/credential-provider-process": "*",
     "@aws-sdk/credential-provider-sso": "*",
     "@aws-sdk/credential-provider-web-identity": "*",
+    "@aws-sdk/nested-clients": "*",
     "@aws-sdk/types": "*",
     "@smithy/credential-provider-imds": "^4.0.0",
     "@smithy/property-provider": "^4.0.0",
@@ -47,9 +48,6 @@
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
     "typescript": "~5.2.2"
-  },
-  "peerDependencies": {
-    "@aws-sdk/client-sts": "*"
   },
   "types": "./dist-types/index.d.ts",
   "engines": {

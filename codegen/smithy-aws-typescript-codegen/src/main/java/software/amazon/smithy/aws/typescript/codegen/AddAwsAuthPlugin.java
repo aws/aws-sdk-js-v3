@@ -221,7 +221,6 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
                             .addImport("defaultProvider", "credentialDefaultProvider",
                                 AwsDependency.CREDENTIAL_PROVIDER_NODE)
                             .write("credentialDefaultProvider");
-                        AwsCredentialProviderUtils.addAwsCredentialProviderDependencies(service, writer);
                     }
                 );
             default:

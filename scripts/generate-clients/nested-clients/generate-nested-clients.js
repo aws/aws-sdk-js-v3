@@ -10,7 +10,7 @@ const clients = [
 ];
 
 const { join, relative, normalize } = require("path");
-const { emptyDirSync, rmSync, copyFileSync, copySync, rmdirSync, writeFileSync } = require("fs-extra");
+const { emptyDirSync, rmSync, copyFileSync, copySync, rmdirSync, writeFileSync, readFileSync } = require("fs-extra");
 const { copyToClients } = require("../copy-to-clients");
 const { spawnProcess } = require("../../utils/spawn-process");
 const compressRuleset = require("../../endpoints-ruleset/compress");
@@ -65,6 +65,9 @@ async function generateNestedClients() {
     copySync(srcFolder, destinationFolder);
     emptyDirSync(srcContainer);
     rmdirSync(srcContainer);
+
+    replacePackageJsonImport(join(destinationFolder, "runtimeConfig.browser.ts"));
+    replacePackageJsonImport(join(destinationFolder, "runtimeConfig.ts"));
   }
 }
 
@@ -108,6 +111,16 @@ async function generateNestedClient(clientName, operations) {
 
   await spawnProcess("./gradlew", options, { cwd: CODE_GEN_ROOT });
   rmSync(join(__dirname, "..", "..", "..", "codegen", "sdk-codegen", `smithy-build-${clientName}.json`));
+}
+
+function replacePackageJsonImport(file) {
+  writeFileSync(
+    file,
+    readFileSync(file, "utf-8").replace(
+      `import packageInfo from "../package.json";`,
+      `import packageInfo from "../../package.json";`
+    )
+  );
 }
 
 if (process.argv.includes("--exec")) {
