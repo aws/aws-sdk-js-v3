@@ -3182,6 +3182,7 @@ export interface Cluster {
   /**
    * <p>A boolean value that, if <code>true</code>, indicates that the cluster can be
    *             accessed from a public network.</p>
+   *          <p>Default: false</p>
    * @public
    */
   PubliclyAccessible?: boolean | undefined;
@@ -4729,13 +4730,15 @@ export interface CreateClusterMessage {
 
   /**
    * <p>If <code>true</code>, the cluster can be accessed from a public network. </p>
+   *          <p>Default: false</p>
    * @public
    */
   PubliclyAccessible?: boolean | undefined;
 
   /**
-   * <p>If <code>true</code>, the data in the cluster is encrypted at rest. </p>
-   *          <p>Default: false</p>
+   * <p>If <code>true</code>, the data in the cluster is encrypted at rest.
+   *             If you set the value on this parameter to <code>false</code>, the request will fail.</p>
+   *          <p>Default: true</p>
    * @public
    */
   Encrypted?: boolean | undefined;

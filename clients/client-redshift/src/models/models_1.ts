@@ -4761,6 +4761,7 @@ export interface ModifyClusterMessage {
   /**
    * <p>If <code>true</code>, the cluster can be accessed from a public network. Only
    *             clusters in VPCs can be set to be publicly available.</p>
+   *          <p>Default: false</p>
    * @public
    */
   PubliclyAccessible?: boolean | undefined;
@@ -5903,6 +5904,7 @@ export interface RestoreFromClusterSnapshotMessage {
 
   /**
    * <p>If <code>true</code>, the cluster can be accessed from a public network. </p>
+   *          <p>Default: false</p>
    * @public
    */
   PubliclyAccessible?: boolean | undefined;
