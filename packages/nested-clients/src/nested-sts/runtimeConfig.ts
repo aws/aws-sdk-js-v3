@@ -3,7 +3,7 @@
 import packageInfo from "../../package.json"; // eslint-disable-line
 
 import { AwsSdkSigV4Signer, emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
-import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
+
 import { NODE_APP_ID_CONFIG_OPTIONS, createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
@@ -41,7 +41,7 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
     runtime: "node",
     defaultsMode,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
-    credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
+
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
       createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
@@ -50,7 +50,7 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
         schemeId: "aws.auth#sigv4",
         identityProvider: (ipc: IdentityProviderConfig) =>
           ipc.getIdentityProvider("aws.auth#sigv4") ||
-          (async (idProps) => await credentialDefaultProvider(idProps?.__config || {})()),
+          (async (idProps) => await config!.credentialDefaultProvider!(idProps?.__config || {})()),
         signer: new AwsSdkSigV4Signer(),
       },
       {

@@ -111,7 +111,6 @@ export const resolveAssumeRoleCredentials = async (
   const { source_profile, region } = profileData;
 
   if (!options.roleAssumer) {
-    // @ts-ignore Cannot find module '@aws-sdk/client-sts'
     const { getDefaultRoleAssumer } = await import("@aws-sdk/nested-clients");
     options.roleAssumer = getDefaultRoleAssumer(
       {

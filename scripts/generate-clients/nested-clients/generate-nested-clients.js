@@ -68,6 +68,9 @@ async function generateNestedClients() {
 
     replacePackageJsonImport(join(destinationFolder, "runtimeConfig.browser.ts"));
     replacePackageJsonImport(join(destinationFolder, "runtimeConfig.ts"));
+
+    replaceCredentialDefaultProvider(join(destinationFolder, "runtimeConfig.browser.ts"));
+    replaceCredentialDefaultProvider(join(destinationFolder, "runtimeConfig.ts"));
   }
 }
 
@@ -113,6 +116,9 @@ async function generateNestedClient(clientName, operations) {
   rmSync(join(__dirname, "..", "..", "..", "codegen", "sdk-codegen", `smithy-build-${clientName}.json`));
 }
 
+/**
+ * Fix package json import filesystem level.
+ */
 function replacePackageJsonImport(file) {
   writeFileSync(
     file,
@@ -120,6 +126,21 @@ function replacePackageJsonImport(file) {
       `import packageInfo from "../package.json";`,
       `import packageInfo from "../../package.json";`
     )
+  );
+}
+
+/**
+ * Breaks the circular dependency of STS and the default credential chain.
+ * STS has an auth operation but the portion of it used for credential resolution does
+ * not need the default chain.
+ */
+function replaceCredentialDefaultProvider(file) {
+  writeFileSync(
+    file,
+    readFileSync(file, "utf-8")
+      .replace(`import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";`, ``)
+      .replace(`credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,`, ``)
+      .replace(`await credentialDefaultProvider(`, `await config!.credentialDefaultProvider!(`)
   );
 }
 

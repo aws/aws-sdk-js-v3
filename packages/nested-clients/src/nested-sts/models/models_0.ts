@@ -303,7 +303,7 @@ export interface AssumeRoleRequest {
    *          <i>IAM User Guide</i>.</p>
    *          <p>The regex used to validate this parameter is a string of characters consisting of upper-
    *          and lower-case alphanumeric characters with no spaces. You can also include underscores or
-   *          any of the following characters: =,.@-. You cannot use a value that begins with the text
+   *          any of the following characters: +=,.@-. You cannot use a value that begins with the text
    *             <code>aws:</code>. This prefix is reserved for Amazon Web Services internal use.</p>
    * @public
    */
@@ -605,8 +605,8 @@ export interface AssumeRoleWithWebIdentityRequest {
    *          provider. Your application must get this token by authenticating the user who is using your
    *          application with a web identity provider before the application makes an
    *             <code>AssumeRoleWithWebIdentity</code> call. Timestamps in the token must be formatted
-   *          as either an integer or a long integer. Only tokens with RSA algorithms (RS256) are
-   *          supported.</p>
+   *          as either an integer or a long integer. Tokens must be signed using either RSA keys (RS256,
+   *          RS384, or RS512) or ECDSA keys (ES256, ES384, or ES512).</p>
    * @public
    */
   WebIdentityToken: string | undefined;
