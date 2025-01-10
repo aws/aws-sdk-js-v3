@@ -84,9 +84,6 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "peerDependencies": {
-    "@aws-sdk/client-sts": "*"
-  },
   "browser": {
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"
   },
