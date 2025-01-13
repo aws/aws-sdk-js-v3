@@ -113,6 +113,12 @@ export interface GetCallAnalyticsJobCommandOutput extends GetCallAnalyticsJobRes
  * //         ParticipantRole: "AGENT" || "CUSTOMER",
  * //       },
  * //     ],
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

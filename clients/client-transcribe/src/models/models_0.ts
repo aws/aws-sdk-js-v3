@@ -703,6 +703,33 @@ export interface CallAnalyticsJobSettings {
 }
 
 /**
+ * <p>Adds metadata, in the form of a key:value pair, to the specified resource.</p>
+ *          <p>For example, you could add the tag <code>Department:Sales</code> to a resource to
+ *             indicate that it pertains to your organization's sales department. You can also use tags
+ *             for tag-based access control.</p>
+ *          <p>To learn more about tagging, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging resources</a>.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>The first part of a key:value pair that forms a tag associated with a given resource.
+   *             For example, in the tag <code>Department:Sales</code>, the key is 'Department'.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The second part of a key:value pair that forms a tag associated with a given resource.
+   *             For example, in the tag <code>Department:Sales</code>, the value is 'Sales'.</p>
+   *          <p>Note that you can set the value of a tag to an empty string, but you can't set the
+   *             value of a tag to null. Omitting the tag value is the same as using an empty
+   *             string.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
  * <p>Provides you with the Amazon S3 URI you can use to access your
  *             transcript.</p>
  * @public
@@ -936,6 +963,13 @@ export interface CallAnalyticsJob {
    * @public
    */
   ChannelDefinitions?: ChannelDefinition[] | undefined;
+
+  /**
+   * <p>The tags, each in the form of a key:value pair, assigned to the specified
+   *             call analytics job.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1480,6 +1514,13 @@ export interface CategoryProperties {
   LastUpdateTime?: Date | undefined;
 
   /**
+   * <p>The tags, each in the form of a key:value pair, assigned to the specified
+   *             call analytics category.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
    * <p>The input type associated with the specified category. <code>POST_CALL</code>
    *             refers to a category that is applied to batch transcriptions; <code>REAL_TIME</code>
    *             refers to a category that is applied to streaming transcriptions.</p>
@@ -1552,6 +1593,15 @@ export interface CreateCallAnalyticsCategoryRequest {
    * @public
    */
   Rules: Rule[] | undefined;
+
+  /**
+   * <p>Adds one or more custom tags, each in the form of a key:value pair, to a new
+   *             call analytics category at the time you start this new job.</p>
+   *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+   *             resources</a>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Choose whether you want to create a real-time or a post-call category for your Call
@@ -1668,33 +1718,6 @@ export interface InputDataConfig {
    * @public
    */
   DataAccessRoleArn: string | undefined;
-}
-
-/**
- * <p>Adds metadata, in the form of a key:value pair, to the specified resource.</p>
- *          <p>For example, you could add the tag <code>Department:Sales</code> to a resource to
- *             indicate that it pertains to your organization's sales department. You can also use tags
- *             for tag-based access control.</p>
- *          <p>To learn more about tagging, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging resources</a>.</p>
- * @public
- */
-export interface Tag {
-  /**
-   * <p>The first part of a key:value pair that forms a tag associated with a given resource.
-   *             For example, in the tag <code>Department:Sales</code>, the key is 'Department'.</p>
-   * @public
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The second part of a key:value pair that forms a tag associated with a given resource.
-   *             For example, in the tag <code>Department:Sales</code>, the value is 'Sales'.</p>
-   *          <p>Note that you can set the value of a tag to an empty string, but you can't set the
-   *             value of a tag to null. Omitting the tag value is the same as using an empty
-   *             string.</p>
-   * @public
-   */
-  Value: string | undefined;
 }
 
 /**
@@ -4943,6 +4966,15 @@ export interface StartCallAnalyticsJobRequest {
    * @public
    */
   Settings?: CallAnalyticsJobSettings | undefined;
+
+  /**
+   * <p>Adds one or more custom tags, each in the form of a key:value pair, to a new
+   *             call analytics job at the time you start this new job.</p>
+   *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+   *             resources</a>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Makes it possible to specify which speaker is on which channel. For example, if your

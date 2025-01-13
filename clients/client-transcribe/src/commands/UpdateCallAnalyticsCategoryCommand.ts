@@ -204,6 +204,12 @@ export interface UpdateCallAnalyticsCategoryCommandOutput
  * //     ],
  * //     CreateTime: new Date("TIMESTAMP"),
  * //     LastUpdateTime: new Date("TIMESTAMP"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //     InputType: "REAL_TIME" || "POST_CALL",
  * //   },
  * // };

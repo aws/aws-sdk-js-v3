@@ -130,6 +130,12 @@ export interface CreateCallAnalyticsCategoryCommandOutput
  *       },
  *     },
  *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  *   InputType: "REAL_TIME" || "POST_CALL",
  * };
  * const command = new CreateCallAnalyticsCategoryCommand(input);
@@ -215,6 +221,12 @@ export interface CreateCallAnalyticsCategoryCommandOutput
  * //     ],
  * //     CreateTime: new Date("TIMESTAMP"),
  * //     LastUpdateTime: new Date("TIMESTAMP"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //     InputType: "REAL_TIME" || "POST_CALL",
  * //   },
  * // };

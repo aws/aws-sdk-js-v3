@@ -120,6 +120,12 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  *       GenerateAbstractiveSummary: true || false, // required
  *     },
  *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  *   ChannelDefinitions: [ // ChannelDefinitions
  *     { // ChannelDefinition
  *       ChannelId: Number("int"),
@@ -189,6 +195,12 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  * //       { // ChannelDefinition
  * //         ChannelId: Number("int"),
  * //         ParticipantRole: "AGENT" || "CUSTOMER",
+ * //       },
+ * //     ],
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
  * //   },
