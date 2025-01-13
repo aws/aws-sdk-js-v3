@@ -94,6 +94,7 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  *     Enabled: true || false,
  *     BannerText: "STRING_VALUE",
  *   },
+ *   DisconnectOnSessionTimeout: true || false,
  * };
  * const command = new CreateClientVpnEndpointCommand(input);
  * const response = await client.send(command);

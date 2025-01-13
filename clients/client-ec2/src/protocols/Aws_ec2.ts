@@ -31412,6 +31412,9 @@ const se_CreateClientVpnEndpointRequest = (input: CreateClientVpnEndpointRequest
       entries[loc] = value;
     });
   }
+  if (input[_DOST] != null) {
+    entries[_DOST] = input[_DOST];
+  }
   return entries;
 };
 
@@ -47902,6 +47905,9 @@ const se_ModifyClientVpnEndpointRequest = (input: ModifyClientVpnEndpointRequest
       entries[loc] = value;
     });
   }
+  if (input[_DOST] != null) {
+    entries[_DOST] = input[_DOST];
+  }
   return entries;
 };
 
@@ -60227,6 +60233,9 @@ const de_ClientVpnEndpoint = (output: any, context: __SerdeContext): ClientVpnEn
   }
   if (output[_cLBO] != null) {
     contents[_CLBO] = de_ClientLoginBannerResponseOptions(output[_cLBO], context);
+  }
+  if (output[_dOST] != null) {
+    contents[_DOST] = __parseBoolean(output[_dOST]);
   }
   return contents;
 };
@@ -88018,6 +88027,7 @@ const _DO = "DestinationOptions";
 const _DOA = "DestinationOutpostArn";
 const _DOI = "DhcpOptionsId";
 const _DOIh = "DhcpOptionsIds";
+const _DOST = "DisconnectOnSessionTimeout";
 const _DOT = "DeleteOnTermination";
 const _DOe = "DeviceOptions";
 const _DOh = "DhcpOptions";
@@ -90350,6 +90360,7 @@ const _dNn = "dnsName";
 const _dO = "dhcpOptions";
 const _dOI = "dhcpOptionsId";
 const _dOS = "dhcpOptionsSet";
+const _dOST = "disconnectOnSessionTimeout";
 const _dOT = "deleteOnTermination";
 const _dOe = "destinationOptions";
 const _dOev = "deviceOptions";

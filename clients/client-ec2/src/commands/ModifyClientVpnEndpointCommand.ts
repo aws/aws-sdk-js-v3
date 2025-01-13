@@ -67,6 +67,7 @@ export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEnd
  *     Enabled: true || false,
  *     BannerText: "STRING_VALUE",
  *   },
+ *   DisconnectOnSessionTimeout: true || false,
  * };
  * const command = new ModifyClientVpnEndpointCommand(input);
  * const response = await client.send(command);

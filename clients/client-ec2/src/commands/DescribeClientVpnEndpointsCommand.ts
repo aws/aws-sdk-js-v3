@@ -124,6 +124,7 @@ export interface DescribeClientVpnEndpointsCommandOutput extends DescribeClientV
  * //         Enabled: true || false,
  * //         BannerText: "STRING_VALUE",
  * //       },
+ * //       DisconnectOnSessionTimeout: true || false,
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -7903,6 +7903,12 @@ export interface ModifyClientVpnEndpointRequest {
    * @public
    */
   ClientLoginBannerOptions?: ClientLoginBannerOptions | undefined;
+
+  /**
+   * <p>Indicates whether the client VPN session is disconnected after the maximum timeout specified in <code>sessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically. The default value is <code>false</code>.</p>
+   * @public
+   */
+  DisconnectOnSessionTimeout?: boolean | undefined;
 }
 
 /**
@@ -8495,7 +8501,7 @@ export interface InstanceBlockDeviceMappingSpecification {
   VirtualName?: string | undefined;
 
   /**
-   * <p>suppress the specified device included in the block device mapping.</p>
+   * <p>Suppresses the specified device included in the block device mapping.</p>
    * @public
    */
   NoDevice?: string | undefined;
