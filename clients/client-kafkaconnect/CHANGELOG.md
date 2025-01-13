@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.727.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.1...v3.727.0) (2025-01-13)
+
+
+### Features
+
+* **client-kafkaconnect:** Support updating connector configuration via UpdateConnector API. Release Operations API to monitor the status of the connector operation. ([281769a](https://github.com/aws/aws-sdk-js-v3/commit/281769a43d53b2ea1810cfaf7fa8f81315bdcde3))
+
+
+
+
+
 ## [3.726.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.0...v3.726.1) (2025-01-10)
 
 **Note:** Version bump only for package @aws-sdk/client-kafkaconnect

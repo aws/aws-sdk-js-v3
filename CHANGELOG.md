@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.727.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.1...v3.727.0) (2025-01-13)
+
+
+### Features
+
+* **client-artifact:** Support resolving regional API calls to partition's leader region endpoint. ([6b059f4](https://github.com/aws/aws-sdk-js-v3/commit/6b059f4c3617e988f18c5d65aa9bcc220868d799))
+* **client-bedrock:** With this release, Bedrock Evaluation will now support latency-optimized inference for foundation models. ([ae86950](https://github.com/aws/aws-sdk-js-v3/commit/ae86950ecb25e79503c4cde6993e50327b9d951c))
+* **client-ec2:** Add support for DisconnectOnSessionTimeout flag in CreateClientVpnEndpoint and ModifyClientVpnEndpoint requests and DescribeClientVpnEndpoints responses ([9b98cef](https://github.com/aws/aws-sdk-js-v3/commit/9b98cefc05259870bb11229feb9b136afa1ed813))
+* **client-kafkaconnect:** Support updating connector configuration via UpdateConnector API. Release Operations API to monitor the status of the connector operation. ([281769a](https://github.com/aws/aws-sdk-js-v3/commit/281769a43d53b2ea1810cfaf7fa8f81315bdcde3))
+* **client-transcribe:** This update provides tagging support for Transcribe's Call Analytics Jobs and Call Analytics Categories. ([c23e188](https://github.com/aws/aws-sdk-js-v3/commit/c23e1888d87fdb9bbdf24c2ebb879858fd1c5a59))
+* **clients:** update client endpoints as of 2025-01-13 ([9c24ef5](https://github.com/aws/aws-sdk-js-v3/commit/9c24ef58205f44bc8f861d9acfd47c94ae0ebe8a))
+
+
+
+
+
 ## [3.726.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.0...v3.726.1) (2025-01-10)
 
 

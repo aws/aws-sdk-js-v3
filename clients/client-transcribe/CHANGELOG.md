@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.727.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.1...v3.727.0) (2025-01-13)
+
+
+### Features
+
+* **client-transcribe:** This update provides tagging support for Transcribe's Call Analytics Jobs and Call Analytics Categories. ([c23e188](https://github.com/aws/aws-sdk-js-v3/commit/c23e1888d87fdb9bbdf24c2ebb879858fd1c5a59))
+
+
+
+
+
 ## [3.726.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.0...v3.726.1) (2025-01-10)
 
 **Note:** Version bump only for package @aws-sdk/client-transcribe
