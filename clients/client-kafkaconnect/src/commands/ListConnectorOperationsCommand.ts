@@ -6,12 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import {
-  UpdateConnectorRequest,
-  UpdateConnectorRequestFilterSensitiveLog,
-  UpdateConnectorResponse,
-} from "../models/models_0";
-import { de_UpdateConnectorCommand, se_UpdateConnectorCommand } from "../protocols/Aws_restJson1";
+import { ListConnectorOperationsRequest, ListConnectorOperationsResponse } from "../models/models_0";
+import { de_ListConnectorOperationsCommand, se_ListConnectorOperationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -21,62 +17,50 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateConnectorCommand}.
+ * The input for {@link ListConnectorOperationsCommand}.
  */
-export interface UpdateConnectorCommandInput extends UpdateConnectorRequest {}
+export interface ListConnectorOperationsCommandInput extends ListConnectorOperationsRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateConnectorCommand}.
+ * The output of {@link ListConnectorOperationsCommand}.
  */
-export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, __MetadataBearer {}
+export interface ListConnectorOperationsCommandOutput extends ListConnectorOperationsResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified connector.</p>
+ * <p>Lists information about a connector's operation(s).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaConnectClient, UpdateConnectorCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
- * // const { KafkaConnectClient, UpdateConnectorCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * import { KafkaConnectClient, ListConnectorOperationsCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
+ * // const { KafkaConnectClient, ListConnectorOperationsCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
- * const input = { // UpdateConnectorRequest
- *   capacity: { // CapacityUpdate
- *     autoScaling: { // AutoScalingUpdate
- *       maxWorkerCount: Number("int"), // required
- *       mcuCount: Number("int"), // required
- *       minWorkerCount: Number("int"), // required
- *       scaleInPolicy: { // ScaleInPolicyUpdate
- *         cpuUtilizationPercentage: Number("int"), // required
- *       },
- *       scaleOutPolicy: { // ScaleOutPolicyUpdate
- *         cpuUtilizationPercentage: Number("int"), // required
- *       },
- *     },
- *     provisionedCapacity: { // ProvisionedCapacityUpdate
- *       mcuCount: Number("int"), // required
- *       workerCount: Number("int"), // required
- *     },
- *   },
- *   connectorConfiguration: { // ConnectorConfigurationUpdate
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // ListConnectorOperationsRequest
  *   connectorArn: "STRING_VALUE", // required
- *   currentVersion: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new UpdateConnectorCommand(input);
+ * const command = new ListConnectorOperationsCommand(input);
  * const response = await client.send(command);
- * // { // UpdateConnectorResponse
- * //   connectorArn: "STRING_VALUE",
- * //   connectorState: "STRING_VALUE",
- * //   connectorOperationArn: "STRING_VALUE",
+ * // { // ListConnectorOperationsResponse
+ * //   connectorOperations: [ // __listOfConnectorOperationSummary
+ * //     { // ConnectorOperationSummary
+ * //       connectorOperationArn: "STRING_VALUE",
+ * //       connectorOperationType: "STRING_VALUE",
+ * //       connectorOperationState: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       endTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param UpdateConnectorCommandInput - {@link UpdateConnectorCommandInput}
- * @returns {@link UpdateConnectorCommandOutput}
- * @see {@link UpdateConnectorCommandInput} for command's `input` shape.
- * @see {@link UpdateConnectorCommandOutput} for command's `response` shape.
+ * @param ListConnectorOperationsCommandInput - {@link ListConnectorOperationsCommandInput}
+ * @returns {@link ListConnectorOperationsCommandOutput}
+ * @see {@link ListConnectorOperationsCommandInput} for command's `input` shape.
+ * @see {@link ListConnectorOperationsCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -111,10 +95,10 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *
  * @public
  */
-export class UpdateConnectorCommand extends $Command
+export class ListConnectorOperationsCommand extends $Command
   .classBuilder<
-    UpdateConnectorCommandInput,
-    UpdateConnectorCommandOutput,
+    ListConnectorOperationsCommandInput,
+    ListConnectorOperationsCommandOutput,
     KafkaConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -126,21 +110,21 @@ export class UpdateConnectorCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("KafkaConnect", "UpdateConnector", {})
-  .n("KafkaConnectClient", "UpdateConnectorCommand")
-  .f(UpdateConnectorRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateConnectorCommand)
-  .de(de_UpdateConnectorCommand)
+  .s("KafkaConnect", "ListConnectorOperations", {})
+  .n("KafkaConnectClient", "ListConnectorOperationsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListConnectorOperationsCommand)
+  .de(de_ListConnectorOperationsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateConnectorRequest;
-      output: UpdateConnectorResponse;
+      input: ListConnectorOperationsRequest;
+      output: ListConnectorOperationsResponse;
     };
     sdk: {
-      input: UpdateConnectorCommandInput;
-      output: UpdateConnectorCommandOutput;
+      input: ListConnectorOperationsCommandInput;
+      output: ListConnectorOperationsCommandOutput;
     };
   };
 }

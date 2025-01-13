@@ -67,6 +67,10 @@ import {
 } from "./commands/DeleteWorkerConfigurationCommand";
 import { DescribeConnectorCommandInput, DescribeConnectorCommandOutput } from "./commands/DescribeConnectorCommand";
 import {
+  DescribeConnectorOperationCommandInput,
+  DescribeConnectorOperationCommandOutput,
+} from "./commands/DescribeConnectorOperationCommand";
+import {
   DescribeCustomPluginCommandInput,
   DescribeCustomPluginCommandOutput,
 } from "./commands/DescribeCustomPluginCommand";
@@ -74,6 +78,10 @@ import {
   DescribeWorkerConfigurationCommandInput,
   DescribeWorkerConfigurationCommandOutput,
 } from "./commands/DescribeWorkerConfigurationCommand";
+import {
+  ListConnectorOperationsCommandInput,
+  ListConnectorOperationsCommandOutput,
+} from "./commands/ListConnectorOperationsCommand";
 import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
 import { ListCustomPluginsCommandInput, ListCustomPluginsCommandOutput } from "./commands/ListCustomPluginsCommand";
 import {
@@ -109,8 +117,10 @@ export type ServiceInputTypes =
   | DeleteCustomPluginCommandInput
   | DeleteWorkerConfigurationCommandInput
   | DescribeConnectorCommandInput
+  | DescribeConnectorOperationCommandInput
   | DescribeCustomPluginCommandInput
   | DescribeWorkerConfigurationCommandInput
+  | ListConnectorOperationsCommandInput
   | ListConnectorsCommandInput
   | ListCustomPluginsCommandInput
   | ListTagsForResourceCommandInput
@@ -130,8 +140,10 @@ export type ServiceOutputTypes =
   | DeleteCustomPluginCommandOutput
   | DeleteWorkerConfigurationCommandOutput
   | DescribeConnectorCommandOutput
+  | DescribeConnectorOperationCommandOutput
   | DescribeCustomPluginCommandOutput
   | DescribeWorkerConfigurationCommandOutput
+  | ListConnectorOperationsCommandOutput
   | ListConnectorsCommandOutput
   | ListCustomPluginsCommandOutput
   | ListTagsForResourceCommandOutput

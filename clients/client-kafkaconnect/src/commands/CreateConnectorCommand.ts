@@ -57,7 +57,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *       workerCount: Number("int"), // required
  *     },
  *   },
- *   connectorConfiguration: { // __sensitive__mapOf__string // required
+ *   connectorConfiguration: { // ConnectorConfiguration // required
  *     "<keys>": "STRING_VALUE",
  *   },
  *   connectorDescription: "STRING_VALUE",

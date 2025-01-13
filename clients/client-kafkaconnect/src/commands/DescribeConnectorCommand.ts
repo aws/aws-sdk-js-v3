@@ -63,7 +63,7 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * //     },
  * //   },
  * //   connectorArn: "STRING_VALUE",
- * //   connectorConfiguration: { // __sensitive__mapOf__string
+ * //   connectorConfiguration: { // ConnectorConfiguration
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   connectorDescription: "STRING_VALUE",

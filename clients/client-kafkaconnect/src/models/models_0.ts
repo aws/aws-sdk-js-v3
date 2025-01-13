@@ -4,6 +4,130 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { KafkaConnectServiceException as __BaseException } from "./KafkaConnectServiceException";
 
 /**
+ * @public
+ * @enum
+ */
+export const ConnectorOperationStepState = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorOperationStepState =
+  (typeof ConnectorOperationStepState)[keyof typeof ConnectorOperationStepState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorOperationStepType = {
+  FINALIZE_UPDATE: "FINALIZE_UPDATE",
+  INITIALIZE_UPDATE: "INITIALIZE_UPDATE",
+  UPDATE_CONNECTOR_CONFIGURATION: "UPDATE_CONNECTOR_CONFIGURATION",
+  UPDATE_WORKER_SETTING: "UPDATE_WORKER_SETTING",
+  VALIDATE_UPDATE: "VALIDATE_UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorOperationStepType = (typeof ConnectorOperationStepType)[keyof typeof ConnectorOperationStepType];
+
+/**
+ * <p>Details of a step that is involved in a connector's operation.</p>
+ * @public
+ */
+export interface ConnectorOperationStep {
+  /**
+   * <p>The step type of the operation.</p>
+   * @public
+   */
+  stepType?: ConnectorOperationStepType | undefined;
+
+  /**
+   * <p>The step state of the operation.</p>
+   * @public
+   */
+  stepState?: ConnectorOperationStepState | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorOperationState = {
+  PENDING: "PENDING",
+  ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
+  ROLLBACK_FAILED: "ROLLBACK_FAILED",
+  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorOperationState = (typeof ConnectorOperationState)[keyof typeof ConnectorOperationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorOperationType = {
+  ISOLATE_CONNECTOR: "ISOLATE_CONNECTOR",
+  RESTORE_CONNECTOR: "RESTORE_CONNECTOR",
+  UPDATE_CONNECTOR_CONFIGURATION: "UPDATE_CONNECTOR_CONFIGURATION",
+  UPDATE_WORKER_SETTING: "UPDATE_WORKER_SETTING",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorOperationType = (typeof ConnectorOperationType)[keyof typeof ConnectorOperationType];
+
+/**
+ * <p>Summary of a connector operation.</p>
+ * @public
+ */
+export interface ConnectorOperationSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector operation.</p>
+   * @public
+   */
+  connectorOperationArn?: string | undefined;
+
+  /**
+   * <p>The type of connector operation performed.</p>
+   * @public
+   */
+  connectorOperationType?: ConnectorOperationType | undefined;
+
+  /**
+   * <p>The state of the connector operation.</p>
+   * @public
+   */
+  connectorOperationState?: ConnectorOperationState | undefined;
+
+  /**
+   * <p>The time when operation was created.</p>
+   * @public
+   */
+  creationTime?: Date | undefined;
+
+  /**
+   * <p>The time when operation ended.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+}
+
+/**
  * <p>The description of the scale-in policy for the connector.</p>
  * @public
  */
@@ -1828,6 +1952,106 @@ export interface DescribeConnectorResponse {
 /**
  * @public
  */
+export interface DescribeConnectorOperationRequest {
+  /**
+   * <p>ARN of the connector operation to be described.</p>
+   * @public
+   */
+  connectorOperationArn: string | undefined;
+}
+
+/**
+ * <p>Details about worker setting of a connector</p>
+ * @public
+ */
+export interface WorkerSetting {
+  /**
+   * <p>A description of the connector's capacity.</p>
+   * @public
+   */
+  capacity?: CapacityDescription | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeConnectorOperationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * @public
+   */
+  connectorArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector operation.</p>
+   * @public
+   */
+  connectorOperationArn?: string | undefined;
+
+  /**
+   * <p>The state of the connector operation.</p>
+   * @public
+   */
+  connectorOperationState?: ConnectorOperationState | undefined;
+
+  /**
+   * <p>The type of connector operation performed.</p>
+   * @public
+   */
+  connectorOperationType?: ConnectorOperationType | undefined;
+
+  /**
+   * <p>The array of operation steps taken.</p>
+   * @public
+   */
+  operationSteps?: ConnectorOperationStep[] | undefined;
+
+  /**
+   * <p>The origin worker setting.</p>
+   * @public
+   */
+  originWorkerSetting?: WorkerSetting | undefined;
+
+  /**
+   * <p>The origin connector configuration.</p>
+   * @public
+   */
+  originConnectorConfiguration?: Record<string, string> | undefined;
+
+  /**
+   * <p>The target worker setting.</p>
+   * @public
+   */
+  targetWorkerSetting?: WorkerSetting | undefined;
+
+  /**
+   * <p>The target connector configuration.</p>
+   * @public
+   */
+  targetConnectorConfiguration?: Record<string, string> | undefined;
+
+  /**
+   * <p>Details about the state of a resource.</p>
+   * @public
+   */
+  errorInfo?: StateDescription | undefined;
+
+  /**
+   * <p>The time when the operation was created.</p>
+   * @public
+   */
+  creationTime?: Date | undefined;
+
+  /**
+   * <p>The time when the operation ended.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeCustomPluginRequest {
   /**
    * <p>Returns information about a custom plugin.</p>
@@ -1965,6 +2189,46 @@ export interface DescribeWorkerConfigurationResponse {
    * @public
    */
   workerConfigurationState?: WorkerConfigurationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorOperationsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector for which to list operations.</p>
+   * @public
+   */
+  connectorArn: string | undefined;
+
+  /**
+   * <p>Maximum number of connector operations to fetch in one get request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the response is truncated, it includes a NextToken. Send this NextToken in a subsequent request to continue listing from where it left off.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorOperationsResponse {
+  /**
+   * <p>An array of connector operation descriptions.</p>
+   * @public
+   */
+  connectorOperations?: ConnectorOperationSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, it includes a NextToken. Send this NextToken in a subsequent request to continue listing from where it left off.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2173,7 +2437,13 @@ export interface UpdateConnectorRequest {
    * <p>The target capacity.</p>
    * @public
    */
-  capacity: CapacityUpdate | undefined;
+  capacity?: CapacityUpdate | undefined;
+
+  /**
+   * <p>A map of keys to values that represent the configuration for the connector.</p>
+   * @public
+   */
+  connectorConfiguration?: Record<string, string> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the connector that you want to update.</p>
@@ -2203,6 +2473,12 @@ export interface UpdateConnectorResponse {
    * @public
    */
   connectorState?: ConnectorState | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector operation.</p>
+   * @public
+   */
+  connectorOperationArn?: string | undefined;
 }
 
 /**
@@ -2232,6 +2508,15 @@ export const DescribeConnectorResponseFilterSensitiveLog = (obj: DescribeConnect
 /**
  * @internal
  */
+export const DescribeConnectorOperationResponseFilterSensitiveLog = (obj: DescribeConnectorOperationResponse): any => ({
+  ...obj,
+  ...(obj.originConnectorConfiguration && { originConnectorConfiguration: SENSITIVE_STRING }),
+  ...(obj.targetConnectorConfiguration && { targetConnectorConfiguration: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const WorkerConfigurationRevisionDescriptionFilterSensitiveLog = (
   obj: WorkerConfigurationRevisionDescription
 ): any => ({
@@ -2249,4 +2534,12 @@ export const DescribeWorkerConfigurationResponseFilterSensitiveLog = (
   ...(obj.latestRevision && {
     latestRevision: WorkerConfigurationRevisionDescriptionFilterSensitiveLog(obj.latestRevision),
   }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectorRequestFilterSensitiveLog = (obj: UpdateConnectorRequest): any => ({
+  ...obj,
+  ...(obj.connectorConfiguration && { connectorConfiguration: SENSITIVE_STRING }),
 });

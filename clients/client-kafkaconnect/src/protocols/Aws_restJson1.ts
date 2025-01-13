@@ -37,6 +37,10 @@ import {
 } from "../commands/DeleteWorkerConfigurationCommand";
 import { DescribeConnectorCommandInput, DescribeConnectorCommandOutput } from "../commands/DescribeConnectorCommand";
 import {
+  DescribeConnectorOperationCommandInput,
+  DescribeConnectorOperationCommandOutput,
+} from "../commands/DescribeConnectorOperationCommand";
+import {
   DescribeCustomPluginCommandInput,
   DescribeCustomPluginCommandOutput,
 } from "../commands/DescribeCustomPluginCommand";
@@ -44,6 +48,10 @@ import {
   DescribeWorkerConfigurationCommandInput,
   DescribeWorkerConfigurationCommandOutput,
 } from "../commands/DescribeWorkerConfigurationCommand";
+import {
+  ListConnectorOperationsCommandInput,
+  ListConnectorOperationsCommandOutput,
+} from "../commands/ListConnectorOperationsCommand";
 import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "../commands/ListConnectorsCommand";
 import { ListCustomPluginsCommandInput, ListCustomPluginsCommandOutput } from "../commands/ListCustomPluginsCommand";
 import {
@@ -67,6 +75,7 @@ import {
   CapacityUpdate,
   CloudWatchLogsLogDelivery,
   ConflictException,
+  ConnectorOperationSummary,
   ConnectorSummary,
   CustomPlugin,
   CustomPluginLocation,
@@ -253,6 +262,22 @@ export const se_DescribeConnectorCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeConnectorOperationCommand
+ */
+export const se_DescribeConnectorOperationCommand = async (
+  input: DescribeConnectorOperationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/connectorOperations/{connectorOperationArn}");
+  b.p("connectorOperationArn", () => input.connectorOperationArn!, "{connectorOperationArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DescribeCustomPluginCommand
  */
 export const se_DescribeCustomPluginCommand = async (
@@ -281,6 +306,26 @@ export const se_DescribeWorkerConfigurationCommand = async (
   b.p("workerConfigurationArn", () => input.workerConfigurationArn!, "{workerConfigurationArn}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListConnectorOperationsCommand
+ */
+export const se_ListConnectorOperationsCommand = async (
+  input: ListConnectorOperationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/connectors/{connectorArn}/operations");
+  b.p("connectorArn", () => input.connectorArn!, "{connectorArn}", false);
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -422,6 +467,7 @@ export const se_UpdateConnectorCommand = async (
   body = JSON.stringify(
     take(input, {
       capacity: (_) => _json(_),
+      connectorConfiguration: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).q(query).b(body);
@@ -604,6 +650,38 @@ export const de_DescribeConnectorCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeConnectorOperationCommand
+ */
+export const de_DescribeConnectorOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConnectorOperationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    connectorArn: __expectString,
+    connectorOperationArn: __expectString,
+    connectorOperationState: __expectString,
+    connectorOperationType: __expectString,
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    endTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    errorInfo: _json,
+    operationSteps: _json,
+    originConnectorConfiguration: _json,
+    originWorkerSetting: _json,
+    targetConnectorConfiguration: _json,
+    targetWorkerSetting: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DescribeCustomPluginCommand
  */
 export const de_DescribeCustomPluginCommand = async (
@@ -651,6 +729,28 @@ export const de_DescribeWorkerConfigurationCommand = async (
     name: __expectString,
     workerConfigurationArn: __expectString,
     workerConfigurationState: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListConnectorOperationsCommand
+ */
+export const de_ListConnectorOperationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConnectorOperationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    connectorOperations: (_) => de___listOfConnectorOperationSummary(_, context),
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -793,6 +893,7 @@ export const de_UpdateConnectorCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     connectorArn: __expectString,
+    connectorOperationArn: __expectString,
     connectorState: __expectString,
   });
   Object.assign(contents, doc);
@@ -996,8 +1097,6 @@ const de_UnauthorizedExceptionRes = async (
 
 // se___listOfPlugin omitted.
 
-// se___sensitive__mapOf__string omitted.
-
 // se_ApacheKafkaCluster omitted.
 
 // se_AutoScaling omitted.
@@ -1009,6 +1108,10 @@ const de_UnauthorizedExceptionRes = async (
 // se_CapacityUpdate omitted.
 
 // se_CloudWatchLogsLogDelivery omitted.
+
+// se_ConnectorConfiguration omitted.
+
+// se_ConnectorConfigurationUpdate omitted.
 
 // se_CustomPlugin omitted.
 
@@ -1052,6 +1155,20 @@ const de_UnauthorizedExceptionRes = async (
 
 // de___listOf__string omitted.
 
+// de___listOfConnectorOperationStep omitted.
+
+/**
+ * deserializeAws_restJson1__listOfConnectorOperationSummary
+ */
+const de___listOfConnectorOperationSummary = (output: any, context: __SerdeContext): ConnectorOperationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ConnectorOperationSummary(entry, context);
+    });
+  return retVal;
+};
+
 /**
  * deserializeAws_restJson1__listOfConnectorSummary
  */
@@ -1090,8 +1207,6 @@ const de___listOfWorkerConfigurationSummary = (output: any, context: __SerdeCont
   return retVal;
 };
 
-// de___sensitive__mapOf__string omitted.
-
 // de_ApacheKafkaClusterDescription omitted.
 
 // de_AutoScalingDescription omitted.
@@ -1099,6 +1214,23 @@ const de___listOfWorkerConfigurationSummary = (output: any, context: __SerdeCont
 // de_CapacityDescription omitted.
 
 // de_CloudWatchLogsLogDeliveryDescription omitted.
+
+// de_ConnectorConfiguration omitted.
+
+// de_ConnectorOperationStep omitted.
+
+/**
+ * deserializeAws_restJson1ConnectorOperationSummary
+ */
+const de_ConnectorOperationSummary = (output: any, context: __SerdeContext): ConnectorOperationSummary => {
+  return take(output, {
+    connectorOperationArn: __expectString,
+    connectorOperationState: __expectString,
+    connectorOperationType: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1ConnectorSummary
@@ -1231,6 +1363,8 @@ const de_WorkerConfigurationSummary = (output: any, context: __SerdeContext): Wo
 };
 
 // de_WorkerLogDeliveryDescription omitted.
+
+// de_WorkerSetting omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
