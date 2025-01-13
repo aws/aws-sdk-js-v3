@@ -110,6 +110,9 @@ export interface CreateEvaluationJobCommandOutput extends CreateEvaluationJobRes
  *         bedrockModel: { // EvaluationBedrockModel
  *           modelIdentifier: "STRING_VALUE", // required
  *           inferenceParams: "STRING_VALUE",
+ *           performanceConfig: { // PerformanceConfiguration
+ *             latency: "standard" || "optimized",
+ *           },
  *         },
  *       },
  *     ],

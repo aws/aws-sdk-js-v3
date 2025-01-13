@@ -269,6 +269,7 @@ import {
   ModelInvocationJobSummary,
   OrchestrationConfiguration,
   OutputDataConfig,
+  PerformanceConfiguration,
   PromptRouterSummary,
   PromptTemplate,
   ProvisionedModelSummary,
@@ -3364,6 +3365,8 @@ const se_KnowledgeBaseVectorSearchConfiguration = (
 
 // se_OutputDataConfig omitted.
 
+// se_PerformanceConfiguration omitted.
+
 // se_PromptTemplate omitted.
 
 // se_QueryTransformationConfiguration omitted.
@@ -4182,6 +4185,8 @@ const de_ModelInvocationJobSummary = (output: any, context: __SerdeContext): Mod
 // de_OrchestrationConfiguration omitted.
 
 // de_OutputDataConfig omitted.
+
+// de_PerformanceConfiguration omitted.
 
 /**
  * deserializeAws_restJson1PromptRouterSummaries
