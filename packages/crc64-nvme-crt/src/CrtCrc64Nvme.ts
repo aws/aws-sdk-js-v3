@@ -3,20 +3,17 @@ import { Checksum } from "@smithy/types";
 import { toUint8Array } from "@smithy/util-utf8";
 
 export class CrtCrc64Nvme implements Checksum {
-  private previous: DataView | undefined;
+  private checksum: DataView = new DataView(new ArrayBuffer(8));
 
-  update(chunk: Uint8Array) {
-    this.previous = checksums.crc64nvme(chunk, this.previous);
+  update(data: Uint8Array) {
+    this.checksum = checksums.crc64nvme(data, this.checksum);
   }
 
   async digest() {
-    if (!this.previous) {
-      throw new Error("No data provided to checksum");
-    }
-    return toUint8Array(this.previous);
+    return toUint8Array(this.checksum);
   }
 
   reset() {
-    this.previous = undefined;
+    this.checksum = new DataView(new ArrayBuffer(8));
   }
 }
