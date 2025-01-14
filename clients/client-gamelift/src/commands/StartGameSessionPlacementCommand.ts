@@ -33,46 +33,84 @@ export interface StartGameSessionPlacementCommandInput extends StartGameSessionP
 export interface StartGameSessionPlacementCommandOutput extends StartGameSessionPlacementOutput, __MetadataBearer {}
 
 /**
- * <p>Places a request for a new game session in a queue. When processing a placement
- *             request, Amazon GameLift searches for available resources on the queue's destinations, scanning
- *             each until it finds resources or the placement request times out.</p>
- *          <p>A game session placement request can also request player sessions. When a new game
- *             session is successfully created, Amazon GameLift creates a player session for each player
- *             included in the request.</p>
- *          <p>When placing a game session, by default Amazon GameLift tries each fleet in the order they are
- *             listed in the queue configuration. Ideally, a queue's destinations are listed in
- *             preference order.</p>
- *          <p>Alternatively, when requesting a game session with players, you can also provide
- *             latency data for each player in relevant Regions. Latency data indicates the performance
- *             lag a player experiences when connected to a fleet in the Region. Amazon GameLift uses latency
- *             data to reorder the list of destinations to place the game session in a Region with
- *             minimal lag. If latency data is provided for multiple players, Amazon GameLift calculates each
- *             Region's average lag for all players and reorders to get the best game play across all
- *             players. </p>
- *          <p>To place a new game session request, specify the following:</p>
+ * <p>Makes a request to start a new game session using a game session queue. When
+ *             processing a placement request in a queue, Amazon GameLift finds the best possible available
+ *             resource to host the game session and prompts the resource to start the game session.  </p>
+ *          <p>
+ *             <b>Request options</b>
+ *          </p>
+ *          <p>Call this API with the following minimum parameters:
+ *                 <i>GameSessionQueueName</i>,
+ *                 <i>MaximumPlayerSessionCount</i>, and
+ *             <i>PlacementID</i>. You can also include game session data (data formatted
+ *             as strings) or game properties (data formatted as key-value pairs) to pass to the new
+ *             game session.</p>
  *          <ul>
  *             <li>
- *                <p>The queue name and a set of game session properties and settings</p>
+ *                <p>You can change how Amazon GameLift chooses a hosting resource for the new game session.
+ *                     Prioritizing resources for game session placements is defined when you configure
+ *                     a game session queue. You can use the default prioritization process or specify
+ *                     a custom process by providing a <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_PriorityConfiguration.html">
+ *                         PriorityConfiguration</a> when you create or update a queue.</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>Prioritize based on resource cost and location, using the queue's
+ *                             configured priority settings. Call this API with the minimum
+ *                             parameters.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Prioritize based on latency. Include a set of values for
+ *                                 <i>PlayerLatencies</i>. You can provide latency data
+ *                             with or without player session data. This option instructs Amazon GameLift to
+ *                             reorder the queue's prioritized locations list based on the latency
+ *                             data. If latency data is provided for multiple players, Amazon GameLift
+ *                             calculates each location's average latency for all players and reorders
+ *                             to find the lowest latency across all players. Don't include latency
+ *                             data if you're providing a custom list of locations.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Prioritize based on a custom list of locations. If you're using a
+ *                             queue that's configured to prioritize location first (see <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_PriorityConfiguration.html">PriorityConfiguration</a> for game session queues), use the
+ *                                 <i>PriorityConfigurationOverride</i> parameter to
+ *                             substitute a different location list for this placement request. When
+ *                             prioritizing placements by location, Amazon GameLift searches each location in
+ *                             prioritized order to find an available hosting resource for the new game
+ *                             session. You can choose whether to use the override list for the first
+ *                             placement attempt only or for all attempts.</p>
+ *                   </li>
+ *                </ul>
  *             </li>
  *             <li>
- *                <p>A unique ID (such as a UUID) for the placement. You use this ID to track the
- *                     status of the placement request</p>
- *             </li>
- *             <li>
- *                <p>(Optional) A set of player data and a unique player ID for each player that
- *                     you are joining to the new game session (player data is optional, but if you
- *                     include it, you must also provide a unique ID for each player)</p>
- *             </li>
- *             <li>
- *                <p>Latency data for all players (if you want to optimize game play for the
- *                     players)</p>
+ *                <p>You can request new player sessions for a group of players. Include the
+ *                         <i>DesiredPlayerSessions</i> parameter and include at minimum
+ *                     a unique player ID for each. You can also include player-specific data to pass
+ *                     to the new game session. </p>
  *             </li>
  *          </ul>
- *          <p>If successful, a new game session placement is created.</p>
- *          <p>To track the status of a placement request, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionPlacement.html">DescribeGameSessionPlacement</a> and check the request's status. If the status
- *             is <code>FULFILLED</code>, a new game session has been created and a game session ARN
- *             and Region are referenced. If the placement request times out, you can resubmit the
- *             request or retry it with a different queue. </p>
+ *          <p>
+ *             <b>Result</b>
+ *          </p>
+ *          <p>If successful, this request generates a new game session placement request and adds it
+ *             to the game session queue for Amazon GameLift to process in turn. You can track the status of
+ *             individual placement requests by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionPlacement.html">DescribeGameSessionPlacement</a>. A new game session is running if the status
+ *             is <code>FULFILLED</code> and the request returns the game session connection
+ *             information (IP address and port). If you include player session data, Amazon GameLift creates a
+ *             player session for each player ID in the request.</p>
+ *          <p>The request results in a <code>BadRequestException</code> in the following
+ *             situations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>If the request includes both <i>PlayerLatencies</i> and
+ *                         <i>PriorityConfigurationOverride</i> parameters.</p>
+ *             </li>
+ *             <li>
+ *                <p>If the request includes the <i>PriorityConfigurationOverride</i>
+ *                     parameter and designates a queue doesn't prioritize locations.</p>
+ *             </li>
+ *          </ul>
+ *          <p>Amazon GameLift continues to retry each placement request until it reaches the queue's timeout
+ *             setting. If a request times out, you can resubmit the request to the same queue or try a
+ *             different queue. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,6 +142,12 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  *     },
  *   ],
  *   GameSessionData: "STRING_VALUE",
+ *   PriorityConfigurationOverride: { // PriorityConfigurationOverride
+ *     PlacementFallbackStrategy: "DEFAULT_AFTER_SINGLE_PASS" || "NONE",
+ *     LocationOrder: [ // LocationOrderOverrideList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new StartGameSessionPlacementCommand(input);
  * const response = await client.send(command);
@@ -143,6 +187,12 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  * //     ],
  * //     GameSessionData: "STRING_VALUE",
  * //     MatchmakerData: "STRING_VALUE",
+ * //     PriorityConfigurationOverride: { // PriorityConfigurationOverride
+ * //       PlacementFallbackStrategy: "DEFAULT_AFTER_SINGLE_PASS" || "NONE",
+ * //       LocationOrder: [ // LocationOrderOverrideList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -167,6 +217,9 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>

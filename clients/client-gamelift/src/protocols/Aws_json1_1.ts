@@ -525,8 +525,6 @@ import {
   ListBuildsOutput,
   ListComputeInput,
   ListComputeOutput,
-  ListContainerFleetsInput,
-  ListContainerFleetsOutput,
   LocationConfiguration,
   LogConfiguration,
   MatchmakingConfiguration,
@@ -540,6 +538,7 @@ import {
   PlayerLatencyPolicy,
   PlayerSession,
   PriorityConfiguration,
+  PriorityConfigurationOverride,
   PriorityType,
   ResourceCreationLimitPolicy,
   RoutingStrategy,
@@ -560,6 +559,8 @@ import {
   VpcPeeringAuthorization,
 } from "../models/models_0";
 import {
+  ListContainerFleetsInput,
+  ListContainerFleetsOutput,
   ListContainerGroupDefinitionsInput,
   ListContainerGroupDefinitionsOutput,
   ListContainerGroupDefinitionVersionsInput,
@@ -5154,6 +5155,8 @@ const se_GameServerGroupAutoScalingPolicy = (input: GameServerGroupAutoScalingPo
 
 // se_LocationList omitted.
 
+// se_LocationOrderOverrideList omitted.
+
 // se_LogConfiguration omitted.
 
 // se_MatchmakingConfigurationNameList omitted.
@@ -5249,6 +5252,8 @@ const se_PlayerList = (input: Player[], context: __SerdeContext): any => {
 
 // se_PriorityConfiguration omitted.
 
+// se_PriorityConfigurationOverride omitted.
+
 // se_PriorityTypeList omitted.
 
 /**
@@ -5310,6 +5315,7 @@ const se_StartGameSessionPlacementInput = (input: StartGameSessionPlacementInput
     MaximumPlayerSessionCount: [],
     PlacementId: [],
     PlayerLatencies: (_) => se_PlayerLatencyList(_, context),
+    PriorityConfigurationOverride: _json,
   });
 };
 
@@ -6400,6 +6406,7 @@ const de_GameSessionPlacement = (output: any, context: __SerdeContext): GameSess
     PlacementId: __expectString,
     PlayerLatencies: (_: any) => de_PlayerLatencyList(_, context),
     Port: __expectInt32,
+    PriorityConfigurationOverride: _json,
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Status: __expectString,
   }) as any;
@@ -6614,6 +6621,8 @@ const de_ListScriptsOutput = (output: any, context: __SerdeContext): ListScripts
 // de_LocationModel omitted.
 
 // de_LocationModelList omitted.
+
+// de_LocationOrderOverrideList omitted.
 
 // de_LocationState omitted.
 
@@ -6841,6 +6850,8 @@ const de_PlayerSessionList = (output: any, context: __SerdeContext): PlayerSessi
 };
 
 // de_PriorityConfiguration omitted.
+
+// de_PriorityConfigurationOverride omitted.
 
 // de_PriorityTypeList omitted.
 

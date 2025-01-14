@@ -5172,9 +5172,9 @@ export interface GameSessionQueueDestination {
 
 /**
  * <p>A list of fleet locations where a game session queue can place new game sessions. You
- *             can use a filter to temporarily turn off placements for specific locations. For queues
- *             that have multi-location fleets, you can use a filter configuration allow placement with
- *             some, but not all of these locations.</p>
+ *             can use a filter to temporarily exclude specific locations from receiving placements.
+ *             For queues that have multi-location fleets, you can use a filter configuration allow
+ *             placement with some, but not all, of a fleet's locations.</p>
  * @public
  */
 export interface FilterConfiguration {
@@ -5228,54 +5228,56 @@ export const PriorityType = {
 export type PriorityType = (typeof PriorityType)[keyof typeof PriorityType];
 
 /**
- * <p>Custom prioritization settings for use by a game session queue when placing new game
- *             sessions with available game servers. When defined, this configuration replaces the
- *             default FleetIQ prioritization process, which is as follows:</p>
+ * <p>Custom prioritization settings for a game session queue to use when searching for
+ *             available game servers to place new game sessions. This configuration replaces the
+ *             default FleetIQ prioritization process. </p>
+ *          <p>By default, a queue makes placements based on the following default
+ *             prioritizations:</p>
  *          <ul>
  *             <li>
- *                <p>If player latency data is included in a game session request, destinations and
- *                     locations are prioritized first based on lowest average latency (1), then on
- *                     lowest hosting cost (2), then on destination list order (3), and finally on
- *                     location (alphabetical) (4). This approach ensures that the queue's top priority
- *                     is to place game sessions where average player latency is lowest, and--if
- *                     latency is the same--where the hosting cost is less, etc.</p>
+ *                <p>If player latency data is included in a game session request, Amazon GameLift
+ *                     prioritizes placing game sessions where the average player latency is lowest.
+ *                     Amazon GameLift re-orders the queue's destinations and locations (for multi-location
+ *                     fleets) based on the following priorities: (1) the lowest average latency across
+ *                     all players, (2) the lowest hosting cost, (3) the queue's default destination
+ *                     order, and then (4), an alphabetic list of locations.</p>
  *             </li>
  *             <li>
- *                <p>If player latency data is not included, destinations and locations are
- *                     prioritized first on destination list order (1), and then on location
- *                     (alphabetical) (2). This approach ensures that the queue's top priority is to
- *                     place game sessions on the first destination fleet listed. If that fleet has
- *                     multiple locations, the game session is placed on the first location (when
- *                     listed alphabetically).</p>
+ *                <p>If player latency data is not included, Amazon GameLift prioritizes placing game
+ *                     sessions in the queue's first destination. If that fleet has multiple locations,
+ *                     the game session is placed on the first location (when listed alphabetically).
+ *                     Amazon GameLift re-orders the queue's destinations and locations (for multi-location
+ *                     fleets) based on the following priorities: (1) the queue's default destination
+ *                     order, and then (2) an alphabetic list of locations.</p>
  *             </li>
  *          </ul>
- *          <p>Changing the priority order will affect how game sessions are placed.</p>
  * @public
  */
 export interface PriorityConfiguration {
   /**
-   * <p>The recommended sequence to use when prioritizing where to place new game sessions.
-   *             Each type can only be listed once.</p>
+   * <p>A custom sequence to use when prioritizing where to place new game sessions. Each
+   *             priority type is listed once.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>LATENCY</code> -- FleetIQ prioritizes locations where the average player
-   *                     latency (provided in each game session request) is lowest. </p>
+   *                   <code>LATENCY</code> -- Amazon GameLift prioritizes locations where the average player
+   *                     latency is lowest. Player latency data is provided in each game session
+   *                     placement request.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>COST</code> -- FleetIQ prioritizes destinations with the lowest current
+   *                   <code>COST</code> -- Amazon GameLift prioritizes destinations with the lowest current
    *                     hosting costs. Cost is evaluated based on the location, instance type, and fleet
-   *                     type (Spot or On-Demand) for each destination in the queue.</p>
+   *                     type (Spot or On-Demand) of each destination in the queue.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DESTINATION</code> -- FleetIQ prioritizes based on the order that
-   *                     destinations are listed in the queue configuration.</p>
+   *                   <code>DESTINATION</code> -- Amazon GameLift prioritizes based on the list order of
+   *                     destinations in the queue configuration.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>LOCATION</code> -- FleetIQ prioritizes based on the provided order of
+   *                   <code>LOCATION</code> -- Amazon GameLift prioritizes based on the provided order of
    *                     locations, as defined in <code>LocationOrder</code>. </p>
    *             </li>
    *          </ul>
@@ -5285,9 +5287,11 @@ export interface PriorityConfiguration {
 
   /**
    * <p>The prioritization order to use for fleet locations, when the
-   *                 <code>PriorityOrder</code> property includes <code>LOCATION</code>. Locations are
-   *             identified by Amazon Web Services Region codes such as <code>us-west-2</code>. Each location can only
-   *             be listed once. </p>
+   *                 <code>PriorityOrder</code> property includes <code>LOCATION</code>. Locations can
+   *             include Amazon Web Services Region codes (such as <code>us-west-2</code>), local zones, and custom
+   *             locations (for Anywhere fleets). Each location must be listed only once. For details, see
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">Amazon GameLift service locations.</a>
+   *          </p>
    * @public
    */
   LocationOrder?: string[] | undefined;
@@ -8530,6 +8534,67 @@ export interface PlayerLatency {
  * @public
  * @enum
  */
+export const PlacementFallbackStrategy = {
+  DEFAULT_AFTER_SINGLE_PASS: "DEFAULT_AFTER_SINGLE_PASS",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type PlacementFallbackStrategy = (typeof PlacementFallbackStrategy)[keyof typeof PlacementFallbackStrategy];
+
+/**
+ * <p>An alternate list of prioritized locations for use with a game session queue. When
+ *             this property is included in a <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a> request, this list overrides the queue's default
+ *             location prioritization, as defined in the queue's <a href="gamelift/latest/apireference/API_PriorityConfiguration.html">PriorityConfiguration</a> setting (<i>LocationOrder</i>). This
+ *             property overrides the queue's default priority list for individual placement requests
+ *             only. Use this property only with queues that have a <code>PriorityConfiguration</code>
+ *             setting that prioritizes first. </p>
+ *          <note>
+ *             <p>A priority configuration override list does not override a queue's
+ *                 FilterConfiguration setting, if the queue has one. Filter configurations are used to
+ *                 limit placements to a subset of the locations in a queue's destinations. If the
+ *                 override list includes a location that's not included in the FilterConfiguration
+ *                 allowed list, Amazon GameLift won't attempt to place a game session there.</p>
+ *          </note>
+ * @public
+ */
+export interface PriorityConfigurationOverride {
+  /**
+   * <p>Instructions for how to use the override list if the first round of placement attempts fails. The first round is a failure if
+   *             Amazon GameLift searches all listed locations, in all of the queue's destinations, without finding an available hosting resource
+   *             for a new game session. Valid strategies include: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DEFAULT_AFTER_SINGLE_PASS</code> -- After the first round of placement attempts, discard the override list and
+   *             use the queue's default location priority list. Continue to use the queue's default list until the placement request times out.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> -- Continue to use the override list for all rounds of placement attempts until the placement request times out.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PlacementFallbackStrategy?: PlacementFallbackStrategy | undefined;
+
+  /**
+   * <p>A prioritized list of hosting locations. The list can include Amazon Web Services Regions (such as
+   *                 <code>us-west-2</code>), local zones, and custom locations (for Anywhere fleets).
+   *             Each location must be listed only once. For details, see
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">Amazon GameLift service locations.</a>
+   *          </p>
+   * @public
+   */
+  LocationOrder: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const GameSessionPlacementState = {
   CANCELLED: "CANCELLED",
   FAILED: "FAILED",
@@ -8553,7 +8618,7 @@ export type GameSessionPlacementState = (typeof GameSessionPlacementState)[keyof
  *                     <code>FULFILLED</code>. When the placement is in <code>PENDING</code> status,
  *                 Amazon GameLift may attempt to place a game session multiple times before succeeding. With
  *                 each attempt it creates a <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GameSession">https://docs.aws.amazon.com/gamelift/latest/apireference/API_GameSession</a> object and updates this
- *                 placement object with the new game session properties..</p>
+ *                 placement object with the new game session properties.</p>
  *          </note>
  * @public
  */
@@ -8649,7 +8714,7 @@ export interface GameSessionPlacement {
   GameSessionRegion?: string | undefined;
 
   /**
-   * <p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to @aws; Regions.</p>
+   * <p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to Amazon Web Services Regions.</p>
    * @public
    */
   PlayerLatencies?: PlayerLatency[] | undefined;
@@ -8721,6 +8786,17 @@ export interface GameSessionPlacement {
    * @public
    */
   MatchmakerData?: string | undefined;
+
+  /**
+   * <p>A prioritized list of locations to use with a game session placement request and
+   *             instructions on how to use it. This list overrides a queue's prioritized location list
+   *             for a single game session placement request only. The list can include Amazon Web Services Regions,
+   *             local zones, and custom locations (for Anywhere fleets). The fallback strategy instructs
+   *             Amazon GameLift to use the override list for the first placement attempt only or for all
+   *             placement attempts.</p>
+   * @public
+   */
+  PriorityConfigurationOverride?: PriorityConfigurationOverride | undefined;
 }
 
 /**
@@ -9142,7 +9218,7 @@ export interface Player {
   Team?: string | undefined;
 
   /**
-   * <p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to @aws; Regions. If this property is present, FlexMatch considers placing the match only in
+   * <p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to Amazon Web Services Regions. If this property is present, FlexMatch considers placing the match only in
    *             Regions for which latency is reported. </p>
    *          <p>If a matchmaker has a rule that evaluates player latency, players must report latency
    *             in order to be matched. If no latency is reported in this scenario, FlexMatch assumes that
@@ -10560,50 +10636,6 @@ export interface ListComputeOutput {
 }
 
 /**
- * @public
- */
-export interface ListContainerFleetsInput {
-  /**
-   * <p>The container group definition to filter the list on. Use this parameter to retrieve
-   *             only those fleets that use the specified container group definition. You can specify the
-   *             container group definition's name to get fleets with the latest versions. Alternatively,
-   *             provide an ARN value to get fleets with a specific version number.</p>
-   * @public
-   */
-  ContainerGroupDefinitionName?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
-   * @public
-   */
-  Limit?: number | undefined;
-
-  /**
-   * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContainerFleetsOutput {
-  /**
-   * <p>A collection of container fleet objects for all fleets that match the request
-   *             criteria.</p>
-   * @public
-   */
-  ContainerFleets?: ContainerFleet[] | undefined;
-
-  /**
-   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const AcceptMatchInputFilterSensitiveLog = (obj: AcceptMatchInput): any => ({
@@ -11070,14 +11102,4 @@ export const GetInstanceAccessOutputFilterSensitiveLog = (obj: GetInstanceAccess
 export const ListComputeOutputFilterSensitiveLog = (obj: ListComputeOutput): any => ({
   ...obj,
   ...(obj.ComputeList && { ComputeList: obj.ComputeList.map((item) => ComputeFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListContainerFleetsOutputFilterSensitiveLog = (obj: ListContainerFleetsOutput): any => ({
-  ...obj,
-  ...(obj.ContainerFleets && {
-    ContainerFleets: obj.ContainerFleets.map((item) => ContainerFleetFilterSensitiveLog(item)),
-  }),
 });

@@ -32,46 +32,55 @@ export interface TerminateGameSessionCommandInput extends TerminateGameSessionIn
 export interface TerminateGameSessionCommandOutput extends TerminateGameSessionOutput, __MetadataBearer {}
 
 /**
- * <p>Ends a game session that's currently in progress. You can use this action to terminate
- *             any game session that isn't in <code>TERMINATED</code> or <code>TERMINATING</code>
- *             status. Terminating a game session is the most efficient way to free up a server process
- *             when it's hosting a game session that's in a bad state or not ending naturally. You can
- *             use this action to terminate a game session that's being hosted on any type of Amazon GameLift
- *             fleet compute, including computes for managed EC2, managed container, and Anywhere
- *             fleets.</p>
- *          <p>There are two potential methods for terminating a game session:</p>
- *          <ul>
- *             <li>
- *                <p>With a graceful termination, the Amazon GameLift service prompts the server process to initiate its
- *                     normal game session shutdown sequence. This sequence is implemented in the game
- *                     server code and might involve a variety of actions to gracefully end a game
- *                     session, such as notifying players, and stop the server process. </p>
- *             </li>
- *             <li>
- *                <p>With a forceful termination, the Amazon GameLift service takes immediate action to terminate the game
- *                     session by stopping the server process. Termination occurs without the normal
- *                     game session shutdown sequence. </p>
- *             </li>
- *          </ul>
+ * <p>Ends a game session that's currently in progress. Use this action to terminate any
+ *             game session that isn't in <code>ERROR</code> status. Terminating a game session is the
+ *             most efficient way to free up a server process when it's hosting a game session that's
+ *             in a bad state or not ending properly. You can use this action to terminate a game
+ *             session that's being hosted on any type of Amazon GameLift fleet compute, including computes for
+ *             managed EC2, managed container, and Anywhere fleets. The game server must be integrated
+ *             with Amazon GameLift server SDK 5.x or greater.</p>
  *          <p>
  *             <b>Request options</b>
  *          </p>
+ *          <p>Request termination for a single game session. Provide the game session ID and the
+ *             termination mode. There are two potential methods for terminating a game session:</p>
  *          <ul>
  *             <li>
- *                <p>Request termination for a single game session. Provide the game session ID and
- *                     the termination method. </p>
+ *                <p>Initiate a graceful termination using the normal game session shutdown
+ *                     sequence. With this mode, the Amazon GameLift service prompts the server process that's
+ *                     hosting the game session by calling the server SDK callback method
+ *                         <code>OnProcessTerminate()</code>. The callback implementation is part of
+ *                     the custom game server code. It might involve a variety of actions to gracefully
+ *                     end a game session, such as notifying players, before stopping the server
+ *                     process.</p>
+ *             </li>
+ *             <li>
+ *                <p>Force an immediate game session termination. With this mode, the Amazon GameLift
+ *                     service takes action to stop the server process, which ends the game session
+ *                     without the normal game session shutdown sequence. </p>
  *             </li>
  *          </ul>
  *          <p>
  *             <b>Results</b>
  *          </p>
- *          <p>If successful, game session termination is initiated, which includes changing the game
- *             session status to <code>TERMINATING</code>. As a result of this action, and depending on
- *             the implementation of <code>OnProcessTerminate()</code>, the server process either
- *             becomes available to host a new game session, or it's recycled and a new server process
- *             started with availability to host a game session. The game session status is changed to
- *                 <code>TERMINATED</code>, with a status reason that indicates the termination method
- *             used.</p>
+ *          <p>If successful, game session termination is initiated. During this activity, the game
+ *             session status is changed to <code>TERMINATING</code>. When completed, the server
+ *             process that was hosting the game session has been stopped and replaced with a new
+ *             server process that's ready to host a new game session. The old game session's status is
+ *             changed to <code>TERMINATED</code> with a status reason that indicates the termination
+ *             method used.</p>
+ *          <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html">Add Amazon GameLift to your game server</a>
+ *          </p>
+ *          <p>Amazon GameLift server SDK 5 reference guide for <code>OnProcessTerminate()</code>
+ *             (<a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-server-sdk5-cpp-initsdk.html">C++</a>)
+ *             (<a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-server-sdk5-csharp-initsdk.html">C#</a>)
+ *             (<a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-server-sdk5-unreal-initsdk.html">Unreal</a>)
+ *             (<a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-server-sdk-go-initsdk.html">Go</a>)
+ *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

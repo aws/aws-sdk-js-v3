@@ -57,6 +57,7 @@ import {
   PlayerSessionCreationPolicy,
   PolicyType,
   PriorityConfiguration,
+  PriorityConfigurationOverride,
   ProtectionPolicy,
   ResourceCreationLimitPolicy,
   RoutingStrategy,
@@ -68,6 +69,50 @@ import {
   Tag,
   TargetConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListContainerFleetsInput {
+  /**
+   * <p>The container group definition to filter the list on. Use this parameter to retrieve
+   *             only those fleets that use the specified container group definition. You can specify the
+   *             container group definition's name to get fleets with the latest versions. Alternatively,
+   *             provide an ARN value to get fleets with a specific version number.</p>
+   * @public
+   */
+  ContainerGroupDefinitionName?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContainerFleetsOutput {
+  /**
+   * <p>A collection of container fleet objects for all fleets that match the request
+   *             criteria.</p>
+   * @public
+   */
+  ContainerFleets?: ContainerFleet[] | undefined;
+
+  /**
+   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -1052,7 +1097,7 @@ export interface StartGameSessionPlacementInput {
   GameSessionName?: string | undefined;
 
   /**
-   * <p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to @aws; Regions. This information is used to try to place the new game session where it
+   * <p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to Amazon Web Services Regions. This information is used to try to place the new game session where it
    *             can offer the best possible gameplay experience for the players. </p>
    * @public
    */
@@ -1069,6 +1114,17 @@ export interface StartGameSessionPlacementInput {
    * @public
    */
   GameSessionData?: string | undefined;
+
+  /**
+   * <p>A prioritized list of locations to use for the game session placement and instructions
+   *             on how to use it. This list overrides a queue's prioritized location list for this game
+   *             session placement request only. You can include Amazon Web Services Regions, local zones, and custom
+   *             locations (for Anywhere fleets). Choose a fallback strategy to instruct Amazon GameLift to use
+   *             the override list for the first placement attempt only or for all placement
+   *             attempts.</p>
+   * @public
+   */
+  PriorityConfigurationOverride?: PriorityConfigurationOverride | undefined;
 }
 
 /**
@@ -1365,19 +1421,21 @@ export interface TerminateGameSessionInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>TRIGGER_ON_PROCESS_TERMINATE</code> – Sends an
-   *                         <code>OnProcessTerminate()</code> callback to the server process to initiate
-   *                     the normal game session shutdown sequence. At a minimum, the callback method
-   *                     must include a call to the server SDK action <code>ProcessEnding()</code>, which
-   *                     is how the server process signals that a game session is ending. If the server
-   *                     process doesn't call <code>ProcessEnding()</code>, this termination method won't
-   *                     be successful.</p>
+   *                   <code>TRIGGER_ON_PROCESS_TERMINATE</code> – Prompts the Amazon GameLift service to
+   *                     send an <code>OnProcessTerminate()</code> callback to the server process and
+   *                     initiate the normal game session shutdown sequence. The
+   *                         <code>OnProcessTerminate</code> method, which is implemented in the game
+   *                     server code, must include a call to the server SDK action
+   *                         <code>ProcessEnding()</code>, which is how the server process signals to
+   *                     Amazon GameLift that a game session is ending. If the server process doesn't call
+   *                         <code>ProcessEnding()</code>, the game session termination won't conclude
+   *                     successfully.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FORCE_TERMINATE</code> – Takes action to stop the server process, using
-   *                     existing methods to control how server processes run on an Amazon GameLift managed
-   *                     compute. </p>
+   *                   <code>FORCE_TERMINATE</code> – Prompts the Amazon GameLift service to stop the server
+   *                     process immediately. Amazon GameLift takes action (depending on the type of fleet) to
+   *                     shut down the server process without the normal game session shutdown sequence. </p>
    *                <note>
    *                   <p>This method is not available for game sessions that are running on
    *                         Anywhere fleets unless the fleet is deployed with the Amazon GameLift Agent. In this
@@ -2467,6 +2525,16 @@ export interface ValidateMatchmakingRuleSetOutput {
    */
   Valid?: boolean | undefined;
 }
+
+/**
+ * @internal
+ */
+export const ListContainerFleetsOutputFilterSensitiveLog = (obj: ListContainerFleetsOutput): any => ({
+  ...obj,
+  ...(obj.ContainerFleets && {
+    ContainerFleets: obj.ContainerFleets.map((item) => ContainerFleetFilterSensitiveLog(item)),
+  }),
+});
 
 /**
  * @internal
