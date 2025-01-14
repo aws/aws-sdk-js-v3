@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.728.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.727.0...v3.728.0) (2025-01-14)
+
+
+### Features
+
+* **client-gamelift:** Amazon GameLift releases a new game session placement feature: PriorityConfigurationOverride. You can now override how a game session queue prioritizes placement locations for a single StartGameSessionPlacement request. ([e8c1f67](https://github.com/aws/aws-sdk-js-v3/commit/e8c1f67120852dbeccd7422a32837a2172b64d97))
+* **client-route-53:** Amazon Route 53 now supports the Mexico (Central) Region (mx-central-1) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region ([11a7885](https://github.com/aws/aws-sdk-js-v3/commit/11a78853754af5cb61423ae74266bf6f6d3adedb))
+* **clients:** update client endpoints as of 2025-01-14 ([bc95e48](https://github.com/aws/aws-sdk-js-v3/commit/bc95e48637e52aefa23574dd8b243845c1bd532c))
+
+
+
+
+
 # [3.727.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.1...v3.727.0) (2025-01-13)
 
 

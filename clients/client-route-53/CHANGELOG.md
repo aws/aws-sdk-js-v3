@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.728.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.727.0...v3.728.0) (2025-01-14)
+
+
+### Features
+
+* **client-route-53:** Amazon Route 53 now supports the Mexico (Central) Region (mx-central-1) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region ([11a7885](https://github.com/aws/aws-sdk-js-v3/commit/11a78853754af5cb61423ae74266bf6f6d3adedb))
+
+
+
+
+
 ## [3.726.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.0...v3.726.1) (2025-01-10)
 
 **Note:** Version bump only for package @aws-sdk/client-route-53
