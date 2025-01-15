@@ -201,11 +201,11 @@ export class Upload extends EventEmitter {
 
   private async __createMultipartUpload(): Promise<CreateMultipartUploadCommandOutput> {
     if (!this.createMultiPartPromise) {
-      const createCommandParams = {
-        ChecksumAlgorithm: ChecksumAlgorithm.CRC32,
-        ...this.params,
-        Body: undefined,
-      };
+      const createCommandParams = { ...this.params, Body: undefined };
+      const requestChecksumCalculation = await this.client.config.requestChecksumCalculation();
+      if (requestChecksumCalculation === "WHEN_SUPPORTED") {
+        createCommandParams.ChecksumAlgorithm = ChecksumAlgorithm.CRC32;
+      }
       this.createMultiPartPromise = this.client
         .send(new CreateMultipartUploadCommand(createCommandParams))
         .then((createMpuResponse) => {
