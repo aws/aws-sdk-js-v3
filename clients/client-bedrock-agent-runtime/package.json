@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-bedrock-agent-runtime",
   "description": "AWS SDK for JavaScript Bedrock Agent Runtime Client for Node.js, Browser and React Native",
-  "version": "3.726.1",
+  "version": "3.729.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-bedrock-agent-runtime",

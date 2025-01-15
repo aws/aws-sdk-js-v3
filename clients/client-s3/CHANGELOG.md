@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.729.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.728.0...v3.729.0) (2025-01-15)
+
+
+### Features
+
+* **client-s3:** This change enhances integrity protections for new SDK requests to S3. S3 SDKs now support the CRC64NVME checksum algorithm, full object checksums for multipart S3 objects, and new default integrity protections for S3 requests. ([a550721](https://github.com/aws/aws-sdk-js-v3/commit/a550721e05a76f741c9a702aefd27c32da06aa27))
+
+
+
+
+
 ## [3.726.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.0...v3.726.1) (2025-01-10)
 
 **Note:** Version bump only for package @aws-sdk/client-s3

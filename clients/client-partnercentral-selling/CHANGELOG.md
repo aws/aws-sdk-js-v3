@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.729.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.728.0...v3.729.0) (2025-01-15)
+
+
+### Features
+
+* **client-partnercentral-selling:** Add Tagging support for ResourceSnapshotJob resources ([482229b](https://github.com/aws/aws-sdk-js-v3/commit/482229be2e40d1bfe5f37ca96b26a4fdf12bd426))
+
+
+
+
+
 ## [3.726.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.0...v3.726.1) (2025-01-10)
 
 **Note:** Version bump only for package @aws-sdk/client-partnercentral-selling

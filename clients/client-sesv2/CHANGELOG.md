@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.729.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.728.0...v3.729.0) (2025-01-15)
+
+
+### Features
+
+* **client-sesv2:** This release introduces a new recommendation in Virtual Deliverability Manager Advisor, which detects elevated complaint rates for customer sending identities. ([df28319](https://github.com/aws/aws-sdk-js-v3/commit/df283196cf1428fb7ca9065be099c842601b8b62))
+
+
+
+
+
 ## [3.726.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.0...v3.726.1) (2025-01-10)
 
 **Note:** Version bump only for package @aws-sdk/client-sesv2

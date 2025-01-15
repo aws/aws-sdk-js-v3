@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.729.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.728.0...v3.729.0) (2025-01-15)
+
+
+### Bug Fixes
+
+* **crc64-nvme-crt:** return checksum for empty string if called without data ([#6798](https://github.com/aws/aws-sdk-js-v3/issues/6798)) ([473f949](https://github.com/aws/aws-sdk-js-v3/commit/473f94957f2912173fbbcdece52c23e78d960668))
+* **lib-storage:** set ChecksumAlgorithm when calling CreateMPU ([#6802](https://github.com/aws/aws-sdk-js-v3/issues/6802)) ([98ab455](https://github.com/aws/aws-sdk-js-v3/commit/98ab45513fd61a5d15dc4815b68e979356ecf91f))
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Now supports streaming for inline agents. ([b6204f8](https://github.com/aws/aws-sdk-js-v3/commit/b6204f8b03f81157efd5b6d7ee746c578dec4160))
+* **client-cognito-identity:** corrects the dual-stack endpoint configuration ([b5c504b](https://github.com/aws/aws-sdk-js-v3/commit/b5c504b00ff9c8de1207813a2604e86dfc438135))
+* **client-partnercentral-selling:** Add Tagging support for ResourceSnapshotJob resources ([482229b](https://github.com/aws/aws-sdk-js-v3/commit/482229be2e40d1bfe5f37ca96b26a4fdf12bd426))
+* **client-s3:** This change enhances integrity protections for new SDK requests to S3. S3 SDKs now support the CRC64NVME checksum algorithm, full object checksums for multipart S3 objects, and new default integrity protections for S3 requests. ([a550721](https://github.com/aws/aws-sdk-js-v3/commit/a550721e05a76f741c9a702aefd27c32da06aa27))
+* **client-security-ir:** Increase minimum length of Threat Actor IP 'userAgent' to 1. ([635576b](https://github.com/aws/aws-sdk-js-v3/commit/635576b77e997395c3f126f30b71cb1085b1bb15))
+* **client-sesv2:** This release introduces a new recommendation in Virtual Deliverability Manager Advisor, which detects elevated complaint rates for customer sending identities. ([df28319](https://github.com/aws/aws-sdk-js-v3/commit/df283196cf1428fb7ca9065be099c842601b8b62))
+* **client-workspaces-thin-client:** Mark type in MaintenanceWindow as required. ([660165d](https://github.com/aws/aws-sdk-js-v3/commit/660165d6b7fa10845e269924dad12166fcbeff71))
+* **client-workspaces:** Added GeneralPurpose.4xlarge & GeneralPurpose.8xlarge ComputeTypes. ([07be2a0](https://github.com/aws/aws-sdk-js-v3/commit/07be2a0ab4b85224bb9279cfbe47334057fce94a))
+* **clients:** update client endpoints as of 2025-01-15 ([5e95123](https://github.com/aws/aws-sdk-js-v3/commit/5e951239cb0cc1c81c4e246063efc3feed00e3b6))
+
+
+
+
+
 # [3.728.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.727.0...v3.728.0) (2025-01-14)
 
 
