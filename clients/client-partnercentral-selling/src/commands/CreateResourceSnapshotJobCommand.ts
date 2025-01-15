@@ -32,12 +32,11 @@ export interface CreateResourceSnapshotJobCommandInput extends CreateResourceSna
 export interface CreateResourceSnapshotJobCommandOutput extends CreateResourceSnapshotJobResponse, __MetadataBearer {}
 
 /**
- * <p>
- *     Use this action to create a job to generate a snapshot of the specified resource
- *     within an engagement. It initiates an asynchronous process to create a resource
- *     snapshot. The job creates a new snapshot only if the resource state has changed,
- *     adhering to the same access control and immutability rules as direct snapshot creation.
- * </p>
+ * <p>Use this action to create a job to generate a snapshot of the specified resource
+ *             within an engagement. It initiates an asynchronous process to create a resource
+ *             snapshot. The job creates a new snapshot only if the resource state has changed,
+ *             adhering to the same access control and immutability rules as direct snapshot
+ *             creation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,6 +50,12 @@ export interface CreateResourceSnapshotJobCommandOutput extends CreateResourceSn
  *   ResourceType: "Opportunity", // required
  *   ResourceIdentifier: "STRING_VALUE", // required
  *   ResourceSnapshotTemplateIdentifier: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateResourceSnapshotJobCommand(input);
  * const response = await client.send(command);

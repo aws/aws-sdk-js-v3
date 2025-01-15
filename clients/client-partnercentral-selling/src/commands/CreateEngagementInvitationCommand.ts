@@ -36,9 +36,8 @@ export interface CreateEngagementInvitationCommandInput extends CreateEngagement
 export interface CreateEngagementInvitationCommandOutput extends CreateEngagementInvitationResponse, __MetadataBearer {}
 
 /**
- * <p>
- * This action creates an invitation from a sender to a single receiver to join an engagement.
- * </p>
+ * <p> This action creates an invitation from a sender to a single receiver to join an
+ *             engagement. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

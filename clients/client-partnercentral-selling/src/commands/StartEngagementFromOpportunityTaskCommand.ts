@@ -58,6 +58,12 @@ export interface StartEngagementFromOpportunityTaskCommandOutput
  *     InvolvementType: "For Visibility Only" || "Co-Sell", // required
  *     Visibility: "Full" || "Limited",
  *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new StartEngagementFromOpportunityTaskCommand(input);
  * const response = await client.send(command);
@@ -67,7 +73,7 @@ export interface StartEngagementFromOpportunityTaskCommandOutput
  * //   StartTime: new Date("TIMESTAMP"),
  * //   TaskStatus: "IN_PROGRESS" || "COMPLETE" || "FAILED",
  * //   Message: "STRING_VALUE",
- * //   ReasonCode: "InvitationAccessDenied" || "InvitationValidationFailed" || "EngagementAccessDenied" || "OpportunityAccessDenied" || "ResourceSnapshotJobAccessDenied" || "ResourceSnapshotJobValidationFailed" || "ResourceSnapshotJobConflict" || "EngagementValidationFailed" || "EngagementConflict" || "OpportunitySubmissionFailed" || "EngagementInvitationConflict" || "OpportunityValidationFailed" || "OpportunityConflict" || "ResourceSnapshotAccessDenied" || "ResourceSnapshotValidationFailed" || "ResourceSnapshotConflict" || "InternalError" || "ServiceQuotaExceeded" || "RequestThrottled",
+ * //   ReasonCode: "InvitationAccessDenied" || "InvitationValidationFailed" || "EngagementAccessDenied" || "OpportunityAccessDenied" || "ResourceSnapshotJobAccessDenied" || "ResourceSnapshotJobValidationFailed" || "ResourceSnapshotJobConflict" || "EngagementValidationFailed" || "EngagementConflict" || "OpportunitySubmissionFailed" || "EngagementInvitationConflict" || "InternalError" || "OpportunityValidationFailed" || "OpportunityConflict" || "ResourceSnapshotAccessDenied" || "ResourceSnapshotValidationFailed" || "ResourceSnapshotConflict" || "ServiceQuotaExceeded" || "RequestThrottled",
  * //   OpportunityId: "STRING_VALUE",
  * //   ResourceSnapshotJobId: "STRING_VALUE",
  * //   EngagementId: "STRING_VALUE",

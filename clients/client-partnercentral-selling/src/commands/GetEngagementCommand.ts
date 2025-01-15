@@ -36,10 +36,8 @@ export interface GetEngagementCommandInput extends GetEngagementRequest {}
 export interface GetEngagementCommandOutput extends GetEngagementResponse, __MetadataBearer {}
 
 /**
- * <p>
- *     Use this action to retrieve the engagement record for a given
- *     <code>EngagementIdentifier</code>.
- * </p>
+ * <p>Use this action to retrieve the engagement record for a given
+ *                 <code>EngagementIdentifier</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -111,6 +111,10 @@ import {
 } from "../commands/ListResourceSnapshotsCommand";
 import { ListSolutionsCommandInput, ListSolutionsCommandOutput } from "../commands/ListSolutionsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import {
   PutSellingSystemSettingsCommandInput,
   PutSellingSystemSettingsCommandOutput,
 } from "../commands/PutSellingSystemSettingsCommand";
@@ -135,6 +139,8 @@ import {
   StopResourceSnapshotJobCommandOutput,
 } from "../commands/StopResourceSnapshotJobCommand";
 import { SubmitOpportunityCommandInput, SubmitOpportunityCommandOutput } from "../commands/SubmitOpportunityCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateOpportunityCommandInput, UpdateOpportunityCommandOutput } from "../commands/UpdateOpportunityCommand";
 import {
   AcceptEngagementInvitationRequest,
@@ -206,6 +212,7 @@ import {
   ListResourceSnapshotsRequest,
   ListSolutionsRequest,
   ListSolutionsResponse,
+  ListTagsForResourceRequest,
   ListTasksSortBase,
   Marketing,
   MonetaryValue,
@@ -241,8 +248,11 @@ import {
   StartResourceSnapshotJobRequest,
   StopResourceSnapshotJobRequest,
   SubmitOpportunityRequest,
+  Tag,
+  TagResourceRequest,
   TaskStatus,
   ThrottlingException,
+  UntagResourceRequest,
   UpdateOpportunityRequest,
   UpdateOpportunityResponse,
   ValidationException,
@@ -601,6 +611,19 @@ export const se_ListSolutionsCommand = async (
 };
 
 /**
+ * serializeAws_json1_0ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0PutSellingSystemSettingsCommand
  */
 export const se_PutSellingSystemSettingsCommand = async (
@@ -686,6 +709,32 @@ export const se_SubmitOpportunityCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SubmitOpportunity");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1230,6 +1279,26 @@ export const de_ListSolutionsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0PutSellingSystemSettingsCommand
  */
 export const de_PutSellingSystemSettingsCommand = async (
@@ -1358,6 +1427,46 @@ export const de_SubmitOpportunityCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0UpdateOpportunityCommand
  */
 export const de_UpdateOpportunityCommand = async (
@@ -1390,6 +1499,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.partnercentralselling#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.partnercentralselling#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.partnercentralselling#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -1402,9 +1514,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.partnercentralselling#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.partnercentralselling#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.partnercentralselling#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
@@ -1607,6 +1716,7 @@ const se_CreateResourceSnapshotJobRequest = (input: CreateResourceSnapshotJobReq
     ResourceIdentifier: [],
     ResourceSnapshotTemplateIdentifier: [],
     ResourceType: [],
+    Tags: _json,
   });
 };
 
@@ -1745,6 +1855,8 @@ const se_ListOpportunitiesRequest = (input: ListOpportunitiesRequest, context: _
 
 // se_ListSolutionsRequest omitted.
 
+// se_ListTagsForResourceRequest omitted.
+
 // se_ListTasksSortBase omitted.
 
 // se_Marketing omitted.
@@ -1823,6 +1935,7 @@ const se_StartEngagementByAcceptingInvitationTaskRequest = (
     Catalog: [],
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Identifier: [],
+    Tags: _json,
   });
 };
 
@@ -1838,6 +1951,7 @@ const se_StartEngagementFromOpportunityTaskRequest = (
     Catalog: [],
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Identifier: [],
+    Tags: _json,
   });
 };
 
@@ -1849,9 +1963,19 @@ const se_StartEngagementFromOpportunityTaskRequest = (
 
 // se_SubmitOpportunityRequest omitted.
 
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
+// se_TagResourceRequest omitted.
+
 // se_TaskIdentifiers omitted.
 
 // se_TaskStatuses omitted.
+
+// se_UntagResourceRequest omitted.
 
 /**
  * serializeAws_json1_0UpdateOpportunityRequest
@@ -2336,6 +2460,8 @@ const de_ListSolutionsResponse = (output: any, context: __SerdeContext): ListSol
   }) as any;
 };
 
+// de_ListTagsForResourceResponse omitted.
+
 // de_Marketing omitted.
 
 // de_MonetaryValue omitted.
@@ -2532,7 +2658,15 @@ const de_StartEngagementFromOpportunityTaskResponse = (
   }) as any;
 };
 
+// de_Tag omitted.
+
+// de_TagList omitted.
+
+// de_TagResourceResponse omitted.
+
 // de_ThrottlingException omitted.
+
+// de_UntagResourceResponse omitted.
 
 /**
  * deserializeAws_json1_0UpdateOpportunityResponse

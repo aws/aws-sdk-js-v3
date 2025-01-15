@@ -8,21 +8,18 @@ import { PartnerCentralSellingServiceException as __BaseException } from "./Part
  */
 export interface AcceptEngagementInvitationRequest {
   /**
-   * <p>
-   *     The <code>CatalogType</code> parameter specifies the catalog associated with the engagement invitation.
-   *     Accepted values are <code>AWS</code> and <code>Sandbox</code>,
-   *     which determine the environment in which the engagement invitation is managed.
-   * </p>
+   * <p>The <code>CatalogType</code> parameter specifies the catalog associated with the
+   *             engagement invitation. Accepted values are <code>AWS</code> and <code>Sandbox</code>,
+   *             which determine the environment in which the engagement invitation is managed.</p>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     The <code>Identifier</code> parameter in the <code>AcceptEngagementInvitationRequest</code> specifies the unique
-   *     identifier of the <code>EngagementInvitation</code> to be accepted.
-   *     Providing the correct identifier ensures that the intended invitation is accepted.
-   * </p>
+   * <p> The <code>Identifier</code> parameter in the
+   *                 <code>AcceptEngagementInvitationRequest</code> specifies the unique identifier of
+   *             the <code>EngagementInvitation</code> to be accepted. Providing the correct identifier
+   *             ensures that the intended invitation is accepted. </p>
    * @public
    */
   Identifier: string | undefined;
@@ -49,6 +46,32 @@ export class AccessDeniedException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>This error occurs when the request can’t be processed due to a conflict with the
+ *             target resource's current state, which could result from updating or deleting the
+ *             resource.</p>
+ *          <p>Suggested action: Fetch the latest state of the resource, verify the state, and retry
+ *             the request.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -1460,9 +1483,7 @@ export interface ExpectedCustomerSpend {
   TargetCompany: string | undefined;
 
   /**
-   * <p>
-   *     A URL providing additional information or context about the spend estimation.
-   * </p>
+   * <p>A URL providing additional information or context about the spend estimation.</p>
    * @public
    */
   EstimationUrl?: string | undefined;
@@ -1541,32 +1562,6 @@ export interface AwsTeamMember {
 }
 
 /**
- * <p>This error occurs when the request can’t be processed due to a conflict with the
- *             target resource's current state, which could result from updating or deleting the
- *             resource.</p>
- *          <p>Suggested action: Fetch the latest state of the resource, verify the state, and retry
- *             the request.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>Contains details about the customer associated with the Engagement Invitation,
  *             including company information and industry.</p>
  * @public
@@ -1602,51 +1597,41 @@ export interface EngagementCustomer {
 }
 
 /**
- * <p>
- *     Provides comprehensive details about a customer project associated with an Engagement.
- *     This may include information such as project goals, timelines, and specific customer
- *     requirements.
- * </p>
+ * <p>Provides comprehensive details about a customer project associated with an Engagement.
+ *             This may include information such as project goals, timelines, and specific customer
+ *             requirements. </p>
  * @public
  */
 export interface EngagementCustomerProjectDetails {
   /**
-   * <p>
-   *     The title of the project.
-   * </p>
+   * <p>The title of the project.</p>
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>
-   *     A description of the business problem the project aims to solve.
-   * </p>
+   * <p>A description of the business problem the project aims to solve.</p>
    * @public
    */
   BusinessProblem: string | undefined;
 
   /**
-   * <p>
-   *     The target completion date for the customer's project.
-   * </p>
+   * <p>The target completion date for the customer's project.</p>
    * @public
    */
   TargetCompletionDate: string | undefined;
 }
 
 /**
- * <p>
- *     The CustomerProjects structure in Engagements offers a flexible framework for managing
- *     customer-project relationships. It supports multiple customers per Engagement and
- *     multiple projects per customer, while also allowing for customers without projects and
- *     projects without specific customers.
- * </p>
+ * <p>The CustomerProjects structure in Engagements offers a flexible framework for managing
+ *             customer-project relationships. It supports multiple customers per Engagement and
+ *             multiple projects per customer, while also allowing for customers without projects and
+ *             projects without specific customers. </p>
  *          <p>All Engagement members have full visibility of customers and their associated
- *         projects, enabling the capture of relevant context even when project details are not
- *         fully defined. This structure also facilitates targeted invitations, allowing partners
- *         to focus on specific customers and their business problems when sending Engagement
- *         invitations. </p>
+ *             projects, enabling the capture of relevant context even when project details are not
+ *             fully defined. This structure also facilitates targeted invitations, allowing partners
+ *             to focus on specific customers and their business problems when sending Engagement
+ *             invitations. </p>
  * @public
  */
 export interface CustomerProjectsContext {
@@ -1658,19 +1643,15 @@ export interface CustomerProjectsContext {
   Customer?: EngagementCustomer | undefined;
 
   /**
-   * <p>
-   *     Information about the customer project associated with the Engagement.
-   * </p>
+   * <p>Information about the customer project associated with the Engagement.</p>
    * @public
    */
   Project?: EngagementCustomerProjectDetails | undefined;
 }
 
 /**
- * <p>
- *     Represents the payload of an Engagement context. The structure of this payload varies
- *     based on the context type specified in the EngagementContextDetails.
- * </p>
+ * <p>Represents the payload of an Engagement context. The structure of this payload varies
+ *             based on the context type specified in the EngagementContextDetails. </p>
  * @public
  */
 export type EngagementContextPayload =
@@ -1682,11 +1663,9 @@ export type EngagementContextPayload =
  */
 export namespace EngagementContextPayload {
   /**
-   * <p>
-   *     Contains detailed information about a customer project when the context type is
-   *     "CustomerProject". This field is present only when the Type in EngagementContextDetails
-   *     is set to "CustomerProject".
-   * </p>
+   * <p>Contains detailed information about a customer project when the context type is
+   *             "CustomerProject". This field is present only when the Type in EngagementContextDetails
+   *             is set to "CustomerProject". </p>
    * @public
    */
   export interface CustomerProjectMember {
@@ -1727,28 +1706,22 @@ export const EngagementContextType = {
 export type EngagementContextType = (typeof EngagementContextType)[keyof typeof EngagementContextType];
 
 /**
- * <p>
- *     Provides detailed context information for an Engagement. This structure allows for
- *     specifying the type of context and its associated payload.
- * </p>
+ * <p>Provides detailed context information for an Engagement. This structure allows for
+ *             specifying the type of context and its associated payload. </p>
  * @public
  */
 export interface EngagementContextDetails {
   /**
-   * <p>
-   *     Specifies the type of Engagement context. Valid values are "CustomerProject" or
-   *     "Document", indicating whether the context relates to a customer project or a document
-   *     respectively.
-   * </p>
+   * <p>Specifies the type of Engagement context. Valid values are "CustomerProject" or
+   *             "Document", indicating whether the context relates to a customer project or a document
+   *             respectively. </p>
    * @public
    */
   Type: EngagementContextType | undefined;
 
   /**
-   * <p>
-   *     Contains the specific details of the Engagement context. The structure of this payload
-   *     varies depending on the Type field.
-   * </p>
+   * <p>Contains the specific details of the Engagement context. The structure of this payload
+   *             varies depending on the Type field. </p>
    * @public
    */
   Payload?: EngagementContextPayload | undefined;
@@ -1759,48 +1732,50 @@ export interface EngagementContextDetails {
  */
 export interface CreateEngagementRequest {
   /**
-   * <p>
-   *     The <code>CreateEngagementRequest$Catalog</code> parameter specifies the catalog related to the engagement.
-   *     Accepted values are <code>AWS</code> and <code>Sandbox</code>,
-   *     which determine the environment in which the engagement is managed.
-   * </p>
+   * <p>The <code>CreateEngagementRequest$Catalog</code> parameter specifies the catalog
+   *             related to the engagement. Accepted values are <code>AWS</code> and
+   *             <code>Sandbox</code>, which determine the environment in which the engagement is
+   *             managed.</p>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     The <code>CreateEngagementRequest$ClientToken</code> parameter specifies a unique, case-sensitive identifier to ensure that the request is handled exactly once.
-   *     The value must not exceed sixty-four alphanumeric characters.
-   * </p>
+   * <p>The <code>CreateEngagementRequest$ClientToken</code> parameter specifies a unique,
+   *             case-sensitive identifier to ensure that the request is handled exactly once. The value
+   *             must not exceed sixty-four alphanumeric characters.</p>
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>
-   * Specifies the title of the <code>Engagement</code>.
-   * </p>
+   * <p>Specifies the title of the <code>Engagement</code>.</p>
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>
-   * Provides a description of the <code>Engagement</code>.
-   * </p>
+   * <p>Provides a description of the <code>Engagement</code>.</p>
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>
-   *     The <code>Contexts</code> field is a required array of objects, with a maximum of 5 contexts allowed,
-   *     specifying detailed information about customer projects associated with the Engagement.
-   *     Each context object contains a <code>Type</code> field indicating the context type,
-   *     which must be <code>CustomerProject</code> in this version, and a <code>Payload</code> field containing the <code>CustomerProject</code> details. The <code>CustomerProject</code> object is composed of two main components: <code>Customer</code> and <code>Project</code>. The <code>Customer</code> object includes information such as <code>CompanyName</code>, <code>WebsiteUrl</code>, <code>Industry</code>, and <code>CountryCode</code>, providing essential details about the customer. The <code>Project</code> object contains <code>Title</code>, <code>BusinessProblem</code>, and <code>TargetCompletionDate</code>, offering insights into the specific project associated with the customer. This structure allows comprehensive context to be included within the Engagement,
-   *     facilitating effective collaboration between parties by providing relevant customer and project information.
-   * </p>
+   * <p>The <code>Contexts</code> field is a required array of objects, with a maximum of 5
+   *             contexts allowed, specifying detailed information about customer projects associated
+   *             with the Engagement. Each context object contains a <code>Type</code> field indicating
+   *             the context type, which must be <code>CustomerProject</code> in this version, and a
+   *                 <code>Payload</code> field containing the <code>CustomerProject</code> details. The
+   *                 <code>CustomerProject</code> object is composed of two main components:
+   *                 <code>Customer</code> and <code>Project</code>. The <code>Customer</code> object
+   *             includes information such as <code>CompanyName</code>, <code>WebsiteUrl</code>,
+   *                 <code>Industry</code>, and <code>CountryCode</code>, providing essential details
+   *             about the customer. The <code>Project</code> object contains <code>Title</code>,
+   *                 <code>BusinessProblem</code>, and <code>TargetCompletionDate</code>, offering
+   *             insights into the specific project associated with the customer. This structure allows
+   *             comprehensive context to be included within the Engagement, facilitating effective
+   *             collaboration between parties by providing relevant customer and project
+   *             information.</p>
    * @public
    */
   Contexts?: EngagementContextDetails[] | undefined;
@@ -1811,17 +1786,13 @@ export interface CreateEngagementRequest {
  */
 export interface CreateEngagementResponse {
   /**
-   * <p>
-   * Unique identifier assigned to the newly created engagement.
-   * </p>
+   * <p>Unique identifier assigned to the newly created engagement.</p>
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   * The Amazon Resource Name (ARN) that identifies the engagement.
-   * </p>
+   * <p>The Amazon Resource Name (ARN) that identifies the engagement.</p>
    * @public
    */
   Arn?: string | undefined;
@@ -1858,18 +1829,14 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface GetEngagementRequest {
   /**
-   * <p>
-   *     Specifies the catalog related to the engagement request. Valid values are
-   *     <code>AWS</code> and <code>Sandbox</code>.
-   * </p>
+   * <p>Specifies the catalog related to the engagement request. Valid values are
+   *                 <code>AWS</code> and <code>Sandbox</code>.</p>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     Specifies the identifier of the Engagement record to retrieve.
-   * </p>
+   * <p>Specifies the identifier of the Engagement record to retrieve.</p>
    * @public
    */
   Identifier: string | undefined;
@@ -1880,74 +1847,58 @@ export interface GetEngagementRequest {
  */
 export interface GetEngagementResponse {
   /**
-   * <p>
-   *     The unique resource identifier of the engagement retrieved.
-   * </p>
+   * <p>The unique resource identifier of the engagement retrieved.</p>
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   *     The Amazon Resource Name (ARN) of the engagement retrieved.
-   * </p>
+   * <p>The Amazon Resource Name (ARN) of the engagement retrieved.</p>
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>
-   *     The title of the engagement. It provides a brief, descriptive name for the engagement
-   *     that is meaningful and easily recognizable.
-   * </p>
+   * <p>The title of the engagement. It provides a brief, descriptive name for the engagement
+   *             that is meaningful and easily recognizable.</p>
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>
-   *     A more detailed description of the engagement. This provides additional context or
-   *     information about the engagement's purpose or scope.
-   * </p>
+   * <p>A more detailed description of the engagement. This provides additional context or
+   *             information about the engagement's purpose or scope.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>
-   *     The date and time when the Engagement was created, presented in ISO 8601 format (UTC).
-   *     For example: "2023-05-01T20:37:46Z". This timestamp helps track the lifecycle of the
-   *     Engagement.
-   * </p>
+   * <p>The date and time when the Engagement was created, presented in ISO 8601 format (UTC).
+   *             For example: "2023-05-01T20:37:46Z". This timestamp helps track the lifecycle of the
+   *             Engagement.</p>
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *     The AWS account ID of the user who originally created the engagement. This field helps
-   *     in tracking the origin of the engagement.
-   * </p>
+   * <p>The AWS account ID of the user who originally created the engagement. This field helps
+   *             in tracking the origin of the engagement.</p>
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>
-   *     Specifies the current count of members participating in the Engagement. This count
-   *     includes all active members regardless of their roles or permissions within the
-   *     Engagement.
-   * </p>
+   * <p>Specifies the current count of members participating in the Engagement. This count
+   *             includes all active members regardless of their roles or permissions within the
+   *             Engagement.</p>
    * @public
    */
   MemberCount?: number | undefined;
 
   /**
-   * <p>
-   *     A list of context objects associated with the engagement. Each context provides
-   *     additional information related to the Engagement, such as customer projects or
-   *     documents.
-   * </p>
+   * <p>A list of context objects associated with the engagement. Each context provides
+   *             additional information related to the Engagement, such as customer projects or
+   *             documents.</p>
    * @public
    */
   Contexts?: EngagementContextDetails[] | undefined;
@@ -1958,33 +1909,25 @@ export interface GetEngagementResponse {
  */
 export interface ListEngagementMembersRequest {
   /**
-   * <p>
-   *     The catalog related to the request.
-   * </p>
+   * <p>The catalog related to the request.</p>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     Identifier of the engagement record to retrieve members from.
-   * </p>
+   * <p>Identifier of the Engagement record to retrieve members from.</p>
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>
-   *     The maximum number of results to return in a single call.
-   * </p>
+   * <p>The maximum number of results to return in a single call.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>
-   *     The token for the next set of results.
-   * </p>
+   * <p>The token for the next set of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1992,39 +1935,33 @@ export interface ListEngagementMembersRequest {
 
 /**
  * <p>Engagement members are the participants in an Engagement, which is likely a
- *         collaborative project or business opportunity within the AWS partner network. Members
- *         can be different partner organizations or AWS accounts that are working together on a
- *         specific engagement. </p>
+ *             collaborative project or business opportunity within the AWS partner network. Members
+ *             can be different partner organizations or AWS accounts that are working together on a
+ *             specific engagement. </p>
  *          <p>Each member is represented by their AWS Account ID, Company Name, and associated
- *         details. Members have a status within the Engagement (PENDING, ACCEPTED, REJECTED, or
- *         WITHDRAWN), indicating their current state of participation. Only existing members of an
- *         Engagement can view the list of other members. This implies a level of privacy and
- *         access control within the Engagement structure. </p>
+ *             details. Members have a status within the Engagement (PENDING, ACCEPTED, REJECTED, or
+ *             WITHDRAWN), indicating their current state of participation. Only existing members of an
+ *             Engagement can view the list of other members. This implies a level of privacy and
+ *             access control within the Engagement structure. </p>
  * @public
  */
 export interface EngagementMember {
   /**
-   * <p>
-   *     The official name of the member's company or organization.
-   * </p>
+   * <p>The official name of the member's company or organization.</p>
    * @public
    */
   CompanyName?: string | undefined;
 
   /**
-   * <p>
-   *     The URL of the member company's website. This offers a way to find more information
-   *     about the member organization and serves as an additional identifier.
-   * </p>
+   * <p>The URL of the member company's website. This offers a way to find more information
+   *             about the member organization and serves as an additional identifier. </p>
    * @public
    */
   WebsiteUrl?: string | undefined;
 
   /**
-   * <p>
-   *     This is the unique identifier for the AWS account associated with the member
-   *     organization. It's used for AWS-related operations and identity verification.
-   * </p>
+   * <p>This is the unique identifier for the AWS account associated with the member
+   *             organization. It's used for AWS-related operations and identity verification. </p>
    * @public
    */
   AccountId?: string | undefined;
@@ -2035,20 +1972,16 @@ export interface EngagementMember {
  */
 export interface ListEngagementMembersResponse {
   /**
-   * <p>
-   * Provides a list of engagement members.
-   * </p>
+   * <p> Provides a list of engagement members. </p>
    * @public
    */
   EngagementMemberList: EngagementMember[] | undefined;
 
   /**
-   * <p>
-   *     A pagination token used to retrieve the next set of results. If there are more results
-   *     available than can be returned in a single response, this token will be present. Use
-   *     this token in a subsequent request to retrieve the next page of results. If there are no
-   *     more results, this value will be null.
-   * </p>
+   * <p>A pagination token used to retrieve the next set of results. If there are more results
+   *             available than can be returned in a single response, this token will be present. Use
+   *             this token in a subsequent request to retrieve the next page of results. If there are no
+   *             more results, this value will be null. </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2082,24 +2015,18 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
- * <p>
- *     Specifies the sorting parameters for listing Engagements.
- * </p>
+ * <p>Specifies the sorting parameters for listing Engagements.</p>
  * @public
  */
 export interface EngagementSort {
   /**
-   * <p>
-   *     The order in which to sort the results.
-   * </p>
+   * <p>The order in which to sort the results.</p>
    * @public
    */
   SortOrder: SortOrder | undefined;
 
   /**
-   * <p>
-   *     The field by which to sort the results.
-   * </p>
+   * <p>The field by which to sort the results.</p>
    * @public
    */
   SortBy: EngagementSortName | undefined;
@@ -2110,117 +2037,91 @@ export interface EngagementSort {
  */
 export interface ListEngagementsRequest {
   /**
-   * <p>
-   *     Specifies the catalog related to the request.
-   * </p>
+   * <p> Specifies the catalog related to the request. </p>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     A list of AWS account IDs. When specified, the response includes engagements created
-   *     by these accounts. This filter is useful for finding engagements created by specific
-   *     team members.
-   * </p>
+   * <p> A list of AWS account IDs. When specified, the response includes engagements created
+   *             by these accounts. This filter is useful for finding engagements created by specific
+   *             team members. </p>
    * @public
    */
   CreatedBy?: string[] | undefined;
 
   /**
-   * <p>
-   *     An array of strings representing AWS Account IDs. Use this to exclude engagements
-   *     created by specific users.
-   * </p>
+   * <p>An array of strings representing AWS Account IDs. Use this to exclude engagements
+   *             created by specific users. </p>
    * @public
    */
   ExcludeCreatedBy?: string[] | undefined;
 
   /**
    * <p>
-   *     An object that specifies the sort order of the results.
+   *  An object that specifies the sort order of the results.
    * </p>
    * @public
    */
   Sort?: EngagementSort | undefined;
 
   /**
-   * <p>
-   *     The maximum number of results to return in a single call.
-   * </p>
+   * <p>The maximum number of results to return in a single call.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>
-   *     The token for the next set of results. This value is returned from a previous
-   *     call.
-   * </p>
+   * <p>The token for the next set of results. This value is returned from a previous
+   *             call.</p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>
-   *     An array of strings representing engagement identifiers to retrieve.
-   * </p>
+   * <p>An array of strings representing engagement identifiers to retrieve.</p>
    * @public
    */
   EngagementIdentifier?: string[] | undefined;
 }
 
 /**
- * <p>
- *     An object that contains an <code>Engagement</code>'s subset of fields.
- * </p>
+ * <p>An object that contains an <code>Engagement</code>'s subset of fields. </p>
  * @public
  */
 export interface EngagementSummary {
   /**
-   * <p>
-   *     The Amazon Resource Name (ARN) of the created engagement.
-   * </p>
+   * <p>The Amazon Resource Name (ARN) of the created Engagement.</p>
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>
-   *     The unique identifier for the engagement.
-   * </p>
+   * <p>The unique identifier for the Engagement.</p>
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   *     The title of the engagement.
-   * </p>
+   * <p>The title of the Engagement.</p>
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>
-   *     The date and time when the engagement was created.
-   * </p>
+   * <p>The date and time when the Engagement was created.</p>
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *     The AWS account ID of the engagement creator.
-   * </p>
+   * <p>The AWS Account ID of the Engagement creator.</p>
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>
-   *     The number of members in the engagement.
-   * </p>
+   * <p>The number of members in the Engagement.</p>
    * @public
    */
   MemberCount?: number | undefined;
@@ -2231,18 +2132,14 @@ export interface EngagementSummary {
  */
 export interface ListEngagementsResponse {
   /**
-   * <p>
-   *     An array of engagement summary objects.
-   * </p>
+   * <p>An array of engagement summary objects.</p>
    * @public
    */
   EngagementSummaryList: EngagementSummary[] | undefined;
 
   /**
-   * <p>
-   *     The token to retrieve the next set of results. This field will be null if there are no
-   *     more results.
-   * </p>
+   * <p>The token to retrieve the next set of results. This field will be null if there are no
+   *             more results. </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2262,25 +2159,19 @@ export const ListTasksSortName = {
 export type ListTasksSortName = (typeof ListTasksSortName)[keyof typeof ListTasksSortName];
 
 /**
- * <p>
- *     Defines the sorting parameters for listing tasks. This structure allows for specifying
- *     the field to sort by and the order of sorting.
- * </p>
+ * <p> Defines the sorting parameters for listing tasks. This structure allows for
+ *             specifying the field to sort by and the order of sorting. </p>
  * @public
  */
 export interface ListTasksSortBase {
   /**
-   * <p>
-   *     Determines the order in which the sorted results are presented.
-   * </p>
+   * <p> Determines the order in which the sorted results are presented. </p>
    * @public
    */
   SortOrder: SortOrder | undefined;
 
   /**
-   * <p>
-   *     Specifies the field by which the task list should be sorted.
-   * </p>
+   * <p> Specifies the field by which the task list should be sorted. </p>
    * @public
    */
   SortBy: ListTasksSortName | undefined;
@@ -2306,43 +2197,36 @@ export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
  */
 export interface ListEngagementByAcceptingInvitationTasksRequest {
   /**
-   * <p>
-   *     Use this parameter to control the number of items returned in each request, which can
-   *     be useful for performance tuning and managing large result sets.
-   * </p>
+   * <p> Use this parameter to control the number of items returned in each request, which can
+   *             be useful for performance tuning and managing large result sets. </p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>
-   *     Use this parameter for pagination when the result set spans multiple pages. This value
-   *     is obtained from the NextToken field in the response of a previous call to this API.
-   * </p>
+   * <p> Use this parameter for pagination when the result set spans multiple pages. This
+   *             value is obtained from the NextToken field in the response of a previous call to this
+   *             API. </p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>
-   *     Specifies the sorting criteria for the returned results. This allows you to order the
-   *     tasks based on specific attributes.
-   * </p>
+   * <p> Specifies the sorting criteria for the returned results. This allows you to order the
+   *             tasks based on specific attributes. </p>
    * @public
    */
   Sort?: ListTasksSortBase | undefined;
 
   /**
-   * <p>
-   *     Specifies the catalog related to the request. Valid values are:
-   * </p>
+   * <p> Specifies the catalog related to the request. Valid values are: </p>
    *          <ul>
    *             <li>
    *                <p> AWS: Retrieves the request from the production AWS environment. </p>
    *             </li>
    *             <li>
    *                <p> Sandbox: Retrieves the request from a sandbox environment used for testing or
-   *                 development purposes. </p>
+   *                     development purposes. </p>
    *             </li>
    *          </ul>
    * @public
@@ -2350,37 +2234,29 @@ export interface ListEngagementByAcceptingInvitationTasksRequest {
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     Filters the tasks based on their current status. This allows you to focus on tasks in
-   *     specific states.
-   * </p>
+   * <p> Filters the tasks based on their current status. This allows you to focus on tasks in
+   *             specific states. </p>
    * @public
    */
   TaskStatus?: TaskStatus[] | undefined;
 
   /**
-   * <p>
-   *     Filters tasks by the identifiers of the opportunities they created or are associated
-   *     with.
-   * </p>
+   * <p> Filters tasks by the identifiers of the opportunities they created or are associated
+   *             with. </p>
    * @public
    */
   OpportunityIdentifier?: string[] | undefined;
 
   /**
-   * <p>
-   *     Filters tasks by the identifiers of the engagement invitations they are
-   *     processing.
-   * </p>
+   * <p> Filters tasks by the identifiers of the engagement invitations they are processing.
+   *         </p>
    * @public
    */
   EngagementInvitationIdentifier?: string[] | undefined;
 
   /**
-   * <p>
-   *     Filters tasks by their unique identifiers. Use this when you want to retrieve
-   *     information about specific tasks.
-   * </p>
+   * <p> Filters tasks by their unique identifiers. Use this when you want to retrieve
+   *             information about specific tasks. </p>
    * @public
    */
   TaskIdentifier?: string[] | undefined;
@@ -2418,81 +2294,61 @@ export const ReasonCode = {
 export type ReasonCode = (typeof ReasonCode)[keyof typeof ReasonCode];
 
 /**
- * <p>
- *     Specifies a subset of fields associated with tasks related to accepting an engagement
- *     invitation.
- * </p>
+ * <p> Specifies a subset of fields associated with tasks related to accepting an engagement
+ *             invitation. </p>
  * @public
  */
 export interface ListEngagementByAcceptingInvitationTaskSummary {
   /**
-   * <p>
-   *     Unique identifier of the task.
-   * </p>
+   * <p> Unique identifier of the task. </p>
    * @public
    */
   TaskId?: string | undefined;
 
   /**
-   * <p>
-   *     The Amazon Resource Name (ARN) that uniquely identifies the task.
-   * </p>
+   * <p> The Amazon Resource Name (ARN) that uniquely identifies the task. </p>
    * @public
    */
   TaskArn?: string | undefined;
 
   /**
-   * <p>
-   *     Task start timestamp.
-   * </p>
+   * <p> Task start timestamp. </p>
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>
-   *     Status of the task.
-   * </p>
+   * <p> Status of the task. </p>
    * @public
    */
   TaskStatus?: TaskStatus | undefined;
 
   /**
-   * <p>
-   *     Detailed message describing the failure and possible recovery steps.
-   * </p>
+   * <p> Detailed message describing the failure and possible recovery steps. </p>
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>
-   *     A code pointing to the specific reason for the failure.
-   * </p>
+   * <p> A code pointing to the specific reason for the failure. </p>
    * @public
    */
   ReasonCode?: ReasonCode | undefined;
 
   /**
-   * <p>
-   *     Unique identifier of opportunity that was created.
-   * </p>
+   * <p> Unique identifier of opportunity that was created. </p>
    * @public
    */
   OpportunityId?: string | undefined;
 
   /**
-   * <p>
-   *     Unique identifier of the resource snapshot job that was created.
-   * </p>
+   * <p> Unique identifier of the resource snapshot job that was created. </p>
    * @public
    */
   ResourceSnapshotJobId?: string | undefined;
 
   /**
-   * <p>
-   *     The unique identifier of the engagement invitation that was accepted.
-   * </p>
+   * <p> The unique identifier of the engagement invitation that was accepted. </p>
    * @public
    */
   EngagementInvitationId?: string | undefined;
@@ -2503,25 +2359,39 @@ export interface ListEngagementByAcceptingInvitationTaskSummary {
  */
 export interface ListEngagementByAcceptingInvitationTasksResponse {
   /**
-   * <p>
-   *     An array of <code>EngagementByAcceptingInvitationTaskSummary</code> objects, each representing a
-   *     task that matches the specified filters. The array may be empty if no tasks match the
-   *     criteria.
-   * </p>
+   * <p> An array of <code>EngagementByAcceptingInvitationTaskSummary</code> objects, each
+   *             representing a task that matches the specified filters. The array may be empty if no
+   *             tasks match the criteria. </p>
    * @public
    */
   TaskSummaries?: ListEngagementByAcceptingInvitationTaskSummary[] | undefined;
 
   /**
-   * <p>
-   *     A token used for pagination to retrieve the next page of results.If there are more
-   *     results available, this field will contain a token that can be used in a subsequent API
-   *     call to retrieve the next page. If there are no more results, this field will be null or
-   *     an empty string.
-   * </p>
+   * <p> A token used for pagination to retrieve the next page of results.If there are more
+   *             results available, this field will contain a token that can be used in a subsequent API
+   *             call to retrieve the next page. If there are no more results, this field will be null or
+   *             an empty string. </p>
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * <p>The key-value pair assigned to a specified resource.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>The key in the tag.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value in the tag.</p>
+   * @public
+   */
+  Value: string | undefined;
 }
 
 /**
@@ -2550,6 +2420,12 @@ export interface StartEngagementByAcceptingInvitationTaskRequest {
    * @public
    */
   Identifier: string | undefined;
+
+  /**
+   * A list of objects specifying each tag name and value.
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2603,9 +2479,7 @@ export interface StartEngagementByAcceptingInvitationTaskResponse {
   OpportunityId?: string | undefined;
 
   /**
-   * <p>
-   *     The identifier of the resource snapshot job created as part of this task.
-   * </p>
+   * <p>The identifier of the Resource Snapshot Job created as part of this task.</p>
    * @public
    */
   ResourceSnapshotJobId?: string | undefined;
@@ -2623,45 +2497,37 @@ export interface StartEngagementByAcceptingInvitationTaskResponse {
  */
 export interface ListEngagementFromOpportunityTasksRequest {
   /**
-   * <p>
-   *     Specifies the maximum number of results to return in a single page of the response.Use
-   *     this parameter to control the number of items returned in each request, which can be
-   *     useful for performance tuning and managing large result sets.
-   * </p>
+   * <p> Specifies the maximum number of results to return in a single page of the
+   *             response.Use this parameter to control the number of items returned in each request,
+   *             which can be useful for performance tuning and managing large result sets. </p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>
-   *     The token for requesting the next page of results. This value is obtained from the
-   *     NextToken field in the response of a previous call to this API. Use this parameter for
-   *     pagination when the result set spans multiple pages.
-   * </p>
+   * <p> The token for requesting the next page of results. This value is obtained from the
+   *             NextToken field in the response of a previous call to this API. Use this parameter for
+   *             pagination when the result set spans multiple pages. </p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>
-   *     Specifies the sorting criteria for the returned results. This allows you to order the
-   *     tasks based on specific attributes.
-   * </p>
+   * <p> Specifies the sorting criteria for the returned results. This allows you to order the
+   *             tasks based on specific attributes. </p>
    * @public
    */
   Sort?: ListTasksSortBase | undefined;
 
   /**
-   * <p>
-   *     Specifies the catalog related to the request. Valid values are:
-   * </p>
+   * <p> Specifies the catalog related to the request. Valid values are: </p>
    *          <ul>
    *             <li>
    *                <p> AWS: Retrieves the request from the production AWS environment. </p>
    *             </li>
    *             <li>
    *                <p> Sandbox: Retrieves the request from a sandbox environment used for testing or
-   *                 development purposes. </p>
+   *                     development purposes. </p>
    *             </li>
    *          </ul>
    * @public
@@ -2669,135 +2535,105 @@ export interface ListEngagementFromOpportunityTasksRequest {
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     Filters the tasks based on their current status. This allows you to focus on tasks in
-   *     specific states.
-   * </p>
+   * <p> Filters the tasks based on their current status. This allows you to focus on tasks in
+   *             specific states. </p>
    * @public
    */
   TaskStatus?: TaskStatus[] | undefined;
 
   /**
-   * <p>
-   *     Filters tasks by their unique identifiers. Use this when you want to retrieve
-   *     information about specific tasks.
-   * </p>
+   * <p> Filters tasks by their unique identifiers. Use this when you want to retrieve
+   *             information about specific tasks. </p>
    * @public
    */
   TaskIdentifier?: string[] | undefined;
 
   /**
-   * <p>
-   *     The identifier of the original opportunity associated with this task.
-   * </p>
+   * <p> The identifier of the original opportunity associated with this task. </p>
    * @public
    */
   OpportunityIdentifier?: string[] | undefined;
 
   /**
-   * <p>
-   *     Filters tasks by the identifiers of the engagements they created or are associated
-   *     with.
-   * </p>
+   * <p> Filters tasks by the identifiers of the engagements they created or are associated
+   *             with. </p>
    * @public
    */
   EngagementIdentifier?: string[] | undefined;
 }
 
 /**
- * <p>
- *     Provides a summary of a task related to creating an engagement from an opportunity.
- *     This structure contains key information about the task's status, associated identifiers,
- *     and any failure details.
- * </p>
+ * <p> Provides a summary of a task related to creating an engagement from an opportunity.
+ *             This structure contains key information about the task's status, associated identifiers,
+ *             and any failure details. </p>
  * @public
  */
 export interface ListEngagementFromOpportunityTaskSummary {
   /**
-   * <p>
-   *     A unique identifier for a specific task.
-   * </p>
+   * <p> A unique identifier for a specific task. </p>
    * @public
    */
   TaskId?: string | undefined;
 
   /**
-   * <p>
-   *     The Amazon Resource Name (ARN) uniquely identifying this task within AWS. This ARN can
-   *     be used for referencing the task in other AWS services or APIs.
-   * </p>
+   * <p> The Amazon Resource Name (ARN) uniquely identifying this task within AWS. This ARN
+   *             can be used for referencing the task in other AWS services or APIs. </p>
    * @public
    */
   TaskArn?: string | undefined;
 
   /**
-   * <p>
-   *     The timestamp indicating when the task was initiated, in RFC 3339 5.6 date-time
-   *     format.
-   * </p>
+   * <p> The timestamp indicating when the task was initiated, in RFC 3339 5.6 date-time
+   *             format. </p>
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>
-   *     The current status of the task.
-   * </p>
+   * <p> The current status of the task. </p>
    * @public
    */
   TaskStatus?: TaskStatus | undefined;
 
   /**
-   * <p>
-   *     A detailed message providing additional information about the task, especially useful
-   *     in case of failures. This field may contain error details or other relevant information
-   *     about the task's execution
-   * </p>
+   * <p> A detailed message providing additional information about the task, especially useful
+   *             in case of failures. This field may contain error details or other relevant information
+   *             about the task's execution </p>
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>
-   *     A code indicating the specific reason for a task failure. This field is populated when
-   *     the task status is FAILED and provides a categorized reason for the failure.
-   * </p>
+   * <p> A code indicating the specific reason for a task failure. This field is populated
+   *             when the task status is FAILED and provides a categorized reason for the failure.
+   *         </p>
    * @public
    */
   ReasonCode?: ReasonCode | undefined;
 
   /**
-   * <p>
-   *     The unique identifier of the original Opportunity from which the Engagement is being
-   *     created. This field helps track the source of the Engagement creation task.
-   * </p>
+   * <p> The unique identifier of the original Opportunity from which the Engagement is being
+   *             created. This field helps track the source of the Engagement creation task. </p>
    * @public
    */
   OpportunityId?: string | undefined;
 
   /**
-   * <p>
-   *     The identifier of the resource snapshot job associated with this task, if a snapshot
-   *     was created as part of the Engagement creation process.
-   * </p>
+   * <p> The identifier of the resource snapshot job associated with this task, if a snapshot
+   *             was created as part of the Engagement creation process. </p>
    * @public
    */
   ResourceSnapshotJobId?: string | undefined;
 
   /**
-   * <p>
-   *     The unique identifier of the engagement created as a result of the task. This field is
-   *     populated when the task is completed successfully.
-   * </p>
+   * <p> The unique identifier of the engagement created as a result of the task. This field
+   *             is populated when the task is completed successfully. </p>
    * @public
    */
   EngagementId?: string | undefined;
 
   /**
-   * <p>
-   *     The unique identifier of the engagement identifier created as a result of the task. This field is
-   *     populated when the task is completed successfully.
-   * </p>
+   * <p>The unique identifier of the Engagement Invitation.</p>
    * @public
    */
   EngagementInvitationId?: string | undefined;
@@ -2808,21 +2644,17 @@ export interface ListEngagementFromOpportunityTaskSummary {
  */
 export interface ListEngagementFromOpportunityTasksResponse {
   /**
-   * <p>
-   *     TaskSummaries An array of TaskSummary objects containing details about each
-   *     task.
-   * </p>
+   * <p> TaskSummaries An array of TaskSummary objects containing details about each task.
+   *         </p>
    * @public
    */
   TaskSummaries?: ListEngagementFromOpportunityTaskSummary[] | undefined;
 
   /**
-   * <p>
-   *     A token used for pagination to retrieve the next page of results. If there are more
-   *     results available, this field will contain a token that can be used in a subsequent API
-   *     call to retrieve the next page. If there are no more results, this field will be null or
-   *     an empty string.
-   * </p>
+   * <p> A token used for pagination to retrieve the next page of results. If there are more
+   *             results available, this field will contain a token that can be used in a subsequent API
+   *             call to retrieve the next page. If there are no more results, this field will be null or
+   *             an empty string. </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2913,6 +2745,12 @@ export interface StartEngagementFromOpportunityTaskRequest {
    * @public
    */
   AwsSubmission: AwsSubmission | undefined;
+
+  /**
+   * A list of objects specifying each tag name and value.
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2968,28 +2806,22 @@ export interface StartEngagementFromOpportunityTaskResponse {
   OpportunityId?: string | undefined;
 
   /**
-   * <p>
-   *     The identifier of the resource snapshot job created to add the opportunity resource
-   *     snapshot to the Engagement. Only populated if TaskStatus is COMPLETE.
-   * </p>
+   * <p>The identifier of the resource snapshot job created to add the opportunity resource
+   *             snapshot to the Engagement. Only populated if TaskStatus is COMPLETE</p>
    * @public
    */
   ResourceSnapshotJobId?: string | undefined;
 
   /**
-   * <p>
-   *     The identifier of the newly created engagement. Only populated if TaskStatus is
-   *     COMPLETE.
-   * </p>
+   * <p>The identifier of the newly created Engagement. Only populated if TaskStatus is
+   *             COMPLETE.</p>
    * @public
    */
   EngagementId?: string | undefined;
 
   /**
-   * <p>
-   *     The identifier of the new engagement invitation. Only populated if TaskStatus is
-   *     COMPLETE.
-   * </p>
+   * <p>The identifier of the new Engagement invitation. Only populated if TaskStatus is
+   *             COMPLETE.</p>
    * @public
    */
   EngagementInvitationId?: string | undefined;
@@ -3213,18 +3045,14 @@ export namespace Receiver {
 }
 
 /**
- * <p>
- *     The Invitation structure represents an invitation exchanged between partners and AWS.
- *     It includes a message, receiver information, and a payload providing context for the
- *     invitation.
- * </p>
+ * <p> The Invitation structure represents an invitation exchanged between partners and AWS.
+ *             It includes a message, receiver information, and a payload providing context for the
+ *             invitation. </p>
  * @public
  */
 export interface Invitation {
   /**
-   * <p>
-   *     A message accompanying the invitation.
-   * </p>
+   * <p> A message accompanying the invitation. </p>
    * @public
    */
   Message: string | undefined;
@@ -3251,39 +3079,34 @@ export interface Invitation {
  */
 export interface CreateEngagementInvitationRequest {
   /**
-   * <p>
-   *     Specifies the catalog related to the engagement.
-   *     Accepted values are <code>AWS</code> and <code>Sandbox</code>,
-   *     which determine the environment in which the engagement is managed.
-   * </p>
+   * <p> Specifies the catalog related to the engagement. Accepted values are <code>AWS</code>
+   *             and <code>Sandbox</code>, which determine the environment in which the engagement is
+   *             managed. </p>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     Specifies a unique, client-generated UUID to ensure that the request is handled exactly once.
-   *     This token helps prevent duplicate invitation creations.
-   * </p>
+   * <p> Specifies a unique, client-generated UUID to ensure that the request is handled
+   *             exactly once. This token helps prevent duplicate invitation creations. </p>
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>
-   *     The unique identifier of the <code>Engagement</code> associated with the invitation.
-   *     This parameter ensures the invitation is created within the correct <code>Engagement</code> context.
-   * </p>
+   * <p> The unique identifier of the <code>Engagement</code> associated with the invitation.
+   *             This parameter ensures the invitation is created within the correct
+   *                 <code>Engagement</code> context. </p>
    * @public
    */
   EngagementIdentifier: string | undefined;
 
   /**
-   * <p>
-   * The <code>Invitation</code> object all information necessary to initiate an engagement invitation to a partner.
-   * It contains a personalized message from the sender, the invitation's receiver, and a payload. The <code>Payload</code> can
-   * be the <code>OpportunityInvitation</code>, which includes detailed structures for sender contacts, partner responsibilities, customer
-   * information, and project details. </p>
+   * <p> The <code>Invitation</code> object all information necessary to initiate an
+   *             engagement invitation to a partner. It contains a personalized message from the sender,
+   *             the invitation's receiver, and a payload. The <code>Payload</code> can be the
+   *                 <code>OpportunityInvitation</code>, which includes detailed structures for sender
+   *             contacts, partner responsibilities, customer information, and project details. </p>
    * @public
    */
   Invitation: Invitation | undefined;
@@ -3294,18 +3117,14 @@ export interface CreateEngagementInvitationRequest {
  */
 export interface CreateEngagementInvitationResponse {
   /**
-   * <p>
-   *     Unique identifier assigned to the newly created engagement invitation.
-   * </p>
+   * <p> Unique identifier assigned to the newly created engagement invitation. </p>
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>
-   *     The Amazon Resource Name (ARN) that uniquely identifies the engagement
-   *     invitation.
-   * </p>
+   * <p> The Amazon Resource Name (ARN) that uniquely identifies the engagement invitation.
+   *         </p>
    * @public
    */
   Arn: string | undefined;
@@ -3331,28 +3150,22 @@ export interface GetEngagementInvitationRequest {
 }
 
 /**
- * <p>
- *     The EngagementMemberSummary provides a snapshot of essential information about
- *     participants in an AWS Partner Central Engagement. This compact data structure
- *     encapsulates key details of each member, facilitating efficient collaboration and
- *     management within the Engagement.
- * </p>
+ * <p>The EngagementMemberSummary provides a snapshot of essential information about
+ *             participants in an AWS Partner Central Engagement. This compact data structure
+ *             encapsulates key details of each member, facilitating efficient collaboration and
+ *             management within the Engagement. </p>
  * @public
  */
 export interface EngagementMemberSummary {
   /**
-   * <p>
-   *     The official name of the member's company or organization.
-   * </p>
+   * <p>The official name of the member's company or organization.</p>
    * @public
    */
   CompanyName?: string | undefined;
 
   /**
-   * <p>
-   *     The URL of the member company's website. This offers a way to find more information
-   *     about the member organization and serves as an additional identifier.
-   * </p>
+   * <p>The URL of the member company's website. This offers a way to find more information
+   *             about the member organization and serves as an additional identifier. </p>
    * @public
    */
   WebsiteUrl?: string | undefined;
@@ -3412,10 +3225,8 @@ export interface GetEngagementInvitationResponse {
   Id: string | undefined;
 
   /**
-   * <p>
-   *     The identifier of the engagement associated with this invitation.This ID links the
-   *     invitation to its corresponding engagement.
-   * </p>
+   * <p>The identifier of the engagement associated with this invitation.This ID links the
+   *             invitation to its corresponding engagement.</p>
    * @public
    */
   EngagementId?: string | undefined;
@@ -3489,37 +3300,27 @@ export interface GetEngagementInvitationResponse {
   Payload?: Payload | undefined;
 
   /**
-   * <p>
-   *     The message sent to the invited partner when the invitation was created.
-   * </p>
+   * <p>The message sent to the invited partner when the invitation was created.</p>
    * @public
    */
   InvitationMessage?: string | undefined;
 
   /**
-   * <p>
-   *     The description of the engagement associated with this invitation.
-   * </p>
+   * <p>The description of the engagement associated with this invitation.</p>
    * @public
    */
   EngagementDescription?: string | undefined;
 
   /**
-   * <p>
-   *     A list of active members currently part of the Engagement. This array contains a
-   *     maximum of 10 members, each represented by an object with the following
-   *     properties.
-   * </p>
+   * <p>A list of active members currently part of the Engagement. This array contains a
+   *             maximum of 10 members, each represented by an object with the following
+   *             properties.</p>
    *          <ul>
    *             <li>
-   *                <p>
-   *                 CompanyName: The name of the member's company.
-   *             </p>
+   *                <p>CompanyName: The name of the member's company.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                 WebsiteUrl: The website URL of the member's company.
-   *             </p>
+   *                <p>WebsiteUrl: The website URL of the member's company.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3627,29 +3428,23 @@ export interface ListEngagementInvitationsRequest {
   ParticipantType: ParticipantType | undefined;
 
   /**
-   * <p>
-   *     Status values to filter the invitations.
-   * </p>
+   * <p> Status values to filter the invitations. </p>
    * @public
    */
   Status?: InvitationStatus[] | undefined;
 
   /**
-   * <p>
-   *     Retrieves a list of engagement invitation summaries based on specified filters. The
-   *     ListEngagementInvitations operation allows you to view all invitations that you have
-   *     sent or received. You must specify the ParticipantType to filter invitations where you
-   *     are either the SENDER or the RECEIVER. Invitations will automatically expire if not
-   *     accepted within 15 days.
-   * </p>
+   * <p> Retrieves a list of engagement invitation summaries based on specified filters. The
+   *             ListEngagementInvitations operation allows you to view all invitations that you have
+   *             sent or received. You must specify the ParticipantType to filter invitations where you
+   *             are either the SENDER or the RECEIVER. Invitations will automatically expire if not
+   *             accepted within 15 days. </p>
    * @public
    */
   EngagementIdentifier?: string[] | undefined;
 
   /**
-   * <p>
-   *     List of sender AWS account IDs to filter the invitations.
-   * </p>
+   * <p> List of sender AWS account IDs to filter the invitations. </p>
    * @public
    */
   SenderAwsAccountId?: string[] | undefined;
@@ -3686,10 +3481,8 @@ export interface EngagementInvitationSummary {
   Id: string | undefined;
 
   /**
-   * <p>
-   *     The identifier of the Engagement associated with this invitation. This links the
-   *     invitation to its parent Engagement.
-   * </p>
+   * <p> The identifier of the Engagement associated with this invitation. This links the
+   *             invitation to its parent Engagement. </p>
    * @public
    */
   EngagementId?: string | undefined;
@@ -3838,6 +3631,29 @@ export interface RejectEngagementInvitationRequest {
    * @public
    */
   RejectionReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource for which you want to retrieve
+   *             tags.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>A map of the key-value pairs for the tag or tags assigned to the specified resource.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
 }
 
 /**
@@ -4712,13 +4528,6 @@ export interface CreateOpportunityRequest {
    *                <p>Cosell—Support for Public Tender/RFx: Opportunity related to the public sector
    *                     where the partner needs Amazon Web Services RFx support.</p>
    *             </li>
-   *             <li>
-   *                <p>Do Not Need Support from AWS Sales Rep: Indicates that a partner doesn't need
-   *                     support from an Amazon Web Services sales representative, and the partner solely
-   *                     manages the opportunity. It's possible to request coselling support on these
-   *                     opportunities at any stage during their lifecycles. This is also known as a
-   *                     for-visibility-only (FVO) opportunity.</p>
-   *             </li>
    *          </ul>
    * @public
    */
@@ -5168,13 +4977,6 @@ export interface GetOpportunityResponse {
    *             <li>
    *                <p>Cosell—Support for Public Tender/RFx: Opportunity related to the public sector
    *                     where the partner needs Amazon Web Services RFx support.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do Not Need Support from Amazon Web Services Sales Rep: Indicates that a
-   *                     partner doesn't need support from an Amazon Web Services sales representative,
-   *                     and the partner solely manages the opportunity. It's possible to request
-   *                     coselling support on these opportunities at any stage during their lifecycle.
-   *                     Also known as, for-visibility-only (FVO) opportunity.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5677,10 +5479,8 @@ export interface OpportunitySummary {
   Id?: string | undefined;
 
   /**
-   * <p>
-   *     The Amazon Resource Name (ARN) for the opportunity. This globally unique identifier
-   *     can be used for IAM policies and cross-service references.
-   * </p>
+   * <p> The Amazon Resource Name (ARN) for the opportunity. This globally unique identifier
+   *             can be used for IAM policies and cross-service references. </p>
    * @public
    */
   Arn?: string | undefined;
@@ -5774,35 +5574,62 @@ export interface ListOpportunitiesResponse {
  */
 export interface SubmitOpportunityRequest {
   /**
-   * <p>
-   *     Specifies the catalog related to the request.
-   * </p>
+   * <p>Specifies the catalog related to the request. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>AWS: Submits the opportunity request from the production AWS
+   *                     environment.</p>
+   *             </li>
+   *             <li>
+   *                <p>Sandbox: Submits the opportunity request from a sandbox environment used for
+   *                     testing or development purposes.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     The identifier of the opportunity previously created by partner and needs to be
-   *     submitted.
-   * </p>
+   * <p>The identifier of the Opportunity previously created by partner and needs to be
+   *             submitted.</p>
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>
-   *     Specifies the level of AWS sellers' involvement on the opportunity.
-   * </p>
+   * <p>Specifies the level of AWS sellers' involvement on the opportunity. Valid
+   *             values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Co-sell</code>: Indicates the user wants to co-sell with AWS. Share the
+   *                     opportunity with AWS to receive deal assistance and support.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>For Visibility Only</code>: Indicates that the user does not need
+   *                     support from AWS Sales Rep. Share this opportunity with AWS for visibility only,
+   *                     you will not receive deal assistance and support.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   InvolvementType: SalesInvolvementType | undefined;
 
   /**
-   * <p>
-   *     Determines whether to restrict visibility of the opportunity from AWS sales. Default
-   *     value is Full.
-   * </p>
+   * <p>Determines whether to restrict visibility of the opportunity from AWS sales. Default
+   *             value is Full. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Full</code>: The opportunity is fully visible to AWS sales.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Limited</code>: The opportunity has restricted visibility to AWS
+   *                     sales.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Visibility?: Visibility | undefined;
@@ -5863,13 +5690,6 @@ export interface UpdateOpportunityRequest {
    *             <li>
    *                <p>Cosell—Support for Public Tender/RFx: Opportunity related to the public sector
    *                     where the partner needs RFx support from Amazon Web Services.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do Not Need Support from AWS Sales Rep: Indicates that a partner doesn't need
-   *                     support from an Amazon Web Services Sales representative. The opportunity is
-   *                     managed solely by the partner. It's possible to request coselling support on
-   *                     these opportunities at any stage during their lifecycle. Also known as,
-   *                     for-visibility-only (FVO) opportunity.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5997,58 +5817,47 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
  */
 export interface CreateResourceSnapshotRequest {
   /**
-   * <p>
-   *     Specifies the catalog where the snapshot is created. Valid values are
-   *     <code>AWS</code> and <code>Sandbox</code>.
-   * </p>
+   * <p> Specifies the catalog where the snapshot is created. Valid values are
+   *                 <code>AWS</code> and <code>Sandbox</code>. </p>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     The unique identifier of the engagement associated with this snapshot. This field
-   *     links the snapshot to a specific engagement context.
-   * </p>
+   * <p> The unique identifier of the engagement associated with this snapshot. This field
+   *             links the snapshot to a specific engagement context. </p>
    * @public
    */
   EngagementIdentifier: string | undefined;
 
   /**
-   * <p>
-   *     Specifies the type of resource for which the snapshot is being created. This field
-   *     determines the structure and content of the snapshot. Must be one of the supported
-   *     resource types, such as: <code>Opportunity</code>.
-   * </p>
+   * <p> Specifies the type of resource for which the snapshot is being created. This field
+   *             determines the structure and content of the snapshot. Must be one of the supported
+   *             resource types, such as: <code>Opportunity</code>. </p>
    * @public
    */
   ResourceType: ResourceType | undefined;
 
   /**
-   * <p>
-   *     The unique identifier of the specific resource to be snapshotted. The format and
-   *     constraints of this identifier depend on the <code>ResourceType</code> specified. For example: For
-   *     <code>Opportunity</code> type, it will be an opportunity ID.
-   * </p>
+   * <p> The unique identifier of the specific resource to be snapshotted. The format and
+   *             constraints of this identifier depend on the <code>ResourceType</code> specified. For
+   *             example: For <code>Opportunity</code> type, it will be an opportunity ID. </p>
    * @public
    */
   ResourceIdentifier: string | undefined;
 
   /**
-   * <p>
-   *     The name of the template that defines the schema for the snapshot. This template
-   *     determines which subset of the resource data will be included in the snapshot. Must
-   *     correspond to an existing and valid template for the specified <code>ResourceType</code>.
-   * </p>
+   * <p> The name of the template that defines the schema for the snapshot. This template
+   *             determines which subset of the resource data will be included in the snapshot. Must
+   *             correspond to an existing and valid template for the specified
+   *             <code>ResourceType</code>. </p>
    * @public
    */
   ResourceSnapshotTemplateIdentifier: string | undefined;
 
   /**
-   * <p>
-   *     Specifies a unique, client-generated UUID to ensure that the request is handled exactly once.
-   *     This token helps prevent duplicate snapshot creations.
-   * </p>
+   * <p> Specifies a unique, client-generated UUID to ensure that the request is handled
+   *             exactly once. This token helps prevent duplicate snapshot creations. </p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -6059,20 +5868,16 @@ export interface CreateResourceSnapshotRequest {
  */
 export interface CreateResourceSnapshotResponse {
   /**
-   * <p>
-   *     Specifies the Amazon Resource Name (ARN) that uniquely identifies the snapshot
-   *     created.
-   * </p>
+   * <p> Specifies the Amazon Resource Name (ARN) that uniquely identifies the snapshot
+   *             created. </p>
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>
-   *     Specifies the revision number of the created snapshot. This field provides important
-   *     information about the snapshot's place in the sequence of snapshots for the given
-   *     resource.
-   * </p>
+   * <p> Specifies the revision number of the created snapshot. This field provides important
+   *             information about the snapshot's place in the sequence of snapshots for the given
+   *             resource. </p>
    * @public
    */
   Revision?: number | undefined;
@@ -6139,141 +5944,110 @@ export interface GetResourceSnapshotRequest {
 }
 
 /**
- * <p>
- *     Provides the lifecycle view of an opportunity resource shared through a
- *     snapshot.
- * </p>
+ * <p> Provides the lifecycle view of an opportunity resource shared through a snapshot.
+ *         </p>
  * @public
  */
 export interface LifeCycleForView {
   /**
-   * <p>
-   *     The projected launch date of the opportunity shared through a snapshot.
-   * </p>
+   * <p> The projected launch date of the opportunity shared through a snapshot. </p>
    * @public
    */
   TargetCloseDate?: string | undefined;
 
   /**
-   * <p>
-   *     Defines the approval status of the opportunity shared through a snapshot.
-   * </p>
+   * <p> Defines the approval status of the opportunity shared through a snapshot. </p>
    * @public
    */
   ReviewStatus?: ReviewStatus | undefined;
 
   /**
-   * <p>
-   *     Defines the current stage of the opportunity shared through a snapshot.
-   * </p>
+   * <p> Defines the current stage of the opportunity shared through a snapshot. </p>
    * @public
    */
   Stage?: Stage | undefined;
 
   /**
-   * <p>
-   *     Describes the next steps for the opportunity shared through a snapshot.
-   * </p>
+   * <p> Describes the next steps for the opportunity shared through a snapshot. </p>
    * @public
    */
   NextSteps?: string | undefined;
 }
 
 /**
- * <p>
- *     Provides the project view of an opportunity resource shared through a snapshot.
- * </p>
+ * <p> Provides the project view of an opportunity resource shared through a snapshot.
+ *         </p>
  * @public
  */
 export interface ProjectView {
   /**
-   * <p>
-   *     Describes the deployment or consumption model for the partner solution or offering.
-   *     This field indicates how the project's solution will be delivered or implemented for the
-   *     customer.
-   * </p>
+   * <p> Describes the deployment or consumption model for the partner solution or offering.
+   *             This field indicates how the project's solution will be delivered or implemented for the
+   *             customer. </p>
    * @public
    */
   DeliveryModels?: DeliveryModel[] | undefined;
 
   /**
-   * <p>
-   *     Provides information about the anticipated customer spend related to this project.
-   *     This may include details such as amount, frequency, and currency of expected
-   *     expenditure.
-   * </p>
+   * <p> Provides information about the anticipated customer spend related to this project.
+   *             This may include details such as amount, frequency, and currency of expected
+   *             expenditure. </p>
    * @public
    */
   ExpectedCustomerSpend?: ExpectedCustomerSpend[] | undefined;
 
   /**
-   * <p>
-   *     Specifies the proposed solution focus or type of workload for the project.
-   * </p>
+   * <p> Specifies the proposed solution focus or type of workload for the project. </p>
    * @public
    */
   CustomerUseCase?: string | undefined;
 
   /**
-   * <p>
-   *     Lists the pre-sales activities that have occurred with the end-customer related to the
-   *     opportunity. This field is conditionally mandatory when the project is qualified for
-   *     Co-Sell and helps drive assignment priority on the AWS side. It provides insight into
-   *     the engagement level with the customer.
-   * </p>
+   * <p> Lists the pre-sales activities that have occurred with the end-customer related to
+   *             the opportunity. This field is conditionally mandatory when the project is qualified for
+   *             Co-Sell and helps drive assignment priority on the AWS side. It provides insight into
+   *             the engagement level with the customer. </p>
    * @public
    */
   SalesActivities?: SalesActivity[] | undefined;
 
   /**
-   * <p>
-   *     Offers a description of other solutions if the standard solutions do not adequately
-   *     cover the project's scope.
-   * </p>
+   * <p> Offers a description of other solutions if the standard solutions do not adequately
+   *             cover the project's scope. </p>
    * @public
    */
   OtherSolutionDescription?: string | undefined;
 }
 
 /**
- * <p>
- *     Provides a comprehensive view of an opportunity summary, including lifecycle
- *     information, team details, opportunity type, primary needs from AWS, and associated
- *     project information.
- * </p>
+ * <p> Provides a comprehensive view of an opportunity summary, including lifecycle
+ *             information, team details, opportunity type, primary needs from AWS, and associated
+ *             project information. </p>
  * @public
  */
 export interface OpportunitySummaryView {
   /**
-   * <p>
-   *     Specifies the opportunity type.
-   * </p>
+   * <p> Specifies the opportunity type. </p>
    * @public
    */
   OpportunityType?: OpportunityType | undefined;
 
   /**
-   * <p>
-   *     Contains information about the opportunity's lifecycle, including its current stage,
-   *     status, and important dates such as creation and last modification times.
-   * </p>
+   * <p> Contains information about the opportunity's lifecycle, including its current stage,
+   *             status, and important dates such as creation and last modification times. </p>
    * @public
    */
   Lifecycle?: LifeCycleForView | undefined;
 
   /**
-   * <p>
-   *     Represents the internal team handling the opportunity. Specify the members involved in
-   *     collaborating on an opportunity within the partner's organization.
-   * </p>
+   * <p> Represents the internal team handling the opportunity. Specify the members involved
+   *             in collaborating on an opportunity within the partner's organization. </p>
    * @public
    */
   OpportunityTeam?: Contact[] | undefined;
 
   /**
-   * <p>
-   *     Identifies the type of support the partner needs from AWS.
-   * </p>
+   * <p> Identifies the type of support the partner needs from AWS. </p>
    * @public
    */
   PrimaryNeedsFromAws?: PrimaryNeedFromAws[] | undefined;
@@ -6286,10 +6060,8 @@ export interface OpportunitySummaryView {
   Customer?: Customer | undefined;
 
   /**
-   * <p>
-   *     Contains summary information about the project associated with the opportunity,
-   *     including project name, description, timeline, and other relevant details.
-   * </p>
+   * <p> Contains summary information about the project associated with the opportunity,
+   *             including project name, description, timeline, and other relevant details. </p>
    * @public
    */
   Project?: ProjectView | undefined;
@@ -6304,11 +6076,9 @@ export interface OpportunitySummaryView {
 }
 
 /**
- * <p>
- *     Represents the payload of a resource snapshot. This structure is designed to
- *     accommodate different types of resource snapshots, currently supporting opportunity
- *     summaries.
- * </p>
+ * <p> Represents the payload of a resource snapshot. This structure is designed to
+ *             accommodate different types of resource snapshots, currently supporting opportunity
+ *             summaries. </p>
  * @public
  */
 export type ResourceSnapshotPayload =
@@ -6320,9 +6090,7 @@ export type ResourceSnapshotPayload =
  */
 export namespace ResourceSnapshotPayload {
   /**
-   * <p>
-   *     An object that contains an <code>opportunity</code>'s subset of fields.
-   * </p>
+   * <p> An object that contains an <code>opportunity</code>'s subset of fields. </p>
    * @public
    */
   export interface OpportunitySummaryMember {
@@ -6361,10 +6129,7 @@ export interface GetResourceSnapshotResponse {
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     The Amazon Resource Name (ARN) of the snapshot. This globally unique identifier can be
-   *     used for resource-specific operations across AWS services.
-   * </p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the resource snapshot.</p>
    * @public
    */
   Arn?: string | undefined;
@@ -6392,47 +6157,37 @@ export interface GetResourceSnapshotResponse {
   EngagementId?: string | undefined;
 
   /**
-   * <p>
-   *     The type of the resource that was snapshotted. Matches the <code>ResourceType</code> specified in
-   *     the request.
-   * </p>
+   * <p>The type of the resource that was snapshotted. Matches the ResourceType specified in
+   *             the request.</p>
    * @public
    */
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>
-   *     The identifier of the specific resource that was snapshotted. Matches the
-   *     <code>ResourceIdentifier</code> specified in the request.
-   * </p>
+   * <p>The identifier of the specific resource that was snapshotted. Matches the
+   *             ResourceIdentifier specified in the request.</p>
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>
-   *     The name of the view used for this snapshot. This is the same as the template
-   *     name.
-   * </p>
+   * <p>The name of the view used for this snapshot. This is the same as the template
+   *             name.</p>
    * @public
    */
   ResourceSnapshotTemplateName?: string | undefined;
 
   /**
-   * <p>
-   *     The revision number of this snapshot. This is a positive integer that is sequential
-   *     and unique within the context of a resource view.
-   * </p>
+   * <p>The revision number of this snapshot. This is a positive integer that is sequential
+   *             and unique within the context of a resource view.</p>
    * @public
    */
   Revision?: number | undefined;
 
   /**
-   * <p>
-   *     Represents the payload of a resource snapshot. This structure is designed to
-   *     accommodate different types of resource snapshots, currently supporting opportunity
-   *     summaries.
-   * </p>
+   * <p> Represents the payload of a resource snapshot. This structure is designed to
+   *             accommodate different types of resource snapshots, currently supporting opportunity
+   *             summaries. </p>
    * @public
    */
   Payload?: ResourceSnapshotPayload | undefined;
@@ -6443,118 +6198,107 @@ export interface GetResourceSnapshotResponse {
  */
 export interface ListEngagementResourceAssociationsRequest {
   /**
-   * <p>
-   *     Specifies the catalog in which to search for engagement-resource associations.
-   * </p>
+   * <p>Specifies the catalog in which to search for engagement-resource associations. Valid
+   *             Values: "AWS" or "Sandbox"</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS</code> for production environments.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Sandbox</code> for testing and development purposes.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     Limits the number of results returned in a single call. Use this to control the number
-   *     of results returned, especially useful for pagination.
-   * </p>
+   * <p>Limits the number of results returned in a single call. Use this to control the number
+   *             of results returned, especially useful for pagination.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>
-   *     A token used for pagination of results. Include this token in subsequent requests to
-   *     retrieve the next set of results.
-   * </p>
+   * <p>A token used for pagination of results. Include this token in subsequent requests to
+   *             retrieve the next set of results.</p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>
-   *     Filters the results to include only associations related to the specified engagement.
-   *     Use this when you want to find all resources associated with a specific engagement.
-   * </p>
+   * <p>Filters the results to include only associations related to the specified engagement.
+   *             Use this when you want to find all resources associated with a specific
+   *             engagement.</p>
    * @public
    */
   EngagementIdentifier?: string | undefined;
 
   /**
-   * <p>
-   *     Filters the results to include only associations with resources of the specified type.
-   * </p>
+   * <p> Filters the results to include only associations with resources of the specified
+   *             type. </p>
    * @public
    */
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>
-   *     Filters the results to include only associations with the specified resource. Varies
-   *     depending on the resource type. Use this when you want to find all engagements
-   *     associated with a specific resource.
-   * </p>
+   * <p>Filters the results to include only associations with the specified resource. Varies
+   *             depending on the resource type. Use this when you want to find all engagements
+   *             associated with a specific resource.</p>
    * @public
    */
   ResourceIdentifier?: string | undefined;
 
   /**
-   * <p>
-   *     Filters the results to include only associations with resources owned by the specified
-   *     AWS account. Use this when you want to find associations related to resources owned by a
-   *     particular account.
-   * </p>
+   * <p>Filters the response to include only snapshots of resources owned by the specified
+   *             AWS account ID. Use this when you want to find associations related to resources owned
+   *             by a particular account. </p>
    * @public
    */
   CreatedBy?: string | undefined;
 }
 
 /**
- * <p>
- *     This provide a streamlined view of the relationships between engagements and
- *     resources. These summaries offer a crucial link between collaborative engagements and
- *     the specific resources involved, such as opportunities.These summaries are particularly
- *     valuable for partners navigating complex engagements with multiple resources. They
- *     enable quick insights into resource distribution across engagements, support efficient
- *     resource management, and help maintain a clear overview of collaborative activities.
- * </p>
+ * <p> This provide a streamlined view of the relationships between engagements and
+ *             resources. These summaries offer a crucial link between collaborative engagements and
+ *             the specific resources involved, such as opportunities.These summaries are particularly
+ *             valuable for partners navigating complex engagements with multiple resources. They
+ *             enable quick insights into resource distribution across engagements, support efficient
+ *             resource management, and help maintain a clear overview of collaborative activities.
+ *         </p>
  * @public
  */
 export interface EngagementResourceAssociationSummary {
   /**
-   * <p>
-   *     Indicates the environment in which the resource and engagement exist.
-   * </p>
+   * <p> Indicates the environment in which the resource and engagement exist. </p>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     A unique identifier for the engagement associated with the resource.
-   * </p>
+   * <p> A unique identifier for the engagement associated with the resource. </p>
    * @public
    */
   EngagementId?: string | undefined;
 
   /**
-   * <p>
-   *     Categorizes the type of resource associated with the engagement.
-   * </p>
+   * <p> Categorizes the type of resource associated with the engagement. </p>
    * @public
    */
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>
-   *     A unique identifier for the specific resource. Varies depending on the resource
-   *     type.
-   * </p>
+   * <p> A unique identifier for the specific resource. Varies depending on the resource type.
+   *         </p>
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>
-   *     The AWS account ID of the entity that created the association.
-   * </p>
+   * <p>The AWS account ID of the entity that owns the resource. Identifies the account
+   *             responsible for or having primary control over the resource. </p>
    * @public
    */
   CreatedBy?: string | undefined;
@@ -6565,18 +6309,14 @@ export interface EngagementResourceAssociationSummary {
  */
 export interface ListEngagementResourceAssociationsResponse {
   /**
-   * <p>
-   *     A list of engagement-resource association summaries.
-   * </p>
+   * <p> A list of engagement-resource association summaries. </p>
    * @public
    */
   EngagementResourceAssociationSummaries: EngagementResourceAssociationSummary[] | undefined;
 
   /**
-   * <p>
-   *     A token to retrieve the next set of results. Use this token in a subsequent request to
-   *     retrieve additional results if the response was truncated.
-   * </p>
+   * <p> A token to retrieve the next set of results. Use this token in a subsequent request
+   *             to retrieve additional results if the response was truncated. </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -6587,95 +6327,74 @@ export interface ListEngagementResourceAssociationsResponse {
  */
 export interface ListResourceSnapshotsRequest {
   /**
-   * <p>
-   *     Specifies the catalog related to the request.
-   * </p>
+   * <p> Specifies the catalog related to the request. </p>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     The maximum number of results to return in a single call.
-   * </p>
+   * <p> The maximum number of results to return in a single call. </p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>
-   *     The token for the next set of results.
-   * </p>
+   * <p> The token for the next set of results. </p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>
-   *     The unique identifier of the engagement associated with the snapshots.
-   * </p>
+   * <p> The unique identifier of the engagement associated with the snapshots. </p>
    * @public
    */
   EngagementIdentifier: string | undefined;
 
   /**
-   * <p>
-   *     Filters the response to include only snapshots of the specified resource type.
-   * </p>
+   * <p> Filters the response to include only snapshots of the specified resource type.
+   *         </p>
    * @public
    */
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>
-   *     Filters the response to include only snapshots of the specified resource.
-   * </p>
+   * <p> Filters the response to include only snapshots of the specified resource. </p>
    * @public
    */
   ResourceIdentifier?: string | undefined;
 
   /**
-   * <p>
-   *     Filters the response to include only snapshots created using the specified
-   *     template.
-   * </p>
+   * <p>Filters the response to include only snapshots created using the specified
+   *             template.</p>
    * @public
    */
   ResourceSnapshotTemplateIdentifier?: string | undefined;
 
   /**
-   * <p>
-   *     Filters the response to include only snapshots of resources created by the specified AWS
-   *     account.
-   * </p>
+   * <p>Filters the response to include only snapshots of resources owned by the specified
+   *             AWS account. </p>
    * @public
    */
   CreatedBy?: string | undefined;
 }
 
 /**
- * <p>
- *     Provides a concise summary of a resource snapshot, including its unique identifier and
- *     version information. This structure is used to quickly reference and identify specific
- *     versions of resource snapshots.
- * </p>
+ * <p> Provides a concise summary of a resource snapshot, including its unique identifier
+ *             and version information. This structure is used to quickly reference and identify
+ *             specific versions of resource snapshots. </p>
  * @public
  */
 export interface ResourceSnapshotSummary {
   /**
-   * <p>
-   *     The Amazon Resource Name (ARN) of the snapshot. This globally unique identifier can be
-   *     used for cross-service references and in IAM policies.
-   * </p>
+   * <p> The Amazon Resource Name (ARN) of the snapshot. This globally unique identifier can
+   *             be used for cross-service references and in IAM policies. </p>
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>
-   *     The revision number of the snapshot. This integer value is incremented each time the
-   *     snapshot is updated, allowing for version tracking of the resource snapshot.
-   * </p>
+   * <p>The revision number of the snapshot. This integer value is incremented each time the
+   *             snapshot is updated, allowing for version tracking of the resource snapshot. </p>
    * @public
    */
   Revision?: number | undefined;
@@ -6688,7 +6407,7 @@ export interface ResourceSnapshotSummary {
 
   /**
    * <p>The identifier of the specific resource snapshotted. The format might vary depending
-   *         on the ResourceType. </p>
+   *             on the ResourceType. </p>
    * @public
    */
   ResourceId?: string | undefined;
@@ -6700,8 +6419,8 @@ export interface ResourceSnapshotSummary {
   ResourceSnapshotTemplateName?: string | undefined;
 
   /**
-   * <p>The AWS account ID of the principal (user or role) who created the snapshot. This
-   *         helps in tracking the origin of the snapshot. </p>
+   * <p>The AWS account ID of the entity that owns the resource from which the snapshot was
+   *             created.</p>
    * @public
    */
   CreatedBy?: string | undefined;
@@ -6712,18 +6431,14 @@ export interface ResourceSnapshotSummary {
  */
 export interface ListResourceSnapshotsResponse {
   /**
-   * <p>
-   *     An array of resource snapshot summary objects.
-   * </p>
+   * <p> An array of resource snapshot summary objects. </p>
    * @public
    */
   ResourceSnapshotSummaries: ResourceSnapshotSummary[] | undefined;
 
   /**
-   * <p>
-   *     The token to retrieve the next set of results. If there are no additional results,
-   *     this value is null.
-   * </p>
+   * <p> The token to retrieve the next set of results. If there are no additional results,
+   *             this value is null. </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -6734,57 +6449,52 @@ export interface ListResourceSnapshotsResponse {
  */
 export interface CreateResourceSnapshotJobRequest {
   /**
-   * <p>
-   *     Specifies the catalog in which to create the snapshot job. Valid values are
-   *     <code>AWS</code> and <code> Sandbox</code>.
-   * </p>
+   * <p>Specifies the catalog in which to create the snapshot job. Valid values are
+   *                 <code>AWS</code> and <code> Sandbox</code>.</p>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     Specifies a unique, client-generated UUID to ensure that the request is handled exactly once.
-   *     This token helps prevent duplicate snapshot job creations.
-   * </p>
+   * <p>A client-generated UUID used for idempotency check. The token helps prevent duplicate
+   *             job creations.</p>
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>
-   *     Specifies the identifier of the engagement associated with the resource to be
-   *     snapshotted.
-   * </p>
+   * <p>Specifies the identifier of the engagement associated with the resource to be
+   *             snapshotted.</p>
    * @public
    */
   EngagementIdentifier: string | undefined;
 
   /**
-   * <p>
-   *     The type of resource for which the snapshot job is being created. Must be one of the
-   *     supported resource types  <code>Opportunity</code>.
-   * </p>
+   * <p>The type of resource for which the snapshot job is being created. Must be one of the
+   *             supported resource types i.e. <code>Opportunity</code>
+   *          </p>
    * @public
    */
   ResourceType: ResourceType | undefined;
 
   /**
-   * <p>
-   *     Specifies the identifier of the specific resource to be snapshotted. The format
-   *     depends on the <code>ResourceType</code>.
-   * </p>
+   * <p>Specifies the identifier of the specific resource to be snapshotted. The format
+   *             depends on the <code> ResourceType</code>.</p>
    * @public
    */
   ResourceIdentifier: string | undefined;
 
   /**
-   * <p>
-   *     Specifies the name of the template that defines the schema for the snapshot.
-   * </p>
+   * <p>Specifies the name of the template that defines the schema for the snapshot.</p>
    * @public
    */
   ResourceSnapshotTemplateIdentifier: string | undefined;
+
+  /**
+   * A list of objects specifying each tag name and value.
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -6792,17 +6502,13 @@ export interface CreateResourceSnapshotJobRequest {
  */
 export interface CreateResourceSnapshotJobResponse {
   /**
-   * <p>
-   *     The unique identifier for the created snapshot job.
-   * </p>
+   * <p>The unique identifier for the created snapshot job.</p>
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   *     The Amazon Resource Name (ARN) of the created snapshot job.
-   * </p>
+   * <p>The Amazon Resource Name (ARN) of the created snapshot job.</p>
    * @public
    */
   Arn?: string | undefined;
@@ -6813,18 +6519,14 @@ export interface CreateResourceSnapshotJobResponse {
  */
 export interface DeleteResourceSnapshotJobRequest {
   /**
-   * <p>
-   *     Specifies the catalog from which to delete the snapshot job. Valid values are
-   *     <code>AWS</code> and <code>Sandbox</code>.
-   * </p>
+   * <p> Specifies the catalog from which to delete the snapshot job. Valid values are
+   *                 <code>AWS</code> and <code>Sandbox</code>. </p>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     The unique identifier of the resource snapshot job to be deleted.
-   * </p>
+   * <p> The unique identifier of the resource snapshot job to be deleted. </p>
    * @public
    */
   ResourceSnapshotJobIdentifier: string | undefined;
@@ -6835,16 +6537,14 @@ export interface DeleteResourceSnapshotJobRequest {
  */
 export interface GetResourceSnapshotJobRequest {
   /**
-   * <p>
-   *     Specifies the catalog related to the request. Valid values are:
-   * </p>
+   * <p>Specifies the catalog related to the request. Valid values are:</p>
    *          <ul>
    *             <li>
    *                <p> AWS: Retrieves the snapshot job from the production AWS environment. </p>
    *             </li>
    *             <li>
    *                <p> Sandbox: Retrieves the snapshot job from a sandbox environment used for
-   *                 testing or development purposes. </p>
+   *                     testing or development purposes. </p>
    *             </li>
    *          </ul>
    * @public
@@ -6852,10 +6552,8 @@ export interface GetResourceSnapshotJobRequest {
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     The unique identifier of the resource snapshot job to be retrieved. This identifier is
-   *     crucial for pinpointing the specific job you want to query.
-   * </p>
+   * <p>The unique identifier of the resource snapshot job to be retrieved. This identifier is
+   *             crucial for pinpointing the specific job you want to query. </p>
    * @public
    */
   ResourceSnapshotJobIdentifier: string | undefined;
@@ -6880,96 +6578,76 @@ export type ResourceSnapshotJobStatus = (typeof ResourceSnapshotJobStatus)[keyof
  */
 export interface GetResourceSnapshotJobResponse {
   /**
-   * <p>
-   *     The catalog in which the snapshot job was created. This will match the catalog
-   *     specified in the request.
-   * </p>
+   * <p>The catalog in which the snapshot job was created. This will match the Catalog
+   *             specified in the request. </p>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     The unique identifier of the snapshot job. This matches the
-   *     <code>ResourceSnapshotJobIdentifier</code> provided in the request.
-   * </p>
+   * <p>The unique identifier of the snapshot job. This matches the
+   *             ResourceSnapshotJobIdentifier provided in the request. </p>
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   *     he Amazon Resource Name (ARN) of the snapshot job. This globally unique identifier
-   *     can be used for resource-specific operations across AWS services.
-   * </p>
+   * <p>The Amazon Resource Name (ARN) of the snapshot job. This globally unique identifier
+   *             can be used for resource-specific operations across AWS services. </p>
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>
-   *     The identifier of the engagement associated with this snapshot job. This links the job
-   *     to a specific engagement context.
-   * </p>
+   * <p>The identifier of the engagement associated with this snapshot job. This links the job
+   *             to a specific engagement context. </p>
    * @public
    */
   EngagementId?: string | undefined;
 
   /**
-   * <p>
-   *     The type of resource being snapshotted. This would have <code>Opportunity</code> as a value as it
-   *     is dependent on the supported resource type.
-   * </p>
+   * <p>The type of resource being snapshotted. This would have "Opportunity" as a value as it
+   *             is dependent on the supported resource type.</p>
    * @public
    */
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>
-   *     The identifier of the specific resource being snapshotted. The format may vary
-   *     depending on the <code>ResourceType</code>.
-   * </p>
+   * <p>The identifier of the specific resource being snapshotted. The format might vary
+   *             depending on the ResourceType. </p>
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>
-   *     The Amazon Resource Name (ARN) of the resource being snapshotted. This provides a
-   *     globally unique identifier for the resource across AWS.
-   * </p>
+   * <p>The Amazon Resource Name (ARN) of the resource being snapshotted. This provides a
+   *             globally unique identifier for the resource across AWS. </p>
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>
-   *     The name of the template used for creating the snapshot. This is the same as the
-   *     template name. It defines the structure and content of the snapshot.
-   * </p>
+   * <p>The name of the template used for creating the snapshot. This is the same as the
+   *             template name. It defines the structure and content of the snapshot.</p>
    * @public
    */
   ResourceSnapshotTemplateName?: string | undefined;
 
   /**
-   * <p>
-   *     The date and time when the snapshot job was created, in ISO 8601 format (UTC).
-   *     Example: "2023-05-01T20:37:46Z"
-   * </p>
+   * <p>The date and time when the snapshot job was created in ISO 8601 format (UTC).
+   *             Example: "2023-05-01T20:37:46Z" </p>
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *     The current status of the snapshot job. Valid values:
-   * </p>
+   * <p>The current status of the snapshot job. Valid values:</p>
    *          <ul>
    *             <li>
-   *                <p> STOPPED: The job is not currently running. </p>
+   *                <p>STOPPED: The job is not currently running.</p>
    *             </li>
    *             <li>
-   *                <p> RUNNING: The job is actively executing. </p>
+   *                <p>RUNNING: The job is actively executing.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6977,19 +6655,16 @@ export interface GetResourceSnapshotJobResponse {
   Status?: ResourceSnapshotJobStatus | undefined;
 
   /**
-   * <p>
-   *     The date and time of the last successful execution of the job, in ISO 8601 format
-   *     (UTC). Example: "2023-05-01T20:37:46Z"
-   * </p>
+   * <p>The date and time of the last successful execution of the job, in ISO 8601 format
+   *             (UTC). Example: "2023-05-01T20:37:46Z" </p>
    * @public
    */
   LastSuccessfulExecutionDate?: Date | undefined;
 
   /**
-   * <p>
-   *     If the job has encountered any failures, this field contains the error message from
-   *     the most recent failure. This can be useful for troubleshooting issues with the job.
-   * </p>
+   * <p>If the job has encountered any failures, this field contains the error message from
+   *             the most recent failure. This can be useful for troubleshooting issues with the job.
+   *         </p>
    * @public
    */
   LastFailure?: string | undefined;
@@ -7009,25 +6684,19 @@ export const SortBy = {
 export type SortBy = (typeof SortBy)[keyof typeof SortBy];
 
 /**
- * <p>
- *     Defines the sorting parameters for listing resource snapshot jobs. This structure
- *     allows you to specify the field to sort by and the order of sorting.
- * </p>
+ * <p> Defines the sorting parameters for listing resource snapshot jobs. This structure
+ *             allows you to specify the field to sort by and the order of sorting. </p>
  * @public
  */
 export interface SortObject {
   /**
-   * <p>
-   *     Specifies the field by which to sort the resource snapshot jobs.
-   * </p>
+   * <p> Specifies the field by which to sort the resource snapshot jobs. </p>
    * @public
    */
   SortBy?: SortBy | undefined;
 
   /**
-   * <p>
-   *     Determines the order in which the sorted results are presented.
-   * </p>
+   * <p> Determines the order in which the sorted results are presented. </p>
    * @public
    */
   SortOrder?: SortOrder | undefined;
@@ -7038,93 +6707,80 @@ export interface SortObject {
  */
 export interface ListResourceSnapshotJobsRequest {
   /**
-   * <p>
-   *     Specifies the catalog related to the request.
-   * </p>
+   * <p> Specifies the catalog related to the request. </p>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     The maximum number of results to return in a single call. If omitted, defaults to
-   *     50.
-   * </p>
+   * <p> The maximum number of results to return in a single call. If omitted, defaults to 50.
+   *         </p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>
-   *     The token for the next set of results.
-   * </p>
+   * <p> The token for the next set of results. </p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>
-   *     The identifier of the engagement to filter the response.
-   * </p>
+   * <p> The identifier of the engagement to filter the response. </p>
    * @public
    */
   EngagementIdentifier?: string | undefined;
 
   /**
-   * <p>
-   *     The status of the jobs to filter the response.
-   * </p>
+   * <p> The status of the jobs to filter the response. </p>
    * @public
    */
   Status?: ResourceSnapshotJobStatus | undefined;
 
   /**
-   * <p>
-   *     Configures the sorting of the response. If omitted, results are sorted by <code>CreatedDate</code>
-   *     in descending order.
-   * </p>
+   * <p> Configures the sorting of the response. If omitted, results are sorted by
+   *                 <code>CreatedDate</code> in descending order. </p>
    * @public
    */
   Sort?: SortObject | undefined;
 }
 
 /**
- * <p>
- *     An object that contains a <code>Resource Snapshot Job</code>'s subset of fields.
- * </p>
+ * <p> An object that contains a <code>Resource Snapshot Job</code>'s subset of fields.
+ *         </p>
  * @public
  */
 export interface ResourceSnapshotJobSummary {
   /**
-   * <p>
-   *     The unique identifier for the resource snapshot job within the AWS Partner Central
-   *     system. This ID is used for direct references to the job within the service.
-   * </p>
+   * <p> The unique identifier for the resource snapshot job within the AWS Partner Central
+   *             system. This ID is used for direct references to the job within the service. </p>
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   *     The Amazon Resource Name (ARN) for the resource snapshot job.
-   * </p>
+   * <p> The Amazon Resource Name (ARN) for the resource snapshot job. </p>
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>
-   *     The unique identifier for the engagement within the AWS Partner Central
-   *     system. This ID is used for direct references to the engagement within the service.
-   * </p>
+   * <p>The unique identifier of the Engagement.</p>
    * @public
    */
   EngagementId?: string | undefined;
 
   /**
-   * <p>
-   *     Represents the current status of the resource snapshot job.
-   * </p>
+   * <p>The current status of the snapshot job.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p> STOPPED: The job is not currently running. </p>
+   *             </li>
+   *             <li>
+   *                <p> RUNNING: The job is actively executing. </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Status?: ResourceSnapshotJobStatus | undefined;
@@ -7135,18 +6791,14 @@ export interface ResourceSnapshotJobSummary {
  */
 export interface ListResourceSnapshotJobsResponse {
   /**
-   * <p>
-   *     An array of resource snapshot job summary objects.
-   * </p>
+   * <p> An array of resource snapshot job summary objects. </p>
    * @public
    */
   ResourceSnapshotJobSummaries: ResourceSnapshotJobSummary[] | undefined;
 
   /**
-   * <p>
-   *     The token to retrieve the next set of results. If there are no additional results,
-   *     this value is null.
-   * </p>
+   * <p> The token to retrieve the next set of results. If there are no additional results,
+   *             this value is null. </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -7157,17 +6809,22 @@ export interface ListResourceSnapshotJobsResponse {
  */
 export interface StartResourceSnapshotJobRequest {
   /**
-   * <p>
-   *     Specifies the catalog related to the request.
-   * </p>
+   * <p>Specifies the catalog related to the request. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>AWS: Starts the request from the production AWS environment.</p>
+   *             </li>
+   *             <li>
+   *                <p>Sandbox: Starts the request from a sandbox environment used for testing or
+   *                     development purposes.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     The identifier of the resource snapshot job to start.
-   * </p>
+   * <p>The identifier of the resource snapshot job to start.</p>
    * @public
    */
   ResourceSnapshotJobIdentifier: string | undefined;
@@ -7178,17 +6835,22 @@ export interface StartResourceSnapshotJobRequest {
  */
 export interface StopResourceSnapshotJobRequest {
   /**
-   * <p>
-   *     Specifies the catalog related to the request.
-   * </p>
+   * <p>Specifies the catalog related to the request. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>AWS: Stops the request from the production AWS environment.</p>
+   *             </li>
+   *             <li>
+   *                <p>Sandbox: Stops the request from a sandbox environment used for testing or
+   *                     development purposes.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>
-   *     The identifier of the job to stop.
-   * </p>
+   * <p>The identifier of the job to stop.</p>
    * @public
    */
   ResourceSnapshotJobIdentifier: string | undefined;
@@ -7200,8 +6862,8 @@ export interface StopResourceSnapshotJobRequest {
 export interface GetSellingSystemSettingsRequest {
   /**
    * <p>Specifies the catalog in which the settings are defined. Acceptable values include
-   *         <code>AWS</code> for production and <code>Sandbox</code> for testing
-   *         environments.</p>
+   *                 <code>AWS</code> for production and <code>Sandbox</code> for testing
+   *             environments.</p>
    * @public
    */
   Catalog: string | undefined;
@@ -7213,8 +6875,8 @@ export interface GetSellingSystemSettingsRequest {
 export interface GetSellingSystemSettingsResponse {
   /**
    * <p>Specifies the catalog in which the settings are defined. Acceptable values include
-   *         <code>AWS</code> for production and <code>Sandbox</code> for testing
-   *         environments.</p>
+   *                 <code>AWS</code> for production and <code>Sandbox</code> for testing
+   *             environments.</p>
    * @public
    */
   Catalog: string | undefined;
@@ -7232,7 +6894,7 @@ export interface GetSellingSystemSettingsResponse {
 export interface PutSellingSystemSettingsRequest {
   /**
    * <p>Specifies the catalog in which the settings will be updated. Acceptable values include
-   *             <code>AWS</code> for production and <code>Sandbox</code> for testing
+   *                 <code>AWS</code> for production and <code>Sandbox</code> for testing
    *             environments.</p>
    * @public
    */
@@ -7251,7 +6913,7 @@ export interface PutSellingSystemSettingsRequest {
 export interface PutSellingSystemSettingsResponse {
   /**
    * <p>Specifies the catalog in which the settings are defined. Acceptable values include
-   *             <code>AWS</code> for production and <code>Sandbox</code> for testing
+   *                 <code>AWS</code> for production and <code>Sandbox</code> for testing
    *             environments.</p>
    * @public
    */
@@ -7398,9 +7060,7 @@ export interface SolutionBase {
   Id: string | undefined;
 
   /**
-   * <p>
-   *     The SolutionBase structure provides essential information about a solution.
-   * </p>
+   * <p> The SolutionBase structure provides essential information about a solution. </p>
    * @public
    */
   Arn?: string | undefined;
@@ -7458,6 +7118,51 @@ export interface ListSolutionsResponse {
    */
   NextToken?: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The keys of the key-value pairs for the tag or tags you want to remove from the
+   *             specified resource.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
 
 /**
  * @internal

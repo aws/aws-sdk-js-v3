@@ -32,12 +32,10 @@ export interface SubmitOpportunityCommandInput extends SubmitOpportunityRequest 
 export interface SubmitOpportunityCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>
- *     Use this action to submit an opportunity that was previously created by partner for
- *     AWS review. After you perform this action, the opportunity becomes non-editable until it
- *     is reviewed by AWS and has <code> LifeCycle.ReviewStatus </code> as either
- *     <code>Approved</code> or <code>Action Required</code>.
- * </p>
+ * <p>Use this action to submit an Opportunity that was previously created by partner for
+ *             AWS review. After you perform this action, the Opportunity becomes non-editable until it
+ *             is reviewed by AWS and has <code> LifeCycle.ReviewStatus </code> as either
+ *                 <code>Approved</code> or <code>Action Required</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

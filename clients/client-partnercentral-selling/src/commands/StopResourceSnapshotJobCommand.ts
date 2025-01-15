@@ -32,9 +32,7 @@ export interface StopResourceSnapshotJobCommandInput extends StopResourceSnapsho
 export interface StopResourceSnapshotJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>
- *     Stops a resource snapshot job. The job must be started prior to being stopped.
- * </p>
+ * <p>Stops a resource snapshot job. The job must be started prior to being stopped.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

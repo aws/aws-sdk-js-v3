@@ -32,9 +32,7 @@ export interface StartResourceSnapshotJobCommandInput extends StartResourceSnaps
 export interface StartResourceSnapshotJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>
- *     Starts a resource snapshot job that has been previously created.
- * </p>
+ * <p>Starts a resource snapshot job that has been previously created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

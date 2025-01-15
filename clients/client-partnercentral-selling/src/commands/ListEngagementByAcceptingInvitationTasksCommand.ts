@@ -41,10 +41,8 @@ export interface ListEngagementByAcceptingInvitationTasksCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *     Lists all in-progress, completed, or failed StartEngagementByAcceptingInvitationTask
- *     tasks that were initiated by the caller's account.
- * </p>
+ * <p> Lists all in-progress, completed, or failed StartEngagementByAcceptingInvitationTask
+ *             tasks that were initiated by the caller's account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,7 +80,7 @@ export interface ListEngagementByAcceptingInvitationTasksCommandOutput
  * //       StartTime: new Date("TIMESTAMP"),
  * //       TaskStatus: "IN_PROGRESS" || "COMPLETE" || "FAILED",
  * //       Message: "STRING_VALUE",
- * //       ReasonCode: "InvitationAccessDenied" || "InvitationValidationFailed" || "EngagementAccessDenied" || "OpportunityAccessDenied" || "ResourceSnapshotJobAccessDenied" || "ResourceSnapshotJobValidationFailed" || "ResourceSnapshotJobConflict" || "EngagementValidationFailed" || "EngagementConflict" || "OpportunitySubmissionFailed" || "EngagementInvitationConflict" || "OpportunityValidationFailed" || "OpportunityConflict" || "ResourceSnapshotAccessDenied" || "ResourceSnapshotValidationFailed" || "ResourceSnapshotConflict" || "InternalError" || "ServiceQuotaExceeded" || "RequestThrottled",
+ * //       ReasonCode: "InvitationAccessDenied" || "InvitationValidationFailed" || "EngagementAccessDenied" || "OpportunityAccessDenied" || "ResourceSnapshotJobAccessDenied" || "ResourceSnapshotJobValidationFailed" || "ResourceSnapshotJobConflict" || "EngagementValidationFailed" || "EngagementConflict" || "OpportunitySubmissionFailed" || "EngagementInvitationConflict" || "InternalError" || "OpportunityValidationFailed" || "OpportunityConflict" || "ResourceSnapshotAccessDenied" || "ResourceSnapshotValidationFailed" || "ResourceSnapshotConflict" || "ServiceQuotaExceeded" || "RequestThrottled",
  * //       OpportunityId: "STRING_VALUE",
  * //       ResourceSnapshotJobId: "STRING_VALUE",
  * //       EngagementInvitationId: "STRING_VALUE",

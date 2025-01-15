@@ -37,11 +37,9 @@ export interface ListEngagementsCommandInput extends ListEngagementsRequest {}
 export interface ListEngagementsCommandOutput extends ListEngagementsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *     This action allows users to retrieve a list of engagement records from Partner
- *     Central. This action can be used to manage and track various engagements across
- *     different stages of the partner selling process.
- * </p>
+ * <p>This action allows users to retrieve a list of Engagement records from Partner
+ *             Central. This action can be used to manage and track various engagements across
+ *             different stages of the partner selling process. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

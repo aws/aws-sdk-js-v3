@@ -42,10 +42,8 @@ export interface ListEngagementResourceAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *     Lists the associations between resources and engagements where the caller is a member
- *     and has at least one snapshot in the engagement.
- * </p>
+ * <p>Lists the associations between resources and engagements where the caller is a member
+ *             and has at least one snapshot in the engagement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

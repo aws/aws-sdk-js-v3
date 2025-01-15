@@ -5,13 +5,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListResourceSnapshotJobsRequest, ListResourceSnapshotJobsResponse } from "../models/models_0";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
 import {
   PartnerCentralSellingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { de_ListResourceSnapshotJobsCommand, se_ListResourceSnapshotJobsCommand } from "../protocols/Aws_json1_0";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -21,57 +21,43 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListResourceSnapshotJobsCommand}.
+ * The input for {@link TagResourceCommand}.
  */
-export interface ListResourceSnapshotJobsCommandInput extends ListResourceSnapshotJobsRequest {}
+export interface TagResourceCommandInput extends TagResourceRequest {}
 /**
  * @public
  *
- * The output of {@link ListResourceSnapshotJobsCommand}.
+ * The output of {@link TagResourceCommand}.
  */
-export interface ListResourceSnapshotJobsCommandOutput extends ListResourceSnapshotJobsResponse, __MetadataBearer {}
+export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p> Lists resource snapshot jobs owned by the customer. This operation supports various
- *             filtering scenarios, including listing all jobs owned by the caller, jobs for a specific
- *             engagement, jobs with a specific status, or any combination of these filters. </p>
+ * <p>Assigns one or more tags (key-value pairs) to the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PartnerCentralSellingClient, ListResourceSnapshotJobsCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
- * // const { PartnerCentralSellingClient, ListResourceSnapshotJobsCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * import { PartnerCentralSellingClient, TagResourceCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
+ * // const { PartnerCentralSellingClient, TagResourceCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
  * const client = new PartnerCentralSellingClient(config);
- * const input = { // ListResourceSnapshotJobsRequest
- *   Catalog: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   EngagementIdentifier: "STRING_VALUE",
- *   Status: "Running" || "Stopped",
- *   Sort: { // SortObject
- *     SortBy: "CreatedDate",
- *     SortOrder: "ASCENDING" || "DESCENDING",
- *   },
+ * const input = { // TagResourceRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
- * const command = new ListResourceSnapshotJobsCommand(input);
+ * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
- * // { // ListResourceSnapshotJobsResponse
- * //   ResourceSnapshotJobSummaries: [ // ResourceSnapshotJobSummaryList // required
- * //     { // ResourceSnapshotJobSummary
- * //       Id: "STRING_VALUE",
- * //       Arn: "STRING_VALUE",
- * //       EngagementId: "STRING_VALUE",
- * //       Status: "Running" || "Stopped",
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListResourceSnapshotJobsCommandInput - {@link ListResourceSnapshotJobsCommandInput}
- * @returns {@link ListResourceSnapshotJobsCommandOutput}
- * @see {@link ListResourceSnapshotJobsCommandInput} for command's `input` shape.
- * @see {@link ListResourceSnapshotJobsCommandOutput} for command's `response` shape.
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link PartnerCentralSellingClientResolvedConfig | config} for PartnerCentralSellingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -79,6 +65,19 @@ export interface ListResourceSnapshotJobsCommandOutput extends ListResourceSnaps
  *             action.</p>
  *          <p>You don’t have access to this action or resource. Review IAM policies or contact your
  *             AWS administrator for assistance.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This error occurs when the request can’t be processed due to a conflict with the
+ *             target resource's current state, which could result from updating or deleting the
+ *             resource.</p>
+ *          <p>Suggested action: Fetch the latest state of the resource, verify the state, and retry
+ *             the request.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This error occurs when the specified resource can’t be found or doesn't exist.
+ *             Resource ID and type might be incorrect.</p>
+ *          <p>Suggested action: This is usually a transient error. Retry after the provided retry
+ *             delay or a short interval. If the problem persists, contact AWS support.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This error occurs when the specified resource can't be found. The resource might not
@@ -102,10 +101,10 @@ export interface ListResourceSnapshotJobsCommandOutput extends ListResourceSnaps
  *
  * @public
  */
-export class ListResourceSnapshotJobsCommand extends $Command
+export class TagResourceCommand extends $Command
   .classBuilder<
-    ListResourceSnapshotJobsCommandInput,
-    ListResourceSnapshotJobsCommandOutput,
+    TagResourceCommandInput,
+    TagResourceCommandOutput,
     PartnerCentralSellingClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -117,21 +116,21 @@ export class ListResourceSnapshotJobsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSPartnerCentralSelling", "ListResourceSnapshotJobs", {})
-  .n("PartnerCentralSellingClient", "ListResourceSnapshotJobsCommand")
+  .s("AWSPartnerCentralSelling", "TagResource", {})
+  .n("PartnerCentralSellingClient", "TagResourceCommand")
   .f(void 0, void 0)
-  .ser(se_ListResourceSnapshotJobsCommand)
-  .de(de_ListResourceSnapshotJobsCommand)
+  .ser(se_TagResourceCommand)
+  .de(de_TagResourceCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListResourceSnapshotJobsRequest;
-      output: ListResourceSnapshotJobsResponse;
+      input: TagResourceRequest;
+      output: {};
     };
     sdk: {
-      input: ListResourceSnapshotJobsCommandInput;
-      output: ListResourceSnapshotJobsCommandOutput;
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
     };
   };
 }

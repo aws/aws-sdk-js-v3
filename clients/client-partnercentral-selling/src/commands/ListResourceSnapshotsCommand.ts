@@ -37,9 +37,26 @@ export interface ListResourceSnapshotsCommandInput extends ListResourceSnapshots
 export interface ListResourceSnapshotsCommandOutput extends ListResourceSnapshotsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *     Retrieves a list of resource view snapshots based on specified criteria.
- * </p>
+ * <p>Retrieves a list of resource view snapshots based on specified criteria. This
+ *             operation supports various use cases, including: </p>
+ *          <ul>
+ *             <li>
+ *                <p>Fetching all snapshots associated with an engagement.</p>
+ *             </li>
+ *             <li>
+ *                <p>Retrieving snapshots of a specific resource type within an engagement.</p>
+ *             </li>
+ *             <li>
+ *                <p>Obtaining snapshots for a particular resource using a specified
+ *                     template.</p>
+ *             </li>
+ *             <li>
+ *                <p>Accessing the latest snapshot of a resource within an engagement.</p>
+ *             </li>
+ *             <li>
+ *                <p>Filtering snapshots by resource owner.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -32,7 +32,8 @@ export interface GetSellingSystemSettingsCommandInput extends GetSellingSystemSe
 export interface GetSellingSystemSettingsCommandOutput extends GetSellingSystemSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the currently set system settings, which include the IAM Role used for resource snapshot jobs.</p>
+ * <p>Retrieves the currently set system settings, which include the IAM Role used for
+ *             resource snapshot jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

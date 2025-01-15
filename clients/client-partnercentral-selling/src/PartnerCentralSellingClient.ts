@@ -138,6 +138,10 @@ import {
 } from "./commands/ListResourceSnapshotsCommand";
 import { ListSolutionsCommandInput, ListSolutionsCommandOutput } from "./commands/ListSolutionsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   PutSellingSystemSettingsCommandInput,
   PutSellingSystemSettingsCommandOutput,
 } from "./commands/PutSellingSystemSettingsCommand";
@@ -162,6 +166,8 @@ import {
   StopResourceSnapshotJobCommandOutput,
 } from "./commands/StopResourceSnapshotJobCommand";
 import { SubmitOpportunityCommandInput, SubmitOpportunityCommandOutput } from "./commands/SubmitOpportunityCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateOpportunityCommandInput, UpdateOpportunityCommandOutput } from "./commands/UpdateOpportunityCommand";
 import {
   ClientInputEndpointParameters,
@@ -205,6 +211,7 @@ export type ServiceInputTypes =
   | ListResourceSnapshotJobsCommandInput
   | ListResourceSnapshotsCommandInput
   | ListSolutionsCommandInput
+  | ListTagsForResourceCommandInput
   | PutSellingSystemSettingsCommandInput
   | RejectEngagementInvitationCommandInput
   | StartEngagementByAcceptingInvitationTaskCommandInput
@@ -212,6 +219,8 @@ export type ServiceInputTypes =
   | StartResourceSnapshotJobCommandInput
   | StopResourceSnapshotJobCommandInput
   | SubmitOpportunityCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateOpportunityCommandInput;
 
 /**
@@ -245,6 +254,7 @@ export type ServiceOutputTypes =
   | ListResourceSnapshotJobsCommandOutput
   | ListResourceSnapshotsCommandOutput
   | ListSolutionsCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutSellingSystemSettingsCommandOutput
   | RejectEngagementInvitationCommandOutput
   | StartEngagementByAcceptingInvitationTaskCommandOutput
@@ -252,6 +262,8 @@ export type ServiceOutputTypes =
   | StartResourceSnapshotJobCommandOutput
   | StopResourceSnapshotJobCommandOutput
   | SubmitOpportunityCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateOpportunityCommandOutput;
 
 /**

@@ -50,8 +50,8 @@ export interface CreateOpportunityCommandOutput extends CreateOpportunityRespons
  *                         <code>AssociateOpportunity</code>.</p>
  *             </li>
  *             <li>
- *                <p>To submit the opportunity, use
- *                     <code>StartEngagementFromOpportunityTask</code>.</p>
+ *                <p>To start the engagement with AWS, use
+ *                 <code>StartEngagementFromOpportunity</code>.</p>
  *             </li>
  *          </ol>
  *          <p>After submission, you can't edit the opportunity until the review is complete. But

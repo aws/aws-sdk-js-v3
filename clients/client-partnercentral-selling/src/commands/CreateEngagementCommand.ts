@@ -36,11 +36,11 @@ export interface CreateEngagementCommandInput extends CreateEngagementRequest {}
 export interface CreateEngagementCommandOutput extends CreateEngagementResponse, __MetadataBearer {}
 
 /**
- * <p>
- *     The <code>CreateEngagement</code> action allows you to create an <code>Engagement</code>,
- *     which serves as a collaborative space between different parties such as AWS Partners and AWS Sellers.
- *     This action automatically adds the caller's AWS account as an active member of the newly created <code>Engagement</code>.
- * </p>
+ * <p>The <code>CreateEngagement</code> action allows you to create an
+ *                 <code>Engagement</code>, which serves as a collaborative space between different
+ *             parties such as AWS Partners and AWS Sellers. This action automatically adds the
+ *             caller's AWS account as an active member of the newly created
+ *             <code>Engagement</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

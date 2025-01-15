@@ -57,6 +57,12 @@ export interface StartEngagementByAcceptingInvitationTaskCommandOutput
  *   Catalog: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE", // required
  *   Identifier: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new StartEngagementByAcceptingInvitationTaskCommand(input);
  * const response = await client.send(command);
@@ -66,7 +72,7 @@ export interface StartEngagementByAcceptingInvitationTaskCommandOutput
  * //   StartTime: new Date("TIMESTAMP"),
  * //   TaskStatus: "IN_PROGRESS" || "COMPLETE" || "FAILED",
  * //   Message: "STRING_VALUE",
- * //   ReasonCode: "InvitationAccessDenied" || "InvitationValidationFailed" || "EngagementAccessDenied" || "OpportunityAccessDenied" || "ResourceSnapshotJobAccessDenied" || "ResourceSnapshotJobValidationFailed" || "ResourceSnapshotJobConflict" || "EngagementValidationFailed" || "EngagementConflict" || "OpportunitySubmissionFailed" || "EngagementInvitationConflict" || "OpportunityValidationFailed" || "OpportunityConflict" || "ResourceSnapshotAccessDenied" || "ResourceSnapshotValidationFailed" || "ResourceSnapshotConflict" || "InternalError" || "ServiceQuotaExceeded" || "RequestThrottled",
+ * //   ReasonCode: "InvitationAccessDenied" || "InvitationValidationFailed" || "EngagementAccessDenied" || "OpportunityAccessDenied" || "ResourceSnapshotJobAccessDenied" || "ResourceSnapshotJobValidationFailed" || "ResourceSnapshotJobConflict" || "EngagementValidationFailed" || "EngagementConflict" || "OpportunitySubmissionFailed" || "EngagementInvitationConflict" || "InternalError" || "OpportunityValidationFailed" || "OpportunityConflict" || "ResourceSnapshotAccessDenied" || "ResourceSnapshotValidationFailed" || "ResourceSnapshotConflict" || "ServiceQuotaExceeded" || "RequestThrottled",
  * //   OpportunityId: "STRING_VALUE",
  * //   ResourceSnapshotJobId: "STRING_VALUE",
  * //   EngagementInvitationId: "STRING_VALUE",

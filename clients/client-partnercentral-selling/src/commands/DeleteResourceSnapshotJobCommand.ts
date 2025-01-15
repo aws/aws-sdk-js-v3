@@ -32,10 +32,8 @@ export interface DeleteResourceSnapshotJobCommandInput extends DeleteResourceSna
 export interface DeleteResourceSnapshotJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>
- *     Use this action to deletes a previously created resource snapshot job. The job must be
- *     in a stopped state before it can be deleted.
- * </p>
+ * <p> Use this action to deletes a previously created resource snapshot job. The job must
+ *             be in a stopped state before it can be deleted. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,6 +61,13 @@ export interface DeleteResourceSnapshotJobCommandOutput extends __MetadataBearer
  *             action.</p>
  *          <p>You don’t have access to this action or resource. Review IAM policies or contact your
  *             AWS administrator for assistance.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This error occurs when the request can’t be processed due to a conflict with the
+ *             target resource's current state, which could result from updating or deleting the
+ *             resource.</p>
+ *          <p>Suggested action: Fetch the latest state of the resource, verify the state, and retry
+ *             the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This error occurs when the specified resource can't be found. The resource might not

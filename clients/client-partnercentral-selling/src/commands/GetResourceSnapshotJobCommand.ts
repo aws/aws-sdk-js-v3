@@ -32,10 +32,8 @@ export interface GetResourceSnapshotJobCommandInput extends GetResourceSnapshotJ
 export interface GetResourceSnapshotJobCommandOutput extends GetResourceSnapshotJobResponse, __MetadataBearer {}
 
 /**
- * <p>
- *     Use this action to retrieves information about a specific resource snapshot
- *     job.
- * </p>
+ * <p>Use this action to retrieves information about a specific resource snapshot
+ *             job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

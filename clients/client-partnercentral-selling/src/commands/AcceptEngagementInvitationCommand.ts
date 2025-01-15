@@ -32,11 +32,10 @@ export interface AcceptEngagementInvitationCommandInput extends AcceptEngagement
 export interface AcceptEngagementInvitationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>
- *     Use the <code>AcceptEngagementInvitation</code> action to accept an engagement invitation shared by AWS.
- *     Accepting the invitation indicates your willingness to participate in the engagement,
- *     granting you access to all engagement-related data.
- * </p>
+ * <p>Use the <code>AcceptEngagementInvitation</code> action to accept an engagement
+ *             invitation shared by AWS. Accepting the invitation indicates your willingness to
+ *             participate in the engagement, granting you access to all engagement-related
+ *             data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,6 +63,13 @@ export interface AcceptEngagementInvitationCommandOutput extends __MetadataBeare
  *             action.</p>
  *          <p>You don’t have access to this action or resource. Review IAM policies or contact your
  *             AWS administrator for assistance.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This error occurs when the request can’t be processed due to a conflict with the
+ *             target resource's current state, which could result from updating or deleting the
+ *             resource.</p>
+ *          <p>Suggested action: Fetch the latest state of the resource, verify the state, and retry
+ *             the request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This error occurs when the specified resource can’t be found or doesn't exist.

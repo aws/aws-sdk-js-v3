@@ -36,12 +36,10 @@ export interface ListEngagementMembersCommandInput extends ListEngagementMembers
 export interface ListEngagementMembersCommandOutput extends ListEngagementMembersResponse, __MetadataBearer {}
 
 /**
- * <p>
- *     Retrieves the details of member partners in an engagement. This operation can only be
- *     invoked by members of the engagement. The <code>ListEngagementMembers</code> operation allows you to
- *     fetch information about the members of a specific engagement. This action is restricted
- *     to members of the engagement being queried.
- * </p>
+ * <p>Retrieves the details of member partners in an Engagement. This operation can only be
+ *             invoked by members of the Engagement. The <code>ListEngagementMembers</code> operation
+ *             allows you to fetch information about the members of a specific Engagement. This action
+ *             is restricted to members of the Engagement being queried. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

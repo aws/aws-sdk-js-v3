@@ -32,10 +32,9 @@ export interface CreateResourceSnapshotCommandInput extends CreateResourceSnapsh
 export interface CreateResourceSnapshotCommandOutput extends CreateResourceSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>
- *     This action allows you to create an immutable snapshot of a specific resource, such as an opportunity,
- *     within the context of an engagement.
- *     The snapshot captures a subset of the resource's data based on the schema defined by the provided template.</p>
+ * <p> This action allows you to create an immutable snapshot of a specific resource, such
+ *             as an opportunity, within the context of an engagement. The snapshot captures a subset
+ *             of the resource's data based on the schema defined by the provided template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
