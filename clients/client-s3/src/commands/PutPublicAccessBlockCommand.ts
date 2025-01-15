@@ -78,7 +78,7 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  * const input = { // PutPublicAccessBlockRequest
  *   Bucket: "STRING_VALUE", // required
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
  *     BlockPublicAcls: true || false,
  *     IgnorePublicAcls: true || false,

@@ -326,7 +326,6 @@ import {
   CompletedPart,
   Condition,
   CopyObjectResult,
-  CORSConfiguration,
   CORSRule,
   CreateBucketConfiguration,
   DefaultRetention,
@@ -434,6 +433,7 @@ import {
   BucketLoggingStatus,
   ContinuationEvent,
   CopyPartResult,
+  CORSConfiguration,
   CSVInput,
   CSVOutput,
   Encryption,
@@ -506,8 +506,11 @@ export const se_CompleteMultipartUploadCommand = async (
     "content-type": "application/xml",
     [_xacc]: input[_CCRC]!,
     [_xacc_]: input[_CCRCC]!,
+    [_xacc__]: input[_CCRCNVME]!,
     [_xacs]: input[_CSHA]!,
     [_xacs_]: input[_CSHAh]!,
+    [_xact]: input[_CT]!,
+    [_xamos]: input[_MOS]!,
     [_xarp]: input[_RP]!,
     [_xaebo]: input[_EBO]!,
     [_im]: input[_IM]!,
@@ -550,7 +553,7 @@ export const se_CopyObjectCommand = async (
     [_cd]: input[_CD]!,
     [_ce]: input[_CE]!,
     [_cl]: input[_CL]!,
-    [_ct]: input[_CT]!,
+    [_ct]: input[_CTo]!,
     [_xacs__]: input[_CS]!,
     [_xacsim]: input[_CSIM]!,
     [_xacsims]: [() => isSerializableHeaderValue(input[_CSIMS]), () => __dateToUtcString(input[_CSIMS]!).toString()],
@@ -677,7 +680,7 @@ export const se_CreateMultipartUploadCommand = async (
     [_cd]: input[_CD]!,
     [_ce]: input[_CE]!,
     [_cl]: input[_CL]!,
-    [_ct]: input[_CT]!,
+    [_ct]: input[_CTo]!,
     [_e]: [() => isSerializableHeaderValue(input[_E]), () => __dateToUtcString(input[_E]!).toString()],
     [_xagfc]: input[_GFC]!,
     [_xagr]: input[_GR]!,
@@ -699,6 +702,7 @@ export const se_CreateMultipartUploadCommand = async (
     [_xaollh]: input[_OLLHS]!,
     [_xaebo]: input[_EBO]!,
     [_xaca]: input[_CA]!,
+    [_xact]: input[_CT]!,
     ...(input.Metadata !== undefined &&
       Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
         acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
@@ -1892,7 +1896,7 @@ export const se_ListBucketAnalyticsConfigurationsCommand = async (
   const query: any = map({
     [_a]: [, ""],
     [_xi]: [, "ListBucketAnalyticsConfigurations"],
-    [_ct_]: [, input[_CTo]!],
+    [_ct_]: [, input[_CTon]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1913,7 +1917,7 @@ export const se_ListBucketIntelligentTieringConfigurationsCommand = async (
   const query: any = map({
     [_it]: [, ""],
     [_xi]: [, "ListBucketIntelligentTieringConfigurations"],
-    [_ct_]: [, input[_CTo]!],
+    [_ct_]: [, input[_CTon]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1936,7 +1940,7 @@ export const se_ListBucketInventoryConfigurationsCommand = async (
   const query: any = map({
     [_in]: [, ""],
     [_xi]: [, "ListBucketInventoryConfigurations"],
-    [_ct_]: [, input[_CTo]!],
+    [_ct_]: [, input[_CTon]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1959,7 +1963,7 @@ export const se_ListBucketMetricsConfigurationsCommand = async (
   const query: any = map({
     [_m]: [, ""],
     [_xi]: [, "ListBucketMetricsConfigurations"],
-    [_ct_]: [, input[_CTo]!],
+    [_ct_]: [, input[_CTon]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1979,7 +1983,7 @@ export const se_ListBucketsCommand = async (
   const query: any = map({
     [_xi]: [, "ListBuckets"],
     [_mb]: [() => input.MaxBuckets !== void 0, () => input[_MB]!.toString()],
-    [_ct_]: [, input[_CTo]!],
+    [_ct_]: [, input[_CTon]!],
     [_pr]: [, input[_P]!],
     [_br]: [, input[_BR]!],
   });
@@ -2000,7 +2004,7 @@ export const se_ListDirectoryBucketsCommand = async (
   b.bp("/");
   const query: any = map({
     [_xi]: [, "ListDirectoryBuckets"],
-    [_ct_]: [, input[_CTo]!],
+    [_ct_]: [, input[_CTon]!],
     [_mdb]: [() => input.MaxDirectoryBuckets !== void 0, () => input[_MDB]!.toString()],
   });
   let body: any;
@@ -2084,7 +2088,7 @@ export const se_ListObjectsV2Command = async (
     [_et]: [, input[_ET]!],
     [_mk]: [() => input.MaxKeys !== void 0, () => input[_MK]!.toString()],
     [_pr]: [, input[_P]!],
-    [_ct_]: [, input[_CTo]!],
+    [_ct_]: [, input[_CTon]!],
     [_fo]: [() => input.FetchOwner !== void 0, () => input[_FO]!.toString()],
     [_sa]: [, input[_SA]!],
   });
@@ -2718,7 +2722,7 @@ export const se_PutObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_CT] || "application/octet-stream",
+    [_ct]: input[_CTo] || "application/octet-stream",
     [_xaa]: input[_ACL]!,
     [_cc]: input[_CC]!,
     [_cd]: input[_CD]!,
@@ -2729,6 +2733,7 @@ export const se_PutObjectCommand = async (
     [_xasca]: input[_CA]!,
     [_xacc]: input[_CCRC]!,
     [_xacc_]: input[_CCRCC]!,
+    [_xacc__]: input[_CCRCNVME]!,
     [_xacs]: input[_CSHA]!,
     [_xacs_]: input[_CSHAh]!,
     [_e]: [() => isSerializableHeaderValue(input[_E]), () => __dateToUtcString(input[_E]!).toString()],
@@ -3078,6 +3083,7 @@ export const se_UploadPartCommand = async (
     [_xasca]: input[_CA]!,
     [_xacc]: input[_CCRC]!,
     [_xacc_]: input[_CCRCC]!,
+    [_xacc__]: input[_CCRCNVME]!,
     [_xacs]: input[_CSHA]!,
     [_xacs_]: input[_CSHAh]!,
     [_xasseca]: input[_SSECA]!,
@@ -3165,9 +3171,10 @@ export const se_WriteGetObjectResponseCommand = async (
     [_xafhcl]: input[_CL]!,
     [_cl_]: [() => isSerializableHeaderValue(input[_CLo]), () => input[_CLo]!.toString()],
     [_xafhcr]: input[_CR]!,
-    [_xafhct]: input[_CT]!,
+    [_xafhct]: input[_CTo]!,
     [_xafhxacc]: input[_CCRC]!,
     [_xafhxacc_]: input[_CCRCC]!,
+    [_xafhxacc__]: input[_CCRCNVME]!,
     [_xafhxacs]: input[_CSHA]!,
     [_xafhxacs_]: input[_CSHAh]!,
     [_xafhxadm]: [() => isSerializableHeaderValue(input[_DM]), () => input[_DM]!.toString()],
@@ -3270,11 +3277,17 @@ export const de_CompleteMultipartUploadCommand = async (
   if (data[_CCRCC] != null) {
     contents[_CCRCC] = __expectString(data[_CCRCC]);
   }
+  if (data[_CCRCNVME] != null) {
+    contents[_CCRCNVME] = __expectString(data[_CCRCNVME]);
+  }
   if (data[_CSHA] != null) {
     contents[_CSHA] = __expectString(data[_CSHA]);
   }
   if (data[_CSHAh] != null) {
     contents[_CSHAh] = __expectString(data[_CSHAh]);
+  }
+  if (data[_CT] != null) {
+    contents[_CT] = __expectString(data[_CT]);
   }
   if (data[_ETa] != null) {
     contents[_ETa] = __expectString(data[_ETa]);
@@ -3376,6 +3389,7 @@ export const de_CreateMultipartUploadCommand = async (
     [_BKE]: [() => void 0 !== output.headers[_xassebke], () => __parseBoolean(output.headers[_xassebke])],
     [_RC]: [, output.headers[_xarc]],
     [_CA]: [, output.headers[_xaca]],
+    [_CT]: [, output.headers[_xact]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data[_B] != null) {
@@ -4198,8 +4212,10 @@ export const de_GetObjectCommand = async (
     [_ETa]: [, output.headers[_eta]],
     [_CCRC]: [, output.headers[_xacc]],
     [_CCRCC]: [, output.headers[_xacc_]],
+    [_CCRCNVME]: [, output.headers[_xacc__]],
     [_CSHA]: [, output.headers[_xacs]],
     [_CSHAh]: [, output.headers[_xacs_]],
+    [_CT]: [, output.headers[_xact]],
     [_MM]: [() => void 0 !== output.headers[_xamm], () => __strictParseInt32(output.headers[_xamm])],
     [_VI]: [, output.headers[_xavi]],
     [_CC]: [, output.headers[_cc]],
@@ -4207,7 +4223,7 @@ export const de_GetObjectCommand = async (
     [_CE]: [, output.headers[_ce]],
     [_CL]: [, output.headers[_cl]],
     [_CR]: [, output.headers[_cr]],
-    [_CT]: [, output.headers[_ct]],
+    [_CTo]: [, output.headers[_ct]],
     [_E]: [() => void 0 !== output.headers[_e], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_e]))],
     [_ES]: [, output.headers[_ex]],
     [_WRL]: [, output.headers[_xawrl]],
@@ -4462,8 +4478,10 @@ export const de_HeadObjectCommand = async (
     [_CLo]: [() => void 0 !== output.headers[_cl_], () => __strictParseLong(output.headers[_cl_])],
     [_CCRC]: [, output.headers[_xacc]],
     [_CCRCC]: [, output.headers[_xacc_]],
+    [_CCRCNVME]: [, output.headers[_xacc__]],
     [_CSHA]: [, output.headers[_xacs]],
     [_CSHAh]: [, output.headers[_xacs_]],
+    [_CT]: [, output.headers[_xact]],
     [_ETa]: [, output.headers[_eta]],
     [_MM]: [() => void 0 !== output.headers[_xamm], () => __strictParseInt32(output.headers[_xamm])],
     [_VI]: [, output.headers[_xavi]],
@@ -4471,7 +4489,7 @@ export const de_HeadObjectCommand = async (
     [_CD]: [, output.headers[_cd]],
     [_CE]: [, output.headers[_ce]],
     [_CL]: [, output.headers[_cl]],
-    [_CT]: [, output.headers[_ct]],
+    [_CTo]: [, output.headers[_ct]],
     [_E]: [() => void 0 !== output.headers[_e], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_e]))],
     [_ES]: [, output.headers[_ex]],
     [_WRL]: [, output.headers[_xawrl]],
@@ -4523,8 +4541,8 @@ export const de_ListBucketAnalyticsConfigurationsCommand = async (
   } else if (data[_AC] != null) {
     contents[_ACLn] = de_AnalyticsConfigurationList(__getArrayIfSingleItem(data[_AC]), context);
   }
-  if (data[_CTo] != null) {
-    contents[_CTo] = __expectString(data[_CTo]);
+  if (data[_CTon] != null) {
+    contents[_CTon] = __expectString(data[_CTon]);
   }
   if (data[_IT] != null) {
     contents[_IT] = __parseBoolean(data[_IT]);
@@ -4549,8 +4567,8 @@ export const de_ListBucketIntelligentTieringConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data[_CTo] != null) {
-    contents[_CTo] = __expectString(data[_CTo]);
+  if (data[_CTon] != null) {
+    contents[_CTon] = __expectString(data[_CTon]);
   }
   if (data.IntelligentTieringConfiguration === "") {
     contents[_ITCL] = [];
@@ -4580,8 +4598,8 @@ export const de_ListBucketInventoryConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data[_CTo] != null) {
-    contents[_CTo] = __expectString(data[_CTo]);
+  if (data[_CTon] != null) {
+    contents[_CTon] = __expectString(data[_CTon]);
   }
   if (data.InventoryConfiguration === "") {
     contents[_ICL] = [];
@@ -4611,8 +4629,8 @@ export const de_ListBucketMetricsConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data[_CTo] != null) {
-    contents[_CTo] = __expectString(data[_CTo]);
+  if (data[_CTon] != null) {
+    contents[_CTon] = __expectString(data[_CTon]);
   }
   if (data[_IT] != null) {
     contents[_IT] = __parseBoolean(data[_IT]);
@@ -4647,8 +4665,8 @@ export const de_ListBucketsCommand = async (
   } else if (data[_Bu] != null && data[_Bu][_B] != null) {
     contents[_Bu] = de_Buckets(__getArrayIfSingleItem(data[_Bu][_B]), context);
   }
-  if (data[_CTo] != null) {
-    contents[_CTo] = __expectString(data[_CTo]);
+  if (data[_CTon] != null) {
+    contents[_CTon] = __expectString(data[_CTon]);
   }
   if (data[_O] != null) {
     contents[_O] = de_Owner(data[_O], context);
@@ -4678,8 +4696,8 @@ export const de_ListDirectoryBucketsCommand = async (
   } else if (data[_Bu] != null && data[_Bu][_B] != null) {
     contents[_Bu] = de_Buckets(__getArrayIfSingleItem(data[_Bu][_B]), context);
   }
-  if (data[_CTo] != null) {
-    contents[_CTo] = __expectString(data[_CTo]);
+  if (data[_CTon] != null) {
+    contents[_CTon] = __expectString(data[_CTon]);
   }
   return contents;
 };
@@ -4819,8 +4837,8 @@ export const de_ListObjectsV2Command = async (
   } else if (data[_Co] != null) {
     contents[_Co] = de_ObjectList(__getArrayIfSingleItem(data[_Co]), context);
   }
-  if (data[_CTo] != null) {
-    contents[_CTo] = __expectString(data[_CTo]);
+  if (data[_CTon] != null) {
+    contents[_CTon] = __expectString(data[_CTon]);
   }
   if (data[_D] != null) {
     contents[_D] = __expectString(data[_D]);
@@ -4940,6 +4958,9 @@ export const de_ListPartsCommand = async (
   }
   if (data[_CA] != null) {
     contents[_CA] = __expectString(data[_CA]);
+  }
+  if (data[_CT] != null) {
+    contents[_CT] = __expectString(data[_CT]);
   }
   if (data[_In] != null) {
     contents[_In] = de_Initiator(data[_In], context);
@@ -5299,8 +5320,10 @@ export const de_PutObjectCommand = async (
     [_ETa]: [, output.headers[_eta]],
     [_CCRC]: [, output.headers[_xacc]],
     [_CCRCC]: [, output.headers[_xacc_]],
+    [_CCRCNVME]: [, output.headers[_xacc__]],
     [_CSHA]: [, output.headers[_xacs]],
     [_CSHAh]: [, output.headers[_xacs_]],
+    [_CT]: [, output.headers[_xact]],
     [_SSE]: [, output.headers[_xasse]],
     [_VI]: [, output.headers[_xavi]],
     [_SSECA]: [, output.headers[_xasseca]],
@@ -5475,6 +5498,7 @@ export const de_UploadPartCommand = async (
     [_ETa]: [, output.headers[_eta]],
     [_CCRC]: [, output.headers[_xacc]],
     [_CCRCC]: [, output.headers[_xacc_]],
+    [_CCRCNVME]: [, output.headers[_xacc__]],
     [_CSHA]: [, output.headers[_xacs]],
     [_CSHAh]: [, output.headers[_xacs_]],
     [_SSECA]: [, output.headers[_xasseca]],
@@ -6058,6 +6082,7 @@ const se_CompletedPart = (input: CompletedPart, context: __SerdeContext): any =>
   bn.cc(input, _ETa);
   bn.cc(input, _CCRC);
   bn.cc(input, _CCRCC);
+  bn.cc(input, _CCRCNVME);
   bn.cc(input, _CSHA);
   bn.cc(input, _CSHAh);
   if (input[_PN] != null) {
@@ -7931,11 +7956,17 @@ const de_Checksum = (output: any, context: __SerdeContext): Checksum => {
   if (output[_CCRCC] != null) {
     contents[_CCRCC] = __expectString(output[_CCRCC]);
   }
+  if (output[_CCRCNVME] != null) {
+    contents[_CCRCNVME] = __expectString(output[_CCRCNVME]);
+  }
   if (output[_CSHA] != null) {
     contents[_CSHA] = __expectString(output[_CSHA]);
   }
   if (output[_CSHAh] != null) {
     contents[_CSHAh] = __expectString(output[_CSHAh]);
+  }
+  if (output[_CT] != null) {
+    contents[_CT] = __expectString(output[_CT]);
   }
   return contents;
 };
@@ -8006,11 +8037,17 @@ const de_CopyObjectResult = (output: any, context: __SerdeContext): CopyObjectRe
   if (output[_LM] != null) {
     contents[_LM] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LM]));
   }
+  if (output[_CT] != null) {
+    contents[_CT] = __expectString(output[_CT]);
+  }
   if (output[_CCRC] != null) {
     contents[_CCRC] = __expectString(output[_CCRC]);
   }
   if (output[_CCRCC] != null) {
     contents[_CCRCC] = __expectString(output[_CCRCC]);
+  }
+  if (output[_CCRCNVME] != null) {
+    contents[_CCRCNVME] = __expectString(output[_CCRCNVME]);
   }
   if (output[_CSHA] != null) {
     contents[_CSHA] = __expectString(output[_CSHA]);
@@ -8037,6 +8074,9 @@ const de_CopyPartResult = (output: any, context: __SerdeContext): CopyPartResult
   }
   if (output[_CCRCC] != null) {
     contents[_CCRCC] = __expectString(output[_CCRCC]);
+  }
+  if (output[_CCRCNVME] != null) {
+    contents[_CCRCNVME] = __expectString(output[_CCRCNVME]);
   }
   if (output[_CSHA] != null) {
     contents[_CSHA] = __expectString(output[_CSHA]);
@@ -8962,6 +9002,9 @@ const de_MultipartUpload = (output: any, context: __SerdeContext): MultipartUplo
   if (output[_CA] != null) {
     contents[_CA] = __expectString(output[_CA]);
   }
+  if (output[_CT] != null) {
+    contents[_CT] = __expectString(output[_CT]);
+  }
   return contents;
 };
 
@@ -9047,6 +9090,9 @@ const de__Object = (output: any, context: __SerdeContext): _Object => {
     contents[_CA] = [];
   } else if (output[_CA] != null) {
     contents[_CA] = de_ChecksumAlgorithmList(__getArrayIfSingleItem(output[_CA]), context);
+  }
+  if (output[_CT] != null) {
+    contents[_CT] = __expectString(output[_CT]);
   }
   if (output[_Si] != null) {
     contents[_Si] = __strictParseLong(output[_Si]) as number;
@@ -9141,6 +9187,9 @@ const de_ObjectPart = (output: any, context: __SerdeContext): ObjectPart => {
   if (output[_CCRCC] != null) {
     contents[_CCRCC] = __expectString(output[_CCRCC]);
   }
+  if (output[_CCRCNVME] != null) {
+    contents[_CCRCNVME] = __expectString(output[_CCRCNVME]);
+  }
   if (output[_CSHA] != null) {
     contents[_CSHA] = __expectString(output[_CSHA]);
   }
@@ -9162,6 +9211,9 @@ const de_ObjectVersion = (output: any, context: __SerdeContext): ObjectVersion =
     contents[_CA] = [];
   } else if (output[_CA] != null) {
     contents[_CA] = de_ChecksumAlgorithmList(__getArrayIfSingleItem(output[_CA]), context);
+  }
+  if (output[_CT] != null) {
+    contents[_CT] = __expectString(output[_CT]);
   }
   if (output[_Si] != null) {
     contents[_Si] = __strictParseLong(output[_Si]) as number;
@@ -9272,6 +9324,9 @@ const de_Part = (output: any, context: __SerdeContext): Part => {
   }
   if (output[_CCRCC] != null) {
     contents[_CCRCC] = __expectString(output[_CCRCC]);
+  }
+  if (output[_CCRCNVME] != null) {
+    contents[_CCRCNVME] = __expectString(output[_CCRCNVME]);
   }
   if (output[_CSHA] != null) {
     contents[_CSHA] = __expectString(output[_CSHA]);
@@ -10029,6 +10084,7 @@ const _CBC = "CreateBucketConfiguration";
 const _CC = "CacheControl";
 const _CCRC = "ChecksumCRC32";
 const _CCRCC = "ChecksumCRC32C";
+const _CCRCNVME = "ChecksumCRC64NVME";
 const _CD = "ContentDisposition";
 const _CDr = "CreationDate";
 const _CE = "ContentEncoding";
@@ -10061,9 +10117,10 @@ const _CSV = "CSV";
 const _CSVI = "CopySourceVersionId";
 const _CSVIn = "CSVInput";
 const _CSVO = "CSVOutput";
-const _CT = "ContentType";
-const _CTo = "ContinuationToken";
+const _CT = "ChecksumType";
+const _CTo = "ContentType";
 const _CTom = "CompressionType";
+const _CTon = "ContinuationToken";
 const _Ch = "Checksum";
 const _Co = "Contents";
 const _Cod = "Code";
@@ -10225,6 +10282,7 @@ const _MI = "MetricsId";
 const _MK = "MaxKeys";
 const _MKe = "MetadataKey";
 const _MM = "MissingMeta";
+const _MOS = "MpuObjectSize";
 const _MP = "MaxParts";
 const _MS = "MetricsStatus";
 const _MTC = "MetadataTableConfiguration";
@@ -10538,6 +10596,7 @@ const _xabr = "x-amz-bucket-region";
 const _xaca = "x-amz-checksum-algorithm";
 const _xacc = "x-amz-checksum-crc32";
 const _xacc_ = "x-amz-checksum-crc32c";
+const _xacc__ = "x-amz-checksum-crc64nvme";
 const _xacm = "x-amz-checksum-mode";
 const _xacrsba = "x-amz-confirm-remove-self-bucket-access";
 const _xacs = "x-amz-checksum-sha1";
@@ -10553,6 +10612,7 @@ const _xacssseca = "x-amz-copy-source-server-side-encryption-customer-algorithm"
 const _xacssseck = "x-amz-copy-source-server-side-encryption-customer-key";
 const _xacssseckm = "x-amz-copy-source-server-side-encryption-customer-key-md5";
 const _xacsvi = "x-amz-copy-source-version-id";
+const _xact = "x-amz-checksum-type";
 const _xadm = "x-amz-delete-marker";
 const _xae = "x-amz-expiration";
 const _xaebo = "x-amz-expected-bucket-owner";
@@ -10570,6 +10630,7 @@ const _xafhe_ = "x-amz-fwd-header-expires";
 const _xafhlm = "x-amz-fwd-header-last-modified";
 const _xafhxacc = "x-amz-fwd-header-x-amz-checksum-crc32";
 const _xafhxacc_ = "x-amz-fwd-header-x-amz-checksum-crc32c";
+const _xafhxacc__ = "x-amz-fwd-header-x-amz-checksum-crc64nvme";
 const _xafhxacs = "x-amz-fwd-header-x-amz-checksum-sha1";
 const _xafhxacs_ = "x-amz-fwd-header-x-amz-checksum-sha256";
 const _xafhxadm = "x-amz-fwd-header-x-amz-delete-marker";
@@ -10602,6 +10663,7 @@ const _xaims = "x-amz-if-match-size";
 const _xam = "x-amz-mfa";
 const _xamd = "x-amz-metadata-directive";
 const _xamm = "x-amz-missing-meta";
+const _xamos = "x-amz-mp-object-size";
 const _xamp = "x-amz-max-parts";
 const _xampc = "x-amz-mp-parts-count";
 const _xaoa = "x-amz-object-attributes";

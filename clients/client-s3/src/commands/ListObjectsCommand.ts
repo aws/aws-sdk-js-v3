@@ -99,8 +99,9 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * //       LastModified: new Date("TIMESTAMP"),
  * //       ETag: "STRING_VALUE",
  * //       ChecksumAlgorithm: [ // ChecksumAlgorithmList
- * //         "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ * //         "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  * //       ],
+ * //       ChecksumType: "COMPOSITE" || "FULL_OBJECT",
  * //       Size: Number("long"),
  * //       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
  * //       Owner: { // Owner

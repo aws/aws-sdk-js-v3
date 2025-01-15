@@ -55,8 +55,8 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *                   <p>
  *                      <b>Directory buckets </b> -
  *                   For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
- *                      </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
- *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
+ *                      </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
+ *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Available Local Zone for directory buckets</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *                </li>
  *                <li>
@@ -239,7 +239,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",
  *   Bucket: "STRING_VALUE", // required
  *   CacheControl: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   ContentDisposition: "STRING_VALUE",
  *   ContentEncoding: "STRING_VALUE",
  *   ContentLanguage: "STRING_VALUE",
@@ -286,8 +286,10 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  * //   CopyObjectResult: { // CopyObjectResult
  * //     ETag: "STRING_VALUE",
  * //     LastModified: new Date("TIMESTAMP"),
+ * //     ChecksumType: "COMPOSITE" || "FULL_OBJECT",
  * //     ChecksumCRC32: "STRING_VALUE",
  * //     ChecksumCRC32C: "STRING_VALUE",
+ * //     ChecksumCRC64NVME: "STRING_VALUE",
  * //     ChecksumSHA1: "STRING_VALUE",
  * //     ChecksumSHA256: "STRING_VALUE",
  * //   },

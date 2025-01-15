@@ -115,7 +115,7 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  *     ],
  *   },
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   ExpectedBucketOwner: "STRING_VALUE",
  * };
  * const command = new PutBucketCorsCommand(input);

@@ -258,7 +258,7 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  *   },
  *   Bucket: "STRING_VALUE", // required
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   GrantFullControl: "STRING_VALUE",
  *   GrantRead: "STRING_VALUE",
  *   GrantReadACP: "STRING_VALUE",

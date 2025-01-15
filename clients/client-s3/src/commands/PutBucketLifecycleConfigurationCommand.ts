@@ -141,8 +141,8 @@ export interface PutBucketLifecycleConfigurationCommandOutput
  *                         <p>
  *                            <b>Directory buckets </b> - For directory buckets, you must make requests for this API operation to the Regional endpoint. These endpoints support path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
  *                            </code>. Virtual-hosted-style requests aren't supported.
- * For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
- *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
+ * For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
+ *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Available Local Zone for directory buckets</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *                      </note>
  *                   </li>
@@ -177,7 +177,7 @@ export interface PutBucketLifecycleConfigurationCommandOutput
  * const client = new S3Client(config);
  * const input = { // PutBucketLifecycleConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   LifecycleConfiguration: { // BucketLifecycleConfiguration
  *     Rules: [ // LifecycleRules // required
  *       { // LifecycleRule

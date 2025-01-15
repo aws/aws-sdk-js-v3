@@ -100,8 +100,9 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  * //     { // ObjectVersion
  * //       ETag: "STRING_VALUE",
  * //       ChecksumAlgorithm: [ // ChecksumAlgorithmList
- * //         "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ * //         "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  * //       ],
+ * //       ChecksumType: "COMPOSITE" || "FULL_OBJECT",
  * //       Size: Number("long"),
  * //       StorageClass: "STANDARD",
  * //       Key: "STRING_VALUE",

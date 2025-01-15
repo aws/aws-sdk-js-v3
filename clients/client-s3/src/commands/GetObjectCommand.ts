@@ -53,8 +53,8 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  *          <p>
  *             <b>Directory buckets</b> -
  *          Only virtual-hosted-style requests are supported. For a virtual hosted-style request example, if you have the object <code>photos/2006/February/sample.jpg</code> in the bucket named <code>examplebucket--use1-az5--x-s3</code>, specify the object key name as <code>/photos/2006/February/sample.jpg</code>. Also, when you make requests to this API operation, your requests are sent to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
- *             </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
- *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
+ *             </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
+ *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Available Local Zone for directory buckets</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -256,8 +256,10 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * //   ETag: "STRING_VALUE",
  * //   ChecksumCRC32: "STRING_VALUE",
  * //   ChecksumCRC32C: "STRING_VALUE",
+ * //   ChecksumCRC64NVME: "STRING_VALUE",
  * //   ChecksumSHA1: "STRING_VALUE",
  * //   ChecksumSHA256: "STRING_VALUE",
+ * //   ChecksumType: "COMPOSITE" || "FULL_OBJECT",
  * //   MissingMeta: Number("int"),
  * //   VersionId: "STRING_VALUE",
  * //   CacheControl: "STRING_VALUE",
@@ -382,7 +384,7 @@ export class GetObjectCommand extends $Command
       getFlexibleChecksumsPlugin(config, {
         requestChecksumRequired: false,
         requestValidationModeMember: "ChecksumMode",
-        responseAlgorithms: ["CRC32", "CRC32C", "SHA256", "SHA1"],
+        responseAlgorithms: ["CRC64NVME", "CRC32", "CRC32C", "SHA256", "SHA1"],
       }),
       getSsecPlugin(config),
       getS3ExpiresMiddlewarePlugin(config),

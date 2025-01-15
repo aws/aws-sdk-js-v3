@@ -35,7 +35,7 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  *          <note>
  *             <p>When you enable versioning on a bucket for the first time, it might take a short
  *             amount of time for the change to be fully propagated. While this change is propagating,
- *             you may encounter intermittent <code>HTTP 404 NoSuchKey</code> errors for requests to
+ *             you might encounter intermittent <code>HTTP 404 NoSuchKey</code> errors for requests to
  *             objects created or updated after enabling versioning. We recommend that you wait for 15
  *             minutes after enabling versioning before issuing write operations (<code>PUT</code> or
  *             <code>DELETE</code>) on objects in the bucket. </p>
@@ -90,7 +90,7 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  * const input = { // PutBucketVersioningRequest
  *   Bucket: "STRING_VALUE", // required
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   MFA: "STRING_VALUE",
  *   VersioningConfiguration: { // VersioningConfiguration
  *     MFADelete: "Enabled" || "Disabled",

@@ -97,7 +97,7 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *   Key: "STRING_VALUE", // required
  *   VersionId: "STRING_VALUE",
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   Tagging: { // Tagging
  *     TagSet: [ // TagSet // required
  *       { // Tag

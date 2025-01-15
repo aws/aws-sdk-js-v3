@@ -91,6 +91,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  *   ContentType: "STRING_VALUE",
  *   ChecksumCRC32: "STRING_VALUE",
  *   ChecksumCRC32C: "STRING_VALUE",
+ *   ChecksumCRC64NVME: "STRING_VALUE",
  *   ChecksumSHA1: "STRING_VALUE",
  *   ChecksumSHA256: "STRING_VALUE",
  *   DeleteMarker: true || false,
