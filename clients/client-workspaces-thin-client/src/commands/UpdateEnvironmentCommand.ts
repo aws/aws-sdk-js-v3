@@ -51,7 +51,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  *   desktopEndpoint: "STRING_VALUE",
  *   softwareSetUpdateSchedule: "USE_MAINTENANCE_WINDOW" || "APPLY_IMMEDIATELY",
  *   maintenanceWindow: { // MaintenanceWindow
- *     type: "SYSTEM" || "CUSTOM",
+ *     type: "SYSTEM" || "CUSTOM", // required
  *     startTimeHour: Number("int"),
  *     startTimeMinute: Number("int"),
  *     endTimeHour: Number("int"),
@@ -79,7 +79,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  * //     activationCode: "STRING_VALUE",
  * //     softwareSetUpdateSchedule: "USE_MAINTENANCE_WINDOW" || "APPLY_IMMEDIATELY",
  * //     maintenanceWindow: { // MaintenanceWindow
- * //       type: "SYSTEM" || "CUSTOM",
+ * //       type: "SYSTEM" || "CUSTOM", // required
  * //       startTimeHour: Number("int"),
  * //       startTimeMinute: Number("int"),
  * //       endTimeHour: Number("int"),

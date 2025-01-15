@@ -115,7 +115,7 @@ export interface MaintenanceWindow {
    * <p>An option to select the default or custom maintenance window.</p>
    * @public
    */
-  type?: MaintenanceWindowType | undefined;
+  type: MaintenanceWindowType | undefined;
 
   /**
    * <p>The hour for the maintenance window start (<code>00</code>-<code>23</code>).</p>

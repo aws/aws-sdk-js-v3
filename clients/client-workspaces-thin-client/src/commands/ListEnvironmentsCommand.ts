@@ -60,7 +60,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * //       activationCode: "STRING_VALUE",
  * //       softwareSetUpdateSchedule: "USE_MAINTENANCE_WINDOW" || "APPLY_IMMEDIATELY",
  * //       maintenanceWindow: { // MaintenanceWindow
- * //         type: "SYSTEM" || "CUSTOM",
+ * //         type: "SYSTEM" || "CUSTOM", // required
  * //         startTimeHour: Number("int"),
  * //         startTimeMinute: Number("int"),
  * //         endTimeHour: Number("int"),

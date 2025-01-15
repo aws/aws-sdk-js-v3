@@ -59,7 +59,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * //     registeredDevicesCount: Number("int"),
  * //     softwareSetUpdateSchedule: "USE_MAINTENANCE_WINDOW" || "APPLY_IMMEDIATELY",
  * //     maintenanceWindow: { // MaintenanceWindow
- * //       type: "SYSTEM" || "CUSTOM",
+ * //       type: "SYSTEM" || "CUSTOM", // required
  * //       startTimeHour: Number("int"),
  * //       startTimeMinute: Number("int"),
  * //       endTimeHour: Number("int"),
