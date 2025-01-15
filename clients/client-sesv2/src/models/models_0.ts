@@ -7385,6 +7385,7 @@ export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof Re
  */
 export const RecommendationType = {
   BIMI: "BIMI",
+  COMPLAINT: "COMPLAINT",
   DKIM: "DKIM",
   DMARC: "DMARC",
   SPF: "SPF",
