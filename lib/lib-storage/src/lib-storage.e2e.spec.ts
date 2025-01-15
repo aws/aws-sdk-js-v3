@@ -7,35 +7,33 @@ import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 import { getIntegTestResources } from "../../../tests/e2e/get-integ-test-resources";
 
 describe("@aws-sdk/lib-storage", () => {
-  let Key: string;
-  let client: S3;
-  let data: Uint8Array;
-  let dataString: string;
-  let Bucket: string;
-  let region: string;
-
-  beforeAll(async () => {
-    const integTestResourcesEnv = await getIntegTestResources();
-    Object.assign(process.env, integTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-    Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
-
-    Key = ``;
-    data = randomBytes(20_240_000);
-    dataString = data.toString();
-  });
-
   describe.each([undefined, "WHEN_REQUIRED", "WHEN_SUPPORTED"])(
     "requestChecksumCalculation: %s",
     (requestChecksumCalculation) => {
-      beforeAll(() => {
+      let Key: string;
+      let client: S3;
+      let data: Uint8Array;
+      let dataString: string;
+      let Bucket: string;
+      let region: string;
+
+      beforeAll(async () => {
+        const integTestResourcesEnv = await getIntegTestResources();
+        Object.assign(process.env, integTestResourcesEnv);
+
+        region = process?.env?.AWS_SMOKE_TEST_REGION as string;
+        Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
+
+        Key = ``;
+        data = randomBytes(20_240_000);
+        dataString = data.toString();
+
         // @ts-expect-error: Types of property 'requestChecksumCalculation' are incompatible
         client = new S3({
           region,
           requestChecksumCalculation,
         });
-        Key = `multi-part-file-${Date.now()}`;
+        Key = `multi-part-file-${requestChecksumCalculation}-${Date.now()}`;
       });
 
       afterAll(async () => {
@@ -45,57 +43,33 @@ describe("@aws-sdk/lib-storage", () => {
       it("should upload in parts for input type bytes", async () => {
         const s3Upload = new Upload({
           client,
-          params: {
-            Bucket,
-            Key,
-            Body: data,
-          },
+          params: { Bucket, Key, Body: data },
         });
         await s3Upload.done();
 
-        const object = await client.getObject({
-          Bucket,
-          Key,
-        });
-
+        const object = await client.getObject({ Bucket, Key });
         expect(await object.Body?.transformToString()).toEqual(dataString);
       });
 
       it("should upload in parts for input type string", async () => {
         const s3Upload = new Upload({
           client,
-          params: {
-            Bucket,
-            Key,
-            Body: dataString,
-          },
+          params: { Bucket, Key, Body: dataString },
         });
         await s3Upload.done();
 
-        const object = await client.getObject({
-          Bucket,
-          Key,
-        });
-
+        const object = await client.getObject({ Bucket, Key });
         expect(await object.Body?.transformToString()).toEqual(dataString);
       });
 
       it("should upload in parts for input type Readable", async () => {
         const s3Upload = new Upload({
           client,
-          params: {
-            Bucket,
-            Key,
-            Body: Readable.from(data),
-          },
+          params: { Bucket, Key, Body: Readable.from(data) },
         });
         await s3Upload.done();
 
-        const object = await client.getObject({
-          Bucket,
-          Key,
-        });
-
+        const object = await client.getObject({ Bucket, Key });
         expect(await object.Body?.transformToString()).toEqual(dataString);
       });
 
