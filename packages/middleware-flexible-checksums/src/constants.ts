@@ -58,6 +58,7 @@ export enum ChecksumAlgorithm {
   MD5 = "MD5",
   CRC32 = "CRC32",
   CRC32C = "CRC32C",
+  CRC64NVME = "CRC64NVME",
   SHA1 = "SHA1",
   SHA256 = "SHA256",
 }

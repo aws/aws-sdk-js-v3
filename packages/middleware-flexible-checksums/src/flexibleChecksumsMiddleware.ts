@@ -105,6 +105,9 @@ export const flexibleChecksumsMiddleware =
         case ChecksumAlgorithm.CRC32C:
           setFeature(context, "FLEXIBLE_CHECKSUMS_REQ_CRC32C", "V");
           break;
+        case ChecksumAlgorithm.CRC64NVME:
+          setFeature(context, "FLEXIBLE_CHECKSUMS_REQ_CRC64", "W");
+          break;
         case ChecksumAlgorithm.SHA1:
           setFeature(context, "FLEXIBLE_CHECKSUMS_REQ_SHA1", "X");
           break;

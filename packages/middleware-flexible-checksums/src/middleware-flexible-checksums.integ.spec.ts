@@ -1,3 +1,6 @@
+// Required for testing CRC64NVME
+import "@aws-sdk/crc64-nvme-crt";
+
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Readable, Transform } from "stream";
@@ -23,6 +26,10 @@ describe("middleware-flexible-checksums", () => {
     ["", ChecksumAlgorithm.CRC32C, "AAAAAA=="],
     ["abc", ChecksumAlgorithm.CRC32C, "Nks/tw=="],
     ["Hello world", ChecksumAlgorithm.CRC32C, "crUfeA=="],
+
+    ["", ChecksumAlgorithm.CRC64NVME, "AAAAAAAAAAA="],
+    ["abc", ChecksumAlgorithm.CRC64NVME, "BeXKuz/B+us="],
+    ["Hello world", ChecksumAlgorithm.CRC64NVME, "OOJZ0D8xKts="],
 
     ["", ChecksumAlgorithm.SHA1, "2jmj7l5rSw0yVb/vlWAYkK/YBwk="],
     ["abc", ChecksumAlgorithm.SHA1, "qZk+NkcGgWq6PiVxeFDCbJzQ2J0="],
@@ -209,6 +216,7 @@ describe("middleware-flexible-checksums", () => {
         ["SHA1", "X"],
         ["CRC32", "U"],
         ["CRC32C", "V"],
+        ["CRC64NVME", "W"],
       ].forEach(([algo, id]) => {
         it(`should feature-detect checksum ${algo}=${id}`, async () => {
           const client = new S3({ region: "us-west-2", logger });

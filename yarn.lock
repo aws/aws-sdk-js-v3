@@ -23199,6 +23199,7 @@ __metadata:
   resolution: "@aws-sdk/crc64-nvme-crt@workspace:packages/crc64-nvme-crt"
   dependencies:
     "@aws-sdk/crt-loader": "npm:*"
+    "@aws-sdk/middleware-flexible-checksums": "npm:*"
     "@smithy/types": "npm:^4.0.0"
     "@smithy/util-base64": "npm:^4.0.0"
     "@smithy/util-utf8": "npm:^4.0.0"
@@ -24954,7 +24955,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^7.0.0, @babel/types@npm:^7.20.7, @babel/types@npm:^7.25.9, @babel/types@npm:^7.26.0, @babel/types@npm:^7.26.3, @babel/types@npm:^7.3.3":
+"@babel/types@npm:^7.0.0, @babel/types@npm:^7.20.7, @babel/types@npm:^7.25.9, @babel/types@npm:^7.26.0, @babel/types@npm:^7.3.3":
+  version: 7.26.0
+  resolution: "@babel/types@npm:7.26.0"
+  dependencies:
+    "@babel/helper-string-parser": "npm:^7.25.9"
+    "@babel/helper-validator-identifier": "npm:^7.25.9"
+  checksum: 10c0/b694f41ad1597127e16024d766c33a641508aad037abd08d0d1f73af753e1119fa03b4a107d04b5f92cc19c095a594660547ae9bead1db2299212d644b0a5cb8
+  languageName: node
+  linkType: hard
+
+"@babel/types@npm:^7.26.3":
   version: 7.26.3
   resolution: "@babel/types@npm:7.26.3"
   dependencies:
