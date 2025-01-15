@@ -71,7 +71,6 @@ import {
   S3Client,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
-import { RequestChecksumCalculation } from "@aws-sdk/middleware-flexible-checksums";
 import { AbortController } from "@smithy/abort-controller";
 
 import { Progress, Upload } from "./index";
