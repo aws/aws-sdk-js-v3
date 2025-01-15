@@ -27,6 +27,7 @@ vi.mock("@aws-sdk/client-s3", async () => {
       send: sendMock,
       config: {
         endpoint: endpointMock,
+        requestChecksumCalculation: () => Promise.resolve("WHEN_SUPPORTED"),
       },
     }),
     S3Client: vi.fn().mockReturnValue({
@@ -34,6 +35,7 @@ vi.mock("@aws-sdk/client-s3", async () => {
       config: {
         endpoint: endpointMock,
         requestHandler: mockRequestHandler,
+        requestChecksumCalculation: () => Promise.resolve("WHEN_SUPPORTED"),
       },
     }),
     CreateMultipartUploadCommand: vi.fn().mockReturnValue({
@@ -392,6 +394,7 @@ describe(Upload.name, () => {
         expect(CreateMultipartUploadCommand).toHaveBeenCalledWith({
           ...actionParams,
           Body: undefined,
+          ChecksumAlgorithm: "CRC32",
         });
         // upload parts is called correctly.
         expect(UploadPartCommand).toHaveBeenCalledTimes(2);
@@ -457,6 +460,7 @@ describe(Upload.name, () => {
         expect(CreateMultipartUploadCommand).toHaveBeenCalledWith({
           ...actionParams,
           Body: undefined,
+          ChecksumAlgorithm: "CRC32",
         });
 
         // upload parts is called correctly.
