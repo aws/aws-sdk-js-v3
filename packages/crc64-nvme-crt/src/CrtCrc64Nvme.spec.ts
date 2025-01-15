@@ -4,9 +4,10 @@ import { describe, expect, it } from "vitest";
 import { CrtCrc64Nvme } from "./CrtCrc64Nvme";
 
 describe(CrtCrc64Nvme.name, () => {
-  it("should throw an error if digest is called before update", async () => {
+  it("should return checksum for empty string if digest is called before update", async () => {
     const crc64 = new CrtCrc64Nvme();
-    await expect(crc64.digest()).rejects.toThrowError("No data provided to checksum");
+    const digest = await crc64.digest();
+    expect(toBase64(digest)).toEqual("AAAAAAAAAAA=");
   });
 
   it.each([
