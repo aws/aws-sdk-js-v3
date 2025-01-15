@@ -27,6 +27,8 @@ describe("@aws-sdk/lib-storage", () => {
 
     client = new S3({
       region,
+      // ToDo(JS-5678): Remove this when default checksum is supported by Upload.
+      requestChecksumCalculation: "WHEN_REQUIRED",
     });
   });
 
