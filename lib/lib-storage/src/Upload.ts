@@ -1,5 +1,6 @@
 import {
   AbortMultipartUploadCommand,
+  ChecksumAlgorithm,
   CompletedPart,
   CompleteMultipartUploadCommand,
   CompleteMultipartUploadCommandOutput,
@@ -200,7 +201,11 @@ export class Upload extends EventEmitter {
 
   private async __createMultipartUpload(): Promise<CreateMultipartUploadCommandOutput> {
     if (!this.createMultiPartPromise) {
-      const createCommandParams = { ...this.params, Body: undefined };
+      const createCommandParams = {
+        ChecksumAlgorithm: ChecksumAlgorithm.CRC32,
+        ...this.params,
+        Body: undefined,
+      };
       this.createMultiPartPromise = this.client
         .send(new CreateMultipartUploadCommand(createCommandParams))
         .then((createMpuResponse) => {
