@@ -11,7 +11,7 @@ import {
 } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
-import { ChecksumAlgorithm } from "./constants";
+import { ChecksumAlgorithm, DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation } from "./constants";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { hasHeader } from "./hasHeader";
@@ -73,10 +73,26 @@ export const flexibleChecksumsMiddleware =
     const { body: requestBody, headers } = request;
     const { base64Encoder, streamHasher } = config;
     const { requestChecksumRequired, requestAlgorithmMember } = middlewareConfig;
+    const requestChecksumCalculation = await config.requestChecksumCalculation();
+
+    const requestAlgorithmMemberName = requestAlgorithmMember?.name;
+    const requestAlgorithmMemberHttpHeader = requestAlgorithmMember?.httpHeader;
+    // The value for input member to configure flexible checksum is not set.
+    if (requestAlgorithmMemberName && !input[requestAlgorithmMemberName]) {
+      // Set requestAlgorithmMember as default checksum algorithm only if request checksum calculation is supported
+      // or request checksum is required.
+      if (requestChecksumCalculation === RequestChecksumCalculation.WHEN_SUPPORTED || requestChecksumRequired) {
+        input[requestAlgorithmMemberName] = DEFAULT_CHECKSUM_ALGORITHM;
+        if (requestAlgorithmMemberHttpHeader) {
+          headers[requestAlgorithmMemberHttpHeader] = DEFAULT_CHECKSUM_ALGORITHM;
+        }
+      }
+    }
 
     const checksumAlgorithm = getChecksumAlgorithmForRequest(input, {
       requestChecksumRequired,
       requestAlgorithmMember: requestAlgorithmMember?.name,
+      requestChecksumCalculation,
     });
     let updatedBody = requestBody;
     let updatedHeaders = headers;
