@@ -8650,6 +8650,17 @@ export interface InvokeInlineAgentRequest {
    * @public
    */
   bedrockModelConfigurations?: InlineBedrockModelConfigurations | undefined;
+
+  /**
+   * <p>
+   *            Specifies the configurations for streaming.
+   *         </p>
+   *          <note>
+   *             <p>To use agent streaming, you need permissions to perform the <code>bedrock:InvokeModelWithResponseStream</code> action.</p>
+   *          </note>
+   * @public
+   */
+  streamingConfigurations?: StreamingConfigurations | undefined;
 }
 
 /**

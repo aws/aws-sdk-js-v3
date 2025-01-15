@@ -61,8 +61,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  *             </li>
  *          </ul>
  *          <note>
- *             <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>InvokeInlineAgent</code>.</p>
- *          </note>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -297,6 +296,10 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  *     performanceConfig: { // PerformanceConfiguration
  *       latency: "standard" || "optimized",
  *     },
+ *   },
+ *   streamingConfigurations: { // StreamingConfigurations
+ *     streamFinalResponse: true || false,
+ *     applyGuardrailInterval: Number("int"),
  *   },
  * };
  * const command = new InvokeInlineAgentCommand(input);

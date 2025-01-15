@@ -341,6 +341,7 @@ export const se_InvokeInlineAgentCommand = async (
       instruction: [],
       knowledgeBases: (_) => se_KnowledgeBases(_, context),
       promptOverrideConfiguration: (_) => se_PromptOverrideConfiguration(_, context),
+      streamingConfigurations: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
