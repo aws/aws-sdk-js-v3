@@ -1,9 +1,8 @@
 // smithy-typescript generated code
 // @ts-ignore: package.json will be imported from dist folders
-import packageInfo from "../../package.json"; // eslint-disable-line
+import packageInfo from "../../../package.json"; // eslint-disable-line
 
-import { AwsSdkSigV4Signer, emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
-
+import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
 import { NODE_APP_ID_CONFIG_OPTIONS, createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
@@ -11,15 +10,13 @@ import {
   NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS,
   NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS,
 } from "@smithy/config-resolver";
-import { NoAuthSigner } from "@smithy/core";
 import { Hash } from "@smithy/hash-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
-import { IdentityProviderConfig } from "@smithy/types";
 import { calculateBodyLength } from "@smithy/util-body-length-node";
 import { DEFAULT_RETRY_MODE } from "@smithy/util-retry";
-import { STSClientConfig } from "./STSClient";
+import { SSOOIDCClientConfig } from "./SSOOIDCClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
 import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-node";
@@ -28,7 +25,7 @@ import { emitWarningIfUnsupportedVersion } from "@smithy/smithy-client";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: STSClientConfig) => {
+export const getRuntimeConfig = (config: SSOOIDCClientConfig) => {
   emitWarningIfUnsupportedVersion(process.version);
   const defaultsMode = resolveDefaultsModeConfig(config);
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
@@ -41,25 +38,9 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
     runtime: "node",
     defaultsMode,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
-
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
       createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
-    httpAuthSchemes: config?.httpAuthSchemes ?? [
-      {
-        schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) =>
-          ipc.getIdentityProvider("aws.auth#sigv4") ||
-          (async (idProps) => await config!.credentialDefaultProvider!(idProps?.__config || {})()),
-        signer: new AwsSdkSigV4Signer(),
-      },
-      {
-        schemeId: "smithy.api#noAuth",
-        identityProvider: (ipc: IdentityProviderConfig) =>
-          ipc.getIdentityProvider("smithy.api#noAuth") || (async () => ({})),
-        signer: new NoAuthSigner(),
-      },
-    ],
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
     region:
       config?.region ??

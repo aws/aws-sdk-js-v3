@@ -163,7 +163,7 @@ export const fromWebToken =
     let { roleAssumerWithWebIdentity } = init;
 
     if (!roleAssumerWithWebIdentity) {
-      const { getDefaultRoleAssumerWithWebIdentity } = await import("@aws-sdk/nested-clients");
+      const { getDefaultRoleAssumerWithWebIdentity } = await import("@aws-sdk/nested-clients/sts");
       roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity(
         {
           ...init.clientConfig,

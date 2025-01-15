@@ -1,7 +1,7 @@
-import { SSOOIDCClient } from "@aws-sdk/nested-clients";
+import { SSOOIDCClient } from "@aws-sdk/nested-clients/sso-oidc";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-vi.mock("@aws-sdk/nested-clients");
+vi.mock("@aws-sdk/nested-clients/sso-oidc");
 
 describe("getSsoOidcClient", () => {
   const mockSsoRegion = "mockSsoRegion";

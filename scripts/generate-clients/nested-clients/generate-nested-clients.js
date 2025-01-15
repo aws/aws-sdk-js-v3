@@ -59,7 +59,7 @@ async function generateNestedClients() {
 
     const srcFolder = join(NESTED_SDK_CLIENTS_DIR, `client-${name}`, "src");
     const srcContainer = join(NESTED_SDK_CLIENTS_DIR, `client-${name}`);
-    const destinationFolder = join(NESTED_SDK_CLIENTS_DIR, `nested-${name}`);
+    const destinationFolder = join(NESTED_SDK_CLIENTS_DIR, "submodules", `${name}`);
 
     emptyDirSync(destinationFolder);
     copySync(srcFolder, destinationFolder);
@@ -124,7 +124,7 @@ function replacePackageJsonImport(file) {
     file,
     readFileSync(file, "utf-8").replace(
       `import packageInfo from "../package.json";`,
-      `import packageInfo from "../../package.json";`
+      `import packageInfo from "../../../package.json";`
     )
   );
 }

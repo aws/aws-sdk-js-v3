@@ -1,25 +1,6 @@
 /**
+ * This package exports nothing at the root.
+ * Use submodules e.g. \@aws-sdk/nested-clients/client-sts.
  * @internal
  */
-export { CreateTokenCommand, SSOOIDCClient } from "./nested-sso-oidc/index";
-
-/**
- * @internal
- */
-export type { CreateTokenCommandInput, SSOOIDCClientConfig } from "./nested-sso-oidc";
-
-/**
- * @internal
- */
-export {
-  AssumeRoleCommand,
-  AssumeRoleWithWebIdentityCommand,
-  getDefaultRoleAssumer,
-  getDefaultRoleAssumerWithWebIdentity,
-  STSClient,
-} from "./nested-sts/index";
-
-/**
- * @internal
- */
-export type { AssumeRoleCommandInput, STSClientConfig } from "./nested-sts";
+export {};

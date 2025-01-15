@@ -6,13 +6,14 @@
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "scripts": {
-    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+    "build": "yarn lint && concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline nested-clients",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "lint": "node ../../scripts/validation/submodules-linter.js --pkg nested-clients",
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch"
   },
@@ -78,6 +79,10 @@
     }
   },
   "files": [
+    "./sso-oidc.d.ts",
+    "./sso-oidc.js",
+    "./sts.d.ts",
+    "./sts.js",
     "dist-*/**"
   ],
   "browser": {

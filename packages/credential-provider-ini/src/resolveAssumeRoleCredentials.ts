@@ -111,7 +111,7 @@ export const resolveAssumeRoleCredentials = async (
   const { source_profile, region } = profileData;
 
   if (!options.roleAssumer) {
-    const { getDefaultRoleAssumer } = await import("@aws-sdk/nested-clients");
+    const { getDefaultRoleAssumer } = await import("@aws-sdk/nested-clients/sts");
     options.roleAssumer = getDefaultRoleAssumer(
       {
         ...options.clientConfig,

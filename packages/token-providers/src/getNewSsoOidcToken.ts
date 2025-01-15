@@ -8,7 +8,7 @@ import { getSsoOidcClient } from "./getSsoOidcClient";
  * @internal
  */
 export const getNewSsoOidcToken = async (ssoToken: SSOToken, ssoRegion: string, init: FromSsoInit = {}) => {
-  const { CreateTokenCommand } = await import("@aws-sdk/nested-clients");
+  const { CreateTokenCommand } = await import("@aws-sdk/nested-clients/sso-oidc");
 
   const ssoOidcClient = await getSsoOidcClient(ssoRegion, init);
   return ssoOidcClient.send(

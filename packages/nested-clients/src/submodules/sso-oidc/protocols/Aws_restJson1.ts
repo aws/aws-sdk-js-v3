@@ -1,26 +1,6 @@
 // smithy-typescript generated code
-import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
-import { requestBuilder as rb } from "@smithy/core";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
-import {
-  _json,
-  collectBody,
-  decorateServiceException as __decorateServiceException,
-  expectInt32 as __expectInt32,
-  expectNonNull as __expectNonNull,
-  expectObject as __expectObject,
-  expectString as __expectString,
-  map,
-  take,
-  withBaseException,
-} from "@smithy/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
-
 import { CreateTokenCommandInput, CreateTokenCommandOutput } from "../commands/CreateTokenCommand";
+import { SSOOIDCServiceException as __BaseException } from "../models/SSOOIDCServiceException";
 import {
   AccessDeniedException,
   AuthorizationPendingException,
@@ -34,7 +14,26 @@ import {
   UnauthorizedClientException,
   UnsupportedGrantTypeException,
 } from "../models/models_0";
-import { SSOOIDCServiceException as __BaseException } from "../models/SSOOIDCServiceException";
+import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import {
+  decorateServiceException as __decorateServiceException,
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
+  expectString as __expectString,
+  _json,
+  collectBody,
+  map,
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+} from "@smithy/types";
 
 /**
  * serializeAws_restJson1CreateTokenCommand

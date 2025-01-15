@@ -19,7 +19,8 @@ module.exports = class Inliner {
     this.isPackage = fs.existsSync(path.join(root, "packages", pkg));
     this.isLib = fs.existsSync(path.join(root, "lib", pkg));
     this.isClient = !this.isPackage && !this.isLib;
-    this.isCore = pkg === "core";
+    this.submodules = ["core", "nested-clients"];
+    this.hasSubmodules = this.submodules.includes(pkg);
     this.reExportStubs = false;
     this.subfolder = this.isPackage ? "packages" : this.isLib ? "lib" : "clients";
     this.verbose = process.env.DEBUG || process.argv.includes("--debug");
@@ -175,11 +176,11 @@ module.exports = class Inliner {
       external: ["@smithy/*", "@aws-sdk/*", "node_modules/*", ...this.variantExternalsForEsBuild],
     };
 
-    if (!this.isCore) {
+    if (!this.hasSubmodules) {
       await esbuild.build(buildOptions);
     }
 
-    if (this.isCore) {
+    if (this.hasSubmodules) {
       const submodules = fs.readdirSync(path.join(root, this.subfolder, this.package, "src", "submodules"));
       for (const submodule of submodules) {
         fs.rmSync(path.join(path.join(root, this.subfolder, this.package, "dist-cjs", "submodules", submodule)), {
@@ -207,7 +208,7 @@ module.exports = class Inliner {
    * These now become re-exports of the index to preserve deep-import behavior.
    */
   async rewriteStubs() {
-    if (this.bailout || this.isCore) {
+    if (this.bailout || this.hasSubmodules) {
       return this;
     }
 

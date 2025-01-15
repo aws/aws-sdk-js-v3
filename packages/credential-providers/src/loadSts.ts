@@ -1,4 +1,4 @@
-import { AssumeRoleCommand, STSClient } from "@aws-sdk/nested-clients";
+import { AssumeRoleCommand, STSClient } from "@aws-sdk/nested-clients/sts";
 
 // This file must be loaded dynamically.
 /**

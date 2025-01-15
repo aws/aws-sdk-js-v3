@@ -5,7 +5,7 @@ import { FromSsoInit } from "./fromSso";
  * @internal
  */
 export const getSsoOidcClient = async (ssoRegion: string, init: FromSsoInit = {}) => {
-  const { SSOOIDCClient } = await import("@aws-sdk/nested-clients");
+  const { SSOOIDCClient } = await import("@aws-sdk/nested-clients/sso-oidc");
 
   const ssoOidcClient = new SSOOIDCClient(
     Object.assign({}, init.clientConfig ?? {}, {

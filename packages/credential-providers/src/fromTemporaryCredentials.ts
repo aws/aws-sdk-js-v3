@@ -1,4 +1,4 @@
-import type { AssumeRoleCommandInput, STSClient, STSClientConfig } from "@aws-sdk/nested-clients";
+import type { AssumeRoleCommandInput, STSClient, STSClientConfig } from "@aws-sdk/nested-clients/sts";
 import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentity, AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
