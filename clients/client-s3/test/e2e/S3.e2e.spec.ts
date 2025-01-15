@@ -35,8 +35,8 @@ describe("@aws-sdk/client-s3", () => {
       await client.deleteObject({ Bucket, Key });
     });
     it("should succeed with Node.js readable stream body", async () => {
-      const length = 10 * 1000; // 10KB
-      const chunkSize = 10;
+      const length = 100 * 1024; // 100KB
+      const chunkSize = 8 * 1024; // 8KB
       const { Readable } = require("stream");
       let sizeLeft = length;
       const inputStream = new Readable({
