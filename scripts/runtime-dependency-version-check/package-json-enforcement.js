@@ -1,4 +1,3 @@
-const { error } = require("console");
 const fs = require("fs");
 
 /**
@@ -20,7 +19,7 @@ const fs = require("fs");
  * - when react-native has file replacement directives, it must include both
  *   CJS and ESM dist replacements.
  *
- * - exports must not be defined unless the package name is core.
+ * - exports must not be defined unless the package name is core or nested-clients.
  */
 module.exports = function (pkgJsonFilePath, overwrite = false) {
   const errors = [];

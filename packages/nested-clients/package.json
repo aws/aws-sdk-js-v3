@@ -95,5 +95,21 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/nested-clients"
+  },
+  "exports": {
+    "./sso-oidc": {
+      "module": "./dist-es/submodules/sso-oidc/index.js",
+      "node": "./dist-cjs/submodules/sso-oidc/index.js",
+      "import": "./dist-es/submodules/sso-oidc/index.js",
+      "require": "./dist-cjs/submodules/sso-oidc/index.js",
+      "types": "./dist-types/submodules/sso-oidc/index.d.ts"
+    },
+    "./sts": {
+      "module": "./dist-es/submodules/sts/index.js",
+      "node": "./dist-cjs/submodules/sts/index.js",
+      "import": "./dist-es/submodules/sts/index.js",
+      "require": "./dist-cjs/submodules/sts/index.js",
+      "types": "./dist-types/submodules/sts/index.d.ts"
+    }
   }
 }

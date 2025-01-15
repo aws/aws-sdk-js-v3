@@ -183,15 +183,29 @@ module.exports = class Inliner {
     if (this.hasSubmodules) {
       const submodules = fs.readdirSync(path.join(root, this.subfolder, this.package, "src", "submodules"));
       for (const submodule of submodules) {
-        fs.rmSync(path.join(path.join(root, this.subfolder, this.package, "dist-cjs", "submodules", submodule)), {
-          recursive: true,
-          force: true,
-        });
         if (
           !fs.lstatSync(path.join(root, this.subfolder, this.package, "src", "submodules", submodule)).isDirectory()
         ) {
           continue;
         }
+
+        // remove invariant files.
+        for await (const file of walk(
+          path.join(root, this.subfolder, this.package, "dist-cjs", "submodules", submodule)
+        )) {
+          const stat = fs.lstatSync(file);
+          if (this.variantExternals.find((ext) => file.endsWith(ext))) {
+            continue;
+          }
+          if (stat.isDirectory()) {
+            if (fs.readdirSync(file).length === 0) {
+              fs.rmdirSync(file);
+            }
+          } else {
+            fs.rmSync(file);
+          }
+        }
+
         await esbuild.build({
           ...buildOptions,
           entryPoints: [path.join(root, this.subfolder, this.package, "src", "submodules", submodule, "index.ts")],
@@ -272,21 +286,32 @@ module.exports = class Inliner {
       return this;
     }
     this.indexContents = fs.readFileSync(this.outfile, "utf-8");
-    for (const variant of Object.keys(this.variantMap)) {
-      const basename = path.basename(variant).replace(/.js$/, "");
-      const dirname = path.dirname(variant);
+    const fixImportsForFile = (contents, remove = "") => {
+      for (const variant of Object.keys(this.variantMap)) {
+        const basename = path.basename(variant).replace(/.js$/, "");
+        const dirname = path.dirname(variant);
 
-      const find = new RegExp(`require\\("\\.(.*?)/${basename}"\\)`, "g");
-      const replace = `require("./${dirname}/${basename}")`;
+        const find = new RegExp(`require\\("\\.(.*?)/${basename}"\\)`, "g");
+        const replace = `require("./${dirname}/${basename}")`.replace(remove, "");
 
-      this.indexContents = this.indexContents.replace(find, replace);
+        contents = contents.replace(find, replace);
 
-      if (this.verbose) {
-        console.log("Replacing", find, "with", replace);
+        if (this.verbose) {
+          console.log("Replacing", find, "with", replace, "removed=", remove);
+        }
+      }
+      return contents;
+    };
+    this.indexContents = fixImportsForFile(this.indexContents);
+    fs.writeFileSync(this.outfile, this.indexContents, "utf-8");
+    if (this.hasSubmodules) {
+      const submodules = fs.readdirSync(path.join(path.dirname(this.outfile), "submodules"));
+      for (const submodule of submodules) {
+        const submoduleIndexPath = path.join(path.dirname(this.outfile), "submodules", submodule, "index.js");
+        const submoduleIndexContents = fs.readFileSync(submoduleIndexPath, "utf-8");
+        fs.writeFileSync(submoduleIndexPath, fixImportsForFile(submoduleIndexContents, `/submodules/${submodule}`));
       }
     }
-
-    fs.writeFileSync(this.outfile, this.indexContents, "utf-8");
     return this;
   }
 
@@ -376,18 +401,33 @@ module.exports = class Inliner {
         .map((variant) => path.basename(variant).replace(/.js$/, ""))
     );
 
-    for (const line of this.indexContents.split("\n")) {
-      // we expect to see a line with require() and the variant external in it
-      if (line.includes("require(")) {
-        const checkOrder = [...externalsToCheck].sort().reverse();
-        for (const external of checkOrder) {
-          if (line.includes(external)) {
-            if (this.verbose) {
-              console.log("Inline index confirmed require() for variant external:", external);
+    const inspect = (contents) => {
+      for (const line of contents.split("\n")) {
+        // we expect to see a line with require() and the variant external in it
+        if (line.includes("require(")) {
+          const checkOrder = [...externalsToCheck].sort().reverse();
+          for (const external of checkOrder) {
+            if (line.includes(external)) {
+              if (this.verbose) {
+                console.log("Inline index confirmed require() for variant external:", external);
+              }
+              externalsToCheck.delete(external);
             }
-            externalsToCheck.delete(external);
           }
         }
+      }
+    };
+
+    inspect(this.indexContents);
+
+    if (this.hasSubmodules) {
+      const submodules = fs.readdirSync(path.join(path.dirname(this.outfile), "submodules"));
+      for (const submodule of submodules) {
+        const submoduleIndexContents = fs.readFileSync(
+          path.join(path.dirname(this.outfile), "submodules", submodule, "index.js"),
+          "utf-8"
+        );
+        inspect(submoduleIndexContents);
       }
     }
 
