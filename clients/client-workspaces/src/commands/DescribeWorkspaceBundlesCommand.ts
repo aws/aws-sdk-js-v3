@@ -60,7 +60,7 @@ export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspace
  * //         Capacity: "STRING_VALUE", // required
  * //       },
  * //       ComputeType: { // ComputeType
- * //         Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ * //         Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GENERALPURPOSE_4XLARGE" || "GENERALPURPOSE_8XLARGE" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
  * //       },
  * //       LastUpdatedTime: new Date("TIMESTAMP"),
  * //       CreationTime: new Date("TIMESTAMP"),

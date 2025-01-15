@@ -75,7 +75,7 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  *         RunningModeAutoStopTimeoutInMinutes: Number("int"),
  *         RootVolumeSizeGib: Number("int"),
  *         UserVolumeSizeGib: Number("int"),
- *         ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ *         ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GENERALPURPOSE_4XLARGE" || "GENERALPURPOSE_8XLARGE" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
  *         Protocols: [ // ProtocolList
  *           "PCOIP" || "WSP",
  *         ],
@@ -112,7 +112,7 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * //           RunningModeAutoStopTimeoutInMinutes: Number("int"),
  * //           RootVolumeSizeGib: Number("int"),
  * //           UserVolumeSizeGib: Number("int"),
- * //           ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ * //           ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GENERALPURPOSE_4XLARGE" || "GENERALPURPOSE_8XLARGE" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
  * //           Protocols: [ // ProtocolList
  * //             "PCOIP" || "WSP",
  * //           ],
@@ -155,7 +155,7 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * //         RunningModeAutoStopTimeoutInMinutes: Number("int"),
  * //         RootVolumeSizeGib: Number("int"),
  * //         UserVolumeSizeGib: Number("int"),
- * //         ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ * //         ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GENERALPURPOSE_4XLARGE" || "GENERALPURPOSE_8XLARGE" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
  * //         Protocols: [
  * //           "PCOIP" || "WSP",
  * //         ],

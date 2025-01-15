@@ -42,7 +42,7 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  *   BundleDescription: "STRING_VALUE", // required
  *   ImageId: "STRING_VALUE", // required
  *   ComputeType: { // ComputeType
- *     Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ *     Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GENERALPURPOSE_4XLARGE" || "GENERALPURPOSE_8XLARGE" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
  *   },
  *   UserStorage: { // UserStorage
  *     Capacity: "STRING_VALUE", // required
@@ -73,7 +73,7 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  * //       Capacity: "STRING_VALUE", // required
  * //     },
  * //     ComputeType: { // ComputeType
- * //       Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ * //       Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GENERALPURPOSE_4XLARGE" || "GENERALPURPOSE_8XLARGE" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
  * //     },
  * //     LastUpdatedTime: new Date("TIMESTAMP"),
  * //     CreationTime: new Date("TIMESTAMP"),
