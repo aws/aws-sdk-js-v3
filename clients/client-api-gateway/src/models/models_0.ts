@@ -669,7 +669,7 @@ export interface CreateBasePathMappingRequest {
   domainName: string | undefined;
 
   /**
-   * <p>The identifier for the domain name resource. Supported only for private custom domain names.</p>
+   * <p>The identifier for the domain name resource. Required for private custom domain names.</p>
    * @public
    */
   domainNameId?: string | undefined;
@@ -3763,7 +3763,7 @@ export interface GetDomainNameRequest {
 
   /**
    * <p>
-   *   The identifier for the domain name resource. Supported only for private custom domain names.
+   *   The identifier for the domain name resource. Required for private custom domain names.
    * </p>
    * @public
    */
