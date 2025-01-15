@@ -204,7 +204,7 @@ export class Upload extends EventEmitter {
     if (!this.createMultiPartPromise) {
       const createCommandParams = { ...this.params, Body: undefined };
       if (requestChecksumCalculation === "WHEN_SUPPORTED") {
-        createCommandParams.ChecksumAlgorithm = ChecksumAlgorithm.CRC32;
+        createCommandParams.ChecksumAlgorithm = this.params.ChecksumAlgorithm || ChecksumAlgorithm.CRC32;
       }
       this.createMultiPartPromise = this.client
         .send(new CreateMultipartUploadCommand(createCommandParams))
