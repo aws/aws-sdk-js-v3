@@ -93,7 +93,10 @@ describe("@aws-sdk/client-s3", () => {
 
     const buf = createBuffer("1KB");
 
-    it("should succeed with blob body", async () => {
+    // TODO(vitest)
+    // Caused by: readableStream.on is not a function
+    // only in vitest + happy-dom.
+    it.skip("should succeed with blob body", async () => {
       onTestFailed(setTestFailed);
       const blob = new Blob([buf]);
       const result = await client.putObject({
