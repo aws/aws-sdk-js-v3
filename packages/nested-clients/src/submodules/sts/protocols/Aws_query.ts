@@ -1,16 +1,34 @@
 // smithy-typescript generated code
+import { parseXmlBody as parseBody, parseXmlErrorBody as parseErrorBody } from "@aws-sdk/core";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import {
+  collectBody,
+  decorateServiceException as __decorateServiceException,
+  expectNonNull as __expectNonNull,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  strictParseInt32 as __strictParseInt32,
+  withBaseException,
+} from "@smithy/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+} from "@smithy/types";
+
 import { AssumeRoleCommandInput, AssumeRoleCommandOutput } from "../commands/AssumeRoleCommand";
 import {
   AssumeRoleWithWebIdentityCommandInput,
   AssumeRoleWithWebIdentityCommandOutput,
 } from "../commands/AssumeRoleWithWebIdentityCommand";
-import { STSServiceException as __BaseException } from "../models/STSServiceException";
 import {
+  AssumedRoleUser,
   AssumeRoleRequest,
   AssumeRoleResponse,
   AssumeRoleWithWebIdentityRequest,
   AssumeRoleWithWebIdentityResponse,
-  AssumedRoleUser,
   Credentials,
   ExpiredTokenException,
   IDPCommunicationErrorException,
@@ -23,24 +41,7 @@ import {
   RegionDisabledException,
   Tag,
 } from "../models/models_0";
-import { parseXmlBody as parseBody, parseXmlErrorBody as parseErrorBody } from "@aws-sdk/core";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
-import {
-  decorateServiceException as __decorateServiceException,
-  expectNonNull as __expectNonNull,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
-  strictParseInt32 as __strictParseInt32,
-  collectBody,
-  withBaseException,
-} from "@smithy/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { STSServiceException as __BaseException } from "../models/STSServiceException";
 
 /**
  * serializeAws_queryAssumeRoleCommand
@@ -383,7 +384,7 @@ const se_AssumeRoleWithWebIdentityRequest = (input: AssumeRoleWithWebIdentityReq
 const se_policyDescriptorListType = (input: PolicyDescriptorType[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -427,7 +428,7 @@ const se_ProvidedContext = (input: ProvidedContext, context: __SerdeContext): an
 const se_ProvidedContextsListType = (input: ProvidedContext[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -460,7 +461,7 @@ const se_Tag = (input: Tag, context: __SerdeContext): any => {
 const se_tagKeyListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -476,7 +477,7 @@ const se_tagKeyListType = (input: string[], context: __SerdeContext): any => {
 const se_tagListType = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -493,7 +494,7 @@ const se_tagListType = (input: Tag[], context: __SerdeContext): any => {
  * deserializeAws_queryAssumedRoleUser
  */
 const de_AssumedRoleUser = (output: any, context: __SerdeContext): AssumedRoleUser => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_ARI] != null) {
     contents[_ARI] = __expectString(output[_ARI]);
   }
@@ -507,7 +508,7 @@ const de_AssumedRoleUser = (output: any, context: __SerdeContext): AssumedRoleUs
  * deserializeAws_queryAssumeRoleResponse
  */
 const de_AssumeRoleResponse = (output: any, context: __SerdeContext): AssumeRoleResponse => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_C] != null) {
     contents[_C] = de_Credentials(output[_C], context);
   }
@@ -530,7 +531,7 @@ const de_AssumeRoleWithWebIdentityResponse = (
   output: any,
   context: __SerdeContext
 ): AssumeRoleWithWebIdentityResponse => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_C] != null) {
     contents[_C] = de_Credentials(output[_C], context);
   }
@@ -559,7 +560,7 @@ const de_AssumeRoleWithWebIdentityResponse = (
  * deserializeAws_queryCredentials
  */
 const de_Credentials = (output: any, context: __SerdeContext): Credentials => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_AKI] != null) {
     contents[_AKI] = __expectString(output[_AKI]);
   }
@@ -579,7 +580,7 @@ const de_Credentials = (output: any, context: __SerdeContext): Credentials => {
  * deserializeAws_queryExpiredTokenException
  */
 const de_ExpiredTokenException = (output: any, context: __SerdeContext): ExpiredTokenException => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
   }
@@ -590,7 +591,7 @@ const de_ExpiredTokenException = (output: any, context: __SerdeContext): Expired
  * deserializeAws_queryIDPCommunicationErrorException
  */
 const de_IDPCommunicationErrorException = (output: any, context: __SerdeContext): IDPCommunicationErrorException => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
   }
@@ -601,7 +602,7 @@ const de_IDPCommunicationErrorException = (output: any, context: __SerdeContext)
  * deserializeAws_queryIDPRejectedClaimException
  */
 const de_IDPRejectedClaimException = (output: any, context: __SerdeContext): IDPRejectedClaimException => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
   }
@@ -612,7 +613,7 @@ const de_IDPRejectedClaimException = (output: any, context: __SerdeContext): IDP
  * deserializeAws_queryInvalidIdentityTokenException
  */
 const de_InvalidIdentityTokenException = (output: any, context: __SerdeContext): InvalidIdentityTokenException => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
   }
@@ -626,7 +627,7 @@ const de_MalformedPolicyDocumentException = (
   output: any,
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
   }
@@ -637,7 +638,7 @@ const de_MalformedPolicyDocumentException = (
  * deserializeAws_queryPackedPolicyTooLargeException
  */
 const de_PackedPolicyTooLargeException = (output: any, context: __SerdeContext): PackedPolicyTooLargeException => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
   }
@@ -648,7 +649,7 @@ const de_PackedPolicyTooLargeException = (output: any, context: __SerdeContext):
  * deserializeAws_queryRegionDisabledException
  */
 const de_RegionDisabledException = (output: any, context: __SerdeContext): RegionDisabledException => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
   }

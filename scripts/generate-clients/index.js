@@ -100,7 +100,6 @@ const {
 
     if (!protocolTestsOnly) {
       await generateClients(models || globs || DEFAULT_CODE_GEN_INPUT_DIR, batchSize);
-      await generateNestedClients();
     }
 
     if (!noPrivateClients) {
@@ -144,6 +143,11 @@ const {
     }
 
     require("./customizations/workspaces-thin-client")();
+
+    if (!protocolTestsOnly) {
+      await generateNestedClients();
+    }
+
     await spawnProcess("yarn", ["install", "--no-immutable"], {
       cwd: REPO_ROOT,
       stdio: "inherit",
