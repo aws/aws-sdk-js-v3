@@ -1,5 +1,5 @@
-import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
 import { defaultProvider as credentialProvider } from "@aws-sdk/credential-provider-node";
+import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/nested-clients/sts";
 
 // Preprocessor needs to be a function
 function createCredentialPreprocessor() {

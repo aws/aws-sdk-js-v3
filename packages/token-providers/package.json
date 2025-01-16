@@ -27,6 +27,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/nested-clients": "*",
     "@aws-sdk/types": "*",
     "@smithy/property-provider": "^4.0.0",
     "@smithy/shared-ini-file-loader": "^4.0.0",
@@ -40,9 +41,6 @@
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
     "typescript": "~5.2.2"
-  },
-  "peerDependencies": {
-    "@aws-sdk/client-sso-oidc": "*"
   },
   "types": "./dist-types/index.d.ts",
   "engines": {

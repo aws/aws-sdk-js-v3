@@ -9,7 +9,7 @@
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
-    "lint": "node ./scripts/lint.js",
+    "lint": "node ../../scripts/validation/submodules-linter.js --pkg core",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
     "test": "yarn g:vitest run",

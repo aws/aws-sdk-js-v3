@@ -5,6 +5,7 @@ const { emptyDirSync, rmdirSync } = require("fs-extra");
 const { generateClients, generateGenericClient, generateProtocolTests } = require("./code-gen");
 const { codeOrdering } = require("./code-ordering");
 const { copyToClients, copyServerTests } = require("./copy-to-clients");
+const generateNestedClients = require("./nested-clients/generate-nested-clients");
 const {
   CODE_GEN_SDK_OUTPUT_DIR,
   CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR,
@@ -99,6 +100,7 @@ const {
 
     if (!protocolTestsOnly) {
       await generateClients(models || globs || DEFAULT_CODE_GEN_INPUT_DIR, batchSize);
+      await generateNestedClients();
     }
 
     if (!noPrivateClients) {
@@ -142,7 +144,11 @@ const {
     }
 
     require("./customizations/workspaces-thin-client")();
-    await spawnProcess("yarn", ["install", "--no-immutable"], { cwd: REPO_ROOT, stdio: "inherit", env: { ...process.env, CI: "" } });
+    await spawnProcess("yarn", ["install", "--no-immutable"], {
+      cwd: REPO_ROOT,
+      stdio: "inherit",
+      env: { ...process.env, CI: "" },
+    });
     require("../runtime-dependency-version-check/runtime-dep-version-check");
   } catch (e) {
     console.log(e);

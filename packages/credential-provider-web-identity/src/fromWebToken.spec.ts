@@ -1,4 +1,4 @@
-import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
+import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/nested-clients/sts";
 import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromWebToken } from "./fromWebToken";
@@ -16,7 +16,7 @@ const MOCK_CREDS = {
   sessionToken: "sessionToken",
 };
 
-vi.mock("@aws-sdk/client-sts", () => ({
+vi.mock("@aws-sdk/nested-clients/sts", () => ({
   getDefaultRoleAssumerWithWebIdentity: vi.fn().mockReturnValue(() => {}),
 }));
 

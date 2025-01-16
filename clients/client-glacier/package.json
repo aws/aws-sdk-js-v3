@@ -22,8 +22,6 @@
     "@aws-crypto/sha256-js": "5.2.0",
     "@aws-sdk/body-checksum-browser": "*",
     "@aws-sdk/body-checksum-node": "*",
-    "@aws-sdk/client-sso-oidc": "*",
-    "@aws-sdk/client-sts": "*",
     "@aws-sdk/core": "*",
     "@aws-sdk/credential-provider-node": "*",
     "@aws-sdk/middleware-host-header": "*",

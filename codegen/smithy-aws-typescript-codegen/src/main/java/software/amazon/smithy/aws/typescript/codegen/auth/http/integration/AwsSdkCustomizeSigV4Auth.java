@@ -17,7 +17,6 @@ import java.util.TreeMap;
 import java.util.function.Consumer;
 import software.amazon.smithy.aws.traits.auth.SigV4ATrait;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
-import software.amazon.smithy.aws.typescript.codegen.AwsCredentialProviderUtils;
 import software.amazon.smithy.aws.typescript.codegen.AwsDependency;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
@@ -118,7 +117,6 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                                 .addImport("defaultProvider", "credentialDefaultProvider",
                                     AwsDependency.CREDENTIAL_PROVIDER_NODE)
                                 .write("credentialDefaultProvider");
-                            AwsCredentialProviderUtils.addAwsCredentialProviderDependencies(service, writer);
                         }
                     );
                     if (isSigV4AsymmetricService(model, settings)) {
@@ -147,7 +145,6 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                                 .addImport("defaultProvider", "credentialDefaultProvider",
                                     AwsDependency.CREDENTIAL_PROVIDER_NODE)
                                 .write("credentialDefaultProvider()");
-                            AwsCredentialProviderUtils.addAwsCredentialProviderDependencies(service, writer);
                         }
                     );
                 }

@@ -101,6 +101,12 @@ const ignored = [...node_libraries, "vitest"];
           !(dependencyPackageName in (pkgJson.peerDependencies ?? {})) &&
           dependencyPackageName !== pkgJson.name
         ) {
+          if (
+            ["@aws-sdk/client-sts", "@aws-sdk/client-sso-oidc"].includes(dependency) &&
+            ["@aws-sdk/nested-clients"].includes(pkgJson.name)
+          ) {
+            continue;
+          }
           errors.push(`${dependency} undeclared but imported in ${pkgJson.name} ${file}}`);
         }
       }

@@ -1,11 +1,11 @@
-import { AssumeRoleCommand, STSClient } from "@aws-sdk/client-sts";
+import { AssumeRoleCommand, STSClient } from "@aws-sdk/nested-clients/sts";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromTemporaryCredentials } from "./fromTemporaryCredentials";
 
 const mockSend = vi.fn();
 const mockUsePlugin = vi.fn();
-vi.mock("@aws-sdk/client-sts", () => ({
+vi.mock("@aws-sdk/nested-clients/sts", () => ({
   STSClient: vi.fn().mockImplementation((config) => ({
     config,
     send: vi.fn().mockImplementation(async function (command) {

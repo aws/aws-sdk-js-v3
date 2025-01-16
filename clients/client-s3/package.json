@@ -27,8 +27,6 @@
     "@aws-crypto/sha1-browser": "5.2.0",
     "@aws-crypto/sha256-browser": "5.2.0",
     "@aws-crypto/sha256-js": "5.2.0",
-    "@aws-sdk/client-sso-oidc": "*",
-    "@aws-sdk/client-sts": "*",
     "@aws-sdk/core": "*",
     "@aws-sdk/credential-provider-node": "*",
     "@aws-sdk/middleware-bucket-endpoint": "*",

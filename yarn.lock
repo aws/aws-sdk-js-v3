@@ -230,8 +230,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -284,8 +282,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -338,8 +334,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -392,8 +386,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -446,8 +438,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -500,8 +490,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -556,8 +544,6 @@ __metadata:
     "@aws-crypto/sha256-js": "npm:5.2.0"
     "@aws-sdk/body-checksum-browser": "npm:*"
     "@aws-sdk/body-checksum-node": "npm:*"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -610,8 +596,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -670,8 +654,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -927,8 +909,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -983,8 +963,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1037,8 +1015,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1092,8 +1068,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1147,8 +1121,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1204,8 +1176,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1258,8 +1228,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1312,8 +1280,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1368,8 +1334,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1424,8 +1388,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1478,8 +1440,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1533,8 +1493,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1589,8 +1547,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1644,8 +1600,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1699,8 +1653,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1755,8 +1707,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1811,8 +1761,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1867,8 +1815,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1921,8 +1867,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -1977,8 +1921,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2031,8 +1973,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2085,8 +2025,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2139,8 +2077,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2193,8 +2129,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2248,8 +2182,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2303,8 +2235,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2359,8 +2289,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2413,8 +2341,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2467,8 +2393,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2523,8 +2447,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2577,8 +2499,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2631,8 +2551,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2686,8 +2604,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2742,8 +2658,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2796,8 +2710,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2852,8 +2764,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2906,8 +2816,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -2960,8 +2868,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3014,8 +2920,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3070,8 +2974,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3127,8 +3029,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3183,8 +3083,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3239,8 +3137,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3295,8 +3191,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3355,8 +3249,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3411,8 +3303,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3467,8 +3357,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3523,8 +3411,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3579,8 +3465,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3633,8 +3517,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3689,8 +3571,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3745,8 +3625,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3801,8 +3679,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3857,8 +3733,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3913,8 +3787,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -3967,8 +3839,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4023,8 +3893,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4077,8 +3945,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4131,8 +3997,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4185,8 +4049,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4242,8 +4104,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4296,8 +4156,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4353,8 +4211,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4408,8 +4264,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4465,8 +4319,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4519,8 +4371,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4573,8 +4423,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4627,8 +4475,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4681,8 +4527,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4735,8 +4579,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4789,8 +4631,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4843,8 +4683,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4902,8 +4740,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -4958,8 +4794,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5013,8 +4847,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5121,8 +4953,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5177,8 +5007,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5231,8 +5059,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5286,8 +5112,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5343,8 +5167,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5399,8 +5221,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5456,8 +5276,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5512,8 +5330,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5566,8 +5382,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5622,8 +5436,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5677,8 +5489,6 @@ __metadata:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
     "@aws-sdk/client-iam": "npm:*"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5732,8 +5542,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5786,8 +5594,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5842,8 +5648,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5898,8 +5702,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -5952,8 +5754,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6006,8 +5806,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6060,8 +5858,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6116,8 +5912,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6170,8 +5964,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6224,8 +6016,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6280,8 +6070,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6336,8 +6124,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6390,8 +6176,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6444,8 +6228,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6498,8 +6280,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6552,8 +6332,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6606,8 +6384,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6660,8 +6436,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6714,8 +6488,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6769,8 +6541,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6823,8 +6593,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6879,8 +6647,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6935,8 +6701,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -6992,8 +6756,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7046,8 +6808,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7103,8 +6863,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7157,8 +6915,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7211,8 +6967,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7267,8 +7021,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7321,8 +7073,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7377,8 +7127,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7431,8 +7179,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7485,8 +7231,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7541,8 +7285,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7597,8 +7339,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7651,8 +7391,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7708,8 +7446,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7762,8 +7498,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-endpoint-discovery": "npm:*"
@@ -7820,8 +7554,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7877,8 +7609,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7931,8 +7661,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -7989,8 +7717,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8043,8 +7769,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8098,8 +7822,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8155,8 +7877,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8211,8 +7931,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8265,8 +7983,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8322,8 +8038,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8377,8 +8091,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8431,8 +8143,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8486,8 +8196,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8541,8 +8249,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8596,8 +8302,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8651,8 +8355,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8705,8 +8407,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8761,8 +8461,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8817,8 +8515,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8872,8 +8568,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8926,8 +8620,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -8982,8 +8674,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9036,8 +8726,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9092,8 +8780,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9148,8 +8834,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9202,8 +8886,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9258,8 +8940,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9312,8 +8992,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9366,8 +9044,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9420,8 +9096,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9474,8 +9148,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9528,8 +9200,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9584,8 +9254,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9638,8 +9306,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9693,8 +9359,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9747,8 +9411,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9803,8 +9465,6 @@ __metadata:
     "@aws-crypto/sha256-js": "npm:5.2.0"
     "@aws-sdk/body-checksum-browser": "npm:*"
     "@aws-sdk/body-checksum-node": "npm:*"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9860,8 +9520,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9916,8 +9574,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -9970,8 +9626,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10026,8 +9680,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10080,8 +9732,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10136,8 +9786,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10191,8 +9839,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10247,8 +9893,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10301,8 +9945,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10357,8 +9999,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10412,8 +10052,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10466,8 +10104,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10522,8 +10158,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10576,8 +10210,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10632,8 +10264,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10686,8 +10316,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10742,8 +10370,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10796,8 +10422,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10851,8 +10475,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10905,8 +10527,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -10959,8 +10579,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11015,8 +10633,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11072,8 +10688,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11128,8 +10742,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11182,8 +10794,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11238,8 +10848,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11294,8 +10902,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11348,8 +10954,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11402,8 +11006,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11462,8 +11064,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11516,8 +11116,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11570,8 +11168,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11626,8 +11222,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11680,8 +11274,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11734,8 +11326,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11788,8 +11378,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11842,8 +11430,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11898,8 +11484,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -11954,8 +11538,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12008,8 +11590,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12062,8 +11642,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12116,8 +11694,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12171,8 +11747,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12226,8 +11800,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12280,8 +11852,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12334,8 +11904,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12388,8 +11956,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12446,8 +12012,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12500,8 +12064,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12555,8 +12117,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12614,8 +12174,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12668,8 +12226,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12722,8 +12278,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12777,8 +12331,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12832,8 +12384,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/eventstream-handler-node": "npm:*"
@@ -12892,8 +12442,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -12946,8 +12494,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13000,8 +12546,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13054,8 +12598,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13108,8 +12650,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13163,8 +12703,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13219,8 +12757,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13273,8 +12809,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13329,8 +12863,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13385,8 +12917,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13441,8 +12971,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13498,8 +13026,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13554,8 +13080,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13608,8 +13132,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13664,8 +13186,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13718,8 +13238,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13774,8 +13292,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13828,8 +13344,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13884,8 +13398,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13938,8 +13450,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -13992,8 +13502,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14046,8 +13554,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14101,8 +13607,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14157,8 +13661,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14215,8 +13717,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14269,8 +13769,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14323,8 +13821,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14380,8 +13876,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14435,8 +13929,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14489,8 +13981,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14543,8 +14033,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14600,8 +14088,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14654,8 +14140,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14710,8 +14194,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14766,8 +14248,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14820,8 +14300,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14874,8 +14352,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14930,8 +14406,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -14984,8 +14458,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15040,8 +14512,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15094,8 +14564,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15148,8 +14616,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15204,8 +14670,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15260,8 +14724,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15315,8 +14777,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15369,8 +14829,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15425,8 +14883,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15481,8 +14937,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15537,8 +14991,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15591,8 +15043,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15645,8 +15095,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15699,8 +15147,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15753,8 +15199,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15811,8 +15255,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15867,8 +15309,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15923,8 +15363,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -15978,8 +15416,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16033,8 +15469,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16087,8 +15521,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16141,8 +15573,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16195,8 +15625,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16249,8 +15677,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16305,8 +15731,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16359,8 +15783,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16413,8 +15835,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16469,8 +15889,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16525,8 +15943,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16581,8 +15997,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16635,8 +16049,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16689,8 +16101,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16743,8 +16153,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16797,8 +16205,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16851,8 +16257,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16907,8 +16311,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -16961,8 +16363,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17015,8 +16415,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17069,8 +16467,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17124,8 +16520,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17178,8 +16572,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17232,8 +16624,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17289,8 +16679,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17343,8 +16731,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/eventstream-handler-node": "npm:*"
@@ -17404,8 +16790,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17460,8 +16844,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17514,8 +16896,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17568,8 +16948,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17622,8 +17000,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17676,8 +17052,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17730,8 +17104,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17784,8 +17156,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17840,8 +17210,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17896,8 +17264,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -17950,8 +17316,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18005,8 +17369,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18062,8 +17424,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/eventstream-handler-node": "npm:*"
@@ -18122,8 +17482,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18176,8 +17534,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18232,8 +17588,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18288,8 +17642,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18342,8 +17694,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18396,8 +17746,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18452,8 +17800,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18506,8 +17852,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18560,8 +17904,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18617,8 +17959,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18671,8 +18011,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18728,8 +18066,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18782,8 +18118,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18838,8 +18172,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18894,8 +18226,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -18948,8 +18278,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19011,8 +18339,6 @@ __metadata:
     "@aws-crypto/sha1-browser": "npm:5.2.0"
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-bucket-endpoint": "npm:*"
@@ -19082,8 +18408,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19136,8 +18460,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19190,8 +18512,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19244,8 +18564,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19298,8 +18616,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19352,8 +18668,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19409,8 +18723,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19463,8 +18775,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19521,8 +18831,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19578,8 +18886,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19634,8 +18940,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19690,8 +18994,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19748,8 +19050,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19804,8 +19104,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19860,8 +19158,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19914,8 +19210,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -19968,8 +19262,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20022,8 +19314,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20078,8 +19368,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20134,8 +19422,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20188,8 +19474,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20244,8 +19528,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20299,8 +19581,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20354,8 +19634,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20410,8 +19688,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20464,8 +19740,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20521,8 +19795,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20577,8 +19849,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20631,8 +19901,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20687,8 +19955,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20741,8 +20007,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20795,8 +20059,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20849,8 +20111,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20905,8 +20165,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -20961,8 +20219,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -21018,8 +20274,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -21072,8 +20326,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -21126,8 +20378,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -21183,8 +20433,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -21233,7 +20481,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-sso-oidc@npm:*, @aws-sdk/client-sso-oidc@workspace:clients/client-sso-oidc":
+"@aws-sdk/client-sso-oidc@workspace:clients/client-sso-oidc":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-sso-oidc@workspace:clients/client-sso-oidc"
   dependencies:
@@ -21282,8 +20530,6 @@ __metadata:
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.2.2"
-  peerDependencies:
-    "@aws-sdk/client-sts": "*"
   languageName: unknown
   linkType: soft
 
@@ -21344,8 +20590,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -21392,13 +20636,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-sts@npm:*, @aws-sdk/client-sts@workspace:clients/client-sts":
+"@aws-sdk/client-sts@workspace:clients/client-sts":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-sts@workspace:clients/client-sts"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -21451,8 +20694,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -21507,8 +20748,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -21561,8 +20800,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -21615,8 +20852,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -21669,8 +20904,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -21723,8 +20956,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -21777,8 +21008,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -21833,8 +21062,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -21887,8 +21114,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-endpoint-discovery": "npm:*"
@@ -21944,8 +21169,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-endpoint-discovery": "npm:*"
@@ -22001,8 +21224,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22056,8 +21277,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/eventstream-handler-node": "npm:*"
@@ -22117,8 +21336,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22171,8 +21388,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22226,8 +21441,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22282,8 +21495,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22336,8 +21547,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22392,8 +21601,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22448,8 +21655,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22504,8 +21709,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22558,8 +21761,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22612,8 +21813,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22666,8 +21865,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22722,8 +21919,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22778,8 +21973,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22832,8 +22025,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22888,8 +22079,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22943,8 +22132,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -22999,8 +22186,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -23055,8 +22240,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -23109,8 +22292,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -23280,6 +22461,7 @@ __metadata:
     "@aws-sdk/credential-provider-process": "npm:*"
     "@aws-sdk/credential-provider-sso": "npm:*"
     "@aws-sdk/credential-provider-web-identity": "npm:*"
+    "@aws-sdk/nested-clients": "npm:*"
     "@aws-sdk/types": "npm:*"
     "@smithy/credential-provider-imds": "npm:^4.0.0"
     "@smithy/property-provider": "npm:^4.0.0"
@@ -23292,8 +22474,6 @@ __metadata:
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.2.2"
-  peerDependencies:
-    "@aws-sdk/client-sts": "*"
   languageName: unknown
   linkType: soft
 
@@ -23367,6 +22547,7 @@ __metadata:
   resolution: "@aws-sdk/credential-provider-web-identity@workspace:packages/credential-provider-web-identity"
   dependencies:
     "@aws-sdk/core": "npm:*"
+    "@aws-sdk/nested-clients": "npm:*"
     "@aws-sdk/types": "npm:*"
     "@smithy/property-provider": "npm:^4.0.0"
     "@smithy/types": "npm:^4.0.0"
@@ -23377,8 +22558,6 @@ __metadata:
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.2.2"
-  peerDependencies:
-    "@aws-sdk/client-sts": "*"
   languageName: unknown
   linkType: soft
 
@@ -23387,8 +22566,6 @@ __metadata:
   resolution: "@aws-sdk/credential-providers@workspace:packages/credential-providers"
   dependencies:
     "@aws-sdk/client-cognito-identity": "npm:*"
-    "@aws-sdk/client-sso": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-cognito-identity": "npm:*"
     "@aws-sdk/credential-provider-env": "npm:*"
@@ -23398,6 +22575,7 @@ __metadata:
     "@aws-sdk/credential-provider-process": "npm:*"
     "@aws-sdk/credential-provider-sso": "npm:*"
     "@aws-sdk/credential-provider-web-identity": "npm:*"
+    "@aws-sdk/nested-clients": "npm:*"
     "@aws-sdk/types": "npm:*"
     "@smithy/credential-provider-imds": "npm:^4.0.0"
     "@smithy/property-provider": "npm:^4.0.0"
@@ -23509,8 +22687,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/karma-credential-loader@workspace:packages/karma-credential-loader"
   dependencies:
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
+    "@aws-sdk/nested-clients": "npm:*"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^18.19.69"
     concurrently: "npm:7.0.0"
@@ -24044,6 +23222,55 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/nested-clients@npm:*, @aws-sdk/nested-clients@workspace:packages/nested-clients":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/nested-clients@workspace:packages/nested-clients"
+  dependencies:
+    "@aws-crypto/sha256-browser": "npm:5.2.0"
+    "@aws-crypto/sha256-js": "npm:5.2.0"
+    "@aws-sdk/core": "npm:*"
+    "@aws-sdk/middleware-host-header": "npm:*"
+    "@aws-sdk/middleware-logger": "npm:*"
+    "@aws-sdk/middleware-recursion-detection": "npm:*"
+    "@aws-sdk/middleware-user-agent": "npm:*"
+    "@aws-sdk/region-config-resolver": "npm:*"
+    "@aws-sdk/types": "npm:*"
+    "@aws-sdk/util-endpoints": "npm:*"
+    "@aws-sdk/util-user-agent-browser": "npm:*"
+    "@aws-sdk/util-user-agent-node": "npm:*"
+    "@smithy/config-resolver": "npm:^4.0.0"
+    "@smithy/core": "npm:^3.0.0"
+    "@smithy/fetch-http-handler": "npm:^5.0.0"
+    "@smithy/hash-node": "npm:^4.0.0"
+    "@smithy/invalid-dependency": "npm:^4.0.0"
+    "@smithy/middleware-content-length": "npm:^4.0.0"
+    "@smithy/middleware-endpoint": "npm:^4.0.0"
+    "@smithy/middleware-retry": "npm:^4.0.0"
+    "@smithy/middleware-serde": "npm:^4.0.0"
+    "@smithy/middleware-stack": "npm:^4.0.0"
+    "@smithy/node-config-provider": "npm:^4.0.0"
+    "@smithy/node-http-handler": "npm:^4.0.0"
+    "@smithy/protocol-http": "npm:^5.0.0"
+    "@smithy/smithy-client": "npm:^4.0.0"
+    "@smithy/types": "npm:^4.0.0"
+    "@smithy/url-parser": "npm:^4.0.0"
+    "@smithy/util-base64": "npm:^4.0.0"
+    "@smithy/util-body-length-browser": "npm:^4.0.0"
+    "@smithy/util-body-length-node": "npm:^4.0.0"
+    "@smithy/util-defaults-mode-browser": "npm:^4.0.0"
+    "@smithy/util-defaults-mode-node": "npm:^4.0.0"
+    "@smithy/util-endpoints": "npm:^3.0.0"
+    "@smithy/util-middleware": "npm:^4.0.0"
+    "@smithy/util-retry": "npm:^4.0.0"
+    "@smithy/util-utf8": "npm:^4.0.0"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    rimraf: "npm:3.0.2"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.2.2"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/polly-request-presigner@workspace:packages/polly-request-presigner":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/polly-request-presigner@workspace:packages/polly-request-presigner"
@@ -24241,6 +23468,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/token-providers@workspace:packages/token-providers"
   dependencies:
+    "@aws-sdk/nested-clients": "npm:*"
     "@aws-sdk/types": "npm:*"
     "@smithy/property-provider": "npm:^4.0.0"
     "@smithy/shared-ini-file-loader": "npm:^4.0.0"
@@ -24252,8 +23480,6 @@ __metadata:
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.2.2"
-  peerDependencies:
-    "@aws-sdk/client-sso-oidc": "*"
   languageName: unknown
   linkType: soft
 
@@ -24445,8 +23671,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
@@ -24500,8 +23724,6 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-sso-oidc": "npm:*"
-    "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-host-header": "npm:*"
