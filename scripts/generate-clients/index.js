@@ -144,7 +144,7 @@ const {
 
     require("./customizations/workspaces-thin-client")();
 
-    if (!protocolTestsOnly) {
+    if (!protocolTestsOnly && !globs) {
       await generateNestedClients();
     }
 
