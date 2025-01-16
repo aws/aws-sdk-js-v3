@@ -52,7 +52,7 @@ export interface SearchTrainingPlanOfferingsCommandOutput
  * // const { SageMakerClient, SearchTrainingPlanOfferingsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // SearchTrainingPlanOfferingsRequest
- *   InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn2.48xlarge", // required
+ *   InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge", // required
  *   InstanceCount: Number("int"), // required
  *   StartTimeAfter: new Date("TIMESTAMP"),
  *   EndTimeBefore: new Date("TIMESTAMP"),
@@ -78,7 +78,7 @@ export interface SearchTrainingPlanOfferingsCommandOutput
  * //       CurrencyCode: "STRING_VALUE",
  * //       ReservedCapacityOfferings: [ // ReservedCapacityOfferings
  * //         { // ReservedCapacityOffering
- * //           InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn2.48xlarge", // required
+ * //           InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge", // required
  * //           InstanceCount: Number("int"), // required
  * //           AvailabilityZone: "STRING_VALUE",
  * //           DurationHours: Number("long"),

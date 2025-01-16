@@ -74,7 +74,7 @@ export interface ListTrainingPlansCommandOutput extends ListTrainingPlansRespons
  * //       ReservedCapacitySummaries: [ // ReservedCapacitySummaries
  * //         { // ReservedCapacitySummary
  * //           ReservedCapacityArn: "STRING_VALUE", // required
- * //           InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn2.48xlarge", // required
+ * //           InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge", // required
  * //           TotalInstanceCount: Number("int"), // required
  * //           Status: "Pending" || "Active" || "Scheduled" || "Expired" || "Failed", // required
  * //           AvailabilityZone: "STRING_VALUE",

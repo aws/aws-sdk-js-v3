@@ -5719,6 +5719,7 @@ export const ReservedCapacityInstanceType = {
   ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
   ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
+  ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
   ML_TRN2_48XLARGE: "ml.trn2.48xlarge",
 } as const;
 
