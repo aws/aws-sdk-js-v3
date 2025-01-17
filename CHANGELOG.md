@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.731.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.730.0...v3.731.0) (2025-01-17)
+
+
+### Bug Fixes
+
+* **credential-providers:** supply backup credentials to fromTemporaryCredentials ([#6817](https://github.com/aws/aws-sdk-js-v3/issues/6817)) ([891e091](https://github.com/aws/aws-sdk-js-v3/commit/891e091fbf1727e38143404c842ff41e0bf0fb67))
+* fix key ordering for code generation build ([#6821](https://github.com/aws/aws-sdk-js-v3/issues/6821)) ([67c0a58](https://github.com/aws/aws-sdk-js-v3/commit/67c0a58f0201633562901010839797d88fcd7aa0))
+* **nested-clients:** fix inliner build script ([#6820](https://github.com/aws/aws-sdk-js-v3/issues/6820)) ([a818f3e](https://github.com/aws/aws-sdk-js-v3/commit/a818f3e2397e34df1c87773ba8b3b04068ae46cb))
+
+
+### Features
+
+* **client-bedrock-runtime:** Allow hyphens in tool name for Converse and ConverseStream APIs ([71256d8](https://github.com/aws/aws-sdk-js-v3/commit/71256d83e82b6841126a944308d03258ce0bf346))
+* **client-ec2:** Release u7i-6tb.112xlarge, u7i-8tb.112xlarge, u7inh-32tb.480xlarge, p5e.48xlarge, p5en.48xlarge, f2.12xlarge, f2.48xlarge, trn2.48xlarge instance types. ([8fa946c](https://github.com/aws/aws-sdk-js-v3/commit/8fa946c9178cfbc48d4f7de4876440aa712e9f9e))
+* **client-notifications:** Added support for Managed Notifications, integration with AWS Organization and added aggregation summaries for Aggregate Notifications ([53d862b](https://github.com/aws/aws-sdk-js-v3/commit/53d862b5586a203bb7329ba0f65092ab2cbe766c))
+* **clients:** update client endpoints as of 2025-01-17 ([3995e76](https://github.com/aws/aws-sdk-js-v3/commit/3995e7601ff239e0693315541b8d463392c04a3f))
+
+
+
+
+
 # [3.730.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.729.0...v3.730.0) (2025-01-16)
 
 
