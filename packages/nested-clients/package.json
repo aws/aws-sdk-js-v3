@@ -86,8 +86,8 @@
     "dist-*/**"
   ],
   "browser": {
-    "./dist-es/nested-sso-oidc/runtimeConfig": "./dist-es/nested-sso-oidc/runtimeConfig.browser",
-    "./dist-es/nested-sts/runtimeConfig": "./dist-es/nested-sts/runtimeConfig.browser"
+    "./dist-es/submodules/sts/runtimeConfig": "./dist-es/submodules/sts/runtimeConfig.browser",
+    "./dist-es/submodules/sso-oidc/runtimeConfig": "./dist-es/submodules/sso-oidc/runtimeConfig.browser"
   },
   "react-native": {},
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/nested-clients",

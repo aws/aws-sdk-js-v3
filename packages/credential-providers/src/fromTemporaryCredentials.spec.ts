@@ -1,7 +1,8 @@
 import { AssumeRoleCommand, STSClient } from "@aws-sdk/nested-clients/sts";
-import { beforeEach, describe, expect, test as it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { fromTemporaryCredentials } from "./fromTemporaryCredentials";
+import { fromTemporaryCredentials as fromTemporaryCredentialsNode } from "./fromTemporaryCredentials";
+import { fromTemporaryCredentials } from "./fromTemporaryCredentials.browser";
 
 const mockSend = vi.fn();
 const mockUsePlugin = vi.fn();
@@ -55,7 +56,7 @@ describe("fromTemporaryCredentials", () => {
       clientConfig: { region },
       clientPlugins: [plugin],
     };
-    const provider = fromTemporaryCredentials(options);
+    const provider = fromTemporaryCredentialsNode(options);
     const credential = await provider();
     expect(credential).toEqual({
       accessKeyId: "ACCESS_KEY_ID",
@@ -77,7 +78,7 @@ describe("fromTemporaryCredentials", () => {
 
   it("should create STS client if not supplied", async () => {
     const plugin = { applyToStack: () => {} };
-    const provider = fromTemporaryCredentials({
+    const provider = fromTemporaryCredentialsNode({
       params: {
         RoleArn,
         RoleSessionName,
@@ -93,25 +94,102 @@ describe("fromTemporaryCredentials", () => {
     expect(mockUsePlugin).toHaveBeenNthCalledWith(1, plugin);
   });
 
-  it("should resolve default credentials if master credential is not supplied", async () => {
-    const provider = fromTemporaryCredentials({
-      params: {
-        RoleArn,
-        RoleSessionName,
-      },
-    });
-    await provider();
-    expect(vi.mocked(STSClient as any)).toHaveBeenCalledWith({});
-  });
-
   it("should create a role session name if none provided", async () => {
-    const provider = fromTemporaryCredentials({
+    const provider = fromTemporaryCredentialsNode({
       params: { RoleArn },
     });
     await provider();
     expect(AssumeRoleCommand as unknown as any).toHaveBeenCalledWith({
       RoleArn,
       RoleSessionName: expect.stringMatching(/^aws-sdk-js-/),
+    });
+  });
+
+  describe("nested sts credential resolution order", () => {
+    const masterCredentials = vi.fn();
+    const clientConfigCredentials = vi.fn();
+    const callerClientCredentials = vi.fn();
+    const callerClientCredentialsProvider = () => callerClientCredentials;
+    const chainCredentials = vi.fn();
+    const chainCredentialsProvider = () => chainCredentials;
+
+    it("should use with 1st priority masterCredentials from the provider", async () => {
+      const provider = fromTemporaryCredentials(
+        {
+          params: { RoleArn },
+          masterCredentials: masterCredentials,
+          clientConfig: {
+            credentials: clientConfigCredentials,
+          },
+        },
+        chainCredentialsProvider
+      );
+      await provider({
+        callerClientConfig: {
+          region: async () => "us-west-2",
+          credentialDefaultProvider: callerClientCredentialsProvider,
+        },
+      });
+      expect(masterCredentials).toHaveBeenCalled();
+      expect(clientConfigCredentials).not.toHaveBeenCalled();
+      expect(callerClientCredentials).not.toHaveBeenCalled();
+      expect(chainCredentials).not.toHaveBeenCalled();
+    });
+    it("should use with 2nd priority options.clientConfig.credentials", async () => {
+      const provider = fromTemporaryCredentials(
+        {
+          params: { RoleArn },
+          clientConfig: {
+            credentials: clientConfigCredentials,
+          },
+        },
+        chainCredentialsProvider
+      );
+      await provider({
+        callerClientConfig: {
+          region: async () => "us-west-2",
+          credentialDefaultProvider: callerClientCredentialsProvider,
+        },
+      });
+      expect(masterCredentials).not.toHaveBeenCalled();
+      expect(clientConfigCredentials).toHaveBeenCalled();
+      expect(callerClientCredentials).not.toHaveBeenCalled();
+      expect(chainCredentials).not.toHaveBeenCalled();
+    });
+    it("should use with 3rd priority caller client's credentialDefaultProvider", async () => {
+      const provider = fromTemporaryCredentials(
+        {
+          params: { RoleArn },
+        },
+        chainCredentialsProvider
+      );
+      await provider({
+        callerClientConfig: {
+          region: async () => "us-west-2",
+          credentialDefaultProvider: callerClientCredentialsProvider,
+        },
+      });
+      expect(masterCredentials).not.toHaveBeenCalled();
+      expect(clientConfigCredentials).not.toHaveBeenCalled();
+      expect(callerClientCredentials).toHaveBeenCalled();
+      expect(chainCredentials).not.toHaveBeenCalled();
+    });
+    it("should use with 4th priority the node default provider chain (if in Node.js)", async () => {
+      const provider = fromTemporaryCredentials(
+        {
+          params: { RoleArn },
+        },
+        chainCredentialsProvider
+      );
+      await provider({
+        callerClientConfig: {
+          region: async () => "us-west-2",
+        },
+      });
+      expect(masterCredentials).not.toHaveBeenCalled();
+      expect(clientConfigCredentials).not.toHaveBeenCalled();
+      expect(callerClientCredentials).not.toHaveBeenCalled();
+      expect(chainCredentials).toHaveBeenCalled();
     });
   });
 
@@ -176,7 +254,7 @@ describe("fromTemporaryCredentials", () => {
     const SerialNumber = "SERIAL_NUMBER";
     const mfaCode = "MFA_CODE";
     const mfaCodeProvider = vi.fn().mockResolvedValue(mfaCode);
-    const provider = fromTemporaryCredentials({
+    const provider = fromTemporaryCredentialsNode({
       params: { RoleArn, SerialNumber, RoleSessionName },
       mfaCodeProvider,
     });
@@ -197,7 +275,7 @@ describe("fromTemporaryCredentials", () => {
   it("should reject the promise with a terminal error if a MFA serial presents but mfaCodeProvider is missing", async () => {
     const SerialNumber = "SERIAL_NUMBER";
     try {
-      await fromTemporaryCredentials({
+      await fromTemporaryCredentialsNode({
         params: { RoleArn, SerialNumber, RoleSessionName },
       })();
       fail("this test must fail");
