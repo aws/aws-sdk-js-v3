@@ -998,6 +998,8 @@ export const _InstanceType = {
   f1_16xlarge: "f1.16xlarge",
   f1_2xlarge: "f1.2xlarge",
   f1_4xlarge: "f1.4xlarge",
+  f2_12xlarge: "f2.12xlarge",
+  f2_48xlarge: "f2.48xlarge",
   g2_2xlarge: "g2.2xlarge",
   g2_8xlarge: "g2.8xlarge",
   g3_16xlarge: "g3.16xlarge",
@@ -1354,6 +1356,8 @@ export const _InstanceType = {
   p4d_24xlarge: "p4d.24xlarge",
   p4de_24xlarge: "p4de.24xlarge",
   p5_48xlarge: "p5.48xlarge",
+  p5e_48xlarge: "p5e.48xlarge",
+  p5en_48xlarge: "p5en.48xlarge",
   r3_2xlarge: "r3.2xlarge",
   r3_4xlarge: "r3.4xlarge",
   r3_8xlarge: "r3.8xlarge",
@@ -1590,11 +1594,15 @@ export const _InstanceType = {
   trn1_2xlarge: "trn1.2xlarge",
   trn1_32xlarge: "trn1.32xlarge",
   trn1n_32xlarge: "trn1n.32xlarge",
+  trn2_48xlarge: "trn2.48xlarge",
   u7i_12tb_224xlarge: "u7i-12tb.224xlarge",
+  u7i_6tb_112xlarge: "u7i-6tb.112xlarge",
+  u7i_8tb_112xlarge: "u7i-8tb.112xlarge",
   u7ib_12tb_224xlarge: "u7ib-12tb.224xlarge",
   u7in_16tb_224xlarge: "u7in-16tb.224xlarge",
   u7in_24tb_224xlarge: "u7in-24tb.224xlarge",
   u7in_32tb_224xlarge: "u7in-32tb.224xlarge",
+  u7inh_32tb_480xlarge: "u7inh-32tb.480xlarge",
   u_12tb1_112xlarge: "u-12tb1.112xlarge",
   u_12tb1_metal: "u-12tb1.metal",
   u_18tb1_112xlarge: "u-18tb1.112xlarge",
@@ -4238,10 +4246,13 @@ export interface InstanceRequirementsRequest {
    * <p>The accelerator types that must be on the instance type.</p>
    *          <ul>
    *             <li>
-   *                <p>To include instance types with GPU hardware, specify <code>gpu</code>.</p>
+   *                <p>For instance types with FPGA accelerators, specify <code>fpga</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To include instance types with FPGA hardware, specify <code>fpga</code>.</p>
+   *                <p>For instance types with GPU accelerators, specify <code>gpu</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Inference accelerators, specify <code>inference</code>.</p>
    *             </li>
    *          </ul>
    *          <p>Default: Any accelerator type</p>
@@ -5818,10 +5829,13 @@ export interface InstanceRequirements {
    * <p>The accelerator types that must be on the instance type.</p>
    *          <ul>
    *             <li>
+   *                <p>For instance types with FPGA accelerators, specify <code>fpga</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>For instance types with GPU accelerators, specify <code>gpu</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For instance types with FPGA accelerators, specify <code>fpga</code>.</p>
+   *                <p>For instance types with Inference accelerators, specify <code>inference</code>.</p>
    *             </li>
    *          </ul>
    *          <p>Default: Any accelerator type</p>
@@ -9653,7 +9667,7 @@ export interface InstanceIpv6AddressRequest {
 }
 
 /**
- * <p>Describes the IPv4 prefix option for a network interface.</p>
+ * <p>Describes the IPv6 prefix option for a network interface.</p>
  * @public
  */
 export interface Ipv6PrefixSpecificationRequest {
