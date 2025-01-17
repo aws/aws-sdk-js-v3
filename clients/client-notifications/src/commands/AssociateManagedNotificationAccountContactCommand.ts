@@ -5,9 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { AssociateChannelRequest, AssociateChannelResponse } from "../models/models_0";
+import {
+  AssociateManagedNotificationAccountContactRequest,
+  AssociateManagedNotificationAccountContactResponse,
+} from "../models/models_0";
 import { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { de_AssociateChannelCommand, se_AssociateChannelCommand } from "../protocols/Aws_restJson1";
+import {
+  de_AssociateManagedNotificationAccountContactCommand,
+  se_AssociateManagedNotificationAccountContactCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,39 +23,41 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link AssociateChannelCommand}.
+ * The input for {@link AssociateManagedNotificationAccountContactCommand}.
  */
-export interface AssociateChannelCommandInput extends AssociateChannelRequest {}
+export interface AssociateManagedNotificationAccountContactCommandInput
+  extends AssociateManagedNotificationAccountContactRequest {}
 /**
  * @public
  *
- * The output of {@link AssociateChannelCommand}.
+ * The output of {@link AssociateManagedNotificationAccountContactCommand}.
  */
-export interface AssociateChannelCommandOutput extends AssociateChannelResponse, __MetadataBearer {}
+export interface AssociateManagedNotificationAccountContactCommandOutput
+  extends AssociateManagedNotificationAccountContactResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Associates a delivery <a href="https://docs.aws.amazon.com/notifications/latest/userguide/managing-delivery-channels.html">Channel</a> with a particular <code>NotificationConfiguration</code>. Supported Channels include Chatbot,
- * the Console Mobile Application, and emails (notifications-contacts).</p>
+ * <p>Associates an Account Contact with a particular <code>ManagedNotificationConfiguration</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NotificationsClient, AssociateChannelCommand } from "@aws-sdk/client-notifications"; // ES Modules import
- * // const { NotificationsClient, AssociateChannelCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * import { NotificationsClient, AssociateManagedNotificationAccountContactCommand } from "@aws-sdk/client-notifications"; // ES Modules import
+ * // const { NotificationsClient, AssociateManagedNotificationAccountContactCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
  * const client = new NotificationsClient(config);
- * const input = { // AssociateChannelRequest
- *   arn: "STRING_VALUE", // required
- *   notificationConfigurationArn: "STRING_VALUE", // required
+ * const input = { // AssociateManagedNotificationAccountContactRequest
+ *   contactIdentifier: "STRING_VALUE", // required
+ *   managedNotificationConfigurationArn: "STRING_VALUE", // required
  * };
- * const command = new AssociateChannelCommand(input);
+ * const command = new AssociateManagedNotificationAccountContactCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param AssociateChannelCommandInput - {@link AssociateChannelCommandInput}
- * @returns {@link AssociateChannelCommandOutput}
- * @see {@link AssociateChannelCommandInput} for command's `input` shape.
- * @see {@link AssociateChannelCommandOutput} for command's `response` shape.
+ * @param AssociateManagedNotificationAccountContactCommandInput - {@link AssociateManagedNotificationAccountContactCommandInput}
+ * @returns {@link AssociateManagedNotificationAccountContactCommandOutput}
+ * @see {@link AssociateManagedNotificationAccountContactCommandInput} for command's `input` shape.
+ * @see {@link AssociateManagedNotificationAccountContactCommandOutput} for command's `response` shape.
  * @see {@link NotificationsClientResolvedConfig | config} for NotificationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -78,10 +86,10 @@ export interface AssociateChannelCommandOutput extends AssociateChannelResponse,
  *
  * @public
  */
-export class AssociateChannelCommand extends $Command
+export class AssociateManagedNotificationAccountContactCommand extends $Command
   .classBuilder<
-    AssociateChannelCommandInput,
-    AssociateChannelCommandOutput,
+    AssociateManagedNotificationAccountContactCommandInput,
+    AssociateManagedNotificationAccountContactCommandOutput,
     NotificationsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -93,21 +101,21 @@ export class AssociateChannelCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Notifications", "AssociateChannel", {})
-  .n("NotificationsClient", "AssociateChannelCommand")
+  .s("Notifications", "AssociateManagedNotificationAccountContact", {})
+  .n("NotificationsClient", "AssociateManagedNotificationAccountContactCommand")
   .f(void 0, void 0)
-  .ser(se_AssociateChannelCommand)
-  .de(de_AssociateChannelCommand)
+  .ser(se_AssociateManagedNotificationAccountContactCommand)
+  .de(de_AssociateManagedNotificationAccountContactCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: AssociateChannelRequest;
+      input: AssociateManagedNotificationAccountContactRequest;
       output: {};
     };
     sdk: {
-      input: AssociateChannelCommandInput;
-      output: AssociateChannelCommandOutput;
+      input: AssociateManagedNotificationAccountContactCommandInput;
+      output: AssociateManagedNotificationAccountContactCommandOutput;
     };
   };
 }

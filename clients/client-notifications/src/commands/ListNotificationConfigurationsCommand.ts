@@ -33,7 +33,8 @@ export interface ListNotificationConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a list of abbreviated NotificationConfigurations according to specified filters, in reverse chronological order (newest first).</p>
+ * <p>Returns a list of abbreviated <code>NotificationConfigurations</code> according to
+ *          specified filters, in reverse chronological order (newest first).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

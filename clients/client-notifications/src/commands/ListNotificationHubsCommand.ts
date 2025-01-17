@@ -28,7 +28,7 @@ export interface ListNotificationHubsCommandInput extends ListNotificationHubsRe
 export interface ListNotificationHubsCommandOutput extends ListNotificationHubsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of NotificationHubs.</p>
+ * <p>Returns a list of <code>NotificationHubs</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

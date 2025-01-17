@@ -5,9 +5,12 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetNotificationEventRequest, GetNotificationEventResponse } from "../models/models_0";
+import { GetManagedNotificationEventRequest, GetManagedNotificationEventResponse } from "../models/models_0";
 import { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { de_GetNotificationEventCommand, se_GetNotificationEventCommand } from "../protocols/Aws_restJson1";
+import {
+  de_GetManagedNotificationEventCommand,
+  se_GetManagedNotificationEventCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,61 +20,39 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetNotificationEventCommand}.
+ * The input for {@link GetManagedNotificationEventCommand}.
  */
-export interface GetNotificationEventCommandInput extends GetNotificationEventRequest {}
+export interface GetManagedNotificationEventCommandInput extends GetManagedNotificationEventRequest {}
 /**
  * @public
  *
- * The output of {@link GetNotificationEventCommand}.
+ * The output of {@link GetManagedNotificationEventCommand}.
  */
-export interface GetNotificationEventCommandOutput extends GetNotificationEventResponse, __MetadataBearer {}
+export interface GetManagedNotificationEventCommandOutput
+  extends GetManagedNotificationEventResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Returns a specified <code>NotificationEvent</code>.</p>
- *          <important>
- *             <p>User Notifications stores notifications in the individual Regions you register as notification hubs and the Region of the source event rule. <code>GetNotificationEvent</code> only returns notifications stored in the same Region in which the action is called.
- * 	  User Notifications doesn't backfill notifications to new Regions selected as notification hubs. For this reason, we recommend that you make calls in your oldest registered notification hub.
- * 	  For more information, see <a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html">Notification hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.</p>
- *          </important>
+ * <p>Returns a specified <code>ManagedNotificationEvent</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NotificationsClient, GetNotificationEventCommand } from "@aws-sdk/client-notifications"; // ES Modules import
- * // const { NotificationsClient, GetNotificationEventCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * import { NotificationsClient, GetManagedNotificationEventCommand } from "@aws-sdk/client-notifications"; // ES Modules import
+ * // const { NotificationsClient, GetManagedNotificationEventCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
  * const client = new NotificationsClient(config);
- * const input = { // GetNotificationEventRequest
+ * const input = { // GetManagedNotificationEventRequest
  *   arn: "STRING_VALUE", // required
  *   locale: "STRING_VALUE",
  * };
- * const command = new GetNotificationEventCommand(input);
+ * const command = new GetManagedNotificationEventCommand(input);
  * const response = await client.send(command);
- * // { // GetNotificationEventResponse
+ * // { // GetManagedNotificationEventResponse
  * //   arn: "STRING_VALUE", // required
- * //   notificationConfigurationArn: "STRING_VALUE", // required
+ * //   managedNotificationConfigurationArn: "STRING_VALUE", // required
  * //   creationTime: new Date("TIMESTAMP"), // required
- * //   content: { // NotificationEventSchema
+ * //   content: { // ManagedNotificationEvent
  * //     schemaVersion: "STRING_VALUE", // required
  * //     id: "STRING_VALUE", // required
- * //     sourceEventMetadata: { // SourceEventMetadata
- * //       eventTypeVersion: "STRING_VALUE", // required
- * //       sourceEventId: "STRING_VALUE", // required
- * //       eventOriginRegion: "STRING_VALUE",
- * //       relatedAccount: "STRING_VALUE", // required
- * //       source: "STRING_VALUE", // required
- * //       eventOccurrenceTime: new Date("TIMESTAMP"), // required
- * //       eventType: "STRING_VALUE", // required
- * //       relatedResources: [ // Resources // required
- * //         { // Resource
- * //           id: "STRING_VALUE",
- * //           arn: "STRING_VALUE",
- * //           detailUrl: "STRING_VALUE",
- * //           tags: [ // Tags
- * //             "STRING_VALUE",
- * //           ],
- * //         },
- * //       ],
- * //     },
  * //     messageComponents: { // MessageComponents
  * //       headline: "STRING_VALUE",
  * //       paragraphSummary: "STRING_VALUE",
@@ -88,7 +69,6 @@ export interface GetNotificationEventCommandOutput extends GetNotificationEventR
  * //     notificationType: "STRING_VALUE", // required
  * //     eventStatus: "STRING_VALUE",
  * //     aggregationEventType: "STRING_VALUE",
- * //     aggregateNotificationEventArn: "STRING_VALUE",
  * //     aggregationSummary: { // AggregationSummary
  * //       eventCount: Number("int"), // required
  * //       aggregatedBy: [ // AggregationKeys // required
@@ -140,23 +120,16 @@ export interface GetNotificationEventCommandOutput extends GetNotificationEventR
  * //         url: "STRING_VALUE",
  * //       },
  * //     },
- * //     media: [ // Media // required
- * //       { // MediaElement
- * //         mediaId: "STRING_VALUE", // required
- * //         type: "STRING_VALUE", // required
- * //         url: "STRING_VALUE", // required
- * //         caption: "STRING_VALUE", // required
- * //       },
- * //     ],
+ * //     organizationalUnitId: "STRING_VALUE",
  * //   },
  * // };
  *
  * ```
  *
- * @param GetNotificationEventCommandInput - {@link GetNotificationEventCommandInput}
- * @returns {@link GetNotificationEventCommandOutput}
- * @see {@link GetNotificationEventCommandInput} for command's `input` shape.
- * @see {@link GetNotificationEventCommandOutput} for command's `response` shape.
+ * @param GetManagedNotificationEventCommandInput - {@link GetManagedNotificationEventCommandInput}
+ * @returns {@link GetManagedNotificationEventCommandOutput}
+ * @see {@link GetManagedNotificationEventCommandInput} for command's `input` shape.
+ * @see {@link GetManagedNotificationEventCommandOutput} for command's `response` shape.
  * @see {@link NotificationsClientResolvedConfig | config} for NotificationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -179,10 +152,10 @@ export interface GetNotificationEventCommandOutput extends GetNotificationEventR
  *
  * @public
  */
-export class GetNotificationEventCommand extends $Command
+export class GetManagedNotificationEventCommand extends $Command
   .classBuilder<
-    GetNotificationEventCommandInput,
-    GetNotificationEventCommandOutput,
+    GetManagedNotificationEventCommandInput,
+    GetManagedNotificationEventCommandOutput,
     NotificationsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -194,21 +167,21 @@ export class GetNotificationEventCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Notifications", "GetNotificationEvent", {})
-  .n("NotificationsClient", "GetNotificationEventCommand")
+  .s("Notifications", "GetManagedNotificationEvent", {})
+  .n("NotificationsClient", "GetManagedNotificationEventCommand")
   .f(void 0, void 0)
-  .ser(se_GetNotificationEventCommand)
-  .de(de_GetNotificationEventCommand)
+  .ser(se_GetManagedNotificationEventCommand)
+  .de(de_GetManagedNotificationEventCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetNotificationEventRequest;
-      output: GetNotificationEventResponse;
+      input: GetManagedNotificationEventRequest;
+      output: GetManagedNotificationEventResponse;
     };
     sdk: {
-      input: GetNotificationEventCommandInput;
-      output: GetNotificationEventCommandOutput;
+      input: GetManagedNotificationEventCommandInput;
+      output: GetManagedNotificationEventCommandOutput;
     };
   };
 }

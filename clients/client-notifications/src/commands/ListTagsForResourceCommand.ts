@@ -29,9 +29,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * <p>Returns a list of tags for a specified Amazon Resource Name (ARN).</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging your AWS resources</a> in the <i>Tagging AWS Resources User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging your Amazon Web Services resources</a> in the <i>Tagging Amazon Web Services Resources User Guide</i>.</p>
  *          <note>
- *             <p>This is only supported for NotificationConfigurations.</p>
+ *             <p>This is only supported for <code>NotificationConfigurations</code>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -5,9 +5,12 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListNotificationEventsRequest, ListNotificationEventsResponse } from "../models/models_0";
+import { ListManagedNotificationEventsRequest, ListManagedNotificationEventsResponse } from "../models/models_0";
 import { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { de_ListNotificationEventsCommand, se_ListNotificationEventsCommand } from "../protocols/Aws_restJson1";
+import {
+  de_ListManagedNotificationEventsCommand,
+  se_ListManagedNotificationEventsCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,52 +20,49 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListNotificationEventsCommand}.
+ * The input for {@link ListManagedNotificationEventsCommand}.
  */
-export interface ListNotificationEventsCommandInput extends ListNotificationEventsRequest {}
+export interface ListManagedNotificationEventsCommandInput extends ListManagedNotificationEventsRequest {}
 /**
  * @public
  *
- * The output of {@link ListNotificationEventsCommand}.
+ * The output of {@link ListManagedNotificationEventsCommand}.
  */
-export interface ListNotificationEventsCommandOutput extends ListNotificationEventsResponse, __MetadataBearer {}
+export interface ListManagedNotificationEventsCommandOutput
+  extends ListManagedNotificationEventsResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Returns a list of <code>NotificationEvents</code> according to specified filters, in reverse chronological order (newest first).</p>
- *          <important>
- *             <p>User Notifications stores notifications in the individual Regions you register as notification hubs and the Region of the source event rule. ListNotificationEvents only returns notifications stored in the same Region in which the action is called.
- * 	  User Notifications doesn't backfill notifications to new Regions selected as notification hubs. For this reason, we recommend that you make calls in your oldest registered notification hub.
- * 	  For more information, see <a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html">Notification hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.</p>
- *          </important>
+ * <p>Returns a list of Managed Notification Events according to specified filters, ordered by creation time in reverse chronological order (newest first).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NotificationsClient, ListNotificationEventsCommand } from "@aws-sdk/client-notifications"; // ES Modules import
- * // const { NotificationsClient, ListNotificationEventsCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * import { NotificationsClient, ListManagedNotificationEventsCommand } from "@aws-sdk/client-notifications"; // ES Modules import
+ * // const { NotificationsClient, ListManagedNotificationEventsCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
  * const client = new NotificationsClient(config);
- * const input = { // ListNotificationEventsRequest
+ * const input = { // ListManagedNotificationEventsRequest
  *   startTime: new Date("TIMESTAMP"),
  *   endTime: new Date("TIMESTAMP"),
  *   locale: "STRING_VALUE",
  *   source: "STRING_VALUE",
- *   includeChildEvents: true || false,
- *   aggregateNotificationEventArn: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   organizationalUnitId: "STRING_VALUE",
+ *   relatedAccount: "STRING_VALUE",
  * };
- * const command = new ListNotificationEventsCommand(input);
+ * const command = new ListManagedNotificationEventsCommand(input);
  * const response = await client.send(command);
- * // { // ListNotificationEventsResponse
+ * // { // ListManagedNotificationEventsResponse
  * //   nextToken: "STRING_VALUE",
- * //   notificationEvents: [ // NotificationEvents // required
- * //     { // NotificationEventOverview
+ * //   managedNotificationEvents: [ // ManagedNotificationEvents // required
+ * //     { // ManagedNotificationEventOverview
  * //       arn: "STRING_VALUE", // required
- * //       notificationConfigurationArn: "STRING_VALUE", // required
+ * //       managedNotificationConfigurationArn: "STRING_VALUE", // required
  * //       relatedAccount: "STRING_VALUE", // required
  * //       creationTime: new Date("TIMESTAMP"), // required
- * //       notificationEvent: { // NotificationEventSummary
+ * //       notificationEvent: { // ManagedNotificationEventSummary
  * //         schemaVersion: "STRING_VALUE", // required
- * //         sourceEventMetadata: { // SourceEventMetadataSummary
+ * //         sourceEventMetadata: { // ManagedSourceEventMetadataSummary
  * //           eventOriginRegion: "STRING_VALUE",
  * //           source: "STRING_VALUE", // required
  * //           eventType: "STRING_VALUE", // required
@@ -74,7 +74,7 @@ export interface ListNotificationEventsCommandOutput extends ListNotificationEve
  * //         notificationType: "STRING_VALUE", // required
  * //       },
  * //       aggregationEventType: "STRING_VALUE",
- * //       aggregateNotificationEventArn: "STRING_VALUE",
+ * //       organizationalUnitId: "STRING_VALUE",
  * //       aggregationSummary: { // AggregationSummary
  * //         eventCount: Number("int"), // required
  * //         aggregatedBy: [ // AggregationKeys // required
@@ -114,16 +114,19 @@ export interface ListNotificationEventsCommandOutput extends ListNotificationEve
  * //           },
  * //         ],
  * //       },
+ * //       aggregatedNotificationRegions: [ // AggregatedNotificationRegions
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * // };
  *
  * ```
  *
- * @param ListNotificationEventsCommandInput - {@link ListNotificationEventsCommandInput}
- * @returns {@link ListNotificationEventsCommandOutput}
- * @see {@link ListNotificationEventsCommandInput} for command's `input` shape.
- * @see {@link ListNotificationEventsCommandOutput} for command's `response` shape.
+ * @param ListManagedNotificationEventsCommandInput - {@link ListManagedNotificationEventsCommandInput}
+ * @returns {@link ListManagedNotificationEventsCommandOutput}
+ * @see {@link ListManagedNotificationEventsCommandInput} for command's `input` shape.
+ * @see {@link ListManagedNotificationEventsCommandOutput} for command's `response` shape.
  * @see {@link NotificationsClientResolvedConfig | config} for NotificationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -143,10 +146,10 @@ export interface ListNotificationEventsCommandOutput extends ListNotificationEve
  *
  * @public
  */
-export class ListNotificationEventsCommand extends $Command
+export class ListManagedNotificationEventsCommand extends $Command
   .classBuilder<
-    ListNotificationEventsCommandInput,
-    ListNotificationEventsCommandOutput,
+    ListManagedNotificationEventsCommandInput,
+    ListManagedNotificationEventsCommandOutput,
     NotificationsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -158,21 +161,21 @@ export class ListNotificationEventsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Notifications", "ListNotificationEvents", {})
-  .n("NotificationsClient", "ListNotificationEventsCommand")
+  .s("Notifications", "ListManagedNotificationEvents", {})
+  .n("NotificationsClient", "ListManagedNotificationEventsCommand")
   .f(void 0, void 0)
-  .ser(se_ListNotificationEventsCommand)
-  .de(de_ListNotificationEventsCommand)
+  .ser(se_ListManagedNotificationEventsCommand)
+  .de(de_ListManagedNotificationEventsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListNotificationEventsRequest;
-      output: ListNotificationEventsResponse;
+      input: ListManagedNotificationEventsRequest;
+      output: ListManagedNotificationEventsResponse;
     };
     sdk: {
-      input: ListNotificationEventsCommandInput;
-      output: ListNotificationEventsCommandOutput;
+      input: ListManagedNotificationEventsCommandInput;
+      output: ListManagedNotificationEventsCommandOutput;
     };
   };
 }

@@ -28,8 +28,9 @@ export interface RegisterNotificationHubCommandInput extends RegisterNotificatio
 export interface RegisterNotificationHubCommandOutput extends RegisterNotificationHubResponse, __MetadataBearer {}
 
 /**
- * <p>Registers a NotificationHub in the specified Region.</p>
- *          <p>There is a maximum of one NotificationHub per Region. You can have a maximum of 3 NotificationHubs at a time.</p>
+ * <p>Registers a <code>NotificationConfiguration</code> in the specified Region.</p>
+ *          <p>There is a maximum of one <code>NotificationConfiguration</code> per Region. You can have a
+ *          maximum of 3 <code>NotificationHub</code> resources at a time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

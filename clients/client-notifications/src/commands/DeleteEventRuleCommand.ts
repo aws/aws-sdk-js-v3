@@ -28,7 +28,7 @@ export interface DeleteEventRuleCommandInput extends DeleteEventRuleRequest {}
 export interface DeleteEventRuleCommandOutput extends DeleteEventRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an EventRule.</p>
+ * <p>Deletes an <code>EventRule</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

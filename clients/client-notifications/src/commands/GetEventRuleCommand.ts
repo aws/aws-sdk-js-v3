@@ -28,7 +28,7 @@ export interface GetEventRuleCommandInput extends GetEventRuleRequest {}
 export interface GetEventRuleCommandOutput extends GetEventRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a specified EventRule.</p>
+ * <p>Returns a specified <code>EventRule</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

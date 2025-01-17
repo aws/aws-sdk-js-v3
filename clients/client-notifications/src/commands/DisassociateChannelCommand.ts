@@ -28,7 +28,7 @@ export interface DisassociateChannelCommandInput extends DisassociateChannelRequ
 export interface DisassociateChannelCommandOutput extends DisassociateChannelResponse, __MetadataBearer {}
 
 /**
- * <p>Disassociates a Channel from a specified NotificationConfiguration. Supported Channels include AWS Chatbot, the AWS Console Mobile Application, and emails (notifications-contacts).</p>
+ * <p>Disassociates a Channel from a specified <code>NotificationConfiguration</code>. Supported Channels include Chatbot, the Console Mobile Application, and emails (notifications-contacts).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

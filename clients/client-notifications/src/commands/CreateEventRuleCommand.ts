@@ -28,7 +28,10 @@ export interface CreateEventRuleCommandInput extends CreateEventRuleRequest {}
 export interface CreateEventRuleCommandOutput extends CreateEventRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an <a href="https://docs.aws.amazon.com/notifications/latest/userguide/glossary.html">EventRule</a> that is associated with a specified Notification Configuration.</p>
+ * <p>Creates an <a href="https://docs.aws.amazon.com/notifications/latest/userguide/glossary.html">
+ *                <code>EventRule</code>
+ *             </a> that
+ *          is associated with a specified <code>NotificationConfiguration</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

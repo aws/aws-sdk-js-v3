@@ -28,9 +28,12 @@ export interface DeregisterNotificationHubCommandInput extends DeregisterNotific
 export interface DeregisterNotificationHubCommandOutput extends DeregisterNotificationHubResponse, __MetadataBearer {}
 
 /**
- * <p>Deregisters a NotificationHub in the specified Region.</p>
+ * <p>Deregisters a <code>NotificationConfiguration</code> in the specified Region.</p>
  *          <note>
- *             <p>You can't deregister the last NotificationHub in the account. NotificationEvents stored in the deregistered NotificationHub are no longer be visible. Recreating a new NotificationHub in the same Region restores access to those NotificationEvents.</p>
+ *             <p>You can't deregister the last <code>NotificationHub</code> in the account.
+ *                <code>NotificationEvents</code> stored in the deregistered <code>NotificationConfiguration</code> are no
+ *             longer be visible. Recreating a new <code>NotificationConfiguration</code> in the same Region restores access
+ *             to those <code>NotificationEvents</code>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

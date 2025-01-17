@@ -25,6 +25,14 @@ import {
 } from "@smithy/types";
 
 import { AssociateChannelCommandInput, AssociateChannelCommandOutput } from "../commands/AssociateChannelCommand";
+import {
+  AssociateManagedNotificationAccountContactCommandInput,
+  AssociateManagedNotificationAccountContactCommandOutput,
+} from "../commands/AssociateManagedNotificationAccountContactCommand";
+import {
+  AssociateManagedNotificationAdditionalChannelCommandInput,
+  AssociateManagedNotificationAdditionalChannelCommandOutput,
+} from "../commands/AssociateManagedNotificationAdditionalChannelCommand";
 import { CreateEventRuleCommandInput, CreateEventRuleCommandOutput } from "../commands/CreateEventRuleCommand";
 import {
   CreateNotificationConfigurationCommandInput,
@@ -40,10 +48,38 @@ import {
   DeregisterNotificationHubCommandOutput,
 } from "../commands/DeregisterNotificationHubCommand";
 import {
+  DisableNotificationsAccessForOrganizationCommandInput,
+  DisableNotificationsAccessForOrganizationCommandOutput,
+} from "../commands/DisableNotificationsAccessForOrganizationCommand";
+import {
   DisassociateChannelCommandInput,
   DisassociateChannelCommandOutput,
 } from "../commands/DisassociateChannelCommand";
+import {
+  DisassociateManagedNotificationAccountContactCommandInput,
+  DisassociateManagedNotificationAccountContactCommandOutput,
+} from "../commands/DisassociateManagedNotificationAccountContactCommand";
+import {
+  DisassociateManagedNotificationAdditionalChannelCommandInput,
+  DisassociateManagedNotificationAdditionalChannelCommandOutput,
+} from "../commands/DisassociateManagedNotificationAdditionalChannelCommand";
+import {
+  EnableNotificationsAccessForOrganizationCommandInput,
+  EnableNotificationsAccessForOrganizationCommandOutput,
+} from "../commands/EnableNotificationsAccessForOrganizationCommand";
 import { GetEventRuleCommandInput, GetEventRuleCommandOutput } from "../commands/GetEventRuleCommand";
+import {
+  GetManagedNotificationChildEventCommandInput,
+  GetManagedNotificationChildEventCommandOutput,
+} from "../commands/GetManagedNotificationChildEventCommand";
+import {
+  GetManagedNotificationConfigurationCommandInput,
+  GetManagedNotificationConfigurationCommandOutput,
+} from "../commands/GetManagedNotificationConfigurationCommand";
+import {
+  GetManagedNotificationEventCommandInput,
+  GetManagedNotificationEventCommandOutput,
+} from "../commands/GetManagedNotificationEventCommand";
 import {
   GetNotificationConfigurationCommandInput,
   GetNotificationConfigurationCommandOutput,
@@ -52,8 +88,28 @@ import {
   GetNotificationEventCommandInput,
   GetNotificationEventCommandOutput,
 } from "../commands/GetNotificationEventCommand";
+import {
+  GetNotificationsAccessForOrganizationCommandInput,
+  GetNotificationsAccessForOrganizationCommandOutput,
+} from "../commands/GetNotificationsAccessForOrganizationCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "../commands/ListChannelsCommand";
 import { ListEventRulesCommandInput, ListEventRulesCommandOutput } from "../commands/ListEventRulesCommand";
+import {
+  ListManagedNotificationChannelAssociationsCommandInput,
+  ListManagedNotificationChannelAssociationsCommandOutput,
+} from "../commands/ListManagedNotificationChannelAssociationsCommand";
+import {
+  ListManagedNotificationChildEventsCommandInput,
+  ListManagedNotificationChildEventsCommandOutput,
+} from "../commands/ListManagedNotificationChildEventsCommand";
+import {
+  ListManagedNotificationConfigurationsCommandInput,
+  ListManagedNotificationConfigurationsCommandOutput,
+} from "../commands/ListManagedNotificationConfigurationsCommand";
+import {
+  ListManagedNotificationEventsCommandInput,
+  ListManagedNotificationEventsCommandOutput,
+} from "../commands/ListManagedNotificationEventsCommand";
 import {
   ListNotificationConfigurationsCommandInput,
   ListNotificationConfigurationsCommandOutput,
@@ -86,6 +142,10 @@ import {
   ConflictException,
   EventRuleStructure,
   InternalServerException,
+  ManagedNotificationChildEvent,
+  ManagedNotificationChildEventOverview,
+  ManagedNotificationEvent,
+  ManagedNotificationEventOverview,
   NotificationConfigurationStructure,
   NotificationEventOverview,
   NotificationEventSchema,
@@ -118,6 +178,52 @@ export const se_AssociateChannelCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociateManagedNotificationAccountContactCommand
+ */
+export const se_AssociateManagedNotificationAccountContactCommand = async (
+  input: AssociateManagedNotificationAccountContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contacts/associate-managed-notification/{contactIdentifier}");
+  b.p("contactIdentifier", () => input.contactIdentifier!, "{contactIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      managedNotificationConfigurationArn: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociateManagedNotificationAdditionalChannelCommand
+ */
+export const se_AssociateManagedNotificationAdditionalChannelCommand = async (
+  input: AssociateManagedNotificationAdditionalChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/channels/associate-managed-notification/{channelArn}");
+  b.p("channelArn", () => input.channelArn!, "{channelArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      managedNotificationConfigurationArn: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -221,6 +327,21 @@ export const se_DeregisterNotificationHubCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DisableNotificationsAccessForOrganizationCommand
+ */
+export const se_DisableNotificationsAccessForOrganizationCommand = async (
+  input: DisableNotificationsAccessForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/organization/access");
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DisassociateChannelCommand
  */
 export const se_DisassociateChannelCommand = async (
@@ -244,6 +365,67 @@ export const se_DisassociateChannelCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DisassociateManagedNotificationAccountContactCommand
+ */
+export const se_DisassociateManagedNotificationAccountContactCommand = async (
+  input: DisassociateManagedNotificationAccountContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contacts/disassociate-managed-notification/{contactIdentifier}");
+  b.p("contactIdentifier", () => input.contactIdentifier!, "{contactIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      managedNotificationConfigurationArn: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DisassociateManagedNotificationAdditionalChannelCommand
+ */
+export const se_DisassociateManagedNotificationAdditionalChannelCommand = async (
+  input: DisassociateManagedNotificationAdditionalChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/channels/disassociate-managed-notification/{channelArn}");
+  b.p("channelArn", () => input.channelArn!, "{channelArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      managedNotificationConfigurationArn: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1EnableNotificationsAccessForOrganizationCommand
+ */
+export const se_EnableNotificationsAccessForOrganizationCommand = async (
+  input: EnableNotificationsAccessForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/organization/access");
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetEventRuleCommand
  */
 export const se_GetEventRuleCommand = async (
@@ -256,6 +438,60 @@ export const se_GetEventRuleCommand = async (
   b.p("arn", () => input.arn!, "{arn}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetManagedNotificationChildEventCommand
+ */
+export const se_GetManagedNotificationChildEventCommand = async (
+  input: GetManagedNotificationChildEventCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/managed-notification-child-events/{arn}");
+  b.p("arn", () => input.arn!, "{arn}", false);
+  const query: any = map({
+    [_l]: [, input[_l]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetManagedNotificationConfigurationCommand
+ */
+export const se_GetManagedNotificationConfigurationCommand = async (
+  input: GetManagedNotificationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/managed-notification-configurations/{arn}");
+  b.p("arn", () => input.arn!, "{arn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetManagedNotificationEventCommand
+ */
+export const se_GetManagedNotificationEventCommand = async (
+  input: GetManagedNotificationEventCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/managed-notification-events/{arn}");
+  b.p("arn", () => input.arn!, "{arn}", false);
+  const query: any = map({
+    [_l]: [, input[_l]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -291,6 +527,21 @@ export const se_GetNotificationEventCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetNotificationsAccessForOrganizationCommand
+ */
+export const se_GetNotificationsAccessForOrganizationCommand = async (
+  input: GetNotificationsAccessForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/organization/access");
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -335,6 +586,101 @@ export const se_ListEventRulesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListManagedNotificationChannelAssociationsCommand
+ */
+export const se_ListManagedNotificationChannelAssociationsCommand = async (
+  input: ListManagedNotificationChannelAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/channels/list-managed-notification-channel-associations");
+  const query: any = map({
+    [_mNCA]: [, __expectNonNull(input[_mNCA]!, `managedNotificationConfigurationArn`)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListManagedNotificationChildEventsCommand
+ */
+export const se_ListManagedNotificationChildEventsCommand = async (
+  input: ListManagedNotificationChildEventsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/list-managed-notification-child-events/{aggregateManagedNotificationEventArn}");
+  b.p(
+    "aggregateManagedNotificationEventArn",
+    () => input.aggregateManagedNotificationEventArn!,
+    "{aggregateManagedNotificationEventArn}",
+    false
+  );
+  const query: any = map({
+    [_sT]: [() => input.startTime !== void 0, () => __serializeDateTime(input[_sT]!).toString()],
+    [_eT]: [() => input.endTime !== void 0, () => __serializeDateTime(input[_eT]!).toString()],
+    [_l]: [, input[_l]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_rA]: [, input[_rA]!],
+    [_oUI]: [, input[_oUI]!],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListManagedNotificationConfigurationsCommand
+ */
+export const se_ListManagedNotificationConfigurationsCommand = async (
+  input: ListManagedNotificationConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/managed-notification-configurations");
+  const query: any = map({
+    [_cI]: [, input[_cI]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListManagedNotificationEventsCommand
+ */
+export const se_ListManagedNotificationEventsCommand = async (
+  input: ListManagedNotificationEventsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/managed-notification-events");
+  const query: any = map({
+    [_sT]: [() => input.startTime !== void 0, () => __serializeDateTime(input[_sT]!).toString()],
+    [_eT]: [() => input.endTime !== void 0, () => __serializeDateTime(input[_eT]!).toString()],
+    [_l]: [, input[_l]!],
+    [_s]: [, input[_s]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_oUI]: [, input[_oUI]!],
+    [_rA]: [, input[_rA]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListNotificationConfigurationsCommand
  */
 export const se_ListNotificationConfigurationsCommand = async (
@@ -347,7 +693,7 @@ export const se_ListNotificationConfigurationsCommand = async (
   const query: any = map({
     [_eRS]: [, input[_eRS]!],
     [_cA]: [, input[_cA]!],
-    [_s]: [, input[_s]!],
+    [_st]: [, input[_st]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
   });
@@ -370,7 +716,7 @@ export const se_ListNotificationEventsCommand = async (
     [_sT]: [() => input.startTime !== void 0, () => __serializeDateTime(input[_sT]!).toString()],
     [_eT]: [() => input.endTime !== void 0, () => __serializeDateTime(input[_eT]!).toString()],
     [_l]: [, input[_l]!],
-    [_so]: [, input[_so]!],
+    [_s]: [, input[_s]!],
     [_iCE]: [() => input.includeChildEvents !== void 0, () => input[_iCE]!.toString()],
     [_aNEA]: [, input[_aNEA]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -547,6 +893,40 @@ export const de_AssociateChannelCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1AssociateManagedNotificationAccountContactCommand
+ */
+export const de_AssociateManagedNotificationAccountContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateManagedNotificationAccountContactCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociateManagedNotificationAdditionalChannelCommand
+ */
+export const de_AssociateManagedNotificationAdditionalChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateManagedNotificationAdditionalChannelCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateEventRuleCommand
  */
 export const de_CreateEventRuleCommand = async (
@@ -648,12 +1028,80 @@ export const de_DeregisterNotificationHubCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DisableNotificationsAccessForOrganizationCommand
+ */
+export const de_DisableNotificationsAccessForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableNotificationsAccessForOrganizationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DisassociateChannelCommand
  */
 export const de_DisassociateChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DisassociateManagedNotificationAccountContactCommand
+ */
+export const de_DisassociateManagedNotificationAccountContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateManagedNotificationAccountContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DisassociateManagedNotificationAdditionalChannelCommand
+ */
+export const de_DisassociateManagedNotificationAdditionalChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateManagedNotificationAdditionalChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1EnableNotificationsAccessForOrganizationCommand
+ */
+export const de_EnableNotificationsAccessForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableNotificationsAccessForOrganizationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -688,6 +1136,79 @@ export const de_GetEventRuleCommand = async (
     regions: _json,
     source: __expectString,
     statusSummaryByRegion: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetManagedNotificationChildEventCommand
+ */
+export const de_GetManagedNotificationChildEventCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetManagedNotificationChildEventCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    content: (_) => de_ManagedNotificationChildEvent(_, context),
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    managedNotificationConfigurationArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetManagedNotificationConfigurationCommand
+ */
+export const de_GetManagedNotificationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetManagedNotificationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    category: __expectString,
+    description: __expectString,
+    name: __expectString,
+    subCategory: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetManagedNotificationEventCommand
+ */
+export const de_GetManagedNotificationEventCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetManagedNotificationEventCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    content: (_) => de_ManagedNotificationEvent(_, context),
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    managedNotificationConfigurationArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -744,6 +1265,27 @@ export const de_GetNotificationEventCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetNotificationsAccessForOrganizationCommand
+ */
+export const de_GetNotificationsAccessForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetNotificationsAccessForOrganizationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    notificationsAccessForOrganization: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListChannelsCommand
  */
 export const de_ListChannelsCommand = async (
@@ -781,6 +1323,94 @@ export const de_ListEventRulesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     eventRules: (_) => de_EventRules(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListManagedNotificationChannelAssociationsCommand
+ */
+export const de_ListManagedNotificationChannelAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedNotificationChannelAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    channelAssociations: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListManagedNotificationChildEventsCommand
+ */
+export const de_ListManagedNotificationChildEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedNotificationChildEventsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    managedNotificationChildEvents: (_) => de_ManagedNotificationChildEvents(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListManagedNotificationConfigurationsCommand
+ */
+export const de_ListManagedNotificationConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedNotificationConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    managedNotificationConfigurations: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListManagedNotificationEventsCommand
+ */
+export const de_ListManagedNotificationEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListManagedNotificationEventsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    managedNotificationEvents: (_) => de_ManagedNotificationEvents(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -1165,6 +1795,16 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_TagMap omitted.
 
+// de_AggregatedNotificationRegions omitted.
+
+// de_AggregationDetail omitted.
+
+// de_AggregationKey omitted.
+
+// de_AggregationKeys omitted.
+
+// de_AggregationSummary omitted.
+
 // de_Channels omitted.
 
 // de_Dimension omitted.
@@ -1202,7 +1842,128 @@ const de_EventRuleStructure = (output: any, context: __SerdeContext): EventRuleS
   }) as any;
 };
 
+// de_ManagedNotificationChannelAssociations omitted.
+
+// de_ManagedNotificationChannelAssociationSummary omitted.
+
+/**
+ * deserializeAws_restJson1ManagedNotificationChildEvent
+ */
+const de_ManagedNotificationChildEvent = (output: any, context: __SerdeContext): ManagedNotificationChildEvent => {
+  return take(output, {
+    aggregateManagedNotificationEventArn: __expectString,
+    aggregationDetail: _json,
+    endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    eventStatus: __expectString,
+    id: __expectString,
+    messageComponents: _json,
+    notificationType: __expectString,
+    organizationalUnitId: __expectString,
+    schemaVersion: __expectString,
+    sourceEventDetailUrl: __expectString,
+    sourceEventDetailUrlDisplayText: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    textParts: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ManagedNotificationChildEventOverview
+ */
+const de_ManagedNotificationChildEventOverview = (
+  output: any,
+  context: __SerdeContext
+): ManagedNotificationChildEventOverview => {
+  return take(output, {
+    aggregateManagedNotificationEventArn: __expectString,
+    arn: __expectString,
+    childEvent: _json,
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    managedNotificationConfigurationArn: __expectString,
+    organizationalUnitId: __expectString,
+    relatedAccount: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ManagedNotificationChildEvents
+ */
+const de_ManagedNotificationChildEvents = (
+  output: any,
+  context: __SerdeContext
+): ManagedNotificationChildEventOverview[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ManagedNotificationChildEventOverview(entry, context);
+    });
+  return retVal;
+};
+
+// de_ManagedNotificationChildEventSummary omitted.
+
+// de_ManagedNotificationConfigurations omitted.
+
+// de_ManagedNotificationConfigurationStructure omitted.
+
+/**
+ * deserializeAws_restJson1ManagedNotificationEvent
+ */
+const de_ManagedNotificationEvent = (output: any, context: __SerdeContext): ManagedNotificationEvent => {
+  return take(output, {
+    aggregationEventType: __expectString,
+    aggregationSummary: _json,
+    endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    eventStatus: __expectString,
+    id: __expectString,
+    messageComponents: _json,
+    notificationType: __expectString,
+    organizationalUnitId: __expectString,
+    schemaVersion: __expectString,
+    sourceEventDetailUrl: __expectString,
+    sourceEventDetailUrlDisplayText: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    textParts: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ManagedNotificationEventOverview
+ */
+const de_ManagedNotificationEventOverview = (
+  output: any,
+  context: __SerdeContext
+): ManagedNotificationEventOverview => {
+  return take(output, {
+    aggregatedNotificationRegions: _json,
+    aggregationEventType: __expectString,
+    aggregationSummary: _json,
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    managedNotificationConfigurationArn: __expectString,
+    notificationEvent: _json,
+    organizationalUnitId: __expectString,
+    relatedAccount: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ManagedNotificationEvents
+ */
+const de_ManagedNotificationEvents = (output: any, context: __SerdeContext): ManagedNotificationEventOverview[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ManagedNotificationEventOverview(entry, context);
+    });
+  return retVal;
+};
+
+// de_ManagedNotificationEventSummary omitted.
+
 // de_ManagedRuleArns omitted.
+
+// de_ManagedSourceEventMetadataSummary omitted.
 
 // de_Media omitted.
 
@@ -1248,6 +2009,7 @@ const de_NotificationEventOverview = (output: any, context: __SerdeContext): Not
   return take(output, {
     aggregateNotificationEventArn: __expectString,
     aggregationEventType: __expectString,
+    aggregationSummary: _json,
     arn: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     notificationConfigurationArn: __expectString,
@@ -1275,6 +2037,7 @@ const de_NotificationEventSchema = (output: any, context: __SerdeContext): Notif
   return take(output, {
     aggregateNotificationEventArn: __expectString,
     aggregationEventType: __expectString,
+    aggregationSummary: _json,
     endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     eventStatus: __expectString,
     id: __expectString,
@@ -1318,11 +2081,15 @@ const de_NotificationHubs = (output: any, context: __SerdeContext): Notification
 
 // de_NotificationHubStatusSummary omitted.
 
+// de_NotificationsAccessForOrganization omitted.
+
 // de_Regions omitted.
 
 // de_Resource omitted.
 
 // de_Resources omitted.
+
+// de_SampleAggregationDimensionValues omitted.
 
 /**
  * deserializeAws_restJson1SourceEventMetadata
@@ -1343,6 +2110,14 @@ const de_SourceEventMetadata = (output: any, context: __SerdeContext): SourceEve
 // de_SourceEventMetadataSummary omitted.
 
 // de_StatusSummaryByRegion omitted.
+
+// de_SummarizationDimensionDetail omitted.
+
+// de_SummarizationDimensionDetails omitted.
+
+// de_SummarizationDimensionOverview omitted.
+
+// de_SummarizationDimensionOverviews omitted.
 
 // de_TagMap omitted.
 
@@ -1372,16 +2147,20 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const _aNEA = "aggregateNotificationEventArn";
 const _cA = "channelArn";
+const _cI = "channelIdentifier";
 const _eRS = "eventRuleSource";
 const _eT = "endTime";
 const _iCE = "includeChildEvents";
 const _l = "locale";
+const _mNCA = "managedNotificationConfigurationArn";
 const _mR = "maxResults";
 const _nCA = "notificationConfigurationArn";
 const _nT = "nextToken";
+const _oUI = "organizationalUnitId";
+const _rA = "relatedAccount";
 const _rAS = "retryAfterSeconds";
 const _ra = "retry-after";
-const _s = "status";
+const _s = "source";
 const _sT = "startTime";
-const _so = "source";
+const _st = "status";
 const _tK = "tagKeys";

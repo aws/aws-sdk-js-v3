@@ -6,14 +6,14 @@
 
 AWS SDK for JavaScript Notifications Client for Node.js, Browser and React Native.
 
-<p>The <i>AWS User Notifications API Reference</i> provides descriptions, API request parameters, and the JSON response for each of the User Notification API actions.</p>
-<p>User Notification control APIs are currently available in US East (Virginia) - <code>us-east-1</code>.</p>
+<p>The <i>Amazon Web Services User Notifications API Reference</i> provides descriptions, API request parameters, and the JSON response for each of the User Notification API actions.</p>
+<p>User Notification control plane APIs are currently available in US East (Virginia) - <code>us-east-1</code>.</p>
 <p>
 <a href="https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetNotificationEvent.html">GetNotificationEvent</a>
 and <a href="https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListNotificationEvents.html">ListNotificationEvents</a> APIs are currently available in
 <a href="https://docs.aws.amazon.com/notifications/latest/userguide/supported-regions.html">commercial partition Regions</a> and only return notifications stored in the same Region in which they're called.</p>
 <p>The User Notifications console can only be used in US East (Virginia). Your data however, is stored in each Region chosen as a
-<a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html&gt;">notification hub</a> in addition to US East (Virginia).</p>
+<a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html">notification hub</a> in addition to US East (Virginia).</p>
 
 ## Installing
 
@@ -220,6 +220,22 @@ AssociateChannel
 </details>
 <details>
 <summary>
+AssociateManagedNotificationAccountContact
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/AssociateManagedNotificationAccountContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/AssociateManagedNotificationAccountContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/AssociateManagedNotificationAccountContactCommandOutput/)
+
+</details>
+<details>
+<summary>
+AssociateManagedNotificationAdditionalChannel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/AssociateManagedNotificationAdditionalChannelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/AssociateManagedNotificationAdditionalChannelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/AssociateManagedNotificationAdditionalChannelCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateEventRule
 </summary>
 
@@ -260,6 +276,14 @@ DeregisterNotificationHub
 </details>
 <details>
 <summary>
+DisableNotificationsAccessForOrganization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/DisableNotificationsAccessForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/DisableNotificationsAccessForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/DisableNotificationsAccessForOrganizationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DisassociateChannel
 </summary>
 
@@ -268,10 +292,58 @@ DisassociateChannel
 </details>
 <details>
 <summary>
+DisassociateManagedNotificationAccountContact
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/DisassociateManagedNotificationAccountContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/DisassociateManagedNotificationAccountContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/DisassociateManagedNotificationAccountContactCommandOutput/)
+
+</details>
+<details>
+<summary>
+DisassociateManagedNotificationAdditionalChannel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/DisassociateManagedNotificationAdditionalChannelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/DisassociateManagedNotificationAdditionalChannelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/DisassociateManagedNotificationAdditionalChannelCommandOutput/)
+
+</details>
+<details>
+<summary>
+EnableNotificationsAccessForOrganization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/EnableNotificationsAccessForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/EnableNotificationsAccessForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/EnableNotificationsAccessForOrganizationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetEventRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/GetEventRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/GetEventRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/GetEventRuleCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetManagedNotificationChildEvent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/GetManagedNotificationChildEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/GetManagedNotificationChildEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/GetManagedNotificationChildEventCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetManagedNotificationConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/GetManagedNotificationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/GetManagedNotificationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/GetManagedNotificationConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetManagedNotificationEvent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/GetManagedNotificationEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/GetManagedNotificationEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/GetManagedNotificationEventCommandOutput/)
 
 </details>
 <details>
@@ -292,6 +364,14 @@ GetNotificationEvent
 </details>
 <details>
 <summary>
+GetNotificationsAccessForOrganization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/GetNotificationsAccessForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/GetNotificationsAccessForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/GetNotificationsAccessForOrganizationCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListChannels
 </summary>
 
@@ -304,6 +384,38 @@ ListEventRules
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/ListEventRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/ListEventRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/ListEventRulesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListManagedNotificationChannelAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/ListManagedNotificationChannelAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/ListManagedNotificationChannelAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/ListManagedNotificationChannelAssociationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListManagedNotificationChildEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/ListManagedNotificationChildEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/ListManagedNotificationChildEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/ListManagedNotificationChildEventsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListManagedNotificationConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/ListManagedNotificationConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/ListManagedNotificationConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/ListManagedNotificationConfigurationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListManagedNotificationEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/ListManagedNotificationEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/ListManagedNotificationEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/ListManagedNotificationEventsCommandOutput/)
 
 </details>
 <details>

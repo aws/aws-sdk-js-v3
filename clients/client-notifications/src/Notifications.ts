@@ -8,6 +8,16 @@ import {
   AssociateChannelCommandOutput,
 } from "./commands/AssociateChannelCommand";
 import {
+  AssociateManagedNotificationAccountContactCommand,
+  AssociateManagedNotificationAccountContactCommandInput,
+  AssociateManagedNotificationAccountContactCommandOutput,
+} from "./commands/AssociateManagedNotificationAccountContactCommand";
+import {
+  AssociateManagedNotificationAdditionalChannelCommand,
+  AssociateManagedNotificationAdditionalChannelCommandInput,
+  AssociateManagedNotificationAdditionalChannelCommandOutput,
+} from "./commands/AssociateManagedNotificationAdditionalChannelCommand";
+import {
   CreateEventRuleCommand,
   CreateEventRuleCommandInput,
   CreateEventRuleCommandOutput,
@@ -33,15 +43,50 @@ import {
   DeregisterNotificationHubCommandOutput,
 } from "./commands/DeregisterNotificationHubCommand";
 import {
+  DisableNotificationsAccessForOrganizationCommand,
+  DisableNotificationsAccessForOrganizationCommandInput,
+  DisableNotificationsAccessForOrganizationCommandOutput,
+} from "./commands/DisableNotificationsAccessForOrganizationCommand";
+import {
   DisassociateChannelCommand,
   DisassociateChannelCommandInput,
   DisassociateChannelCommandOutput,
 } from "./commands/DisassociateChannelCommand";
 import {
+  DisassociateManagedNotificationAccountContactCommand,
+  DisassociateManagedNotificationAccountContactCommandInput,
+  DisassociateManagedNotificationAccountContactCommandOutput,
+} from "./commands/DisassociateManagedNotificationAccountContactCommand";
+import {
+  DisassociateManagedNotificationAdditionalChannelCommand,
+  DisassociateManagedNotificationAdditionalChannelCommandInput,
+  DisassociateManagedNotificationAdditionalChannelCommandOutput,
+} from "./commands/DisassociateManagedNotificationAdditionalChannelCommand";
+import {
+  EnableNotificationsAccessForOrganizationCommand,
+  EnableNotificationsAccessForOrganizationCommandInput,
+  EnableNotificationsAccessForOrganizationCommandOutput,
+} from "./commands/EnableNotificationsAccessForOrganizationCommand";
+import {
   GetEventRuleCommand,
   GetEventRuleCommandInput,
   GetEventRuleCommandOutput,
 } from "./commands/GetEventRuleCommand";
+import {
+  GetManagedNotificationChildEventCommand,
+  GetManagedNotificationChildEventCommandInput,
+  GetManagedNotificationChildEventCommandOutput,
+} from "./commands/GetManagedNotificationChildEventCommand";
+import {
+  GetManagedNotificationConfigurationCommand,
+  GetManagedNotificationConfigurationCommandInput,
+  GetManagedNotificationConfigurationCommandOutput,
+} from "./commands/GetManagedNotificationConfigurationCommand";
+import {
+  GetManagedNotificationEventCommand,
+  GetManagedNotificationEventCommandInput,
+  GetManagedNotificationEventCommandOutput,
+} from "./commands/GetManagedNotificationEventCommand";
 import {
   GetNotificationConfigurationCommand,
   GetNotificationConfigurationCommandInput,
@@ -53,6 +98,11 @@ import {
   GetNotificationEventCommandOutput,
 } from "./commands/GetNotificationEventCommand";
 import {
+  GetNotificationsAccessForOrganizationCommand,
+  GetNotificationsAccessForOrganizationCommandInput,
+  GetNotificationsAccessForOrganizationCommandOutput,
+} from "./commands/GetNotificationsAccessForOrganizationCommand";
+import {
   ListChannelsCommand,
   ListChannelsCommandInput,
   ListChannelsCommandOutput,
@@ -62,6 +112,26 @@ import {
   ListEventRulesCommandInput,
   ListEventRulesCommandOutput,
 } from "./commands/ListEventRulesCommand";
+import {
+  ListManagedNotificationChannelAssociationsCommand,
+  ListManagedNotificationChannelAssociationsCommandInput,
+  ListManagedNotificationChannelAssociationsCommandOutput,
+} from "./commands/ListManagedNotificationChannelAssociationsCommand";
+import {
+  ListManagedNotificationChildEventsCommand,
+  ListManagedNotificationChildEventsCommandInput,
+  ListManagedNotificationChildEventsCommandOutput,
+} from "./commands/ListManagedNotificationChildEventsCommand";
+import {
+  ListManagedNotificationConfigurationsCommand,
+  ListManagedNotificationConfigurationsCommandInput,
+  ListManagedNotificationConfigurationsCommandOutput,
+} from "./commands/ListManagedNotificationConfigurationsCommand";
+import {
+  ListManagedNotificationEventsCommand,
+  ListManagedNotificationEventsCommandInput,
+  ListManagedNotificationEventsCommandOutput,
+} from "./commands/ListManagedNotificationEventsCommand";
 import {
   ListNotificationConfigurationsCommand,
   ListNotificationConfigurationsCommandInput,
@@ -107,17 +177,31 @@ import { NotificationsClient, NotificationsClientConfig } from "./NotificationsC
 
 const commands = {
   AssociateChannelCommand,
+  AssociateManagedNotificationAccountContactCommand,
+  AssociateManagedNotificationAdditionalChannelCommand,
   CreateEventRuleCommand,
   CreateNotificationConfigurationCommand,
   DeleteEventRuleCommand,
   DeleteNotificationConfigurationCommand,
   DeregisterNotificationHubCommand,
+  DisableNotificationsAccessForOrganizationCommand,
   DisassociateChannelCommand,
+  DisassociateManagedNotificationAccountContactCommand,
+  DisassociateManagedNotificationAdditionalChannelCommand,
+  EnableNotificationsAccessForOrganizationCommand,
   GetEventRuleCommand,
+  GetManagedNotificationChildEventCommand,
+  GetManagedNotificationConfigurationCommand,
+  GetManagedNotificationEventCommand,
   GetNotificationConfigurationCommand,
   GetNotificationEventCommand,
+  GetNotificationsAccessForOrganizationCommand,
   ListChannelsCommand,
   ListEventRulesCommand,
+  ListManagedNotificationChannelAssociationsCommand,
+  ListManagedNotificationChildEventsCommand,
+  ListManagedNotificationConfigurationsCommand,
+  ListManagedNotificationEventsCommand,
   ListNotificationConfigurationsCommand,
   ListNotificationEventsCommand,
   ListNotificationHubsCommand,
@@ -145,6 +229,40 @@ export interface Notifications {
     args: AssociateChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateManagedNotificationAccountContactCommand}
+   */
+  associateManagedNotificationAccountContact(
+    args: AssociateManagedNotificationAccountContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateManagedNotificationAccountContactCommandOutput>;
+  associateManagedNotificationAccountContact(
+    args: AssociateManagedNotificationAccountContactCommandInput,
+    cb: (err: any, data?: AssociateManagedNotificationAccountContactCommandOutput) => void
+  ): void;
+  associateManagedNotificationAccountContact(
+    args: AssociateManagedNotificationAccountContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateManagedNotificationAccountContactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateManagedNotificationAdditionalChannelCommand}
+   */
+  associateManagedNotificationAdditionalChannel(
+    args: AssociateManagedNotificationAdditionalChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateManagedNotificationAdditionalChannelCommandOutput>;
+  associateManagedNotificationAdditionalChannel(
+    args: AssociateManagedNotificationAdditionalChannelCommandInput,
+    cb: (err: any, data?: AssociateManagedNotificationAdditionalChannelCommandOutput) => void
+  ): void;
+  associateManagedNotificationAdditionalChannel(
+    args: AssociateManagedNotificationAdditionalChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateManagedNotificationAdditionalChannelCommandOutput) => void
   ): void;
 
   /**
@@ -227,6 +345,24 @@ export interface Notifications {
   ): void;
 
   /**
+   * @see {@link DisableNotificationsAccessForOrganizationCommand}
+   */
+  disableNotificationsAccessForOrganization(): Promise<DisableNotificationsAccessForOrganizationCommandOutput>;
+  disableNotificationsAccessForOrganization(
+    args: DisableNotificationsAccessForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableNotificationsAccessForOrganizationCommandOutput>;
+  disableNotificationsAccessForOrganization(
+    args: DisableNotificationsAccessForOrganizationCommandInput,
+    cb: (err: any, data?: DisableNotificationsAccessForOrganizationCommandOutput) => void
+  ): void;
+  disableNotificationsAccessForOrganization(
+    args: DisableNotificationsAccessForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableNotificationsAccessForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateChannelCommand}
    */
   disassociateChannel(
@@ -244,6 +380,58 @@ export interface Notifications {
   ): void;
 
   /**
+   * @see {@link DisassociateManagedNotificationAccountContactCommand}
+   */
+  disassociateManagedNotificationAccountContact(
+    args: DisassociateManagedNotificationAccountContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateManagedNotificationAccountContactCommandOutput>;
+  disassociateManagedNotificationAccountContact(
+    args: DisassociateManagedNotificationAccountContactCommandInput,
+    cb: (err: any, data?: DisassociateManagedNotificationAccountContactCommandOutput) => void
+  ): void;
+  disassociateManagedNotificationAccountContact(
+    args: DisassociateManagedNotificationAccountContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateManagedNotificationAccountContactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateManagedNotificationAdditionalChannelCommand}
+   */
+  disassociateManagedNotificationAdditionalChannel(
+    args: DisassociateManagedNotificationAdditionalChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateManagedNotificationAdditionalChannelCommandOutput>;
+  disassociateManagedNotificationAdditionalChannel(
+    args: DisassociateManagedNotificationAdditionalChannelCommandInput,
+    cb: (err: any, data?: DisassociateManagedNotificationAdditionalChannelCommandOutput) => void
+  ): void;
+  disassociateManagedNotificationAdditionalChannel(
+    args: DisassociateManagedNotificationAdditionalChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateManagedNotificationAdditionalChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableNotificationsAccessForOrganizationCommand}
+   */
+  enableNotificationsAccessForOrganization(): Promise<EnableNotificationsAccessForOrganizationCommandOutput>;
+  enableNotificationsAccessForOrganization(
+    args: EnableNotificationsAccessForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableNotificationsAccessForOrganizationCommandOutput>;
+  enableNotificationsAccessForOrganization(
+    args: EnableNotificationsAccessForOrganizationCommandInput,
+    cb: (err: any, data?: EnableNotificationsAccessForOrganizationCommandOutput) => void
+  ): void;
+  enableNotificationsAccessForOrganization(
+    args: EnableNotificationsAccessForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableNotificationsAccessForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetEventRuleCommand}
    */
   getEventRule(args: GetEventRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetEventRuleCommandOutput>;
@@ -252,6 +440,57 @@ export interface Notifications {
     args: GetEventRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEventRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetManagedNotificationChildEventCommand}
+   */
+  getManagedNotificationChildEvent(
+    args: GetManagedNotificationChildEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetManagedNotificationChildEventCommandOutput>;
+  getManagedNotificationChildEvent(
+    args: GetManagedNotificationChildEventCommandInput,
+    cb: (err: any, data?: GetManagedNotificationChildEventCommandOutput) => void
+  ): void;
+  getManagedNotificationChildEvent(
+    args: GetManagedNotificationChildEventCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetManagedNotificationChildEventCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetManagedNotificationConfigurationCommand}
+   */
+  getManagedNotificationConfiguration(
+    args: GetManagedNotificationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetManagedNotificationConfigurationCommandOutput>;
+  getManagedNotificationConfiguration(
+    args: GetManagedNotificationConfigurationCommandInput,
+    cb: (err: any, data?: GetManagedNotificationConfigurationCommandOutput) => void
+  ): void;
+  getManagedNotificationConfiguration(
+    args: GetManagedNotificationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetManagedNotificationConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetManagedNotificationEventCommand}
+   */
+  getManagedNotificationEvent(
+    args: GetManagedNotificationEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetManagedNotificationEventCommandOutput>;
+  getManagedNotificationEvent(
+    args: GetManagedNotificationEventCommandInput,
+    cb: (err: any, data?: GetManagedNotificationEventCommandOutput) => void
+  ): void;
+  getManagedNotificationEvent(
+    args: GetManagedNotificationEventCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetManagedNotificationEventCommandOutput) => void
   ): void;
 
   /**
@@ -289,6 +528,24 @@ export interface Notifications {
   ): void;
 
   /**
+   * @see {@link GetNotificationsAccessForOrganizationCommand}
+   */
+  getNotificationsAccessForOrganization(): Promise<GetNotificationsAccessForOrganizationCommandOutput>;
+  getNotificationsAccessForOrganization(
+    args: GetNotificationsAccessForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNotificationsAccessForOrganizationCommandOutput>;
+  getNotificationsAccessForOrganization(
+    args: GetNotificationsAccessForOrganizationCommandInput,
+    cb: (err: any, data?: GetNotificationsAccessForOrganizationCommandOutput) => void
+  ): void;
+  getNotificationsAccessForOrganization(
+    args: GetNotificationsAccessForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNotificationsAccessForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListChannelsCommand}
    */
   listChannels(args: ListChannelsCommandInput, options?: __HttpHandlerOptions): Promise<ListChannelsCommandOutput>;
@@ -311,6 +568,76 @@ export interface Notifications {
     args: ListEventRulesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEventRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListManagedNotificationChannelAssociationsCommand}
+   */
+  listManagedNotificationChannelAssociations(
+    args: ListManagedNotificationChannelAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListManagedNotificationChannelAssociationsCommandOutput>;
+  listManagedNotificationChannelAssociations(
+    args: ListManagedNotificationChannelAssociationsCommandInput,
+    cb: (err: any, data?: ListManagedNotificationChannelAssociationsCommandOutput) => void
+  ): void;
+  listManagedNotificationChannelAssociations(
+    args: ListManagedNotificationChannelAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListManagedNotificationChannelAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListManagedNotificationChildEventsCommand}
+   */
+  listManagedNotificationChildEvents(
+    args: ListManagedNotificationChildEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListManagedNotificationChildEventsCommandOutput>;
+  listManagedNotificationChildEvents(
+    args: ListManagedNotificationChildEventsCommandInput,
+    cb: (err: any, data?: ListManagedNotificationChildEventsCommandOutput) => void
+  ): void;
+  listManagedNotificationChildEvents(
+    args: ListManagedNotificationChildEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListManagedNotificationChildEventsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListManagedNotificationConfigurationsCommand}
+   */
+  listManagedNotificationConfigurations(): Promise<ListManagedNotificationConfigurationsCommandOutput>;
+  listManagedNotificationConfigurations(
+    args: ListManagedNotificationConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListManagedNotificationConfigurationsCommandOutput>;
+  listManagedNotificationConfigurations(
+    args: ListManagedNotificationConfigurationsCommandInput,
+    cb: (err: any, data?: ListManagedNotificationConfigurationsCommandOutput) => void
+  ): void;
+  listManagedNotificationConfigurations(
+    args: ListManagedNotificationConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListManagedNotificationConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListManagedNotificationEventsCommand}
+   */
+  listManagedNotificationEvents(): Promise<ListManagedNotificationEventsCommandOutput>;
+  listManagedNotificationEvents(
+    args: ListManagedNotificationEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListManagedNotificationEventsCommandOutput>;
+  listManagedNotificationEvents(
+    args: ListManagedNotificationEventsCommandInput,
+    cb: (err: any, data?: ListManagedNotificationEventsCommandOutput) => void
+  ): void;
+  listManagedNotificationEvents(
+    args: ListManagedNotificationEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListManagedNotificationEventsCommandOutput) => void
   ): void;
 
   /**
@@ -456,14 +783,14 @@ export interface Notifications {
 }
 
 /**
- * <p>The <i>AWS User Notifications API Reference</i> provides descriptions, API request parameters, and the JSON response for each of the User Notification API actions.</p>
- *          <p>User Notification control APIs are currently available in US East (Virginia) - <code>us-east-1</code>.</p>
+ * <p>The <i>Amazon Web Services User Notifications API Reference</i> provides descriptions, API request parameters, and the JSON response for each of the User Notification API actions.</p>
+ *          <p>User Notification control plane APIs are currently available in US East (Virginia) - <code>us-east-1</code>.</p>
  *          <p>
  *             <a href="https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetNotificationEvent.html">GetNotificationEvent</a>
  * 	 and <a href="https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListNotificationEvents.html">ListNotificationEvents</a> APIs are currently available in
  * 	 <a href="https://docs.aws.amazon.com/notifications/latest/userguide/supported-regions.html">commercial partition Regions</a> and only return notifications stored in the same Region in which they're called.</p>
  *          <p>The User Notifications console can only be used in US East (Virginia). Your data however, is stored in each Region chosen as a
- * 	 <a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html&gt;">notification hub</a> in addition to US East (Virginia).</p>
+ * 	 <a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html">notification hub</a> in addition to US East (Virginia).</p>
  * @public
  */
 export class Notifications extends NotificationsClient implements Notifications {}

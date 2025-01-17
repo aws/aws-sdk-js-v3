@@ -28,7 +28,7 @@ export interface ListEventRulesCommandInput extends ListEventRulesRequest {}
 export interface ListEventRulesCommandOutput extends ListEventRulesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of EventRules according to specified filters, in reverse chronological order (newest first).</p>
+ * <p>Returns a list of <code>EventRules</code> according to specified filters, in reverse chronological order (newest first).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

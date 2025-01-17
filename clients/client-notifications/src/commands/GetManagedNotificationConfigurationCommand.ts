@@ -5,11 +5,14 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateNotificationConfigurationRequest, UpdateNotificationConfigurationResponse } from "../models/models_0";
+import {
+  GetManagedNotificationConfigurationRequest,
+  GetManagedNotificationConfigurationResponse,
+} from "../models/models_0";
 import { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import {
-  de_UpdateNotificationConfigurationCommand,
-  se_UpdateNotificationConfigurationCommand,
+  de_GetManagedNotificationConfigurationCommand,
+  se_GetManagedNotificationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -20,51 +23,49 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateNotificationConfigurationCommand}.
+ * The input for {@link GetManagedNotificationConfigurationCommand}.
  */
-export interface UpdateNotificationConfigurationCommandInput extends UpdateNotificationConfigurationRequest {}
+export interface GetManagedNotificationConfigurationCommandInput extends GetManagedNotificationConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateNotificationConfigurationCommand}.
+ * The output of {@link GetManagedNotificationConfigurationCommand}.
  */
-export interface UpdateNotificationConfigurationCommandOutput
-  extends UpdateNotificationConfigurationResponse,
+export interface GetManagedNotificationConfigurationCommandOutput
+  extends GetManagedNotificationConfigurationResponse,
     __MetadataBearer {}
 
 /**
- * <p>Updates a <code>NotificationConfiguration</code>.</p>
+ * <p>Returns a specified <code>ManagedNotificationConfiguration</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NotificationsClient, UpdateNotificationConfigurationCommand } from "@aws-sdk/client-notifications"; // ES Modules import
- * // const { NotificationsClient, UpdateNotificationConfigurationCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * import { NotificationsClient, GetManagedNotificationConfigurationCommand } from "@aws-sdk/client-notifications"; // ES Modules import
+ * // const { NotificationsClient, GetManagedNotificationConfigurationCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
  * const client = new NotificationsClient(config);
- * const input = { // UpdateNotificationConfigurationRequest
+ * const input = { // GetManagedNotificationConfigurationRequest
  *   arn: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   aggregationDuration: "STRING_VALUE",
  * };
- * const command = new UpdateNotificationConfigurationCommand(input);
+ * const command = new GetManagedNotificationConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // UpdateNotificationConfigurationResponse
+ * // { // GetManagedNotificationConfigurationResponse
  * //   arn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE", // required
+ * //   category: "STRING_VALUE", // required
+ * //   subCategory: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param UpdateNotificationConfigurationCommandInput - {@link UpdateNotificationConfigurationCommandInput}
- * @returns {@link UpdateNotificationConfigurationCommandOutput}
- * @see {@link UpdateNotificationConfigurationCommandInput} for command's `input` shape.
- * @see {@link UpdateNotificationConfigurationCommandOutput} for command's `response` shape.
+ * @param GetManagedNotificationConfigurationCommandInput - {@link GetManagedNotificationConfigurationCommandInput}
+ * @returns {@link GetManagedNotificationConfigurationCommandOutput}
+ * @see {@link GetManagedNotificationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetManagedNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link NotificationsClientResolvedConfig | config} for NotificationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>User does not have sufficient access to perform this action.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of request.</p>
@@ -83,10 +84,10 @@ export interface UpdateNotificationConfigurationCommandOutput
  *
  * @public
  */
-export class UpdateNotificationConfigurationCommand extends $Command
+export class GetManagedNotificationConfigurationCommand extends $Command
   .classBuilder<
-    UpdateNotificationConfigurationCommandInput,
-    UpdateNotificationConfigurationCommandOutput,
+    GetManagedNotificationConfigurationCommandInput,
+    GetManagedNotificationConfigurationCommandOutput,
     NotificationsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -98,21 +99,21 @@ export class UpdateNotificationConfigurationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Notifications", "UpdateNotificationConfiguration", {})
-  .n("NotificationsClient", "UpdateNotificationConfigurationCommand")
+  .s("Notifications", "GetManagedNotificationConfiguration", {})
+  .n("NotificationsClient", "GetManagedNotificationConfigurationCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateNotificationConfigurationCommand)
-  .de(de_UpdateNotificationConfigurationCommand)
+  .ser(se_GetManagedNotificationConfigurationCommand)
+  .de(de_GetManagedNotificationConfigurationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateNotificationConfigurationRequest;
-      output: UpdateNotificationConfigurationResponse;
+      input: GetManagedNotificationConfigurationRequest;
+      output: GetManagedNotificationConfigurationResponse;
     };
     sdk: {
-      input: UpdateNotificationConfigurationCommandInput;
-      output: UpdateNotificationConfigurationCommandOutput;
+      input: GetManagedNotificationConfigurationCommandInput;
+      output: GetManagedNotificationConfigurationCommandOutput;
     };
   };
 }

@@ -29,7 +29,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 
 /**
  * <p>Untags a resource with a specified Amazon Resource Name (ARN).</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging your AWS resources</a> in the <i>Tagging AWS Resources User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging your Amazon Web Services resources</a> in the <i>Tagging Amazon Web Services Resources User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

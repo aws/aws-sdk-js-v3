@@ -33,7 +33,7 @@ export interface GetNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a specified NotificationConfiguration.</p>
+ * <p>Returns a specified <code>NotificationConfiguration</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

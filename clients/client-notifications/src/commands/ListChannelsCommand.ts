@@ -28,7 +28,7 @@ export interface ListChannelsCommandInput extends ListChannelsRequest {}
 export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of Channels for a NotificationConfiguration.</p>
+ * <p>Returns a list of Channels for a <code>NotificationConfiguration</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

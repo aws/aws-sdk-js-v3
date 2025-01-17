@@ -5,11 +5,14 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateNotificationConfigurationRequest, CreateNotificationConfigurationResponse } from "../models/models_0";
+import {
+  DisableNotificationsAccessForOrganizationRequest,
+  DisableNotificationsAccessForOrganizationResponse,
+} from "../models/models_0";
 import { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import {
-  de_CreateNotificationConfigurationCommand,
-  se_CreateNotificationConfigurationCommand,
+  de_DisableNotificationsAccessForOrganizationCommand,
+  se_DisableNotificationsAccessForOrganizationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -20,47 +23,38 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateNotificationConfigurationCommand}.
+ * The input for {@link DisableNotificationsAccessForOrganizationCommand}.
  */
-export interface CreateNotificationConfigurationCommandInput extends CreateNotificationConfigurationRequest {}
+export interface DisableNotificationsAccessForOrganizationCommandInput
+  extends DisableNotificationsAccessForOrganizationRequest {}
 /**
  * @public
  *
- * The output of {@link CreateNotificationConfigurationCommand}.
+ * The output of {@link DisableNotificationsAccessForOrganizationCommand}.
  */
-export interface CreateNotificationConfigurationCommandOutput
-  extends CreateNotificationConfigurationResponse,
+export interface DisableNotificationsAccessForOrganizationCommandOutput
+  extends DisableNotificationsAccessForOrganizationResponse,
     __MetadataBearer {}
 
 /**
- * <p>Creates a new <code>NotificationConfiguration</code>.</p>
+ * <p>Disables service trust between User Notifications and Amazon Web Services Organizations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NotificationsClient, CreateNotificationConfigurationCommand } from "@aws-sdk/client-notifications"; // ES Modules import
- * // const { NotificationsClient, CreateNotificationConfigurationCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * import { NotificationsClient, DisableNotificationsAccessForOrganizationCommand } from "@aws-sdk/client-notifications"; // ES Modules import
+ * // const { NotificationsClient, DisableNotificationsAccessForOrganizationCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
  * const client = new NotificationsClient(config);
- * const input = { // CreateNotificationConfigurationRequest
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE", // required
- *   aggregationDuration: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
- * const command = new CreateNotificationConfigurationCommand(input);
+ * const input = {};
+ * const command = new DisableNotificationsAccessForOrganizationCommand(input);
  * const response = await client.send(command);
- * // { // CreateNotificationConfigurationResponse
- * //   arn: "STRING_VALUE", // required
- * //   status: "STRING_VALUE", // required
- * // };
+ * // {};
  *
  * ```
  *
- * @param CreateNotificationConfigurationCommandInput - {@link CreateNotificationConfigurationCommandInput}
- * @returns {@link CreateNotificationConfigurationCommandOutput}
- * @see {@link CreateNotificationConfigurationCommandInput} for command's `input` shape.
- * @see {@link CreateNotificationConfigurationCommandOutput} for command's `response` shape.
+ * @param DisableNotificationsAccessForOrganizationCommandInput - {@link DisableNotificationsAccessForOrganizationCommandInput}
+ * @returns {@link DisableNotificationsAccessForOrganizationCommandOutput}
+ * @see {@link DisableNotificationsAccessForOrganizationCommandInput} for command's `input` shape.
+ * @see {@link DisableNotificationsAccessForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link NotificationsClientResolvedConfig | config} for NotificationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -71,6 +65,9 @@ export interface CreateNotificationConfigurationCommandOutput
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Request references a resource which does not exist. </p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>Request would cause a service quota to be exceeded.</p>
@@ -86,10 +83,10 @@ export interface CreateNotificationConfigurationCommandOutput
  *
  * @public
  */
-export class CreateNotificationConfigurationCommand extends $Command
+export class DisableNotificationsAccessForOrganizationCommand extends $Command
   .classBuilder<
-    CreateNotificationConfigurationCommandInput,
-    CreateNotificationConfigurationCommandOutput,
+    DisableNotificationsAccessForOrganizationCommandInput,
+    DisableNotificationsAccessForOrganizationCommandOutput,
     NotificationsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -101,21 +98,21 @@ export class CreateNotificationConfigurationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Notifications", "CreateNotificationConfiguration", {})
-  .n("NotificationsClient", "CreateNotificationConfigurationCommand")
+  .s("Notifications", "DisableNotificationsAccessForOrganization", {})
+  .n("NotificationsClient", "DisableNotificationsAccessForOrganizationCommand")
   .f(void 0, void 0)
-  .ser(se_CreateNotificationConfigurationCommand)
-  .de(de_CreateNotificationConfigurationCommand)
+  .ser(se_DisableNotificationsAccessForOrganizationCommand)
+  .de(de_DisableNotificationsAccessForOrganizationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateNotificationConfigurationRequest;
-      output: CreateNotificationConfigurationResponse;
+      input: {};
+      output: {};
     };
     sdk: {
-      input: CreateNotificationConfigurationCommandInput;
-      output: CreateNotificationConfigurationCommandOutput;
+      input: DisableNotificationsAccessForOrganizationCommandInput;
+      output: DisableNotificationsAccessForOrganizationCommandOutput;
     };
   };
 }
