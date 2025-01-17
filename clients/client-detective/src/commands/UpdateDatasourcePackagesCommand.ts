@@ -28,7 +28,7 @@ export interface UpdateDatasourcePackagesCommandInput extends UpdateDatasourcePa
 export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Starts a data source packages for the behavior graph.</p>
+ * <p>Starts a data source package for the Detective behavior graph.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
