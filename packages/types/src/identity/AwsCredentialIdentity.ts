@@ -1,4 +1,4 @@
-import type { AwsCredentialIdentity } from "@smithy/types";
+import type { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 
 import type { AwsSdkCredentialsFeatures } from "../feature-ids";
 
@@ -11,6 +11,11 @@ export interface AwsIdentityProperties {
   callerClientConfig?: {
     region(): Promise<string>;
     profile?: string;
+    /**
+     * @internal
+     * @deprecated
+     */
+    credentialDefaultProvider?: (input?: any) => AwsCredentialIdentityProvider;
   };
 }
 
