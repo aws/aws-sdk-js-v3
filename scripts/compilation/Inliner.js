@@ -19,8 +19,8 @@ module.exports = class Inliner {
     this.isPackage = fs.existsSync(path.join(root, "packages", pkg));
     this.isLib = fs.existsSync(path.join(root, "lib", pkg));
     this.isClient = !this.isPackage && !this.isLib;
-    this.submodules = ["core", "nested-clients"];
-    this.hasSubmodules = this.submodules.includes(pkg);
+    this.submodulePackages = ["core", "nested-clients"];
+    this.hasSubmodules = this.submodulePackages.includes(pkg);
     this.reExportStubs = false;
     this.subfolder = this.isPackage ? "packages" : this.isLib ? "lib" : "clients";
     this.verbose = process.env.DEBUG || process.argv.includes("--debug");
@@ -210,6 +210,14 @@ module.exports = class Inliner {
           ...buildOptions,
           entryPoints: [path.join(root, this.subfolder, this.package, "src", "submodules", submodule, "index.ts")],
           outfile: path.join(root, this.subfolder, this.package, "dist-cjs", "submodules", submodule, "index.js"),
+          external: [
+            "@smithy/*",
+            "@aws-sdk/*",
+            "node_modules/*",
+            ...this.variantExternals
+              .filter((variant) => variant.includes(`submodules/${submodule}`))
+              .map((variant) => "*/" + path.basename(variant).replace(/.js$/, "")),
+          ],
         });
       }
     }
@@ -302,6 +310,9 @@ module.exports = class Inliner {
       }
       return contents;
     };
+    if (this.verbose) {
+      console.log("Fixing imports for main file", path.dirname(this.outfile));
+    }
     this.indexContents = fixImportsForFile(this.indexContents);
     fs.writeFileSync(this.outfile, this.indexContents, "utf-8");
     if (this.hasSubmodules) {
@@ -309,7 +320,19 @@ module.exports = class Inliner {
       for (const submodule of submodules) {
         const submoduleIndexPath = path.join(path.dirname(this.outfile), "submodules", submodule, "index.js");
         const submoduleIndexContents = fs.readFileSync(submoduleIndexPath, "utf-8");
-        fs.writeFileSync(submoduleIndexPath, fixImportsForFile(submoduleIndexContents, `/submodules/${submodule}`));
+        if (this.verbose) {
+          console.log("Fixing imports for submodule file", path.dirname(submoduleIndexPath));
+        }
+        fs.writeFileSync(
+          submoduleIndexPath,
+          fixImportsForFile(submoduleIndexContents, new RegExp(`/submodules/(${submodules.join("|")})`, "g"))
+        );
+        try {
+          require(submoduleIndexPath);
+        } catch (e) {
+          console.error(`File ${submoduleIndexPath} has import errors.`);
+          throw e;
+        }
       }
     }
     return this;
@@ -446,6 +469,27 @@ module.exports = class Inliner {
       .join("\n");
     fs.writeFileSync(path.join(__dirname, "tmp", this.package + ".mjs"), tmpFileContents, "utf-8");
     await spawnProcess("node", [path.join(__dirname, "tmp", this.package + ".mjs")]);
+
+    if (this.hasSubmodules) {
+      const submodules = fs.readdirSync(path.join(root, this.subfolder, this.package, "src", "submodules"));
+      for (const submodule of submodules) {
+        const canonicalExports = Object.keys(
+          require(path.join(root, this.subfolder, this.package, "dist-cjs", "submodules", submodule, "index.js"))
+        );
+        const tmpFileContents = canonicalExports
+          .filter((sym) => !sym.includes(":"))
+          .map((sym) => `import { ${sym} } from "${this.pkgJson.name}/${submodule}";`)
+          .join("\n");
+        const tmpFilePath = path.join(__dirname, "tmp", this.package + "_" + submodule + ".mjs");
+        fs.writeFileSync(tmpFilePath, tmpFileContents, "utf-8");
+        await spawnProcess("node", [tmpFilePath]);
+        fs.rmSync(tmpFilePath);
+        if (this.verbose) {
+          console.log("ESM compatibility verified for submodule", submodule);
+        }
+      }
+    }
+
     if (this.verbose) {
       console.log("ESM compatibility verified.");
     }
