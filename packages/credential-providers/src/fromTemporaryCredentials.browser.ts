@@ -26,7 +26,7 @@ export const fromTemporaryCredentials = (
     if (params?.SerialNumber) {
       if (!options.mfaCodeProvider) {
         throw new CredentialsProviderError(
-          `Temporary credential requires multi-factor authentication,` + ` but no MFA code callback was provided.`,
+          `Temporary credential requires multi-factor authentication, but no MFA code callback was provided.`,
           {
             tryNextLink: false,
             logger: options.logger,
