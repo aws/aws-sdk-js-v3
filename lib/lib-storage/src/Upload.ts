@@ -235,7 +235,7 @@ export class Upload extends EventEmitter {
       }
 
       if (this.uploadedParts.find(item => item.PartNumber === dataPart.partNumber) {
-        return;
+        continue;
       }
 
       // Use put instead of multipart for one chunk uploads.
