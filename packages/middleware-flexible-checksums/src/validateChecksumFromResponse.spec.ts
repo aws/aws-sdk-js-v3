@@ -1,4 +1,5 @@
 import { HttpResponse } from "@smithy/protocol-http";
+import { Logger } from "@smithy/types";
 import { createChecksumStream } from "@smithy/util-stream";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
@@ -32,11 +33,13 @@ describe(validateChecksumFromResponse.name, () => {
   } as HttpResponse;
 
   const mockChecksum = "mockChecksum";
-  const mockResponseAlgorithms = [ChecksumAlgorithm.CRC32, ChecksumAlgorithm.CRC32C];
+  const mockResponseAlgorithms = [ChecksumAlgorithm.CRC32, ChecksumAlgorithm.CRC32C, ChecksumAlgorithm.CRC64NVME];
+  const mockLogger = { warn: vi.fn() } as unknown as Logger;
 
   const mockOptions = {
     config: mockConfig,
     responseAlgorithms: mockResponseAlgorithms,
+    logger: mockLogger,
   };
 
   const mockChecksumAlgorithmFn = vi.fn();
@@ -66,7 +69,6 @@ describe(validateChecksumFromResponse.name, () => {
 
   describe("skip validation", () => {
     afterEach(() => {
-      expect(selectChecksumAlgorithmFunction).not.toHaveBeenCalled();
       expect(getChecksum).not.toHaveBeenCalled();
     });
 
@@ -75,6 +77,7 @@ describe(validateChecksumFromResponse.name, () => {
       await validateChecksumFromResponse(mockResponse, { ...mockOptions, responseAlgorithms: emptyAlgorithmsList });
       expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(emptyAlgorithmsList);
       expect(getChecksumLocationName).not.toHaveBeenCalled();
+      expect(selectChecksumAlgorithmFunction).not.toHaveBeenCalled();
     });
 
     it("if updated algorithm list from response is empty", async () => {
@@ -82,12 +85,30 @@ describe(validateChecksumFromResponse.name, () => {
       await validateChecksumFromResponse(mockResponse, mockOptions);
       expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(mockResponseAlgorithms);
       expect(getChecksumLocationName).not.toHaveBeenCalled();
+      expect(selectChecksumAlgorithmFunction).not.toHaveBeenCalled();
     });
 
     it("if checksum is not present in header", async () => {
       await validateChecksumFromResponse(mockResponse, mockOptions);
       expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(mockResponseAlgorithms);
       expect(getChecksumLocationName).toHaveBeenCalledTimes(mockResponseAlgorithms.length);
+      expect(selectChecksumAlgorithmFunction).not.toHaveBeenCalled();
+    });
+
+    it(`if checksum algorithm is ${ChecksumAlgorithm.CRC64NVME} and dependency is not available`, async () => {
+      const dependencyErrorMsg = "Dependency not available";
+      vi.mocked(selectChecksumAlgorithmFunction).mockImplementation(() => {
+        throw new Error(dependencyErrorMsg);
+      });
+      const responseWithChecksum = getMockResponseWithHeader(ChecksumAlgorithm.CRC64NVME, mockChecksum);
+      await validateChecksumFromResponse(responseWithChecksum, mockOptions);
+      expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(mockResponseAlgorithms);
+      expect(getChecksumLocationName).toHaveBeenCalledTimes(mockResponseAlgorithms.length);
+      expect(selectChecksumAlgorithmFunction).toHaveBeenCalledTimes(1);
+      expect(mockLogger.warn).toHaveBeenCalledTimes(1);
+      expect(mockLogger.warn).toHaveBeenCalledWith(
+        `Skipping ${ChecksumAlgorithm.CRC64NVME} checksum validation: ${dependencyErrorMsg}`
+      );
     });
   });
 
@@ -133,6 +154,17 @@ describe(validateChecksumFromResponse.name, () => {
       expect(getChecksumLocationName).toHaveBeenNthCalledWith(1, mockResponseAlgorithms[0]);
       expect(getChecksumLocationName).toHaveBeenNthCalledWith(2, mockResponseAlgorithms[1]);
       validateCalls(isStream, mockResponseAlgorithms[1]);
+    });
+
+    it.each([false, true])("when checksum is populated for third algorithm when streaming: %s", async (isStream) => {
+      vi.mocked(isStreaming).mockReturnValue(isStream);
+      const responseWithChecksum = getMockResponseWithHeader(mockResponseAlgorithms[2], mockChecksum);
+      await validateChecksumFromResponse(responseWithChecksum, mockOptions);
+      expect(getChecksumLocationName).toHaveBeenCalledTimes(3);
+      expect(getChecksumLocationName).toHaveBeenNthCalledWith(1, mockResponseAlgorithms[0]);
+      expect(getChecksumLocationName).toHaveBeenNthCalledWith(2, mockResponseAlgorithms[1]);
+      expect(getChecksumLocationName).toHaveBeenNthCalledWith(3, mockResponseAlgorithms[2]);
+      validateCalls(isStream, mockResponseAlgorithms[2]);
     });
   });
 
