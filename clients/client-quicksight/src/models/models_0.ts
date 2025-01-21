@@ -1771,6 +1771,8 @@ export interface NegativeValueConfiguration {
 export const NumberScale = {
   AUTO: "AUTO",
   BILLIONS: "BILLIONS",
+  CRORES: "CRORES",
+  LAKHS: "LAKHS",
   MILLIONS: "MILLIONS",
   NONE: "NONE",
   THOUSANDS: "THOUSANDS",
@@ -1798,6 +1800,20 @@ export const NumericSeparatorSymbol = {
 export type NumericSeparatorSymbol = (typeof NumericSeparatorSymbol)[keyof typeof NumericSeparatorSymbol];
 
 /**
+ * @public
+ * @enum
+ */
+export const DigitGroupingStyle = {
+  DEFAULT: "DEFAULT",
+  LAKHS: "LAKHS",
+} as const;
+
+/**
+ * @public
+ */
+export type DigitGroupingStyle = (typeof DigitGroupingStyle)[keyof typeof DigitGroupingStyle];
+
+/**
  * <p>The options that determine the thousands separator configuration.</p>
  * @public
  */
@@ -1813,6 +1829,12 @@ export interface ThousandSeparatorOptions {
    * @public
    */
   Visibility?: Visibility | undefined;
+
+  /**
+   * <p>Determines the way numbers are styled to accommodate different readability standards. The <code>DEFAULT</code> value uses the standard international grouping system and groups numbers by the thousands. The <code>LAKHS</code> value uses the Indian numbering system and groups numbers by lakhs and crores.</p>
+   * @public
+   */
+  GroupingStyle?: DigitGroupingStyle | undefined;
 }
 
 /**
@@ -7432,21 +7454,6 @@ export interface ReferenceLineValueLabelConfiguration {
    */
   FormatConfiguration?: NumericFormatConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReferenceLineLabelVerticalPosition = {
-  ABOVE: "ABOVE",
-  BELOW: "BELOW",
-} as const;
-
-/**
- * @public
- */
-export type ReferenceLineLabelVerticalPosition =
-  (typeof ReferenceLineLabelVerticalPosition)[keyof typeof ReferenceLineLabelVerticalPosition];
 
 /**
  * @internal

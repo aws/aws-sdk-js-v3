@@ -1057,7 +1057,6 @@ import {
   PivotTotalOptions,
   PluginVisualFieldWell,
   PluginVisualItemsLimitConfiguration,
-  PluginVisualTableQuerySort,
   PredefinedHierarchy,
   ProgressBarOptions,
   ReferenceLine,
@@ -1188,7 +1187,6 @@ import {
   ColumnGroup,
   ColumnGroupColumnSchema,
   ColumnGroupSchema,
-  ColumnLevelPermissionRule,
   ConflictException,
   ContributionAnalysisFactor,
   ContributionAnalysisTimeRanges,
@@ -1226,6 +1224,7 @@ import {
   PluginVisualOptions,
   PluginVisualProperty,
   PluginVisualSortConfiguration,
+  PluginVisualTableQuerySort,
   PostgreSqlParameters,
   PrestoParameters,
   RadarChartAggregatedFieldWells,
@@ -1333,6 +1332,7 @@ import {
 } from "../models/models_2";
 import {
   _Parameters,
+  ColumnLevelPermissionRule,
   ColumnSchema,
   ColumnTag,
   ColumnTagName,
@@ -16971,6 +16971,8 @@ const se_TableSortConfiguration = (input: TableSortConfiguration, context: __Ser
 
 // se_TableStyleTargetList omitted.
 
+// se_TableUnaggregatedFieldList omitted.
+
 // se_TableUnaggregatedFieldWells omitted.
 
 /**
@@ -23284,6 +23286,8 @@ const de_TableSortConfiguration = (output: any, context: __SerdeContext): TableS
 // de_TableStyleTarget omitted.
 
 // de_TableStyleTargetList omitted.
+
+// de_TableUnaggregatedFieldList omitted.
 
 // de_TableUnaggregatedFieldWells omitted.
 

@@ -495,12 +495,13 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                                   ThousandsSeparator: { // ThousandSeparatorOptions
  * //                                     Symbol: "COMMA" || "DOT" || "SPACE",
  * //                                     Visibility: "HIDDEN" || "VISIBLE",
+ * //                                     GroupingStyle: "DEFAULT" || "LAKHS",
  * //                                   },
  * //                                 },
  * //                                 DecimalPlacesConfiguration: { // DecimalPlacesConfiguration
  * //                                   DecimalPlaces: Number("long"), // required
  * //                                 },
- * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  * //                                 NegativeValueConfiguration: { // NegativeValueConfiguration
  * //                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
  * //                                 },
@@ -516,13 +517,14 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                                   ThousandsSeparator: {
  * //                                     Symbol: "COMMA" || "DOT" || "SPACE",
  * //                                     Visibility: "HIDDEN" || "VISIBLE",
+ * //                                     GroupingStyle: "DEFAULT" || "LAKHS",
  * //                                   },
  * //                                 },
  * //                                 Symbol: "STRING_VALUE",
  * //                                 DecimalPlacesConfiguration: {
  * //                                   DecimalPlaces: Number("long"), // required
  * //                                 },
- * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  * //                                 NegativeValueConfiguration: {
  * //                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
  * //                                 },
@@ -538,6 +540,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                                   ThousandsSeparator: {
  * //                                     Symbol: "COMMA" || "DOT" || "SPACE",
  * //                                     Visibility: "HIDDEN" || "VISIBLE",
+ * //                                     GroupingStyle: "DEFAULT" || "LAKHS",
  * //                                   },
  * //                                 },
  * //                                 DecimalPlacesConfiguration: {
@@ -570,12 +573,13 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                                   ThousandsSeparator: {
  * //                                     Symbol: "COMMA" || "DOT" || "SPACE",
  * //                                     Visibility: "HIDDEN" || "VISIBLE",
+ * //                                     GroupingStyle: "DEFAULT" || "LAKHS",
  * //                                   },
  * //                                 },
  * //                                 DecimalPlacesConfiguration: {
  * //                                   DecimalPlaces: Number("long"), // required
  * //                                 },
- * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  * //                                 NegativeValueConfiguration: {
  * //                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
  * //                                 },
@@ -591,13 +595,14 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                                   ThousandsSeparator: {
  * //                                     Symbol: "COMMA" || "DOT" || "SPACE",
  * //                                     Visibility: "HIDDEN" || "VISIBLE",
+ * //                                     GroupingStyle: "DEFAULT" || "LAKHS",
  * //                                   },
  * //                                 },
  * //                                 Symbol: "STRING_VALUE",
  * //                                 DecimalPlacesConfiguration: {
  * //                                   DecimalPlaces: Number("long"), // required
  * //                                 },
- * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  * //                                 NegativeValueConfiguration: {
  * //                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
  * //                                 },
@@ -628,7 +633,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                                 Suffix: "STRING_VALUE",
  * //                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  * //                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  * //                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  * //                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  * //                               },
@@ -638,7 +643,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  * //                                 Symbol: "STRING_VALUE",
  * //                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  * //                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  * //                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  * //                               },
@@ -673,7 +678,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                                 Suffix: "STRING_VALUE",
  * //                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  * //                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  * //                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  * //                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  * //                               },
@@ -683,7 +688,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  * //                                 Symbol: "STRING_VALUE",
  * //                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  * //                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  * //                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  * //                               },
@@ -710,7 +715,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                                 Suffix: "STRING_VALUE",
  * //                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  * //                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  * //                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  * //                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  * //                               },
@@ -720,7 +725,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  * //                                 Symbol: "STRING_VALUE",
  * //                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ * //                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  * //                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  * //                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  * //                               },
@@ -753,7 +758,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                     ],
  * //                   },
  * //                   TableUnaggregatedFieldWells: { // TableUnaggregatedFieldWells
- * //                     Values: [ // UnaggregatedFieldList
+ * //                     Values: [ // TableUnaggregatedFieldList
  * //                       { // UnaggregatedField
  * //                         FieldId: "STRING_VALUE", // required
  * //                         Column: "<ColumnIdentifier>", // required
@@ -4476,7 +4481,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                     AxisName: "GROUP_BY" || "VALUE",
  * //                     Dimensions: "<DimensionFieldList>",
  * //                     Measures: "<MeasureFieldList>",
- * //                     Unaggregated: [
+ * //                     Unaggregated: [ // UnaggregatedFieldList
  * //                       {
  * //                         FieldId: "STRING_VALUE", // required
  * //                         Column: "<ColumnIdentifier>", // required

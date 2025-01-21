@@ -6,7 +6,6 @@ import {
   AccountInfo,
   AccountSettings,
   AdHocFilteringOption,
-  Analysis,
   AnalysisDefaults,
   AssetOptions,
   CalculatedField,
@@ -52,7 +51,6 @@ import {
   ColumnDescriptionFilterSensitiveLog,
   ColumnGroup,
   ColumnGroupSchema,
-  ColumnLevelPermissionRule,
   ConstantType,
   DataSetReference,
   DataSourceParameters,
@@ -70,6 +68,29 @@ import {
 } from "./models_2";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>A rule defined to grant access on one or more restricted columns.
+ *             Each dataset can have multiple rules.
+ *             To create a restricted column, you add it to one or more rules.
+ *             Each rule must contain at least one column and at least one user or group.
+ *             To be able to see a restricted column, a user or group needs to be added
+ *             to a rule for that column.</p>
+ * @public
+ */
+export interface ColumnLevelPermissionRule {
+  /**
+   * <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
+   * @public
+   */
+  Principals?: string[] | undefined;
+
+  /**
+   * <p>An array of column names.</p>
+   * @public
+   */
+  ColumnNames?: string[] | undefined;
+}
 
 /**
  * @public
@@ -8875,30 +8896,6 @@ export interface DescribeAnalysisRequest {
 }
 
 /**
- * @public
- */
-export interface DescribeAnalysisResponse {
-  /**
-   * <p>A metadata structure that contains summary information for the analysis that you're
-   *             describing.</p>
-   * @public
-   */
-  Analysis?: Analysis | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const ColumnTagFilterSensitiveLog = (obj: ColumnTag): any => ({
@@ -9300,11 +9297,4 @@ export const DataSetFilterSensitiveLog = (obj: DataSet): any => ({
       obj.RowLevelPermissionTagConfiguration
     ),
   }),
-});
-
-/**
- * @internal
- */
-export const DescribeAnalysisResponseFilterSensitiveLog = (obj: DescribeAnalysisResponse): any => ({
-  ...obj,
 });

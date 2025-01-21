@@ -555,12 +555,13 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                                   ThousandsSeparator: { // ThousandSeparatorOptions
  *                                     Symbol: "COMMA" || "DOT" || "SPACE",
  *                                     Visibility: "HIDDEN" || "VISIBLE",
+ *                                     GroupingStyle: "DEFAULT" || "LAKHS",
  *                                   },
  *                                 },
  *                                 DecimalPlacesConfiguration: { // DecimalPlacesConfiguration
  *                                   DecimalPlaces: Number("long"), // required
  *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: { // NegativeValueConfiguration
  *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
  *                                 },
@@ -576,13 +577,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                                   ThousandsSeparator: {
  *                                     Symbol: "COMMA" || "DOT" || "SPACE",
  *                                     Visibility: "HIDDEN" || "VISIBLE",
+ *                                     GroupingStyle: "DEFAULT" || "LAKHS",
  *                                   },
  *                                 },
  *                                 Symbol: "STRING_VALUE",
  *                                 DecimalPlacesConfiguration: {
  *                                   DecimalPlaces: Number("long"), // required
  *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: {
  *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
  *                                 },
@@ -598,6 +600,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                                   ThousandsSeparator: {
  *                                     Symbol: "COMMA" || "DOT" || "SPACE",
  *                                     Visibility: "HIDDEN" || "VISIBLE",
+ *                                     GroupingStyle: "DEFAULT" || "LAKHS",
  *                                   },
  *                                 },
  *                                 DecimalPlacesConfiguration: {
@@ -630,12 +633,13 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                                   ThousandsSeparator: {
  *                                     Symbol: "COMMA" || "DOT" || "SPACE",
  *                                     Visibility: "HIDDEN" || "VISIBLE",
+ *                                     GroupingStyle: "DEFAULT" || "LAKHS",
  *                                   },
  *                                 },
  *                                 DecimalPlacesConfiguration: {
  *                                   DecimalPlaces: Number("long"), // required
  *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: {
  *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
  *                                 },
@@ -651,13 +655,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                                   ThousandsSeparator: {
  *                                     Symbol: "COMMA" || "DOT" || "SPACE",
  *                                     Visibility: "HIDDEN" || "VISIBLE",
+ *                                     GroupingStyle: "DEFAULT" || "LAKHS",
  *                                   },
  *                                 },
  *                                 Symbol: "STRING_VALUE",
  *                                 DecimalPlacesConfiguration: {
  *                                   DecimalPlaces: Number("long"), // required
  *                                 },
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: {
  *                                   DisplayMode: "POSITIVE" || "NEGATIVE", // required
  *                                 },
@@ -688,7 +693,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                                 Suffix: "STRING_VALUE",
  *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
@@ -698,7 +703,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  *                                 Symbol: "STRING_VALUE",
  *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
@@ -733,7 +738,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                                 Suffix: "STRING_VALUE",
  *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
@@ -743,7 +748,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  *                                 Symbol: "STRING_VALUE",
  *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
@@ -770,7 +775,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                                 Suffix: "STRING_VALUE",
  *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
@@ -780,7 +785,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                                 SeparatorConfiguration: "<NumericSeparatorConfiguration>",
  *                                 Symbol: "STRING_VALUE",
  *                                 DecimalPlacesConfiguration: "<DecimalPlacesConfiguration>",
- *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                                 NumberScale: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                                 NegativeValueConfiguration: "<NegativeValueConfiguration>",
  *                                 NullValueFormatConfiguration: "<NullValueFormatConfiguration>",
  *                               },
@@ -813,7 +818,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     ],
  *                   },
  *                   TableUnaggregatedFieldWells: { // TableUnaggregatedFieldWells
- *                     Values: [ // UnaggregatedFieldList
+ *                     Values: [ // TableUnaggregatedFieldList
  *                       { // UnaggregatedField
  *                         FieldId: "STRING_VALUE", // required
  *                         Column: "<ColumnIdentifier>", // required
@@ -4534,7 +4539,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     AxisName: "GROUP_BY" || "VALUE",
  *                     Dimensions: "<DimensionFieldList>",
  *                     Measures: "<MeasureFieldList>",
- *                     Unaggregated: [
+ *                     Unaggregated: [ // UnaggregatedFieldList
  *                       {
  *                         FieldId: "STRING_VALUE", // required
  *                         Column: "<ColumnIdentifier>", // required

@@ -166,7 +166,7 @@ export interface UpdateTopicCommandOutput extends UpdateTopicResponse, __Metadat
  *                 FractionDigits: Number("int"),
  *                 Prefix: "STRING_VALUE",
  *                 Suffix: "STRING_VALUE",
- *                 UnitScaler: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                 UnitScaler: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                 NegativeFormat: { // NegativeFormat
  *                   Prefix: "STRING_VALUE",
  *                   Suffix: "STRING_VALUE",
@@ -208,7 +208,7 @@ export interface UpdateTopicCommandOutput extends UpdateTopicResponse, __Metadat
  *                 FractionDigits: Number("int"),
  *                 Prefix: "STRING_VALUE",
  *                 Suffix: "STRING_VALUE",
- *                 UnitScaler: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ *                 UnitScaler: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  *                 NegativeFormat: {
  *                   Prefix: "STRING_VALUE",
  *                   Suffix: "STRING_VALUE",

@@ -75,7 +75,7 @@ import {
   PieChartVisual,
   PivotTableVisual,
   PluginVisualFieldWell,
-  PluginVisualTableQuerySort,
+  PluginVisualItemsLimitConfiguration,
   RowAlternateColorOptions,
   TableCellStyle,
   TableTotalsPlacement,
@@ -93,6 +93,24 @@ import {
 } from "./models_1";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>The table query sorting options for the plugin visual.</p>
+ * @public
+ */
+export interface PluginVisualTableQuerySort {
+  /**
+   * <p>Determines how data is sorted in the response.</p>
+   * @public
+   */
+  RowSort?: FieldSortOptions[] | undefined;
+
+  /**
+   * <p>The maximum amount of data to be returned by a query.</p>
+   * @public
+   */
+  ItemsLimitConfiguration?: PluginVisualItemsLimitConfiguration | undefined;
+}
 
 /**
  * <p>Determines how the plugin visual sorts the data during query.</p>
@@ -8391,29 +8409,6 @@ export interface ColumnGroupSchema {
    * @public
    */
   ColumnGroupColumnSchemaList?: ColumnGroupColumnSchema[] | undefined;
-}
-
-/**
- * <p>A rule defined to grant access on one or more restricted columns.
- *             Each dataset can have multiple rules.
- *             To create a restricted column, you add it to one or more rules.
- *             Each rule must contain at least one column and at least one user or group.
- *             To be able to see a restricted column, a user or group needs to be added
- *             to a rule for that column.</p>
- * @public
- */
-export interface ColumnLevelPermissionRule {
-  /**
-   * <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
-   * @public
-   */
-  Principals?: string[] | undefined;
-
-  /**
-   * <p>An array of column names.</p>
-   * @public
-   */
-  ColumnNames?: string[] | undefined;
 }
 
 /**

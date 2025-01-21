@@ -9,7 +9,6 @@ import {
   BrandDetail,
   Capabilities,
   ColumnGroup,
-  ColumnLevelPermissionRule,
   DataSourceParameters,
   ServiceType,
   SslProperties,
@@ -23,6 +22,7 @@ import {
 import {
   _Parameters,
   _ParametersFilterSensitiveLog,
+  ColumnLevelPermissionRule,
   DashboardPublishOptions,
   DashboardSourceEntity,
   DashboardsQAStatus,
@@ -65,6 +65,23 @@ import {
   User,
   UserRole,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateApplicationWithTokenExchangeGrantRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account to be updated with a token exchange grant.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace of the Amazon QuickSight application.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
 
 /**
  * @public

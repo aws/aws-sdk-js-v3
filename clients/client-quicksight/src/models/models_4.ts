@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import {
   AccountCustomization,
   ActiveIAMPolicyAssignment,
+  Analysis,
   AnalysisError,
   Entity,
   ResourceStatus,
@@ -97,6 +98,30 @@ import {
 } from "./models_3";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ */
+export interface DescribeAnalysisResponse {
+  /**
+   * <p>A metadata structure that contains summary information for the analysis that you're
+   *             describing.</p>
+   * @public
+   */
+  Analysis?: Analysis | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
 
 /**
  * @public
@@ -9167,21 +9192,11 @@ export interface UpdateAnalysisPermissionsResponse {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface UpdateApplicationWithTokenExchangeGrantRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account to be updated with a token exchange grant.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace of the Amazon QuickSight application.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
+export const DescribeAnalysisResponseFilterSensitiveLog = (obj: DescribeAnalysisResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal

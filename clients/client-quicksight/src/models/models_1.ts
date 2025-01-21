@@ -35,7 +35,6 @@ import {
   ReferenceLineDataConfiguration,
   ReferenceLineDataConfigurationFilterSensitiveLog,
   ReferenceLineLabelHorizontalPosition,
-  ReferenceLineLabelVerticalPosition,
   ReferenceLineValueLabelConfiguration,
   ReferenceLineValueLabelConfigurationFilterSensitiveLog,
   SortDirection,
@@ -45,6 +44,21 @@ import {
   VisualInteractionOptions,
   WidgetStatus,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceLineLabelVerticalPosition = {
+  ABOVE: "ABOVE",
+  BELOW: "BELOW",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceLineLabelVerticalPosition =
+  (typeof ReferenceLineLabelVerticalPosition)[keyof typeof ReferenceLineLabelVerticalPosition];
 
 /**
  * <p>The label configuration of a reference line.</p>
@@ -7785,24 +7799,6 @@ export interface PluginVisualItemsLimitConfiguration {
    * @public
    */
   ItemsLimit?: number | undefined;
-}
-
-/**
- * <p>The table query sorting options for the plugin visual.</p>
- * @public
- */
-export interface PluginVisualTableQuerySort {
-  /**
-   * <p>Determines how data is sorted in the response.</p>
-   * @public
-   */
-  RowSort?: FieldSortOptions[] | undefined;
-
-  /**
-   * <p>The maximum amount of data to be returned by a query.</p>
-   * @public
-   */
-  ItemsLimitConfiguration?: PluginVisualItemsLimitConfiguration | undefined;
 }
 
 /**
