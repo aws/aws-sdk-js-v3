@@ -28,7 +28,7 @@ export interface DeleteQueueCommandInput extends DeleteQueueRequest {}
 export interface DeleteQueueCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a queue. It isn't possible to delete a queue by using the Amazon Connect admin website.</p>
+ * <p>Deletes a queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

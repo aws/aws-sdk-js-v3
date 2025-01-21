@@ -267,6 +267,11 @@ import {
   DeleteContactFlowModuleCommandOutput,
 } from "./commands/DeleteContactFlowModuleCommand";
 import {
+  DeleteContactFlowVersionCommand,
+  DeleteContactFlowVersionCommandInput,
+  DeleteContactFlowVersionCommandOutput,
+} from "./commands/DeleteContactFlowVersionCommand";
+import {
   DeleteEmailAddressCommand,
   DeleteEmailAddressCommandInput,
   DeleteEmailAddressCommandOutput,
@@ -1381,6 +1386,7 @@ const commands = {
   DeleteContactEvaluationCommand,
   DeleteContactFlowCommand,
   DeleteContactFlowModuleCommand,
+  DeleteContactFlowVersionCommand,
   DeleteEmailAddressCommand,
   DeleteEvaluationFormCommand,
   DeleteHoursOfOperationCommand,
@@ -2495,6 +2501,23 @@ export interface Connect {
     args: DeleteContactFlowModuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteContactFlowModuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteContactFlowVersionCommand}
+   */
+  deleteContactFlowVersion(
+    args: DeleteContactFlowVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContactFlowVersionCommandOutput>;
+  deleteContactFlowVersion(
+    args: DeleteContactFlowVersionCommandInput,
+    cb: (err: any, data?: DeleteContactFlowVersionCommandOutput) => void
+  ): void;
+  deleteContactFlowVersion(
+    args: DeleteContactFlowVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContactFlowVersionCommandOutput) => void
   ): void;
 
   /**

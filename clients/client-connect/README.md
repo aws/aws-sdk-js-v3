@@ -676,6 +676,14 @@ DeleteContactFlowModule
 </details>
 <details>
 <summary>
+DeleteContactFlowVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DeleteContactFlowVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteContactFlowVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteContactFlowVersionCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteEmailAddress
 </summary>
 

@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListQuickConnectsRequest, ListQuickConnectsResponse } from "../models/models_1";
+import { ListQuickConnectsRequest } from "../models/models_1";
+import { ListQuickConnectsResponse } from "../models/models_2";
 import { de_ListQuickConnectsCommand, se_ListQuickConnectsCommand } from "../protocols/Aws_restJson1";
 
 /**

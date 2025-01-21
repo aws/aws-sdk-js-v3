@@ -3011,6 +3011,7 @@ export const ContactFlowType = {
   AGENT_HOLD: "AGENT_HOLD",
   AGENT_TRANSFER: "AGENT_TRANSFER",
   AGENT_WHISPER: "AGENT_WHISPER",
+  CAMPAIGN: "CAMPAIGN",
   CONTACT_FLOW: "CONTACT_FLOW",
   CUSTOMER_HOLD: "CUSTOMER_HOLD",
   CUSTOMER_QUEUE: "CUSTOMER_QUEUE",
@@ -3094,7 +3095,7 @@ export interface CreateContactFlowResponse {
   ContactFlowArn?: string | undefined;
 
   /**
-   * <p>Indicates the checksum value of the flow content.</p>
+   * <p>Indicates the checksum value of the latest published flow content.</p>
    * @public
    */
   FlowContentSha256?: string | undefined;
@@ -3249,6 +3250,12 @@ export interface CreateContactFlowVersionRequest {
    * @public
    */
   FlowContentSha256?: string | undefined;
+
+  /**
+   * <p>The identifier of the flow version.</p>
+   * @public
+   */
+  ContactFlowVersion?: number | undefined;
 
   /**
    * <p>The Amazon Web Services Region where this resource was last modified.</p>
@@ -7028,6 +7035,34 @@ export interface DeleteContactFlowModuleResponse {}
 /**
  * @public
  */
+export interface DeleteContactFlowVersionRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow version.</p>
+   * @public
+   */
+  ContactFlowVersion: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowVersionResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteEmailAddressRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -7251,40 +7286,6 @@ export interface DeleteRoutingProfileRequest {
    * @public
    */
   RoutingProfileId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRuleRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the rule.</p>
-   * @public
-   */
-  RuleId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSecurityProfileRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the security profle.</p>
-   * @public
-   */
-  SecurityProfileId: string | undefined;
 }
 
 /**

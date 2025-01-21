@@ -35,6 +35,8 @@ export interface DescribeContactFlowCommandOutput extends DescribeContactFlowRes
  *    of a Flow. For example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. After a flow is
  *    published, <code>$SAVED</code> needs to be supplied to view saved content that has not been
  *    published.</p>
+ *          <p>Use <code>arn:aws:.../contact-flow/\{id\}:\{version\}</code> to retrieve the content of a
+ *    specific flow version.</p>
  *          <p>In the response, <b>Status</b> indicates the flow status as either
  *     <code>SAVED</code> or <code>PUBLISHED</code>. The <code>PUBLISHED</code> status will initiate
  *    validation on the content. <code>SAVED</code> does not initiate validation of the content.
@@ -57,7 +59,7 @@ export interface DescribeContactFlowCommandOutput extends DescribeContactFlowRes
  * //     Arn: "STRING_VALUE",
  * //     Id: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
- * //     Type: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER",
+ * //     Type: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER" || "CAMPAIGN",
  * //     State: "ACTIVE" || "ARCHIVED",
  * //     Status: "PUBLISHED" || "SAVED",
  * //     Description: "STRING_VALUE",

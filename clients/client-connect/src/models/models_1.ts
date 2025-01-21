@@ -69,6 +69,40 @@ import {
 /**
  * @public
  */
+export interface DeleteRuleRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the rule.</p>
+   * @public
+   */
+  RuleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSecurityProfileRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the security profle.</p>
+   * @public
+   */
+  SecurityProfileId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteTaskTemplateRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -9812,38 +9846,6 @@ export interface ListQuickConnectsRequest {
    */
   QuickConnectTypes?: QuickConnectType[] | undefined;
 }
-
-/**
- * @public
- */
-export interface ListQuickConnectsResponse {
-  /**
-   * <p>Information about the quick connects.</p>
-   * @public
-   */
-  QuickConnectSummaryList?: QuickConnectSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const RealTimeContactAnalysisOutputType = {
-  Raw: "Raw",
-  Redacted: "Redacted",
-} as const;
-
-/**
- * @public
- */
-export type RealTimeContactAnalysisOutputType =
-  (typeof RealTimeContactAnalysisOutputType)[keyof typeof RealTimeContactAnalysisOutputType];
 
 /**
  * @internal

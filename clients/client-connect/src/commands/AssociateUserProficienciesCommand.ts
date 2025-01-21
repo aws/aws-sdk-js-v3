@@ -28,7 +28,7 @@ export interface AssociateUserProficienciesCommandInput extends AssociateUserPro
 export interface AssociateUserProficienciesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>>Associates a set of proficiencies with a user.</p>
+ * <p>Associates a set of proficiencies with a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

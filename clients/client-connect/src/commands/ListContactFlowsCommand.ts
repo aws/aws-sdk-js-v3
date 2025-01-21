@@ -42,7 +42,7 @@ export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse,
  * const input = { // ListContactFlowsRequest
  *   InstanceId: "STRING_VALUE", // required
  *   ContactFlowTypes: [ // ContactFlowTypes
- *     "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER",
+ *     "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER" || "CAMPAIGN",
  *   ],
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
@@ -55,7 +55,7 @@ export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse,
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
- * //       ContactFlowType: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER",
+ * //       ContactFlowType: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER" || "CAMPAIGN",
  * //       ContactFlowState: "ACTIVE" || "ARCHIVED",
  * //       ContactFlowStatus: "PUBLISHED" || "SAVED",
  * //     },

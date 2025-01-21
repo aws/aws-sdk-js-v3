@@ -208,6 +208,10 @@ import {
   DeleteContactFlowModuleCommandInput,
   DeleteContactFlowModuleCommandOutput,
 } from "./commands/DeleteContactFlowModuleCommand";
+import {
+  DeleteContactFlowVersionCommandInput,
+  DeleteContactFlowVersionCommandOutput,
+} from "./commands/DeleteContactFlowVersionCommand";
 import { DeleteEmailAddressCommandInput, DeleteEmailAddressCommandOutput } from "./commands/DeleteEmailAddressCommand";
 import {
   DeleteEvaluationFormCommandInput,
@@ -920,6 +924,7 @@ export type ServiceInputTypes =
   | DeleteContactEvaluationCommandInput
   | DeleteContactFlowCommandInput
   | DeleteContactFlowModuleCommandInput
+  | DeleteContactFlowVersionCommandInput
   | DeleteEmailAddressCommandInput
   | DeleteEvaluationFormCommandInput
   | DeleteHoursOfOperationCommandInput
@@ -1205,6 +1210,7 @@ export type ServiceOutputTypes =
   | DeleteContactEvaluationCommandOutput
   | DeleteContactFlowCommandOutput
   | DeleteContactFlowModuleCommandOutput
+  | DeleteContactFlowVersionCommandOutput
   | DeleteEmailAddressCommandOutput
   | DeleteEvaluationFormCommandOutput
   | DeleteHoursOfOperationCommandOutput

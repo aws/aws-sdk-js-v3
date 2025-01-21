@@ -31,7 +31,6 @@ import {
   QuickConnectConfig,
   Reference,
   RehydrationType,
-  RoutingProfileQueueConfig,
   RulePublishStatus,
   StringComparisonType,
   StringCondition,
@@ -65,11 +64,43 @@ import {
   Queue,
   QueueStatus,
   QuickConnect,
-  RealTimeContactAnalysisOutputType,
+  QuickConnectSummary,
   RoutingProfile,
   SortOrder,
   TrafficDistributionGroupStatus,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListQuickConnectsResponse {
+  /**
+   * <p>Information about the quick connects.</p>
+   * @public
+   */
+  QuickConnectSummaryList?: QuickConnectSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RealTimeContactAnalysisOutputType = {
+  Raw: "Raw",
+  Redacted: "Redacted",
+} as const;
+
+/**
+ * @public
+ */
+export type RealTimeContactAnalysisOutputType =
+  (typeof RealTimeContactAnalysisOutputType)[keyof typeof RealTimeContactAnalysisOutputType];
 
 /**
  * @public
@@ -7607,60 +7638,6 @@ export interface UpdateRoutingProfileDefaultOutboundQueueRequest {
    * @public
    */
   DefaultOutboundQueueId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRoutingProfileNameRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the routing profile.</p>
-   * @public
-   */
-  RoutingProfileId: string | undefined;
-
-  /**
-   * <p>The name of the routing profile. Must not be more than 127 characters.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the routing profile. Must not be more than 250 characters.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRoutingProfileQueuesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the routing profile.</p>
-   * @public
-   */
-  RoutingProfileId: string | undefined;
-
-  /**
-   * <p>The queues to be updated for this routing profile.
-   *    Queues must first be associated to the routing
-   *    profile. You can do this using AssociateRoutingProfileQueues.</p>
-   * @public
-   */
-  QueueConfigs: RoutingProfileQueueConfig[] | undefined;
 }
 
 /**

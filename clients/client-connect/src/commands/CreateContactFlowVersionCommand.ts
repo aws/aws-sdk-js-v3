@@ -29,11 +29,10 @@ export interface CreateContactFlowVersionCommandOutput extends CreateContactFlow
 
 /**
  * <p>Publishes a new version of the flow provided. Versions are immutable and monotonically
- *    increasing. If a version of the same flow content already exists, no new version is created and
- *    instead the existing version number is returned. If the <code>FlowContentSha256</code> provided
- *    is different from the <code>FlowContentSha256</code> of the <code>$LATEST</code> published flow
- *    content, then an error is returned. This API only supports creating versions for flows of type
- *     <code>Campaign</code>.</p>
+ *    increasing. If the <code>FlowContentSha256</code> provided is different from the
+ *     <code>FlowContentSha256</code> of the <code>$LATEST</code> published flow content, then an error
+ *    is returned. This API only supports creating versions for flows of type
+ *    <code>Campaign</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +44,7 @@ export interface CreateContactFlowVersionCommandOutput extends CreateContactFlow
  *   Description: "STRING_VALUE",
  *   ContactFlowId: "STRING_VALUE", // required
  *   FlowContentSha256: "STRING_VALUE",
+ *   ContactFlowVersion: Number("long"),
  *   LastModifiedTime: new Date("TIMESTAMP"),
  *   LastModifiedRegion: "STRING_VALUE",
  * };

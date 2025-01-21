@@ -191,6 +191,10 @@ import {
   DeleteContactFlowModuleCommandInput,
   DeleteContactFlowModuleCommandOutput,
 } from "../commands/DeleteContactFlowModuleCommand";
+import {
+  DeleteContactFlowVersionCommandInput,
+  DeleteContactFlowVersionCommandOutput,
+} from "../commands/DeleteContactFlowVersionCommand";
 import { DeleteEmailAddressCommandInput, DeleteEmailAddressCommandOutput } from "../commands/DeleteEmailAddressCommand";
 import {
   DeleteEvaluationFormCommandInput,
@@ -1793,6 +1797,7 @@ export const se_CreateContactFlowVersionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ContactFlowVersion: [],
       Description: [],
       FlowContentSha256: [],
       LastModifiedRegion: [],
@@ -2548,6 +2553,24 @@ export const se_DeleteContactFlowModuleCommand = async (
   b.bp("/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}");
   b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   b.p("ContactFlowModuleId", () => input.ContactFlowModuleId!, "{ContactFlowModuleId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteContactFlowVersionCommand
+ */
+export const se_DeleteContactFlowVersionCommand = async (
+  input: DeleteContactFlowVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/contact-flows/{InstanceId}/{ContactFlowId}/version/{ContactFlowVersion}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactFlowId", () => input.ContactFlowId!, "{ContactFlowId}", false);
+  b.p("ContactFlowVersion", () => input.ContactFlowVersion!.toString(), "{ContactFlowVersion}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -8696,6 +8719,23 @@ export const de_DeleteContactFlowModuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteContactFlowModuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteContactFlowVersionCommand
+ */
+export const de_DeleteContactFlowVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteContactFlowVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }

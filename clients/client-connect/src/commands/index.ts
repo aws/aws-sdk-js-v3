@@ -55,6 +55,7 @@ export * from "./DeleteAttachedFileCommand";
 export * from "./DeleteContactEvaluationCommand";
 export * from "./DeleteContactFlowCommand";
 export * from "./DeleteContactFlowModuleCommand";
+export * from "./DeleteContactFlowVersionCommand";
 export * from "./DeleteEmailAddressCommand";
 export * from "./DeleteEvaluationFormCommand";
 export * from "./DeleteHoursOfOperationCommand";
