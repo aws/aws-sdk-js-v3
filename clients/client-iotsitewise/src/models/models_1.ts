@@ -43,6 +43,75 @@ import {
 
 /**
  * @public
+ * @enum
+ */
+export const TraversalDirection = {
+  CHILD: "CHILD",
+  PARENT: "PARENT",
+} as const;
+
+/**
+ * @public
+ */
+export type TraversalDirection = (typeof TraversalDirection)[keyof typeof TraversalDirection];
+
+/**
+ * @public
+ */
+export interface ListAssociatedAssetsRequest {
+  /**
+   * <p>The ID of the asset to query. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
+   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>(Optional) If you don't provide a <code>hierarchyId</code>, all the immediate assets in
+   *       the <code>traversalDirection</code> will be returned. </p>
+   *          <p> The ID of the hierarchy by which child assets are associated to the asset.
+   *       (This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
+   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.)</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  hierarchyId?: string | undefined;
+
+  /**
+   * <p>The direction to list associated assets. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CHILD</code> – The list includes all child assets associated to the
+   *           asset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PARENT</code> – The list includes the asset's parent asset.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>CHILD</code>
+   *          </p>
+   * @public
+   */
+  traversalDirection?: TraversalDirection | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   *          <p>Default: 50</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
  */
 export interface ListAssociatedAssetsResponse {
   /**
@@ -1020,6 +1089,13 @@ export interface PutStorageConfigurationRequest {
    * @public
    */
   warmTierRetentionPeriod?: WarmTierRetentionPeriod | undefined;
+
+  /**
+   * <p>Describes the configuration for ingesting NULL and NaN data.
+   *       By default the feature is allowed. The feature is disallowed if the value is <code>true</code>.</p>
+   * @public
+   */
+  disallowIngestNullNaN?: boolean | undefined;
 }
 
 /**
@@ -1096,6 +1172,13 @@ export interface PutStorageConfigurationResponse {
    * @public
    */
   warmTierRetentionPeriod?: WarmTierRetentionPeriod | undefined;
+
+  /**
+   * <p>Describes the configuration for ingesting NULL and NaN data.
+   *       By default the feature is allowed. The feature is disallowed if the value is <code>true</code>.</p>
+   * @public
+   */
+  disallowIngestNullNaN?: boolean | undefined;
 }
 
 /**

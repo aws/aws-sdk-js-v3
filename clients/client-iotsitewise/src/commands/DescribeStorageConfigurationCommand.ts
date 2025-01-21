@@ -69,6 +69,7 @@ export interface DescribeStorageConfigurationCommandOutput
  * //     numberOfDays: Number("int"),
  * //     unlimited: true || false,
  * //   },
+ * //   disallowIngestNullNaN: true || false,
  * // };
  *
  * ```

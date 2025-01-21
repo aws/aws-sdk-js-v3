@@ -1874,12 +1874,44 @@ export interface TimeInNanos {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const RawValueType = {
+  BOOLEAN: "B",
+  DOUBLE: "D",
+  INTEGER: "I",
+  STRING: "S",
+  UNKNOWN: "U",
+} as const;
+
+/**
+ * @public
+ */
+export type RawValueType = (typeof RawValueType)[keyof typeof RawValueType];
+
+/**
+ * <p>The value type of null asset property data with BAD and UNCERTAIN qualities.</p>
+ * @public
+ */
+export interface PropertyValueNullValue {
+  /**
+   * <p>The type of null asset property data.</p>
+   * @public
+   */
+  valueType: RawValueType | undefined;
+}
+
+/**
  * <p>Contains an asset property value (of a single type only).</p>
  * @public
  */
 export interface Variant {
   /**
-   * <p>Asset property data of type string (sequence of characters).</p>
+   * <p>
+   *       Asset property data of type string (sequence of characters).
+   *       The allowed pattern: "^$|[^\u0000-\u001F\u007F]+". The max length is 1024.
+   *     </p>
    * @public
    */
   stringValue?: string | undefined;
@@ -1891,7 +1923,10 @@ export interface Variant {
   integerValue?: number | undefined;
 
   /**
-   * <p>Asset property data of type double (floating point number).</p>
+   * <p>
+   *       Asset property data of type double (floating point number). The min value is -10^10.
+   *       The max value is 10^10. Double.NaN is allowed.
+   *     </p>
    * @public
    */
   doubleValue?: number | undefined;
@@ -1901,6 +1936,12 @@ export interface Variant {
    * @public
    */
   booleanValue?: boolean | undefined;
+
+  /**
+   * <p>The type of null asset property data with BAD and UNCERTAIN qualities.</p>
+   * @public
+   */
+  nullValue?: PropertyValueNullValue | undefined;
 }
 
 /**
@@ -3247,6 +3288,13 @@ export interface PutAssetPropertyValueEntry {
  * @public
  */
 export interface BatchPutAssetPropertyValueRequest {
+  /**
+   * <p>This setting enables partial ingestion at entry-level. If set to <code>true</code>, we ingest all TQVs not resulting in an error. If set to
+   *       <code>false</code>, an invalid TQV fails ingestion of the entire entry that contains it.</p>
+   * @public
+   */
+  enablePartialEntryProcessing?: boolean | undefined;
+
   /**
    * <p>The list of asset property value entries for the batch put request. You can specify up to
    *       10 entries per request.</p>
@@ -6745,6 +6793,13 @@ export interface DescribeStorageConfigurationResponse {
    * @public
    */
   warmTierRetentionPeriod?: WarmTierRetentionPeriod | undefined;
+
+  /**
+   * <p>Describes the configuration for ingesting NULL and NaN data.
+   *       By default the feature is allowed. The feature is disallowed if the value is <code>true</code>.</p>
+   * @public
+   */
+  disallowIngestNullNaN?: boolean | undefined;
 }
 
 /**
@@ -8438,75 +8493,6 @@ export interface ListAssetsResponse {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TraversalDirection = {
-  CHILD: "CHILD",
-  PARENT: "PARENT",
-} as const;
-
-/**
- * @public
- */
-export type TraversalDirection = (typeof TraversalDirection)[keyof typeof TraversalDirection];
-
-/**
- * @public
- */
-export interface ListAssociatedAssetsRequest {
-  /**
-   * <p>The ID of the asset to query. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  assetId: string | undefined;
-
-  /**
-   * <p>(Optional) If you don't provide a <code>hierarchyId</code>, all the immediate assets in
-   *       the <code>traversalDirection</code> will be returned. </p>
-   *          <p> The ID of the hierarchy by which child assets are associated to the asset.
-   *       (This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.)</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  hierarchyId?: string | undefined;
-
-  /**
-   * <p>The direction to list associated assets. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CHILD</code> – The list includes all child assets associated to the
-   *           asset.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PARENT</code> – The list includes the asset's parent asset.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>CHILD</code>
-   *          </p>
-   * @public
-   */
-  traversalDirection?: TraversalDirection | undefined;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request.</p>
-   *          <p>Default: 50</p>
-   * @public
-   */
-  maxResults?: number | undefined;
 }
 
 /**

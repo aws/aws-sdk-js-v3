@@ -53,6 +53,7 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  *     numberOfDays: Number("int"),
  *     unlimited: true || false,
  *   },
+ *   disallowIngestNullNaN: true || false,
  * };
  * const command = new PutStorageConfigurationCommand(input);
  * const response = await client.send(command);
@@ -81,6 +82,7 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  * //     numberOfDays: Number("int"),
  * //     unlimited: true || false,
  * //   },
+ * //   disallowIngestNullNaN: true || false,
  * // };
  *
  * ```

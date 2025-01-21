@@ -74,6 +74,9 @@ export interface GetAssetPropertyValueHistoryCommandOutput
  * //         integerValue: Number("int"),
  * //         doubleValue: Number("double"),
  * //         booleanValue: true || false,
+ * //         nullValue: { // PropertyValueNullValue
+ * //           valueType: "D" || "B" || "S" || "I" || "U", // required
+ * //         },
  * //       },
  * //       timestamp: { // TimeInNanos
  * //         timeInSeconds: Number("long"), // required

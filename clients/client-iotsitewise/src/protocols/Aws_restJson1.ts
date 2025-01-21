@@ -304,6 +304,7 @@ import {
   PreconditionFailedException,
   ProjectResource,
   PropertyType,
+  PropertyValueNullValue,
   PutAssetPropertyValueEntry,
   Quality,
   QueryTimeoutException,
@@ -584,6 +585,7 @@ export const se_BatchPutAssetPropertyValueCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      enablePartialEntryProcessing: [],
       entries: (_) => se_PutAssetPropertyValueEntries(_, context),
     })
   );
@@ -2616,6 +2618,7 @@ export const se_PutStorageConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      disallowIngestNullNaN: [],
       disassociatedDataStorage: [],
       multiLayerStorage: (_) => _json(_),
       retentionPeriod: (_) => _json(_),
@@ -4139,6 +4142,7 @@ export const de_DescribeStorageConfigurationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     configurationStatus: _json,
+    disallowIngestNullNaN: __expectBoolean,
     disassociatedDataStorage: __expectString,
     lastUpdateDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     multiLayerStorage: _json,
@@ -4837,6 +4841,7 @@ export const de_PutStorageConfigurationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     configurationStatus: _json,
+    disallowIngestNullNaN: __expectBoolean,
     disassociatedDataStorage: __expectString,
     multiLayerStorage: _json,
     retentionPeriod: _json,
@@ -5820,6 +5825,8 @@ const se_ImageFile = (input: ImageFile, context: __SerdeContext): any => {
 
 // se_PropertyType omitted.
 
+// se_PropertyValueNullValue omitted.
+
 /**
  * serializeAws_restJson1PutAssetPropertyValueEntries
  */
@@ -5878,6 +5885,7 @@ const se_Variant = (input: Variant, context: __SerdeContext): any => {
     booleanValue: [],
     doubleValue: __serializeFloat,
     integerValue: [],
+    nullValue: _json,
     stringValue: [],
   });
 };
@@ -6694,6 +6702,8 @@ const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary
 
 // de_PropertyType omitted.
 
+// de_PropertyValueNullValue omitted.
+
 // de_Reference omitted.
 
 // de_Resource omitted.
@@ -6784,6 +6794,7 @@ const de_Variant = (output: any, context: __SerdeContext): Variant => {
     booleanValue: __expectBoolean,
     doubleValue: __limitedParseDouble,
     integerValue: __expectInt32,
+    nullValue: _json,
     stringValue: __expectString,
   }) as any;
 };

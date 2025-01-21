@@ -60,6 +60,7 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  * // const { IoTSiteWiseClient, BatchPutAssetPropertyValueCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // BatchPutAssetPropertyValueRequest
+ *   enablePartialEntryProcessing: true || false,
  *   entries: [ // PutAssetPropertyValueEntries // required
  *     { // PutAssetPropertyValueEntry
  *       entryId: "STRING_VALUE", // required
@@ -73,6 +74,9 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  *             integerValue: Number("int"),
  *             doubleValue: Number("double"),
  *             booleanValue: true || false,
+ *             nullValue: { // PropertyValueNullValue
+ *               valueType: "D" || "B" || "S" || "I" || "U", // required
+ *             },
  *           },
  *           timestamp: { // TimeInNanos
  *             timeInSeconds: Number("long"), // required
