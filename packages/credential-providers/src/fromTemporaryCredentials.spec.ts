@@ -1,8 +1,8 @@
 import { AssumeRoleCommand, STSClient } from "@aws-sdk/nested-clients/sts";
-import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromTemporaryCredentials as fromTemporaryCredentialsNode } from "./fromTemporaryCredentials";
-import { fromTemporaryCredentials } from "./fromTemporaryCredentials.browser";
+import { fromTemporaryCredentials } from "./fromTemporaryCredentials.base";
 
 const mockSend = vi.fn();
 const mockUsePlugin = vi.fn();

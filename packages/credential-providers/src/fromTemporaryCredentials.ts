@@ -1,8 +1,8 @@
 import type { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 
 import { fromNodeProviderChain } from "./fromNodeProviderChain";
-import type { FromTemporaryCredentialsOptions } from "./fromTemporaryCredentials.browser";
-import { fromTemporaryCredentials as fromTemporaryCredentialsBase } from "./fromTemporaryCredentials.browser";
+import type { FromTemporaryCredentialsOptions } from "./fromTemporaryCredentials.base";
+import { fromTemporaryCredentials as fromTemporaryCredentialsBase } from "./fromTemporaryCredentials.base";
 
 /**
  * @public
