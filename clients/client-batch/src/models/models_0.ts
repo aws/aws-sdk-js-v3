@@ -507,7 +507,7 @@ export interface LaunchTemplateSpecificationOverride {
   version?: string | undefined;
 
   /**
-   * <p>The instance type or family that this this override launch template should be applied to.</p>
+   * <p>The instance type or family that this override launch template should be applied to.</p>
    *          <p>This parameter is required when defining a launch template override.</p>
    *          <p>Information included in this parameter must meet the following requirements:</p>
    *          <ul>
@@ -1323,9 +1323,12 @@ export interface ShareAttributes {
 export interface FairsharePolicy {
   /**
    * <p>The amount of time (in seconds) to use to calculate a fair share percentage for each fair
-   *    share identifier in use. A value of zero (0) indicates that only current usage is measured. The
-   *    decay allows for more recently run jobs to have more weight than jobs that ran earlier. The
-   *    maximum supported value is 604800 (1 week).</p>
+   *    share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds).
+   *    The maximum supported value is 604800 (1 week).</p>
+   *          <p>The decay allows for more recently run jobs to have more weight than jobs that ran earlier.
+   *    Consider adjusting this number if you have jobs that (on average) run longer than ten minutes,
+   *    or a large difference in job count or job run times between share identifiers, and the allocation
+   *    of resources doesn’t meet your needs.</p>
    * @public
    */
   shareDecaySeconds?: number | undefined;
@@ -3018,7 +3021,7 @@ export interface TaskContainerProperties {
   dependsOn?: TaskContainerDependency[] | undefined;
 
   /**
-   * <p>The environment variables to pass to a container. This parameter maps to Env inthe <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a>
+   * <p>The environment variables to pass to a container. This parameter maps to Env in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a>
    *    section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a>
    *    and the <code>--env</code> parameter to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. </p>
    *          <important>
@@ -4462,7 +4465,27 @@ export interface JobQueueDetail {
   statusReason?: string | undefined;
 
   /**
-   * <p>The priority of the job queue. Job queues with a higher priority (or a higher integer value for the <code>priority</code> parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order. For example, a job queue with a priority value of <code>10</code> is given scheduling preference over a job queue with a priority value of <code>1</code>. All of the compute environments must be either Amazon EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>). Amazon EC2 and Fargate compute environments can't be mixed.</p>
+   * <p>The priority of the job queue. Job queue priority determines the order
+   *    that job queues are evaluated when multiple queues dispatch jobs within a
+   *    shared compute environment. A higher value for <code>priority</code> indicates
+   *    a higher priority. Queues are evaluated in cycles, in descending order by
+   *    priority. For example, a job queue with a priority value of <code>10</code> is
+   *    evaluated before a queue with a priority value of <code>1</code>. All of the
+   *    compute environments must be either Amazon EC2 (<code>EC2</code> or <code>SPOT</code>)
+   *    or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>). Amazon EC2 and
+   *    Fargate compute environments can't be mixed.</p>
+   *          <note>
+   *             <p>Job queue priority doesn't guarantee that a particular job executes before
+   *     a job in a lower priority queue. Jobs added to higher priority queues during the
+   *     queue evaluation cycle might not be evaluated until the next cycle. A job is
+   *     dispatched from a queue only if resources are available when the queue is evaluated.
+   *     If there are insufficient resources available at that time, the cycle proceeds to the
+   *     next queue. This means that jobs added to higher priority queues might have to wait
+   *     for jobs in multiple lower priority queues to complete before they are dispatched.
+   *     You can use job dependencies to control the order for jobs from queues with different
+   *     priorities. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/job_dependencies.html">Job Dependencies</a>
+   *     in the <i>Batch User Guide</i>.</p>
+   *          </note>
    * @public
    */
   priority: number | undefined;
