@@ -94,6 +94,7 @@ export const flexibleChecksumsResponseMiddleware =
       await validateChecksumFromResponse(result.response as HttpResponse, {
         config,
         responseAlgorithms,
+        logger: context.logger,
       });
 
       if (isStreamingBody && collectedStream) {

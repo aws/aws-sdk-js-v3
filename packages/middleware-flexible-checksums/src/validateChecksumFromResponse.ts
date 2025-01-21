@@ -1,5 +1,5 @@
 import { HttpResponse } from "@smithy/protocol-http";
-import { Checksum } from "@smithy/types";
+import { Checksum, ChecksumConstructor, HashConstructor, Logger } from "@smithy/types";
 import { createChecksumStream } from "@smithy/util-stream";
 
 import { PreviouslyResolved } from "./configuration";
@@ -18,11 +18,13 @@ export interface ValidateChecksumFromResponseOptions {
    * returned in the HTTP response.
    */
   responseAlgorithms?: string[];
+
+  logger?: Logger;
 }
 
 export const validateChecksumFromResponse = async (
   response: HttpResponse,
-  { config, responseAlgorithms }: ValidateChecksumFromResponseOptions
+  { config, responseAlgorithms, logger }: ValidateChecksumFromResponseOptions
 ) => {
   // Verify checksum in response header.
   const checksumAlgorithms = getChecksumAlgorithmListForResponse(responseAlgorithms);
@@ -31,7 +33,17 @@ export const validateChecksumFromResponse = async (
     const responseHeader = getChecksumLocationName(algorithm);
     const checksumFromResponse = responseHeaders[responseHeader];
     if (checksumFromResponse) {
-      const checksumAlgorithmFn = selectChecksumAlgorithmFunction(algorithm as ChecksumAlgorithm, config);
+      let checksumAlgorithmFn: ChecksumConstructor | HashConstructor;
+      try {
+        checksumAlgorithmFn = selectChecksumAlgorithmFunction(algorithm as ChecksumAlgorithm, config);
+      } catch (error) {
+        if (algorithm === ChecksumAlgorithm.CRC64NVME) {
+          logger?.warn(`Skipping ${ChecksumAlgorithm.CRC64NVME} checksum validation: ${error.message}`);
+          continue;
+        }
+        throw error;
+      }
+
       const { base64Encoder } = config;
 
       if (isStreaming(responseBody)) {
