@@ -34,7 +34,7 @@ export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
  *     or the <code>resourceIdentifier</code> parameter. You can't specify both of those parameters in the same operation.</p>
  *          <ul>
  *             <li>
- *                <p>Specify the <code>logGroupName</code> parameter to cause all log events stored in the log group to
+ *                <p>Specify the <code>logGroupName</code> parameter to cause log events ingested into that log group to
  *     be encrypted with that key. Only the log events ingested after the key is associated are encrypted with that key.</p>
  *                <p>Associating a KMS key with a log group overrides any existing
  *       associations between the log group and a KMS key. After a KMS key is associated with a log group, all newly ingested data for the log group is encrypted

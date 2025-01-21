@@ -676,8 +676,9 @@ export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
 export interface S3DeliveryConfiguration {
   /**
    * <p>This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables
-   *       to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for
-   *       more info on what values are supported in the suffix path for each log source.</p>
+   *       to use in the suffix path will vary by each log source. To find the values supported for the suffix path for each log source,
+   *       use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeConfigurationTemplates.html">DescribeConfigurationTemplates</a> operation and check the
+   *       <code>allowedSuffixPathFields</code> field in the response.</p>
    * @public
    */
   suffixPath?: string | undefined;
@@ -6295,16 +6296,37 @@ export interface PutDeliverySourceRequest {
    *          <code>APPLICATION_LOGS</code>.</p>
    *             </li>
    *             <li>
+   *                <p>For CloudFront, the valid value is
+   *          <code>ACCESS_LOGS</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>For Amazon CodeWhisperer, the valid value is
    *         <code>EVENT_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Elemental MediaPackage, the valid values are
+   *          <code>EGRESS_ACCESS_LOGS</code> and <code>INGRESS_ACCESS_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Elemental MediaTailor, the valid values are
+   *          <code>AD_DECISION_SERVER_LOGS</code>, <code>MANIFEST_SERVICE_LOGS</code>, and <code>TRANSCODE_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For IAM Identity Center, the valid value is
    *          <code>ERROR_LOGS</code>.</p>
    *             </li>
    *             <li>
+   *                <p>For Amazon Q, the valid value is
+   *          <code>EVENT_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon SES mail manager, the valid value is
+   *          <code>APPLICATION_LOG</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>For Amazon WorkMail, the valid values are
-   *          <code>ACCESS_CONTROL_LOGS</code>, <code>AUTHENTICATION_LOGS</code>, <code>WORKMAIL_AVAILABILITY_PROVIDER_LOGS</code>, and <code>WORKMAIL_MAILBOX_ACCESS_LOGS</code>.</p>
+   *          <code>ACCESS_CONTROL_LOGS</code>, <code>AUTHENTICATION_LOGS</code>, <code>WORKMAIL_AVAILABILITY_PROVIDER_LOGS</code>, <code>WORKMAIL_MAILBOX_ACCESS_LOGS</code>,
+   *          and <code>WORKMAIL_PERSONAL_ACCESS_TOKEN_LOGS</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6459,7 +6481,7 @@ export interface OpenSearchResourceConfig {
 
   /**
    * <p>Specify the ARN of an IAM role that CloudWatch Logs will use to create the integration. This role must have the permissions necessary to access the OpenSearch Service
-   *         collection to be able to create the dashboards. For more information about the permissions needed, see  <a href="https://docs.aws.amazon.com/OpenSearch-Dashboards-CreateRole">Create an IAM role to access the OpenSearch Service collection</a> in the CloudWatch Logs User Guide.</p>
+   *         collection to be able to create the dashboards. For more information about the permissions needed, see  <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-CreateRole.html">Permissions that the integration needs</a> in the CloudWatch Logs User Guide.</p>
    * @public
    */
   dataSourceRoleArn: string | undefined;
@@ -6467,8 +6489,8 @@ export interface OpenSearchResourceConfig {
   /**
    * <p>Specify the ARNs of IAM roles and IAM users who you want to grant permission to for viewing the dashboards.</p>
    *          <important>
-   *             <p>In addition to specifying these users here, you must also grant them the <b>CloudWatchOpenSearchDashboardsAccess</b>
-   *        IAM policy. For more information, see </p>
+   *             <p>In addition to specifying these users here, you must also grant them the <b>CloudWatchOpenSearchDashboardAccess</b>
+   *        IAM policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html">IAM policies for users</a>.</p>
    *          </important>
    * @public
    */
@@ -7042,7 +7064,7 @@ export interface StartLiveTailRequest {
 }
 
 /**
- * <p>his exception is returned if an unknown error occurs during a Live Tail session.</p>
+ * <p>This exception is returned if an unknown error occurs during a Live Tail session.</p>
  * @public
  */
 export class SessionStreamingException extends __BaseException {

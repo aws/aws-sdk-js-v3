@@ -31,6 +31,24 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  * <p>Creates an account-level data protection policy, subscription filter policy, or field index policy
  *       that applies to all log groups
  *       or a subset of log groups in the account.</p>
+ *          <p>To use this operation, you must be signed on with the correct permissions depending on the type of policy that you are creating.</p>
+ *          <ul>
+ *             <li>
+ *                <p>To create a data protection policy, you must have the <code>logs:PutDataProtectionPolicy</code> and
+ *         <code>logs:PutAccountPolicy</code> permissions.</p>
+ *             </li>
+ *             <li>
+ *                <p>To create a subscription filter policy, you must have the <code>logs:PutSubscriptionFilter</code> and
+ *         <code>logs:PutccountPolicy</code> permissions.</p>
+ *             </li>
+ *             <li>
+ *                <p>To create a transformer policy, you must have the <code>logs:PutTransformer</code> and <code>logs:PutAccountPolicy</code> permissions.</p>
+ *             </li>
+ *             <li>
+ *                <p>To create a field index policy, you must have the <code>logs:PutIndexPolicy</code> and
+ *         <code>logs:PutAccountPolicy</code> permissions.</p>
+ *             </li>
+ *          </ul>
  *          <p>
  *             <b>Data protection policy</b>
  *          </p>

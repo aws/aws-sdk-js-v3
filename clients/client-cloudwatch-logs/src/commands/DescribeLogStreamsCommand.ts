@@ -34,7 +34,7 @@ export interface DescribeLogStreamsCommandOutput extends DescribeLogStreamsRespo
  *          <p>You can specify the log group to search by using either <code>logGroupIdentifier</code> or <code>logGroupName</code>.
  *       You must include one of these two parameters, but you can't include both.
  *     </p>
- *          <p>This operation has a limit of five transactions per second, after which transactions are throttled.</p>
+ *          <p>This operation has a limit of 25 transactions per second, after which transactions are throttled.</p>
  *          <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and
  *       view data from the linked source accounts. For more information, see
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>

@@ -39,7 +39,8 @@ export interface PutDeliveryDestinationCommandOutput extends PutDeliveryDestinat
  *          information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p>
  *             </li>
  *             <li>
- *                <p>Use <code>PutDeliveryDestination</code> to create a <i>delivery destination</i>, which is a logical object that represents the actual
+ *                <p>Use <code>PutDeliveryDestination</code> to create a <i>delivery destination</i> in the same account of the actual delivery destination.
+ *          The delivery destination that you create is a logical object that represents the actual
  *          delivery destination.  </p>
  *             </li>
  *             <li>
