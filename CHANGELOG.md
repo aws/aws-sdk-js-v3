@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.732.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.731.1...v3.732.0) (2025-01-21)
+
+
+### Bug Fixes
+
+* **middleware-flexible-checksums:** skip checksum validation if CRC64NVME dependency is absent ([#6835](https://github.com/aws/aws-sdk-js-v3/issues/6835)) ([7dbc1c9](https://github.com/aws/aws-sdk-js-v3/commit/7dbc1c9dfa9378ee0a2b5bdd35e146637ab82dd6))
+
+
+### Features
+
+* **client-cognito-identity-provider:** corrects the dual-stack endpoint configuration for cognitoidp ([757843c](https://github.com/aws/aws-sdk-js-v3/commit/757843ce384edad383af6029b5e4d23b8c19f4c3))
+* **client-connect:** Added DeleteContactFlowVersion API and the CAMPAIGN flow type ([c6e07aa](https://github.com/aws/aws-sdk-js-v3/commit/c6e07aa62214e1de2e0d93ab849939f13cf328e2))
+* **client-emr-serverless:** Increasing entryPoint in SparkSubmit to accept longer script paths. New limit is 4kb. ([14a89bc](https://github.com/aws/aws-sdk-js-v3/commit/14a89bcab827b72279fd48dd727277a946862d08))
+* **client-iotsitewise:** AWS IoT SiteWise now supports ingestion and querying of Null (all data types) and NaN (double type) values of bad or uncertain data quality. New partial error handling prevents data loss during ingestion. Enabled by default for new customers; existing customers can opt-in. ([a0e3771](https://github.com/aws/aws-sdk-js-v3/commit/a0e377147a52d4c43f9ded4da2e679b8189d0ec3))
+* **client-quicksight:** Added `DigitGroupingStyle` in ThousandsSeparator to allow grouping by `LAKH`( Indian Grouping system ) currency. Support LAKH and `CRORE` currency types in Column Formatting. ([a009440](https://github.com/aws/aws-sdk-js-v3/commit/a009440bc6333c100cb7f315038d4cd7c6200c7b))
+* **clients:** update client endpoints as of 2025-01-21 ([0d212b4](https://github.com/aws/aws-sdk-js-v3/commit/0d212b45f7f7b17eef6851a1fbd6912d1693b6a8))
+
+
+
+
+
 ## [3.731.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.731.0...v3.731.1) (2025-01-18)
 
 **Note:** Version bump only for package aws-sdk-js-v3

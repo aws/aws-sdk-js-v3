@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.732.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.731.1...v3.732.0) (2025-01-21)
+
+
+### Features
+
+* **client-cognito-identity-provider:** corrects the dual-stack endpoint configuration for cognitoidp ([757843c](https://github.com/aws/aws-sdk-js-v3/commit/757843ce384edad383af6029b5e4d23b8c19f4c3))
+
+
+
+
+
 ## [3.731.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.731.0...v3.731.1) (2025-01-18)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

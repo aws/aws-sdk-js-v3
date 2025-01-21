@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.732.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.731.1...v3.732.0) (2025-01-21)
+
+
+### Features
+
+* **client-connect:** Added DeleteContactFlowVersion API and the CAMPAIGN flow type ([c6e07aa](https://github.com/aws/aws-sdk-js-v3/commit/c6e07aa62214e1de2e0d93ab849939f13cf328e2))
+
+
+
+
+
 ## [3.731.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.731.0...v3.731.1) (2025-01-18)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

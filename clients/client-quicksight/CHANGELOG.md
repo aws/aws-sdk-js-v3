@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.732.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.731.1...v3.732.0) (2025-01-21)
+
+
+### Features
+
+* **client-quicksight:** Added `DigitGroupingStyle` in ThousandsSeparator to allow grouping by `LAKH`( Indian Grouping system ) currency. Support LAKH and `CRORE` currency types in Column Formatting. ([a009440](https://github.com/aws/aws-sdk-js-v3/commit/a009440bc6333c100cb7f315038d4cd7c6200c7b))
+
+
+
+
+
 ## [3.731.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.731.0...v3.731.1) (2025-01-18)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.732.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.731.1...v3.732.0) (2025-01-21)
+
+
+### Bug Fixes
+
+* **middleware-flexible-checksums:** skip checksum validation if CRC64NVME dependency is absent ([#6835](https://github.com/aws/aws-sdk-js-v3/issues/6835)) ([7dbc1c9](https://github.com/aws/aws-sdk-js-v3/commit/7dbc1c9dfa9378ee0a2b5bdd35e146637ab82dd6))
+
+
+
+
+
 # [3.731.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.730.0...v3.731.0) (2025-01-17)
 
 **Note:** Version bump only for package @aws-sdk/middleware-flexible-checksums
