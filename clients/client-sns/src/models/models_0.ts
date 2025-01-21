@@ -570,8 +570,8 @@ export interface CreateTopicInput {
    *             <li>
    *                <p>
    *                   <code>ArchivePolicy</code> – The policy that sets the retention period
-   *                         for messages stored in the message archive of an Amazon SNS FIFO
-   *                         topic.</p>
+   *                     for messages stored in the message archive of an Amazon SNS FIFO
+   *                     topic.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -580,19 +580,34 @@ export interface CreateTopicInput {
    *                <ul>
    *                   <li>
    *                      <p>By default, <code>ContentBasedDeduplication</code> is set to
-   *                         <code>false</code>. If you create a FIFO topic and this attribute is
-   *                         <code>false</code>, you must specify a value for the
-   *                         <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>
-   *                     action. </p>
+   *                                 <code>false</code>. If you create a FIFO topic and this attribute is
+   *                                 <code>false</code>, you must specify a value for the
+   *                                 <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p>
    *                   </li>
    *                   <li>
-   *                      <p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>,
-   *                         Amazon SNS uses a SHA-256 hash to generate the
-   *                         <code>MessageDeduplicationId</code> using the body of the message (but not
-   *                     the attributes of the message).</p>
-   *                      <p>(Optional) To override the generated value, you can specify a value for the
-   *                         <code>MessageDeduplicationId</code> parameter for the <code>Publish</code>
-   *                     action.</p>
+   *                      <p>When you set <code>ContentBasedDeduplication</code> to
+   *                                 <code>true</code>, Amazon SNS uses a SHA-256 hash to
+   *                             generate the <code>MessageDeduplicationId</code> using the body of the
+   *                             message (but not the attributes of the message).</p>
+   *                      <p>(Optional) To override the generated value, you can specify a value
+   *                             for the <code>MessageDeduplicationId</code> parameter for the
+   *                                 <code>Publish</code> action.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FifoThroughputScope</code> – Enables higher throughput for your FIFO topic by adjusting the scope of deduplication. This attribute has two possible values:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>Topic</code> – The scope of message deduplication is across the entire topic. This is the default value and maintains existing behavior, with a maximum throughput of 3000 messages per second or 20MB per second, whichever comes first.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>MessageGroup</code> – The scope of deduplication is within each individual message group, which enables higher throughput per topic subject to regional quotas. For more information on quotas or to request an increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/sns.html">Amazon SNS service quotas</a> in the Amazon Web Services General Reference.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -2203,18 +2218,69 @@ export interface PublishInput {
   MessageAttributes?: Record<string, MessageAttributeValue> | undefined;
 
   /**
-   * <p>This parameter applies only to FIFO (first-in-first-out) topics. The
-   *                 <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters
-   *                 <code>(a-z, A-Z, 0-9)</code> and punctuation
-   *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~)</code>.</p>
-   *          <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token
-   *             used for deduplication of sent messages. If a message with a particular
-   *                 <code>MessageDeduplicationId</code> is sent successfully, any message sent with the
-   *             same <code>MessageDeduplicationId</code> during the 5-minute deduplication interval is
-   *             treated as a duplicate. </p>
-   *          <p>If the topic has <code>ContentBasedDeduplication</code> set, the system generates a
-   *                 <code>MessageDeduplicationId</code> based on the contents of the message. Your
-   *                 <code>MessageDeduplicationId</code> overrides the generated one.</p>
+   * <ul>
+   *             <li>
+   *                <p>This parameter applies only to FIFO (first-in-first-out) topics. The
+   *                         <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric
+   *                     characters <code>(a-z, A-Z, 0-9)</code> and punctuation
+   *                         <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~)</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is
+   *                     a token used for deduplication of sent messages within the 5 minute minimum
+   *                     deduplication interval.</p>
+   *             </li>
+   *             <li>
+   *                <p>The scope of deduplication depends on the <code>FifoThroughputScope</code>
+   *                     attribute, when set to <code>Topic</code> the message deduplication scope is
+   *                     across the entire topic, when set to <code>MessageGroup</code> the message
+   *                     deduplication scope is within each individual message group.</p>
+   *             </li>
+   *             <li>
+   *                <p>If a message with a particular <code>MessageDeduplicationId</code> is sent
+   *                     successfully, subsequent messages within the deduplication scope and interval,
+   *                     with the same <code>MessageDeduplicationId</code>, are accepted successfully but
+   *                     aren't delivered.</p>
+   *             </li>
+   *             <li>
+   *                <p>Every message must have a unique <code>MessageDeduplicationId</code>:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>You may provide a <code>MessageDeduplicationId</code>
+   *                             explicitly.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If you aren't able to provide a <code>MessageDeduplicationId</code>
+   *                             and you enable <code>ContentBasedDeduplication</code> for your topic,
+   *                             Amazon SNS uses a SHA-256 hash to generate the
+   *                                 <code>MessageDeduplicationId</code> using the body of the message
+   *                             (but not the attributes of the message).</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If you don't provide a <code>MessageDeduplicationId</code> and the
+   *                             topic doesn't have <code>ContentBasedDeduplication</code> set, the
+   *                             action fails with an error.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If the topic has a <code>ContentBasedDeduplication</code> set, your
+   *                                 <code>MessageDeduplicationId</code> overrides the generated one.
+   *                         </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>When <code>ContentBasedDeduplication</code> is in effect, messages with
+   *                     identical content sent within the deduplication scope and interval are treated
+   *                     as duplicates and only one copy of the message is delivered.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you send one message with <code>ContentBasedDeduplication</code> enabled,
+   *                     and then another message with a <code>MessageDeduplicationId</code> that is the
+   *                     same as the one generated for the first <code>MessageDeduplicationId</code>, the
+   *                     two messages are treated as duplicates, within the deduplication scope and
+   *                     interval, and only one copy of the message is delivered.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   MessageDeduplicationId?: string | undefined;
@@ -2396,11 +2462,30 @@ export interface PublishBatchRequestEntry {
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
-   *          <p>The token used for deduplication of messages within a 5-minute minimum deduplication
-   *             interval. If a message with a particular <code>MessageDeduplicationId</code> is sent
-   *             successfully, subsequent messages with the same <code>MessageDeduplicationId</code> are
-   *             accepted successfully but aren't delivered.</p>
    *          <ul>
+   *             <li>
+   *                <p>This parameter applies only to FIFO (first-in-first-out) topics. The
+   *                         <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric
+   *                     characters <code>(a-z, A-Z, 0-9)</code> and punctuation
+   *                         <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~)</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is
+   *                     a token used for deduplication of sent messages within the 5 minute minimum
+   *                     deduplication interval.</p>
+   *             </li>
+   *             <li>
+   *                <p>The scope of deduplication depends on the <code>FifoThroughputScope</code>
+   *                     attribute, when set to <code>Topic</code> the message deduplication scope is
+   *                     across the entire topic, when set to <code>MessageGroup</code> the message
+   *                     deduplication scope is within each individual message group. </p>
+   *             </li>
+   *             <li>
+   *                <p>If a message with a particular <code>MessageDeduplicationId</code> is sent
+   *                     successfully, subsequent messages within the deduplication scope and interval,
+   *                     with the same <code>MessageDeduplicationId</code>, are accepted successfully but
+   *                     aren't delivered.</p>
+   *             </li>
    *             <li>
    *                <p>Every message must have a unique <code>MessageDeduplicationId</code>.</p>
    *                <ul>
@@ -2429,15 +2514,15 @@ export interface PublishBatchRequestEntry {
    *             </li>
    *             <li>
    *                <p>When <code>ContentBasedDeduplication</code> is in effect, messages with
-   *                     identical content sent within the deduplication interval are treated as
-   *                     duplicates and only one copy of the message is delivered.</p>
+   *                     identical content sent within the deduplication scope and interval are treated
+   *                     as duplicates and only one copy of the message is delivered.</p>
    *             </li>
    *             <li>
    *                <p>If you send one message with <code>ContentBasedDeduplication</code> enabled,
    *                     and then another message with a <code>MessageDeduplicationId</code> that is the
    *                     same as the one generated for the first <code>MessageDeduplicationId</code>, the
-   *                     two messages are treated as duplicates and only one copy of the message is
-   *                     delivered. </p>
+   *                     two messages are treated as duplicates, within the deduplication scope and
+   *                     interval, and only one copy of the message is delivered. </p>
    *             </li>
    *          </ul>
    *          <note>
@@ -2449,11 +2534,6 @@ export interface PublishBatchRequestEntry {
    *             <p>Amazon SNS continues to keep track of the message deduplication ID even after the
    *                 message is received and deleted. </p>
    *          </note>
-   *          <p>The length of <code>MessageDeduplicationId</code> is 128 characters.</p>
-   *          <p>
-   *             <code>MessageDeduplicationId</code> can contain alphanumeric characters <code>(a-z,
-   *                 A-Z, 0-9)</code> and punctuation
-   *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~)</code>.</p>
    * @public
    */
   MessageDeduplicationId?: string | undefined;
@@ -3199,8 +3279,8 @@ export interface SetTopicAttributesInput {
    *             <li>
    *                <p>
    *                   <code>ArchivePolicy</code> – The policy that sets the retention period
-   *                         for messages stored in the message archive of an Amazon SNS FIFO
-   *                         topic.</p>
+   *                     for messages stored in the message archive of an Amazon SNS FIFO
+   *                     topic.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3209,19 +3289,34 @@ export interface SetTopicAttributesInput {
    *                <ul>
    *                   <li>
    *                      <p>By default, <code>ContentBasedDeduplication</code> is set to
-   *                         <code>false</code>. If you create a FIFO topic and this attribute is
-   *                         <code>false</code>, you must specify a value for the
-   *                         <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>
-   *                     action. </p>
+   *                                 <code>false</code>. If you create a FIFO topic and this attribute is
+   *                                 <code>false</code>, you must specify a value for the
+   *                                 <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p>
    *                   </li>
    *                   <li>
-   *                      <p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>,
-   *                         Amazon SNS uses a SHA-256 hash to generate the
-   *                         <code>MessageDeduplicationId</code> using the body of the message (but not
-   *                     the attributes of the message).</p>
-   *                      <p>(Optional) To override the generated value, you can specify a value for the
-   *                         <code>MessageDeduplicationId</code> parameter for the <code>Publish</code>
-   *                     action.</p>
+   *                      <p>When you set <code>ContentBasedDeduplication</code> to
+   *                                 <code>true</code>, Amazon SNS uses a SHA-256 hash to
+   *                             generate the <code>MessageDeduplicationId</code> using the body of the
+   *                             message (but not the attributes of the message).</p>
+   *                      <p>(Optional) To override the generated value, you can specify a value
+   *                             for the <code>MessageDeduplicationId</code> parameter for the
+   *                                 <code>Publish</code> action.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FifoThroughputScope</code> – Enables higher throughput for your FIFO topic by adjusting the scope of deduplication. This attribute has two possible values:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>Topic</code> – The scope of message deduplication is across the entire topic. This is the default value and maintains existing behavior, with a maximum throughput of 3000 messages per second or 20MB per second, whichever comes first.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>MessageGroup</code> – The scope of deduplication is within each individual message group, which enables higher throughput per topic subject to regional quotas. For more information on quotas or to request an increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/sns.html">Amazon SNS service quotas</a> in the Amazon Web Services General Reference.</p>
    *                   </li>
    *                </ul>
    *             </li>
