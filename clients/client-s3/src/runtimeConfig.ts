@@ -56,7 +56,7 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
       config?.disableS3ExpressSessionAuth ??
       loadNodeConfig(NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS, profileConfig),
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
-    maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
+    maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
     md5: config?.md5 ?? Hash.bind(null, "md5"),
     region:
       config?.region ??
@@ -70,13 +70,10 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
       loadNodeConfig(NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS, profileConfig),
     retryMode:
       config?.retryMode ??
-      loadNodeConfig(
-        {
-          ...NODE_RETRY_MODE_CONFIG_OPTIONS,
-          default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,
-        },
-        config
-      ),
+      loadNodeConfig({
+        ...NODE_RETRY_MODE_CONFIG_OPTIONS,
+        default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,
+      }),
     sha1: config?.sha1 ?? Hash.bind(null, "sha1"),
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     sigv4aSigningRegionSet: config?.sigv4aSigningRegionSet ?? loadNodeConfig(NODE_SIGV4A_CONFIG_OPTIONS, profileConfig),

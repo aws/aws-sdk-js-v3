@@ -32,17 +32,14 @@ export const getRuntimeConfig = (config: EchoServiceClientConfig) => {
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({ clientVersion: packageInfo.version }),
-    maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
+    maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     retryMode:
       config?.retryMode ??
-      loadNodeConfig(
-        {
-          ...NODE_RETRY_MODE_CONFIG_OPTIONS,
-          default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,
-        },
-        config
-      ),
+      loadNodeConfig({
+        ...NODE_RETRY_MODE_CONFIG_OPTIONS,
+        default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,
+      }),
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
     userAgentAppId: config?.userAgentAppId ?? loadNodeConfig(NODE_APP_ID_CONFIG_OPTIONS, profileConfig),

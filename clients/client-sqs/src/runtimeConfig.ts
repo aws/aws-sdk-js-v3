@@ -44,7 +44,7 @@ export const getRuntimeConfig = (config: SQSClientConfig) => {
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
       createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
-    maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
+    maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
     md5: config?.md5 ?? Hash.bind(null, "md5"),
     region:
       config?.region ??
@@ -52,13 +52,10 @@ export const getRuntimeConfig = (config: SQSClientConfig) => {
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     retryMode:
       config?.retryMode ??
-      loadNodeConfig(
-        {
-          ...NODE_RETRY_MODE_CONFIG_OPTIONS,
-          default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,
-        },
-        config
-      ),
+      loadNodeConfig({
+        ...NODE_RETRY_MODE_CONFIG_OPTIONS,
+        default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,
+      }),
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
     useDualstackEndpoint:
