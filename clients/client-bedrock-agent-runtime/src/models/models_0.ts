@@ -1325,13 +1325,19 @@ export interface FlowInput {
    * <p>The name of the output from the flow input node that begins the prompt flow.</p>
    * @public
    */
-  nodeOutputName: string | undefined;
+  nodeOutputName?: string | undefined;
 
   /**
    * <p>Contains information about an input into the prompt flow.</p>
    * @public
    */
   content: FlowInputContent | undefined;
+
+  /**
+   * <p>The name of the input from the flow input node.</p>
+   * @public
+   */
+  nodeInputName?: string | undefined;
 }
 
 /**
@@ -1405,6 +1411,12 @@ export interface InvokeFlowRequest {
    * @public
    */
   modelPerformanceConfiguration?: ModelPerformanceConfiguration | undefined;
+
+  /**
+   * <p>The unique identifier for the current flow execution. If you don't provide a value, Amazon Bedrock creates the identifier for you.  </p>
+   * @public
+   */
+  executionId?: string | undefined;
 }
 
 /**
@@ -1412,6 +1424,7 @@ export interface InvokeFlowRequest {
  * @enum
  */
 export const FlowCompletionReason = {
+  INPUT_REQUIRED: "INPUT_REQUIRED",
   SUCCESS: "SUCCESS",
 } as const;
 
@@ -1430,6 +1443,89 @@ export interface FlowCompletionEvent {
    * @public
    */
   completionReason: FlowCompletionReason | undefined;
+}
+
+/**
+ * <p>The content structure containing input information for multi-turn flow interactions.</p>
+ * @public
+ */
+export type FlowMultiTurnInputContent =
+  | FlowMultiTurnInputContent.DocumentMember
+  | FlowMultiTurnInputContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FlowMultiTurnInputContent {
+  /**
+   * <p>The requested additional input to send back to the multi-turn flow node.</p>
+   * @public
+   */
+  export interface DocumentMember {
+    document: __DocumentType;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    document?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    document: (value: __DocumentType) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FlowMultiTurnInputContent, visitor: Visitor<T>): T => {
+    if (value.document !== undefined) return visitor.document(value.document);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NodeType = {
+  CONDITION_NODE: "ConditionNode",
+  FLOW_INPUT_NODE: "FlowInputNode",
+  FLOW_OUTPUT_NODE: "FlowOutputNode",
+  KNOWLEDGE_BASE_NODE: "KnowledgeBaseNode",
+  LAMBDA_FUNCTION_NODE: "LambdaFunctionNode",
+  LEX_NODE: "LexNode",
+  PROMPT_NODE: "PromptNode",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeType = (typeof NodeType)[keyof typeof NodeType];
+
+/**
+ * <p>Response object from the flow multi-turn node requesting additional information.</p>
+ * @public
+ */
+export interface FlowMultiTurnInputRequestEvent {
+  /**
+   * <p>The name of the node in the flow that is requesting the input.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The type of the node in the flow that is requesting the input.</p>
+   * @public
+   */
+  nodeType: NodeType | undefined;
+
+  /**
+   * <p>The content payload containing the input request details for the multi-turn interaction.</p>
+   * @public
+   */
+  content: FlowMultiTurnInputContent | undefined;
 }
 
 /**
@@ -1469,25 +1565,6 @@ export namespace FlowOutputContent {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
-
-/**
- * @public
- * @enum
- */
-export const NodeType = {
-  CONDITION_NODE: "ConditionNode",
-  FLOW_INPUT_NODE: "FlowInputNode",
-  FLOW_OUTPUT_NODE: "FlowOutputNode",
-  KNOWLEDGE_BASE_NODE: "KnowledgeBaseNode",
-  LAMBDA_FUNCTION_NODE: "LambdaFunctionNode",
-  LEX_NODE: "LexNode",
-  PROMPT_NODE: "PromptNode",
-} as const;
-
-/**
- * @public
- */
-export type NodeType = (typeof NodeType)[keyof typeof NodeType];
 
 /**
  * <p>Contains information about an output from prompt flow invoction.</p>
@@ -1888,6 +1965,7 @@ export type FlowResponseStream =
   | FlowResponseStream.ConflictExceptionMember
   | FlowResponseStream.DependencyFailedExceptionMember
   | FlowResponseStream.FlowCompletionEventMember
+  | FlowResponseStream.FlowMultiTurnInputRequestEventMember
   | FlowResponseStream.FlowOutputEventMember
   | FlowResponseStream.FlowTraceEventMember
   | FlowResponseStream.InternalServerExceptionMember
@@ -1918,6 +1996,7 @@ export namespace FlowResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    flowMultiTurnInputRequestEvent?: never;
     $unknown?: never;
   }
 
@@ -1938,6 +2017,7 @@ export namespace FlowResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    flowMultiTurnInputRequestEvent?: never;
     $unknown?: never;
   }
 
@@ -1958,6 +2038,7 @@ export namespace FlowResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    flowMultiTurnInputRequestEvent?: never;
     $unknown?: never;
   }
 
@@ -1978,6 +2059,7 @@ export namespace FlowResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    flowMultiTurnInputRequestEvent?: never;
     $unknown?: never;
   }
 
@@ -1998,6 +2080,7 @@ export namespace FlowResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    flowMultiTurnInputRequestEvent?: never;
     $unknown?: never;
   }
 
@@ -2018,6 +2101,7 @@ export namespace FlowResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    flowMultiTurnInputRequestEvent?: never;
     $unknown?: never;
   }
 
@@ -2038,6 +2122,7 @@ export namespace FlowResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    flowMultiTurnInputRequestEvent?: never;
     $unknown?: never;
   }
 
@@ -2058,6 +2143,7 @@ export namespace FlowResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    flowMultiTurnInputRequestEvent?: never;
     $unknown?: never;
   }
 
@@ -2078,6 +2164,7 @@ export namespace FlowResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    flowMultiTurnInputRequestEvent?: never;
     $unknown?: never;
   }
 
@@ -2098,6 +2185,7 @@ export namespace FlowResponseStream {
     conflictException: ConflictException;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    flowMultiTurnInputRequestEvent?: never;
     $unknown?: never;
   }
 
@@ -2118,6 +2206,7 @@ export namespace FlowResponseStream {
     conflictException?: never;
     dependencyFailedException: DependencyFailedException;
     badGatewayException?: never;
+    flowMultiTurnInputRequestEvent?: never;
     $unknown?: never;
   }
 
@@ -2138,6 +2227,28 @@ export namespace FlowResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException: BadGatewayException;
+    flowMultiTurnInputRequestEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The event stream containing the multi-turn input request information from the flow.</p>
+   * @public
+   */
+  export interface FlowMultiTurnInputRequestEventMember {
+    flowOutputEvent?: never;
+    flowCompletionEvent?: never;
+    flowTraceEvent?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    flowMultiTurnInputRequestEvent: FlowMultiTurnInputRequestEvent;
     $unknown?: never;
   }
 
@@ -2157,6 +2268,7 @@ export namespace FlowResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    flowMultiTurnInputRequestEvent?: never;
     $unknown: [string, any];
   }
 
@@ -2173,6 +2285,7 @@ export namespace FlowResponseStream {
     conflictException: (value: ConflictException) => T;
     dependencyFailedException: (value: DependencyFailedException) => T;
     badGatewayException: (value: BadGatewayException) => T;
+    flowMultiTurnInputRequestEvent: (value: FlowMultiTurnInputRequestEvent) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2193,6 +2306,8 @@ export namespace FlowResponseStream {
     if (value.dependencyFailedException !== undefined)
       return visitor.dependencyFailedException(value.dependencyFailedException);
     if (value.badGatewayException !== undefined) return visitor.badGatewayException(value.badGatewayException);
+    if (value.flowMultiTurnInputRequestEvent !== undefined)
+      return visitor.flowMultiTurnInputRequestEvent(value.flowMultiTurnInputRequestEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2206,6 +2321,12 @@ export interface InvokeFlowResponse {
    * @public
    */
   responseStream: AsyncIterable<FlowResponseStream> | undefined;
+
+  /**
+   * <p>The unique identifier for the current flow execution.</p>
+   * @public
+   */
+  executionId?: string | undefined;
 }
 
 /**
@@ -9048,6 +9169,14 @@ export const FlowCompletionEventFilterSensitiveLog = (obj: FlowCompletionEvent):
 /**
  * @internal
  */
+export const FlowMultiTurnInputRequestEventFilterSensitiveLog = (obj: FlowMultiTurnInputRequestEvent): any => ({
+  ...obj,
+  ...(obj.content && { content: obj.content }),
+});
+
+/**
+ * @internal
+ */
 export const FlowOutputEventFilterSensitiveLog = (obj: FlowOutputEvent): any => ({
   ...obj,
   ...(obj.content && { content: obj.content }),
@@ -9143,6 +9272,7 @@ export const FlowResponseStreamFilterSensitiveLog = (obj: FlowResponseStream): a
   if (obj.conflictException !== undefined) return { conflictException: obj.conflictException };
   if (obj.dependencyFailedException !== undefined) return { dependencyFailedException: obj.dependencyFailedException };
   if (obj.badGatewayException !== undefined) return { badGatewayException: obj.badGatewayException };
+  if (obj.flowMultiTurnInputRequestEvent !== undefined) return { flowMultiTurnInputRequestEvent: SENSITIVE_STRING };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 

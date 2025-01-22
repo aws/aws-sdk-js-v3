@@ -84,6 +84,8 @@ import {
   FlowCompletionEvent,
   FlowInput,
   FlowInputContent,
+  FlowMultiTurnInputContent,
+  FlowMultiTurnInputRequestEvent,
   FlowOutputContent,
   FlowOutputEvent,
   FlowResponseStream,
@@ -304,6 +306,7 @@ export const se_InvokeFlowCommand = async (
   body = JSON.stringify(
     take(input, {
       enableTrace: [],
+      executionId: [],
       inputs: (_) => se_FlowInputs(_, context),
       modelPerformanceConfiguration: (_) => _json(_),
     })
@@ -562,6 +565,7 @@ export const de_InvokeFlowCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
+    [_eI]: [, output.headers[_xabfei]],
   });
   const data: any = output.body;
   contents.responseStream = de_FlowResponseStream(data, context);
@@ -1012,6 +1016,14 @@ const de_FlowResponseStream = (
         badGatewayException: await de_BadGatewayException_event(event["badGatewayException"], context),
       };
     }
+    if (event["flowMultiTurnInputRequestEvent"] != null) {
+      return {
+        flowMultiTurnInputRequestEvent: await de_FlowMultiTurnInputRequestEvent_event(
+          event["flowMultiTurnInputRequestEvent"],
+          context
+        ),
+      };
+    }
     return { $unknown: output };
   });
 };
@@ -1379,6 +1391,15 @@ const de_FlowCompletionEvent_event = async (output: any, context: __SerdeContext
   Object.assign(contents, _json(data));
   return contents;
 };
+const de_FlowMultiTurnInputRequestEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<FlowMultiTurnInputRequestEvent> => {
+  const contents: FlowMultiTurnInputRequestEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, de_FlowMultiTurnInputRequestEvent(data, context));
+  return contents;
+};
 const de_FlowOutputEvent_event = async (output: any, context: __SerdeContext): Promise<FlowOutputEvent> => {
   const contents: FlowOutputEvent = {} as any;
   const data: any = await parseBody(output.body, context);
@@ -1688,6 +1709,7 @@ const se_FilterValue = (input: __DocumentType, context: __SerdeContext): any => 
 const se_FlowInput = (input: FlowInput, context: __SerdeContext): any => {
   return take(input, {
     content: (_) => se_FlowInputContent(_, context),
+    nodeInputName: [],
     nodeName: [],
     nodeOutputName: [],
   });
@@ -2275,6 +2297,29 @@ const de_FilePart = (output: any, context: __SerdeContext): FilePart => {
 // de_FinalResponse omitted.
 
 // de_FlowCompletionEvent omitted.
+
+/**
+ * deserializeAws_restJson1FlowMultiTurnInputContent
+ */
+const de_FlowMultiTurnInputContent = (output: any, context: __SerdeContext): FlowMultiTurnInputContent => {
+  if (output.document != null) {
+    return {
+      document: de_Document(output.document, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1FlowMultiTurnInputRequestEvent
+ */
+const de_FlowMultiTurnInputRequestEvent = (output: any, context: __SerdeContext): FlowMultiTurnInputRequestEvent => {
+  return take(output, {
+    content: (_: any) => de_FlowMultiTurnInputContent(__expectUnion(_), context),
+    nodeName: __expectString,
+    nodeType: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1FlowOutputContent
@@ -3010,6 +3055,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const _cT = "contentType";
+const _eI = "executionId";
 const _mI = "memoryId";
 const _mIa = "maxItems";
 const _mT = "memoryType";
@@ -3019,5 +3065,6 @@ const _sI = "sessionId";
 const _xabact = "x-amzn-bedrock-agent-content-type";
 const _xabami = "x-amz-bedrock-agent-memory-id";
 const _xabasi = "x-amz-bedrock-agent-session-id";
+const _xabfei = "x-amz-bedrock-flow-execution-id";
 const _xabkbsi = "x-amzn-bedrock-knowledge-base-session-id";
 const _xasa = "x-amz-source-arn";

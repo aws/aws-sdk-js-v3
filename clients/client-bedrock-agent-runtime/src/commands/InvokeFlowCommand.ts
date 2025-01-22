@@ -53,10 +53,11 @@ export interface InvokeFlowCommandOutput extends InvokeFlowResponse, __MetadataB
  *   inputs: [ // FlowInputs // required
  *     { // FlowInput
  *       nodeName: "STRING_VALUE", // required
- *       nodeOutputName: "STRING_VALUE", // required
+ *       nodeOutputName: "STRING_VALUE",
  *       content: { // FlowInputContent Union: only one key present
  *         document: "DOCUMENT_VALUE",
  *       },
+ *       nodeInputName: "STRING_VALUE",
  *     },
  *   ],
  *   enableTrace: true || false,
@@ -65,6 +66,7 @@ export interface InvokeFlowCommandOutput extends InvokeFlowResponse, __MetadataB
  *       latency: "standard" || "optimized",
  *     },
  *   },
+ *   executionId: "STRING_VALUE",
  * };
  * const command = new InvokeFlowCommand(input);
  * const response = await client.send(command);
@@ -78,7 +80,7 @@ export interface InvokeFlowCommandOutput extends InvokeFlowResponse, __MetadataB
  * //       },
  * //     },
  * //     flowCompletionEvent: { // FlowCompletionEvent
- * //       completionReason: "SUCCESS", // required
+ * //       completionReason: "SUCCESS" || "INPUT_REQUIRED", // required
  * //     },
  * //     flowTraceEvent: { // FlowTraceEvent
  * //       trace: { // FlowTrace Union: only one key present
@@ -146,7 +148,15 @@ export interface InvokeFlowCommandOutput extends InvokeFlowResponse, __MetadataB
  * //       message: "STRING_VALUE",
  * //       resourceName: "STRING_VALUE",
  * //     },
+ * //     flowMultiTurnInputRequestEvent: { // FlowMultiTurnInputRequestEvent
+ * //       nodeName: "STRING_VALUE", // required
+ * //       nodeType: "FlowInputNode" || "FlowOutputNode" || "LambdaFunctionNode" || "KnowledgeBaseNode" || "PromptNode" || "ConditionNode" || "LexNode", // required
+ * //       content: { // FlowMultiTurnInputContent Union: only one key present
+ * //         document: "DOCUMENT_VALUE",
+ * //       },
+ * //     },
  * //   },
+ * //   executionId: "STRING_VALUE",
  * // };
  *
  * ```
