@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.733.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.732.0...v3.733.0) (2025-01-22)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Adds multi-turn input support for an Agent node in an Amazon Bedrock Flow ([8d5c63a](https://github.com/aws/aws-sdk-js-v3/commit/8d5c63a4d79c3136b28a767da078f5eb444a2898))
+
+
+
+
+
 ## [3.731.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.731.0...v3.731.1) (2025-01-18)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent-runtime

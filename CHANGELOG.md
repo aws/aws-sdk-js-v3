@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.733.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.732.0...v3.733.0) (2025-01-22)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Adds multi-turn input support for an Agent node in an Amazon Bedrock Flow ([8d5c63a](https://github.com/aws/aws-sdk-js-v3/commit/8d5c63a4d79c3136b28a767da078f5eb444a2898))
+* **client-medialive:** AWS Elemental MediaLive adds a new feature, ID3 segment tagging, in CMAF Ingest output groups. It allows customers to insert ID3 tags into every output segment, controlled by a newly added channel schedule action Id3SegmentTagging. ([9a07043](https://github.com/aws/aws-sdk-js-v3/commit/9a070435a8a9f703a148d51bf29c85d231ea9f8e))
+* **clients:** update client endpoints as of 2025-01-22 ([2cac334](https://github.com/aws/aws-sdk-js-v3/commit/2cac334ce6b9a103f0672074a603a10fd43bced5))
+
+
+
+
+
 # [3.732.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.731.1...v3.732.0) (2025-01-21)
 
 
