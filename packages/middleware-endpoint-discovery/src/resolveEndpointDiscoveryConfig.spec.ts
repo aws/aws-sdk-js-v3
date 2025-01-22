@@ -42,7 +42,7 @@ describe(resolveEndpointDiscoveryConfig.name, () => {
   });
 
   describe("endpointDiscoveryEnabled", () => {
-    it.each<boolean>([false, true])(`sets to value passed in the config: %s`, (endpointDiscoveryEnabled) => {
+    it.each<boolean>([false, true])(`sets to value passed in the config: %s`, async (endpointDiscoveryEnabled) => {
       const resolvedConfig = resolveEndpointDiscoveryConfig(
         {
           ...mockInput,
@@ -50,7 +50,7 @@ describe(resolveEndpointDiscoveryConfig.name, () => {
         },
         { endpointDiscoveryCommandCtor }
       );
-      expect(resolvedConfig.endpointDiscoveryEnabled()).resolves.toBe(endpointDiscoveryEnabled);
+      await expect(resolvedConfig.endpointDiscoveryEnabled()).resolves.toBe(endpointDiscoveryEnabled);
       expect(mockInput.endpointDiscoveryEnabledProvider).not.toHaveBeenCalled();
       expect(resolvedConfig.isClientEndpointDiscoveryEnabled).toStrictEqual(true);
     });

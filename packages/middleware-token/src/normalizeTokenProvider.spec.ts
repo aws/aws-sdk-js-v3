@@ -32,7 +32,7 @@ describe(normalizeTokenProvider.name, () => {
     it("returns memoized function", async () => {
       const normalizedTokenProvider = normalizeTokenProvider(mockInputToken);
       expect(normalizedTokenProvider).toEqual(mockMemoizeFn);
-      expect(mockMemoizeFn()).resolves.toEqual(mockToken);
+      await expect(mockMemoizeFn()).resolves.toEqual(mockToken);
     });
 
     describe("memoize isExpired", () => {

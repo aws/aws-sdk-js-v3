@@ -15,7 +15,7 @@ describe("getRuntimeConfig", () => {
       port: 5432,
     };
     const { credentials, region } = getRuntimeConfig(minimalParams);
-    expect(credentials).rejects.toEqual("Credential is missing");
-    expect(region).rejects.toEqual("Region is missing");
+    await expect(credentials).rejects.toEqual("Credential is missing");
+    await expect(region).rejects.toEqual("Region is missing");
   });
 });
