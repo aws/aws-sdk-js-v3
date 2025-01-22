@@ -708,6 +708,7 @@ export interface StartJobRunRequest {
    *          <p>Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise, the jobs will throw an exception.</p>
    *          <p>When the value is left blank, the timeout is defaulted to 2880 minutes.</p>
    *          <p>Any existing Glue jobs that had a timeout value greater than 7 days will be defaulted to 7 days. For instance if you have specified a timeout of 20 days for a batch job, it will be stopped on the 7th day.</p>
+   *          <p>For streaming jobs, if you have set up a maintenance window, it will be restarted during the maintenance window after 7 days.</p>
    * @public
    */
   Timeout?: number | undefined;
@@ -3906,8 +3907,11 @@ export interface CreateJobRequest {
   /**
    * <p>The job timeout in minutes.  This is the maximum time that a job run
    *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
-   *       status. The default is 2,880 minutes (48 hours) for batch jobs.</p>
-   *          <p>Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days.</p>
+   *       status.</p>
+   *          <p>Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise, the jobs will throw an exception.</p>
+   *          <p>When the value is left blank, the timeout is defaulted to 2880 minutes.</p>
+   *          <p>Any existing Glue jobs that had a timeout value greater than 7 days will be defaulted to 7 days. For instance if you have specified a timeout of 20 days for a batch job, it will be stopped on the 7th day.</p>
+   *          <p>For streaming jobs, if you have set up a maintenance window, it will be restarted during the maintenance window after 7 days.</p>
    * @public
    */
   Timeout?: number | undefined;
@@ -4189,8 +4193,11 @@ export interface Job {
   /**
    * <p>The job timeout in minutes.  This is the maximum time that a job run
    *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
-   *       status. The default is 2,880 minutes (48 hours) for batch jobs.</p>
-   *          <p>Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days.</p>
+   *       status.</p>
+   *          <p>Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise, the jobs will throw an exception.</p>
+   *          <p>When the value is left blank, the timeout is defaulted to 2880 minutes.</p>
+   *          <p>Any existing Glue jobs that had a timeout value greater than 7 days will be defaulted to 7 days. For instance if you have specified a timeout of 20 days for a batch job, it will be stopped on the 7th day.</p>
+   *          <p>For streaming jobs, if you have set up a maintenance window, it will be restarted during the maintenance window after 7 days.</p>
    * @public
    */
   Timeout?: number | undefined;
@@ -4436,8 +4443,11 @@ export interface JobUpdate {
   /**
    * <p>The job timeout in minutes.  This is the maximum time that a job run
    *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
-   *       status. The default is 2,880 minutes (48 hours) for batch jobs.</p>
-   *          <p>Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days.</p>
+   *       status.</p>
+   *          <p>Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise, the jobs will throw an exception.</p>
+   *          <p>When the value is left blank, the timeout is defaulted to 2880 minutes.</p>
+   *          <p>Any existing Glue jobs that had a timeout value greater than 7 days will be defaulted to 7 days. For instance if you have specified a timeout of 20 days for a batch job, it will be stopped on the 7th day.</p>
+   *          <p>For streaming jobs, if you have set up a maintenance window, it will be restarted during the maintenance window after 7 days.</p>
    * @public
    */
   Timeout?: number | undefined;
