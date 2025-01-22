@@ -1,21 +1,26 @@
-import type { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
+import type { AwsCredentialIdentity, AwsCredentialIdentityProvider, Logger, RequestHandler } from "@smithy/types";
 
 import type { AwsSdkCredentialsFeatures } from "../feature-ids";
-
 export { AwsCredentialIdentity, AwsCredentialIdentityProvider, IdentityProvider } from "@smithy/types";
 
 /**
  * @public
  */
 export interface AwsIdentityProperties {
+  /**
+   * These are resolved client config values, and may be async providers.
+   */
   callerClientConfig?: {
-    region(): Promise<string>;
-    profile?: string;
+    credentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider;
     /**
      * @internal
      * @deprecated
      */
     credentialDefaultProvider?: (input?: any) => AwsCredentialIdentityProvider;
+    logger?: Logger;
+    profile?: string;
+    region(): Promise<string>;
+    requestHandler?: RequestHandler<any, any>;
   };
 }
 
