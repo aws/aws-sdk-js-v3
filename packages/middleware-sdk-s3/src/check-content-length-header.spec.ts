@@ -9,7 +9,7 @@ describe("checkContentLengthHeaderMiddleware", () => {
   let spy: any;
 
   beforeEach(() => {
-    spy = vi.spyOn(console, "warn");
+    spy = vi.spyOn(console, "warn").mockImplementation(() => {});
   });
 
   afterEach(() => {

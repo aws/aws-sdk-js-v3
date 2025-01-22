@@ -788,7 +788,7 @@ describe(Upload.name, () => {
     });
 
     await upload.done();
-    expect(() => upload.done()).rejects.toEqual(
+    await expect(() => upload.done()).rejects.toEqual(
       new Error("@aws-sdk/lib-storage: this instance of Upload has already executed .done(). Create a new instance.")
     );
   });

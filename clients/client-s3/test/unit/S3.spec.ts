@@ -304,6 +304,7 @@ describe("signing", () => {
     return await client.putObject({
       Bucket: "bucket",
       Key: "some file.txt",
+      Body: "abcd",
     });
   });
 });

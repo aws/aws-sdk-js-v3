@@ -36,13 +36,13 @@ describe(EventStreamPayloadHandler.name, () => {
     vi.clearAllMocks();
   });
 
-  it("should throw if request payload is not a stream", () => {
+  it("should throw if request payload is not a stream", async () => {
     const handler = new EventStreamPayloadHandler({
       messageSigner: () => Promise.resolve(mockMessageSigner),
       utf8Decoder: mockUtf8Decoder,
       utf8Encoder: mockUtf8encoder,
     });
-    expect(
+    await expect(
       handler.handle(mockNextHandler, {
         request: { body: "body" } as HttpRequest,
         input: {},
