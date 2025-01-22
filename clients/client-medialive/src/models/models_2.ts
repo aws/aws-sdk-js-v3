@@ -103,14 +103,11 @@ import {
   AvailConfiguration,
   BlackoutSlate,
   ColorCorrectionSettings,
-  EpochLockingSettings,
   FeatureActivations,
   GlobalConfigurationInputEndAction,
-  GlobalConfigurationOutputLockingMode,
   InputLossBehavior,
   OutputGroup,
   PipelineDetail,
-  PipelineLockingSettings,
   RenewalSettings,
   Reservation,
   ReservationState,
@@ -125,6 +122,45 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const GlobalConfigurationOutputLockingMode = {
+  EPOCH_LOCKING: "EPOCH_LOCKING",
+  PIPELINE_LOCKING: "PIPELINE_LOCKING",
+} as const;
+
+/**
+ * @public
+ */
+export type GlobalConfigurationOutputLockingMode =
+  (typeof GlobalConfigurationOutputLockingMode)[keyof typeof GlobalConfigurationOutputLockingMode];
+
+/**
+ * Epoch Locking Settings
+ * @public
+ */
+export interface EpochLockingSettings {
+  /**
+   * Optional. Enter a value here to use a custom epoch, instead of the standard epoch (which started at 1970-01-01T00:00:00 UTC). Specify the start time of the custom epoch, in YYYY-MM-DDTHH:MM:SS in UTC. The time must be 2000-01-01T00:00:00 or later. Always set the MM:SS portion to 00:00.
+   * @public
+   */
+  CustomEpoch?: string | undefined;
+
+  /**
+   * Optional. Enter a time for the jam sync. The default is midnight UTC. When epoch locking is enabled, MediaLive performs a daily jam sync on every output encode to ensure timecodes don’t diverge from the wall clock. The jam sync applies only to encodes with frame rate of 29.97 or 59.94 FPS. To override, enter a time in HH:MM:SS in UTC. Always set the MM:SS portion to 00:00.
+   * @public
+   */
+  JamSyncTime?: string | undefined;
+}
+
+/**
+ * Pipeline Locking Settings
+ * @public
+ */
+export interface PipelineLockingSettings {}
 
 /**
  * Output Locking Settings

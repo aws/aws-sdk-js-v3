@@ -488,7 +488,6 @@ import {
   ColorSpacePassthroughSettings,
   ConflictException,
   DolbyVision81Settings,
-  EpochLockingSettings,
   Esam,
   FeatureActivations,
   FecOutputSettings,
@@ -520,6 +519,7 @@ import {
   HlsSettings,
   HlsTimedMetadataScheduleActionSettings,
   HlsWebdavSettings,
+  Id3SegmentTaggingScheduleActionSettings,
   ImmediateModeScheduleActionStartSettings,
   InputClippingSettings,
   InputLossBehavior,
@@ -548,7 +548,6 @@ import {
   OutputSettings,
   PauseStateScheduleActionSettings,
   PipelineDetail,
-  PipelineLockingSettings,
   PipelinePauseStateSettings,
   Rec601Settings,
   Rec709Settings,
@@ -589,6 +588,7 @@ import {
   Thumbnail,
   ThumbnailDetail,
   TimecodeBurninSettings,
+  TimedMetadataScheduleActionSettings,
   TooManyRequestsException,
   TransferringInputDeviceSummary,
   UdpContainerSettings,
@@ -605,6 +605,7 @@ import {
   ClusterNetworkSettingsCreateRequest,
   ClusterNetworkSettingsUpdateRequest,
   EncoderSettings,
+  EpochLockingSettings,
   GlobalConfiguration,
   HtmlMotionGraphicsSettings,
   InputDeviceConfigurableSettings,
@@ -628,6 +629,7 @@ import {
   MultiplexVideoSettings,
   NielsenConfiguration,
   OutputLockingSettings,
+  PipelineLockingSettings,
   SrtSettingsRequest,
   SuccessfulMonitorDeployment,
   ThumbnailConfiguration,
@@ -7273,6 +7275,8 @@ const se_ClusterNetworkSettingsUpdateRequest = (
 const se_CmafIngestGroupSettings = (input: CmafIngestGroupSettings, context: __SerdeContext): any => {
   return take(input, {
     destination: [, (_) => se_OutputLocationRef(_, context), `Destination`],
+    id3Behavior: [, , `Id3Behavior`],
+    id3NameModifier: [, , `Id3NameModifier`],
     klvBehavior: [, , `KlvBehavior`],
     klvNameModifier: [, , `KlvNameModifier`],
     nielsenId3Behavior: [, , `NielsenId3Behavior`],
@@ -8001,6 +8005,19 @@ const se_HlsWebdavSettings = (input: HlsWebdavSettings, context: __SerdeContext)
 };
 
 // se_HtmlMotionGraphicsSettings omitted.
+
+/**
+ * serializeAws_restJson1Id3SegmentTaggingScheduleActionSettings
+ */
+const se_Id3SegmentTaggingScheduleActionSettings = (
+  input: Id3SegmentTaggingScheduleActionSettings,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    id3: [, , `Id3`],
+    tag: [, , `Tag`],
+  });
+};
 
 // se_ImmediateModeScheduleActionStartSettings omitted.
 
@@ -9069,6 +9086,11 @@ const se_ScheduleActionSettings = (input: ScheduleActionSettings, context: __Ser
       (_) => se_HlsTimedMetadataScheduleActionSettings(_, context),
       `HlsTimedMetadataSettings`,
     ],
+    id3SegmentTaggingSettings: [
+      ,
+      (_) => se_Id3SegmentTaggingScheduleActionSettings(_, context),
+      `Id3SegmentTaggingSettings`,
+    ],
     inputPrepareSettings: [, (_) => se_InputPrepareScheduleActionSettings(_, context), `InputPrepareSettings`],
     inputSwitchSettings: [, (_) => se_InputSwitchScheduleActionSettings(_, context), `InputSwitchSettings`],
     motionGraphicsImageActivateSettings: [
@@ -9114,6 +9136,7 @@ const se_ScheduleActionSettings = (input: ScheduleActionSettings, context: __Ser
       (_) => se_StaticImageOutputDeactivateScheduleActionSettings(_, context),
       `StaticImageOutputDeactivateSettings`,
     ],
+    timedMetadataSettings: [, (_) => se_TimedMetadataScheduleActionSettings(_, context), `TimedMetadataSettings`],
   });
 };
 
@@ -9514,6 +9537,18 @@ const se_TimecodeConfig = (input: TimecodeConfig, context: __SerdeContext): any 
   return take(input, {
     source: [, , `Source`],
     syncThreshold: [, , `SyncThreshold`],
+  });
+};
+
+/**
+ * serializeAws_restJson1TimedMetadataScheduleActionSettings
+ */
+const se_TimedMetadataScheduleActionSettings = (
+  input: TimedMetadataScheduleActionSettings,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    id3: [, , `Id3`],
   });
 };
 
@@ -11171,6 +11206,8 @@ const de_ClusterNetworkSettings = (output: any, context: __SerdeContext): Cluste
 const de_CmafIngestGroupSettings = (output: any, context: __SerdeContext): CmafIngestGroupSettings => {
   return take(output, {
     Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
+    Id3Behavior: [, __expectString, `id3Behavior`],
+    Id3NameModifier: [, __expectString, `id3NameModifier`],
     KlvBehavior: [, __expectString, `klvBehavior`],
     KlvNameModifier: [, __expectString, `klvNameModifier`],
     NielsenId3Behavior: [, __expectString, `nielsenId3Behavior`],
@@ -12031,6 +12068,19 @@ const de_HlsWebdavSettings = (output: any, context: __SerdeContext): HlsWebdavSe
 };
 
 // de_HtmlMotionGraphicsSettings omitted.
+
+/**
+ * deserializeAws_restJson1Id3SegmentTaggingScheduleActionSettings
+ */
+const de_Id3SegmentTaggingScheduleActionSettings = (
+  output: any,
+  context: __SerdeContext
+): Id3SegmentTaggingScheduleActionSettings => {
+  return take(output, {
+    Id3: [, __expectString, `id3`],
+    Tag: [, __expectString, `tag`],
+  }) as any;
+};
 
 // de_ImmediateModeScheduleActionStartSettings omitted.
 
@@ -13332,6 +13382,11 @@ const de_ScheduleActionSettings = (output: any, context: __SerdeContext): Schedu
       (_: any) => de_HlsTimedMetadataScheduleActionSettings(_, context),
       `hlsTimedMetadataSettings`,
     ],
+    Id3SegmentTaggingSettings: [
+      ,
+      (_: any) => de_Id3SegmentTaggingScheduleActionSettings(_, context),
+      `id3SegmentTaggingSettings`,
+    ],
     InputPrepareSettings: [, (_: any) => de_InputPrepareScheduleActionSettings(_, context), `inputPrepareSettings`],
     InputSwitchSettings: [, (_: any) => de_InputSwitchScheduleActionSettings(_, context), `inputSwitchSettings`],
     MotionGraphicsImageActivateSettings: [
@@ -13377,6 +13432,7 @@ const de_ScheduleActionSettings = (output: any, context: __SerdeContext): Schedu
       (_: any) => de_StaticImageOutputDeactivateScheduleActionSettings(_, context),
       `staticImageOutputDeactivateSettings`,
     ],
+    TimedMetadataSettings: [, (_: any) => de_TimedMetadataScheduleActionSettings(_, context), `timedMetadataSettings`],
   }) as any;
 };
 
@@ -13826,6 +13882,18 @@ const de_TimecodeConfig = (output: any, context: __SerdeContext): TimecodeConfig
   return take(output, {
     Source: [, __expectString, `source`],
     SyncThreshold: [, __expectInt32, `syncThreshold`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TimedMetadataScheduleActionSettings
+ */
+const de_TimedMetadataScheduleActionSettings = (
+  output: any,
+  context: __SerdeContext
+): TimedMetadataScheduleActionSettings => {
+  return take(output, {
+    Id3: [, __expectString, `id3`],
   }) as any;
 };
 

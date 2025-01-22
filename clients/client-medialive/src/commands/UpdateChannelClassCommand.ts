@@ -568,6 +568,8 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //               KlvNameModifier: "STRING_VALUE",
  * //               NielsenId3NameModifier: "STRING_VALUE",
  * //               Scte35NameModifier: "STRING_VALUE",
+ * //               Id3Behavior: "DISABLED" || "ENABLED",
+ * //               Id3NameModifier: "STRING_VALUE",
  * //             },
  * //             SrtGroupSettings: { // SrtGroupSettings
  * //               InputLossAction: "DROP_PROGRAM" || "DROP_TS" || "EMIT_PROGRAM",

@@ -178,6 +178,13 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  *               "STRING_VALUE",
  *             ],
  *           },
+ *           Id3SegmentTaggingSettings: { // Id3SegmentTaggingScheduleActionSettings
+ *             Id3: "STRING_VALUE",
+ *             Tag: "STRING_VALUE",
+ *           },
+ *           TimedMetadataSettings: { // TimedMetadataScheduleActionSettings
+ *             Id3: "STRING_VALUE", // required
+ *           },
  *         },
  *         ScheduleActionStartSettings: { // ScheduleActionStartSettings
  *           FixedModeScheduleActionStartSettings: { // FixedModeScheduleActionStartSettings
@@ -342,6 +349,13 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  * //               "STRING_VALUE",
  * //             ],
  * //           },
+ * //           Id3SegmentTaggingSettings: { // Id3SegmentTaggingScheduleActionSettings
+ * //             Id3: "STRING_VALUE",
+ * //             Tag: "STRING_VALUE",
+ * //           },
+ * //           TimedMetadataSettings: { // TimedMetadataScheduleActionSettings
+ * //             Id3: "STRING_VALUE", // required
+ * //           },
  * //         },
  * //         ScheduleActionStartSettings: { // ScheduleActionStartSettings
  * //           FixedModeScheduleActionStartSettings: { // FixedModeScheduleActionStartSettings
@@ -490,6 +504,13 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  * //             FadeOut: Number("int"),
  * //             Layer: Number("int"),
  * //             OutputNames: "<__listOf__string>", // required
+ * //           },
+ * //           Id3SegmentTaggingSettings: {
+ * //             Id3: "STRING_VALUE",
+ * //             Tag: "STRING_VALUE",
+ * //           },
+ * //           TimedMetadataSettings: {
+ * //             Id3: "STRING_VALUE", // required
  * //           },
  * //         },
  * //         ScheduleActionStartSettings: {

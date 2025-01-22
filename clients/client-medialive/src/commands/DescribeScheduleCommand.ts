@@ -184,6 +184,13 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //         Id3SegmentTaggingSettings: { // Id3SegmentTaggingScheduleActionSettings
+ * //           Id3: "STRING_VALUE",
+ * //           Tag: "STRING_VALUE",
+ * //         },
+ * //         TimedMetadataSettings: { // TimedMetadataScheduleActionSettings
+ * //           Id3: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       ScheduleActionStartSettings: { // ScheduleActionStartSettings
  * //         FixedModeScheduleActionStartSettings: { // FixedModeScheduleActionStartSettings

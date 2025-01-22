@@ -986,6 +986,20 @@ export interface ArchiveGroupSettings {
  * @public
  * @enum
  */
+export const CmafId3Behavior = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafId3Behavior = (typeof CmafId3Behavior)[keyof typeof CmafId3Behavior];
+
+/**
+ * @public
+ * @enum
+ */
 export const CmafKLVBehavior = {
   NO_PASSTHROUGH: "NO_PASSTHROUGH",
   PASSTHROUGH: "PASSTHROUGH",
@@ -1103,6 +1117,18 @@ export interface CmafIngestGroupSettings {
    * @public
    */
   Scte35NameModifier?: string | undefined;
+
+  /**
+   * Set to ENABLED to enable ID3 metadata insertion. To include metadata, you configure other parameters in the output group, or you add an ID3 action to the channel schedule.
+   * @public
+   */
+  Id3Behavior?: CmafId3Behavior | undefined;
+
+  /**
+   * Change the modifier that MediaLive automatically adds to the Streams() name that identifies an ID3 track. The default is "id3", which means the default name will be Streams(id3.cmfm). Any string you enter here will replace the "id3" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters.
+   * @public
+   */
+  Id3NameModifier?: string | undefined;
 }
 
 /**
@@ -2928,6 +2954,24 @@ export interface HlsTimedMetadataScheduleActionSettings {
 }
 
 /**
+ * Settings for the action to insert ID3 metadata in every segment, in applicable output groups.
+ * @public
+ */
+export interface Id3SegmentTaggingScheduleActionSettings {
+  /**
+   * Complete this parameter if you want to specify the entire ID3 metadata. Enter a base64 string that contains one or more fully formed ID3 tags, according to the ID3 specification: http://id3.org/id3v2.4.0-structure
+   * @public
+   */
+  Id3?: string | undefined;
+
+  /**
+   * Complete this parameter if you want to specify only the metadata, not the entire frame. MediaLive will insert the metadata in a TXXX frame. Enter the value as plain text. You can include standard MediaLive variable data such as the current segment number.
+   * @public
+   */
+  Tag?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -3561,6 +3605,18 @@ export interface StaticImageOutputDeactivateScheduleActionSettings {
 }
 
 /**
+ * Settings for the action to insert ID3 metadata (as a one-time action) in applicable output groups.
+ * @public
+ */
+export interface TimedMetadataScheduleActionSettings {
+  /**
+   * Enter a base64 string that contains one or more fully formed ID3 tags.See the ID3 specification: http://id3.org/id3v2.4.0-structure
+   * @public
+   */
+  Id3: string | undefined;
+}
+
+/**
  * Holds the settings for a single schedule action.
  * @public
  */
@@ -3654,6 +3710,18 @@ export interface ScheduleActionSettings {
    * @public
    */
   StaticImageOutputDeactivateSettings?: StaticImageOutputDeactivateScheduleActionSettings | undefined;
+
+  /**
+   * Action to insert ID3 metadata in every segment, in applicable output groups
+   * @public
+   */
+  Id3SegmentTaggingSettings?: Id3SegmentTaggingScheduleActionSettings | undefined;
+
+  /**
+   * Action to insert ID3 metadata once, in applicable output groups
+   * @public
+   */
+  TimedMetadataSettings?: TimedMetadataScheduleActionSettings | undefined;
 }
 
 /**
@@ -7137,42 +7205,3 @@ export interface InputLossBehavior {
    */
   RepeatFrameMsec?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GlobalConfigurationOutputLockingMode = {
-  EPOCH_LOCKING: "EPOCH_LOCKING",
-  PIPELINE_LOCKING: "PIPELINE_LOCKING",
-} as const;
-
-/**
- * @public
- */
-export type GlobalConfigurationOutputLockingMode =
-  (typeof GlobalConfigurationOutputLockingMode)[keyof typeof GlobalConfigurationOutputLockingMode];
-
-/**
- * Epoch Locking Settings
- * @public
- */
-export interface EpochLockingSettings {
-  /**
-   * Optional. Enter a value here to use a custom epoch, instead of the standard epoch (which started at 1970-01-01T00:00:00 UTC). Specify the start time of the custom epoch, in YYYY-MM-DDTHH:MM:SS in UTC. The time must be 2000-01-01T00:00:00 or later. Always set the MM:SS portion to 00:00.
-   * @public
-   */
-  CustomEpoch?: string | undefined;
-
-  /**
-   * Optional. Enter a time for the jam sync. The default is midnight UTC. When epoch locking is enabled, MediaLive performs a daily jam sync on every output encode to ensure timecodes don’t diverge from the wall clock. The jam sync applies only to encodes with frame rate of 29.97 or 59.94 FPS. To override, enter a time in HH:MM:SS in UTC. Always set the MM:SS portion to 00:00.
-   * @public
-   */
-  JamSyncTime?: string | undefined;
-}
-
-/**
- * Pipeline Locking Settings
- * @public
- */
-export interface PipelineLockingSettings {}
