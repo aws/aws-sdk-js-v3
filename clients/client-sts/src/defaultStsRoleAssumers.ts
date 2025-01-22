@@ -84,7 +84,7 @@ const resolveRegion = async (
  */
 export const getDefaultRoleAssumer = (
   stsOptions: STSRoleAssumerOptions,
-  stsClientCtor: new (options: STSClientConfig) => STSClient
+  STSClient: new (options: STSClientConfig) => STSClient
 ): RoleAssumer => {
   let stsClient: STSClient;
   let closureSourceCreds: AwsCredentialIdentity;
@@ -104,7 +104,8 @@ export const getDefaultRoleAssumer = (
       );
       const isCompatibleRequestHandler = !isH2(requestHandler);
 
-      stsClient = new stsClientCtor({
+      stsClient = new STSClient({
+        profile: stsOptions?.parentClientConfig?.profile,
         // A hack to make sts client uses the credential in current closure.
         credentialDefaultProvider: () => async () => closureSourceCreds,
         region: resolvedRegion,
@@ -146,7 +147,7 @@ export type RoleAssumerWithWebIdentity = (
  */
 export const getDefaultRoleAssumerWithWebIdentity = (
   stsOptions: STSRoleAssumerOptions,
-  stsClientCtor: new (options: STSClientConfig) => STSClient
+  STSClient: new (options: STSClientConfig) => STSClient
 ): RoleAssumerWithWebIdentity => {
   let stsClient: STSClient;
   return async (params) => {
@@ -164,7 +165,8 @@ export const getDefaultRoleAssumerWithWebIdentity = (
       );
       const isCompatibleRequestHandler = !isH2(requestHandler);
 
-      stsClient = new stsClientCtor({
+      stsClient = new STSClient({
+        profile: stsOptions?.parentClientConfig?.profile,
         region: resolvedRegion,
         requestHandler: isCompatibleRequestHandler ? (requestHandler as any) : undefined,
         logger: logger as any,
