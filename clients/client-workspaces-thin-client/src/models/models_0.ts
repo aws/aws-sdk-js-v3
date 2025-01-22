@@ -196,7 +196,7 @@ export interface CreateEnvironmentRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,
-   *                 WorkSpaces Web, or AppStream 2.0.</p>
+   *             WorkSpaces Secure Browser, or AppStream 2.0.</p>
    * @public
    */
   desktopArn: string | undefined;
@@ -301,7 +301,7 @@ export interface EnvironmentSummary {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,
-   *                 WorkSpaces Web, or AppStream 2.0.</p>
+   *             WorkSpaces Secure Browser, or AppStream 2.0.</p>
    * @public
    */
   desktopArn?: string | undefined;
@@ -1030,7 +1030,7 @@ export interface Environment {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,
-   *                 WorkSpaces Web, or AppStream 2.0.</p>
+   *             WorkSpaces Secure Browser, or AppStream 2.0.</p>
    * @public
    */
   desktopArn?: string | undefined;
@@ -1598,7 +1598,7 @@ export interface UpdateEnvironmentRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces,
-   *                 WorkSpaces Web, or AppStream 2.0.</p>
+   *             WorkSpaces Secure Browser, or AppStream 2.0.</p>
    * @public
    */
   desktopArn?: string | undefined;
