@@ -22577,6 +22577,7 @@ __metadata:
     "@aws-sdk/credential-provider-web-identity": "npm:*"
     "@aws-sdk/nested-clients": "npm:*"
     "@aws-sdk/types": "npm:*"
+    "@smithy/core": "npm:^3.0.0"
     "@smithy/credential-provider-imds": "npm:^4.0.0"
     "@smithy/property-provider": "npm:^4.0.0"
     "@smithy/types": "npm:^4.0.0"

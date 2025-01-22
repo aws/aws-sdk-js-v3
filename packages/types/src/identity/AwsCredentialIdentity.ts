@@ -11,10 +11,17 @@ export interface AwsIdentityProperties {
    * These are resolved client config values, and may be async providers.
    */
   callerClientConfig?: {
+    /**
+     * It is likely a programming error if you use
+     * the caller client config credentials in a credential provider, since
+     * it will recurse.
+     *
+     * @deprecated do not use.
+     */
     credentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider;
     /**
      * @internal
-     * @deprecated
+     * @deprecated minimize use.
      */
     credentialDefaultProvider?: (input?: any) => AwsCredentialIdentityProvider;
     logger?: Logger;
