@@ -89,6 +89,10 @@ describe("fromTemporaryCredentials", () => {
     await provider();
     expect(vi.mocked(STSClient as any)).toHaveBeenCalledWith({
       credentials: masterCredentials,
+      logger: void 0,
+      profile: void 0,
+      region: "us-east-1",
+      requestHandler: void 0,
     });
     expect(mockUsePlugin).toHaveBeenCalledTimes(1);
     expect(mockUsePlugin).toHaveBeenNthCalledWith(1, plugin);
@@ -190,6 +194,44 @@ describe("fromTemporaryCredentials", () => {
       expect(clientConfigCredentials).not.toHaveBeenCalled();
       expect(callerClientCredentials).not.toHaveBeenCalled();
       expect(chainCredentials).toHaveBeenCalled();
+    });
+  });
+
+  it("uses caller client options if not overridden with provider client options", async () => {
+    const provider = fromTemporaryCredentialsNode({
+      params: {
+        RoleArn,
+        RoleSessionName,
+      },
+    });
+    const logger = {
+      debug() {},
+      info() {},
+      warn() {},
+      error() {},
+    };
+    const credentials = {
+      accessKeyId: "",
+      secretAccessKey: "",
+    };
+    const credentialProvider = async () => credentials;
+    const regionProvider = async () => "B";
+    await provider({
+      callerClientConfig: {
+        profile: "A",
+        region: regionProvider,
+        logger,
+        requestHandler: Symbol.for("requestHandler") as any,
+        credentialDefaultProvider: () => credentialProvider,
+      },
+    });
+    expect(vi.mocked(STSClient as any).mock.calls[0][0]).toEqual({
+      profile: "A",
+      region: regionProvider,
+      logger,
+      requestHandler: Symbol.for("requestHandler") as any,
+      // mockImpl resolved the credentials.
+      credentials,
     });
   });
 

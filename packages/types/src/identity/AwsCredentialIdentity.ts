@@ -1,21 +1,33 @@
-import type { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
+import type { AwsCredentialIdentity, AwsCredentialIdentityProvider, Logger, RequestHandler } from "@smithy/types";
 
 import type { AwsSdkCredentialsFeatures } from "../feature-ids";
-
 export { AwsCredentialIdentity, AwsCredentialIdentityProvider, IdentityProvider } from "@smithy/types";
 
 /**
  * @public
  */
 export interface AwsIdentityProperties {
+  /**
+   * These are resolved client config values, and may be async providers.
+   */
   callerClientConfig?: {
-    region(): Promise<string>;
-    profile?: string;
+    /**
+     * It is likely a programming error if you use
+     * the caller client config credentials in a credential provider, since
+     * it will recurse.
+     *
+     * @deprecated do not use.
+     */
+    credentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider;
     /**
      * @internal
-     * @deprecated
+     * @deprecated minimize use.
      */
     credentialDefaultProvider?: (input?: any) => AwsCredentialIdentityProvider;
+    logger?: Logger;
+    profile?: string;
+    region(): Promise<string>;
+    requestHandler?: RequestHandler<any, any>;
   };
 }
 

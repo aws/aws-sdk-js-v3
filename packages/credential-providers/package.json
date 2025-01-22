@@ -42,6 +42,7 @@
     "@aws-sdk/credential-provider-web-identity": "*",
     "@aws-sdk/nested-clients": "*",
     "@aws-sdk/types": "*",
+    "@smithy/core": "^3.0.0",
     "@smithy/credential-provider-imds": "^4.0.0",
     "@smithy/property-provider": "^4.0.0",
     "@smithy/types": "^4.0.0",
