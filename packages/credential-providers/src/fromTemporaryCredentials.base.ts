@@ -74,6 +74,8 @@ export const fromTemporaryCredentials = (
         throw new Error("fromTemporaryCredentials recursion in callerClientConfig.credentials");
       } else if (credentialSources[3]) {
         credentialSource = "caller client's credentialDefaultProvider";
+      } else if (credentialSources[4]) {
+        credentialSource = "AWS SDK default credentials";
       }
 
       const regionSources = [options.clientConfig?.region, callerClientConfig?.region, ASSUME_ROLE_DEFAULT_REGION];
