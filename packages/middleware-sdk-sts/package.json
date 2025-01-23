@@ -24,7 +24,7 @@
   "dependencies": {
     "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/types": "*",
-    "@smithy/types": "^4.0.0",
+    "@smithy/types": "^4.1.0",
     "tslib": "^2.6.2"
   },
   "engines": {
