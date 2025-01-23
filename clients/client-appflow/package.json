@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-appflow",
   "description": "AWS SDK for JavaScript Appflow Client for Node.js, Browser and React Native",
-  "version": "3.731.1",
+  "version": "3.734.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-appflow",

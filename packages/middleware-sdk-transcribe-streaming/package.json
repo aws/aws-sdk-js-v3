@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-transcribe-streaming",
-  "version": "3.731.0",
+  "version": "3.734.0",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",

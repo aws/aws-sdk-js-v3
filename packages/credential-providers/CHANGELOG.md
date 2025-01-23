@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
+
+
+### Features
+
+* **credential-providers:** pass caller client options to fromTemporaryCredentials inner STSClient ([#6838](https://github.com/aws/aws-sdk-js-v3/issues/6838)) ([0d0b14e](https://github.com/aws/aws-sdk-js-v3/commit/0d0b14e8558299109eb98bdcd0fabd473728f548))
+
+
+
+
+
 # [3.733.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.732.0...v3.733.0) (2025-01-22)
 
 **Note:** Version bump only for package @aws-sdk/credential-providers
