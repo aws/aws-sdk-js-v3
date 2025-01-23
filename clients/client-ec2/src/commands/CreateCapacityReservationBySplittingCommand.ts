@@ -96,7 +96,7 @@ export interface CreateCapacityReservationBySplittingCommandOutput
  * //     PlacementGroupArn: "STRING_VALUE",
  * //     CapacityAllocations: [ // CapacityAllocations
  * //       { // CapacityAllocation
- * //         AllocationType: "used",
+ * //         AllocationType: "used" || "future",
  * //         Count: Number("int"),
  * //       },
  * //     ],
@@ -138,7 +138,7 @@ export interface CreateCapacityReservationBySplittingCommandOutput
  * //     PlacementGroupArn: "STRING_VALUE",
  * //     CapacityAllocations: [
  * //       {
- * //         AllocationType: "used",
+ * //         AllocationType: "used" || "future",
  * //         Count: Number("int"),
  * //       },
  * //     ],

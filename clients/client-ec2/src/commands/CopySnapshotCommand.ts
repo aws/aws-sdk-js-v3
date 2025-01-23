@@ -40,10 +40,11 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *     	however, you can specify a different KMS key. To copy an encrypted
  *     	snapshot that has been shared from another account, you must have permissions for the KMS key
  *     	used to encrypt the snapshot.</p>
- *          <p>Snapshots copied to an Outpost are encrypted by default using the default encryption key
- *       for the Region, or a different key that you specify in the request using <b>KmsKeyId</b>. Outposts do not support unencrypted snapshots. For more information,
- *       see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">Amazon EBS
- *         local snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.</p>
+ *          <p>Snapshots copied to an Outpost are encrypted by default using the default
+ *   		encryption key for the Region, or a different key that you specify in the request using
+ *   		<b>KmsKeyId</b>. Outposts do not support unencrypted
+ *   	  snapshots. For more information, <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">
+ *   			Amazon EBS local snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.</p>
  *          <p>Snapshots created by copying another snapshot have an arbitrary volume ID that should not
  *       be used for any purpose.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html">Copy an Amazon EBS snapshot</a> in the

@@ -1312,7 +1312,7 @@ export interface CreateNetworkInterfaceRequest {
   PrivateIpAddress?: string | undefined;
 
   /**
-   * <p>The IDs of the security groups.</p>
+   * <p>The IDs of one or more security groups.</p>
    * @public
    */
   Groups?: string[] | undefined;

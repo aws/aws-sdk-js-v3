@@ -8501,7 +8501,7 @@ export interface InstanceBlockDeviceMappingSpecification {
   VirtualName?: string | undefined;
 
   /**
-   * <p>Suppresses the specified device included in the block device mapping.</p>
+   * <p>suppress the specified device included in the block device mapping.</p>
    * @public
    */
   NoDevice?: string | undefined;

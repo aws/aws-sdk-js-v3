@@ -90,7 +90,7 @@ export interface DescribeCapacityReservationsCommandOutput
  * //       PlacementGroupArn: "STRING_VALUE",
  * //       CapacityAllocations: [ // CapacityAllocations
  * //         { // CapacityAllocation
- * //           AllocationType: "used",
+ * //           AllocationType: "used" || "future",
  * //           Count: Number("int"),
  * //         },
  * //       ],

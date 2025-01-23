@@ -3742,6 +3742,7 @@ export type AllocationStrategy = (typeof AllocationStrategy)[keyof typeof Alloca
  * @enum
  */
 export const AllocationType = {
+  future: "future",
   used: "used",
 } as const;
 
@@ -3902,7 +3903,7 @@ export interface AssignIpv6AddressesRequest {
   Ipv6PrefixCount?: number | undefined;
 
   /**
-   * <p>One or more IPv6 prefixes assigned to the network interface. You can't use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
+   * <p>One or more IPv6 prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
    * @public
    */
   Ipv6Prefixes?: string[] | undefined;
@@ -3960,13 +3961,13 @@ export interface AssignIpv6AddressesResult {
  */
 export interface AssignPrivateIpAddressesRequest {
   /**
-   * <p>One or more IPv4 prefixes assigned to the network interface. You can't use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
+   * <p>One or more IPv4 prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
    * @public
    */
   Ipv4Prefixes?: string[] | undefined;
 
   /**
-   * <p>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the network interface. You can't use this option if you use the <code>Ipv4 Prefixes</code> option.</p>
+   * <p>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code> option.</p>
    * @public
    */
   Ipv4PrefixCount?: number | undefined;

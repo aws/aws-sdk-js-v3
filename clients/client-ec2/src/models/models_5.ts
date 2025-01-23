@@ -2943,9 +2943,8 @@ export interface InstanceNetworkInterfaceSpecification {
   PrivateIpAddresses?: PrivateIpAddressSpecification[] | undefined;
 
   /**
-   * <p>The number of secondary private IPv4 addresses. You can’t specify this parameter and
-   *             also specify a secondary private IP address using the <code>PrivateIpAddress</code>
-   *             parameter.</p>
+   * <p>The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're
+   *         	launching more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
    * @public
    */
   SecondaryPrivateIpAddressCount?: number | undefined;

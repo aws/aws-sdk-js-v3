@@ -28,7 +28,7 @@ export interface UnassignIpv6AddressesCommandInput extends UnassignIpv6Addresses
 export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6AddressesResult, __MetadataBearer {}
 
 /**
- * <p>Unassigns the specified IPv6 addresses or Prefix Delegation prefixes from a network interface.</p>
+ * <p>Unassigns one or more IPv6 addresses IPv4 Prefix Delegation prefixes from a network interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

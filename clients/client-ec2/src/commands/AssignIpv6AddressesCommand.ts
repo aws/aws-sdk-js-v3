@@ -28,11 +28,11 @@ export interface AssignIpv6AddressesCommandInput extends AssignIpv6AddressesRequ
 export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesResult, __MetadataBearer {}
 
 /**
- * <p>Assigns the specified IPv6 addresses to the specified network interface. You can
- *             specify specific IPv6 addresses, or you can specify the number of IPv6
- *             addresses to be automatically assigned from the subnet's IPv6 CIDR block range.
+ * <p>Assigns one or more IPv6 addresses to the specified network interface. You can
+ *             specify one or more specific IPv6 addresses, or you can specify the number of IPv6
+ *             addresses to be automatically assigned from within the subnet's IPv6 CIDR block range.
  *             You can assign as many IPv6 addresses to a network interface as you can assign private
- *             IPv4 addresses, and the limit varies by instance type.</p>
+ *             IPv4 addresses, and the limit varies per instance type.</p>
  *          <p>You must specify either the IPv6 addresses or the IPv6 address count in the request. </p>
  *          <p>You can optionally use Prefix Delegation on the network interface. You must specify
  *             either the IPV6 Prefix Delegation prefixes, or the IPv6 Prefix Delegation count. For

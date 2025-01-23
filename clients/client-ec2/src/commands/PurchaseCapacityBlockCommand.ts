@@ -86,7 +86,7 @@ export interface PurchaseCapacityBlockCommandOutput extends PurchaseCapacityBloc
  * //     PlacementGroupArn: "STRING_VALUE",
  * //     CapacityAllocations: [ // CapacityAllocations
  * //       { // CapacityAllocation
- * //         AllocationType: "used",
+ * //         AllocationType: "used" || "future",
  * //         Count: Number("int"),
  * //       },
  * //     ],

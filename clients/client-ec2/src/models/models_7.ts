@@ -9445,7 +9445,7 @@ export interface UnassignIpv6AddressesResult {
   UnassignedIpv6Addresses?: string[] | undefined;
 
   /**
-   * <p>The IPv6 prefixes that have been unassigned from  the network interface.</p>
+   * <p>The IPv4 prefixes that have been unassigned from  the network interface.</p>
    * @public
    */
   UnassignedIpv6Prefixes?: string[] | undefined;

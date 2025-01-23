@@ -103,7 +103,7 @@ export interface MoveCapacityReservationInstancesCommandOutput
  * //     PlacementGroupArn: "STRING_VALUE",
  * //     CapacityAllocations: [ // CapacityAllocations
  * //       { // CapacityAllocation
- * //         AllocationType: "used",
+ * //         AllocationType: "used" || "future",
  * //         Count: Number("int"),
  * //       },
  * //     ],
@@ -145,7 +145,7 @@ export interface MoveCapacityReservationInstancesCommandOutput
  * //     PlacementGroupArn: "STRING_VALUE",
  * //     CapacityAllocations: [
  * //       {
- * //         AllocationType: "used",
+ * //         AllocationType: "used" || "future",
  * //         Count: Number("int"),
  * //       },
  * //     ],
