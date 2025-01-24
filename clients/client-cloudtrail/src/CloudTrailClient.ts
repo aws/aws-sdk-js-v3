@@ -128,6 +128,10 @@ import {
   RestoreEventDataStoreCommandOutput,
 } from "./commands/RestoreEventDataStoreCommand";
 import {
+  SearchSampleQueriesCommandInput,
+  SearchSampleQueriesCommandOutput,
+} from "./commands/SearchSampleQueriesCommand";
+import {
   StartDashboardRefreshCommandInput,
   StartDashboardRefreshCommandOutput,
 } from "./commands/StartDashboardRefreshCommand";
@@ -210,6 +214,7 @@ export type ServiceInputTypes =
   | RegisterOrganizationDelegatedAdminCommandInput
   | RemoveTagsCommandInput
   | RestoreEventDataStoreCommandInput
+  | SearchSampleQueriesCommandInput
   | StartDashboardRefreshCommandInput
   | StartEventDataStoreIngestionCommandInput
   | StartImportCommandInput
@@ -271,6 +276,7 @@ export type ServiceOutputTypes =
   | RegisterOrganizationDelegatedAdminCommandOutput
   | RemoveTagsCommandOutput
   | RestoreEventDataStoreCommandOutput
+  | SearchSampleQueriesCommandOutput
   | StartDashboardRefreshCommandOutput
   | StartEventDataStoreIngestionCommandOutput
   | StartImportCommandOutput

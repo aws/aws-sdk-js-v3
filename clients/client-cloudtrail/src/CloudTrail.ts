@@ -176,6 +176,11 @@ import {
   RestoreEventDataStoreCommandOutput,
 } from "./commands/RestoreEventDataStoreCommand";
 import {
+  SearchSampleQueriesCommand,
+  SearchSampleQueriesCommandInput,
+  SearchSampleQueriesCommandOutput,
+} from "./commands/SearchSampleQueriesCommand";
+import {
   StartDashboardRefreshCommand,
   StartDashboardRefreshCommandInput,
   StartDashboardRefreshCommandOutput,
@@ -261,6 +266,7 @@ const commands = {
   RegisterOrganizationDelegatedAdminCommand,
   RemoveTagsCommand,
   RestoreEventDataStoreCommand,
+  SearchSampleQueriesCommand,
   StartDashboardRefreshCommand,
   StartEventDataStoreIngestionCommand,
   StartImportCommand,
@@ -897,6 +903,23 @@ export interface CloudTrail {
     args: RestoreEventDataStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RestoreEventDataStoreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchSampleQueriesCommand}
+   */
+  searchSampleQueries(
+    args: SearchSampleQueriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchSampleQueriesCommandOutput>;
+  searchSampleQueries(
+    args: SearchSampleQueriesCommandInput,
+    cb: (err: any, data?: SearchSampleQueriesCommandOutput) => void
+  ): void;
+  searchSampleQueries(
+    args: SearchSampleQueriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchSampleQueriesCommandOutput) => void
   ): void;
 
   /**

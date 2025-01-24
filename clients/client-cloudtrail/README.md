@@ -573,6 +573,14 @@ RestoreEventDataStore
 </details>
 <details>
 <summary>
+SearchSampleQueries
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudtrail/command/SearchSampleQueriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudtrail/Interface/SearchSampleQueriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudtrail/Interface/SearchSampleQueriesCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartDashboardRefresh
 </summary>
 

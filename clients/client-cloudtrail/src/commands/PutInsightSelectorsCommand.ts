@@ -43,7 +43,7 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  *             <code>write</code> management events. You can call <code>GetEventSelectors</code> on a trail
  *          to check whether the trail logs management events. You can call <code>GetEventDataStore</code> on an
  *       event data store to check whether the event data store logs management events.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging CloudTrail Insights events</a> in the <i>CloudTrail User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Working with CloudTrail Insights</a> in the <i>CloudTrail User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

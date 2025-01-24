@@ -43,6 +43,7 @@ export * from "./PutResourcePolicyCommand";
 export * from "./RegisterOrganizationDelegatedAdminCommand";
 export * from "./RemoveTagsCommand";
 export * from "./RestoreEventDataStoreCommand";
+export * from "./SearchSampleQueriesCommand";
 export * from "./StartDashboardRefreshCommand";
 export * from "./StartEventDataStoreIngestionCommand";
 export * from "./StartImportCommand";

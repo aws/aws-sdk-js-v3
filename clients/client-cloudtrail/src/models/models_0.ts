@@ -662,7 +662,11 @@ export interface AdvancedFieldSelector {
    *          selecting events as filtering is not supported.</p>
    *          <p>For more information, see
    *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html">AdvancedFieldSelector</a>
-   *          in the <i>CloudTrailUser Guide</i>.</p>
+   *          in the <i>CloudTrail API Reference</i>.</p>
+   *          <note>
+   *             <p>Selectors don't support the use of wildcards like <code>*</code> . To match multiple values with a single condition,
+   *             you may use <code>StartsWith</code>, <code>EndsWith</code>, <code>NotStartsWith</code>, or <code>NotEndsWith</code> to explicitly match the beginning or end of the event field.</p>
+   *          </note>
    * @public
    */
   Field: string | undefined;
@@ -719,7 +723,7 @@ export interface AdvancedFieldSelector {
  *          <p>You cannot apply both event selectors and advanced event selectors to a trail.</p>
  *          <p>For information about configurable advanced event selector fields, see
  *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelector</a>
- *          in the <i>CloudTrailUser Guide</i>.</p>
+ *          in the <i>CloudTrail API Reference</i>.</p>
  * @public
  */
 export interface AdvancedEventSelector {
@@ -6866,6 +6870,94 @@ export interface RestoreEventDataStoreResponse {
    * @public
    */
   BillingMode?: BillingMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchSampleQueriesRequest {
+  /**
+   * <p>
+   *          The natural language phrase to use for the semantic search. The phrase must be in English. The length constraint is in characters, not words.</p>
+   * @public
+   */
+  SearchPhrase: string | undefined;
+
+  /**
+   * <p>
+   *          The maximum number of results to return on a single page. The default value is 10.
+   *       </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>
+   *          A token you can use to get the next page of results. The length constraint is in characters, not words.
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>
+ *          A search result returned by the <code>SearchSampleQueries</code> operation.
+ *       </p>
+ * @public
+ */
+export interface SearchSampleQueriesSearchResult {
+  /**
+   * <p>
+   *          The name of a sample query.
+   *       </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>
+   *          A longer description of a sample query.
+   *       </p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>
+   *          The SQL code of the sample query.
+   *       </p>
+   * @public
+   */
+  SQL?: string | undefined;
+
+  /**
+   * <p>
+   *          A value between 0 and 1 indicating the similarity between the search phrase and result.
+   *       </p>
+   * @public
+   */
+  Relevance?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchSampleQueriesResponse {
+  /**
+   * <p>
+   *          A list of objects containing the search results ordered from most relevant to least relevant.
+   *       </p>
+   * @public
+   */
+  SearchResults?: SearchSampleQueriesSearchResult[] | undefined;
+
+  /**
+   * <p>
+   *          A token you can use to get the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**

@@ -12,6 +12,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
   take,
   withBaseException,
@@ -97,6 +98,10 @@ import {
   RestoreEventDataStoreCommandInput,
   RestoreEventDataStoreCommandOutput,
 } from "../commands/RestoreEventDataStoreCommand";
+import {
+  SearchSampleQueriesCommandInput,
+  SearchSampleQueriesCommandOutput,
+} from "../commands/SearchSampleQueriesCommand";
 import {
   StartDashboardRefreshCommandInput,
   StartDashboardRefreshCommandOutput,
@@ -280,6 +285,9 @@ import {
   RestoreEventDataStoreResponse,
   S3BucketDoesNotExistException,
   S3ImportSource,
+  SearchSampleQueriesRequest,
+  SearchSampleQueriesResponse,
+  SearchSampleQueriesSearchResult,
   ServiceQuotaExceededException,
   StartDashboardRefreshRequest,
   StartEventDataStoreIngestionRequest,
@@ -873,6 +881,19 @@ export const se_RestoreEventDataStoreCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RestoreEventDataStore");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1SearchSampleQueriesCommand
+ */
+export const se_SearchSampleQueriesCommand = async (
+  input: SearchSampleQueriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("SearchSampleQueries");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1908,6 +1929,26 @@ export const de_RestoreEventDataStoreCommand = async (
   let contents: any = {};
   contents = de_RestoreEventDataStoreResponse(data, context);
   const response: RestoreEventDataStoreCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SearchSampleQueriesCommand
+ */
+export const de_SearchSampleQueriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchSampleQueriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SearchSampleQueriesResponse(data, context);
+  const response: SearchSampleQueriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3973,6 +4014,8 @@ const se_LookupEventsRequest = (input: LookupEventsRequest, context: __SerdeCont
 
 // se_S3ImportSource omitted.
 
+// se_SearchSampleQueriesRequest omitted.
+
 // se_StartDashboardRefreshRequest omitted.
 
 // se_StartEventDataStoreIngestionRequest omitted.
@@ -4725,6 +4768,43 @@ const de_RestoreEventDataStoreResponse = (output: any, context: __SerdeContext):
 // de_S3BucketDoesNotExistException omitted.
 
 // de_S3ImportSource omitted.
+
+/**
+ * deserializeAws_json1_1SearchSampleQueriesResponse
+ */
+const de_SearchSampleQueriesResponse = (output: any, context: __SerdeContext): SearchSampleQueriesResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    SearchResults: (_: any) => de_SearchSampleQueriesSearchResults(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SearchSampleQueriesSearchResult
+ */
+const de_SearchSampleQueriesSearchResult = (output: any, context: __SerdeContext): SearchSampleQueriesSearchResult => {
+  return take(output, {
+    Description: __expectString,
+    Name: __expectString,
+    Relevance: __limitedParseFloat32,
+    SQL: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SearchSampleQueriesSearchResults
+ */
+const de_SearchSampleQueriesSearchResults = (
+  output: any,
+  context: __SerdeContext
+): SearchSampleQueriesSearchResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SearchSampleQueriesSearchResult(entry, context);
+    });
+  return retVal;
+};
 
 // de_ServiceQuotaExceededException omitted.
 
