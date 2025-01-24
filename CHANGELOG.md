@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.735.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.734.0...v3.735.0) (2025-01-24)
+
+
+### Bug Fixes
+
+* **middleware-flexible-checksum:** remove stream collection code ([#6846](https://github.com/aws/aws-sdk-js-v3/issues/6846)) ([9f9fe77](https://github.com/aws/aws-sdk-js-v3/commit/9f9fe77b9f8e24ce2cad7e42ca58e2466bc969b2))
+
+
+### Features
+
+* **client-cloudtrail:** This release introduces the SearchSampleQueries API that allows users to search for CloudTrail Lake sample queries. ([d4cfdc2](https://github.com/aws/aws-sdk-js-v3/commit/d4cfdc230cecf9741faecd75285748fe4d99f525))
+* **client-eks:** Adds support for UpdateStrategies in EKS Managed Node Groups. ([a6183ad](https://github.com/aws/aws-sdk-js-v3/commit/a6183ad3d710f3cb77d1a6a188be3c794e668d2a))
+* **client-healthlake:** Added new authorization strategy value 'SMART_ON_FHIR' for CreateFHIRDatastore API to support Smart App 2.0 ([04316b8](https://github.com/aws/aws-sdk-js-v3/commit/04316b8ee7dd79fa9d0d62f534a800a2378090f5))
+* **client-transfer:** Added CustomDirectories as a new directory option for storing inbound AS2 messages, MDN files and Status files. ([2db3a35](https://github.com/aws/aws-sdk-js-v3/commit/2db3a35872970dd72e5f317cadba64c2c2510664))
+
+
+
+
+
 # [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
 
 

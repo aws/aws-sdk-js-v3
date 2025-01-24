@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.735.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.734.0...v3.735.0) (2025-01-24)
+
+
+### Bug Fixes
+
+* **middleware-flexible-checksum:** remove stream collection code ([#6846](https://github.com/aws/aws-sdk-js-v3/issues/6846)) ([9f9fe77](https://github.com/aws/aws-sdk-js-v3/commit/9f9fe77b9f8e24ce2cad7e42ca58e2466bc969b2))
+
+
+
+
+
 # [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
 
 **Note:** Version bump only for package @aws-sdk/middleware-flexible-checksums

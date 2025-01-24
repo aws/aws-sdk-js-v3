@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.735.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.734.0...v3.735.0) (2025-01-24)
+
+
+### Features
+
+* **client-transfer:** Added CustomDirectories as a new directory option for storing inbound AS2 messages, MDN files and Status files. ([2db3a35](https://github.com/aws/aws-sdk-js-v3/commit/2db3a35872970dd72e5f317cadba64c2c2510664))
+
+
+
+
+
 # [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-transfer

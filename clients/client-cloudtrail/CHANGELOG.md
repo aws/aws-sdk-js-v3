@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.735.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.734.0...v3.735.0) (2025-01-24)
+
+
+### Features
+
+* **client-cloudtrail:** This release introduces the SearchSampleQueries API that allows users to search for CloudTrail Lake sample queries. ([d4cfdc2](https://github.com/aws/aws-sdk-js-v3/commit/d4cfdc230cecf9741faecd75285748fe4d99f525))
+
+
+
+
+
 # [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudtrail
