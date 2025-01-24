@@ -30,7 +30,7 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
 /**
  * <p>Returns all State Manager associations in the current Amazon Web Services account and Amazon Web Services Region. You
  *    can limit the results to a specific State Manager association document or managed node by
- *    specifying a filter. State Manager is a capability of Amazon Web Services Systems Manager.</p>
+ *    specifying a filter. State Manager is a tool in Amazon Web Services Systems Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

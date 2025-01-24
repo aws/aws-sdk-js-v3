@@ -36,7 +36,7 @@ export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse,
  *          <p>If you specify more than one calendar in a request, the command returns the status of
  *     <code>OPEN</code> only if all calendars in the request are open. If one or more calendars in the
  *    request are closed, the status returned is <code>CLOSED</code>.</p>
- *          <p>For more information about Change Calendar, a capability of Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">Amazon Web Services Systems Manager Change Calendar</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *          <p>For more information about Change Calendar, a tool in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">Amazon Web Services Systems Manager Change Calendar</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -439,7 +439,7 @@ export interface SendCommandRequest {
 
   /**
    * <p>Enables Amazon Web Services Systems Manager to send Run Command output to Amazon CloudWatch Logs. Run Command is a
-   *    capability of Amazon Web Services Systems Manager.</p>
+   *    tool in Amazon Web Services Systems Manager.</p>
    * @public
    */
   CloudWatchOutputConfig?: CloudWatchOutputConfig | undefined;
@@ -709,8 +709,11 @@ export interface StartAutomationExecutionRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>To add tags to an existing automation, use the <a>AddTagsToResource</a>
-   *     operation.</p>
+   *             <p>The <code>Array Members</code> maximum value is reported as 1000. This number includes
+   *     capacity reserved for internal operations. When calling the
+   *      <code>StartAutomationExecution</code> action, you can specify a maximum of 5 tags. You can,
+   *     however, use the <a>AddTagsToResource</a> action to add up to a total of 50 tags to
+   *     an existing automation configuration.</p>
    *          </note>
    * @public
    */
@@ -854,6 +857,13 @@ export interface StartChangeRequestExecutionRequest {
    *                </p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>The <code>Array Members</code> maximum value is reported as 1000. This number includes
+   *     capacity reserved for internal operations. When calling the
+   *      <code>StartChangeRequestExecution</code> action, you can specify a maximum of 5 tags. You can,
+   *     however, use the <a>AddTagsToResource</a> action to add up to a total of 50 tags to
+   *     an existing change request configuration.</p>
+   *          </note>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -1069,8 +1079,10 @@ export interface StartSessionRequest {
   Reason?: string | undefined;
 
   /**
-   * <p>The values you want to specify for the parameters defined in the Session
-   *    document.</p>
+   * <p>The values you want to specify for the parameters defined in the Session document.
+   *    For more information about these parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/getting-started-create-preferences-cli.html">Create a
+   *     Session Manager preferences document</a> in the
+   *    <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   Parameters?: Record<string, string[]> | undefined;
@@ -1320,7 +1332,7 @@ export interface UpdateAssociationRequest {
 
   /**
    * <p>The parameters you want to update for the association. If you create a parameter using
-   *    Parameter Store, a capability of Amazon Web Services Systems Manager, you can reference the parameter using
+   *    Parameter Store, a tool in Amazon Web Services Systems Manager, you can reference the parameter using
    *     <code>\{\{ssm:parameter-name\}\}</code>.</p>
    * @public
    */
@@ -1396,7 +1408,7 @@ export interface UpdateAssociationRequest {
   /**
    * <p>Choose the parameter that will define how your automation will branch out. This target is
    *    required for associations that use an Automation runbook and target resources by using rate
-   *    controls. Automation is a capability of Amazon Web Services Systems Manager.</p>
+   *    controls. Automation is a tool in Amazon Web Services Systems Manager.</p>
    * @public
    */
   AutomationTargetParameterName?: string | undefined;
@@ -1443,8 +1455,7 @@ export interface UpdateAssociationRequest {
    *    successfully, the association is <code>NON-COMPLIANT</code>.</p>
    *          <p>In <code>MANUAL</code> mode, you must specify the <code>AssociationId</code> as a parameter
    *    for the <a>PutComplianceItems</a> API operation. In this case, compliance data isn't
-   *    managed by State Manager, a capability of Amazon Web Services Systems Manager. It is managed by your direct call to the
-   *     <a>PutComplianceItems</a> API operation.</p>
+   *    managed by State Manager, a tool in Amazon Web Services Systems Manager. It is managed by your direct call to the <a>PutComplianceItems</a> API operation.</p>
    *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    * @public
    */

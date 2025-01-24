@@ -34,7 +34,7 @@ export interface DisassociateOpsItemRelatedItemCommandOutput
 
 /**
  * <p>Deletes the association between an OpsItem and a related item. For example, this API
- *    operation can delete an Incident Manager incident from an OpsItem. Incident Manager is a capability of
+ *    operation can delete an Incident Manager incident from an OpsItem. Incident Manager is a tool in
  *    Amazon Web Services Systems Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -32,7 +32,7 @@ export interface GetParametersByPathCommandInput extends GetParametersByPathRequ
 export interface GetParametersByPathCommandOutput extends GetParametersByPathResult, __MetadataBearer {}
 
 /**
- * <p>Retrieve information about one or more parameters in a specific hierarchy. </p>
+ * <p>Retrieve information about one or more parameters under a specified level in a hierarchy. </p>
  *          <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
  *    in the request, the response includes information up to the limit specified. The number of items
  *    returned, however, can be between zero and the value of <code>MaxResults</code>. If the service

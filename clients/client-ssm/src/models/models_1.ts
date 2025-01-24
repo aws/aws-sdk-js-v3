@@ -982,8 +982,8 @@ export interface ParameterInlinePolicy {
   PolicyText?: string | undefined;
 
   /**
-   * <p>The type of policy. Parameter Store, a capability of Amazon Web Services Systems Manager, supports the following
-   *    policy types: Expiration, ExpirationNotification, and NoChangeNotification. </p>
+   * <p>The type of policy. Parameter Store, a tool in Amazon Web Services Systems Manager, supports the following policy
+   *    types: Expiration, ExpirationNotification, and NoChangeNotification. </p>
    * @public
    */
   PolicyType?: string | undefined;
@@ -1428,7 +1428,7 @@ export interface DescribePatchGroupStateResult {
 
   /**
    * <p>The number of managed nodes with <code>NotApplicable</code> patches beyond the supported
-   *    limit, which aren't reported by name to Inventory. Inventory is a capability of Amazon Web Services Systems Manager.</p>
+   *    limit, which aren't reported by name to Inventory. Inventory is a tool in Amazon Web Services Systems Manager.</p>
    * @public
    */
   InstancesWithUnreportedNotApplicablePatches?: number | undefined;
@@ -5969,8 +5969,7 @@ export interface AssociationVersionInfo {
    *    successfully, the association is <code>NON-COMPLIANT</code>.</p>
    *          <p>In <code>MANUAL</code> mode, you must specify the <code>AssociationId</code> as a parameter
    *    for the <a>PutComplianceItems</a> API operation. In this case, compliance data isn't
-   *    managed by State Manager, a capability of Amazon Web Services Systems Manager. It is managed by your direct call to the
-   *     <a>PutComplianceItems</a> API operation.</p>
+   *    managed by State Manager, a tool in Amazon Web Services Systems Manager. It is managed by your direct call to the <a>PutComplianceItems</a> API operation.</p>
    *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    * @public
    */
@@ -6626,9 +6625,9 @@ export interface CommandInvocation {
   CommandPlugins?: CommandPlugin[] | undefined;
 
   /**
-   * <p>The Identity and Access Management (IAM) service role that Run Command, a capability
-   *    of Amazon Web Services Systems Manager, uses to act on your behalf when sending notifications about command status changes
-   *    on a per managed node basis.</p>
+   * <p>The Identity and Access Management (IAM) service role that Run Command, a tool in
+   *    Amazon Web Services Systems Manager, uses to act on your behalf when sending notifications about command status changes on
+   *    a per managed node basis.</p>
    * @public
    */
   ServiceRole?: string | undefined;
@@ -6921,8 +6920,8 @@ export interface Command {
   DeliveryTimedOutCount?: number | undefined;
 
   /**
-   * <p>The Identity and Access Management (IAM) service role that Run Command, a capability
-   *    of Amazon Web Services Systems Manager, uses to act on your behalf when sending notifications about command status changes.
+   * <p>The Identity and Access Management (IAM) service role that Run Command, a tool in
+   *    Amazon Web Services Systems Manager, uses to act on your behalf when sending notifications about command status changes.
    *   </p>
    * @public
    */
@@ -10024,8 +10023,8 @@ export interface PutParameterRequest {
    *    limit of 4 KB. Advanced parameters have a value limit of 8 KB.</p>
    *          <note>
    *             <p>Parameters can't be referenced or nested in the values of other parameters. You can't
-   *     include <code>\{\{\}\}</code> or <code>\{\{ssm:<i>parameter-name</i>\}\}</code> in a
-   *     parameter value.</p>
+   *     include values wrapped in double brackets <code>\{\{\}\}</code> or
+   *       <code>\{\{ssm:<i>parameter-name</i>\}\}</code> in a parameter value.</p>
    *          </note>
    * @public
    */
@@ -10172,7 +10171,7 @@ export interface PutParameterRequest {
 
   /**
    * <p>One or more policies to apply to a parameter. This operation takes a JSON array. Parameter
-   *    Store, a capability of Amazon Web Services Systems Manager supports the following policy types:</p>
+   *    Store, a tool in Amazon Web Services Systems Manager supports the following policy types:</p>
    *          <p>Expiration: This policy deletes the parameter after it expires. When you create the policy,
    *    you specify the expiration date. You can update the expiration date and time by updating the
    *    policy. Updating the <i>parameter</i> doesn't affect the expiration date and time.

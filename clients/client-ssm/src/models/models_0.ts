@@ -989,7 +989,7 @@ export type AssociationSyncCompliance = (typeof AssociationSyncCompliance)[keyof
  *          </note>
  *          <p>Supported formats include the following.</p>
  *          <p>
- *             <b>For all Systems Manager capabilities:</b>
+ *             <b>For all Systems Manager tools:</b>
  *          </p>
  *          <ul>
  *             <li>
@@ -1291,7 +1291,7 @@ export interface CreateAssociationRequest {
   /**
    * <p>Choose the parameter that will define how your automation will branch out. This target is
    *    required for associations that use an Automation runbook and target resources by using rate
-   *    controls. Automation is a capability of Amazon Web Services Systems Manager.</p>
+   *    controls. Automation is a tool in Amazon Web Services Systems Manager.</p>
    * @public
    */
   AutomationTargetParameterName?: string | undefined;
@@ -1557,7 +1557,7 @@ export interface AssociationDescription {
   /**
    * <p>Choose the parameter that will define how your automation will branch out. This target is
    *    required for associations that use an Automation runbook and target resources by using rate
-   *    controls. Automation is a capability of Amazon Web Services Systems Manager.</p>
+   *    controls. Automation is a tool in Amazon Web Services Systems Manager.</p>
    * @public
    */
   AutomationTargetParameterName?: string | undefined;
@@ -1652,8 +1652,7 @@ export interface AssociationDescription {
    *    successfully, the association is <code>NON-COMPLIANT</code>.</p>
    *          <p>In <code>MANUAL</code> mode, you must specify the <code>AssociationId</code> as a parameter
    *    for the <a>PutComplianceItems</a> API operation. In this case, compliance data isn't
-   *    managed by State Manager, a capability of Amazon Web Services Systems Manager. It is managed by your direct call to the
-   *     <a>PutComplianceItems</a> API operation.</p>
+   *    managed by State Manager, a tool in Amazon Web Services Systems Manager. It is managed by your direct call to the <a>PutComplianceItems</a> API operation.</p>
    *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    * @public
    */
@@ -1963,7 +1962,7 @@ export interface CreateAssociationBatchRequestEntry {
 
   /**
    * <p>Specify the target for the association. This target is required for associations that use an
-   *    Automation runbook and target resources by using rate controls. Automation is a capability of
+   *    Automation runbook and target resources by using rate controls. Automation is a tool in
    *    Amazon Web Services Systems Manager.</p>
    * @public
    */
@@ -2041,8 +2040,7 @@ export interface CreateAssociationBatchRequestEntry {
    *    successfully, the association is <code>NON-COMPLIANT</code>. </p>
    *          <p>In <code>MANUAL</code> mode, you must specify the <code>AssociationId</code> as a parameter
    *    for the <a>PutComplianceItems</a> API operation. In this case, compliance data isn't
-   *    managed by State Manager, a capability of Amazon Web Services Systems Manager. It is managed by your direct call to the
-   *     <a>PutComplianceItems</a> API operation.</p>
+   *    managed by State Manager, a tool in Amazon Web Services Systems Manager. It is managed by your direct call to the <a>PutComplianceItems</a> API operation.</p>
    *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    * @public
    */
@@ -8242,7 +8240,7 @@ export interface InstancePatchState {
 
   /**
    * <p>The number of patches beyond the supported limit of <code>NotApplicableCount</code> that
-   *    aren't reported by name to Inventory. Inventory is a capability of Amazon Web Services Systems Manager.</p>
+   *    aren't reported by name to Inventory. Inventory is a tool in Amazon Web Services Systems Manager.</p>
    * @public
    */
   UnreportedNotApplicableCount?: number | undefined;

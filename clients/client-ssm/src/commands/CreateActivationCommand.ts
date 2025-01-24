@@ -30,8 +30,8 @@ export interface CreateActivationCommandOutput extends CreateActivationResult, _
 /**
  * <p>Generates an activation code and activation ID you can use to register your on-premises
  *    servers, edge devices, or virtual machine (VM) with Amazon Web Services Systems Manager. Registering these machines with
- *    Systems Manager makes it possible to manage them using Systems Manager capabilities. You use the activation code and
- *    ID when installing SSM Agent on machines in your hybrid environment. For more information about
+ *    Systems Manager makes it possible to manage them using Systems Manager tools. You use the activation code and ID when
+ *    installing SSM Agent on machines in your hybrid environment. For more information about
  *    requirements for managing on-premises machines using Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-hybrid-multicloud.html">Using Amazon Web Services Systems Manager in
  *     hybrid and multicloud environments</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
  *          <note>

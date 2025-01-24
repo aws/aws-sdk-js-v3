@@ -42,9 +42,9 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  *    primarily used by the <code>AWS-RunPatchBaseline</code> Systems Manager document (SSM document).</p>
  *          <note>
  *             <p>If you run the command locally, such as with the Command Line Interface (CLI), the system attempts to use your local Amazon Web Services credentials and the operation fails. To avoid
- *     this, you can run the command in the Amazon Web Services Systems Manager console. Use Run Command, a capability of
- *     Amazon Web Services Systems Manager, with an SSM document that enables you to target a managed node with a script or
- *     command. For example, run the command using the <code>AWS-RunShellScript</code> document or the
+ *     this, you can run the command in the Amazon Web Services Systems Manager console. Use Run Command, a tool in Amazon Web Services Systems Manager,
+ *     with an SSM document that enables you to target a managed node with a script or command. For
+ *     example, run the command using the <code>AWS-RunShellScript</code> document or the
  *      <code>AWS-RunPowerShellScript</code> document.</p>
  *          </note>
  * @example
