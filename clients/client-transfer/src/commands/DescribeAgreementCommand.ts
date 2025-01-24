@@ -60,6 +60,13 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementRespons
  * //     ],
  * //     PreserveFilename: "ENABLED" || "DISABLED",
  * //     EnforceMessageSigning: "ENABLED" || "DISABLED",
+ * //     CustomDirectories: { // CustomDirectoriesType
+ * //       FailedFilesDirectory: "STRING_VALUE", // required
+ * //       MdnFilesDirectory: "STRING_VALUE", // required
+ * //       PayloadFilesDirectory: "STRING_VALUE", // required
+ * //       StatusFilesDirectory: "STRING_VALUE", // required
+ * //       TemporaryFilesDirectory: "STRING_VALUE", // required
+ * //     },
  * //   },
  * // };
  *

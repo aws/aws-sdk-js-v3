@@ -135,6 +135,7 @@ import {
   CreateUserRequest,
   CreateWebAppRequest,
   CreateWorkflowRequest,
+  CustomDirectoriesType,
   CustomStepDetails,
   DecryptStepDetails,
   DeleteAccessRequest,
@@ -2684,6 +2685,8 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CreateWorkflowRequest omitted.
 
+// se_CustomDirectoriesType omitted.
+
 // se_CustomStepDetails omitted.
 
 // se_DecryptStepDetails omitted.
@@ -2949,6 +2952,8 @@ const se_UpdateWebAppCustomizationRequest = (input: UpdateWebAppCustomizationReq
 // de_CreateWebAppResponse omitted.
 
 // de_CreateWorkflowResponse omitted.
+
+// de_CustomDirectoriesType omitted.
 
 // de_CustomStepDetails omitted.
 

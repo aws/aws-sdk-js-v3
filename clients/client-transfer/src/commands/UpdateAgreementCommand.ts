@@ -31,6 +31,11 @@ export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, _
  * <p>Updates some of the parameters for an existing agreement. Provide the
  *         <code>AgreementId</code> and the <code>ServerId</code> for the agreement that you want to
  *       update, along with the new values for the parameters to update.</p>
+ *          <note>
+ *             <p>Specify <i>either</i>
+ *                <code>BaseDirectory</code> or <code>CustomDirectories</code>, but not both. Specifying both causes the command to fail.</p>
+ *             <p>If you update an agreement from using base directory to custom directories, the base directory is no longer used. Similarly, if you change from custom directories to a base directory, the custom directories are no longer used.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,6 +53,13 @@ export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, _
  *   AccessRole: "STRING_VALUE",
  *   PreserveFilename: "ENABLED" || "DISABLED",
  *   EnforceMessageSigning: "ENABLED" || "DISABLED",
+ *   CustomDirectories: { // CustomDirectoriesType
+ *     FailedFilesDirectory: "STRING_VALUE", // required
+ *     MdnFilesDirectory: "STRING_VALUE", // required
+ *     PayloadFilesDirectory: "STRING_VALUE", // required
+ *     StatusFilesDirectory: "STRING_VALUE", // required
+ *     TemporaryFilesDirectory: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new UpdateAgreementCommand(input);
  * const response = await client.send(command);

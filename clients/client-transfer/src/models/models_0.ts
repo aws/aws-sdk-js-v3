@@ -26,6 +26,42 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * <p>Contains Amazon S3 locations for storing specific types of AS2 message files.</p>
+ * @public
+ */
+export interface CustomDirectoriesType {
+  /**
+   * <p>Specifies a location to store failed AS2 message files.</p>
+   * @public
+   */
+  FailedFilesDirectory: string | undefined;
+
+  /**
+   * <p>Specifies a location to store MDN files.</p>
+   * @public
+   */
+  MdnFilesDirectory: string | undefined;
+
+  /**
+   * <p>Specifies a location to store the payload for AS2 message files.</p>
+   * @public
+   */
+  PayloadFilesDirectory: string | undefined;
+
+  /**
+   * <p>Specifies a location to store AS2 status messages.</p>
+   * @public
+   */
+  StatusFilesDirectory: string | undefined;
+
+  /**
+   * <p>Specifies a location to store temporary AS2 message files.</p>
+   * @public
+   */
+  TemporaryFilesDirectory: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -124,7 +160,7 @@ export interface CreateAgreementRequest {
    *       <code>/<i>amzn-s3-demo-bucket</i>/home/mydirectory</code>.</p>
    * @public
    */
-  BaseDirectory: string | undefined;
+  BaseDirectory?: string | undefined;
 
   /**
    * <p>Connectors are used to send files using either the AS2 or SFTP protocol. For the access role,
@@ -208,6 +244,29 @@ export interface CreateAgreementRequest {
    * @public
    */
   EnforceMessageSigning?: EnforceMessageSigningType | undefined;
+
+  /**
+   * <p>A <code>CustomDirectoriesType</code> structure. This structure specifies custom directories for storing various AS2 message files. You can specify directories for the following types of files.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Failed files</p>
+   *             </li>
+   *             <li>
+   *                <p>MDN files</p>
+   *             </li>
+   *             <li>
+   *                <p>Payload files</p>
+   *             </li>
+   *             <li>
+   *                <p>Status files</p>
+   *             </li>
+   *             <li>
+   *                <p>Temporary files</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CustomDirectories?: CustomDirectoriesType | undefined;
 }
 
 /**
@@ -529,6 +588,29 @@ export interface DescribedAgreement {
    * @public
    */
   EnforceMessageSigning?: EnforceMessageSigningType | undefined;
+
+  /**
+   * <p>A <code>CustomDirectoriesType</code> structure. This structure specifies custom directories for storing various AS2 message files. You can specify directories for the following types of files.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Failed files</p>
+   *             </li>
+   *             <li>
+   *                <p>MDN files</p>
+   *             </li>
+   *             <li>
+   *                <p>Payload files</p>
+   *             </li>
+   *             <li>
+   *                <p>Status files</p>
+   *             </li>
+   *             <li>
+   *                <p>Temporary files</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CustomDirectories?: CustomDirectoriesType | undefined;
 }
 
 /**
@@ -780,6 +862,29 @@ export interface UpdateAgreementRequest {
    * @public
    */
   EnforceMessageSigning?: EnforceMessageSigningType | undefined;
+
+  /**
+   * <p>A <code>CustomDirectoriesType</code> structure. This structure specifies custom directories for storing various AS2 message files. You can specify directories for the following types of files.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Failed files</p>
+   *             </li>
+   *             <li>
+   *                <p>MDN files</p>
+   *             </li>
+   *             <li>
+   *                <p>Payload files</p>
+   *             </li>
+   *             <li>
+   *                <p>Status files</p>
+   *             </li>
+   *             <li>
+   *                <p>Temporary files</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CustomDirectories?: CustomDirectoriesType | undefined;
 }
 
 /**
