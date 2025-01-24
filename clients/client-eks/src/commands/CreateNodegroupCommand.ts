@@ -92,6 +92,7 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *   updateConfig: { // NodegroupUpdateConfig
  *     maxUnavailable: Number("int"),
  *     maxUnavailablePercentage: Number("int"),
+ *     updateStrategy: "DEFAULT" || "MINIMAL",
  *   },
  *   nodeRepairConfig: { // NodeRepairConfig
  *     enabled: true || false,
@@ -163,6 +164,7 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * //     updateConfig: { // NodegroupUpdateConfig
  * //       maxUnavailable: Number("int"),
  * //       maxUnavailablePercentage: Number("int"),
+ * //       updateStrategy: "DEFAULT" || "MINIMAL",
  * //     },
  * //     nodeRepairConfig: { // NodeRepairConfig
  * //       enabled: true || false,

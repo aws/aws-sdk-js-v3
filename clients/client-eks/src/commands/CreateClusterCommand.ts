@@ -31,7 +31,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * <p>Creates an Amazon EKS control plane.</p>
  *          <p>The Amazon EKS control plane consists of control plane instances that run the
  *             Kubernetes software, such as <code>etcd</code> and the API server. The control plane runs in
- *             an account managed by Amazon Web Services, and the Kubernetes API is exposed by the Amazon EKS API server endpoint. Each Amazon EKS cluster control plane is
+ *             an account managed by Amazon Web Services, and the Kubernetes API is exposed by the Amazon EKS
+ *                  API server endpoint. Each Amazon EKS cluster control plane is
  *             single tenant and unique. It runs on its own set of Amazon EC2 instances.</p>
  *          <p>The cluster control plane is provisioned across multiple Availability Zones and
  *             fronted by an Elastic Load Balancing
@@ -45,7 +46,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *          <p>You can use the <code>endpointPublicAccess</code> and
  *                 <code>endpointPrivateAccess</code> parameters to enable or disable public and
  *             private access to your cluster's Kubernetes API server endpoint. By default, public access is
- *             enabled, and private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster Endpoint Access Control</a> in the
+ *             enabled, and private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS
+ *                      Cluster Endpoint Access Control</a> in the
  *                 <i>
  *                <i>Amazon EKS User Guide</i>
  *             </i>. </p>

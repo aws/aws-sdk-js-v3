@@ -28,7 +28,8 @@ export interface ListNodegroupsCommandInput extends ListNodegroupsRequest {}
 export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the managed node groups associated with the specified cluster in your Amazon Web Services account in the specified Amazon Web Services Region. Self-managed node
+ * <p>Lists the managed node groups associated with the specified cluster in your Amazon Web Services
+ *                  account in the specified Amazon Web Services Region. Self-managed node
  *             groups aren't listed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,7 +71,8 @@ export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
  *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
+ *                  specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>

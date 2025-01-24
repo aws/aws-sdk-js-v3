@@ -537,7 +537,8 @@ export interface EKSClientResolvedConfig extends EKSClientResolvedConfigType {}
  *             can use all the existing plugins and tooling from the Kubernetes community. Applications
  *             running on Amazon EKS are fully compatible with applications running on any
  *             standard Kubernetes environment, whether running in on-premises data centers or public
- *             clouds. This means that you can easily migrate any standard Kubernetes application to Amazon EKS without any code modification required.</p>
+ *             clouds. This means that you can easily migrate any standard Kubernetes application to Amazon EKS
+ *                  without any code modification required.</p>
  * @public
  */
 export class EKSClient extends __Client<
