@@ -34,9 +34,9 @@ export interface CreateTokenWithIAMCommandOutput extends CreateTokenWithIAMRespo
 
 /**
  * <p>Creates and returns access and refresh tokens for clients and applications that are
- *       authenticated using IAM entities. The access token can be used to fetch short-term credentials
- *       for the assigned Amazon Web Services accounts or to access application APIs using <code>bearer</code>
- *       authentication.</p>
+ *       authenticated using IAM entities. The access token can be used to fetch short-lived
+ *       credentials for the assigned Amazon Web Services accounts or to access application APIs using
+ *         <code>bearer</code> authentication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -32,8 +32,9 @@ export interface RegisterClientCommandInput extends RegisterClientRequest {}
 export interface RegisterClientCommandOutput extends RegisterClientResponse, __MetadataBearer {}
 
 /**
- * <p>Registers a client with IAM Identity Center. This allows clients to initiate device authorization.
- *       The output should be persisted for reuse through many authentication requests.</p>
+ * <p>Registers a public client with IAM Identity Center. This allows clients to perform authorization using
+ *       the authorization code grant with Proof Key for Code Exchange (PKCE) or the device
+ *       code grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,7 +84,8 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  *       invalid.</p>
  *
  * @throws {@link InvalidRedirectUriException} (client fault)
- *  <p>Indicates that one or more redirect URI in the request is not supported for this operation.</p>
+ *  <p>Indicates that one or more redirect URI in the request is not supported for this
+ *       operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that something is wrong with the input to the request. For example, a required
