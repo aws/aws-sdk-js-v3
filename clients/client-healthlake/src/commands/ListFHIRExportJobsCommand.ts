@@ -42,7 +42,7 @@ export interface ListFHIRExportJobsCommandOutput extends ListFHIRExportJobsRespo
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   JobName: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED",
+ *   JobStatus: "SUBMITTED" || "QUEUED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED",
  *   SubmittedBefore: new Date("TIMESTAMP"),
  *   SubmittedAfter: new Date("TIMESTAMP"),
  * };
@@ -53,7 +53,7 @@ export interface ListFHIRExportJobsCommandOutput extends ListFHIRExportJobsRespo
  * //     { // ExportJobProperties
  * //       JobId: "STRING_VALUE", // required
  * //       JobName: "STRING_VALUE",
- * //       JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
+ * //       JobStatus: "SUBMITTED" || "QUEUED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
  * //       SubmitTime: new Date("TIMESTAMP"), // required
  * //       EndTime: new Date("TIMESTAMP"),
  * //       DatastoreId: "STRING_VALUE", // required

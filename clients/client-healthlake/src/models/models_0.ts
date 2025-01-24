@@ -32,6 +32,7 @@ export class AccessDeniedException extends __BaseException {
 export const AuthorizationStrategy = {
   AWS_AUTH: "AWS_AUTH",
   SMARTV1: "SMART_ON_FHIR_V1",
+  SMART_ON_FHIR: "SMART_ON_FHIR",
 } as const;
 
 /**
@@ -637,6 +638,7 @@ export const JobStatus = {
   COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
   SUBMITTED: "SUBMITTED",
 } as const;
 

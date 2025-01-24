@@ -45,7 +45,7 @@ export interface DescribeFHIRImportJobCommandOutput extends DescribeFHIRImportJo
  * //   ImportJobProperties: { // ImportJobProperties
  * //     JobId: "STRING_VALUE", // required
  * //     JobName: "STRING_VALUE",
- * //     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
+ * //     JobStatus: "SUBMITTED" || "QUEUED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
  * //     SubmitTime: new Date("TIMESTAMP"), // required
  * //     EndTime: new Date("TIMESTAMP"),
  * //     DatastoreId: "STRING_VALUE", // required

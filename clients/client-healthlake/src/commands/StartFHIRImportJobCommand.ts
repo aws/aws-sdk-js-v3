@@ -48,13 +48,13 @@ export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobRespo
  *   },
  *   DatastoreId: "STRING_VALUE", // required
  *   DataAccessRoleArn: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new StartFHIRImportJobCommand(input);
  * const response = await client.send(command);
  * // { // StartFHIRImportJobResponse
  * //   JobId: "STRING_VALUE", // required
- * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
+ * //   JobStatus: "SUBMITTED" || "QUEUED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
  * //   DatastoreId: "STRING_VALUE",
  * // };
  *

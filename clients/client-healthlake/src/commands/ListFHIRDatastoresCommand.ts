@@ -67,7 +67,7 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  * //         PreloadDataType: "SYNTHEA", // required
  * //       },
  * //       IdentityProviderConfiguration: { // IdentityProviderConfiguration
- * //         AuthorizationStrategy: "SMART_ON_FHIR_V1" || "AWS_AUTH", // required
+ * //         AuthorizationStrategy: "SMART_ON_FHIR_V1" || "SMART_ON_FHIR" || "AWS_AUTH", // required
  * //         FineGrainedAuthorizationEnabled: true || false,
  * //         Metadata: "STRING_VALUE",
  * //         IdpLambdaArn: "STRING_VALUE",
