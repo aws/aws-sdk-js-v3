@@ -79,6 +79,9 @@ export interface ValidateFlowDefinitionCommandOutput extends ValidateFlowDefinit
  *                 templateConfiguration: { // PromptTemplateConfiguration Union: only one key present
  *                   text: { // TextPromptTemplateConfiguration
  *                     text: "STRING_VALUE", // required
+ *                     cachePoint: { // CachePointBlock
+ *                       type: "default", // required
+ *                     },
  *                     inputVariables: [ // PromptInputVariablesList
  *                       { // PromptInputVariable
  *                         name: "STRING_VALUE",
@@ -92,6 +95,9 @@ export interface ValidateFlowDefinitionCommandOutput extends ValidateFlowDefinit
  *                         content: [ // ContentBlocks // required
  *                           { // ContentBlock Union: only one key present
  *                             text: "STRING_VALUE",
+ *                             cachePoint: {
+ *                               type: "default", // required
+ *                             },
  *                           },
  *                         ],
  *                       },
@@ -99,6 +105,7 @@ export interface ValidateFlowDefinitionCommandOutput extends ValidateFlowDefinit
  *                     system: [ // SystemContentBlocks
  *                       { // SystemContentBlock Union: only one key present
  *                         text: "STRING_VALUE",
+ *                         cachePoint: "<CachePointBlock>",
  *                       },
  *                     ],
  *                     inputVariables: [
@@ -116,6 +123,7 @@ export interface ValidateFlowDefinitionCommandOutput extends ValidateFlowDefinit
  *                               json: "DOCUMENT_VALUE",
  *                             },
  *                           },
+ *                           cachePoint: "<CachePointBlock>",
  *                         },
  *                       ],
  *                       toolChoice: { // ToolChoice Union: only one key present
@@ -295,8 +303,16 @@ export interface ValidateFlowDefinitionCommandOutput extends ValidateFlowDefinit
  * //           connection: "STRING_VALUE", // required
  * //         },
  * //         unspecified: {},
+ * //         unknownNodeInput: { // UnknownNodeInputFlowValidationDetails
+ * //           node: "STRING_VALUE", // required
+ * //           input: "STRING_VALUE", // required
+ * //         },
+ * //         unknownNodeOutput: { // UnknownNodeOutputFlowValidationDetails
+ * //           node: "STRING_VALUE", // required
+ * //           output: "STRING_VALUE", // required
+ * //         },
  * //       },
- * //       type: "CyclicConnection" || "DuplicateConnections" || "DuplicateConditionExpression" || "UnreachableNode" || "UnknownConnectionSource" || "UnknownConnectionSourceOutput" || "UnknownConnectionTarget" || "UnknownConnectionTargetInput" || "UnknownConnectionCondition" || "MalformedConditionExpression" || "MalformedNodeInputExpression" || "MismatchedNodeInputType" || "MismatchedNodeOutputType" || "IncompatibleConnectionDataType" || "MissingConnectionConfiguration" || "MissingDefaultCondition" || "MissingEndingNodes" || "MissingNodeConfiguration" || "MissingNodeInput" || "MissingNodeOutput" || "MissingStartingNodes" || "MultipleNodeInputConnections" || "UnfulfilledNodeInput" || "UnsatisfiedConnectionConditions" || "Unspecified",
+ * //       type: "CyclicConnection" || "DuplicateConnections" || "DuplicateConditionExpression" || "UnreachableNode" || "UnknownConnectionSource" || "UnknownConnectionSourceOutput" || "UnknownConnectionTarget" || "UnknownConnectionTargetInput" || "UnknownConnectionCondition" || "MalformedConditionExpression" || "MalformedNodeInputExpression" || "MismatchedNodeInputType" || "MismatchedNodeOutputType" || "IncompatibleConnectionDataType" || "MissingConnectionConfiguration" || "MissingDefaultCondition" || "MissingEndingNodes" || "MissingNodeConfiguration" || "MissingNodeInput" || "MissingNodeOutput" || "MissingStartingNodes" || "MultipleNodeInputConnections" || "UnfulfilledNodeInput" || "UnsatisfiedConnectionConditions" || "Unspecified" || "UnknownNodeInput" || "UnknownNodeOutput",
  * //     },
  * //   ],
  * // };

@@ -1502,6 +1502,7 @@ export interface AgentAliasHistoryEvent {
 export const AgentAliasStatus = {
   CREATING: "CREATING",
   DELETING: "DELETING",
+  DISSOCIATED: "DISSOCIATED",
   FAILED: "FAILED",
   PREPARED: "PREPARED",
   UPDATING: "UPDATING",
@@ -1595,6 +1596,9 @@ export interface AgentAlias {
    *             </li>
    *             <li>
    *                <p>DELETING – The agent alias is being deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>DISSOCIATED - The agent alias has no version associated with it.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4687,10 +4691,35 @@ export interface PromptInputVariable {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const CachePointType = {
+  DEFAULT: "default",
+} as const;
+
+/**
+ * @public
+ */
+export type CachePointType = (typeof CachePointType)[keyof typeof CachePointType];
+
+/**
+ * <p>Indicates where a cache checkpoint is located. All information before this checkpoint is cached to be accessed on subsequent requests.</p>
+ * @public
+ */
+export interface CachePointBlock {
+  /**
+   * <p>Indicates that the CachePointBlock is of the default type</p>
+   * @public
+   */
+  type: CachePointType | undefined;
+}
+
+/**
  * <p>Contains the content for the message you pass to, or receive from a model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html">Create a prompt using Prompt management</a>.</p>
  * @public
  */
-export type ContentBlock = ContentBlock.TextMember | ContentBlock.$UnknownMember;
+export type ContentBlock = ContentBlock.CachePointMember | ContentBlock.TextMember | ContentBlock.$UnknownMember;
 
 /**
  * @public
@@ -4702,6 +4731,17 @@ export namespace ContentBlock {
    */
   export interface TextMember {
     text: string;
+    cachePoint?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Creates a cache checkpoint within a message.</p>
+   * @public
+   */
+  export interface CachePointMember {
+    text?: never;
+    cachePoint: CachePointBlock;
     $unknown?: never;
   }
 
@@ -4710,16 +4750,19 @@ export namespace ContentBlock {
    */
   export interface $UnknownMember {
     text?: never;
+    cachePoint?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     text: (value: string) => T;
+    cachePoint: (value: CachePointBlock) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ContentBlock, visitor: Visitor<T>): T => {
     if (value.text !== undefined) return visitor.text(value.text);
+    if (value.cachePoint !== undefined) return visitor.cachePoint(value.cachePoint);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -4760,7 +4803,10 @@ export interface Message {
  * <p>Contains a system prompt to provide context to the model or to describe how it should behave. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html">Create a prompt using Prompt management</a>.</p>
  * @public
  */
-export type SystemContentBlock = SystemContentBlock.TextMember | SystemContentBlock.$UnknownMember;
+export type SystemContentBlock =
+  | SystemContentBlock.CachePointMember
+  | SystemContentBlock.TextMember
+  | SystemContentBlock.$UnknownMember;
 
 /**
  * @public
@@ -4772,6 +4818,17 @@ export namespace SystemContentBlock {
    */
   export interface TextMember {
     text: string;
+    cachePoint?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Creates a cache checkpoint within a tool designation</p>
+   * @public
+   */
+  export interface CachePointMember {
+    text?: never;
+    cachePoint: CachePointBlock;
     $unknown?: never;
   }
 
@@ -4780,16 +4837,19 @@ export namespace SystemContentBlock {
    */
   export interface $UnknownMember {
     text?: never;
+    cachePoint?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     text: (value: string) => T;
+    cachePoint: (value: CachePointBlock) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: SystemContentBlock, visitor: Visitor<T>): T => {
     if (value.text !== undefined) return visitor.text(value.text);
+    if (value.cachePoint !== undefined) return visitor.cachePoint(value.cachePoint);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -4956,7 +5016,7 @@ export interface ToolSpecification {
  * <p>Contains configurations for a tool that a model can use when generating a response. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Use a tool to complete an Amazon Bedrock model response</a>.</p>
  * @public
  */
-export type Tool = Tool.ToolSpecMember | Tool.$UnknownMember;
+export type Tool = Tool.CachePointMember | Tool.ToolSpecMember | Tool.$UnknownMember;
 
 /**
  * @public
@@ -4968,6 +5028,17 @@ export namespace Tool {
    */
   export interface ToolSpecMember {
     toolSpec: ToolSpecification;
+    cachePoint?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Creates a cache checkpoint within a tool designation</p>
+   * @public
+   */
+  export interface CachePointMember {
+    toolSpec?: never;
+    cachePoint: CachePointBlock;
     $unknown?: never;
   }
 
@@ -4976,16 +5047,19 @@ export namespace Tool {
    */
   export interface $UnknownMember {
     toolSpec?: never;
+    cachePoint?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     toolSpec: (value: ToolSpecification) => T;
+    cachePoint: (value: CachePointBlock) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: Tool, visitor: Visitor<T>): T => {
     if (value.toolSpec !== undefined) return visitor.toolSpec(value.toolSpec);
+    if (value.cachePoint !== undefined) return visitor.cachePoint(value.cachePoint);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -5048,6 +5122,12 @@ export interface TextPromptTemplateConfiguration {
    * @public
    */
   text: string | undefined;
+
+  /**
+   * <p>A cache checkpoint within a template configuration.</p>
+   * @public
+   */
+  cachePoint?: CachePointBlock | undefined;
 
   /**
    * <p>An array of the variables in the prompt template.</p>
@@ -7034,6 +7114,42 @@ export interface UnknownConnectionTargetInputFlowValidationDetails {
 }
 
 /**
+ * <p>Details about an unknown input for a node.</p>
+ * @public
+ */
+export interface UnknownNodeInputFlowValidationDetails {
+  /**
+   * <p>The name of the unknown input.</p>
+   * @public
+   */
+  node: string | undefined;
+
+  /**
+   * <p>The name of the node with the unknown input.</p>
+   * @public
+   */
+  input: string | undefined;
+}
+
+/**
+ * <p>Details about an unknown output for a node.</p>
+ * @public
+ */
+export interface UnknownNodeOutputFlowValidationDetails {
+  /**
+   * <p>The name of the node with the unknown output.</p>
+   * @public
+   */
+  node: string | undefined;
+
+  /**
+   * <p>The name of the unknown output.</p>
+   * @public
+   */
+  output: string | undefined;
+}
+
+/**
  * <p>Details about an unreachable node in the flow. A node is unreachable when there are no paths to it from any starting node.</p>
  * @public
  */
@@ -7090,6 +7206,8 @@ export type FlowValidationDetails =
   | FlowValidationDetails.UnknownConnectionSourceOutputMember
   | FlowValidationDetails.UnknownConnectionTargetMember
   | FlowValidationDetails.UnknownConnectionTargetInputMember
+  | FlowValidationDetails.UnknownNodeInputMember
+  | FlowValidationDetails.UnknownNodeOutputMember
   | FlowValidationDetails.UnreachableNodeMember
   | FlowValidationDetails.UnsatisfiedConnectionConditionsMember
   | FlowValidationDetails.UnspecifiedMember
@@ -7129,6 +7247,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7162,6 +7282,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7195,6 +7317,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7228,6 +7352,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7261,6 +7387,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7294,6 +7422,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7327,6 +7457,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7360,6 +7492,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7393,6 +7527,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7426,6 +7562,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7459,6 +7597,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7492,6 +7632,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7525,6 +7667,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7558,6 +7702,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7591,6 +7737,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7624,6 +7772,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7657,6 +7807,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7690,6 +7842,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7723,6 +7877,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7756,6 +7912,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7789,6 +7947,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7822,6 +7982,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7855,6 +8017,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput: UnfulfilledNodeInputFlowValidationDetails;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7888,6 +8052,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions: UnsatisfiedConnectionConditionsFlowValidationDetails;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown?: never;
   }
 
@@ -7921,6 +8087,78 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified: UnspecifiedFlowValidationDetails;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about an unknown input for a node.</p>
+   * @public
+   */
+  export interface UnknownNodeInputMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    unknownNodeInput: UnknownNodeInputFlowValidationDetails;
+    unknownNodeOutput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about an unknown output for a node.</p>
+   * @public
+   */
+  export interface UnknownNodeOutputMember {
+    cyclicConnection?: never;
+    duplicateConnections?: never;
+    duplicateConditionExpression?: never;
+    unreachableNode?: never;
+    unknownConnectionSource?: never;
+    unknownConnectionSourceOutput?: never;
+    unknownConnectionTarget?: never;
+    unknownConnectionTargetInput?: never;
+    unknownConnectionCondition?: never;
+    malformedConditionExpression?: never;
+    malformedNodeInputExpression?: never;
+    mismatchedNodeInputType?: never;
+    mismatchedNodeOutputType?: never;
+    incompatibleConnectionDataType?: never;
+    missingConnectionConfiguration?: never;
+    missingDefaultCondition?: never;
+    missingEndingNodes?: never;
+    missingNodeConfiguration?: never;
+    missingNodeInput?: never;
+    missingNodeOutput?: never;
+    missingStartingNodes?: never;
+    multipleNodeInputConnections?: never;
+    unfulfilledNodeInput?: never;
+    unsatisfiedConnectionConditions?: never;
+    unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput: UnknownNodeOutputFlowValidationDetails;
     $unknown?: never;
   }
 
@@ -7953,6 +8191,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput?: never;
     unsatisfiedConnectionConditions?: never;
     unspecified?: never;
+    unknownNodeInput?: never;
+    unknownNodeOutput?: never;
     $unknown: [string, any];
   }
 
@@ -7982,6 +8222,8 @@ export namespace FlowValidationDetails {
     unfulfilledNodeInput: (value: UnfulfilledNodeInputFlowValidationDetails) => T;
     unsatisfiedConnectionConditions: (value: UnsatisfiedConnectionConditionsFlowValidationDetails) => T;
     unspecified: (value: UnspecifiedFlowValidationDetails) => T;
+    unknownNodeInput: (value: UnknownNodeInputFlowValidationDetails) => T;
+    unknownNodeOutput: (value: UnknownNodeOutputFlowValidationDetails) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -8027,6 +8269,8 @@ export namespace FlowValidationDetails {
     if (value.unsatisfiedConnectionConditions !== undefined)
       return visitor.unsatisfiedConnectionConditions(value.unsatisfiedConnectionConditions);
     if (value.unspecified !== undefined) return visitor.unspecified(value.unspecified);
+    if (value.unknownNodeInput !== undefined) return visitor.unknownNodeInput(value.unknownNodeInput);
+    if (value.unknownNodeOutput !== undefined) return visitor.unknownNodeOutput(value.unknownNodeOutput);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -8072,6 +8316,8 @@ export const FlowValidationType = {
   UNKNOWN_CONNECTION_SOURCE_OUTPUT: "UnknownConnectionSourceOutput",
   UNKNOWN_CONNECTION_TARGET: "UnknownConnectionTarget",
   UNKNOWN_CONNECTION_TARGET_INPUT: "UnknownConnectionTargetInput",
+  UNKNOWN_NODE_INPUT: "UnknownNodeInput",
+  UNKNOWN_NODE_OUTPUT: "UnknownNodeOutput",
   UNREACHABLE_NODE: "UnreachableNode",
   UNSATISFIED_CONNECTION_CONDITIONS: "UnsatisfiedConnectionConditions",
   UNSPECIFIED: "Unspecified",
@@ -9108,131 +9354,6 @@ export interface KnowledgeBaseDocumentDetail {
 }
 
 /**
- * @public
- */
-export interface DeleteKnowledgeBaseDocumentsResponse {
-  /**
-   * <p>A list of objects, each of which contains information about the documents that were deleted.</p>
-   * @public
-   */
-  documentDetails?: KnowledgeBaseDocumentDetail[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetKnowledgeBaseDocumentsRequest {
-  /**
-   * <p>The unique identifier of the knowledge base that is connected to the data source.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the data source that contains the documents.</p>
-   * @public
-   */
-  dataSourceId: string | undefined;
-
-  /**
-   * <p>A list of objects, each of which contains information to identify a document for which to retrieve information.</p>
-   * @public
-   */
-  documentIdentifiers: DocumentIdentifier[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetKnowledgeBaseDocumentsResponse {
-  /**
-   * <p>A list of objects, each of which contains information about the documents that were retrieved.</p>
-   * @public
-   */
-  documentDetails?: KnowledgeBaseDocumentDetail[] | undefined;
-}
-
-/**
- * <p>Contains information about content defined inline in bytes.</p>
- * @public
- */
-export interface ByteContentDoc {
-  /**
-   * <p>The MIME type of the content. For a list of MIME types, see <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. The following MIME types are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>text/plain</p>
-   *             </li>
-   *             <li>
-   *                <p>text/html</p>
-   *             </li>
-   *             <li>
-   *                <p>text/csv</p>
-   *             </li>
-   *             <li>
-   *                <p>text/vtt</p>
-   *             </li>
-   *             <li>
-   *                <p>message/rfc822</p>
-   *             </li>
-   *             <li>
-   *                <p>application/xhtml+xml</p>
-   *             </li>
-   *             <li>
-   *                <p>application/pdf</p>
-   *             </li>
-   *             <li>
-   *                <p>application/msword</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.ms-word.document.macroenabled.12</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.ms-word.template.macroenabled.12</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.ms-excel</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.ms-excel.addin.macroenabled.12</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.ms-excel.sheet.macroenabled.12</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.ms-excel.template.macroenabled.12</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.ms-excel.sheet.binary.macroenabled.12</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.ms-spreadsheetml</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.openxmlformats-officedocument.spreadsheetml.template</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.openxmlformats-officedocument.wordprocessingml.document</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.openxmlformats-officedocument.wordprocessingml.template</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  mimeType: string | undefined;
-
-  /**
-   * <p>The base64-encoded string of the content.</p>
-   * @public
-   */
-  data: Uint8Array | undefined;
-}
-
-/**
  * @internal
  */
 export const APISchemaFilterSensitiveLog = (obj: APISchema): any => {
@@ -9653,6 +9774,7 @@ export const ConditionFlowNodeConfigurationFilterSensitiveLog = (obj: ConditionF
  */
 export const ContentBlockFilterSensitiveLog = (obj: ContentBlock): any => {
   if (obj.text !== undefined) return { text: obj.text };
+  if (obj.cachePoint !== undefined) return { cachePoint: obj.cachePoint };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -9669,6 +9791,7 @@ export const MessageFilterSensitiveLog = (obj: Message): any => ({
  */
 export const SystemContentBlockFilterSensitiveLog = (obj: SystemContentBlock): any => {
   if (obj.text !== undefined) return { text: obj.text };
+  if (obj.cachePoint !== undefined) return { cachePoint: obj.cachePoint };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -9881,6 +10004,8 @@ export const FlowValidationDetailsFilterSensitiveLog = (obj: FlowValidationDetai
   if (obj.unsatisfiedConnectionConditions !== undefined)
     return { unsatisfiedConnectionConditions: obj.unsatisfiedConnectionConditions };
   if (obj.unspecified !== undefined) return { unspecified: obj.unspecified };
+  if (obj.unknownNodeInput !== undefined) return { unknownNodeInput: obj.unknownNodeInput };
+  if (obj.unknownNodeOutput !== undefined) return { unknownNodeOutput: obj.unknownNodeOutput };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -9915,12 +10040,4 @@ export const UpdateFlowRequestFilterSensitiveLog = (obj: UpdateFlowRequest): any
 export const UpdateFlowResponseFilterSensitiveLog = (obj: UpdateFlowResponse): any => ({
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ByteContentDocFilterSensitiveLog = (obj: ByteContentDoc): any => ({
-  ...obj,
-  ...(obj.data && { data: SENSITIVE_STRING }),
 });

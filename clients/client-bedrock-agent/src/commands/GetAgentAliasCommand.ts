@@ -69,7 +69,7 @@ export interface GetAgentAliasCommandOutput extends GetAgentAliasResponse, __Met
  * //         startDate: new Date("TIMESTAMP"),
  * //       },
  * //     ],
- * //     agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING", // required
+ * //     agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING" || "DISSOCIATED", // required
  * //     failureReasons: [ // FailureReasons
  * //       "STRING_VALUE",
  * //     ],

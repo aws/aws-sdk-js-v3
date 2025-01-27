@@ -54,7 +54,7 @@ export interface ListAgentAliasesCommandOutput extends ListAgentAliasesResponse,
  * //           provisionedThroughput: "STRING_VALUE",
  * //         },
  * //       ],
- * //       agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING", // required
+ * //       agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING" || "DISSOCIATED", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //     },

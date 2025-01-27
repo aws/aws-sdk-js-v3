@@ -77,7 +77,7 @@ export interface UpdateAgentAliasCommandOutput extends UpdateAgentAliasResponse,
  * //         startDate: new Date("TIMESTAMP"),
  * //       },
  * //     ],
- * //     agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING", // required
+ * //     agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING" || "DISSOCIATED", // required
  * //     failureReasons: [ // FailureReasons
  * //       "STRING_VALUE",
  * //     ],

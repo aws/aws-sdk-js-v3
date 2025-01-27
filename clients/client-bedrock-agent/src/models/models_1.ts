@@ -10,10 +10,9 @@ import {
   AgentVersion,
   AgentVersionFilterSensitiveLog,
   AgentVersionSummary,
-  ByteContentDoc,
-  ByteContentDocFilterSensitiveLog,
   ContentDataSourceType,
   CustomDocumentIdentifier,
+  DocumentIdentifier,
   FlowDefinition,
   FlowValidation,
   FlowValidationFilterSensitiveLog,
@@ -25,6 +24,131 @@ import {
   PromptTemplateType,
   S3Location,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseDocumentsResponse {
+  /**
+   * <p>A list of objects, each of which contains information about the documents that were deleted.</p>
+   * @public
+   */
+  documentDetails?: KnowledgeBaseDocumentDetail[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKnowledgeBaseDocumentsRequest {
+  /**
+   * <p>The unique identifier of the knowledge base that is connected to the data source.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source that contains the documents.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>A list of objects, each of which contains information to identify a document for which to retrieve information.</p>
+   * @public
+   */
+  documentIdentifiers: DocumentIdentifier[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKnowledgeBaseDocumentsResponse {
+  /**
+   * <p>A list of objects, each of which contains information about the documents that were retrieved.</p>
+   * @public
+   */
+  documentDetails?: KnowledgeBaseDocumentDetail[] | undefined;
+}
+
+/**
+ * <p>Contains information about content defined inline in bytes.</p>
+ * @public
+ */
+export interface ByteContentDoc {
+  /**
+   * <p>The MIME type of the content. For a list of MIME types, see <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. The following MIME types are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>text/plain</p>
+   *             </li>
+   *             <li>
+   *                <p>text/html</p>
+   *             </li>
+   *             <li>
+   *                <p>text/csv</p>
+   *             </li>
+   *             <li>
+   *                <p>text/vtt</p>
+   *             </li>
+   *             <li>
+   *                <p>message/rfc822</p>
+   *             </li>
+   *             <li>
+   *                <p>application/xhtml+xml</p>
+   *             </li>
+   *             <li>
+   *                <p>application/pdf</p>
+   *             </li>
+   *             <li>
+   *                <p>application/msword</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.ms-word.document.macroenabled.12</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.ms-word.template.macroenabled.12</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.ms-excel</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.ms-excel.addin.macroenabled.12</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.ms-excel.sheet.macroenabled.12</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.ms-excel.template.macroenabled.12</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.ms-excel.sheet.binary.macroenabled.12</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.ms-spreadsheetml</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.openxmlformats-officedocument.spreadsheetml.template</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.openxmlformats-officedocument.wordprocessingml.document</p>
+   *             </li>
+   *             <li>
+   *                <p>application/vnd.openxmlformats-officedocument.wordprocessingml.template</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  mimeType: string | undefined;
+
+  /**
+   * <p>The base64-encoded string of the content.</p>
+   * @public
+   */
+  data: Uint8Array | undefined;
+}
 
 /**
  * <p>Contains information about content defined inline in text.</p>
@@ -2680,6 +2804,14 @@ export interface ListAgentVersionsResponse {
    */
   nextToken?: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const ByteContentDocFilterSensitiveLog = (obj: ByteContentDoc): any => ({
+  ...obj,
+  ...(obj.data && { data: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

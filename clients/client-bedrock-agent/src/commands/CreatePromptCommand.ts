@@ -52,6 +52,9 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  *       templateConfiguration: { // PromptTemplateConfiguration Union: only one key present
  *         text: { // TextPromptTemplateConfiguration
  *           text: "STRING_VALUE", // required
+ *           cachePoint: { // CachePointBlock
+ *             type: "default", // required
+ *           },
  *           inputVariables: [ // PromptInputVariablesList
  *             { // PromptInputVariable
  *               name: "STRING_VALUE",
@@ -65,6 +68,9 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  *               content: [ // ContentBlocks // required
  *                 { // ContentBlock Union: only one key present
  *                   text: "STRING_VALUE",
+ *                   cachePoint: {
+ *                     type: "default", // required
+ *                   },
  *                 },
  *               ],
  *             },
@@ -72,6 +78,7 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  *           system: [ // SystemContentBlocks
  *             { // SystemContentBlock Union: only one key present
  *               text: "STRING_VALUE",
+ *               cachePoint: "<CachePointBlock>",
  *             },
  *           ],
  *           inputVariables: [
@@ -89,6 +96,7 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  *                     json: "DOCUMENT_VALUE",
  *                   },
  *                 },
+ *                 cachePoint: "<CachePointBlock>",
  *               },
  *             ],
  *             toolChoice: { // ToolChoice Union: only one key present
@@ -145,6 +153,9 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  * //       templateConfiguration: { // PromptTemplateConfiguration Union: only one key present
  * //         text: { // TextPromptTemplateConfiguration
  * //           text: "STRING_VALUE", // required
+ * //           cachePoint: { // CachePointBlock
+ * //             type: "default", // required
+ * //           },
  * //           inputVariables: [ // PromptInputVariablesList
  * //             { // PromptInputVariable
  * //               name: "STRING_VALUE",
@@ -158,6 +169,9 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  * //               content: [ // ContentBlocks // required
  * //                 { // ContentBlock Union: only one key present
  * //                   text: "STRING_VALUE",
+ * //                   cachePoint: {
+ * //                     type: "default", // required
+ * //                   },
  * //                 },
  * //               ],
  * //             },
@@ -165,6 +179,7 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  * //           system: [ // SystemContentBlocks
  * //             { // SystemContentBlock Union: only one key present
  * //               text: "STRING_VALUE",
+ * //               cachePoint: "<CachePointBlock>",
  * //             },
  * //           ],
  * //           inputVariables: [
@@ -182,6 +197,7 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  * //                     json: "DOCUMENT_VALUE",
  * //                   },
  * //                 },
+ * //                 cachePoint: "<CachePointBlock>",
  * //               },
  * //             ],
  * //             toolChoice: { // ToolChoice Union: only one key present

@@ -44,7 +44,7 @@ export interface DeleteAgentAliasCommandOutput extends DeleteAgentAliasResponse,
  * // { // DeleteAgentAliasResponse
  * //   agentId: "STRING_VALUE", // required
  * //   agentAliasId: "STRING_VALUE", // required
- * //   agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING", // required
+ * //   agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING" || "DISSOCIATED", // required
  * // };
  *
  * ```

@@ -204,7 +204,7 @@ import {
   AutoToolChoice,
   BedrockDataAutomationConfiguration,
   BedrockFoundationModelConfiguration,
-  ByteContentDoc,
+  CachePointBlock,
   ChatPromptTemplateConfiguration,
   ChunkingConfiguration,
   CollectorFlowNodeConfiguration,
@@ -318,6 +318,7 @@ import {
 } from "../models/models_0";
 import {
   BedrockEmbeddingModelConfiguration,
+  ByteContentDoc,
   CuratedQuery,
   CustomContent,
   CustomS3Location,
@@ -3821,6 +3822,8 @@ const se_ByteContentDoc = (input: ByteContentDoc, context: __SerdeContext): any 
   });
 };
 
+// se_CachePointBlock omitted.
+
 /**
  * serializeAws_restJson1ChatPromptTemplateConfiguration
  */
@@ -4415,6 +4418,7 @@ const se_PromptVariantList = (input: PromptVariant[], context: __SerdeContext): 
  */
 const se_Tool = (input: Tool, context: __SerdeContext): any => {
   return Tool.visit(input, {
+    cachePoint: (value) => ({ cachePoint: _json(value) }),
     toolSpec: (value) => ({ toolSpec: se_ToolSpecification(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
@@ -4830,6 +4834,8 @@ const de_AgentVersionSummary = (output: any, context: __SerdeContext): AgentVers
 // de_BedrockEmbeddingModelConfiguration omitted.
 
 // de_BedrockFoundationModelConfiguration omitted.
+
+// de_CachePointBlock omitted.
 
 /**
  * deserializeAws_restJson1ChatPromptTemplateConfiguration
@@ -5682,6 +5688,11 @@ const de_PromptVariantList = (output: any, context: __SerdeContext): PromptVaria
  * deserializeAws_restJson1Tool
  */
 const de_Tool = (output: any, context: __SerdeContext): Tool => {
+  if (output.cachePoint != null) {
+    return {
+      cachePoint: _json(output.cachePoint),
+    };
+  }
   if (output.toolSpec != null) {
     return {
       toolSpec: de_ToolSpecification(output.toolSpec, context),
@@ -5756,6 +5767,10 @@ const de_ToolSpecification = (output: any, context: __SerdeContext): ToolSpecifi
 // de_UnknownConnectionTargetFlowValidationDetails omitted.
 
 // de_UnknownConnectionTargetInputFlowValidationDetails omitted.
+
+// de_UnknownNodeInputFlowValidationDetails omitted.
+
+// de_UnknownNodeOutputFlowValidationDetails omitted.
 
 // de_UnreachableNodeFlowValidationDetails omitted.
 
