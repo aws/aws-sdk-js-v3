@@ -3434,7 +3434,7 @@ export interface AudioSelector {
   DefaultSelection?: AudioDefaultSelection | undefined;
 
   /**
-   * Specifies audio data from an external file source.
+   * Specify the S3, HTTP, or HTTPS URL for your external audio file input.
    * @public
    */
   ExternalAudioFileInput?: string | undefined;
@@ -3446,13 +3446,15 @@ export interface AudioSelector {
   HlsRenditionGroupSettings?: HlsRenditionGroupSettings | undefined;
 
   /**
-   * Selects a specific language code from within an audio source.
+   * Specify the language to select from your audio input. In the MediaConvert console choose from a list of languages. In your JSON job settings choose from an ISO 639-2 three-letter code listed at https://www.loc.gov/standards/iso639-2/php/code_list.php
    * @public
    */
   LanguageCode?: LanguageCode | undefined;
 
   /**
-   * Specifies a time delta in milliseconds to offset the audio from the input video.
+   * Specify a time delta, in milliseconds, to offset the audio from the input video.
+   * To specify no offset: Keep the default value, 0.
+   * To specify an offset: Enter an integer from -2147483648 to 2147483647
    * @public
    */
   Offset?: number | undefined;
@@ -3987,6 +3989,58 @@ export const InputDenoiseFilter = {
  * @public
  */
 export type InputDenoiseFilter = (typeof InputDenoiseFilter)[keyof typeof InputDenoiseFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const DynamicAudioSelectorType = {
+  ALL_TRACKS: "ALL_TRACKS",
+  LANGUAGE_CODE: "LANGUAGE_CODE",
+} as const;
+
+/**
+ * @public
+ */
+export type DynamicAudioSelectorType = (typeof DynamicAudioSelectorType)[keyof typeof DynamicAudioSelectorType];
+
+/**
+ * Use Dynamic audio selectors when you do not know the track layout of your source when you submit your job, but want to select multiple audio tracks. When you include an audio track in your output and specify this Dynamic audio selector as the Audio source, MediaConvert creates an output audio track for each dynamically selected track. Note that when you include a Dynamic audio selector for two or more inputs, each input must have the same number of audio tracks and audio channels.
+ * @public
+ */
+export interface DynamicAudioSelector {
+  /**
+   * Apply audio timing corrections to help synchronize audio and video in your output. To apply timing corrections, your input must meet the following requirements: * Container: MP4, or MOV, with an accurate time-to-sample (STTS) table. * Audio track: AAC. Choose from the following audio timing correction settings: * Disabled (Default): Apply no correction. * Auto: Recommended for most inputs. MediaConvert analyzes the audio timing in your input and determines which correction setting to use, if needed. * Track: Adjust the duration of each audio frame by a constant amount to align the audio track length with STTS duration. Track-level correction does not affect pitch, and is recommended for tonal audio content such as music. * Frame: Adjust the duration of each audio frame by a variable amount to align audio frames with STTS timestamps. No corrections are made to already-aligned frames. Frame-level correction may affect the pitch of corrected frames, and is recommended for atonal audio content such as speech or percussion. * Force: Apply audio duration correction, either Track or Frame depending on your input, regardless of the accuracy of your input's STTS table. Your output audio and video may not be aligned or it may contain audio artifacts.
+   * @public
+   */
+  AudioDurationCorrection?: AudioDurationCorrection | undefined;
+
+  /**
+   * Specify the S3, HTTP, or HTTPS URL for your external audio file input.
+   * @public
+   */
+  ExternalAudioFileInput?: string | undefined;
+
+  /**
+   * Specify the language to select from your audio input. In the MediaConvert console choose from a list of languages. In your JSON job settings choose from an ISO 639-2 three-letter code listed at https://www.loc.gov/standards/iso639-2/php/code_list.php
+   * @public
+   */
+  LanguageCode?: LanguageCode | undefined;
+
+  /**
+   * Specify a time delta, in milliseconds, to offset the audio from the input video.
+   * To specify no offset: Keep the default value, 0.
+   * To specify an offset: Enter an integer from -2147483648 to 2147483647
+   * @public
+   */
+  Offset?: number | undefined;
+
+  /**
+   * Specify which audio tracks to dynamically select from your source. To select all audio tracks: Keep the default value, All tracks. To select all audio tracks with a specific language code: Choose Language code. When you do, you must also specify a language code under the Language code setting. If there is no matching Language code in your source, then no track will be selected.
+   * @public
+   */
+  SelectorType?: DynamicAudioSelectorType | undefined;
+}
 
 /**
  * @public
@@ -4680,6 +4734,12 @@ export interface Input {
   DolbyVisionMetadataXml?: string | undefined;
 
   /**
+   * Use Dynamic audio selectors when you do not know the track layout of your source when you submit your job, but want to select multiple audio tracks. When you include an audio track in your output and specify this Dynamic audio selector as the Audio source, MediaConvert creates an output audio track for each dynamically selected track. Note that when you include a Dynamic audio selector for two or more inputs, each input must have the same number of audio tracks and audio channels.
+   * @public
+   */
+  DynamicAudioSelectors?: Record<string, DynamicAudioSelector> | undefined;
+
+  /**
    * Specify the source file for your transcoding job. You can use multiple inputs in a single job. The service concatenates these inputs, in the order that you specify them in the job, to create the outputs. If your input format is IMF, specify your input by providing the path to your CPL. For example, "s3://bucket/vf/cpl.xml". If the CPL is in an incomplete IMP, make sure to use *Supplemental IMPs* to specify any supplemental IMPs that contain assets referenced by the CPL.
    * @public
    */
@@ -4830,6 +4890,12 @@ export interface InputTemplate {
    * @public
    */
   DolbyVisionMetadataXml?: string | undefined;
+
+  /**
+   * Use Dynamic audio selectors when you do not know the track layout of your source when you submit your job, but want to select multiple audio tracks. When you include an audio track in your output and specify this Dynamic audio selector as the Audio source, MediaConvert creates an output audio track for each dynamically selected track. Note that when you include a Dynamic audio selector for two or more inputs, each input must have the same number of audio tracks and audio channels.
+   * @public
+   */
+  DynamicAudioSelectors?: Record<string, DynamicAudioSelector> | undefined;
 
   /**
    * Specify whether to apply input filtering to improve the video quality of your input. To apply filtering depending on your input type and quality: Choose Auto. To apply no filtering: Choose Disable. To apply filtering regardless of your input type and quality: Choose Force. When you do, you must also specify a value for Filter strength.
@@ -7447,71 +7513,3 @@ export const MsSmoothFragmentLengthControl = {
  */
 export type MsSmoothFragmentLengthControl =
   (typeof MsSmoothFragmentLengthControl)[keyof typeof MsSmoothFragmentLengthControl];
-
-/**
- * @public
- * @enum
- */
-export const MsSmoothManifestEncoding = {
-  UTF16: "UTF16",
-  UTF8: "UTF8",
-} as const;
-
-/**
- * @public
- */
-export type MsSmoothManifestEncoding = (typeof MsSmoothManifestEncoding)[keyof typeof MsSmoothManifestEncoding];
-
-/**
- * Settings related to your Microsoft Smooth Streaming output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html.
- * @public
- */
-export interface MsSmoothGroupSettings {
-  /**
-   * By default, the service creates one .ism Microsoft Smooth Streaming manifest for each Microsoft Smooth Streaming output group in your job. This default manifest references every output in the output group. To create additional manifests that reference a subset of the outputs in the output group, specify a list of them here.
-   * @public
-   */
-  AdditionalManifests?: MsSmoothAdditionalManifest[] | undefined;
-
-  /**
-   * COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across a Microsoft Smooth output group into a single audio stream.
-   * @public
-   */
-  AudioDeduplication?: MsSmoothAudioDeduplication | undefined;
-
-  /**
-   * Use Destination to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
-   * @public
-   */
-  Destination?: string | undefined;
-
-  /**
-   * Settings associated with the destination. Will vary based on the type of destination
-   * @public
-   */
-  DestinationSettings?: DestinationSettings | undefined;
-
-  /**
-   * If you are using DRM, set DRM System to specify the value SpekeKeyProvider.
-   * @public
-   */
-  Encryption?: MsSmoothEncryptionSettings | undefined;
-
-  /**
-   * Specify how you want MediaConvert to determine the fragment length. Choose Exact to have the encoder use the exact length that you specify with the setting Fragment length. This might result in extra I-frames. Choose Multiple of GOP to have the encoder round up the segment lengths to match the next GOP boundary.
-   * @public
-   */
-  FragmentLength?: number | undefined;
-
-  /**
-   * Specify how you want MediaConvert to determine the fragment length. Choose Exact to have the encoder use the exact length that you specify with the setting Fragment length. This might result in extra I-frames. Choose Multiple of GOP to have the encoder round up the segment lengths to match the next GOP boundary.
-   * @public
-   */
-  FragmentLengthControl?: MsSmoothFragmentLengthControl | undefined;
-
-  /**
-   * Use Manifest encoding to specify the encoding format for the server and client manifest. Valid options are utf8 and utf16.
-   * @public
-   */
-  ManifestEncoding?: MsSmoothManifestEncoding | undefined;
-}

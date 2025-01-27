@@ -3,22 +3,126 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 
 import { MediaConvertServiceException as __BaseException } from "./MediaConvertServiceException";
 
-import { AccelerationSettings, BillingTagsSource, Endpoint, HopDestination } from "./models_0";
+import {
+  AccelerationSettings,
+  AudioDescription,
+  BillingTagsSource,
+  CaptionDescriptionPreset,
+  Endpoint,
+  HopDestination,
+} from "./models_0";
 
 import {
+  ContainerSettings,
   Job,
   JobEngineVersion,
   JobSettings,
   JobStatus,
   JobTemplate,
   JobTemplateSettings,
-  Preset,
-  PresetSettings,
-  PricingPlan,
   SimulateReservedQueue,
   StatusUpdateInterval,
   Type,
+  VideoDescription,
 } from "./models_1";
+
+/**
+ * Settings for preset
+ * @public
+ */
+export interface PresetSettings {
+  /**
+   * Contains groups of audio encoding settings organized by audio codec. Include one instance of per output. Can contain multiple groups of encoding settings.
+   * @public
+   */
+  AudioDescriptions?: AudioDescription[] | undefined;
+
+  /**
+   * This object holds groups of settings related to captions for one output. For each output that has captions, include one instance of CaptionDescriptions.
+   * @public
+   */
+  CaptionDescriptions?: CaptionDescriptionPreset[] | undefined;
+
+  /**
+   * Container specific settings.
+   * @public
+   */
+  ContainerSettings?: ContainerSettings | undefined;
+
+  /**
+   * VideoDescription contains a group of video encoding settings. The specific video settings depend on the video codec that you choose for the property codec. Include one instance of VideoDescription per output.
+   * @public
+   */
+  VideoDescription?: VideoDescription | undefined;
+}
+
+/**
+ * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
+ * @public
+ */
+export interface Preset {
+  /**
+   * An identifier for this resource that is unique within all of AWS.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * An optional category you create to organize your presets.
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * The timestamp in epoch seconds for preset creation.
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * An optional description you create for each preset.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The timestamp in epoch seconds when the preset was last updated.
+   * @public
+   */
+  LastUpdated?: Date | undefined;
+
+  /**
+   * A name you create for each preset. Each name must be unique within your account.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Settings for preset
+   * @public
+   */
+  Settings: PresetSettings | undefined;
+
+  /**
+   * A preset can be of two types: system or custom. System or built-in preset can't be modified or deleted by the user.
+   * @public
+   */
+  Type?: Type | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PricingPlan = {
+  ON_DEMAND: "ON_DEMAND",
+  RESERVED: "RESERVED",
+} as const;
+
+/**
+ * @public
+ */
+export type PricingPlan = (typeof PricingPlan)[keyof typeof PricingPlan];
 
 /**
  * @public

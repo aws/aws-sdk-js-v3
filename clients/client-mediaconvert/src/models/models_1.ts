@@ -7,10 +7,10 @@ import {
   AvailBlanking,
   BillingTagsSource,
   CaptionDescription,
-  CaptionDescriptionPreset,
   CmafGroupSettings,
   ColorConversion3DLUTSetting,
   DashIsoGroupSettings,
+  DestinationSettings,
   EsamSettings,
   ExtendedDataServices,
   FileGroupSettings,
@@ -25,13 +25,84 @@ import {
   JobPhase,
   KantarWatermarkSettings,
   MotionImageInserter,
-  MsSmoothGroupSettings,
+  MsSmoothAdditionalManifest,
+  MsSmoothAudioDeduplication,
+  MsSmoothEncryptionSettings,
+  MsSmoothFragmentLengthControl,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
   OutputGroupDetail,
   QueueTransition,
   Rectangle,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const MsSmoothManifestEncoding = {
+  UTF16: "UTF16",
+  UTF8: "UTF8",
+} as const;
+
+/**
+ * @public
+ */
+export type MsSmoothManifestEncoding = (typeof MsSmoothManifestEncoding)[keyof typeof MsSmoothManifestEncoding];
+
+/**
+ * Settings related to your Microsoft Smooth Streaming output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html.
+ * @public
+ */
+export interface MsSmoothGroupSettings {
+  /**
+   * By default, the service creates one .ism Microsoft Smooth Streaming manifest for each Microsoft Smooth Streaming output group in your job. This default manifest references every output in the output group. To create additional manifests that reference a subset of the outputs in the output group, specify a list of them here.
+   * @public
+   */
+  AdditionalManifests?: MsSmoothAdditionalManifest[] | undefined;
+
+  /**
+   * COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across a Microsoft Smooth output group into a single audio stream.
+   * @public
+   */
+  AudioDeduplication?: MsSmoothAudioDeduplication | undefined;
+
+  /**
+   * Use Destination to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+   * @public
+   */
+  Destination?: string | undefined;
+
+  /**
+   * Settings associated with the destination. Will vary based on the type of destination
+   * @public
+   */
+  DestinationSettings?: DestinationSettings | undefined;
+
+  /**
+   * If you are using DRM, set DRM System to specify the value SpekeKeyProvider.
+   * @public
+   */
+  Encryption?: MsSmoothEncryptionSettings | undefined;
+
+  /**
+   * Specify how you want MediaConvert to determine the fragment length. Choose Exact to have the encoder use the exact length that you specify with the setting Fragment length. This might result in extra I-frames. Choose Multiple of GOP to have the encoder round up the segment lengths to match the next GOP boundary.
+   * @public
+   */
+  FragmentLength?: number | undefined;
+
+  /**
+   * Specify how you want MediaConvert to determine the fragment length. Choose Exact to have the encoder use the exact length that you specify with the setting Fragment length. This might result in extra I-frames. Choose Multiple of GOP to have the encoder round up the segment lengths to match the next GOP boundary.
+   * @public
+   */
+  FragmentLengthControl?: MsSmoothFragmentLengthControl | undefined;
+
+  /**
+   * Use Manifest encoding to specify the encoding format for the server and client manifest. Valid options are utf8 and utf16.
+   * @public
+   */
+  ManifestEncoding?: MsSmoothManifestEncoding | undefined;
+}
 
 /**
  * @public
@@ -3199,6 +3270,20 @@ export type H265CodecProfile = (typeof H265CodecProfile)[keyof typeof H265CodecP
  * @public
  * @enum
  */
+export const H265Deblocking = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265Deblocking = (typeof H265Deblocking)[keyof typeof H265Deblocking];
+
+/**
+ * @public
+ * @enum
+ */
 export const H265DynamicSubGop = {
   ADAPTIVE: "ADAPTIVE",
   STATIC: "STATIC",
@@ -3583,6 +3668,12 @@ export interface H265Settings {
    * @public
    */
   CodecProfile?: H265CodecProfile | undefined;
+
+  /**
+   * Use Deblocking to improve the video quality of your output by smoothing the edges of macroblock artifacts created during video compression. To reduce blocking artifacts at block boundaries, and improve overall video quality: Keep the default value, Enabled. To not apply any deblocking: Choose Disabled. Visible block edge artifacts might appear in the output, especially at lower bitrates.
+   * @public
+   */
+  Deblocking?: H265Deblocking | undefined;
 
   /**
    * Specify whether to allow the number of B-frames in your output GOP structure to vary or not depending on your input video content. To improve the subjective video quality of your output that has high-motion content: Leave blank or keep the default value Adaptive. MediaConvert will use fewer B-frames for high-motion video content than low-motion content. The maximum number of B- frames is limited by the value that you choose for B-frames between reference frames. To use the same number B-frames for all types of content: Choose Static.
@@ -6813,7 +6904,7 @@ export interface JobSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -7201,7 +7292,7 @@ export interface JobTemplateSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -7352,101 +7443,3 @@ export interface JobTemplate {
    */
   Type?: Type | undefined;
 }
-
-/**
- * Settings for preset
- * @public
- */
-export interface PresetSettings {
-  /**
-   * Contains groups of audio encoding settings organized by audio codec. Include one instance of per output. Can contain multiple groups of encoding settings.
-   * @public
-   */
-  AudioDescriptions?: AudioDescription[] | undefined;
-
-  /**
-   * This object holds groups of settings related to captions for one output. For each output that has captions, include one instance of CaptionDescriptions.
-   * @public
-   */
-  CaptionDescriptions?: CaptionDescriptionPreset[] | undefined;
-
-  /**
-   * Container specific settings.
-   * @public
-   */
-  ContainerSettings?: ContainerSettings | undefined;
-
-  /**
-   * VideoDescription contains a group of video encoding settings. The specific video settings depend on the video codec that you choose for the property codec. Include one instance of VideoDescription per output.
-   * @public
-   */
-  VideoDescription?: VideoDescription | undefined;
-}
-
-/**
- * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
- * @public
- */
-export interface Preset {
-  /**
-   * An identifier for this resource that is unique within all of AWS.
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * An optional category you create to organize your presets.
-   * @public
-   */
-  Category?: string | undefined;
-
-  /**
-   * The timestamp in epoch seconds for preset creation.
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * An optional description you create for each preset.
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * The timestamp in epoch seconds when the preset was last updated.
-   * @public
-   */
-  LastUpdated?: Date | undefined;
-
-  /**
-   * A name you create for each preset. Each name must be unique within your account.
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * Settings for preset
-   * @public
-   */
-  Settings: PresetSettings | undefined;
-
-  /**
-   * A preset can be of two types: system or custom. System or built-in preset can't be modified or deleted by the user.
-   * @public
-   */
-  Type?: Type | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const PricingPlan = {
-  ON_DEMAND: "ON_DEMAND",
-  RESERVED: "RESERVED",
-} as const;
-
-/**
- * @public
- */
-export type PricingPlan = (typeof PricingPlan)[keyof typeof PricingPlan];

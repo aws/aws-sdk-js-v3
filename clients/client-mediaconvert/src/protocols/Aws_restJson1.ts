@@ -106,6 +106,7 @@ import {
   DestinationSettings,
   DvbSubDestinationSettings,
   DvbSubSourceSettings,
+  DynamicAudioSelector,
   Eac3AtmosSettings,
   Eac3Settings,
   EmbeddedDestinationSettings,
@@ -149,7 +150,6 @@ import {
   Mp3Settings,
   MsSmoothAdditionalManifest,
   MsSmoothEncryptionSettings,
-  MsSmoothGroupSettings,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
   OpusSettings,
@@ -220,6 +220,7 @@ import {
   Mp4Settings,
   MpdSettings,
   Mpeg2Settings,
+  MsSmoothGroupSettings,
   MxfSettings,
   MxfXavcProfileSettings,
   NexGuardFileMarkerSettings,
@@ -232,8 +233,6 @@ import {
   OutputGroupSettings,
   OutputSettings,
   PartnerWatermarking,
-  Preset,
-  PresetSettings,
   ProresSettings,
   TimecodeBurnin,
   TimecodeConfig,
@@ -261,6 +260,8 @@ import {
   InternalServerErrorException,
   NotFoundException,
   Policy,
+  Preset,
+  PresetSettings,
   Queue,
   ReservationPlan,
   ReservationPlanSettings,
@@ -1989,6 +1990,19 @@ const se___mapOfCaptionSelector = (input: Record<string, CaptionSelector>, conte
 };
 
 /**
+ * serializeAws_restJson1__mapOfDynamicAudioSelector
+ */
+const se___mapOfDynamicAudioSelector = (input: Record<string, DynamicAudioSelector>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_DynamicAudioSelector(value, context);
+    return acc;
+  }, {});
+};
+
+/**
  * serializeAws_restJson1AacSettings
  */
 const se_AacSettings = (input: AacSettings, context: __SerdeContext): any => {
@@ -2758,6 +2772,19 @@ const se_DvbTdtSettings = (input: DvbTdtSettings, context: __SerdeContext): any 
 };
 
 /**
+ * serializeAws_restJson1DynamicAudioSelector
+ */
+const se_DynamicAudioSelector = (input: DynamicAudioSelector, context: __SerdeContext): any => {
+  return take(input, {
+    audioDurationCorrection: [, , `AudioDurationCorrection`],
+    externalAudioFileInput: [, , `ExternalAudioFileInput`],
+    languageCode: [, , `LanguageCode`],
+    offset: [, , `Offset`],
+    selectorType: [, , `SelectorType`],
+  });
+};
+
+/**
  * serializeAws_restJson1Eac3AtmosSettings
  */
 const se_Eac3AtmosSettings = (input: Eac3AtmosSettings, context: __SerdeContext): any => {
@@ -3046,6 +3073,7 @@ const se_H265Settings = (input: H265Settings, context: __SerdeContext): any => {
     bitrate: [, , `Bitrate`],
     codecLevel: [, , `CodecLevel`],
     codecProfile: [, , `CodecProfile`],
+    deblocking: [, , `Deblocking`],
     dynamicSubGop: [, , `DynamicSubGop`],
     endOfStreamMarkers: [, , `EndOfStreamMarkers`],
     flickerAdaptiveQuantization: [, , `FlickerAdaptiveQuantization`],
@@ -3293,6 +3321,7 @@ const se_Input = (input: Input, context: __SerdeContext): any => {
     decryptionSettings: [, (_) => se_InputDecryptionSettings(_, context), `DecryptionSettings`],
     denoiseFilter: [, , `DenoiseFilter`],
     dolbyVisionMetadataXml: [, , `DolbyVisionMetadataXml`],
+    dynamicAudioSelectors: [, (_) => se___mapOfDynamicAudioSelector(_, context), `DynamicAudioSelectors`],
     fileInput: [, , `FileInput`],
     filterEnable: [, , `FilterEnable`],
     filterStrength: [, , `FilterStrength`],
@@ -3347,6 +3376,7 @@ const se_InputTemplate = (input: InputTemplate, context: __SerdeContext): any =>
     deblockFilter: [, , `DeblockFilter`],
     denoiseFilter: [, , `DenoiseFilter`],
     dolbyVisionMetadataXml: [, , `DolbyVisionMetadataXml`],
+    dynamicAudioSelectors: [, (_) => se___mapOfDynamicAudioSelector(_, context), `DynamicAudioSelectors`],
     filterEnable: [, , `FilterEnable`],
     filterStrength: [, , `FilterStrength`],
     imageInserter: [, (_) => se_ImageInserter(_, context), `ImageInserter`],
@@ -5053,6 +5083,19 @@ const de___mapOfCaptionSelector = (output: any, context: __SerdeContext): Record
 };
 
 /**
+ * deserializeAws_restJson1__mapOfDynamicAudioSelector
+ */
+const de___mapOfDynamicAudioSelector = (output: any, context: __SerdeContext): Record<string, DynamicAudioSelector> => {
+  return Object.entries(output).reduce((acc: Record<string, DynamicAudioSelector>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_DynamicAudioSelector(value, context);
+    return acc;
+  }, {} as Record<string, DynamicAudioSelector>);
+};
+
+/**
  * deserializeAws_restJson1AacSettings
  */
 const de_AacSettings = (output: any, context: __SerdeContext): AacSettings => {
@@ -5834,6 +5877,19 @@ const de_DvbTdtSettings = (output: any, context: __SerdeContext): DvbTdtSettings
 };
 
 /**
+ * deserializeAws_restJson1DynamicAudioSelector
+ */
+const de_DynamicAudioSelector = (output: any, context: __SerdeContext): DynamicAudioSelector => {
+  return take(output, {
+    AudioDurationCorrection: [, __expectString, `audioDurationCorrection`],
+    ExternalAudioFileInput: [, __expectString, `externalAudioFileInput`],
+    LanguageCode: [, __expectString, `languageCode`],
+    Offset: [, __expectInt32, `offset`],
+    SelectorType: [, __expectString, `selectorType`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Eac3AtmosSettings
  */
 const de_Eac3AtmosSettings = (output: any, context: __SerdeContext): Eac3AtmosSettings => {
@@ -6134,6 +6190,7 @@ const de_H265Settings = (output: any, context: __SerdeContext): H265Settings => 
     Bitrate: [, __expectInt32, `bitrate`],
     CodecLevel: [, __expectString, `codecLevel`],
     CodecProfile: [, __expectString, `codecProfile`],
+    Deblocking: [, __expectString, `deblocking`],
     DynamicSubGop: [, __expectString, `dynamicSubGop`],
     EndOfStreamMarkers: [, __expectString, `endOfStreamMarkers`],
     FlickerAdaptiveQuantization: [, __expectString, `flickerAdaptiveQuantization`],
@@ -6389,6 +6446,7 @@ const de_Input = (output: any, context: __SerdeContext): Input => {
     DecryptionSettings: [, (_: any) => de_InputDecryptionSettings(_, context), `decryptionSettings`],
     DenoiseFilter: [, __expectString, `denoiseFilter`],
     DolbyVisionMetadataXml: [, __expectString, `dolbyVisionMetadataXml`],
+    DynamicAudioSelectors: [, (_: any) => de___mapOfDynamicAudioSelector(_, context), `dynamicAudioSelectors`],
     FileInput: [, __expectString, `fileInput`],
     FilterEnable: [, __expectString, `filterEnable`],
     FilterStrength: [, __expectInt32, `filterStrength`],
@@ -6447,6 +6505,7 @@ const de_InputTemplate = (output: any, context: __SerdeContext): InputTemplate =
     DeblockFilter: [, __expectString, `deblockFilter`],
     DenoiseFilter: [, __expectString, `denoiseFilter`],
     DolbyVisionMetadataXml: [, __expectString, `dolbyVisionMetadataXml`],
+    DynamicAudioSelectors: [, (_: any) => de___mapOfDynamicAudioSelector(_, context), `dynamicAudioSelectors`],
     FilterEnable: [, __expectString, `filterEnable`],
     FilterStrength: [, __expectInt32, `filterStrength`],
     ImageInserter: [, (_: any) => de_ImageInserter(_, context), `imageInserter`],
