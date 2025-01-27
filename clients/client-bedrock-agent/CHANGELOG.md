@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.736.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.735.0...v3.736.0) (2025-01-27)
+
+
+### Features
+
+* **client-bedrock-agent:** Add support for the prompt caching feature for Bedrock Prompt Management ([e631752](https://github.com/aws/aws-sdk-js-v3/commit/e631752dfd2ff38d30a043a460c9f260b642e7df))
+
+
+
+
+
 # [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent

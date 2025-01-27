@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.736.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.735.0...v3.736.0) (2025-01-27)
+
+
+### Features
+
+* **client-bedrock-agent:** Add support for the prompt caching feature for Bedrock Prompt Management ([e631752](https://github.com/aws/aws-sdk-js-v3/commit/e631752dfd2ff38d30a043a460c9f260b642e7df))
+* **client-iot:** Raised the documentParameters size limit to 30 KB for AWS IoT Device Management - Jobs. ([a57b590](https://github.com/aws/aws-sdk-js-v3/commit/a57b59088d75ca23a919847467a88675f694e1fa))
+* **client-mediaconvert:** This release adds support for dynamic audio configuration and the ability to disable the deblocking filter for h265 encodes. ([d8e0d08](https://github.com/aws/aws-sdk-js-v3/commit/d8e0d087d7533b117d746ce64228fe8a5bc4e990))
+* **client-s3-control:** Minor fix to ARN validation for Lambda functions passed to S3 Batch Operations ([a7a494c](https://github.com/aws/aws-sdk-js-v3/commit/a7a494ca18e0921312e63324e76261c2eb5d5ae8))
+* **clients:** update client endpoints as of 2025-01-27 ([12cba40](https://github.com/aws/aws-sdk-js-v3/commit/12cba40b926d48a0da55283c9ad8d7103958a41e))
+
+
+
+
+
 # [3.735.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.734.0...v3.735.0) (2025-01-24)
 
 

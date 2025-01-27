@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.736.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.735.0...v3.736.0) (2025-01-27)
+
+
+### Features
+
+* **client-mediaconvert:** This release adds support for dynamic audio configuration and the ability to disable the deblocking filter for h265 encodes. ([d8e0d08](https://github.com/aws/aws-sdk-js-v3/commit/d8e0d087d7533b117d746ce64228fe8a5bc4e990))
+
+
+
+
+
 # [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert

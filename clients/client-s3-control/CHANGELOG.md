@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.736.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.735.0...v3.736.0) (2025-01-27)
+
+
+### Features
+
+* **client-s3-control:** Minor fix to ARN validation for Lambda functions passed to S3 Batch Operations ([a7a494c](https://github.com/aws/aws-sdk-js-v3/commit/a7a494ca18e0921312e63324e76261c2eb5d5ae8))
+
+
+
+
+
 # [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-s3-control
