@@ -37,8 +37,8 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * const client = new DeadlineClient(config);
  * const input = { // GetJobRequest
  *   farmId: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE", // required
  * };
  * const command = new GetJobCommand(input);
  * const response = await client.send(command);
@@ -86,6 +86,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //     fileSystem: "COPIED" || "VIRTUAL",
  * //   },
  * //   description: "STRING_VALUE",
+ * //   maxWorkerCount: Number("int"),
  * //   sourceJobId: "STRING_VALUE",
  * // };
  *

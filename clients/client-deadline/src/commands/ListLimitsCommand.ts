@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateSessionRequest, UpdateSessionResponse } from "../models/models_1";
-import { de_UpdateSessionCommand, se_UpdateSessionCommand } from "../protocols/Aws_restJson1";
+import { ListLimitsRequest, ListLimitsResponse } from "../models/models_0";
+import { de_ListLimitsCommand, se_ListLimitsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,50 +17,59 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateSessionCommand}.
+ * The input for {@link ListLimitsCommand}.
  */
-export interface UpdateSessionCommandInput extends UpdateSessionRequest {}
+export interface ListLimitsCommandInput extends ListLimitsRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateSessionCommand}.
+ * The output of {@link ListLimitsCommand}.
  */
-export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __MetadataBearer {}
+export interface ListLimitsCommandOutput extends ListLimitsResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a session.</p>
+ * <p>Gets a list of limits defined in the specified farm.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeadlineClient, UpdateSessionCommand } from "@aws-sdk/client-deadline"; // ES Modules import
- * // const { DeadlineClient, UpdateSessionCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * import { DeadlineClient, ListLimitsCommand } from "@aws-sdk/client-deadline"; // ES Modules import
+ * // const { DeadlineClient, ListLimitsCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
  * const client = new DeadlineClient(config);
- * const input = { // UpdateSessionRequest
- *   clientToken: "STRING_VALUE",
- *   targetLifecycleStatus: "ENDED", // required
+ * const input = { // ListLimitsRequest
  *   farmId: "STRING_VALUE", // required
- *   queueId: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
- *   sessionId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  * };
- * const command = new UpdateSessionCommand(input);
+ * const command = new ListLimitsCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListLimitsResponse
+ * //   limits: [ // LimitSummaries // required
+ * //     { // LimitSummary
+ * //       displayName: "STRING_VALUE", // required
+ * //       amountRequirementName: "STRING_VALUE", // required
+ * //       maxCount: Number("int"), // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       createdBy: "STRING_VALUE", // required
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //       updatedBy: "STRING_VALUE",
+ * //       farmId: "STRING_VALUE", // required
+ * //       limitId: "STRING_VALUE", // required
+ * //       currentCount: Number("int"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param UpdateSessionCommandInput - {@link UpdateSessionCommandInput}
- * @returns {@link UpdateSessionCommandOutput}
- * @see {@link UpdateSessionCommandInput} for command's `input` shape.
- * @see {@link UpdateSessionCommandOutput} for command's `response` shape.
+ * @param ListLimitsCommandInput - {@link ListLimitsCommandInput}
+ * @returns {@link ListLimitsCommandOutput}
+ * @see {@link ListLimitsCommandInput} for command's `input` shape.
+ * @see {@link ListLimitsCommandOutput} for command's `response` shape.
  * @see {@link DeadlineClientResolvedConfig | config} for DeadlineClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have permission to perform the action.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *          than one operation on the same resource at the same time.</p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>Deadline Cloud can't process your request right now. Try again later.</p>
@@ -80,10 +89,10 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  *
  * @public
  */
-export class UpdateSessionCommand extends $Command
+export class ListLimitsCommand extends $Command
   .classBuilder<
-    UpdateSessionCommandInput,
-    UpdateSessionCommandOutput,
+    ListLimitsCommandInput,
+    ListLimitsCommandOutput,
     DeadlineClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -95,21 +104,21 @@ export class UpdateSessionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Deadline", "UpdateSession", {})
-  .n("DeadlineClient", "UpdateSessionCommand")
+  .s("Deadline", "ListLimits", {})
+  .n("DeadlineClient", "ListLimitsCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateSessionCommand)
-  .de(de_UpdateSessionCommand)
+  .ser(se_ListLimitsCommand)
+  .de(de_ListLimitsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateSessionRequest;
-      output: {};
+      input: ListLimitsRequest;
+      output: ListLimitsResponse;
     };
     sdk: {
-      input: UpdateSessionCommandInput;
-      output: UpdateSessionCommandOutput;
+      input: ListLimitsCommandInput;
+      output: ListLimitsCommandOutput;
     };
   };
 }

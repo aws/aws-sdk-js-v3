@@ -70,6 +70,7 @@ import {
   CreateLicenseEndpointCommandInput,
   CreateLicenseEndpointCommandOutput,
 } from "./commands/CreateLicenseEndpointCommand";
+import { CreateLimitCommand, CreateLimitCommandInput, CreateLimitCommandOutput } from "./commands/CreateLimitCommand";
 import {
   CreateMonitorCommand,
   CreateMonitorCommandInput,
@@ -86,6 +87,11 @@ import {
   CreateQueueFleetAssociationCommandInput,
   CreateQueueFleetAssociationCommandOutput,
 } from "./commands/CreateQueueFleetAssociationCommand";
+import {
+  CreateQueueLimitAssociationCommand,
+  CreateQueueLimitAssociationCommandInput,
+  CreateQueueLimitAssociationCommandOutput,
+} from "./commands/CreateQueueLimitAssociationCommand";
 import {
   CreateStorageProfileCommand,
   CreateStorageProfileCommandInput,
@@ -108,6 +114,7 @@ import {
   DeleteLicenseEndpointCommandInput,
   DeleteLicenseEndpointCommandOutput,
 } from "./commands/DeleteLicenseEndpointCommand";
+import { DeleteLimitCommand, DeleteLimitCommandInput, DeleteLimitCommandOutput } from "./commands/DeleteLimitCommand";
 import {
   DeleteMeteredProductCommand,
   DeleteMeteredProductCommandInput,
@@ -129,6 +136,11 @@ import {
   DeleteQueueFleetAssociationCommandInput,
   DeleteQueueFleetAssociationCommandOutput,
 } from "./commands/DeleteQueueFleetAssociationCommand";
+import {
+  DeleteQueueLimitAssociationCommand,
+  DeleteQueueLimitAssociationCommandInput,
+  DeleteQueueLimitAssociationCommandOutput,
+} from "./commands/DeleteQueueLimitAssociationCommand";
 import {
   DeleteStorageProfileCommand,
   DeleteStorageProfileCommandInput,
@@ -168,6 +180,7 @@ import {
   GetLicenseEndpointCommandInput,
   GetLicenseEndpointCommandOutput,
 } from "./commands/GetLicenseEndpointCommand";
+import { GetLimitCommand, GetLimitCommandInput, GetLimitCommandOutput } from "./commands/GetLimitCommand";
 import { GetMonitorCommand, GetMonitorCommandInput, GetMonitorCommandOutput } from "./commands/GetMonitorCommand";
 import { GetQueueCommand, GetQueueCommandInput, GetQueueCommandOutput } from "./commands/GetQueueCommand";
 import {
@@ -180,6 +193,11 @@ import {
   GetQueueFleetAssociationCommandInput,
   GetQueueFleetAssociationCommandOutput,
 } from "./commands/GetQueueFleetAssociationCommand";
+import {
+  GetQueueLimitAssociationCommand,
+  GetQueueLimitAssociationCommandInput,
+  GetQueueLimitAssociationCommandOutput,
+} from "./commands/GetQueueLimitAssociationCommand";
 import {
   GetSessionActionCommand,
   GetSessionActionCommandInput,
@@ -238,6 +256,7 @@ import {
   ListLicenseEndpointsCommandInput,
   ListLicenseEndpointsCommandOutput,
 } from "./commands/ListLicenseEndpointsCommand";
+import { ListLimitsCommand, ListLimitsCommandInput, ListLimitsCommandOutput } from "./commands/ListLimitsCommand";
 import {
   ListMeteredProductsCommand,
   ListMeteredProductsCommandInput,
@@ -258,6 +277,11 @@ import {
   ListQueueFleetAssociationsCommandInput,
   ListQueueFleetAssociationsCommandOutput,
 } from "./commands/ListQueueFleetAssociationsCommand";
+import {
+  ListQueueLimitAssociationsCommand,
+  ListQueueLimitAssociationsCommandInput,
+  ListQueueLimitAssociationsCommandOutput,
+} from "./commands/ListQueueLimitAssociationsCommand";
 import {
   ListQueueMembersCommand,
   ListQueueMembersCommandInput,
@@ -339,6 +363,7 @@ import {
 import { UpdateFarmCommand, UpdateFarmCommandInput, UpdateFarmCommandOutput } from "./commands/UpdateFarmCommand";
 import { UpdateFleetCommand, UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
 import { UpdateJobCommand, UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
+import { UpdateLimitCommand, UpdateLimitCommandInput, UpdateLimitCommandOutput } from "./commands/UpdateLimitCommand";
 import {
   UpdateMonitorCommand,
   UpdateMonitorCommandInput,
@@ -355,6 +380,11 @@ import {
   UpdateQueueFleetAssociationCommandInput,
   UpdateQueueFleetAssociationCommandOutput,
 } from "./commands/UpdateQueueFleetAssociationCommand";
+import {
+  UpdateQueueLimitAssociationCommand,
+  UpdateQueueLimitAssociationCommandInput,
+  UpdateQueueLimitAssociationCommandOutput,
+} from "./commands/UpdateQueueLimitAssociationCommand";
 import {
   UpdateSessionCommand,
   UpdateSessionCommandInput,
@@ -396,21 +426,25 @@ const commands = {
   CreateFleetCommand,
   CreateJobCommand,
   CreateLicenseEndpointCommand,
+  CreateLimitCommand,
   CreateMonitorCommand,
   CreateQueueCommand,
   CreateQueueEnvironmentCommand,
   CreateQueueFleetAssociationCommand,
+  CreateQueueLimitAssociationCommand,
   CreateStorageProfileCommand,
   CreateWorkerCommand,
   DeleteBudgetCommand,
   DeleteFarmCommand,
   DeleteFleetCommand,
   DeleteLicenseEndpointCommand,
+  DeleteLimitCommand,
   DeleteMeteredProductCommand,
   DeleteMonitorCommand,
   DeleteQueueCommand,
   DeleteQueueEnvironmentCommand,
   DeleteQueueFleetAssociationCommand,
+  DeleteQueueLimitAssociationCommand,
   DeleteStorageProfileCommand,
   DeleteWorkerCommand,
   DisassociateMemberFromFarmCommand,
@@ -422,10 +456,12 @@ const commands = {
   GetFleetCommand,
   GetJobCommand,
   GetLicenseEndpointCommand,
+  GetLimitCommand,
   GetMonitorCommand,
   GetQueueCommand,
   GetQueueEnvironmentCommand,
   GetQueueFleetAssociationCommand,
+  GetQueueLimitAssociationCommand,
   GetSessionCommand,
   GetSessionActionCommand,
   GetSessionsStatisticsAggregationCommand,
@@ -444,10 +480,12 @@ const commands = {
   ListJobParameterDefinitionsCommand,
   ListJobsCommand,
   ListLicenseEndpointsCommand,
+  ListLimitsCommand,
   ListMeteredProductsCommand,
   ListMonitorsCommand,
   ListQueueEnvironmentsCommand,
   ListQueueFleetAssociationsCommand,
+  ListQueueLimitAssociationsCommand,
   ListQueueMembersCommand,
   ListQueuesCommand,
   ListSessionActionsCommand,
@@ -473,10 +511,12 @@ const commands = {
   UpdateFarmCommand,
   UpdateFleetCommand,
   UpdateJobCommand,
+  UpdateLimitCommand,
   UpdateMonitorCommand,
   UpdateQueueCommand,
   UpdateQueueEnvironmentCommand,
   UpdateQueueFleetAssociationCommand,
+  UpdateQueueLimitAssociationCommand,
   UpdateSessionCommand,
   UpdateStepCommand,
   UpdateStorageProfileCommand,
@@ -732,6 +772,17 @@ export interface Deadline {
   ): void;
 
   /**
+   * @see {@link CreateLimitCommand}
+   */
+  createLimit(args: CreateLimitCommandInput, options?: __HttpHandlerOptions): Promise<CreateLimitCommandOutput>;
+  createLimit(args: CreateLimitCommandInput, cb: (err: any, data?: CreateLimitCommandOutput) => void): void;
+  createLimit(
+    args: CreateLimitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLimitCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateMonitorCommand}
    */
   createMonitor(args: CreateMonitorCommandInput, options?: __HttpHandlerOptions): Promise<CreateMonitorCommandOutput>;
@@ -785,6 +836,23 @@ export interface Deadline {
     args: CreateQueueFleetAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateQueueFleetAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateQueueLimitAssociationCommand}
+   */
+  createQueueLimitAssociation(
+    args: CreateQueueLimitAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateQueueLimitAssociationCommandOutput>;
+  createQueueLimitAssociation(
+    args: CreateQueueLimitAssociationCommandInput,
+    cb: (err: any, data?: CreateQueueLimitAssociationCommandOutput) => void
+  ): void;
+  createQueueLimitAssociation(
+    args: CreateQueueLimitAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateQueueLimitAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -866,6 +934,17 @@ export interface Deadline {
   ): void;
 
   /**
+   * @see {@link DeleteLimitCommand}
+   */
+  deleteLimit(args: DeleteLimitCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLimitCommandOutput>;
+  deleteLimit(args: DeleteLimitCommandInput, cb: (err: any, data?: DeleteLimitCommandOutput) => void): void;
+  deleteLimit(
+    args: DeleteLimitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLimitCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteMeteredProductCommand}
    */
   deleteMeteredProduct(
@@ -936,6 +1015,23 @@ export interface Deadline {
     args: DeleteQueueFleetAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteQueueFleetAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteQueueLimitAssociationCommand}
+   */
+  deleteQueueLimitAssociation(
+    args: DeleteQueueLimitAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteQueueLimitAssociationCommandOutput>;
+  deleteQueueLimitAssociation(
+    args: DeleteQueueLimitAssociationCommandInput,
+    cb: (err: any, data?: DeleteQueueLimitAssociationCommandOutput) => void
+  ): void;
+  deleteQueueLimitAssociation(
+    args: DeleteQueueLimitAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteQueueLimitAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -1096,6 +1192,17 @@ export interface Deadline {
   ): void;
 
   /**
+   * @see {@link GetLimitCommand}
+   */
+  getLimit(args: GetLimitCommandInput, options?: __HttpHandlerOptions): Promise<GetLimitCommandOutput>;
+  getLimit(args: GetLimitCommandInput, cb: (err: any, data?: GetLimitCommandOutput) => void): void;
+  getLimit(
+    args: GetLimitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLimitCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetMonitorCommand}
    */
   getMonitor(args: GetMonitorCommandInput, options?: __HttpHandlerOptions): Promise<GetMonitorCommandOutput>;
@@ -1149,6 +1256,23 @@ export interface Deadline {
     args: GetQueueFleetAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetQueueFleetAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetQueueLimitAssociationCommand}
+   */
+  getQueueLimitAssociation(
+    args: GetQueueLimitAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueueLimitAssociationCommandOutput>;
+  getQueueLimitAssociation(
+    args: GetQueueLimitAssociationCommandInput,
+    cb: (err: any, data?: GetQueueLimitAssociationCommandOutput) => void
+  ): void;
+  getQueueLimitAssociation(
+    args: GetQueueLimitAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQueueLimitAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -1407,6 +1531,17 @@ export interface Deadline {
   ): void;
 
   /**
+   * @see {@link ListLimitsCommand}
+   */
+  listLimits(args: ListLimitsCommandInput, options?: __HttpHandlerOptions): Promise<ListLimitsCommandOutput>;
+  listLimits(args: ListLimitsCommandInput, cb: (err: any, data?: ListLimitsCommandOutput) => void): void;
+  listLimits(
+    args: ListLimitsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLimitsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListMeteredProductsCommand}
    */
   listMeteredProducts(
@@ -1467,6 +1602,23 @@ export interface Deadline {
     args: ListQueueFleetAssociationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListQueueFleetAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListQueueLimitAssociationsCommand}
+   */
+  listQueueLimitAssociations(
+    args: ListQueueLimitAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQueueLimitAssociationsCommandOutput>;
+  listQueueLimitAssociations(
+    args: ListQueueLimitAssociationsCommandInput,
+    cb: (err: any, data?: ListQueueLimitAssociationsCommandOutput) => void
+  ): void;
+  listQueueLimitAssociations(
+    args: ListQueueLimitAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListQueueLimitAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -1805,6 +1957,17 @@ export interface Deadline {
   ): void;
 
   /**
+   * @see {@link UpdateLimitCommand}
+   */
+  updateLimit(args: UpdateLimitCommandInput, options?: __HttpHandlerOptions): Promise<UpdateLimitCommandOutput>;
+  updateLimit(args: UpdateLimitCommandInput, cb: (err: any, data?: UpdateLimitCommandOutput) => void): void;
+  updateLimit(
+    args: UpdateLimitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLimitCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateMonitorCommand}
    */
   updateMonitor(args: UpdateMonitorCommandInput, options?: __HttpHandlerOptions): Promise<UpdateMonitorCommandOutput>;
@@ -1858,6 +2021,23 @@ export interface Deadline {
     args: UpdateQueueFleetAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateQueueFleetAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateQueueLimitAssociationCommand}
+   */
+  updateQueueLimitAssociation(
+    args: UpdateQueueLimitAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQueueLimitAssociationCommandOutput>;
+  updateQueueLimitAssociation(
+    args: UpdateQueueLimitAssociationCommandInput,
+    cb: (err: any, data?: UpdateQueueLimitAssociationCommandOutput) => void
+  ): void;
+  updateQueueLimitAssociation(
+    args: UpdateQueueLimitAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQueueLimitAssociationCommandOutput) => void
   ): void;
 
   /**

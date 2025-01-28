@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetWorkerRequest, GetWorkerResponse } from "../models/models_0";
-import { de_GetWorkerCommand, se_GetWorkerCommand } from "../protocols/Aws_restJson1";
+import { GetLimitRequest, GetLimitResponse, GetLimitResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetLimitCommand, se_GetLimitCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,71 +17,50 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetWorkerCommand}.
+ * The input for {@link GetLimitCommand}.
  */
-export interface GetWorkerCommandInput extends GetWorkerRequest {}
+export interface GetLimitCommandInput extends GetLimitRequest {}
 /**
  * @public
  *
- * The output of {@link GetWorkerCommand}.
+ * The output of {@link GetLimitCommand}.
  */
-export interface GetWorkerCommandOutput extends GetWorkerResponse, __MetadataBearer {}
+export interface GetLimitCommandOutput extends GetLimitResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a worker.</p>
+ * <p>Gets information about a specific limit.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeadlineClient, GetWorkerCommand } from "@aws-sdk/client-deadline"; // ES Modules import
- * // const { DeadlineClient, GetWorkerCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * import { DeadlineClient, GetLimitCommand } from "@aws-sdk/client-deadline"; // ES Modules import
+ * // const { DeadlineClient, GetLimitCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
  * const client = new DeadlineClient(config);
- * const input = { // GetWorkerRequest
+ * const input = { // GetLimitRequest
  *   farmId: "STRING_VALUE", // required
- *   fleetId: "STRING_VALUE", // required
- *   workerId: "STRING_VALUE", // required
+ *   limitId: "STRING_VALUE", // required
  * };
- * const command = new GetWorkerCommand(input);
+ * const command = new GetLimitCommand(input);
  * const response = await client.send(command);
- * // { // GetWorkerResponse
- * //   farmId: "STRING_VALUE", // required
- * //   fleetId: "STRING_VALUE", // required
- * //   workerId: "STRING_VALUE", // required
- * //   hostProperties: { // HostPropertiesResponse
- * //     ipAddresses: { // IpAddresses
- * //       ipV4Addresses: [ // IpV4Addresses
- * //         "STRING_VALUE",
- * //       ],
- * //       ipV6Addresses: [ // IpV6Addresses
- * //         "STRING_VALUE",
- * //       ],
- * //     },
- * //     hostName: "STRING_VALUE",
- * //     ec2InstanceArn: "STRING_VALUE",
- * //     ec2InstanceType: "STRING_VALUE",
- * //   },
- * //   status: "CREATED" || "STARTED" || "STOPPING" || "STOPPED" || "NOT_RESPONDING" || "NOT_COMPATIBLE" || "RUNNING" || "IDLE", // required
- * //   log: { // LogConfiguration
- * //     logDriver: "STRING_VALUE", // required
- * //     options: { // LogOptions
- * //       "<keys>": "STRING_VALUE",
- * //     },
- * //     parameters: { // LogParameters
- * //       "<keys>": "STRING_VALUE",
- * //     },
- * //     error: "STRING_VALUE",
- * //   },
+ * // { // GetLimitResponse
+ * //   displayName: "STRING_VALUE", // required
+ * //   amountRequirementName: "STRING_VALUE", // required
+ * //   maxCount: Number("int"), // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   createdBy: "STRING_VALUE", // required
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   updatedBy: "STRING_VALUE",
+ * //   farmId: "STRING_VALUE", // required
+ * //   limitId: "STRING_VALUE", // required
+ * //   currentCount: Number("int"), // required
+ * //   description: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetWorkerCommandInput - {@link GetWorkerCommandInput}
- * @returns {@link GetWorkerCommandOutput}
- * @see {@link GetWorkerCommandInput} for command's `input` shape.
- * @see {@link GetWorkerCommandOutput} for command's `response` shape.
+ * @param GetLimitCommandInput - {@link GetLimitCommandInput}
+ * @returns {@link GetLimitCommandOutput}
+ * @see {@link GetLimitCommandInput} for command's `input` shape.
+ * @see {@link GetLimitCommandOutput} for command's `response` shape.
  * @see {@link DeadlineClientResolvedConfig | config} for DeadlineClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -105,10 +84,10 @@ export interface GetWorkerCommandOutput extends GetWorkerResponse, __MetadataBea
  *
  * @public
  */
-export class GetWorkerCommand extends $Command
+export class GetLimitCommand extends $Command
   .classBuilder<
-    GetWorkerCommandInput,
-    GetWorkerCommandOutput,
+    GetLimitCommandInput,
+    GetLimitCommandOutput,
     DeadlineClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -120,21 +99,21 @@ export class GetWorkerCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Deadline", "GetWorker", {})
-  .n("DeadlineClient", "GetWorkerCommand")
-  .f(void 0, void 0)
-  .ser(se_GetWorkerCommand)
-  .de(de_GetWorkerCommand)
+  .s("Deadline", "GetLimit", {})
+  .n("DeadlineClient", "GetLimitCommand")
+  .f(void 0, GetLimitResponseFilterSensitiveLog)
+  .ser(se_GetLimitCommand)
+  .de(de_GetLimitCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetWorkerRequest;
-      output: GetWorkerResponse;
+      input: GetLimitRequest;
+      output: GetLimitResponse;
     };
     sdk: {
-      input: GetWorkerCommandInput;
-      output: GetWorkerCommandOutput;
+      input: GetLimitCommandInput;
+      output: GetLimitCommandOutput;
     };
   };
 }

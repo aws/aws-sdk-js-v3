@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetWorkerRequest, GetWorkerResponse } from "../models/models_0";
-import { de_GetWorkerCommand, se_GetWorkerCommand } from "../protocols/Aws_restJson1";
+import { GetQueueLimitAssociationRequest, GetQueueLimitAssociationResponse } from "../models/models_1";
+import { de_GetQueueLimitAssociationCommand, se_GetQueueLimitAssociationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,71 +17,47 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetWorkerCommand}.
+ * The input for {@link GetQueueLimitAssociationCommand}.
  */
-export interface GetWorkerCommandInput extends GetWorkerRequest {}
+export interface GetQueueLimitAssociationCommandInput extends GetQueueLimitAssociationRequest {}
 /**
  * @public
  *
- * The output of {@link GetWorkerCommand}.
+ * The output of {@link GetQueueLimitAssociationCommand}.
  */
-export interface GetWorkerCommandOutput extends GetWorkerResponse, __MetadataBearer {}
+export interface GetQueueLimitAssociationCommandOutput extends GetQueueLimitAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a worker.</p>
+ * <p>Gets information about a specific association between a queue and a limit.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeadlineClient, GetWorkerCommand } from "@aws-sdk/client-deadline"; // ES Modules import
- * // const { DeadlineClient, GetWorkerCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * import { DeadlineClient, GetQueueLimitAssociationCommand } from "@aws-sdk/client-deadline"; // ES Modules import
+ * // const { DeadlineClient, GetQueueLimitAssociationCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
  * const client = new DeadlineClient(config);
- * const input = { // GetWorkerRequest
+ * const input = { // GetQueueLimitAssociationRequest
  *   farmId: "STRING_VALUE", // required
- *   fleetId: "STRING_VALUE", // required
- *   workerId: "STRING_VALUE", // required
+ *   queueId: "STRING_VALUE", // required
+ *   limitId: "STRING_VALUE", // required
  * };
- * const command = new GetWorkerCommand(input);
+ * const command = new GetQueueLimitAssociationCommand(input);
  * const response = await client.send(command);
- * // { // GetWorkerResponse
- * //   farmId: "STRING_VALUE", // required
- * //   fleetId: "STRING_VALUE", // required
- * //   workerId: "STRING_VALUE", // required
- * //   hostProperties: { // HostPropertiesResponse
- * //     ipAddresses: { // IpAddresses
- * //       ipV4Addresses: [ // IpV4Addresses
- * //         "STRING_VALUE",
- * //       ],
- * //       ipV6Addresses: [ // IpV6Addresses
- * //         "STRING_VALUE",
- * //       ],
- * //     },
- * //     hostName: "STRING_VALUE",
- * //     ec2InstanceArn: "STRING_VALUE",
- * //     ec2InstanceType: "STRING_VALUE",
- * //   },
- * //   status: "CREATED" || "STARTED" || "STOPPING" || "STOPPED" || "NOT_RESPONDING" || "NOT_COMPATIBLE" || "RUNNING" || "IDLE", // required
- * //   log: { // LogConfiguration
- * //     logDriver: "STRING_VALUE", // required
- * //     options: { // LogOptions
- * //       "<keys>": "STRING_VALUE",
- * //     },
- * //     parameters: { // LogParameters
- * //       "<keys>": "STRING_VALUE",
- * //     },
- * //     error: "STRING_VALUE",
- * //   },
+ * // { // GetQueueLimitAssociationResponse
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   createdBy: "STRING_VALUE", // required
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   updatedBy: "STRING_VALUE",
+ * //   queueId: "STRING_VALUE", // required
+ * //   limitId: "STRING_VALUE", // required
+ * //   status: "ACTIVE" || "STOP_LIMIT_USAGE_AND_COMPLETE_TASKS" || "STOP_LIMIT_USAGE_AND_CANCEL_TASKS" || "STOPPED", // required
  * // };
  *
  * ```
  *
- * @param GetWorkerCommandInput - {@link GetWorkerCommandInput}
- * @returns {@link GetWorkerCommandOutput}
- * @see {@link GetWorkerCommandInput} for command's `input` shape.
- * @see {@link GetWorkerCommandOutput} for command's `response` shape.
+ * @param GetQueueLimitAssociationCommandInput - {@link GetQueueLimitAssociationCommandInput}
+ * @returns {@link GetQueueLimitAssociationCommandOutput}
+ * @see {@link GetQueueLimitAssociationCommandInput} for command's `input` shape.
+ * @see {@link GetQueueLimitAssociationCommandOutput} for command's `response` shape.
  * @see {@link DeadlineClientResolvedConfig | config} for DeadlineClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -105,10 +81,10 @@ export interface GetWorkerCommandOutput extends GetWorkerResponse, __MetadataBea
  *
  * @public
  */
-export class GetWorkerCommand extends $Command
+export class GetQueueLimitAssociationCommand extends $Command
   .classBuilder<
-    GetWorkerCommandInput,
-    GetWorkerCommandOutput,
+    GetQueueLimitAssociationCommandInput,
+    GetQueueLimitAssociationCommandOutput,
     DeadlineClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -120,21 +96,21 @@ export class GetWorkerCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Deadline", "GetWorker", {})
-  .n("DeadlineClient", "GetWorkerCommand")
+  .s("Deadline", "GetQueueLimitAssociation", {})
+  .n("DeadlineClient", "GetQueueLimitAssociationCommand")
   .f(void 0, void 0)
-  .ser(se_GetWorkerCommand)
-  .de(de_GetWorkerCommand)
+  .ser(se_GetQueueLimitAssociationCommand)
+  .de(de_GetQueueLimitAssociationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetWorkerRequest;
-      output: GetWorkerResponse;
+      input: GetQueueLimitAssociationRequest;
+      output: GetQueueLimitAssociationResponse;
     };
     sdk: {
-      input: GetWorkerCommandInput;
-      output: GetWorkerCommandOutput;
+      input: GetQueueLimitAssociationCommandInput;
+      output: GetQueueLimitAssociationCommandOutput;
     };
   };
 }

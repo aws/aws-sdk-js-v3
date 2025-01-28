@@ -6,19 +6,19 @@ import { DocumentType as __DocumentType } from "@smithy/types";
 import { DeadlineServiceException as __BaseException } from "./DeadlineServiceException";
 
 /**
- * <p>The range for the GPU fleet acceleration.</p>
+ * <p>Defines the maximum and minimum number of GPU accelerators required for a worker
+ *          instance..</p>
  * @public
  */
 export interface AcceleratorCountRange {
   /**
-   * <p>The minimum number of GPUs for the accelerator. If you set the value to 0, a worker will
-   *          still have 1 GPU.</p>
+   * <p>The minimum number of GPU accelerators in the worker host.</p>
    * @public
    */
   min: number | undefined;
 
   /**
-   * <p>The maximum number of GPUs for the accelerator.</p>
+   * <p>The maximum number of GPU accelerators in the worker host.</p>
    * @public
    */
   max?: number | undefined;
@@ -41,46 +41,92 @@ export const AcceleratorName = {
 export type AcceleratorName = (typeof AcceleratorName)[keyof typeof AcceleratorName];
 
 /**
- * <p>Values that you can use to select a particular Amazon EC2 instance type. </p>
+ * <p>Describes a specific GPU accelerator required for an Amazon Elastic Compute Cloud worker host.</p>
  * @public
  */
 export interface AcceleratorSelection {
   /**
-   * <p>The name of the GPU accelerator.</p>
+   * <p>The name of the chip used by the GPU accelerator.</p>
+   *          <p>If you specify <code>l4</code> as the name of the accelerator, you must specify
+   *             <code>latest</code> or <code>grid:r550</code> as the runtime.</p>
+   *          <p>The available GPU accelerators are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>t4</code> - NVIDIA T4 Tensor Core GPU</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>a10g</code> - NVIDIA A10G Tensor Core GPU</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>l4</code> - NVIDIA L4 Tensor Core GPU</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>l40s</code> - NVIDIA L40S Tensor Core GPU</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   name: AcceleratorName | undefined;
 
   /**
-   * <p>The driver version that the GPU accelerator uses. </p>
+   * <p>Specifies the runtime driver to use for the GPU accelerator. You must use the same
+   *          runtime for all GPUs. </p>
+   *          <p>You can choose from the following runtimes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>latest</code> - Use the latest runtime available for the chip. If you
+   *                specify <code>latest</code> and a new version of the runtime is released, the new
+   *                version of the runtime is used.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>grid:r550</code> - <a href="https://docs.nvidia.com/vgpu/17.0/index.html">NVIDIA vGPU software 17</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>grid:r535</code> - <a href="https://docs.nvidia.com/vgpu/16.0/index.html">NVIDIA vGPU software 16</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a runtime, Deadline Cloud uses <code>latest</code> as the default. However,
+   *          if you have multiple accelerators and specify <code>latest</code> for some and leave others
+   *          blank, Deadline Cloud raises an exception.</p>
    * @public
    */
   runtime?: string | undefined;
 }
 
 /**
- * <p>Provides information about the GPU accelerators and drivers for the instance types in a
- *          fleet. If you include the <code>acceleratorCapabilities</code> property in the <a href="https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ServiceManagedEc2InstanceCapabilities">ServiceManagedEc2InstanceCapabilities</a> object, all of the Amazon EC2
- *          instances will have at least one accelerator. </p>
+ * <p>Provides information about the GPU accelerators used for jobs processed by a
+ *          fleet.</p>
  * @public
  */
 export interface AcceleratorCapabilities {
   /**
-   * <p>A list of objects that contain the GPU name of the accelerator and driver for the
-   *          instance types that support the accelerator.</p>
+   * <p>A list of accelerator capabilities requested for this fleet. Only Amazon Elastic Compute Cloud instances
+   *          that provide these capabilities will be used. For example, if you specify both L4 and T4
+   *          chips, Deadline Cloud will use Amazon EC2 instances that have either the L4 or the T4 chip
+   *          installed.</p>
    * @public
    */
   selections: AcceleratorSelection[] | undefined;
 
   /**
-   * <p>The number of GPUs on each worker. The default is 1.</p>
+   * <p>The number of GPU accelerators specified for worker hosts in this fleet. </p>
    * @public
    */
   count?: AcceleratorCountRange | undefined;
 }
 
 /**
- * <p>The range for memory, in MiB, to use for the accelerator.</p>
+ * <p>Defines the maximum and minimum amount of memory, in MiB, to use for the
+ *          accelerator.</p>
  * @public
  */
 export interface AcceleratorTotalMemoryMiBRange {
@@ -138,6 +184,24 @@ export class AccessDeniedException extends __BaseException {
     Object.setPrototypeOf(this, AccessDeniedException.prototype);
     this.context = opts.context;
   }
+}
+
+/**
+ * <p>Provides information about the number of resources used.</p>
+ * @public
+ */
+export interface AcquiredLimit {
+  /**
+   * <p>The unique identifier of the limit.</p>
+   * @public
+   */
+  limitId: string | undefined;
+
+  /**
+   * <p>The number of limit resources used.</p>
+   * @public
+   */
+  count: number | undefined;
 }
 
 /**
@@ -1267,7 +1331,7 @@ export interface ManifestProperties {
   inputManifestPath?: string | undefined;
 
   /**
-   * <p>The has value of the file.</p>
+   * <p>The hash value of the file.</p>
    * @public
    */
   inputManifestHash?: string | undefined;
@@ -3246,9 +3310,8 @@ export interface ServiceManagedEc2InstanceCapabilities {
   rootEbsVolume?: Ec2EbsVolume | undefined;
 
   /**
-   * <p>The GPU accelerator capabilities required for the Amazon EC2 instances. If you
-   *          include the <code>acceleratorCapabilities</code> property in the <a href="https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ServiceManagedEc2InstanceCapabilities">ServiceManagedEc2InstanceCapabilities</a> object, all of the Amazon EC2
-   *          instances will have at least one accelerator. </p>
+   * <p>Describes the GPU accelerator capabilities required for worker host instances in this
+   *          fleet.</p>
    * @public
    */
   acceleratorCapabilities?: AcceleratorCapabilities | undefined;
@@ -3549,6 +3612,18 @@ export interface CreateJobRequest {
   maxRetriesPerTask?: number | undefined;
 
   /**
+   * <p>The maximum number of worker hosts that can concurrently process a job. When the
+   *             <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the
+   *          job, even if the fleets assigned to the job's queue has available workers.</p>
+   *          <p>You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no
+   *          maximum number of workers.</p>
+   *          <p>If you don't specify the <code>maxWorkerCount</code>, Deadline Cloud won't throttle
+   *          the number of workers used to process the job.</p>
+   * @public
+   */
+  maxWorkerCount?: number | undefined;
+
+  /**
    * <p>The job ID for the source job.</p>
    * @public
    */
@@ -3610,6 +3685,72 @@ export interface CreateLicenseEndpointResponse {
    * @public
    */
   licenseEndpointId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLimitRequest {
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The display name of the limit.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
+   * @public
+   */
+  displayName: string | undefined;
+
+  /**
+   * <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of
+   *          the <code>hostRequirements</code> in a step of a job template to declare the limit
+   *          requirement.</p>
+   * @public
+   */
+  amountRequirementName: string | undefined;
+
+  /**
+   * <p>The maximum number of resources constrained by this limit. When all of the resources are
+   *          in use, steps that require the limit won't be scheduled until the resource is
+   *          available.</p>
+   *          <p>The <code>maxCount</code> must not be 0. If the value is -1, there is no restriction on
+   *          the number of resources that can be acquired for this limit.</p>
+   * @public
+   */
+  maxCount: number | undefined;
+
+  /**
+   * <p>The farm ID of the farm that contains the limit.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>A description of the limit. A description helps you identify the purpose of the
+   *          limit.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLimitResponse {
+  /**
+   * <p>A unique identifier for the limit. Use this identifier in other operations, such as
+   *             <code>CreateQueueLimitAssociation</code> and <code>DeleteLimit</code>.</p>
+   * @public
+   */
+  limitId: string | undefined;
 }
 
 /**
@@ -3872,6 +4013,34 @@ export interface CreateQueueFleetAssociationResponse {}
 
 /**
  * @public
+ */
+export interface CreateQueueLimitAssociationRequest {
+  /**
+   * <p>The unique identifier of the farm that contains the queue and limit to associate.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the queue to associate with the limit.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the limit to associate with the queue.</p>
+   * @public
+   */
+  limitId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateQueueLimitAssociationResponse {}
+
+/**
+ * @public
  * @enum
  */
 export const FileSystemLocationType = {
@@ -4104,6 +4273,35 @@ export interface DeleteQueueFleetAssociationResponse {}
 /**
  * @public
  */
+export interface DeleteQueueLimitAssociationRequest {
+  /**
+   * <p>The unique identifier of the farm that contains the queue and limit to
+   *          disassociate.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the queue to disassociate.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the limit to disassociate.</p>
+   * @public
+   */
+  limitId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteQueueLimitAssociationResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteFarmRequest {
   /**
    * <p>The farm ID of the farm to delete.</p>
@@ -4116,6 +4314,28 @@ export interface DeleteFarmRequest {
  * @public
  */
 export interface DeleteFarmResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteLimitRequest {
+  /**
+   * <p>The unique identifier of the farm that contains the limit to delete.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the limit to delete.</p>
+   * @public
+   */
+  limitId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLimitResponse {}
 
 /**
  * @public
@@ -4802,12 +5022,6 @@ export type WorkerStatus = (typeof WorkerStatus)[keyof typeof WorkerStatus];
  */
 export interface GetWorkerResponse {
   /**
-   * <p>The worker ID.</p>
-   * @public
-   */
-  workerId: string | undefined;
-
-  /**
    * <p>The farm ID.</p>
    * @public
    */
@@ -4818,6 +5032,12 @@ export interface GetWorkerResponse {
    * @public
    */
   fleetId: string | undefined;
+
+  /**
+   * <p>The worker ID.</p>
+   * @public
+   */
+  workerId: string | undefined;
 
   /**
    * <p>The host properties for the worker.</p>
@@ -5419,6 +5639,107 @@ export interface GetFarmResponse {
 /**
  * @public
  */
+export interface GetLimitRequest {
+  /**
+   * <p>The unique identifier of the farm that contains the limit.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the limit to return.</p>
+   * @public
+   */
+  limitId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLimitResponse {
+  /**
+   * <p>The display name of the limit.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
+   * @public
+   */
+  displayName: string | undefined;
+
+  /**
+   * <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of
+   *          the <code>hostRequirements</code> in a step of a job template to declare the limit
+   *          requirement.</p>
+   * @public
+   */
+  amountRequirementName: string | undefined;
+
+  /**
+   * <p>The maximum number of resources constrained by this limit. When all of the resources are
+   *          in use, steps that require the limit won't be scheduled until the resource is
+   *          available.</p>
+   *          <p>The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on
+   *          the number of resources that can be acquired for this limit.</p>
+   * @public
+   */
+  maxCount: number | undefined;
+
+  /**
+   * <p>The Unix timestamp of the date and time that the limit was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The user identifier of the person that created the limit.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The Unix timestamp of the date and time that the limit was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The user identifier of the person that last updated the limit.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the farm that contains the limit.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the limit.</p>
+   * @public
+   */
+  limitId: string | undefined;
+
+  /**
+   * <p>The number of resources from the limit that are being used by jobs. The result is
+   *          delayed and may not be the count at the time that you called the operation.</p>
+   * @public
+   */
+  currentCount: number | undefined;
+
+  /**
+   * <p>The description of the limit that helps identify what the limit is used for.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetStorageProfileRequest {
   /**
    * <p>The farm ID for the storage profile.</p>
@@ -5654,6 +5975,122 @@ export interface ListFarmsResponse {
    * @public
    */
   farms: FarmSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLimitsRequest {
+  /**
+   * <p>The unique identifier of the farm that contains the limits.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of limits to return in each page of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Provides information about a specific limit.</p>
+ * @public
+ */
+export interface LimitSummary {
+  /**
+   * <p>The name of the limit used in lists to identify the limit.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
+   * @public
+   */
+  displayName: string | undefined;
+
+  /**
+   * <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of
+   *          the <code>hostRequirements</code> in a step of a job template to declare the limit
+   *          requirement.</p>
+   * @public
+   */
+  amountRequirementName: string | undefined;
+
+  /**
+   * <p>The maximum number of resources constrained by this limit. When all of the resources are
+   *          in use, steps that require the limit won't be scheduled until the resource is
+   *          available.</p>
+   *          <p>The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on
+   *          the number of resources that can be acquired for this limit.</p>
+   * @public
+   */
+  maxCount: number | undefined;
+
+  /**
+   * <p>The Unix timestamp of the date and time that the limit was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The user identifier of the person that created the limit.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The Unix timestamp of the date and time that the limit was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The user identifier of the person that last updated the limit.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the farm that contains the limit.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the limit.</p>
+   * @public
+   */
+  limitId: string | undefined;
+
+  /**
+   * <p>The number of resources from the limit that are being used by jobs. The result is
+   *          delayed and may not be the count at the time that you called the operation.</p>
+   * @public
+   */
+  currentCount: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLimitsResponse {
+  /**
+   * <p>A list of limits that the farm contains.</p>
+   * @public
+   */
+  limits: LimitSummary[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6151,16 +6588,16 @@ export interface GetJobRequest {
   farmId: string | undefined;
 
   /**
-   * <p>The job ID.</p>
-   * @public
-   */
-  jobId: string | undefined;
-
-  /**
    * <p>The queue ID associated with the job.</p>
    * @public
    */
   queueId: string | undefined;
+
+  /**
+   * <p>The job ID.</p>
+   * @public
+   */
+  jobId: string | undefined;
 }
 
 /**
@@ -6352,6 +6789,16 @@ export interface GetJobResponse {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The maximum number of worker hosts that can concurrently process a job. When the
+   *             <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the
+   *          job, even if the fleets assigned to the job's queue has available workers.</p>
+   *          <p>If you don't set the <code>maxWorkerCount</code> when you create a job, this value is
+   *          not returned in the response.</p>
+   * @public
+   */
+  maxWorkerCount?: number | undefined;
 
   /**
    * <p>The job ID for the source job.</p>
@@ -6733,6 +7180,13 @@ export interface GetSessionActionResponse {
    * @public
    */
   definition: SessionActionDefinition | undefined;
+
+  /**
+   * <p>The limits and their amounts acquired during a session action. If no limits were
+   *          acquired during the session, this field isn't returned.</p>
+   * @public
+   */
+  acquiredLimits?: AcquiredLimit[] | undefined;
 }
 
 /**
@@ -7521,6 +7975,17 @@ export interface JobSummary {
    * @public
    */
   maxRetriesPerTask?: number | undefined;
+
+  /**
+   * <p>The maximum number of worker hosts that can concurrently process a job. When the
+   *             <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the
+   *          job, even if the fleets assigned to the job's queue has available workers.</p>
+   *          <p>You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no
+   *          maximum number of workers.</p>
+   *          <p>If you don't specify the <code>maxWorkerCount</code>, the default is -1.</p>
+   * @public
+   */
+  maxWorkerCount?: number | undefined;
 
   /**
    * <p>The job ID for the source job.</p>
@@ -8405,373 +8870,6 @@ export interface ListTasksResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const UpdateJobLifecycleStatus = {
-  ARCHIVED: "ARCHIVED",
-} as const;
-
-/**
- * @public
- */
-export type UpdateJobLifecycleStatus = (typeof UpdateJobLifecycleStatus)[keyof typeof UpdateJobLifecycleStatus];
-
-/**
- * @public
- */
-export interface UpdateJobRequest {
-  /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The farm ID of the job to update.</p>
-   * @public
-   */
-  farmId: string | undefined;
-
-  /**
-   * <p>The queue ID of the job to update.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The job ID to update.</p>
-   * @public
-   */
-  jobId: string | undefined;
-
-  /**
-   * <p>The task status to update the job's tasks to.</p>
-   * @public
-   */
-  targetTaskRunStatus?: JobTargetTaskRunStatus | undefined;
-
-  /**
-   * <p>The job priority to update.</p>
-   * @public
-   */
-  priority?: number | undefined;
-
-  /**
-   * <p>The number of task failures before the job stops running and is marked as <code>FAILED</code>.</p>
-   * @public
-   */
-  maxFailedTasksCount?: number | undefined;
-
-  /**
-   * <p>The maximum number of retries for a job.</p>
-   * @public
-   */
-  maxRetriesPerTask?: number | undefined;
-
-  /**
-   * <p>The status of a job in its lifecycle. When you change the status of the job to
-   *             <code>ARCHIVED</code>, the job can't be scheduled or archived.</p>
-   *          <important>
-   *             <p>An archived jobs and its steps and tasks are deleted after 120 days. The job can't be
-   *             recovered.</p>
-   *          </important>
-   * @public
-   */
-  lifecycleStatus?: UpdateJobLifecycleStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateJobResponse {}
-
-/**
- * @public
- */
-export interface UpdateSessionRequest {
-  /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The farm ID to update in the session.</p>
-   * @public
-   */
-  farmId: string | undefined;
-
-  /**
-   * <p>The queue ID to update in the session.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The job ID to update in the session.</p>
-   * @public
-   */
-  jobId: string | undefined;
-
-  /**
-   * <p>The session ID to update.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>The life cycle status to update in the session.</p>
-   * @public
-   */
-  targetLifecycleStatus: SessionLifecycleTargetStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSessionResponse {}
-
-/**
- * @public
- */
-export interface UpdateStepRequest {
-  /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The farm ID to update.</p>
-   * @public
-   */
-  farmId: string | undefined;
-
-  /**
-   * <p>The queue ID to update.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The job ID to update.</p>
-   * @public
-   */
-  jobId: string | undefined;
-
-  /**
-   * <p>The step ID to update.</p>
-   * @public
-   */
-  stepId: string | undefined;
-
-  /**
-   * <p>The task status to update the step's tasks to.</p>
-   * @public
-   */
-  targetTaskRunStatus: StepTargetTaskRunStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateStepResponse {}
-
-/**
- * @public
- */
-export interface UpdateTaskRequest {
-  /**
-   * <p>The unique token which the server uses to recognize retries of the same request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The farm ID to update.</p>
-   * @public
-   */
-  farmId: string | undefined;
-
-  /**
-   * <p>The queue ID to update.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The job ID to update.</p>
-   * @public
-   */
-  jobId: string | undefined;
-
-  /**
-   * <p>The step ID to update.</p>
-   * @public
-   */
-  stepId: string | undefined;
-
-  /**
-   * <p>The task ID to update.</p>
-   * @public
-   */
-  taskId: string | undefined;
-
-  /**
-   * <p>The run status with which to start the task.</p>
-   * @public
-   */
-  targetRunStatus: TaskTargetRunStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTaskResponse {}
-
-/**
- * @public
- */
-export interface ListQueueEnvironmentsRequest {
-  /**
-   * <p>The farm ID for the queue environment list.</p>
-   * @public
-   */
-  farmId: string | undefined;
-
-  /**
-   * <p>The queue ID for the queue environment list.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>The summary of a queue environment.</p>
- * @public
- */
-export interface QueueEnvironmentSummary {
-  /**
-   * <p>The queue environment ID.</p>
-   * @public
-   */
-  queueEnvironmentId: string | undefined;
-
-  /**
-   * <p>The name of the queue environment.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The queue environment's priority.</p>
-   * @public
-   */
-  priority: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListQueueEnvironmentsResponse {
-  /**
-   * <p>The environments to include in the queue environments list.</p>
-   * @public
-   */
-  environments: QueueEnvironmentSummary[] | undefined;
-
-  /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListQueueMembersRequest {
-  /**
-   * <p>The farm ID for the queue.</p>
-   * @public
-   */
-  farmId: string | undefined;
-
-  /**
-   * <p>The queue ID to include on the list.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>The details of a queue member.</p>
- * @public
- */
-export interface QueueMember {
-  /**
-   * <p>The farm ID.</p>
-   * @public
-   */
-  farmId: string | undefined;
-
-  /**
-   * <p>The queue ID.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The principal ID of the queue member.</p>
-   * @public
-   */
-  principalId: string | undefined;
-
-  /**
-   * <p>The principal type of the queue member.</p>
-   * @public
-   */
-  principalType: DeadlinePrincipalType | undefined;
-
-  /**
-   * <p>The identity store ID.</p>
-   * @public
-   */
-  identityStoreId: string | undefined;
-
-  /**
-   * <p>The queue member's membership level.</p>
-   * @public
-   */
-  membershipLevel: MembershipLevel | undefined;
-}
-
-/**
  * @internal
  */
 export const TaskParameterValueFilterSensitiveLog = (obj: TaskParameterValue): any => {
@@ -9045,6 +9143,14 @@ export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any =
 /**
  * @internal
  */
+export const CreateLimitRequestFilterSensitiveLog = (obj: CreateLimitRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const CreateQueueRequestFilterSensitiveLog = (obj: CreateQueueRequest): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
@@ -9135,6 +9241,14 @@ export const UpdateWorkerScheduleResponseFilterSensitiveLog = (obj: UpdateWorker
  * @internal
  */
 export const GetFarmResponseFilterSensitiveLog = (obj: GetFarmResponse): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetLimitResponseFilterSensitiveLog = (obj: GetLimitResponse): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
 });

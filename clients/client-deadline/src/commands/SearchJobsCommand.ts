@@ -139,6 +139,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //           path: "STRING_VALUE",
  * //         },
  * //       },
+ * //       maxWorkerCount: Number("int"),
  * //       sourceJobId: "STRING_VALUE",
  * //     },
  * //   ],

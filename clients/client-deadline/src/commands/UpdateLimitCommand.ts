@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateSessionRequest, UpdateSessionResponse } from "../models/models_1";
-import { de_UpdateSessionCommand, se_UpdateSessionCommand } from "../protocols/Aws_restJson1";
+import { UpdateLimitRequest, UpdateLimitRequestFilterSensitiveLog, UpdateLimitResponse } from "../models/models_1";
+import { de_UpdateLimitCommand, se_UpdateLimitCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,50 +17,45 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateSessionCommand}.
+ * The input for {@link UpdateLimitCommand}.
  */
-export interface UpdateSessionCommandInput extends UpdateSessionRequest {}
+export interface UpdateLimitCommandInput extends UpdateLimitRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateSessionCommand}.
+ * The output of {@link UpdateLimitCommand}.
  */
-export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __MetadataBearer {}
+export interface UpdateLimitCommandOutput extends UpdateLimitResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a session.</p>
+ * <p>Updates the properties of the specified limit. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeadlineClient, UpdateSessionCommand } from "@aws-sdk/client-deadline"; // ES Modules import
- * // const { DeadlineClient, UpdateSessionCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * import { DeadlineClient, UpdateLimitCommand } from "@aws-sdk/client-deadline"; // ES Modules import
+ * // const { DeadlineClient, UpdateLimitCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
  * const client = new DeadlineClient(config);
- * const input = { // UpdateSessionRequest
- *   clientToken: "STRING_VALUE",
- *   targetLifecycleStatus: "ENDED", // required
+ * const input = { // UpdateLimitRequest
  *   farmId: "STRING_VALUE", // required
- *   queueId: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
- *   sessionId: "STRING_VALUE", // required
+ *   limitId: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   maxCount: Number("int"),
  * };
- * const command = new UpdateSessionCommand(input);
+ * const command = new UpdateLimitCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param UpdateSessionCommandInput - {@link UpdateSessionCommandInput}
- * @returns {@link UpdateSessionCommandOutput}
- * @see {@link UpdateSessionCommandInput} for command's `input` shape.
- * @see {@link UpdateSessionCommandOutput} for command's `response` shape.
+ * @param UpdateLimitCommandInput - {@link UpdateLimitCommandInput}
+ * @returns {@link UpdateLimitCommandOutput}
+ * @see {@link UpdateLimitCommandInput} for command's `input` shape.
+ * @see {@link UpdateLimitCommandOutput} for command's `response` shape.
  * @see {@link DeadlineClientResolvedConfig | config} for DeadlineClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have permission to perform the action.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *          than one operation on the same resource at the same time.</p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>Deadline Cloud can't process your request right now. Try again later.</p>
@@ -80,10 +75,10 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  *
  * @public
  */
-export class UpdateSessionCommand extends $Command
+export class UpdateLimitCommand extends $Command
   .classBuilder<
-    UpdateSessionCommandInput,
-    UpdateSessionCommandOutput,
+    UpdateLimitCommandInput,
+    UpdateLimitCommandOutput,
     DeadlineClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -95,21 +90,21 @@ export class UpdateSessionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Deadline", "UpdateSession", {})
-  .n("DeadlineClient", "UpdateSessionCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateSessionCommand)
-  .de(de_UpdateSessionCommand)
+  .s("Deadline", "UpdateLimit", {})
+  .n("DeadlineClient", "UpdateLimitCommand")
+  .f(UpdateLimitRequestFilterSensitiveLog, void 0)
+  .ser(se_UpdateLimitCommand)
+  .de(de_UpdateLimitCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateSessionRequest;
+      input: UpdateLimitRequest;
       output: {};
     };
     sdk: {
-      input: UpdateSessionCommandInput;
-      output: UpdateSessionCommandOutput;
+      input: UpdateLimitCommandInput;
+      output: UpdateLimitCommandOutput;
     };
   };
 }

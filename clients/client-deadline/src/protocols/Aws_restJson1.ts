@@ -86,6 +86,7 @@ import {
   CreateLicenseEndpointCommandInput,
   CreateLicenseEndpointCommandOutput,
 } from "../commands/CreateLicenseEndpointCommand";
+import { CreateLimitCommandInput, CreateLimitCommandOutput } from "../commands/CreateLimitCommand";
 import { CreateMonitorCommandInput, CreateMonitorCommandOutput } from "../commands/CreateMonitorCommand";
 import { CreateQueueCommandInput, CreateQueueCommandOutput } from "../commands/CreateQueueCommand";
 import {
@@ -96,6 +97,10 @@ import {
   CreateQueueFleetAssociationCommandInput,
   CreateQueueFleetAssociationCommandOutput,
 } from "../commands/CreateQueueFleetAssociationCommand";
+import {
+  CreateQueueLimitAssociationCommandInput,
+  CreateQueueLimitAssociationCommandOutput,
+} from "../commands/CreateQueueLimitAssociationCommand";
 import {
   CreateStorageProfileCommandInput,
   CreateStorageProfileCommandOutput,
@@ -108,6 +113,7 @@ import {
   DeleteLicenseEndpointCommandInput,
   DeleteLicenseEndpointCommandOutput,
 } from "../commands/DeleteLicenseEndpointCommand";
+import { DeleteLimitCommandInput, DeleteLimitCommandOutput } from "../commands/DeleteLimitCommand";
 import {
   DeleteMeteredProductCommandInput,
   DeleteMeteredProductCommandOutput,
@@ -122,6 +128,10 @@ import {
   DeleteQueueFleetAssociationCommandInput,
   DeleteQueueFleetAssociationCommandOutput,
 } from "../commands/DeleteQueueFleetAssociationCommand";
+import {
+  DeleteQueueLimitAssociationCommandInput,
+  DeleteQueueLimitAssociationCommandOutput,
+} from "../commands/DeleteQueueLimitAssociationCommand";
 import {
   DeleteStorageProfileCommandInput,
   DeleteStorageProfileCommandOutput,
@@ -148,6 +158,7 @@ import { GetFarmCommandInput, GetFarmCommandOutput } from "../commands/GetFarmCo
 import { GetFleetCommandInput, GetFleetCommandOutput } from "../commands/GetFleetCommand";
 import { GetJobCommandInput, GetJobCommandOutput } from "../commands/GetJobCommand";
 import { GetLicenseEndpointCommandInput, GetLicenseEndpointCommandOutput } from "../commands/GetLicenseEndpointCommand";
+import { GetLimitCommandInput, GetLimitCommandOutput } from "../commands/GetLimitCommand";
 import { GetMonitorCommandInput, GetMonitorCommandOutput } from "../commands/GetMonitorCommand";
 import { GetQueueCommandInput, GetQueueCommandOutput } from "../commands/GetQueueCommand";
 import {
@@ -158,6 +169,10 @@ import {
   GetQueueFleetAssociationCommandInput,
   GetQueueFleetAssociationCommandOutput,
 } from "../commands/GetQueueFleetAssociationCommand";
+import {
+  GetQueueLimitAssociationCommandInput,
+  GetQueueLimitAssociationCommandOutput,
+} from "../commands/GetQueueLimitAssociationCommand";
 import { GetSessionActionCommandInput, GetSessionActionCommandOutput } from "../commands/GetSessionActionCommand";
 import { GetSessionCommandInput, GetSessionCommandOutput } from "../commands/GetSessionCommand";
 import {
@@ -191,6 +206,7 @@ import {
   ListLicenseEndpointsCommandInput,
   ListLicenseEndpointsCommandOutput,
 } from "../commands/ListLicenseEndpointsCommand";
+import { ListLimitsCommandInput, ListLimitsCommandOutput } from "../commands/ListLimitsCommand";
 import {
   ListMeteredProductsCommandInput,
   ListMeteredProductsCommandOutput,
@@ -204,6 +220,10 @@ import {
   ListQueueFleetAssociationsCommandInput,
   ListQueueFleetAssociationsCommandOutput,
 } from "../commands/ListQueueFleetAssociationsCommand";
+import {
+  ListQueueLimitAssociationsCommandInput,
+  ListQueueLimitAssociationsCommandOutput,
+} from "../commands/ListQueueLimitAssociationsCommand";
 import { ListQueueMembersCommandInput, ListQueueMembersCommandOutput } from "../commands/ListQueueMembersCommand";
 import { ListQueuesCommandInput, ListQueuesCommandOutput } from "../commands/ListQueuesCommand";
 import { ListSessionActionsCommandInput, ListSessionActionsCommandOutput } from "../commands/ListSessionActionsCommand";
@@ -247,6 +267,7 @@ import { UpdateBudgetCommandInput, UpdateBudgetCommandOutput } from "../commands
 import { UpdateFarmCommandInput, UpdateFarmCommandOutput } from "../commands/UpdateFarmCommand";
 import { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "../commands/UpdateFleetCommand";
 import { UpdateJobCommandInput, UpdateJobCommandOutput } from "../commands/UpdateJobCommand";
+import { UpdateLimitCommandInput, UpdateLimitCommandOutput } from "../commands/UpdateLimitCommand";
 import { UpdateMonitorCommandInput, UpdateMonitorCommandOutput } from "../commands/UpdateMonitorCommand";
 import { UpdateQueueCommandInput, UpdateQueueCommandOutput } from "../commands/UpdateQueueCommand";
 import {
@@ -257,6 +278,10 @@ import {
   UpdateQueueFleetAssociationCommandInput,
   UpdateQueueFleetAssociationCommandOutput,
 } from "../commands/UpdateQueueFleetAssociationCommand";
+import {
+  UpdateQueueLimitAssociationCommandInput,
+  UpdateQueueLimitAssociationCommandOutput,
+} from "../commands/UpdateQueueLimitAssociationCommand";
 import { UpdateSessionCommandInput, UpdateSessionCommandOutput } from "../commands/UpdateSessionCommand";
 import { UpdateStepCommandInput, UpdateStepCommandOutput } from "../commands/UpdateStepCommand";
 import {
@@ -310,6 +335,7 @@ import {
   JobParameter,
   JobRunAsUser,
   JobSummary,
+  LimitSummary,
   ManifestProperties,
   MemoryMiBRange,
   PosixUser,
@@ -347,6 +373,7 @@ import {
   ParameterFilterExpression,
   ParameterSortExpression,
   QueueFleetAssociationSummary,
+  QueueLimitAssociationSummary,
   QueueSummary,
   SearchFilterExpression,
   SearchGroupedFilterExpressions,
@@ -830,6 +857,7 @@ export const se_CreateJobCommand = async (
       attachments: (_) => _json(_),
       maxFailedTasksCount: [],
       maxRetriesPerTask: [],
+      maxWorkerCount: [],
       parameters: (_) => _json(_),
       priority: [],
       sourceJobId: [],
@@ -871,6 +899,41 @@ export const se_CreateLicenseEndpointCommand = async (
       subnetIds: (_) => _json(_),
       tags: (_) => _json(_),
       vpcId: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "management." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateLimitCommand
+ */
+export const se_CreateLimitCommand = async (
+  input: CreateLimitCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
+  });
+  b.bp("/2023-10-12/farms/{farmId}/limits");
+  b.p("farmId", () => input.farmId!, "{farmId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      amountRequirementName: [],
+      description: [],
+      displayName: [],
+      maxCount: [],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1011,6 +1074,38 @@ export const se_CreateQueueFleetAssociationCommand = async (
   body = JSON.stringify(
     take(input, {
       fleetId: [],
+      queueId: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "management." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateQueueLimitAssociationCommand
+ */
+export const se_CreateQueueLimitAssociationCommand = async (
+  input: CreateQueueLimitAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2023-10-12/farms/{farmId}/queue-limit-associations");
+  b.p("farmId", () => input.farmId!, "{farmId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      limitId: [],
       queueId: [],
     })
   );
@@ -1194,6 +1289,31 @@ export const se_DeleteLicenseEndpointCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteLimitCommand
+ */
+export const se_DeleteLimitCommand = async (
+  input: DeleteLimitCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2023-10-12/farms/{farmId}/limits/{limitId}");
+  b.p("farmId", () => input.farmId!, "{farmId}", false);
+  b.p("limitId", () => input.limitId!, "{limitId}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "management." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteMeteredProductCommand
  */
 export const se_DeleteMeteredProductCommand = async (
@@ -1306,6 +1426,32 @@ export const se_DeleteQueueFleetAssociationCommand = async (
   b.p("farmId", () => input.farmId!, "{farmId}", false);
   b.p("queueId", () => input.queueId!, "{queueId}", false);
   b.p("fleetId", () => input.fleetId!, "{fleetId}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "management." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteQueueLimitAssociationCommand
+ */
+export const se_DeleteQueueLimitAssociationCommand = async (
+  input: DeleteQueueLimitAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2023-10-12/farms/{farmId}/queue-limit-associations/{queueId}/{limitId}");
+  b.p("farmId", () => input.farmId!, "{farmId}", false);
+  b.p("queueId", () => input.queueId!, "{queueId}", false);
+  b.p("limitId", () => input.limitId!, "{limitId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1556,8 +1702,8 @@ export const se_GetJobCommand = async (input: GetJobCommandInput, context: __Ser
   const headers: any = {};
   b.bp("/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
-  b.p("jobId", () => input.jobId!, "{jobId}", false);
   b.p("queueId", () => input.queueId!, "{queueId}", false);
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1582,6 +1728,31 @@ export const se_GetLicenseEndpointCommand = async (
   const headers: any = {};
   b.bp("/2023-10-12/license-endpoints/{licenseEndpointId}");
   b.p("licenseEndpointId", () => input.licenseEndpointId!, "{licenseEndpointId}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "management." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetLimitCommand
+ */
+export const se_GetLimitCommand = async (
+  input: GetLimitCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2023-10-12/farms/{farmId}/limits/{limitId}");
+  b.p("farmId", () => input.farmId!, "{farmId}", false);
+  b.p("limitId", () => input.limitId!, "{limitId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1683,6 +1854,32 @@ export const se_GetQueueFleetAssociationCommand = async (
   b.p("farmId", () => input.farmId!, "{farmId}", false);
   b.p("queueId", () => input.queueId!, "{queueId}", false);
   b.p("fleetId", () => input.fleetId!, "{fleetId}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "management." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetQueueLimitAssociationCommand
+ */
+export const se_GetQueueLimitAssociationCommand = async (
+  input: GetQueueLimitAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2023-10-12/farms/{farmId}/queue-limit-associations/{queueId}/{limitId}");
+  b.p("farmId", () => input.farmId!, "{farmId}", false);
+  b.p("queueId", () => input.queueId!, "{queueId}", false);
+  b.p("limitId", () => input.limitId!, "{limitId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2201,6 +2398,34 @@ export const se_ListLicenseEndpointsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListLimitsCommand
+ */
+export const se_ListLimitsCommand = async (
+  input: ListLimitsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2023-10-12/farms/{farmId}/limits");
+  b.p("farmId", () => input.farmId!, "{farmId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "management." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListMeteredProductsCommand
  */
 export const se_ListMeteredProductsCommand = async (
@@ -2298,6 +2523,36 @@ export const se_ListQueueFleetAssociationsCommand = async (
   const query: any = map({
     [_qI]: [, input[_qI]!],
     [_fI]: [, input[_fI]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "management." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListQueueLimitAssociationsCommand
+ */
+export const se_ListQueueLimitAssociationsCommand = async (
+  input: ListQueueLimitAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2023-10-12/farms/{farmId}/queue-limit-associations");
+  b.p("farmId", () => input.farmId!, "{farmId}", false);
+  const query: any = map({
+    [_qI]: [, input[_qI]!],
+    [_lI]: [, input[_lI]!],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
@@ -3091,8 +3346,43 @@ export const se_UpdateJobCommand = async (
       lifecycleStatus: [],
       maxFailedTasksCount: [],
       maxRetriesPerTask: [],
+      maxWorkerCount: [],
       priority: [],
       targetTaskRunStatus: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "management." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateLimitCommand
+ */
+export const se_UpdateLimitCommand = async (
+  input: UpdateLimitCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2023-10-12/farms/{farmId}/limits/{limitId}");
+  b.p("farmId", () => input.farmId!, "{farmId}", false);
+  b.p("limitId", () => input.limitId!, "{limitId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      displayName: [],
+      maxCount: [],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3233,6 +3523,39 @@ export const se_UpdateQueueFleetAssociationCommand = async (
   b.p("farmId", () => input.farmId!, "{farmId}", false);
   b.p("queueId", () => input.queueId!, "{queueId}", false);
   b.p("fleetId", () => input.fleetId!, "{fleetId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      status: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "management." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateQueueLimitAssociationCommand
+ */
+export const se_UpdateQueueLimitAssociationCommand = async (
+  input: UpdateQueueLimitAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2023-10-12/farms/{farmId}/queue-limit-associations/{queueId}/{limitId}");
+  b.p("farmId", () => input.farmId!, "{farmId}", false);
+  b.p("queueId", () => input.queueId!, "{queueId}", false);
+  b.p("limitId", () => input.limitId!, "{limitId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3783,6 +4106,27 @@ export const de_CreateLicenseEndpointCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateLimitCommand
+ */
+export const de_CreateLimitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLimitCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    limitId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateMonitorCommand
  */
 export const de_CreateMonitorCommand = async (
@@ -3853,6 +4197,23 @@ export const de_CreateQueueFleetAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateQueueFleetAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateQueueLimitAssociationCommand
+ */
+export const de_CreateQueueLimitAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateQueueLimitAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -3974,6 +4335,23 @@ export const de_DeleteLicenseEndpointCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteLimitCommand
+ */
+export const de_DeleteLimitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLimitCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteMeteredProductCommand
  */
 export const de_DeleteMeteredProductCommand = async (
@@ -4048,6 +4426,23 @@ export const de_DeleteQueueFleetAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteQueueFleetAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteQueueLimitAssociationCommand
+ */
+export const de_DeleteQueueLimitAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteQueueLimitAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -4284,6 +4679,7 @@ export const de_GetJobCommand = async (
     lifecycleStatusMessage: __expectString,
     maxFailedTasksCount: __expectInt32,
     maxRetriesPerTask: __expectInt32,
+    maxWorkerCount: __expectInt32,
     name: __expectString,
     parameters: _json,
     priority: __expectInt32,
@@ -4322,6 +4718,37 @@ export const de_GetLicenseEndpointCommand = async (
     statusMessage: __expectString,
     subnetIds: _json,
     vpcId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetLimitCommand
+ */
+export const de_GetLimitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLimitCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    amountRequirementName: __expectString,
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    currentCount: __expectInt32,
+    description: __expectString,
+    displayName: __expectString,
+    farmId: __expectString,
+    limitId: __expectString,
+    maxCount: __expectInt32,
+    updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    updatedBy: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4451,6 +4878,33 @@ export const de_GetQueueFleetAssociationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetQueueLimitAssociationCommand
+ */
+export const de_GetQueueLimitAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetQueueLimitAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    limitId: __expectString,
+    queueId: __expectString,
+    status: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    updatedBy: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetSessionCommand
  */
 export const de_GetSessionCommand = async (
@@ -4497,6 +4951,7 @@ export const de_GetSessionActionCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    acquiredLimits: _json,
     definition: (_) => _json(__expectUnion(_)),
     endedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     processExitCode: __expectInt32,
@@ -4908,6 +5363,28 @@ export const de_ListLicenseEndpointsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListLimitsCommand
+ */
+export const de_ListLimitsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLimitsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    limits: (_) => de_LimitSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListMeteredProductsCommand
  */
 export const de_ListMeteredProductsCommand = async (
@@ -4990,6 +5467,28 @@ export const de_ListQueueFleetAssociationsCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     queueFleetAssociations: (_) => de_QueueFleetAssociationSummaries(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListQueueLimitAssociationsCommand
+ */
+export const de_ListQueueLimitAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListQueueLimitAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    queueLimitAssociations: (_) => de_QueueLimitAssociationSummaries(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -5513,6 +6012,23 @@ export const de_UpdateJobCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateLimitCommand
+ */
+export const de_UpdateLimitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLimitCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateMonitorCommand
  */
 export const de_UpdateMonitorCommand = async (
@@ -5570,6 +6086,23 @@ export const de_UpdateQueueFleetAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateQueueFleetAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateQueueLimitAssociationCommand
+ */
+export const de_UpdateQueueLimitAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateQueueLimitAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -6287,6 +6820,10 @@ const se_WorkerCapabilities = (input: WorkerCapabilities, context: __SerdeContex
 
 // de_AcceleratorTypes omitted.
 
+// de_AcquiredLimit omitted.
+
+// de_AcquiredLimits omitted.
+
 // de_AllowedStorageProfileIds omitted.
 
 // de_AssignedEnvironmentEnterSessionActionDefinition omitted.
@@ -6717,6 +7254,7 @@ const de_JobSearchSummary = (output: any, context: __SerdeContext): JobSearchSum
     lifecycleStatusMessage: __expectString,
     maxFailedTasksCount: __expectInt32,
     maxRetriesPerTask: __expectInt32,
+    maxWorkerCount: __expectInt32,
     name: __expectString,
     priority: __expectInt32,
     queueId: __expectString,
@@ -6753,6 +7291,7 @@ const de_JobSummary = (output: any, context: __SerdeContext): JobSummary => {
     lifecycleStatusMessage: __expectString,
     maxFailedTasksCount: __expectInt32,
     maxRetriesPerTask: __expectInt32,
+    maxWorkerCount: __expectInt32,
     name: __expectString,
     priority: __expectInt32,
     sourceJobId: __expectString,
@@ -6768,6 +7307,36 @@ const de_JobSummary = (output: any, context: __SerdeContext): JobSummary => {
 // de_LicenseEndpointSummaries omitted.
 
 // de_LicenseEndpointSummary omitted.
+
+/**
+ * deserializeAws_restJson1LimitSummaries
+ */
+const de_LimitSummaries = (output: any, context: __SerdeContext): LimitSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LimitSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1LimitSummary
+ */
+const de_LimitSummary = (output: any, context: __SerdeContext): LimitSummary => {
+  return take(output, {
+    amountRequirementName: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    currentCount: __expectInt32,
+    displayName: __expectString,
+    farmId: __expectString,
+    limitId: __expectString,
+    maxCount: __expectInt32,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    updatedBy: __expectString,
+  }) as any;
+};
 
 // de_ListAttributeCapabilityValue omitted.
 
@@ -6864,6 +7433,33 @@ const de_QueueFleetAssociationSummary = (output: any, context: __SerdeContext): 
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     createdBy: __expectString,
     fleetId: __expectString,
+    queueId: __expectString,
+    status: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    updatedBy: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1QueueLimitAssociationSummaries
+ */
+const de_QueueLimitAssociationSummaries = (output: any, context: __SerdeContext): QueueLimitAssociationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_QueueLimitAssociationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1QueueLimitAssociationSummary
+ */
+const de_QueueLimitAssociationSummary = (output: any, context: __SerdeContext): QueueLimitAssociationSummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    limitId: __expectString,
     queueId: __expectString,
     status: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -7390,6 +7986,7 @@ const _aI = "aggregationId";
 const _cT = "clientToken";
 const _dN = "displayName";
 const _fI = "fleetId";
+const _lI = "limitId";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _pI = "principalId";

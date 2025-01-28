@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateStepRequest, UpdateStepResponse } from "../models/models_0";
+import { UpdateStepRequest, UpdateStepResponse } from "../models/models_1";
 import { de_UpdateStepCommand, se_UpdateStepCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -36,12 +36,12 @@ export interface UpdateStepCommandOutput extends UpdateStepResponse, __MetadataB
  * // const { DeadlineClient, UpdateStepCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
  * const client = new DeadlineClient(config);
  * const input = { // UpdateStepRequest
+ *   targetTaskRunStatus: "READY" || "FAILED" || "SUCCEEDED" || "CANCELED" || "SUSPENDED" || "PENDING", // required
  *   clientToken: "STRING_VALUE",
  *   farmId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
  *   jobId: "STRING_VALUE", // required
  *   stepId: "STRING_VALUE", // required
- *   targetTaskRunStatus: "READY" || "FAILED" || "SUCCEEDED" || "CANCELED" || "SUSPENDED" || "PENDING", // required
  * };
  * const command = new UpdateStepCommand(input);
  * const response = await client.send(command);

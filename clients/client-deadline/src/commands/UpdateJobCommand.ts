@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateJobRequest, UpdateJobResponse } from "../models/models_0";
+import { UpdateJobRequest, UpdateJobResponse } from "../models/models_1";
 import { de_UpdateJobCommand, se_UpdateJobCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -43,14 +43,15 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  * const client = new DeadlineClient(config);
  * const input = { // UpdateJobRequest
  *   clientToken: "STRING_VALUE",
- *   farmId: "STRING_VALUE", // required
- *   queueId: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
  *   targetTaskRunStatus: "READY" || "FAILED" || "SUCCEEDED" || "CANCELED" || "SUSPENDED" || "PENDING",
  *   priority: Number("int"),
  *   maxFailedTasksCount: Number("int"),
  *   maxRetriesPerTask: Number("int"),
  *   lifecycleStatus: "ARCHIVED",
+ *   maxWorkerCount: Number("int"),
+ *   farmId: "STRING_VALUE", // required
+ *   queueId: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE", // required
  * };
  * const command = new UpdateJobCommand(input);
  * const response = await client.send(command);

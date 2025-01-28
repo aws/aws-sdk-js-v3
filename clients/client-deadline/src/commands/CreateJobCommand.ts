@@ -28,7 +28,7 @@ export interface CreateJobCommandInput extends CreateJobRequest {}
 export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a job. A job is a set of instructions that AWS Deadline Cloud uses to schedule
+ * <p>Creates a job. A job is a set of instructions that Deadline Cloud uses to schedule
  *          and run work on available workers. For more information, see <a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/deadline-cloud-jobs.html">Deadline Cloud
  *             jobs</a>.</p>
  * @example
@@ -71,6 +71,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *   targetTaskRunStatus: "READY" || "SUSPENDED",
  *   maxFailedTasksCount: Number("int"),
  *   maxRetriesPerTask: Number("int"),
+ *   maxWorkerCount: Number("int"),
  *   sourceJobId: "STRING_VALUE",
  * };
  * const command = new CreateJobCommand(input);

@@ -80,6 +80,12 @@ export interface GetSessionActionCommandOutput extends GetSessionActionResponse,
  * //       stepId: "STRING_VALUE",
  * //     },
  * //   },
+ * //   acquiredLimits: [ // AcquiredLimits
+ * //     { // AcquiredLimit
+ * //       limitId: "STRING_VALUE", // required
+ * //       count: Number("int"), // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```

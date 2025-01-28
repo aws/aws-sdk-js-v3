@@ -6,8 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateSessionRequest, UpdateSessionResponse } from "../models/models_1";
-import { de_UpdateSessionCommand, se_UpdateSessionCommand } from "../protocols/Aws_restJson1";
+import { DeleteQueueLimitAssociationRequest, DeleteQueueLimitAssociationResponse } from "../models/models_0";
+import {
+  de_DeleteQueueLimitAssociationCommand,
+  se_DeleteQueueLimitAssociationCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,42 +20,46 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateSessionCommand}.
+ * The input for {@link DeleteQueueLimitAssociationCommand}.
  */
-export interface UpdateSessionCommandInput extends UpdateSessionRequest {}
+export interface DeleteQueueLimitAssociationCommandInput extends DeleteQueueLimitAssociationRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateSessionCommand}.
+ * The output of {@link DeleteQueueLimitAssociationCommand}.
  */
-export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __MetadataBearer {}
+export interface DeleteQueueLimitAssociationCommandOutput
+  extends DeleteQueueLimitAssociationResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Updates a session.</p>
+ * <p>Removes the association between a queue and a limit. You must use the
+ *             <code>UpdateQueueLimitAssociation</code> operation to set the status to
+ *             <code>STOP_LIMIT_USAGE_AND_COMPLETE_TASKS</code> or
+ *             <code>STOP_LIMIT_USAGE_AND_CANCEL_TASKS</code>. The status does not change immediately.
+ *          Use the <code>GetQueueLimitAssociation</code> operation to see if the status changed to
+ *             <code>STOPPED</code> before deleting the association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeadlineClient, UpdateSessionCommand } from "@aws-sdk/client-deadline"; // ES Modules import
- * // const { DeadlineClient, UpdateSessionCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * import { DeadlineClient, DeleteQueueLimitAssociationCommand } from "@aws-sdk/client-deadline"; // ES Modules import
+ * // const { DeadlineClient, DeleteQueueLimitAssociationCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
  * const client = new DeadlineClient(config);
- * const input = { // UpdateSessionRequest
- *   clientToken: "STRING_VALUE",
- *   targetLifecycleStatus: "ENDED", // required
+ * const input = { // DeleteQueueLimitAssociationRequest
  *   farmId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
- *   sessionId: "STRING_VALUE", // required
+ *   limitId: "STRING_VALUE", // required
  * };
- * const command = new UpdateSessionCommand(input);
+ * const command = new DeleteQueueLimitAssociationCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param UpdateSessionCommandInput - {@link UpdateSessionCommandInput}
- * @returns {@link UpdateSessionCommandOutput}
- * @see {@link UpdateSessionCommandInput} for command's `input` shape.
- * @see {@link UpdateSessionCommandOutput} for command's `response` shape.
+ * @param DeleteQueueLimitAssociationCommandInput - {@link DeleteQueueLimitAssociationCommandInput}
+ * @returns {@link DeleteQueueLimitAssociationCommandOutput}
+ * @see {@link DeleteQueueLimitAssociationCommandInput} for command's `input` shape.
+ * @see {@link DeleteQueueLimitAssociationCommandOutput} for command's `response` shape.
  * @see {@link DeadlineClientResolvedConfig | config} for DeadlineClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -80,10 +87,10 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  *
  * @public
  */
-export class UpdateSessionCommand extends $Command
+export class DeleteQueueLimitAssociationCommand extends $Command
   .classBuilder<
-    UpdateSessionCommandInput,
-    UpdateSessionCommandOutput,
+    DeleteQueueLimitAssociationCommandInput,
+    DeleteQueueLimitAssociationCommandOutput,
     DeadlineClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -95,21 +102,21 @@ export class UpdateSessionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Deadline", "UpdateSession", {})
-  .n("DeadlineClient", "UpdateSessionCommand")
+  .s("Deadline", "DeleteQueueLimitAssociation", {})
+  .n("DeadlineClient", "DeleteQueueLimitAssociationCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateSessionCommand)
-  .de(de_UpdateSessionCommand)
+  .ser(se_DeleteQueueLimitAssociationCommand)
+  .de(de_DeleteQueueLimitAssociationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateSessionRequest;
+      input: DeleteQueueLimitAssociationRequest;
       output: {};
     };
     sdk: {
-      input: UpdateSessionCommandInput;
-      output: UpdateSessionCommandOutput;
+      input: DeleteQueueLimitAssociationCommandInput;
+      output: DeleteQueueLimitAssociationCommandOutput;
     };
   };
 }

@@ -340,6 +340,14 @@ CreateLicenseEndpoint
 </details>
 <details>
 <summary>
+CreateLimit
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/CreateLimitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/CreateLimitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/CreateLimitCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateMonitor
 </summary>
 
@@ -368,6 +376,14 @@ CreateQueueFleetAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/CreateQueueFleetAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/CreateQueueFleetAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/CreateQueueFleetAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateQueueLimitAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/CreateQueueLimitAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/CreateQueueLimitAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/CreateQueueLimitAssociationCommandOutput/)
 
 </details>
 <details>
@@ -420,6 +436,14 @@ DeleteLicenseEndpoint
 </details>
 <details>
 <summary>
+DeleteLimit
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/DeleteLimitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/DeleteLimitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/DeleteLimitCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteMeteredProduct
 </summary>
 
@@ -456,6 +480,14 @@ DeleteQueueFleetAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/DeleteQueueFleetAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/DeleteQueueFleetAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/DeleteQueueFleetAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteQueueLimitAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/DeleteQueueLimitAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/DeleteQueueLimitAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/DeleteQueueLimitAssociationCommandOutput/)
 
 </details>
 <details>
@@ -548,6 +580,14 @@ GetLicenseEndpoint
 </details>
 <details>
 <summary>
+GetLimit
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/GetLimitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/GetLimitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/GetLimitCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetMonitor
 </summary>
 
@@ -576,6 +616,14 @@ GetQueueFleetAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/GetQueueFleetAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/GetQueueFleetAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/GetQueueFleetAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetQueueLimitAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/GetQueueLimitAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/GetQueueLimitAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/GetQueueLimitAssociationCommandOutput/)
 
 </details>
 <details>
@@ -724,6 +772,14 @@ ListLicenseEndpoints
 </details>
 <details>
 <summary>
+ListLimits
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/ListLimitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/ListLimitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/ListLimitsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListMeteredProducts
 </summary>
 
@@ -752,6 +808,14 @@ ListQueueFleetAssociations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/ListQueueFleetAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/ListQueueFleetAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/ListQueueFleetAssociationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListQueueLimitAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/ListQueueLimitAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/ListQueueLimitAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/ListQueueLimitAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -956,6 +1020,14 @@ UpdateJob
 </details>
 <details>
 <summary>
+UpdateLimit
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/UpdateLimitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/UpdateLimitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/UpdateLimitCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateMonitor
 </summary>
 
@@ -984,6 +1056,14 @@ UpdateQueueFleetAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/UpdateQueueFleetAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/UpdateQueueFleetAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/UpdateQueueFleetAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateQueueLimitAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/UpdateQueueLimitAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/UpdateQueueLimitAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/UpdateQueueLimitAssociationCommandOutput/)
 
 </details>
 <details>
