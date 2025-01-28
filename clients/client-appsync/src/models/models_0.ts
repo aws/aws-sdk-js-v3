@@ -4154,6 +4154,18 @@ export interface EvaluateCodeResponse {
    * @public
    */
   logs?: string[] | undefined;
+
+  /**
+   * <p>An object available inside each resolver and function handler. A single <code>stash</code> object lives through a single resolver run. Therefore, you can use the stash to pass arbitrary data across request and response handlers and across functions in a pipeline resolver.</p>
+   * @public
+   */
+  stash?: string | undefined;
+
+  /**
+   * <p>The list of runtime errors that are added to the GraphQL operation response.</p>
+   * @public
+   */
+  outErrors?: string | undefined;
 }
 
 /**
@@ -4210,6 +4222,18 @@ export interface EvaluateMappingTemplateResponse {
    * @public
    */
   logs?: string[] | undefined;
+
+  /**
+   * <p>An object available inside each resolver and function handler. A single <code>stash</code> object lives through a single resolver run. Therefore, you can use the stash to pass arbitrary data across request and response handlers and across functions in a pipeline resolver.</p>
+   * @public
+   */
+  stash?: string | undefined;
+
+  /**
+   * <p>The list of runtime errors that are added to the GraphQL operation response.</p>
+   * @public
+   */
+  outErrors?: string | undefined;
 }
 
 /**

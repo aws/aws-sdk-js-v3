@@ -55,6 +55,8 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
  * //   logs: [ // Logs
  * //     "STRING_VALUE",
  * //   ],
+ * //   stash: "STRING_VALUE",
+ * //   outErrors: "STRING_VALUE",
  * // };
  *
  * ```

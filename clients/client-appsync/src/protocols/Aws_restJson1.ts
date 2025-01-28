@@ -2343,6 +2343,8 @@ export const de_EvaluateCodeCommand = async (
     error: _json,
     evaluationResult: __expectString,
     logs: _json,
+    outErrors: __expectString,
+    stash: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2366,6 +2368,8 @@ export const de_EvaluateMappingTemplateCommand = async (
     error: _json,
     evaluationResult: __expectString,
     logs: _json,
+    outErrors: __expectString,
+    stash: __expectString,
   });
   Object.assign(contents, doc);
   return contents;

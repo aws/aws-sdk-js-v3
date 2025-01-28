@@ -70,6 +70,8 @@ export interface EvaluateCodeCommandOutput extends EvaluateCodeResponse, __Metad
  * //   logs: [ // Logs
  * //     "STRING_VALUE",
  * //   ],
+ * //   stash: "STRING_VALUE",
+ * //   outErrors: "STRING_VALUE",
  * // };
  *
  * ```
