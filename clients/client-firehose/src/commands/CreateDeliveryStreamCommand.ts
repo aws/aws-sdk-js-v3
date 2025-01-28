@@ -108,6 +108,9 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  * const input = { // CreateDeliveryStreamInput
  *   DeliveryStreamName: "STRING_VALUE", // required
  *   DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource" || "MSKAsSource" || "DatabaseAsSource",
+ *   DirectPutSourceConfiguration: { // DirectPutSourceConfiguration
+ *     ThroughputHintInMBs: Number("int"), // required
+ *   },
  *   KinesisStreamSourceConfiguration: { // KinesisStreamSourceConfiguration
  *     KinesisStreamARN: "STRING_VALUE", // required
  *     RoleARN: "STRING_VALUE", // required
@@ -610,6 +613,7 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       DurationInSeconds: Number("int"),
  *     },
  *     RoleARN: "STRING_VALUE", // required
+ *     AppendOnly: true || false,
  *     CatalogConfiguration: { // CatalogConfiguration
  *       CatalogARN: "STRING_VALUE",
  *       WarehouseLocation: "STRING_VALUE",

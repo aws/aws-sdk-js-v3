@@ -511,6 +511,7 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *       DurationInSeconds: Number("int"),
  *     },
  *     RoleARN: "STRING_VALUE",
+ *     AppendOnly: true || false,
  *     CatalogConfiguration: { // CatalogConfiguration
  *       CatalogARN: "STRING_VALUE",
  *       WarehouseLocation: "STRING_VALUE",

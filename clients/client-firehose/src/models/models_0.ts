@@ -356,9 +356,9 @@ export interface S3DestinationConfiguration {
 export interface VpcConfiguration {
   /**
    * <p>The IDs of the subnets that you want Firehose to use to create ENIs in the
-   *          VPC of the Amazon ES destination. Make sure that the routing tables and inbound and
+   *          VPC of the Amazon OpenSearch Service destination. Make sure that the routing tables and inbound and
    *          outbound rules allow traffic to flow from the subnets whose IDs are specified here to the
-   *          subnets that have the destination Amazon ES endpoints. Firehose creates at
+   *          subnets that have the destination Amazon OpenSearch Service endpoints. Firehose creates at
    *          least one ENI in each of the subnets that are specified here. Do not delete or modify these
    *          ENIs.</p>
    *          <p>The number of ENIs that Firehose creates in the subnets specified here
@@ -427,12 +427,12 @@ export interface VpcConfiguration {
 
   /**
    * <p>The IDs of the security groups that you want Firehose to use when it
-   *          creates ENIs in the VPC of the Amazon ES destination. You can use the same security group
-   *          that the Amazon ES domain uses or different ones. If you specify different security groups
-   *          here, ensure that they allow outbound HTTPS traffic to the Amazon ES domain's security
-   *          group. Also ensure that the Amazon ES domain's security group allows HTTPS traffic from the
+   *          creates ENIs in the VPC of the Amazon OpenSearch Service destination. You can use the same security group
+   *          that the Amazon OpenSearch Service domain uses or different ones. If you specify different security groups
+   *          here, ensure that they allow outbound HTTPS traffic to the Amazon OpenSearch Service domain's security
+   *          group. Also ensure that the Amazon OpenSearch Service domain's security group allows HTTPS traffic from the
    *          security groups specified here. If you use the same security group for both your delivery
-   *          stream and the Amazon ES domain, make sure the security group inbound rule allows HTTPS
+   *          stream and the Amazon OpenSearch Service domain, make sure the security group inbound rule allows HTTPS
    *          traffic. For more information about security group rules, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security group
    *             rules</a> in the Amazon VPC documentation.</p>
    * @public
@@ -585,15 +585,15 @@ export interface S3DestinationDescription {
 }
 
 /**
- * <p>The details of the VPC of the Amazon ES destination.</p>
+ * <p>The details of the VPC of the Amazon OpenSearch Service destination.</p>
  * @public
  */
 export interface VpcConfigurationDescription {
   /**
    * <p>The IDs of the subnets that Firehose uses to create ENIs in the VPC of the
-   *          Amazon ES destination. Make sure that the routing tables and inbound and outbound rules
+   *          Amazon OpenSearch Service destination. Make sure that the routing tables and inbound and outbound rules
    *          allow traffic to flow from the subnets whose IDs are specified here to the subnets that
-   *          have the destination Amazon ES endpoints. Firehose creates at least one ENI in
+   *          have the destination Amazon OpenSearch Service endpoints. Firehose creates at least one ENI in
    *          each of the subnets that are specified here. Do not delete or modify these ENIs.</p>
    *          <p>The number of ENIs that Firehose creates in the subnets specified here
    *          scales up and down automatically based on throughput. To enable Firehose to
@@ -660,12 +660,12 @@ export interface VpcConfigurationDescription {
 
   /**
    * <p>The IDs of the security groups that Firehose uses when it creates ENIs in
-   *          the VPC of the Amazon ES destination. You can use the same security group that the Amazon
+   *          the VPC of the Amazon OpenSearch Service destination. You can use the same security group that the Amazon
    *          ES domain uses or different ones. If you specify different security groups, ensure that
-   *          they allow outbound HTTPS traffic to the Amazon ES domain's security group. Also ensure
-   *          that the Amazon ES domain's security group allows HTTPS traffic from the security groups
+   *          they allow outbound HTTPS traffic to the Amazon OpenSearch Service domain's security group. Also ensure
+   *          that the Amazon OpenSearch Service domain's security group allows HTTPS traffic from the security groups
    *          specified here. If you use the same security group for both your Firehose stream and the
-   *          Amazon ES domain, make sure the security group inbound rule allows HTTPS traffic. For more
+   *          Amazon OpenSearch Service domain, make sure the security group inbound rule allows HTTPS traffic. For more
    *          information about security group rules, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security group
    *             rules</a> in the Amazon VPC documentation.</p>
    * @public
@@ -673,7 +673,7 @@ export interface VpcConfigurationDescription {
   SecurityGroupIds: string[] | undefined;
 
   /**
-   * <p>The ID of the Amazon ES destination's VPC.</p>
+   * <p>The ID of the Amazon OpenSearch Service destination's VPC.</p>
    * @public
    */
   VpcId: string | undefined;
@@ -741,7 +741,7 @@ export interface AmazonOpenSearchServerlessDestinationDescription {
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions | undefined;
 
   /**
-   * <p>The details of the VPC of the Amazon ES destination.</p>
+   * <p>The details of the VPC of the Amazon OpenSearch Service destination.</p>
    * @public
    */
   VpcConfigurationDescription?: VpcConfigurationDescription | undefined;
@@ -1173,7 +1173,7 @@ export interface AmazonopensearchserviceDestinationDescription {
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions | undefined;
 
   /**
-   * <p>The details of the VPC of the Amazon ES destination.</p>
+   * <p>The details of the VPC of the Amazon OpenSearch Service destination.</p>
    * @public
    */
   VpcConfigurationDescription?: VpcConfigurationDescription | undefined;
@@ -1325,8 +1325,8 @@ export interface CatalogConfiguration {
   CatalogARN?: string | undefined;
 
   /**
-   * <p>
-   *       </p>
+   * <p>The warehouse location for Apache Iceberg tables. You must configure this when schema
+   *          evolution and table creation is enabled.</p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
    */
@@ -1412,14 +1412,15 @@ export interface CopyCommand {
 }
 
 /**
- * <p>
- *          </p>
+ * <p>The structure used to configure the list of column patterns in source database
+ *          endpoint for Firehose to read from. </p>
  *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
  * @public
  */
 export interface DatabaseColumnList {
   /**
    * <p>
+   *             The list of column patterns in source database to be included for Firehose to read from.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -1428,6 +1429,7 @@ export interface DatabaseColumnList {
 
   /**
    * <p>
+   *             The list of column patterns in source database to be excluded for Firehose to read from.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -1436,23 +1438,23 @@ export interface DatabaseColumnList {
 }
 
 /**
- * <p>
- *          </p>
+ * <p>The structure used to configure the list of database patterns in source database
+ *          endpoint for Firehose to read from. </p>
  *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
  * @public
  */
 export interface DatabaseList {
   /**
-   * <p>
-   *          </p>
+   * <p>The list of database patterns in source database endpoint to be included for Firehose
+   *          to read from. </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
    */
   Include?: string[] | undefined;
 
   /**
-   * <p>
-   *          </p>
+   * <p>The list of database patterns in source database endpoint to be excluded for Firehose
+   *          to read from. </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
    */
@@ -1491,6 +1493,7 @@ export interface SecretsManagerConfiguration {
 
 /**
  * <p>
+ *             The structure to configure the authentication methods for Firehose to connect to source database endpoint.
  *          </p>
  *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
  * @public
@@ -1505,6 +1508,7 @@ export interface DatabaseSourceAuthenticationConfiguration {
 
 /**
  * <p>
+ *             The structure for details of the VPC Endpoint Service which Firehose uses to create a PrivateLink to the database.
  *          </p>
  *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
  * @public
@@ -1512,6 +1516,7 @@ export interface DatabaseSourceAuthenticationConfiguration {
 export interface DatabaseSourceVPCConfiguration {
   /**
    * <p>
+   *             The VPC endpoint service name which Firehose uses to create a PrivateLink to the database. The endpoint service must have the Firehose service principle <code>firehose.amazonaws.com</code> as an allowed principal on the VPC endpoint service. The VPC endpoint service name is a string that looks like <code>com.amazonaws.vpce.<region>.<vpc-endpoint-service-id></code>.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -1534,23 +1539,23 @@ export const SSLMode = {
 export type SSLMode = (typeof SSLMode)[keyof typeof SSLMode];
 
 /**
- * <p>
- *          </p>
+ * <p>The structure used to configure the list of table patterns in source database endpoint
+ *          for Firehose to read from. </p>
  *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
  * @public
  */
 export interface DatabaseTableList {
   /**
-   * <p>
-   *          </p>
+   * <p>The list of table patterns in source database endpoint to be included for Firehose to
+   *          read from. </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
    */
   Include?: string[] | undefined;
 
   /**
-   * <p>
-   *          </p>
+   * <p>The list of table patterns in source database endpoint to be excluded for Firehose to
+   *          read from. </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
    */
@@ -1573,14 +1578,22 @@ export type DatabaseType = (typeof DatabaseType)[keyof typeof DatabaseType];
 
 /**
  * <p>
+ *             The top level object for configuring streams with database as a source.
  *          </p>
  *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
  * @public
  */
 export interface DatabaseSourceConfiguration {
   /**
-   * <p>
-   *          </p>
+   * <p>The type of database engine. This can be one of the following values. </p>
+   *          <ul>
+   *             <li>
+   *                <p>MySQL</p>
+   *             </li>
+   *             <li>
+   *                <p>PostgreSQL</p>
+   *             </li>
+   *          </ul>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
    */
@@ -1588,6 +1601,7 @@ export interface DatabaseSourceConfiguration {
 
   /**
    * <p>
+   *             The endpoint of the database server.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -1595,8 +1609,15 @@ export interface DatabaseSourceConfiguration {
   Endpoint: string | undefined;
 
   /**
-   * <p>
-   *          </p>
+   * <p>The port of the database. This can be one of the following values.</p>
+   *          <ul>
+   *             <li>
+   *                <p>3306 for MySQL database type</p>
+   *             </li>
+   *             <li>
+   *                <p>5432 for PostgreSQL database type</p>
+   *             </li>
+   *          </ul>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
    */
@@ -1604,6 +1625,7 @@ export interface DatabaseSourceConfiguration {
 
   /**
    * <p>
+   *             The mode to enable or disable SSL when Firehose connects to the database endpoint.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -1612,6 +1634,7 @@ export interface DatabaseSourceConfiguration {
 
   /**
    * <p>
+   *             The list of database patterns in source database endpoint for Firehose to read from.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -1620,6 +1643,7 @@ export interface DatabaseSourceConfiguration {
 
   /**
    * <p>
+   *             The list of table patterns in source database endpoint for Firehose to read from.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -1628,6 +1652,7 @@ export interface DatabaseSourceConfiguration {
 
   /**
    * <p>
+   *             The list of column patterns in source database endpoint for Firehose to read from.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -1636,6 +1661,7 @@ export interface DatabaseSourceConfiguration {
 
   /**
    * <p>
+   *             The optional list of table and column names used as unique key columns when taking snapshot if the tables don’t have primary keys configured.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -1644,6 +1670,7 @@ export interface DatabaseSourceConfiguration {
 
   /**
    * <p>
+   *             The fully qualified name of the table in source database endpoint that Firehose uses to track snapshot progress.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -1652,6 +1679,7 @@ export interface DatabaseSourceConfiguration {
 
   /**
    * <p>
+   *             The structure to configure the authentication methods for Firehose to connect to source database endpoint.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -1660,6 +1688,7 @@ export interface DatabaseSourceConfiguration {
 
   /**
    * <p>
+   *             The details of the VPC Endpoint Service which Firehose uses to create a PrivateLink to the database.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -1737,7 +1766,21 @@ export const DeliveryStreamType = {
 export type DeliveryStreamType = (typeof DeliveryStreamType)[keyof typeof DeliveryStreamType];
 
 /**
- * <p>Describes the buffering to perform before delivering data to the Amazon ES
+ * <p>The structure that configures parameters such as <code>ThroughputHintInMBs</code> for a stream configured with
+ *          Direct PUT as a source. </p>
+ * @public
+ */
+export interface DirectPutSourceConfiguration {
+  /**
+   * <p> The value that you configure for this parameter is for information purpose only and
+   *          does not affect Firehose delivery throughput limit. You can use the <a href="https://support.console.aws.amazon.com/support/home#/case/create%3FissueType=service-limit-increase%26limitType=kinesis-firehose-limits">Firehose Limits form</a> to request a throughput limit increase. </p>
+   * @public
+   */
+  ThroughputHintInMBs: number | undefined;
+}
+
+/**
+ * <p>Describes the buffering to perform before delivering data to the Amazon OpenSearch Service
  *          destination.</p>
  * @public
  */
@@ -1780,12 +1823,12 @@ export type ElasticsearchIndexRotationPeriod =
 
 /**
  * <p>Configures retry behavior in case Firehose is unable to deliver
- *          documents to Amazon ES.</p>
+ *          documents to Amazon OpenSearch Service.</p>
  * @public
  */
 export interface ElasticsearchRetryOptions {
   /**
-   * <p>After an initial failure to deliver to Amazon ES, the total amount of time during
+   * <p>After an initial failure to deliver to Amazon OpenSearch Service, the total amount of time during
    *          which Firehose retries delivery (including the first attempt). After this time
    *          has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5
    *          minutes). A value of 0 (zero) results in no retries.</p>
@@ -1809,13 +1852,13 @@ export const ElasticsearchS3BackupMode = {
 export type ElasticsearchS3BackupMode = (typeof ElasticsearchS3BackupMode)[keyof typeof ElasticsearchS3BackupMode];
 
 /**
- * <p>Describes the configuration of a destination in Amazon ES.</p>
+ * <p>Describes the configuration of a destination in Amazon OpenSearch Service.</p>
  * @public
  */
 export interface ElasticsearchDestinationConfiguration {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose
-   *          for calling the Amazon ES Configuration API and for indexing documents. For more
+   *          for calling the Amazon OpenSearch Service Configuration API and for indexing documents. For more
    *          information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant Firehose Access to an Amazon S3 Destination</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
    *                Amazon Web Services Service Namespaces</a>.</p>
    * @public
@@ -1823,7 +1866,7 @@ export interface ElasticsearchDestinationConfiguration {
   RoleARN: string | undefined;
 
   /**
-   * <p>The ARN of the Amazon ES domain. The IAM role must have permissions
+   * <p>The ARN of the Amazon OpenSearch Service domain. The IAM role must have permissions
    *             for <code>DescribeDomain</code>, <code>DescribeDomains</code>, and
    *             <code>DescribeDomainConfig</code> after assuming the role specified in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
    *                Amazon Web Services Service Namespaces</a>.</p>
@@ -1858,7 +1901,7 @@ export interface ElasticsearchDestinationConfiguration {
    * <p>The Elasticsearch index rotation period. Index rotation appends a timestamp to the
    *             <code>IndexName</code> to facilitate the expiration of old data. For more information,
    *          see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index Rotation for the
-   *             Amazon ES Destination</a>. The default value is <code>OneDay</code>.</p>
+   *             Amazon OpenSearch Service Destination</a>. The default value is <code>OneDay</code>.</p>
    * @public
    */
   IndexRotationPeriod?: ElasticsearchIndexRotationPeriod | undefined;
@@ -1872,7 +1915,7 @@ export interface ElasticsearchDestinationConfiguration {
 
   /**
    * <p>The retry behavior in case Firehose is unable to deliver documents to
-   *          Amazon ES. The default value is 300 (5 minutes).</p>
+   *          Amazon OpenSearch Service. The default value is 300 (5 minutes).</p>
    * @public
    */
   RetryOptions?: ElasticsearchRetryOptions | undefined;
@@ -1885,7 +1928,7 @@ export interface ElasticsearchDestinationConfiguration {
    *             <code>AllDocuments</code>, Firehose delivers all incoming records to Amazon
    *          S3, and also writes failed documents with <code>AmazonOpenSearchService-failed/</code>
    *          appended to the prefix. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup">Amazon S3 Backup for the
-   *             Amazon ES Destination</a>. Default value is
+   *             Amazon OpenSearch Service Destination</a>. Default value is
    *          <code>FailedDocumentsOnly</code>.</p>
    *          <p>You can't change this backup mode after you create the Firehose stream. </p>
    * @public
@@ -2219,13 +2262,13 @@ export interface ParquetSerDe {
 /**
  * <p>The serializer that you want Firehose to use to convert data to the target
  *          format before writing it to Amazon S3. Firehose supports two types of
- *          serializers: the <a href="https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html">ORC SerDe</a> and the <a href="https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html">Parquet SerDe</a>.</p>
+ *          serializers: the ORC SerDe and the Parquet SerDe.</p>
  * @public
  */
 export interface Serializer {
   /**
    * <p>A serializer to use for converting data to the Parquet format before storing it in
-   *          Amazon S3. For more information, see <a href="https://parquet.apache.org/documentation/latest/">Apache Parquet</a>.</p>
+   *          Amazon S3. For more information, see <a href="https://parquet.apache.org/docs/contribution-guidelines/">Apache Parquet</a>.</p>
    * @public
    */
   ParquetSerDe?: ParquetSerDe | undefined;
@@ -2391,8 +2434,7 @@ export interface DynamicPartitioningConfiguration {
   RetryOptions?: RetryOptions | undefined;
 
   /**
-   * <p>Specifies that the dynamic partitioning is enabled for this Firehose
-   *          Firehose stream.</p>
+   * <p>Specifies that the dynamic partitioning is enabled for this Firehose stream.</p>
    * @public
    */
   Enabled?: boolean | undefined;
@@ -2731,14 +2773,14 @@ export interface HttpEndpointDestinationConfiguration {
 }
 
 /**
- * <p>
- *       </p>
+ * <p>Represents a single field in a <code>PartitionSpec</code>. </p>
  *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
  * @public
  */
 export interface PartitionField {
   /**
    * <p>
+   *          The column name to be configured in partition spec.
    *       </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -2747,15 +2789,21 @@ export interface PartitionField {
 }
 
 /**
- * <p>
- *       </p>
+ * <p>Represents how to produce partition data for a table. Partition data is produced by
+ *          transforming columns in a table. Each column transform is represented by a named
+ *             <code>PartitionField</code>. </p>
+ *          <p>Here is an example of the schema in JSON. </p>
+ *          <p>
+ *             <code>"partitionSpec": \{ "identity": [ \{"sourceName": "column1"\}, \{"sourceName":
+ *             "column2"\}, \{"sourceName": "column3"\} ] \}</code>
+ *          </p>
  *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
  * @public
  */
 export interface PartitionSpec {
   /**
-   * <p>
-   *       </p>
+   * <p> List of identity <a href="https://iceberg.apache.org/spec/#partition-transforms">transforms</a> that performs an identity transformation. The transform takes the
+   *          source value, and does not modify it. Result type is the source type.</p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
    */
@@ -2795,8 +2843,8 @@ export interface DestinationTableConfiguration {
   UniqueKeys?: string[] | undefined;
 
   /**
-   * <p>
-   *       </p>
+   * <p>The partition spec configuration for a table that is used by automatic table
+   *          creation.</p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
    */
@@ -2826,14 +2874,14 @@ export const IcebergS3BackupMode = {
 export type IcebergS3BackupMode = (typeof IcebergS3BackupMode)[keyof typeof IcebergS3BackupMode];
 
 /**
- * <p>
- *       </p>
+ * <p>The configuration to enable schema evolution.</p>
  *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
  * @public
  */
 export interface SchemaEvolutionConfiguration {
   /**
    * <p>
+   *          Specify whether you want to enable schema evolution.
    *       </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -2842,14 +2890,14 @@ export interface SchemaEvolutionConfiguration {
 }
 
 /**
- * <p>
- *       </p>
+ * <p>The configuration to enable automatic table creation.</p>
  *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
  * @public
  */
 export interface TableCreationConfiguration {
   /**
    * <p>
+   *          Specify whether you want to enable automatic table creation.
    *       </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -2872,16 +2920,14 @@ export interface IcebergDestinationConfiguration {
   DestinationTableConfigurationList?: DestinationTableConfiguration[] | undefined;
 
   /**
-   * <p>
-   *       </p>
+   * <p>The configuration to enable automatic schema evolution.</p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
    */
   SchemaEvolutionConfiguration?: SchemaEvolutionConfiguration | undefined;
 
   /**
-   * <p>
-   *       </p>
+   * <p>The configuration to enable automatic table creation.</p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
    */
@@ -2929,6 +2975,18 @@ export interface IcebergDestinationConfiguration {
    * @public
    */
   RoleARN: string | undefined;
+
+  /**
+   * <p> Describes whether all incoming data for this delivery stream will be append only
+   *          (inserts only and not for updates and deletes) for Iceberg delivery. This feature is only
+   *          applicable for Apache Iceberg Tables.</p>
+   *          <p>The default value is false. If you set this value to true, Firehose automatically
+   *          increases the throughput limit of a stream based on the throttling levels of the stream. If
+   *          you set this parameter to true for a stream with updates and deletes, you will see out of
+   *          order delivery. </p>
+   * @public
+   */
+  AppendOnly?: boolean | undefined;
 
   /**
    * <p>
@@ -3288,13 +3346,26 @@ export interface SnowflakeDestinationConfiguration {
   DataLoadingOption?: SnowflakeDataLoadingOption | undefined;
 
   /**
-   * <p>The name of the record metadata column</p>
+   * <p>Specify a column name in the table, where the metadata information has to be loaded.
+   *          When you enable this field, you will see the following column in the snowflake table, which
+   *          differs based on the source type.</p>
+   *          <p>For Direct PUT as source </p>
+   *          <p>
+   *             <code>\{ "firehoseDeliveryStreamName" : "streamname", "IngestionTime" : "timestamp"
+   *             \}</code>
+   *          </p>
+   *          <p>For Kinesis Data Stream as source </p>
+   *          <p>
+   *             <code> "kinesisStreamName" : "streamname", "kinesisShardId" : "Id",
+   *             "kinesisPartitionKey" : "key", "kinesisSequenceNumber" : "1234", "subsequenceNumber" :
+   *             "2334", "IngestionTime" : "timestamp" \}</code>
+   *          </p>
    * @public
    */
   MetaDataColumnName?: string | undefined;
 
   /**
-   * <p>The name of the record content column</p>
+   * <p>The name of the record content column.</p>
    * @public
    */
   ContentColumnName?: string | undefined;
@@ -3566,6 +3637,13 @@ export interface CreateDeliveryStreamInput {
   DeliveryStreamType?: DeliveryStreamType | undefined;
 
   /**
+   * <p>The structure that configures parameters such as <code>ThroughputHintInMBs</code> for a
+   *          stream configured with Direct PUT as a source. </p>
+   * @public
+   */
+  DirectPutSourceConfiguration?: DirectPutSourceConfiguration | undefined;
+
+  /**
    * <p>When a Kinesis data stream is used as the source for the Firehose stream, a <a>KinesisStreamSourceConfiguration</a> containing the Kinesis data stream Amazon
    *          Resource Name (ARN) and the role ARN for the source stream.</p>
    * @public
@@ -3601,7 +3679,7 @@ export interface CreateDeliveryStreamInput {
   RedshiftDestinationConfiguration?: RedshiftDestinationConfiguration | undefined;
 
   /**
-   * <p>The destination in Amazon ES. You can specify only one destination.</p>
+   * <p>The destination in Amazon OpenSearch Service. You can specify only one destination.</p>
    * @public
    */
   ElasticsearchDestinationConfiguration?: ElasticsearchDestinationConfiguration | undefined;
@@ -3637,9 +3715,9 @@ export interface CreateDeliveryStreamInput {
    *          <p>If you specify tags in the <code>CreateDeliveryStream</code> action, Amazon Data
    *          Firehose performs an additional authorization on the
    *             <code>firehose:TagDeliveryStream</code> action to verify if users have permissions to
-   *          create tags. If you do not provide this permission, requests to create new Firehose
-   *          Firehose streams with IAM resource tags will fail with an
-   *          <code>AccessDeniedException</code> such as following.</p>
+   *          create tags. If you do not provide this permission, requests to create new Firehose streams
+   *          with IAM resource tags will fail with an <code>AccessDeniedException</code> such as
+   *          following.</p>
    *          <p>
    *             <b>AccessDeniedException</b>
    *          </p>
@@ -3680,6 +3758,7 @@ export interface CreateDeliveryStreamInput {
 
   /**
    * <p>
+   *             The top level object for configuring streams with database as a source.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -3864,6 +3943,7 @@ export type SnapshotStatus = (typeof SnapshotStatus)[keyof typeof SnapshotStatus
 
 /**
  * <p>
+ *             The structure that describes the snapshot information of a table in source database endpoint that Firehose reads.
  *          </p>
  *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
  * @public
@@ -3871,6 +3951,7 @@ export type SnapshotStatus = (typeof SnapshotStatus)[keyof typeof SnapshotStatus
 export interface DatabaseSnapshotInfo {
   /**
    * <p>
+   *             The identifier of the current snapshot of the table in source database endpoint.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -3879,6 +3960,7 @@ export interface DatabaseSnapshotInfo {
 
   /**
    * <p>
+   *             The fully qualified name of the table in source database endpoint that Firehose reads.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -3887,6 +3969,7 @@ export interface DatabaseSnapshotInfo {
 
   /**
    * <p>
+   *             The timestamp when the current snapshot is taken on the table.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -3895,6 +3978,7 @@ export interface DatabaseSnapshotInfo {
 
   /**
    * <p>
+   *             The principal that sent the request to take the current snapshot on the table.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -3903,6 +3987,7 @@ export interface DatabaseSnapshotInfo {
 
   /**
    * <p>
+   *             The status of the current snapshot of the table.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -3920,14 +4005,22 @@ export interface DatabaseSnapshotInfo {
 
 /**
  * <p>
+ *             The top level object for database source description.
  *          </p>
  *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
  * @public
  */
 export interface DatabaseSourceDescription {
   /**
-   * <p>
-   *          </p>
+   * <p>The type of database engine. This can be one of the following values. </p>
+   *          <ul>
+   *             <li>
+   *                <p>MySQL</p>
+   *             </li>
+   *             <li>
+   *                <p>PostgreSQL</p>
+   *             </li>
+   *          </ul>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
    */
@@ -3935,6 +4028,7 @@ export interface DatabaseSourceDescription {
 
   /**
    * <p>
+   *             The endpoint of the database server.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -3942,8 +4036,15 @@ export interface DatabaseSourceDescription {
   Endpoint?: string | undefined;
 
   /**
-   * <p>
-   *          </p>
+   * <p>The port of the database. This can be one of the following values.</p>
+   *          <ul>
+   *             <li>
+   *                <p>3306 for MySQL database type</p>
+   *             </li>
+   *             <li>
+   *                <p>5432 for PostgreSQL database type</p>
+   *             </li>
+   *          </ul>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
    */
@@ -3951,6 +4052,7 @@ export interface DatabaseSourceDescription {
 
   /**
    * <p>
+   *             The mode to enable or disable SSL when Firehose connects to the database endpoint.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -3959,6 +4061,7 @@ export interface DatabaseSourceDescription {
 
   /**
    * <p>
+   *             The list of database patterns in source database endpoint for Firehose to read from.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -3967,6 +4070,7 @@ export interface DatabaseSourceDescription {
 
   /**
    * <p>
+   *             The list of table patterns in source database endpoint for Firehose to read from.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -3975,6 +4079,7 @@ export interface DatabaseSourceDescription {
 
   /**
    * <p>
+   *             The list of column patterns in source database endpoint for Firehose to read from.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -3983,6 +4088,7 @@ export interface DatabaseSourceDescription {
 
   /**
    * <p>
+   *             The optional list of table and column names used as unique key columns when taking snapshot if the tables don’t have primary keys configured.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -3991,6 +4097,7 @@ export interface DatabaseSourceDescription {
 
   /**
    * <p>
+   *             The fully qualified name of the table in source database endpoint that Firehose uses to track snapshot progress.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -3999,6 +4106,7 @@ export interface DatabaseSourceDescription {
 
   /**
    * <p>
+   *             The structure that describes the snapshot information of a table in source database endpoint that Firehose reads.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -4007,6 +4115,7 @@ export interface DatabaseSourceDescription {
 
   /**
    * <p>
+   *             The structure to configure the authentication methods for Firehose to connect to source database endpoint.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -4015,6 +4124,7 @@ export interface DatabaseSourceDescription {
 
   /**
    * <p>
+   *             The details of the VPC Endpoint Service which Firehose uses to create a PrivateLink to the database.
    *          </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -4149,7 +4259,7 @@ export const DeliveryStreamStatus = {
 export type DeliveryStreamStatus = (typeof DeliveryStreamStatus)[keyof typeof DeliveryStreamStatus];
 
 /**
- * <p>The destination description in Amazon ES.</p>
+ * <p>The destination description in Amazon OpenSearch Service.</p>
  * @public
  */
 export interface ElasticsearchDestinationDescription {
@@ -4162,10 +4272,10 @@ export interface ElasticsearchDestinationDescription {
   RoleARN?: string | undefined;
 
   /**
-   * <p>The ARN of the Amazon ES domain. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+   * <p>The ARN of the Amazon OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
    *             Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>
    *          <p>Firehose uses either <code>ClusterEndpoint</code> or <code>DomainARN</code>
-   *          to send data to Amazon ES.</p>
+   *          to send data to Amazon OpenSearch Service.</p>
    * @public
    */
   DomainARN?: string | undefined;
@@ -4173,7 +4283,7 @@ export interface ElasticsearchDestinationDescription {
   /**
    * <p>The endpoint to use when communicating with the cluster. Firehose uses
    *          either this <code>ClusterEndpoint</code> or the <code>DomainARN</code> field to send data
-   *          to Amazon ES.</p>
+   *          to Amazon OpenSearch Service.</p>
    * @public
    */
   ClusterEndpoint?: string | undefined;
@@ -4205,7 +4315,7 @@ export interface ElasticsearchDestinationDescription {
   BufferingHints?: ElasticsearchBufferingHints | undefined;
 
   /**
-   * <p>The Amazon ES retry options.</p>
+   * <p>The Amazon OpenSearch Service retry options.</p>
    * @public
    */
   RetryOptions?: ElasticsearchRetryOptions | undefined;
@@ -4470,8 +4580,7 @@ export interface IcebergDestinationDescription {
   DestinationTableConfigurationList?: DestinationTableConfiguration[] | undefined;
 
   /**
-   * <p>
-   *       </p>
+   * <p>The description of automatic schema evolution configuration.</p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
    */
@@ -4479,6 +4588,7 @@ export interface IcebergDestinationDescription {
 
   /**
    * <p>
+   *          The description of table creation configuration.
    *       </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -4527,6 +4637,19 @@ export interface IcebergDestinationDescription {
    * @public
    */
   RoleARN?: string | undefined;
+
+  /**
+   * <p> Describes whether all incoming data for this delivery stream will be append only
+   *          (inserts only and not for updates and deletes) for Iceberg delivery. This feature is only
+   *          applicable for Apache Iceberg Tables.</p>
+   *          <p>The default value is false. If you set this value to true, Firehose automatically
+   *          increases the throughput limit of a stream based on the throttling levels of the stream. If
+   *          you set this parameter to true for a stream with updates and deletes, you will see out of
+   *          order delivery.</p>
+   *          <p> </p>
+   * @public
+   */
+  AppendOnly?: boolean | undefined;
 
   /**
    * <p>
@@ -4855,7 +4978,7 @@ export interface DestinationDescription {
   RedshiftDestinationDescription?: RedshiftDestinationDescription | undefined;
 
   /**
-   * <p>The destination in Amazon ES.</p>
+   * <p>The destination in Amazon OpenSearch Service.</p>
    * @public
    */
   ElasticsearchDestinationDescription?: ElasticsearchDestinationDescription | undefined;
@@ -4900,8 +5023,22 @@ export interface DestinationDescription {
 }
 
 /**
+ * <p>The structure that configures parameters such as <code>ThroughputHintInMBs</code> for a stream configured with
+ *          Direct PUT as a source. </p>
+ * @public
+ */
+export interface DirectPutSourceDescription {
+  /**
+   * <p> The value that you configure for this parameter is for information purpose only and
+   *          does not affect Firehose delivery throughput limit. You can use the <a href="https://support.console.aws.amazon.com/support/home#/case/create%3FissueType=service-limit-increase%26limitType=kinesis-firehose-limits">Firehose Limits form</a> to request a throughput limit increase. </p>
+   * @public
+   */
+  ThroughputHintInMBs?: number | undefined;
+}
+
+/**
  * <p>Details about a Kinesis data stream used as the source for a Firehose
- *          Firehose stream.</p>
+ *          stream.</p>
  * @public
  */
 export interface KinesisStreamSourceDescription {
@@ -4930,8 +5067,7 @@ export interface KinesisStreamSourceDescription {
 }
 
 /**
- * <p>Details about the Amazon MSK cluster used as the source for a Firehose
- *          Firehose stream.</p>
+ * <p>Details about the Amazon MSK cluster used as the source for a Firehose stream.</p>
  * @public
  */
 export interface MSKSourceDescription {
@@ -4973,10 +5109,17 @@ export interface MSKSourceDescription {
 
 /**
  * <p>Details about a Kinesis data stream used as the source for a Firehose
- *          Firehose stream.</p>
+ *          stream.</p>
  * @public
  */
 export interface SourceDescription {
+  /**
+   * <p>Details about Direct PUT used as the source for a Firehose stream.
+   *          </p>
+   * @public
+   */
+  DirectPutSourceDescription?: DirectPutSourceDescription | undefined;
+
   /**
    * <p>The <a>KinesisStreamSourceDescription</a> value for the source Kinesis
    *          data stream.</p>
@@ -4992,8 +5135,7 @@ export interface SourceDescription {
   MSKSourceDescription?: MSKSourceDescription | undefined;
 
   /**
-   * <p>
-   *          </p>
+   * <p>Details about a database used as the source for a Firehose stream.</p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
    */
@@ -5137,13 +5279,13 @@ export interface DescribeDeliveryStreamOutput {
 }
 
 /**
- * <p>Describes an update for a destination in Amazon ES.</p>
+ * <p>Describes an update for a destination in Amazon OpenSearch Service.</p>
  * @public
  */
 export interface ElasticsearchDestinationUpdate {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose
-   *          for calling the Amazon ES Configuration API and for indexing documents. For more
+   *          for calling the Amazon OpenSearch Service Configuration API and for indexing documents. For more
    *          information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant Firehose Access to an Amazon S3 Destination</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
    *                Amazon Web Services Service Namespaces</a>.</p>
    * @public
@@ -5151,7 +5293,7 @@ export interface ElasticsearchDestinationUpdate {
   RoleARN?: string | undefined;
 
   /**
-   * <p>The ARN of the Amazon ES domain. The IAM role must have permissions
+   * <p>The ARN of the Amazon OpenSearch Service domain. The IAM role must have permissions
    *             for <code>DescribeDomain</code>, <code>DescribeDomains</code>, and
    *             <code>DescribeDomainConfig</code> after assuming the IAM role specified in
    *             <code>RoleARN</code>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
@@ -5190,7 +5332,7 @@ export interface ElasticsearchDestinationUpdate {
    * <p>The Elasticsearch index rotation period. Index rotation appends a timestamp to
    *             <code>IndexName</code> to facilitate the expiration of old data. For more information,
    *          see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index Rotation for the
-   *             Amazon ES Destination</a>. Default value is <code>OneDay</code>.</p>
+   *             Amazon OpenSearch Service Destination</a>. Default value is <code>OneDay</code>.</p>
    * @public
    */
   IndexRotationPeriod?: ElasticsearchIndexRotationPeriod | undefined;
@@ -5204,7 +5346,7 @@ export interface ElasticsearchDestinationUpdate {
 
   /**
    * <p>The retry behavior in case Firehose is unable to deliver documents to
-   *          Amazon ES. The default value is 300 (5 minutes).</p>
+   *          Amazon OpenSearch Service. The default value is 300 (5 minutes).</p>
    * @public
    */
   RetryOptions?: ElasticsearchRetryOptions | undefined;
@@ -5795,6 +5937,7 @@ export interface IcebergDestinationUpdate {
 
   /**
    * <p>
+   *          The configuration to enable automatic schema evolution.
    *       </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -5803,6 +5946,7 @@ export interface IcebergDestinationUpdate {
 
   /**
    * <p>
+   *          The configuration to enable automatic table creation.
    *       </p>
    *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
    * @public
@@ -5851,6 +5995,18 @@ export interface IcebergDestinationUpdate {
    * @public
    */
   RoleARN?: string | undefined;
+
+  /**
+   * <p> Describes whether all incoming data for this delivery stream will be append only
+   *          (inserts only and not for updates and deletes) for Iceberg delivery. This feature is only
+   *          applicable for Apache Iceberg Tables. </p>
+   *          <p>The default value is false. If you set this value to true, Firehose automatically
+   *          increases the throughput limit of a stream based on the throttling levels of the stream. If
+   *          you set this parameter to true for a stream with updates and deletes, you will see out of
+   *          order delivery. </p>
+   * @public
+   */
+  AppendOnly?: boolean | undefined;
 
   /**
    * <p>
@@ -6223,7 +6379,7 @@ export interface UpdateDestinationInput {
   RedshiftDestinationUpdate?: RedshiftDestinationUpdate | undefined;
 
   /**
-   * <p>Describes an update for a destination in Amazon ES.</p>
+   * <p>Describes an update for a destination in Amazon OpenSearch Service.</p>
    * @public
    */
   ElasticsearchDestinationUpdate?: ElasticsearchDestinationUpdate | undefined;

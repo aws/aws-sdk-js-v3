@@ -75,6 +75,9 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //     CreateTimestamp: new Date("TIMESTAMP"),
  * //     LastUpdateTimestamp: new Date("TIMESTAMP"),
  * //     Source: { // SourceDescription
+ * //       DirectPutSourceDescription: { // DirectPutSourceDescription
+ * //         ThroughputHintInMBs: Number("int"),
+ * //       },
  * //       KinesisStreamSourceDescription: { // KinesisStreamSourceDescription
  * //         KinesisStreamARN: "STRING_VALUE",
  * //         RoleARN: "STRING_VALUE",
@@ -626,6 +629,7 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //             DurationInSeconds: Number("int"),
  * //           },
  * //           RoleARN: "STRING_VALUE",
+ * //           AppendOnly: true || false,
  * //           CatalogConfiguration: { // CatalogConfiguration
  * //             CatalogARN: "STRING_VALUE",
  * //             WarehouseLocation: "STRING_VALUE",

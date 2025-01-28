@@ -94,6 +94,7 @@ import {
   Deserializer,
   DestinationDescription,
   DestinationTableConfiguration,
+  DirectPutSourceConfiguration,
   DocumentIdOptions,
   DynamicPartitioningConfiguration,
   ElasticsearchBufferingHints,
@@ -778,6 +779,7 @@ const se_CreateDeliveryStreamInput = (input: CreateDeliveryStreamInput, context:
     DeliveryStreamEncryptionConfigurationInput: _json,
     DeliveryStreamName: [],
     DeliveryStreamType: [],
+    DirectPutSourceConfiguration: _json,
     ElasticsearchDestinationConfiguration: _json,
     ExtendedS3DestinationConfiguration: (_) => se_ExtendedS3DestinationConfiguration(_, context),
     HttpEndpointDestinationConfiguration: _json,
@@ -838,6 +840,8 @@ const se_DataFormatConversionConfiguration = (
 // se_DestinationTableConfiguration omitted.
 
 // se_DestinationTableConfigurationList omitted.
+
+// se_DirectPutSourceConfiguration omitted.
 
 // se_DocumentIdOptions omitted.
 
@@ -1305,6 +1309,8 @@ const de_DestinationDescriptionList = (output: any, context: __SerdeContext): De
 
 // de_DestinationTableConfigurationList omitted.
 
+// de_DirectPutSourceDescription omitted.
+
 // de_DocumentIdOptions omitted.
 
 // de_DynamicPartitioningConfiguration omitted.
@@ -1512,6 +1518,7 @@ const de_Serializer = (output: any, context: __SerdeContext): Serializer => {
 const de_SourceDescription = (output: any, context: __SerdeContext): SourceDescription => {
   return take(output, {
     DatabaseSourceDescription: (_: any) => de_DatabaseSourceDescription(_, context),
+    DirectPutSourceDescription: _json,
     KinesisStreamSourceDescription: (_: any) => de_KinesisStreamSourceDescription(_, context),
     MSKSourceDescription: (_: any) => de_MSKSourceDescription(_, context),
   }) as any;
