@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.737.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.736.0...v3.737.0) (2025-01-28)
+
+
+### Features
+
+* **client-appsync:** Add stash and outErrors to EvaluateCode/EvaluateMappingTemplate response ([a3d8b36](https://github.com/aws/aws-sdk-js-v3/commit/a3d8b3662e3ba9fa818c326a91f0293d6363abb2))
+* **client-datasync:** AWS DataSync now supports the Kerberos authentication protocol for SMB locations. ([f65f143](https://github.com/aws/aws-sdk-js-v3/commit/f65f14310b6044e0743d77f5831ad43144b28218))
+* **client-deadline:** feature: Deadline: Add support for limiting the concurrent usage of external resources, like floating licenses, using limits and the ability to constrain the maximum number of workers that work on a job ([0bf68ed](https://github.com/aws/aws-sdk-js-v3/commit/0bf68ed66c62ef864610d5bee440b3cb55d3a983))
+* **client-ec2:** This release changes the CreateFleet CLI and SDK's such that if you do not specify a client token, a randomly generated token is used for the request to ensure idempotency. ([f3e70c5](https://github.com/aws/aws-sdk-js-v3/commit/f3e70c5ab8531e86b8adc0821b8d9e4b4a486b94))
+* **client-firehose:** For AppendOnly streams, Firehose will automatically scale to match your throughput. ([446f685](https://github.com/aws/aws-sdk-js-v3/commit/446f685affb6bd97f381b5e6d832a576942916df))
+* **client-timestream-influxdb:** Adds 'allocatedStorage' parameter to UpdateDbInstance API that allows increasing the database instance storage size and 'dbStorageType' parameter to UpdateDbInstance API that allows changing the storage type of the database instance ([013cd45](https://github.com/aws/aws-sdk-js-v3/commit/013cd456f040e1edc4c2fc84bd6426c647da57e6))
+
+
+
+
+
 # [3.736.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.735.0...v3.736.0) (2025-01-27)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.737.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.736.0...v3.737.0) (2025-01-28)
+
+
+### Features
+
+* **client-ec2:** This release changes the CreateFleet CLI and SDK's such that if you do not specify a client token, a randomly generated token is used for the request to ensure idempotency. ([f3e70c5](https://github.com/aws/aws-sdk-js-v3/commit/f3e70c5ab8531e86b8adc0821b8d9e4b4a486b94))
+
+
+
+
+
 # [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
 
 

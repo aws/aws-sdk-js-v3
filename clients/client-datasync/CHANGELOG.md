@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.737.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.736.0...v3.737.0) (2025-01-28)
+
+
+### Features
+
+* **client-datasync:** AWS DataSync now supports the Kerberos authentication protocol for SMB locations. ([f65f143](https://github.com/aws/aws-sdk-js-v3/commit/f65f14310b6044e0743d77f5831ad43144b28218))
+
+
+
+
+
 # [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-datasync

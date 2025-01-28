@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.737.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.736.0...v3.737.0) (2025-01-28)
+
+
+### Features
+
+* **client-timestream-influxdb:** Adds 'allocatedStorage' parameter to UpdateDbInstance API that allows increasing the database instance storage size and 'dbStorageType' parameter to UpdateDbInstance API that allows changing the storage type of the database instance ([013cd45](https://github.com/aws/aws-sdk-js-v3/commit/013cd456f040e1edc4c2fc84bd6426c647da57e6))
+
+
+
+
+
 # [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-timestream-influxdb

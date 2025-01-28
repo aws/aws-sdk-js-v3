@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.737.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.736.0...v3.737.0) (2025-01-28)
+
+
+### Features
+
+* **client-appsync:** Add stash and outErrors to EvaluateCode/EvaluateMappingTemplate response ([a3d8b36](https://github.com/aws/aws-sdk-js-v3/commit/a3d8b3662e3ba9fa818c326a91f0293d6363abb2))
+
+
+
+
+
 # [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-appsync

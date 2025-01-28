@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.737.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.736.0...v3.737.0) (2025-01-28)
+
+
+### Features
+
+* **client-firehose:** For AppendOnly streams, Firehose will automatically scale to match your throughput. ([446f685](https://github.com/aws/aws-sdk-js-v3/commit/446f685affb6bd97f381b5e6d832a576942916df))
+
+
+
+
+
 # [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-firehose
