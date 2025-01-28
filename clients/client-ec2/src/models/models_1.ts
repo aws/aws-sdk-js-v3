@@ -4246,10 +4246,13 @@ export interface InstanceRequirementsRequest {
    * <p>The accelerator types that must be on the instance type.</p>
    *          <ul>
    *             <li>
-   *                <p>To include instance types with GPU hardware, specify <code>gpu</code>.</p>
+   *                <p>For instance types with FPGA accelerators, specify <code>fpga</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To include instance types with FPGA hardware, specify <code>fpga</code>.</p>
+   *                <p>For instance types with GPU accelerators, specify <code>gpu</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Inference accelerators, specify <code>inference</code>.</p>
    *             </li>
    *          </ul>
    *          <p>Default: Any accelerator type</p>
@@ -5132,7 +5135,9 @@ export interface CreateFleetRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *           request. If you do not specify a client token, a randomly generated token is used for
+   *           the request to ensure idempotency.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
    *             idempotency</a>.</p>
    * @public
    */
@@ -5826,10 +5831,13 @@ export interface InstanceRequirements {
    * <p>The accelerator types that must be on the instance type.</p>
    *          <ul>
    *             <li>
+   *                <p>For instance types with FPGA accelerators, specify <code>fpga</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>For instance types with GPU accelerators, specify <code>gpu</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For instance types with FPGA accelerators, specify <code>fpga</code>.</p>
+   *                <p>For instance types with Inference accelerators, specify <code>inference</code>.</p>
    *             </li>
    *          </ul>
    *          <p>Default: Any accelerator type</p>

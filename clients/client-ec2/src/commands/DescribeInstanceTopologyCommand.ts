@@ -69,7 +69,8 @@ export interface DescribeInstanceTopologyCommandOutput extends DescribeInstanceT
  *                   <li>
  *                      <p>
  *                         <code>trn1.2xlarge</code> | <code>trn1.32xlarge</code> |
- *                                 <code>trn1n.32xlarge</code>
+ *                                 <code>trn1n.32xlarge</code> | <code>trn2.48xlarge</code> |
+ *                                 <code>trn2u.48xlarge</code>
  *                      </p>
  *                   </li>
  *                </ul>

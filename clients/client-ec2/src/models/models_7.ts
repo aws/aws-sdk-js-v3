@@ -7544,6 +7544,9 @@ export interface SpotMarketOptions {
    *          <important>
    *             <p>If you specify a maximum price, your Spot Instances will be interrupted more
    *                 frequently than if you do not specify this parameter.</p>
+   *             <p>If you specify a maximum price, it must be more than USD $0.001. Specifying a value
+   *                 below USD $0.001 will result in an <code>InvalidParameterValue</code> error
+   *                 message.</p>
    *          </important>
    * @public
    */

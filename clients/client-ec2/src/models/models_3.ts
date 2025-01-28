@@ -7833,8 +7833,11 @@ export interface EventInformation {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>launchSpecUnusable</code> - The price in a launch specification is not
-   *                valid because it is below the Spot price.</p>
+   *                   <code>launchSpecUnusable</code> - The price specified in a launch specification
+   *                is not valid because it is below the Spot price for the requested Spot pools.</p>
+   *                <p>Note: Even if a fleet with the <code>maintain</code> request type is in the process
+   *                of being canceled, it may still publish a <code>launchSpecUnusable</code> event. This
+   *                does not mean that the canceled fleet is attempting to launch a new instance.</p>
    *             </li>
    *             <li>
    *                <p>

@@ -31612,6 +31612,9 @@ const se_CreateFleetRequest = (input: CreateFleetRequest, context: __SerdeContex
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
   if (input[_CTl] != null) {
     entries[_CTl] = input[_CTl];
   }
