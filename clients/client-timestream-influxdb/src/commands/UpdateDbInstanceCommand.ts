@@ -51,6 +51,8 @@ export interface UpdateDbInstanceCommandOutput extends UpdateDbInstanceOutput, _
  *   port: Number("int"),
  *   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge",
  *   deploymentType: "SINGLE_AZ" || "WITH_MULTIAZ_STANDBY",
+ *   dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
+ *   allocatedStorage: Number("int"),
  * };
  * const command = new UpdateDbInstanceCommand(input);
  * const response = await client.send(command);

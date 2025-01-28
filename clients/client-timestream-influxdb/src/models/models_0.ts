@@ -966,6 +966,18 @@ export interface UpdateDbInstanceInput {
    * @public
    */
   deploymentType?: DeploymentType | undefined;
+
+  /**
+   * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * @public
+   */
+  dbStorageType?: DbStorageType | undefined;
+
+  /**
+   * <p>The amount of storage to allocate for your DB storage type (in gibibytes).</p>
+   * @public
+   */
+  allocatedStorage?: number | undefined;
 }
 
 /**
