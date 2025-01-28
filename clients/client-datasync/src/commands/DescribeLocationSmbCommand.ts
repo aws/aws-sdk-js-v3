@@ -53,6 +53,11 @@ export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbRes
  * //     Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
  * //   },
  * //   CreationTime: new Date("TIMESTAMP"),
+ * //   DnsIpAddresses: [ // DnsIpList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   KerberosPrincipal: "STRING_VALUE",
+ * //   AuthenticationType: "NTLM" || "KERBEROS",
  * // };
  *
  * ```

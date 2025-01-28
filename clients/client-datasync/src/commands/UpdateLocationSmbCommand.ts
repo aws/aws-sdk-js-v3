@@ -53,6 +53,13 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
  *   MountOptions: { // SmbMountOptions
  *     Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
  *   },
+ *   AuthenticationType: "NTLM" || "KERBEROS",
+ *   DnsIpAddresses: [ // DnsIpList
+ *     "STRING_VALUE",
+ *   ],
+ *   KerberosPrincipal: "STRING_VALUE",
+ *   KerberosKeytab: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *   KerberosKrb5Conf: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new UpdateLocationSmbCommand(input);
  * const response = await client.send(command);

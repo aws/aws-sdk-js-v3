@@ -1646,6 +1646,20 @@ export interface CreateLocationS3Response {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SmbAuthenticationType = {
+  KERBEROS: "KERBEROS",
+  NTLM: "NTLM",
+} as const;
+
+/**
+ * @public
+ */
+export type SmbAuthenticationType = (typeof SmbAuthenticationType)[keyof typeof SmbAuthenticationType];
+
+/**
  * <p>CreateLocationSmbRequest</p>
  * @public
  */
@@ -1656,45 +1670,52 @@ export interface CreateLocationSmbRequest {
    *         <code>/path/to/subdirectory</code>). Make sure that other SMB clients in your network can
    *       also mount this path.</p>
    *          <p>To copy all data in the subdirectory, DataSync must be able to mount the SMB
-   *       share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
+   *       share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">Providing DataSync access to SMB file servers</a>.</p>
    * @public
    */
   Subdirectory: string | undefined;
 
   /**
-   * <p>Specifies the Domain Name Service (DNS) name or IP address of the SMB file server that
-   *       your DataSync agent will mount.</p>
-   *          <note>
-   *             <p>You can't specify an IP version 6 (IPv6) address.</p>
-   *          </note>
+   * <p>Specifies the domain name or IP address of the SMB file server that your DataSync agent will mount.</p>
+   *          <p>Remember the following when configuring this parameter:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You can't specify an IP version 6 (IPv6) address.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you're using Kerberos authentication, you must specify a domain name.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ServerHostname: string | undefined;
 
   /**
    * <p>Specifies the user that can mount and access the files, folders, and file metadata in your
-   *       SMB file server.</p>
+   *       SMB file server. This parameter applies only if <code>AuthenticationType</code> is set to
+   *         <code>NTLM</code>.</p>
    *          <p>For information about choosing a user with the right level of access for your transfer,
-   *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
+   *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">Providing DataSync access to SMB file servers</a>.</p>
    * @public
    */
-  User: string | undefined;
+  User?: string | undefined;
 
   /**
-   * <p>Specifies the name of the Active Directory domain that your SMB file server belongs to. </p>
-   *          <p>If you have multiple Active Directory domains in your environment, configuring this
-   *       parameter makes sure that DataSync connects to the right file server.</p>
+   * <p>Specifies the Windows domain name that your SMB file server belongs to. This parameter
+   *       applies only if <code>AuthenticationType</code> is set to <code>NTLM</code>.</p>
+   *          <p>If you have multiple domains in your environment, configuring this parameter makes sure
+   *       that DataSync connects to the right file server.</p>
    * @public
    */
   Domain?: string | undefined;
 
   /**
    * <p>Specifies the password of the user who can mount your SMB file server and has permission
-   *       to access the files and folders involved in your transfer.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
+   *       to access the files and folders involved in your transfer. This parameter applies only if
+   *         <code>AuthenticationType</code> is set to <code>NTLM</code>.</p>
    * @public
    */
-  Password: string | undefined;
+  Password?: string | undefined;
 
   /**
    * <p>Specifies the DataSync agent (or agents) that can connect to your SMB file
@@ -1716,6 +1737,60 @@ export interface CreateLocationSmbRequest {
    * @public
    */
   Tags?: TagListEntry[] | undefined;
+
+  /**
+   * <p>Specifies the authentication protocol that DataSync uses to connect to your SMB
+   *       file server. DataSync supports <code>NTLM</code> (default) and <code>KERBEROS</code>
+   *       authentication.</p>
+   * @public
+   */
+  AuthenticationType?: SmbAuthenticationType | undefined;
+
+  /**
+   * <p>Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to.
+   *       This parameter applies only if <code>AuthenticationType</code> is set to
+   *       <code>KERBEROS</code>.</p>
+   *          <p>If you have multiple domains in your environment, configuring this parameter makes sure
+   *       that DataSync connects to the right SMB file server.</p>
+   * @public
+   */
+  DnsIpAddresses?: string[] | undefined;
+
+  /**
+   * <p>Specifies a service principal name (SPN), which is an identity in your Kerberos realm that
+   *       has permission to access the files, folders, and file metadata in your SMB file server.</p>
+   *          <p>SPNs are case sensitive and must include a prepended <code>cifs/</code>. For example, an
+   *       SPN might look like <code>cifs/kerberosuser@EXAMPLE.COM</code>.</p>
+   *          <p>Your task execution will fail if the SPN that you provide for this parameter doesn’t match
+   *       what’s exactly in your keytab or <code>krb5.conf</code> files. </p>
+   * @public
+   */
+  KerberosPrincipal?: string | undefined;
+
+  /**
+   * <p>Specifies your Kerberos key table (keytab) file, which includes mappings between your
+   *       service principal name (SPN) and encryption keys.</p>
+   *          <p>You can specify the keytab using a file path (for example,
+   *         <code>file://path/to/file.keytab</code>). The file must be base64 encoded. If you're using
+   *       the CLI, the encoding is done for you.</p>
+   *          <p>To avoid task execution errors, make sure that the SPN in the keytab file matches exactly
+   *       what you specify for <code>KerberosPrincipal</code> and in your <code>krb5.conf</code> file. </p>
+   * @public
+   */
+  KerberosKeytab?: Uint8Array | undefined;
+
+  /**
+   * <p>Specifies a Kerberos configuration file (<code>krb5.conf</code>) that defines your
+   *       Kerberos realm configuration.</p>
+   *          <p>You can specify the <code>krb5.conf</code> using a file path (for example,
+   *         <code>file://path/to/krb5.conf</code>). The file must be base64 encoded. If you're using the
+   * CLI, the encoding is done for you.</p>
+   *          <p>To avoid task execution errors, make sure that the service principal name (SPN) in the
+   *         <code>krb5.conf</code> file matches exactly what you specify for
+   *         <code>KerberosPrincipal</code> and in your keytab file.</p>
+   * @public
+   */
+  KerberosKrb5Conf?: Uint8Array | undefined;
 }
 
 /**
@@ -3720,20 +3795,22 @@ export interface DescribeLocationSmbResponse {
 
   /**
    * <p>The user that can mount and access the files, folders, and file metadata in your SMB file
-   *       server.</p>
+   *       server. This element applies only if <code>AuthenticationType</code> is set to
+   *         <code>NTLM</code>.</p>
    * @public
    */
   User?: string | undefined;
 
   /**
-   * <p>The name of the Microsoft Active Directory domain that the SMB file server belongs
-   *       to.</p>
+   * <p>The name of the Windows domain that the SMB file server belongs to. This element applies
+   *       only if <code>AuthenticationType</code> is set to <code>NTLM</code>.</p>
    * @public
    */
   Domain?: string | undefined;
 
   /**
-   * <p>The protocol that DataSync use to access your SMB file.</p>
+   * <p>The SMB protocol version that DataSync uses to access your SMB file
+   *       server.</p>
    * @public
    */
   MountOptions?: SmbMountOptions | undefined;
@@ -3743,6 +3820,27 @@ export interface DescribeLocationSmbResponse {
    * @public
    */
   CreationTime?: Date | undefined;
+
+  /**
+   * <p>The IPv4 addresses for the DNS servers that your SMB file server belongs to. This element
+   *       applies only if <code>AuthenticationType</code> is set to <code>KERBEROS</code>.</p>
+   * @public
+   */
+  DnsIpAddresses?: string[] | undefined;
+
+  /**
+   * <p>The Kerberos service principal name (SPN) that has permission to access the files,
+   *       folders, and file metadata in your SMB file server.</p>
+   * @public
+   */
+  KerberosPrincipal?: string | undefined;
+
+  /**
+   * <p>The authentication protocol that DataSync uses to connect to your SMB file
+   *       server.</p>
+   * @public
+   */
+  AuthenticationType?: SmbAuthenticationType | undefined;
 }
 
 /**
@@ -6743,32 +6841,33 @@ export interface UpdateLocationSmbRequest {
    *       <code>/path/to/subdirectory</code>). Make sure that other SMB clients in your network can
    *       also mount this path.</p>
    *          <p>To copy all data in the specified subdirectory, DataSync must be able to mount
-   *       the SMB share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
+   *       the SMB share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">Providing DataSync access to SMB file servers</a>.</p>
    * @public
    */
   Subdirectory?: string | undefined;
 
   /**
    * <p>Specifies the user name that can mount your SMB file server and has permission to access
-   *       the files and folders involved in your transfer.</p>
+   *       the files and folders involved in your transfer. This parameter applies only if
+   *         <code>AuthenticationType</code> is set to <code>NTLM</code>.</p>
    *          <p>For information about choosing a user with the right level of access for your transfer,
-   *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
+   *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">Providing DataSync access to SMB file servers</a>.</p>
    * @public
    */
   User?: string | undefined;
 
   /**
-   * <p>Specifies the Windows domain name that your SMB file server belongs to. </p>
+   * <p>Specifies the Windows domain name that your SMB file server belongs to. This parameter
+   *       applies only if <code>AuthenticationType</code> is set to <code>NTLM</code>.</p>
    *          <p>If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right file server.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    * @public
    */
   Domain?: string | undefined;
 
   /**
    * <p>Specifies the password of the user who can mount your SMB file server and has permission
-   *       to access the files and folders involved in your transfer.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
+   *       to access the files and folders involved in your transfer. This parameter applies only if
+   *         <code>AuthenticationType</code> is set to <code>NTLM</code>.</p>
    * @public
    */
   Password?: string | undefined;
@@ -6785,6 +6884,60 @@ export interface UpdateLocationSmbRequest {
    * @public
    */
   MountOptions?: SmbMountOptions | undefined;
+
+  /**
+   * <p>Specifies the authentication protocol that DataSync uses to connect to your SMB
+   *       file server. DataSync supports <code>NTLM</code> (default) and <code>KERBEROS</code>
+   *       authentication.</p>
+   * @public
+   */
+  AuthenticationType?: SmbAuthenticationType | undefined;
+
+  /**
+   * <p>Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to.
+   *       This parameter applies only if <code>AuthenticationType</code> is set to
+   *       <code>KERBEROS</code>.</p>
+   *          <p>If you have multiple domains in your environment, configuring this parameter makes sure
+   *       that DataSync connects to the right SMB file server. </p>
+   * @public
+   */
+  DnsIpAddresses?: string[] | undefined;
+
+  /**
+   * <p>Specifies a service principal name (SPN), which is an identity in your Kerberos realm that
+   *       has permission to access the files, folders, and file metadata in your SMB file server.</p>
+   *          <p>SPNs are case sensitive and must include a prepended <code>cifs/</code>. For example, an
+   *       SPN might look like <code>cifs/kerberosuser@EXAMPLE.COM</code>.</p>
+   *          <p>Your task execution will fail if the SPN that you provide for this parameter doesn’t match
+   *       what’s exactly in your keytab or <code>krb5.conf</code> files.</p>
+   * @public
+   */
+  KerberosPrincipal?: string | undefined;
+
+  /**
+   * <p>Specifies your Kerberos key table (keytab) file, which includes mappings between your
+   *       service principal name (SPN) and encryption keys.</p>
+   *          <p>You can specify the keytab using a file path (for example,
+   *       <code>file://path/to/file.keytab</code>). The file must be base64 encoded. If you're using
+   *       the CLI, the encoding is done for you.</p>
+   *          <p>To avoid task execution errors, make sure that the SPN in the keytab file matches exactly
+   *       what you specify for <code>KerberosPrincipal</code> and in your <code>krb5.conf</code> file.</p>
+   * @public
+   */
+  KerberosKeytab?: Uint8Array | undefined;
+
+  /**
+   * <p>Specifies a Kerberos configuration file (<code>krb5.conf</code>) that defines your
+   *       Kerberos realm configuration.</p>
+   *          <p>You can specify the <code>krb5.conf</code> using a file path (for example,
+   *       <code>file://path/to/krb5.conf</code>). The file must be base64 encoded. If you're using the
+   *       CLI, the encoding is done for you.</p>
+   *          <p>To avoid task execution errors, make sure that the service principal name (SPN) in the
+   *       <code>krb5.conf</code> file matches exactly what you specify for
+   *       <code>KerberosPrincipal</code> and in your keytab file.</p>
+   * @public
+   */
+  KerberosKrb5Conf?: Uint8Array | undefined;
 }
 
 /**

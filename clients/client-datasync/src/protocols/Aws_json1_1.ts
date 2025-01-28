@@ -509,7 +509,7 @@ export const se_CreateLocationSmbCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateLocationSmb");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_CreateLocationSmbRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1223,7 +1223,7 @@ export const se_UpdateLocationSmbCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateLocationSmb");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_UpdateLocationSmbRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2730,7 +2730,26 @@ const se_CreateLocationObjectStorageRequest = (
 
 // se_CreateLocationS3Request omitted.
 
-// se_CreateLocationSmbRequest omitted.
+/**
+ * serializeAws_json1_1CreateLocationSmbRequest
+ */
+const se_CreateLocationSmbRequest = (input: CreateLocationSmbRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AgentArns: _json,
+    AuthenticationType: [],
+    DnsIpAddresses: _json,
+    Domain: [],
+    KerberosKeytab: context.base64Encoder,
+    KerberosKrb5Conf: context.base64Encoder,
+    KerberosPrincipal: [],
+    MountOptions: _json,
+    Password: [],
+    ServerHostname: [],
+    Subdirectory: [],
+    Tags: _json,
+    User: [],
+  });
+};
 
 // se_CreateTaskRequest omitted.
 
@@ -2797,6 +2816,8 @@ const se_DescribeStorageSystemResourceMetricsRequest = (
 // se_DiscoveryAgentArnList omitted.
 
 // se_DiscoveryServerConfiguration omitted.
+
+// se_DnsIpList omitted.
 
 // se_Ec2Config omitted.
 
@@ -2974,7 +2995,25 @@ const se_UpdateLocationObjectStorageRequest = (
 
 // se_UpdateLocationS3Request omitted.
 
-// se_UpdateLocationSmbRequest omitted.
+/**
+ * serializeAws_json1_1UpdateLocationSmbRequest
+ */
+const se_UpdateLocationSmbRequest = (input: UpdateLocationSmbRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AgentArns: _json,
+    AuthenticationType: [],
+    DnsIpAddresses: _json,
+    Domain: [],
+    KerberosKeytab: context.base64Encoder,
+    KerberosKrb5Conf: context.base64Encoder,
+    KerberosPrincipal: [],
+    LocationArn: [],
+    MountOptions: _json,
+    Password: [],
+    Subdirectory: [],
+    User: [],
+  });
+};
 
 // se_UpdateStorageSystemRequest omitted.
 
@@ -3227,8 +3266,11 @@ const de_DescribeLocationS3Response = (output: any, context: __SerdeContext): De
 const de_DescribeLocationSmbResponse = (output: any, context: __SerdeContext): DescribeLocationSmbResponse => {
   return take(output, {
     AgentArns: _json,
+    AuthenticationType: __expectString,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DnsIpAddresses: _json,
     Domain: __expectString,
+    KerberosPrincipal: __expectString,
     LocationArn: __expectString,
     LocationUri: __expectString,
     MountOptions: _json,
@@ -3349,6 +3391,8 @@ const de_DescribeTaskResponse = (output: any, context: __SerdeContext): Describe
 // de_DiscoveryJobListEntry omitted.
 
 // de_DiscoveryServerConfiguration omitted.
+
+// de_DnsIpList omitted.
 
 // de_Ec2Config omitted.
 

@@ -35,9 +35,8 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  * <p>Creates a transfer <i>location</i> for a Server Message Block (SMB) file
  *       server. DataSync can use this location as a source or destination for
  *       transferring data.</p>
- *          <p>Before you begin, make sure that you understand how DataSync
- *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb">accesses
- *         SMB file servers</a>.</p>
+ *          <p>Before you begin, make sure that you understand how DataSync accesses SMB
+ *       file servers. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">Providing DataSync access to SMB file servers</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,9 +46,9 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  * const input = { // CreateLocationSmbRequest
  *   Subdirectory: "STRING_VALUE", // required
  *   ServerHostname: "STRING_VALUE", // required
- *   User: "STRING_VALUE", // required
+ *   User: "STRING_VALUE",
  *   Domain: "STRING_VALUE",
- *   Password: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE",
  *   AgentArns: [ // AgentArnList // required
  *     "STRING_VALUE",
  *   ],
@@ -62,6 +61,13 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   AuthenticationType: "NTLM" || "KERBEROS",
+ *   DnsIpAddresses: [ // DnsIpList
+ *     "STRING_VALUE",
+ *   ],
+ *   KerberosPrincipal: "STRING_VALUE",
+ *   KerberosKeytab: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *   KerberosKrb5Conf: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new CreateLocationSmbCommand(input);
  * const response = await client.send(command);
