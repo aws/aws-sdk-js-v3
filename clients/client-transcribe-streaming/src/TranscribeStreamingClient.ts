@@ -67,9 +67,17 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  GetMedicalScribeStreamCommandInput,
+  GetMedicalScribeStreamCommandOutput,
+} from "./commands/GetMedicalScribeStreamCommand";
+import {
   StartCallAnalyticsStreamTranscriptionCommandInput,
   StartCallAnalyticsStreamTranscriptionCommandOutput,
 } from "./commands/StartCallAnalyticsStreamTranscriptionCommand";
+import {
+  StartMedicalScribeStreamCommandInput,
+  StartMedicalScribeStreamCommandOutput,
+} from "./commands/StartMedicalScribeStreamCommand";
 import {
   StartMedicalStreamTranscriptionCommandInput,
   StartMedicalStreamTranscriptionCommandOutput,
@@ -93,7 +101,9 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | GetMedicalScribeStreamCommandInput
   | StartCallAnalyticsStreamTranscriptionCommandInput
+  | StartMedicalScribeStreamCommandInput
   | StartMedicalStreamTranscriptionCommandInput
   | StartStreamTranscriptionCommandInput;
 
@@ -101,7 +111,9 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | GetMedicalScribeStreamCommandOutput
   | StartCallAnalyticsStreamTranscriptionCommandOutput
+  | StartMedicalScribeStreamCommandOutput
   | StartMedicalStreamTranscriptionCommandOutput
   | StartStreamTranscriptionCommandOutput;
 
@@ -313,9 +325,10 @@ export type TranscribeStreamingClientResolvedConfigType = __SmithyResolvedConfig
 export interface TranscribeStreamingClientResolvedConfig extends TranscribeStreamingClientResolvedConfigType {}
 
 /**
- * <p>Amazon Transcribe streaming offers three main types of real-time transcription:
- *       <b>Standard</b>, <b>Medical</b>, and
- *       <b>Call Analytics</b>.</p>
+ * <p>Amazon Transcribe streaming offers four main types of real-time transcription:
+ *       <b>Standard</b>, <b>Medical</b>,
+ *       <b>Call Analytics</b>,
+ *       and <b>Health Scribe</b>.</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -334,6 +347,12 @@ export interface TranscribeStreamingClientResolvedConfig extends TranscribeStrea
  *                   <b>Call Analytics transcriptions</b> are designed for use with call
  *           center audio on two different channels; if you're looking for insight into customer service calls, use this
  *           option. Refer to  for details.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>HealthScribe transcriptions</b> are designed to
+ *           automatically create clinical notes from patient-clinician conversations using generative AI.
+ *           Refer to [here] for details.</p>
  *             </li>
  *          </ul>
  * @public

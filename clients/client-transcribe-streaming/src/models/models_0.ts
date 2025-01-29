@@ -161,8 +161,24 @@ export interface Alternative {
  */
 export interface AudioEvent {
   /**
-   * <p>An audio blob that contains the next part of the audio that you want to transcribe. The
-   *       maximum audio chunk size is 32 KB.</p>
+   * <p>
+   *     An audio blob containing the next segment of audio from your application,
+   *     with a maximum duration of 1 second.
+   *     The maximum size in bytes varies based on audio properties.
+   *   </p>
+   *          <p>Find recommended size in <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#best-practices">Transcribing streaming best practices</a>.
+   *   </p>
+   *          <p>
+   *     Size calculation: <code>Duration (s) * Sample Rate (Hz) * Number of Channels * 2 (Bytes per Sample)</code>
+   *          </p>
+   *          <p>
+   *     For example, a 1-second chunk of 16 kHz, 2-channel, 16-bit audio would be
+   *     <code>1 * 16000 * 2 * 2 = 64000 bytes</code>.
+   *   </p>
+   *          <p>
+   *     For 8 kHz, 1-channel, 16-bit audio, a 1-second chunk would be
+   *     <code>1 * 8000 * 1 * 2 = 16000 bytes</code>.
+   *   </p>
    * @public
    */
   AudioChunk?: Uint8Array | undefined;
@@ -989,6 +1005,99 @@ export namespace CallAnalyticsTranscriptResultStream {
  * @public
  * @enum
  */
+export const ClinicalNoteGenerationStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ClinicalNoteGenerationStatus =
+  (typeof ClinicalNoteGenerationStatus)[keyof typeof ClinicalNoteGenerationStatus];
+
+/**
+ * <p>The details for clinical note generation,
+ *       including status, and output locations for clinical note and aggregated transcript if the analytics completed,
+ *       or failure reason if the analytics failed.
+ *     </p>
+ * @public
+ */
+export interface ClinicalNoteGenerationResult {
+  /**
+   * <p>Holds the Amazon S3 URI for the output Clinical Note. </p>
+   * @public
+   */
+  ClinicalNoteOutputLocation?: string | undefined;
+
+  /**
+   * <p>Holds the Amazon S3 URI for the output Transcript. </p>
+   * @public
+   */
+  TranscriptOutputLocation?: string | undefined;
+
+  /**
+   * <p>The status of the clinical note generation.</p>
+   *          <p>Possible Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *       After audio streaming finishes, and you send a <code>MedicalScribeSessionControlEvent</code> event (with END_OF_SESSION as the Type),
+   *       the status is set to <code>IN_PROGRESS</code>.
+   *       If the status is <code>COMPLETED</code>, the analytics completed successfully, and you can find the
+   *       results at the locations specified in <code>ClinicalNoteOutputLocation</code> and <code>TranscriptOutputLocation</code>.
+   *       If the status is <code>FAILED</code>, <code>FailureReason</code> provides details about the failure.
+   *     </p>
+   * @public
+   */
+  Status?: ClinicalNoteGenerationStatus | undefined;
+
+  /**
+   * <p>If <code>ClinicalNoteGenerationResult</code> is <code>FAILED</code>, information about why it failed. </p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+}
+
+/**
+ * <p>The output configuration for aggregated transcript and clinical note generation.</p>
+ * @public
+ */
+export interface ClinicalNoteGenerationSettings {
+  /**
+   * <p>The name of the Amazon S3 bucket where you want the output of Amazon Web Services HealthScribe post-stream analytics stored. Don't include the <code>S3://</code> prefix of the specified bucket. </p>
+   *          <p>HealthScribe outputs transcript and clinical note files under the prefix:
+   *         <code>S3://$output-bucket-name/healthscribe-streaming/session-id/post-stream-analytics/clinical-notes</code>
+   *          </p>
+   *          <p>The role <code>ResourceAccessRoleArn</code> specified in the <code>MedicalScribeConfigurationEvent</code> must have
+   *       permission to use the specified location. You can change Amazon S3 permissions using the <a href="https://console.aws.amazon.com/s3">
+   *         Amazon Web Services Management Console
+   *       </a>. See also <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions Required for IAM User Roles </a> . </p>
+   * @public
+   */
+  OutputBucketName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ContentIdentificationType = {
   PII: "PII",
 } as const;
@@ -1010,6 +1119,362 @@ export const ContentRedactionType = {
  * @public
  */
 export type ContentRedactionType = (typeof ContentRedactionType)[keyof typeof ContentRedactionType];
+
+/**
+ * @public
+ */
+export interface GetMedicalScribeStreamRequest {
+  /**
+   * <p>The identifier of the HealthScribe streaming session you want information about.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MedicalScribeParticipantRole = {
+  CLINICIAN: "CLINICIAN",
+  PATIENT: "PATIENT",
+} as const;
+
+/**
+ * @public
+ */
+export type MedicalScribeParticipantRole =
+  (typeof MedicalScribeParticipantRole)[keyof typeof MedicalScribeParticipantRole];
+
+/**
+ * <p>Makes it possible to specify which speaker is on which channel.
+ *       For example, if the clinician is the first participant to speak, you would set the <code>ChannelId</code> of the first
+ *       <code>ChannelDefinition</code>
+ *       in the list to <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to
+ *       <code>CLINICIAN</code>
+ *       (to indicate that it's the clinician speaking).
+ *       Then you would set the <code>ChannelId</code> of the second <code>ChannelDefinition</code> in the list to
+ *       <code>1</code>
+ *       (to indicate the second channel) and <code>ParticipantRole</code> to <code>PATIENT</code> (to indicate that it's the patient speaking).
+ *     </p>
+ *          <p>If you don't specify a channel definition, HealthScribe will diarize the transcription and identify speaker roles for each speaker.</p>
+ * @public
+ */
+export interface MedicalScribeChannelDefinition {
+  /**
+   * <p>Specify the audio channel you want to define.</p>
+   * @public
+   */
+  ChannelId: number | undefined;
+
+  /**
+   * <p>Specify the participant that you want to flag.
+   *       The allowed options are <code>CLINICIAN</code> and
+   *       <code>PATIENT</code>.
+   *     </p>
+   * @public
+   */
+  ParticipantRole: MedicalScribeParticipantRole | undefined;
+}
+
+/**
+ * <p>Contains encryption related settings to be used for data encryption with Key Management Service, including KmsEncryptionContext and KmsKeyId.
+ *      The KmsKeyId is required, while KmsEncryptionContext is optional for additional layer of security.
+ *     </p>
+ *          <p>By default, Amazon Web Services HealthScribe provides encryption at rest to protect sensitive customer data using Amazon S3-managed keys. HealthScribe uses the KMS key you specify as a second layer of
+ *       encryption.</p>
+ *          <p>
+ *       Your <code>ResourceAccessRoleArn</code>
+ *       must permission to use your KMS key.
+ *       For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/health-scribe-encryption.html">Data Encryption at rest for Amazon Web Services HealthScribe</a>.
+ *     </p>
+ * @public
+ */
+export interface MedicalScribeEncryptionSettings {
+  /**
+   * <p>A map of plain text, non-secret key:value pairs, known as encryption context pairs, that provide an added layer of
+   *       security for your data. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/key-management.html#kms-context">KMSencryption context </a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html">Asymmetric keys in KMS
+   *       </a>. </p>
+   * @public
+   */
+  KmsEncryptionContext?: Record<string, string> | undefined;
+
+  /**
+   * <p>The ID of the KMS key you want to use for your streaming session. You
+   *       can specify its KMS key ID, key Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>.
+   *       To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
+   *          <p>For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID: 1234abcd-12ab-34cd-56ef-1234567890ab</p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           Alias name: alias/ExampleAlias</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           Alias ARN: arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias
+   *         </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *       To get the key ID and key ARN for a KMS key, use the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html">ListKeys</a> or <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html">DescribeKey</a> KMS API operations.
+   *       To get the alias name and alias ARN, use <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_ListAliases.html">ListKeys</a> API operation.
+   *     </p>
+   * @public
+   */
+  KmsKeyId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MedicalScribeLanguageCode = {
+  EN_US: "en-US",
+} as const;
+
+/**
+ * @public
+ */
+export type MedicalScribeLanguageCode = (typeof MedicalScribeLanguageCode)[keyof typeof MedicalScribeLanguageCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const MedicalScribeMediaEncoding = {
+  FLAC: "flac",
+  OGG_OPUS: "ogg-opus",
+  PCM: "pcm",
+} as const;
+
+/**
+ * @public
+ */
+export type MedicalScribeMediaEncoding = (typeof MedicalScribeMediaEncoding)[keyof typeof MedicalScribeMediaEncoding];
+
+/**
+ * <p>Contains details for the result of post-stream analytics.
+ *     </p>
+ * @public
+ */
+export interface MedicalScribePostStreamAnalyticsResult {
+  /**
+   * <p>Provides the Clinical Note Generation result for post-stream analytics.</p>
+   * @public
+   */
+  ClinicalNoteGenerationResult?: ClinicalNoteGenerationResult | undefined;
+}
+
+/**
+ * <p>The settings for post-stream analytics.
+ *     </p>
+ * @public
+ */
+export interface MedicalScribePostStreamAnalyticsSettings {
+  /**
+   * <p>Specify settings for the post-stream clinical note generation.</p>
+   * @public
+   */
+  ClinicalNoteGenerationSettings: ClinicalNoteGenerationSettings | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MedicalScribeStreamStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PAUSED: "PAUSED",
+} as const;
+
+/**
+ * @public
+ */
+export type MedicalScribeStreamStatus = (typeof MedicalScribeStreamStatus)[keyof typeof MedicalScribeStreamStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const MedicalScribeVocabularyFilterMethod = {
+  MASK: "mask",
+  REMOVE: "remove",
+  TAG: "tag",
+} as const;
+
+/**
+ * @public
+ */
+export type MedicalScribeVocabularyFilterMethod =
+  (typeof MedicalScribeVocabularyFilterMethod)[keyof typeof MedicalScribeVocabularyFilterMethod];
+
+/**
+ * <p>Contains details about a Amazon Web Services HealthScribe streaming session.</p>
+ * @public
+ */
+export interface MedicalScribeStreamDetails {
+  /**
+   * <p>The identifier of the HealthScribe streaming session.</p>
+   * @public
+   */
+  SessionId?: string | undefined;
+
+  /**
+   * <p>The date and time when the HealthScribe streaming session was created.</p>
+   * @public
+   */
+  StreamCreatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the HealthScribe streaming session was ended.</p>
+   * @public
+   */
+  StreamEndedAt?: Date | undefined;
+
+  /**
+   * <p>The Language Code of the HealthScribe streaming session.</p>
+   * @public
+   */
+  LanguageCode?: MedicalScribeLanguageCode | undefined;
+
+  /**
+   * <p>The sample rate (in hertz) of the HealthScribe streaming session.</p>
+   * @public
+   */
+  MediaSampleRateHertz?: number | undefined;
+
+  /**
+   * <p>The Media Encoding of the HealthScribe streaming session.</p>
+   * @public
+   */
+  MediaEncoding?: MedicalScribeMediaEncoding | undefined;
+
+  /**
+   * <p>The vocabulary name of the HealthScribe streaming session.</p>
+   * @public
+   */
+  VocabularyName?: string | undefined;
+
+  /**
+   * <p>The name of the vocabulary filter used for the HealthScribe streaming session .</p>
+   * @public
+   */
+  VocabularyFilterName?: string | undefined;
+
+  /**
+   * <p>The method of the vocabulary filter for the HealthScribe streaming session.</p>
+   * @public
+   */
+  VocabularyFilterMethod?: MedicalScribeVocabularyFilterMethod | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role used in the HealthScribe streaming session.</p>
+   * @public
+   */
+  ResourceAccessRoleArn?: string | undefined;
+
+  /**
+   * <p>The Channel Definitions of the HealthScribe streaming session.</p>
+   * @public
+   */
+  ChannelDefinitions?: MedicalScribeChannelDefinition[] | undefined;
+
+  /**
+   * <p>The Encryption Settings of the HealthScribe streaming session.</p>
+   * @public
+   */
+  EncryptionSettings?: MedicalScribeEncryptionSettings | undefined;
+
+  /**
+   * <p>The streaming status of the HealthScribe streaming session.</p>
+   *          <p>Possible Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PAUSED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>This status is specific to real-time streaming.
+   *       A <code>COMPLETED</code> status doesn't mean that the post-stream analytics is complete.
+   *       To get status of an analytics result, check the <code>Status</code> field for the analytics result within the
+   *       <code>MedicalScribePostStreamAnalyticsResult</code>. For example, you can view the status of the
+   *       <code>ClinicalNoteGenerationResult</code>.
+   *     </p>
+   *          </note>
+   * @public
+   */
+  StreamStatus?: MedicalScribeStreamStatus | undefined;
+
+  /**
+   * <p>The post-stream analytics settings of the HealthScribe streaming session.</p>
+   * @public
+   */
+  PostStreamAnalyticsSettings?: MedicalScribePostStreamAnalyticsSettings | undefined;
+
+  /**
+   * <p>The result of post-stream analytics for the HealthScribe streaming session.</p>
+   * @public
+   */
+  PostStreamAnalyticsResult?: MedicalScribePostStreamAnalyticsResult | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMedicalScribeStreamResponse {
+  /**
+   * <p>Provides details about a HealthScribe streaming session.</p>
+   * @public
+   */
+  MedicalScribeStreamDetails?: MedicalScribeStreamDetails | undefined;
+}
+
+/**
+ * <p>The request references a resource which doesn't exist.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 /**
  * @public
@@ -1292,6 +1757,531 @@ export interface MedicalResult {
    * @public
    */
   ChannelId?: string | undefined;
+}
+
+/**
+ * <p>A wrapper for your audio chunks</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/event-stream.html">Event stream encoding</a>.
+ *     </p>
+ * @public
+ */
+export interface MedicalScribeAudioEvent {
+  /**
+   * <p>
+   *     An audio blob containing the next segment of audio from your application,
+   *     with a maximum duration of 1 second.
+   *     The maximum size in bytes varies based on audio properties.
+   *   </p>
+   *          <p>Find recommended size in <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#best-practices">Transcribing streaming best practices</a>.
+   *   </p>
+   *          <p>
+   *     Size calculation: <code>Duration (s) * Sample Rate (Hz) * Number of Channels * 2 (Bytes per Sample)</code>
+   *          </p>
+   *          <p>
+   *     For example, a 1-second chunk of 16 kHz, 2-channel, 16-bit audio would be
+   *     <code>1 * 16000 * 2 * 2 = 64000 bytes</code>.
+   *   </p>
+   *          <p>
+   *     For 8 kHz, 1-channel, 16-bit audio, a 1-second chunk would be
+   *     <code>1 * 8000 * 1 * 2 = 16000 bytes</code>.
+   *   </p>
+   * @public
+   */
+  AudioChunk: Uint8Array | undefined;
+}
+
+/**
+ * <p>Specify details to configure the streaming session, including channel definitions, encryption settings, post-stream analytics
+ *       settings, resource access role ARN and vocabulary settings.
+ *     </p>
+ *          <p>Whether you are starting a new session or resuming an existing session,
+ *       your first event must be a <code>MedicalScribeConfigurationEvent</code>.
+ *       If you are resuming a session, then this event must have the same configurations that you provided to start the session.
+ *     </p>
+ * @public
+ */
+export interface MedicalScribeConfigurationEvent {
+  /**
+   * <p>Specify the name of the custom vocabulary you want to use for your streaming session.
+   *       Custom vocabulary names are case-sensitive.
+   *     </p>
+   * @public
+   */
+  VocabularyName?: string | undefined;
+
+  /**
+   * <p>Specify the name of the custom vocabulary filter you want to include in your streaming session.
+   *       Custom vocabulary filter names are case-sensitive.
+   *     </p>
+   *          <p>If you include <code>VocabularyFilterName</code> in the <code>MedicalScribeConfigurationEvent</code>,
+   *       you must also include <code>VocabularyFilterMethod</code>.
+   *     </p>
+   * @public
+   */
+  VocabularyFilterName?: string | undefined;
+
+  /**
+   * <p>Specify how you want your custom vocabulary filter applied to the streaming session.</p>
+   *          <p>To replace words with <code>***</code>, specify <code>mask</code>.
+   *     </p>
+   *          <p>To delete words, specify <code>remove</code>.
+   *     </p>
+   *          <p>To flag words without changing them, specify <code>tag</code>.
+   *     </p>
+   * @public
+   */
+  VocabularyFilterMethod?: MedicalScribeVocabularyFilterMethod | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 output
+   *       bucket you specified, and use your KMS key if supplied. If the role that you specify doesn’t have the
+   *       appropriate permissions, your request fails. </p>
+   *          <p>
+   *       IAM
+   *       role ARNs have the format
+   *       <code>arn:partition:iam::account:role/role-name-with-path</code>.
+   *       For example: <code>arn:aws:iam::111122223333:role/Admin</code>.
+   *     </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/health-scribe-streaming.html">Amazon Web Services HealthScribe</a>.</p>
+   * @public
+   */
+  ResourceAccessRoleArn: string | undefined;
+
+  /**
+   * <p>Specify which speaker is on which audio channel.</p>
+   * @public
+   */
+  ChannelDefinitions?: MedicalScribeChannelDefinition[] | undefined;
+
+  /**
+   * <p>Specify the encryption settings for your streaming session.</p>
+   * @public
+   */
+  EncryptionSettings?: MedicalScribeEncryptionSettings | undefined;
+
+  /**
+   * <p>Specify settings for post-stream analytics.</p>
+   * @public
+   */
+  PostStreamAnalyticsSettings: MedicalScribePostStreamAnalyticsSettings | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MedicalScribeSessionControlEventType = {
+  END_OF_SESSION: "END_OF_SESSION",
+} as const;
+
+/**
+ * @public
+ */
+export type MedicalScribeSessionControlEventType =
+  (typeof MedicalScribeSessionControlEventType)[keyof typeof MedicalScribeSessionControlEventType];
+
+/**
+ * <p>Specify the lifecycle of your streaming session.</p>
+ * @public
+ */
+export interface MedicalScribeSessionControlEvent {
+  /**
+   * <p>The type of <code>MedicalScribeSessionControlEvent</code>.
+   *     </p>
+   *          <p>Possible Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>END_OF_SESSION</code> - Indicates the audio streaming is complete. After you
+   *           send an END_OF_SESSION event, Amazon Web Services HealthScribe starts the post-stream analytics.
+   *           The session can't be resumed after this event is sent. After Amazon Web Services HealthScribe processes the event, the real-time <code>StreamStatus</code> is <code>COMPLETED</code>.
+   *           You get the <code>StreamStatus</code> and other stream details with the <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_GetMedicalScribeStream.html">GetMedicalScribeStream</a> API operation.
+   *           For more information about different streaming statuses, see the <code>StreamStatus</code> description in the <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_MedicalScribeStreamDetails.html">MedicalScribeStreamDetails</a>.
+   *         </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type: MedicalScribeSessionControlEventType | undefined;
+}
+
+/**
+ * <p>An encoded stream of events. The stream is encoded as HTTP/2 data frames.</p>
+ *          <p>An input stream consists of the following types of events. The first element of the input stream must be the <code>MedicalScribeConfigurationEvent</code> event type.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>MedicalScribeConfigurationEvent</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>MedicalScribeAudioEvent</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>MedicalScribeSessionControlEvent</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export type MedicalScribeInputStream =
+  | MedicalScribeInputStream.AudioEventMember
+  | MedicalScribeInputStream.ConfigurationEventMember
+  | MedicalScribeInputStream.SessionControlEventMember
+  | MedicalScribeInputStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MedicalScribeInputStream {
+  /**
+   * <p>A wrapper for your audio chunks</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/event-stream.html">Event stream encoding</a>.
+   *     </p>
+   * @public
+   */
+  export interface AudioEventMember {
+    AudioEvent: MedicalScribeAudioEvent;
+    SessionControlEvent?: never;
+    ConfigurationEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specify the lifecycle of your streaming session, such as ending the session.</p>
+   * @public
+   */
+  export interface SessionControlEventMember {
+    AudioEvent?: never;
+    SessionControlEvent: MedicalScribeSessionControlEvent;
+    ConfigurationEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specify additional streaming session configurations beyond those provided in your initial start request headers. For example, specify
+   *       channel definitions, encryption settings, and post-stream analytics settings.
+   *     </p>
+   *          <p>Whether you are starting a new session or resuming an existing session,
+   *       your first event must be a <code>MedicalScribeConfigurationEvent</code>.
+   *     </p>
+   * @public
+   */
+  export interface ConfigurationEventMember {
+    AudioEvent?: never;
+    SessionControlEvent?: never;
+    ConfigurationEvent: MedicalScribeConfigurationEvent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    AudioEvent?: never;
+    SessionControlEvent?: never;
+    ConfigurationEvent?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    AudioEvent: (value: MedicalScribeAudioEvent) => T;
+    SessionControlEvent: (value: MedicalScribeSessionControlEvent) => T;
+    ConfigurationEvent: (value: MedicalScribeConfigurationEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: MedicalScribeInputStream, visitor: Visitor<T>): T => {
+    if (value.AudioEvent !== undefined) return visitor.AudioEvent(value.AudioEvent);
+    if (value.SessionControlEvent !== undefined) return visitor.SessionControlEvent(value.SessionControlEvent);
+    if (value.ConfigurationEvent !== undefined) return visitor.ConfigurationEvent(value.ConfigurationEvent);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MedicalScribeTranscriptItemType = {
+  PRONUNCIATION: "pronunciation",
+  PUNCTUATION: "punctuation",
+} as const;
+
+/**
+ * @public
+ */
+export type MedicalScribeTranscriptItemType =
+  (typeof MedicalScribeTranscriptItemType)[keyof typeof MedicalScribeTranscriptItemType];
+
+/**
+ * <p>A word, phrase, or punctuation mark in your transcription output, along with various associated
+ *       attributes, such as confidence score, type, and start and end times.
+ *     </p>
+ * @public
+ */
+export interface MedicalScribeTranscriptItem {
+  /**
+   * <p>The start time, in milliseconds, of the transcribed item.</p>
+   * @public
+   */
+  BeginAudioTime?: number | undefined;
+
+  /**
+   * <p>The end time, in milliseconds, of the transcribed item.</p>
+   * @public
+   */
+  EndAudioTime?: number | undefined;
+
+  /**
+   * <p>The type of item identified. Options are: <code>PRONUNCIATION</code> (spoken words)
+   *       and <code>PUNCTUATION</code>.
+   *     </p>
+   * @public
+   */
+  Type?: MedicalScribeTranscriptItemType | undefined;
+
+  /**
+   * <p>The confidence score associated with a word or phrase in your transcript.</p>
+   *          <p>Confidence scores are values between 0 and 1. A larger value indicates a higher
+   *       probability that the identified item correctly matches the item spoken in your media.
+   *     </p>
+   * @public
+   */
+  Confidence?: number | undefined;
+
+  /**
+   * <p>The word, phrase or punctuation mark that was transcribed.</p>
+   * @public
+   */
+  Content?: string | undefined;
+
+  /**
+   * <p>Indicates whether the specified item matches a word in the vocabulary filter included in
+   *       your configuration event. If <code>true</code>, there is a vocabulary filter match.
+   *     </p>
+   * @public
+   */
+  VocabularyFilterMatch?: boolean | undefined;
+}
+
+/**
+ * <p>Contains a set of transcription results, along with additional information of the segment.</p>
+ * @public
+ */
+export interface MedicalScribeTranscriptSegment {
+  /**
+   * <p>The identifier of the segment.</p>
+   * @public
+   */
+  SegmentId?: string | undefined;
+
+  /**
+   * <p>The start time, in milliseconds, of the segment.</p>
+   * @public
+   */
+  BeginAudioTime?: number | undefined;
+
+  /**
+   * <p>The end time, in milliseconds, of the segment.</p>
+   * @public
+   */
+  EndAudioTime?: number | undefined;
+
+  /**
+   * <p>Contains transcribed text of the segment.</p>
+   * @public
+   */
+  Content?: string | undefined;
+
+  /**
+   * <p>Contains words, phrases, or punctuation marks in your segment.</p>
+   * @public
+   */
+  Items?: MedicalScribeTranscriptItem[] | undefined;
+
+  /**
+   * <p>Indicates if the segment is complete.</p>
+   *          <p>If <code>IsPartial</code> is <code>true</code>, the segment is not complete.
+   *       If <code>IsPartial</code> is <code>false</code>, the segment is complete.
+   *     </p>
+   * @public
+   */
+  IsPartial?: boolean | undefined;
+
+  /**
+   * <p>Indicates which audio channel is associated with the <code>MedicalScribeTranscriptSegment</code>.
+   *     </p>
+   *          <p>If <code>MedicalScribeChannelDefinition</code> is not provided in the <code>MedicalScribeConfigurationEvent</code>,
+   *       then this field will not be included.
+   *     </p>
+   * @public
+   */
+  ChannelId?: string | undefined;
+}
+
+/**
+ * <p>The event associated with <code>MedicalScribeResultStream</code>.
+ *     </p>
+ *          <p>Contains <code>MedicalScribeTranscriptSegment</code>, which contains segment related information.
+ *     </p>
+ * @public
+ */
+export interface MedicalScribeTranscriptEvent {
+  /**
+   * <p>The <code>TranscriptSegment</code> associated with a <code>MedicalScribeTranscriptEvent</code>.
+   *     </p>
+   * @public
+   */
+  TranscriptSegment?: MedicalScribeTranscriptSegment | undefined;
+}
+
+/**
+ * <p>Result stream where you will receive the output events.
+ *       The details are provided in the <code>MedicalScribeTranscriptEvent</code> object.
+ *     </p>
+ * @public
+ */
+export type MedicalScribeResultStream =
+  | MedicalScribeResultStream.BadRequestExceptionMember
+  | MedicalScribeResultStream.ConflictExceptionMember
+  | MedicalScribeResultStream.InternalFailureExceptionMember
+  | MedicalScribeResultStream.LimitExceededExceptionMember
+  | MedicalScribeResultStream.ServiceUnavailableExceptionMember
+  | MedicalScribeResultStream.TranscriptEventMember
+  | MedicalScribeResultStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MedicalScribeResultStream {
+  /**
+   * <p>The transcript event that contains real-time transcription results.
+   *     </p>
+   * @public
+   */
+  export interface TranscriptEventMember {
+    TranscriptEvent: MedicalScribeTranscriptEvent;
+    BadRequestException?: never;
+    LimitExceededException?: never;
+    InternalFailureException?: never;
+    ConflictException?: never;
+    ServiceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>One or more arguments to the <code>StartStreamTranscription</code>,
+   *       <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code>
+   *       operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code>
+   *       used unsupported values. Check the specified parameters and try your request again.</p>
+   * @public
+   */
+  export interface BadRequestExceptionMember {
+    TranscriptEvent?: never;
+    BadRequestException: BadRequestException;
+    LimitExceededException?: never;
+    InternalFailureException?: never;
+    ConflictException?: never;
+    ServiceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
+   *       limit. Break your audio stream into smaller chunks and try your request again.</p>
+   * @public
+   */
+  export interface LimitExceededExceptionMember {
+    TranscriptEvent?: never;
+    BadRequestException?: never;
+    LimitExceededException: LimitExceededException;
+    InternalFailureException?: never;
+    ConflictException?: never;
+    ServiceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A problem occurred while processing the audio. Amazon Transcribe terminated
+   *       processing.</p>
+   * @public
+   */
+  export interface InternalFailureExceptionMember {
+    TranscriptEvent?: never;
+    BadRequestException?: never;
+    LimitExceededException?: never;
+    InternalFailureException: InternalFailureException;
+    ConflictException?: never;
+    ServiceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A new stream started with the same session ID. The current stream has been terminated.</p>
+   * @public
+   */
+  export interface ConflictExceptionMember {
+    TranscriptEvent?: never;
+    BadRequestException?: never;
+    LimitExceededException?: never;
+    InternalFailureException?: never;
+    ConflictException: ConflictException;
+    ServiceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The service is currently unavailable. Try your request later.</p>
+   * @public
+   */
+  export interface ServiceUnavailableExceptionMember {
+    TranscriptEvent?: never;
+    BadRequestException?: never;
+    LimitExceededException?: never;
+    InternalFailureException?: never;
+    ConflictException?: never;
+    ServiceUnavailableException: ServiceUnavailableException;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    TranscriptEvent?: never;
+    BadRequestException?: never;
+    LimitExceededException?: never;
+    InternalFailureException?: never;
+    ConflictException?: never;
+    ServiceUnavailableException?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    TranscriptEvent: (value: MedicalScribeTranscriptEvent) => T;
+    BadRequestException: (value: BadRequestException) => T;
+    LimitExceededException: (value: LimitExceededException) => T;
+    InternalFailureException: (value: InternalFailureException) => T;
+    ConflictException: (value: ConflictException) => T;
+    ServiceUnavailableException: (value: ServiceUnavailableException) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: MedicalScribeResultStream, visitor: Visitor<T>): T => {
+    if (value.TranscriptEvent !== undefined) return visitor.TranscriptEvent(value.TranscriptEvent);
+    if (value.BadRequestException !== undefined) return visitor.BadRequestException(value.BadRequestException);
+    if (value.LimitExceededException !== undefined) return visitor.LimitExceededException(value.LimitExceededException);
+    if (value.InternalFailureException !== undefined)
+      return visitor.InternalFailureException(value.InternalFailureException);
+    if (value.ConflictException !== undefined) return visitor.ConflictException(value.ConflictException);
+    if (value.ServiceUnavailableException !== undefined)
+      return visitor.ServiceUnavailableException(value.ServiceUnavailableException);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
 }
 
 /**
@@ -1848,6 +2838,119 @@ export interface StartCallAnalyticsStreamTranscriptionResponse {
    * @public
    */
   PiiEntityTypes?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMedicalScribeStreamRequest {
+  /**
+   * <p>Specify an identifier for your streaming session (in UUID format).
+   *       If you don't include a SessionId in your request,
+   *       Amazon Web Services HealthScribe generates an ID and returns it in the response.
+   *     </p>
+   * @public
+   */
+  SessionId?: string | undefined;
+
+  /**
+   * <p>Specify the language code for your HealthScribe streaming session.</p>
+   * @public
+   */
+  LanguageCode: MedicalScribeLanguageCode | undefined;
+
+  /**
+   * <p>Specify the sample rate of the input audio (in hertz).
+   *       Amazon Web Services HealthScribe supports a range from 16,000 Hz to 48,000 Hz.
+   *       The sample rate you specify must match that of your audio.
+   *     </p>
+   * @public
+   */
+  MediaSampleRateHertz: number | undefined;
+
+  /**
+   * <p>Specify the encoding used for the input audio.</p>
+   *          <p>Supported formats are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>FLAC</p>
+   *             </li>
+   *             <li>
+   *                <p>OPUS-encoded audio in an Ogg container</p>
+   *             </li>
+   *             <li>
+   *                <p>PCM (only signed 16-bit little-endian audio formats, which does not include
+   *           WAV)
+   *         </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media
+   *       formats</a>.
+   *     </p>
+   * @public
+   */
+  MediaEncoding: MedicalScribeMediaEncoding | undefined;
+
+  /**
+   * <p>Specify the input stream where you will send events in real time.</p>
+   *          <p>The first element of the input stream must be a <code>MedicalScribeConfigurationEvent</code>.
+   *     </p>
+   * @public
+   */
+  InputStream: AsyncIterable<MedicalScribeInputStream> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMedicalScribeStreamResponse {
+  /**
+   * <p>The identifier (in UUID format) for your streaming session.</p>
+   *          <p>If you already started streaming, this is same ID as the one you specified in your initial <code>StartMedicalScribeStreamRequest</code>.
+   *     </p>
+   * @public
+   */
+  SessionId?: string | undefined;
+
+  /**
+   * <p>The unique identifier for your streaming request.
+   *     </p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The Language Code that you specified in your request.
+   *       Same as provided in the <code>StartMedicalScribeStreamRequest</code>.
+   *     </p>
+   * @public
+   */
+  LanguageCode?: MedicalScribeLanguageCode | undefined;
+
+  /**
+   * <p>The sample rate (in hertz) that you specified in your request.
+   *       Same as provided in the
+   *       <code>StartMedicalScribeStreamRequest</code>
+   *          </p>
+   * @public
+   */
+  MediaSampleRateHertz?: number | undefined;
+
+  /**
+   * <p>The Media Encoding you specified in your request.
+   *       Same as provided in the
+   *       <code>StartMedicalScribeStreamRequest</code>
+   *          </p>
+   * @public
+   */
+  MediaEncoding?: MedicalScribeMediaEncoding | undefined;
+
+  /**
+   * <p>The result stream where you will receive the output events.
+   *     </p>
+   * @public
+   */
+  ResultStream?: AsyncIterable<MedicalScribeResultStream> | undefined;
 }
 
 /**
@@ -2725,6 +3828,30 @@ export const CallAnalyticsTranscriptResultStreamFilterSensitiveLog = (
 /**
  * @internal
  */
+export const MedicalScribeInputStreamFilterSensitiveLog = (obj: MedicalScribeInputStream): any => {
+  if (obj.AudioEvent !== undefined) return { AudioEvent: obj.AudioEvent };
+  if (obj.SessionControlEvent !== undefined) return { SessionControlEvent: obj.SessionControlEvent };
+  if (obj.ConfigurationEvent !== undefined) return { ConfigurationEvent: obj.ConfigurationEvent };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const MedicalScribeResultStreamFilterSensitiveLog = (obj: MedicalScribeResultStream): any => {
+  if (obj.TranscriptEvent !== undefined) return { TranscriptEvent: obj.TranscriptEvent };
+  if (obj.BadRequestException !== undefined) return { BadRequestException: obj.BadRequestException };
+  if (obj.LimitExceededException !== undefined) return { LimitExceededException: obj.LimitExceededException };
+  if (obj.InternalFailureException !== undefined) return { InternalFailureException: obj.InternalFailureException };
+  if (obj.ConflictException !== undefined) return { ConflictException: obj.ConflictException };
+  if (obj.ServiceUnavailableException !== undefined)
+    return { ServiceUnavailableException: obj.ServiceUnavailableException };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const MedicalTranscriptResultStreamFilterSensitiveLog = (obj: MedicalTranscriptResultStream): any => {
   if (obj.TranscriptEvent !== undefined) return { TranscriptEvent: obj.TranscriptEvent };
   if (obj.BadRequestException !== undefined) return { BadRequestException: obj.BadRequestException };
@@ -2754,6 +3881,22 @@ export const StartCallAnalyticsStreamTranscriptionResponseFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.CallAnalyticsTranscriptResultStream && { CallAnalyticsTranscriptResultStream: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @internal
+ */
+export const StartMedicalScribeStreamRequestFilterSensitiveLog = (obj: StartMedicalScribeStreamRequest): any => ({
+  ...obj,
+  ...(obj.InputStream && { InputStream: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @internal
+ */
+export const StartMedicalScribeStreamResponseFilterSensitiveLog = (obj: StartMedicalScribeStreamResponse): any => ({
+  ...obj,
+  ...(obj.ResultStream && { ResultStream: "STREAMING_CONTENT" }),
 });
 
 /**

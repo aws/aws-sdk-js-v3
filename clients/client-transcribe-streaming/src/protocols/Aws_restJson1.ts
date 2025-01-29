@@ -7,12 +7,18 @@ import {
   collectBody,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectObject as __expectObject,
   expectString as __expectString,
   isSerializableHeaderValue,
   limitedParseDouble as __limitedParseDouble,
   map,
   parseBoolean as __parseBoolean,
+  parseEpochTimestamp as __parseEpochTimestamp,
+  resolvedPath as __resolvedPath,
   strictParseInt32 as __strictParseInt32,
   take,
   withBaseException,
@@ -27,9 +33,17 @@ import {
 } from "@smithy/types";
 
 import {
+  GetMedicalScribeStreamCommandInput,
+  GetMedicalScribeStreamCommandOutput,
+} from "../commands/GetMedicalScribeStreamCommand";
+import {
   StartCallAnalyticsStreamTranscriptionCommandInput,
   StartCallAnalyticsStreamTranscriptionCommandOutput,
 } from "../commands/StartCallAnalyticsStreamTranscriptionCommand";
+import {
+  StartMedicalScribeStreamCommandInput,
+  StartMedicalScribeStreamCommandOutput,
+} from "../commands/StartMedicalScribeStreamCommand";
 import {
   StartMedicalStreamTranscriptionCommandInput,
   StartMedicalStreamTranscriptionCommandOutput,
@@ -48,6 +62,7 @@ import {
   CallAnalyticsTranscriptResultStream,
   CategoryEvent,
   ChannelDefinition,
+  ClinicalNoteGenerationSettings,
   ConfigurationEvent,
   ConflictException,
   Entity,
@@ -59,10 +74,23 @@ import {
   MedicalEntity,
   MedicalItem,
   MedicalResult,
+  MedicalScribeAudioEvent,
+  MedicalScribeChannelDefinition,
+  MedicalScribeConfigurationEvent,
+  MedicalScribeEncryptionSettings,
+  MedicalScribeInputStream,
+  MedicalScribePostStreamAnalyticsSettings,
+  MedicalScribeResultStream,
+  MedicalScribeSessionControlEvent,
+  MedicalScribeStreamDetails,
+  MedicalScribeTranscriptEvent,
+  MedicalScribeTranscriptItem,
+  MedicalScribeTranscriptSegment,
   MedicalTranscript,
   MedicalTranscriptEvent,
   MedicalTranscriptResultStream,
   PostCallAnalyticsSettings,
+  ResourceNotFoundException,
   Result,
   ServiceUnavailableException,
   Transcript,
@@ -71,6 +99,22 @@ import {
   UtteranceEvent,
 } from "../models/models_0";
 import { TranscribeStreamingServiceException as __BaseException } from "../models/TranscribeStreamingServiceException";
+
+/**
+ * serializeAws_restJson1GetMedicalScribeStreamCommand
+ */
+export const se_GetMedicalScribeStreamCommand = async (
+  input: GetMedicalScribeStreamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/medical-scribe-stream/{SessionId}");
+  b.p("SessionId", () => input.SessionId!, "{SessionId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1StartCallAnalyticsStreamTranscriptionCommand
@@ -100,6 +144,30 @@ export const se_StartCallAnalyticsStreamTranscriptionCommand = async (
   let body: any;
   if (input.AudioStream !== undefined) {
     body = se_AudioStream(input.AudioStream, context);
+  }
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartMedicalScribeStreamCommand
+ */
+export const se_StartMedicalScribeStreamCommand = async (
+  input: StartMedicalScribeStreamCommandInput,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_xatsi]: input[_SI]!,
+    [_xatlc]: input[_LC]!,
+    [_xatsr]: [() => isSerializableHeaderValue(input[_MSRH]), () => input[_MSRH]!.toString()],
+    [_xatme]: input[_ME]!,
+  });
+  b.bp("/medical-scribe-stream");
+  let body: any;
+  if (input.InputStream !== undefined) {
+    body = se_MedicalScribeInputStream(input.InputStream, context);
   }
   b.m("POST").h(headers).b(body);
   return b.build();
@@ -179,6 +247,27 @@ export const se_StartStreamTranscriptionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetMedicalScribeStreamCommand
+ */
+export const de_GetMedicalScribeStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMedicalScribeStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MedicalScribeStreamDetails: (_) => de_MedicalScribeStreamDetails(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StartCallAnalyticsStreamTranscriptionCommand
  */
 export const de_StartCallAnalyticsStreamTranscriptionCommand = async (
@@ -207,6 +296,29 @@ export const de_StartCallAnalyticsStreamTranscriptionCommand = async (
   });
   const data: any = output.body;
   contents.CallAnalyticsTranscriptResultStream = de_CallAnalyticsTranscriptResultStream(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartMedicalScribeStreamCommand
+ */
+export const de_StartMedicalScribeStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<StartMedicalScribeStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_SI]: [, output.headers[_xatsi]],
+    [_RI]: [, output.headers[_xari]],
+    [_LC]: [, output.headers[_xatlc]],
+    [_MSRH]: [() => void 0 !== output.headers[_xatsr], () => __strictParseInt32(output.headers[_xatsr])],
+    [_ME]: [, output.headers[_xatme]],
+  });
+  const data: any = output.body;
+  contents.ResultStream = de_MedicalScribeResultStream(data, context);
   return contents;
 };
 
@@ -294,15 +406,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "BadRequestException":
     case "com.amazonaws.transcribestreaming#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribestreaming#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribestreaming#InternalFailureException":
       throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.transcribestreaming#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.transcribestreaming#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.transcribestreaming#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transcribestreaming#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
@@ -392,6 +507,26 @@ const de_LimitExceededExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ServiceUnavailableExceptionRes
  */
 const de_ServiceUnavailableExceptionRes = async (
@@ -423,6 +558,19 @@ const se_AudioStream = (input: any, context: __SerdeContext & __EventStreamSerde
     });
   return context.eventStreamMarshaller.serialize(input, eventMarshallingVisitor);
 };
+/**
+ * serializeAws_restJson1MedicalScribeInputStream
+ */
+const se_MedicalScribeInputStream = (input: any, context: __SerdeContext & __EventStreamSerdeContext): any => {
+  const eventMarshallingVisitor = (event: any): __Message =>
+    MedicalScribeInputStream.visit(event, {
+      AudioEvent: (value) => se_MedicalScribeAudioEvent_event(value, context),
+      SessionControlEvent: (value) => se_MedicalScribeSessionControlEvent_event(value, context),
+      ConfigurationEvent: (value) => se_MedicalScribeConfigurationEvent_event(value, context),
+      _: (value) => value as any,
+    });
+  return context.eventStreamMarshaller.serialize(input, eventMarshallingVisitor);
+};
 const se_AudioEvent_event = (input: AudioEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
     ":event-type": { type: "string", value: "AudioEvent" },
@@ -438,6 +586,46 @@ const se_AudioEvent_event = (input: AudioEvent, context: __SerdeContext): __Mess
 const se_ConfigurationEvent_event = (input: ConfigurationEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
     ":event-type": { type: "string", value: "ConfigurationEvent" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/json" },
+  };
+  let body = new Uint8Array();
+  body = _json(input);
+  body = context.utf8Decoder(JSON.stringify(body));
+  return { headers, body };
+};
+const se_MedicalScribeAudioEvent_event = (input: MedicalScribeAudioEvent, context: __SerdeContext): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "AudioEvent" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/octet-stream" },
+  };
+  let body = new Uint8Array();
+  if (input.AudioChunk != null) {
+    body = input.AudioChunk;
+  }
+  return { headers, body };
+};
+const se_MedicalScribeConfigurationEvent_event = (
+  input: MedicalScribeConfigurationEvent,
+  context: __SerdeContext
+): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "ConfigurationEvent" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/json" },
+  };
+  let body = new Uint8Array();
+  body = _json(input);
+  body = context.utf8Decoder(JSON.stringify(body));
+  return { headers, body };
+};
+const se_MedicalScribeSessionControlEvent_event = (
+  input: MedicalScribeSessionControlEvent,
+  context: __SerdeContext
+): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "SessionControlEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
@@ -462,6 +650,50 @@ const de_CallAnalyticsTranscriptResultStream = (
     if (event["CategoryEvent"] != null) {
       return {
         CategoryEvent: await de_CategoryEvent_event(event["CategoryEvent"], context),
+      };
+    }
+    if (event["BadRequestException"] != null) {
+      return {
+        BadRequestException: await de_BadRequestException_event(event["BadRequestException"], context),
+      };
+    }
+    if (event["LimitExceededException"] != null) {
+      return {
+        LimitExceededException: await de_LimitExceededException_event(event["LimitExceededException"], context),
+      };
+    }
+    if (event["InternalFailureException"] != null) {
+      return {
+        InternalFailureException: await de_InternalFailureException_event(event["InternalFailureException"], context),
+      };
+    }
+    if (event["ConflictException"] != null) {
+      return {
+        ConflictException: await de_ConflictException_event(event["ConflictException"], context),
+      };
+    }
+    if (event["ServiceUnavailableException"] != null) {
+      return {
+        ServiceUnavailableException: await de_ServiceUnavailableException_event(
+          event["ServiceUnavailableException"],
+          context
+        ),
+      };
+    }
+    return { $unknown: output };
+  });
+};
+/**
+ * deserializeAws_restJson1MedicalScribeResultStream
+ */
+const de_MedicalScribeResultStream = (
+  output: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): AsyncIterable<MedicalScribeResultStream> => {
+  return context.eventStreamMarshaller.deserialize(output, async (event) => {
+    if (event["TranscriptEvent"] != null) {
+      return {
+        TranscriptEvent: await de_MedicalScribeTranscriptEvent_event(event["TranscriptEvent"], context),
       };
     }
     if (event["BadRequestException"] != null) {
@@ -623,6 +855,15 @@ const de_LimitExceededException_event = async (
   };
   return de_LimitExceededExceptionRes(parsedOutput, context);
 };
+const de_MedicalScribeTranscriptEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<MedicalScribeTranscriptEvent> => {
+  const contents: MedicalScribeTranscriptEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, de_MedicalScribeTranscriptEvent(data, context));
+  return contents;
+};
 const de_MedicalTranscriptEvent_event = async (
   output: any,
   context: __SerdeContext
@@ -658,7 +899,23 @@ const de_UtteranceEvent_event = async (output: any, context: __SerdeContext): Pr
 
 // se_ChannelDefinitions omitted.
 
+// se_ClinicalNoteGenerationSettings omitted.
+
 // se_ConfigurationEvent omitted.
+
+// se_KMSEncryptionContextMap omitted.
+
+// se_MedicalScribeChannelDefinition omitted.
+
+// se_MedicalScribeChannelDefinitions omitted.
+
+// se_MedicalScribeConfigurationEvent omitted.
+
+// se_MedicalScribeEncryptionSettings omitted.
+
+// se_MedicalScribePostStreamAnalyticsSettings omitted.
+
+// se_MedicalScribeSessionControlEvent omitted.
 
 // se_PostCallAnalyticsSettings omitted.
 
@@ -742,6 +999,10 @@ const de_CallAnalyticsItemList = (output: any, context: __SerdeContext): CallAna
 
 // de_CharacterOffsets omitted.
 
+// de_ClinicalNoteGenerationResult omitted.
+
+// de_ClinicalNoteGenerationSettings omitted.
+
 /**
  * deserializeAws_restJson1Entity
  */
@@ -799,6 +1060,8 @@ const de_ItemList = (output: any, context: __SerdeContext): Item[] => {
     });
   return retVal;
 };
+
+// de_KMSEncryptionContextMap omitted.
 
 /**
  * deserializeAws_restJson1LanguageIdentification
@@ -922,6 +1185,89 @@ const de_MedicalResultList = (output: any, context: __SerdeContext): MedicalResu
       return de_MedicalResult(entry, context);
     });
   return retVal;
+};
+
+// de_MedicalScribeChannelDefinition omitted.
+
+// de_MedicalScribeChannelDefinitions omitted.
+
+// de_MedicalScribeEncryptionSettings omitted.
+
+// de_MedicalScribePostStreamAnalyticsResult omitted.
+
+// de_MedicalScribePostStreamAnalyticsSettings omitted.
+
+/**
+ * deserializeAws_restJson1MedicalScribeStreamDetails
+ */
+const de_MedicalScribeStreamDetails = (output: any, context: __SerdeContext): MedicalScribeStreamDetails => {
+  return take(output, {
+    ChannelDefinitions: _json,
+    EncryptionSettings: _json,
+    LanguageCode: __expectString,
+    MediaEncoding: __expectString,
+    MediaSampleRateHertz: __expectInt32,
+    PostStreamAnalyticsResult: _json,
+    PostStreamAnalyticsSettings: _json,
+    ResourceAccessRoleArn: __expectString,
+    SessionId: __expectString,
+    StreamCreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StreamEndedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StreamStatus: __expectString,
+    VocabularyFilterMethod: __expectString,
+    VocabularyFilterName: __expectString,
+    VocabularyName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MedicalScribeTranscriptEvent
+ */
+const de_MedicalScribeTranscriptEvent = (output: any, context: __SerdeContext): MedicalScribeTranscriptEvent => {
+  return take(output, {
+    TranscriptSegment: (_: any) => de_MedicalScribeTranscriptSegment(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MedicalScribeTranscriptItem
+ */
+const de_MedicalScribeTranscriptItem = (output: any, context: __SerdeContext): MedicalScribeTranscriptItem => {
+  return take(output, {
+    BeginAudioTime: __limitedParseDouble,
+    Confidence: __limitedParseDouble,
+    Content: __expectString,
+    EndAudioTime: __limitedParseDouble,
+    Type: __expectString,
+    VocabularyFilterMatch: __expectBoolean,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MedicalScribeTranscriptItemList
+ */
+const de_MedicalScribeTranscriptItemList = (output: any, context: __SerdeContext): MedicalScribeTranscriptItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MedicalScribeTranscriptItem(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1MedicalScribeTranscriptSegment
+ */
+const de_MedicalScribeTranscriptSegment = (output: any, context: __SerdeContext): MedicalScribeTranscriptSegment => {
+  return take(output, {
+    BeginAudioTime: __limitedParseDouble,
+    ChannelId: __expectString,
+    Content: __expectString,
+    EndAudioTime: __limitedParseDouble,
+    IsPartial: __expectBoolean,
+    Items: (_: any) => de_MedicalScribeTranscriptItemList(_, context),
+    SegmentId: __expectString,
+  }) as any;
 };
 
 /**
