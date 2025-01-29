@@ -766,7 +766,7 @@ export interface CompleteMultipartUploadRequest {
    *             <code>HTTP 400 InvalidRequest</code> error. </p>
    * @public
    */
-  MpuObjectSize?: string | undefined;
+  MpuObjectSize?: number | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket

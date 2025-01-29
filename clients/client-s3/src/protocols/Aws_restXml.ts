@@ -510,7 +510,7 @@ export const se_CompleteMultipartUploadCommand = async (
     [_xacs]: input[_CSHA]!,
     [_xacs_]: input[_CSHAh]!,
     [_xact]: input[_CT]!,
-    [_xamos]: input[_MOS]!,
+    [_xamos]: [() => isSerializableHeaderValue(input[_MOS]), () => input[_MOS]!.toString()],
     [_xarp]: input[_RP]!,
     [_xaebo]: input[_EBO]!,
     [_im]: input[_IM]!,

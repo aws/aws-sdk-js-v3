@@ -234,7 +234,7 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *   ChecksumSHA1: "STRING_VALUE",
  *   ChecksumSHA256: "STRING_VALUE",
  *   ChecksumType: "COMPOSITE" || "FULL_OBJECT",
- *   MpuObjectSize: "STRING_VALUE",
+ *   MpuObjectSize: Number("long"),
  *   RequestPayer: "requester",
  *   ExpectedBucketOwner: "STRING_VALUE",
  *   IfMatch: "STRING_VALUE",
