@@ -6,11 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import {
-  CreateArchiveRequest,
-  CreateArchiveRequestFilterSensitiveLog,
-  CreateArchiveResponse,
-} from "../models/models_0";
+import { CreateArchiveRequest, CreateArchiveResponse } from "../models/models_0";
 import { de_CreateArchiveCommand, se_CreateArchiveCommand } from "../protocols/Aws_json1_0";
 
 /**
@@ -104,7 +100,7 @@ export class CreateArchiveCommand extends $Command
   })
   .s("MailManagerSvc", "CreateArchive", {})
   .n("MailManagerClient", "CreateArchiveCommand")
-  .f(CreateArchiveRequestFilterSensitiveLog, void 0)
+  .f(void 0, void 0)
   .ser(se_CreateArchiveCommand)
   .de(de_CreateArchiveCommand)
   .build() {

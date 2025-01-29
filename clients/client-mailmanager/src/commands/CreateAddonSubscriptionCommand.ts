@@ -6,11 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import {
-  CreateAddonSubscriptionRequest,
-  CreateAddonSubscriptionRequestFilterSensitiveLog,
-  CreateAddonSubscriptionResponse,
-} from "../models/models_0";
+import { CreateAddonSubscriptionRequest, CreateAddonSubscriptionResponse } from "../models/models_0";
 import { de_CreateAddonSubscriptionCommand, se_CreateAddonSubscriptionCommand } from "../protocols/Aws_json1_0";
 
 /**
@@ -96,7 +92,7 @@ export class CreateAddonSubscriptionCommand extends $Command
   })
   .s("MailManagerSvc", "CreateAddonSubscription", {})
   .n("MailManagerClient", "CreateAddonSubscriptionCommand")
-  .f(CreateAddonSubscriptionRequestFilterSensitiveLog, void 0)
+  .f(void 0, void 0)
   .ser(se_CreateAddonSubscriptionCommand)
   .de(de_CreateAddonSubscriptionCommand)
   .build() {

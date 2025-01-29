@@ -6,11 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import {
-  CreateTrafficPolicyRequest,
-  CreateTrafficPolicyRequestFilterSensitiveLog,
-  CreateTrafficPolicyResponse,
-} from "../models/models_0";
+import { CreateTrafficPolicyRequest, CreateTrafficPolicyResponse } from "../models/models_0";
 import { de_CreateTrafficPolicyCommand, se_CreateTrafficPolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
@@ -77,6 +73,12 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  *                 Analyzer: "STRING_VALUE", // required
  *                 ResultField: "STRING_VALUE", // required
  *               },
+ *               IsInAddressList: { // IngressIsInAddressList
+ *                 Attribute: "RECIPIENT", // required
+ *                 AddressLists: [ // IngressAddressListArnList // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
  *             },
  *             Operator: "IS_TRUE" || "IS_FALSE", // required
  *           },
@@ -139,7 +141,7 @@ export class CreateTrafficPolicyCommand extends $Command
   })
   .s("MailManagerSvc", "CreateTrafficPolicy", {})
   .n("MailManagerClient", "CreateTrafficPolicyCommand")
-  .f(CreateTrafficPolicyRequestFilterSensitiveLog, void 0)
+  .f(void 0, void 0)
   .ser(se_CreateTrafficPolicyCommand)
   .de(de_CreateTrafficPolicyCommand)
   .build() {

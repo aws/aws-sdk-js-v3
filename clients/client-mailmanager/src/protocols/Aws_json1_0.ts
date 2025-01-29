@@ -37,6 +37,11 @@ import {
   CreateAddonSubscriptionCommandInput,
   CreateAddonSubscriptionCommandOutput,
 } from "../commands/CreateAddonSubscriptionCommand";
+import { CreateAddressListCommandInput, CreateAddressListCommandOutput } from "../commands/CreateAddressListCommand";
+import {
+  CreateAddressListImportJobCommandInput,
+  CreateAddressListImportJobCommandOutput,
+} from "../commands/CreateAddressListImportJobCommand";
 import { CreateArchiveCommandInput, CreateArchiveCommandOutput } from "../commands/CreateArchiveCommand";
 import { CreateIngressPointCommandInput, CreateIngressPointCommandOutput } from "../commands/CreateIngressPointCommand";
 import { CreateRelayCommandInput, CreateRelayCommandOutput } from "../commands/CreateRelayCommand";
@@ -53,6 +58,7 @@ import {
   DeleteAddonSubscriptionCommandInput,
   DeleteAddonSubscriptionCommandOutput,
 } from "../commands/DeleteAddonSubscriptionCommand";
+import { DeleteAddressListCommandInput, DeleteAddressListCommandOutput } from "../commands/DeleteAddressListCommand";
 import { DeleteArchiveCommandInput, DeleteArchiveCommandOutput } from "../commands/DeleteArchiveCommand";
 import { DeleteIngressPointCommandInput, DeleteIngressPointCommandOutput } from "../commands/DeleteIngressPointCommand";
 import { DeleteRelayCommandInput, DeleteRelayCommandOutput } from "../commands/DeleteRelayCommand";
@@ -61,11 +67,20 @@ import {
   DeleteTrafficPolicyCommandInput,
   DeleteTrafficPolicyCommandOutput,
 } from "../commands/DeleteTrafficPolicyCommand";
+import {
+  DeregisterMemberFromAddressListCommandInput,
+  DeregisterMemberFromAddressListCommandOutput,
+} from "../commands/DeregisterMemberFromAddressListCommand";
 import { GetAddonInstanceCommandInput, GetAddonInstanceCommandOutput } from "../commands/GetAddonInstanceCommand";
 import {
   GetAddonSubscriptionCommandInput,
   GetAddonSubscriptionCommandOutput,
 } from "../commands/GetAddonSubscriptionCommand";
+import { GetAddressListCommandInput, GetAddressListCommandOutput } from "../commands/GetAddressListCommand";
+import {
+  GetAddressListImportJobCommandInput,
+  GetAddressListImportJobCommandOutput,
+} from "../commands/GetAddressListImportJobCommand";
 import { GetArchiveCommandInput, GetArchiveCommandOutput } from "../commands/GetArchiveCommand";
 import { GetArchiveExportCommandInput, GetArchiveExportCommandOutput } from "../commands/GetArchiveExportCommand";
 import { GetArchiveMessageCommandInput, GetArchiveMessageCommandOutput } from "../commands/GetArchiveMessageCommand";
@@ -79,6 +94,10 @@ import {
   GetArchiveSearchResultsCommandOutput,
 } from "../commands/GetArchiveSearchResultsCommand";
 import { GetIngressPointCommandInput, GetIngressPointCommandOutput } from "../commands/GetIngressPointCommand";
+import {
+  GetMemberOfAddressListCommandInput,
+  GetMemberOfAddressListCommandOutput,
+} from "../commands/GetMemberOfAddressListCommand";
 import { GetRelayCommandInput, GetRelayCommandOutput } from "../commands/GetRelayCommand";
 import { GetRuleSetCommandInput, GetRuleSetCommandOutput } from "../commands/GetRuleSetCommand";
 import { GetTrafficPolicyCommandInput, GetTrafficPolicyCommandOutput } from "../commands/GetTrafficPolicyCommand";
@@ -87,6 +106,11 @@ import {
   ListAddonSubscriptionsCommandInput,
   ListAddonSubscriptionsCommandOutput,
 } from "../commands/ListAddonSubscriptionsCommand";
+import {
+  ListAddressListImportJobsCommandInput,
+  ListAddressListImportJobsCommandOutput,
+} from "../commands/ListAddressListImportJobsCommand";
+import { ListAddressListsCommandInput, ListAddressListsCommandOutput } from "../commands/ListAddressListsCommand";
 import { ListArchiveExportsCommandInput, ListArchiveExportsCommandOutput } from "../commands/ListArchiveExportsCommand";
 import { ListArchivesCommandInput, ListArchivesCommandOutput } from "../commands/ListArchivesCommand";
 import {
@@ -94,6 +118,10 @@ import {
   ListArchiveSearchesCommandOutput,
 } from "../commands/ListArchiveSearchesCommand";
 import { ListIngressPointsCommandInput, ListIngressPointsCommandOutput } from "../commands/ListIngressPointsCommand";
+import {
+  ListMembersOfAddressListCommandInput,
+  ListMembersOfAddressListCommandOutput,
+} from "../commands/ListMembersOfAddressListCommand";
 import { ListRelaysCommandInput, ListRelaysCommandOutput } from "../commands/ListRelaysCommand";
 import { ListRuleSetsCommandInput, ListRuleSetsCommandOutput } from "../commands/ListRuleSetsCommand";
 import {
@@ -104,8 +132,20 @@ import {
   ListTrafficPoliciesCommandInput,
   ListTrafficPoliciesCommandOutput,
 } from "../commands/ListTrafficPoliciesCommand";
+import {
+  RegisterMemberToAddressListCommandInput,
+  RegisterMemberToAddressListCommandOutput,
+} from "../commands/RegisterMemberToAddressListCommand";
+import {
+  StartAddressListImportJobCommandInput,
+  StartAddressListImportJobCommandOutput,
+} from "../commands/StartAddressListImportJobCommand";
 import { StartArchiveExportCommandInput, StartArchiveExportCommandOutput } from "../commands/StartArchiveExportCommand";
 import { StartArchiveSearchCommandInput, StartArchiveSearchCommandOutput } from "../commands/StartArchiveSearchCommand";
+import {
+  StopAddressListImportJobCommandInput,
+  StopAddressListImportJobCommandOutput,
+} from "../commands/StopAddressListImportJobCommand";
 import { StopArchiveExportCommandInput, StopArchiveExportCommandOutput } from "../commands/StopArchiveExportCommand";
 import { StopArchiveSearchCommandInput, StopArchiveSearchCommandOutput } from "../commands/StopArchiveSearchCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -124,6 +164,8 @@ import {
   AddHeaderAction,
   AddonInstance,
   AddonSubscription,
+  AddressFilter,
+  AddressList,
   Analysis,
   Archive,
   ArchiveAction,
@@ -137,6 +179,8 @@ import {
   ConflictException,
   CreateAddonInstanceRequest,
   CreateAddonSubscriptionRequest,
+  CreateAddressListImportJobRequest,
+  CreateAddressListRequest,
   CreateArchiveRequest,
   CreateIngressPointRequest,
   CreateRelayRequest,
@@ -144,6 +188,7 @@ import {
   CreateTrafficPolicyRequest,
   DeleteAddonInstanceRequest,
   DeleteAddonSubscriptionRequest,
+  DeleteAddressListRequest,
   DeleteArchiveRequest,
   DeleteIngressPointRequest,
   DeleteRelayRequest,
@@ -151,6 +196,7 @@ import {
   DeleteTrafficPolicyRequest,
   DeliverToMailboxAction,
   DeliverToQBusinessAction,
+  DeregisterMemberFromAddressListRequest,
   DropAction,
   ExportDestinationConfiguration,
   ExportStatus,
@@ -159,6 +205,10 @@ import {
   GetAddonInstanceResponse,
   GetAddonSubscriptionRequest,
   GetAddonSubscriptionResponse,
+  GetAddressListImportJobRequest,
+  GetAddressListImportJobResponse,
+  GetAddressListRequest,
+  GetAddressListResponse,
   GetArchiveExportRequest,
   GetArchiveExportResponse,
   GetArchiveMessageContentRequest,
@@ -172,17 +222,22 @@ import {
   GetArchiveSearchResultsResponse,
   GetIngressPointRequest,
   GetIngressPointResponse,
+  GetMemberOfAddressListRequest,
+  GetMemberOfAddressListResponse,
   GetRelayRequest,
   GetRelayResponse,
   GetRuleSetRequest,
   GetRuleSetResponse,
   GetTrafficPolicyRequest,
   GetTrafficPolicyResponse,
+  ImportDataFormat,
+  ImportJob,
   IngressAnalysis,
   IngressBooleanExpression,
   IngressBooleanToEvaluate,
   IngressIpToEvaluate,
   IngressIpv4Expression,
+  IngressIsInAddressList,
   IngressPointAuthConfiguration,
   IngressPointConfiguration,
   IngressPointPasswordConfiguration,
@@ -194,6 +249,10 @@ import {
   ListAddonInstancesResponse,
   ListAddonSubscriptionsRequest,
   ListAddonSubscriptionsResponse,
+  ListAddressListImportJobsRequest,
+  ListAddressListImportJobsResponse,
+  ListAddressListsRequest,
+  ListAddressListsResponse,
   ListArchiveExportsRequest,
   ListArchiveExportsResponse,
   ListArchiveSearchesRequest,
@@ -201,6 +260,8 @@ import {
   ListArchivesRequest,
   ListArchivesResponse,
   ListIngressPointsRequest,
+  ListMembersOfAddressListRequest,
+  ListMembersOfAddressListResponse,
   ListRelaysRequest,
   ListRelaysResponse,
   ListRuleSetsRequest,
@@ -211,6 +272,7 @@ import {
   NoAuthentication,
   PolicyCondition,
   PolicyStatement,
+  RegisterMemberToAddressListRequest,
   Relay,
   RelayAction,
   RelayAuthentication,
@@ -226,6 +288,7 @@ import {
   RuleDmarcPolicy,
   RuleIpExpression,
   RuleIpToEvaluate,
+  RuleIsInAddressList,
   RuleNumberExpression,
   RuleNumberToEvaluate,
   RuleSet,
@@ -236,12 +299,15 @@ import {
   RuleVerdictToEvaluate,
   S3Action,
   S3ExportDestinationConfiguration,
+  SavedAddress,
   SearchStatus,
   SearchSummary,
   SendAction,
   ServiceQuotaExceededException,
+  StartAddressListImportJobRequest,
   StartArchiveExportRequest,
   StartArchiveSearchRequest,
+  StopAddressListImportJobRequest,
   StopArchiveExportRequest,
   StopArchiveSearchRequest,
   Tag,
@@ -279,6 +345,32 @@ export const se_CreateAddonSubscriptionCommand = async (
   const headers: __HeaderBag = sharedHeaders("CreateAddonSubscription");
   let body: any;
   body = JSON.stringify(se_CreateAddonSubscriptionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0CreateAddressListCommand
+ */
+export const se_CreateAddressListCommand = async (
+  input: CreateAddressListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateAddressList");
+  let body: any;
+  body = JSON.stringify(se_CreateAddressListRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0CreateAddressListImportJobCommand
+ */
+export const se_CreateAddressListImportJobCommand = async (
+  input: CreateAddressListImportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateAddressListImportJob");
+  let body: any;
+  body = JSON.stringify(se_CreateAddressListImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -374,6 +466,19 @@ export const se_DeleteAddonSubscriptionCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DeleteAddressListCommand
+ */
+export const se_DeleteAddressListCommand = async (
+  input: DeleteAddressListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteAddressList");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DeleteArchiveCommand
  */
 export const se_DeleteArchiveCommand = async (
@@ -439,6 +544,19 @@ export const se_DeleteTrafficPolicyCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DeregisterMemberFromAddressListCommand
+ */
+export const se_DeregisterMemberFromAddressListCommand = async (
+  input: DeregisterMemberFromAddressListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeregisterMemberFromAddressList");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0GetAddonInstanceCommand
  */
 export const se_GetAddonInstanceCommand = async (
@@ -459,6 +577,32 @@ export const se_GetAddonSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAddonSubscription");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetAddressListCommand
+ */
+export const se_GetAddressListCommand = async (
+  input: GetAddressListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetAddressList");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetAddressListImportJobCommand
+ */
+export const se_GetAddressListImportJobCommand = async (
+  input: GetAddressListImportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetAddressListImportJob");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -556,6 +700,19 @@ export const se_GetIngressPointCommand = async (
 };
 
 /**
+ * serializeAws_json1_0GetMemberOfAddressListCommand
+ */
+export const se_GetMemberOfAddressListCommand = async (
+  input: GetMemberOfAddressListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetMemberOfAddressList");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0GetRelayCommand
  */
 export const se_GetRelayCommand = async (
@@ -621,6 +778,32 @@ export const se_ListAddonSubscriptionsCommand = async (
 };
 
 /**
+ * serializeAws_json1_0ListAddressListImportJobsCommand
+ */
+export const se_ListAddressListImportJobsCommand = async (
+  input: ListAddressListImportJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListAddressListImportJobs");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ListAddressListsCommand
+ */
+export const se_ListAddressListsCommand = async (
+  input: ListAddressListsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListAddressLists");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ListArchiveExportsCommand
  */
 export const se_ListArchiveExportsCommand = async (
@@ -667,6 +850,19 @@ export const se_ListIngressPointsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListIngressPoints");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ListMembersOfAddressListCommand
+ */
+export const se_ListMembersOfAddressListCommand = async (
+  input: ListMembersOfAddressListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListMembersOfAddressList");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -725,6 +921,32 @@ export const se_ListTrafficPoliciesCommand = async (
 };
 
 /**
+ * serializeAws_json1_0RegisterMemberToAddressListCommand
+ */
+export const se_RegisterMemberToAddressListCommand = async (
+  input: RegisterMemberToAddressListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("RegisterMemberToAddressList");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0StartAddressListImportJobCommand
+ */
+export const se_StartAddressListImportJobCommand = async (
+  input: StartAddressListImportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartAddressListImportJob");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0StartArchiveExportCommand
  */
 export const se_StartArchiveExportCommand = async (
@@ -747,6 +969,19 @@ export const se_StartArchiveSearchCommand = async (
   const headers: __HeaderBag = sharedHeaders("StartArchiveSearch");
   let body: any;
   body = JSON.stringify(se_StartArchiveSearchRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0StopAddressListImportJobCommand
+ */
+export const se_StopAddressListImportJobCommand = async (
+  input: StopAddressListImportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StopAddressListImportJob");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -908,6 +1143,46 @@ export const de_CreateAddonSubscriptionCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0CreateAddressListCommand
+ */
+export const de_CreateAddressListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAddressListCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateAddressListCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0CreateAddressListImportJobCommand
+ */
+export const de_CreateAddressListImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAddressListImportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateAddressListImportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0CreateArchiveCommand
  */
 export const de_CreateArchiveCommand = async (
@@ -1048,6 +1323,26 @@ export const de_DeleteAddonSubscriptionCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0DeleteAddressListCommand
+ */
+export const de_DeleteAddressListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAddressListCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteAddressListCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0DeleteArchiveCommand
  */
 export const de_DeleteArchiveCommand = async (
@@ -1148,6 +1443,26 @@ export const de_DeleteTrafficPolicyCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0DeregisterMemberFromAddressListCommand
+ */
+export const de_DeregisterMemberFromAddressListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterMemberFromAddressListCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeregisterMemberFromAddressListCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0GetAddonInstanceCommand
  */
 export const de_GetAddonInstanceCommand = async (
@@ -1181,6 +1496,46 @@ export const de_GetAddonSubscriptionCommand = async (
   let contents: any = {};
   contents = de_GetAddonSubscriptionResponse(data, context);
   const response: GetAddonSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetAddressListCommand
+ */
+export const de_GetAddressListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAddressListCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetAddressListResponse(data, context);
+  const response: GetAddressListCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetAddressListImportJobCommand
+ */
+export const de_GetAddressListImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAddressListImportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetAddressListImportJobResponse(data, context);
+  const response: GetAddressListImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1328,6 +1683,26 @@ export const de_GetIngressPointCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0GetMemberOfAddressListCommand
+ */
+export const de_GetMemberOfAddressListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMemberOfAddressListCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetMemberOfAddressListResponse(data, context);
+  const response: GetMemberOfAddressListCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0GetRelayCommand
  */
 export const de_GetRelayCommand = async (
@@ -1428,6 +1803,46 @@ export const de_ListAddonSubscriptionsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0ListAddressListImportJobsCommand
+ */
+export const de_ListAddressListImportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAddressListImportJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAddressListImportJobsResponse(data, context);
+  const response: ListAddressListImportJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListAddressListsCommand
+ */
+export const de_ListAddressListsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAddressListsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAddressListsResponse(data, context);
+  const response: ListAddressListsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0ListArchiveExportsCommand
  */
 export const de_ListArchiveExportsCommand = async (
@@ -1501,6 +1916,26 @@ export const de_ListIngressPointsCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListIngressPointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListMembersOfAddressListCommand
+ */
+export const de_ListMembersOfAddressListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMembersOfAddressListCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListMembersOfAddressListResponse(data, context);
+  const response: ListMembersOfAddressListCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1588,6 +2023,46 @@ export const de_ListTrafficPoliciesCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0RegisterMemberToAddressListCommand
+ */
+export const de_RegisterMemberToAddressListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterMemberToAddressListCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RegisterMemberToAddressListCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0StartAddressListImportJobCommand
+ */
+export const de_StartAddressListImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAddressListImportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartAddressListImportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0StartArchiveExportCommand
  */
 export const de_StartArchiveExportCommand = async (
@@ -1621,6 +2096,26 @@ export const de_StartArchiveSearchCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: StartArchiveSearchCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0StopAddressListImportJobCommand
+ */
+export const de_StopAddressListImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopAddressListImportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopAddressListImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1934,6 +2429,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AddHeaderAction omitted.
 
+// se_AddressFilter omitted.
+
 // se_Analysis omitted.
 
 // se_ArchiveAction omitted.
@@ -1971,6 +2468,32 @@ const se_CreateAddonInstanceRequest = (input: CreateAddonInstanceRequest, contex
 const se_CreateAddonSubscriptionRequest = (input: CreateAddonSubscriptionRequest, context: __SerdeContext): any => {
   return take(input, {
     AddonName: [],
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    Tags: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_0CreateAddressListImportJobRequest
+ */
+const se_CreateAddressListImportJobRequest = (
+  input: CreateAddressListImportJobRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    AddressListId: [],
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    ImportDataFormat: _json,
+    Name: [],
+  });
+};
+
+/**
+ * serializeAws_json1_0CreateAddressListRequest
+ */
+const se_CreateAddressListRequest = (input: CreateAddressListRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AddressListName: [],
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Tags: _json,
   });
@@ -2048,6 +2571,8 @@ const se_CreateTrafficPolicyRequest = (input: CreateTrafficPolicyRequest, contex
 
 // se_DeleteAddonSubscriptionRequest omitted.
 
+// se_DeleteAddressListRequest omitted.
+
 // se_DeleteArchiveRequest omitted.
 
 // se_DeleteIngressPointRequest omitted.
@@ -2062,6 +2587,8 @@ const se_CreateTrafficPolicyRequest = (input: CreateTrafficPolicyRequest, contex
 
 // se_DeliverToQBusinessAction omitted.
 
+// se_DeregisterMemberFromAddressListRequest omitted.
+
 // se_DropAction omitted.
 
 // se_ExportDestinationConfiguration omitted.
@@ -2069,6 +2596,10 @@ const se_CreateTrafficPolicyRequest = (input: CreateTrafficPolicyRequest, contex
 // se_GetAddonInstanceRequest omitted.
 
 // se_GetAddonSubscriptionRequest omitted.
+
+// se_GetAddressListImportJobRequest omitted.
+
+// se_GetAddressListRequest omitted.
 
 // se_GetArchiveExportRequest omitted.
 
@@ -2084,11 +2615,17 @@ const se_CreateTrafficPolicyRequest = (input: CreateTrafficPolicyRequest, contex
 
 // se_GetIngressPointRequest omitted.
 
+// se_GetMemberOfAddressListRequest omitted.
+
 // se_GetRelayRequest omitted.
 
 // se_GetRuleSetRequest omitted.
 
 // se_GetTrafficPolicyRequest omitted.
+
+// se_ImportDataFormat omitted.
+
+// se_IngressAddressListArnList omitted.
 
 // se_IngressAnalysis omitted.
 
@@ -2099,6 +2636,8 @@ const se_CreateTrafficPolicyRequest = (input: CreateTrafficPolicyRequest, contex
 // se_IngressIpToEvaluate omitted.
 
 // se_IngressIpv4Expression omitted.
+
+// se_IngressIsInAddressList omitted.
 
 // se_IngressPointConfiguration omitted.
 
@@ -2116,6 +2655,10 @@ const se_CreateTrafficPolicyRequest = (input: CreateTrafficPolicyRequest, contex
 
 // se_ListAddonSubscriptionsRequest omitted.
 
+// se_ListAddressListImportJobsRequest omitted.
+
+// se_ListAddressListsRequest omitted.
+
 // se_ListArchiveExportsRequest omitted.
 
 // se_ListArchiveSearchesRequest omitted.
@@ -2123,6 +2666,8 @@ const se_CreateTrafficPolicyRequest = (input: CreateTrafficPolicyRequest, contex
 // se_ListArchivesRequest omitted.
 
 // se_ListIngressPointsRequest omitted.
+
+// se_ListMembersOfAddressListRequest omitted.
 
 // se_ListRelaysRequest omitted.
 
@@ -2143,6 +2688,8 @@ const se_CreateTrafficPolicyRequest = (input: CreateTrafficPolicyRequest, contex
 // se_PolicyStatementList omitted.
 
 // se_Recipients omitted.
+
+// se_RegisterMemberToAddressListRequest omitted.
 
 // se_RelayAction omitted.
 
@@ -2165,6 +2712,8 @@ const se_Rule = (input: Rule, context: __SerdeContext): any => {
 // se_RuleAction omitted.
 
 // se_RuleActions omitted.
+
+// se_RuleAddressListArnList omitted.
 
 // se_RuleBooleanExpression omitted.
 
@@ -2205,6 +2754,8 @@ const se_RuleConditions = (input: RuleCondition[], context: __SerdeContext): any
 // se_RuleIpToEvaluate omitted.
 
 // se_RuleIpValueList omitted.
+
+// se_RuleIsInAddressList omitted.
 
 /**
  * serializeAws_json1_0RuleNumberExpression
@@ -2248,6 +2799,8 @@ const se_Rules = (input: Rule[], context: __SerdeContext): any => {
 
 // se_SendAction omitted.
 
+// se_StartAddressListImportJobRequest omitted.
+
 /**
  * serializeAws_json1_0StartArchiveExportRequest
  */
@@ -2275,6 +2828,8 @@ const se_StartArchiveSearchRequest = (input: StartArchiveSearchRequest, context:
     ToTimestamp: (_) => _.getTime() / 1_000,
   });
 };
+
+// se_StopAddressListImportJobRequest omitted.
 
 // se_StopArchiveExportRequest omitted.
 
@@ -2366,6 +2921,31 @@ const de_AddonSubscriptions = (output: any, context: __SerdeContext): AddonSubsc
   return retVal;
 };
 
+/**
+ * deserializeAws_json1_0AddressList
+ */
+const de_AddressList = (output: any, context: __SerdeContext): AddressList => {
+  return take(output, {
+    AddressListArn: __expectString,
+    AddressListId: __expectString,
+    AddressListName: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0AddressLists
+ */
+const de_AddressLists = (output: any, context: __SerdeContext): AddressList[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AddressList(entry, context);
+    });
+  return retVal;
+};
+
 // de_Analysis omitted.
 
 /**
@@ -2416,6 +2996,10 @@ const de_ArchivesList = (output: any, context: __SerdeContext): Archive[] => {
 
 // de_CreateAddonSubscriptionResponse omitted.
 
+// de_CreateAddressListImportJobResponse omitted.
+
+// de_CreateAddressListResponse omitted.
+
 // de_CreateArchiveResponse omitted.
 
 // de_CreateIngressPointResponse omitted.
@@ -2430,6 +3014,8 @@ const de_ArchivesList = (output: any, context: __SerdeContext): Archive[] => {
 
 // de_DeleteAddonSubscriptionResponse omitted.
 
+// de_DeleteAddressListResponse omitted.
+
 // de_DeleteArchiveResponse omitted.
 
 // de_DeleteIngressPointResponse omitted.
@@ -2443,6 +3029,8 @@ const de_ArchivesList = (output: any, context: __SerdeContext): Archive[] => {
 // de_DeliverToMailboxAction omitted.
 
 // de_DeliverToQBusinessAction omitted.
+
+// de_DeregisterMemberFromAddressListResponse omitted.
 
 // de_DropAction omitted.
 
@@ -2506,6 +3094,39 @@ const de_GetAddonSubscriptionResponse = (output: any, context: __SerdeContext): 
     AddonName: __expectString,
     AddonSubscriptionArn: __expectString,
     CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0GetAddressListImportJobResponse
+ */
+const de_GetAddressListImportJobResponse = (output: any, context: __SerdeContext): GetAddressListImportJobResponse => {
+  return take(output, {
+    AddressListId: __expectString,
+    CompletedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Error: __expectString,
+    FailedItemsCount: __expectInt32,
+    ImportDataFormat: _json,
+    ImportedItemsCount: __expectInt32,
+    JobId: __expectString,
+    Name: __expectString,
+    PreSignedUrl: __expectString,
+    StartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0GetAddressListResponse
+ */
+const de_GetAddressListResponse = (output: any, context: __SerdeContext): GetAddressListResponse => {
+  return take(output, {
+    AddressListArn: __expectString,
+    AddressListId: __expectString,
+    AddressListName: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
 
@@ -2596,6 +3217,16 @@ const de_GetIngressPointResponse = (output: any, context: __SerdeContext): GetIn
 };
 
 /**
+ * deserializeAws_json1_0GetMemberOfAddressListResponse
+ */
+const de_GetMemberOfAddressListResponse = (output: any, context: __SerdeContext): GetMemberOfAddressListResponse => {
+  return take(output, {
+    Address: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0GetRelayResponse
  */
 const de_GetRelayResponse = (output: any, context: __SerdeContext): GetRelayResponse => {
@@ -2641,6 +3272,42 @@ const de_GetTrafficPolicyResponse = (output: any, context: __SerdeContext): GetT
   }) as any;
 };
 
+// de_ImportDataFormat omitted.
+
+/**
+ * deserializeAws_json1_0ImportJob
+ */
+const de_ImportJob = (output: any, context: __SerdeContext): ImportJob => {
+  return take(output, {
+    AddressListId: __expectString,
+    CompletedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Error: __expectString,
+    FailedItemsCount: __expectInt32,
+    ImportDataFormat: _json,
+    ImportedItemsCount: __expectInt32,
+    JobId: __expectString,
+    Name: __expectString,
+    PreSignedUrl: __expectString,
+    StartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0ImportJobs
+ */
+const de_ImportJobs = (output: any, context: __SerdeContext): ImportJob[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ImportJob(entry, context);
+    });
+  return retVal;
+};
+
+// de_IngressAddressListArnList omitted.
+
 // de_IngressAnalysis omitted.
 
 // de_IngressBooleanExpression omitted.
@@ -2650,6 +3317,8 @@ const de_GetTrafficPolicyResponse = (output: any, context: __SerdeContext): GetT
 // de_IngressIpToEvaluate omitted.
 
 // de_IngressIpv4Expression omitted.
+
+// de_IngressIsInAddressList omitted.
 
 // de_IngressPoint omitted.
 
@@ -2710,6 +3379,29 @@ const de_ListAddonSubscriptionsResponse = (output: any, context: __SerdeContext)
 };
 
 /**
+ * deserializeAws_json1_0ListAddressListImportJobsResponse
+ */
+const de_ListAddressListImportJobsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListAddressListImportJobsResponse => {
+  return take(output, {
+    ImportJobs: (_: any) => de_ImportJobs(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0ListAddressListsResponse
+ */
+const de_ListAddressListsResponse = (output: any, context: __SerdeContext): ListAddressListsResponse => {
+  return take(output, {
+    AddressLists: (_: any) => de_AddressLists(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0ListArchiveExportsResponse
  */
 const de_ListArchiveExportsResponse = (output: any, context: __SerdeContext): ListArchiveExportsResponse => {
@@ -2740,6 +3432,19 @@ const de_ListArchivesResponse = (output: any, context: __SerdeContext): ListArch
 };
 
 // de_ListIngressPointsResponse omitted.
+
+/**
+ * deserializeAws_json1_0ListMembersOfAddressListResponse
+ */
+const de_ListMembersOfAddressListResponse = (
+  output: any,
+  context: __SerdeContext
+): ListMembersOfAddressListResponse => {
+  return take(output, {
+    Addresses: (_: any) => de_SavedAddresses(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0ListRelaysResponse
@@ -2794,6 +3499,8 @@ const de_Metadata = (output: any, context: __SerdeContext): Metadata => {
 // de_PolicyStatementList omitted.
 
 // de_Recipients omitted.
+
+// de_RegisterMemberToAddressListResponse omitted.
 
 /**
  * deserializeAws_json1_0Relay
@@ -2880,6 +3587,8 @@ const de_Rule = (output: any, context: __SerdeContext): Rule => {
 
 // de_RuleActions omitted.
 
+// de_RuleAddressListArnList omitted.
+
 // de_RuleBooleanExpression omitted.
 
 // de_RuleBooleanToEvaluate omitted.
@@ -2942,6 +3651,8 @@ const de_RuleConditions = (output: any, context: __SerdeContext): RuleCondition[
 // de_RuleIpToEvaluate omitted.
 
 // de_RuleIpValueList omitted.
+
+// de_RuleIsInAddressList omitted.
 
 /**
  * deserializeAws_json1_0RuleNumberExpression
@@ -3008,6 +3719,28 @@ const de_RuleSets = (output: any, context: __SerdeContext): RuleSet[] => {
 // de_S3ExportDestinationConfiguration omitted.
 
 /**
+ * deserializeAws_json1_0SavedAddress
+ */
+const de_SavedAddress = (output: any, context: __SerdeContext): SavedAddress => {
+  return take(output, {
+    Address: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0SavedAddresses
+ */
+const de_SavedAddresses = (output: any, context: __SerdeContext): SavedAddress[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SavedAddress(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_json1_0SearchStatus
  */
 const de_SearchStatus = (output: any, context: __SerdeContext): SearchStatus => {
@@ -3045,9 +3778,13 @@ const de_SearchSummaryList = (output: any, context: __SerdeContext): SearchSumma
 
 // de_ServiceQuotaExceededException omitted.
 
+// de_StartAddressListImportJobResponse omitted.
+
 // de_StartArchiveExportResponse omitted.
 
 // de_StartArchiveSearchResponse omitted.
+
+// de_StopAddressListImportJobResponse omitted.
 
 // de_StopArchiveExportResponse omitted.
 

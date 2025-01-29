@@ -496,6 +496,208 @@ export interface ListAddonSubscriptionsResponse {
 }
 
 /**
+ * <p>Filtering options for ListMembersOfAddressList operation.</p>
+ * @public
+ */
+export interface AddressFilter {
+  /**
+   * <p>Filter to limit the results to addresses having the provided prefix.</p>
+   * @public
+   */
+  AddressPrefix?: string | undefined;
+}
+
+/**
+ * <p>An address list contains a list of emails and domains that are used in MailManager Ingress endpoints and Rules for email management.</p>
+ * @public
+ */
+export interface AddressList {
+  /**
+   * <p>The identifier of the address list.</p>
+   * @public
+   */
+  AddressListId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the address list.</p>
+   * @public
+   */
+  AddressListArn: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the address list.</p>
+   * @public
+   */
+  AddressListName: string | undefined;
+
+  /**
+   * <p>The timestamp of when the address list was created.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the address list was last updated.</p>
+   * @public
+   */
+  LastUpdatedTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAddressListRequest {
+  /**
+   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same
+   *             request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>A user-friendly name for the address list.</p>
+   * @public
+   */
+  AddressListName: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for the resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAddressListResponse {
+  /**
+   * <p>The identifier of the created address list.</p>
+   * @public
+   */
+  AddressListId: string | undefined;
+}
+
+/**
+ * <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteAddressListRequest {
+  /**
+   * <p>The identifier of an existing address list resource to delete.</p>
+   * @public
+   */
+  AddressListId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAddressListResponse {}
+
+/**
+ * @public
+ */
+export interface GetAddressListRequest {
+  /**
+   * <p>The identifier of an existing address list resource to be retrieved.</p>
+   * @public
+   */
+  AddressListId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAddressListResponse {
+  /**
+   * <p>The identifier of the address list resource.</p>
+   * @public
+   */
+  AddressListId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the address list resource.</p>
+   * @public
+   */
+  AddressListArn: string | undefined;
+
+  /**
+   * <p>A user-friendly name for the address list resource.</p>
+   * @public
+   */
+  AddressListName: string | undefined;
+
+  /**
+   * <p>The date of when then address list was created.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>The date of when the address list was last updated.</p>
+   * @public
+   */
+  LastUpdatedTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAddressListsRequest {
+  /**
+   * <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of address list resources that are returned per call. You can use
+   *             NextToken to retrieve the next page of address lists.</p>
+   * @public
+   */
+  PageSize?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAddressListsResponse {
+  /**
+   * <p>The list of address lists.</p>
+   * @public
+   */
+  AddressLists: AddressList[] | undefined;
+
+  /**
+   * <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * <p>The result of an analysis can be used in conditions to trigger actions. Analyses can
  *             inspect the email content and report a certain aspect of the email.</p>
  * @public
@@ -958,28 +1160,6 @@ export interface CreateArchiveResponse {
 }
 
 /**
- * <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>The request to initiate deletion of an email archive.</p>
  * @public
  */
@@ -1147,6 +1327,80 @@ export interface UpdateArchiveRequest {
  * @public
  */
 export interface UpdateArchiveResponse {}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImportDataType = {
+  CSV: "CSV",
+  JSON: "JSON",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportDataType = (typeof ImportDataType)[keyof typeof ImportDataType];
+
+/**
+ * <p>The import data format contains the specifications of the input file that would be passed to the address list
+ *             import job.</p>
+ * @public
+ */
+export interface ImportDataFormat {
+  /**
+   * <p>The type of file that would be passed as an input for the address list import job.</p>
+   * @public
+   */
+  ImportDataType: ImportDataType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAddressListImportJobRequest {
+  /**
+   * <p>A unique token that Amazon SES uses to recognize subsequent retries of the same
+   *             request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the address list for importing addresses to.</p>
+   * @public
+   */
+  AddressListId: string | undefined;
+
+  /**
+   * <p>A user-friendly name for the import job.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The format of the input for an import job.</p>
+   * @public
+   */
+  ImportDataFormat: ImportDataFormat | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAddressListImportJobResponse {
+  /**
+   * <p>The identifier of the created import job.</p>
+   * @public
+   */
+  JobId: string | undefined;
+
+  /**
+   * <p>The pre-signed URL target for uploading the input file.</p>
+   * @public
+   */
+  PreSignedUrl: string | undefined;
+}
 
 /**
  * <p>The configuration of the ingress endpoint resource.</p>
@@ -1814,11 +2068,51 @@ export const RuleBooleanEmailAttribute = {
 export type RuleBooleanEmailAttribute = (typeof RuleBooleanEmailAttribute)[keyof typeof RuleBooleanEmailAttribute];
 
 /**
+ * @public
+ * @enum
+ */
+export const RuleAddressListEmailAttribute = {
+  CC: "CC",
+  FROM: "FROM",
+  MAIL_FROM: "MAIL_FROM",
+  RECIPIENT: "RECIPIENT",
+  SENDER: "SENDER",
+  TO: "TO",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleAddressListEmailAttribute =
+  (typeof RuleAddressListEmailAttribute)[keyof typeof RuleAddressListEmailAttribute];
+
+/**
+ * <p>The structure type for a boolean condition that provides the address lists and address list attribute to evaluate.</p>
+ * @public
+ */
+export interface RuleIsInAddressList {
+  /**
+   * <p>The email attribute that needs to be evaluated against the address list.</p>
+   * @public
+   */
+  Attribute: RuleAddressListEmailAttribute | undefined;
+
+  /**
+   * <p>The address lists that will be used for evaluation.</p>
+   * @public
+   */
+  AddressLists: string[] | undefined;
+}
+
+/**
  * <p>The union type representing the allowed types of operands for a boolean
  *             condition.</p>
  * @public
  */
-export type RuleBooleanToEvaluate = RuleBooleanToEvaluate.AttributeMember | RuleBooleanToEvaluate.$UnknownMember;
+export type RuleBooleanToEvaluate =
+  | RuleBooleanToEvaluate.AttributeMember
+  | RuleBooleanToEvaluate.IsInAddressListMember
+  | RuleBooleanToEvaluate.$UnknownMember;
 
 /**
  * @public
@@ -1830,6 +2124,17 @@ export namespace RuleBooleanToEvaluate {
    */
   export interface AttributeMember {
     Attribute: RuleBooleanEmailAttribute;
+    IsInAddressList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The structure representing the address lists and address list attribute that will be used in evaluation of boolean expression.</p>
+   * @public
+   */
+  export interface IsInAddressListMember {
+    Attribute?: never;
+    IsInAddressList: RuleIsInAddressList;
     $unknown?: never;
   }
 
@@ -1838,16 +2143,19 @@ export namespace RuleBooleanToEvaluate {
    */
   export interface $UnknownMember {
     Attribute?: never;
+    IsInAddressList?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     Attribute: (value: RuleBooleanEmailAttribute) => T;
+    IsInAddressList: (value: RuleIsInAddressList) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: RuleBooleanToEvaluate, visitor: Visitor<T>): T => {
     if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
+    if (value.IsInAddressList !== undefined) return visitor.IsInAddressList(value.IsInAddressList);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2611,12 +2919,46 @@ export interface IngressAnalysis {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const IngressAddressListEmailAttribute = {
+  RECIPIENT: "RECIPIENT",
+} as const;
+
+/**
+ * @public
+ */
+export type IngressAddressListEmailAttribute =
+  (typeof IngressAddressListEmailAttribute)[keyof typeof IngressAddressListEmailAttribute];
+
+/**
+ * <p>The address lists and the address list attribute value that is evaluated in a policy statement's
+ *             conditional expression to either deny or block the incoming email.</p>
+ * @public
+ */
+export interface IngressIsInAddressList {
+  /**
+   * <p>The email attribute that needs to be evaluated against the address list.</p>
+   * @public
+   */
+  Attribute: IngressAddressListEmailAttribute | undefined;
+
+  /**
+   * <p>The address lists that will be used for evaluation.</p>
+   * @public
+   */
+  AddressLists: string[] | undefined;
+}
+
+/**
  * <p>The union type representing the allowed types of operands for a boolean
  *             condition.</p>
  * @public
  */
 export type IngressBooleanToEvaluate =
   | IngressBooleanToEvaluate.AnalysisMember
+  | IngressBooleanToEvaluate.IsInAddressListMember
   | IngressBooleanToEvaluate.$UnknownMember;
 
 /**
@@ -2630,6 +2972,17 @@ export namespace IngressBooleanToEvaluate {
    */
   export interface AnalysisMember {
     Analysis: IngressAnalysis;
+    IsInAddressList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The structure type for a boolean condition that provides the address lists to evaluate incoming traffic on.</p>
+   * @public
+   */
+  export interface IsInAddressListMember {
+    Analysis?: never;
+    IsInAddressList: IngressIsInAddressList;
     $unknown?: never;
   }
 
@@ -2638,16 +2991,19 @@ export namespace IngressBooleanToEvaluate {
    */
   export interface $UnknownMember {
     Analysis?: never;
+    IsInAddressList?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     Analysis: (value: IngressAnalysis) => T;
+    IsInAddressList: (value: IngressIsInAddressList) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: IngressBooleanToEvaluate, visitor: Visitor<T>): T => {
     if (value.Analysis !== undefined) return visitor.Analysis(value.Analysis);
+    if (value.IsInAddressList !== undefined) return visitor.IsInAddressList(value.IsInAddressList);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -3214,6 +3570,28 @@ export interface DeleteTrafficPolicyRequest {
 export interface DeleteTrafficPolicyResponse {}
 
 /**
+ * @public
+ */
+export interface DeregisterMemberFromAddressListRequest {
+  /**
+   * <p>The unique identifier of the address list to remove the address from.</p>
+   * @public
+   */
+  AddressListId: string | undefined;
+
+  /**
+   * <p>The address to be removed from the address list.</p>
+   * @public
+   */
+  Address: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeregisterMemberFromAddressListResponse {}
+
+/**
  * <p>The SMTP envelope information of the email.</p>
  * @public
  */
@@ -3353,6 +3731,111 @@ export interface ExportSummary {
    * @public
    */
   Status?: ExportStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAddressListImportJobRequest {
+  /**
+   * <p>The identifier of the import job that needs to be retrieved.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImportJobStatus = {
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+  STOPPED: "STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportJobStatus = (typeof ImportJobStatus)[keyof typeof ImportJobStatus];
+
+/**
+ * @public
+ */
+export interface GetAddressListImportJobResponse {
+  /**
+   * <p>The identifier of the import job.</p>
+   * @public
+   */
+  JobId: string | undefined;
+
+  /**
+   * <p>A user-friendly name for the import job.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The status of the import job.</p>
+   * @public
+   */
+  Status: ImportJobStatus | undefined;
+
+  /**
+   * <p>The pre-signed URL target for uploading the input file.</p>
+   * @public
+   */
+  PreSignedUrl: string | undefined;
+
+  /**
+   * <p>The number of input addresses successfully imported into the address list.</p>
+   * @public
+   */
+  ImportedItemsCount?: number | undefined;
+
+  /**
+   * <p>The number of input addresses that failed to be imported into the address list.</p>
+   * @public
+   */
+  FailedItemsCount?: number | undefined;
+
+  /**
+   * <p>The format of the input for an import job.</p>
+   * @public
+   */
+  ImportDataFormat: ImportDataFormat | undefined;
+
+  /**
+   * <p>The unique identifier of the address list the import job was created for.</p>
+   * @public
+   */
+  AddressListId: string | undefined;
+
+  /**
+   * <p>The timestamp of when the import job was created.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the import job was started.</p>
+   * @public
+   */
+  StartTimestamp?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the import job was completed.</p>
+   * @public
+   */
+  CompletedTimestamp?: Date | undefined;
+
+  /**
+   * <p>The reason for failure of an import job.</p>
+   * @public
+   */
+  Error?: string | undefined;
 }
 
 /**
@@ -3941,6 +4424,40 @@ export interface GetIngressPointResponse {
 /**
  * @public
  */
+export interface GetMemberOfAddressListRequest {
+  /**
+   * <p>The unique identifier of the address list to retrieve the address from.</p>
+   * @public
+   */
+  AddressListId: string | undefined;
+
+  /**
+   * <p>The address to be retrieved from the address list.</p>
+   * @public
+   */
+  Address: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMemberOfAddressListResponse {
+  /**
+   * <p>The address retrieved from the address list.</p>
+   * @public
+   */
+  Address: string | undefined;
+
+  /**
+   * <p>The timestamp of when the address was created.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetRelayRequest {
   /**
    * <p>A unique relay identifier.</p>
@@ -4121,6 +4638,84 @@ export interface GetTrafficPolicyResponse {
 }
 
 /**
+ * <p>Details about an import job.</p>
+ * @public
+ */
+export interface ImportJob {
+  /**
+   * <p>The identifier of the import job.</p>
+   * @public
+   */
+  JobId: string | undefined;
+
+  /**
+   * <p>A user-friendly name for the import job.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The status of the import job.</p>
+   * @public
+   */
+  Status: ImportJobStatus | undefined;
+
+  /**
+   * <p>The pre-signed URL target for uploading the input file.</p>
+   * @public
+   */
+  PreSignedUrl: string | undefined;
+
+  /**
+   * <p>The number of addresses in the input that were successfully imported into the address list.</p>
+   * @public
+   */
+  ImportedItemsCount?: number | undefined;
+
+  /**
+   * <p>The number of addresses in the input that failed to get imported into address list.</p>
+   * @public
+   */
+  FailedItemsCount?: number | undefined;
+
+  /**
+   * <p>The format of the input for the import job.</p>
+   * @public
+   */
+  ImportDataFormat: ImportDataFormat | undefined;
+
+  /**
+   * <p>The unique identifier of the address list the import job was created for.</p>
+   * @public
+   */
+  AddressListId: string | undefined;
+
+  /**
+   * <p>The timestamp of when the import job was created.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the import job was started.</p>
+   * @public
+   */
+  StartTimestamp?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the import job was completed.</p>
+   * @public
+   */
+  CompletedTimestamp?: Date | undefined;
+
+  /**
+   * <p>The reason for failure of an import job.</p>
+   * @public
+   */
+  Error?: string | undefined;
+}
+
+/**
  * <p>The structure of an ingress endpoint resource.</p>
  * @public
  */
@@ -4257,6 +4852,46 @@ export interface UpdateIngressPointRequest {
 export interface UpdateIngressPointResponse {}
 
 /**
+ * @public
+ */
+export interface ListAddressListImportJobsRequest {
+  /**
+   * <p>The unique identifier of the address list for listing import jobs.</p>
+   * @public
+   */
+  AddressListId: string | undefined;
+
+  /**
+   * <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of import jobs that are returned per call. You can use NextToken to retrieve the next page of jobs.</p>
+   * @public
+   */
+  PageSize?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAddressListImportJobsResponse {
+  /**
+   * <p>The list of import jobs.</p>
+   * @public
+   */
+  ImportJobs: ImportJob[] | undefined;
+
+  /**
+   * <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * <p>The request to list archive export jobs in your account.</p>
  * @public
  */
@@ -4361,6 +4996,71 @@ export interface ListArchiveSearchesResponse {
 
   /**
    * <p>If present, use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMembersOfAddressListRequest {
+  /**
+   * <p>The unique identifier of the address list to list the addresses from.</p>
+   * @public
+   */
+  AddressListId: string | undefined;
+
+  /**
+   * <p>Filter to be used to limit the results.</p>
+   * @public
+   */
+  Filter?: AddressFilter | undefined;
+
+  /**
+   * <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of address list members that are returned per call.
+   *             You can use NextToken to retrieve the next page of members.</p>
+   * @public
+   */
+  PageSize?: number | undefined;
+}
+
+/**
+ * <p>An address that is a member of an address list.</p>
+ * @public
+ */
+export interface SavedAddress {
+  /**
+   * <p>The email or domain that constitutes the address.</p>
+   * @public
+   */
+  Address: string | undefined;
+
+  /**
+   * <p>The timestamp of when the address was added to the address list.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMembersOfAddressListResponse {
+  /**
+   * <p>The list of addresses.</p>
+   * @public
+   */
+  Addresses: SavedAddress[] | undefined;
+
+  /**
+   * <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -4570,6 +5270,28 @@ export interface ListTrafficPoliciesResponse {
 /**
  * @public
  */
+export interface RegisterMemberToAddressListRequest {
+  /**
+   * <p>The unique identifier of the address list where the address should be added.</p>
+   * @public
+   */
+  AddressListId: string | undefined;
+
+  /**
+   * <p>The address to be added to the address list.</p>
+   * @public
+   */
+  Address: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterMemberToAddressListResponse {}
+
+/**
+ * @public
+ */
 export interface UpdateRelayRequest {
   /**
    * <p>The unique relay identifier.</p>
@@ -4636,6 +5358,22 @@ export interface UpdateRuleSetRequest {
  * @public
  */
 export interface UpdateRuleSetResponse {}
+
+/**
+ * @public
+ */
+export interface StartAddressListImportJobRequest {
+  /**
+   * <p>The identifier of the import job that needs to be started.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAddressListImportJobResponse {}
 
 /**
  * <p>The request to initiate an export of emails from an archive.</p>
@@ -4744,6 +5482,22 @@ export interface StartArchiveSearchResponse {
    */
   SearchId?: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface StopAddressListImportJobRequest {
+  /**
+   * <p>The identifier of the import job that needs to be stopped.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopAddressListImportJobResponse {}
 
 /**
  * <p>The request to stop an in-progress archive export job.</p>
@@ -4872,35 +5626,17 @@ export interface UntagResourceResponse {}
 /**
  * @internal
  */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
+export const AddressFilterFilterSensitiveLog = (obj: AddressFilter): any => ({
   ...obj,
-  ...(obj.Key && { Key: SENSITIVE_STRING }),
-  ...(obj.Value && { Value: SENSITIVE_STRING }),
+  ...(obj.AddressPrefix && { AddressPrefix: SENSITIVE_STRING }),
 });
 
 /**
  * @internal
  */
-export const CreateAddonInstanceRequestFilterSensitiveLog = (obj: CreateAddonInstanceRequest): any => ({
+export const CreateAddressListImportJobResponseFilterSensitiveLog = (obj: CreateAddressListImportJobResponse): any => ({
   ...obj,
-  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateAddonSubscriptionRequestFilterSensitiveLog = (obj: CreateAddonSubscriptionRequest): any => ({
-  ...obj,
-  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateArchiveRequestFilterSensitiveLog = (obj: CreateArchiveRequest): any => ({
-  ...obj,
-  ...(obj.Retention && { Retention: obj.Retention }),
-  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+  ...(obj.PreSignedUrl && { PreSignedUrl: SENSITIVE_STRING }),
 });
 
 /**
@@ -4920,16 +5656,6 @@ export const CreateIngressPointRequestFilterSensitiveLog = (obj: CreateIngressPo
   ...(obj.IngressPointConfiguration && {
     IngressPointConfiguration: IngressPointConfigurationFilterSensitiveLog(obj.IngressPointConfiguration),
   }),
-  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateRelayRequestFilterSensitiveLog = (obj: CreateRelayRequest): any => ({
-  ...obj,
-  ...(obj.Authentication && { Authentication: obj.Authentication }),
-  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -4973,16 +5699,24 @@ export const RuleFilterSensitiveLog = (obj: Rule): any => ({
 export const CreateRuleSetRequestFilterSensitiveLog = (obj: CreateRuleSetRequest): any => ({
   ...obj,
   ...(obj.Rules && { Rules: obj.Rules.map((item) => RuleFilterSensitiveLog(item)) }),
-  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
 });
 
 /**
  * @internal
  */
-export const CreateTrafficPolicyRequestFilterSensitiveLog = (obj: CreateTrafficPolicyRequest): any => ({
+export const DeregisterMemberFromAddressListRequestFilterSensitiveLog = (
+  obj: DeregisterMemberFromAddressListRequest
+): any => ({
   ...obj,
-  ...(obj.PolicyStatements && { PolicyStatements: obj.PolicyStatements.map((item) => item) }),
-  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+  ...(obj.Address && { Address: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetAddressListImportJobResponseFilterSensitiveLog = (obj: GetAddressListImportJobResponse): any => ({
+  ...obj,
+  ...(obj.PreSignedUrl && { PreSignedUrl: SENSITIVE_STRING }),
 });
 
 /**
@@ -5020,9 +5754,33 @@ export const GetArchiveSearchResultsResponseFilterSensitiveLog = (obj: GetArchiv
 /**
  * @internal
  */
+export const GetMemberOfAddressListRequestFilterSensitiveLog = (obj: GetMemberOfAddressListRequest): any => ({
+  ...obj,
+  ...(obj.Address && { Address: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetMemberOfAddressListResponseFilterSensitiveLog = (obj: GetMemberOfAddressListResponse): any => ({
+  ...obj,
+  ...(obj.Address && { Address: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const GetRuleSetResponseFilterSensitiveLog = (obj: GetRuleSetResponse): any => ({
   ...obj,
   ...(obj.Rules && { Rules: obj.Rules.map((item) => RuleFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ImportJobFilterSensitiveLog = (obj: ImportJob): any => ({
+  ...obj,
+  ...(obj.PreSignedUrl && { PreSignedUrl: SENSITIVE_STRING }),
 });
 
 /**
@@ -5038,9 +5796,41 @@ export const UpdateIngressPointRequestFilterSensitiveLog = (obj: UpdateIngressPo
 /**
  * @internal
  */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+export const ListAddressListImportJobsResponseFilterSensitiveLog = (obj: ListAddressListImportJobsResponse): any => ({
   ...obj,
-  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+  ...(obj.ImportJobs && { ImportJobs: obj.ImportJobs.map((item) => ImportJobFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListMembersOfAddressListRequestFilterSensitiveLog = (obj: ListMembersOfAddressListRequest): any => ({
+  ...obj,
+  ...(obj.Filter && { Filter: AddressFilterFilterSensitiveLog(obj.Filter) }),
+});
+
+/**
+ * @internal
+ */
+export const SavedAddressFilterSensitiveLog = (obj: SavedAddress): any => ({
+  ...obj,
+  ...(obj.Address && { Address: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListMembersOfAddressListResponseFilterSensitiveLog = (obj: ListMembersOfAddressListResponse): any => ({
+  ...obj,
+  ...(obj.Addresses && { Addresses: obj.Addresses.map((item) => SavedAddressFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const RegisterMemberToAddressListRequestFilterSensitiveLog = (obj: RegisterMemberToAddressListRequest): any => ({
+  ...obj,
+  ...(obj.Address && { Address: SENSITIVE_STRING }),
 });
 
 /**
@@ -5049,20 +5839,4 @@ export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForRe
 export const UpdateRuleSetRequestFilterSensitiveLog = (obj: UpdateRuleSetRequest): any => ({
   ...obj,
   ...(obj.Rules && { Rules: obj.Rules.map((item) => RuleFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-  ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
 });

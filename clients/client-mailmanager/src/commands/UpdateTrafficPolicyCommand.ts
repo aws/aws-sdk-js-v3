@@ -73,6 +73,12 @@ export interface UpdateTrafficPolicyCommandOutput extends UpdateTrafficPolicyRes
  *                 Analyzer: "STRING_VALUE", // required
  *                 ResultField: "STRING_VALUE", // required
  *               },
+ *               IsInAddressList: { // IngressIsInAddressList
+ *                 Attribute: "RECIPIENT", // required
+ *                 AddressLists: [ // IngressAddressListArnList // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
  *             },
  *             Operator: "IS_TRUE" || "IS_FALSE", // required
  *           },

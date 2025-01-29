@@ -61,6 +61,11 @@ import {
   CreateAddonSubscriptionCommandInput,
   CreateAddonSubscriptionCommandOutput,
 } from "./commands/CreateAddonSubscriptionCommand";
+import { CreateAddressListCommandInput, CreateAddressListCommandOutput } from "./commands/CreateAddressListCommand";
+import {
+  CreateAddressListImportJobCommandInput,
+  CreateAddressListImportJobCommandOutput,
+} from "./commands/CreateAddressListImportJobCommand";
 import { CreateArchiveCommandInput, CreateArchiveCommandOutput } from "./commands/CreateArchiveCommand";
 import { CreateIngressPointCommandInput, CreateIngressPointCommandOutput } from "./commands/CreateIngressPointCommand";
 import { CreateRelayCommandInput, CreateRelayCommandOutput } from "./commands/CreateRelayCommand";
@@ -77,6 +82,7 @@ import {
   DeleteAddonSubscriptionCommandInput,
   DeleteAddonSubscriptionCommandOutput,
 } from "./commands/DeleteAddonSubscriptionCommand";
+import { DeleteAddressListCommandInput, DeleteAddressListCommandOutput } from "./commands/DeleteAddressListCommand";
 import { DeleteArchiveCommandInput, DeleteArchiveCommandOutput } from "./commands/DeleteArchiveCommand";
 import { DeleteIngressPointCommandInput, DeleteIngressPointCommandOutput } from "./commands/DeleteIngressPointCommand";
 import { DeleteRelayCommandInput, DeleteRelayCommandOutput } from "./commands/DeleteRelayCommand";
@@ -85,11 +91,20 @@ import {
   DeleteTrafficPolicyCommandInput,
   DeleteTrafficPolicyCommandOutput,
 } from "./commands/DeleteTrafficPolicyCommand";
+import {
+  DeregisterMemberFromAddressListCommandInput,
+  DeregisterMemberFromAddressListCommandOutput,
+} from "./commands/DeregisterMemberFromAddressListCommand";
 import { GetAddonInstanceCommandInput, GetAddonInstanceCommandOutput } from "./commands/GetAddonInstanceCommand";
 import {
   GetAddonSubscriptionCommandInput,
   GetAddonSubscriptionCommandOutput,
 } from "./commands/GetAddonSubscriptionCommand";
+import { GetAddressListCommandInput, GetAddressListCommandOutput } from "./commands/GetAddressListCommand";
+import {
+  GetAddressListImportJobCommandInput,
+  GetAddressListImportJobCommandOutput,
+} from "./commands/GetAddressListImportJobCommand";
 import { GetArchiveCommandInput, GetArchiveCommandOutput } from "./commands/GetArchiveCommand";
 import { GetArchiveExportCommandInput, GetArchiveExportCommandOutput } from "./commands/GetArchiveExportCommand";
 import { GetArchiveMessageCommandInput, GetArchiveMessageCommandOutput } from "./commands/GetArchiveMessageCommand";
@@ -103,6 +118,10 @@ import {
   GetArchiveSearchResultsCommandOutput,
 } from "./commands/GetArchiveSearchResultsCommand";
 import { GetIngressPointCommandInput, GetIngressPointCommandOutput } from "./commands/GetIngressPointCommand";
+import {
+  GetMemberOfAddressListCommandInput,
+  GetMemberOfAddressListCommandOutput,
+} from "./commands/GetMemberOfAddressListCommand";
 import { GetRelayCommandInput, GetRelayCommandOutput } from "./commands/GetRelayCommand";
 import { GetRuleSetCommandInput, GetRuleSetCommandOutput } from "./commands/GetRuleSetCommand";
 import { GetTrafficPolicyCommandInput, GetTrafficPolicyCommandOutput } from "./commands/GetTrafficPolicyCommand";
@@ -111,6 +130,11 @@ import {
   ListAddonSubscriptionsCommandInput,
   ListAddonSubscriptionsCommandOutput,
 } from "./commands/ListAddonSubscriptionsCommand";
+import {
+  ListAddressListImportJobsCommandInput,
+  ListAddressListImportJobsCommandOutput,
+} from "./commands/ListAddressListImportJobsCommand";
+import { ListAddressListsCommandInput, ListAddressListsCommandOutput } from "./commands/ListAddressListsCommand";
 import { ListArchiveExportsCommandInput, ListArchiveExportsCommandOutput } from "./commands/ListArchiveExportsCommand";
 import { ListArchivesCommandInput, ListArchivesCommandOutput } from "./commands/ListArchivesCommand";
 import {
@@ -118,6 +142,10 @@ import {
   ListArchiveSearchesCommandOutput,
 } from "./commands/ListArchiveSearchesCommand";
 import { ListIngressPointsCommandInput, ListIngressPointsCommandOutput } from "./commands/ListIngressPointsCommand";
+import {
+  ListMembersOfAddressListCommandInput,
+  ListMembersOfAddressListCommandOutput,
+} from "./commands/ListMembersOfAddressListCommand";
 import { ListRelaysCommandInput, ListRelaysCommandOutput } from "./commands/ListRelaysCommand";
 import { ListRuleSetsCommandInput, ListRuleSetsCommandOutput } from "./commands/ListRuleSetsCommand";
 import {
@@ -128,8 +156,20 @@ import {
   ListTrafficPoliciesCommandInput,
   ListTrafficPoliciesCommandOutput,
 } from "./commands/ListTrafficPoliciesCommand";
+import {
+  RegisterMemberToAddressListCommandInput,
+  RegisterMemberToAddressListCommandOutput,
+} from "./commands/RegisterMemberToAddressListCommand";
+import {
+  StartAddressListImportJobCommandInput,
+  StartAddressListImportJobCommandOutput,
+} from "./commands/StartAddressListImportJobCommand";
 import { StartArchiveExportCommandInput, StartArchiveExportCommandOutput } from "./commands/StartArchiveExportCommand";
 import { StartArchiveSearchCommandInput, StartArchiveSearchCommandOutput } from "./commands/StartArchiveSearchCommand";
+import {
+  StopAddressListImportJobCommandInput,
+  StopAddressListImportJobCommandOutput,
+} from "./commands/StopAddressListImportJobCommand";
 import { StopArchiveExportCommandInput, StopArchiveExportCommandOutput } from "./commands/StopArchiveExportCommand";
 import { StopArchiveSearchCommandInput, StopArchiveSearchCommandOutput } from "./commands/StopArchiveSearchCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -159,6 +199,8 @@ export { __Client };
 export type ServiceInputTypes =
   | CreateAddonInstanceCommandInput
   | CreateAddonSubscriptionCommandInput
+  | CreateAddressListCommandInput
+  | CreateAddressListImportJobCommandInput
   | CreateArchiveCommandInput
   | CreateIngressPointCommandInput
   | CreateRelayCommandInput
@@ -166,13 +208,17 @@ export type ServiceInputTypes =
   | CreateTrafficPolicyCommandInput
   | DeleteAddonInstanceCommandInput
   | DeleteAddonSubscriptionCommandInput
+  | DeleteAddressListCommandInput
   | DeleteArchiveCommandInput
   | DeleteIngressPointCommandInput
   | DeleteRelayCommandInput
   | DeleteRuleSetCommandInput
   | DeleteTrafficPolicyCommandInput
+  | DeregisterMemberFromAddressListCommandInput
   | GetAddonInstanceCommandInput
   | GetAddonSubscriptionCommandInput
+  | GetAddressListCommandInput
+  | GetAddressListImportJobCommandInput
   | GetArchiveCommandInput
   | GetArchiveExportCommandInput
   | GetArchiveMessageCommandInput
@@ -180,21 +226,28 @@ export type ServiceInputTypes =
   | GetArchiveSearchCommandInput
   | GetArchiveSearchResultsCommandInput
   | GetIngressPointCommandInput
+  | GetMemberOfAddressListCommandInput
   | GetRelayCommandInput
   | GetRuleSetCommandInput
   | GetTrafficPolicyCommandInput
   | ListAddonInstancesCommandInput
   | ListAddonSubscriptionsCommandInput
+  | ListAddressListImportJobsCommandInput
+  | ListAddressListsCommandInput
   | ListArchiveExportsCommandInput
   | ListArchiveSearchesCommandInput
   | ListArchivesCommandInput
   | ListIngressPointsCommandInput
+  | ListMembersOfAddressListCommandInput
   | ListRelaysCommandInput
   | ListRuleSetsCommandInput
   | ListTagsForResourceCommandInput
   | ListTrafficPoliciesCommandInput
+  | RegisterMemberToAddressListCommandInput
+  | StartAddressListImportJobCommandInput
   | StartArchiveExportCommandInput
   | StartArchiveSearchCommandInput
+  | StopAddressListImportJobCommandInput
   | StopArchiveExportCommandInput
   | StopArchiveSearchCommandInput
   | TagResourceCommandInput
@@ -211,6 +264,8 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CreateAddonInstanceCommandOutput
   | CreateAddonSubscriptionCommandOutput
+  | CreateAddressListCommandOutput
+  | CreateAddressListImportJobCommandOutput
   | CreateArchiveCommandOutput
   | CreateIngressPointCommandOutput
   | CreateRelayCommandOutput
@@ -218,13 +273,17 @@ export type ServiceOutputTypes =
   | CreateTrafficPolicyCommandOutput
   | DeleteAddonInstanceCommandOutput
   | DeleteAddonSubscriptionCommandOutput
+  | DeleteAddressListCommandOutput
   | DeleteArchiveCommandOutput
   | DeleteIngressPointCommandOutput
   | DeleteRelayCommandOutput
   | DeleteRuleSetCommandOutput
   | DeleteTrafficPolicyCommandOutput
+  | DeregisterMemberFromAddressListCommandOutput
   | GetAddonInstanceCommandOutput
   | GetAddonSubscriptionCommandOutput
+  | GetAddressListCommandOutput
+  | GetAddressListImportJobCommandOutput
   | GetArchiveCommandOutput
   | GetArchiveExportCommandOutput
   | GetArchiveMessageCommandOutput
@@ -232,21 +291,28 @@ export type ServiceOutputTypes =
   | GetArchiveSearchCommandOutput
   | GetArchiveSearchResultsCommandOutput
   | GetIngressPointCommandOutput
+  | GetMemberOfAddressListCommandOutput
   | GetRelayCommandOutput
   | GetRuleSetCommandOutput
   | GetTrafficPolicyCommandOutput
   | ListAddonInstancesCommandOutput
   | ListAddonSubscriptionsCommandOutput
+  | ListAddressListImportJobsCommandOutput
+  | ListAddressListsCommandOutput
   | ListArchiveExportsCommandOutput
   | ListArchiveSearchesCommandOutput
   | ListArchivesCommandOutput
   | ListIngressPointsCommandOutput
+  | ListMembersOfAddressListCommandOutput
   | ListRelaysCommandOutput
   | ListRuleSetsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTrafficPoliciesCommandOutput
+  | RegisterMemberToAddressListCommandOutput
+  | StartAddressListImportJobCommandOutput
   | StartArchiveExportCommandOutput
   | StartArchiveSearchCommandOutput
+  | StopAddressListImportJobCommandOutput
   | StopArchiveExportCommandOutput
   | StopArchiveSearchCommandOutput
   | TagResourceCommandOutput

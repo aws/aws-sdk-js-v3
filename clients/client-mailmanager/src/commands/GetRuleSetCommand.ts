@@ -54,6 +54,12 @@ export interface GetRuleSetCommandOutput extends GetRuleSetResponse, __MetadataB
  * //           BooleanExpression: { // RuleBooleanExpression
  * //             Evaluate: { // RuleBooleanToEvaluate Union: only one key present
  * //               Attribute: "READ_RECEIPT_REQUESTED" || "TLS" || "TLS_WRAPPED",
+ * //               IsInAddressList: { // RuleIsInAddressList
+ * //                 Attribute: "RECIPIENT" || "MAIL_FROM" || "SENDER" || "FROM" || "TO" || "CC", // required
+ * //                 AddressLists: [ // RuleAddressListArnList // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
  * //             },
  * //             Operator: "IS_TRUE" || "IS_FALSE", // required
  * //           },
@@ -109,6 +115,12 @@ export interface GetRuleSetCommandOutput extends GetRuleSetResponse, __MetadataB
  * //           BooleanExpression: {
  * //             Evaluate: {//  Union: only one key present
  * //               Attribute: "READ_RECEIPT_REQUESTED" || "TLS" || "TLS_WRAPPED",
+ * //               IsInAddressList: {
+ * //                 Attribute: "RECIPIENT" || "MAIL_FROM" || "SENDER" || "FROM" || "TO" || "CC", // required
+ * //                 AddressLists: [ // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
  * //             },
  * //             Operator: "IS_TRUE" || "IS_FALSE", // required
  * //           },

@@ -6,11 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import {
-  UntagResourceRequest,
-  UntagResourceRequestFilterSensitiveLog,
-  UntagResourceResponse,
-} from "../models/models_0";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
 import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_json1_0";
 
 /**
@@ -88,7 +84,7 @@ export class UntagResourceCommand extends $Command
   })
   .s("MailManagerSvc", "UntagResource", {})
   .n("MailManagerClient", "UntagResourceCommand")
-  .f(UntagResourceRequestFilterSensitiveLog, void 0)
+  .f(void 0, void 0)
   .ser(se_UntagResourceCommand)
   .de(de_UntagResourceCommand)
   .build() {

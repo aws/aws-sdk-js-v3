@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import { CreateRelayRequest, CreateRelayRequestFilterSensitiveLog, CreateRelayResponse } from "../models/models_0";
+import { CreateRelayRequest, CreateRelayResponse } from "../models/models_0";
 import { de_CreateRelayCommand, se_CreateRelayCommand } from "../protocols/Aws_json1_0";
 
 /**
@@ -97,7 +97,7 @@ export class CreateRelayCommand extends $Command
   })
   .s("MailManagerSvc", "CreateRelay", {})
   .n("MailManagerClient", "CreateRelayCommand")
-  .f(CreateRelayRequestFilterSensitiveLog, void 0)
+  .f(void 0, void 0)
   .ser(se_CreateRelayCommand)
   .de(de_CreateRelayCommand)
   .build() {
