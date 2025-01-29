@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
+
+
+### Bug Fixes
+
+* **credential-provider-node:** handle string value `AWS_EC2_METADATA_DISABLED=false` ([#6823](https://github.com/aws/aws-sdk-js-v3/issues/6823)) ([9ad490a](https://github.com/aws/aws-sdk-js-v3/commit/9ad490a5cb2ae879828aed2827448388aa4db853))
+
+
+
+
+
 # [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
 
 **Note:** Version bump only for package @aws-sdk/credential-provider-node

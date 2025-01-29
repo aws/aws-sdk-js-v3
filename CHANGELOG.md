@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
+
+
+### Bug Fixes
+
+* **credential-provider-node:** handle string value `AWS_EC2_METADATA_DISABLED=false` ([#6823](https://github.com/aws/aws-sdk-js-v3/issues/6823)) ([9ad490a](https://github.com/aws/aws-sdk-js-v3/commit/9ad490a5cb2ae879828aed2827448388aa4db853))
+
+
+### Features
+
+* **client-bcm-pricing-calculator:** Added ConflictException error type in DeleteBillScenario, BatchDeleteBillScenarioCommitmentModification, BatchDeleteBillScenarioUsageModification, BatchUpdateBillScenarioUsageModification, and BatchUpdateBillScenarioCommitmentModification API operations. ([19c246d](https://github.com/aws/aws-sdk-js-v3/commit/19c246d79008707e4fb1fabad1b8a1b0035340c5))
+* **client-ecr-public:** Add support for Dualstack Endpoints ([5738642](https://github.com/aws/aws-sdk-js-v3/commit/573864258d198fb97e7ba86ab1bf3dd02686d85b))
+* **client-ecr:** Add support for Dualstack and Dualstack-with-FIPS Endpoints ([57276bb](https://github.com/aws/aws-sdk-js-v3/commit/57276bbe4489336d702aa0f670a575e37f1ea5a8))
+* **client-mailmanager:** This release includes a new feature for Amazon SES Mail Manager which allows customers to specify known addresses and domains and make use of those in traffic policies and rules actions to distinguish between known and unknown entries. ([eb80af4](https://github.com/aws/aws-sdk-js-v3/commit/eb80af4df0c9731f44f6bba50346f88dc088ad3b))
+* **client-s3:** Change the type of MpuObjectSize in CompleteMultipartUploadRequest from int to long. ([c7c525a](https://github.com/aws/aws-sdk-js-v3/commit/c7c525a07740d92e8c7925a5d0f19931baabb24a))
+* **client-transcribe-streaming:** This release adds support for AWS HealthScribe Streaming APIs within Amazon Transcribe. ([28bc36d](https://github.com/aws/aws-sdk-js-v3/commit/28bc36d09114461b3cdc2ac0a44f952ba5ab60f9))
+
+
+
+
+
 # [3.737.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.736.0...v3.737.0) (2025-01-28)
 
 

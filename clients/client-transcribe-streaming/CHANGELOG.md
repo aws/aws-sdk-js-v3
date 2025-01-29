@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
+
+
+### Features
+
+* **client-transcribe-streaming:** This release adds support for AWS HealthScribe Streaming APIs within Amazon Transcribe. ([28bc36d](https://github.com/aws/aws-sdk-js-v3/commit/28bc36d09114461b3cdc2ac0a44f952ba5ab60f9))
+
+
+
+
+
 # [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-transcribe-streaming
