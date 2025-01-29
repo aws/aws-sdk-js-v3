@@ -4,7 +4,22 @@ const path = require("path");
 
 const runTurbo = async (task, args, { apiSecret, apiEndpoint, apiSignatureKey } = {}) => {
   const command = ["turbo", "run", task, "--concurrency=100%", "--output-logs=hash-only"];
+
+  const cacheReadWriteKey = process.env.AWS_JSV3_TURBO_CACHE_BUILD_TYPE ?? "dev";
+
+  const cacheReadWrite = {
+    // Release is remote write-only.
+    // Every release has unique artifacts and should not read from the cache.
+    RELEASE: "--cache=local:,remote:w",
+    // preview is remote read/write
+    PREVIEW: "--cache=local:,remote:rw",
+    // dev is local read/write and remote read-only
+    dev: "--cache=local:rw,remote:r",
+  };
+
+  command.push(cacheReadWrite[cacheReadWriteKey]);
   command.push(...args);
+
   const turboRoot = path.join(__dirname, "..", "..");
 
   const turboEnv = {
@@ -18,9 +33,6 @@ const runTurbo = async (task, args, { apiSecret, apiEndpoint, apiSignatureKey } 
         TURBO_TOKEN: apiSecret,
         TURBO_TEAM: "aws-sdk-js",
       }),
-    ...(!process.env.CODEBUILD_BUILD_ARN && {
-      TURBO_REMOTE_CACHE_READ_ONLY: "1",
-    }),
   };
 
   try {
