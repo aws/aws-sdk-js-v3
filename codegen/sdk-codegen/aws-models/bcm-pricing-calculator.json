@@ -669,7 +669,7 @@
           "name": "CreateBillScenarioCommitmentModification",
           "documentation": "Grants permission to create new commitments or remove existing commitment from a specified bill scenario"
         },
-        "smithy.api#documentation": "<p>\n                        Create Compute Savings Plans, EC2 Instance Savings Plans, or EC2 Reserved Instances commitments that you want to model in a Bill Scenario.\n                </p>",
+        "smithy.api#documentation": "<p>\n                        Create Compute Savings Plans, EC2 Instance Savings Plans, or EC2 Reserved Instances commitments that you want to model in a Bill Scenario.\n                </p>\n         <note>\n            <p>The <code>BatchCreateBillScenarioCommitmentModification</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, \n                                include the permission <code>bcm-pricing-calculator:CreateBillScenarioCommitmentModification</code> in your policies.</p>\n         </note>",
         "smithy.api#idempotent": {}
       }
     },
@@ -897,7 +897,7 @@
           "name": "CreateBillScenarioUsageModification",
           "documentation": "Grants permission to create usage in the specified bill scenario"
         },
-        "smithy.api#documentation": "<p>\n                        Create Amazon Web Services service usage that you want to model in a Bill Scenario.\n                </p>",
+        "smithy.api#documentation": "<p>\n                        Create Amazon Web Services service usage that you want to model in a Bill Scenario.\n                </p>\n         <note>\n            <p>The <code>BatchCreateBillScenarioUsageModification</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, \n                                include the permission <code>bcm-pricing-calculator:CreateBillScenarioUsageModification</code> in your policies.</p>\n         </note>",
         "smithy.api#idempotent": {}
       }
     },
@@ -1202,7 +1202,7 @@
           "name": "CreateWorkloadEstimateUsage",
           "documentation": "Grants permission to create usage in the specified workload estimate"
         },
-        "smithy.api#documentation": "<p>\n                        Create Amazon Web Services service usage that you want to model in a Workload Estimate.\n                </p>",
+        "smithy.api#documentation": "<p>\n                        Create Amazon Web Services service usage that you want to model in a Workload Estimate.\n                </p>\n         <note>\n            <p>The <code>BatchCreateWorkloadEstimateUsage</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, \n                                include the permission <code>bcm-pricing-calculator:CreateWorkloadEstimateUsage</code> in your policies.</p>\n         </note>",
         "smithy.api#idempotent": {}
       }
     },
@@ -1497,6 +1497,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.bcmpricingcalculator#ConflictException"
+        },
+        {
           "target": "com.amazonaws.bcmpricingcalculator#DataUnavailableException"
         },
         {
@@ -1508,7 +1511,7 @@
           "name": "DeleteBillScenarioCommitmentModification",
           "documentation": "Grants permission to delete newly added commitments from the specified bill scenario"
         },
-        "smithy.api#documentation": "<p>\n                        Delete commitment that you have created in a Bill Scenario. You can only delete a commitment that you had \n                        added and cannot model deletion (or removal) of a existing commitment. If you want model deletion of an existing \n                        commitment, see the negate <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BillScenarioCommitmentModificationAction.html\">\n                                BillScenarioCommitmentModificationAction</a> of \n                        <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchCreateBillScenarioUsageModification.html\">\n                                BatchCreateBillScenarioCommitmentModification</a> operation.\n                </p>",
+        "smithy.api#documentation": "<p>\n                        Delete commitment that you have created in a Bill Scenario. You can only delete a commitment that you had \n                        added and cannot model deletion (or removal) of a existing commitment. If you want model deletion of an existing \n                        commitment, see the negate <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BillScenarioCommitmentModificationAction.html\">\n                                BillScenarioCommitmentModificationAction</a> of \n                        <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchCreateBillScenarioUsageModification.html\">\n                                BatchCreateBillScenarioCommitmentModification</a> operation.\n                </p>\n         <note>\n            <p>The <code>BatchDeleteBillScenarioCommitmentModification</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, \n                                include the permission <code>bcm-pricing-calculator:DeleteBillScenarioCommitmentModification</code> in your policies.</p>\n         </note>",
         "smithy.api#idempotent": {}
       }
     },
@@ -1625,6 +1628,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.bcmpricingcalculator#ConflictException"
+        },
+        {
           "target": "com.amazonaws.bcmpricingcalculator#DataUnavailableException"
         },
         {
@@ -1639,7 +1645,7 @@
           "name": "DeleteBillScenarioUsageModification",
           "documentation": "Grants permission to delete newly added usage from the specified bill scenario"
         },
-        "smithy.api#documentation": "<p>\n                        Delete usage that you have created in a Bill Scenario. You can only delete usage that you had added and cannot model \n                        deletion (or removal) of a existing usage. If you want model removal of an existing usage, see \n                        <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchUpdateBillScenarioUsageModification.html\">\n                                BatchUpdateBillScenarioUsageModification</a>.\n                </p>",
+        "smithy.api#documentation": "<p>\n                        Delete usage that you have created in a Bill Scenario. You can only delete usage that you had added and cannot model \n                        deletion (or removal) of a existing usage. If you want model removal of an existing usage, see \n                        <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchUpdateBillScenarioUsageModification.html\">\n                                BatchUpdateBillScenarioUsageModification</a>.\n                </p>\n         <note>\n            <p>The <code>BatchDeleteBillScenarioUsageModification</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, \n                                include the permission <code>bcm-pricing-calculator:DeleteBillScenarioUsageModification</code> in your policies.</p>\n         </note>",
         "smithy.api#idempotent": {}
       }
     },
@@ -1770,7 +1776,7 @@
           "name": "DeleteWorkloadEstimateUsage",
           "documentation": "Grants permission to delete newly added usage from the specified workload estimate"
         },
-        "smithy.api#documentation": "<p>\n                        Delete usage that you have created in a Workload estimate. You can only delete usage that you had added and cannot model deletion \n                        (or removal) of a existing usage. If you want model removal of an existing usage, see \n                        <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchUpdateWorkloadEstimateUsage.html\">\n                                BatchUpdateWorkloadEstimateUsage</a>.\n                </p>",
+        "smithy.api#documentation": "<p>\n                        Delete usage that you have created in a Workload estimate. You can only delete usage that you had added and cannot model deletion \n                        (or removal) of a existing usage. If you want model removal of an existing usage, see \n                        <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchUpdateWorkloadEstimateUsage.html\">\n                                BatchUpdateWorkloadEstimateUsage</a>.\n                </p>\n         <note>\n            <p>The <code>BatchDeleteWorkloadEstimateUsage</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, \n                                include the permission <code>bcm-pricing-calculator:DeleteWorkloadEstimateUsage</code> in your policies.</p>\n         </note>",
         "smithy.api#idempotent": {}
       }
     },
@@ -1864,6 +1870,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.bcmpricingcalculator#ConflictException"
+        },
+        {
           "target": "com.amazonaws.bcmpricingcalculator#DataUnavailableException"
         },
         {
@@ -1875,7 +1884,7 @@
           "name": "UpdateBillScenarioCommitmentModification",
           "documentation": "Grants permission to update commitment group of commitments in the specified bill scenario"
         },
-        "smithy.api#documentation": "<p>\n                        Update a newly added or existing commitment. You can update the commitment group based on a commitment ID and a Bill scenario ID.\n                </p>",
+        "smithy.api#documentation": "<p>\n                        Update a newly added or existing commitment. You can update the commitment group based on a commitment ID and a Bill scenario ID.\n                </p>\n         <note>\n            <p>The <code>BatchUpdateBillScenarioCommitmentModification</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, \n                                include the permission <code>bcm-pricing-calculator:UpdateBillScenarioCommitmentModification</code> in your policies.</p>\n         </note>",
         "smithy.api#idempotent": {}
       }
     },
@@ -2025,6 +2034,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.bcmpricingcalculator#ConflictException"
+        },
+        {
           "target": "com.amazonaws.bcmpricingcalculator#DataUnavailableException"
         },
         {
@@ -2039,7 +2051,7 @@
           "name": "UpdateBillScenarioUsageModification",
           "documentation": "Grants permission to update usage amount, usage hour, and usage group in the specified bill scenario"
         },
-        "smithy.api#documentation": "<p>\n                        Update a newly added or existing usage lines. You can update the usage amounts, usage hour, and usage group based on a usage ID and a Bill scenario ID.\n                </p>",
+        "smithy.api#documentation": "<p>\n                        Update a newly added or existing usage lines. You can update the usage amounts, usage hour, and usage group based on a usage ID and a Bill scenario ID.\n                </p>\n         <note>\n            <p>The <code>BatchUpdateBillScenarioUsageModification</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, \n                                include the permission <code>bcm-pricing-calculator:UpdateBillScenarioUsageModification</code> in your policies.</p>\n         </note>",
         "smithy.api#idempotent": {}
       }
     },
@@ -2209,7 +2221,7 @@
           "name": "UpdateWorkloadEstimateUsage",
           "documentation": "Grants permission to update usage amount and usage group in the specified workload estimate based on the usage id"
         },
-        "smithy.api#documentation": "<p>\n                        Update a newly added or existing usage lines. You can update the usage amounts and usage group based on a usage ID and a Workload estimate ID.\n                </p>",
+        "smithy.api#documentation": "<p>\n                        Update a newly added or existing usage lines. You can update the usage amounts and usage group based on a usage ID and a Workload estimate ID.\n                </p>\n         <note>\n            <p>The <code>BatchUpdateWorkloadEstimateUsage</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, \n                                include the permission <code>bcm-pricing-calculator:UpdateWorkloadEstimateUsage</code> in your policies.</p>\n         </note>",
         "smithy.api#idempotent": {}
       }
     },
@@ -3780,6 +3792,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.bcmpricingcalculator#ConflictException"
+        },
+        {
           "target": "com.amazonaws.bcmpricingcalculator#DataUnavailableException"
         }
       ],
@@ -4900,13 +4915,13 @@
         "createdAtFilter": {
           "target": "com.amazonaws.bcmpricingcalculator#FilterTimestamp",
           "traits": {
-            "smithy.api#documentation": "<p>\n                        Filter bill estimates based on their creation date.\n                </p>"
+            "smithy.api#documentation": "<p>\n                        Filter bill estimates based on the creation date.\n                </p>"
           }
         },
         "expiresAtFilter": {
           "target": "com.amazonaws.bcmpricingcalculator#FilterTimestamp",
           "traits": {
-            "smithy.api#documentation": "<p>\n                        Filter bill estimates based on their expiration date.\n                </p>"
+            "smithy.api#documentation": "<p>\n                        Filter bill estimates based on the expiration date.\n                </p>"
           }
         },
         "nextToken": {
@@ -5202,13 +5217,13 @@
         "createdAtFilter": {
           "target": "com.amazonaws.bcmpricingcalculator#FilterTimestamp",
           "traits": {
-            "smithy.api#documentation": "<p>\n                        Filter bill scenarios based on their creation date.\n                </p>"
+            "smithy.api#documentation": "<p>\n                        Filter bill scenarios based on the creation date.\n                </p>"
           }
         },
         "expiresAtFilter": {
           "target": "com.amazonaws.bcmpricingcalculator#FilterTimestamp",
           "traits": {
-            "smithy.api#documentation": "<p>\n                        Filter bill scenarios based on their expiration date.\n                </p>"
+            "smithy.api#documentation": "<p>\n                        Filter bill scenarios based on the expiration date.\n                </p>"
           }
         },
         "nextToken": {
@@ -5582,13 +5597,13 @@
         "createdAtFilter": {
           "target": "com.amazonaws.bcmpricingcalculator#FilterTimestamp",
           "traits": {
-            "smithy.api#documentation": "<p>\n                        Filter workload estimates based on their creation date.\n                </p>"
+            "smithy.api#documentation": "<p>\n                        Filter workload estimates based on the creation date.\n                </p>"
           }
         },
         "expiresAtFilter": {
           "target": "com.amazonaws.bcmpricingcalculator#FilterTimestamp",
           "traits": {
-            "smithy.api#documentation": "<p>\n                        Filter workload estimates based on their expiration date.\n                </p>"
+            "smithy.api#documentation": "<p>\n                        Filter workload estimates based on the expiration date.\n                </p>"
           }
         },
         "filters": {

@@ -49,6 +49,10 @@ export interface BatchDeleteBillScenarioCommitmentModificationCommandOutput
  *                         <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchCreateBillScenarioUsageModification.html">
  *                                 BatchCreateBillScenarioCommitmentModification</a> operation.
  *                 </p>
+ *          <note>
+ *             <p>The <code>BatchDeleteBillScenarioCommitmentModification</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals,
+ *                                 include the permission <code>bcm-pricing-calculator:DeleteBillScenarioCommitmentModification</code> in your policies.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,6 +84,11 @@ export interface BatchDeleteBillScenarioCommitmentModificationCommandOutput
  * @see {@link BatchDeleteBillScenarioCommitmentModificationCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteBillScenarioCommitmentModificationCommandOutput} for command's `response` shape.
  * @see {@link BCMPricingCalculatorClientResolvedConfig | config} for BCMPricingCalculatorClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>
+ *         The request could not be processed because of conflict in the current state of the resource.
+ *         </p>
  *
  * @throws {@link DataUnavailableException} (client fault)
  *  <p>

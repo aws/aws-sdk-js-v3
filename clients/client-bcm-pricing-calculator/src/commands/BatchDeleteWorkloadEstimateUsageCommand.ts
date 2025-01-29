@@ -43,6 +43,10 @@ export interface BatchDeleteWorkloadEstimateUsageCommandOutput
  *                         <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchUpdateWorkloadEstimateUsage.html">
  *                                 BatchUpdateWorkloadEstimateUsage</a>.
  *                 </p>
+ *          <note>
+ *             <p>The <code>BatchDeleteWorkloadEstimateUsage</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals,
+ *                                 include the permission <code>bcm-pricing-calculator:DeleteWorkloadEstimateUsage</code> in your policies.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1577,7 +1577,7 @@ export interface ListBillEstimatesRequest {
 
   /**
    * <p>
-   *                         Filter bill estimates based on their creation date.
+   *                         Filter bill estimates based on the creation date.
    *                 </p>
    * @public
    */
@@ -1585,7 +1585,7 @@ export interface ListBillEstimatesRequest {
 
   /**
    * <p>
-   *                         Filter bill estimates based on their expiration date.
+   *                         Filter bill estimates based on the expiration date.
    *                 </p>
    * @public
    */
@@ -2869,7 +2869,7 @@ export interface ListBillScenariosRequest {
 
   /**
    * <p>
-   *                         Filter bill scenarios based on their creation date.
+   *                         Filter bill scenarios based on the creation date.
    *                 </p>
    * @public
    */
@@ -2877,7 +2877,7 @@ export interface ListBillScenariosRequest {
 
   /**
    * <p>
-   *                         Filter bill scenarios based on their expiration date.
+   *                         Filter bill scenarios based on the expiration date.
    *                 </p>
    * @public
    */
@@ -3558,7 +3558,7 @@ export interface ListWorkloadEstimatesFilter {
 export interface ListWorkloadEstimatesRequest {
   /**
    * <p>
-   *                         Filter workload estimates based on their creation date.
+   *                         Filter workload estimates based on the creation date.
    *                 </p>
    * @public
    */
@@ -3566,7 +3566,7 @@ export interface ListWorkloadEstimatesRequest {
 
   /**
    * <p>
-   *                         Filter workload estimates based on their expiration date.
+   *                         Filter workload estimates based on the expiration date.
    *                 </p>
    * @public
    */

@@ -44,6 +44,10 @@ export interface BatchUpdateBillScenarioUsageModificationCommandOutput
  * <p>
  *                         Update a newly added or existing usage lines. You can update the usage amounts, usage hour, and usage group based on a usage ID and a Bill scenario ID.
  *                 </p>
+ *          <note>
+ *             <p>The <code>BatchUpdateBillScenarioUsageModification</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals,
+ *                                 include the permission <code>bcm-pricing-calculator:UpdateBillScenarioUsageModification</code> in your policies.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -167,6 +171,11 @@ export interface BatchUpdateBillScenarioUsageModificationCommandOutput
  * @see {@link BatchUpdateBillScenarioUsageModificationCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateBillScenarioUsageModificationCommandOutput} for command's `response` shape.
  * @see {@link BCMPricingCalculatorClientResolvedConfig | config} for BCMPricingCalculatorClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>
+ *         The request could not be processed because of conflict in the current state of the resource.
+ *         </p>
  *
  * @throws {@link DataUnavailableException} (client fault)
  *  <p>

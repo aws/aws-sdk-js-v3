@@ -44,6 +44,10 @@ export interface BatchCreateBillScenarioUsageModificationCommandOutput
  * <p>
  *                         Create Amazon Web Services service usage that you want to model in a Bill Scenario.
  *                 </p>
+ *          <note>
+ *             <p>The <code>BatchCreateBillScenarioUsageModification</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals,
+ *                                 include the permission <code>bcm-pricing-calculator:CreateBillScenarioUsageModification</code> in your policies.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
