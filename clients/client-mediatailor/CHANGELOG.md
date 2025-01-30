@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.739.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.738.0...v3.739.0) (2025-01-30)
+
+
+### Features
+
+* **client-mediatailor:** Adds options for configuring how MediaTailor conditions ads before inserting them into the content stream. Based on the new settings, MediaTailor will either transcode ads to match the content stream as it has in the past, or it will insert ads without first transcoding them. ([ebb8c7d](https://github.com/aws/aws-sdk-js-v3/commit/ebb8c7dbeae0828a9c060808c931700669699069))
+
+
+
+
+
 # [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
 
 **Note:** Version bump only for package @aws-sdk/client-mediatailor

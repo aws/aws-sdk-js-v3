@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.739.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.738.0...v3.739.0) (2025-01-30)
+
+
+### Features
+
+* **client-s3tables:** You can now use the CreateTable API operation to create tables with schemas by adding an optional metadata argument. ([7d53fdd](https://github.com/aws/aws-sdk-js-v3/commit/7d53fddec58338ebd755ff2049e9bc4951a4943e))
+
+
+
+
+
 # [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
 
 **Note:** Version bump only for package @aws-sdk/client-s3tables

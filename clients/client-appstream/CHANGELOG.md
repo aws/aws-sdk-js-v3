@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.739.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.738.0...v3.739.0) (2025-01-30)
+
+
+### Features
+
+* **client-appstream:** Add support for managing admin consent requirement on selected domains for OneDrive Storage Connectors in AppStream2.0. ([df094f5](https://github.com/aws/aws-sdk-js-v3/commit/df094f596238a1d45a25ff133659670d60d29fba))
+
+
+
+
+
 # [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
 
 **Note:** Version bump only for package @aws-sdk/client-appstream

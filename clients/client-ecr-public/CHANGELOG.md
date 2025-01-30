@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.739.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.738.0...v3.739.0) (2025-01-30)
+
+
+### Features
+
+* **client-ecr-public:** Temporarily updating dualstack endpoint support ([74067c7](https://github.com/aws/aws-sdk-js-v3/commit/74067c7aceaaf6a851a995b7d0a702d6254239b8))
+
+
+
+
+
 # [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
 
 

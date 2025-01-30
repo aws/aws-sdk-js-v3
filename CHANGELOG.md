@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.739.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.738.0...v3.739.0) (2025-01-30)
+
+
+### Features
+
+* **client-appstream:** Add support for managing admin consent requirement on selected domains for OneDrive Storage Connectors in AppStream2.0. ([df094f5](https://github.com/aws/aws-sdk-js-v3/commit/df094f596238a1d45a25ff133659670d60d29fba))
+* **client-bedrock-agent-runtime:** Add a 'reason' field to InternalServerException ([dd8bd77](https://github.com/aws/aws-sdk-js-v3/commit/dd8bd77c173175881f4069f1aba29ee1806c3ebe))
+* **client-ecr-public:** Temporarily updating dualstack endpoint support ([74067c7](https://github.com/aws/aws-sdk-js-v3/commit/74067c7aceaaf6a851a995b7d0a702d6254239b8))
+* **client-ecr:** Temporarily updating dualstack endpoint support ([0f29c7b](https://github.com/aws/aws-sdk-js-v3/commit/0f29c7b3769f459b76ebacb7ef13ffc4242bcecf))
+* **client-mediatailor:** Adds options for configuring how MediaTailor conditions ads before inserting them into the content stream. Based on the new settings, MediaTailor will either transcode ads to match the content stream as it has in the past, or it will insert ads without first transcoding them. ([ebb8c7d](https://github.com/aws/aws-sdk-js-v3/commit/ebb8c7dbeae0828a9c060808c931700669699069))
+* **client-qbusiness:** Added APIs to manage QBusiness user subscriptions ([5da8835](https://github.com/aws/aws-sdk-js-v3/commit/5da88350ca483a26ec22a58df815419c54230a74))
+* **client-s3tables:** You can now use the CreateTable API operation to create tables with schemas by adding an optional metadata argument. ([7d53fdd](https://github.com/aws/aws-sdk-js-v3/commit/7d53fddec58338ebd755ff2049e9bc4951a4943e))
+* **client-verifiedpermissions:** Adds Cedar JSON format support for entities and context data in authorization requests ([46d4d66](https://github.com/aws/aws-sdk-js-v3/commit/46d4d66bde04efbcaf7472e98d1118f34a9316ce))
+* **clients:** update client endpoints as of 2025-01-30 ([5b4765b](https://github.com/aws/aws-sdk-js-v3/commit/5b4765b9fb5f74b530532b03187ee37c06701be3))
+
+
+
+
+
 # [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.739.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.738.0...v3.739.0) (2025-01-30)
+
+
+### Features
+
+* **client-qbusiness:** Added APIs to manage QBusiness user subscriptions ([5da8835](https://github.com/aws/aws-sdk-js-v3/commit/5da88350ca483a26ec22a58df815419c54230a74))
+
+
+
+
+
 # [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
 
 **Note:** Version bump only for package @aws-sdk/client-qbusiness

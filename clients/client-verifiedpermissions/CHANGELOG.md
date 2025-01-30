@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.739.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.738.0...v3.739.0) (2025-01-30)
+
+
+### Features
+
+* **client-verifiedpermissions:** Adds Cedar JSON format support for entities and context data in authorization requests ([46d4d66](https://github.com/aws/aws-sdk-js-v3/commit/46d4d66bde04efbcaf7472e98d1118f34a9316ce))
+
+
+
+
+
 # [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
 
 **Note:** Version bump only for package @aws-sdk/client-verifiedpermissions
