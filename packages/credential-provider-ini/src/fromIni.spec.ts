@@ -72,4 +72,55 @@ describe(fromIni.name, () => {
       mockInitWithParentClientConfig
     );
   });
+
+  describe("ignoreCache option", () => {
+    it("passes ignoreCache option to parseKnownFiles when true", async () => {
+      const initWithIgnoreCache = { ...mockInit, ignoreCache: true };
+      const expectedInitWithParentClientConfig = {
+        ...mockInitWithParentClientConfig,
+        ignoreCache: true,
+      };
+
+      await fromIni(initWithIgnoreCache)();
+
+      expect(parseKnownFiles).toHaveBeenCalledWith(expectedInitWithParentClientConfig);
+    });
+
+    it("passes ignoreCache option to parseKnownFiles when false", async () => {
+      const initWithIgnoreCache = { ...mockInit, ignoreCache: false };
+      const expectedInitWithParentClientConfig = {
+        ...mockInitWithParentClientConfig,
+        ignoreCache: false,
+      };
+
+      await fromIni(initWithIgnoreCache)();
+
+      expect(parseKnownFiles).toHaveBeenCalledWith(expectedInitWithParentClientConfig);
+    });
+
+    it("does not pass ignoreCache when option is undefined", async () => {
+      await fromIni(mockInit)();
+
+      expect(parseKnownFiles).toHaveBeenCalledWith(mockInitWithParentClientConfig);
+      expect(mockInitWithParentClientConfig).not.toHaveProperty("ignoreCache");
+    });
+
+    it("preserves ignoreCache when merging with callerClientConfig", async () => {
+      const initWithIgnoreCache = { ...mockInit, ignoreCache: true };
+      const callerConfig = {
+        profile: "otherProfile",
+        region: async () => "us-east-1",
+      };
+
+      await fromIni(initWithIgnoreCache)({ callerClientConfig: callerConfig });
+
+      expect(parseKnownFiles).toHaveBeenCalledWith(
+        expect.objectContaining({
+          ignoreCache: true,
+          profile: mockProfileName,
+          parentClientConfig: expect.objectContaining(callerConfig),
+        })
+      );
+    });
+  });
 });

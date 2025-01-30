@@ -47,6 +47,12 @@ export interface FromIniInit extends SourceProfileInit, CredentialProviderOption
   clientConfig?: any;
 
   clientPlugins?: Pluggable<any, any>[];
+
+  /**
+   * When true, always reload credentials from the file system instead of using cached values.
+   * This is useful when you need to detect changes to the credentials file.
+   */
+  ignoreCache?: boolean;
 }
 
 /**

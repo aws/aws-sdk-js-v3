@@ -151,6 +151,60 @@ const client = new S3Client({
 });
 ```
 
+#### Enabling uncached/refreshed credentials in `fromIni` credential provider
+
+`fromIni` credential provider accepts a boolean `ignoreCache` value which when true, always reloads credentials from the file system instead of using cached values. This is useful when you need to detect changes to the credentials file.
+
+Note: For temporary credentials that need regular refreshing, consider using `fromTemporaryCredentials` instead.
+
+Using ignoreCache with an S3 client:
+
+```typescript
+import { S3Client } from "@aws-sdk/client-s3";
+import { fromIni } from "@aws-sdk/credential-provider-ini";
+
+// Create client with credentials that will reload from file
+const client = new S3Client({
+  credentials: fromIni({ ignoreCache: true })
+ });
+ ```
+
+Refreshing credentials for an existing client:
+```typescript
+import { S3Client } from "@aws-sdk/client-s3";
+import { fromIni } from "@aws-sdk/credential-provider-ini";
+
+// Initial client setup
+const client = new S3Client({
+  credentials: fromIni({ ignoreCache: true })
+});
+
+// To refresh credentials later:
+async function refreshClientCredentials() {
+  const credProvider = fromIni({ ignoreCache: true });
+  // Get fresh credentials and update the client
+  const freshCredentials = await credProvider();
+  client.config.credentials = freshCredentials;
+}
+```
+
+For temporary credentials:
+```typescript
+import { fromTemporaryCredentials } from "@aws-sdk/credential-provider-ini";
+
+// Better approach for temporary credentials that need regular refreshing
+const client = new S3Client({
+  credentials: fromTemporaryCredentials({
+  // your temporary credentials config
+    })
+  });
+```
+
+- When using with AWS clients, the credential provider function is handled automatically.
+- For temporary credentials that need regular refreshing, `fromTemporaryCredentials` is recommended over manual refresh with `ignoreCache`.
+- Creating a new client instance ensures fresh credentials.
+
+
 ### AWS Profile `profile`
 
 Available since [v3.714.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.714.0).
