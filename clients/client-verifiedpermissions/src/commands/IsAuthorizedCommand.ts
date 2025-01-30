@@ -96,6 +96,7 @@ export interface IsAuthorizedCommandOutput extends IsAuthorizedOutput, __Metadat
  *         decimal: "STRING_VALUE",
  *       },
  *     },
+ *     cedarJson: "STRING_VALUE",
  *   },
  *   entities: { // EntitiesDefinition Union: only one key present
  *     entityList: [ // EntityList
@@ -109,6 +110,7 @@ export interface IsAuthorizedCommandOutput extends IsAuthorizedOutput, __Metadat
  *         ],
  *       },
  *     ],
+ *     cedarJson: "STRING_VALUE",
  *   },
  * };
  * const command = new IsAuthorizedCommand(input);

@@ -110,6 +110,7 @@ export interface BatchIsAuthorizedCommandOutput extends BatchIsAuthorizedOutput,
  *         ],
  *       },
  *     ],
+ *     cedarJson: "STRING_VALUE",
  *   },
  *   requests: [ // BatchIsAuthorizedInputList // required
  *     { // BatchIsAuthorizedInputItem
@@ -123,6 +124,7 @@ export interface BatchIsAuthorizedCommandOutput extends BatchIsAuthorizedOutput,
  *         contextMap: { // ContextMap
  *           "<keys>": "<AttributeValue>",
  *         },
+ *         cedarJson: "STRING_VALUE",
  *       },
  *     },
  *   ],
@@ -178,6 +180,7 @@ export interface BatchIsAuthorizedCommandOutput extends BatchIsAuthorizedOutput,
  * //               decimal: "STRING_VALUE",
  * //             },
  * //           },
+ * //           cedarJson: "STRING_VALUE",
  * //         },
  * //       },
  * //       decision: "ALLOW" || "DENY", // required

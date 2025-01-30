@@ -1334,6 +1334,7 @@ const se_BatchIsAuthorizedWithTokenInputList = (
  */
 const se_ContextDefinition = (input: ContextDefinition, context: __SerdeContext): any => {
   return ContextDefinition.visit(input, {
+    cedarJson: (value) => ({ cedarJson: value }),
     contextMap: (value) => ({ contextMap: se_ContextMap(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
@@ -1411,6 +1412,7 @@ const se_CreatePolicyTemplateInput = (input: CreatePolicyTemplateInput, context:
  */
 const se_EntitiesDefinition = (input: EntitiesDefinition, context: __SerdeContext): any => {
   return EntitiesDefinition.visit(input, {
+    cedarJson: (value) => ({ cedarJson: value }),
     entityList: (value) => ({ entityList: se_EntityList(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
@@ -1791,6 +1793,9 @@ const de_BatchIsAuthorizedWithTokenOutputList = (
  * deserializeAws_json1_0ContextDefinition
  */
 const de_ContextDefinition = (output: any, context: __SerdeContext): ContextDefinition => {
+  if (__expectString(output.cedarJson) !== undefined) {
+    return { cedarJson: __expectString(output.cedarJson) as any };
+  }
   if (output.contextMap != null) {
     return {
       contextMap: de_ContextMap(output.contextMap, context),

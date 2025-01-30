@@ -77,12 +77,14 @@ export interface EntityIdentifier {
 }
 
 /**
- * <p>Information about a policy that you include in a <code>BatchGetPolicy</code> API request.</p>
+ * <p>Information about a policy that you include in a <code>BatchGetPolicy</code> API
+ *             request.</p>
  * @public
  */
 export interface BatchGetPolicyInputItem {
   /**
-   * <p>The identifier of the policy store where the policy you want information about is stored.</p>
+   * <p>The identifier of the policy store where the policy you want information about is
+   *             stored.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -120,7 +122,8 @@ export const BatchGetPolicyErrorCode = {
 export type BatchGetPolicyErrorCode = (typeof BatchGetPolicyErrorCode)[keyof typeof BatchGetPolicyErrorCode];
 
 /**
- * <p>Contains the information about an error resulting from a <code>BatchGetPolicy</code> API call.</p>
+ * <p>Contains the information about an error resulting from a <code>BatchGetPolicy</code>
+ *             API call.</p>
  * @public
  */
 export interface BatchGetPolicyErrorItem {
@@ -171,7 +174,8 @@ export interface StaticPolicyDefinitionDetail {
 }
 
 /**
- * <p>Contains information about a policy that was created by instantiating a policy template. </p>
+ * <p>Contains information about a policy that was created by instantiating a policy
+ *             template. </p>
  * @public
  */
 export interface TemplateLinkedPolicyDefinitionDetail {
@@ -270,12 +274,14 @@ export const PolicyType = {
 export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
 
 /**
- * <p>Contains information about a policy returned from a <code>BatchGetPolicy</code> API request.</p>
+ * <p>Contains information about a policy returned from a <code>BatchGetPolicy</code> API
+ *             request.</p>
  * @public
  */
 export interface BatchGetPolicyOutputItem {
   /**
-   * <p>The identifier of the policy store where the policy you want information about is stored.</p>
+   * <p>The identifier of the policy store where the policy you want information about is
+   *             stored.</p>
    * @public
    */
   policyStoreId: string | undefined;
@@ -640,7 +646,7 @@ export interface CognitoGroupConfiguration {
  * <p>The type of entity that a policy store maps to groups from an Amazon Cognito user
  *             pool identity source.</p>
  *          <p>This data type is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfigurationItem.html">CognitoUserPoolConfigurationDetail</a> structure and is a response parameter to
- *             <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
+ *                 <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
  * @public
  */
 export interface CognitoGroupConfigurationDetail {
@@ -656,7 +662,7 @@ export interface CognitoGroupConfigurationDetail {
  * <p>The type of entity that a policy store maps to groups from an Amazon Cognito user
  *             pool identity source.</p>
  *          <p>This data type is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfigurationDetail.html">CognitoUserPoolConfigurationItem</a> structure and is a response parameter to
- *             <a href="http://forums.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
+ *                 <a href="http://forums.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
  * @public
  */
 export interface CognitoGroupConfigurationItem {
@@ -674,7 +680,8 @@ export interface CognitoGroupConfigurationItem {
  *          <p>This data type part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a> structure that is
  *             used as a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>.</p>
  *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
- *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}</code>
+ *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType":
+ *                 "MyCorp::Group"\}\}</code>
  *          </p>
  * @public
  */
@@ -709,10 +716,11 @@ export interface CognitoUserPoolConfiguration {
 /**
  * <p>The configuration for an identity source that represents a connection to an Amazon Cognito user pool used
  *             as an identity provider for Verified Permissions.</p>
- *          <p>This data type is used as a field that is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a> structure that is
- *             part of the response to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
+ *          <p>This data type is used as a field that is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a>
+ *             structure that is part of the response to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
  *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
- *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}</code>
+ *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType":
+ *                 "MyCorp::Group"\}\}</code>
  *          </p>
  * @public
  */
@@ -721,7 +729,7 @@ export interface CognitoUserPoolConfigurationDetail {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool that contains the identities to be
    *             authorized.</p>
    *          <p>Example: <code>"userPoolArn":
-   *             "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</code>
+   *                 "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</code>
    *          </p>
    * @public
    */
@@ -737,10 +745,10 @@ export interface CognitoUserPoolConfigurationDetail {
   clientIds: string[] | undefined;
 
   /**
-   * <p>The OpenID Connect (OIDC) <code>issuer</code> ID of the Amazon Cognito user pool that contains the identities to be
-   *             authorized.</p>
+   * <p>The OpenID Connect (OIDC) <code>issuer</code> ID of the Amazon Cognito user pool that contains
+   *             the identities to be authorized.</p>
    *          <p>Example: <code>"issuer":
-   *             "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_1a2b3c4d5"</code>
+   *                 "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_1a2b3c4d5"</code>
    *          </p>
    * @public
    */
@@ -757,10 +765,11 @@ export interface CognitoUserPoolConfigurationDetail {
 /**
  * <p>The configuration for an identity source that represents a connection to an Amazon Cognito user pool used
  *             as an identity provider for Verified Permissions.</p>
- *          <p>This data type is used as a field that is part of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationItem.html">ConfigurationItem</a> structure that is
- *             part of the response to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
+ *          <p>This data type is used as a field that is part of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationItem.html">ConfigurationItem</a> structure
+ *             that is part of the response to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
  *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
- *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}</code>
+ *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType":
+ *                 "MyCorp::Group"\}\}</code>
  *          </p>
  * @public
  */
@@ -769,7 +778,7 @@ export interface CognitoUserPoolConfigurationItem {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool that contains the identities to be
    *             authorized.</p>
    *          <p>Example: <code>"userPoolArn":
-   *             "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</code>
+   *                 "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</code>
    *          </p>
    * @public
    */
@@ -785,10 +794,10 @@ export interface CognitoUserPoolConfigurationItem {
   clientIds: string[] | undefined;
 
   /**
-   * <p>The OpenID Connect (OIDC) <code>issuer</code> ID of the Amazon Cognito user pool that contains the identities to be
-   *             authorized.</p>
+   * <p>The OpenID Connect (OIDC) <code>issuer</code> ID of the Amazon Cognito user pool that contains
+   *             the identities to be authorized.</p>
    *          <p>Example: <code>"issuer":
-   *             "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_1a2b3c4d5"</code>
+   *                 "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_1a2b3c4d5"</code>
    *          </p>
    * @public
    */
@@ -942,8 +951,8 @@ export namespace OpenIdConnectTokenSelection {
  *          identity source, that Verified Permissions can use to generate entities from authenticated identities. It
  *          specifies the issuer URL, token type that you want to use, and policy store entity
  *          details.</p>
- *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a> structure, which is a
- *             parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a> structure, which
+ *             is a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>.</p>
  * @public
  */
 export interface OpenIdConnectConfiguration {
@@ -1001,7 +1010,8 @@ export namespace Configuration {
    *             and one or more application client IDs.</p>
    *          <p>Example:
    *                 <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
-   *                     ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}\}</code>
+   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType":
+   *                 "MyCorp::Group"\}\}\}</code>
    *          </p>
    * @public
    */
@@ -1099,9 +1109,9 @@ export interface OpenIdConnectAccessTokenConfigurationDetail {
 }
 
 /**
- * <p>The configuration of an OpenID Connect (OIDC) identity source for handling identity (ID)
- *             token claims. Contains the claim that you want to identify as the principal in an
- *             authorization request, and the values of the  <code>aud</code> claim, or audiences, that
+ * <p>The configuration of an OpenID Connect (OIDC) identity source for handling identity
+ *             (ID) token claims. Contains the claim that you want to identify as the principal in an
+ *             authorization request, and the values of the <code>aud</code> claim, or audiences, that
  *             you want to accept.</p>
  *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_OpenIdConnectTokenSelectionDetail.html">OpenIdConnectTokenSelectionDetail</a> structure, which is a parameter of <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
  * @public
@@ -1190,8 +1200,8 @@ export namespace OpenIdConnectTokenSelectionDetail {
  *          identity source, that Verified Permissions can use to generate entities from authenticated identities. It
  *          specifies the issuer URL, token type that you want to use, and policy store entity
  *          details.</p>
- *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a> structure,
- *             which is a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a>
+ *             structure, which is a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
  * @public
  */
 export interface OpenIdConnectConfigurationDetail {
@@ -1246,11 +1256,12 @@ export namespace ConfigurationDetail {
   /**
    * <p>Contains configuration details of a Amazon Cognito user pool that Verified Permissions can use as a source of
    *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool,
-   *             the policy store entity that you want to assign to user groups,
-   *             and one or more application client IDs.</p>
+   *             the policy store entity that you want to assign to user groups, and one or more
+   *             application client IDs.</p>
    *          <p>Example:
-   *             <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
-   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}\}</code>
+   *                 <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
+   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType":
+   *                 "MyCorp::Group"\}\}\}</code>
    *          </p>
    * @public
    */
@@ -1348,9 +1359,9 @@ export interface OpenIdConnectAccessTokenConfigurationItem {
 }
 
 /**
- * <p>The configuration of an OpenID Connect (OIDC) identity source for handling identity (ID)
- *             token claims. Contains the claim that you want to identify as the principal in an
- *             authorization request, and the values of the  <code>aud</code> claim, or audiences, that
+ * <p>The configuration of an OpenID Connect (OIDC) identity source for handling identity
+ *             (ID) token claims. Contains the claim that you want to identify as the principal in an
+ *             authorization request, and the values of the <code>aud</code> claim, or audiences, that
  *             you want to accept.</p>
  *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_OpenIdConnectTokenSelectionItem.html">OpenIdConnectTokenSelectionItem</a> structure, which is a parameter of <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
  * @public
@@ -1439,8 +1450,8 @@ export namespace OpenIdConnectTokenSelectionItem {
  *          identity source, that Verified Permissions can use to generate entities from authenticated identities. It
  *          specifies the issuer URL, token type that you want to use, and policy store entity
  *          details.</p>
- *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationItem</a> structure,
- *             which is a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationItem</a>
+ *             structure, which is a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
  * @public
  */
 export interface OpenIdConnectConfigurationItem {
@@ -1495,11 +1506,12 @@ export namespace ConfigurationItem {
   /**
    * <p>Contains configuration details of a Amazon Cognito user pool that Verified Permissions can use as a source of
    *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool,
-   *             the policy store entity that you want to assign to user groups,
-   *             and one or more application client IDs.</p>
+   *             the policy store entity that you want to assign to user groups, and one or more
+   *             application client IDs.</p>
    *          <p>Example:
-   *             <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
-   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}\}</code>
+   *                 <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
+   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType":
+   *                 "MyCorp::Group"\}\}\}</code>
    *          </p>
    * @public
    */
@@ -2315,8 +2327,8 @@ export type OpenIdIssuer = (typeof OpenIdIssuer)[keyof typeof OpenIdIssuer];
 
 /**
  * <p>A structure that contains configuration of the identity source.</p>
- *          <p>This data type was a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>
- *             operation. Replaced by <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a>.</p>
+ *          <p>This data type was a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a> operation.
+ *             Replaced by <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a>.</p>
  *
  * @deprecated This shape has been replaced by ConfigurationDetail
  * @public
@@ -2845,8 +2857,7 @@ export interface ListIdentitySourcesOutput {
 }
 
 /**
- * <p>The user group entities from an Amazon Cognito user pool identity
- *             source.</p>
+ * <p>The user group entities from an Amazon Cognito user pool identity source.</p>
  * @public
  */
 export interface UpdateCognitoGroupConfiguration {
@@ -3024,8 +3035,8 @@ export namespace UpdateOpenIdConnectTokenSelection {
  *          identity source, that Verified Permissions can use to generate entities from authenticated identities. It
  *          specifies the issuer URL, token type that you want to use, and policy store entity
  *          details.</p>
- *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdateConfiguration.html">UpdateConfiguration</a> structure,
- *             which is a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdateIdentitySource.html">UpdateIdentitySource</a>.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdateConfiguration.html">UpdateConfiguration</a>
+ *             structure, which is a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdateIdentitySource.html">UpdateIdentitySource</a>.</p>
  * @public
  */
 export interface UpdateOpenIdConnectConfiguration {
@@ -3063,8 +3074,7 @@ export interface UpdateOpenIdConnectConfiguration {
 }
 
 /**
- * <p>Contains an update to replace the configuration in an existing
- *             identity source.</p>
+ * <p>Contains an update to replace the configuration in an existing identity source.</p>
  * @public
  */
 export type UpdateConfiguration =
@@ -4014,8 +4024,8 @@ export type SchemaDefinition = SchemaDefinition.CedarJsonMember | SchemaDefiniti
 export namespace SchemaDefinition {
   /**
    * <p>A JSON string representation of the schema supported by applications that use this
-   *             policy store. To delete the schema, run <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PutSchema.html">PutSchema</a> with <code>\{\}</code> for this parameter.
-   *             For more information, see <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html">Policy store schema</a> in the
+   *             policy store. To delete the schema, run <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PutSchema.html">PutSchema</a> with <code>\{\}</code> for
+   *             this parameter. For more information, see <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html">Policy store schema</a> in the
    *                 <i>Amazon Verified Permissions User Guide</i>.</p>
    * @public
    */
@@ -4281,7 +4291,8 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-ipaddr">ipaddr</a> type.</p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-ipaddr">ipaddr</a>
+   *             type.</p>
    *          <p>Example: <code>\{"ip": "192.168.1.100"\}</code>
    *          </p>
    * @public
@@ -4362,12 +4373,19 @@ export namespace AttributeValue {
  *                 <code>unless</code> clauses in a policy.</p>
  *          <p>This data type is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>
  *             operations.</p>
+ *          <p>If you're passing context as part of the request, exactly one instance of
+ *             <code>context</code> must be passed. If you don't want to pass context, omit the
+ *                 <code>context</code> parameter from your request rather than sending <code>context
+ *                 \{\}</code>.</p>
  *          <p>Example:
  *                 <code>"context":\{"contextMap":\{"&lt;KeyName1&gt;":\{"boolean":true\},"&lt;KeyName2&gt;":\{"long":1234\}\}\}</code>
  *          </p>
  * @public
  */
-export type ContextDefinition = ContextDefinition.ContextMapMember | ContextDefinition.$UnknownMember;
+export type ContextDefinition =
+  | ContextDefinition.CedarJsonMember
+  | ContextDefinition.ContextMapMember
+  | ContextDefinition.$UnknownMember;
 
 /**
  * @public
@@ -4384,6 +4402,21 @@ export namespace ContextDefinition {
    */
   export interface ContextMapMember {
     contextMap: Record<string, AttributeValue>;
+    cedarJson?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Cedar JSON string representation of the context needed to successfully evaluate an authorization
+   *             request.</p>
+   *          <p>Example:
+   *             <code>\{"cedarJson":"\{\"&lt;KeyName1&gt;\": true, \"&lt;KeyName2&gt;\": 1234\}" \}</code>
+   *          </p>
+   * @public
+   */
+  export interface CedarJsonMember {
+    contextMap?: never;
+    cedarJson: string;
     $unknown?: never;
   }
 
@@ -4392,16 +4425,19 @@ export namespace ContextDefinition {
    */
   export interface $UnknownMember {
     contextMap?: never;
+    cedarJson?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     contextMap: (value: Record<string, AttributeValue>) => T;
+    cedarJson: (value: string) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ContextDefinition, visitor: Visitor<T>): T => {
     if (value.contextMap !== undefined) return visitor.contextMap(value.contextMap);
+    if (value.cedarJson !== undefined) return visitor.cedarJson(value.cedarJson);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -4486,14 +4522,14 @@ export interface BatchIsAuthorizedInputItem {
 export interface BatchIsAuthorizedWithTokenInputItem {
   /**
    * <p>Specifies the requested action to be authorized. For example,
-   *             <code>PhotoFlash::ReadPhoto</code>.</p>
+   *                 <code>PhotoFlash::ReadPhoto</code>.</p>
    * @public
    */
   action?: ActionIdentifier | undefined;
 
   /**
    * <p>Specifies the resource that you want an authorization decision for. For example,
-   *             <code>PhotoFlash::Photo</code>.</p>
+   *                 <code>PhotoFlash::Photo</code>.</p>
    * @public
    */
   resource?: EntityIdentifier | undefined;
@@ -4545,8 +4581,8 @@ export interface BatchIsAuthorizedOutputItem {
 }
 
 /**
- * <p>The decision, based on policy evaluation, from an individual authorization request in a
- *             <code>BatchIsAuthorizedWithToken</code> API request.</p>
+ * <p>The decision, based on policy evaluation, from an individual authorization request in
+ *             a <code>BatchIsAuthorizedWithToken</code> API request.</p>
  * @public
  */
 export interface BatchIsAuthorizedWithTokenOutputItem {
@@ -4557,25 +4593,26 @@ export interface BatchIsAuthorizedWithTokenOutputItem {
   request: BatchIsAuthorizedWithTokenInputItem | undefined;
 
   /**
-   * <p>An authorization decision that indicates if the authorization request should be allowed
-   *             or denied.</p>
+   * <p>An authorization decision that indicates if the authorization request should be
+   *             allowed or denied.</p>
    * @public
    */
   decision: Decision | undefined;
 
   /**
    * <p>The list of determining policies used to make the authorization decision. For example,
-   *             if there are two matching policies, where one is a forbid and the other is a permit, then
-   *             the forbid policy will be the determining policy. In the case of multiple matching permit
-   *             policies then there would be multiple determining policies. In the case that no policies
-   *             match, and hence the response is DENY, there would be no determining policies.</p>
+   *             if there are two matching policies, where one is a forbid and the other is a permit,
+   *             then the forbid policy will be the determining policy. In the case of multiple matching
+   *             permit policies then there would be multiple determining policies. In the case that no
+   *             policies match, and hence the response is DENY, there would be no determining
+   *             policies.</p>
    * @public
    */
   determiningPolicies: DeterminingPolicyItem[] | undefined;
 
   /**
-   * <p>Errors that occurred while making an authorization decision. For example, a policy might
-   *             reference an entity or attribute that doesn't exist in the request.</p>
+   * <p>Errors that occurred while making an authorization decision. For example, a policy
+   *             might reference an entity or attribute that doesn't exist in the request.</p>
    * @public
    */
   errors: EvaluationErrorItem[] | undefined;
@@ -4589,7 +4626,10 @@ export interface BatchIsAuthorizedWithTokenOutputItem {
  *             and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
  * @public
  */
-export type EntitiesDefinition = EntitiesDefinition.EntityListMember | EntitiesDefinition.$UnknownMember;
+export type EntitiesDefinition =
+  | EntitiesDefinition.CedarJsonMember
+  | EntitiesDefinition.EntityListMember
+  | EntitiesDefinition.$UnknownMember;
 
 /**
  * @public
@@ -4599,10 +4639,29 @@ export namespace EntitiesDefinition {
    * <p>An array of entities that are needed to successfully evaluate an authorization
    *             request. Each entity in this array must include an identifier for the entity, the
    *             attributes of the entity, and a list of any parent entities.</p>
+   *          <note>
+   *             <p>If you include multiple entities with the same <code>identifier</code>, only the
+   *                 last one is processed in the request.</p>
+   *          </note>
    * @public
    */
   export interface EntityListMember {
     entityList: EntityItem[];
+    cedarJson?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Cedar JSON string representation of the entities needed to successfully evaluate an authorization
+   *             request.</p>
+   *          <p>Example:
+   *             <code>\{"cedarJson": "[\{\"uid\":\{\"type\":\"Photo\",\"id\":\"VacationPhoto94.jpg\"\},\"attrs\":\{\"accessLevel\":\"public\"\},\"parents\":[]\}]"\}</code>
+   *          </p>
+   * @public
+   */
+  export interface CedarJsonMember {
+    entityList?: never;
+    cedarJson: string;
     $unknown?: never;
   }
 
@@ -4611,16 +4670,19 @@ export namespace EntitiesDefinition {
    */
   export interface $UnknownMember {
     entityList?: never;
+    cedarJson?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     entityList: (value: EntityItem[]) => T;
+    cedarJson: (value: string) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: EntitiesDefinition, visitor: Visitor<T>): T => {
     if (value.entityList !== undefined) return visitor.entityList(value.entityList);
+    if (value.cedarJson !== undefined) return visitor.cedarJson(value.cedarJson);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -5727,6 +5789,7 @@ export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => {
  */
 export const ContextDefinitionFilterSensitiveLog = (obj: ContextDefinition): any => {
   if (obj.contextMap !== undefined) return { contextMap: SENSITIVE_STRING };
+  if (obj.cedarJson !== undefined) return { cedarJson: SENSITIVE_STRING };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -5794,6 +5857,7 @@ export const BatchIsAuthorizedWithTokenOutputItemFilterSensitiveLog = (
 export const EntitiesDefinitionFilterSensitiveLog = (obj: EntitiesDefinition): any => {
   if (obj.entityList !== undefined)
     return { entityList: obj.entityList.map((item) => EntityItemFilterSensitiveLog(item)) };
+  if (obj.cedarJson !== undefined) return { cedarJson: SENSITIVE_STRING };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 

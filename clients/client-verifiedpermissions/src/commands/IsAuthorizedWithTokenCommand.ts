@@ -102,6 +102,7 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  *         decimal: "STRING_VALUE",
  *       },
  *     },
+ *     cedarJson: "STRING_VALUE",
  *   },
  *   entities: { // EntitiesDefinition Union: only one key present
  *     entityList: [ // EntityList
@@ -115,6 +116,7 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  *         ],
  *       },
  *     ],
+ *     cedarJson: "STRING_VALUE",
  *   },
  * };
  * const command = new IsAuthorizedWithTokenCommand(input);
