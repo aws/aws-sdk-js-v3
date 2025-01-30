@@ -171,7 +171,7 @@ const client = new S3Client({
 
 For temporary credentials:
 
-You can use the `fromTemporaryCredentials` provider that creates a credential provider function that retrieves temporary credentials from STS AssumeRole API.
+You can use the `fromTemporaryCredentials` provider that creates a credential provider function that retrieves temporary credentials from STS AssumeRole API. Depending on your use-case, this might be the preferred way to use temporary credentials, as compared to having a `.ini` file with `ignoreCache` (that will utilize filesystem operations) set to true.
 
 ```typescript
 import { fromTemporaryCredentials } from "@aws-sdk/credential-providers";
