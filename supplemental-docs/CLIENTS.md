@@ -161,7 +161,7 @@ Using ignoreCache with an S3 client:
 
 ```typescript
 import { S3Client } from "@aws-sdk/client-s3";
-import { fromIni } from "@aws-sdk/credential-provider-ini";
+import { fromIni } from "@aws-sdk/credential-providers";
 
 // Create client with credentials that will reload from file
 const client = new S3Client({
@@ -173,7 +173,7 @@ Refreshing credentials for an existing client:
 
 ```typescript
 import { S3Client } from "@aws-sdk/client-s3";
-import { fromIni } from "@aws-sdk/credential-provider-ini";
+import { fromIni } from "@aws-sdk/credential-providers";
 
 // Initial client setup
 const client = new S3Client({
@@ -190,6 +190,8 @@ async function refreshClientCredentials() {
 ```
 
 For temporary credentials:
+
+You can use the `fromTemporaryCredentials` provider that creates a credential provider function that retrieves temporary credentials from STS AssumeRole API.
 
 ```typescript
 import { fromTemporaryCredentials } from "@aws-sdk/credential-providers";
