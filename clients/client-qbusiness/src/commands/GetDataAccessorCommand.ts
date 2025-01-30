@@ -31,7 +31,7 @@ export interface GetDataAccessorCommandOutput extends GetDataAccessorResponse, _
 /**
  * <p>Retrieves information about a specified data accessor. This operation returns details about the
  *         data accessor, including its display name, unique identifier, Amazon Resource Name (ARN), the associated
- *         Q Business application and AWS IAM Identity Center application, the IAM role for the ISV, the
+ *         Amazon Q Business application and IAM Identity Center application, the IAM role for the ISV, the
  *         action configurations, and the timestamps for when the data accessor was created and last updated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

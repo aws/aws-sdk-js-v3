@@ -28,9 +28,9 @@ export interface AssociatePermissionCommandInput extends AssociatePermissionRequ
 export interface AssociatePermissionCommandOutput extends AssociatePermissionResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or updates a permission policy for a Q Business application, allowing cross-account access for an ISV.
- *          This operation creates a new policy statement for the specified Q Business application.
- *          The policy statement defines the IAM actions that the ISV is allowed to perform on the Q Business application's resources.</p>
+ * <p>Adds or updates a permission policy for a Amazon Q Business application, allowing cross-account access for an ISV.
+ *          This operation creates a new policy statement for the specified Amazon Q Business application.
+ *          The policy statement defines the IAM actions that the ISV is allowed to perform on the Amazon Q Business application's resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

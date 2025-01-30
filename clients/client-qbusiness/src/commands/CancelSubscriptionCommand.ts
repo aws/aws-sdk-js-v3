@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteDataAccessorRequest, DeleteDataAccessorResponse } from "../models/models_0";
-import { de_DeleteDataAccessorCommand, se_DeleteDataAccessorCommand } from "../protocols/Aws_restJson1";
+import { CancelSubscriptionRequest, CancelSubscriptionResponse } from "../models/models_0";
+import { de_CancelSubscriptionCommand, se_CancelSubscriptionCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
 /**
@@ -17,48 +17,53 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteDataAccessorCommand}.
+ * The input for {@link CancelSubscriptionCommand}.
  */
-export interface DeleteDataAccessorCommandInput extends DeleteDataAccessorRequest {}
+export interface CancelSubscriptionCommandInput extends CancelSubscriptionRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteDataAccessorCommand}.
+ * The output of {@link CancelSubscriptionCommand}.
  */
-export interface DeleteDataAccessorCommandOutput extends DeleteDataAccessorResponse, __MetadataBearer {}
+export interface CancelSubscriptionCommandOutput extends CancelSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specified data accessor. This operation permanently removes the data accessor
- *         and its associated IAM Identity Center application. Any access granted to the ISV through this data accessor will be revoked.</p>
+ * <p>Unsubscribes a user or a group from their pricing tier in an Amazon Q Business
+ *             application. An unsubscribed user or group loses all Amazon Q Business feature access at the
+ *             start of next month. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QBusinessClient, DeleteDataAccessorCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
- * // const { QBusinessClient, DeleteDataAccessorCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * import { QBusinessClient, CancelSubscriptionCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
+ * // const { QBusinessClient, CancelSubscriptionCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
  * const client = new QBusinessClient(config);
- * const input = { // DeleteDataAccessorRequest
+ * const input = { // CancelSubscriptionRequest
  *   applicationId: "STRING_VALUE", // required
- *   dataAccessorId: "STRING_VALUE", // required
+ *   subscriptionId: "STRING_VALUE", // required
  * };
- * const command = new DeleteDataAccessorCommand(input);
+ * const command = new CancelSubscriptionCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // CancelSubscriptionResponse
+ * //   subscriptionArn: "STRING_VALUE",
+ * //   currentSubscription: { // SubscriptionDetails
+ * //     type: "Q_LITE" || "Q_BUSINESS",
+ * //   },
+ * //   nextSubscription: {
+ * //     type: "Q_LITE" || "Q_BUSINESS",
+ * //   },
+ * // };
  *
  * ```
  *
- * @param DeleteDataAccessorCommandInput - {@link DeleteDataAccessorCommandInput}
- * @returns {@link DeleteDataAccessorCommandOutput}
- * @see {@link DeleteDataAccessorCommandInput} for command's `input` shape.
- * @see {@link DeleteDataAccessorCommandOutput} for command's `response` shape.
+ * @param CancelSubscriptionCommandInput - {@link CancelSubscriptionCommandInput}
+ * @returns {@link CancelSubscriptionCommandOutput}
+ * @see {@link CancelSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link CancelSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link QBusinessClientResolvedConfig | config} for QBusinessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p> You don't have access to perform this action. Make sure you have the required
  *             permission policies and user accounts and try again.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>You are trying to perform an action that conflicts with the current status of your
- *             resource. Fix any inconsistencies with your resources and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
@@ -81,10 +86,10 @@ export interface DeleteDataAccessorCommandOutput extends DeleteDataAccessorRespo
  *
  * @public
  */
-export class DeleteDataAccessorCommand extends $Command
+export class CancelSubscriptionCommand extends $Command
   .classBuilder<
-    DeleteDataAccessorCommandInput,
-    DeleteDataAccessorCommandOutput,
+    CancelSubscriptionCommandInput,
+    CancelSubscriptionCommandOutput,
     QBusinessClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -96,21 +101,21 @@ export class DeleteDataAccessorCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ExpertQ", "DeleteDataAccessor", {})
-  .n("QBusinessClient", "DeleteDataAccessorCommand")
+  .s("ExpertQ", "CancelSubscription", {})
+  .n("QBusinessClient", "CancelSubscriptionCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteDataAccessorCommand)
-  .de(de_DeleteDataAccessorCommand)
+  .ser(se_CancelSubscriptionCommand)
+  .de(de_CancelSubscriptionCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteDataAccessorRequest;
-      output: {};
+      input: CancelSubscriptionRequest;
+      output: CancelSubscriptionResponse;
     };
     sdk: {
-      input: DeleteDataAccessorCommandInput;
-      output: DeleteDataAccessorCommandOutput;
+      input: CancelSubscriptionCommandInput;
+      output: CancelSubscriptionCommandOutput;
     };
   };
 }

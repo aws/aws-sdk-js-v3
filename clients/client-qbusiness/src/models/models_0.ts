@@ -1301,7 +1301,7 @@ export interface CreateDataAccessorResponse {
   dataAccessorId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS IAM Identity Center application created for this data accessor.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center application created for this data accessor.</p>
    * @public
    */
   idcApplicationArn: string | undefined;
@@ -1318,7 +1318,7 @@ export interface CreateDataAccessorResponse {
  */
 export interface DeleteDataAccessorRequest {
   /**
-   * <p>The unique identifier of the Q Business application.</p>
+   * <p>The unique identifier of the Amazon Q Business application.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -1340,7 +1340,7 @@ export interface DeleteDataAccessorResponse {}
  */
 export interface GetDataAccessorRequest {
   /**
-   * <p>The unique identifier of the Q Business application.</p>
+   * <p>The unique identifier of the Amazon Q Business application.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -1357,7 +1357,7 @@ export interface GetDataAccessorRequest {
  */
 export interface ListDataAccessorsRequest {
   /**
-   * <p>The unique identifier of the Q Business application.</p>
+   * <p>The unique identifier of the Amazon Q Business application.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -1399,7 +1399,7 @@ export interface DataAccessor {
   dataAccessorArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the associated AWS IAM Identity Center application.</p>
+   * <p>The Amazon Resource Name (ARN) of the associated IAM Identity Center application.</p>
    * @public
    */
   idcApplicationArn?: string | undefined;
@@ -5170,7 +5170,7 @@ export interface AppliedCreatorModeConfiguration {
  */
 export interface AssociatePermissionRequest {
   /**
-   * <p>The unique identifier of the Q Business application.</p>
+   * <p>The unique identifier of the Amazon Q Business application.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -5182,13 +5182,13 @@ export interface AssociatePermissionRequest {
   statementId: string | undefined;
 
   /**
-   * <p>The list of Q Business actions that the ISV is allowed to perform.</p>
+   * <p>The list of Amazon Q Business actions that the ISV is allowed to perform.</p>
    * @public
    */
   actions: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role for the ISV that is being granted permission.</p>
+   * <p>The Amazon Resource Name of the IAM role for the ISV that is being granted permission.</p>
    * @public
    */
   principal: string | undefined;
@@ -5784,6 +5784,60 @@ export interface BlockedPhrasesConfigurationUpdate {
    * @public
    */
   systemMessageOverride?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelSubscriptionRequest {
+  /**
+   * <p>The identifier of the Amazon Q Business application for which the subscription is being
+   *             cancelled.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Q Business subscription being cancelled.</p>
+   * @public
+   */
+  subscriptionId: string | undefined;
+}
+
+/**
+ * <p> The details of an Amazon Q Business subscription. </p>
+ * @public
+ */
+export interface SubscriptionDetails {
+  /**
+   * <p> The type of an Amazon Q Business subscription. </p>
+   * @public
+   */
+  type?: SubscriptionType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelSubscriptionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business subscription being
+   *             cancelled.</p>
+   * @public
+   */
+  subscriptionArn?: string | undefined;
+
+  /**
+   * <p>The type of your current Amazon Q Business subscription.</p>
+   * @public
+   */
+  currentSubscription?: SubscriptionDetails | undefined;
+
+  /**
+   * <p>The type of the Amazon Q Business subscription for the next month.</p>
+   * @public
+   */
+  nextSubscription?: SubscriptionDetails | undefined;
 }
 
 /**
@@ -6425,6 +6479,125 @@ export interface Conversation {
 }
 
 /**
+ * <p>A user or group in the IAM Identity Center instance connected to the Amazon Q Business
+ *             application.</p>
+ * @public
+ */
+export type SubscriptionPrincipal =
+  | SubscriptionPrincipal.GroupMember
+  | SubscriptionPrincipal.UserMember
+  | SubscriptionPrincipal.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SubscriptionPrincipal {
+  /**
+   * <p>The identifier of a user in the IAM Identity Center instance connected to the
+   *             Amazon Q Business application.</p>
+   * @public
+   */
+  export interface UserMember {
+    user: string;
+    group?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The identifier of a group in the IAM Identity Center instance connected to the
+   *             Amazon Q Business application.</p>
+   * @public
+   */
+  export interface GroupMember {
+    user?: never;
+    group: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    user?: never;
+    group?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    user: (value: string) => T;
+    group: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: SubscriptionPrincipal, visitor: Visitor<T>): T => {
+    if (value.user !== undefined) return visitor.user(value.user);
+    if (value.group !== undefined) return visitor.group(value.group);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateSubscriptionRequest {
+  /**
+   * <p>The identifier of the Amazon Q Business application the subscription should be added
+   *             to.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The IAM Identity Center <code>UserId</code> or <code>GroupId</code> of a user or group
+   *             in the IAM Identity Center instance connected to the Amazon Q Business application.</p>
+   * @public
+   */
+  principal: SubscriptionPrincipal | undefined;
+
+  /**
+   * <p>The type of Amazon Q Business subscription you want to create.</p>
+   * @public
+   */
+  type: SubscriptionType | undefined;
+
+  /**
+   * <p>A token that you provide to identify the request to create a subscription for your
+   *             Amazon Q Business application.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSubscriptionResponse {
+  /**
+   * <p>The identifier of the Amazon Q Business subscription created.</p>
+   * @public
+   */
+  subscriptionId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business subscription created.</p>
+   * @public
+   */
+  subscriptionArn?: string | undefined;
+
+  /**
+   * <p>The type of your current Amazon Q Business subscription.</p>
+   * @public
+   */
+  currentSubscription?: SubscriptionDetails | undefined;
+
+  /**
+   * <p>The type of the Amazon Q Business subscription for the next month.</p>
+   * @public
+   */
+  nextSubscription?: SubscriptionDetails | undefined;
+}
+
+/**
  * <p>Aliases attached to a user id within an Amazon Q Business application.</p>
  * @public
  */
@@ -6727,7 +6900,7 @@ export interface DeleteUserResponse {}
  */
 export interface DisassociatePermissionRequest {
   /**
-   * <p>The unique identifier of the Q Business application.</p>
+   * <p>The unique identifier of the Amazon Q Business application.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -7192,7 +7365,7 @@ export class MediaTooLargeException extends __BaseException {
  */
 export interface GetPolicyRequest {
   /**
-   * <p>The unique identifier of the Q Business application.</p>
+   * <p>The unique identifier of the Amazon Q Business application.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -7846,6 +8019,94 @@ export interface ListPluginTypeMetadataResponse {
 /**
  * @public
  */
+export interface ListSubscriptionsRequest {
+  /**
+   * <p>The identifier of the Amazon Q Business application linked to the subscription.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>If the <code>maxResults</code> response was incomplete because there is more data to
+   *             retrieve, Amazon Q Business returns a pagination token in the response. You can use this
+   *             pagination token to retrieve the next set of Amazon Q Business subscriptions.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of Amazon Q Business subscriptions to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Information about an Amazon Q Business subscription.</p>
+ *          <p>Subscriptions are used to provide access for an IAM Identity Center user or a group to
+ *             an Amazon Q Business application.</p>
+ *          <p>Amazon Q Business offers two subscription tiers: <code>Q_LITE</code> and
+ *                 <code>Q_BUSINESS</code>. Subscription tier determines feature access for the user.
+ *             For more information on subscriptions and pricing tiers, see <a href="https://aws.amazon.com/q/business/pricing/">Amazon Q Business
+ *             pricing</a>.</p>
+ * @public
+ */
+export interface Subscription {
+  /**
+   * <p>The identifier of the Amazon Q Business subscription to be updated.</p>
+   * @public
+   */
+  subscriptionId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business subscription that was
+   *             updated.</p>
+   * @public
+   */
+  subscriptionArn?: string | undefined;
+
+  /**
+   * <p>The IAM Identity Center <code>UserId</code> or <code>GroupId</code> of a user or group
+   *             in the IAM Identity Center instance connected to the Amazon Q Business application.</p>
+   * @public
+   */
+  principal?: SubscriptionPrincipal | undefined;
+
+  /**
+   * <p>The type of your current Amazon Q Business subscription.</p>
+   * @public
+   */
+  currentSubscription?: SubscriptionDetails | undefined;
+
+  /**
+   * <p>The type of the Amazon Q Business subscription for the next month.</p>
+   * @public
+   */
+  nextSubscription?: SubscriptionDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSubscriptionsResponse {
+  /**
+   * <p>If the response is truncated, Amazon Q Business returns this token. You can use this token
+   *             in a subsequent request to retrieve the next set of subscriptions.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of summary information on the subscriptions configured for an Amazon Q Business
+   *             application.</p>
+   * @public
+   */
+  subscriptions?: Subscription[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Q Business application or data source to get
@@ -7992,225 +8253,6 @@ export interface MemberGroup {
    * @public
    */
   type?: MembershipType | undefined;
-}
-
-/**
- * <p>The users that belong to a group.</p>
- * @public
- */
-export interface MemberUser {
-  /**
-   * <p>The identifier of the user you want to map to a group.</p>
-   * @public
-   */
-  userId: string | undefined;
-
-  /**
-   * <p>The type of the user.</p>
-   * @public
-   */
-  type?: MembershipType | undefined;
-}
-
-/**
- * <p>A list of users or sub groups that belong to a group. This is for generating
- *             Amazon Q Business chat results only from document a user has access to.</p>
- * @public
- */
-export interface GroupMembers {
-  /**
-   * <p>A list of sub groups that belong to a group. For example, the sub groups "Research",
-   *             "Engineering", and "Sales and Marketing" all belong to the group "Company".</p>
-   * @public
-   */
-  memberGroups?: MemberGroup[] | undefined;
-
-  /**
-   * <p>A list of users that belong to a group. For example, a list of interns all belong to
-   *             the "Interns" group.</p>
-   * @public
-   */
-  memberUsers?: MemberUser[] | undefined;
-
-  /**
-   * <p>Information required for Amazon Q Business to find a specific file in an Amazon S3
-   *             bucket.</p>
-   * @public
-   */
-  s3PathForGroupMembers?: S3 | undefined;
-}
-
-/**
- * @public
- */
-export interface PutGroupRequest {
-  /**
-   * <p>The identifier of the application in which the user and group mapping belongs.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The identifier of the index in which you want to map users to their groups.</p>
-   * @public
-   */
-  indexId: string | undefined;
-
-  /**
-   * <p>The list that contains your users or sub groups that belong the same group. For
-   *             example, the group "Company" includes the user "CEO" and the sub groups "Research",
-   *             "Engineering", and "Sales and Marketing".</p>
-   * @public
-   */
-  groupName: string | undefined;
-
-  /**
-   * <p>The identifier of the data source for which you want to map users to their groups.
-   *             This is useful if a group is tied to multiple data sources, but you only want the group
-   *             to access documents of a certain data source. For example, the groups "Research",
-   *             "Engineering", and "Sales and Marketing" are all tied to the company's documents stored
-   *             in the data sources Confluence and Salesforce. However, "Sales and Marketing" team only
-   *             needs access to customer-related documents stored in Salesforce.</p>
-   * @public
-   */
-  dataSourceId?: string | undefined;
-
-  /**
-   * <p>The type of the group.</p>
-   * @public
-   */
-  type: MembershipType | undefined;
-
-  /**
-   * <p>A list of users or sub groups that belong to a group. This is for generating
-   *             Amazon Q Business chat results only from document a user has access to.</p>
-   * @public
-   */
-  groupMembers: GroupMembers | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that has access to the S3 file that contains
-   *             your list of users that belong to a group.The Amazon Resource Name (ARN) of an IAM role that
-   *             has access to the S3 file that contains your list of users that belong to a group.</p>
-   * @public
-   */
-  roleArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutGroupResponse {}
-
-/**
- * @public
- * @enum
- */
-export const ScoreConfidence = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  NOT_AVAILABLE: "NOT_AVAILABLE",
-  VERY_HIGH: "VERY_HIGH",
-} as const;
-
-/**
- * @public
- */
-export type ScoreConfidence = (typeof ScoreConfidence)[keyof typeof ScoreConfidence];
-
-/**
- * <p>Provides information about the relevance score of content.</p>
- * @public
- */
-export interface ScoreAttributes {
-  /**
-   * <p>The confidence level of the relevance score.</p>
-   * @public
-   */
-  scoreConfidence?: ScoreConfidence | undefined;
-}
-
-/**
- * <p>Represents a piece of content that is relevant to a search query.</p>
- * @public
- */
-export interface RelevantContent {
-  /**
-   * <p>The actual content of the relevant item.</p>
-   * @public
-   */
-  content?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the document containing the relevant content.</p>
-   * @public
-   */
-  documentId?: string | undefined;
-
-  /**
-   * <p>The title of the document containing the relevant content.</p>
-   * @public
-   */
-  documentTitle?: string | undefined;
-
-  /**
-   * <p>The URI of the document containing the relevant content.</p>
-   * @public
-   */
-  documentUri?: string | undefined;
-
-  /**
-   * <p>Additional attributes of the document containing the relevant content.</p>
-   * @public
-   */
-  documentAttributes?: DocumentAttribute[] | undefined;
-
-  /**
-   * <p>Attributes related to the relevance score of the content.</p>
-   * @public
-   */
-  scoreAttributes?: ScoreAttributes | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchRelevantContentResponse {
-  /**
-   * <p>The list of relevant content items found.</p>
-   * @public
-   */
-  relevantContent?: RelevantContent[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next set of results, if there are any.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartDataSourceSyncJobRequest {
-  /**
-   * <p> The identifier of the data source connector. </p>
-   * @public
-   */
-  dataSourceId: string | undefined;
-
-  /**
-   * <p>The identifier of Amazon Q Business application the data source is connected to.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The identifier of the index used with the data source connector.</p>
-   * @public
-   */
-  indexId: string | undefined;
 }
 
 /**

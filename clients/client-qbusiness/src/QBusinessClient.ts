@@ -74,6 +74,7 @@ import {
   BatchDeleteDocumentCommandOutput,
 } from "./commands/BatchDeleteDocumentCommand";
 import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./commands/BatchPutDocumentCommand";
+import { CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput } from "./commands/CancelSubscriptionCommand";
 import { ChatCommandInput, ChatCommandOutput } from "./commands/ChatCommand";
 import { ChatSyncCommandInput, ChatSyncCommandOutput } from "./commands/ChatSyncCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
@@ -82,6 +83,7 @@ import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./c
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import { CreatePluginCommandInput, CreatePluginCommandOutput } from "./commands/CreatePluginCommand";
 import { CreateRetrieverCommandInput, CreateRetrieverCommandOutput } from "./commands/CreateRetrieverCommand";
+import { CreateSubscriptionCommandInput, CreateSubscriptionCommandOutput } from "./commands/CreateSubscriptionCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
   CreateWebExperienceCommandInput,
@@ -147,6 +149,7 @@ import {
   ListPluginTypeMetadataCommandOutput,
 } from "./commands/ListPluginTypeMetadataCommand";
 import { ListRetrieversCommandInput, ListRetrieversCommandOutput } from "./commands/ListRetrieversCommand";
+import { ListSubscriptionsCommandInput, ListSubscriptionsCommandOutput } from "./commands/ListSubscriptionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -178,6 +181,7 @@ import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./c
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import { UpdatePluginCommandInput, UpdatePluginCommandOutput } from "./commands/UpdatePluginCommand";
 import { UpdateRetrieverCommandInput, UpdateRetrieverCommandOutput } from "./commands/UpdateRetrieverCommand";
+import { UpdateSubscriptionCommandInput, UpdateSubscriptionCommandOutput } from "./commands/UpdateSubscriptionCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
   UpdateWebExperienceCommandInput,
@@ -201,6 +205,7 @@ export type ServiceInputTypes =
   | AssociatePermissionCommandInput
   | BatchDeleteDocumentCommandInput
   | BatchPutDocumentCommandInput
+  | CancelSubscriptionCommandInput
   | ChatCommandInput
   | ChatSyncCommandInput
   | CreateApplicationCommandInput
@@ -209,6 +214,7 @@ export type ServiceInputTypes =
   | CreateIndexCommandInput
   | CreatePluginCommandInput
   | CreateRetrieverCommandInput
+  | CreateSubscriptionCommandInput
   | CreateUserCommandInput
   | CreateWebExperienceCommandInput
   | DeleteApplicationCommandInput
@@ -250,6 +256,7 @@ export type ServiceInputTypes =
   | ListPluginTypeMetadataCommandInput
   | ListPluginsCommandInput
   | ListRetrieversCommandInput
+  | ListSubscriptionsCommandInput
   | ListTagsForResourceCommandInput
   | ListWebExperiencesCommandInput
   | PutFeedbackCommandInput
@@ -266,6 +273,7 @@ export type ServiceInputTypes =
   | UpdateIndexCommandInput
   | UpdatePluginCommandInput
   | UpdateRetrieverCommandInput
+  | UpdateSubscriptionCommandInput
   | UpdateUserCommandInput
   | UpdateWebExperienceCommandInput;
 
@@ -276,6 +284,7 @@ export type ServiceOutputTypes =
   | AssociatePermissionCommandOutput
   | BatchDeleteDocumentCommandOutput
   | BatchPutDocumentCommandOutput
+  | CancelSubscriptionCommandOutput
   | ChatCommandOutput
   | ChatSyncCommandOutput
   | CreateApplicationCommandOutput
@@ -284,6 +293,7 @@ export type ServiceOutputTypes =
   | CreateIndexCommandOutput
   | CreatePluginCommandOutput
   | CreateRetrieverCommandOutput
+  | CreateSubscriptionCommandOutput
   | CreateUserCommandOutput
   | CreateWebExperienceCommandOutput
   | DeleteApplicationCommandOutput
@@ -325,6 +335,7 @@ export type ServiceOutputTypes =
   | ListPluginTypeMetadataCommandOutput
   | ListPluginsCommandOutput
   | ListRetrieversCommandOutput
+  | ListSubscriptionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWebExperiencesCommandOutput
   | PutFeedbackCommandOutput
@@ -341,6 +352,7 @@ export type ServiceOutputTypes =
   | UpdateIndexCommandOutput
   | UpdatePluginCommandOutput
   | UpdateRetrieverCommandOutput
+  | UpdateSubscriptionCommandOutput
   | UpdateUserCommandOutput
   | UpdateWebExperienceCommandOutput;
 

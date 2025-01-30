@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteDataAccessorRequest, DeleteDataAccessorResponse } from "../models/models_0";
-import { de_DeleteDataAccessorCommand, se_DeleteDataAccessorCommand } from "../protocols/Aws_restJson1";
+import { UpdateSubscriptionRequest, UpdateSubscriptionResponse } from "../models/models_1";
+import { de_UpdateSubscriptionCommand, se_UpdateSubscriptionCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
 /**
@@ -17,39 +17,50 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteDataAccessorCommand}.
+ * The input for {@link UpdateSubscriptionCommand}.
  */
-export interface DeleteDataAccessorCommandInput extends DeleteDataAccessorRequest {}
+export interface UpdateSubscriptionCommandInput extends UpdateSubscriptionRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteDataAccessorCommand}.
+ * The output of {@link UpdateSubscriptionCommand}.
  */
-export interface DeleteDataAccessorCommandOutput extends DeleteDataAccessorResponse, __MetadataBearer {}
+export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specified data accessor. This operation permanently removes the data accessor
- *         and its associated IAM Identity Center application. Any access granted to the ISV through this data accessor will be revoked.</p>
+ * <p>Updates the pricing tier for an Amazon Q Business subscription. Upgrades are instant.
+ *             Downgrades apply at the start of the next month. Subscription tier determines feature
+ *             access for the user. For more information on subscriptions and pricing tiers, see <a href="https://aws.amazon.com/q/business/pricing/">Amazon Q Business
+ *             pricing</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QBusinessClient, DeleteDataAccessorCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
- * // const { QBusinessClient, DeleteDataAccessorCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * import { QBusinessClient, UpdateSubscriptionCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
+ * // const { QBusinessClient, UpdateSubscriptionCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
  * const client = new QBusinessClient(config);
- * const input = { // DeleteDataAccessorRequest
+ * const input = { // UpdateSubscriptionRequest
  *   applicationId: "STRING_VALUE", // required
- *   dataAccessorId: "STRING_VALUE", // required
+ *   subscriptionId: "STRING_VALUE", // required
+ *   type: "Q_LITE" || "Q_BUSINESS", // required
  * };
- * const command = new DeleteDataAccessorCommand(input);
+ * const command = new UpdateSubscriptionCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // UpdateSubscriptionResponse
+ * //   subscriptionArn: "STRING_VALUE",
+ * //   currentSubscription: { // SubscriptionDetails
+ * //     type: "Q_LITE" || "Q_BUSINESS",
+ * //   },
+ * //   nextSubscription: {
+ * //     type: "Q_LITE" || "Q_BUSINESS",
+ * //   },
+ * // };
  *
  * ```
  *
- * @param DeleteDataAccessorCommandInput - {@link DeleteDataAccessorCommandInput}
- * @returns {@link DeleteDataAccessorCommandOutput}
- * @see {@link DeleteDataAccessorCommandInput} for command's `input` shape.
- * @see {@link DeleteDataAccessorCommandOutput} for command's `response` shape.
+ * @param UpdateSubscriptionCommandInput - {@link UpdateSubscriptionCommandInput}
+ * @returns {@link UpdateSubscriptionCommandOutput}
+ * @see {@link UpdateSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link UpdateSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link QBusinessClientResolvedConfig | config} for QBusinessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -81,10 +92,10 @@ export interface DeleteDataAccessorCommandOutput extends DeleteDataAccessorRespo
  *
  * @public
  */
-export class DeleteDataAccessorCommand extends $Command
+export class UpdateSubscriptionCommand extends $Command
   .classBuilder<
-    DeleteDataAccessorCommandInput,
-    DeleteDataAccessorCommandOutput,
+    UpdateSubscriptionCommandInput,
+    UpdateSubscriptionCommandOutput,
     QBusinessClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -96,21 +107,21 @@ export class DeleteDataAccessorCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ExpertQ", "DeleteDataAccessor", {})
-  .n("QBusinessClient", "DeleteDataAccessorCommand")
+  .s("ExpertQ", "UpdateSubscription", {})
+  .n("QBusinessClient", "UpdateSubscriptionCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteDataAccessorCommand)
-  .de(de_DeleteDataAccessorCommand)
+  .ser(se_UpdateSubscriptionCommand)
+  .de(de_UpdateSubscriptionCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteDataAccessorRequest;
-      output: {};
+      input: UpdateSubscriptionRequest;
+      output: UpdateSubscriptionResponse;
     };
     sdk: {
-      input: DeleteDataAccessorCommandInput;
-      output: DeleteDataAccessorCommandOutput;
+      input: UpdateSubscriptionCommandInput;
+      output: UpdateSubscriptionCommandOutput;
     };
   };
 }

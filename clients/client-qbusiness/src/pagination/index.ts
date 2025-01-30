@@ -16,5 +16,6 @@ export * from "./ListPluginTypeActionsPaginator";
 export * from "./ListPluginTypeMetadataPaginator";
 export * from "./ListPluginsPaginator";
 export * from "./ListRetrieversPaginator";
+export * from "./ListSubscriptionsPaginator";
 export * from "./ListWebExperiencesPaginator";
 export * from "./SearchRelevantContentPaginator";

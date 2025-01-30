@@ -28,7 +28,7 @@ export interface DisassociatePermissionCommandInput extends DisassociatePermissi
 export interface DisassociatePermissionCommandOutput extends DisassociatePermissionResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a permission policy from a Q Business application, revoking the cross-account access that was
+ * <p>Removes a permission policy from a Amazon Q Business application, revoking the cross-account access that was
  *         previously granted to an ISV. This operation deletes the specified policy statement from the application's permission policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

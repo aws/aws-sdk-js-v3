@@ -17,6 +17,11 @@ import {
   BatchPutDocumentCommandInput,
   BatchPutDocumentCommandOutput,
 } from "./commands/BatchPutDocumentCommand";
+import {
+  CancelSubscriptionCommand,
+  CancelSubscriptionCommandInput,
+  CancelSubscriptionCommandOutput,
+} from "./commands/CancelSubscriptionCommand";
 import { ChatCommand, ChatCommandInput, ChatCommandOutput } from "./commands/ChatCommand";
 import { ChatSyncCommand, ChatSyncCommandInput, ChatSyncCommandOutput } from "./commands/ChatSyncCommand";
 import {
@@ -45,6 +50,11 @@ import {
   CreateRetrieverCommandInput,
   CreateRetrieverCommandOutput,
 } from "./commands/CreateRetrieverCommand";
+import {
+  CreateSubscriptionCommand,
+  CreateSubscriptionCommandInput,
+  CreateSubscriptionCommandOutput,
+} from "./commands/CreateSubscriptionCommand";
 import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
   CreateWebExperienceCommand,
@@ -199,6 +209,11 @@ import {
   ListRetrieversCommandOutput,
 } from "./commands/ListRetrieversCommand";
 import {
+  ListSubscriptionsCommand,
+  ListSubscriptionsCommandInput,
+  ListSubscriptionsCommandOutput,
+} from "./commands/ListSubscriptionsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -262,6 +277,11 @@ import {
   UpdateRetrieverCommandInput,
   UpdateRetrieverCommandOutput,
 } from "./commands/UpdateRetrieverCommand";
+import {
+  UpdateSubscriptionCommand,
+  UpdateSubscriptionCommandInput,
+  UpdateSubscriptionCommandOutput,
+} from "./commands/UpdateSubscriptionCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
   UpdateWebExperienceCommand,
@@ -274,6 +294,7 @@ const commands = {
   AssociatePermissionCommand,
   BatchDeleteDocumentCommand,
   BatchPutDocumentCommand,
+  CancelSubscriptionCommand,
   ChatCommand,
   ChatSyncCommand,
   CreateApplicationCommand,
@@ -282,6 +303,7 @@ const commands = {
   CreateIndexCommand,
   CreatePluginCommand,
   CreateRetrieverCommand,
+  CreateSubscriptionCommand,
   CreateUserCommand,
   CreateWebExperienceCommand,
   DeleteApplicationCommand,
@@ -323,6 +345,7 @@ const commands = {
   ListPluginTypeActionsCommand,
   ListPluginTypeMetadataCommand,
   ListRetrieversCommand,
+  ListSubscriptionsCommand,
   ListTagsForResourceCommand,
   ListWebExperiencesCommand,
   PutFeedbackCommand,
@@ -339,6 +362,7 @@ const commands = {
   UpdateIndexCommand,
   UpdatePluginCommand,
   UpdateRetrieverCommand,
+  UpdateSubscriptionCommand,
   UpdateUserCommand,
   UpdateWebExperienceCommand,
 };
@@ -393,6 +417,23 @@ export interface QBusiness {
     args: BatchPutDocumentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchPutDocumentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelSubscriptionCommand}
+   */
+  cancelSubscription(
+    args: CancelSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelSubscriptionCommandOutput>;
+  cancelSubscription(
+    args: CancelSubscriptionCommandInput,
+    cb: (err: any, data?: CancelSubscriptionCommandOutput) => void
+  ): void;
+  cancelSubscription(
+    args: CancelSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelSubscriptionCommandOutput) => void
   ): void;
 
   /**
@@ -498,6 +539,23 @@ export interface QBusiness {
     args: CreateRetrieverCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateRetrieverCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSubscriptionCommand}
+   */
+  createSubscription(
+    args: CreateSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSubscriptionCommandOutput>;
+  createSubscription(
+    args: CreateSubscriptionCommandInput,
+    cb: (err: any, data?: CreateSubscriptionCommandOutput) => void
+  ): void;
+  createSubscription(
+    args: CreateSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSubscriptionCommandOutput) => void
   ): void;
 
   /**
@@ -1074,6 +1132,23 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link ListSubscriptionsCommand}
+   */
+  listSubscriptions(
+    args: ListSubscriptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSubscriptionsCommandOutput>;
+  listSubscriptions(
+    args: ListSubscriptionsCommandInput,
+    cb: (err: any, data?: ListSubscriptionsCommandOutput) => void
+  ): void;
+  listSubscriptions(
+    args: ListSubscriptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSubscriptionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -1304,6 +1379,23 @@ export interface QBusiness {
     args: UpdateRetrieverCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRetrieverCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSubscriptionCommand}
+   */
+  updateSubscription(
+    args: UpdateSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSubscriptionCommandOutput>;
+  updateSubscription(
+    args: UpdateSubscriptionCommandInput,
+    cb: (err: any, data?: UpdateSubscriptionCommandOutput) => void
+  ): void;
+  updateSubscription(
+    args: UpdateSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSubscriptionCommandOutput) => void
   ): void;
 
   /**

@@ -28,7 +28,7 @@ export interface GetPolicyCommandInput extends GetPolicyRequest {}
 export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the current permission policy for a Q Business application. The policy is
+ * <p>Retrieves the current permission policy for a Amazon Q Business application. The policy is
  *         returned as a JSON-formatted string and defines the IAM actions that are allowed or denied for the application's resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

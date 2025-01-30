@@ -32,7 +32,7 @@ export interface ListDataAccessorsCommandInput extends ListDataAccessorsRequest 
 export interface ListDataAccessorsCommandOutput extends ListDataAccessorsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the data accessors for a Q Business application. This operation returns a paginated
+ * <p>Lists the data accessors for a Amazon Q Business application. This operation returns a paginated
  *         list of data accessor summaries, including the friendly name, unique identifier, ARN,
  *         associated IAM role, and creation/update timestamps for each data accessor.</p>
  * @example

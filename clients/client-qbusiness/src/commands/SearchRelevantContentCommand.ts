@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchRelevantContentResponse } from "../models/models_0";
-import { SearchRelevantContentRequest } from "../models/models_1";
+import { SearchRelevantContentRequest, SearchRelevantContentResponse } from "../models/models_1";
 import { de_SearchRelevantContentCommand, se_SearchRelevantContentCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
@@ -29,8 +28,8 @@ export interface SearchRelevantContentCommandInput extends SearchRelevantContent
 export interface SearchRelevantContentCommandOutput extends SearchRelevantContentResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for relevant content in a Q Business application based on a query. This operation takes a
- *         search query text, the Q Business application identifier, and optional filters
+ * <p>Searches for relevant content in a Amazon Q Business application based on a query. This operation takes a
+ *         search query text, the Amazon Q Business application identifier, and optional filters
  *         (such as content source and maximum results) as input. It returns a list of
  *         relevant content items, where each item includes the content text, the unique document identifier,
  *         the document title, the document URI, any relevant document attributes, and score attributes

@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutGroupRequest, PutGroupResponse } from "../models/models_0";
+import { PutGroupRequest, PutGroupResponse } from "../models/models_1";
 import { de_PutGroupCommand, se_PutGroupCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
@@ -35,6 +35,10 @@ export interface PutGroupCommandOutput extends PutGroupResponse, __MetadataBeare
  *             include their own list of users or people who work in these teams. Only users who work
  *             in research and engineering, and therefore belong in the intellectual property group,
  *             can see top-secret company documents in their Amazon Q Business chat results.</p>
+ *          <p>There are two options for creating groups, either passing group members inline or using an S3 file via the
+ *             S3PathForGroupMembers field. For inline groups, there is a limit of 1000 members per group and for provided S3 files
+ *             there is a limit of 100 thousand members. When creating a group using an S3 file, you provide both
+ *             an S3 file and a <code>RoleArn</code> for Amazon Q Buisness to access the file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

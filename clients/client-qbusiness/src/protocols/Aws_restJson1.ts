@@ -46,6 +46,7 @@ import {
   BatchDeleteDocumentCommandOutput,
 } from "../commands/BatchDeleteDocumentCommand";
 import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "../commands/BatchPutDocumentCommand";
+import { CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput } from "../commands/CancelSubscriptionCommand";
 import { ChatCommandInput, ChatCommandOutput } from "../commands/ChatCommand";
 import { ChatSyncCommandInput, ChatSyncCommandOutput } from "../commands/ChatSyncCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
@@ -54,6 +55,7 @@ import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "../commands/CreateIndexCommand";
 import { CreatePluginCommandInput, CreatePluginCommandOutput } from "../commands/CreatePluginCommand";
 import { CreateRetrieverCommandInput, CreateRetrieverCommandOutput } from "../commands/CreateRetrieverCommand";
+import { CreateSubscriptionCommandInput, CreateSubscriptionCommandOutput } from "../commands/CreateSubscriptionCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
 import {
   CreateWebExperienceCommandInput,
@@ -119,6 +121,7 @@ import {
   ListPluginTypeMetadataCommandOutput,
 } from "../commands/ListPluginTypeMetadataCommand";
 import { ListRetrieversCommandInput, ListRetrieversCommandOutput } from "../commands/ListRetrieversCommand";
+import { ListSubscriptionsCommandInput, ListSubscriptionsCommandOutput } from "../commands/ListSubscriptionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -150,6 +153,7 @@ import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "../commands/UpdateIndexCommand";
 import { UpdatePluginCommandInput, UpdatePluginCommandOutput } from "../commands/UpdatePluginCommand";
 import { UpdateRetrieverCommandInput, UpdateRetrieverCommandOutput } from "../commands/UpdateRetrieverCommand";
+import { UpdateSubscriptionCommandInput, UpdateSubscriptionCommandOutput } from "../commands/UpdateSubscriptionCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
 import {
   UpdateWebExperienceCommandInput,
@@ -213,7 +217,6 @@ import {
   EndOfInputEvent,
   ExternalResourceException,
   FailedAttachmentEvent,
-  GroupMembers,
   GroupStatusDetail,
   HookConfiguration,
   IdcAuthConfiguration,
@@ -228,7 +231,6 @@ import {
   MediaExtractionConfiguration,
   MediaTooLargeException,
   MemberGroup,
-  MemberUser,
   Message,
   MessageUsefulnessFeedback,
   MetadataEvent,
@@ -246,7 +248,6 @@ import {
   PrincipalUser,
   QAppsConfiguration,
   QuickSightConfiguration,
-  RelevantContent,
   ResourceNotFoundException,
   RetrieverConfiguration,
   RetrieverContentSource,
@@ -260,6 +261,7 @@ import {
   StringAttributeBoostingConfiguration,
   StringAttributeValueBoostingLevel,
   StringListAttributeBoostingConfiguration,
+  SubscriptionPrincipal,
   Tag,
   TextInputEvent,
   TextOutputEvent,
@@ -277,6 +279,9 @@ import {
   AttributeFilter,
   ChatInputStream,
   ConfigurationEvent,
+  GroupMembers,
+  MemberUser,
+  RelevantContent,
 } from "../models/models_1";
 import { QBusinessServiceException as __BaseException } from "../models/QBusinessServiceException";
 
@@ -353,6 +358,23 @@ export const se_BatchPutDocumentCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CancelSubscriptionCommand
+ */
+export const se_CancelSubscriptionCommand = async (
+  input: CancelSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/subscriptions/{subscriptionId}");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("subscriptionId", () => input.subscriptionId!, "{subscriptionId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
   return b.build();
 };
 
@@ -594,6 +616,31 @@ export const se_CreateRetrieverCommand = async (
       displayName: [],
       roleArn: [],
       tags: (_) => _json(_),
+      type: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateSubscriptionCommand
+ */
+export const se_CreateSubscriptionCommand = async (
+  input: CreateSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/applications/{applicationId}/subscriptions");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      principal: (_) => _json(_),
       type: [],
     })
   );
@@ -1400,6 +1447,26 @@ export const se_ListRetrieversCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListSubscriptionsCommand
+ */
+export const se_ListSubscriptionsCommand = async (
+  input: ListSubscriptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/subscriptions");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListTagsForResourceCommand
  */
 export const se_ListTagsForResourceCommand = async (
@@ -1794,6 +1861,30 @@ export const se_UpdateRetrieverCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateSubscriptionCommand
+ */
+export const se_UpdateSubscriptionCommand = async (
+  input: UpdateSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/applications/{applicationId}/subscriptions/{subscriptionId}");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("subscriptionId", () => input.subscriptionId!, "{subscriptionId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      type: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateUserCommand
  */
 export const se_UpdateUserCommand = async (
@@ -1909,6 +2000,29 @@ export const de_BatchPutDocumentCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     failedDocuments: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CancelSubscriptionCommand
+ */
+export const de_CancelSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelSubscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    currentSubscription: _json,
+    nextSubscription: _json,
+    subscriptionArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2089,6 +2203,30 @@ export const de_CreateRetrieverCommand = async (
   const doc = take(data, {
     retrieverArn: __expectString,
     retrieverId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateSubscriptionCommand
+ */
+export const de_CreateSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSubscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    currentSubscription: _json,
+    nextSubscription: _json,
+    subscriptionArn: __expectString,
+    subscriptionId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3017,6 +3155,28 @@ export const de_ListRetrieversCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListSubscriptionsCommand
+ */
+export const de_ListSubscriptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSubscriptionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    subscriptions: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -3303,6 +3463,29 @@ export const de_UpdateRetrieverCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateSubscriptionCommand
+ */
+export const de_UpdateSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSubscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    currentSubscription: _json,
+    nextSubscription: _json,
+    subscriptionArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4223,6 +4406,8 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 
 // se_SubnetIds omitted.
 
+// se_SubscriptionPrincipal omitted.
+
 // se_Tag omitted.
 
 // se_Tags omitted.
@@ -5074,6 +5259,14 @@ const de_SourceAttributions = (output: any, context: __SerdeContext): SourceAttr
 // de_StringListAttributeBoostingConfiguration omitted.
 
 // de_SubnetIds omitted.
+
+// de_Subscription omitted.
+
+// de_SubscriptionDetails omitted.
+
+// de_SubscriptionPrincipal omitted.
+
+// de_Subscriptions omitted.
 
 // de_Tag omitted.
 

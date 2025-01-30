@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartDataSourceSyncJobRequest } from "../models/models_0";
-import { StartDataSourceSyncJobResponse } from "../models/models_1";
+import { StartDataSourceSyncJobRequest, StartDataSourceSyncJobResponse } from "../models/models_1";
 import { de_StartDataSourceSyncJobCommand, se_StartDataSourceSyncJobCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
