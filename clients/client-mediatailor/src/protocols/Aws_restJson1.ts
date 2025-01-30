@@ -124,6 +124,7 @@ import { MediaTailorServiceException as __BaseException } from "../models/MediaT
 import {
   AccessConfiguration,
   AdBreak,
+  AdConditioningConfiguration,
   AdMarkerPassthrough,
   AdMarkupType,
   Alert,
@@ -858,6 +859,7 @@ export const se_PutPlaybackConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AdConditioningConfiguration: (_) => _json(_),
       AdDecisionServerUrl: [],
       AvailSuppression: (_) => _json(_),
       Bumper: (_) => _json(_),
@@ -1639,6 +1641,7 @@ export const de_GetPlaybackConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AdConditioningConfiguration: _json,
     AdDecisionServerUrl: __expectString,
     AvailSuppression: _json,
     Bumper: _json,
@@ -1897,6 +1900,7 @@ export const de_PutPlaybackConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AdConditioningConfiguration: _json,
     AdDecisionServerUrl: __expectString,
     AvailSuppression: _json,
     Bumper: _json,
@@ -2196,6 +2200,8 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AdBreakMetadataList omitted.
 
+// se_AdConditioningConfiguration omitted.
+
 // se_AdMarkerPassthrough omitted.
 
 // se_adMarkupTypes omitted.
@@ -2422,6 +2428,8 @@ const de___listOfVodSource = (output: any, context: __SerdeContext): VodSource[]
 
 // de_AdBreakOpportunity omitted.
 
+// de_AdConditioningConfiguration omitted.
+
 // de_AdMarkerPassthrough omitted.
 
 // de_adMarkupTypes omitted.
@@ -2526,6 +2534,7 @@ const de_LiveSource = (output: any, context: __SerdeContext): LiveSource => {
  */
 const de_PlaybackConfiguration = (output: any, context: __SerdeContext): PlaybackConfiguration => {
   return take(output, {
+    AdConditioningConfiguration: _json,
     AdDecisionServerUrl: __expectString,
     AvailSuppression: _json,
     Bumper: _json,

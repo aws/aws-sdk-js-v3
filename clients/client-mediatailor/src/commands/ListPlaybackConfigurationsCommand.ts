@@ -95,6 +95,9 @@ export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackCon
  * //       },
  * //       TranscodeProfileName: "STRING_VALUE",
  * //       VideoContentSourceUrl: "STRING_VALUE",
+ * //       AdConditioningConfiguration: { // AdConditioningConfiguration
+ * //         StreamingMediaFileConditioning: "TRANSCODE" || "NONE", // required
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

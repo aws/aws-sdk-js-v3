@@ -37,7 +37,7 @@ export interface ConfigureLogsForPlaybackConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Amazon CloudWatch log settings for a playback configuration.</p>
+ * <p>Defines where AWS Elemental MediaTailor sends logs for the playback configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

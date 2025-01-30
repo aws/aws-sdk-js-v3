@@ -92,6 +92,9 @@ export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfig
  * //   },
  * //   TranscodeProfileName: "STRING_VALUE",
  * //   VideoContentSourceUrl: "STRING_VALUE",
+ * //   AdConditioningConfiguration: { // AdConditioningConfiguration
+ * //     StreamingMediaFileConditioning: "TRANSCODE" || "NONE", // required
+ * //   },
  * // };
  *
  * ```

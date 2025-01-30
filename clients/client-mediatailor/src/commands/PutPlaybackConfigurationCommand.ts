@@ -77,6 +77,9 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  *   },
  *   TranscodeProfileName: "STRING_VALUE",
  *   VideoContentSourceUrl: "STRING_VALUE",
+ *   AdConditioningConfiguration: { // AdConditioningConfiguration
+ *     StreamingMediaFileConditioning: "TRANSCODE" || "NONE", // required
+ *   },
  * };
  * const command = new PutPlaybackConfigurationCommand(input);
  * const response = await client.send(command);
@@ -132,6 +135,9 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * //   },
  * //   TranscodeProfileName: "STRING_VALUE",
  * //   VideoContentSourceUrl: "STRING_VALUE",
+ * //   AdConditioningConfiguration: { // AdConditioningConfiguration
+ * //     StreamingMediaFileConditioning: "TRANSCODE" || "NONE", // required
+ * //   },
  * // };
  *
  * ```

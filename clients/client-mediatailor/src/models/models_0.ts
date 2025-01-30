@@ -670,6 +670,33 @@ export interface LiveSource {
  * @public
  * @enum
  */
+export const StreamingMediaFileConditioning = {
+  NONE: "NONE",
+  TRANSCODE: "TRANSCODE",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingMediaFileConditioning =
+  (typeof StreamingMediaFileConditioning)[keyof typeof StreamingMediaFileConditioning];
+
+/**
+ * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+ * @public
+ */
+export interface AdConditioningConfiguration {
+  /**
+   * <p>For ads that have media files with streaming delivery, indicates what transcoding action MediaTailor it first receives these ads from the ADS. <code>TRANSCODE</code> indicates that MediaTailor must transcode the ads. <code>NONE</code> indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see <a href="https://docs.aws.amazon.com/precondition-ads.html">https://docs.aws.amazon.com/precondition-ads.html</a>.</p>
+   * @public
+   */
+  StreamingMediaFileConditioning: StreamingMediaFileConditioning | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const FillPolicy = {
   FULL_AVAIL_ONLY: "FULL_AVAIL_ONLY",
   PARTIAL_AVAIL: "PARTIAL_AVAIL",
@@ -838,12 +865,12 @@ export interface LivePreRollConfiguration {
 }
 
 /**
- * <p>Returns Amazon CloudWatch log settings for a playback configuration.</p>
+ * <p>Defines where AWS Elemental MediaTailor sends logs for the playback configuration.</p>
  * @public
  */
 export interface LogConfiguration {
   /**
-   * <p>The percentage of session logs that MediaTailor sends to your Cloudwatch Logs account. For example, if your playback configuration has 1000 sessions and <code>percentEnabled</code> is set to <code>60</code>, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html">debug log mode</a>.</p>
+   * <p>The percentage of session logs that MediaTailor sends to your configured log destination. For example, if your playback configuration has 1000 sessions and <code>percentEnabled</code> is set to <code>60</code>, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html">debug log mode</a>.</p>
    *          <p>Valid values: <code>0</code> - <code>100</code>
    *          </p>
    * @public
@@ -907,7 +934,7 @@ export interface PlaybackConfiguration {
   CdnConfiguration?: CdnConfiguration | undefined;
 
   /**
-   * <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html">Domain Variables</a>.</p>
+   * <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domains.html">Domain Variables</a>.</p>
    * @public
    */
   ConfigurationAliases?: Record<string, Record<string, string>> | undefined;
@@ -937,7 +964,7 @@ export interface PlaybackConfiguration {
   LivePreRollConfiguration?: LivePreRollConfiguration | undefined;
 
   /**
-   * <p>The Amazon CloudWatch log settings for a playback configuration.</p>
+   * <p>Defines where AWS Elemental MediaTailor sends logs for the playback configuration.</p>
    * @public
    */
   LogConfiguration?: LogConfiguration | undefined;
@@ -1001,6 +1028,12 @@ export interface PlaybackConfiguration {
    * @public
    */
   VideoContentSourceUrl?: string | undefined;
+
+  /**
+   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+   * @public
+   */
+  AdConditioningConfiguration?: AdConditioningConfiguration | undefined;
 }
 
 /**
@@ -1021,7 +1054,7 @@ export interface PrefetchConsumption {
   EndTime: Date | undefined;
 
   /**
-   * <p>The time when prefetched ads are considered for use in an ad break. If you don't specify <code>StartTime</code>, the prefetched ads are available after MediaTailor retrives them from the ad decision server.</p>
+   * <p>The time when prefetched ads are considered for use in an ad break. If you don't specify <code>StartTime</code>, the prefetched ads are available after MediaTailor retrieves them from the ad decision server.</p>
    * @public
    */
   StartTime?: Date | undefined;
@@ -2624,7 +2657,7 @@ export interface UpdateChannelResponse {
  */
 export interface ConfigureLogsForPlaybackConfigurationRequest {
   /**
-   * <p>The percentage of session logs that MediaTailor sends to your Cloudwatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to <code>60</code>, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html">debug log mode</a>.</p>
+   * <p>The percentage of session logs that MediaTailor sends to your CloudWatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to <code>60</code>, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html">debug log mode</a>.</p>
    *          <p>Valid values: <code>0</code> - <code>100</code>
    *          </p>
    * @public
@@ -3343,7 +3376,7 @@ export interface GetPlaybackConfigurationResponse {
   CdnConfiguration?: CdnConfiguration | undefined;
 
   /**
-   * <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html">Domain Variables</a>.</p>
+   * <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domains.html">Domain Variables</a>.</p>
    * @public
    */
   ConfigurationAliases?: Record<string, Record<string, string>> | undefined;
@@ -3373,7 +3406,7 @@ export interface GetPlaybackConfigurationResponse {
   LivePreRollConfiguration?: LivePreRollConfiguration | undefined;
 
   /**
-   * <p>The Amazon CloudWatch log settings for a playback configuration.</p>
+   * <p>The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.</p>
    * @public
    */
   LogConfiguration?: LogConfiguration | undefined;
@@ -3437,6 +3470,12 @@ export interface GetPlaybackConfigurationResponse {
    * @public
    */
   VideoContentSourceUrl?: string | undefined;
+
+  /**
+   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns. </p>
+   * @public
+   */
+  AdConditioningConfiguration?: AdConditioningConfiguration | undefined;
 }
 
 /**
@@ -3855,7 +3894,7 @@ export interface PutPlaybackConfigurationRequest {
   CdnConfiguration?: CdnConfiguration | undefined;
 
   /**
-   * <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html">Domain Variables</a>.</p>
+   * <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domains.html">Domain Variables</a>.</p>
    * @public
    */
   ConfigurationAliases?: Record<string, Record<string, string>> | undefined;
@@ -3919,6 +3958,12 @@ export interface PutPlaybackConfigurationRequest {
    * @public
    */
   VideoContentSourceUrl?: string | undefined;
+
+  /**
+   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+   * @public
+   */
+  AdConditioningConfiguration?: AdConditioningConfiguration | undefined;
 }
 
 /**
@@ -3950,7 +3995,7 @@ export interface PutPlaybackConfigurationResponse {
   CdnConfiguration?: CdnConfiguration | undefined;
 
   /**
-   * <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html">Domain Variables</a>.</p>
+   * <p>The player parameters and aliases used as dynamic variables during session initialization. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domains.html">Domain Variables</a>.</p>
    * @public
    */
   ConfigurationAliases?: Record<string, Record<string, string>> | undefined;
@@ -3980,7 +4025,7 @@ export interface PutPlaybackConfigurationResponse {
   LivePreRollConfiguration?: LivePreRollConfiguration | undefined;
 
   /**
-   * <p>The Amazon CloudWatch log settings for a playback configuration.</p>
+   * <p>The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.</p>
    * @public
    */
   LogConfiguration?: LogConfiguration | undefined;
@@ -4044,6 +4089,12 @@ export interface PutPlaybackConfigurationResponse {
    * @public
    */
   VideoContentSourceUrl?: string | undefined;
+
+  /**
+   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+   * @public
+   */
+  AdConditioningConfiguration?: AdConditioningConfiguration | undefined;
 }
 
 /**
