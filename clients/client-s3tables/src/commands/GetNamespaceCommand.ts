@@ -28,7 +28,13 @@ export interface GetNamespaceCommandInput extends GetNamespaceRequest {}
 export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Gets details about a namespace.</p>
+ * <p>Gets details about a namespace. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-namespace.html">Table namespaces</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p>You must have the <code>s3tables:GetNamespace</code> permission to use this operation. </p>
+ *             </dd>
+ *          </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

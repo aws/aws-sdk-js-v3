@@ -28,7 +28,13 @@ export interface GetTableBucketCommandInput extends GetTableBucketRequest {}
 export interface GetTableBucketCommandOutput extends GetTableBucketResponse, __MetadataBearer {}
 
 /**
- * <p>Gets details on a table bucket.</p>
+ * <p>Gets details on a table bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-details.html">Viewing details about an Amazon S3 table bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p>You must have the <code>s3tables:GetTableBucket</code> permission to use this operation. </p>
+ *             </dd>
+ *          </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

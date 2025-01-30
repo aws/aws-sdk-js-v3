@@ -192,6 +192,92 @@ export const OpenTableFormat = {
 export type OpenTableFormat = (typeof OpenTableFormat)[keyof typeof OpenTableFormat];
 
 /**
+ * <p>Contains details about a schema field.</p>
+ * @public
+ */
+export interface SchemaField {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The field type. S3 Tables supports all Apache Iceberg primitive types. For more information, see the <a href="https://iceberg.apache.org/spec/#primitive-types">Apache Iceberg documentation</a>.</p>
+   * @public
+   */
+  type: string | undefined;
+
+  /**
+   * <p>A Boolean value that specifies whether values are required for each row in this field. By default, this is <code>false</code> and null values are allowed in the field. If this is <code>true</code> the field does not allow null values.</p>
+   * @public
+   */
+  required?: boolean | undefined;
+}
+
+/**
+ * <p>Contains details about the schema for an Iceberg table.</p>
+ * @public
+ */
+export interface IcebergSchema {
+  /**
+   * <p>The schema fields for the table</p>
+   * @public
+   */
+  fields: SchemaField[] | undefined;
+}
+
+/**
+ * <p>Contains details about the metadata for an Iceberg table.</p>
+ * @public
+ */
+export interface IcebergMetadata {
+  /**
+   * <p>The schema for an Iceberg table.</p>
+   * @public
+   */
+  schema: IcebergSchema | undefined;
+}
+
+/**
+ * <p>Contains details about the table metadata.</p>
+ * @public
+ */
+export type TableMetadata = TableMetadata.IcebergMember | TableMetadata.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TableMetadata {
+  /**
+   * <p>Contains details about the metadata of an Iceberg table.</p>
+   * @public
+   */
+  export interface IcebergMember {
+    iceberg: IcebergMetadata;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    iceberg?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    iceberg: (value: IcebergMetadata) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: TableMetadata, visitor: Visitor<T>): T => {
+    if (value.iceberg !== undefined) return visitor.iceberg(value.iceberg);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * @public
  */
 export interface CreateTableRequest {
@@ -218,6 +304,12 @@ export interface CreateTableRequest {
    * @public
    */
   format: OpenTableFormat | undefined;
+
+  /**
+   * <p>The metadata for the table.</p>
+   * @public
+   */
+  metadata?: TableMetadata | undefined;
 }
 
 /**
@@ -321,7 +413,7 @@ export interface DeleteTableBucketRequest {
  */
 export interface DeleteTableBucketPolicyRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of the table bucket.</p>
+   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
    * @public
    */
   tableBucketARN: string | undefined;
@@ -332,7 +424,7 @@ export interface DeleteTableBucketPolicyRequest {
  */
 export interface DeleteTablePolicyRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of the table bucket that contains the table.</p>
+   * <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
    * @public
    */
   tableBucketARN: string | undefined;
@@ -706,7 +798,7 @@ export interface GetTableBucketMaintenanceConfigurationResponse {
  */
 export interface GetTableBucketPolicyRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of the table bucket.</p>
+   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
    * @public
    */
   tableBucketARN: string | undefined;
@@ -717,7 +809,7 @@ export interface GetTableBucketPolicyRequest {
  */
 export interface GetTableBucketPolicyResponse {
   /**
-   * <p>The name of the resource policy.</p>
+   * <p>The <code>JSON</code> that defines the policy.</p>
    * @public
    */
   resourcePolicy: string | undefined;
@@ -1031,7 +1123,7 @@ export interface GetTableMetadataLocationResponse {
  */
 export interface GetTablePolicyRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of the table bucket that contains the table.</p>
+   * <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
    * @public
    */
   tableBucketARN: string | undefined;
@@ -1054,7 +1146,7 @@ export interface GetTablePolicyRequest {
  */
 export interface GetTablePolicyResponse {
   /**
-   * <p>The name of the resource policy.</p>
+   * <p>The <code>JSON</code> that defines the policy.</p>
    * @public
    */
   resourcePolicy: string | undefined;
@@ -1171,7 +1263,7 @@ export interface ListTableBucketsRequest {
  */
 export interface TableBucketSummary {
   /**
-   * <p>The Amazon Resource Number (ARN) of the table bucket.</p>
+   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
    * @public
    */
   arn: string | undefined;
@@ -1217,7 +1309,7 @@ export interface ListTableBucketsResponse {
  */
 export interface ListTablesRequest {
   /**
-   * <p>The Amazon resource Number (ARN) of the table bucket.</p>
+   * <p>The Amazon resource Name (ARN) of the table bucket.</p>
    * @public
    */
   tableBucketARN: string | undefined;
@@ -1274,7 +1366,7 @@ export interface TableSummary {
   type: TableType | undefined;
 
   /**
-   * <p>The Amazon Resource Number (ARN) of the table.</p>
+   * <p>The Amazon Resource Name (ARN) of the table.</p>
    * @public
    */
   tableARN: string | undefined;
@@ -1338,13 +1430,13 @@ export interface PutTableBucketMaintenanceConfigurationRequest {
  */
 export interface PutTableBucketPolicyRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of the table bucket.</p>
+   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The name of the resource policy.</p>
+   * <p>The <code>JSON</code> that defines the policy.</p>
    * @public
    */
   resourcePolicy: string | undefined;
@@ -1391,7 +1483,7 @@ export interface PutTableMaintenanceConfigurationRequest {
  */
 export interface PutTablePolicyRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of the table bucket that contains the table.</p>
+   * <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
    * @public
    */
   tableBucketARN: string | undefined;
@@ -1409,7 +1501,7 @@ export interface PutTablePolicyRequest {
   name: string | undefined;
 
   /**
-   * <p>The name of the resource policy.</p>
+   * <p>The <code>JSON</code> that defines the policy.</p>
    * @public
    */
   resourcePolicy: string | undefined;
@@ -1502,7 +1594,7 @@ export interface UpdateTableMetadataLocationResponse {
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Number (ARN) of the table.</p>
+   * <p>The Amazon Resource Name (ARN) of the table.</p>
    * @public
    */
   tableARN: string | undefined;

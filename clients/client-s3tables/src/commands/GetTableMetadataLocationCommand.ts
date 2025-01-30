@@ -29,6 +29,12 @@ export interface GetTableMetadataLocationCommandOutput extends GetTableMetadataL
 
 /**
  * <p>Gets the location of the table metadata.</p>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p>You must have the <code>s3tables:GetTableMetadataLocation</code> permission to use this operation. </p>
+ *             </dd>
+ *          </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

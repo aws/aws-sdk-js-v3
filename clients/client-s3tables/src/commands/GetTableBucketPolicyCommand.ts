@@ -28,7 +28,13 @@ export interface GetTableBucketPolicyCommandInput extends GetTableBucketPolicyRe
 export interface GetTableBucketPolicyCommandOutput extends GetTableBucketPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Gets details about a table bucket policy.</p>
+ * <p>Gets details about a table bucket policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-bucket-policy.html#table-bucket-policy-get">Viewing a table bucket policy</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p>You must have the <code>s3tables:GetTableBucketPolicy</code> permission to use this operation. </p>
+ *             </dd>
+ *          </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

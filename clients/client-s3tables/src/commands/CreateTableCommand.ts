@@ -28,7 +28,16 @@ export interface CreateTableCommandInput extends CreateTableRequest {}
 export interface CreateTableCommandOutput extends CreateTableResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new table associated with the given namespace in a table bucket.</p>
+ * <p>Creates a new table associated with the given namespace in a table bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-create.html">Creating an Amazon S3 table</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p>You must have the <code>s3tables:CreateTable</code> permission to use this operation. </p>
+ *                <note>
+ *                   <p>Additionally, you must have the <code>s3tables:PutTableData</code> permission to use this operation with the optional <code>metadata</code> request parameter. </p>
+ *                </note>
+ *             </dd>
+ *          </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -40,6 +49,19 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *   namespace: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   format: "ICEBERG", // required
+ *   metadata: { // TableMetadata Union: only one key present
+ *     iceberg: { // IcebergMetadata
+ *       schema: { // IcebergSchema
+ *         fields: [ // SchemaFieldList // required
+ *           { // SchemaField
+ *             name: "STRING_VALUE", // required
+ *             type: "STRING_VALUE", // required
+ *             required: true || false,
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
  * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);

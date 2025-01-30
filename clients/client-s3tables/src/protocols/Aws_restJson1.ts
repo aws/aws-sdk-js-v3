@@ -84,11 +84,14 @@ import {
   ConflictException,
   ForbiddenException,
   IcebergCompactionSettings,
+  IcebergMetadata,
+  IcebergSchema,
   IcebergSnapshotManagementSettings,
   IcebergUnreferencedFileRemovalSettings,
   InternalServerErrorException,
   NamespaceSummary,
   NotFoundException,
+  SchemaField,
   TableBucketMaintenanceConfigurationValue,
   TableBucketMaintenanceSettings,
   TableBucketSummary,
@@ -96,6 +99,7 @@ import {
   TableMaintenanceJobStatusValue,
   TableMaintenanceJobType,
   TableMaintenanceSettings,
+  TableMetadata,
   TableSummary,
   TooManyRequestsException,
 } from "../models/models_0";
@@ -142,6 +146,7 @@ export const se_CreateTableCommand = async (
   body = JSON.stringify(
     take(input, {
       format: [],
+      metadata: (_) => _json(_),
       name: [],
     })
   );
@@ -1339,11 +1344,19 @@ const de_TooManyRequestsExceptionRes = async (
 
 // se_IcebergCompactionSettings omitted.
 
+// se_IcebergMetadata omitted.
+
+// se_IcebergSchema omitted.
+
 // se_IcebergSnapshotManagementSettings omitted.
 
 // se_IcebergUnreferencedFileRemovalSettings omitted.
 
 // se_NamespaceList omitted.
+
+// se_SchemaField omitted.
+
+// se_SchemaFieldList omitted.
 
 // se_TableBucketMaintenanceConfigurationValue omitted.
 
@@ -1352,6 +1365,8 @@ const de_TooManyRequestsExceptionRes = async (
 // se_TableMaintenanceConfigurationValue omitted.
 
 // se_TableMaintenanceSettings omitted.
+
+// se_TableMetadata omitted.
 
 // de_IcebergCompactionSettings omitted.
 
