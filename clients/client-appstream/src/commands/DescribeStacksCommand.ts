@@ -58,6 +58,9 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * //           Domains: [ // DomainList
  * //             "STRING_VALUE",
  * //           ],
+ * //           DomainsRequireAdminConsent: [
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       ],
  * //       RedirectURL: "STRING_VALUE",

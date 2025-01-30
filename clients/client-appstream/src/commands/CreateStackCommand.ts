@@ -46,6 +46,9 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  *       Domains: [ // DomainList
  *         "STRING_VALUE",
  *       ],
+ *       DomainsRequireAdminConsent: [
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *   ],
  *   RedirectURL: "STRING_VALUE",
@@ -91,6 +94,9 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * //         ConnectorType: "HOMEFOLDERS" || "GOOGLE_DRIVE" || "ONE_DRIVE", // required
  * //         ResourceIdentifier: "STRING_VALUE",
  * //         Domains: [ // DomainList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         DomainsRequireAdminConsent: [
  * //           "STRING_VALUE",
  * //         ],
  * //       },

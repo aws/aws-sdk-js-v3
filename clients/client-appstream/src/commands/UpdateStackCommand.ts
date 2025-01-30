@@ -46,6 +46,9 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  *       Domains: [ // DomainList
  *         "STRING_VALUE",
  *       ],
+ *       DomainsRequireAdminConsent: [
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *   ],
  *   DeleteStorageConnectors: true || false,
@@ -92,6 +95,9 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  * //         ConnectorType: "HOMEFOLDERS" || "GOOGLE_DRIVE" || "ONE_DRIVE", // required
  * //         ResourceIdentifier: "STRING_VALUE",
  * //         Domains: [ // DomainList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         DomainsRequireAdminConsent: [
  * //           "STRING_VALUE",
  * //         ],
  * //       },

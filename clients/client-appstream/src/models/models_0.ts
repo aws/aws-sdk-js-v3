@@ -3297,6 +3297,12 @@ export interface StorageConnector {
    * @public
    */
   Domains?: string[] | undefined;
+
+  /**
+   * <p>The OneDrive for Business domains where you require admin consent when users try to link their OneDrive account to AppStream 2.0. The attribute can only be specified when ConnectorType=ONE_DRIVE.</p>
+   * @public
+   */
+  DomainsRequireAdminConsent?: string[] | undefined;
 }
 
 /**
