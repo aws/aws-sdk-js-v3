@@ -165,18 +165,19 @@ import { fromIni } from "@aws-sdk/credential-provider-ini";
 
 // Create client with credentials that will reload from file
 const client = new S3Client({
-  credentials: fromIni({ ignoreCache: true })
- });
- ```
+  credentials: fromIni({ ignoreCache: true }),
+});
+```
 
 Refreshing credentials for an existing client:
+
 ```typescript
 import { S3Client } from "@aws-sdk/client-s3";
 import { fromIni } from "@aws-sdk/credential-provider-ini";
 
 // Initial client setup
 const client = new S3Client({
-  credentials: fromIni({ ignoreCache: true })
+  credentials: fromIni({ ignoreCache: true }),
 });
 
 // To refresh credentials later:
@@ -189,21 +190,21 @@ async function refreshClientCredentials() {
 ```
 
 For temporary credentials:
+
 ```typescript
-import { fromTemporaryCredentials } from "@aws-sdk/credential-provider";
+import { fromTemporaryCredentials } from "@aws-sdk/credential-providers";
 
 // Better approach for temporary credentials that need regular refreshing
 const client = new S3Client({
   credentials: fromTemporaryCredentials({
-  // your temporary credentials config
-    })
-  });
+    // your temporary credentials config
+  }),
+});
 ```
 
 - When using with AWS clients, the credential provider function is handled automatically.
 - For temporary credentials that need regular refreshing, `fromTemporaryCredentials` is recommended over manual refresh with `ignoreCache`.
 - Creating a new client instance ensures fresh credentials.
-
 
 ### AWS Profile `profile`
 
