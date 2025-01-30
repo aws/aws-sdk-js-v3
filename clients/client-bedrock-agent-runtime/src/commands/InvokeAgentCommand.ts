@@ -1071,6 +1071,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //     },
  * //     internalServerException: { // InternalServerException
  * //       message: "STRING_VALUE",
+ * //       reason: "STRING_VALUE",
  * //     },
  * //     validationException: { // ValidationException
  * //       message: "STRING_VALUE",

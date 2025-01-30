@@ -41,6 +41,7 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  *          <note>
  *             <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>InvokeModelWithResponseStream</code>.</p>
  *          </note>
+ *          <p>This operation requires permission for the <code> bedrock:RetrieveAndGenerate</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -319,6 +320,7 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  * //     },
  * //     internalServerException: { // InternalServerException
  * //       message: "STRING_VALUE",
+ * //       reason: "STRING_VALUE",
  * //     },
  * //     validationException: { // ValidationException
  * //       message: "STRING_VALUE",

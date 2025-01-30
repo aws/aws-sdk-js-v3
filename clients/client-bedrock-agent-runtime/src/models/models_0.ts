@@ -1260,6 +1260,12 @@ export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   /**
+   * <p>The reason for the exception. If the reason is <code>BEDROCK_MODEL_INVOCATION_SERVICE_UNAVAILABLE</code>, the model invocation service is unavailable. Retry your request.</p>
+   * @public
+   */
+  reason?: string | undefined;
+
+  /**
    * @internal
    */
   constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
@@ -1269,6 +1275,7 @@ export class InternalServerException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.reason = opts.reason;
   }
 }
 

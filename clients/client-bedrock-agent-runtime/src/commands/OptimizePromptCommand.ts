@@ -68,6 +68,7 @@ export interface OptimizePromptCommandOutput extends OptimizePromptResponse, __M
  * //     },
  * //     internalServerException: { // InternalServerException
  * //       message: "STRING_VALUE",
+ * //       reason: "STRING_VALUE",
  * //     },
  * //     throttlingException: { // ThrottlingException
  * //       message: "STRING_VALUE",

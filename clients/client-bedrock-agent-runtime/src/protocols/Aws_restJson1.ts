@@ -836,6 +836,7 @@ const de_InternalServerExceptionRes = async (
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
+    reason: __expectString,
   });
   Object.assign(contents, doc);
   const exception = new InternalServerException({

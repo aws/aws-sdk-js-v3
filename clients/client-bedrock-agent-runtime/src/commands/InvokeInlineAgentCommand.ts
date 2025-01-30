@@ -1083,6 +1083,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //     },
  * //     internalServerException: { // InternalServerException
  * //       message: "STRING_VALUE",
+ * //       reason: "STRING_VALUE",
  * //     },
  * //     validationException: { // ValidationException
  * //       message: "STRING_VALUE",

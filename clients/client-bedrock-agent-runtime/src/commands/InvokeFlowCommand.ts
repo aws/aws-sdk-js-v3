@@ -121,6 +121,7 @@ export interface InvokeFlowCommandOutput extends InvokeFlowResponse, __MetadataB
  * //     },
  * //     internalServerException: { // InternalServerException
  * //       message: "STRING_VALUE",
+ * //       reason: "STRING_VALUE",
  * //     },
  * //     validationException: { // ValidationException
  * //       message: "STRING_VALUE",
