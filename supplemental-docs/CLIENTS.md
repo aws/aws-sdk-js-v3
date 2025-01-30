@@ -153,7 +153,7 @@ const client = new S3Client({
 
 #### Enabling uncached/refreshed credentials in `fromIni` credential provider
 
-`fromIni` credential provider accepts a boolean `ignoreCache` value which when true, always reloads credentials from the file system instead of using cached values. This is useful when you need to detect changes to the credentials file.
+`fromIni` credential provider accepts a boolean `ignoreCache` option which when true, always reloads credentials from the file system instead of using cached values. This is useful when you need to detect changes to the credentials file.
 
 Note: For temporary credentials that need regular refreshing, consider using `fromTemporaryCredentials` instead.
 
@@ -190,7 +190,7 @@ async function refreshClientCredentials() {
 
 For temporary credentials:
 ```typescript
-import { fromTemporaryCredentials } from "@aws-sdk/credential-provider-ini";
+import { fromTemporaryCredentials } from "@aws-sdk/credential-provider";
 
 // Better approach for temporary credentials that need regular refreshing
 const client = new S3Client({
