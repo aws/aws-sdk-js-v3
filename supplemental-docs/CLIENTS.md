@@ -169,26 +169,6 @@ const client = new S3Client({
 });
 ```
 
-Refreshing credentials for an existing client:
-
-```typescript
-import { S3Client } from "@aws-sdk/client-s3";
-import { fromIni } from "@aws-sdk/credential-providers";
-
-// Initial client setup
-const client = new S3Client({
-  credentials: fromIni({ ignoreCache: true }),
-});
-
-// To refresh credentials later:
-async function refreshClientCredentials() {
-  const credProvider = fromIni({ ignoreCache: true });
-  // Get fresh credentials and update the client
-  const freshCredentials = await credProvider();
-  client.config.credentials = freshCredentials;
-}
-```
-
 For temporary credentials:
 
 You can use the `fromTemporaryCredentials` provider that creates a credential provider function that retrieves temporary credentials from STS AssumeRole API.
