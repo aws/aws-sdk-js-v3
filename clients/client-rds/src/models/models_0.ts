@@ -4984,11 +4984,11 @@ export interface CreateDBClusterMessage {
    *          <p>The following values are valid for each DB engine:</p>
    *          <ul>
    *             <li>
-   *                <p>Aurora MySQL - <code>audit | error | general | slowquery</code>
+   *                <p>Aurora MySQL - <code>audit | error | general | instance | slowquery</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Aurora PostgreSQL - <code>postgresql</code>
+   *                <p>Aurora PostgreSQL - <code>instance | postgresql</code>
    *                </p>
    *             </li>
    *             <li>
@@ -6207,7 +6207,14 @@ export interface DBCluster {
   IAMDatabaseAuthenticationEnabled?: boolean | undefined;
 
   /**
-   * <p>The ID of the clone group with which the DB cluster is associated.</p>
+   * <p>The ID of the clone group with which the DB cluster is associated. For newly created
+   *             clusters, the ID is typically null. </p>
+   *          <p>If you clone a DB cluster when the ID is null, the operation populates the ID value
+   *             for the source cluster and the clone because both clusters become part of the same clone
+   *             group. Even if you delete the clone cluster, the clone group ID remains for the lifetime
+   *             of the source cluster to show that it was used in a cloning operation.</p>
+   *          <p>For PITR, the clone group ID is inherited from the source cluster. For snapshot
+   *             restore operations, the clone group ID isn't inherited from the source cluster.</p>
    * @public
    */
   CloneGroupId?: string | undefined;
@@ -8620,7 +8627,7 @@ export interface CreateDBInstanceMessage {
   NetworkType?: string | undefined;
 
   /**
-   * <p>The storage throughput value for the DB instance.</p>
+   * <p>The storage throughput value, in mebibyte per second (MiBps), for the DB instance.</p>
    *          <p>This setting applies only to the <code>gp3</code> storage type.</p>
    *          <p>This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.</p>
    * @public

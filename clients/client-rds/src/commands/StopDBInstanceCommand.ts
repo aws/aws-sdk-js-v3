@@ -28,9 +28,10 @@ export interface StopDBInstanceCommandInput extends StopDBInstanceMessage {}
 export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains the DB instance's metadata, including its endpoint,
- *             DB parameter group, and option group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time restore if
- *             necessary.</p>
+ * <p>Stops an Amazon RDS DB instance temporarily. When you stop a DB instance, Amazon RDS retains the DB instance's metadata,
+ *          including its endpoint, DB parameter group, and option group membership. Amazon RDS also retains
+ *             the transaction logs so you can do a point-in-time restore if necessary. The instance restarts automatically
+ *             after 7 days.</p>
  *          <p>For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html">
  *                 Stopping an Amazon RDS DB Instance Temporarily</a> in the

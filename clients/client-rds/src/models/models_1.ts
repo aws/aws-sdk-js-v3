@@ -7673,11 +7673,11 @@ export interface ModifyDBClusterMessage {
    *          <p>The following values are valid for each DB engine:</p>
    *          <ul>
    *             <li>
-   *                <p>Aurora MySQL - <code>audit | error | general | slowquery</code>
+   *                <p>Aurora MySQL - <code>audit | error | general | instance | slowquery</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Aurora PostgreSQL - <code>postgresql</code>
+   *                <p>Aurora PostgreSQL - <code>instance | postgresql</code>
    *                </p>
    *             </li>
    *             <li>
@@ -11423,7 +11423,12 @@ export interface RestoreDBClusterFromS3Message {
    *          <p>
    *             <b>Aurora MySQL</b>
    *          </p>
-   *          <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, and <code>slowquery</code>.</p>
+   *          <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, <code>instance</code>, and <code>slowquery</code>.</p>
+   *          <p>
+   *             <b>Aurora PostgreSQL</b>
+   *          </p>
+   *          <p>Possible value are <code>instance</code> and <code>postgresql</code>.</p>
+   *          <p>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
    * @public
    */
@@ -11859,11 +11864,11 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          <p>
    *             <b>Aurora MySQL</b>
    *          </p>
-   *          <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, and <code>slowquery</code>.</p>
+   *          <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, <code>instance</code>, and <code>slowquery</code>.</p>
    *          <p>
    *             <b>Aurora PostgreSQL</b>
    *          </p>
-   *          <p>Possible value is <code>postgresql</code>.</p>
+   *          <p>Possible value are <code>instance</code> and <code>postgresql</code>.</p>
    *          <p>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
@@ -12371,11 +12376,11 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *          <p>
    *             <b>Aurora MySQL</b>
    *          </p>
-   *          <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, and <code>slowquery</code>.</p>
+   *          <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, <code>instance</code>, and <code>slowquery</code>.</p>
    *          <p>
    *             <b>Aurora PostgreSQL</b>
    *          </p>
-   *          <p>Possible value is <code>postgresql</code>.</p>
+   *          <p>Possible value are <code>instance</code> and <code>postgresql</code>.</p>
    *          <p>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
