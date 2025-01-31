@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.740.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.739.0...v3.740.0) (2025-01-31)
+
+
+### Features
+
+* **client-geo-routes:** The OptimizeWaypoints API now supports 50 waypoints per request (20 with constraints like AccessHours or AppointmentTime). It adds waypoint clustering via Clustering and ClusteringIndex for better optimization. Also, total distance validation is removed for greater flexibility. ([423ede1](https://github.com/aws/aws-sdk-js-v3/commit/423ede1ef2d491ed7f2fbc516885e9abc855c98b))
+
+
+
+
+
 # [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
 
 **Note:** Version bump only for package @aws-sdk/client-geo-routes

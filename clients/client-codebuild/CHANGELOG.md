@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.740.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.739.0...v3.740.0) (2025-01-31)
+
+
+### Features
+
+* **client-codebuild:** Added support for CodeBuild self-hosted Buildkite runner builds ([87c823e](https://github.com/aws/aws-sdk-js-v3/commit/87c823eedb59c7ab1d1ae881e6f1b63c3f169196))
+
+
+
+
+
 # [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
 
 **Note:** Version bump only for package @aws-sdk/client-codebuild

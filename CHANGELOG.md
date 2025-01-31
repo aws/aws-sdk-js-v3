@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.740.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.739.0...v3.740.0) (2025-01-31)
+
+
+### Features
+
+* **client-amp:** Add support for sending metrics to cross account and CMCK AMP workspaces through RoleConfiguration on Create/Update Scraper. ([cc1cbaf](https://github.com/aws/aws-sdk-js-v3/commit/cc1cbaf4f4543f001e4e30650e0bbfc12b6added))
+* **client-bedrock-agent-runtime:** This change is to deprecate the existing citation field under RetrieveAndGenerateStream API response in lieu of GeneratedResponsePart and RetrievedReferences ([c7b79b5](https://github.com/aws/aws-sdk-js-v3/commit/c7b79b52de66aaabc411af61148867b87a297132))
+* **client-codebuild:** Added support for CodeBuild self-hosted Buildkite runner builds ([87c823e](https://github.com/aws/aws-sdk-js-v3/commit/87c823eedb59c7ab1d1ae881e6f1b63c3f169196))
+* **client-geo-routes:** The OptimizeWaypoints API now supports 50 waypoints per request (20 with constraints like AccessHours or AppointmentTime). It adds waypoint clustering via Clustering and ClusteringIndex for better optimization. Also, total distance validation is removed for greater flexibility. ([423ede1](https://github.com/aws/aws-sdk-js-v3/commit/423ede1ef2d491ed7f2fbc516885e9abc855c98b))
+* **client-sagemaker:** This release introduces a new valid value in InstanceType parameter: p5en.48xlarge, in ProductionVariant. ([49662bc](https://github.com/aws/aws-sdk-js-v3/commit/49662bc97ffc163006ed1bda5c5da6cf286b011a))
+
+
+
+
+
 # [3.739.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.738.0...v3.739.0) (2025-01-30)
 
 

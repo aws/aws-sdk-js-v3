@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.740.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.739.0...v3.740.0) (2025-01-31)
+
+
+### Features
+
+* **client-amp:** Add support for sending metrics to cross account and CMCK AMP workspaces through RoleConfiguration on Create/Update Scraper. ([cc1cbaf](https://github.com/aws/aws-sdk-js-v3/commit/cc1cbaf4f4543f001e4e30650e0bbfc12b6added))
+
+
+
+
+
 # [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
 
 **Note:** Version bump only for package @aws-sdk/client-amp
