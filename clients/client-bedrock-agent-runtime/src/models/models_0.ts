@@ -7556,10 +7556,24 @@ export interface RetrieveAndGenerateResponse {
  */
 export interface CitationEvent {
   /**
+   * @deprecated
+   *
    * <p>The citation.</p>
    * @public
    */
   citation?: Citation | undefined;
+
+  /**
+   * <p>The generated response to the citation event.</p>
+   * @public
+   */
+  generatedResponsePart?: GeneratedResponsePart | undefined;
+
+  /**
+   * <p>The retrieved references of the citation event.</p>
+   * @public
+   */
+  retrievedReferences?: RetrievedReference[] | undefined;
 }
 
 /**
@@ -10222,6 +10236,12 @@ export const RetrieveAndGenerateResponseFilterSensitiveLog = (obj: RetrieveAndGe
 export const CitationEventFilterSensitiveLog = (obj: CitationEvent): any => ({
   ...obj,
   ...(obj.citation && { citation: CitationFilterSensitiveLog(obj.citation) }),
+  ...(obj.generatedResponsePart && {
+    generatedResponsePart: GeneratedResponsePartFilterSensitiveLog(obj.generatedResponsePart),
+  }),
+  ...(obj.retrievedReferences && {
+    retrievedReferences: obj.retrievedReferences.map((item) => RetrievedReferenceFilterSensitiveLog(item)),
+  }),
 });
 
 /**

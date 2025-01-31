@@ -2255,6 +2255,8 @@ const de_Citation = (output: any, context: __SerdeContext): Citation => {
 const de_CitationEvent = (output: any, context: __SerdeContext): CitationEvent => {
   return take(output, {
     citation: (_: any) => de_Citation(_, context),
+    generatedResponsePart: _json,
+    retrievedReferences: (_: any) => de_RetrievedReferences(_, context),
   }) as any;
 };
 

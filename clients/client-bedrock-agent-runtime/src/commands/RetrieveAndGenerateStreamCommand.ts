@@ -314,6 +314,61 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  * //           },
  * //         ],
  * //       },
+ * //       generatedResponsePart: {
+ * //         textResponsePart: {
+ * //           text: "STRING_VALUE",
+ * //           span: {
+ * //             start: Number("int"),
+ * //             end: Number("int"),
+ * //           },
+ * //         },
+ * //       },
+ * //       retrievedReferences: [
+ * //         {
+ * //           content: {
+ * //             type: "TEXT" || "IMAGE" || "ROW",
+ * //             text: "STRING_VALUE",
+ * //             byteContent: "STRING_VALUE",
+ * //             row: [
+ * //               {
+ * //                 columnName: "STRING_VALUE",
+ * //                 columnValue: "STRING_VALUE",
+ * //                 type: "BLOB" || "BOOLEAN" || "DOUBLE" || "NULL" || "LONG" || "STRING",
+ * //               },
+ * //             ],
+ * //           },
+ * //           location: {
+ * //             type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
+ * //             s3Location: {
+ * //               uri: "STRING_VALUE",
+ * //             },
+ * //             webLocation: {
+ * //               url: "STRING_VALUE",
+ * //             },
+ * //             confluenceLocation: {
+ * //               url: "STRING_VALUE",
+ * //             },
+ * //             salesforceLocation: {
+ * //               url: "STRING_VALUE",
+ * //             },
+ * //             sharePointLocation: {
+ * //               url: "STRING_VALUE",
+ * //             },
+ * //             customDocumentLocation: {
+ * //               id: "STRING_VALUE",
+ * //             },
+ * //             kendraDocumentLocation: {
+ * //               uri: "STRING_VALUE",
+ * //             },
+ * //             sqlLocation: {
+ * //               query: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           metadata: {
+ * //             "<keys>": "DOCUMENT_VALUE",
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //     guardrail: { // GuardrailEvent
  * //       action: "INTERVENED" || "NONE",
