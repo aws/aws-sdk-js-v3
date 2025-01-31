@@ -351,7 +351,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * //           },
  * //         ],
  * //       ],
- * //       buildType: "BUILD" || "BUILD_BATCH",
+ * //       buildType: "BUILD" || "BUILD_BATCH" || "RUNNER_BUILDKITE_BUILD",
  * //       manualCreation: true || false,
  * //       lastModifiedSecret: new Date("TIMESTAMP"),
  * //       scopeConfiguration: { // ScopeConfiguration

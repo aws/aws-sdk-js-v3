@@ -52,7 +52,7 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  *       },
  *     ],
  *   ],
- *   buildType: "BUILD" || "BUILD_BATCH",
+ *   buildType: "BUILD" || "BUILD_BATCH" || "RUNNER_BUILDKITE_BUILD",
  * };
  * const command = new UpdateWebhookCommand(input);
  * const response = await client.send(command);
@@ -71,7 +71,7 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  * //         },
  * //       ],
  * //     ],
- * //     buildType: "BUILD" || "BUILD_BATCH",
+ * //     buildType: "BUILD" || "BUILD_BATCH" || "RUNNER_BUILDKITE_BUILD",
  * //     manualCreation: true || false,
  * //     lastModifiedSecret: new Date("TIMESTAMP"),
  * //     scopeConfiguration: { // ScopeConfiguration

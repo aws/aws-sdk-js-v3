@@ -57,7 +57,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  *       },
  *     ],
  *   ],
- *   buildType: "BUILD" || "BUILD_BATCH",
+ *   buildType: "BUILD" || "BUILD_BATCH" || "RUNNER_BUILDKITE_BUILD",
  *   manualCreation: true || false,
  *   scopeConfiguration: { // ScopeConfiguration
  *     name: "STRING_VALUE", // required
@@ -82,7 +82,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  * //         },
  * //       ],
  * //     ],
- * //     buildType: "BUILD" || "BUILD_BATCH",
+ * //     buildType: "BUILD" || "BUILD_BATCH" || "RUNNER_BUILDKITE_BUILD",
  * //     manualCreation: true || false,
  * //     lastModifiedSecret: new Date("TIMESTAMP"),
  * //     scopeConfiguration: { // ScopeConfiguration

@@ -3740,6 +3740,7 @@ export type ProjectVisibilityType = (typeof ProjectVisibilityType)[keyof typeof 
 export const WebhookBuildType = {
   BUILD: "BUILD",
   BUILD_BATCH: "BUILD_BATCH",
+  RUNNER_BUILDKITE_BUILD: "RUNNER_BUILDKITE_BUILD",
 } as const;
 
 /**
@@ -3770,7 +3771,7 @@ export const WebhookFilterType = {
 export type WebhookFilterType = (typeof WebhookFilterType)[keyof typeof WebhookFilterType];
 
 /**
- * <p> A filter used to determine which webhooks trigger a build. </p>
+ * <p>A filter used to determine which webhooks trigger a build. </p>
  * @public
  */
 export interface WebhookFilter {
@@ -3912,6 +3913,10 @@ export interface WebhookFilter {
    *                             regular expression <code>pattern</code>.</p>
    *                      <note>
    *                         <p> Works with <code>WORKFLOW_JOB_QUEUED</code> events only. </p>
+   *                      </note>
+   *                      <note>
+   *                         <p>For CodeBuild-hosted Buildkite runner builds, WORKFLOW_NAME
+   *                                 filters will filter by pipeline name.</p>
    *                      </note>
    *                   </li>
    *                </ul>
