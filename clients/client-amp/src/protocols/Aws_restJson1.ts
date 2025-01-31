@@ -117,6 +117,7 @@ import {
   InternalServerException,
   LoggingConfigurationMetadata,
   ResourceNotFoundException,
+  RoleConfiguration,
   RuleGroupsNamespaceDescription,
   RuleGroupsNamespaceSummary,
   ScrapeConfiguration,
@@ -222,6 +223,7 @@ export const se_CreateScraperCommand = async (
       alias: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       destination: (_) => _json(_),
+      roleConfiguration: (_) => _json(_),
       scrapeConfiguration: (_) => se_ScrapeConfiguration(_, context),
       source: (_) => _json(_),
       tags: (_) => _json(_),
@@ -659,6 +661,7 @@ export const se_UpdateScraperCommand = async (
       alias: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       destination: (_) => _json(_),
+      roleConfiguration: (_) => _json(_),
       scrapeConfiguration: (_) => se_ScrapeConfiguration(_, context),
     })
   );
@@ -1444,6 +1447,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_EksConfiguration omitted.
 
+// se_RoleConfiguration omitted.
+
 /**
  * serializeAws_restJson1ScrapeConfiguration
  */
@@ -1499,6 +1504,8 @@ const de_LoggingConfigurationMetadata = (output: any, context: __SerdeContext): 
 };
 
 // de_LoggingConfigurationStatus omitted.
+
+// de_RoleConfiguration omitted.
 
 /**
  * deserializeAws_restJson1RuleGroupsNamespaceDescription
@@ -1566,6 +1573,7 @@ const de_ScraperDescription = (output: any, context: __SerdeContext): ScraperDes
     destination: (_: any) => _json(__expectUnion(_)),
     lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     roleArn: __expectString,
+    roleConfiguration: _json,
     scrapeConfiguration: (_: any) => de_ScrapeConfiguration(__expectUnion(_), context),
     scraperId: __expectString,
     source: (_: any) => _json(__expectUnion(_)),
@@ -1588,6 +1596,7 @@ const de_ScraperSummary = (output: any, context: __SerdeContext): ScraperSummary
     destination: (_: any) => _json(__expectUnion(_)),
     lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     roleArn: __expectString,
+    roleConfiguration: _json,
     scraperId: __expectString,
     source: (_: any) => _json(__expectUnion(_)),
     status: _json,

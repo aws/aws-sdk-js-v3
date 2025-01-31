@@ -581,6 +581,24 @@ export namespace Destination {
 }
 
 /**
+ * <p>To configure roles that allows users to write to an Amazon Managed Service for Prometheus workspace in a different account.</p>
+ * @public
+ */
+export interface RoleConfiguration {
+  /**
+   * <p>A ARN identifying the source role configuration.</p>
+   * @public
+   */
+  sourceRoleArn?: string | undefined;
+
+  /**
+   * <p>A ARN identifying the target role configuration.</p>
+   * @public
+   */
+  targetRoleArn?: string | undefined;
+}
+
+/**
  * <p>A scrape configuration for a scraper, base 64 encoded. For more information, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration">Scraper configuration</a> in the <i>Amazon Managed Service for Prometheus User
  *                 Guide</i>.</p>
  * @public
@@ -712,6 +730,12 @@ export interface CreateScraperRequest {
    * @public
    */
   destination: Destination | undefined;
+
+  /**
+   * <p>The scraper role configuration for the workspace.</p>
+   * @public
+   */
+  roleConfiguration?: RoleConfiguration | undefined;
 
   /**
    * <p>(Optional) A unique, case-sensitive identifier that you can provide to ensure the
@@ -939,6 +963,12 @@ export interface ScraperDescription {
    * @public
    */
   destination: Destination | undefined;
+
+  /**
+   * <p>To configure roles that allows users to write to an Amazon Managed Service for Prometheus workspace in a different account.</p>
+   * @public
+   */
+  roleConfiguration?: RoleConfiguration | undefined;
 }
 
 /**
@@ -1066,6 +1096,12 @@ export interface ScraperSummary {
    * @public
    */
   destination: Destination | undefined;
+
+  /**
+   * <p>To configure roles that allows users to write to an Amazon Managed Service for Prometheus workspace in a different account.</p>
+   * @public
+   */
+  roleConfiguration?: RoleConfiguration | undefined;
 }
 
 /**
@@ -1121,6 +1157,12 @@ export interface UpdateScraperRequest {
    * @public
    */
   destination?: Destination | undefined;
+
+  /**
+   * <p>The scraper role configuration for the workspace.</p>
+   * @public
+   */
+  roleConfiguration?: RoleConfiguration | undefined;
 
   /**
    * <p>A unique identifier that you can provide to ensure the idempotency of the request.

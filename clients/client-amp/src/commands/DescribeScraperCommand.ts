@@ -75,6 +75,10 @@ export interface DescribeScraperCommandOutput extends DescribeScraperResponse, _
  * //         workspaceArn: "STRING_VALUE", // required
  * //       },
  * //     },
+ * //     roleConfiguration: { // RoleConfiguration
+ * //       sourceRoleArn: "STRING_VALUE",
+ * //       targetRoleArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

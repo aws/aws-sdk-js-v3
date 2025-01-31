@@ -73,6 +73,10 @@ export interface CreateScraperCommandOutput extends CreateScraperResponse, __Met
  *       workspaceArn: "STRING_VALUE", // required
  *     },
  *   },
+ *   roleConfiguration: { // RoleConfiguration
+ *     sourceRoleArn: "STRING_VALUE",
+ *     targetRoleArn: "STRING_VALUE",
+ *   },
  *   clientToken: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",

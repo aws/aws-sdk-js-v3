@@ -80,6 +80,10 @@ export interface ListScrapersCommandOutput extends ListScrapersResponse, __Metad
  * //           workspaceArn: "STRING_VALUE", // required
  * //         },
  * //       },
+ * //       roleConfiguration: { // RoleConfiguration
+ * //         sourceRoleArn: "STRING_VALUE",
+ * //         targetRoleArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

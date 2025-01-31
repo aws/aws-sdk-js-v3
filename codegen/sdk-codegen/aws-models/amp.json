@@ -1398,6 +1398,12 @@
             "smithy.api#required": {}
           }
         },
+        "roleConfiguration": {
+          "target": "com.amazonaws.amp#RoleConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The scraper role configuration for the workspace.</p>"
+          }
+        },
         "clientToken": {
           "target": "com.amazonaws.amp#IdempotencyToken",
           "traits": {
@@ -2544,7 +2550,8 @@
         "aws.api#arnReference": {
           "type": "AWS::IAM::Role"
         },
-        "smithy.api#documentation": "<p>An ARN identifying an IAM role used by the scraper.</p>"
+        "smithy.api#documentation": "<p>An ARN identifying an IAM role used by the scraper.</p>",
+        "smithy.api#pattern": "^arn:aws[-a-z]*:iam::[0-9]{12}:role/.+$"
       }
     },
     "com.amazonaws.amp#IdempotencyToken": {
@@ -2594,7 +2601,7 @@
           "min": 20,
           "max": 2048
         },
-        "smithy.api#pattern": "^arn:aws:kms:[a-z0-9\\-]+:\\d+:key/[a-f0-9\\-]+$"
+        "smithy.api#pattern": "^arn:aws[-a-z]*:kms:[-a-z0-9]+:[0-9]{12}:key/[-a-f0-9]+$"
       }
     },
     "com.amazonaws.amp#ListRuleGroupsNamespaces": {
@@ -3055,7 +3062,7 @@
         "aws.api#arnReference": {
           "type": "AWS::Logs::LogGroup"
         },
-        "smithy.api#pattern": "^arn:aws[a-z0-9-]*:logs:[a-z0-9-]+:\\d{12}:log-group:[A-Za-z0-9\\.\\-\\_\\#/]{1,512}\\:\\*$"
+        "smithy.api#pattern": "^arn:aws[-a-z]*:logs:[-a-z0-9]+:[0-9]{12}:log-group:[A-Za-z0-9\\.\\-\\_\\#/]{1,512}\\:\\*$"
       }
     },
     "com.amazonaws.amp#LoggingConfiguration": {
@@ -3424,6 +3431,26 @@
         "smithy.api#documentation": "<p>The request references a resources that doesn't exist.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.amp#RoleConfiguration": {
+      "type": "structure",
+      "members": {
+        "sourceRoleArn": {
+          "target": "com.amazonaws.amp#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>A ARN identifying the source role configuration.</p>"
+          }
+        },
+        "targetRoleArn": {
+          "target": "com.amazonaws.amp#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>A ARN identifying the target role configuration.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>To configure roles that allows users to write to an Amazon Managed Service for Prometheus workspace in a different account.</p>"
       }
     },
     "com.amazonaws.amp#RuleGroupsNamespace": {
@@ -3807,6 +3834,9 @@
             "smithy.api#documentation": "<p>The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.</p>",
             "smithy.api#required": {}
           }
+        },
+        "roleConfiguration": {
+          "target": "com.amazonaws.amp#RoleConfiguration"
         }
       },
       "traits": {
@@ -3985,6 +4015,9 @@
             "smithy.api#documentation": "<p>The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.</p>",
             "smithy.api#required": {}
           }
+        },
+        "roleConfiguration": {
+          "target": "com.amazonaws.amp#RoleConfiguration"
         }
       },
       "traits": {
@@ -4498,6 +4531,12 @@
           "target": "com.amazonaws.amp#Destination",
           "traits": {
             "smithy.api#documentation": "<p>The new Amazon Managed Service for Prometheus workspace to send metrics to.</p>"
+          }
+        },
+        "roleConfiguration": {
+          "target": "com.amazonaws.amp#RoleConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The scraper role configuration for the workspace.</p>"
           }
         },
         "clientToken": {

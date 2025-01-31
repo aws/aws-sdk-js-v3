@@ -49,6 +49,10 @@ export interface UpdateScraperCommandOutput extends UpdateScraperResponse, __Met
  *       workspaceArn: "STRING_VALUE", // required
  *     },
  *   },
+ *   roleConfiguration: { // RoleConfiguration
+ *     sourceRoleArn: "STRING_VALUE",
+ *     targetRoleArn: "STRING_VALUE",
+ *   },
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateScraperCommand(input);
