@@ -33,7 +33,8 @@ export interface SnapToRoadsCommandInput extends SnapToRoadsRequest {}
 export interface SnapToRoadsCommandOutput extends SnapToRoadsResponse, __MetadataBearer {}
 
 /**
- * <p>The SnapToRoads action matches GPS trace to roads most likely traveled on.</p>
+ * <p>
+ *             <code>SnapToRoads</code> matches GPS trace to roads most likely traveled on.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,7 +119,8 @@ export interface SnapToRoadsCommandOutput extends SnapToRoadsResponse, __Metadat
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *          failure.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

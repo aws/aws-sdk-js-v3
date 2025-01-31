@@ -168,8 +168,10 @@ import {
   WaypointOptimizationAvoidanceArea,
   WaypointOptimizationAvoidanceAreaGeometry,
   WaypointOptimizationAvoidanceOptions,
+  WaypointOptimizationClusteringOptions,
   WaypointOptimizationDestinationOptions,
   WaypointOptimizationDriverOptions,
+  WaypointOptimizationDrivingDistanceOptions,
   WaypointOptimizationExclusionOptions,
   WaypointOptimizationHazardousCargoType,
   WaypointOptimizationImpedingWaypoint,
@@ -332,6 +334,7 @@ export const se_OptimizeWaypointsCommand = async (
   body = JSON.stringify(
     take(input, {
       Avoid: (_) => se_WaypointOptimizationAvoidanceOptions(_, context),
+      Clustering: (_) => _json(_),
       DepartureTime: [],
       Destination: (_) => se_Position(_, context),
       DestinationOptions: (_) => se_WaypointOptimizationDestinationOptions(_, context),
@@ -1437,6 +1440,8 @@ const se_WaypointOptimizationAvoidanceOptions = (
   });
 };
 
+// se_WaypointOptimizationClusteringOptions omitted.
+
 /**
  * serializeAws_restJson1WaypointOptimizationDestinationOptions
  */
@@ -1455,6 +1460,8 @@ const se_WaypointOptimizationDestinationOptions = (
 };
 
 // se_WaypointOptimizationDriverOptions omitted.
+
+// se_WaypointOptimizationDrivingDistanceOptions omitted.
 
 // se_WaypointOptimizationExclusionOptions omitted.
 
@@ -2631,6 +2638,7 @@ const de_WaypointOptimizationOptimizedWaypoint = (
 ): WaypointOptimizationOptimizedWaypoint => {
   return take(output, {
     ArrivalTime: __expectString,
+    ClusterIndex: __expectInt32,
     DepartureTime: __expectString,
     Id: __expectString,
     Position: (_: any) => de_Position(_, context),

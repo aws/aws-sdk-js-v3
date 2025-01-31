@@ -26,25 +26,30 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Features that are allowed while calculating. a route</p>
+ * <p>Features that are allowed while calculating an isoline.</p>
  * @public
  */
 export interface IsolineAllowOptions {
   /**
-   * <p>Allow Hot (High Occupancy Toll) lanes while calculating the route.</p>
+   * <p>Allow Hot (High Occupancy Toll) lanes while calculating an isoline.</p>
+   *          <p>Default value: <code>false</code>
+   *          </p>
    * @public
    */
   Hot?: boolean | undefined;
 
   /**
-   * <p>Allow Hov (High Occupancy vehicle) lanes while calculating the route.</p>
+   * <p>Allow Hov (High Occupancy vehicle) lanes while calculating an isoline.</p>
+   *          <p>Default value: <code>false</code>
+   *          </p>
    * @public
    */
   Hov?: boolean | undefined;
 }
 
 /**
- * <p>Geometry defined as a corridor - a LineString with a radius that defines the width of the corridor.</p>
+ * <p>Geometry defined as a corridor - a LineString with a radius that defines the width of
+ *          the corridor.</p>
  * @public
  */
 export interface Corridor {
@@ -71,7 +76,8 @@ export interface Corridor {
  */
 export interface PolylineCorridor {
   /**
-   * <p>An ordered list of positions used to plot a route on a map in a lossy compression format.</p>
+   * <p>An ordered list of positions used to plot a route on a map in a lossy compression
+   *          format.</p>
    *          <note>
    *             <p>LineString and Polyline are mutually exclusive properties.</p>
    *          </note>
@@ -80,7 +86,8 @@ export interface PolylineCorridor {
   Polyline: string | undefined;
 
   /**
-   * <p>Considers all roads within the provided radius to match the provided destination to. The roads that are considered are determined by the provided Strategy.</p>
+   * <p>Considers all roads within the provided radius to match the provided destination to. The
+   *          roads that are considered are determined by the provided Strategy.</p>
    *          <p>
    *             <b>Unit</b>: <code>Meters</code>
    *          </p>
@@ -90,7 +97,7 @@ export interface PolylineCorridor {
 }
 
 /**
- * <p>The  avoidance geometry, to be included while calculating the route.</p>
+ * <p>The avoidance geometry, to be included while calculating an isoline.</p>
  * @public
  */
 export interface IsolineAvoidanceAreaGeometry {
@@ -103,27 +110,29 @@ export interface IsolineAvoidanceAreaGeometry {
   BoundingBox?: number[] | undefined;
 
   /**
-   * <p>Geometry defined as a corridor - a LineString with a radius that defines the width of the corridor.</p>
+   * <p>Geometry defined as a corridor - a LineString with a radius that defines the width of
+   *          the corridor.</p>
    * @public
    */
   Corridor?: Corridor | undefined;
 
   /**
-   * <p>A list of Polygon will be excluded for calculating isolines, the list can only contain 1 polygon.</p>
+   * <p>A list of Polygon will be excluded for calculating isolines, the list can only contain 1
+   *          polygon.</p>
    * @public
    */
   Polygon?: number[][][] | undefined;
 
   /**
-   * <p>Geometry defined as an encoded corridor – a polyline with a radius that defines the width of the corridor. For more information on polyline
-   * encoding, see <a href="https://github.com/heremaps/flexiblepolyline/blob/master/README.md">https://github.com/heremaps/flexiblepolyline/blob/master/README.md</a>.</p>
+   * <p>Geometry defined as an encoded corridor – a polyline with a radius that defines the
+   *          width of the corridor. For more information on polyline encoding, see <a href="https://github.com/heremaps/flexiblepolyline/blob/master/README.md">https://github.com/heremaps/flexiblepolyline/blob/master/README.md</a>.</p>
    * @public
    */
   PolylineCorridor?: PolylineCorridor | undefined;
 
   /**
-   * <p>A list of PolylinePolygon's that are excluded for calculating isolines, the list can only contain 1 polygon. For more information on polyline encoding, see <a href="https://github.com/heremaps/flexiblepolyline/blob/master/README.md">https://github.com/heremaps/flexiblepolyline/blob/master/README.md</a>.
-   * </p>
+   * <p>A list of PolylinePolygon's that are excluded for calculating isolines, the list can
+   *          only contain 1 polygon. For more information on polyline encoding, see <a href="https://github.com/heremaps/flexiblepolyline/blob/master/README.md">https://github.com/heremaps/flexiblepolyline/blob/master/README.md</a>. </p>
    * @public
    */
   PolylinePolygon?: string[] | undefined;
@@ -135,7 +144,8 @@ export interface IsolineAvoidanceAreaGeometry {
  */
 export interface IsolineAvoidanceArea {
   /**
-   * <p>Exceptions to the provided avoidance geometry, to be included while calculating the route.</p>
+   * <p>Exceptions to the provided avoidance geometry, to be included while calculating an
+   *          isoline.</p>
    * @public
    */
   Except?: IsolineAvoidanceAreaGeometry[] | undefined;
@@ -175,8 +185,8 @@ export interface IsolineAvoidanceZoneCategory {
 }
 
 /**
- * <p>Features that are avoided while calculating a route. Avoidance is on a best-case basis. If an
- *          avoidance can't be satisfied for a particular case, it violates the avoidance and the
+ * <p>Features that are avoided while calculating isolines. Avoidance is on a best-case basis.
+ *          If an avoidance can't be satisfied for a particular case, it violates the avoidance and the
  *          returned response produces a notice for the violation.</p>
  * @public
  */
@@ -188,31 +198,31 @@ export interface IsolineAvoidanceOptions {
   Areas?: IsolineAvoidanceArea[] | undefined;
 
   /**
-   * <p>Avoid car-shuttle-trains while calculating the route.</p>
+   * <p>Avoid car-shuttle-trains while calculating an isoline.</p>
    * @public
    */
   CarShuttleTrains?: boolean | undefined;
 
   /**
-   * <p>Avoid controlled access highways while calculating the route.</p>
+   * <p>Avoid controlled access highways while calculating an isoline.</p>
    * @public
    */
   ControlledAccessHighways?: boolean | undefined;
 
   /**
-   * <p>Avoid dirt roads while calculating the route.</p>
+   * <p>Avoid dirt roads while calculating an isoline.</p>
    * @public
    */
   DirtRoads?: boolean | undefined;
 
   /**
-   * <p>Avoid ferries while calculating the route.</p>
+   * <p>Avoid ferries while calculating an isoline.</p>
    * @public
    */
   Ferries?: boolean | undefined;
 
   /**
-   * <p>Avoid roads that have seasonal closure while calculating the route.</p>
+   * <p>Avoid roads that have seasonal closure while calculating an isoline.</p>
    * @public
    */
   SeasonalClosure?: boolean | undefined;
@@ -230,8 +240,8 @@ export interface IsolineAvoidanceOptions {
   TollTransponders?: boolean | undefined;
 
   /**
-   * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to Sweden.
-   * <code>A2,A4,B2,B4,C,D,ET2,ET4</code> apply only to Mexico.</p>
+   * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to
+   *          Sweden. <code>A2,A4,B2,B4,C,D,ET2,ET4</code> apply only to Mexico.</p>
    *          <note>
    *             <p>There are currently no other supported values as of 26th April 2024.</p>
    *          </note>
@@ -240,7 +250,7 @@ export interface IsolineAvoidanceOptions {
   TruckRoadTypes?: string[] | undefined;
 
   /**
-   * <p>Avoid tunnels while calculating the route.</p>
+   * <p>Avoid tunnels while calculating an isoline.</p>
    * @public
    */
   Tunnels?: boolean | undefined;
@@ -284,7 +294,8 @@ export interface IsolineMatchingOptions {
   NameHint?: string | undefined;
 
   /**
-   * <p>If the distance to a highway/bridge/tunnel/sliproad is within threshold, the waypoint will be snapped to the highway/bridge/tunnel/sliproad.</p>
+   * <p>If the distance to a highway/bridge/tunnel/sliproad is within threshold, the waypoint
+   *          will be snapped to the highway/bridge/tunnel/sliproad.</p>
    *          <p>
    *             <b>Unit</b>: <code>meters</code>
    *          </p>
@@ -293,7 +304,8 @@ export interface IsolineMatchingOptions {
   OnRoadThreshold?: number | undefined;
 
   /**
-   * <p>Considers all roads within the provided radius to match the provided destination to. The roads that are considered are determined by the provided Strategy.</p>
+   * <p>Considers all roads within the provided radius to match the provided destination to. The
+   *          roads that are considered are determined by the provided Strategy.</p>
    *          <p>
    *             <b>Unit</b>: <code>Meters</code>
    *          </p>
@@ -302,7 +314,9 @@ export interface IsolineMatchingOptions {
   Radius?: number | undefined;
 
   /**
-   * <p>Strategy that defines matching of the position onto the road network. MatchAny considers all roads possible, whereas MatchMostSignificantRoad matches to the most significant road.</p>
+   * <p>Strategy that defines matching of the position onto the road network. MatchAny considers
+   *          all roads possible, whereas MatchMostSignificantRoad matches to the most significant
+   *          road.</p>
    * @public
    */
   Strategy?: MatchingStrategy | undefined;
@@ -335,7 +349,8 @@ export interface IsolineSideOfStreetOptions {
   Position: number[] | undefined;
 
   /**
-   * <p>Strategy that defines when the side of street position should be used. AnyStreet will always use the provided position.</p>
+   * <p>Strategy that defines when the side of street position should be used. AnyStreet will
+   *          always use the provided position.</p>
    *          <p>Default Value: <code>DividedStreetOnly</code>
    *          </p>
    * @public
@@ -349,7 +364,9 @@ export interface IsolineSideOfStreetOptions {
  */
 export interface IsolineDestinationOptions {
   /**
-   * <p>Avoids actions for the provided distance. This is typically to consider for users in moving vehicles who may not have sufficient time to make an action at an origin or a destination.</p>
+   * <p>Avoids actions for the provided distance. This is typically to consider for users in
+   *          moving vehicles who may not have sufficient time to make an action at an origin or a
+   *          destination.</p>
    * @public
    */
   AvoidActionsForDistance?: number | undefined;
@@ -401,7 +418,7 @@ export interface IsolineGranularityOptions {
   /**
    * <p>Maximum resolution of the returned isoline.</p>
    *          <p>
-   *             <b>Unit</b>: <code>centimeters</code>
+   *             <b>Unit</b>: <code>meters</code>
    *          </p>
    * @public
    */
@@ -439,12 +456,14 @@ export const RoutingObjective = {
 export type RoutingObjective = (typeof RoutingObjective)[keyof typeof RoutingObjective];
 
 /**
- * <p>Options for the property.</p>
+ * <p>Origin related options.</p>
  * @public
  */
 export interface IsolineOriginOptions {
   /**
-   * <p>Avoids actions for the provided distance. This is typically to consider for users in moving vehicles who may not have sufficient time to make an action at an origin or a destination.</p>
+   * <p>Avoids actions for the provided distance. This is typically to consider for users in
+   *          moving vehicles who may not have sufficient time to make an action at an origin or a
+   *          destination.</p>
    * @public
    */
   AvoidActionsForDistance?: number | undefined;
@@ -469,7 +488,7 @@ export interface IsolineOriginOptions {
 }
 
 /**
- * <p>Threshold to be used for the isoline calculation. Up to 3 thresholds per provided type
+ * <p>Threshold to be used for the isoline calculation. Up to 5 thresholds per provided type
  *          can be requested.</p>
  * @public
  */
@@ -507,7 +526,10 @@ export type TrafficUsage = (typeof TrafficUsage)[keyof typeof TrafficUsage];
  */
 export interface IsolineTrafficOptions {
   /**
-   * <p>Duration for which flow traffic is considered valid. For this period, the flow traffic is used over historical traffic data. Flow traffic refers to congestion, which changes very quickly. Duration in seconds for which flow traffic event would be considered valid. While flow traffic event is valid it will be used over the historical traffic data. </p>
+   * <p>Duration for which flow traffic is considered valid. For this period, the flow traffic
+   *          is used over historical traffic data. Flow traffic refers to congestion, which changes very
+   *          quickly. Duration in seconds for which flow traffic event would be considered valid. While
+   *          flow traffic event is valid it will be used over the historical traffic data. </p>
    *          <p>
    *             <b>Unit</b>: <code>seconds</code>
    *          </p>
@@ -568,7 +590,7 @@ export interface IsolineVehicleLicensePlate {
 }
 
 /**
- * <p>Options for vehicles.</p>
+ * <p>Travel mode options when the provided travel mode is <code>Car</code>.</p>
  * @public
  */
 export interface IsolineCarOptions {
@@ -603,7 +625,8 @@ export interface IsolineCarOptions {
 }
 
 /**
- * <p>Options for the property.</p>
+ * <p>Travel mode options when the provided travel mode is <code>Scooter</code>
+ *          </p>
  * @public
  */
 export interface IsolineScooterOptions {
@@ -696,7 +719,8 @@ export const IsolineTruckType = {
 export type IsolineTruckType = (typeof IsolineTruckType)[keyof typeof IsolineTruckType];
 
 /**
- * <p>Specifies the total weight for the specified axle group. Meant for usage in countries that have different regulations based on the axle group type.</p>
+ * <p>Specifies the total weight for the specified axle group. Meant for usage in countries
+ *          that have different regulations based on the axle group type.</p>
  *          <p>
  *             <b>Unit</b>: <code>Kilograms</code>
  *          </p>
@@ -869,8 +893,9 @@ export interface IsolineTruckOptions {
 
   /**
    * <p>The tunnel restriction code.</p>
-   *          <p>Tunnel categories in this list indicate the restrictions which apply to certain tunnels in Great Britain.
-   *          They relate to the types of dangerous goods that can be transported through them.</p>
+   *          <p>Tunnel categories in this list indicate the restrictions which apply to certain tunnels
+   *          in Great Britain. They relate to the types of dangerous goods that can be transported
+   *          through them.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -938,7 +963,9 @@ export interface IsolineTruckOptions {
   TunnelRestrictionCode?: string | undefined;
 
   /**
-   * <p>Heaviest weight per axle irrespective of the axle type or the axle group. Meant for usage in countries where the differences in axle types or axle groups are not distinguished.</p>
+   * <p>Heaviest weight per axle irrespective of the axle type or the axle group. Meant for
+   *          usage in countries where the differences in axle types or axle groups are not
+   *          distinguished.</p>
    *          <p>
    *             <b>Unit</b>: <code>Kilograms</code>
    *          </p>
@@ -947,7 +974,8 @@ export interface IsolineTruckOptions {
   WeightPerAxle?: number | undefined;
 
   /**
-   * <p>Specifies the total weight for the specified axle group. Meant for usage in countries that have different regulations based on the axle group type.</p>
+   * <p>Specifies the total weight for the specified axle group. Meant for usage in countries
+   *          that have different regulations based on the axle group type.</p>
    *          <p>
    *             <b>Unit</b>: <code>Kilograms</code>
    *          </p>
@@ -977,7 +1005,12 @@ export interface IsolineTravelModeOptions {
   Car?: IsolineCarOptions | undefined;
 
   /**
-   * <p>Travel mode options when the provided travel mode is "Scooter"</p>
+   * <p>Travel mode options when the provided travel mode is <code>Scooter</code>
+   *          </p>
+   *          <note>
+   *             <p>When travel mode is set to <code>Scooter</code>, then the avoidance option
+   *                <code>ControlledAccessHighways</code> defaults to <code>true</code>.</p>
+   *          </note>
    * @public
    */
   Scooter?: IsolineScooterOptions | undefined;
@@ -994,14 +1027,15 @@ export interface IsolineTravelModeOptions {
  */
 export interface CalculateIsolinesRequest {
   /**
-   * <p>Features that are allowed while calculating. a route</p>
+   * <p>Features that are allowed while calculating an isoline.</p>
    * @public
    */
   Allow?: IsolineAllowOptions | undefined;
 
   /**
    * <p>Time of arrival at the destination.</p>
-   *          <p>Time format: <code>YYYY-MM-DDThh:mm:ss.sssZ | YYYY-MM-DDThh:mm:ss.sss+hh:mm</code>
+   *          <p>Time format: <code>YYYY-MM-DDThh:mm:ss.sssZ |
+   *          YYYY-MM-DDThh:mm:ss.sss+hh:mm</code>
    *          </p>
    *          <p>Examples:</p>
    *          <p>
@@ -1015,8 +1049,8 @@ export interface CalculateIsolinesRequest {
   ArrivalTime?: string | undefined;
 
   /**
-   * <p>Features that are avoided while calculating a route. Avoidance is on a best-case basis. If an
-   *          avoidance can't be satisfied for a particular case, it violates the avoidance and the
+   * <p>Features that are avoided while calculating a route. Avoidance is on a best-case basis.
+   *          If an avoidance can't be satisfied for a particular case, it violates the avoidance and the
    *          returned response produces a notice for the violation.</p>
    * @public
    */
@@ -1044,7 +1078,8 @@ export interface CalculateIsolinesRequest {
   DepartureTime?: string | undefined;
 
   /**
-   * <p>The final position for the route. In the World Geodetic System (WGS 84) format: <code>[longitude, latitude]</code>.</p>
+   * <p>The final position for the route. In the World Geodetic System (WGS 84) format:
+   *             <code>[longitude, latitude]</code>.</p>
    * @public
    */
   Destination?: number[] | undefined;
@@ -1064,7 +1099,7 @@ export interface CalculateIsolinesRequest {
   IsolineGeometryFormat?: GeometryFormat | undefined;
 
   /**
-   * <p>Defines the granularity of the returned Isoline</p>
+   * <p>Defines the granularity of the returned Isoline.</p>
    * @public
    */
   IsolineGranularity?: IsolineGranularityOptions | undefined;
@@ -1077,9 +1112,10 @@ export interface CalculateIsolinesRequest {
   Key?: string | undefined;
 
   /**
-   * <p>Specifies the optimization criteria for when calculating an isoline. AccurateCalculation generates an isoline of higher granularity that is more precise.
-   * FastCalculation generates an isoline faster by reducing the granularity, and in turn the quality of the isoline. BalancedCalculation generates an isoline by balancing between quality and performance.
-   * </p>
+   * <p>Specifies the optimization criteria for when calculating an isoline. AccurateCalculation
+   *          generates an isoline of higher granularity that is more precise. FastCalculation generates
+   *          an isoline faster by reducing the granularity, and in turn the quality of the isoline.
+   *          BalancedCalculation generates an isoline by balancing between quality and performance. </p>
    *          <p>Default Value: <code>BalancedCalculation</code>
    *          </p>
    * @public
@@ -1107,8 +1143,12 @@ export interface CalculateIsolinesRequest {
   OriginOptions?: IsolineOriginOptions | undefined;
 
   /**
-   * <p>Threshold to be used for the isoline calculation. Up to
-   *       3 thresholds per provided type can be requested.</p>
+   * <p>Threshold to be used for the isoline calculation. Up to 3 thresholds per provided type
+   *          can be requested.</p>
+   *          <p> You incur a calculation charge for each threshold. Using a large amount of thresholds in a
+   *           request can lead you to incur unexpected charges. See
+   *           <a href="https://docs.aws.amazon.com/location/latest/developerguide/routes-pricing.html`">
+   *               Amazon Location's pricing page</a> for more information.</p>
    * @public
    */
   Thresholds: IsolineThresholds | undefined;
@@ -1120,10 +1160,11 @@ export interface CalculateIsolinesRequest {
   Traffic?: IsolineTrafficOptions | undefined;
 
   /**
-   * <p>Specifies the mode of transport when calculating a route.
-   *       Used in estimating the speed of travel and road compatibility.</p>
+   * <p>Specifies the mode of transport when calculating a route. Used in estimating the speed
+   *          of travel and road compatibility.</p>
    *          <note>
-   *             <p> The mode <code>Scooter</code> also applies to motorcycles, set to <code>Scooter</code> when wanted to calculate options for motorcycles.</p>
+   *             <p> The mode <code>Scooter</code> also applies to motorcycles, set to
+   *                <code>Scooter</code> when wanted to calculate options for motorcycles.</p>
    *          </note>
    *          <p>Default Value: <code>Car</code>
    *          </p>
@@ -1139,7 +1180,7 @@ export interface CalculateIsolinesRequest {
 }
 
 /**
- * <p>Geometry of the connection between different Isoline components.</p>
+ * <p>Geometry of the connection between different isoline components.</p>
  * @public
  */
 export interface IsolineConnectionGeometry {
@@ -1153,7 +1194,8 @@ export interface IsolineConnectionGeometry {
   LineString?: number[][] | undefined;
 
   /**
-   * <p>An ordered list of positions used to plot a route on a map in a lossy compression format.</p>
+   * <p>An ordered list of positions used to plot a route on a map in a lossy compression
+   *          format.</p>
    *          <note>
    *             <p>LineString and Polyline are mutually exclusive properties.</p>
    *          </note>
@@ -1163,12 +1205,15 @@ export interface IsolineConnectionGeometry {
 }
 
 /**
- * <p>Isolines may contain multiple components, if these components are connected by ferry links. These components are returned as separate polygons while the ferry links are returned as connections.</p>
+ * <p>Isolines may contain multiple components, if these components are connected by ferry
+ *          links. These components are returned as separate polygons while the ferry links are
+ *          returned as connections.</p>
  * @public
  */
 export interface IsolineConnection {
   /**
-   * <p>Index of the polygon corresponding to the "from" component of the connection. The polygon is available from <code>Isoline[].Geometries</code>.</p>
+   * <p>Index of the polygon corresponding to the "from" component of the connection.
+   *          The polygon is available from <code>Isoline[].Geometries</code>.</p>
    * @public
    */
   FromPolygonIndex: number | undefined;
@@ -1180,7 +1225,8 @@ export interface IsolineConnection {
   Geometry: IsolineConnectionGeometry | undefined;
 
   /**
-   * <p>Index of the polygon corresponding to the "to" component of the connection. The polygon is available from <code>Isoline[].Geometries</code>.</p>
+   * <p>Index of the polygon corresponding to the "to" component of the connection.
+   *          The polygon is available from <code>Isoline[].Geometries</code>.</p>
    * @public
    */
   ToPolygonIndex: number | undefined;
@@ -1192,15 +1238,16 @@ export interface IsolineConnection {
  */
 export interface IsolineShapeGeometry {
   /**
-   * <p>A list of Isoline Polygons, for each isoline polygon, it contains polygons of the first linear ring (the outer ring) and from 2nd item to the last item (the inner rings).</p>
+   * <p>A list of Isoline Polygons, for each isoline polygon, it contains polygons of the first
+   *          linear ring (the outer ring) and from 2nd item to the last item (the inner rings).</p>
    * @public
    */
   Polygon?: number[][][] | undefined;
 
   /**
-   * <p>A list of Isoline PolylinePolygon, for each isoline PolylinePolygon, it contains PolylinePolygon
-   *       of the first linear ring (the outer ring) and from 2nd item to the last item (the inner rings).
-   *       For more information on polyline encoding, see <a href="https://github.com/heremaps/flexiblepolyline/blob/master/README.md">https://github.com/heremaps/flexiblepolyline/blob/master/README.md</a>.</p>
+   * <p>A list of Isoline PolylinePolygon, for each isoline PolylinePolygon, it contains
+   *          PolylinePolygon of the first linear ring (the outer ring) and from 2nd item to the last
+   *          item (the inner rings). For more information on polyline encoding, see <a href="https://github.com/heremaps/flexiblepolyline/blob/master/README.md">https://github.com/heremaps/flexiblepolyline/blob/master/README.md</a>.</p>
    * @public
    */
   PolylinePolygon?: string[] | undefined;
@@ -1212,7 +1259,9 @@ export interface IsolineShapeGeometry {
  */
 export interface Isoline {
   /**
-   * <p>Isolines may contain multiple components, if these components are connected by ferry links. These components are returned as separate polygons while the ferry links are returned as connections.</p>
+   * <p>Isolines may contain multiple components, if these components are connected by ferry
+   *          links. These components are returned as separate polygons while the ferry links are
+   *          returned as connections.</p>
    * @public
    */
   Connections: IsolineConnection[] | undefined;
@@ -1241,7 +1290,8 @@ export interface Isoline {
  */
 export interface CalculateIsolinesResponse {
   /**
-   * <p>Time of arrival at the destination. This parameter is returned only if the Destination parameters was provided in the request.  </p>
+   * <p>Time of arrival at the destination. This parameter is returned only if the Destination
+   *          parameters was provided in the request. </p>
    *          <p>Time format:<code>YYYY-MM-DDThh:mm:ss.sssZ | YYYY-MM-DDThh:mm:ss.sss+hh:mm</code>
    *          </p>
    *          <p>Examples:</p>
@@ -1304,7 +1354,8 @@ export interface CalculateIsolinesResponse {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ * <p>The request processing has failed because of an unknown error, exception or
+ *          failure.</p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -1350,7 +1401,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by the Amazon Location service.</p>
+ * <p>The input fails to satisfy the constraints specified by the Amazon Location
+ *          service.</p>
  * @public
  */
 export interface ValidationExceptionField {
@@ -1449,12 +1501,16 @@ export class ValidationException extends __BaseException {
 export interface RouteMatrixAllowOptions {
   /**
    * <p>Allow Hot (High Occupancy Toll) lanes while calculating the route.</p>
+   *          <p>Default value: <code>false</code>
+   *          </p>
    * @public
    */
   Hot?: boolean | undefined;
 
   /**
    * <p>Allow Hov (High Occupancy vehicle) lanes while calculating the route.</p>
+   *          <p>Default value: <code>false</code>
+   *          </p>
    * @public
    */
   Hov?: boolean | undefined;
@@ -1528,7 +1584,11 @@ export interface RouteMatrixAvoidanceZoneCategory {
 }
 
 /**
- * <p>Options related to the route matrix.</p>
+ * <p>Specifies options for areas to avoid when calculating the route. This is a best-effort
+ *          avoidance setting, meaning the router will try to honor the avoidance preferences but may
+ *          still include restricted areas if no feasible alternative route exists. If avoidance
+ *          options are not followed, the response will indicate that the avoidance criteria were
+ *          violated.</p>
  * @public
  */
 export interface RouteMatrixAvoidanceOptions {
@@ -1575,8 +1635,8 @@ export interface RouteMatrixAvoidanceOptions {
   TollTransponders?: boolean | undefined;
 
   /**
-   * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to Sweden.
-   *          <code>A2,A4,B2,B4,C,D,ET2,ET4</code> apply only to Mexico.</p>
+   * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to
+   *          Sweden. <code>A2,A4,B2,B4,C,D,ET2,ET4</code> apply only to Mexico.</p>
    *          <note>
    *             <p>There are currently no other supported values as of 26th April 2024.</p>
    *          </note>
@@ -1615,7 +1675,8 @@ export interface RouteMatrixMatchingOptions {
   NameHint?: string | undefined;
 
   /**
-   * <p>If the distance to a highway/bridge/tunnel/sliproad is within threshold, the waypoint will be snapped to the highway/bridge/tunnel/sliproad.</p>
+   * <p>If the distance to a highway/bridge/tunnel/sliproad is within threshold, the waypoint
+   *          will be snapped to the highway/bridge/tunnel/sliproad.</p>
    *          <p>
    *             <b>Unit</b>: <code>meters</code>
    *          </p>
@@ -1624,7 +1685,8 @@ export interface RouteMatrixMatchingOptions {
   OnRoadThreshold?: number | undefined;
 
   /**
-   * <p>Considers all roads within the provided radius to match the provided destination to. The roads that are considered are determined by the provided Strategy.</p>
+   * <p>Considers all roads within the provided radius to match the provided destination to. The
+   *          roads that are considered are determined by the provided Strategy.</p>
    *          <p>
    *             <b>Unit</b>: <code>Meters</code>
    *          </p>
@@ -1633,7 +1695,9 @@ export interface RouteMatrixMatchingOptions {
   Radius?: number | undefined;
 
   /**
-   * <p>Strategy that defines matching of the position onto the road network. MatchAny considers all roads possible, whereas MatchMostSignificantRoad matches to the most significant road.</p>
+   * <p>Strategy that defines matching of the position onto the road network. MatchAny considers
+   *          all roads possible, whereas MatchMostSignificantRoad matches to the most significant
+   *          road.</p>
    * @public
    */
   Strategy?: MatchingStrategy | undefined;
@@ -1651,7 +1715,8 @@ export interface RouteMatrixSideOfStreetOptions {
   Position: number[] | undefined;
 
   /**
-   * <p>Strategy that defines when the side of street position should be used. AnyStreet will always use the provided position.</p>
+   * <p>Strategy that defines when the side of street position should be used. AnyStreet will
+   *          always use the provided position.</p>
    *          <p>Default Value: <code>DividedStreetOnly</code>
    *          </p>
    * @public
@@ -1665,7 +1730,9 @@ export interface RouteMatrixSideOfStreetOptions {
  */
 export interface RouteMatrixDestinationOptions {
   /**
-   * <p>Avoids actions for the provided distance. This is typically to consider for users in moving vehicles who may not have sufficient time to make an action at an origin or a destination.</p>
+   * <p>Avoids actions for the provided distance. This is typically to consider for users in
+   *          moving vehicles who may not have sufficient time to make an action at an origin or a
+   *          destination.</p>
    * @public
    */
   AvoidActionsForDistance?: number | undefined;
@@ -1708,12 +1775,15 @@ export interface RouteMatrixDestination {
 }
 
 /**
- * <p>Exclusion options.</p>
+ * <p>Specifies strict exclusion options for the route calculation. This setting mandates that
+ *          the router will avoid any routes that include the specified options, rather than merely
+ *          attempting to minimize them.</p>
  * @public
  */
 export interface RouteMatrixExclusionOptions {
   /**
-   * <p>List of countries to be avoided defined by two-letter or three-letter country codes.</p>
+   * <p>List of countries to be avoided defined by two-letter or three-letter country
+   *          codes.</p>
    * @public
    */
   Countries: string[] | undefined;
@@ -1725,7 +1795,9 @@ export interface RouteMatrixExclusionOptions {
  */
 export interface RouteMatrixOriginOptions {
   /**
-   * <p>Avoids actions for the provided distance. This is typically to consider for users in moving vehicles who may not have sufficient time to make an action at an origin or a destination.</p>
+   * <p>Avoids actions for the provided distance. This is typically to consider for users in
+   *          moving vehicles who may not have sufficient time to make an action at an origin or a
+   *          destination.</p>
    * @public
    */
   AvoidActionsForDistance?: number | undefined;
@@ -1786,13 +1858,16 @@ export interface RouteMatrixAutoCircle {
 }
 
 /**
- * <p>Geometry defined as a circle. When request routing boundary was set as <code>AutoCircle</code>, the response routing boundary will return <code>Circle</code> derived from the <code>AutoCircle</code> settings.</p>
+ * <p>Geometry defined as a circle. When request routing boundary was set as
+ *             <code>AutoCircle</code>, the response routing boundary will return <code>Circle</code>
+ *          derived from the <code>AutoCircle</code> settings.</p>
  * @public
  */
 export interface Circle {
   /**
    * <p>Center of the Circle defined in longitude and latitude coordinates.</p>
-   *          <p>Example: <code>[-123.1174, 49.2847]</code> represents the position with longitude <code>-123.1174</code> and latitude <code>49.2847</code>. </p>
+   *          <p>Example: <code>[-123.1174, 49.2847]</code> represents the position with longitude
+   *             <code>-123.1174</code> and latitude <code>49.2847</code>. </p>
    * @public
    */
   Center: number[] | undefined;
@@ -1819,7 +1894,9 @@ export interface RouteMatrixBoundaryGeometry {
   AutoCircle?: RouteMatrixAutoCircle | undefined;
 
   /**
-   * <p>Geometry defined as a circle. When request routing boundary was set as <code>AutoCircle</code>, the response routing boundary will return <code>Circle</code> derived from the <code>AutoCircle</code> settings.</p>
+   * <p>Geometry defined as a circle. When request routing boundary was set as
+   *             <code>AutoCircle</code>, the response routing boundary will return <code>Circle</code>
+   *          derived from the <code>AutoCircle</code> settings.</p>
    * @public
    */
   Circle?: Circle | undefined;
@@ -1840,7 +1917,8 @@ export interface RouteMatrixBoundaryGeometry {
 }
 
 /**
- * <p>Boundary within which the matrix is to be calculated. All data, origins and destinations outside the boundary are considered invalid.</p>
+ * <p>Boundary within which the matrix is to be calculated. All data, origins and destinations
+ *          outside the boundary are considered invalid.</p>
  * @public
  */
 export interface RouteMatrixBoundary {
@@ -1851,7 +1929,8 @@ export interface RouteMatrixBoundary {
   Geometry?: RouteMatrixBoundaryGeometry | undefined;
 
   /**
-   * <p>No restrictions in terms of a routing boundary, and is typically used for longer routes.</p>
+   * <p>No restrictions in terms of a routing boundary, and is typically used for longer
+   *          routes.</p>
    * @public
    */
   Unbounded?: boolean | undefined;
@@ -1863,11 +1942,10 @@ export interface RouteMatrixBoundary {
  */
 export interface RouteMatrixTrafficOptions {
   /**
-   * <p>Duration for which flow traffic is considered valid.
-   *       For this period, the flow traffic is used over historical traffic data.
-   *       Flow traffic refers to congestion, which changes very quickly.
-   *       Duration in seconds for which flow traffic event would be considered valid.
-   *       While flow traffic event is valid it will be used over the historical traffic data. </p>
+   * <p>Duration for which flow traffic is considered valid. For this period, the flow traffic
+   *          is used over historical traffic data. Flow traffic refers to congestion, which changes very
+   *          quickly. Duration in seconds for which flow traffic event would be considered valid. While
+   *          flow traffic event is valid it will be used over the historical traffic data. </p>
    * @public
    */
   FlowEventThresholdOverride?: number | undefined;
@@ -1910,7 +1988,7 @@ export interface RouteMatrixVehicleLicensePlate {
 }
 
 /**
- * <p>Options related to the car.</p>
+ * <p>Travel mode options when the provided travel mode is <code>Car</code>.</p>
  * @public
  */
 export interface RouteMatrixCarOptions {
@@ -1939,7 +2017,8 @@ export interface RouteMatrixCarOptions {
 }
 
 /**
- * <p>Travel mode options when the provided travel mode is "Scooter"</p>
+ * <p>Travel mode options when the provided travel mode is <code>Scooter</code>
+ *          </p>
  * @public
  */
 export interface RouteMatrixScooterOptions {
@@ -2119,8 +2198,9 @@ export interface RouteMatrixTruckOptions {
 
   /**
    * <p>The tunnel restriction code.</p>
-   *          <p>Tunnel categories in this list indicate the restrictions which apply to certain tunnels in Great Britain.
-   *          They relate to the types of dangerous goods that can be transported through them.</p>
+   *          <p>Tunnel categories in this list indicate the restrictions which apply to certain tunnels
+   *          in Great Britain. They relate to the types of dangerous goods that can be transported
+   *          through them.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2188,7 +2268,9 @@ export interface RouteMatrixTruckOptions {
   TunnelRestrictionCode?: string | undefined;
 
   /**
-   * <p>Heaviest weight per axle irrespective of the axle type or the axle group. Meant for usage in countries where the differences in axle types or axle groups are not distinguished.</p>
+   * <p>Heaviest weight per axle irrespective of the axle type or the axle group. Meant for
+   *          usage in countries where the differences in axle types or axle groups are not
+   *          distinguished.</p>
    *          <p>
    *             <b>Unit</b>: <code>Kilograms</code>
    *          </p>
@@ -2197,7 +2279,8 @@ export interface RouteMatrixTruckOptions {
   WeightPerAxle?: number | undefined;
 
   /**
-   * <p>Specifies the total weight for the specified axle group. Meant for usage in countries that have different regulations based on the axle group type.</p>
+   * <p>Specifies the total weight for the specified axle group. Meant for usage in countries
+   *          that have different regulations based on the axle group type.</p>
    * @public
    */
   WeightPerAxleGroup?: WeightPerAxleGroup | undefined;
@@ -2224,7 +2307,12 @@ export interface RouteMatrixTravelModeOptions {
   Car?: RouteMatrixCarOptions | undefined;
 
   /**
-   * <p>Travel mode options when the provided travel mode is "Scooter"</p>
+   * <p>Travel mode options when the provided travel mode is <code>Scooter</code>
+   *          </p>
+   *          <note>
+   *             <p>When travel mode is set to <code>Scooter</code>, then the avoidance option
+   *                <code>ControlledAccessHighways</code> defaults to <code>true</code>.</p>
+   *          </note>
    * @public
    */
   Scooter?: RouteMatrixScooterOptions | undefined;
@@ -2241,14 +2329,14 @@ export interface RouteMatrixTravelModeOptions {
  */
 export interface CalculateRouteMatrixRequest {
   /**
-   * <p>Features that are allowed while calculating. a route</p>
+   * <p>Features that are allowed while calculating a route.</p>
    * @public
    */
   Allow?: RouteMatrixAllowOptions | undefined;
 
   /**
-   * <p>Features that are avoided while calculating a route. Avoidance is on a best-case basis. If an
-   *          avoidance can't be satisfied for a particular case, it violates the avoidance and the
+   * <p>Features that are avoided while calculating a route. Avoidance is on a best-case basis.
+   *          If an avoidance can't be satisfied for a particular case, it violates the avoidance and the
    *          returned response produces a notice for the violation.</p>
    * @public
    */
@@ -2277,6 +2365,11 @@ export interface CalculateRouteMatrixRequest {
 
   /**
    * <p>List of destinations for the route.</p>
+   *          <note>
+   *             <p>Route calculations are billed for each origin and destination pair. If you use a large matrix of origins and destinations, your costs will increase accordingly. See
+   *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/routes-pricing.html`">
+   *                 Amazon Location's pricing page</a> for more information.</p>
+   *          </note>
    * @public
    */
   Destinations: RouteMatrixDestination[] | undefined;
@@ -2304,15 +2397,22 @@ export interface CalculateRouteMatrixRequest {
 
   /**
    * <p>The position in longitude and latitude for the origin.</p>
+   *          <note>
+   *             <p>Route calculations are billed for each origin and destination pair. Using a large amount of Origins in a
+   *             request can lead you to incur unexpected charges. See
+   *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/routes-pricing.html`">
+   *                 Amazon Location's pricing page</a> for more information.</p>
+   *          </note>
    * @public
    */
   Origins: RouteMatrixOrigin[] | undefined;
 
   /**
-   * <p>Boundary within which the matrix is to be calculated.
-   *       All data, origins and destinations outside the boundary are considered invalid.</p>
+   * <p>Boundary within which the matrix is to be calculated. All data, origins and destinations
+   *          outside the boundary are considered invalid.</p>
    *          <note>
-   *             <p>When request routing boundary was set as AutoCircle, the response routing boundary will return Circle derived from the AutoCircle settings.</p>
+   *             <p>When request routing boundary was set as AutoCircle, the response routing boundary
+   *             will return Circle derived from the AutoCircle settings.</p>
    *          </note>
    * @public
    */
@@ -2325,8 +2425,8 @@ export interface CalculateRouteMatrixRequest {
   Traffic?: RouteMatrixTrafficOptions | undefined;
 
   /**
-   * <p>Specifies the mode of transport when calculating a route.
-   *       Used in estimating the speed of travel and road compatibility.</p>
+   * <p>Specifies the mode of transport when calculating a route. Used in estimating the speed
+   *          of travel and road compatibility.</p>
    *          <p>Default Value: <code>Car</code>
    *          </p>
    * @public
@@ -2362,7 +2462,10 @@ export const RouteMatrixErrorCode = {
 export type RouteMatrixErrorCode = (typeof RouteMatrixErrorCode)[keyof typeof RouteMatrixErrorCode];
 
 /**
- * <p>The calculated route matrix containing the results for all pairs of Origins to Destination positions. Each row corresponds to one entry in Origins. Each entry in the row corresponds to the route from that entry in Origins to an entry in Destination positions.</p>
+ * <p>The calculated route matrix containing the results for all pairs of Origins to
+ *          Destination positions. Each row corresponds to one entry in Origins. Each entry in the row
+ *          corresponds to the route from that entry in Origins to an entry in Destination
+ *          positions.</p>
  * @public
  */
 export interface RouteMatrixEntry {
@@ -2393,7 +2496,8 @@ export interface RouteMatrixEntry {
  */
 export interface CalculateRouteMatrixResponse {
   /**
-   * <p>The count of error results in the route matrix. If this number is 0, all routes were calculated successfully.</p>
+   * <p>The count of error results in the route matrix. If this number is 0, all routes were
+   *          calculated successfully.</p>
    * @public
    */
   ErrorCount: number | undefined;
@@ -2405,15 +2509,20 @@ export interface CalculateRouteMatrixResponse {
   PricingBucket: string | undefined;
 
   /**
-   * <p>The calculated route matrix containing the results for all pairs of Origins to Destination positions. Each row corresponds to one entry in Origins. Each entry in the row corresponds to the route from that entry in Origins to an entry in Destination positions.</p>
+   * <p>The calculated route matrix containing the results for all pairs of Origins to
+   *          Destination positions. Each row corresponds to one entry in Origins. Each entry in the row
+   *          corresponds to the route from that entry in Origins to an entry in Destination
+   *          positions.</p>
    * @public
    */
   RouteMatrix: RouteMatrixEntry[][] | undefined;
 
   /**
-   * <p>Boundary within which the matrix is to be calculated. All data, origins and destinations outside the boundary are considered invalid.</p>
+   * <p>Boundary within which the matrix is to be calculated. All data, origins and destinations
+   *          outside the boundary are considered invalid.</p>
    *          <note>
-   *             <p>When request routing boundary was set as AutoCircle, the response routing boundary will return Circle derived from the AutoCircle settings.</p>
+   *             <p>When request routing boundary was set as AutoCircle, the response routing boundary
+   *             will return Circle derived from the AutoCircle settings.</p>
    *          </note>
    * @public
    */
@@ -2421,18 +2530,22 @@ export interface CalculateRouteMatrixResponse {
 }
 
 /**
- * <p>Features that are allowed while calculating. a route</p>
+ * <p>Features that are allowed while calculating a route.</p>
  * @public
  */
 export interface RouteAllowOptions {
   /**
    * <p>Allow Hot (High Occupancy Toll) lanes while calculating the route.</p>
+   *          <p>Default value: <code>false</code>
+   *          </p>
    * @public
    */
   Hot?: boolean | undefined;
 
   /**
    * <p>Allow Hov (High Occupancy vehicle) lanes while calculating the route.</p>
+   *          <p>Default value: <code>false</code>
+   *          </p>
    * @public
    */
   Hov?: boolean | undefined;
@@ -2444,7 +2557,8 @@ export interface RouteAllowOptions {
  */
 export interface RouteAvoidanceAreaGeometry {
   /**
-   * <p>Geometry defined as a corridor - a LineString with a radius that defines the width of the corridor.</p>
+   * <p>Geometry defined as a corridor - a LineString with a radius that defines the width of
+   *          the corridor.</p>
    * @public
    */
   Corridor?: Corridor | undefined;
@@ -2471,9 +2585,9 @@ export interface RouteAvoidanceAreaGeometry {
   PolylineCorridor?: PolylineCorridor | undefined;
 
   /**
-   * <p>A list of Isoline PolylinePolygon, for each isoline PolylinePolygon, it contains PolylinePolygon
-   *       of the first linear ring (the outer ring) and from 2nd item to the last item (the inner rings).
-   *       For more information on polyline encoding, see <a href="https://github.com/heremaps/flexiblepolyline/blob/master/README.md">https://github.com/heremaps/flexiblepolyline/blob/master/README.md</a>.</p>
+   * <p>A list of Isoline PolylinePolygon, for each isoline PolylinePolygon, it contains
+   *          PolylinePolygon of the first linear ring (the outer ring) and from 2nd item to the last
+   *          item (the inner rings). For more information on polyline encoding, see <a href="https://github.com/heremaps/flexiblepolyline/blob/master/README.md">https://github.com/heremaps/flexiblepolyline/blob/master/README.md</a>.</p>
    * @public
    */
   PolylinePolygon?: string[] | undefined;
@@ -2485,7 +2599,8 @@ export interface RouteAvoidanceAreaGeometry {
  */
 export interface RouteAvoidanceArea {
   /**
-   * <p>Exceptions to the provided avoidance geometry, to be included while calculating the route.</p>
+   * <p>Exceptions to the provided avoidance geometry, to be included while calculating the
+   *          route.</p>
    * @public
    */
   Except?: RouteAvoidanceAreaGeometry[] | undefined;
@@ -2525,7 +2640,11 @@ export interface RouteAvoidanceZoneCategory {
 }
 
 /**
- * <p>Options related to areas to be avoided.</p>
+ * <p>Specifies options for areas to avoid when calculating the route. This is a best-effort
+ *          avoidance setting, meaning the router will try to honor the avoidance preferences but may
+ *          still include restricted areas if no feasible alternative route exists. If avoidance
+ *          options are not followed, the response will indicate that the avoidance criteria were
+ *          violated.</p>
  * @public
  */
 export interface RouteAvoidanceOptions {
@@ -2578,8 +2697,8 @@ export interface RouteAvoidanceOptions {
   TollTransponders?: boolean | undefined;
 
   /**
-   * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to Sweden.
-   *          <code>A2,A4,B2,B4,C,D,ET2,ET4</code> apply only to Mexico.</p>
+   * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to
+   *          Sweden. <code>A2,A4,B2,B4,C,D,ET2,ET4</code> apply only to Mexico.</p>
    *          <note>
    *             <p>There are currently no other supported values as of 26th April 2024.</p>
    *          </note>
@@ -2618,7 +2737,8 @@ export interface RouteMatchingOptions {
   NameHint?: string | undefined;
 
   /**
-   * <p>If the distance to a highway/bridge/tunnel/sliproad is within threshold, the waypoint will be snapped to the highway/bridge/tunnel/sliproad.</p>
+   * <p>If the distance to a highway/bridge/tunnel/sliproad is within threshold, the waypoint
+   *          will be snapped to the highway/bridge/tunnel/sliproad.</p>
    *          <p>
    *             <b>Unit</b>: <code>meters</code>
    *          </p>
@@ -2627,7 +2747,8 @@ export interface RouteMatchingOptions {
   OnRoadThreshold?: number | undefined;
 
   /**
-   * <p>Considers all roads within the provided radius to match the provided destination to. The roads that are considered are determined by the provided Strategy.</p>
+   * <p>Considers all roads within the provided radius to match the provided destination to. The
+   *          roads that are considered are determined by the provided Strategy.</p>
    *          <p>
    *             <b>Unit</b>: <code>Meters</code>
    *          </p>
@@ -2636,7 +2757,9 @@ export interface RouteMatchingOptions {
   Radius?: number | undefined;
 
   /**
-   * <p>Strategy that defines matching of the position onto the road network. MatchAny considers all roads possible, whereas MatchMostSignificantRoad matches to the most significant road.</p>
+   * <p>Strategy that defines matching of the position onto the road network. MatchAny considers
+   *          all roads possible, whereas MatchMostSignificantRoad matches to the most significant
+   *          road.</p>
    * @public
    */
   Strategy?: MatchingStrategy | undefined;
@@ -2668,7 +2791,9 @@ export interface RouteSideOfStreetOptions {
  */
 export interface RouteDestinationOptions {
   /**
-   * <p>Avoids actions for the provided distance. This is typically to consider for users in moving vehicles who may not have sufficient time to make an action at an origin or a destination.</p>
+   * <p>Avoids actions for the provided distance. This is typically to consider for users in
+   *          moving vehicles who may not have sufficient time to make an action at an origin or a
+   *          destination.</p>
    * @public
    */
   AvoidActionsForDistance?: number | undefined;
@@ -2708,8 +2833,8 @@ export interface RouteDestinationOptions {
 }
 
 /**
- * <p>Interval of the driver work-rest schedule.
- *       Stops are added to fulfil the provided rest schedule.</p>
+ * <p>Interval of the driver work-rest schedule. Stops are added to fulfil the provided rest
+ *          schedule.</p>
  * @public
  */
 export interface RouteDriverScheduleInterval {
@@ -2745,12 +2870,15 @@ export interface RouteDriverOptions {
 }
 
 /**
- * <p>Exclusion options for the route.</p>
+ * <p>Specifies strict exclusion options for the route calculation. This setting mandates that
+ *          the router will avoid any routes that include the specified options, rather than merely
+ *          attempting to minimize them.</p>
  * @public
  */
 export interface RouteExclusionOptions {
   /**
-   * <p>List of countries to be avoided defined by two-letter or three-letter country codes.</p>
+   * <p>List of countries to be avoided defined by two-letter or three-letter country
+   *          codes.</p>
    * @public
    */
   Countries: string[] | undefined;
@@ -2797,7 +2925,9 @@ export type RouteLegAdditionalFeature = (typeof RouteLegAdditionalFeature)[keyof
  */
 export interface RouteOriginOptions {
   /**
-   * <p>Avoids actions for the provided distance. This is typically to consider for users in moving vehicles who may not have sufficient time to make an action at an origin or a destination.</p>
+   * <p>Avoids actions for the provided distance. This is typically to consider for users in
+   *          moving vehicles who may not have sufficient time to make an action at an origin or a
+   *          destination.</p>
    * @public
    */
   AvoidActionsForDistance?: number | undefined;
@@ -2866,13 +2996,14 @@ export type RouteSpanAdditionalFeature = (typeof RouteSpanAdditionalFeature)[key
 /**
  * <p>Type of the emission.</p>
  *          <p>
- *             <b>Valid values</b>: <code>Euro1, Euro2, Euro3, Euro4, Euro5, Euro6, EuroEev</code>
+ *             <b>Valid values</b>: <code>Euro1, Euro2, Euro3, Euro4, Euro5,
+ *             Euro6, EuroEev</code>
  *          </p>
  * @public
  */
 export interface RouteEmissionType {
   /**
-   * <p>The CO 2  emission classes.</p>
+   * <p>The CO 2 emission classes.</p>
    * @public
    */
   Co2EmissionClass?: string | undefined;
@@ -2880,7 +3011,8 @@ export interface RouteEmissionType {
   /**
    * <p>Type of the emission.</p>
    *          <p>
-   *             <b>Valid values</b>: <code>Euro1, Euro2, Euro3, Euro4, Euro5, Euro6, EuroEev</code>
+   *             <b>Valid values</b>: <code>Euro1, Euro2, Euro3, Euro4, Euro5,
+   *             Euro6, EuroEev</code>
    *          </p>
    * @public
    */
@@ -2913,13 +3045,16 @@ export interface RouteTollOptions {
   AllTransponders?: boolean | undefined;
 
   /**
-   * <p>Specifies if the user has valid vignettes with access for all toll roads. If a user has a vignette for a toll road, then toll cost for that road is omitted since no further payment is necessary.</p>
+   * <p>Specifies if the user has valid vignettes with access for all toll roads. If a user has
+   *          a vignette for a toll road, then toll cost for that road is omitted since no further
+   *          payment is necessary.</p>
    * @public
    */
   AllVignettes?: boolean | undefined;
 
   /**
-   * <p>Currency code corresponding to the price. This is the same as Currency specified in the request.</p>
+   * <p>Currency code corresponding to the price. This is the same as Currency specified in the
+   *          request.</p>
    * @public
    */
   Currency?: string | undefined;
@@ -2927,7 +3062,8 @@ export interface RouteTollOptions {
   /**
    * <p>Emission type of the vehicle for toll cost calculation.</p>
    *          <p>
-   *             <b>Valid values</b>: <code>Euro1, Euro2, Euro3, Euro4, Euro5, Euro6, EuroEev</code>
+   *             <b>Valid values</b>: <code>Euro1, Euro2, Euro3, Euro4, Euro5,
+   *             Euro6, EuroEev</code>
    *          </p>
    * @public
    */
@@ -2946,12 +3082,10 @@ export interface RouteTollOptions {
  */
 export interface RouteTrafficOptions {
   /**
-   * <p>Duration for which flow
-   *       traffic is considered valid.
-   *       For this period, the flow traffic is used over historical traffic data.
-   *       Flow traffic refers to congestion, which changes very quickly.
-   *       Duration in seconds for which flow traffic event would be considered valid.
-   *       While flow traffic event is valid it will be used over the historical traffic data. </p>
+   * <p>Duration for which flow traffic is considered valid. For this period, the flow traffic
+   *          is used over historical traffic data. Flow traffic refers to congestion, which changes very
+   *          quickly. Duration in seconds for which flow traffic event would be considered valid. While
+   *          flow traffic event is valid it will be used over the historical traffic data. </p>
    * @public
    */
   FlowEventThresholdOverride?: number | undefined;
@@ -3010,7 +3144,7 @@ export interface RouteVehicleLicensePlate {
 }
 
 /**
- * <p>Travel mode options when the provided travel mode is "Car"</p>
+ * <p>Travel mode options when the provided travel mode is <code>Car</code>.</p>
  * @public
  */
 export interface RouteCarOptions {
@@ -3057,7 +3191,8 @@ export interface RoutePedestrianOptions {
 }
 
 /**
- * <p>Travel mode options when the provided travel mode is "Scooter"</p>
+ * <p>Travel mode options when the provided travel mode is <code>Scooter</code>
+ *          </p>
  * @public
  */
 export interface RouteScooterOptions {
@@ -3269,8 +3404,9 @@ export interface RouteTruckOptions {
 
   /**
    * <p>The tunnel restriction code.</p>
-   *          <p>Tunnel categories in this list indicate the restrictions which apply to certain tunnels in Great Britain.
-   *          They relate to the types of dangerous goods that can be transported through them.</p>
+   *          <p>Tunnel categories in this list indicate the restrictions which apply to certain tunnels
+   *          in Great Britain. They relate to the types of dangerous goods that can be transported
+   *          through them.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3338,7 +3474,9 @@ export interface RouteTruckOptions {
   TunnelRestrictionCode?: string | undefined;
 
   /**
-   * <p>Heaviest weight per axle irrespective of the axle type or the axle group. Meant for usage in countries where the differences in axle types or axle groups are not distinguished.</p>
+   * <p>Heaviest weight per axle irrespective of the axle type or the axle group. Meant for
+   *          usage in countries where the differences in axle types or axle groups are not
+   *          distinguished.</p>
    *          <p>
    *             <b>Unit</b>: <code>Kilograms</code>
    *          </p>
@@ -3347,7 +3485,8 @@ export interface RouteTruckOptions {
   WeightPerAxle?: number | undefined;
 
   /**
-   * <p>Specifies the total weight for the specified axle group. Meant for usage in countries that have different regulations based on the axle group type.</p>
+   * <p>Specifies the total weight for the specified axle group. Meant for usage in countries
+   *          that have different regulations based on the axle group type.</p>
    *          <p>
    *             <b>Unit</b>: <code>Kilograms</code>
    *          </p>
@@ -3383,7 +3522,12 @@ export interface RouteTravelModeOptions {
   Pedestrian?: RoutePedestrianOptions | undefined;
 
   /**
-   * <p>Travel mode options when the provided travel mode is "Scooter"</p>
+   * <p>Travel mode options when the provided travel mode is <code>Scooter</code>
+   *          </p>
+   *          <note>
+   *             <p>When travel mode is set to <code>Scooter</code>, then the avoidance option
+   *                <code>ControlledAccessHighways</code> defaults to <code>true</code>.</p>
+   *          </note>
    * @public
    */
   Scooter?: RouteScooterOptions | undefined;
@@ -3415,7 +3559,9 @@ export type RouteTravelStepType = (typeof RouteTravelStepType)[keyof typeof Rout
  */
 export interface RouteWaypoint {
   /**
-   * <p>Avoids actions for the provided distance. This is typically to consider for users in moving vehicles who may not have sufficient time to make an action at an origin or a destination.</p>
+   * <p>Avoids actions for the provided distance. This is typically to consider for users in
+   *          moving vehicles who may not have sufficient time to make an action at an origin or a
+   *          destination.</p>
    * @public
    */
   AvoidActionsForDistance?: number | undefined;
@@ -3439,7 +3585,8 @@ export interface RouteWaypoint {
   Matching?: RouteMatchingOptions | undefined;
 
   /**
-   * <p>If the waypoint should not be treated as a stop. If yes, the waypoint is passed through and doesn't split the route into different legs.</p>
+   * <p>If the waypoint should not be treated as a stop. If yes, the waypoint is passed through
+   *          and doesn't split the route into different legs.</p>
    * @public
    */
   PassThrough?: boolean | undefined;
@@ -3471,7 +3618,7 @@ export interface RouteWaypoint {
  */
 export interface CalculateRoutesRequest {
   /**
-   * <p>Features that are allowed while calculating. a route</p>
+   * <p>Features that are allowed while calculating a route.</p>
    * @public
    */
   Allow?: RouteAllowOptions | undefined;
@@ -3492,8 +3639,8 @@ export interface CalculateRoutesRequest {
   ArrivalTime?: string | undefined;
 
   /**
-   * <p>Features that are avoided while calculating a route. Avoidance is on a best-case basis. If an
-   *          avoidance can't be satisfied for a particular case, it violates the avoidance and the
+   * <p>Features that are avoided while calculating a route. Avoidance is on a best-case basis.
+   *          If an avoidance can't be satisfied for a particular case, it violates the avoidance and the
    *          returned response produces a notice for the violation.</p>
    * @public
    */
@@ -3521,7 +3668,8 @@ export interface CalculateRoutesRequest {
   DepartureTime?: string | undefined;
 
   /**
-   * <p>The final position for the route. In the World Geodetic System (WGS 84) format: <code>[longitude, latitude]</code>.</p>
+   * <p>The final position for the route. In the World Geodetic System (WGS 84) format:
+   *             <code>[longitude, latitude]</code>.</p>
    * @public
    */
   Destination: number[] | undefined;
@@ -3560,30 +3708,36 @@ export interface CalculateRoutesRequest {
   /**
    * <p>List of languages for instructions within steps in the response.</p>
    *          <note>
-   *             <p>Instructions in the requested language are returned only if they are available.</p>
+   *             <p>Instructions in the requested language are returned only if they are
+   *             available.</p>
    *          </note>
    * @public
    */
   Languages?: string[] | undefined;
 
   /**
-   * <p>A list of optional additional parameters such as timezone that can be requested for each result.</p>
+   * <p>A list of optional additional parameters such as timezone that can be requested for each
+   *          result.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Elevation</code>: Retrieves the elevation information for each location.</p>
+   *                   <code>Elevation</code>: Retrieves the elevation information for each
+   *                location.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Incidents</code>: Provides information on traffic incidents along the route.</p>
+   *                   <code>Incidents</code>: Provides information on traffic incidents along the
+   *                route.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PassThroughWaypoints</code>: Indicates waypoints that are passed through without stopping.</p>
+   *                   <code>PassThroughWaypoints</code>: Indicates waypoints that are passed through
+   *                without stopping.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Summary</code>: Returns a summary of the route, including distance and duration.</p>
+   *                   <code>Summary</code>: Returns a summary of the route, including distance and
+   *                duration.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3591,15 +3745,18 @@ export interface CalculateRoutesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TravelStepInstructions</code>: Provides step-by-step instructions for travel along the route.</p>
+   *                   <code>TravelStepInstructions</code>: Provides step-by-step instructions for travel
+   *                along the route.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TruckRoadTypes</code>: Returns information about road types suitable for trucks.</p>
+   *                   <code>TruckRoadTypes</code>: Returns information about road types suitable for
+   *                trucks.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TypicalDuration</code>: Gives typical travel duration based on historical data.</p>
+   *                   <code>TypicalDuration</code>: Gives typical travel duration based on historical
+   *                data.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3611,22 +3768,23 @@ export interface CalculateRoutesRequest {
   LegAdditionalFeatures?: RouteLegAdditionalFeature[] | undefined;
 
   /**
-   * <p>Specifies the format of the geometry returned for each leg of the route. You can
-   *       choose between two different geometry encoding formats.</p>
+   * <p>Specifies the format of the geometry returned for each leg of the route. You can choose
+   *          between two different geometry encoding formats.</p>
    *          <p>
-   *             <code>FlexiblePolyline</code>: A compact and precise encoding format for the
-   *     leg geometry. For more information on the format, see the GitHub repository for  <a href="https://github.com/heremaps/flexible-polyline">
+   *             <code>FlexiblePolyline</code>: A compact and precise encoding format for the leg
+   *          geometry. For more information on the format, see the GitHub repository for <a href="https://github.com/heremaps/flexible-polyline">
    *                <code>FlexiblePolyline</code>
    *             </a>.</p>
    *          <p>
-   *             <code>Simple</code>: A less compact encoding,
-   *      which is easier to decode but may be less precise and result in larger payloads.</p>
+   *             <code>Simple</code>: A less compact encoding, which is easier to decode but may be less
+   *          precise and result in larger payloads.</p>
    * @public
    */
   LegGeometryFormat?: GeometryFormat | undefined;
 
   /**
-   * <p>Maximum number of alternative routes to be provided in the response, if available.</p>
+   * <p>Maximum number of alternative routes to be provided in the response, if
+   *          available.</p>
    * @public
    */
   MaxAlternatives?: number | undefined;
@@ -3652,7 +3810,8 @@ export interface CalculateRoutesRequest {
   OriginOptions?: RouteOriginOptions | undefined;
 
   /**
-   * <p>A list of optional features such as SpeedLimit that can be requested for a Span. A span is a section of a Leg for which the requested features have the same values.</p>
+   * <p>A list of optional features such as SpeedLimit that can be requested for a Span. A span
+   *          is a section of a Leg for which the requested features have the same values.</p>
    * @public
    */
   SpanAdditionalFeatures?: RouteSpanAdditionalFeature[] | undefined;
@@ -3670,8 +3829,8 @@ export interface CalculateRoutesRequest {
   Traffic?: RouteTrafficOptions | undefined;
 
   /**
-   * <p>Specifies the mode of transport when calculating a route.
-   *       Used in estimating the speed of travel and road compatibility.</p>
+   * <p>Specifies the mode of transport when calculating a route. Used in estimating the speed
+   *          of travel and road compatibility.</p>
    *          <p>Default Value: <code>Car</code>
    *          </p>
    * @public
@@ -3685,9 +3844,9 @@ export interface CalculateRoutesRequest {
   TravelModeOptions?: RouteTravelModeOptions | undefined;
 
   /**
-   * <p>Type of step returned by the response.
-   * Default provides basic steps intended for web based applications.
-   * TurnByTurn provides detailed instructions with more granularity intended for a turn based naviagtion system.</p>
+   * <p>Type of step returned by the response. Default provides basic steps intended for web
+   *          based applications. TurnByTurn provides detailed instructions with more granularity
+   *          intended for a turn based navigation system.</p>
    * @public
    */
   TravelStepType?: RouteTravelStepType | undefined;
@@ -3729,7 +3888,8 @@ export const RouteNoticeImpact = {
 export type RouteNoticeImpact = (typeof RouteNoticeImpact)[keyof typeof RouteNoticeImpact];
 
 /**
- * <p>Notices are additional information returned that indicate issues that occurred during route calculation.</p>
+ * <p>Notices are additional information returned that indicate issues that occurred during
+ *          route calculation.</p>
  * @public
  */
 export interface RouteResponseNotice {
@@ -3740,7 +3900,8 @@ export interface RouteResponseNotice {
   Code: RouteResponseNoticeCode | undefined;
 
   /**
-   * <p>Impact corresponding to the issue. While Low impact notices can be safely ignored, High impact notices must be evaluated further to determine the impact.</p>
+   * <p>Impact corresponding to the issue. While Low impact notices can be safely ignored, High
+   *          impact notices must be evaluated further to determine the impact.</p>
    * @public
    */
   Impact?: RouteNoticeImpact | undefined;
@@ -3908,6 +4069,7 @@ export const RouteFerryNoticeCode = {
   ACCURATE_POLYLINE_UNAVAILABLE: "AccuratePolylineUnavailable",
   NO_SCHEDULE: "NoSchedule",
   OTHER: "Other",
+  SEASONAL_CLOSURE: "SeasonalClosure",
   VIOLATED_AVOID_FERRY: "ViolatedAvoidFerry",
   VIOLATED_AVOID_RAIL_FERRY: "ViolatedAvoidRailFerry",
 } as const;
@@ -3918,7 +4080,8 @@ export const RouteFerryNoticeCode = {
 export type RouteFerryNoticeCode = (typeof RouteFerryNoticeCode)[keyof typeof RouteFerryNoticeCode];
 
 /**
- * <p>Notices are additional information returned that indicate issues that occurred during route calculation.</p>
+ * <p>Notices are additional information returned that indicate issues that occurred during
+ *          route calculation.</p>
  * @public
  */
 export interface RouteFerryNotice {
@@ -3929,7 +4092,8 @@ export interface RouteFerryNotice {
   Code: RouteFerryNoticeCode | undefined;
 
   /**
-   * <p>Impact corresponding to the issue. While Low impact notices can be safely ignored, High impact notices must be evaluated further to determine the impact.</p>
+   * <p>Impact corresponding to the issue. While Low impact notices can be safely ignored, High
+   *          impact notices must be evaluated further to determine the impact.</p>
    * @public
    */
   Impact?: RouteNoticeImpact | undefined;
@@ -3960,7 +4124,8 @@ export interface RoutePassThroughPlace {
 }
 
 /**
- * <p>If the waypoint should be treated as a stop. If yes, the route is split up into different legs around the stop.</p>
+ * <p>If the waypoint should be treated as a stop. If yes, the route is split up into
+ *          different legs around the stop.</p>
  * @public
  */
 export interface RoutePassThroughWaypoint {
@@ -3998,7 +4163,7 @@ export interface LocalizedString {
 }
 
 /**
- * <p>Span  computed for the requested SpanAdditionalFeatures.</p>
+ * <p>Span computed for the requested SpanAdditionalFeatures.</p>
  * @public
  */
 export interface RouteFerrySpan {
@@ -4009,13 +4174,18 @@ export interface RouteFerrySpan {
   Country?: string | undefined;
 
   /**
-   * <p>Distance of the computed span. This feature doesn't split a span, but is always computed on a span split by other properties.</p>
+   * <p>Distance of the computed span. This feature doesn't split a span, but is always computed
+   *          on a span split by other properties.</p>
+   *          <p>
+   *             <b>Unit</b>: <code>meters</code>
+   *          </p>
    * @public
    */
   Distance?: number | undefined;
 
   /**
-   * <p>Duration of the computed span. This feature doesn't split a span, but is always computed on a span split by other properties.</p>
+   * <p>Duration of the computed span. This feature doesn't split a span, but is always computed
+   *          on a span split by other properties.</p>
    *          <p>
    *             <b>Unit</b>: <code>seconds</code>
    *          </p>
@@ -4036,7 +4206,8 @@ export interface RouteFerrySpan {
   Names?: LocalizedString[] | undefined;
 
   /**
-   * <p>2-3 letter Region code corresponding to the Span. This is either a province or a state.</p>
+   * <p>2-3 letter Region code corresponding to the Span. This is either a province or a
+   *          state.</p>
    * @public
    */
   Region?: string | undefined;
@@ -4064,12 +4235,14 @@ export interface RouteFerryOverviewSummary {
 }
 
 /**
- * <p>Summarized details for the leg including travel steps only. The Distance for the travel only portion of the journey is the same as the Distance within the Overview summary.</p>
+ * <p>Summarized details for the leg including travel steps only. The Distance for the travel
+ *          only portion of the journey is the same as the Distance within the Overview summary.</p>
  * @public
  */
 export interface RouteFerryTravelOnlySummary {
   /**
-   * <p>Total duration in free flowing traffic, which is the best case or shortest duration possible to cover the leg.</p>
+   * <p>Total duration in free flowing traffic, which is the best case or shortest duration
+   *          possible to cover the leg.</p>
    *          <p>
    *             <b>Unit</b>: <code>seconds</code>
    *          </p>
@@ -4079,18 +4252,21 @@ export interface RouteFerryTravelOnlySummary {
 }
 
 /**
- * <p>Summarized details for the leg including travel steps only. The Distance for the travel only portion of the journey is the same as the Distance within the Overview summary.</p>
+ * <p>Summarized details for the leg including travel steps only. The Distance for the travel
+ *          only portion of the journey is the same as the Distance within the Overview summary.</p>
  * @public
  */
 export interface RouteFerrySummary {
   /**
-   * <p>Summarized details for the leg including before travel, travel and after travel steps.</p>
+   * <p>Summarized details for the leg including before travel, travel and after travel
+   *          steps.</p>
    * @public
    */
   Overview?: RouteFerryOverviewSummary | undefined;
 
   /**
-   * <p>Summarized details for the leg including travel steps only. The Distance for the travel only portion of the journey is in meters</p>
+   * <p>Summarized details for the leg including travel steps only. The Distance for the travel
+   *          only portion of the journey is in meters</p>
    * @public
    */
   TravelOnly?: RouteFerryTravelOnlySummary | undefined;
@@ -4184,13 +4360,15 @@ export interface RouteFerryLegDetails {
   Departure: RouteFerryDeparture | undefined;
 
   /**
-   * <p>Notices are additional information returned that indicate issues that occurred during route calculation.</p>
+   * <p>Notices are additional information returned that indicate issues that occurred during
+   *          route calculation.</p>
    * @public
    */
   Notices: RouteFerryNotice[] | undefined;
 
   /**
-   * <p>Waypoints that were passed through during the leg. This includes the waypoints that were configured with the PassThrough option.</p>
+   * <p>Waypoints that were passed through during the leg. This includes the waypoints that were
+   *          configured with the PassThrough option.</p>
    * @public
    */
   PassThroughWaypoints: RoutePassThroughWaypoint[] | undefined;
@@ -4235,7 +4413,8 @@ export interface RouteLegGeometry {
   LineString?: number[][] | undefined;
 
   /**
-   * <p>An ordered list of positions used to plot a route on a map in a lossy compression format.</p>
+   * <p>An ordered list of positions used to plot a route on a map in a lossy compression
+   *          format.</p>
    *          <note>
    *             <p>LineString and Polyline are mutually exclusive properties.</p>
    *          </note>
@@ -4366,7 +4545,8 @@ export const RoutePedestrianNoticeCode = {
 export type RoutePedestrianNoticeCode = (typeof RoutePedestrianNoticeCode)[keyof typeof RoutePedestrianNoticeCode];
 
 /**
- * <p>Notices are additional information returned that indicate issues that occurred during route calculation.</p>
+ * <p>Notices are additional information returned that indicate issues that occurred during
+ *          route calculation.</p>
  * @public
  */
 export interface RoutePedestrianNotice {
@@ -4377,7 +4557,8 @@ export interface RoutePedestrianNotice {
   Code: RoutePedestrianNoticeCode | undefined;
 
   /**
-   * <p>Impact corresponding to the issue. While Low impact notices can be safely ignored, High impact notices must be evaluated further to determine the impact.</p>
+   * <p>Impact corresponding to the issue. While Low impact notices can be safely ignored, High
+   *          impact notices must be evaluated further to determine the impact.</p>
    * @public
    */
   Impact?: RouteNoticeImpact | undefined;
@@ -4547,13 +4728,15 @@ export interface RoutePedestrianSpan {
   Country?: string | undefined;
 
   /**
-   * <p>Distance of the computed span. This feature doesn't split a span, but is always computed on a span split by other properties.</p>
+   * <p>Distance of the computed span. This feature doesn't split a span, but is always computed
+   *          on a span split by other properties.</p>
    * @public
    */
   Distance?: number | undefined;
 
   /**
-   * <p>Duration of the computed span. This feature doesn't split a span, but is always computed on a span split by other properties.</p>
+   * <p>Duration of the computed span. This feature doesn't split a span, but is always computed
+   *          on a span split by other properties.</p>
    *          <p>
    *             <b>Unit</b>: <code>seconds</code>
    *          </p>
@@ -4583,7 +4766,8 @@ export interface RoutePedestrianSpan {
   GeometryOffset?: number | undefined;
 
   /**
-   * <p>Incidents corresponding to the span. These index into the Incidents in the parent Leg.</p>
+   * <p>Incidents corresponding to the span. These index into the Incidents in the parent
+   *          Leg.</p>
    * @public
    */
   Incidents?: number[] | undefined;
@@ -4601,7 +4785,8 @@ export interface RoutePedestrianSpan {
   PedestrianAccess?: RouteSpanPedestrianAccessAttribute[] | undefined;
 
   /**
-   * <p>2-3 letter Region code corresponding to the Span. This is either a province or a state.</p>
+   * <p>2-3 letter Region code corresponding to the Span. This is either a province or a
+   *          state.</p>
    * @public
    */
   Region?: string | undefined;
@@ -4671,18 +4856,21 @@ export interface RoutePedestrianTravelOnlySummary {
 }
 
 /**
- * <p>Summarized details for the leg including before travel, travel and after travel steps.</p>
+ * <p>Summarized details for the leg including before travel, travel and after travel
+ *          steps.</p>
  * @public
  */
 export interface RoutePedestrianSummary {
   /**
-   * <p>Summarized details for the leg including before travel, travel and after travel steps.</p>
+   * <p>Summarized details for the leg including before travel, travel and after travel
+   *          steps.</p>
    * @public
    */
   Overview?: RoutePedestrianOverviewSummary | undefined;
 
   /**
-   * <p>Summarized details for the leg including travel steps only. The Distance for the travel only portion of the journey is in meters</p>
+   * <p>Summarized details for the leg including travel steps only. The Distance for the travel
+   *          only portion of the journey is in meters</p>
    * @public
    */
   TravelOnly?: RoutePedestrianTravelOnlySummary | undefined;
@@ -4914,7 +5102,8 @@ export interface RouteSignpostLabel {
 }
 
 /**
- * <p>Sign post information of the action, applicable only for TurnByTurn steps. See RouteSignpost for details of sub-attributes.</p>
+ * <p>Sign post information of the action, applicable only for TurnByTurn steps. See
+ *          RouteSignpost for details of sub-attributes.</p>
  * @public
  */
 export interface RouteSignpost {
@@ -5063,7 +5252,8 @@ export interface RoutePedestrianTravelStep {
   RoundaboutPassStepDetails?: RouteRoundaboutPassStepDetails | undefined;
 
   /**
-   * <p>Sign post information of the action, applicable only for TurnByTurn steps. See RouteSignpost for details of sub-attributes.</p>
+   * <p>Sign post information of the action, applicable only for TurnByTurn steps. See
+   *          RouteSignpost for details of sub-attributes.</p>
    * @public
    */
   Signpost?: RouteSignpost | undefined;
@@ -5099,13 +5289,15 @@ export interface RoutePedestrianLegDetails {
   Departure: RoutePedestrianDeparture | undefined;
 
   /**
-   * <p>Notices are additional information returned that indicate issues that occurred during route calculation.</p>
+   * <p>Notices are additional information returned that indicate issues that occurred during
+   *          route calculation.</p>
    * @public
    */
   Notices: RoutePedestrianNotice[] | undefined;
 
   /**
-   * <p>Waypoints that were passed through during the leg. This includes the waypoints that were configured with the PassThrough option.</p>
+   * <p>Waypoints that were passed through during the leg. This includes the waypoints that were
+   *          configured with the PassThrough option.</p>
    * @public
    */
   PassThroughWaypoints: RoutePassThroughWaypoint[] | undefined;
@@ -5135,6 +5327,7 @@ export interface RoutePedestrianLegDetails {
  */
 export const RouteLegTravelMode = {
   CAR: "Car",
+  CAR_SHUTTLE_TRAIN: "CarShuttleTrain",
   FERRY: "Ferry",
   PEDESTRIAN: "Pedestrian",
   SCOOTER: "Scooter",
@@ -5291,11 +5484,10 @@ export interface RouteVehicleIncident {
   EndTime?: string | undefined;
 
   /**
-   * <p>Severity of the incident
-   * Critical - The part of the route the incident affects is unusable.
-   * Major- Major impact on the leg duration, for example stop and go
-   * Minor- Minor impact on the leg duration, for example traffic jam
-   * Low - Low on duration, for example slightly increased traffic</p>
+   * <p>Severity of the incident Critical - The part of the route the incident affects is
+   *          unusable. Major- Major impact on the leg duration, for example stop and go Minor- Minor
+   *          impact on the leg duration, for example traffic jam Low - Low on duration, for example
+   *          slightly increased traffic</p>
    * @public
    */
   Severity?: RouteVehicleIncidentSeverity | undefined;
@@ -5410,13 +5602,13 @@ export interface RouteWeightConstraint {
 }
 
 /**
- * <p>This property contains a
- *       summary of violated constraints.</p>
+ * <p>This property contains a summary of violated constraints.</p>
  * @public
  */
 export interface RouteViolatedConstraints {
   /**
-   * <p>This restriction applies to truck cargo, where the resulting route excludes roads on which hazardous materials are prohibited from being transported.</p>
+   * <p>This restriction applies to truck cargo, where the resulting route excludes roads on
+   *          which hazardous materials are prohibited from being transported.</p>
    * @public
    */
   AllHazardsRestricted?: boolean | undefined;
@@ -5531,8 +5723,8 @@ export interface RouteViolatedConstraints {
   TravelMode?: boolean | undefined;
 
   /**
-   * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to Sweden.
-   *          <code>A2,A4,B2,B4,C,D,ET2,ET4</code> apply only to Mexico.</p>
+   * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to
+   *          Sweden. <code>A2,A4,B2,B4,C,D,ET2,ET4</code> apply only to Mexico.</p>
    *          <note>
    *             <p>There are currently no other supported values as of 26th April 2024.</p>
    *          </note>
@@ -5548,8 +5740,9 @@ export interface RouteViolatedConstraints {
 
   /**
    * <p>The tunnel restriction code.</p>
-   *          <p>Tunnel categories in this list indicate the restrictions which apply to certain tunnels in Great Britain.
-   *          They relate to the types of dangerous goods that can be transported through them.</p>
+   *          <p>Tunnel categories in this list indicate the restrictions which apply to certain tunnels
+   *          in Great Britain. They relate to the types of dangerous goods that can be transported
+   *          through them.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -5636,7 +5829,8 @@ export interface RouteVehicleNoticeDetail {
 }
 
 /**
- * <p>Notices are additional information returned that indicate issues that occurred during route calculation.</p>
+ * <p>Notices are additional information returned that indicate issues that occurred during
+ *          route calculation.</p>
  * @public
  */
 export interface RouteVehicleNotice {
@@ -5653,7 +5847,8 @@ export interface RouteVehicleNotice {
   Details: RouteVehicleNoticeDetail[] | undefined;
 
   /**
-   * <p>Impact corresponding to the issue. While Low impact notices can be safely ignored, High impact notices must be evaluated further to determine the impact.</p>
+   * <p>Impact corresponding to the issue. While Low impact notices can be safely ignored, High
+   *          impact notices must be evaluated further to determine the impact.</p>
    * @public
    */
   Impact?: RouteNoticeImpact | undefined;
@@ -5764,13 +5959,15 @@ export interface RouteVehicleSpan {
   Country?: string | undefined;
 
   /**
-   * <p>Distance of the computed span. This feature doesn't split a span, but is always computed on a span split by other properties.</p>
+   * <p>Distance of the computed span. This feature doesn't split a span, but is always computed
+   *          on a span split by other properties.</p>
    * @public
    */
   Distance?: number | undefined;
 
   /**
-   * <p>Duration of the computed span. This feature doesn't split a span, but is always computed on a span split by other properties.</p>
+   * <p>Duration of the computed span. This feature doesn't split a span, but is always computed
+   *          on a span split by other properties.</p>
    *          <p>
    *             <b>Unit</b>: <code>seconds</code>
    *          </p>
@@ -5794,7 +5991,8 @@ export interface RouteVehicleSpan {
   FunctionalClassification?: number | undefined;
 
   /**
-   * <p>Attributes corresponding to a gate. The gate is present at the end of the returned span.</p>
+   * <p>Attributes corresponding to a gate. The gate is present at the end of the returned
+   *          span.</p>
    * @public
    */
   Gate?: RouteSpanGateAttribute | undefined;
@@ -5806,7 +6004,8 @@ export interface RouteVehicleSpan {
   GeometryOffset?: number | undefined;
 
   /**
-   * <p>Incidents corresponding to the span. These index into the Incidents in the parent Leg.</p>
+   * <p>Incidents corresponding to the span. These index into the Incidents in the parent
+   *          Leg.</p>
    * @public
    */
   Incidents?: number[] | undefined;
@@ -5818,19 +6017,22 @@ export interface RouteVehicleSpan {
   Names?: LocalizedString[] | undefined;
 
   /**
-   * <p>Notices are additional information returned that indicate issues that occurred during route calculation.</p>
+   * <p>Notices are additional information returned that indicate issues that occurred during
+   *          route calculation.</p>
    * @public
    */
   Notices?: number[] | undefined;
 
   /**
-   * <p>Attributes corresponding to a railway crossing. The gate is present at the end of the returned span.</p>
+   * <p>Attributes corresponding to a railway crossing. The gate is present at the end of the
+   *          returned span.</p>
    * @public
    */
   RailwayCrossing?: RouteSpanRailwayCrossingAttribute | undefined;
 
   /**
-   * <p>2-3 letter Region code corresponding to the Span. This is either a province or a state.</p>
+   * <p>2-3 letter Region code corresponding to the Span. This is either a province or a
+   *          state.</p>
    * @public
    */
   Region?: string | undefined;
@@ -5875,8 +6077,8 @@ export interface RouteVehicleSpan {
   TruckAccess?: RouteSpanTruckAccessAttribute[] | undefined;
 
   /**
-   * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to Sweden.
-   *          <code>A2,A4,B2,B4,C,D,ET2,ET4</code> apply only to Mexico.</p>
+   * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to
+   *          Sweden. <code>A2,A4,B2,B4,C,D,ET2,ET4</code> apply only to Mexico.</p>
    *          <note>
    *             <p>There are currently no other supported values as of 26th April 2024.</p>
    *          </note>
@@ -5906,7 +6108,8 @@ export interface RouteVehicleSpan {
  */
 export interface RouteVehicleOverviewSummary {
   /**
-   * <p>Total duration in free flowing traffic, which is the best case or shortest duration possible to cover the leg.</p>
+   * <p>Total duration in free flowing traffic, which is the best case or shortest duration
+   *          possible to cover the leg.</p>
    *          <p>
    *             <b>Unit</b>: <code>seconds</code>
    *          </p>
@@ -5945,7 +6148,8 @@ export interface RouteVehicleOverviewSummary {
  */
 export interface RouteVehicleTravelOnlySummary {
   /**
-   * <p>Total duration in free flowing traffic, which is the best case or shortest duration possible to cover the leg.</p>
+   * <p>Total duration in free flowing traffic, which is the best case or shortest duration
+   *          possible to cover the leg.</p>
    *          <p>
    *             <b>Unit</b>: <code>seconds</code>
    *          </p>
@@ -5978,13 +6182,15 @@ export interface RouteVehicleTravelOnlySummary {
  */
 export interface RouteVehicleSummary {
   /**
-   * <p>Summarized details for the leg including before travel, travel and after travel steps.</p>
+   * <p>Summarized details for the leg including before travel, travel and after travel
+   *          steps.</p>
    * @public
    */
   Overview?: RouteVehicleOverviewSummary | undefined;
 
   /**
-   * <p>Summarized details for the leg including travel steps only. The Distance for the travel only portion of the journey is in meters</p>
+   * <p>Summarized details for the leg including travel steps only. The Distance for the travel
+   *          only portion of the journey is in meters</p>
    * @public
    */
   TravelOnly?: RouteVehicleTravelOnlySummary | undefined;
@@ -6032,7 +6238,8 @@ export interface RouteTollPriceValueRange {
  */
 export interface RouteTollPrice {
   /**
-   * <p>Currency code corresponding to the price. This is the same as Currency specified in the request.</p>
+   * <p>Currency code corresponding to the price. This is the same as Currency specified in the
+   *          request.</p>
    * @public
    */
   Currency: string | undefined;
@@ -6053,7 +6260,8 @@ export interface RouteTollPrice {
   PerDuration?: number | undefined;
 
   /**
-   * <p>If the price is a range or an exact value. If any of the toll fares making up the route is a range, the overall price is also a range.</p>
+   * <p>If the price is a range or an exact value. If any of the toll fares making up the route
+   *          is a range, the overall price is also a range.</p>
    * @public
    */
   Range: boolean | undefined;
@@ -6230,7 +6438,9 @@ export interface RouteTollRate {
 }
 
 /**
- * <p>Provides details about toll information along a route, including the payment sites, applicable toll rates, toll systems, and the country associated with the toll collection.</p>
+ * <p>Provides details about toll information along a route, including the payment sites,
+ *          applicable toll rates, toll systems, and the country associated with the toll
+ *          collection.</p>
  * @public
  */
 export interface RouteToll {
@@ -6560,7 +6770,8 @@ export interface RouteVehicleTravelStep {
   RoundaboutPassStepDetails?: RouteRoundaboutPassStepDetails | undefined;
 
   /**
-   * <p>Sign post information of the action, applicable only for TurnByTurn steps. See RouteSignpost for details of sub-attributes.</p>
+   * <p>Sign post information of the action, applicable only for TurnByTurn steps. See
+   *          RouteSignpost for details of sub-attributes.</p>
    * @public
    */
   Signpost?: RouteSignpost | undefined;
@@ -6626,13 +6837,15 @@ export interface RouteVehicleLegDetails {
   Incidents: RouteVehicleIncident[] | undefined;
 
   /**
-   * <p>Notices are additional information returned that indicate issues that occurred during route calculation.</p>
+   * <p>Notices are additional information returned that indicate issues that occurred during
+   *          route calculation.</p>
    * @public
    */
   Notices: RouteVehicleNotice[] | undefined;
 
   /**
-   * <p>Waypoints that were passed through during the leg. This includes the waypoints that were configured with the PassThrough option.</p>
+   * <p>Waypoints that were passed through during the leg. This includes the waypoints that were
+   *          configured with the PassThrough option.</p>
    * @public
    */
   PassThroughWaypoints: RoutePassThroughWaypoint[] | undefined;
@@ -6668,8 +6881,8 @@ export interface RouteVehicleLegDetails {
   TravelSteps: RouteVehicleTravelStep[] | undefined;
 
   /**
-   * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to Sweden.
-   *          <code>A2,A4,B2,B4,C,D,ET2,ET4</code> apply only to Mexico.</p>
+   * <p>Truck road type identifiers. <code>BK1</code> through <code>BK4</code> apply only to
+   *          Sweden. <code>A2,A4,B2,B4,C,D,ET2,ET4</code> apply only to Mexico.</p>
    *          <note>
    *             <p>There are currently no other supported values as of 26th April 2024.</p>
    *          </note>
@@ -6685,8 +6898,11 @@ export interface RouteVehicleLegDetails {
 }
 
 /**
- * <p>A leg is a section of a route from one waypoint to the next. A leg could be of type Vehicle, Pedestrian or Ferry.
- * Legs of different types could occur together within a single route. For example, a car employing the use of a Ferry will contain Vehicle legs corresponding to journey on land, and Ferry legs corresponding to the journey via Ferry.</p>
+ * <p>A leg is a section of a route from one waypoint to the next. A leg could be of type
+ *          Vehicle, Pedestrian or Ferry. Legs of different types could occur together within a single
+ *          route. For example, a car employing the use of a Ferry will contain Vehicle legs
+ *          corresponding to journey on land, and Ferry legs corresponding to the journey via
+ *          Ferry.</p>
  * @public
  */
 export interface RouteLeg {
@@ -6716,8 +6932,8 @@ export interface RouteLeg {
   PedestrianLegDetails?: RoutePedestrianLegDetails | undefined;
 
   /**
-   * <p>Specifies the mode of transport when calculating a route.
-   *       Used in estimating the speed of travel and road compatibility.</p>
+   * <p>Specifies the mode of transport when calculating a route. Used in estimating the speed
+   *          of travel and road compatibility.</p>
    *          <p>Default Value: <code>Car</code>
    *          </p>
    * @public
@@ -6738,7 +6954,8 @@ export interface RouteLeg {
 }
 
 /**
- * <p>Important labels including names and route numbers that differentiate the current route from the alternatives presented.</p>
+ * <p>Important labels including names and route numbers that differentiate the current route
+ *          from the alternatives presented.</p>
  * @public
  */
 export interface RouteMajorRoadLabel {
@@ -6761,7 +6978,8 @@ export interface RouteMajorRoadLabel {
  */
 export interface RouteTollPriceSummary {
   /**
-   * <p>Currency code corresponding to the price. This is the same as Currency specified in the request.</p>
+   * <p>Currency code corresponding to the price. This is the same as Currency specified in the
+   *          request.</p>
    * @public
    */
   Currency: string | undefined;
@@ -6773,7 +6991,8 @@ export interface RouteTollPriceSummary {
   Estimate: boolean | undefined;
 
   /**
-   * <p>If the price is a range or an exact value. If any of the toll fares making up the route is a range, the overall price is also a range.</p>
+   * <p>If the price is a range or an exact value. If any of the toll fares making up the route
+   *          is a range, the overall price is also a range.</p>
    * @public
    */
   Range: boolean | undefined;
@@ -6805,7 +7024,8 @@ export interface RouteTollSummary {
 }
 
 /**
- * <p>Summarized details for the leg including travel steps only. The Distance for the travel only portion of the journey is the same as the Distance within the Overview summary.</p>
+ * <p>Summarized details for the leg including travel steps only. The Distance for the travel
+ *          only portion of the journey is the same as the Distance within the Overview summary.</p>
  * @public
  */
 export interface RouteSummary {
@@ -6837,14 +7057,18 @@ export interface RouteSummary {
  */
 export interface Route {
   /**
-   * <p>A leg is a section of a route from one waypoint to the next. A leg could be of type Vehicle, Pedestrian or Ferry.
-   * Legs of different types could occur together within a single route. For example, a car employing the use of a Ferry will contain Vehicle legs corresponding to journey on land, and Ferry legs corresponding to the journey via Ferry.</p>
+   * <p>A leg is a section of a route from one waypoint to the next. A leg could be of type
+   *          Vehicle, Pedestrian or Ferry. Legs of different types could occur together within a single
+   *          route. For example, a car employing the use of a Ferry will contain Vehicle legs
+   *          corresponding to journey on land, and Ferry legs corresponding to the journey via
+   *          Ferry.</p>
    * @public
    */
   Legs: RouteLeg[] | undefined;
 
   /**
-   * <p>Important labels including names and route numbers that differentiate the current route from the alternatives presented.</p>
+   * <p>Important labels including names and route numbers that differentiate the current route
+   *          from the alternatives presented.</p>
    * @public
    */
   MajorRoadLabels: RouteMajorRoadLabel[] | undefined;
@@ -6867,7 +7091,8 @@ export interface CalculateRoutesResponse {
   LegGeometryFormat: GeometryFormat | undefined;
 
   /**
-   * <p>Notices are additional information returned that indicate issues that occurred during route calculation.</p>
+   * <p>Notices are additional information returned that indicate issues that occurred during
+   *          route calculation.</p>
    * @public
    */
   Notices: RouteResponseNotice[] | undefined;
@@ -6931,7 +7156,10 @@ export interface WaypointOptimizationAvoidanceArea {
 }
 
 /**
- * <p>Options for WaypointOptimizationAvoidance.</p>
+ * <p>Specifies options for areas to avoid. This is a best-effort avoidance setting, meaning
+ *          the router will try to honor the avoidance preferences but may still include restricted
+ *          areas if no feasible alternative route exists. If avoidance options are not followed, the
+ *          response will indicate that the avoidance criteria were violated.</p>
  * @public
  */
 export interface WaypointOptimizationAvoidanceOptions {
@@ -6985,6 +7213,57 @@ export interface WaypointOptimizationAvoidanceOptions {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const WaypointOptimizationClusteringAlgorithm = {
+  DRIVING_DISTANCE: "DrivingDistance",
+  TOPOLOGY_SEGMENT: "TopologySegment",
+} as const;
+
+/**
+ * @public
+ */
+export type WaypointOptimizationClusteringAlgorithm =
+  (typeof WaypointOptimizationClusteringAlgorithm)[keyof typeof WaypointOptimizationClusteringAlgorithm];
+
+/**
+ * <p>Driving distance related options.</p>
+ * @public
+ */
+export interface WaypointOptimizationDrivingDistanceOptions {
+  /**
+   * <p>DrivingDistance assigns all the waypoints that are within driving distance of each other
+   *          into a single cluster.</p>
+   * @public
+   */
+  DrivingDistance: number | undefined;
+}
+
+/**
+ * <p>Options for WaypointOptimizationClustering.</p>
+ * @public
+ */
+export interface WaypointOptimizationClusteringOptions {
+  /**
+   * <p>The algorithm to be used. <code>DrivingDistance</code> assigns all the waypoints that
+   *          are within driving distance of each other into a single cluster.
+   *             <code>TopologySegment</code> assigns all the waypoints that are within the same topology
+   *          segment into a single cluster. A Topology segment is a linear stretch of road between two
+   *          junctions.</p>
+   * @public
+   */
+  Algorithm: WaypointOptimizationClusteringAlgorithm | undefined;
+
+  /**
+   * <p>Driving distance options to be used when the clustering algorithm is
+   *          DrivingDistance.</p>
+   * @public
+   */
+  DrivingDistanceOptions?: WaypointOptimizationDrivingDistanceOptions | undefined;
+}
+
+/**
  * <p>Hours of entry.</p>
  * @public
  */
@@ -7032,7 +7311,8 @@ export interface WaypointOptimizationSideOfStreetOptions {
   Position: number[] | undefined;
 
   /**
-   * <p>Strategy that defines when the side of street position should be used. AnyStreet will always use the provided position.</p>
+   * <p>Strategy that defines when the side of street position should be used. AnyStreet will
+   *          always use the provided position.</p>
    *          <p>Default Value: <code>DividedStreetOnly</code>
    *          </p>
    * @public
@@ -7070,7 +7350,8 @@ export interface WaypointOptimizationDestinationOptions {
   Id?: string | undefined;
 
   /**
-   * <p>Service time spent at the destination. At an appointment, the service time should be the appointment duration.</p>
+   * <p>Service time spent at the destination. At an appointment, the service time should be the
+   *          appointment duration.</p>
    *          <p>
    *             <b>Unit</b>: <code>seconds</code>
    *          </p>
@@ -7086,7 +7367,9 @@ export interface WaypointOptimizationDestinationOptions {
 }
 
 /**
- * <p>Driver work-rest schedules defined by a short and long cycle. A rest needs to be taken after the short work duration. The short cycle can be repeated until you hit the long work duration, at which point the long rest duration should be taken before restarting.</p>
+ * <p>Driver work-rest schedules defined by a short and long cycle. A rest needs to be taken
+ *          after the short work duration. The short cycle can be repeated until you hit the long work
+ *          duration, at which point the long rest duration should be taken before restarting.</p>
  *          <p>
  *             <b>Unit</b>: <code>seconds</code>
  *          </p>
@@ -7165,7 +7448,9 @@ export type WaypointOptimizationServiceTimeTreatment =
  */
 export interface WaypointOptimizationDriverOptions {
   /**
-   * <p>Driver work-rest schedules defined by a short and long cycle. A rest needs to be taken after the short work duration. The short cycle can be repeated until you hit the long work duration, at which point the long rest duration should be taken before restarting.</p>
+   * <p>Driver work-rest schedules defined by a short and long cycle. A rest needs to be taken
+   *          after the short work duration. The short cycle can be repeated until you hit the long work
+   *          duration, at which point the long rest duration should be taken before restarting.</p>
    * @public
    */
   RestCycles?: WaypointOptimizationRestCycles | undefined;
@@ -7178,19 +7463,23 @@ export interface WaypointOptimizationDriverOptions {
   RestProfile?: WaypointOptimizationRestProfile | undefined;
 
   /**
-   * <p>If the service time provided at a waypoint/destination should be considered as rest or work. This contributes to the total time breakdown returned within the response.</p>
+   * <p>If the service time provided at a waypoint/destination should be considered as rest or
+   *          work. This contributes to the total time breakdown returned within the response.</p>
    * @public
    */
   TreatServiceTimeAs?: WaypointOptimizationServiceTimeTreatment | undefined;
 }
 
 /**
- * <p>Exclusion options.</p>
+ * <p>Specifies strict exclusion options for the route calculation. This setting mandates that
+ *          the router will avoid any routes that include the specified options, rather than merely
+ *          attempting to minimize them.</p>
  * @public
  */
 export interface WaypointOptimizationExclusionOptions {
   /**
-   * <p>List of countries to be avoided defined by two-letter or three-letter country codes.</p>
+   * <p>List of countries to be avoided defined by two-letter or three-letter country
+   *          codes.</p>
    * @public
    */
   Countries: string[] | undefined;
@@ -7212,7 +7501,7 @@ export type WaypointOptimizationSequencingObjective =
   (typeof WaypointOptimizationSequencingObjective)[keyof typeof WaypointOptimizationSequencingObjective];
 
 /**
- * <p>Options related to the origin.</p>
+ * <p>Origin related options.</p>
  * @public
  */
 export interface WaypointOptimizationOriginOptions {
@@ -7374,8 +7663,9 @@ export interface WaypointOptimizationTruckOptions {
 
   /**
    * <p>The tunnel restriction code.</p>
-   *          <p>Tunnel categories in this list indicate the restrictions which apply to certain tunnels in Great Britain.
-   *          They relate to the types of dangerous goods that can be transported through them.</p>
+   *          <p>Tunnel categories in this list indicate the restrictions which apply to certain tunnels
+   *          in Great Britain. They relate to the types of dangerous goods that can be transported
+   *          through them.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -7443,7 +7733,9 @@ export interface WaypointOptimizationTruckOptions {
   TunnelRestrictionCode?: string | undefined;
 
   /**
-   * <p>Heaviest weight per axle irrespective of the axle type or the axle group. Meant for usage in countries where the differences in axle types or axle groups are not distinguished.</p>
+   * <p>Heaviest weight per axle irrespective of the axle type or the axle group. Meant for
+   *          usage in countries where the differences in axle types or axle groups are not
+   *          distinguished.</p>
    *          <p>
    *             <b>Unit</b>: <code>Kilograms</code>
    *          </p>
@@ -7521,7 +7813,8 @@ export interface WaypointOptimizationWaypoint {
   Position: number[] | undefined;
 
   /**
-   * <p>Service time spent at the waypoint. At an appointment, the service time should be the appointment duration.</p>
+   * <p>Service time spent at the waypoint. At an appointment, the service time should be the
+   *          appointment duration.</p>
    *          <p>
    *             <b>Unit</b>: <code>seconds</code>
    *          </p>
@@ -7541,11 +7834,18 @@ export interface WaypointOptimizationWaypoint {
  */
 export interface OptimizeWaypointsRequest {
   /**
-   * <p>Features that are avoided while calculating a route. Avoidance is on a best-case basis. If an
-   *          avoidance can't be satisfied for a particular case, this setting is ignored.</p>
+   * <p>Features that are avoided. Avoidance is on a best-case basis. If an avoidance can't be
+   *          satisfied for a particular case, this setting is ignored.</p>
    * @public
    */
   Avoid?: WaypointOptimizationAvoidanceOptions | undefined;
+
+  /**
+   * <p>Clustering allows you to specify how nearby waypoints can be clustered to improve the
+   *          optimized sequence.</p>
+   * @public
+   */
+  Clustering?: WaypointOptimizationClusteringOptions | undefined;
 
   /**
    * <p>Departure time from the waypoint.</p>
@@ -7620,8 +7920,8 @@ export interface OptimizeWaypointsRequest {
   Traffic?: WaypointOptimizationTrafficOptions | undefined;
 
   /**
-   * <p>Specifies the mode of transport when calculating a route.
-   *       Used in estimating the speed of travel and road compatibility.</p>
+   * <p>Specifies the mode of transport when calculating a route. Used in estimating the speed
+   *          of travel and road compatibility.</p>
    *          <p>Default Value: <code>Car</code>
    *          </p>
    * @public
@@ -7642,7 +7942,8 @@ export interface OptimizeWaypointsRequest {
 }
 
 /**
- * <p>This contains information such as distance and duration from one waypoint to the next waypoint in the sequence.</p>
+ * <p>This contains information such as distance and duration from one waypoint to the next
+ *          waypoint in the sequence.</p>
  * @public
  */
 export interface WaypointOptimizationConnection {
@@ -7771,6 +8072,12 @@ export interface WaypointOptimizationOptimizedWaypoint {
   ArrivalTime?: string | undefined;
 
   /**
+   * <p>Index of the cluster the waypoint is associated with. The index is included in the response only if clustering was performed while processing the request.</p>
+   * @public
+   */
+  ClusterIndex?: number | undefined;
+
+  /**
    * <p>Estimated time of departure from thr origin.</p>
    *          <p>Time format:<code>YYYY-MM-DDThh:mm:ss.sssZ | YYYY-MM-DDThh:mm:ss.sss+hh:mm</code>
    *          </p>
@@ -7813,7 +8120,8 @@ export interface WaypointOptimizationTimeBreakdown {
   RestDuration: number | undefined;
 
   /**
-   * <p>Service time spent at the destination. At an appointment, the service time should be the appointment duration.</p>
+   * <p>Service time spent at the destination. At an appointment, the service time should be the
+   *          appointment duration.</p>
    *          <p>
    *             <b>Unit</b>: <code>seconds</code>
    *          </p>
@@ -7845,7 +8153,8 @@ export interface WaypointOptimizationTimeBreakdown {
  */
 export interface OptimizeWaypointsResponse {
   /**
-   * <p>Details about the connection from one waypoint to the next, within the optimized sequence.</p>
+   * <p>Details about the connection from one waypoint to the next, within the optimized
+   *          sequence.</p>
    * @public
    */
   Connections: WaypointOptimizationConnection[] | undefined;
@@ -7866,7 +8175,8 @@ export interface OptimizeWaypointsResponse {
   Duration: number | undefined;
 
   /**
-   * <p>Returns waypoints that caused the optimization problem to fail, and the constraints that were unsatisfied leading to the failure.</p>
+   * <p>Returns waypoints that caused the optimization problem to fail, and the constraints that
+   *          were unsatisfied leading to the failure.</p>
    * @public
    */
   ImpedingWaypoints: WaypointOptimizationImpedingWaypoint[] | undefined;
@@ -8022,8 +8332,9 @@ export interface RoadSnapTruckOptions {
 
   /**
    * <p>The tunnel restriction code.</p>
-   *          <p>Tunnel categories in this list indicate the restrictions which apply to certain tunnels in Great Britain.
-   *          They relate to the types of dangerous goods that can be transported through them.</p>
+   *          <p>Tunnel categories in this list indicate the restrictions which apply to certain tunnels
+   *          in Great Britain. They relate to the types of dangerous goods that can be transported
+   *          through them.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -8146,8 +8457,8 @@ export interface SnapToRoadsRequest {
   TracePoints: RoadSnapTracePoint[] | undefined;
 
   /**
-   * <p>Specifies the mode of transport when calculating a route.
-   *       Used in estimating the speed of travel and road compatibility.</p>
+   * <p>Specifies the mode of transport when calculating a route. Used in estimating the speed
+   *          of travel and road compatibility.</p>
    *          <p>Default Value: <code>Car</code>
    *          </p>
    * @public
@@ -8181,7 +8492,8 @@ export const RoadSnapNoticeCode = {
 export type RoadSnapNoticeCode = (typeof RoadSnapNoticeCode)[keyof typeof RoadSnapNoticeCode];
 
 /**
- * <p>Notices provide information around factors that may have influenced snapping in a manner atypical to the standard use cases.</p>
+ * <p>Notices provide information around factors that may have influenced snapping in a manner
+ *          atypical to the standard use cases.</p>
  * @public
  */
 export interface RoadSnapNotice {
@@ -8219,7 +8531,8 @@ export interface RoadSnapSnappedGeometry {
   LineString?: number[][] | undefined;
 
   /**
-   * <p>An ordered list of positions used to plot a route on a map in a lossy compression format.</p>
+   * <p>An ordered list of positions used to plot a route on a map in a lossy compression
+   *          format.</p>
    *          <note>
    *             <p>LineString and Polyline are mutually exclusive properties.</p>
    *          </note>
@@ -8246,7 +8559,8 @@ export interface RoadSnapSnappedTracePoint {
   OriginalPosition: number[] | undefined;
 
   /**
-   * <p>Snapped position of the TracePoint provided within the request, at the same index. </p>
+   * <p>Snapped position of the TracePoint provided within the request, at the same index.
+   *       </p>
    * @public
    */
   SnappedPosition: number[] | undefined;
@@ -8257,7 +8571,8 @@ export interface RoadSnapSnappedTracePoint {
  */
 export interface SnapToRoadsResponse {
   /**
-   * <p>Notices are additional information returned that indicate issues that occurred during route calculation.</p>
+   * <p>Notices are additional information returned that indicate issues that occurred during
+   *          route calculation.</p>
    * @public
    */
   Notices: RoadSnapNotice[] | undefined;

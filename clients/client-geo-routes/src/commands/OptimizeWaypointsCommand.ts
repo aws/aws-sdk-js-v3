@@ -33,9 +33,10 @@ export interface OptimizeWaypointsCommandInput extends OptimizeWaypointsRequest 
 export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsResponse, __MetadataBearer {}
 
 /**
- * <p>Calculates the optimal order to travel between a set of waypoints to minimize either the
- *          travel time or the distance travelled during the journey, based on road network
- *          restrictions and the traffic pattern data.</p>
+ * <p>
+ *             <code>OptimizeWaypoints</code> calculates the optimal order to travel between a set of
+ *          waypoints to minimize either the travel time or the distance travelled during the journey,
+ *          based on road network restrictions and the traffic pattern data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +61,12 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  *     TollRoads: true || false,
  *     Tunnels: true || false,
  *     UTurns: true || false,
+ *   },
+ *   Clustering: { // WaypointOptimizationClusteringOptions
+ *     Algorithm: "STRING_VALUE", // required
+ *     DrivingDistanceOptions: { // WaypointOptimizationDrivingDistanceOptions
+ *       DrivingDistance: Number("long"), // required
+ *     },
  *   },
  *   DepartureTime: "STRING_VALUE",
  *   Destination: [ // Position
@@ -201,6 +208,7 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  * //   OptimizedWaypoints: [ // WaypointOptimizationOptimizedWaypointList // required
  * //     { // WaypointOptimizationOptimizedWaypoint
  * //       ArrivalTime: "STRING_VALUE",
+ * //       ClusterIndex: Number("int"),
  * //       DepartureTime: "STRING_VALUE", // required
  * //       Id: "STRING_VALUE", // required
  * //       Position: [ // required
@@ -229,7 +237,8 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *          failure.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
