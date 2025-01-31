@@ -82,7 +82,6 @@ export const resolveS3Config = <T>(
         s3ClientProvider().send(
           new CreateSessionCommandCtor({
             Bucket: key,
-            SessionMode: "ReadWrite",
           })
         )
       ),
