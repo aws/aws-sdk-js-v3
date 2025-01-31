@@ -783,6 +783,7 @@ export const ProductionVariantInstanceType = {
   ML_P3_8XLARGE: "ml.p3.8xlarge",
   ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
   ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
   ML_R5D_12XLARGE: "ml.r5d.12xlarge",
@@ -4496,6 +4497,9 @@ export type AppInstanceType = (typeof AppInstanceType)[keyof typeof AppInstanceT
 /**
  * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that
  *          the version runs on.</p>
+ *          <note>
+ *             <p>When both <code>SageMakerImageVersionArn</code> and <code>SageMakerImageArn</code> are passed, <code>SageMakerImageVersionArn</code> is used. Any updates to <code>SageMakerImageArn</code> will not take effect if <code>SageMakerImageVersionArn</code> already exists in the <code>ResourceSpec</code> because <code>SageMakerImageVersionArn</code> always takes precedence. To clear the value set for <code>SageMakerImageVersionArn</code>, pass <code>None</code> as the value.</p>
+ *          </note>
  * @public
  */
 export interface ResourceSpec {
@@ -4506,7 +4510,7 @@ export interface ResourceSpec {
   SageMakerImageArn?: string | undefined;
 
   /**
-   * <p>The ARN of the image version created on the instance.</p>
+   * <p>The ARN of the image version created on the instance. To clear the value set for <code>SageMakerImageVersionArn</code>, pass <code>None</code> as the value.</p>
    * @public
    */
   SageMakerImageVersionArn?: string | undefined;
@@ -4605,6 +4609,9 @@ export interface AppDetails {
   /**
    * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that
    *          the version runs on.</p>
+   *          <note>
+   *             <p>When both <code>SageMakerImageVersionArn</code> and <code>SageMakerImageArn</code> are passed, <code>SageMakerImageVersionArn</code> is used. Any updates to <code>SageMakerImageArn</code> will not take effect if <code>SageMakerImageVersionArn</code> already exists in the <code>ResourceSpec</code> because <code>SageMakerImageVersionArn</code> always takes precedence. To clear the value set for <code>SageMakerImageVersionArn</code>, pass <code>None</code> as the value.</p>
+   *          </note>
    * @public
    */
   ResourceSpec?: ResourceSpec | undefined;
@@ -10181,6 +10188,9 @@ export interface CodeEditorAppSettings {
   /**
    * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that
    *          the version runs on.</p>
+   *          <note>
+   *             <p>When both <code>SageMakerImageVersionArn</code> and <code>SageMakerImageArn</code> are passed, <code>SageMakerImageVersionArn</code> is used. Any updates to <code>SageMakerImageArn</code> will not take effect if <code>SageMakerImageVersionArn</code> already exists in the <code>ResourceSpec</code> because <code>SageMakerImageVersionArn</code> always takes precedence. To clear the value set for <code>SageMakerImageVersionArn</code>, pass <code>None</code> as the value.</p>
+   *          </note>
    * @public
    */
   DefaultResourceSpec?: ResourceSpec | undefined;
