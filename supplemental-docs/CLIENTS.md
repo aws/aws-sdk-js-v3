@@ -151,6 +151,43 @@ const client = new S3Client({
 });
 ```
 
+#### Enabling uncached/refreshed credentials in `fromIni` credential provider
+
+`fromIni` credential provider accepts a boolean `ignoreCache` option which when true, always reloads credentials from the file system instead of using cached values. This is useful when you need to detect changes to the credentials file.
+
+Note: For temporary credentials that need regular refreshing, consider using `fromTemporaryCredentials` instead.
+
+Using ignoreCache with an S3 client:
+
+```typescript
+import { S3Client } from "@aws-sdk/client-s3";
+import { fromIni } from "@aws-sdk/credential-providers";
+
+// Create client with credentials that will reload from file
+const client = new S3Client({
+  credentials: fromIni({ ignoreCache: true }),
+});
+```
+
+For temporary credentials:
+
+You can use the `fromTemporaryCredentials` provider that creates a credential provider function that retrieves temporary credentials from STS AssumeRole API. Depending on your use-case, this might be the preferred way to use temporary credentials, as compared to having a `.ini` file with `ignoreCache` (that will utilize filesystem operations) set to true.
+
+```typescript
+import { fromTemporaryCredentials } from "@aws-sdk/credential-providers";
+
+// Better approach for temporary credentials that need regular refreshing
+const client = new S3Client({
+  credentials: fromTemporaryCredentials({
+    // your temporary credentials config
+  }),
+});
+```
+
+- When using with AWS clients, the credential provider function is handled automatically.
+- For temporary credentials that need regular refreshing, `fromTemporaryCredentials` is recommended over manual refresh with `ignoreCache`.
+- Creating a new client instance ensures fresh credentials.
+
 ### AWS Profile `profile`
 
 Available since [v3.714.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.714.0).
