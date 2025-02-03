@@ -670,6 +670,20 @@ export interface LiveSource {
  * @public
  * @enum
  */
+export const LoggingStrategy = {
+  LEGACY_CLOUDWATCH: "LEGACY_CLOUDWATCH",
+  VENDED_LOGS: "VENDED_LOGS",
+} as const;
+
+/**
+ * @public
+ */
+export type LoggingStrategy = (typeof LoggingStrategy)[keyof typeof LoggingStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const StreamingMediaFileConditioning = {
   NONE: "NONE",
   TRANSCODE: "TRANSCODE",
@@ -687,7 +701,10 @@ export type StreamingMediaFileConditioning =
  */
 export interface AdConditioningConfiguration {
   /**
-   * <p>For ads that have media files with streaming delivery, indicates what transcoding action MediaTailor it first receives these ads from the ADS. <code>TRANSCODE</code> indicates that MediaTailor must transcode the ads. <code>NONE</code> indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see <a href="https://docs.aws.amazon.com/precondition-ads.html">https://docs.aws.amazon.com/precondition-ads.html</a>.</p>
+   * <p>For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS.
+   *             <code>TRANSCODE</code> indicates that MediaTailor must transcode the ads.
+   *             <code>NONE</code> indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow.
+   *             For more information about ad conditioning see <a href="https://docs.aws.amazon.com/precondition-ads.html">https://docs.aws.amazon.com/precondition-ads.html</a>.</p>
    * @public
    */
   StreamingMediaFileConditioning: StreamingMediaFileConditioning | undefined;
@@ -876,6 +893,12 @@ export interface LogConfiguration {
    * @public
    */
   PercentEnabled: number | undefined;
+
+  /**
+   * <p>The method used for collecting logs from AWS Elemental MediaTailor. <code>LEGACY_CLOUDWATCH</code> indicates that MediaTailor is sending logs directly to Amazon CloudWatch Logs. <code>VENDED_LOGS</code> indicates that MediaTailor is sending logs to CloudWatch, which then vends the logs to your destination of choice. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream. </p>
+   * @public
+   */
+  EnabledLoggingStrategies?: LoggingStrategy[] | undefined;
 }
 
 /**
@@ -1030,7 +1053,7 @@ export interface PlaybackConfiguration {
   VideoContentSourceUrl?: string | undefined;
 
   /**
-   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.</p>
    * @public
    */
   AdConditioningConfiguration?: AdConditioningConfiguration | undefined;
@@ -2669,6 +2692,14 @@ export interface ConfigureLogsForPlaybackConfigurationRequest {
    * @public
    */
   PlaybackConfigurationName: string | undefined;
+
+  /**
+   * <p>The method used for collecting logs from AWS Elemental MediaTailor. To configure MediaTailor to send logs directly to Amazon CloudWatch Logs, choose <code>LEGACY_CLOUDWATCH</code>. To configure MediaTailor to
+   *             send logs to CloudWatch, which then vends the logs to your destination of choice, choose <code>VENDED_LOGS</code>. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream.</p>
+   *          <p>To use vended logs, you must configure the delivery destination in Amazon CloudWatch, as described in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions-V2">Enable logging from AWS services, Logging that requires additional permissions [V2]</a>.</p>
+   * @public
+   */
+  EnabledLoggingStrategies?: LoggingStrategy[] | undefined;
 }
 
 /**
@@ -2686,6 +2717,12 @@ export interface ConfigureLogsForPlaybackConfigurationResponse {
    * @public
    */
   PlaybackConfigurationName?: string | undefined;
+
+  /**
+   * <p>The method used for collecting logs from AWS Elemental MediaTailor. <code>LEGACY_CLOUDWATCH</code> indicates that MediaTailor is sending logs directly to Amazon CloudWatch Logs. <code>VENDED_LOGS</code> indicates that MediaTailor is sending logs to CloudWatch, which then vends the logs to your destination of choice. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream. </p>
+   * @public
+   */
+  EnabledLoggingStrategies?: LoggingStrategy[] | undefined;
 }
 
 /**
@@ -3472,7 +3509,7 @@ export interface GetPlaybackConfigurationResponse {
   VideoContentSourceUrl?: string | undefined;
 
   /**
-   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns. </p>
+   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads. </p>
    * @public
    */
   AdConditioningConfiguration?: AdConditioningConfiguration | undefined;
@@ -3960,7 +3997,7 @@ export interface PutPlaybackConfigurationRequest {
   VideoContentSourceUrl?: string | undefined;
 
   /**
-   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads. </p>
    * @public
    */
   AdConditioningConfiguration?: AdConditioningConfiguration | undefined;
@@ -4091,7 +4128,7 @@ export interface PutPlaybackConfigurationResponse {
   VideoContentSourceUrl?: string | undefined;
 
   /**
-   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads. </p>
    * @public
    */
   AdConditioningConfiguration?: AdConditioningConfiguration | undefined;

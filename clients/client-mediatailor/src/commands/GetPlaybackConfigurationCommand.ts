@@ -75,6 +75,9 @@ export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfig
  * //   },
  * //   LogConfiguration: { // LogConfiguration
  * //     PercentEnabled: Number("int"), // required
+ * //     EnabledLoggingStrategies: [ // __listOfLoggingStrategies
+ * //       "VENDED_LOGS" || "LEGACY_CLOUDWATCH",
+ * //     ],
  * //   },
  * //   ManifestProcessingRules: { // ManifestProcessingRules
  * //     AdMarkerPassthrough: { // AdMarkerPassthrough

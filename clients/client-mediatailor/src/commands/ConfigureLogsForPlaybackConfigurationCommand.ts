@@ -47,12 +47,18 @@ export interface ConfigureLogsForPlaybackConfigurationCommandOutput
  * const input = { // ConfigureLogsForPlaybackConfigurationRequest
  *   PercentEnabled: Number("int"), // required
  *   PlaybackConfigurationName: "STRING_VALUE", // required
+ *   EnabledLoggingStrategies: [ // __listOfLoggingStrategies
+ *     "VENDED_LOGS" || "LEGACY_CLOUDWATCH",
+ *   ],
  * };
  * const command = new ConfigureLogsForPlaybackConfigurationCommand(input);
  * const response = await client.send(command);
  * // { // ConfigureLogsForPlaybackConfigurationResponse
  * //   PercentEnabled: Number("int"), // required
  * //   PlaybackConfigurationName: "STRING_VALUE",
+ * //   EnabledLoggingStrategies: [ // __listOfLoggingStrategies
+ * //     "VENDED_LOGS" || "LEGACY_CLOUDWATCH",
+ * //   ],
  * // };
  *
  * ```

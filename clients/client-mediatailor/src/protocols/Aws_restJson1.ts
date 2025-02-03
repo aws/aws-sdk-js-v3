@@ -146,6 +146,7 @@ import {
   KeyValuePair,
   LivePreRollConfiguration,
   LiveSource,
+  LoggingStrategy,
   LogType,
   ManifestProcessingRules,
   PlaybackConfiguration,
@@ -208,6 +209,7 @@ export const se_ConfigureLogsForPlaybackConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      EnabledLoggingStrategies: (_) => _json(_),
       PercentEnabled: [],
       PlaybackConfigurationName: [],
     })
@@ -1118,6 +1120,7 @@ export const de_ConfigureLogsForPlaybackConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    EnabledLoggingStrategies: _json,
     PercentEnabled: __expectInt32,
     PlaybackConfigurationName: __expectString,
   });
@@ -2190,6 +2193,8 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se___listOfAvailMatchingCriteria omitted.
 
+// se___listOfLoggingStrategies omitted.
+
 // se___listOfSegmentDeliveryConfiguration omitted.
 
 // se___mapOf__string omitted.
@@ -2341,6 +2346,8 @@ const de___listOfLiveSource = (output: any, context: __SerdeContext): LiveSource
     });
   return retVal;
 };
+
+// de___listOfLoggingStrategies omitted.
 
 /**
  * deserializeAws_restJson1__listOfPlaybackConfiguration
