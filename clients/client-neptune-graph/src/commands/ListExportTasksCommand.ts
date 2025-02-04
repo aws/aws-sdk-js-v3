@@ -36,6 +36,7 @@ export interface ListExportTasksCommandOutput extends ListExportTasksOutput, __M
  * // const { NeptuneGraphClient, ListExportTasksCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
  * const client = new NeptuneGraphClient(config);
  * const input = { // ListExportTasksInput
+ *   graphIdentifier: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };

@@ -542,6 +542,7 @@ export const se_ListExportTasksCommand = async (
   const headers: any = {};
   b.bp("/exporttasks");
   const query: any = map({
+    [_gI]: [, input[_gI]!],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });

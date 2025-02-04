@@ -2654,9 +2654,9 @@ export interface CreateGraphUsingImportTaskInput {
   /**
    * <p>The maximum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 1024,
    *        or the approved upper limit for your account.</p>
-   *          <p> If both the minimum and maximum values are specified, the max of the
-   *     <code>min-provisioned-memory</code> and <code>max-provisioned memory</code> is
-   *       used to create the graph. If neither value is specified 128 m-NCUs are used.</p>
+   *          <p> If both the minimum and maximum values are specified, the final
+   *     <code>provisioned-memory</code> will be chosen per the actual size of your imported data. If neither value is specified,
+   *      128 m-NCUs are used.</p>
    * @public
    */
   maxProvisionedMemory?: number | undefined;
@@ -3175,6 +3175,12 @@ export interface GetImportTaskOutput {
  * @public
  */
 export interface ListExportTasksInput {
+  /**
+   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * @public
+   */
+  graphIdentifier?: string | undefined;
+
   /**
    * <p>Pagination token used to paginate input.</p>
    * @public
