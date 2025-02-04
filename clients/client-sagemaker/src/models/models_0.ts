@@ -7774,8 +7774,8 @@ export interface BatchDeleteClusterNodesRequest {
   /**
    * <p>A list of node IDs to be deleted from the specified cluster.</p>
    *          <note>
-   *             <p>For SageMaker HyperPod clusters using the Slurm workload manager,
-   *          you cannot remove instances that are configured as Slurm controller nodes.</p>
+   *             <p>For SageMaker HyperPod clusters using the Slurm workload manager, you cannot remove instances
+   *             that are configured as Slurm controller nodes.</p>
    *          </note>
    * @public
    */
@@ -9687,10 +9687,8 @@ export interface ClusterInstanceGroupDetails {
   TrainingPlanStatus?: string | undefined;
 
   /**
-   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
-   *             have access to. You can control access to and from your resources by configuring a VPC.
-   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to
-   *                 Resources in your Amazon VPC</a>. </p>
+   * <p>The customized VPC configuration at the instance group level that overrides the default
+   *          VPC configuration of the SageMaker HyperPod cluster.</p>
    * @public
    */
   OverrideVpcConfig?: VpcConfig | undefined;
@@ -9769,10 +9767,19 @@ export interface ClusterInstanceGroupSpecification {
   TrainingPlanArn?: string | undefined;
 
   /**
-   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
-   *             have access to. You can control access to and from your resources by configuring a VPC.
-   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to
-   *                 Resources in your Amazon VPC</a>. </p>
+   * <p>To configure multi-AZ deployments, customize the VPC configuration at the instance group
+   *          level. You can specify different subnets and security groups across different AZs in the
+   *          instance group specification to override a SageMaker HyperPod cluster's default VPC configuration. For
+   *          more information about deploying a cluster in multiple AZs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-prerequisites.html#sagemaker-hyperpod-prerequisites-multiple-availability-zones">Setting up SageMaker HyperPod clusters across multiple AZs</a>.</p>
+   *          <note>
+   *             <p> If you configure your VPC with IPv6 support and specify subnets with IPv6 addressing
+   *             enabled in your instance group VPC configuration, the nodes automatically use IPv6
+   *             addressing for network communication.</p>
+   *             <p> For information about adding IPv6 support for your VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-migrate-ipv6.html">IPv6 support
+   *                for your VPC</a>.</p>
+   *             <p> For information about creating a new VPC for use with IPv6, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/create-vpc.html">Create a
+   *             VPC</a>.</p>
+   *          </note>
    * @public
    */
   OverrideVpcConfig?: VpcConfig | undefined;
@@ -9877,10 +9884,8 @@ export interface ClusterNodeDetails {
   LifeCycleConfig?: ClusterLifeCycleConfig | undefined;
 
   /**
-   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
-   *             have access to. You can control access to and from your resources by configuring a VPC.
-   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to
-   *                 Resources in your Amazon VPC</a>. </p>
+   * <p>The customized VPC configuration at the instance group level that overrides the default
+   *          VPC configuration of the SageMaker HyperPod cluster.</p>
    * @public
    */
   OverrideVpcConfig?: VpcConfig | undefined;
@@ -9906,7 +9911,9 @@ export interface ClusterNodeDetails {
   PrivatePrimaryIp?: string | undefined;
 
   /**
-   * <p>The private primary IPv6 address of the SageMaker HyperPod cluster node.</p>
+   * <p>The private primary IPv6 address of the SageMaker HyperPod cluster node when configured with an
+   *             Amazon VPC that supports IPv6 and includes subnets with IPv6 addressing enabled
+   *          in either the cluster VPC configuration or the instance group VPC configuration.</p>
    * @public
    */
   PrivatePrimaryIpv6?: string | undefined;
