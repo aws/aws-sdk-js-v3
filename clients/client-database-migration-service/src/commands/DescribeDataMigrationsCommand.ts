@@ -83,6 +83,11 @@ export interface DescribeDataMigrationsCommandOutput extends DescribeDataMigrati
  * //           SlotName: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       TargetDataSettings: [ // TargetDataSettings
+ * //         { // TargetDataSetting
+ * //           TablePreparationMode: "do-nothing" || "truncate" || "drop-tables-on-target",
+ * //         },
+ * //       ],
  * //       DataMigrationStatistics: { // DataMigrationStatistics
  * //         TablesLoaded: Number("int"),
  * //         ElapsedTimeMillis: Number("long"),

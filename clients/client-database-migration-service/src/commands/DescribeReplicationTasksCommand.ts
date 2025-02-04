@@ -10,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeReplicationTasksMessage, DescribeReplicationTasksResponse } from "../models/models_0";
+import { DescribeReplicationTasksMessage, DescribeReplicationTasksResponse } from "../models/models_1";
 import { de_DescribeReplicationTasksCommand, se_DescribeReplicationTasksCommand } from "../protocols/Aws_json1_1";
 
 /**

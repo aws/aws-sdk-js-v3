@@ -536,8 +536,6 @@ import {
   DescribeReplicationTaskAssessmentRunsResponse,
   DescribeReplicationTaskIndividualAssessmentsMessage,
   DescribeReplicationTaskIndividualAssessmentsResponse,
-  DescribeReplicationTasksMessage,
-  DescribeReplicationTasksResponse,
   DmsTransferSettings,
   DocDbDataProviderSettings,
   DocDbSettings,
@@ -615,10 +613,13 @@ import {
   SybaseSettings,
   TableStatistics,
   Tag,
+  TargetDataSetting,
   TimestreamSettings,
 } from "../models/models_0";
 import {
   AssessmentReportType,
+  DescribeReplicationTasksMessage,
+  DescribeReplicationTasksResponse,
   DescribeSchemasMessage,
   DescribeTableStatisticsMessage,
   DescribeTableStatisticsResponse,
@@ -4892,6 +4893,7 @@ const se_CreateDataMigrationMessage = (input: CreateDataMigrationMessage, contex
     ServiceAccessRoleArn: [],
     SourceDataSettings: (_) => se_SourceDataSettings(_, context),
     Tags: _json,
+    TargetDataSettings: _json,
   });
 };
 
@@ -5146,6 +5148,7 @@ const se_ModifyDataMigrationMessage = (input: ModifyDataMigrationMessage, contex
     SelectionRules: [],
     ServiceAccessRoleArn: [],
     SourceDataSettings: (_) => se_SourceDataSettings(_, context),
+    TargetDataSettings: _json,
   });
 };
 
@@ -5318,6 +5321,10 @@ const se_StartReplicationTaskMessage = (input: StartReplicationTaskMessage, cont
 // se_Tag omitted.
 
 // se_TagList omitted.
+
+// se_TargetDataSetting omitted.
+
+// se_TargetDataSettings omitted.
 
 // se_TestConnectionMessage omitted.
 
@@ -5522,6 +5529,7 @@ const de_DataMigration = (output: any, context: __SerdeContext): DataMigration =
     ServiceAccessRoleArn: __expectString,
     SourceDataSettings: (_: any) => de_SourceDataSettings(_, context),
     StopReason: __expectString,
+    TargetDataSettings: _json,
   }) as any;
 };
 
@@ -7054,6 +7062,10 @@ const de_TableStatisticsList = (output: any, context: __SerdeContext): TableStat
 // de_Tag omitted.
 
 // de_TagList omitted.
+
+// de_TargetDataSetting omitted.
+
+// de_TargetDataSettings omitted.
 
 // de_TestConnectionResponse omitted.
 

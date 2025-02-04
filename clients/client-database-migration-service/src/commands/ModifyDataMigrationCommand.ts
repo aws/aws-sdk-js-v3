@@ -58,6 +58,11 @@ export interface ModifyDataMigrationCommandOutput extends ModifyDataMigrationRes
  *       SlotName: "STRING_VALUE",
  *     },
  *   ],
+ *   TargetDataSettings: [ // TargetDataSettings
+ *     { // TargetDataSetting
+ *       TablePreparationMode: "do-nothing" || "truncate" || "drop-tables-on-target",
+ *     },
+ *   ],
  *   NumberOfJobs: Number("int"),
  *   SelectionRules: "STRING_VALUE",
  * };
@@ -84,6 +89,11 @@ export interface ModifyDataMigrationCommandOutput extends ModifyDataMigrationRes
  * //         CDCStartTime: new Date("TIMESTAMP"),
  * //         CDCStopTime: new Date("TIMESTAMP"),
  * //         SlotName: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     TargetDataSettings: [ // TargetDataSettings
+ * //       { // TargetDataSetting
+ * //         TablePreparationMode: "do-nothing" || "truncate" || "drop-tables-on-target",
  * //       },
  * //     ],
  * //     DataMigrationStatistics: { // DataMigrationStatistics

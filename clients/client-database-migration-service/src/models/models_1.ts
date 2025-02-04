@@ -64,8 +64,69 @@ import {
   SybaseSettingsFilterSensitiveLog,
   TableStatistics,
   Tag,
+  TargetDataSetting,
   TimestreamSettings,
 } from "./models_0";
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationTasksMessage {
+  /**
+   * <p>Filters applied to replication tasks.</p>
+   *          <p>Valid filter names: replication-task-arn | replication-task-id | migration-type |
+   *          endpoint-arn | replication-instance-arn</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p> The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
+   *          in the response so that the remaining results can be retrieved. </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>An option to set to avoid returning information about settings. Use this to reduce
+   *          overhead when setting information is too large. To use this option, choose
+   *             <code>true</code>; otherwise, choose <code>false</code> (the default).</p>
+   * @public
+   */
+  WithoutSettings?: boolean | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationTasksResponse {
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A description of the replication tasks.</p>
+   * @public
+   */
+  ReplicationTasks?: ReplicationTask[] | undefined;
+}
 
 /**
  * <p></p>
@@ -427,6 +488,12 @@ export interface ModifyDataMigrationMessage {
    * @public
    */
   SourceDataSettings?: SourceDataSetting[] | undefined;
+
+  /**
+   * <p>The new information about the target data provider for the data migration.</p>
+   * @public
+   */
+  TargetDataSettings?: TargetDataSetting[] | undefined;
 
   /**
    * <p>The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.</p>

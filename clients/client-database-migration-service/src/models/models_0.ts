@@ -669,6 +669,35 @@ export interface SourceDataSetting {
 
 /**
  * @public
+ * @enum
+ */
+export const TablePreparationMode = {
+  DO_NOTHING: "do-nothing",
+  DROP_TABLES_ON_TARGET: "drop-tables-on-target",
+  TRUNCATE: "truncate",
+} as const;
+
+/**
+ * @public
+ */
+export type TablePreparationMode = (typeof TablePreparationMode)[keyof typeof TablePreparationMode];
+
+/**
+ * <p>Defines settings for a target data provider for a data migration.</p>
+ * @public
+ */
+export interface TargetDataSetting {
+  /**
+   * <p>This setting determines how DMS handles the target tables before starting a data migration,
+   *       either by leaving them untouched, dropping and recreating them,
+   *       or truncating the existing data in the target tables.</p>
+   * @public
+   */
+  TablePreparationMode?: TablePreparationMode | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateDataMigrationMessage {
   /**
@@ -720,6 +749,12 @@ export interface CreateDataMigrationMessage {
    * @public
    */
   SourceDataSettings?: SourceDataSetting[] | undefined;
+
+  /**
+   * <p>Specifies information about the target data provider.</p>
+   * @public
+   */
+  TargetDataSettings?: TargetDataSetting[] | undefined;
 
   /**
    * <p>The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.</p>
@@ -890,6 +925,12 @@ export interface DataMigration {
    * @public
    */
   SourceDataSettings?: SourceDataSetting[] | undefined;
+
+  /**
+   * <p>Specifies information about the data migration's target data provider.</p>
+   * @public
+   */
+  TargetDataSettings?: TargetDataSetting[] | undefined;
 
   /**
    * <p>Provides information about the data migration's run, including start and stop time, latency, and data migration progress.</p>
@@ -2699,7 +2740,7 @@ export interface MicrosoftSQLServerSettings {
   ForceLobLookup?: boolean | undefined;
 
   /**
-   * <p>Specifies using Kerberos authentication with Microsoft SQL Server.</p>
+   * <p>Specifies the authentication method to be used with Microsoft SQL Server.</p>
    * @public
    */
   AuthenticationMethod?: SqlServerAuthenticationMethod | undefined;
@@ -3544,7 +3585,7 @@ export interface OracleSettings {
   OpenTransactionWindow?: number | undefined;
 
   /**
-   * <p>Specifies using Kerberos authentication with Oracle.</p>
+   * <p>Specifies the authentication method to be used with Oracle.</p>
    * @public
    */
   AuthenticationMethod?: OracleAuthenticationMethod | undefined;
@@ -6766,24 +6807,24 @@ export class ReplicationSubnetGroupDoesNotCoverEnoughAZs extends __BaseException
 }
 
 /**
- * <p>Specifies using Kerberos authentication settings for use with DMS.</p>
+ * <p>Specifies the settings required for kerberos authentication when creating the replication instance.</p>
  * @public
  */
 export interface KerberosAuthenticationSettings {
   /**
-   * <p>Specifies the secret ID of the key cache for the replication instance.</p>
+   * <p>Specifies the ID of the secret that stores the key cache file required for kerberos authentication.</p>
    * @public
    */
   KeyCacheSecretId?: string | undefined;
 
   /**
-   * <p>Specifies the Amazon Resource Name (ARN) of the IAM role that grants Amazon Web Services DMS access to the secret containing key cache file for the replication instance.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the IAM role that grants Amazon Web Services DMS access to the secret containing key cache file for the kerberos authentication.</p>
    * @public
    */
   KeyCacheSecretIamArn?: string | undefined;
 
   /**
-   * <p>Specifies the ID of the secret that stores the key cache file required for kerberos authentication of the replication instance.</p>
+   * <p>Specifies the contents of krb5 configuration file required for kerberos authentication.</p>
    * @public
    */
   Krb5FileContents?: string | undefined;
@@ -12709,66 +12750,6 @@ export interface DescribeReplicationTaskIndividualAssessmentsResponse {
    * @public
    */
   ReplicationTaskIndividualAssessments?: ReplicationTaskIndividualAssessment[] | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeReplicationTasksMessage {
-  /**
-   * <p>Filters applied to replication tasks.</p>
-   *          <p>Valid filter names: replication-task-arn | replication-task-id | migration-type |
-   *          endpoint-arn | replication-instance-arn</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p> The maximum number of records to include in the response. If more records exist than
-   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
-   *          in the response so that the remaining results can be retrieved. </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   * @public
-   */
-  MaxRecords?: number | undefined;
-
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>An option to set to avoid returning information about settings. Use this to reduce
-   *          overhead when setting information is too large. To use this option, choose
-   *             <code>true</code>; otherwise, choose <code>false</code> (the default).</p>
-   * @public
-   */
-  WithoutSettings?: boolean | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeReplicationTasksResponse {
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>A description of the replication tasks.</p>
-   * @public
-   */
-  ReplicationTasks?: ReplicationTask[] | undefined;
 }
 
 /**
