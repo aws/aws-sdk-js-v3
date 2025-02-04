@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.742.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.741.0...v3.742.0) (2025-02-04)
+
+
+### Features
+
+* **client-iam:** This release adds support for accepting encrypted SAML assertions. Customers can now configure their identity provider to encrypt the SAML assertions it sends to IAM. ([e9ee60b](https://github.com/aws/aws-sdk-js-v3/commit/e9ee60b6f087bdac092f316d236b534aa2b960cd))
+
+
+
+
+
 # [3.741.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.740.0...v3.741.0) (2025-02-03)
 
 **Note:** Version bump only for package @aws-sdk/client-iam

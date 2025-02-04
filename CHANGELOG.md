@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.742.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.741.0...v3.742.0) (2025-02-04)
+
+
+### Features
+
+* **client-database-migration-service:** Introduces TargetDataSettings with the TablePreparationMode option available for data migrations. ([13ee380](https://github.com/aws/aws-sdk-js-v3/commit/13ee380dd253456225900b72ed894ef76723c6c8))
+* **client-iam:** This release adds support for accepting encrypted SAML assertions. Customers can now configure their identity provider to encrypt the SAML assertions it sends to IAM. ([e9ee60b](https://github.com/aws/aws-sdk-js-v3/commit/e9ee60b6f087bdac092f316d236b534aa2b960cd))
+* **client-neptune-graph:** Added argument to `list-export` to filter by graph ID ([213a474](https://github.com/aws/aws-sdk-js-v3/commit/213a474e2d02dccd03672d7bac9629a823451b00))
+* **client-qbusiness:** Adds functionality to enable/disable a new Q Business Chat orchestration feature. If enabled, Q Business can orchestrate over datasources and plugins without the need for customers to select specific chat modes. ([2859d8b](https://github.com/aws/aws-sdk-js-v3/commit/2859d8bfe9d476d5ae692ccb7a4805114b30cd46))
+* **clients:** update client endpoints as of 2025-02-04 ([6e8eda2](https://github.com/aws/aws-sdk-js-v3/commit/6e8eda25440c2d6fccd541fae12ee18dbaf0edb4))
+
+
+
+
+
 # [3.741.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.740.0...v3.741.0) (2025-02-03)
 
 
