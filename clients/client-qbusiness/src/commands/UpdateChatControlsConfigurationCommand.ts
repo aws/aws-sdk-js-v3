@@ -33,7 +33,7 @@ export interface UpdateChatControlsConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates an set of chat controls configured for an existing Amazon Q Business
+ * <p>Updates a set of chat controls configured for an existing Amazon Q Business
  *             application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +45,9 @@ export interface UpdateChatControlsConfigurationCommandOutput
  *   applicationId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  *   responseScope: "ENTERPRISE_CONTENT_ONLY" || "EXTENDED_KNOWLEDGE_ENABLED",
+ *   orchestrationConfiguration: { // OrchestrationConfiguration
+ *     control: "ENABLED" || "DISABLED", // required
+ *   },
  *   blockedPhrasesConfigurationUpdate: { // BlockedPhrasesConfigurationUpdate
  *     blockedPhrasesToCreateOrUpdate: [ // BlockedPhrases
  *       "STRING_VALUE",

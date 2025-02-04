@@ -15,8 +15,9 @@ import {
   CreatorModeConfiguration,
   DocumentAttribute,
   EndOfInputEvent,
-  MemberGroup,
   MembershipType,
+  MessageUsefulnessFeedback,
+  OrchestrationControl,
   ResponseScope,
   S3,
   SubscriptionDetails,
@@ -26,6 +27,65 @@ import {
   TopicConfiguration,
   UserAlias,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface PutFeedbackRequest {
+  /**
+   * <p>The identifier of the application associated with the feedback.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The identifier of the user giving the feedback.</p>
+   * @public
+   */
+  userId?: string | undefined;
+
+  /**
+   * <p>The identifier of the conversation the feedback is attached to.</p>
+   * @public
+   */
+  conversationId: string | undefined;
+
+  /**
+   * <p>The identifier of the chat message that the feedback was given for.</p>
+   * @public
+   */
+  messageId: string | undefined;
+
+  /**
+   * <p>The timestamp for when the feedback was recorded.</p>
+   * @public
+   */
+  messageCopiedAt?: Date | undefined;
+
+  /**
+   * <p>The feedback usefulness value given by the user to the chat message.</p>
+   * @public
+   */
+  messageUsefulness?: MessageUsefulnessFeedback | undefined;
+}
+
+/**
+ * <p>The sub groups that belong to a group.</p>
+ * @public
+ */
+export interface MemberGroup {
+  /**
+   * <p>The name of the sub group.</p>
+   * @public
+   */
+  groupName: string | undefined;
+
+  /**
+   * <p>The type of the sub group.</p>
+   * @public
+   */
+  type?: MembershipType | undefined;
+}
 
 /**
  * <p>The users that belong to a group.</p>
@@ -334,6 +394,24 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
+ * <p>Configuration information required to enable chat orchestration for your Amazon Q Business
+ *             application.</p>
+ *          <note>
+ *             <p>Chat orchestration is optimized to work for English language content. For more
+ *                 details on language support in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/supported-languages.html">Supported languages</a>.</p>
+ *          </note>
+ * @public
+ */
+export interface OrchestrationConfiguration {
+  /**
+   * <p> Status information about whether chat orchestration is activated or deactivated for
+   *             your Amazon Q Business application.</p>
+   * @public
+   */
+  control: OrchestrationControl | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateChatControlsConfigurationRequest {
@@ -358,6 +436,12 @@ export interface UpdateChatControlsConfigurationRequest {
    * @public
    */
   responseScope?: ResponseScope | undefined;
+
+  /**
+   * <p> The chat response orchestration settings for your application.</p>
+   * @public
+   */
+  orchestrationConfiguration?: OrchestrationConfiguration | undefined;
 
   /**
    * <p>The phrases blocked from chat by your chat control configuration.</p>

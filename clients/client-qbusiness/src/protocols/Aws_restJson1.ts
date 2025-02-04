@@ -230,7 +230,6 @@ import {
   LicenseNotFoundException,
   MediaExtractionConfiguration,
   MediaTooLargeException,
-  MemberGroup,
   Message,
   MessageUsefulnessFeedback,
   MetadataEvent,
@@ -280,7 +279,9 @@ import {
   ChatInputStream,
   ConfigurationEvent,
   GroupMembers,
+  MemberGroup,
   MemberUser,
+  OrchestrationConfiguration,
   RelevantContent,
 } from "../models/models_1";
 import { QBusinessServiceException as __BaseException } from "../models/QBusinessServiceException";
@@ -1713,6 +1714,7 @@ export const se_UpdateChatControlsConfigurationCommand = async (
       blockedPhrasesConfigurationUpdate: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       creatorModeConfiguration: (_) => _json(_),
+      orchestrationConfiguration: (_) => _json(_),
       responseScope: [],
       topicConfigurationsToCreateOrUpdate: (_) => _json(_),
       topicConfigurationsToDelete: (_) => _json(_),
@@ -2532,6 +2534,7 @@ export const de_GetChatControlsConfigurationCommand = async (
     blockedPhrases: _json,
     creatorModeConfiguration: _json,
     nextToken: __expectString,
+    orchestrationConfiguration: _json,
     responseScope: __expectString,
     topicConfigurations: _json,
   });
@@ -4360,6 +4363,8 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 
 // se_OpenIDConnectProviderConfiguration omitted.
 
+// se_OrchestrationConfiguration omitted.
+
 // se_PersonalizationConfiguration omitted.
 
 // se_PluginAuthConfiguration omitted.
@@ -4637,6 +4642,8 @@ const de_Applications = (output: any, context: __SerdeContext): Application[] =>
 // de_AppliedAttachmentsConfiguration omitted.
 
 // de_AppliedCreatorModeConfiguration omitted.
+
+// de_AppliedOrchestrationConfiguration omitted.
 
 /**
  * deserializeAws_restJson1Attachment

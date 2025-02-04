@@ -33,7 +33,7 @@ export interface GetChatControlsConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets information about an chat controls configured for an existing Amazon Q Business
+ * <p>Gets information about chat controls configured for an existing Amazon Q Business
  *             application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +50,9 @@ export interface GetChatControlsConfigurationCommandOutput
  * const response = await client.send(command);
  * // { // GetChatControlsConfigurationResponse
  * //   responseScope: "ENTERPRISE_CONTENT_ONLY" || "EXTENDED_KNOWLEDGE_ENABLED",
+ * //   orchestrationConfiguration: { // AppliedOrchestrationConfiguration
+ * //     control: "ENABLED" || "DISABLED", // required
+ * //   },
  * //   blockedPhrases: { // BlockedPhrasesConfiguration
  * //     blockedPhrases: [ // BlockedPhrases
  * //       "STRING_VALUE",

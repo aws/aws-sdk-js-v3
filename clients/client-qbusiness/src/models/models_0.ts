@@ -5167,6 +5167,36 @@ export interface AppliedCreatorModeConfiguration {
 
 /**
  * @public
+ * @enum
+ */
+export const OrchestrationControl = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type OrchestrationControl = (typeof OrchestrationControl)[keyof typeof OrchestrationControl];
+
+/**
+ * <p>The chat orchestration specific admin controls configured for an Amazon Q Business
+ *             application. Determines whether Amazon Q Business automatically routes chat requests across
+ *             configured plugins and data sources in your Amazon Q Business application.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails-global-controls.html#guardrails-global-orchestration">Chat orchestration settings</a>.</p>
+ * @public
+ */
+export interface AppliedOrchestrationConfiguration {
+  /**
+   * <p> Information about whether chat orchestration is enabled or disabled for an
+   *             Amazon Q Business application. </p>
+   * @public
+   */
+  control: OrchestrationControl | undefined;
+}
+
+/**
+ * @public
  */
 export interface AssociatePermissionRequest {
   /**
@@ -7180,6 +7210,16 @@ export interface GetChatControlsConfigurationResponse {
   responseScope?: ResponseScope | undefined;
 
   /**
+   * <p> The chat response orchestration settings for your application.</p>
+   *          <note>
+   *             <p>Chat orchestration is optimized to work for English language content. For more
+   *                 details on language support in Amazon Q Business, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/supported-languages.html">Supported languages</a>.</p>
+   *          </note>
+   * @public
+   */
+  orchestrationConfiguration?: AppliedOrchestrationConfiguration | undefined;
+
+  /**
    * <p>The phrases blocked from chat by your chat control configuration.</p>
    * @public
    */
@@ -8194,65 +8234,6 @@ export interface MessageUsefulnessFeedback {
    * @public
    */
   submittedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface PutFeedbackRequest {
-  /**
-   * <p>The identifier of the application associated with the feedback.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The identifier of the user giving the feedback.</p>
-   * @public
-   */
-  userId?: string | undefined;
-
-  /**
-   * <p>The identifier of the conversation the feedback is attached to.</p>
-   * @public
-   */
-  conversationId: string | undefined;
-
-  /**
-   * <p>The identifier of the chat message that the feedback was given for.</p>
-   * @public
-   */
-  messageId: string | undefined;
-
-  /**
-   * <p>The timestamp for when the feedback was recorded.</p>
-   * @public
-   */
-  messageCopiedAt?: Date | undefined;
-
-  /**
-   * <p>The feedback usefulness value given by the user to the chat message.</p>
-   * @public
-   */
-  messageUsefulness?: MessageUsefulnessFeedback | undefined;
-}
-
-/**
- * <p>The sub groups that belong to a group.</p>
- * @public
- */
-export interface MemberGroup {
-  /**
-   * <p>The name of the sub group.</p>
-   * @public
-   */
-  groupName: string | undefined;
-
-  /**
-   * <p>The type of the sub group.</p>
-   * @public
-   */
-  type?: MembershipType | undefined;
 }
 
 /**
