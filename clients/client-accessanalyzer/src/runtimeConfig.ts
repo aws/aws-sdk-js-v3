@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 // @ts-ignore: package.json will be imported from dist folders
-import packageInfo from "../package.json"; // eslint-disable-line
+import packageInfo from "../version.json"; // eslint-disable-line
 
 import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";

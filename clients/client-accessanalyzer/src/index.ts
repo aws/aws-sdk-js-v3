@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 /* eslint-disable */
+import { version } from "../version.json";
 /**
  * <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing
  *          a suite of capabilities. Its features include findings for external and unused access,
@@ -28,6 +29,8 @@
  *
  * @packageDocumentation
  */
+
+export const VERSION = version;
 export * from "./AccessAnalyzerClient";
 export * from "./AccessAnalyzer";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";

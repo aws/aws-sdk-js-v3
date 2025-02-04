@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 // @ts-ignore: package.json will be imported from dist folders
-import packageInfo from "../package.json"; // eslint-disable-line
+import packageInfo from "../version.json"; // eslint-disable-line
 
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-browser";
