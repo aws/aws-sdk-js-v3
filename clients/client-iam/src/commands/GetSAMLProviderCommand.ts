@@ -45,6 +45,7 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  * const command = new GetSAMLProviderCommand(input);
  * const response = await client.send(command);
  * // { // GetSAMLProviderResponse
+ * //   SAMLProviderUUID: "STRING_VALUE",
  * //   SAMLMetadataDocument: "STRING_VALUE",
  * //   CreateDate: new Date("TIMESTAMP"),
  * //   ValidUntil: new Date("TIMESTAMP"),
@@ -52,6 +53,13 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  * //     { // Tag
  * //       Key: "STRING_VALUE", // required
  * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   AssertionEncryptionMode: "Required" || "Allowed",
+ * //   PrivateKeyList: [ // privateKeyList
+ * //     { // SAMLPrivateKey
+ * //       KeyId: "STRING_VALUE",
+ * //       Timestamp: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * // };

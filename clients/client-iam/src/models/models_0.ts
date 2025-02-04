@@ -457,6 +457,21 @@ export interface AddUserToGroupRequest {
  * @public
  * @enum
  */
+export const AssertionEncryptionModeType = {
+  Allowed: "Allowed",
+  Required: "Required",
+} as const;
+
+/**
+ * @public
+ */
+export type AssertionEncryptionModeType =
+  (typeof AssertionEncryptionModeType)[keyof typeof AssertionEncryptionModeType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AssignmentStatusType = {
   Any: "Any",
   Assigned: "Assigned",
@@ -1800,6 +1815,20 @@ export interface CreateSAMLProviderRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Specifies the encryption setting for the SAML provider.</p>
+   * @public
+   */
+  AssertionEncryptionMode?: AssertionEncryptionModeType | undefined;
+
+  /**
+   * <p>The private key generated from your external identity provider. The private key must
+   *             be a .pem file that uses AES-GCM or AES-CBC encryption algorithm to decrypt SAML
+   *             assertions.</p>
+   * @public
+   */
+  AddPrivateKey?: string | undefined;
 }
 
 /**
@@ -2788,7 +2817,7 @@ export class OrganizationNotFoundException extends __BaseException {
 /**
  * <p>The request was rejected because your organization does not have All features enabled. For
  *       more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set">Available feature sets</a> in the <i>Organizations User
- *       Guide</i>.</p>
+ *           Guide</i>.</p>
  * @public
  */
 export class OrganizationNotInAllFeaturesModeException extends __BaseException {
@@ -3474,7 +3503,8 @@ export interface RoleDetail {
    *          date and time and the Region in which the role was last used. Activity is only reported for
    *          the trailing 400 days. This period can be shorter if your Region began supporting these
    *          features within the last year. The role might have been used more than 400 days ago. For
-   *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM User Guide</i>.</p>
+   *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the
+   *          <i>IAM User Guide</i>.</p>
    * @public
    */
   RoleLastUsed?: RoleLastUsed | undefined;
@@ -3842,7 +3872,7 @@ export interface GetContextKeysForPrincipalPolicyRequest {
  * <p>The request was rejected because the most recent credential report has expired. To
  *       generate a new credential report, use <a>GenerateCredentialReport</a>. For more
  *       information about credential report expiration, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in the
- *         <i>IAM User Guide</i>.</p>
+ *       <i>IAM User Guide</i>.</p>
  * @public
  */
 export class CredentialReportExpiredException extends __BaseException {
@@ -4536,11 +4566,37 @@ export interface GetSAMLProviderRequest {
 }
 
 /**
+ * <p>Contains the private keys for the SAML provider.</p>
+ *          <p>This data type is used as a response element in the <a>GetSAMLProvider</a> operation.</p>
+ * @public
+ */
+export interface SAMLPrivateKey {
+  /**
+   * <p>The unique identifier for the SAML private key.</p>
+   * @public
+   */
+  KeyId?: string | undefined;
+
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *          </a> format, when the private key was uploaded.</p>
+   * @public
+   */
+  Timestamp?: Date | undefined;
+}
+
+/**
  * <p>Contains the response to a successful <a>GetSAMLProvider</a> request.
  *     </p>
  * @public
  */
 export interface GetSAMLProviderResponse {
+  /**
+   * <p>The unique identifier assigned to the SAML provider.</p>
+   * @public
+   */
+  SAMLProviderUUID?: string | undefined;
+
   /**
    * <p>The XML metadata document that includes information about an identity provider.</p>
    * @public
@@ -4566,6 +4622,18 @@ export interface GetSAMLProviderResponse {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Specifies the encryption setting for the SAML provider.</p>
+   * @public
+   */
+  AssertionEncryptionMode?: AssertionEncryptionModeType | undefined;
+
+  /**
+   * <p>The private key metadata for the SAML provider.</p>
+   * @public
+   */
+  PrivateKeyList?: SAMLPrivateKey[] | undefined;
 }
 
 /**
@@ -4807,8 +4875,8 @@ export interface ServiceLastAccessed {
   LastAuthenticatedRegion?: string | undefined;
 
   /**
-   * <p>The total number of authenticated principals (root user, IAM users, or IAM roles)
-   *          that have attempted to access the service.</p>
+   * <p>The total number of authenticated principals (root user, IAM users, or IAM roles) that
+   *          have attempted to access the service.</p>
    *          <p>This field is null if no principals attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
    * @public
    */
@@ -8729,44 +8797,6 @@ export interface SimulateCustomPolicyRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const PolicyEvaluationDecisionType = {
-  ALLOWED: "allowed",
-  EXPLICIT_DENY: "explicitDeny",
-  IMPLICIT_DENY: "implicitDeny",
-} as const;
-
-/**
- * @public
- */
-export type PolicyEvaluationDecisionType =
-  (typeof PolicyEvaluationDecisionType)[keyof typeof PolicyEvaluationDecisionType];
-
-/**
- * <p>Contains the row and column of a location of a <code>Statement</code> element in a
- *          policy document.</p>
- *          <p>This data type is used as a member of the <code>
- *                <a>Statement</a>
- *             </code> type.</p>
- * @public
- */
-export interface Position {
-  /**
-   * <p>The line containing the specified position in the document.</p>
-   * @public
-   */
-  Line?: number | undefined;
-
-  /**
-   * <p>The column in the line containing the specified position in the document.</p>
-   * @public
-   */
-  Column?: number | undefined;
-}
-
-/**
  * @internal
  */
 export const AccessKeyFilterSensitiveLog = (obj: AccessKey): any => ({
@@ -8797,6 +8827,14 @@ export const CreateAccessKeyResponseFilterSensitiveLog = (obj: CreateAccessKeyRe
 export const CreateLoginProfileRequestFilterSensitiveLog = (obj: CreateLoginProfileRequest): any => ({
   ...obj,
   ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateSAMLProviderRequestFilterSensitiveLog = (obj: CreateSAMLProviderRequest): any => ({
+  ...obj,
+  ...(obj.AddPrivateKey && { AddPrivateKey: SENSITIVE_STRING }),
 });
 
 /**

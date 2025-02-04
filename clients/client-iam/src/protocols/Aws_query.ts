@@ -662,7 +662,6 @@ import {
   PasswordPolicyViolationException,
   Policy,
   PolicyDetail,
-  PolicyEvaluationDecisionType,
   PolicyEvaluationException,
   PolicyGrantingServiceAccess,
   PolicyGroup,
@@ -670,7 +669,6 @@ import {
   PolicyRole,
   PolicyUser,
   PolicyVersion,
-  Position,
   PutGroupPolicyRequest,
   PutRolePermissionsBoundaryRequest,
   PutRolePolicyRequest,
@@ -687,6 +685,7 @@ import {
   RoleDetail,
   RoleLastUsed,
   RoleUsageType,
+  SAMLPrivateKey,
   SAMLProviderListEntry,
   ServerCertificate,
   ServerCertificateMetadata,
@@ -721,6 +720,8 @@ import {
   MalformedCertificateException,
   OrganizationsDecisionDetail,
   PermissionsBoundaryDecisionDetail,
+  PolicyEvaluationDecisionType,
+  Position,
   ResourceSpecificResult,
   SimulatePolicyResponse,
   SimulatePrincipalPolicyRequest,
@@ -7678,6 +7679,12 @@ const se_CreateSAMLProviderRequest = (input: CreateSAMLProviderRequest, context:
       entries[loc] = value;
     });
   }
+  if (input[_AEM] != null) {
+    entries[_AEM] = input[_AEM];
+  }
+  if (input[_APK] != null) {
+    entries[_APK] = input[_APK];
+  }
   return entries;
 };
 
@@ -10154,6 +10161,15 @@ const se_UpdateSAMLProviderRequest = (input: UpdateSAMLProviderRequest, context:
   if (input[_SAMLPA] != null) {
     entries[_SAMLPA] = input[_SAMLPA];
   }
+  if (input[_AEM] != null) {
+    entries[_AEM] = input[_AEM];
+  }
+  if (input[_APK] != null) {
+    entries[_APK] = input[_APK];
+  }
+  if (input[_RPK] != null) {
+    entries[_RPK] = input[_RPK];
+  }
   return entries;
 };
 
@@ -11428,6 +11444,9 @@ const de_GetRoleResponse = (output: any, context: __SerdeContext): GetRoleRespon
  */
 const de_GetSAMLProviderResponse = (output: any, context: __SerdeContext): GetSAMLProviderResponse => {
   const contents: any = {};
+  if (output[_SAMLPUUID] != null) {
+    contents[_SAMLPUUID] = __expectString(output[_SAMLPUUID]);
+  }
   if (output[_SAMLMD] != null) {
     contents[_SAMLMD] = __expectString(output[_SAMLMD]);
   }
@@ -11441,6 +11460,14 @@ const de_GetSAMLProviderResponse = (output: any, context: __SerdeContext): GetSA
     contents[_T] = [];
   } else if (output[_T] != null && output[_T][_me] != null) {
     contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
+  }
+  if (output[_AEM] != null) {
+    contents[_AEM] = __expectString(output[_AEM]);
+  }
+  if (output.PrivateKeyList === "") {
+    contents[_PKL] = [];
+  } else if (output[_PKL] != null && output[_PKL][_me] != null) {
+    contents[_PKL] = de_privateKeyList(__getArrayIfSingleItem(output[_PKL][_me]), context);
   }
   return contents;
 };
@@ -13065,6 +13092,17 @@ const de_Position = (output: any, context: __SerdeContext): Position => {
 };
 
 /**
+ * deserializeAws_queryprivateKeyList
+ */
+const de_privateKeyList = (output: any, context: __SerdeContext): SAMLPrivateKey[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SAMLPrivateKey(entry, context);
+    });
+};
+
+/**
  * deserializeAws_queryReportGenerationLimitExceededException
  */
 const de_ReportGenerationLimitExceededException = (
@@ -13289,6 +13327,20 @@ const de_RoleUsageType = (output: any, context: __SerdeContext): RoleUsageType =
     contents[_Res] = [];
   } else if (output[_Res] != null && output[_Res][_me] != null) {
     contents[_Res] = de_ArnListType(__getArrayIfSingleItem(output[_Res][_me]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_querySAMLPrivateKey
+ */
+const de_SAMLPrivateKey = (output: any, context: __SerdeContext): SAMLPrivateKey => {
+  const contents: any = {};
+  if (output[_KI] != null) {
+    contents[_KI] = __expectString(output[_KI]);
+  }
+  if (output[_Ti] != null) {
+    contents[_Ti] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Ti]));
   }
   return contents;
 };
@@ -14029,6 +14081,7 @@ const _ACIDTOIDCP = "AddClientIDToOpenIDConnectProvider";
 const _ACt = "AttachmentCount";
 const _ACu = "AuthenticationCode2";
 const _AD = "AccessDetails";
+const _AEM = "AssertionEncryptionMode";
 const _AGP = "AttachGroupPolicy";
 const _AK = "AccessKey";
 const _AKI = "AccessKeyId";
@@ -14038,6 +14091,7 @@ const _AMP = "AttachedManagedPolicies";
 const _AN = "ActionNames";
 const _ANc = "ActionName";
 const _AP = "AttachedPolicies";
+const _APK = "AddPrivateKey";
 const _ARP = "AttachRolePolicy";
 const _ARPD = "AssumeRolePolicyDocument";
 const _ARTIP = "AddRoleToInstanceProfile";
@@ -14195,6 +14249,7 @@ const _JI = "JobId";
 const _JS = "JobStatus";
 const _JT = "JobType";
 const _K = "Key";
+const _KI = "KeyId";
 const _L = "Line";
 const _LA = "LastAuthenticated";
 const _LAA = "ListAccountAliases";
@@ -14279,6 +14334,7 @@ const _PGSA = "PoliciesGrantingServiceAccess";
 const _PI = "PolicyId";
 const _PIL = "PolicyInputList";
 const _PK = "PrivateKey";
+const _PKL = "PrivateKeyList";
 const _PLU = "PasswordLastUsed";
 const _PN = "PolicyName";
 const _PNo = "PolicyNames";
@@ -14315,6 +14371,7 @@ const _RN = "RoleName";
 const _RNe = "RequireNumbers";
 const _RO = "ResourceOwner";
 const _RP = "ResourcePolicy";
+const _RPK = "RemovePrivateKey";
 const _RPL = "RolePolicyList";
 const _RRFIP = "RemoveRoleFromInstanceProfile";
 const _RS = "RequireSymbols";
@@ -14333,6 +14390,7 @@ const _SAK = "SecretAccessKey";
 const _SAMLMD = "SAMLMetadataDocument";
 const _SAMLPA = "SAMLProviderArn";
 const _SAMLPL = "SAMLProviderList";
+const _SAMLPUUID = "SAMLProviderUUID";
 const _SC = "ServerCertificate";
 const _SCI = "ServerCertificateId";
 const _SCM = "ServerCertificateMetadata";
@@ -14376,6 +14434,7 @@ const _TR = "TagRole";
 const _TSAMLP = "TagSAMLProvider";
 const _TSC = "TagServerCertificate";
 const _TU = "TagUser";
+const _Ti = "Timestamp";
 const _Ty = "Type";
 const _U = "Url";
 const _UAK = "UpdateAccessKey";

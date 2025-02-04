@@ -39,7 +39,7 @@ export interface EnableOrganizationsRootCredentialsManagementCommandOutput
 /**
  * <p>Enables the management of privileged root user credentials across member accounts in your
  *             organization. When you enable root credentials management for <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management">centralized root access</a>, the management account and the delegated
- *             admininstrator for IAM can manage root user credentials for member accounts in your
+ *             administrator for IAM can manage root user credentials for member accounts in your
  *             organization.</p>
  *          <p>Before you enable centralized root access, you must have an account configured with
  *             the following settings:</p>
@@ -49,7 +49,7 @@ export interface EnableOrganizationsRootCredentialsManagementCommandOutput
  *             </li>
  *             <li>
  *                <p>Enable trusted access for Identity and Access Management in Organizations. For details, see
- *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-ra.html">IAM and Organizations</a> in the <i>Organizations User
+ *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-iam.html">IAM and Organizations</a> in the <i>Organizations User
  *                         Guide</i>.</p>
  *             </li>
  *          </ul>
@@ -92,7 +92,7 @@ export interface EnableOrganizationsRootCredentialsManagementCommandOutput
  * @throws {@link OrganizationNotInAllFeaturesModeException} (client fault)
  *  <p>The request was rejected because your organization does not have All features enabled. For
  *       more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set">Available feature sets</a> in the <i>Organizations User
- *       Guide</i>.</p>
+ *           Guide</i>.</p>
  *
  * @throws {@link ServiceAccessNotEnabledException} (client fault)
  *  <p>The request was rejected because trusted access is not enabled for IAM in Organizations. For details, see IAM and Organizations in the <i>Organizations User Guide</i>.</p>

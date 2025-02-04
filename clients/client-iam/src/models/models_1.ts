@@ -4,9 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { IAMServiceException as __BaseException } from "./IAMServiceException";
 
 import {
+  AssertionEncryptionModeType,
   ContextEntry,
-  PolicyEvaluationDecisionType,
-  Position,
   Role,
   ServerCertificateMetadata,
   SigningCertificate,
@@ -14,6 +13,44 @@ import {
   StatusType,
   Tag,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const PolicyEvaluationDecisionType = {
+  ALLOWED: "allowed",
+  EXPLICIT_DENY: "explicitDeny",
+  IMPLICIT_DENY: "implicitDeny",
+} as const;
+
+/**
+ * @public
+ */
+export type PolicyEvaluationDecisionType =
+  (typeof PolicyEvaluationDecisionType)[keyof typeof PolicyEvaluationDecisionType];
+
+/**
+ * <p>Contains the row and column of a location of a <code>Statement</code> element in a
+ *          policy document.</p>
+ *          <p>This data type is used as a member of the <code>
+ *                <a>Statement</a>
+ *             </code> type.</p>
+ * @public
+ */
+export interface Position {
+  /**
+   * <p>The line containing the specified position in the document.</p>
+   * @public
+   */
+  Line?: number | undefined;
+
+  /**
+   * <p>The column in the line containing the specified position in the document.</p>
+   * @public
+   */
+  Column?: number | undefined;
+}
 
 /**
  * @public
@@ -1193,10 +1230,10 @@ export interface UpdateSAMLProviderRequest {
    *             document includes the issuer's name, expiration information, and keys that can be used
    *             to validate the SAML authentication response (assertions) that are received from the
    *             IdP. You must generate the metadata document using the identity management software that
-   *             is used as your organization's IdP.</p>
+   *             is used as your IdP.</p>
    * @public
    */
-  SAMLMetadataDocument: string | undefined;
+  SAMLMetadataDocument?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the SAML provider to update.</p>
@@ -1204,6 +1241,26 @@ export interface UpdateSAMLProviderRequest {
    * @public
    */
   SAMLProviderArn: string | undefined;
+
+  /**
+   * <p>Specifies the encryption setting for the SAML provider.</p>
+   * @public
+   */
+  AssertionEncryptionMode?: AssertionEncryptionModeType | undefined;
+
+  /**
+   * <p>Specifies the new private key from your external identity provider. The
+   *             private key must be a .pem file that uses AES-GCM or AES-CBC encryption algorithm to
+   *             decrypt SAML assertions.</p>
+   * @public
+   */
+  AddPrivateKey?: string | undefined;
+
+  /**
+   * <p>The Key ID of the private key to remove.</p>
+   * @public
+   */
+  RemovePrivateKey?: string | undefined;
 }
 
 /**
@@ -1735,6 +1792,14 @@ export interface UploadSSHPublicKeyResponse {
 export const UpdateLoginProfileRequestFilterSensitiveLog = (obj: UpdateLoginProfileRequest): any => ({
   ...obj,
   ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateSAMLProviderRequestFilterSensitiveLog = (obj: UpdateSAMLProviderRequest): any => ({
+  ...obj,
+  ...(obj.AddPrivateKey && { AddPrivateKey: SENSITIVE_STRING }),
 });
 
 /**
