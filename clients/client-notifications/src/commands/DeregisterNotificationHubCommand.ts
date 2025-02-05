@@ -40,6 +40,7 @@ export interface DeregisterNotificationHubCommandOutput extends DeregisterNotifi
  * ```javascript
  * import { NotificationsClient, DeregisterNotificationHubCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, DeregisterNotificationHubCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NotificationsClient(config);
  * const input = { // DeregisterNotificationHubRequest
  *   notificationHubRegion: "STRING_VALUE", // required

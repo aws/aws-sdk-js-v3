@@ -34,6 +34,7 @@ export interface DeleteIntegrationCommandOutput extends Integration, __MetadataB
  * ```javascript
  * import { RDSClient, DeleteIntegrationCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteIntegrationCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RDSClient(config);
  * const input = { // DeleteIntegrationMessage
  *   IntegrationIdentifier: "STRING_VALUE", // required

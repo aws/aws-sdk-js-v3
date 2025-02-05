@@ -45,6 +45,7 @@ export interface GetLendingAnalysisSummaryCommandOutput extends GetLendingAnalys
  * ```javascript
  * import { TextractClient, GetLendingAnalysisSummaryCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, GetLendingAnalysisSummaryCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TextractClient(config);
  * const input = { // GetLendingAnalysisSummaryRequest
  *   JobId: "STRING_VALUE", // required

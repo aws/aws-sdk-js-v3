@@ -38,6 +38,7 @@ export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __M
  * ```javascript
  * import { SageMakerFeatureStoreRuntimeClient, BatchGetRecordCommand } from "@aws-sdk/client-sagemaker-featurestore-runtime"; // ES Modules import
  * // const { SageMakerFeatureStoreRuntimeClient, BatchGetRecordCommand } = require("@aws-sdk/client-sagemaker-featurestore-runtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerFeatureStoreRuntimeClient(config);
  * const input = { // BatchGetRecordRequest
  *   Identifiers: [ // BatchGetRecordIdentifiers // required

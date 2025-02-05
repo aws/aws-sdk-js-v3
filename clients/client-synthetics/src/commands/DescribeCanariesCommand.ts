@@ -43,6 +43,7 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * ```javascript
  * import { SyntheticsClient, DescribeCanariesCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, DescribeCanariesCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SyntheticsClient(config);
  * const input = { // DescribeCanariesRequest
  *   NextToken: "STRING_VALUE",

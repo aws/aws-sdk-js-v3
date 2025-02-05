@@ -37,6 +37,7 @@ export interface OverridePullRequestApprovalRulesCommandOutput extends __Metadat
  * ```javascript
  * import { CodeCommitClient, OverridePullRequestApprovalRulesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, OverridePullRequestApprovalRulesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeCommitClient(config);
  * const input = { // OverridePullRequestApprovalRulesInput
  *   pullRequestId: "STRING_VALUE", // required

@@ -3789,9 +3789,9 @@ export interface CreateDomainRequest {
   AppNetworkAccessType?: AppNetworkAccessType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Use <code>KmsKeyId</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   HomeEfsFileSystemKmsKeyId?: string | undefined;

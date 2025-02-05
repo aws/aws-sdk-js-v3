@@ -34,6 +34,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * ```javascript
  * import { MemoryDBClient, CreateUserCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, CreateUserCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MemoryDBClient(config);
  * const input = { // CreateUserRequest
  *   UserName: "STRING_VALUE", // required

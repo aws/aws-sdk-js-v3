@@ -46,6 +46,7 @@ export interface DescribeDeliveryChannelStatusCommandOutput
  * ```javascript
  * import { ConfigServiceClient, DescribeDeliveryChannelStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeDeliveryChannelStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeDeliveryChannelStatusRequest
  *   DeliveryChannelNames: [ // DeliveryChannelNameList

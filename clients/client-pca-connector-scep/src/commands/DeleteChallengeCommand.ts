@@ -34,6 +34,7 @@ export interface DeleteChallengeCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { PcaConnectorScepClient, DeleteChallengeCommand } from "@aws-sdk/client-pca-connector-scep"; // ES Modules import
  * // const { PcaConnectorScepClient, DeleteChallengeCommand } = require("@aws-sdk/client-pca-connector-scep"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PcaConnectorScepClient(config);
  * const input = { // DeleteChallengeRequest
  *   ChallengeArn: "STRING_VALUE", // required

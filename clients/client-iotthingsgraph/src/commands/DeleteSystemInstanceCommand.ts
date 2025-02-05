@@ -38,6 +38,7 @@ export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceR
  * ```javascript
  * import { IoTThingsGraphClient, DeleteSystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DeleteSystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTThingsGraphClient(config);
  * const input = { // DeleteSystemInstanceRequest
  *   id: "STRING_VALUE",

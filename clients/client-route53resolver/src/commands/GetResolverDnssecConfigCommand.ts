@@ -34,6 +34,7 @@ export interface GetResolverDnssecConfigCommandOutput extends GetResolverDnssecC
  * ```javascript
  * import { Route53ResolverClient, GetResolverDnssecConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetResolverDnssecConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Route53ResolverClient(config);
  * const input = { // GetResolverDnssecConfigRequest
  *   ResourceId: "STRING_VALUE", // required

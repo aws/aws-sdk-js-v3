@@ -45,6 +45,7 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
  * ```javascript
  * import { MgnClient, UpdateReplicationConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MgnClient(config);
  * const input = { // UpdateReplicationConfigurationTemplateRequest
  *   replicationConfigurationTemplateID: "STRING_VALUE", // required

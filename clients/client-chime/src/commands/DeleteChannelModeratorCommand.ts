@@ -48,6 +48,7 @@ export interface DeleteChannelModeratorCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ChimeClient, DeleteChannelModeratorCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteChannelModeratorCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChimeClient(config);
  * const input = { // DeleteChannelModeratorRequest
  *   ChannelArn: "STRING_VALUE", // required

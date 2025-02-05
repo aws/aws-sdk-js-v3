@@ -40,6 +40,7 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * ```javascript
  * import { DocDBClient, ApplyPendingMaintenanceActionCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ApplyPendingMaintenanceActionCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DocDBClient(config);
  * const input = { // ApplyPendingMaintenanceActionMessage
  *   ResourceIdentifier: "STRING_VALUE", // required

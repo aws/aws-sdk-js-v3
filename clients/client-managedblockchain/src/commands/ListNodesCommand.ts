@@ -39,6 +39,7 @@ export interface ListNodesCommandOutput extends ListNodesOutput, __MetadataBeare
  * ```javascript
  * import { ManagedBlockchainClient, ListNodesCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, ListNodesCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ManagedBlockchainClient(config);
  * const input = { // ListNodesInput
  *   NetworkId: "STRING_VALUE", // required

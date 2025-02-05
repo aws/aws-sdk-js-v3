@@ -67,6 +67,7 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  * ```javascript
  * import { S3Client, GetBucketTaggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketTaggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3Client(config);
  * const input = { // GetBucketTaggingRequest
  *   Bucket: "STRING_VALUE", // required

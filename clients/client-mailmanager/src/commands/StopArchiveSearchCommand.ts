@@ -34,6 +34,7 @@ export interface StopArchiveSearchCommandOutput extends StopArchiveSearchRespons
  * ```javascript
  * import { MailManagerClient, StopArchiveSearchCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, StopArchiveSearchCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MailManagerClient(config);
  * const input = { // StopArchiveSearchRequest
  *   SearchId: "STRING_VALUE", // required

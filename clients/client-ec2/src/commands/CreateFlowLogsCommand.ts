@@ -45,6 +45,7 @@ export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __Met
  * ```javascript
  * import { EC2Client, CreateFlowLogsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateFlowLogsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EC2Client(config);
  * const input = { // CreateFlowLogsRequest
  *   DryRun: true || false,

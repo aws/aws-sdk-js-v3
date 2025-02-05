@@ -3813,9 +3813,9 @@ export interface PropertyLatestValue {
  */
 export interface PropertyValue {
   /**
-   * @deprecated
-   *
    * <p>The timestamp of a value for a time series property.</p>
+   *
+   * @deprecated
    * @public
    */
   timestamp?: Date | undefined;
@@ -3959,17 +3959,17 @@ export interface GetPropertyValueHistoryRequest {
   propertyFilters?: PropertyFilter[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The date and time of the earliest property value to return.</p>
+   *
+   * @deprecated
    * @public
    */
   startDateTime?: Date | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The date and time of the latest property value to return.</p>
+   *
+   * @deprecated
    * @public
    */
   endDateTime?: Date | undefined;

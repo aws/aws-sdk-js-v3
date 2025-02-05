@@ -39,6 +39,7 @@ export interface UpdateSlackChannelConfigurationCommandOutput
  * ```javascript
  * import { SupportAppClient, UpdateSlackChannelConfigurationCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, UpdateSlackChannelConfigurationCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SupportAppClient(config);
  * const input = { // UpdateSlackChannelConfigurationRequest
  *   teamId: "STRING_VALUE", // required

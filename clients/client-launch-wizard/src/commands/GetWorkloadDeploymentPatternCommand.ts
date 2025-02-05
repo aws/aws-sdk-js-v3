@@ -42,6 +42,7 @@ export interface GetWorkloadDeploymentPatternCommandOutput
  * ```javascript
  * import { LaunchWizardClient, GetWorkloadDeploymentPatternCommand } from "@aws-sdk/client-launch-wizard"; // ES Modules import
  * // const { LaunchWizardClient, GetWorkloadDeploymentPatternCommand } = require("@aws-sdk/client-launch-wizard"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LaunchWizardClient(config);
  * const input = { // GetWorkloadDeploymentPatternInput
  *   workloadName: "STRING_VALUE", // required

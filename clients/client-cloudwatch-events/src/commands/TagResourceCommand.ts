@@ -44,6 +44,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { CloudWatchEventsClient, TagResourceCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, TagResourceCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudWatchEventsClient(config);
  * const input = { // TagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * ```javascript
  * import { DataBrewClient, DeleteJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DeleteJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataBrewClient(config);
  * const input = { // DeleteJobRequest
  *   Name: "STRING_VALUE", // required

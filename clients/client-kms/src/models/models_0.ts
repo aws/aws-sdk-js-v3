@@ -1593,12 +1593,12 @@ export interface CreateKeyRequest {
   KeyUsage?: KeyUsageType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Instead, use the <code>KeySpec</code> parameter.</p>
    *          <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> parameters work the same
    *       way. Only the names differ. We recommend that you use <code>KeySpec</code> parameter in your
    *       code. However, to avoid breaking changes, KMS supports both parameters.</p>
+   *
+   * @deprecated
    * @public
    */
   CustomerMasterKeySpec?: CustomerMasterKeySpec | undefined;
@@ -2156,12 +2156,12 @@ export interface KeyMetadata {
   KeyManager?: KeyManagerType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Instead, use the <code>KeySpec</code> field.</p>
    *          <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same
    *       value. We recommend that you use the <code>KeySpec</code> field in your code. However, to
    *       avoid breaking changes, KMS supports both fields.</p>
+   *
+   * @deprecated
    * @public
    */
   CustomerMasterKeySpec?: CustomerMasterKeySpec | undefined;
@@ -4560,13 +4560,13 @@ export interface GetPublicKeyResponse {
   PublicKey?: Uint8Array | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Instead, use the <code>KeySpec</code> field in the <code>GetPublicKey</code>
    *       response.</p>
    *          <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same
    *       value. We recommend that you use the <code>KeySpec</code> field in your code. However, to
    *       avoid breaking changes, KMS supports both fields.</p>
+   *
+   * @deprecated
    * @public
    */
   CustomerMasterKeySpec?: CustomerMasterKeySpec | undefined;

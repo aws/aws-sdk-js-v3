@@ -43,6 +43,7 @@ export interface GetSipMediaApplicationLoggingConfigurationCommandOutput
  * ```javascript
  * import { ChimeSDKVoiceClient, GetSipMediaApplicationLoggingConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, GetSipMediaApplicationLoggingConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // GetSipMediaApplicationLoggingConfigurationRequest
  *   SipMediaApplicationId: "STRING_VALUE", // required

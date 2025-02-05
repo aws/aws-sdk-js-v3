@@ -40,6 +40,7 @@ export interface ListResourceScanRelatedResourcesCommandOutput
  * ```javascript
  * import { CloudFormationClient, ListResourceScanRelatedResourcesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListResourceScanRelatedResourcesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudFormationClient(config);
  * const input = { // ListResourceScanRelatedResourcesInput
  *   ResourceScanId: "STRING_VALUE", // required

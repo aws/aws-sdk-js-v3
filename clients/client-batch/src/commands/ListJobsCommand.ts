@@ -48,6 +48,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * ```javascript
  * import { BatchClient, ListJobsCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, ListJobsCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BatchClient(config);
  * const input = { // ListJobsRequest
  *   jobQueue: "STRING_VALUE",

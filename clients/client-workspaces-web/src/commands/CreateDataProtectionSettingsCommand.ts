@@ -43,6 +43,7 @@ export interface CreateDataProtectionSettingsCommandOutput
  * ```javascript
  * import { WorkSpacesWebClient, CreateDataProtectionSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, CreateDataProtectionSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkSpacesWebClient(config);
  * const input = { // CreateDataProtectionSettingsRequest
  *   displayName: "STRING_VALUE",

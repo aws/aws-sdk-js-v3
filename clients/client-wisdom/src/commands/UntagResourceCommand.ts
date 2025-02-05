@@ -34,6 +34,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { WisdomClient, UntagResourceCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, UntagResourceCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WisdomClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

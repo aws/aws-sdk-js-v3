@@ -42,6 +42,7 @@ export interface ListPolicyTemplatesCommandOutput extends ListPolicyTemplatesOut
  * ```javascript
  * import { VerifiedPermissionsClient, ListPolicyTemplatesCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, ListPolicyTemplatesCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // ListPolicyTemplatesInput
  *   policyStoreId: "STRING_VALUE", // required

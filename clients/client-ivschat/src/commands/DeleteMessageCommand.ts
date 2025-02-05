@@ -37,6 +37,7 @@ export interface DeleteMessageCommandOutput extends DeleteMessageResponse, __Met
  * ```javascript
  * import { IvschatClient, DeleteMessageCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, DeleteMessageCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IvschatClient(config);
  * const input = { // DeleteMessageRequest
  *   roomIdentifier: "STRING_VALUE", // required

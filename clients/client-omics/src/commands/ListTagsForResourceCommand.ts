@@ -34,6 +34,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { OmicsClient, ListTagsForResourceCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OmicsClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface SearchProductsCommandOutput extends SearchProductsOutput, __Met
  * ```javascript
  * import { ServiceCatalogClient, SearchProductsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, SearchProductsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceCatalogClient(config);
  * const input = { // SearchProductsInput
  *   AcceptLanguage: "STRING_VALUE",

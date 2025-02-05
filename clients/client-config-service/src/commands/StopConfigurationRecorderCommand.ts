@@ -34,6 +34,7 @@ export interface StopConfigurationRecorderCommandOutput extends __MetadataBearer
  * ```javascript
  * import { ConfigServiceClient, StopConfigurationRecorderCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, StopConfigurationRecorderCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConfigServiceClient(config);
  * const input = { // StopConfigurationRecorderRequest
  *   ConfigurationRecorderName: "STRING_VALUE", // required

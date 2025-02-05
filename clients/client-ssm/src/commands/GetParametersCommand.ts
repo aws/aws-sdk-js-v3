@@ -38,6 +38,7 @@ export interface GetParametersCommandOutput extends GetParametersResult, __Metad
  * ```javascript
  * import { SSMClient, GetParametersCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetParametersCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSMClient(config);
  * const input = { // GetParametersRequest
  *   Names: [ // ParameterNameList // required

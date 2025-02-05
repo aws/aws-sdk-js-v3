@@ -40,6 +40,7 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
  * ```javascript
  * import { ChimeSDKIdentityClient, PutAppInstanceRetentionSettingsCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, PutAppInstanceRetentionSettingsCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // PutAppInstanceRetentionSettingsRequest
  *   AppInstanceArn: "STRING_VALUE", // required

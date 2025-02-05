@@ -32,6 +32,7 @@ export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBea
  * ```javascript
  * import { JsonProtocolClient, JsonUnionsCommand } from "@aws-sdk/aws-protocoltests-json"; // ES Modules import
  * // const { JsonProtocolClient, JsonUnionsCommand } = require("@aws-sdk/aws-protocoltests-json"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new JsonProtocolClient(config);
  * const input = { // UnionInputOutput
  *   contents: { // MyUnion Union: only one key present

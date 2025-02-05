@@ -34,6 +34,7 @@ export interface DeleteAudienceModelCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CleanRoomsMLClient, DeleteAudienceModelCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, DeleteAudienceModelCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CleanRoomsMLClient(config);
  * const input = { // DeleteAudienceModelRequest
  *   audienceModelArn: "STRING_VALUE", // required

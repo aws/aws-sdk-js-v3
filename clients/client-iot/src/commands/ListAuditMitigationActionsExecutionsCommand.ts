@@ -44,6 +44,7 @@ export interface ListAuditMitigationActionsExecutionsCommandOutput
  * ```javascript
  * import { IoTClient, ListAuditMitigationActionsExecutionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListAuditMitigationActionsExecutionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTClient(config);
  * const input = { // ListAuditMitigationActionsExecutionsRequest
  *   taskId: "STRING_VALUE", // required

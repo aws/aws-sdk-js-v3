@@ -40,6 +40,7 @@ export interface CreateBackendEnvironmentCommandOutput extends CreateBackendEnvi
  * ```javascript
  * import { AmplifyClient, CreateBackendEnvironmentCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, CreateBackendEnvironmentCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AmplifyClient(config);
  * const input = { // CreateBackendEnvironmentRequest
  *   appId: "STRING_VALUE", // required

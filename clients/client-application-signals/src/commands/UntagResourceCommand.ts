@@ -38,6 +38,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { ApplicationSignalsClient, UntagResourceCommand } from "@aws-sdk/client-application-signals"; // ES Modules import
  * // const { ApplicationSignalsClient, UntagResourceCommand } = require("@aws-sdk/client-application-signals"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ApplicationSignalsClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * ```javascript
  * import { PersonalizeClient, ListFiltersCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListFiltersCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PersonalizeClient(config);
  * const input = { // ListFiltersRequest
  *   datasetGroupArn: "STRING_VALUE",

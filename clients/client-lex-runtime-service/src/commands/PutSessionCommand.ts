@@ -49,6 +49,7 @@ export interface PutSessionCommandOutput extends Omit<PutSessionResponse, "audio
  * ```javascript
  * import { LexRuntimeServiceClient, PutSessionCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
  * // const { LexRuntimeServiceClient, PutSessionCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LexRuntimeServiceClient(config);
  * const input = { // PutSessionRequest
  *   botName: "STRING_VALUE", // required

@@ -40,6 +40,7 @@ export interface ListSNOMEDCTInferenceJobsCommandOutput extends ListSNOMEDCTInfe
  * ```javascript
  * import { ComprehendMedicalClient, ListSNOMEDCTInferenceJobsCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, ListSNOMEDCTInferenceJobsCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ComprehendMedicalClient(config);
  * const input = { // ListSNOMEDCTInferenceJobsRequest
  *   Filter: { // ComprehendMedicalAsyncJobFilter

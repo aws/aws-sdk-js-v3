@@ -34,6 +34,7 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  * ```javascript
  * import { AmplifyUIBuilderClient, CreateThemeCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, CreateThemeCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // CreateThemeRequest
  *   appId: "STRING_VALUE", // required

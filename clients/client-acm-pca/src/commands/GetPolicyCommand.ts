@@ -64,6 +64,7 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * ```javascript
  * import { ACMPCAClient, GetPolicyCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, GetPolicyCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ACMPCAClient(config);
  * const input = { // GetPolicyRequest
  *   ResourceArn: "STRING_VALUE", // required

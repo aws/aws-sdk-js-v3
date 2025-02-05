@@ -43,6 +43,7 @@ export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __Metad
  * ```javascript
  * import { ChimeClient, ListSipRulesCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListSipRulesCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChimeClient(config);
  * const input = { // ListSipRulesRequest
  *   SipMediaApplicationId: "STRING_VALUE",

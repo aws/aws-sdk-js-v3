@@ -34,6 +34,7 @@ export interface GetBranchCommandOutput extends GetBranchOutput, __MetadataBeare
  * ```javascript
  * import { CodeCommitClient, GetBranchCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetBranchCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeCommitClient(config);
  * const input = { // GetBranchInput
  *   repositoryName: "STRING_VALUE",

@@ -34,6 +34,7 @@ export interface GetImagePolicyCommandOutput extends GetImagePolicyResponse, __M
  * ```javascript
  * import { ImagebuilderClient, GetImagePolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetImagePolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ImagebuilderClient(config);
  * const input = { // GetImagePolicyRequest
  *   imageArn: "STRING_VALUE", // required

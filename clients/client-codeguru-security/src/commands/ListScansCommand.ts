@@ -35,6 +35,7 @@ export interface ListScansCommandOutput extends ListScansResponse, __MetadataBea
  * ```javascript
  * import { CodeGuruSecurityClient, ListScansCommand } from "@aws-sdk/client-codeguru-security"; // ES Modules import
  * // const { CodeGuruSecurityClient, ListScansCommand } = require("@aws-sdk/client-codeguru-security"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeGuruSecurityClient(config);
  * const input = { // ListScansRequest
  *   nextToken: "STRING_VALUE",

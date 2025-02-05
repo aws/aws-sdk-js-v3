@@ -39,6 +39,7 @@ export interface GetRecommenderConfigurationsCommandOutput
  * ```javascript
  * import { PinpointClient, GetRecommenderConfigurationsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetRecommenderConfigurationsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointClient(config);
  * const input = { // GetRecommenderConfigurationsRequest
  *   PageSize: "STRING_VALUE",

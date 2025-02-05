@@ -40,6 +40,7 @@ export interface ListNotificationConfigurationsCommandOutput
  * ```javascript
  * import { NotificationsClient, ListNotificationConfigurationsCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, ListNotificationConfigurationsCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NotificationsClient(config);
  * const input = { // ListNotificationConfigurationsRequest
  *   eventRuleSource: "STRING_VALUE",

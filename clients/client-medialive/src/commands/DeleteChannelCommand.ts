@@ -34,6 +34,7 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * ```javascript
  * import { MediaLiveClient, DeleteChannelCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteChannelCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaLiveClient(config);
  * const input = { // DeleteChannelRequest
  *   ChannelId: "STRING_VALUE", // required

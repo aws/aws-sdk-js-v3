@@ -34,6 +34,7 @@ export interface UpdatePromptCommandOutput extends UpdatePromptResponse, __Metad
  * ```javascript
  * import { ConnectClient, UpdatePromptCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdatePromptCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectClient(config);
  * const input = { // UpdatePromptRequest
  *   InstanceId: "STRING_VALUE", // required

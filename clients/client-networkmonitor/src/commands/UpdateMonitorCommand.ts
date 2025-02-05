@@ -37,6 +37,7 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * ```javascript
  * import { NetworkMonitorClient, UpdateMonitorCommand } from "@aws-sdk/client-networkmonitor"; // ES Modules import
  * // const { NetworkMonitorClient, UpdateMonitorCommand } = require("@aws-sdk/client-networkmonitor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkMonitorClient(config);
  * const input = { // UpdateMonitorInput
  *   monitorName: "STRING_VALUE", // required

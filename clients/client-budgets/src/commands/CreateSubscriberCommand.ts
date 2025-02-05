@@ -38,6 +38,7 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  * ```javascript
  * import { BudgetsClient, CreateSubscriberCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, CreateSubscriberCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BudgetsClient(config);
  * const input = { // CreateSubscriberRequest
  *   AccountId: "STRING_VALUE", // required

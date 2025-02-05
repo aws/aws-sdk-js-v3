@@ -35,6 +35,7 @@ export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __Metadat
  * ```javascript
  * import { KeyspacesClient, GetKeyspaceCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, GetKeyspaceCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KeyspacesClient(config);
  * const input = { // GetKeyspaceRequest
  *   keyspaceName: "STRING_VALUE", // required

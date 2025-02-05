@@ -38,6 +38,7 @@ export interface DeleteTargetCommandOutput extends DeleteTargetResult, __Metadat
  * ```javascript
  * import { CodestarNotificationsClient, DeleteTargetCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, DeleteTargetCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodestarNotificationsClient(config);
  * const input = { // DeleteTargetRequest
  *   TargetAddress: "STRING_VALUE", // required

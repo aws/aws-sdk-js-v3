@@ -39,6 +39,7 @@ export interface AssociateDataProtectionSettingsCommandOutput
  * ```javascript
  * import { WorkSpacesWebClient, AssociateDataProtectionSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, AssociateDataProtectionSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkSpacesWebClient(config);
  * const input = { // AssociateDataProtectionSettingsRequest
  *   portalArn: "STRING_VALUE", // required

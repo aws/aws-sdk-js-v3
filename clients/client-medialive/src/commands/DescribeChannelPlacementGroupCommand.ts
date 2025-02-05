@@ -39,6 +39,7 @@ export interface DescribeChannelPlacementGroupCommandOutput
  * ```javascript
  * import { MediaLiveClient, DescribeChannelPlacementGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeChannelPlacementGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaLiveClient(config);
  * const input = { // DescribeChannelPlacementGroupRequest
  *   ChannelPlacementGroupId: "STRING_VALUE", // required

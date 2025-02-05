@@ -43,6 +43,7 @@ export interface RollbackApplicationCommandOutput extends RollbackApplicationRes
  * ```javascript
  * import { KinesisAnalyticsV2Client, RollbackApplicationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, RollbackApplicationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KinesisAnalyticsV2Client(config);
  * const input = { // RollbackApplicationRequest
  *   ApplicationName: "STRING_VALUE", // required

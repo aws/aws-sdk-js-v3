@@ -34,6 +34,7 @@ export interface GetDataLakePrincipalCommandOutput extends GetDataLakePrincipalR
  * ```javascript
  * import { LakeFormationClient, GetDataLakePrincipalCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetDataLakePrincipalCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LakeFormationClient(config);
  * const input = {};
  * const command = new GetDataLakePrincipalCommand(input);

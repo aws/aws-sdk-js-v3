@@ -36,6 +36,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { DeviceFarmClient, TagResourceCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, TagResourceCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DeviceFarmClient(config);
  * const input = { // TagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

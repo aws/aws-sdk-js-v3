@@ -35,6 +35,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { QLDBClient, UntagResourceCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, UntagResourceCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QLDBClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

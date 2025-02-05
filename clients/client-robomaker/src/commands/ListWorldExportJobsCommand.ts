@@ -42,6 +42,7 @@ export interface ListWorldExportJobsCommandOutput extends ListWorldExportJobsRes
  * ```javascript
  * import { RoboMakerClient, ListWorldExportJobsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListWorldExportJobsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RoboMakerClient(config);
  * const input = { // ListWorldExportJobsRequest
  *   nextToken: "STRING_VALUE",

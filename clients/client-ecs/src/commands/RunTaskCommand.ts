@@ -69,6 +69,7 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * ```javascript
  * import { ECSClient, RunTaskCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, RunTaskCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ECSClient(config);
  * const input = { // RunTaskRequest
  *   capacityProviderStrategy: [ // CapacityProviderStrategy

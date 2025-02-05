@@ -38,6 +38,7 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  * ```javascript
  * import { EventBridgeClient, TestEventPatternCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, TestEventPatternCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EventBridgeClient(config);
  * const input = { // TestEventPatternRequest
  *   EventPattern: "STRING_VALUE", // required

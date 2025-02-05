@@ -38,6 +38,7 @@ export interface ListLifecyclePoliciesCommandOutput extends ListLifecyclePolicie
  * ```javascript
  * import { OpenSearchServerlessClient, ListLifecyclePoliciesCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, ListLifecyclePoliciesCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // ListLifecyclePoliciesRequest
  *   type: "STRING_VALUE", // required

@@ -111,6 +111,7 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { S3Client, PutBucketPolicyCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketPolicyCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3Client(config);
  * const input = { // PutBucketPolicyRequest
  *   Bucket: "STRING_VALUE", // required

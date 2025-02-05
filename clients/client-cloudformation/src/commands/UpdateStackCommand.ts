@@ -40,6 +40,7 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  * ```javascript
  * import { CloudFormationClient, UpdateStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, UpdateStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudFormationClient(config);
  * const input = { // UpdateStackInput
  *   StackName: "STRING_VALUE", // required

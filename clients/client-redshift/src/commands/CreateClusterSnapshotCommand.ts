@@ -39,6 +39,7 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  * ```javascript
  * import { RedshiftClient, CreateClusterSnapshotCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateClusterSnapshotCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftClient(config);
  * const input = { // CreateClusterSnapshotMessage
  *   SnapshotIdentifier: "STRING_VALUE", // required

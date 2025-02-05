@@ -34,6 +34,7 @@ export interface FlushStageAuthorizersCacheCommandOutput extends __MetadataBeare
  * ```javascript
  * import { APIGatewayClient, FlushStageAuthorizersCacheCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, FlushStageAuthorizersCacheCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new APIGatewayClient(config);
  * const input = { // FlushStageAuthorizersCacheRequest
  *   restApiId: "STRING_VALUE", // required

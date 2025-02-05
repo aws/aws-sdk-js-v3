@@ -2259,41 +2259,41 @@ export interface AWSManagedRulesBotControlRuleSet {
  */
 export interface ManagedRuleGroupConfig {
   /**
-   * @deprecated
-   *
    * <note>
    *             <p>Instead of this setting, provide your configuration under <code>AWSManagedRulesATPRuleSet</code>. </p>
    *          </note>
+   *
+   * @deprecated
    * @public
    */
   LoginPath?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <note>
    *             <p>Instead of this setting, provide your configuration under the request inspection configuration for <code>AWSManagedRulesATPRuleSet</code> or <code>AWSManagedRulesACFPRuleSet</code>. </p>
    *          </note>
+   *
+   * @deprecated
    * @public
    */
   PayloadType?: PayloadType | undefined;
 
   /**
-   * @deprecated
-   *
    * <note>
    *             <p>Instead of this setting, provide your configuration under the request inspection configuration for <code>AWSManagedRulesATPRuleSet</code> or <code>AWSManagedRulesACFPRuleSet</code>. </p>
    *          </note>
+   *
+   * @deprecated
    * @public
    */
   UsernameField?: UsernameField | undefined;
 
   /**
-   * @deprecated
-   *
    * <note>
    *             <p>Instead of this setting, provide your configuration under the request inspection configuration for <code>AWSManagedRulesATPRuleSet</code> or <code>AWSManagedRulesACFPRuleSet</code>. </p>
    *          </note>
+   *
+   * @deprecated
    * @public
    */
   PasswordField?: PasswordField | undefined;

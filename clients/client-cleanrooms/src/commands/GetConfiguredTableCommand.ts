@@ -34,6 +34,7 @@ export interface GetConfiguredTableCommandOutput extends GetConfiguredTableOutpu
  * ```javascript
  * import { CleanRoomsClient, GetConfiguredTableCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetConfiguredTableCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CleanRoomsClient(config);
  * const input = { // GetConfiguredTableInput
  *   configuredTableIdentifier: "STRING_VALUE", // required

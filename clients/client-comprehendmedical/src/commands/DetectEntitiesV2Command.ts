@@ -48,6 +48,7 @@ export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response,
  * ```javascript
  * import { ComprehendMedicalClient, DetectEntitiesV2Command } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DetectEntitiesV2Command } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ComprehendMedicalClient(config);
  * const input = { // DetectEntitiesV2Request
  *   Text: "STRING_VALUE", // required

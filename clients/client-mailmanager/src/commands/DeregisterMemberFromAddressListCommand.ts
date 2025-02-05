@@ -43,6 +43,7 @@ export interface DeregisterMemberFromAddressListCommandOutput
  * ```javascript
  * import { MailManagerClient, DeregisterMemberFromAddressListCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, DeregisterMemberFromAddressListCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MailManagerClient(config);
  * const input = { // DeregisterMemberFromAddressListRequest
  *   AddressListId: "STRING_VALUE", // required

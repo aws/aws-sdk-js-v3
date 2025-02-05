@@ -64,6 +64,7 @@ export interface ListAccessPointsForObjectLambdaCommandOutput
  * ```javascript
  * import { S3ControlClient, ListAccessPointsForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, ListAccessPointsForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3ControlClient(config);
  * const input = { // ListAccessPointsForObjectLambdaRequest
  *   AccountId: "STRING_VALUE",

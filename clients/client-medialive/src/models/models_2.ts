@@ -816,9 +816,9 @@ export interface CreateChannelRequest {
   RequestId?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * Deprecated field that's only usable by whitelisted customers.
+   *
+   * @deprecated
    * @public
    */
   Reserved?: string | undefined;
@@ -8287,9 +8287,9 @@ export interface UpdateInputSecurityGroupRequest {
   InputSecurityGroupId: string | undefined;
 
   /**
-   * @deprecated
-   *
    * A collection of key-value pairs.
+   *
+   * @deprecated
    * @public
    */
   Tags?: Record<string, string> | undefined;

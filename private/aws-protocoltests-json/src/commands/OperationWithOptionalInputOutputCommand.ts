@@ -38,6 +38,7 @@ export interface OperationWithOptionalInputOutputCommandOutput
  * ```javascript
  * import { JsonProtocolClient, OperationWithOptionalInputOutputCommand } from "@aws-sdk/aws-protocoltests-json"; // ES Modules import
  * // const { JsonProtocolClient, OperationWithOptionalInputOutputCommand } = require("@aws-sdk/aws-protocoltests-json"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new JsonProtocolClient(config);
  * const input = { // OperationWithOptionalInputOutputInput
  *   Value: "STRING_VALUE",

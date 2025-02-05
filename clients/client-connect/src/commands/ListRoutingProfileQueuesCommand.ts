@@ -34,6 +34,7 @@ export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfil
  * ```javascript
  * import { ConnectClient, ListRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectClient(config);
  * const input = { // ListRoutingProfileQueuesRequest
  *   InstanceId: "STRING_VALUE", // required

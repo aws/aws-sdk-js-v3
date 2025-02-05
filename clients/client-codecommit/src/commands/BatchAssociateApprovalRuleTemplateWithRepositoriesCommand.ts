@@ -43,6 +43,7 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
  * ```javascript
  * import { CodeCommitClient, BatchAssociateApprovalRuleTemplateWithRepositoriesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, BatchAssociateApprovalRuleTemplateWithRepositoriesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeCommitClient(config);
  * const input = { // BatchAssociateApprovalRuleTemplateWithRepositoriesInput
  *   approvalRuleTemplateName: "STRING_VALUE", // required

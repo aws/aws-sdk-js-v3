@@ -39,6 +39,7 @@ export interface StartMLModelTransformJobCommandOutput extends StartMLModelTrans
  * ```javascript
  * import { NeptunedataClient, StartMLModelTransformJobCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, StartMLModelTransformJobCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptunedataClient(config);
  * const input = { // StartMLModelTransformJobInput
  *   id: "STRING_VALUE",

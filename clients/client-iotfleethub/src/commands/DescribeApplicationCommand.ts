@@ -34,6 +34,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * ```javascript
  * import { IoTFleetHubClient, DescribeApplicationCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
  * // const { IoTFleetHubClient, DescribeApplicationCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTFleetHubClient(config);
  * const input = { // DescribeApplicationRequest
  *   applicationId: "STRING_VALUE", // required

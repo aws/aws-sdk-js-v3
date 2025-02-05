@@ -39,6 +39,7 @@ export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __Metadat
  * ```javascript
  * import { CodePipelineClient, ListWebhooksCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, ListWebhooksCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodePipelineClient(config);
  * const input = { // ListWebhooksInput
  *   NextToken: "STRING_VALUE",

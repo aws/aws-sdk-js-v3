@@ -38,6 +38,7 @@ export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, _
  * ```javascript
  * import { MediaStoreClient, DeleteCorsPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, DeleteCorsPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaStoreClient(config);
  * const input = { // DeleteCorsPolicyInput
  *   ContainerName: "STRING_VALUE", // required

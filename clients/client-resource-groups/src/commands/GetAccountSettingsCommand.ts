@@ -34,6 +34,7 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  * ```javascript
  * import { ResourceGroupsClient, GetAccountSettingsCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, GetAccountSettingsCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ResourceGroupsClient(config);
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);

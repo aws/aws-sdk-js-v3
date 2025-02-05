@@ -72,6 +72,7 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * ```javascript
  * import { KinesisClient, GetShardIteratorCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, GetShardIteratorCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KinesisClient(config);
  * const input = { // GetShardIteratorInput
  *   StreamName: "STRING_VALUE",

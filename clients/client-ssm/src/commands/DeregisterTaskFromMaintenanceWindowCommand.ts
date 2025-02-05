@@ -42,6 +42,7 @@ export interface DeregisterTaskFromMaintenanceWindowCommandOutput
  * ```javascript
  * import { SSMClient, DeregisterTaskFromMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeregisterTaskFromMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSMClient(config);
  * const input = { // DeregisterTaskFromMaintenanceWindowRequest
  *   WindowId: "STRING_VALUE", // required

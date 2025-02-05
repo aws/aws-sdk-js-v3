@@ -40,6 +40,7 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * ```javascript
  * import { ApplicationDiscoveryServiceClient, ListConfigurationsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, ListConfigurationsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // ListConfigurationsRequest
  *   configurationType: "SERVER" || "PROCESS" || "CONNECTION" || "APPLICATION", // required

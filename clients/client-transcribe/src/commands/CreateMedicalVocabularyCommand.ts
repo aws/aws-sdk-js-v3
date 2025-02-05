@@ -46,6 +46,7 @@ export interface CreateMedicalVocabularyCommandOutput extends CreateMedicalVocab
  * ```javascript
  * import { TranscribeClient, CreateMedicalVocabularyCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, CreateMedicalVocabularyCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TranscribeClient(config);
  * const input = { // CreateMedicalVocabularyRequest
  *   VocabularyName: "STRING_VALUE", // required

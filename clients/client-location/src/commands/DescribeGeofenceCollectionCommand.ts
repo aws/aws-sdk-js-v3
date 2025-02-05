@@ -34,6 +34,7 @@ export interface DescribeGeofenceCollectionCommandOutput extends DescribeGeofenc
  * ```javascript
  * import { LocationClient, DescribeGeofenceCollectionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DescribeGeofenceCollectionCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LocationClient(config);
  * const input = { // DescribeGeofenceCollectionRequest
  *   CollectionName: "STRING_VALUE", // required

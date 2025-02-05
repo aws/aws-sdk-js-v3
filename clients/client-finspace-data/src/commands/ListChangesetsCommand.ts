@@ -36,6 +36,7 @@ export interface ListChangesetsCommandOutput extends ListChangesetsResponse, __M
  * ```javascript
  * import { FinspaceDataClient, ListChangesetsCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, ListChangesetsCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FinspaceDataClient(config);
  * const input = { // ListChangesetsRequest
  *   datasetId: "STRING_VALUE", // required

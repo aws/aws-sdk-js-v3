@@ -39,6 +39,7 @@ export interface GetPlaybackRestrictionPolicyCommandOutput
  * ```javascript
  * import { IvsClient, GetPlaybackRestrictionPolicyCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, GetPlaybackRestrictionPolicyCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IvsClient(config);
  * const input = { // GetPlaybackRestrictionPolicyRequest
  *   arn: "STRING_VALUE", // required

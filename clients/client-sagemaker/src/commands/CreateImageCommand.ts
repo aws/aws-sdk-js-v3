@@ -36,6 +36,7 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * ```javascript
  * import { SageMakerClient, CreateImageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateImageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // CreateImageRequest
  *   Description: "STRING_VALUE",

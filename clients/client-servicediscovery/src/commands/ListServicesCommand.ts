@@ -35,6 +35,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * ```javascript
  * import { ServiceDiscoveryClient, ListServicesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, ListServicesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // ListServicesRequest
  *   NextToken: "STRING_VALUE",

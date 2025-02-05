@@ -50,6 +50,7 @@ export interface AddApplicationInputCommandOutput extends AddApplicationInputRes
  * ```javascript
  * import { KinesisAnalyticsClient, AddApplicationInputCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, AddApplicationInputCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KinesisAnalyticsClient(config);
  * const input = { // AddApplicationInputRequest
  *   ApplicationName: "STRING_VALUE", // required

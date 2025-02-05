@@ -45,6 +45,7 @@ export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, _
  * ```javascript
  * import { SageMakerClient, DeleteWorkforceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteWorkforceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // DeleteWorkforceRequest
  *   WorkforceName: "STRING_VALUE", // required

@@ -51,6 +51,7 @@ export interface StopTargetedSentimentDetectionJobCommandOutput
  * ```javascript
  * import { ComprehendClient, StopTargetedSentimentDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopTargetedSentimentDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ComprehendClient(config);
  * const input = { // StopTargetedSentimentDetectionJobRequest
  *   JobId: "STRING_VALUE", // required

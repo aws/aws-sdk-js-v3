@@ -82,6 +82,7 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  * ```javascript
  * import { CloudWatchLogsClient, PutLogEventsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutLogEventsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutLogEventsRequest
  *   logGroupName: "STRING_VALUE", // required

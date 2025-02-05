@@ -48,6 +48,7 @@ export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __Met
  * ```javascript
  * import { LightsailClient, ExportSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, ExportSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LightsailClient(config);
  * const input = { // ExportSnapshotRequest
  *   sourceSnapshotName: "STRING_VALUE", // required

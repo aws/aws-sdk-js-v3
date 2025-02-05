@@ -39,6 +39,7 @@ export interface DeleteMedicalTranscriptionJobCommandOutput extends __MetadataBe
  * ```javascript
  * import { TranscribeClient, DeleteMedicalTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, DeleteMedicalTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TranscribeClient(config);
  * const input = { // DeleteMedicalTranscriptionJobRequest
  *   MedicalTranscriptionJobName: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * ```javascript
  * import { SageMakerClient, CreatePipelineCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreatePipelineCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // CreatePipelineRequest
  *   PipelineName: "STRING_VALUE", // required

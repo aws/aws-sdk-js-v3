@@ -37,6 +37,7 @@ export interface ListNotificationChannelsCommandOutput extends ListNotificationC
  * ```javascript
  * import { DevOpsGuruClient, ListNotificationChannelsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListNotificationChannelsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DevOpsGuruClient(config);
  * const input = { // ListNotificationChannelsRequest
  *   NextToken: "STRING_VALUE",

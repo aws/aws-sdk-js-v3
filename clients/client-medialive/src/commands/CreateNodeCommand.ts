@@ -34,6 +34,7 @@ export interface CreateNodeCommandOutput extends CreateNodeResponse, __MetadataB
  * ```javascript
  * import { MediaLiveClient, CreateNodeCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateNodeCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaLiveClient(config);
  * const input = { // CreateNodeRequest
  *   ClusterId: "STRING_VALUE", // required

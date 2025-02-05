@@ -38,6 +38,7 @@ export interface UpdateAppBlockBuilderCommandOutput extends UpdateAppBlockBuilde
  * ```javascript
  * import { AppStreamClient, UpdateAppBlockBuilderCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateAppBlockBuilderCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppStreamClient(config);
  * const input = { // UpdateAppBlockBuilderRequest
  *   Name: "STRING_VALUE", // required

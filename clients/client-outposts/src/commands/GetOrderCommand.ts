@@ -34,6 +34,7 @@ export interface GetOrderCommandOutput extends GetOrderOutput, __MetadataBearer 
  * ```javascript
  * import { OutpostsClient, GetOrderCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetOrderCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OutpostsClient(config);
  * const input = { // GetOrderInput
  *   OrderId: "STRING_VALUE", // required

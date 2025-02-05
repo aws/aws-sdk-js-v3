@@ -38,6 +38,7 @@ export interface GetAudienceGenerationJobCommandOutput extends GetAudienceGenera
  * ```javascript
  * import { CleanRoomsMLClient, GetAudienceGenerationJobCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, GetAudienceGenerationJobCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CleanRoomsMLClient(config);
  * const input = { // GetAudienceGenerationJobRequest
  *   audienceGenerationJobArn: "STRING_VALUE", // required

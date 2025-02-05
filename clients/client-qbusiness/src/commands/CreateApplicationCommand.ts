@@ -52,6 +52,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * ```javascript
  * import { QBusinessClient, CreateApplicationCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, CreateApplicationCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QBusinessClient(config);
  * const input = { // CreateApplicationRequest
  *   displayName: "STRING_VALUE", // required

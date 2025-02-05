@@ -40,6 +40,7 @@ export interface DeleteElasticsearchServiceRoleCommandOutput extends __MetadataB
  * ```javascript
  * import { ElasticsearchServiceClient, DeleteElasticsearchServiceRoleCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DeleteElasticsearchServiceRoleCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElasticsearchServiceClient(config);
  * const input = {};
  * const command = new DeleteElasticsearchServiceRoleCommand(input);

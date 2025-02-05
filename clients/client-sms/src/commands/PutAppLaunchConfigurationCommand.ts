@@ -34,6 +34,7 @@ export interface PutAppLaunchConfigurationCommandOutput extends PutAppLaunchConf
  * ```javascript
  * import { SMSClient, PutAppLaunchConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, PutAppLaunchConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SMSClient(config);
  * const input = { // PutAppLaunchConfigurationRequest
  *   appId: "STRING_VALUE",

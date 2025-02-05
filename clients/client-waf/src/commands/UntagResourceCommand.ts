@@ -42,6 +42,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { WAFClient, UntagResourceCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UntagResourceCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WAFClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

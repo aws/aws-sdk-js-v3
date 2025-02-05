@@ -43,6 +43,7 @@ export interface GenerateQueryCommandOutput extends GenerateQueryResponse, __Met
  * ```javascript
  * import { BedrockAgentRuntimeClient, GenerateQueryCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, GenerateQueryCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // GenerateQueryRequest
  *   queryGenerationInput: { // QueryGenerationInput

@@ -34,6 +34,7 @@ export interface DeleteGeneratedTemplateCommandOutput extends __MetadataBearer {
  * ```javascript
  * import { CloudFormationClient, DeleteGeneratedTemplateCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DeleteGeneratedTemplateCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudFormationClient(config);
  * const input = { // DeleteGeneratedTemplateInput
  *   GeneratedTemplateName: "STRING_VALUE", // required

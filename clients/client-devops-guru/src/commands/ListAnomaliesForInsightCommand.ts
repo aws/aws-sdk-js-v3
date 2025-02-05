@@ -35,6 +35,7 @@ export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForIn
  * ```javascript
  * import { DevOpsGuruClient, ListAnomaliesForInsightCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListAnomaliesForInsightCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DevOpsGuruClient(config);
  * const input = { // ListAnomaliesForInsightRequest
  *   InsightId: "STRING_VALUE", // required

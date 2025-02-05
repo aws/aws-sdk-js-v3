@@ -42,6 +42,7 @@ export interface UpdateEc2DeepInspectionConfigurationCommandOutput
  * ```javascript
  * import { Inspector2Client, UpdateEc2DeepInspectionConfigurationCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, UpdateEc2DeepInspectionConfigurationCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Inspector2Client(config);
  * const input = { // UpdateEc2DeepInspectionConfigurationRequest
  *   activateDeepInspection: true || false,

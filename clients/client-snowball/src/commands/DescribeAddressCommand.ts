@@ -35,6 +35,7 @@ export interface DescribeAddressCommandOutput extends DescribeAddressResult, __M
  * ```javascript
  * import { SnowballClient, DescribeAddressCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, DescribeAddressCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SnowballClient(config);
  * const input = { // DescribeAddressRequest
  *   AddressId: "STRING_VALUE", // required

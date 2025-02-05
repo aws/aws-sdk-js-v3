@@ -37,6 +37,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * ```javascript
  * import { NetworkFirewallClient, CreateRuleGroupCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, CreateRuleGroupCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkFirewallClient(config);
  * const input = { // CreateRuleGroupRequest
  *   RuleGroupName: "STRING_VALUE", // required

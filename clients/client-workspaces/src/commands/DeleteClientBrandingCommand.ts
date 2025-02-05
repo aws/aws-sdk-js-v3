@@ -39,6 +39,7 @@ export interface DeleteClientBrandingCommandOutput extends DeleteClientBrandingR
  * ```javascript
  * import { WorkSpacesClient, DeleteClientBrandingCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeleteClientBrandingCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkSpacesClient(config);
  * const input = { // DeleteClientBrandingRequest
  *   ResourceId: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface ListDevicePoolsCommandOutput extends ListDevicePoolsResult, __M
  * ```javascript
  * import { DeviceFarmClient, ListDevicePoolsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListDevicePoolsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DeviceFarmClient(config);
  * const input = { // ListDevicePoolsRequest
  *   arn: "STRING_VALUE", // required

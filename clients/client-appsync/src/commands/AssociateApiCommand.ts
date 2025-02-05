@@ -34,6 +34,7 @@ export interface AssociateApiCommandOutput extends AssociateApiResponse, __Metad
  * ```javascript
  * import { AppSyncClient, AssociateApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, AssociateApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppSyncClient(config);
  * const input = { // AssociateApiRequest
  *   domainName: "STRING_VALUE", // required

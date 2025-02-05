@@ -34,6 +34,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { GroundStationClient, UntagResourceCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, UntagResourceCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GroundStationClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

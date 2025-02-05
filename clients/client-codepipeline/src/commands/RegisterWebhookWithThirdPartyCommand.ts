@@ -40,6 +40,7 @@ export interface RegisterWebhookWithThirdPartyCommandOutput
  * ```javascript
  * import { CodePipelineClient, RegisterWebhookWithThirdPartyCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, RegisterWebhookWithThirdPartyCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodePipelineClient(config);
  * const input = { // RegisterWebhookWithThirdPartyInput
  *   webhookName: "STRING_VALUE",

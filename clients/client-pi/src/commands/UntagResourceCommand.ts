@@ -34,6 +34,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { PIClient, UntagResourceCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, UntagResourceCommand } = require("@aws-sdk/client-pi"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PIClient(config);
  * const input = { // UntagResourceRequest
  *   ServiceType: "RDS" || "DOCDB", // required

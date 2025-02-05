@@ -35,6 +35,7 @@ export interface UpdateDetectorModelCommandOutput extends UpdateDetectorModelRes
  * ```javascript
  * import { IoTEventsClient, UpdateDetectorModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, UpdateDetectorModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTEventsClient(config);
  * const input = { // UpdateDetectorModelRequest
  *   detectorModelName: "STRING_VALUE", // required

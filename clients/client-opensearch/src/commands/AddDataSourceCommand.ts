@@ -35,6 +35,7 @@ export interface AddDataSourceCommandOutput extends AddDataSourceResponse, __Met
  * ```javascript
  * import { OpenSearchClient, AddDataSourceCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, AddDataSourceCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OpenSearchClient(config);
  * const input = { // AddDataSourceRequest
  *   DomainName: "STRING_VALUE", // required

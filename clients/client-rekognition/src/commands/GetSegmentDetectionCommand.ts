@@ -55,6 +55,7 @@ export interface GetSegmentDetectionCommandOutput extends GetSegmentDetectionRes
  * ```javascript
  * import { RekognitionClient, GetSegmentDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetSegmentDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RekognitionClient(config);
  * const input = { // GetSegmentDetectionRequest
  *   JobId: "STRING_VALUE", // required

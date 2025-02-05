@@ -34,6 +34,7 @@ export interface ListModelCardsCommandOutput extends ListModelCardsResponse, __M
  * ```javascript
  * import { SageMakerClient, ListModelCardsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelCardsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // ListModelCardsRequest
  *   CreationTimeAfter: new Date("TIMESTAMP"),

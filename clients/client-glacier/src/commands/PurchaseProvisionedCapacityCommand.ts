@@ -37,6 +37,7 @@ export interface PurchaseProvisionedCapacityCommandOutput extends PurchaseProvis
  * ```javascript
  * import { GlacierClient, PurchaseProvisionedCapacityCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, PurchaseProvisionedCapacityCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GlacierClient(config);
  * const input = { // PurchaseProvisionedCapacityInput
  *   accountId: "STRING_VALUE", // required

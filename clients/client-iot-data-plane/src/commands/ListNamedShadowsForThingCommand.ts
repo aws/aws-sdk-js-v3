@@ -35,6 +35,7 @@ export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsF
  * ```javascript
  * import { IoTDataPlaneClient, ListNamedShadowsForThingCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
  * // const { IoTDataPlaneClient, ListNamedShadowsForThingCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTDataPlaneClient(config);
  * const input = { // ListNamedShadowsForThingRequest
  *   thingName: "STRING_VALUE", // required

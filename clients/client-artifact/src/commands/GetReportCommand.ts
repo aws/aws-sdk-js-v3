@@ -34,6 +34,7 @@ export interface GetReportCommandOutput extends GetReportResponse, __MetadataBea
  * ```javascript
  * import { ArtifactClient, GetReportCommand } from "@aws-sdk/client-artifact"; // ES Modules import
  * // const { ArtifactClient, GetReportCommand } = require("@aws-sdk/client-artifact"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ArtifactClient(config);
  * const input = { // GetReportRequest
  *   reportId: "STRING_VALUE", // required

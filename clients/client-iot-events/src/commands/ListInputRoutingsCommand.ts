@@ -36,6 +36,7 @@ export interface ListInputRoutingsCommandOutput extends ListInputRoutingsRespons
  * ```javascript
  * import { IoTEventsClient, ListInputRoutingsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, ListInputRoutingsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTEventsClient(config);
  * const input = { // ListInputRoutingsRequest
  *   inputIdentifier: { // InputIdentifier

@@ -38,6 +38,7 @@ export interface RetryWorkflowStepCommandOutput extends RetryWorkflowStepRespons
  * ```javascript
  * import { MigrationHubOrchestratorClient, RetryWorkflowStepCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, RetryWorkflowStepCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // RetryWorkflowStepRequest
  *   workflowId: "STRING_VALUE", // required

@@ -40,6 +40,7 @@ export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __Met
  * ```javascript
  * import { RolesAnywhereClient, UpdateProfileCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, UpdateProfileCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RolesAnywhereClient(config);
  * const input = { // UpdateProfileRequest
  *   profileId: "STRING_VALUE", // required

@@ -35,6 +35,7 @@ export interface DeleteManagedEndpointCommandOutput extends DeleteManagedEndpoin
  * ```javascript
  * import { EMRContainersClient, DeleteManagedEndpointCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, DeleteManagedEndpointCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EMRContainersClient(config);
  * const input = { // DeleteManagedEndpointRequest
  *   id: "STRING_VALUE", // required

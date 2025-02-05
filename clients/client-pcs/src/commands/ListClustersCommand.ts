@@ -34,6 +34,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * ```javascript
  * import { PCSClient, ListClustersCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, ListClustersCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PCSClient(config);
  * const input = { // ListClustersRequest
  *   nextToken: "STRING_VALUE",

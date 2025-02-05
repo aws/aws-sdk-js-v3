@@ -34,6 +34,7 @@ export interface UpdateReviewTemplateAnswerCommandOutput extends UpdateReviewTem
  * ```javascript
  * import { WellArchitectedClient, UpdateReviewTemplateAnswerCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpdateReviewTemplateAnswerCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WellArchitectedClient(config);
  * const input = { // UpdateReviewTemplateAnswerInput
  *   TemplateArn: "STRING_VALUE", // required

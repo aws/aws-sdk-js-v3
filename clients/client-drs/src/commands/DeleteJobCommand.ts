@@ -34,6 +34,7 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * ```javascript
  * import { DrsClient, DeleteJobCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DeleteJobCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DrsClient(config);
  * const input = { // DeleteJobRequest
  *   jobID: "STRING_VALUE", // required

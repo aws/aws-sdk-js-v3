@@ -48,6 +48,7 @@ export interface DeleteRepositoryPermissionsPolicyCommandOutput
  * ```javascript
  * import { CodeartifactClient, DeleteRepositoryPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DeleteRepositoryPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeartifactClient(config);
  * const input = { // DeleteRepositoryPermissionsPolicyRequest
  *   domain: "STRING_VALUE", // required

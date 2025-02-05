@@ -41,6 +41,7 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  * ```javascript
  * import { DataSyncClient, UpdateTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataSyncClient(config);
  * const input = { // UpdateTaskExecutionRequest
  *   TaskExecutionArn: "STRING_VALUE", // required

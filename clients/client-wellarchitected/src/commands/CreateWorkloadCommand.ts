@@ -69,6 +69,7 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  * ```javascript
  * import { WellArchitectedClient, CreateWorkloadCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, CreateWorkloadCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WellArchitectedClient(config);
  * const input = { // CreateWorkloadInput
  *   WorkloadName: "STRING_VALUE", // required

@@ -45,6 +45,7 @@ export interface CreatePushNotificationRegistrationCommandOutput
  * ```javascript
  * import { ConnectClient, CreatePushNotificationRegistrationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreatePushNotificationRegistrationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectClient(config);
  * const input = { // CreatePushNotificationRegistrationRequest
  *   InstanceId: "STRING_VALUE", // required

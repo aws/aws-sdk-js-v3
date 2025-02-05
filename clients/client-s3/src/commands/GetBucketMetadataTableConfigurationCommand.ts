@@ -68,6 +68,7 @@ export interface GetBucketMetadataTableConfigurationCommandOutput
  * ```javascript
  * import { S3Client, GetBucketMetadataTableConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketMetadataTableConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3Client(config);
  * const input = { // GetBucketMetadataTableConfigurationRequest
  *   Bucket: "STRING_VALUE", // required

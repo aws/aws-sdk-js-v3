@@ -34,6 +34,7 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * ```javascript
  * import { BCMDataExportsClient, ListTablesCommand } from "@aws-sdk/client-bcm-data-exports"; // ES Modules import
  * // const { BCMDataExportsClient, ListTablesCommand } = require("@aws-sdk/client-bcm-data-exports"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BCMDataExportsClient(config);
  * const input = { // ListTablesRequest
  *   NextToken: "STRING_VALUE",

@@ -67,6 +67,7 @@ export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataB
  * ```javascript
  * import { PaymentCryptographyClient, ListAliasesCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
  * // const { PaymentCryptographyClient, ListAliasesCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PaymentCryptographyClient(config);
  * const input = { // ListAliasesInput
  *   KeyArn: "STRING_VALUE",

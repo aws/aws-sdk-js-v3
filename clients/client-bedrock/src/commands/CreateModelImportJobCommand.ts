@@ -36,6 +36,7 @@ export interface CreateModelImportJobCommandOutput extends CreateModelImportJobR
  * ```javascript
  * import { BedrockClient, CreateModelImportJobCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, CreateModelImportJobCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockClient(config);
  * const input = { // CreateModelImportJobRequest
  *   jobName: "STRING_VALUE", // required

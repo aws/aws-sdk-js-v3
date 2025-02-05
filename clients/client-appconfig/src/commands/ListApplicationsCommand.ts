@@ -34,6 +34,7 @@ export interface ListApplicationsCommandOutput extends Applications, __MetadataB
  * ```javascript
  * import { AppConfigClient, ListApplicationsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, ListApplicationsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppConfigClient(config);
  * const input = { // ListApplicationsRequest
  *   MaxResults: Number("int"),

@@ -41,6 +41,7 @@ export interface ListDataSourceRunActivitiesCommandOutput extends ListDataSource
  * ```javascript
  * import { DataZoneClient, ListDataSourceRunActivitiesCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, ListDataSourceRunActivitiesCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataZoneClient(config);
  * const input = { // ListDataSourceRunActivitiesInput
  *   domainIdentifier: "STRING_VALUE", // required

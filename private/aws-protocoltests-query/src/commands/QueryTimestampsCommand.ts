@@ -36,6 +36,7 @@ export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { QueryProtocolClient, QueryTimestampsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, QueryTimestampsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QueryProtocolClient(config);
  * const input = { // QueryTimestampsInput
  *   normalFormat: new Date("TIMESTAMP"),

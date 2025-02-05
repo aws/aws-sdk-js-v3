@@ -37,6 +37,7 @@ export interface CreateMultiRegionClustersCommandOutput extends CreateMultiRegio
  * ```javascript
  * import { DSQLClient, CreateMultiRegionClustersCommand } from "@aws-sdk/client-dsql"; // ES Modules import
  * // const { DSQLClient, CreateMultiRegionClustersCommand } = require("@aws-sdk/client-dsql"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DSQLClient(config);
  * const input = { // CreateMultiRegionClustersInput
  *   linkedRegionList: [ // RegionList // required

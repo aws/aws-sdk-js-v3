@@ -38,6 +38,7 @@ export interface ListApplicationComponentsCommandOutput extends ListApplicationC
  * ```javascript
  * import { MigrationHubStrategyClient, ListApplicationComponentsCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, ListApplicationComponentsCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MigrationHubStrategyClient(config);
  * const input = { // ListApplicationComponentsRequest
  *   applicationComponentCriteria: "STRING_VALUE",

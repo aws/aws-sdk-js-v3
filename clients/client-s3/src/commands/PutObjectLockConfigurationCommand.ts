@@ -59,6 +59,7 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
  * ```javascript
  * import { S3Client, PutObjectLockConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectLockConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3Client(config);
  * const input = { // PutObjectLockConfigurationRequest
  *   Bucket: "STRING_VALUE", // required

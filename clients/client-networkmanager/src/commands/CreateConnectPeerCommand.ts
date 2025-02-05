@@ -35,6 +35,7 @@ export interface CreateConnectPeerCommandOutput extends CreateConnectPeerRespons
  * ```javascript
  * import { NetworkManagerClient, CreateConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkManagerClient(config);
  * const input = { // CreateConnectPeerRequest
  *   ConnectAttachmentId: "STRING_VALUE", // required

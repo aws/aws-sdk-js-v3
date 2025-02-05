@@ -34,6 +34,7 @@ export interface ListAccessLogSubscriptionsCommandOutput extends ListAccessLogSu
  * ```javascript
  * import { VPCLatticeClient, ListAccessLogSubscriptionsCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, ListAccessLogSubscriptionsCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new VPCLatticeClient(config);
  * const input = { // ListAccessLogSubscriptionsRequest
  *   resourceIdentifier: "STRING_VALUE", // required

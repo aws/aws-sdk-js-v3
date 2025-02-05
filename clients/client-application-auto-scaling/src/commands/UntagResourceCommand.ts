@@ -39,6 +39,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { ApplicationAutoScalingClient, UntagResourceCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, UntagResourceCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ApplicationAutoScalingClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

@@ -77,6 +77,7 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  * ```javascript
  * import { MarketplaceMeteringClient, RegisterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
  * // const { MarketplaceMeteringClient, RegisterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MarketplaceMeteringClient(config);
  * const input = { // RegisterUsageRequest
  *   ProductCode: "STRING_VALUE", // required

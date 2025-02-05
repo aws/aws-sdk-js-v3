@@ -34,6 +34,7 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * ```javascript
  * import { CloudTrailClient, DeleteChannelCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DeleteChannelCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudTrailClient(config);
  * const input = { // DeleteChannelRequest
  *   Channel: "STRING_VALUE", // required

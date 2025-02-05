@@ -45,6 +45,7 @@ export interface DescribeBuildCommandOutput extends DescribeBuildOutput, __Metad
  * ```javascript
  * import { GameLiftClient, DescribeBuildCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeBuildCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GameLiftClient(config);
  * const input = { // DescribeBuildInput
  *   BuildId: "STRING_VALUE", // required

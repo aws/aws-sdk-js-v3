@@ -34,6 +34,7 @@ export interface ListHookResultsCommandOutput extends ListHookResultsOutput, __M
  * ```javascript
  * import { CloudFormationClient, ListHookResultsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListHookResultsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudFormationClient(config);
  * const input = { // ListHookResultsInput
  *   TargetType: "CHANGE_SET" || "STACK" || "RESOURCE" || "CLOUD_CONTROL", // required

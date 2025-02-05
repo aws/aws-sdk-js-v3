@@ -48,6 +48,7 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  * ```javascript
  * import { StorageGatewayClient, CreateSMBFileShareCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateSMBFileShareCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new StorageGatewayClient(config);
  * const input = { // CreateSMBFileShareInput
  *   ClientToken: "STRING_VALUE", // required

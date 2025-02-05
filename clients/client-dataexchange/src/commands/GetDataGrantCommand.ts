@@ -34,6 +34,7 @@ export interface GetDataGrantCommandOutput extends GetDataGrantResponse, __Metad
  * ```javascript
  * import { DataExchangeClient, GetDataGrantCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, GetDataGrantCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataExchangeClient(config);
  * const input = { // GetDataGrantRequest
  *   DataGrantId: "STRING_VALUE", // required

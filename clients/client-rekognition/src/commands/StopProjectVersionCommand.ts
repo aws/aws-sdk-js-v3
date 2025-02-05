@@ -40,6 +40,7 @@ export interface StopProjectVersionCommandOutput extends StopProjectVersionRespo
  * ```javascript
  * import { RekognitionClient, StopProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StopProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RekognitionClient(config);
  * const input = { // StopProjectVersionRequest
  *   ProjectVersionArn: "STRING_VALUE", // required

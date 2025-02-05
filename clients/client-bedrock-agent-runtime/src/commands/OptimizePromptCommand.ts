@@ -43,6 +43,7 @@ export interface OptimizePromptCommandOutput extends OptimizePromptResponse, __M
  * ```javascript
  * import { BedrockAgentRuntimeClient, OptimizePromptCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, OptimizePromptCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // OptimizePromptRequest
  *   input: { // InputPrompt Union: only one key present

@@ -34,6 +34,7 @@ export interface DeletePeeringCommandOutput extends DeletePeeringResponse, __Met
  * ```javascript
  * import { NetworkManagerClient, DeletePeeringCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeletePeeringCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkManagerClient(config);
  * const input = { // DeletePeeringRequest
  *   PeeringId: "STRING_VALUE", // required

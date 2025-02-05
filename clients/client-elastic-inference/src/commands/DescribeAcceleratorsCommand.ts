@@ -39,6 +39,7 @@ export interface DescribeAcceleratorsCommandOutput extends DescribeAcceleratorsR
  * ```javascript
  * import { ElasticInferenceClient, DescribeAcceleratorsCommand } from "@aws-sdk/client-elastic-inference"; // ES Modules import
  * // const { ElasticInferenceClient, DescribeAcceleratorsCommand } = require("@aws-sdk/client-elastic-inference"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElasticInferenceClient(config);
  * const input = { // DescribeAcceleratorsRequest
  *   acceleratorIds: [ // AcceleratorIdList

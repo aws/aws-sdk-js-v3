@@ -40,6 +40,7 @@ export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput,
  * ```javascript
  * import { WellArchitectedClient, CreateLensVersionCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, CreateLensVersionCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WellArchitectedClient(config);
  * const input = { // CreateLensVersionInput
  *   LensAlias: "STRING_VALUE", // required

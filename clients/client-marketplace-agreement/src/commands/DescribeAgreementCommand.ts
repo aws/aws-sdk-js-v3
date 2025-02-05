@@ -38,6 +38,7 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementOutput,
  * ```javascript
  * import { MarketplaceAgreementClient, DescribeAgreementCommand } from "@aws-sdk/client-marketplace-agreement"; // ES Modules import
  * // const { MarketplaceAgreementClient, DescribeAgreementCommand } = require("@aws-sdk/client-marketplace-agreement"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MarketplaceAgreementClient(config);
  * const input = { // DescribeAgreementInput
  *   agreementId: "STRING_VALUE", // required

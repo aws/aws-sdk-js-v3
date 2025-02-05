@@ -59,6 +59,7 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * ```javascript
  * import { NetworkFirewallClient, UpdateLoggingConfigurationCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, UpdateLoggingConfigurationCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkFirewallClient(config);
  * const input = { // UpdateLoggingConfigurationRequest
  *   FirewallArn: "STRING_VALUE",

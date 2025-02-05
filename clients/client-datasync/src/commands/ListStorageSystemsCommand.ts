@@ -34,6 +34,7 @@ export interface ListStorageSystemsCommandOutput extends ListStorageSystemsRespo
  * ```javascript
  * import { DataSyncClient, ListStorageSystemsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, ListStorageSystemsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataSyncClient(config);
  * const input = { // ListStorageSystemsRequest
  *   MaxResults: Number("int"),

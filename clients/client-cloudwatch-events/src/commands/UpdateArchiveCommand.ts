@@ -34,6 +34,7 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * ```javascript
  * import { CloudWatchEventsClient, UpdateArchiveCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, UpdateArchiveCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudWatchEventsClient(config);
  * const input = { // UpdateArchiveRequest
  *   ArchiveName: "STRING_VALUE", // required

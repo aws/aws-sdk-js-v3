@@ -46,6 +46,7 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
  * ```javascript
  * import { ConnectParticipantClient, DisconnectParticipantCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, DisconnectParticipantCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectParticipantClient(config);
  * const input = { // DisconnectParticipantRequest
  *   ClientToken: "STRING_VALUE",

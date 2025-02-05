@@ -34,6 +34,7 @@ export interface DescribeAppCommandOutput extends DescribeAppOutput, __MetadataB
  * ```javascript
  * import { SimSpaceWeaverClient, DescribeAppCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, DescribeAppCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // DescribeAppInput
  *   Simulation: "STRING_VALUE", // required

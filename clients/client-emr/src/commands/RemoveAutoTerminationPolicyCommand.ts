@@ -34,6 +34,7 @@ export interface RemoveAutoTerminationPolicyCommandOutput extends RemoveAutoTerm
  * ```javascript
  * import { EMRClient, RemoveAutoTerminationPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, RemoveAutoTerminationPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EMRClient(config);
  * const input = { // RemoveAutoTerminationPolicyInput
  *   ClusterId: "STRING_VALUE", // required

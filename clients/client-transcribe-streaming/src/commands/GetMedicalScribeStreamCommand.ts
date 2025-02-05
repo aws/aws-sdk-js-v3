@@ -41,6 +41,7 @@ export interface GetMedicalScribeStreamCommandOutput extends GetMedicalScribeStr
  * ```javascript
  * import { TranscribeStreamingClient, GetMedicalScribeStreamCommand } from "@aws-sdk/client-transcribe-streaming"; // ES Modules import
  * // const { TranscribeStreamingClient, GetMedicalScribeStreamCommand } = require("@aws-sdk/client-transcribe-streaming"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TranscribeStreamingClient(config);
  * const input = { // GetMedicalScribeStreamRequest
  *   SessionId: "STRING_VALUE", // required

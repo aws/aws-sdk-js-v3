@@ -34,6 +34,7 @@ export interface GetInAppMessagesCommandOutput extends GetInAppMessagesResponse,
  * ```javascript
  * import { PinpointClient, GetInAppMessagesCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetInAppMessagesCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointClient(config);
  * const input = { // GetInAppMessagesRequest
  *   ApplicationId: "STRING_VALUE", // required

@@ -39,6 +39,7 @@ export interface UpdateAppCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { OpsWorksClient, UpdateAppCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateAppCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OpsWorksClient(config);
  * const input = { // UpdateAppRequest
  *   AppId: "STRING_VALUE", // required

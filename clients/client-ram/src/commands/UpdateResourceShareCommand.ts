@@ -34,6 +34,7 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  * ```javascript
  * import { RAMClient, UpdateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, UpdateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RAMClient(config);
  * const input = { // UpdateResourceShareRequest
  *   resourceShareArn: "STRING_VALUE", // required

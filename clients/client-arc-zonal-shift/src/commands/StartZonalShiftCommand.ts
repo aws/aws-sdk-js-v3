@@ -44,6 +44,7 @@ export interface StartZonalShiftCommandOutput extends ZonalShift, __MetadataBear
  * ```javascript
  * import { ARCZonalShiftClient, StartZonalShiftCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
  * // const { ARCZonalShiftClient, StartZonalShiftCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ARCZonalShiftClient(config);
  * const input = { // StartZonalShiftRequest
  *   resourceIdentifier: "STRING_VALUE", // required

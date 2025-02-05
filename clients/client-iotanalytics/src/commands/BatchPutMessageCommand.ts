@@ -34,6 +34,7 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  * ```javascript
  * import { IoTAnalyticsClient, BatchPutMessageCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, BatchPutMessageCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTAnalyticsClient(config);
  * const input = { // BatchPutMessageRequest
  *   channelName: "STRING_VALUE", // required

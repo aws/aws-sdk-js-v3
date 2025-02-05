@@ -40,6 +40,7 @@ export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, _
  * ```javascript
  * import { SageMakerA2IRuntimeClient, DeleteHumanLoopCommand } from "@aws-sdk/client-sagemaker-a2i-runtime"; // ES Modules import
  * // const { SageMakerA2IRuntimeClient, DeleteHumanLoopCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerA2IRuntimeClient(config);
  * const input = { // DeleteHumanLoopRequest
  *   HumanLoopName: "STRING_VALUE", // required

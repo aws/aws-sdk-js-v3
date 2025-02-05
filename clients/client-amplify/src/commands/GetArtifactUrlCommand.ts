@@ -34,6 +34,7 @@ export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __Met
  * ```javascript
  * import { AmplifyClient, GetArtifactUrlCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GetArtifactUrlCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AmplifyClient(config);
  * const input = { // GetArtifactUrlRequest
  *   artifactId: "STRING_VALUE", // required

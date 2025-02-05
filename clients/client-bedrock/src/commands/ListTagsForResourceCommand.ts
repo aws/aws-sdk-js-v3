@@ -35,6 +35,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { BedrockClient, ListTagsForResourceCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, ListTagsForResourceCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceARN: "STRING_VALUE", // required

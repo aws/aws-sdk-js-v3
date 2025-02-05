@@ -37,6 +37,7 @@ export interface DeleteRelationalDatabaseCommandOutput extends DeleteRelationalD
  * ```javascript
  * import { LightsailClient, DeleteRelationalDatabaseCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteRelationalDatabaseCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LightsailClient(config);
  * const input = { // DeleteRelationalDatabaseRequest
  *   relationalDatabaseName: "STRING_VALUE", // required

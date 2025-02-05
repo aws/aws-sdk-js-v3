@@ -39,6 +39,7 @@ export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdR
  * ```javascript
  * import { IdentitystoreClient, GetGroupMembershipIdCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, GetGroupMembershipIdCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IdentitystoreClient(config);
  * const input = { // GetGroupMembershipIdRequest
  *   IdentityStoreId: "STRING_VALUE", // required

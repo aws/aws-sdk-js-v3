@@ -44,6 +44,7 @@ export interface GetVoiceConnectorExternalSystemsConfigurationCommandOutput
  * ```javascript
  * import { ChimeSDKVoiceClient, GetVoiceConnectorExternalSystemsConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, GetVoiceConnectorExternalSystemsConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // GetVoiceConnectorExternalSystemsConfigurationRequest
  *   VoiceConnectorId: "STRING_VALUE", // required

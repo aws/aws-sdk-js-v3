@@ -60,6 +60,7 @@ export interface UpdateAcceleratorCommandOutput extends UpdateAcceleratorRespons
  * ```javascript
  * import { GlobalAcceleratorClient, UpdateAcceleratorCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, UpdateAcceleratorCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // UpdateAcceleratorRequest
  *   AcceleratorArn: "STRING_VALUE", // required

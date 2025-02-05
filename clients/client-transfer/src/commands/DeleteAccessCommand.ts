@@ -35,6 +35,7 @@ export interface DeleteAccessCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { TransferClient, DeleteAccessCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteAccessCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TransferClient(config);
  * const input = { // DeleteAccessRequest
  *   ServerId: "STRING_VALUE", // required

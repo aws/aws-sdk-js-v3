@@ -185,6 +185,7 @@ export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelin
  * ```javascript
  * import { DataPipelineClient, ValidatePipelineDefinitionCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, ValidatePipelineDefinitionCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataPipelineClient(config);
  * const input = { // ValidatePipelineDefinitionInput
  *   pipelineId: "STRING_VALUE", // required

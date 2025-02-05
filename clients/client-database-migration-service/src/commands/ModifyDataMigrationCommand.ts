@@ -43,6 +43,7 @@ export interface ModifyDataMigrationCommandOutput extends ModifyDataMigrationRes
  * ```javascript
  * import { DatabaseMigrationServiceClient, ModifyDataMigrationCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ModifyDataMigrationCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // ModifyDataMigrationMessage
  *   DataMigrationIdentifier: "STRING_VALUE", // required

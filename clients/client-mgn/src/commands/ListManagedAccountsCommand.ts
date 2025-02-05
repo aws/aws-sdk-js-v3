@@ -34,6 +34,7 @@ export interface ListManagedAccountsCommandOutput extends ListManagedAccountsRes
  * ```javascript
  * import { MgnClient, ListManagedAccountsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListManagedAccountsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MgnClient(config);
  * const input = { // ListManagedAccountsRequest
  *   maxResults: Number("int"),

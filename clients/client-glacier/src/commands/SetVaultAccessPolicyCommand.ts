@@ -39,6 +39,7 @@ export interface SetVaultAccessPolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { GlacierClient, SetVaultAccessPolicyCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, SetVaultAccessPolicyCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GlacierClient(config);
  * const input = { // SetVaultAccessPolicyInput
  *   accountId: "STRING_VALUE", // required

@@ -38,6 +38,7 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * ```javascript
  * import { KeyspacesClient, GetTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, GetTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KeyspacesClient(config);
  * const input = { // GetTableRequest
  *   keyspaceName: "STRING_VALUE", // required

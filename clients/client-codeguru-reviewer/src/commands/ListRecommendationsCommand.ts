@@ -34,6 +34,7 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * ```javascript
  * import { CodeGuruReviewerClient, ListRecommendationsCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, ListRecommendationsCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeGuruReviewerClient(config);
  * const input = { // ListRecommendationsRequest
  *   NextToken: "STRING_VALUE",

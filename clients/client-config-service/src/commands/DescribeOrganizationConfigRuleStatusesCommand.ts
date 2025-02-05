@@ -50,6 +50,7 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
  * ```javascript
  * import { ConfigServiceClient, DescribeOrganizationConfigRuleStatusesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeOrganizationConfigRuleStatusesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeOrganizationConfigRuleStatusesRequest
  *   OrganizationConfigRuleNames: [ // OrganizationConfigRuleNames

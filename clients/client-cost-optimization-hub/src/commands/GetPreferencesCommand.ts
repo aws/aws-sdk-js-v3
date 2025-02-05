@@ -41,6 +41,7 @@ export interface GetPreferencesCommandOutput extends GetPreferencesResponse, __M
  * ```javascript
  * import { CostOptimizationHubClient, GetPreferencesCommand } from "@aws-sdk/client-cost-optimization-hub"; // ES Modules import
  * // const { CostOptimizationHubClient, GetPreferencesCommand } = require("@aws-sdk/client-cost-optimization-hub"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CostOptimizationHubClient(config);
  * const input = {};
  * const command = new GetPreferencesCommand(input);

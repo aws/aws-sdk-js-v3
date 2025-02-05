@@ -86,6 +86,7 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * ```javascript
  * import { KinesisClient, GetRecordsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, GetRecordsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KinesisClient(config);
  * const input = { // GetRecordsInput
  *   ShardIterator: "STRING_VALUE", // required

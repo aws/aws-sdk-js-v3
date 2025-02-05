@@ -42,6 +42,7 @@ export interface DescribeEventCategoriesCommandOutput extends DescribeEventCateg
  * ```javascript
  * import { DatabaseMigrationServiceClient, DescribeEventCategoriesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeEventCategoriesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeEventCategoriesMessage
  *   SourceType: "STRING_VALUE",

@@ -35,6 +35,7 @@ export interface BatchPutMetricsCommandOutput extends BatchPutMetricsResponse, _
  * ```javascript
  * import { SageMakerMetricsClient, BatchPutMetricsCommand } from "@aws-sdk/client-sagemaker-metrics"; // ES Modules import
  * // const { SageMakerMetricsClient, BatchPutMetricsCommand } = require("@aws-sdk/client-sagemaker-metrics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerMetricsClient(config);
  * const input = { // BatchPutMetricsRequest
  *   TrialComponentName: "STRING_VALUE", // required

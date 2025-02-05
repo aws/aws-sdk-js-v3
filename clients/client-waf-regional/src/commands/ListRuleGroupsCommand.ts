@@ -42,6 +42,7 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * ```javascript
  * import { WAFRegionalClient, ListRuleGroupsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, ListRuleGroupsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WAFRegionalClient(config);
  * const input = { // ListRuleGroupsRequest
  *   NextMarker: "STRING_VALUE",

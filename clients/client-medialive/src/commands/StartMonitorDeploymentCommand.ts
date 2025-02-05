@@ -34,6 +34,7 @@ export interface StartMonitorDeploymentCommandOutput extends StartMonitorDeploym
  * ```javascript
  * import { MediaLiveClient, StartMonitorDeploymentCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, StartMonitorDeploymentCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaLiveClient(config);
  * const input = { // StartMonitorDeploymentRequest
  *   DryRun: true || false,

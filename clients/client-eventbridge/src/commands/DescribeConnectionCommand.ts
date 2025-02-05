@@ -38,6 +38,7 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * ```javascript
  * import { EventBridgeClient, DescribeConnectionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DescribeConnectionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EventBridgeClient(config);
  * const input = { // DescribeConnectionRequest
  *   Name: "STRING_VALUE", // required

@@ -37,6 +37,7 @@ export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterR
  * ```javascript
  * import { EMRContainersClient, CreateVirtualClusterCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, CreateVirtualClusterCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EMRContainersClient(config);
  * const input = { // CreateVirtualClusterRequest
  *   name: "STRING_VALUE", // required

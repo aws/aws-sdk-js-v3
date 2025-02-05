@@ -104,6 +104,7 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  * ```javascript
  * import { FirehoseClient, CreateDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, CreateDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FirehoseClient(config);
  * const input = { // CreateDeliveryStreamInput
  *   DeliveryStreamName: "STRING_VALUE", // required

@@ -42,6 +42,7 @@ export interface DescribeAssociationExecutionTargetsCommandOutput
  * ```javascript
  * import { SSMClient, DescribeAssociationExecutionTargetsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAssociationExecutionTargetsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSMClient(config);
  * const input = { // DescribeAssociationExecutionTargetsRequest
  *   AssociationId: "STRING_VALUE", // required

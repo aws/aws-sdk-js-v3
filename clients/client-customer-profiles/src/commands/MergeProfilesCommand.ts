@@ -76,6 +76,7 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  * ```javascript
  * import { CustomerProfilesClient, MergeProfilesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, MergeProfilesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CustomerProfilesClient(config);
  * const input = { // MergeProfilesRequest
  *   DomainName: "STRING_VALUE", // required

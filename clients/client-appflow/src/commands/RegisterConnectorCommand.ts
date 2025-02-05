@@ -36,6 +36,7 @@ export interface RegisterConnectorCommandOutput extends RegisterConnectorRespons
  * ```javascript
  * import { AppflowClient, RegisterConnectorCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, RegisterConnectorCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppflowClient(config);
  * const input = { // RegisterConnectorRequest
  *   connectorLabel: "STRING_VALUE",

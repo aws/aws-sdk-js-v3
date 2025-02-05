@@ -50,6 +50,7 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput
  * ```javascript
  * import { ElasticLoadBalancingClient, SetLoadBalancerListenerSSLCertificateCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, SetLoadBalancerListenerSSLCertificateCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // SetLoadBalancerListenerSSLCertificateInput
  *   LoadBalancerName: "STRING_VALUE", // required

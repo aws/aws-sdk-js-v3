@@ -359,21 +359,21 @@ export interface Backup {
   PreferredMaintenanceWindow?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>
    *       This field is deprecated and is no longer used.
    *     </p>
+   *
+   * @deprecated
    * @public
    */
   S3DataSize?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>
    *       This field is deprecated and is no longer used.
    *     </p>
+   *
+   * @deprecated
    * @public
    */
   S3DataUrl?: string | undefined;

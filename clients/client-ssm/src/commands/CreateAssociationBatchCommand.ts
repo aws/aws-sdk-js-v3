@@ -45,6 +45,7 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  * ```javascript
  * import { SSMClient, CreateAssociationBatchCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateAssociationBatchCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSMClient(config);
  * const input = { // CreateAssociationBatchRequest
  *   Entries: [ // CreateAssociationBatchRequestEntries // required

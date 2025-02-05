@@ -34,6 +34,7 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * ```javascript
  * import { CleanRoomsClient, GetSchemaAnalysisRuleCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetSchemaAnalysisRuleCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CleanRoomsClient(config);
  * const input = { // GetSchemaAnalysisRuleInput
  *   collaborationIdentifier: "STRING_VALUE", // required

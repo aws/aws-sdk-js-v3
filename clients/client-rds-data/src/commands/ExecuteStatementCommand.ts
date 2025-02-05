@@ -40,6 +40,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  * ```javascript
  * import { RDSDataClient, ExecuteStatementCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
  * // const { RDSDataClient, ExecuteStatementCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RDSDataClient(config);
  * const input = { // ExecuteStatementRequest
  *   resourceArn: "STRING_VALUE", // required

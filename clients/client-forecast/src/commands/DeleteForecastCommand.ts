@@ -38,6 +38,7 @@ export interface DeleteForecastCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ForecastClient, DeleteForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ForecastClient(config);
  * const input = { // DeleteForecastRequest
  *   ForecastArn: "STRING_VALUE", // required

@@ -38,6 +38,7 @@ export interface ExportEarthObservationJobCommandOutput extends ExportEarthObser
  * ```javascript
  * import { SageMakerGeospatialClient, ExportEarthObservationJobCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, ExportEarthObservationJobCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerGeospatialClient(config);
  * const input = { // ExportEarthObservationJobInput
  *   Arn: "STRING_VALUE", // required

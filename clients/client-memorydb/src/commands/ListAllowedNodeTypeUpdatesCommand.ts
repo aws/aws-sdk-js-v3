@@ -36,6 +36,7 @@ export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNode
  * ```javascript
  * import { MemoryDBClient, ListAllowedNodeTypeUpdatesCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, ListAllowedNodeTypeUpdatesCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MemoryDBClient(config);
  * const input = { // ListAllowedNodeTypeUpdatesRequest
  *   ClusterName: "STRING_VALUE", // required

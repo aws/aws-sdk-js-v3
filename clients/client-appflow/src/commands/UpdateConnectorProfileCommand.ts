@@ -38,6 +38,7 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  * ```javascript
  * import { AppflowClient, UpdateConnectorProfileCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, UpdateConnectorProfileCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppflowClient(config);
  * const input = { // UpdateConnectorProfileRequest
  *   connectorProfileName: "STRING_VALUE", // required

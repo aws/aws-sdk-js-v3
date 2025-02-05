@@ -34,6 +34,7 @@ export interface GetPermissionCommandOutput extends GetPermissionResponse, __Met
  * ```javascript
  * import { RAMClient, GetPermissionCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, GetPermissionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RAMClient(config);
  * const input = { // GetPermissionRequest
  *   permissionArn: "STRING_VALUE", // required

@@ -61,6 +61,7 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  * ```javascript
  * import { ElastiCacheClient, DeleteCacheClusterCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteCacheClusterCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElastiCacheClient(config);
  * const input = { // DeleteCacheClusterMessage
  *   CacheClusterId: "STRING_VALUE", // required

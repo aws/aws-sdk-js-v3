@@ -34,6 +34,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * ```javascript
  * import { DataBrewClient, ListJobsCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListJobsCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataBrewClient(config);
  * const input = { // ListJobsRequest
  *   DatasetName: "STRING_VALUE",

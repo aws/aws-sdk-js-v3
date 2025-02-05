@@ -47,6 +47,7 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  * ```javascript
  * import { BedrockAgentRuntimeClient, RetrieveAndGenerateStreamCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, RetrieveAndGenerateStreamCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // RetrieveAndGenerateStreamRequest
  *   sessionId: "STRING_VALUE",

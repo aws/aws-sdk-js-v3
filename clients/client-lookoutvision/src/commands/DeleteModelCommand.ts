@@ -41,6 +41,7 @@ export interface DeleteModelCommandOutput extends DeleteModelResponse, __Metadat
  * ```javascript
  * import { LookoutVisionClient, DeleteModelCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, DeleteModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LookoutVisionClient(config);
  * const input = { // DeleteModelRequest
  *   ProjectName: "STRING_VALUE", // required

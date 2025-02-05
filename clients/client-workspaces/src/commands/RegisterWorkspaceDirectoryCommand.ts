@@ -38,6 +38,7 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * ```javascript
  * import { WorkSpacesClient, RegisterWorkspaceDirectoryCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, RegisterWorkspaceDirectoryCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkSpacesClient(config);
  * const input = { // RegisterWorkspaceDirectoryRequest
  *   DirectoryId: "STRING_VALUE",

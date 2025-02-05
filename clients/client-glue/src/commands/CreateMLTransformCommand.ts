@@ -44,6 +44,7 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  * ```javascript
  * import { GlueClient, CreateMLTransformCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateMLTransformCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GlueClient(config);
  * const input = { // CreateMLTransformRequest
  *   Name: "STRING_VALUE", // required

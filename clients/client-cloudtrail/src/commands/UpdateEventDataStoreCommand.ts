@@ -43,6 +43,7 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  * ```javascript
  * import { CloudTrailClient, UpdateEventDataStoreCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, UpdateEventDataStoreCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudTrailClient(config);
  * const input = { // UpdateEventDataStoreRequest
  *   EventDataStore: "STRING_VALUE", // required

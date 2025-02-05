@@ -39,6 +39,7 @@ export interface DescribeViewCommandOutput extends DescribeViewResponse, __Metad
  * ```javascript
  * import { ConnectParticipantClient, DescribeViewCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, DescribeViewCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectParticipantClient(config);
  * const input = { // DescribeViewRequest
  *   ViewToken: "STRING_VALUE", // required

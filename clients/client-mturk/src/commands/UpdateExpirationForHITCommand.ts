@@ -37,6 +37,7 @@ export interface UpdateExpirationForHITCommandOutput extends UpdateExpirationFor
  * ```javascript
  * import { MTurkClient, UpdateExpirationForHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, UpdateExpirationForHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MTurkClient(config);
  * const input = { // UpdateExpirationForHITRequest
  *   HITId: "STRING_VALUE", // required

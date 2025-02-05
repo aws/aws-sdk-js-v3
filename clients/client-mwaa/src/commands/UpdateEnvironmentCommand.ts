@@ -38,6 +38,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * ```javascript
  * import { MWAAClient, UpdateEnvironmentCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MWAAClient(config);
  * const input = { // UpdateEnvironmentInput
  *   Name: "STRING_VALUE", // required

@@ -37,6 +37,7 @@ export interface CreateServiceNetworkCommandOutput extends CreateServiceNetworkR
  * ```javascript
  * import { VPCLatticeClient, CreateServiceNetworkCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, CreateServiceNetworkCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new VPCLatticeClient(config);
  * const input = { // CreateServiceNetworkRequest
  *   clientToken: "STRING_VALUE",

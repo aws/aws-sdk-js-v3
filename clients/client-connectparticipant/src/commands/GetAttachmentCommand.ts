@@ -47,6 +47,7 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
  * ```javascript
  * import { ConnectParticipantClient, GetAttachmentCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, GetAttachmentCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectParticipantClient(config);
  * const input = { // GetAttachmentRequest
  *   AttachmentId: "STRING_VALUE", // required

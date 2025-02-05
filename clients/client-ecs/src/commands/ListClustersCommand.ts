@@ -34,6 +34,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * ```javascript
  * import { ECSClient, ListClustersCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListClustersCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ECSClient(config);
  * const input = { // ListClustersRequest
  *   nextToken: "STRING_VALUE",

@@ -39,6 +39,7 @@ export interface GetCalculatedAttributeForProfileCommandOutput
  * ```javascript
  * import { CustomerProfilesClient, GetCalculatedAttributeForProfileCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetCalculatedAttributeForProfileCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CustomerProfilesClient(config);
  * const input = { // GetCalculatedAttributeForProfileRequest
  *   DomainName: "STRING_VALUE", // required

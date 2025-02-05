@@ -34,6 +34,7 @@ export interface DeleteIntegrationCommandOutput extends DeleteIntegrationRespons
  * ```javascript
  * import { CustomerProfilesClient, DeleteIntegrationCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, DeleteIntegrationCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CustomerProfilesClient(config);
  * const input = { // DeleteIntegrationRequest
  *   DomainName: "STRING_VALUE", // required

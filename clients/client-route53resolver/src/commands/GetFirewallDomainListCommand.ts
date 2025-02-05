@@ -34,6 +34,7 @@ export interface GetFirewallDomainListCommandOutput extends GetFirewallDomainLis
  * ```javascript
  * import { Route53ResolverClient, GetFirewallDomainListCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetFirewallDomainListCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Route53ResolverClient(config);
  * const input = { // GetFirewallDomainListRequest
  *   FirewallDomainListId: "STRING_VALUE", // required

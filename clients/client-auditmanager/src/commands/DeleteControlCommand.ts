@@ -40,6 +40,7 @@ export interface DeleteControlCommandOutput extends DeleteControlResponse, __Met
  * ```javascript
  * import { AuditManagerClient, DeleteControlCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, DeleteControlCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AuditManagerClient(config);
  * const input = { // DeleteControlRequest
  *   controlId: "STRING_VALUE", // required

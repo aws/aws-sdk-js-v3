@@ -37,6 +37,7 @@ export interface GetReservationUtilizationCommandOutput extends GetReservationUt
  * ```javascript
  * import { CostExplorerClient, GetReservationUtilizationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetReservationUtilizationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CostExplorerClient(config);
  * const input = { // GetReservationUtilizationRequest
  *   TimePeriod: { // DateInterval

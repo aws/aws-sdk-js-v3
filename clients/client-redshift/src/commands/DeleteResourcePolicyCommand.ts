@@ -34,6 +34,7 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RedshiftClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftClient(config);
  * const input = { // DeleteResourcePolicyMessage
  *   ResourceArn: "STRING_VALUE", // required

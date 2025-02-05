@@ -34,6 +34,7 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * ```javascript
  * import { ServiceDiscoveryClient, ListOperationsCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, ListOperationsCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // ListOperationsRequest
  *   NextToken: "STRING_VALUE",

@@ -34,6 +34,7 @@ export interface ListReplicatorsCommandOutput extends ListReplicatorsResponse, _
  * ```javascript
  * import { KafkaClient, ListReplicatorsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, ListReplicatorsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KafkaClient(config);
  * const input = { // ListReplicatorsRequest
  *   MaxResults: Number("int"),

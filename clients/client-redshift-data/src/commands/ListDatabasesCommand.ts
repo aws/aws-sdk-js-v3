@@ -70,6 +70,7 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  * ```javascript
  * import { RedshiftDataClient, ListDatabasesCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, ListDatabasesCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftDataClient(config);
  * const input = { // ListDatabasesRequest
  *   ClusterIdentifier: "STRING_VALUE",

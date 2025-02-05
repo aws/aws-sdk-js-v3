@@ -39,6 +39,7 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * ```javascript
  * import { NetworkFirewallClient, UpdateRuleGroupCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, UpdateRuleGroupCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkFirewallClient(config);
  * const input = { // UpdateRuleGroupRequest
  *   UpdateToken: "STRING_VALUE", // required

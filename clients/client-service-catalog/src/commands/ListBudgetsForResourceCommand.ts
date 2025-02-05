@@ -34,6 +34,7 @@ export interface ListBudgetsForResourceCommandOutput extends ListBudgetsForResou
  * ```javascript
  * import { ServiceCatalogClient, ListBudgetsForResourceCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListBudgetsForResourceCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListBudgetsForResourceInput
  *   AcceptLanguage: "STRING_VALUE",

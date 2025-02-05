@@ -34,6 +34,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
  * ```javascript
  * import { BedrockAgentClient, DeleteDataSourceCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, DeleteDataSourceCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockAgentClient(config);
  * const input = { // DeleteDataSourceRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

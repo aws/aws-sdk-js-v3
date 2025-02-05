@@ -34,6 +34,7 @@ export interface GetOutpostInstanceTypesCommandOutput extends GetOutpostInstance
  * ```javascript
  * import { OutpostsClient, GetOutpostInstanceTypesCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetOutpostInstanceTypesCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OutpostsClient(config);
  * const input = { // GetOutpostInstanceTypesInput
  *   OutpostId: "STRING_VALUE", // required

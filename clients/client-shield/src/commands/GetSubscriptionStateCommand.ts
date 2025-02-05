@@ -34,6 +34,7 @@ export interface GetSubscriptionStateCommandOutput extends GetSubscriptionStateR
  * ```javascript
  * import { ShieldClient, GetSubscriptionStateCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, GetSubscriptionStateCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ShieldClient(config);
  * const input = {};
  * const command = new GetSubscriptionStateCommand(input);

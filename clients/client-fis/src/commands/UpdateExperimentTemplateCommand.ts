@@ -34,6 +34,7 @@ export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentT
  * ```javascript
  * import { FisClient, UpdateExperimentTemplateCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, UpdateExperimentTemplateCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FisClient(config);
  * const input = { // UpdateExperimentTemplateRequest
  *   id: "STRING_VALUE", // required

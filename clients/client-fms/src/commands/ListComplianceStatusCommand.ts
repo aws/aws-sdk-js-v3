@@ -36,6 +36,7 @@ export interface ListComplianceStatusCommandOutput extends ListComplianceStatusR
  * ```javascript
  * import { FMSClient, ListComplianceStatusCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListComplianceStatusCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FMSClient(config);
  * const input = { // ListComplianceStatusRequest
  *   PolicyId: "STRING_VALUE", // required

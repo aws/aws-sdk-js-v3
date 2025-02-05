@@ -41,6 +41,7 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * ```javascript
  * import { CloudWatchClient, DescribeAlarmHistoryCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAlarmHistoryCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudWatchClient(config);
  * const input = { // DescribeAlarmHistoryInput
  *   AlarmName: "STRING_VALUE",

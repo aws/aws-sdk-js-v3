@@ -38,6 +38,7 @@ export interface SendCisSessionHealthCommandOutput extends SendCisSessionHealthR
  * ```javascript
  * import { Inspector2Client, SendCisSessionHealthCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, SendCisSessionHealthCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Inspector2Client(config);
  * const input = { // SendCisSessionHealthRequest
  *   scanJobId: "STRING_VALUE", // required

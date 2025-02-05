@@ -42,6 +42,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * ```javascript
  * import { EKSClient, DeleteClusterCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DeleteClusterCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EKSClient(config);
  * const input = { // DeleteClusterRequest
  *   name: "STRING_VALUE", // required

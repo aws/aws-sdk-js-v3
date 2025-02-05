@@ -128,6 +128,7 @@ export interface PostContentCommandOutput extends Omit<PostContentResponse, "aud
  * ```javascript
  * import { LexRuntimeServiceClient, PostContentCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
  * // const { LexRuntimeServiceClient, PostContentCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LexRuntimeServiceClient(config);
  * const input = { // PostContentRequest
  *   botName: "STRING_VALUE", // required

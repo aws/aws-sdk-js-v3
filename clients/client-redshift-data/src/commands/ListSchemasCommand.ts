@@ -70,6 +70,7 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * ```javascript
  * import { RedshiftDataClient, ListSchemasCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, ListSchemasCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftDataClient(config);
  * const input = { // ListSchemasRequest
  *   ClusterIdentifier: "STRING_VALUE",

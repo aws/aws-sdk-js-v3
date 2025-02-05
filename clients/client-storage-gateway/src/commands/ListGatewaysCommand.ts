@@ -42,6 +42,7 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * ```javascript
  * import { StorageGatewayClient, ListGatewaysCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListGatewaysCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new StorageGatewayClient(config);
  * const input = { // ListGatewaysInput
  *   Marker: "STRING_VALUE",

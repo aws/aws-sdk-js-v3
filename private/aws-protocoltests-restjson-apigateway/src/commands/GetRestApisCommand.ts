@@ -33,6 +33,7 @@ export interface GetRestApisCommandOutput extends RestApis, __MetadataBearer {}
  * ```javascript
  * import { APIGatewayClient, GetRestApisCommand } from "@aws-sdk/aws-protocoltests-restjson-apigateway"; // ES Modules import
  * // const { APIGatewayClient, GetRestApisCommand } = require("@aws-sdk/aws-protocoltests-restjson-apigateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new APIGatewayClient(config);
  * const input = { // GetRestApisRequest
  *   position: "STRING_VALUE",

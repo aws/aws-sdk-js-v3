@@ -34,6 +34,7 @@ export interface GetContactCommandOutput extends GetContactResult, __MetadataBea
  * ```javascript
  * import { SSMContactsClient, GetContactCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, GetContactCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSMContactsClient(config);
  * const input = { // GetContactRequest
  *   ContactId: "STRING_VALUE", // required

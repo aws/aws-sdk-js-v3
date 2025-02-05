@@ -34,6 +34,7 @@ export interface StartDataIngestionJobCommandOutput extends StartDataIngestionJo
  * ```javascript
  * import { LookoutEquipmentClient, StartDataIngestionJobCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, StartDataIngestionJobCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LookoutEquipmentClient(config);
  * const input = { // StartDataIngestionJobRequest
  *   DatasetName: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface DeregisterWirelessDeviceCommandOutput extends DeregisterWireles
  * ```javascript
  * import { IoTWirelessClient, DeregisterWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeregisterWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTWirelessClient(config);
  * const input = { // DeregisterWirelessDeviceRequest
  *   Identifier: "STRING_VALUE", // required

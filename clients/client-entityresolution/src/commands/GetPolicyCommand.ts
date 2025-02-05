@@ -34,6 +34,7 @@ export interface GetPolicyCommandOutput extends GetPolicyOutput, __MetadataBeare
  * ```javascript
  * import { EntityResolutionClient, GetPolicyCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, GetPolicyCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EntityResolutionClient(config);
  * const input = { // GetPolicyInput
  *   arn: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface StopIngestionJobCommandOutput extends StopIngestionJobResponse,
  * ```javascript
  * import { BedrockAgentClient, StopIngestionJobCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, StopIngestionJobCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockAgentClient(config);
  * const input = { // StopIngestionJobRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

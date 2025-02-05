@@ -41,6 +41,7 @@ export interface GetBotAliasCommandOutput extends GetBotAliasResponse, __Metadat
  * ```javascript
  * import { LexModelBuildingServiceClient, GetBotAliasCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetBotAliasCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetBotAliasRequest
  *   name: "STRING_VALUE", // required

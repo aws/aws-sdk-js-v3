@@ -40,6 +40,7 @@ export interface CreateNetworkSettingsCommandOutput extends CreateNetworkSetting
  * ```javascript
  * import { WorkSpacesWebClient, CreateNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, CreateNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkSpacesWebClient(config);
  * const input = { // CreateNetworkSettingsRequest
  *   vpcId: "STRING_VALUE", // required

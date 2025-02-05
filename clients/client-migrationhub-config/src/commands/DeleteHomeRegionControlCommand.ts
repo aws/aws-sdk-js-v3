@@ -38,6 +38,7 @@ export interface DeleteHomeRegionControlCommandOutput extends DeleteHomeRegionCo
  * ```javascript
  * import { MigrationHubConfigClient, DeleteHomeRegionControlCommand } from "@aws-sdk/client-migrationhub-config"; // ES Modules import
  * // const { MigrationHubConfigClient, DeleteHomeRegionControlCommand } = require("@aws-sdk/client-migrationhub-config"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MigrationHubConfigClient(config);
  * const input = { // DeleteHomeRegionControlRequest
  *   ControlId: "STRING_VALUE", // required

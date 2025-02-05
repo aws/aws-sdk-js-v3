@@ -40,6 +40,7 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * ```javascript
  * import { IoTClient, CreatePackageCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreatePackageCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTClient(config);
  * const input = { // CreatePackageRequest
  *   packageName: "STRING_VALUE", // required

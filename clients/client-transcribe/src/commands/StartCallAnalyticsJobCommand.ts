@@ -84,6 +84,7 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  * ```javascript
  * import { TranscribeClient, StartCallAnalyticsJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, StartCallAnalyticsJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TranscribeClient(config);
  * const input = { // StartCallAnalyticsJobRequest
  *   CallAnalyticsJobName: "STRING_VALUE", // required

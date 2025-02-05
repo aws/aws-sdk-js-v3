@@ -42,6 +42,7 @@ export interface CreateEventBridgeRuleTemplateGroupCommandOutput
  * ```javascript
  * import { MediaLiveClient, CreateEventBridgeRuleTemplateGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateEventBridgeRuleTemplateGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaLiveClient(config);
  * const input = { // CreateEventBridgeRuleTemplateGroupRequest
  *   Description: "STRING_VALUE",

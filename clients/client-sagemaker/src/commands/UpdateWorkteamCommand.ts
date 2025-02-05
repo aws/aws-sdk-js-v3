@@ -34,6 +34,7 @@ export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __M
  * ```javascript
  * import { SageMakerClient, UpdateWorkteamCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateWorkteamCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // UpdateWorkteamRequest
  *   WorkteamName: "STRING_VALUE", // required

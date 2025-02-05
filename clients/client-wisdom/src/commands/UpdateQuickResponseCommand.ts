@@ -39,6 +39,7 @@ export interface UpdateQuickResponseCommandOutput extends UpdateQuickResponseRes
  * ```javascript
  * import { WisdomClient, UpdateQuickResponseCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, UpdateQuickResponseCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WisdomClient(config);
  * const input = { // UpdateQuickResponseRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

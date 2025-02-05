@@ -34,6 +34,7 @@ export interface ListLabelsCommandOutput extends ListLabelsResponse, __MetadataB
  * ```javascript
  * import { LookoutEquipmentClient, ListLabelsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListLabelsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LookoutEquipmentClient(config);
  * const input = { // ListLabelsRequest
  *   LabelGroupName: "STRING_VALUE", // required

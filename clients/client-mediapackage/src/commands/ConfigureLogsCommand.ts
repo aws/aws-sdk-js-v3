@@ -38,6 +38,7 @@ export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __Met
  * ```javascript
  * import { MediaPackageClient, ConfigureLogsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, ConfigureLogsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaPackageClient(config);
  * const input = { // ConfigureLogsRequest
  *   EgressAccessLogs: { // EgressAccessLogs

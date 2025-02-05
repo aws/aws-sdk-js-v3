@@ -35,6 +35,7 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * ```javascript
  * import { CloudTrailClient, GetChannelCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetChannelCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudTrailClient(config);
  * const input = { // GetChannelRequest
  *   Channel: "STRING_VALUE", // required

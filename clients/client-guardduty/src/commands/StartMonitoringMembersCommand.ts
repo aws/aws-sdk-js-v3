@@ -35,6 +35,7 @@ export interface StartMonitoringMembersCommandOutput extends StartMonitoringMemb
  * ```javascript
  * import { GuardDutyClient, StartMonitoringMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, StartMonitoringMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GuardDutyClient(config);
  * const input = { // StartMonitoringMembersRequest
  *   DetectorId: "STRING_VALUE", // required

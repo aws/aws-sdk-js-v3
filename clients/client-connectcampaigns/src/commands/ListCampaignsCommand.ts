@@ -34,6 +34,7 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * ```javascript
  * import { ConnectCampaignsClient, ListCampaignsCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, ListCampaignsCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectCampaignsClient(config);
  * const input = { // ListCampaignsRequest
  *   maxResults: Number("int"),

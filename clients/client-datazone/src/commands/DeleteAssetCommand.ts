@@ -34,6 +34,7 @@ export interface DeleteAssetCommandOutput extends DeleteAssetOutput, __MetadataB
  * ```javascript
  * import { DataZoneClient, DeleteAssetCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteAssetCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataZoneClient(config);
  * const input = { // DeleteAssetInput
  *   domainIdentifier: "STRING_VALUE", // required

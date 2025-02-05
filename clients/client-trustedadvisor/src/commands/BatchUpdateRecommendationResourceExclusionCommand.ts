@@ -43,6 +43,7 @@ export interface BatchUpdateRecommendationResourceExclusionCommandOutput
  * ```javascript
  * import { TrustedAdvisorClient, BatchUpdateRecommendationResourceExclusionCommand } from "@aws-sdk/client-trustedadvisor"; // ES Modules import
  * // const { TrustedAdvisorClient, BatchUpdateRecommendationResourceExclusionCommand } = require("@aws-sdk/client-trustedadvisor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TrustedAdvisorClient(config);
  * const input = { // BatchUpdateRecommendationResourceExclusionRequest
  *   recommendationResourceExclusions: [ // RecommendationResourceExclusionList // required

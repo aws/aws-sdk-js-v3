@@ -59,6 +59,7 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * ```javascript
  * import { PersonalizeClient, CreateSchemaCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateSchemaCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PersonalizeClient(config);
  * const input = { // CreateSchemaRequest
  *   name: "STRING_VALUE", // required

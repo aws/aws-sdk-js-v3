@@ -34,6 +34,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * ```javascript
  * import { MediaConvertClient, CreatePresetCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, CreatePresetCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaConvertClient(config);
  * const input = { // CreatePresetRequest
  *   Category: "STRING_VALUE",

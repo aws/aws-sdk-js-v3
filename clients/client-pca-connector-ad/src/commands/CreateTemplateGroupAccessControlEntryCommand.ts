@@ -39,6 +39,7 @@ export interface CreateTemplateGroupAccessControlEntryCommandOutput extends __Me
  * ```javascript
  * import { PcaConnectorAdClient, CreateTemplateGroupAccessControlEntryCommand } from "@aws-sdk/client-pca-connector-ad"; // ES Modules import
  * // const { PcaConnectorAdClient, CreateTemplateGroupAccessControlEntryCommand } = require("@aws-sdk/client-pca-connector-ad"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PcaConnectorAdClient(config);
  * const input = { // CreateTemplateGroupAccessControlEntryRequest
  *   TemplateArn: "STRING_VALUE", // required

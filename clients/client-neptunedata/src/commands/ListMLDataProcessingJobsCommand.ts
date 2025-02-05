@@ -39,6 +39,7 @@ export interface ListMLDataProcessingJobsCommandOutput extends ListMLDataProcess
  * ```javascript
  * import { NeptunedataClient, ListMLDataProcessingJobsCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, ListMLDataProcessingJobsCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptunedataClient(config);
  * const input = { // ListMLDataProcessingJobsInput
  *   maxItems: Number("int"),

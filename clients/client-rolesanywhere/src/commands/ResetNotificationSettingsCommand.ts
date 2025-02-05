@@ -39,6 +39,7 @@ export interface ResetNotificationSettingsCommandOutput extends ResetNotificatio
  * ```javascript
  * import { RolesAnywhereClient, ResetNotificationSettingsCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, ResetNotificationSettingsCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RolesAnywhereClient(config);
  * const input = { // ResetNotificationSettingsRequest
  *   trustAnchorId: "STRING_VALUE", // required

@@ -38,6 +38,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * ```javascript
  * import { Route53RecoveryControlConfigClient, DeleteClusterCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, DeleteClusterCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Route53RecoveryControlConfigClient(config);
  * const input = { // DeleteClusterRequest
  *   ClusterArn: "STRING_VALUE", // required

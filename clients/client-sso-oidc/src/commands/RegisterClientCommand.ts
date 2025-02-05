@@ -40,6 +40,7 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  * ```javascript
  * import { SSOOIDCClient, RegisterClientCommand } from "@aws-sdk/client-sso-oidc"; // ES Modules import
  * // const { SSOOIDCClient, RegisterClientCommand } = require("@aws-sdk/client-sso-oidc"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSOOIDCClient(config);
  * const input = { // RegisterClientRequest
  *   clientName: "STRING_VALUE", // required

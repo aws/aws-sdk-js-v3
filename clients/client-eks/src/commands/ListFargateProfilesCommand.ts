@@ -35,6 +35,7 @@ export interface ListFargateProfilesCommandOutput extends ListFargateProfilesRes
  * ```javascript
  * import { EKSClient, ListFargateProfilesCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, ListFargateProfilesCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EKSClient(config);
  * const input = { // ListFargateProfilesRequest
  *   clusterName: "STRING_VALUE", // required

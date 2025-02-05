@@ -38,6 +38,7 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * ```javascript
  * import { TrustedAdvisorClient, GetRecommendationCommand } from "@aws-sdk/client-trustedadvisor"; // ES Modules import
  * // const { TrustedAdvisorClient, GetRecommendationCommand } = require("@aws-sdk/client-trustedadvisor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TrustedAdvisorClient(config);
  * const input = { // GetRecommendationRequest
  *   recommendationIdentifier: "STRING_VALUE", // required

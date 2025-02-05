@@ -38,6 +38,7 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  * ```javascript
  * import { ForecastClient, ListDatasetImportJobsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListDatasetImportJobsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ForecastClient(config);
  * const input = { // ListDatasetImportJobsRequest
  *   NextToken: "STRING_VALUE",

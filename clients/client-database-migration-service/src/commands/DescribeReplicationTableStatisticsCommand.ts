@@ -47,6 +47,7 @@ export interface DescribeReplicationTableStatisticsCommandOutput
  * ```javascript
  * import { DatabaseMigrationServiceClient, DescribeReplicationTableStatisticsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeReplicationTableStatisticsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DescribeReplicationTableStatisticsMessage
  *   ReplicationConfigArn: "STRING_VALUE", // required

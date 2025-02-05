@@ -37,6 +37,7 @@ export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, _
  * ```javascript
  * import { PanoramaClient, ProvisionDeviceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ProvisionDeviceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PanoramaClient(config);
  * const input = { // ProvisionDeviceRequest
  *   Name: "STRING_VALUE", // required

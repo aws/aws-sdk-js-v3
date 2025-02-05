@@ -43,6 +43,7 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  * ```javascript
  * import { BedrockAgentRuntimeClient, RetrieveCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, RetrieveCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // RetrieveRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * ```javascript
  * import { TrustedAdvisorClient, ListRecommendationsCommand } from "@aws-sdk/client-trustedadvisor"; // ES Modules import
  * // const { TrustedAdvisorClient, ListRecommendationsCommand } = require("@aws-sdk/client-trustedadvisor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TrustedAdvisorClient(config);
  * const input = { // ListRecommendationsRequest
  *   nextToken: "STRING_VALUE",

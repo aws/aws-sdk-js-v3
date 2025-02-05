@@ -34,6 +34,7 @@ export interface CreateAgentAliasCommandOutput extends CreateAgentAliasResponse,
  * ```javascript
  * import { BedrockAgentClient, CreateAgentAliasCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, CreateAgentAliasCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockAgentClient(config);
  * const input = { // CreateAgentAliasRequest
  *   agentId: "STRING_VALUE", // required

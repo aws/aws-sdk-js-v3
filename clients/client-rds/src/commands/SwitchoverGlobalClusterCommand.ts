@@ -44,6 +44,7 @@ export interface SwitchoverGlobalClusterCommandOutput extends SwitchoverGlobalCl
  * ```javascript
  * import { RDSClient, SwitchoverGlobalClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, SwitchoverGlobalClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RDSClient(config);
  * const input = { // SwitchoverGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required

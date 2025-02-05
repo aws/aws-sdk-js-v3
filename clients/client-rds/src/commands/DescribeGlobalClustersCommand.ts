@@ -39,6 +39,7 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * ```javascript
  * import { RDSClient, DescribeGlobalClustersCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeGlobalClustersCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RDSClient(config);
  * const input = { // DescribeGlobalClustersMessage
  *   GlobalClusterIdentifier: "STRING_VALUE",

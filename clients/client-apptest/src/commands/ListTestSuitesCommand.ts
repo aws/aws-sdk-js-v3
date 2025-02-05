@@ -34,6 +34,7 @@ export interface ListTestSuitesCommandOutput extends ListTestSuitesResponse, __M
  * ```javascript
  * import { AppTestClient, ListTestSuitesCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, ListTestSuitesCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppTestClient(config);
  * const input = { // ListTestSuitesRequest
  *   testSuiteIds: [ // TestSuiteIdList

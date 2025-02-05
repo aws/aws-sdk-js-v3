@@ -34,6 +34,7 @@ export interface ListRotationOverridesCommandOutput extends ListRotationOverride
  * ```javascript
  * import { SSMContactsClient, ListRotationOverridesCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, ListRotationOverridesCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSMContactsClient(config);
  * const input = { // ListRotationOverridesRequest
  *   RotationId: "STRING_VALUE", // required

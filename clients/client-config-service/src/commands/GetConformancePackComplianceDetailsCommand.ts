@@ -42,6 +42,7 @@ export interface GetConformancePackComplianceDetailsCommandOutput
  * ```javascript
  * import { ConfigServiceClient, GetConformancePackComplianceDetailsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetConformancePackComplianceDetailsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConfigServiceClient(config);
  * const input = { // GetConformancePackComplianceDetailsRequest
  *   ConformancePackName: "STRING_VALUE", // required

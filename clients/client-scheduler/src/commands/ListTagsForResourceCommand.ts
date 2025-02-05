@@ -34,6 +34,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * ```javascript
  * import { SchedulerClient, ListTagsForResourceCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, ListTagsForResourceCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SchedulerClient(config);
  * const input = { // ListTagsForResourceInput
  *   ResourceArn: "STRING_VALUE", // required

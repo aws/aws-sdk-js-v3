@@ -34,6 +34,7 @@ export interface CreateStudioCommandOutput extends CreateStudioOutput, __Metadat
  * ```javascript
  * import { EMRClient, CreateStudioCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, CreateStudioCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EMRClient(config);
  * const input = { // CreateStudioInput
  *   Name: "STRING_VALUE", // required

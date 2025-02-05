@@ -58,6 +58,7 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * ```javascript
  * import { CodeartifactClient, GetAuthorizationTokenCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, GetAuthorizationTokenCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeartifactClient(config);
  * const input = { // GetAuthorizationTokenRequest
  *   domain: "STRING_VALUE", // required

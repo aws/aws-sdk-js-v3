@@ -34,6 +34,7 @@ export interface GetLayoutCommandOutput extends GetLayoutResponse, __MetadataBea
  * ```javascript
  * import { ConnectCasesClient, GetLayoutCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, GetLayoutCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectCasesClient(config);
  * const input = { // GetLayoutRequest
  *   domainId: "STRING_VALUE", // required

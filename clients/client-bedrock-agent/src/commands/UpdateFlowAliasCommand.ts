@@ -34,6 +34,7 @@ export interface UpdateFlowAliasCommandOutput extends UpdateFlowAliasResponse, _
  * ```javascript
  * import { BedrockAgentClient, UpdateFlowAliasCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, UpdateFlowAliasCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockAgentClient(config);
  * const input = { // UpdateFlowAliasRequest
  *   name: "STRING_VALUE", // required

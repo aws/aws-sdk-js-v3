@@ -34,6 +34,7 @@ export interface DeleteEventStreamCommandOutput extends DeleteEventStreamRespons
  * ```javascript
  * import { CustomerProfilesClient, DeleteEventStreamCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, DeleteEventStreamCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CustomerProfilesClient(config);
  * const input = { // DeleteEventStreamRequest
  *   DomainName: "STRING_VALUE", // required

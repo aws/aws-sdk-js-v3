@@ -34,6 +34,7 @@ export interface DeregisterPackageVersionCommandOutput extends DeregisterPackage
  * ```javascript
  * import { PanoramaClient, DeregisterPackageVersionCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DeregisterPackageVersionCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PanoramaClient(config);
  * const input = { // DeregisterPackageVersionRequest
  *   OwnerAccount: "STRING_VALUE",

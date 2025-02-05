@@ -34,6 +34,7 @@ export interface ListClustersV2CommandOutput extends ListClustersV2Response, __M
  * ```javascript
  * import { KafkaClient, ListClustersV2Command } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, ListClustersV2Command } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KafkaClient(config);
  * const input = { // ListClustersV2Request
  *   ClusterNameFilter: "STRING_VALUE",

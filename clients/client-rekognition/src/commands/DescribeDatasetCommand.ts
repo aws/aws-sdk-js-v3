@@ -41,6 +41,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * ```javascript
  * import { RekognitionClient, DescribeDatasetCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DescribeDatasetCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RekognitionClient(config);
  * const input = { // DescribeDatasetRequest
  *   DatasetArn: "STRING_VALUE", // required

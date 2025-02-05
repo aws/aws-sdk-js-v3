@@ -38,6 +38,7 @@ export interface GetRDFGraphSummaryCommandOutput extends GetRDFGraphSummaryOutpu
  * ```javascript
  * import { NeptunedataClient, GetRDFGraphSummaryCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, GetRDFGraphSummaryCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptunedataClient(config);
  * const input = { // GetRDFGraphSummaryInput
  *   mode: "basic" || "detailed",

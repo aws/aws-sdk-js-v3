@@ -51,6 +51,7 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * ```javascript
  * import { NeptuneClient, DescribeDBClusterSnapshotAttributesCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBClusterSnapshotAttributesCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptuneClient(config);
  * const input = { // DescribeDBClusterSnapshotAttributesMessage
  *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required

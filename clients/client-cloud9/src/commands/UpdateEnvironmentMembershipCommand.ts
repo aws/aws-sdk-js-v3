@@ -41,6 +41,7 @@ export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironm
  * ```javascript
  * import { Cloud9Client, UpdateEnvironmentMembershipCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, UpdateEnvironmentMembershipCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Cloud9Client(config);
  * const input = { // UpdateEnvironmentMembershipRequest
  *   environmentId: "STRING_VALUE", // required

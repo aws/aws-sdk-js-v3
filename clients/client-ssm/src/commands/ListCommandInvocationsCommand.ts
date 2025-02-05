@@ -38,6 +38,7 @@ export interface ListCommandInvocationsCommandOutput extends ListCommandInvocati
  * ```javascript
  * import { SSMClient, ListCommandInvocationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListCommandInvocationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSMClient(config);
  * const input = { // ListCommandInvocationsRequest
  *   CommandId: "STRING_VALUE",

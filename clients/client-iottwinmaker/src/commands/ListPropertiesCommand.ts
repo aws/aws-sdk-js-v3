@@ -34,6 +34,7 @@ export interface ListPropertiesCommandOutput extends ListPropertiesResponse, __M
  * ```javascript
  * import { IoTTwinMakerClient, ListPropertiesCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, ListPropertiesCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTTwinMakerClient(config);
  * const input = { // ListPropertiesRequest
  *   workspaceId: "STRING_VALUE", // required

@@ -38,6 +38,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { ChimeSDKMediaPipelinesClient, TagResourceCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, TagResourceCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // TagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

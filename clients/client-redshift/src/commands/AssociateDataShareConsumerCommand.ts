@@ -36,6 +36,7 @@ export interface AssociateDataShareConsumerCommandOutput extends DataShare, __Me
  * ```javascript
  * import { RedshiftClient, AssociateDataShareConsumerCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, AssociateDataShareConsumerCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftClient(config);
  * const input = { // AssociateDataShareConsumerMessage
  *   DataShareArn: "STRING_VALUE", // required

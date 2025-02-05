@@ -35,6 +35,7 @@ export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSetti
  * ```javascript
  * import { ChimeSDKVoiceClient, GetPhoneNumberSettingsCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, GetPhoneNumberSettingsCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChimeSDKVoiceClient(config);
  * const input = {};
  * const command = new GetPhoneNumberSettingsCommand(input);

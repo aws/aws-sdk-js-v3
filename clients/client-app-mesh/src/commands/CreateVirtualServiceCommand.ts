@@ -40,6 +40,7 @@ export interface CreateVirtualServiceCommandOutput extends CreateVirtualServiceO
  * ```javascript
  * import { AppMeshClient, CreateVirtualServiceCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, CreateVirtualServiceCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppMeshClient(config);
  * const input = { // CreateVirtualServiceInput
  *   virtualServiceName: "STRING_VALUE", // required

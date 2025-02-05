@@ -38,6 +38,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResult, __MetadataBea
  * ```javascript
  * import { DirectoryServiceDataClient, UpdateUserCommand } from "@aws-sdk/client-directory-service-data"; // ES Modules import
  * // const { DirectoryServiceDataClient, UpdateUserCommand } = require("@aws-sdk/client-directory-service-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DirectoryServiceDataClient(config);
  * const input = { // UpdateUserRequest
  *   DirectoryId: "STRING_VALUE", // required

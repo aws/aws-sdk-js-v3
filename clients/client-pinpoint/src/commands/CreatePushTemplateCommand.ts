@@ -34,6 +34,7 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  * ```javascript
  * import { PinpointClient, CreatePushTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreatePushTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointClient(config);
  * const input = { // CreatePushTemplateRequest
  *   PushNotificationTemplateRequest: { // PushNotificationTemplateRequest

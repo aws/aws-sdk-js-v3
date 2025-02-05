@@ -38,6 +38,7 @@ export interface GetTableRestoreStatusCommandOutput extends GetTableRestoreStatu
  * ```javascript
  * import { RedshiftServerlessClient, GetTableRestoreStatusCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetTableRestoreStatusCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftServerlessClient(config);
  * const input = { // GetTableRestoreStatusRequest
  *   tableRestoreRequestId: "STRING_VALUE", // required

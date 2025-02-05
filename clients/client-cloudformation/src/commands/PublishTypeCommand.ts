@@ -40,6 +40,7 @@ export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataB
  * ```javascript
  * import { CloudFormationClient, PublishTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, PublishTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudFormationClient(config);
  * const input = { // PublishTypeInput
  *   Type: "RESOURCE" || "MODULE" || "HOOK",

@@ -35,6 +35,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterOutput, __M
  * ```javascript
  * import { EMRClient, DescribeClusterCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeClusterCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EMRClient(config);
  * const input = { // DescribeClusterInput
  *   ClusterId: "STRING_VALUE", // required

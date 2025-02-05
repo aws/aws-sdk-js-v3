@@ -34,6 +34,7 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
  * ```javascript
  * import { DataSyncClient, UpdateTaskCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateTaskCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataSyncClient(config);
  * const input = { // UpdateTaskRequest
  *   TaskArn: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface GetApiCommandOutput extends GetApiResponse, __MetadataBearer {}
  * ```javascript
  * import { AppSyncClient, GetApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppSyncClient(config);
  * const input = { // GetApiRequest
  *   apiId: "STRING_VALUE", // required

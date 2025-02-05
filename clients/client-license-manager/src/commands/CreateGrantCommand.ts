@@ -36,6 +36,7 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * ```javascript
  * import { LicenseManagerClient, CreateGrantCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateGrantCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LicenseManagerClient(config);
  * const input = { // CreateGrantRequest
  *   ClientToken: "STRING_VALUE", // required

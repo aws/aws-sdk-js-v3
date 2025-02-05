@@ -43,6 +43,7 @@ export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __Metad
  * ```javascript
  * import { StorageGatewayClient, DescribeTapesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeTapesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new StorageGatewayClient(config);
  * const input = { // DescribeTapesInput
  *   GatewayARN: "STRING_VALUE", // required

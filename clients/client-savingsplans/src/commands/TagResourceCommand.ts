@@ -34,6 +34,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { SavingsplansClient, TagResourceCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
  * // const { SavingsplansClient, TagResourceCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SavingsplansClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

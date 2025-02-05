@@ -34,6 +34,7 @@ export interface DescribePipelineCommandOutput extends DescribePipelineResponse,
  * ```javascript
  * import { IoTAnalyticsClient, DescribePipelineCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, DescribePipelineCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTAnalyticsClient(config);
  * const input = { // DescribePipelineRequest
  *   pipelineName: "STRING_VALUE", // required

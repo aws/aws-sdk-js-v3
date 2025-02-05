@@ -34,6 +34,7 @@ export interface CreateIntegrationResponseCommandOutput extends CreateIntegratio
  * ```javascript
  * import { ApiGatewayV2Client, CreateIntegrationResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateIntegrationResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ApiGatewayV2Client(config);
  * const input = { // CreateIntegrationResponseRequest
  *   ApiId: "STRING_VALUE", // required

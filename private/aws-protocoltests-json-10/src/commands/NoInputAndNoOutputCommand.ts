@@ -33,6 +33,7 @@ export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { JSONRPC10Client, NoInputAndNoOutputCommand } from "@aws-sdk/aws-protocoltests-json-10"; // ES Modules import
  * // const { JSONRPC10Client, NoInputAndNoOutputCommand } = require("@aws-sdk/aws-protocoltests-json-10"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new JSONRPC10Client(config);
  * const input = {};
  * const command = new NoInputAndNoOutputCommand(input);

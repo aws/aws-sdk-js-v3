@@ -34,6 +34,7 @@ export interface GetTermForReportCommandOutput extends GetTermForReportResponse,
  * ```javascript
  * import { ArtifactClient, GetTermForReportCommand } from "@aws-sdk/client-artifact"; // ES Modules import
  * // const { ArtifactClient, GetTermForReportCommand } = require("@aws-sdk/client-artifact"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ArtifactClient(config);
  * const input = { // GetTermForReportRequest
  *   reportId: "STRING_VALUE", // required

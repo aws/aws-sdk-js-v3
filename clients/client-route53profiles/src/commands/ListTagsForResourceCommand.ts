@@ -36,6 +36,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { Route53ProfilesClient, ListTagsForResourceCommand } from "@aws-sdk/client-route53profiles"; // ES Modules import
  * // const { Route53ProfilesClient, ListTagsForResourceCommand } = require("@aws-sdk/client-route53profiles"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Route53ProfilesClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

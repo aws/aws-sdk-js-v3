@@ -38,6 +38,7 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * ```javascript
  * import { CostOptimizationHubClient, ListRecommendationsCommand } from "@aws-sdk/client-cost-optimization-hub"; // ES Modules import
  * // const { CostOptimizationHubClient, ListRecommendationsCommand } = require("@aws-sdk/client-cost-optimization-hub"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CostOptimizationHubClient(config);
  * const input = { // ListRecommendationsRequest
  *   filter: { // Filter

@@ -38,6 +38,7 @@ export interface RemoveWorkloadCommandOutput extends RemoveWorkloadResponse, __M
  * ```javascript
  * import { ApplicationInsightsClient, RemoveWorkloadCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, RemoveWorkloadCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ApplicationInsightsClient(config);
  * const input = { // RemoveWorkloadRequest
  *   ResourceGroupName: "STRING_VALUE", // required

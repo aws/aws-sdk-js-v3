@@ -38,6 +38,7 @@ export interface ListListenersCommandOutput extends ListListenersResponse, __Met
  * ```javascript
  * import { GlobalAcceleratorClient, ListListenersCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, ListListenersCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // ListListenersRequest
  *   AcceleratorArn: "STRING_VALUE", // required

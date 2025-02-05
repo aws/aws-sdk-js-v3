@@ -34,6 +34,7 @@ export interface GetHealthCheckCommandOutput extends GetHealthCheckResponse, __M
  * ```javascript
  * import { Route53Client, GetHealthCheckCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetHealthCheckCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Route53Client(config);
  * const input = { // GetHealthCheckRequest
  *   HealthCheckId: "STRING_VALUE", // required

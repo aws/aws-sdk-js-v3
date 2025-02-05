@@ -167,6 +167,7 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  * ```javascript
  * import { STSClient, AssumeRoleWithSAMLCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, AssumeRoleWithSAMLCommand } = require("@aws-sdk/client-sts"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new STSClient(config);
  * const input = { // AssumeRoleWithSAMLRequest
  *   RoleArn: "STRING_VALUE", // required

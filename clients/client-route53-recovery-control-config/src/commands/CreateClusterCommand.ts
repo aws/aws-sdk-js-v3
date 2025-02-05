@@ -38,6 +38,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * ```javascript
  * import { Route53RecoveryControlConfigClient, CreateClusterCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, CreateClusterCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Route53RecoveryControlConfigClient(config);
  * const input = { // CreateClusterRequest
  *   ClientToken: "STRING_VALUE",

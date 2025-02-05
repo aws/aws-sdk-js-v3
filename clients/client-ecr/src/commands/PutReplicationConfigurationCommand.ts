@@ -46,6 +46,7 @@ export interface PutReplicationConfigurationCommandOutput
  * ```javascript
  * import { ECRClient, PutReplicationConfigurationCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, PutReplicationConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ECRClient(config);
  * const input = { // PutReplicationConfigurationRequest
  *   replicationConfiguration: { // ReplicationConfiguration

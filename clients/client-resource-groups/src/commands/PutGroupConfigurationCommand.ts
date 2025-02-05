@@ -47,6 +47,7 @@ export interface PutGroupConfigurationCommandOutput extends PutGroupConfiguratio
  * ```javascript
  * import { ResourceGroupsClient, PutGroupConfigurationCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, PutGroupConfigurationCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ResourceGroupsClient(config);
  * const input = { // PutGroupConfigurationInput
  *   Group: "STRING_VALUE",

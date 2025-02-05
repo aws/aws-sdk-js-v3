@@ -46,6 +46,7 @@ export interface GetRegisteredSubscriptionProviderCommandOutput
  * ```javascript
  * import { LicenseManagerLinuxSubscriptionsClient, GetRegisteredSubscriptionProviderCommand } from "@aws-sdk/client-license-manager-linux-subscriptions"; // ES Modules import
  * // const { LicenseManagerLinuxSubscriptionsClient, GetRegisteredSubscriptionProviderCommand } = require("@aws-sdk/client-license-manager-linux-subscriptions"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LicenseManagerLinuxSubscriptionsClient(config);
  * const input = { // GetRegisteredSubscriptionProviderRequest
  *   SubscriptionProviderArn: "STRING_VALUE", // required

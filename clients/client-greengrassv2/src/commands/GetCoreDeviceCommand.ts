@@ -61,6 +61,7 @@ export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __Met
  * ```javascript
  * import { GreengrassV2Client, GetCoreDeviceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, GetCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GreengrassV2Client(config);
  * const input = { // GetCoreDeviceRequest
  *   coreDeviceThingName: "STRING_VALUE", // required

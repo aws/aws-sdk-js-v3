@@ -34,6 +34,7 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
  * ```javascript
  * import { GuardDutyClient, UpdateFilterCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdateFilterCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GuardDutyClient(config);
  * const input = { // UpdateFilterRequest
  *   DetectorId: "STRING_VALUE", // required

@@ -35,6 +35,7 @@ export interface DeleteInstanceCommandOutput extends DeleteInstanceResponse, __M
  * ```javascript
  * import { SupplyChainClient, DeleteInstanceCommand } from "@aws-sdk/client-supplychain"; // ES Modules import
  * // const { SupplyChainClient, DeleteInstanceCommand } = require("@aws-sdk/client-supplychain"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SupplyChainClient(config);
  * const input = { // DeleteInstanceRequest
  *   instanceId: "STRING_VALUE", // required

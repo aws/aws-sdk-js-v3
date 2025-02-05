@@ -49,6 +49,7 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  * ```javascript
  * import { ECSClient, StopTaskCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, StopTaskCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ECSClient(config);
  * const input = { // StopTaskRequest
  *   cluster: "STRING_VALUE",

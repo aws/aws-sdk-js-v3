@@ -35,6 +35,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * ```javascript
  * import { SMSClient, DeleteAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DeleteAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SMSClient(config);
  * const input = { // DeleteAppRequest
  *   appId: "STRING_VALUE",

@@ -34,6 +34,7 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * ```javascript
  * import { PanoramaClient, CreatePackageCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, CreatePackageCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PanoramaClient(config);
  * const input = { // CreatePackageRequest
  *   PackageName: "STRING_VALUE", // required

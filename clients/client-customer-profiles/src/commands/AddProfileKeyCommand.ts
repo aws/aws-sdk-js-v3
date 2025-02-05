@@ -37,6 +37,7 @@ export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __Met
  * ```javascript
  * import { CustomerProfilesClient, AddProfileKeyCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, AddProfileKeyCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CustomerProfilesClient(config);
  * const input = { // AddProfileKeyRequest
  *   ProfileId: "STRING_VALUE", // required

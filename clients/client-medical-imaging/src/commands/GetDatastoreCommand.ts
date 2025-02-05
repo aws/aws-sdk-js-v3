@@ -34,6 +34,7 @@ export interface GetDatastoreCommandOutput extends GetDatastoreResponse, __Metad
  * ```javascript
  * import { MedicalImagingClient, GetDatastoreCommand } from "@aws-sdk/client-medical-imaging"; // ES Modules import
  * // const { MedicalImagingClient, GetDatastoreCommand } = require("@aws-sdk/client-medical-imaging"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MedicalImagingClient(config);
  * const input = { // GetDatastoreRequest
  *   datastoreId: "STRING_VALUE", // required

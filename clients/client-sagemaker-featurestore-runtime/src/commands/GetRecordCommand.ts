@@ -40,6 +40,7 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  * ```javascript
  * import { SageMakerFeatureStoreRuntimeClient, GetRecordCommand } from "@aws-sdk/client-sagemaker-featurestore-runtime"; // ES Modules import
  * // const { SageMakerFeatureStoreRuntimeClient, GetRecordCommand } = require("@aws-sdk/client-sagemaker-featurestore-runtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerFeatureStoreRuntimeClient(config);
  * const input = { // GetRecordRequest
  *   FeatureGroupName: "STRING_VALUE", // required

@@ -65,6 +65,7 @@ export interface ListDomainsCommandOutput extends DomainInfos, __MetadataBearer 
  * ```javascript
  * import { SWFClient, ListDomainsCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, ListDomainsCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SWFClient(config);
  * const input = { // ListDomainsInput
  *   nextPageToken: "STRING_VALUE",

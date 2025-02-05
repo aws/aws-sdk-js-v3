@@ -34,6 +34,7 @@ export interface GetResourceProfileCommandOutput extends GetResourceProfileRespo
  * ```javascript
  * import { Macie2Client, GetResourceProfileCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetResourceProfileCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Macie2Client(config);
  * const input = { // GetResourceProfileRequest
  *   resourceArn: "STRING_VALUE", // required

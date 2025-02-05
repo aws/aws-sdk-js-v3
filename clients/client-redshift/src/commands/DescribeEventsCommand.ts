@@ -37,6 +37,7 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * ```javascript
  * import { RedshiftClient, DescribeEventsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeEventsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftClient(config);
  * const input = { // DescribeEventsMessage
  *   SourceIdentifier: "STRING_VALUE",

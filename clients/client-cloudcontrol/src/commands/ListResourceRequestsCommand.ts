@@ -43,6 +43,7 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  * ```javascript
  * import { CloudControlClient, ListResourceRequestsCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
  * // const { CloudControlClient, ListResourceRequestsCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudControlClient(config);
  * const input = { // ListResourceRequestsInput
  *   MaxResults: Number("int"),

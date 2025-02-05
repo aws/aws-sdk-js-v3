@@ -3837,11 +3837,11 @@ export interface RegisterCertificateRequest {
   caCertificatePem?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A boolean value that specifies if the certificate is set to active.</p>
    *          <p>Valid values: <code>ACTIVE | INACTIVE</code>
    *          </p>
+   *
+   * @deprecated
    * @public
    */
   setAsActive?: boolean | undefined;
@@ -6144,8 +6144,6 @@ export interface UpdateSecurityProfileRequest {
   alertTargets?: Partial<Record<AlertTargetType, AlertTarget>> | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>
    *             <i>Please use
    *           <a>UpdateSecurityProfileRequest$additionalMetricsToRetainV2</a>
@@ -6156,6 +6154,8 @@ export interface UpdateSecurityProfileRequest {
    *       used in the profile's <code>behaviors</code>, but
    *       it is
    *       also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
+   *
+   * @deprecated
    * @public
    */
   additionalMetricsToRetain?: string[] | undefined;
@@ -6244,8 +6244,6 @@ export interface UpdateSecurityProfileResponse {
   alertTargets?: Partial<Record<AlertTargetType, AlertTarget>> | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>
    *             <i>Please use
    *           <a>UpdateSecurityProfileResponse$additionalMetricsToRetainV2</a>
@@ -6256,6 +6254,8 @@ export interface UpdateSecurityProfileResponse {
    *       used in the security profile's <code>behaviors</code>, but
    *       it is
    *       also retained for any metric specified here.</p>
+   *
+   * @deprecated
    * @public
    */
   additionalMetricsToRetain?: string[] | undefined;

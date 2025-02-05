@@ -34,6 +34,7 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * ```javascript
  * import { IoTAnalyticsClient, DescribeChannelCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, DescribeChannelCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTAnalyticsClient(config);
  * const input = { // DescribeChannelRequest
  *   channelName: "STRING_VALUE", // required

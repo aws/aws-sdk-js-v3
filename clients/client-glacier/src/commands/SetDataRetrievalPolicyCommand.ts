@@ -39,6 +39,7 @@ export interface SetDataRetrievalPolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { GlacierClient, SetDataRetrievalPolicyCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, SetDataRetrievalPolicyCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GlacierClient(config);
  * const input = { // SetDataRetrievalPolicyInput
  *   accountId: "STRING_VALUE", // required

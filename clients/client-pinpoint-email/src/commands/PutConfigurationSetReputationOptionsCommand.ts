@@ -43,6 +43,7 @@ export interface PutConfigurationSetReputationOptionsCommandOutput
  * ```javascript
  * import { PinpointEmailClient, PutConfigurationSetReputationOptionsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutConfigurationSetReputationOptionsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointEmailClient(config);
  * const input = { // PutConfigurationSetReputationOptionsRequest
  *   ConfigurationSetName: "STRING_VALUE", // required

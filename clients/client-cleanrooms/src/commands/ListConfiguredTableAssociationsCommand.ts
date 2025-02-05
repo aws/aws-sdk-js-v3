@@ -39,6 +39,7 @@ export interface ListConfiguredTableAssociationsCommandOutput
  * ```javascript
  * import { CleanRoomsClient, ListConfiguredTableAssociationsCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListConfiguredTableAssociationsCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CleanRoomsClient(config);
  * const input = { // ListConfiguredTableAssociationsInput
  *   membershipIdentifier: "STRING_VALUE", // required

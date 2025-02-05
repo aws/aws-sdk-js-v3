@@ -34,6 +34,7 @@ export interface GetIngestionDestinationCommandOutput extends GetIngestionDestin
  * ```javascript
  * import { AppFabricClient, GetIngestionDestinationCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, GetIngestionDestinationCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppFabricClient(config);
  * const input = { // GetIngestionDestinationRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

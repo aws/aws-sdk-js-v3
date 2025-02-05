@@ -57,6 +57,7 @@ export interface ExecuteOpenCypherExplainQueryCommandOutput
  * ```javascript
  * import { NeptunedataClient, ExecuteOpenCypherExplainQueryCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, ExecuteOpenCypherExplainQueryCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptunedataClient(config);
  * const input = { // ExecuteOpenCypherExplainQueryInput
  *   openCypherQuery: "STRING_VALUE", // required

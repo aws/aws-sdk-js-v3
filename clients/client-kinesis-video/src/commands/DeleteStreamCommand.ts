@@ -43,6 +43,7 @@ export interface DeleteStreamCommandOutput extends DeleteStreamOutput, __Metadat
  * ```javascript
  * import { KinesisVideoClient, DeleteStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DeleteStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KinesisVideoClient(config);
  * const input = { // DeleteStreamInput
  *   StreamARN: "STRING_VALUE", // required

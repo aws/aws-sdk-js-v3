@@ -34,6 +34,7 @@ export interface DeleteVoiceProfileCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ChimeSDKVoiceClient, DeleteVoiceProfileCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
  * // const { ChimeSDKVoiceClient, DeleteVoiceProfileCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChimeSDKVoiceClient(config);
  * const input = { // DeleteVoiceProfileRequest
  *   VoiceProfileId: "STRING_VALUE", // required

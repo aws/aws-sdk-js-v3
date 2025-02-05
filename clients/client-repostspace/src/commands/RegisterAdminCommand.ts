@@ -34,6 +34,7 @@ export interface RegisterAdminCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RepostspaceClient, RegisterAdminCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
  * // const { RepostspaceClient, RegisterAdminCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RepostspaceClient(config);
  * const input = { // RegisterAdminInput
  *   spaceId: "STRING_VALUE", // required

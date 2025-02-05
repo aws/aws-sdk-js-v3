@@ -49,6 +49,7 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  * ```javascript
  * import { CloudWatchLogsClient, FilterLogEventsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, FilterLogEventsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudWatchLogsClient(config);
  * const input = { // FilterLogEventsRequest
  *   logGroupName: "STRING_VALUE",

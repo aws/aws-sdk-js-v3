@@ -55,6 +55,7 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  * ```javascript
  * import { SecretsManagerClient, ValidateResourcePolicyCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, ValidateResourcePolicyCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SecretsManagerClient(config);
  * const input = { // ValidateResourcePolicyRequest
  *   SecretId: "STRING_VALUE",

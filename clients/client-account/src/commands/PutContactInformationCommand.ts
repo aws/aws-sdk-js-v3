@@ -36,6 +36,7 @@ export interface PutContactInformationCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { AccountClient, PutContactInformationCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, PutContactInformationCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AccountClient(config);
  * const input = { // PutContactInformationRequest
  *   ContactInformation: { // ContactInformation

@@ -34,6 +34,7 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput,
  * ```javascript
  * import { SageMakerClient, DescribeAlgorithmCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeAlgorithmCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // DescribeAlgorithmInput
  *   AlgorithmName: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * ```javascript
  * import { PinpointClient, UpdateEndpointCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateEndpointCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointClient(config);
  * const input = { // UpdateEndpointRequest
  *   ApplicationId: "STRING_VALUE", // required

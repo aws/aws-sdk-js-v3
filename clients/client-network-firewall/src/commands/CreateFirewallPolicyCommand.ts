@@ -37,6 +37,7 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  * ```javascript
  * import { NetworkFirewallClient, CreateFirewallPolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, CreateFirewallPolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkFirewallClient(config);
  * const input = { // CreateFirewallPolicyRequest
  *   FirewallPolicyName: "STRING_VALUE", // required

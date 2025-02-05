@@ -34,6 +34,7 @@ export interface UpdateServiceActionCommandOutput extends UpdateServiceActionOut
  * ```javascript
  * import { ServiceCatalogClient, UpdateServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdateServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceCatalogClient(config);
  * const input = { // UpdateServiceActionInput
  *   Id: "STRING_VALUE", // required

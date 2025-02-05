@@ -50,6 +50,7 @@ export interface StartKeyUsageCommandOutput extends StartKeyUsageOutput, __Metad
  * ```javascript
  * import { PaymentCryptographyClient, StartKeyUsageCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
  * // const { PaymentCryptographyClient, StartKeyUsageCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PaymentCryptographyClient(config);
  * const input = { // StartKeyUsageInput
  *   KeyIdentifier: "STRING_VALUE", // required

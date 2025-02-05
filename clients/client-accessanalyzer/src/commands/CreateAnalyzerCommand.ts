@@ -34,6 +34,7 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  * ```javascript
  * import { AccessAnalyzerClient, CreateAnalyzerCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, CreateAnalyzerCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AccessAnalyzerClient(config);
  * const input = { // CreateAnalyzerRequest
  *   analyzerName: "STRING_VALUE", // required

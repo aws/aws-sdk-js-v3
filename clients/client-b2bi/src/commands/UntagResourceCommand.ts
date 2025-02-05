@@ -34,6 +34,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { B2biClient, UntagResourceCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, UntagResourceCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new B2biClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

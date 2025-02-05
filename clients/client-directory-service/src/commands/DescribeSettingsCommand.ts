@@ -34,6 +34,7 @@ export interface DescribeSettingsCommandOutput extends DescribeSettingsResult, _
  * ```javascript
  * import { DirectoryServiceClient, DescribeSettingsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeSettingsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DirectoryServiceClient(config);
  * const input = { // DescribeSettingsRequest
  *   DirectoryId: "STRING_VALUE", // required

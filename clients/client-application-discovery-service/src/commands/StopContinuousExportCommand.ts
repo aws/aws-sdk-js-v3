@@ -38,6 +38,7 @@ export interface StopContinuousExportCommandOutput extends StopContinuousExportR
  * ```javascript
  * import { ApplicationDiscoveryServiceClient, StopContinuousExportCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, StopContinuousExportCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // StopContinuousExportRequest
  *   exportId: "STRING_VALUE", // required

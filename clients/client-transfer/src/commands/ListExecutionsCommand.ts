@@ -38,6 +38,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __M
  * ```javascript
  * import { TransferClient, ListExecutionsCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ListExecutionsCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TransferClient(config);
  * const input = { // ListExecutionsRequest
  *   MaxResults: Number("int"),

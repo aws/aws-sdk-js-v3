@@ -40,6 +40,7 @@ export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResul
  * ```javascript
  * import { SQSClient, DeleteMessageBatchCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, DeleteMessageBatchCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SQSClient(config);
  * const input = { // DeleteMessageBatchRequest
  *   QueueUrl: "STRING_VALUE", // required

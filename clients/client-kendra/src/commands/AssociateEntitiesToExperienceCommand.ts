@@ -43,6 +43,7 @@ export interface AssociateEntitiesToExperienceCommandOutput
  * ```javascript
  * import { KendraClient, AssociateEntitiesToExperienceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, AssociateEntitiesToExperienceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KendraClient(config);
  * const input = { // AssociateEntitiesToExperienceRequest
  *   Id: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface RemoveFlowVpcInterfaceCommandOutput extends RemoveFlowVpcInterf
  * ```javascript
  * import { MediaConnectClient, RemoveFlowVpcInterfaceCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, RemoveFlowVpcInterfaceCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaConnectClient(config);
  * const input = { // RemoveFlowVpcInterfaceRequest
  *   FlowArn: "STRING_VALUE", // required

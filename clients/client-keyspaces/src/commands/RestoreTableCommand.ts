@@ -79,6 +79,7 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  * ```javascript
  * import { KeyspacesClient, RestoreTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, RestoreTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KeyspacesClient(config);
  * const input = { // RestoreTableRequest
  *   sourceKeyspaceName: "STRING_VALUE", // required

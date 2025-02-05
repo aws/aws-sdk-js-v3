@@ -39,6 +39,7 @@ export interface CreateWatchlistCommandOutput extends CreateWatchlistResponse, _
  * ```javascript
  * import { VoiceIDClient, CreateWatchlistCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, CreateWatchlistCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new VoiceIDClient(config);
  * const input = { // CreateWatchlistRequest
  *   DomainId: "STRING_VALUE", // required

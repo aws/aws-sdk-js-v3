@@ -34,6 +34,7 @@ export interface GetArchiveSearchCommandOutput extends GetArchiveSearchResponse,
  * ```javascript
  * import { MailManagerClient, GetArchiveSearchCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, GetArchiveSearchCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MailManagerClient(config);
  * const input = { // GetArchiveSearchRequest
  *   SearchId: "STRING_VALUE", // required

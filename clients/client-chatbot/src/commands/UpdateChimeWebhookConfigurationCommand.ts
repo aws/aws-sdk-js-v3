@@ -44,6 +44,7 @@ export interface UpdateChimeWebhookConfigurationCommandOutput
  * ```javascript
  * import { ChatbotClient, UpdateChimeWebhookConfigurationCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, UpdateChimeWebhookConfigurationCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChatbotClient(config);
  * const input = { // UpdateChimeWebhookConfigurationRequest
  *   ChatConfigurationArn: "STRING_VALUE", // required

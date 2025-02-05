@@ -34,6 +34,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { SupplyChainClient, UntagResourceCommand } from "@aws-sdk/client-supplychain"; // ES Modules import
  * // const { SupplyChainClient, UntagResourceCommand } = require("@aws-sdk/client-supplychain"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SupplyChainClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

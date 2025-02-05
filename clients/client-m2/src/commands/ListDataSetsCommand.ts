@@ -36,6 +36,7 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * ```javascript
  * import { M2Client, ListDataSetsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListDataSetsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new M2Client(config);
  * const input = { // ListDataSetsRequest
  *   applicationId: "STRING_VALUE", // required

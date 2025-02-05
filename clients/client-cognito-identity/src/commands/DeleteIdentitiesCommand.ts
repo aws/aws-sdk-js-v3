@@ -36,6 +36,7 @@ export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse,
  * ```javascript
  * import { CognitoIdentityClient, DeleteIdentitiesCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, DeleteIdentitiesCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CognitoIdentityClient(config);
  * const input = { // DeleteIdentitiesInput
  *   IdentityIdsToDelete: [ // IdentityIdList // required

@@ -37,6 +37,7 @@ export interface DeleteFlywheelCommandOutput extends DeleteFlywheelResponse, __M
  * ```javascript
  * import { ComprehendClient, DeleteFlywheelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DeleteFlywheelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ComprehendClient(config);
  * const input = { // DeleteFlywheelRequest
  *   FlywheelArn: "STRING_VALUE", // required

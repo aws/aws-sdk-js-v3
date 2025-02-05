@@ -39,6 +39,7 @@ export interface RejectInvitationCommandOutput extends RejectInvitationOutput, _
  * ```javascript
  * import { ManagedBlockchainClient, RejectInvitationCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, RejectInvitationCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ManagedBlockchainClient(config);
  * const input = { // RejectInvitationInput
  *   InvitationId: "STRING_VALUE", // required

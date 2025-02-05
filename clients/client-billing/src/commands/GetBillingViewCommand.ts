@@ -39,6 +39,7 @@ export interface GetBillingViewCommandOutput extends GetBillingViewResponse, __M
  * ```javascript
  * import { BillingClient, GetBillingViewCommand } from "@aws-sdk/client-billing"; // ES Modules import
  * // const { BillingClient, GetBillingViewCommand } = require("@aws-sdk/client-billing"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BillingClient(config);
  * const input = { // GetBillingViewRequest
  *   arn: "STRING_VALUE", // required

@@ -42,6 +42,7 @@ export interface GetBandwidthRateLimitScheduleCommandOutput
  * ```javascript
  * import { BackupGatewayClient, GetBandwidthRateLimitScheduleCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, GetBandwidthRateLimitScheduleCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BackupGatewayClient(config);
  * const input = { // GetBandwidthRateLimitScheduleInput
  *   GatewayArn: "STRING_VALUE", // required

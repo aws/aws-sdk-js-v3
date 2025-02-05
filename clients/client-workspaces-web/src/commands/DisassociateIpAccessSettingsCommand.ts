@@ -39,6 +39,7 @@ export interface DisassociateIpAccessSettingsCommandOutput
  * ```javascript
  * import { WorkSpacesWebClient, DisassociateIpAccessSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DisassociateIpAccessSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkSpacesWebClient(config);
  * const input = { // DisassociateIpAccessSettingsRequest
  *   portalArn: "STRING_VALUE", // required

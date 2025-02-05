@@ -39,6 +39,7 @@ export interface DescribeWorkspaceConfigurationCommandOutput
  * ```javascript
  * import { GrafanaClient, DescribeWorkspaceConfigurationCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, DescribeWorkspaceConfigurationCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GrafanaClient(config);
  * const input = { // DescribeWorkspaceConfigurationRequest
  *   workspaceId: "STRING_VALUE", // required

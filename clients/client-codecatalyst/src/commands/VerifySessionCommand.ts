@@ -34,6 +34,7 @@ export interface VerifySessionCommandOutput extends VerifySessionResponse, __Met
  * ```javascript
  * import { CodeCatalystClient, VerifySessionCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, VerifySessionCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeCatalystClient(config);
  * const input = {};
  * const command = new VerifySessionCommand(input);

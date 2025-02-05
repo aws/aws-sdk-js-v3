@@ -49,6 +49,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SecretsManagerClient, UntagResourceCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, UntagResourceCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SecretsManagerClient(config);
  * const input = { // UntagResourceRequest
  *   SecretId: "STRING_VALUE", // required

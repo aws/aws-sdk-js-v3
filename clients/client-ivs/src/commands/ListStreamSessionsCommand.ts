@@ -35,6 +35,7 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsRespo
  * ```javascript
  * import { IvsClient, ListStreamSessionsCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, ListStreamSessionsCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IvsClient(config);
  * const input = { // ListStreamSessionsRequest
  *   channelArn: "STRING_VALUE", // required

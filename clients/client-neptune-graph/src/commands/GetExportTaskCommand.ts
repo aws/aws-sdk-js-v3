@@ -34,6 +34,7 @@ export interface GetExportTaskCommandOutput extends GetExportTaskOutput, __Metad
  * ```javascript
  * import { NeptuneGraphClient, GetExportTaskCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
  * // const { NeptuneGraphClient, GetExportTaskCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptuneGraphClient(config);
  * const input = { // GetExportTaskInput
  *   taskIdentifier: "STRING_VALUE", // required

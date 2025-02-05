@@ -36,6 +36,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * ```javascript
  * import { ForecastClient, ListDatasetsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListDatasetsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ForecastClient(config);
  * const input = { // ListDatasetsRequest
  *   NextToken: "STRING_VALUE",

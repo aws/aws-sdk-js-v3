@@ -42,6 +42,7 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
  * ```javascript
  * import { EC2Client, CreateSpotDatafeedSubscriptionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateSpotDatafeedSubscriptionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EC2Client(config);
  * const input = { // CreateSpotDatafeedSubscriptionRequest
  *   DryRun: true || false,

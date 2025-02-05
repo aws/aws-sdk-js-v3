@@ -75,6 +75,7 @@ export interface TransferDomainCommandOutput extends TransferDomainResponse, __M
  * ```javascript
  * import { Route53DomainsClient, TransferDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, TransferDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Route53DomainsClient(config);
  * const input = { // TransferDomainRequest
  *   DomainName: "STRING_VALUE", // required

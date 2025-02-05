@@ -35,6 +35,7 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResul
  * ```javascript
  * import { DeviceFarmClient, GetAccountSettingsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetAccountSettingsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DeviceFarmClient(config);
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);

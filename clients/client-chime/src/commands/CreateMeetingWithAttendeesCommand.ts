@@ -58,6 +58,7 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * ```javascript
  * import { ChimeClient, CreateMeetingWithAttendeesCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateMeetingWithAttendeesCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChimeClient(config);
  * const input = { // CreateMeetingWithAttendeesRequest
  *   ClientRequestToken: "STRING_VALUE", // required

@@ -37,6 +37,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { ECSClient, TagResourceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, TagResourceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ECSClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

@@ -36,6 +36,7 @@ export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { TranscribeClient, DeleteTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, DeleteTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TranscribeClient(config);
  * const input = { // DeleteTranscriptionJobRequest
  *   TranscriptionJobName: "STRING_VALUE", // required

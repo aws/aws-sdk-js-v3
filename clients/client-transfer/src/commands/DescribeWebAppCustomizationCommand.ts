@@ -40,6 +40,7 @@ export interface DescribeWebAppCustomizationCommandOutput
  * ```javascript
  * import { TransferClient, DescribeWebAppCustomizationCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeWebAppCustomizationCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TransferClient(config);
  * const input = { // DescribeWebAppCustomizationRequest
  *   WebAppId: "STRING_VALUE", // required

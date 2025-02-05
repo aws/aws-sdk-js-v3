@@ -34,6 +34,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * ```javascript
  * import { IoTSiteWiseClient, CreateDatasetCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreateDatasetCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTSiteWiseClient(config);
  * const input = { // CreateDatasetRequest
  *   datasetId: "STRING_VALUE",

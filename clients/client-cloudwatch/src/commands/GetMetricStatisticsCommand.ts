@@ -90,6 +90,7 @@ export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOut
  * ```javascript
  * import { CloudWatchClient, GetMetricStatisticsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, GetMetricStatisticsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudWatchClient(config);
  * const input = { // GetMetricStatisticsInput
  *   Namespace: "STRING_VALUE", // required

@@ -50,6 +50,7 @@ export interface DescribeAggregateComplianceByConfigRulesCommandOutput
  * ```javascript
  * import { ConfigServiceClient, DescribeAggregateComplianceByConfigRulesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeAggregateComplianceByConfigRulesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeAggregateComplianceByConfigRulesRequest
  *   ConfigurationAggregatorName: "STRING_VALUE", // required

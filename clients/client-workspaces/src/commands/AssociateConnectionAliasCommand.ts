@@ -41,6 +41,7 @@ export interface AssociateConnectionAliasCommandOutput extends AssociateConnecti
  * ```javascript
  * import { WorkSpacesClient, AssociateConnectionAliasCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, AssociateConnectionAliasCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkSpacesClient(config);
  * const input = { // AssociateConnectionAliasRequest
  *   AliasId: "STRING_VALUE", // required

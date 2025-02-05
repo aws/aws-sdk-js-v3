@@ -34,6 +34,7 @@ export interface GetAnnotationImportJobCommandOutput extends GetAnnotationImport
  * ```javascript
  * import { OmicsClient, GetAnnotationImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetAnnotationImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OmicsClient(config);
  * const input = { // GetAnnotationImportRequest
  *   jobId: "STRING_VALUE", // required

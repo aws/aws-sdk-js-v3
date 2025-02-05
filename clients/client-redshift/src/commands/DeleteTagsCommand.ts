@@ -35,6 +35,7 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RedshiftClient, DeleteTagsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteTagsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftClient(config);
  * const input = { // DeleteTagsMessage
  *   ResourceName: "STRING_VALUE", // required

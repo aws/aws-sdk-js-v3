@@ -38,6 +38,7 @@ export interface GetKxConnectionStringCommandOutput extends GetKxConnectionStrin
  * ```javascript
  * import { FinspaceClient, GetKxConnectionStringCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, GetKxConnectionStringCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FinspaceClient(config);
  * const input = { // GetKxConnectionStringRequest
  *   userArn: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * ```javascript
  * import { ServiceDiscoveryClient, ListNamespacesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, ListNamespacesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // ListNamespacesRequest
  *   NextToken: "STRING_VALUE",

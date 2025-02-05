@@ -44,6 +44,7 @@ export interface DescribeLoadBalancerPoliciesCommandOutput
  * ```javascript
  * import { ElasticLoadBalancingClient, DescribeLoadBalancerPoliciesCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DescribeLoadBalancerPoliciesCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElasticLoadBalancingClient(config);
  * const input = { // DescribeLoadBalancerPoliciesInput
  *   LoadBalancerName: "STRING_VALUE",

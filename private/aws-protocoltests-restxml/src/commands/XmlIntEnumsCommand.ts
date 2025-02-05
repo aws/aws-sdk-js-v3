@@ -32,6 +32,7 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsResponse, __Metadat
  * ```javascript
  * import { RestXmlProtocolClient, XmlIntEnumsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlIntEnumsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RestXmlProtocolClient(config);
  * const input = { // XmlIntEnumsRequest
  *   intEnum1: 1 || 2 || 3,

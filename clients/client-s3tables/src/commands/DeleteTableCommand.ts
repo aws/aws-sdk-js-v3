@@ -40,6 +40,7 @@ export interface DeleteTableCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { S3TablesClient, DeleteTableCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
  * // const { S3TablesClient, DeleteTableCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3TablesClient(config);
  * const input = { // DeleteTableRequest
  *   tableBucketARN: "STRING_VALUE", // required

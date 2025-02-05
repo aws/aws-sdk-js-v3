@@ -66,6 +66,7 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * ```javascript
  * import { WAFClient, UpdateRuleGroupCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UpdateRuleGroupCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WAFClient(config);
  * const input = { // UpdateRuleGroupRequest
  *   RuleGroupId: "STRING_VALUE", // required

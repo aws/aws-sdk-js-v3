@@ -38,6 +38,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * ```javascript
  * import { DataZoneClient, UpdateEnvironmentCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataZoneClient(config);
  * const input = { // UpdateEnvironmentInput
  *   domainIdentifier: "STRING_VALUE", // required

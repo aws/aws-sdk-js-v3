@@ -34,6 +34,7 @@ export interface DeleteOriginEndpointPolicyCommandOutput extends DeleteOriginEnd
  * ```javascript
  * import { MediaPackageV2Client, DeleteOriginEndpointPolicyCommand } from "@aws-sdk/client-mediapackagev2"; // ES Modules import
  * // const { MediaPackageV2Client, DeleteOriginEndpointPolicyCommand } = require("@aws-sdk/client-mediapackagev2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaPackageV2Client(config);
  * const input = { // DeleteOriginEndpointPolicyRequest
  *   ChannelGroupName: "STRING_VALUE", // required

@@ -36,6 +36,7 @@ export interface GetComplianceDetailCommandOutput extends GetComplianceDetailRes
  * ```javascript
  * import { FMSClient, GetComplianceDetailCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetComplianceDetailCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FMSClient(config);
  * const input = { // GetComplianceDetailRequest
  *   PolicyId: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface GetCommandCommandOutput extends GetCommandResponse, __MetadataB
  * ```javascript
  * import { IoTClient, GetCommandCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetCommandCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTClient(config);
  * const input = { // GetCommandRequest
  *   commandId: "STRING_VALUE", // required

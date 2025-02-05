@@ -34,6 +34,7 @@ export interface GetS3AccessPolicyCommandOutput extends GetS3AccessPolicyRespons
  * ```javascript
  * import { OmicsClient, GetS3AccessPolicyCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetS3AccessPolicyCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OmicsClient(config);
  * const input = { // GetS3AccessPolicyRequest
  *   s3AccessPointArn: "STRING_VALUE", // required

@@ -35,6 +35,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * ```javascript
  * import { CodeConnectionsClient, TagResourceCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, TagResourceCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeConnectionsClient(config);
  * const input = { // TagResourceInput
  *   ResourceArn: "STRING_VALUE", // required

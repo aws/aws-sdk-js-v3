@@ -44,6 +44,7 @@ export interface GetReusableDelegationSetLimitCommandOutput
  * ```javascript
  * import { Route53Client, GetReusableDelegationSetLimitCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetReusableDelegationSetLimitCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Route53Client(config);
  * const input = { // GetReusableDelegationSetLimitRequest
  *   Type: "MAX_ZONES_BY_REUSABLE_DELEGATION_SET", // required

@@ -112,6 +112,7 @@ export interface RecognizeUtteranceCommandOutput
  * ```javascript
  * import { LexRuntimeV2Client, RecognizeUtteranceCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
  * // const { LexRuntimeV2Client, RecognizeUtteranceCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LexRuntimeV2Client(config);
  * const input = { // RecognizeUtteranceRequest
  *   botId: "STRING_VALUE", // required

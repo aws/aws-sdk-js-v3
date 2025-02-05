@@ -44,6 +44,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * ```javascript
  * import { WAFV2Client, GetWebACLForResourceCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GetWebACLForResourceCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WAFV2Client(config);
  * const input = { // GetWebACLForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

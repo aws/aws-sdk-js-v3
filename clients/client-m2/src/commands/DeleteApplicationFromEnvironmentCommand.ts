@@ -42,6 +42,7 @@ export interface DeleteApplicationFromEnvironmentCommandOutput
  * ```javascript
  * import { M2Client, DeleteApplicationFromEnvironmentCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, DeleteApplicationFromEnvironmentCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new M2Client(config);
  * const input = { // DeleteApplicationFromEnvironmentRequest
  *   applicationId: "STRING_VALUE", // required

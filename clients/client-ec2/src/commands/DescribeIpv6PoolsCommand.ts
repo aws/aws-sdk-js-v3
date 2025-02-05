@@ -34,6 +34,7 @@ export interface DescribeIpv6PoolsCommandOutput extends DescribeIpv6PoolsResult,
  * ```javascript
  * import { EC2Client, DescribeIpv6PoolsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeIpv6PoolsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EC2Client(config);
  * const input = { // DescribeIpv6PoolsRequest
  *   PoolIds: [ // Ipv6PoolIdList

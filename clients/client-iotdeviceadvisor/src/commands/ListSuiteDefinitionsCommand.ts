@@ -35,6 +35,7 @@ export interface ListSuiteDefinitionsCommandOutput extends ListSuiteDefinitionsR
  * ```javascript
  * import { IotDeviceAdvisorClient, ListSuiteDefinitionsCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, ListSuiteDefinitionsCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IotDeviceAdvisorClient(config);
  * const input = { // ListSuiteDefinitionsRequest
  *   maxResults: Number("int"),

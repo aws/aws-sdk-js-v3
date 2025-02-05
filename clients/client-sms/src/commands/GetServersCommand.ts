@@ -35,6 +35,7 @@ export interface GetServersCommandOutput extends GetServersResponse, __MetadataB
  * ```javascript
  * import { SMSClient, GetServersCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GetServersCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SMSClient(config);
  * const input = { // GetServersRequest
  *   nextToken: "STRING_VALUE",

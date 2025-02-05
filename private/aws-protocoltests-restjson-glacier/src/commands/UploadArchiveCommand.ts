@@ -36,6 +36,7 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  * ```javascript
  * import { GlacierClient, UploadArchiveCommand } from "@aws-sdk/aws-protocoltests-restjson-glacier"; // ES Modules import
  * // const { GlacierClient, UploadArchiveCommand } = require("@aws-sdk/aws-protocoltests-restjson-glacier"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GlacierClient(config);
  * const input = { // UploadArchiveInput
  *   vaultName: "STRING_VALUE", // required

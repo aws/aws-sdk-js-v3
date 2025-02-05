@@ -41,6 +41,7 @@ export interface UpdateRepositoryDescriptionCommandOutput extends __MetadataBear
  * ```javascript
  * import { CodeCommitClient, UpdateRepositoryDescriptionCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdateRepositoryDescriptionCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeCommitClient(config);
  * const input = { // UpdateRepositoryDescriptionInput
  *   repositoryName: "STRING_VALUE", // required

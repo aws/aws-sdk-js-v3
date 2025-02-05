@@ -48,6 +48,7 @@ export interface ListResourceTelemetryForOrganizationCommandOutput
  * ```javascript
  * import { ObservabilityAdminClient, ListResourceTelemetryForOrganizationCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
  * // const { ObservabilityAdminClient, ListResourceTelemetryForOrganizationCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ObservabilityAdminClient(config);
  * const input = { // ListResourceTelemetryForOrganizationInput
  *   AccountIdentifiers: [ // AccountIdentifiers

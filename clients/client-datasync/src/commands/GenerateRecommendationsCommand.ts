@@ -38,6 +38,7 @@ export interface GenerateRecommendationsCommandOutput extends GenerateRecommenda
  * ```javascript
  * import { DataSyncClient, GenerateRecommendationsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, GenerateRecommendationsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataSyncClient(config);
  * const input = { // GenerateRecommendationsRequest
  *   DiscoveryJobArn: "STRING_VALUE", // required

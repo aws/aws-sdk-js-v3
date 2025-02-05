@@ -35,6 +35,7 @@ export interface CreateKxDataviewCommandOutput extends CreateKxDataviewResponse,
  * ```javascript
  * import { FinspaceClient, CreateKxDataviewCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, CreateKxDataviewCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FinspaceClient(config);
  * const input = { // CreateKxDataviewRequest
  *   environmentId: "STRING_VALUE", // required

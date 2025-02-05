@@ -38,6 +38,7 @@ export interface CreateProbeCommandOutput extends CreateProbeOutput, __MetadataB
  * ```javascript
  * import { NetworkMonitorClient, CreateProbeCommand } from "@aws-sdk/client-networkmonitor"; // ES Modules import
  * // const { NetworkMonitorClient, CreateProbeCommand } = require("@aws-sdk/client-networkmonitor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkMonitorClient(config);
  * const input = { // CreateProbeInput
  *   monitorName: "STRING_VALUE", // required

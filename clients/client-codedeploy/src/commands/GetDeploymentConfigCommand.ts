@@ -34,6 +34,7 @@ export interface GetDeploymentConfigCommandOutput extends GetDeploymentConfigOut
  * ```javascript
  * import { CodeDeployClient, GetDeploymentConfigCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, GetDeploymentConfigCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeDeployClient(config);
  * const input = { // GetDeploymentConfigInput
  *   deploymentConfigName: "STRING_VALUE", // required

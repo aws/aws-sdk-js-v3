@@ -33,6 +33,7 @@ export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropert
  * ```javascript
  * import { JsonProtocolClient, SimpleScalarPropertiesCommand } from "@aws-sdk/aws-protocoltests-json"; // ES Modules import
  * // const { JsonProtocolClient, SimpleScalarPropertiesCommand } = require("@aws-sdk/aws-protocoltests-json"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new JsonProtocolClient(config);
  * const input = { // SimpleScalarPropertiesInputOutput
  *   floatValue: Number("float"),

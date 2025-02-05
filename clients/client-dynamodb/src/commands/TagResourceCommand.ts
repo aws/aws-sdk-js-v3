@@ -48,6 +48,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { DynamoDBClient, TagResourceCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, TagResourceCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DynamoDBClient(config);
  * const input = { // TagResourceInput
  *   ResourceArn: "STRING_VALUE", // required

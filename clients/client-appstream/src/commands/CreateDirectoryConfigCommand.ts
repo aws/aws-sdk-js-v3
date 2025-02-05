@@ -39,6 +39,7 @@ export interface CreateDirectoryConfigCommandOutput extends CreateDirectoryConfi
  * ```javascript
  * import { AppStreamClient, CreateDirectoryConfigCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateDirectoryConfigCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppStreamClient(config);
  * const input = { // CreateDirectoryConfigRequest
  *   DirectoryName: "STRING_VALUE", // required

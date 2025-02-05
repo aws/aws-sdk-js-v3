@@ -34,6 +34,7 @@ export interface GetIdNamespaceAssociationCommandOutput extends GetIdNamespaceAs
  * ```javascript
  * import { CleanRoomsClient, GetIdNamespaceAssociationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetIdNamespaceAssociationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CleanRoomsClient(config);
  * const input = { // GetIdNamespaceAssociationInput
  *   idNamespaceAssociationIdentifier: "STRING_VALUE", // required

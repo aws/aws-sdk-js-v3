@@ -40,6 +40,7 @@ export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegis
  * ```javascript
  * import { CloudFormationClient, DescribeTypeRegistrationCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeTypeRegistrationCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudFormationClient(config);
  * const input = { // DescribeTypeRegistrationInput
  *   RegistrationToken: "STRING_VALUE", // required

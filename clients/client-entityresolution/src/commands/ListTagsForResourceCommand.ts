@@ -35,6 +35,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * ```javascript
  * import { EntityResolutionClient, ListTagsForResourceCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, ListTagsForResourceCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EntityResolutionClient(config);
  * const input = { // ListTagsForResourceInput
  *   resourceArn: "STRING_VALUE", // required

@@ -37,6 +37,7 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  * ```javascript
  * import { TranslateClient, CreateParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, CreateParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TranslateClient(config);
  * const input = { // CreateParallelDataRequest
  *   Name: "STRING_VALUE", // required

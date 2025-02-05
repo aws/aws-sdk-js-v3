@@ -34,6 +34,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { DLMClient, ListTagsForResourceCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, ListTagsForResourceCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DLMClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

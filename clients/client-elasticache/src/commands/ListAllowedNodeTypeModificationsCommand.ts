@@ -44,6 +44,7 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  * ```javascript
  * import { ElastiCacheClient, ListAllowedNodeTypeModificationsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ListAllowedNodeTypeModificationsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElastiCacheClient(config);
  * const input = { // ListAllowedNodeTypeModificationsMessage
  *   CacheClusterId: "STRING_VALUE",

@@ -34,6 +34,7 @@ export interface UpdateJourneyCommandOutput extends UpdateJourneyResponse, __Met
  * ```javascript
  * import { PinpointClient, UpdateJourneyCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateJourneyCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointClient(config);
  * const input = { // UpdateJourneyRequest
  *   ApplicationId: "STRING_VALUE", // required

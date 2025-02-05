@@ -36,6 +36,7 @@ export interface DeleteCustomLineItemCommandOutput extends DeleteCustomLineItemO
  * ```javascript
  * import { BillingconductorClient, DeleteCustomLineItemCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, DeleteCustomLineItemCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BillingconductorClient(config);
  * const input = { // DeleteCustomLineItemInput
  *   Arn: "STRING_VALUE", // required

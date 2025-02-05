@@ -38,6 +38,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * ```javascript
  * import { MgnClient, ListApplicationsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListApplicationsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MgnClient(config);
  * const input = { // ListApplicationsRequest
  *   filters: { // ListApplicationsRequestFilters

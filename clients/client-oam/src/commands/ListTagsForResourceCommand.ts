@@ -34,6 +34,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * ```javascript
  * import { OAMClient, ListTagsForResourceCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, ListTagsForResourceCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OAMClient(config);
  * const input = { // ListTagsForResourceInput
  *   ResourceArn: "STRING_VALUE", // required

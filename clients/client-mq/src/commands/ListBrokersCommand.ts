@@ -34,6 +34,7 @@ export interface ListBrokersCommandOutput extends ListBrokersResponse, __Metadat
  * ```javascript
  * import { MqClient, ListBrokersCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, ListBrokersCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MqClient(config);
  * const input = { // ListBrokersRequest
  *   MaxResults: Number("int"),

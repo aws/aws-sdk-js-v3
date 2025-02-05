@@ -35,6 +35,7 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * ```javascript
  * import { GuardDutyClient, DeleteInvitationsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DeleteInvitationsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GuardDutyClient(config);
  * const input = { // DeleteInvitationsRequest
  *   AccountIds: [ // AccountIds // required

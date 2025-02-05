@@ -69,6 +69,7 @@ export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __Met
  * ```javascript
  * import { LexRuntimeV2Client, RecognizeTextCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
  * // const { LexRuntimeV2Client, RecognizeTextCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LexRuntimeV2Client(config);
  * const input = { // RecognizeTextRequest
  *   botId: "STRING_VALUE", // required

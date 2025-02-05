@@ -72,6 +72,7 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointCommandOutput
  * ```javascript
  * import { SageMakerRuntimeClient, InvokeEndpointCommand } from "@aws-sdk/client-sagemaker-runtime"; // ES Modules import
  * // const { SageMakerRuntimeClient, InvokeEndpointCommand } = require("@aws-sdk/client-sagemaker-runtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerRuntimeClient(config);
  * const input = { // InvokeEndpointInput
  *   EndpointName: "STRING_VALUE", // required

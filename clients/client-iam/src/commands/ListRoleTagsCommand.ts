@@ -36,6 +36,7 @@ export interface ListRoleTagsCommandOutput extends ListRoleTagsResponse, __Metad
  * ```javascript
  * import { IAMClient, ListRoleTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListRoleTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IAMClient(config);
  * const input = { // ListRoleTagsRequest
  *   RoleName: "STRING_VALUE", // required

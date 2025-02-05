@@ -34,6 +34,7 @@ export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __Met
  * ```javascript
  * import { SchedulerClient, CreateScheduleCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, CreateScheduleCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SchedulerClient(config);
  * const input = { // CreateScheduleInput
  *   Name: "STRING_VALUE", // required

@@ -78,6 +78,7 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
  * ```javascript
  * import { ConnectParticipantClient, GetTranscriptCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, GetTranscriptCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectParticipantClient(config);
  * const input = { // GetTranscriptRequest
  *   ContactId: "STRING_VALUE",

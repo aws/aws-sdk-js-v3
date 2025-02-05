@@ -38,6 +38,7 @@ export interface DeleteCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * ```javascript
  * import { RolesAnywhereClient, DeleteCrlCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, DeleteCrlCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RolesAnywhereClient(config);
  * const input = { // ScalarCrlRequest
  *   crlId: "STRING_VALUE", // required

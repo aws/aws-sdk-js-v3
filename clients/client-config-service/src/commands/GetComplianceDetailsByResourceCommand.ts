@@ -42,6 +42,7 @@ export interface GetComplianceDetailsByResourceCommandOutput
  * ```javascript
  * import { ConfigServiceClient, GetComplianceDetailsByResourceCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetComplianceDetailsByResourceCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConfigServiceClient(config);
  * const input = { // GetComplianceDetailsByResourceRequest
  *   ResourceType: "STRING_VALUE",

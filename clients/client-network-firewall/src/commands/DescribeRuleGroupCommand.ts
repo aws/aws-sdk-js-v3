@@ -34,6 +34,7 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  * ```javascript
  * import { NetworkFirewallClient, DescribeRuleGroupCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DescribeRuleGroupCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkFirewallClient(config);
  * const input = { // DescribeRuleGroupRequest
  *   RuleGroupName: "STRING_VALUE",

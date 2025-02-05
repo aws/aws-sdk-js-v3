@@ -40,6 +40,7 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * ```javascript
  * import { EC2Client, CreateDefaultVpcCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateDefaultVpcCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EC2Client(config);
  * const input = { // CreateDefaultVpcRequest
  *   DryRun: true || false,

@@ -34,6 +34,7 @@ export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __Metadat
  * ```javascript
  * import { KendraClient, DescribeFaqCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DescribeFaqCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KendraClient(config);
  * const input = { // DescribeFaqRequest
  *   Id: "STRING_VALUE", // required

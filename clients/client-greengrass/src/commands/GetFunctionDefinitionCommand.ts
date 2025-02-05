@@ -34,6 +34,7 @@ export interface GetFunctionDefinitionCommandOutput extends GetFunctionDefinitio
  * ```javascript
  * import { GreengrassClient, GetFunctionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetFunctionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GreengrassClient(config);
  * const input = { // GetFunctionDefinitionRequest
  *   FunctionDefinitionId: "STRING_VALUE", // required

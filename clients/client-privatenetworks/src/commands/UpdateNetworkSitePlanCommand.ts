@@ -38,6 +38,7 @@ export interface UpdateNetworkSitePlanCommandOutput extends UpdateNetworkSiteRes
  * ```javascript
  * import { PrivateNetworksClient, UpdateNetworkSitePlanCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, UpdateNetworkSitePlanCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PrivateNetworksClient(config);
  * const input = { // UpdateNetworkSitePlanRequest
  *   networkSiteArn: "STRING_VALUE", // required

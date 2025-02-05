@@ -38,6 +38,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * ```javascript
  * import { DAXClient, DescribeEventsCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeEventsCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DAXClient(config);
  * const input = { // DescribeEventsRequest
  *   SourceName: "STRING_VALUE",

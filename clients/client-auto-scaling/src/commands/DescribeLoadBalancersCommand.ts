@@ -64,6 +64,7 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * ```javascript
  * import { AutoScalingClient, DescribeLoadBalancersCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeLoadBalancersCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AutoScalingClient(config);
  * const input = { // DescribeLoadBalancersRequest
  *   AutoScalingGroupName: "STRING_VALUE", // required

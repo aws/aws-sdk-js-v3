@@ -38,6 +38,7 @@ export interface GetKeyCommandOutput extends GetKeyResponse, __MetadataBearer {}
  * ```javascript
  * import { CloudFrontKeyValueStoreClient, GetKeyCommand } from "@aws-sdk/client-cloudfront-keyvaluestore"; // ES Modules import
  * // const { CloudFrontKeyValueStoreClient, GetKeyCommand } = require("@aws-sdk/client-cloudfront-keyvaluestore"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudFrontKeyValueStoreClient(config);
  * const input = { // GetKeyRequest
  *   KvsARN: "STRING_VALUE", // required

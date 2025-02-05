@@ -34,6 +34,7 @@ export interface DescribeVodSourceCommandOutput extends DescribeVodSourceRespons
  * ```javascript
  * import { MediaTailorClient, DescribeVodSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DescribeVodSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaTailorClient(config);
  * const input = { // DescribeVodSourceRequest
  *   SourceLocationName: "STRING_VALUE", // required

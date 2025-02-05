@@ -39,6 +39,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * ```javascript
  * import { SFNClient, TagResourceCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, TagResourceCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SFNClient(config);
  * const input = { // TagResourceInput
  *   resourceArn: "STRING_VALUE", // required

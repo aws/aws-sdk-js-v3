@@ -39,6 +39,7 @@ export interface CreatePricingPlanCommandOutput extends CreatePricingPlanOutput,
  * ```javascript
  * import { BillingconductorClient, CreatePricingPlanCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, CreatePricingPlanCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BillingconductorClient(config);
  * const input = { // CreatePricingPlanInput
  *   ClientToken: "STRING_VALUE",

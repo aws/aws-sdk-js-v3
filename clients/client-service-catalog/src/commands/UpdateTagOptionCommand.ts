@@ -34,6 +34,7 @@ export interface UpdateTagOptionCommandOutput extends UpdateTagOptionOutput, __M
  * ```javascript
  * import { ServiceCatalogClient, UpdateTagOptionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdateTagOptionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceCatalogClient(config);
  * const input = { // UpdateTagOptionInput
  *   Id: "STRING_VALUE", // required

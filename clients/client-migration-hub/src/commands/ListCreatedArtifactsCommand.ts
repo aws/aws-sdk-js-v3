@@ -48,6 +48,7 @@ export interface ListCreatedArtifactsCommandOutput extends ListCreatedArtifactsR
  * ```javascript
  * import { MigrationHubClient, ListCreatedArtifactsCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, ListCreatedArtifactsCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MigrationHubClient(config);
  * const input = { // ListCreatedArtifactsRequest
  *   ProgressUpdateStream: "STRING_VALUE", // required

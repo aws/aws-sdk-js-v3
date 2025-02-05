@@ -46,6 +46,7 @@ export interface DescribeCertificateAuthorityAuditReportCommandOutput
  * ```javascript
  * import { ACMPCAClient, DescribeCertificateAuthorityAuditReportCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, DescribeCertificateAuthorityAuditReportCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ACMPCAClient(config);
  * const input = { // DescribeCertificateAuthorityAuditReportRequest
  *   CertificateAuthorityArn: "STRING_VALUE", // required

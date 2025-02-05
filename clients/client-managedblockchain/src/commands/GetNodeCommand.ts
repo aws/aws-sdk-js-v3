@@ -39,6 +39,7 @@ export interface GetNodeCommandOutput extends GetNodeOutput, __MetadataBearer {}
  * ```javascript
  * import { ManagedBlockchainClient, GetNodeCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, GetNodeCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ManagedBlockchainClient(config);
  * const input = { // GetNodeInput
  *   NetworkId: "STRING_VALUE", // required

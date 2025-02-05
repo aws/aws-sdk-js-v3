@@ -36,6 +36,7 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * ```javascript
  * import { CodePipelineClient, GetPipelineCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, GetPipelineCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodePipelineClient(config);
  * const input = { // GetPipelineInput
  *   name: "STRING_VALUE", // required

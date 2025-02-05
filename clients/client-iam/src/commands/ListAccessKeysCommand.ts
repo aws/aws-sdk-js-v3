@@ -48,6 +48,7 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
  * ```javascript
  * import { IAMClient, ListAccessKeysCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListAccessKeysCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IAMClient(config);
  * const input = { // ListAccessKeysRequest
  *   UserName: "STRING_VALUE",

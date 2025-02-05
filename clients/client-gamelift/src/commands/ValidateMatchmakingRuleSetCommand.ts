@@ -47,6 +47,7 @@ export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchma
  * ```javascript
  * import { GameLiftClient, ValidateMatchmakingRuleSetCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ValidateMatchmakingRuleSetCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GameLiftClient(config);
  * const input = { // ValidateMatchmakingRuleSetInput
  *   RuleSetBody: "STRING_VALUE", // required

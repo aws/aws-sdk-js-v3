@@ -34,6 +34,7 @@ export interface GetApnsVoipSandboxChannelCommandOutput extends GetApnsVoipSandb
  * ```javascript
  * import { PinpointClient, GetApnsVoipSandboxChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetApnsVoipSandboxChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointClient(config);
  * const input = { // GetApnsVoipSandboxChannelRequest
  *   ApplicationId: "STRING_VALUE", // required

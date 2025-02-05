@@ -34,6 +34,7 @@ export interface DeleteTestSuiteCommandOutput extends DeleteTestSuiteResponse, _
  * ```javascript
  * import { AppTestClient, DeleteTestSuiteCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, DeleteTestSuiteCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppTestClient(config);
  * const input = { // DeleteTestSuiteRequest
  *   testSuiteId: "STRING_VALUE", // required

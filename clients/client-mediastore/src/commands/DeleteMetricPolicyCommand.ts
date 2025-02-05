@@ -34,6 +34,7 @@ export interface DeleteMetricPolicyCommandOutput extends DeleteMetricPolicyOutpu
  * ```javascript
  * import { MediaStoreClient, DeleteMetricPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, DeleteMetricPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaStoreClient(config);
  * const input = { // DeleteMetricPolicyInput
  *   ContainerName: "STRING_VALUE", // required

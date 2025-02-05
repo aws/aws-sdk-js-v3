@@ -34,6 +34,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * ```javascript
  * import { NotificationsClient, ListChannelsCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, ListChannelsCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NotificationsClient(config);
  * const input = { // ListChannelsRequest
  *   notificationConfigurationArn: "STRING_VALUE", // required

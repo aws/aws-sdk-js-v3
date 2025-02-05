@@ -49,6 +49,7 @@ export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
  * ```javascript
  * import { CloudFrontClient, ListDistributionsByOriginRequestPolicyIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsByOriginRequestPolicyIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudFrontClient(config);
  * const input = { // ListDistributionsByOriginRequestPolicyIdRequest
  *   Marker: "STRING_VALUE",

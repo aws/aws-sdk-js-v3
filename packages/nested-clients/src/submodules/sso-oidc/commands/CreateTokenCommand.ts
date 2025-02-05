@@ -34,13 +34,14 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
 
 /**
  * <p>Creates and returns access and refresh tokens for clients that are authenticated using
- *       client secrets. The access token can be used to fetch short-term credentials for the assigned
+ *       client secrets. The access token can be used to fetch short-lived credentials for the assigned
  *       AWS accounts or to access application APIs using <code>bearer</code> authentication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSOOIDCClient, CreateTokenCommand } from "@aws-sdk/client-sso-oidc"; // ES Modules import
  * // const { SSOOIDCClient, CreateTokenCommand } = require("@aws-sdk/client-sso-oidc"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSOOIDCClient(config);
  * const input = { // CreateTokenRequest
  *   clientId: "STRING_VALUE", // required

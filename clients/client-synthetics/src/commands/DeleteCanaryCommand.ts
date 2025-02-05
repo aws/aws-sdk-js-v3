@@ -68,6 +68,7 @@ export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __Metad
  * ```javascript
  * import { SyntheticsClient, DeleteCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, DeleteCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SyntheticsClient(config);
  * const input = { // DeleteCanaryRequest
  *   Name: "STRING_VALUE", // required

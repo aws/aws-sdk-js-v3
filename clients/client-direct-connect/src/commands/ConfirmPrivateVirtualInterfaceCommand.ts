@@ -42,6 +42,7 @@ export interface ConfirmPrivateVirtualInterfaceCommandOutput
  * ```javascript
  * import { DirectConnectClient, ConfirmPrivateVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, ConfirmPrivateVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DirectConnectClient(config);
  * const input = { // ConfirmPrivateVirtualInterfaceRequest
  *   virtualInterfaceId: "STRING_VALUE", // required

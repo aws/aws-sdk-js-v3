@@ -40,6 +40,7 @@ export interface ListMessageTemplateVersionsCommandOutput
  * ```javascript
  * import { QConnectClient, ListMessageTemplateVersionsCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, ListMessageTemplateVersionsCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QConnectClient(config);
  * const input = { // ListMessageTemplateVersionsRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

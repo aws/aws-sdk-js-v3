@@ -41,6 +41,7 @@ export interface StartDocumentClassificationJobCommandOutput
  * ```javascript
  * import { ComprehendClient, StartDocumentClassificationJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StartDocumentClassificationJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ComprehendClient(config);
  * const input = { // StartDocumentClassificationJobRequest
  *   JobName: "STRING_VALUE",

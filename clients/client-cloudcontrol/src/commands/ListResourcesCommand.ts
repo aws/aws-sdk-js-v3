@@ -41,6 +41,7 @@ export interface ListResourcesCommandOutput extends ListResourcesOutput, __Metad
  * ```javascript
  * import { CloudControlClient, ListResourcesCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
  * // const { CloudControlClient, ListResourcesCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudControlClient(config);
  * const input = { // ListResourcesInput
  *   TypeName: "STRING_VALUE", // required

@@ -78,6 +78,7 @@ export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataB
  * ```javascript
  * import { CustomerProfilesClient, GetMatchesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetMatchesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CustomerProfilesClient(config);
  * const input = { // GetMatchesRequest
  *   NextToken: "STRING_VALUE",

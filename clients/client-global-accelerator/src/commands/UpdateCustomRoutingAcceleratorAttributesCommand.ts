@@ -47,6 +47,7 @@ export interface UpdateCustomRoutingAcceleratorAttributesCommandOutput
  * ```javascript
  * import { GlobalAcceleratorClient, UpdateCustomRoutingAcceleratorAttributesCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, UpdateCustomRoutingAcceleratorAttributesCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // UpdateCustomRoutingAcceleratorAttributesRequest
  *   AcceleratorArn: "STRING_VALUE", // required

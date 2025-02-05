@@ -50,6 +50,7 @@ export interface GetExpenseAnalysisCommandOutput extends GetExpenseAnalysisRespo
  * ```javascript
  * import { TextractClient, GetExpenseAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, GetExpenseAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TextractClient(config);
  * const input = { // GetExpenseAnalysisRequest
  *   JobId: "STRING_VALUE", // required

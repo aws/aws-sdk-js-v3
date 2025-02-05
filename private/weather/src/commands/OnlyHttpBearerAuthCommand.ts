@@ -31,6 +31,7 @@ export interface OnlyHttpBearerAuthCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { WeatherClient, OnlyHttpBearerAuthCommand } from "@aws-sdk/weather"; // ES Modules import
  * // const { WeatherClient, OnlyHttpBearerAuthCommand } = require("@aws-sdk/weather"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WeatherClient(config);
  * const input = {};
  * const command = new OnlyHttpBearerAuthCommand(input);

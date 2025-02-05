@@ -34,6 +34,7 @@ export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __M
  * ```javascript
  * import { SecurityLakeClient, ListLogSourcesCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, ListLogSourcesCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SecurityLakeClient(config);
  * const input = { // ListLogSourcesRequest
  *   accounts: [ // AccountList

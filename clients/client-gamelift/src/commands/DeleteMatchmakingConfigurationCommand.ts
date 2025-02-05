@@ -41,6 +41,7 @@ export interface DeleteMatchmakingConfigurationCommandOutput
  * ```javascript
  * import { GameLiftClient, DeleteMatchmakingConfigurationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteMatchmakingConfigurationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GameLiftClient(config);
  * const input = { // DeleteMatchmakingConfigurationInput
  *   Name: "STRING_VALUE", // required

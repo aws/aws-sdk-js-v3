@@ -45,6 +45,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  * ```javascript
  * import { DrsClient, CreateReplicationConfigurationTemplateCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, CreateReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DrsClient(config);
  * const input = { // CreateReplicationConfigurationTemplateRequest
  *   stagingAreaSubnetId: "STRING_VALUE", // required

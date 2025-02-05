@@ -55,6 +55,7 @@ export interface StartMessageMoveTaskCommandOutput extends StartMessageMoveTaskR
  * ```javascript
  * import { SQSClient, StartMessageMoveTaskCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, StartMessageMoveTaskCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SQSClient(config);
  * const input = { // StartMessageMoveTaskRequest
  *   SourceArn: "STRING_VALUE", // required

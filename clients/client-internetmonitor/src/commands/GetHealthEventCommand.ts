@@ -38,6 +38,7 @@ export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __Met
  * ```javascript
  * import { InternetMonitorClient, GetHealthEventCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, GetHealthEventCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new InternetMonitorClient(config);
  * const input = { // GetHealthEventInput
  *   MonitorName: "STRING_VALUE", // required

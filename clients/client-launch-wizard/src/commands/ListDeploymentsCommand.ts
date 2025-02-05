@@ -34,6 +34,7 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __M
  * ```javascript
  * import { LaunchWizardClient, ListDeploymentsCommand } from "@aws-sdk/client-launch-wizard"; // ES Modules import
  * // const { LaunchWizardClient, ListDeploymentsCommand } = require("@aws-sdk/client-launch-wizard"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LaunchWizardClient(config);
  * const input = { // ListDeploymentsInput
  *   filters: [ // DeploymentFilterList

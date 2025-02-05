@@ -56,6 +56,7 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * ```javascript
  * import { SupportClient, DescribeServicesCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeServicesCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SupportClient(config);
  * const input = { // DescribeServicesRequest
  *   serviceCodeList: [ // ServiceCodeList

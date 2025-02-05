@@ -45,6 +45,7 @@ export interface GetTagValuesCommandOutput extends GetTagValuesOutput, __Metadat
  * ```javascript
  * import { ResourceGroupsTaggingAPIClient, GetTagValuesCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, GetTagValuesCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ResourceGroupsTaggingAPIClient(config);
  * const input = { // GetTagValuesInput
  *   PaginationToken: "STRING_VALUE",

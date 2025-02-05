@@ -35,6 +35,7 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  * ```javascript
  * import { AmplifyUIBuilderClient, ListThemesCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, ListThemesCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // ListThemesRequest
  *   appId: "STRING_VALUE", // required

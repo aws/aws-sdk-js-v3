@@ -43,6 +43,7 @@ export interface PutWhatsAppBusinessAccountEventDestinationsCommandOutput
  * ```javascript
  * import { SocialMessagingClient, PutWhatsAppBusinessAccountEventDestinationsCommand } from "@aws-sdk/client-socialmessaging"; // ES Modules import
  * // const { SocialMessagingClient, PutWhatsAppBusinessAccountEventDestinationsCommand } = require("@aws-sdk/client-socialmessaging"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SocialMessagingClient(config);
  * const input = { // PutWhatsAppBusinessAccountEventDestinationsInput
  *   id: "STRING_VALUE", // required

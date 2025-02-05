@@ -75,6 +75,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * ```javascript
  * import { ServiceDiscoveryClient, CreateServiceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, CreateServiceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // CreateServiceRequest
  *   Name: "STRING_VALUE", // required

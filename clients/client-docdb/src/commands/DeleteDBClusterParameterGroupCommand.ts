@@ -37,6 +37,7 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * ```javascript
  * import { DocDBClient, DeleteDBClusterParameterGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DeleteDBClusterParameterGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DocDBClient(config);
  * const input = { // DeleteDBClusterParameterGroupMessage
  *   DBClusterParameterGroupName: "STRING_VALUE", // required

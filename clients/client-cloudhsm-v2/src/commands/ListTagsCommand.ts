@@ -41,6 +41,7 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * ```javascript
  * import { CloudHSMV2Client, ListTagsCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, ListTagsCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudHSMV2Client(config);
  * const input = { // ListTagsRequest
  *   ResourceId: "STRING_VALUE", // required

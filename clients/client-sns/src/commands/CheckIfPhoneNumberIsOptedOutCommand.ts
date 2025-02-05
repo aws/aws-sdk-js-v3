@@ -44,6 +44,7 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
  * ```javascript
  * import { SNSClient, CheckIfPhoneNumberIsOptedOutCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, CheckIfPhoneNumberIsOptedOutCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SNSClient(config);
  * const input = { // CheckIfPhoneNumberIsOptedOutInput
  *   phoneNumber: "STRING_VALUE", // required

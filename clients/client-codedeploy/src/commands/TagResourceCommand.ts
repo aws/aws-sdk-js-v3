@@ -35,6 +35,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * ```javascript
  * import { CodeDeployClient, TagResourceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, TagResourceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeDeployClient(config);
  * const input = { // TagResourceInput
  *   ResourceArn: "STRING_VALUE", // required

@@ -40,6 +40,7 @@ export interface DisableImportFindingsForProductCommandOutput
  * ```javascript
  * import { SecurityHubClient, DisableImportFindingsForProductCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DisableImportFindingsForProductCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SecurityHubClient(config);
  * const input = { // DisableImportFindingsForProductRequest
  *   ProductSubscriptionArn: "STRING_VALUE", // required

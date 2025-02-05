@@ -34,6 +34,7 @@ export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanc
  * ```javascript
  * import { CodeDeployClient, GetOnPremisesInstanceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, GetOnPremisesInstanceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeDeployClient(config);
  * const input = { // GetOnPremisesInstanceInput
  *   instanceName: "STRING_VALUE", // required

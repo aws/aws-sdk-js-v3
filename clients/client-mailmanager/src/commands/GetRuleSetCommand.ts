@@ -34,6 +34,7 @@ export interface GetRuleSetCommandOutput extends GetRuleSetResponse, __MetadataB
  * ```javascript
  * import { MailManagerClient, GetRuleSetCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, GetRuleSetCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MailManagerClient(config);
  * const input = { // GetRuleSetRequest
  *   RuleSetId: "STRING_VALUE", // required

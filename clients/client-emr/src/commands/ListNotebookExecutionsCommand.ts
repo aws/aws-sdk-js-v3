@@ -37,6 +37,7 @@ export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecuti
  * ```javascript
  * import { EMRClient, ListNotebookExecutionsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListNotebookExecutionsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EMRClient(config);
  * const input = { // ListNotebookExecutionsInput
  *   EditorId: "STRING_VALUE",

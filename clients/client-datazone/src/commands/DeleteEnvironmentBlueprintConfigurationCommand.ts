@@ -43,6 +43,7 @@ export interface DeleteEnvironmentBlueprintConfigurationCommandOutput
  * ```javascript
  * import { DataZoneClient, DeleteEnvironmentBlueprintConfigurationCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, DeleteEnvironmentBlueprintConfigurationCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataZoneClient(config);
  * const input = { // DeleteEnvironmentBlueprintConfigurationInput
  *   domainIdentifier: "STRING_VALUE", // required

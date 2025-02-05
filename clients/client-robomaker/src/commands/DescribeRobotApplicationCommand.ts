@@ -42,6 +42,7 @@ export interface DescribeRobotApplicationCommandOutput extends DescribeRobotAppl
  * ```javascript
  * import { RoboMakerClient, DescribeRobotApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DescribeRobotApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RoboMakerClient(config);
  * const input = { // DescribeRobotApplicationRequest
  *   application: "STRING_VALUE", // required

@@ -40,6 +40,7 @@ export interface RefreshSchemasCommandOutput extends RefreshSchemasResponse, __M
  * ```javascript
  * import { DatabaseMigrationServiceClient, RefreshSchemasCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, RefreshSchemasCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // RefreshSchemasMessage
  *   EndpointArn: "STRING_VALUE", // required

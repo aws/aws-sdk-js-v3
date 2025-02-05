@@ -34,6 +34,7 @@ export interface DeleteFleetCommandOutput extends DeleteFleetOutput, __MetadataB
  * ```javascript
  * import { CodeBuildClient, DeleteFleetCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DeleteFleetCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeBuildClient(config);
  * const input = { // DeleteFleetInput
  *   arn: "STRING_VALUE", // required

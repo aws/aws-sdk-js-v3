@@ -34,6 +34,7 @@ export interface ListEventIntegrationsCommandOutput extends ListEventIntegration
  * ```javascript
  * import { AppIntegrationsClient, ListEventIntegrationsCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, ListEventIntegrationsCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppIntegrationsClient(config);
  * const input = { // ListEventIntegrationsRequest
  *   NextToken: "STRING_VALUE",

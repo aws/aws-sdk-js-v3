@@ -34,6 +34,7 @@ export interface CreateUserHierarchyGroupCommandOutput extends CreateUserHierarc
  * ```javascript
  * import { ConnectClient, CreateUserHierarchyGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateUserHierarchyGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectClient(config);
  * const input = { // CreateUserHierarchyGroupRequest
  *   Name: "STRING_VALUE", // required

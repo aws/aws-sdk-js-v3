@@ -35,6 +35,7 @@ export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse,
  * ```javascript
  * import { IoTFleetWiseClient, GetVehicleStatusCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetVehicleStatusCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTFleetWiseClient(config);
  * const input = { // GetVehicleStatusRequest
  *   nextToken: "STRING_VALUE",

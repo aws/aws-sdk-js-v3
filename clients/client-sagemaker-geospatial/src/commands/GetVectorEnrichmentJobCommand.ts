@@ -38,6 +38,7 @@ export interface GetVectorEnrichmentJobCommandOutput extends GetVectorEnrichment
  * ```javascript
  * import { SageMakerGeospatialClient, GetVectorEnrichmentJobCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, GetVectorEnrichmentJobCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerGeospatialClient(config);
  * const input = { // GetVectorEnrichmentJobInput
  *   Arn: "STRING_VALUE", // required

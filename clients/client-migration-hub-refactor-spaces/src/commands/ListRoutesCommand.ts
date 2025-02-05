@@ -38,6 +38,7 @@ export interface ListRoutesCommandOutput extends ListRoutesResponse, __MetadataB
  * ```javascript
  * import { MigrationHubRefactorSpacesClient, ListRoutesCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, ListRoutesCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // ListRoutesRequest
  *   EnvironmentIdentifier: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface UpdateModelCommandOutput extends Model, __MetadataBearer {}
  * ```javascript
  * import { APIGatewayClient, UpdateModelCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateModelCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new APIGatewayClient(config);
  * const input = { // UpdateModelRequest
  *   restApiId: "STRING_VALUE", // required

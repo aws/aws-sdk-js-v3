@@ -38,6 +38,7 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  * ```javascript
  * import { TimestreamWriteClient, DescribeTableCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, DescribeTableCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TimestreamWriteClient(config);
  * const input = { // DescribeTableRequest
  *   DatabaseName: "STRING_VALUE", // required

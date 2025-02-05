@@ -34,6 +34,7 @@ export interface GetIntegrationsCommandOutput extends GetIntegrationsResponse, _
  * ```javascript
  * import { ApiGatewayV2Client, GetIntegrationsCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetIntegrationsCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ApiGatewayV2Client(config);
  * const input = { // GetIntegrationsRequest
  *   ApiId: "STRING_VALUE", // required

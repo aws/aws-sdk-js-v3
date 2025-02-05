@@ -34,6 +34,7 @@ export interface GetJobQueueSnapshotCommandOutput extends GetJobQueueSnapshotRes
  * ```javascript
  * import { BatchClient, GetJobQueueSnapshotCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, GetJobQueueSnapshotCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BatchClient(config);
  * const input = { // GetJobQueueSnapshotRequest
  *   jobQueue: "STRING_VALUE", // required

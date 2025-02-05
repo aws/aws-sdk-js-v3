@@ -43,6 +43,7 @@ export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
  * ```javascript
  * import { ServiceCatalogClient, AssociateServiceActionWithProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, AssociateServiceActionWithProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceCatalogClient(config);
  * const input = { // AssociateServiceActionWithProvisioningArtifactInput
  *   ProductId: "STRING_VALUE", // required

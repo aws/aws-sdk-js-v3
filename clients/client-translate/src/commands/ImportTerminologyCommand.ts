@@ -45,6 +45,7 @@ export interface ImportTerminologyCommandOutput extends ImportTerminologyRespons
  * ```javascript
  * import { TranslateClient, ImportTerminologyCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, ImportTerminologyCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TranslateClient(config);
  * const input = { // ImportTerminologyRequest
  *   Name: "STRING_VALUE", // required

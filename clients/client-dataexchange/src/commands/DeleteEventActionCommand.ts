@@ -34,6 +34,7 @@ export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { DataExchangeClient, DeleteEventActionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, DeleteEventActionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataExchangeClient(config);
  * const input = { // DeleteEventActionRequest
  *   EventActionId: "STRING_VALUE", // required

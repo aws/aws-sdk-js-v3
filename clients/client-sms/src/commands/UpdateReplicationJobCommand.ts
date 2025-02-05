@@ -34,6 +34,7 @@ export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobR
  * ```javascript
  * import { SMSClient, UpdateReplicationJobCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, UpdateReplicationJobCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SMSClient(config);
  * const input = { // UpdateReplicationJobRequest
  *   replicationJobId: "STRING_VALUE", // required

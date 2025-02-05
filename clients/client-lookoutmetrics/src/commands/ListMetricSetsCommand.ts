@@ -36,6 +36,7 @@ export interface ListMetricSetsCommandOutput extends ListMetricSetsResponse, __M
  * ```javascript
  * import { LookoutMetricsClient, ListMetricSetsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, ListMetricSetsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LookoutMetricsClient(config);
  * const input = { // ListMetricSetsRequest
  *   AnomalyDetectorArn: "STRING_VALUE",

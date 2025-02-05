@@ -35,6 +35,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { OSISClient, UntagResourceCommand } from "@aws-sdk/client-osis"; // ES Modules import
  * // const { OSISClient, UntagResourceCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OSISClient(config);
  * const input = { // UntagResourceRequest
  *   Arn: "STRING_VALUE", // required

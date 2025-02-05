@@ -42,6 +42,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * ```javascript
  * import { CustomerProfilesClient, UpdateDomainCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, UpdateDomainCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CustomerProfilesClient(config);
  * const input = { // UpdateDomainRequest
  *   DomainName: "STRING_VALUE", // required

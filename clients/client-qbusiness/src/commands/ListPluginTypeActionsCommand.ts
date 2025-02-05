@@ -35,6 +35,7 @@ export interface ListPluginTypeActionsCommandOutput extends ListPluginTypeAction
  * ```javascript
  * import { QBusinessClient, ListPluginTypeActionsCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, ListPluginTypeActionsCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QBusinessClient(config);
  * const input = { // ListPluginTypeActionsRequest
  *   pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM" || "QUICKSIGHT" || "SERVICENOW_NOW_PLATFORM" || "JIRA_CLOUD" || "SALESFORCE_CRM" || "ZENDESK_SUITE" || "ATLASSIAN_CONFLUENCE" || "GOOGLE_CALENDAR" || "MICROSOFT_TEAMS" || "MICROSOFT_EXCHANGE" || "PAGERDUTY_ADVANCE" || "SMARTSHEET" || "ASANA", // required

@@ -38,6 +38,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { ServiceCatalogAppRegistryClient, ListTagsForResourceCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, ListTagsForResourceCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

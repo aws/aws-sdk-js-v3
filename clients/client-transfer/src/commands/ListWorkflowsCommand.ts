@@ -34,6 +34,7 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * ```javascript
  * import { TransferClient, ListWorkflowsCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ListWorkflowsCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TransferClient(config);
  * const input = { // ListWorkflowsRequest
  *   MaxResults: Number("int"),

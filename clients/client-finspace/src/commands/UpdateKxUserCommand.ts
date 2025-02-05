@@ -34,6 +34,7 @@ export interface UpdateKxUserCommandOutput extends UpdateKxUserResponse, __Metad
  * ```javascript
  * import { FinspaceClient, UpdateKxUserCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, UpdateKxUserCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FinspaceClient(config);
  * const input = { // UpdateKxUserRequest
  *   environmentId: "STRING_VALUE", // required

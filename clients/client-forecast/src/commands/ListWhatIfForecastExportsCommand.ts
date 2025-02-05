@@ -34,6 +34,7 @@ export interface ListWhatIfForecastExportsCommandOutput extends ListWhatIfForeca
  * ```javascript
  * import { ForecastClient, ListWhatIfForecastExportsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListWhatIfForecastExportsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ForecastClient(config);
  * const input = { // ListWhatIfForecastExportsRequest
  *   NextToken: "STRING_VALUE",

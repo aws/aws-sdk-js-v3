@@ -45,6 +45,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * ```javascript
  * import { QuickSightClient, DescribeAssetBundleExportJobCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeAssetBundleExportJobCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QuickSightClient(config);
  * const input = { // DescribeAssetBundleExportJobRequest
  *   AwsAccountId: "STRING_VALUE", // required

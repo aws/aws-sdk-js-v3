@@ -59,6 +59,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * ```javascript
  * import { SageMakerClient, AddTagsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, AddTagsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // AddTagsInput
  *   ResourceArn: "STRING_VALUE", // required

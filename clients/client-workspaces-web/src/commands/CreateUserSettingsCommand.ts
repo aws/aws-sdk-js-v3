@@ -40,6 +40,7 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  * ```javascript
  * import { WorkSpacesWebClient, CreateUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, CreateUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkSpacesWebClient(config);
  * const input = { // CreateUserSettingsRequest
  *   copyAllowed: "STRING_VALUE", // required

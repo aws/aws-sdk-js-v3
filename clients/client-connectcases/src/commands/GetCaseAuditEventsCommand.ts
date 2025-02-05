@@ -34,6 +34,7 @@ export interface GetCaseAuditEventsCommandOutput extends GetCaseAuditEventsRespo
  * ```javascript
  * import { ConnectCasesClient, GetCaseAuditEventsCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, GetCaseAuditEventsCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectCasesClient(config);
  * const input = { // GetCaseAuditEventsRequest
  *   caseId: "STRING_VALUE", // required

@@ -63,6 +63,7 @@ export interface ListKeysCommandOutput extends ListKeysOutput, __MetadataBearer 
  * ```javascript
  * import { PaymentCryptographyClient, ListKeysCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
  * // const { PaymentCryptographyClient, ListKeysCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PaymentCryptographyClient(config);
  * const input = { // ListKeysInput
  *   KeyState: "STRING_VALUE",

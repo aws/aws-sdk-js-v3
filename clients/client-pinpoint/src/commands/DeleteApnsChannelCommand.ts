@@ -34,6 +34,7 @@ export interface DeleteApnsChannelCommandOutput extends DeleteApnsChannelRespons
  * ```javascript
  * import { PinpointClient, DeleteApnsChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteApnsChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointClient(config);
  * const input = { // DeleteApnsChannelRequest
  *   ApplicationId: "STRING_VALUE", // required

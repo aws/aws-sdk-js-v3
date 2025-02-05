@@ -38,6 +38,7 @@ export interface SearchMessageTemplatesCommandOutput extends SearchMessageTempla
  * ```javascript
  * import { QConnectClient, SearchMessageTemplatesCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, SearchMessageTemplatesCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QConnectClient(config);
  * const input = { // SearchMessageTemplatesRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

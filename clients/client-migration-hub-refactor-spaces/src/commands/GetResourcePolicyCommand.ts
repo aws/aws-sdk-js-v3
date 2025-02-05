@@ -38,6 +38,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * ```javascript
  * import { MigrationHubRefactorSpacesClient, GetResourcePolicyCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, GetResourcePolicyCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // GetResourcePolicyRequest
  *   Identifier: "STRING_VALUE", // required

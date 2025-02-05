@@ -35,6 +35,7 @@ export interface GetAccessControlEffectCommandOutput extends GetAccessControlEff
  * ```javascript
  * import { WorkMailClient, GetAccessControlEffectCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, GetAccessControlEffectCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkMailClient(config);
  * const input = { // GetAccessControlEffectRequest
  *   OrganizationId: "STRING_VALUE", // required

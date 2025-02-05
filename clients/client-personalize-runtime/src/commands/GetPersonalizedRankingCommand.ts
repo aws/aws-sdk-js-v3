@@ -48,6 +48,7 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  * ```javascript
  * import { PersonalizeRuntimeClient, GetPersonalizedRankingCommand } from "@aws-sdk/client-personalize-runtime"; // ES Modules import
  * // const { PersonalizeRuntimeClient, GetPersonalizedRankingCommand } = require("@aws-sdk/client-personalize-runtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PersonalizeRuntimeClient(config);
  * const input = { // GetPersonalizedRankingRequest
  *   campaignArn: "STRING_VALUE", // required

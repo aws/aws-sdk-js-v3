@@ -54,6 +54,7 @@ export interface DeleteSlotTypeCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { LexModelBuildingServiceClient, DeleteSlotTypeCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, DeleteSlotTypeCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // DeleteSlotTypeRequest
  *   name: "STRING_VALUE", // required

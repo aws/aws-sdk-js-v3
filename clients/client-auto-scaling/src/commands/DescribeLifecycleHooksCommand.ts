@@ -34,6 +34,7 @@ export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHo
  * ```javascript
  * import { AutoScalingClient, DescribeLifecycleHooksCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeLifecycleHooksCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AutoScalingClient(config);
  * const input = { // DescribeLifecycleHooksType
  *   AutoScalingGroupName: "STRING_VALUE", // required

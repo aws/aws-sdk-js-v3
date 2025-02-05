@@ -36,6 +36,7 @@ export interface GetMergeOptionsCommandOutput extends GetMergeOptionsOutput, __M
  * ```javascript
  * import { CodeCommitClient, GetMergeOptionsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetMergeOptionsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeCommitClient(config);
  * const input = { // GetMergeOptionsInput
  *   repositoryName: "STRING_VALUE", // required

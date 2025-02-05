@@ -43,6 +43,7 @@ export interface AssociateWirelessDeviceWithMulticastGroupCommandOutput
  * ```javascript
  * import { IoTWirelessClient, AssociateWirelessDeviceWithMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, AssociateWirelessDeviceWithMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTWirelessClient(config);
  * const input = { // AssociateWirelessDeviceWithMulticastGroupRequest
  *   Id: "STRING_VALUE", // required

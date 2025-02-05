@@ -40,6 +40,7 @@ export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataB
  * ```javascript
  * import { IoTSecureTunnelingClient, OpenTunnelCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
  * // const { IoTSecureTunnelingClient, OpenTunnelCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTSecureTunnelingClient(config);
  * const input = { // OpenTunnelRequest
  *   description: "STRING_VALUE",

@@ -46,6 +46,7 @@ export interface DescribeCustomRoutingEndpointGroupCommandOutput
  * ```javascript
  * import { GlobalAcceleratorClient, DescribeCustomRoutingEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DescribeCustomRoutingEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // DescribeCustomRoutingEndpointGroupRequest
  *   EndpointGroupArn: "STRING_VALUE", // required

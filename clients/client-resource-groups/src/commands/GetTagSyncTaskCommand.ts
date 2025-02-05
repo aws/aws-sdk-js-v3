@@ -44,6 +44,7 @@ export interface GetTagSyncTaskCommandOutput extends GetTagSyncTaskOutput, __Met
  * ```javascript
  * import { ResourceGroupsClient, GetTagSyncTaskCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, GetTagSyncTaskCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ResourceGroupsClient(config);
  * const input = { // GetTagSyncTaskInput
  *   TaskArn: "STRING_VALUE", // required

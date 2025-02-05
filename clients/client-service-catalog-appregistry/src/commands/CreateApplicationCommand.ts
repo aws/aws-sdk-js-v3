@@ -38,6 +38,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * ```javascript
  * import { ServiceCatalogAppRegistryClient, CreateApplicationCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, CreateApplicationCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const input = { // CreateApplicationRequest
  *   name: "STRING_VALUE", // required

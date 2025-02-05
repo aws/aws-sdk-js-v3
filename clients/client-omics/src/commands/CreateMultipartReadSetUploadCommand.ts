@@ -39,6 +39,7 @@ export interface CreateMultipartReadSetUploadCommandOutput
  * ```javascript
  * import { OmicsClient, CreateMultipartReadSetUploadCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, CreateMultipartReadSetUploadCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OmicsClient(config);
  * const input = { // CreateMultipartReadSetUploadRequest
  *   sequenceStoreId: "STRING_VALUE", // required

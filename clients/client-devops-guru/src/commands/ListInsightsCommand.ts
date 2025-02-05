@@ -36,6 +36,7 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  * ```javascript
  * import { DevOpsGuruClient, ListInsightsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListInsightsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DevOpsGuruClient(config);
  * const input = { // ListInsightsRequest
  *   StatusFilter: { // ListInsightsStatusFilter

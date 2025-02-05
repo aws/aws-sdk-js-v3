@@ -34,6 +34,7 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsRespons
  * ```javascript
  * import { VPCLatticeClient, DeregisterTargetsCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, DeregisterTargetsCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new VPCLatticeClient(config);
  * const input = { // DeregisterTargetsRequest
  *   targetGroupIdentifier: "STRING_VALUE", // required

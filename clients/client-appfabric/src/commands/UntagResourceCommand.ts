@@ -34,6 +34,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { AppFabricClient, UntagResourceCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, UntagResourceCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppFabricClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

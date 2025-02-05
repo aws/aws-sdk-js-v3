@@ -34,6 +34,7 @@ export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBea
  * ```javascript
  * import { OAMClient, DeleteSinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, DeleteSinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OAMClient(config);
  * const input = { // DeleteSinkInput
  *   Identifier: "STRING_VALUE", // required

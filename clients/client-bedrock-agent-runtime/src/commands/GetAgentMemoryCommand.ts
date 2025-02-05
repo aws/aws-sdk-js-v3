@@ -38,6 +38,7 @@ export interface GetAgentMemoryCommandOutput extends GetAgentMemoryResponse, __M
  * ```javascript
  * import { BedrockAgentRuntimeClient, GetAgentMemoryCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, GetAgentMemoryCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // GetAgentMemoryRequest
  *   nextToken: "STRING_VALUE",

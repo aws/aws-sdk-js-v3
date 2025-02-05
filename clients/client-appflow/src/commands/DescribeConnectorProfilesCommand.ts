@@ -38,6 +38,7 @@ export interface DescribeConnectorProfilesCommandOutput extends DescribeConnecto
  * ```javascript
  * import { AppflowClient, DescribeConnectorProfilesCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, DescribeConnectorProfilesCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppflowClient(config);
  * const input = { // DescribeConnectorProfilesRequest
  *   connectorProfileNames: [ // ConnectorProfileNameList

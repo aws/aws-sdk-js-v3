@@ -36,6 +36,7 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  * ```javascript
  * import { SageMakerClient, CreateAppImageConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateAppImageConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // CreateAppImageConfigRequest
  *   AppImageConfigName: "STRING_VALUE", // required

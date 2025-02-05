@@ -34,6 +34,7 @@ export interface GetServiceAttributesCommandOutput extends GetServiceAttributesR
  * ```javascript
  * import { ServiceDiscoveryClient, GetServiceAttributesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, GetServiceAttributesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // GetServiceAttributesRequest
  *   ServiceId: "STRING_VALUE", // required

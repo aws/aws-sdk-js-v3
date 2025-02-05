@@ -43,6 +43,7 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * ```javascript
  * import { WAFV2Client, ListResourcesForWebACLCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListResourcesForWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WAFV2Client(config);
  * const input = { // ListResourcesForWebACLRequest
  *   WebACLArn: "STRING_VALUE", // required

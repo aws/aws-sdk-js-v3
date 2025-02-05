@@ -43,6 +43,7 @@ export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
  * ```javascript
  * import { ServiceCatalogClient, DisassociateServiceActionFromProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DisassociateServiceActionFromProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceCatalogClient(config);
  * const input = { // DisassociateServiceActionFromProvisioningArtifactInput
  *   ProductId: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface GetTerminologyCommandOutput extends GetTerminologyResponse, __M
  * ```javascript
  * import { TranslateClient, GetTerminologyCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, GetTerminologyCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TranslateClient(config);
  * const input = { // GetTerminologyRequest
  *   Name: "STRING_VALUE", // required

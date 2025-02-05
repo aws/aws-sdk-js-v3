@@ -42,6 +42,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * ```javascript
  * import { MigrationHubRefactorSpacesClient, GetEnvironmentCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, GetEnvironmentCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // GetEnvironmentRequest
  *   EnvironmentIdentifier: "STRING_VALUE", // required

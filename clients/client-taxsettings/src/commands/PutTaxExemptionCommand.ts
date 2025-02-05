@@ -35,6 +35,7 @@ export interface PutTaxExemptionCommandOutput extends PutTaxExemptionResponse, _
  * ```javascript
  * import { TaxSettingsClient, PutTaxExemptionCommand } from "@aws-sdk/client-taxsettings"; // ES Modules import
  * // const { TaxSettingsClient, PutTaxExemptionCommand } = require("@aws-sdk/client-taxsettings"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TaxSettingsClient(config);
  * const input = { // PutTaxExemptionRequest
  *   accountIds: [ // AccountIds // required

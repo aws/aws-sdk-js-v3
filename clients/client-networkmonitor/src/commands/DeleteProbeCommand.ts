@@ -39,6 +39,7 @@ export interface DeleteProbeCommandOutput extends DeleteProbeOutput, __MetadataB
  * ```javascript
  * import { NetworkMonitorClient, DeleteProbeCommand } from "@aws-sdk/client-networkmonitor"; // ES Modules import
  * // const { NetworkMonitorClient, DeleteProbeCommand } = require("@aws-sdk/client-networkmonitor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkMonitorClient(config);
  * const input = { // DeleteProbeInput
  *   monitorName: "STRING_VALUE", // required

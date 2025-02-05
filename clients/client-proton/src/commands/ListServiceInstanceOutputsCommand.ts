@@ -38,6 +38,7 @@ export interface ListServiceInstanceOutputsCommandOutput extends ListServiceInst
  * ```javascript
  * import { ProtonClient, ListServiceInstanceOutputsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListServiceInstanceOutputsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ProtonClient(config);
  * const input = { // ListServiceInstanceOutputsInput
  *   serviceInstanceName: "STRING_VALUE", // required

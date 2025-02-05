@@ -35,6 +35,7 @@ export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregat
  * ```javascript
  * import { SecurityHubClient, ListFindingAggregatorsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, ListFindingAggregatorsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SecurityHubClient(config);
  * const input = { // ListFindingAggregatorsRequest
  *   NextToken: "STRING_VALUE",

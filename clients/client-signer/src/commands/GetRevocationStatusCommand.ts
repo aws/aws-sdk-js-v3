@@ -35,6 +35,7 @@ export interface GetRevocationStatusCommandOutput extends GetRevocationStatusRes
  * ```javascript
  * import { SignerClient, GetRevocationStatusCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, GetRevocationStatusCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SignerClient(config);
  * const input = { // GetRevocationStatusRequest
  *   signatureTimestamp: new Date("TIMESTAMP"), // required

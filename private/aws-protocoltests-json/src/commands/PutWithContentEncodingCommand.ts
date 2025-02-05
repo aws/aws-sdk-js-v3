@@ -34,6 +34,7 @@ export interface PutWithContentEncodingCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { JsonProtocolClient, PutWithContentEncodingCommand } from "@aws-sdk/aws-protocoltests-json"; // ES Modules import
  * // const { JsonProtocolClient, PutWithContentEncodingCommand } = require("@aws-sdk/aws-protocoltests-json"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new JsonProtocolClient(config);
  * const input = { // PutWithContentEncodingInput
  *   encoding: "STRING_VALUE",

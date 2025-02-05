@@ -85,6 +85,7 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * ```javascript
  * import { WAFClient, CreateRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, CreateRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WAFClient(config);
  * const input = { // CreateRuleRequest
  *   Name: "STRING_VALUE", // required

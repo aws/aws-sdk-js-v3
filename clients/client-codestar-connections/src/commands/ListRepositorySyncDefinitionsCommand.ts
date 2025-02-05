@@ -43,6 +43,7 @@ export interface ListRepositorySyncDefinitionsCommandOutput
  * ```javascript
  * import { CodeStarConnectionsClient, ListRepositorySyncDefinitionsCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, ListRepositorySyncDefinitionsCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // ListRepositorySyncDefinitionsInput
  *   RepositoryLinkId: "STRING_VALUE", // required

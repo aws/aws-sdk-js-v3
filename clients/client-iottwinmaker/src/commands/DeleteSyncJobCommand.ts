@@ -34,6 +34,7 @@ export interface DeleteSyncJobCommandOutput extends DeleteSyncJobResponse, __Met
  * ```javascript
  * import { IoTTwinMakerClient, DeleteSyncJobCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, DeleteSyncJobCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTTwinMakerClient(config);
  * const input = { // DeleteSyncJobRequest
  *   workspaceId: "STRING_VALUE", // required

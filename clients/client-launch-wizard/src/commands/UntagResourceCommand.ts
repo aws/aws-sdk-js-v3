@@ -34,6 +34,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * ```javascript
  * import { LaunchWizardClient, UntagResourceCommand } from "@aws-sdk/client-launch-wizard"; // ES Modules import
  * // const { LaunchWizardClient, UntagResourceCommand } = require("@aws-sdk/client-launch-wizard"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LaunchWizardClient(config);
  * const input = { // UntagResourceInput
  *   resourceArn: "STRING_VALUE", // required

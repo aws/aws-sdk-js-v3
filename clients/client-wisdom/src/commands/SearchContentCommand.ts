@@ -35,6 +35,7 @@ export interface SearchContentCommandOutput extends SearchContentResponse, __Met
  * ```javascript
  * import { WisdomClient, SearchContentCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, SearchContentCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WisdomClient(config);
  * const input = { // SearchContentRequest
  *   nextToken: "STRING_VALUE",

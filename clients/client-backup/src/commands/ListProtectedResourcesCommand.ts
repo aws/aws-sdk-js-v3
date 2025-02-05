@@ -36,6 +36,7 @@ export interface ListProtectedResourcesCommandOutput extends ListProtectedResour
  * ```javascript
  * import { BackupClient, ListProtectedResourcesCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListProtectedResourcesCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BackupClient(config);
  * const input = { // ListProtectedResourcesInput
  *   NextToken: "STRING_VALUE",

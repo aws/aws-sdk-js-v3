@@ -34,6 +34,7 @@ export interface UpdateResolverCommandOutput extends UpdateResolverResponse, __M
  * ```javascript
  * import { AppSyncClient, UpdateResolverCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateResolverCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppSyncClient(config);
  * const input = { // UpdateResolverRequest
  *   apiId: "STRING_VALUE", // required

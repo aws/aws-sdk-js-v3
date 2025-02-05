@@ -34,6 +34,7 @@ export interface GetAutoTerminationPolicyCommandOutput extends GetAutoTerminatio
  * ```javascript
  * import { EMRClient, GetAutoTerminationPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, GetAutoTerminationPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EMRClient(config);
  * const input = { // GetAutoTerminationPolicyInput
  *   ClusterId: "STRING_VALUE", // required

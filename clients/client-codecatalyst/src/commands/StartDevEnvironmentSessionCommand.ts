@@ -38,6 +38,7 @@ export interface StartDevEnvironmentSessionCommandOutput extends StartDevEnviron
  * ```javascript
  * import { CodeCatalystClient, StartDevEnvironmentSessionCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, StartDevEnvironmentSessionCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeCatalystClient(config);
  * const input = { // StartDevEnvironmentSessionRequest
  *   spaceName: "STRING_VALUE", // required

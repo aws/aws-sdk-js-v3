@@ -43,6 +43,7 @@ export interface GetWirelessGatewayFirmwareInformationCommandOutput
  * ```javascript
  * import { IoTWirelessClient, GetWirelessGatewayFirmwareInformationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetWirelessGatewayFirmwareInformationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTWirelessClient(config);
  * const input = { // GetWirelessGatewayFirmwareInformationRequest
  *   Id: "STRING_VALUE", // required

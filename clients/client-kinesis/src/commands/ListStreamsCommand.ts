@@ -49,6 +49,7 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * ```javascript
  * import { KinesisClient, ListStreamsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, ListStreamsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KinesisClient(config);
  * const input = { // ListStreamsInput
  *   Limit: Number("int"),

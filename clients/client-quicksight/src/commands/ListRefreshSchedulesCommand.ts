@@ -34,6 +34,7 @@ export interface ListRefreshSchedulesCommandOutput extends ListRefreshSchedulesR
  * ```javascript
  * import { QuickSightClient, ListRefreshSchedulesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListRefreshSchedulesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QuickSightClient(config);
  * const input = { // ListRefreshSchedulesRequest
  *   AwsAccountId: "STRING_VALUE", // required

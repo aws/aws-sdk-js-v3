@@ -34,6 +34,7 @@ export interface BatchRemoveRoleCommandOutput extends BatchRemoveRoleOutput, __M
  * ```javascript
  * import { RepostspaceClient, BatchRemoveRoleCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
  * // const { RepostspaceClient, BatchRemoveRoleCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RepostspaceClient(config);
  * const input = { // BatchRemoveRoleInput
  *   spaceId: "STRING_VALUE", // required

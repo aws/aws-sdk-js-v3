@@ -34,6 +34,7 @@ export interface CreateRouteResponseCommandOutput extends CreateRouteResponseRes
  * ```javascript
  * import { ApiGatewayV2Client, CreateRouteResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateRouteResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ApiGatewayV2Client(config);
  * const input = { // CreateRouteResponseRequest
  *   ApiId: "STRING_VALUE", // required

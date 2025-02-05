@@ -34,6 +34,7 @@ export interface GetTestRunStepCommandOutput extends GetTestRunStepResponse, __M
  * ```javascript
  * import { AppTestClient, GetTestRunStepCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, GetTestRunStepCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppTestClient(config);
  * const input = { // GetTestRunStepRequest
  *   testRunId: "STRING_VALUE", // required

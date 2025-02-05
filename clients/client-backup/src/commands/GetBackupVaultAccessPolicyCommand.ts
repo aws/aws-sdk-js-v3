@@ -35,6 +35,7 @@ export interface GetBackupVaultAccessPolicyCommandOutput extends GetBackupVaultA
  * ```javascript
  * import { BackupClient, GetBackupVaultAccessPolicyCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetBackupVaultAccessPolicyCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BackupClient(config);
  * const input = { // GetBackupVaultAccessPolicyInput
  *   BackupVaultName: "STRING_VALUE", // required

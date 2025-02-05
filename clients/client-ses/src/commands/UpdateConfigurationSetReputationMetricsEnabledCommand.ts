@@ -42,6 +42,7 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput ext
  * ```javascript
  * import { SESClient, UpdateConfigurationSetReputationMetricsEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, UpdateConfigurationSetReputationMetricsEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SESClient(config);
  * const input = { // UpdateConfigurationSetReputationMetricsEnabledRequest
  *   ConfigurationSetName: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface ListIngestConfigurationsCommandOutput extends ListIngestConfigu
  * ```javascript
  * import { IVSRealTimeClient, ListIngestConfigurationsCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, ListIngestConfigurationsCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IVSRealTimeClient(config);
  * const input = { // ListIngestConfigurationsRequest
  *   filterByStageArn: "STRING_VALUE",

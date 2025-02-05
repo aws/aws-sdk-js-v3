@@ -34,6 +34,7 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * ```javascript
  * import { FMSClient, GetPolicyCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetPolicyCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FMSClient(config);
  * const input = { // GetPolicyRequest
  *   PolicyId: "STRING_VALUE", // required

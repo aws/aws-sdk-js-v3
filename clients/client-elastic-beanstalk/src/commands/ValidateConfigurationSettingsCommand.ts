@@ -42,6 +42,7 @@ export interface ValidateConfigurationSettingsCommandOutput
  * ```javascript
  * import { ElasticBeanstalkClient, ValidateConfigurationSettingsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, ValidateConfigurationSettingsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // ValidateConfigurationSettingsMessage
  *   ApplicationName: "STRING_VALUE", // required

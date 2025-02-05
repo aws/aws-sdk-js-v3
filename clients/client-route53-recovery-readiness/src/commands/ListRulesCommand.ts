@@ -38,6 +38,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * ```javascript
  * import { Route53RecoveryReadinessClient, ListRulesCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, ListRulesCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Route53RecoveryReadinessClient(config);
  * const input = { // ListRulesRequest
  *   MaxResults: Number("int"),

@@ -34,6 +34,7 @@ export interface ListEventActionsCommandOutput extends ListEventActionsResponse,
  * ```javascript
  * import { DataExchangeClient, ListEventActionsCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, ListEventActionsCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataExchangeClient(config);
  * const input = { // ListEventActionsRequest
  *   EventSourceId: "STRING_VALUE",

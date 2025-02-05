@@ -36,6 +36,7 @@ export interface GetObjectCommandOutput extends Omit<GetObjectResponse, "Body">,
  * ```javascript
  * import { MediaStoreDataClient, GetObjectCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
  * // const { MediaStoreDataClient, GetObjectCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaStoreDataClient(config);
  * const input = { // GetObjectRequest
  *   Path: "STRING_VALUE", // required

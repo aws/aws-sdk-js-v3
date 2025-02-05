@@ -40,6 +40,7 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * ```javascript
  * import { PricingClient, DescribeServicesCommand } from "@aws-sdk/client-pricing"; // ES Modules import
  * // const { PricingClient, DescribeServicesCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PricingClient(config);
  * const input = { // DescribeServicesRequest
  *   ServiceCode: "STRING_VALUE",

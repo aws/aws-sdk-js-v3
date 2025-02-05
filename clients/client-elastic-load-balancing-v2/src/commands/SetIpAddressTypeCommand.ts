@@ -38,6 +38,7 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, _
  * ```javascript
  * import { ElasticLoadBalancingV2Client, SetIpAddressTypeCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, SetIpAddressTypeCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // SetIpAddressTypeInput
  *   LoadBalancerArn: "STRING_VALUE", // required

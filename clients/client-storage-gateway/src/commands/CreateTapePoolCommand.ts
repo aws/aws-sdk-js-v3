@@ -35,6 +35,7 @@ export interface CreateTapePoolCommandOutput extends CreateTapePoolOutput, __Met
  * ```javascript
  * import { StorageGatewayClient, CreateTapePoolCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateTapePoolCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new StorageGatewayClient(config);
  * const input = { // CreateTapePoolInput
  *   PoolName: "STRING_VALUE", // required

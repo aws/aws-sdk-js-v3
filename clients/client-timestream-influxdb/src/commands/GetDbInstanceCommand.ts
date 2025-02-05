@@ -38,6 +38,7 @@ export interface GetDbInstanceCommandOutput extends GetDbInstanceOutput, __Metad
  * ```javascript
  * import { TimestreamInfluxDBClient, GetDbInstanceCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
  * // const { TimestreamInfluxDBClient, GetDbInstanceCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TimestreamInfluxDBClient(config);
  * const input = { // GetDbInstanceInput
  *   identifier: "STRING_VALUE", // required

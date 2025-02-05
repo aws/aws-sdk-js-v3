@@ -35,6 +35,7 @@ export interface ListServiceNetworksCommandOutput extends ListServiceNetworksRes
  * ```javascript
  * import { VPCLatticeClient, ListServiceNetworksCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, ListServiceNetworksCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new VPCLatticeClient(config);
  * const input = { // ListServiceNetworksRequest
  *   maxResults: Number("int"),

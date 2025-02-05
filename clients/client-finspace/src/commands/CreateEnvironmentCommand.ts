@@ -40,6 +40,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * ```javascript
  * import { FinspaceClient, CreateEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, CreateEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FinspaceClient(config);
  * const input = { // CreateEnvironmentRequest
  *   name: "STRING_VALUE", // required

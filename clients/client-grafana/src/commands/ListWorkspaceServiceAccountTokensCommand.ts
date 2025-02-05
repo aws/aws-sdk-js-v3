@@ -48,6 +48,7 @@ export interface ListWorkspaceServiceAccountTokensCommandOutput
  * ```javascript
  * import { GrafanaClient, ListWorkspaceServiceAccountTokensCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, ListWorkspaceServiceAccountTokensCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GrafanaClient(config);
  * const input = { // ListWorkspaceServiceAccountTokensRequest
  *   maxResults: Number("int"),

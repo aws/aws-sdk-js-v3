@@ -43,6 +43,7 @@ export interface UpdateAssociationStatusCommandOutput extends UpdateAssociationS
  * ```javascript
  * import { SSMClient, UpdateAssociationStatusCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateAssociationStatusCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSMClient(config);
  * const input = { // UpdateAssociationStatusRequest
  *   Name: "STRING_VALUE", // required

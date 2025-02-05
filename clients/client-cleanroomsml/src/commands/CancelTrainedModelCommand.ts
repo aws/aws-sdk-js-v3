@@ -34,6 +34,7 @@ export interface CancelTrainedModelCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CleanRoomsMLClient, CancelTrainedModelCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, CancelTrainedModelCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CleanRoomsMLClient(config);
  * const input = { // CancelTrainedModelRequest
  *   membershipIdentifier: "STRING_VALUE", // required

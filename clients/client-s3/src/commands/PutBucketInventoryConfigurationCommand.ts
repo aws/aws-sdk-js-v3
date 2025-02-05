@@ -126,6 +126,7 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  * ```javascript
  * import { S3Client, PutBucketInventoryConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketInventoryConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3Client(config);
  * const input = { // PutBucketInventoryConfigurationRequest
  *   Bucket: "STRING_VALUE", // required

@@ -40,6 +40,7 @@ export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironm
  * ```javascript
  * import { Cloud9Client, DescribeEnvironmentStatusCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, DescribeEnvironmentStatusCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Cloud9Client(config);
  * const input = { // DescribeEnvironmentStatusRequest
  *   environmentId: "STRING_VALUE", // required

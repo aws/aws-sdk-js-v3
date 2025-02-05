@@ -48,6 +48,7 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * ```javascript
  * import { PinpointEmailClient, UpdateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, UpdateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointEmailClient(config);
  * const input = { // UpdateConfigurationSetEventDestinationRequest
  *   ConfigurationSetName: "STRING_VALUE", // required

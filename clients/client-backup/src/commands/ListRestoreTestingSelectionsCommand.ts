@@ -40,6 +40,7 @@ export interface ListRestoreTestingSelectionsCommandOutput
  * ```javascript
  * import { BackupClient, ListRestoreTestingSelectionsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListRestoreTestingSelectionsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BackupClient(config);
  * const input = { // ListRestoreTestingSelectionsInput
  *   MaxResults: Number("int"),

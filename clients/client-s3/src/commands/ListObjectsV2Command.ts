@@ -137,6 +137,7 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  * ```javascript
  * import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListObjectsV2Command } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3Client(config);
  * const input = { // ListObjectsV2Request
  *   Bucket: "STRING_VALUE", // required

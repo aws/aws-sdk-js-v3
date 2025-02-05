@@ -34,6 +34,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { DocDBElasticClient, ListTagsForResourceCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, ListTagsForResourceCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DocDBElasticClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

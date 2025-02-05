@@ -42,6 +42,7 @@ export interface DescribeBotRecommendationCommandOutput extends DescribeBotRecom
  * ```javascript
  * import { LexModelsV2Client, DescribeBotRecommendationCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeBotRecommendationCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LexModelsV2Client(config);
  * const input = { // DescribeBotRecommendationRequest
  *   botId: "STRING_VALUE", // required

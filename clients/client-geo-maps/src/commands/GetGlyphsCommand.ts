@@ -42,6 +42,7 @@ export interface GetGlyphsCommandOutput extends GetGlyphsCommandOutputType, __Me
  * ```javascript
  * import { GeoMapsClient, GetGlyphsCommand } from "@aws-sdk/client-geo-maps"; // ES Modules import
  * // const { GeoMapsClient, GetGlyphsCommand } = require("@aws-sdk/client-geo-maps"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GeoMapsClient(config);
  * const input = { // GetGlyphsRequest
  *   FontStack: "STRING_VALUE", // required

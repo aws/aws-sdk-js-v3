@@ -38,6 +38,7 @@ export interface UpdateAnalysisTemplateCommandOutput extends UpdateAnalysisTempl
  * ```javascript
  * import { CleanRoomsClient, UpdateAnalysisTemplateCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, UpdateAnalysisTemplateCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CleanRoomsClient(config);
  * const input = { // UpdateAnalysisTemplateInput
  *   membershipIdentifier: "STRING_VALUE", // required

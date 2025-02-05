@@ -37,6 +37,7 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  * ```javascript
  * import { PricingClient, GetAttributeValuesCommand } from "@aws-sdk/client-pricing"; // ES Modules import
  * // const { PricingClient, GetAttributeValuesCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PricingClient(config);
  * const input = { // GetAttributeValuesRequest
  *   ServiceCode: "STRING_VALUE", // required

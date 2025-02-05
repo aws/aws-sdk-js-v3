@@ -42,6 +42,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * ```javascript
  * import { RDSClient, RestoreDBInstanceFromS3Command } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBInstanceFromS3Command } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RDSClient(config);
  * const input = { // RestoreDBInstanceFromS3Message
  *   DBName: "STRING_VALUE",

@@ -50,6 +50,7 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  * ```javascript
  * import { CodeartifactClient, PublishPackageVersionCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, PublishPackageVersionCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeartifactClient(config);
  * const input = { // PublishPackageVersionRequest
  *   domain: "STRING_VALUE", // required

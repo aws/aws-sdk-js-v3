@@ -42,6 +42,7 @@ export interface ListEdgeAgentConfigurationsCommandOutput extends ListEdgeAgentC
  * ```javascript
  * import { KinesisVideoClient, ListEdgeAgentConfigurationsCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, ListEdgeAgentConfigurationsCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KinesisVideoClient(config);
  * const input = { // ListEdgeAgentConfigurationsInput
  *   HubDeviceArn: "STRING_VALUE", // required

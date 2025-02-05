@@ -34,6 +34,7 @@ export interface ListBranchesCommandOutput extends ListBranchesResult, __Metadat
  * ```javascript
  * import { AmplifyClient, ListBranchesCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, ListBranchesCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AmplifyClient(config);
  * const input = { // ListBranchesRequest
  *   appId: "STRING_VALUE", // required

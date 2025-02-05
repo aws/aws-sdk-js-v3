@@ -34,6 +34,7 @@ export interface CreateProtectionGroupCommandOutput extends CreateProtectionGrou
  * ```javascript
  * import { ShieldClient, CreateProtectionGroupCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, CreateProtectionGroupCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ShieldClient(config);
  * const input = { // CreateProtectionGroupRequest
  *   ProtectionGroupId: "STRING_VALUE", // required

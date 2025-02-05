@@ -36,6 +36,7 @@ export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { EMRClient, ModifyInstanceGroupsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ModifyInstanceGroupsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EMRClient(config);
  * const input = { // ModifyInstanceGroupsInput
  *   ClusterId: "STRING_VALUE",

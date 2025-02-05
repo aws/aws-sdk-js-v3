@@ -37,6 +37,7 @@ export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataB
  * ```javascript
  * import { RestXmlProtocolClient, ConstantAndVariableQueryStringCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, ConstantAndVariableQueryStringCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RestXmlProtocolClient(config);
  * const input = { // ConstantAndVariableQueryStringInput
  *   baz: "STRING_VALUE",

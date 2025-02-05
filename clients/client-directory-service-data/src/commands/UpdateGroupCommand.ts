@@ -38,6 +38,7 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
  * ```javascript
  * import { DirectoryServiceDataClient, UpdateGroupCommand } from "@aws-sdk/client-directory-service-data"; // ES Modules import
  * // const { DirectoryServiceDataClient, UpdateGroupCommand } = require("@aws-sdk/client-directory-service-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DirectoryServiceDataClient(config);
  * const input = { // UpdateGroupRequest
  *   DirectoryId: "STRING_VALUE", // required

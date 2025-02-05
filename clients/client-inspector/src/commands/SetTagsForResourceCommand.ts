@@ -35,6 +35,7 @@ export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { InspectorClient, SetTagsForResourceCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, SetTagsForResourceCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new InspectorClient(config);
  * const input = { // SetTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

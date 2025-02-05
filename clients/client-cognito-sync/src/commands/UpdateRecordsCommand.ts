@@ -36,6 +36,7 @@ export interface UpdateRecordsCommandOutput extends UpdateRecordsResponse, __Met
  * ```javascript
  * import { CognitoSyncClient, UpdateRecordsCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, UpdateRecordsCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CognitoSyncClient(config);
  * const input = { // UpdateRecordsRequest
  *   IdentityPoolId: "STRING_VALUE", // required

@@ -49,6 +49,7 @@ export interface DisableHealthServiceAccessForOrganizationCommandOutput extends 
  * ```javascript
  * import { HealthClient, DisableHealthServiceAccessForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DisableHealthServiceAccessForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new HealthClient(config);
  * const input = {};
  * const command = new DisableHealthServiceAccessForOrganizationCommand(input);

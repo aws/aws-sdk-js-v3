@@ -44,6 +44,7 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * ```javascript
  * import { KinesisAnalyticsClient, StopApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, StopApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KinesisAnalyticsClient(config);
  * const input = { // StopApplicationRequest
  *   ApplicationName: "STRING_VALUE", // required

@@ -32,6 +32,7 @@ export interface EchoCommandOutput extends EchoOutput, __MetadataBearer {}
  * ```javascript
  * import { EchoServiceClient, EchoCommand } from "@aws-sdk/aws-echo-service"; // ES Modules import
  * // const { EchoServiceClient, EchoCommand } = require("@aws-sdk/aws-echo-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EchoServiceClient(config);
  * const input = { // EchoInput
  *   string: "STRING_VALUE",

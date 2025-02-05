@@ -38,6 +38,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResult, __Met
  * ```javascript
  * import { CodeartifactClient, DescribeDomainCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DescribeDomainCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeartifactClient(config);
  * const input = { // DescribeDomainRequest
  *   domain: "STRING_VALUE", // required

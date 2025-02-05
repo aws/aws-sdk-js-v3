@@ -37,6 +37,7 @@ export interface DeletePlaybackRestrictionPolicyCommandOutput extends __Metadata
  * ```javascript
  * import { IvsClient, DeletePlaybackRestrictionPolicyCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, DeletePlaybackRestrictionPolicyCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IvsClient(config);
  * const input = { // DeletePlaybackRestrictionPolicyRequest
  *   arn: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface DeleteRuleSetCommandOutput extends DeleteRuleSetResponse, __Met
  * ```javascript
  * import { MailManagerClient, DeleteRuleSetCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, DeleteRuleSetCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MailManagerClient(config);
  * const input = { // DeleteRuleSetRequest
  *   RuleSetId: "STRING_VALUE", // required

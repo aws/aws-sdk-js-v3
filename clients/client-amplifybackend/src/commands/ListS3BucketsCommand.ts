@@ -34,6 +34,7 @@ export interface ListS3BucketsCommandOutput extends ListS3BucketsResponse, __Met
  * ```javascript
  * import { AmplifyBackendClient, ListS3BucketsCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, ListS3BucketsCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AmplifyBackendClient(config);
  * const input = { // ListS3BucketsRequest
  *   NextToken: "STRING_VALUE",

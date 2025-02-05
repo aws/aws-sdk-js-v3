@@ -38,6 +38,7 @@ export interface CreateApprovalRuleTemplateCommandOutput extends CreateApprovalR
  * ```javascript
  * import { CodeCommitClient, CreateApprovalRuleTemplateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, CreateApprovalRuleTemplateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeCommitClient(config);
  * const input = { // CreateApprovalRuleTemplateInput
  *   approvalRuleTemplateName: "STRING_VALUE", // required

@@ -40,6 +40,7 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * ```javascript
  * import { TimestreamWriteClient, CreateTableCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, CreateTableCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TimestreamWriteClient(config);
  * const input = { // CreateTableRequest
  *   DatabaseName: "STRING_VALUE", // required

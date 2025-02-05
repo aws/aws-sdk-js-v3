@@ -127,6 +127,7 @@ export interface SearchAgreementsCommandOutput extends SearchAgreementsOutput, _
  * ```javascript
  * import { MarketplaceAgreementClient, SearchAgreementsCommand } from "@aws-sdk/client-marketplace-agreement"; // ES Modules import
  * // const { MarketplaceAgreementClient, SearchAgreementsCommand } = require("@aws-sdk/client-marketplace-agreement"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MarketplaceAgreementClient(config);
  * const input = { // SearchAgreementsInput
  *   catalog: "STRING_VALUE",

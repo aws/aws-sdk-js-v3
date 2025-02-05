@@ -47,6 +47,7 @@ export interface StartSupportDataExportCommandOutput extends StartSupportDataExp
  * ```javascript
  * import { MarketplaceCommerceAnalyticsClient, StartSupportDataExportCommand } from "@aws-sdk/client-marketplace-commerce-analytics"; // ES Modules import
  * // const { MarketplaceCommerceAnalyticsClient, StartSupportDataExportCommand } = require("@aws-sdk/client-marketplace-commerce-analytics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MarketplaceCommerceAnalyticsClient(config);
  * const input = { // StartSupportDataExportRequest
  *   dataSetType: "customer_support_contacts_data" || "test_customer_support_contacts_data", // required

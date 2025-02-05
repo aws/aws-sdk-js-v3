@@ -42,6 +42,7 @@ export interface DescribeApplicationFleetAssociationsCommandOutput
  * ```javascript
  * import { AppStreamClient, DescribeApplicationFleetAssociationsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeApplicationFleetAssociationsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppStreamClient(config);
  * const input = { // DescribeApplicationFleetAssociationsRequest
  *   FleetName: "STRING_VALUE",

@@ -690,14 +690,14 @@ export interface StartJobRunRequest {
   Arguments?: Record<string, string> | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
    *          <p>The number of Glue data processing units (DPUs) to allocate to this JobRun.
    *       You can allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure
    *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
    *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
    *         pricing page</a>.</p>
+   *
+   * @deprecated
    * @public
    */
   AllocatedCapacity?: number | undefined;
@@ -3892,14 +3892,14 @@ export interface CreateJobRequest {
   MaxRetries?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This parameter is deprecated. Use <code>MaxCapacity</code> instead.</p>
    *          <p>The number of Glue data processing units (DPUs) to allocate to this Job. You can
    *       allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure of processing
    *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
    *       see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
    *       page</a>.</p>
+   *
+   * @deprecated
    * @public
    */
   AllocatedCapacity?: number | undefined;
@@ -4177,8 +4177,6 @@ export interface Job {
   MaxRetries?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
    *          <p>The number of Glue data processing units (DPUs) allocated to runs of this job. You can
    *       allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure of processing
@@ -4186,6 +4184,8 @@ export interface Job {
    *       see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
    *       page</a>.</p>
    *          <p></p>
+   *
+   * @deprecated
    * @public
    */
   AllocatedCapacity?: number | undefined;
@@ -4428,14 +4428,14 @@ export interface JobUpdate {
   MaxRetries?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
    *          <p>The number of Glue data processing units (DPUs) to allocate to this job. You can
    *       allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure of processing
    *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
    *       see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
    *       page</a>.</p>
+   *
+   * @deprecated
    * @public
    */
   AllocatedCapacity?: number | undefined;

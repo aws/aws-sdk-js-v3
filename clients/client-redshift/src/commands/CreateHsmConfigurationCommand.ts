@@ -40,6 +40,7 @@ export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurat
  * ```javascript
  * import { RedshiftClient, CreateHsmConfigurationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateHsmConfigurationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftClient(config);
  * const input = { // CreateHsmConfigurationMessage
  *   HsmConfigurationIdentifier: "STRING_VALUE", // required

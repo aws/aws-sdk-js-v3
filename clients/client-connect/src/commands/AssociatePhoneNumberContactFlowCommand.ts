@@ -48,6 +48,7 @@ export interface AssociatePhoneNumberContactFlowCommandOutput extends __Metadata
  * ```javascript
  * import { ConnectClient, AssociatePhoneNumberContactFlowCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociatePhoneNumberContactFlowCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectClient(config);
  * const input = { // AssociatePhoneNumberContactFlowRequest
  *   PhoneNumberId: "STRING_VALUE", // required

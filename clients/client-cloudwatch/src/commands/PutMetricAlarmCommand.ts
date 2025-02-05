@@ -83,6 +83,7 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CloudWatchClient, PutMetricAlarmCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutMetricAlarmCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudWatchClient(config);
  * const input = { // PutMetricAlarmInput
  *   AlarmName: "STRING_VALUE", // required

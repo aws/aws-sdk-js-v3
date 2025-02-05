@@ -41,6 +41,7 @@ export interface ListDeliverabilityTestReportsCommandOutput
  * ```javascript
  * import { PinpointEmailClient, ListDeliverabilityTestReportsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, ListDeliverabilityTestReportsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointEmailClient(config);
  * const input = { // ListDeliverabilityTestReportsRequest
  *   NextToken: "STRING_VALUE",

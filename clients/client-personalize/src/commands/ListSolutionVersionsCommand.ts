@@ -36,6 +36,7 @@ export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsR
  * ```javascript
  * import { PersonalizeClient, ListSolutionVersionsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListSolutionVersionsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PersonalizeClient(config);
  * const input = { // ListSolutionVersionsRequest
  *   solutionArn: "STRING_VALUE",

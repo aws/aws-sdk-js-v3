@@ -36,6 +36,7 @@ export interface DeleteAppBlockBuilderCommandOutput extends DeleteAppBlockBuilde
  * ```javascript
  * import { AppStreamClient, DeleteAppBlockBuilderCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteAppBlockBuilderCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppStreamClient(config);
  * const input = { // DeleteAppBlockBuilderRequest
  *   Name: "STRING_VALUE", // required

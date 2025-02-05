@@ -41,6 +41,7 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * ```javascript
  * import { GeoPlacesClient, SuggestCommand } from "@aws-sdk/client-geo-places"; // ES Modules import
  * // const { GeoPlacesClient, SuggestCommand } = require("@aws-sdk/client-geo-places"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GeoPlacesClient(config);
  * const input = { // SuggestRequest
  *   QueryText: "STRING_VALUE", // required

@@ -39,6 +39,7 @@ export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __Met
  * ```javascript
  * import { SSMClient, ResumeSessionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ResumeSessionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSMClient(config);
  * const input = { // ResumeSessionRequest
  *   SessionId: "STRING_VALUE", // required

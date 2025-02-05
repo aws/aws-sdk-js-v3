@@ -39,6 +39,7 @@ export interface UpdatePartnershipCommandOutput extends UpdatePartnershipRespons
  * ```javascript
  * import { B2biClient, UpdatePartnershipCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, UpdatePartnershipCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new B2biClient(config);
  * const input = { // UpdatePartnershipRequest
  *   partnershipId: "STRING_VALUE", // required

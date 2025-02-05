@@ -34,6 +34,7 @@ export interface UpdateVariantStoreCommandOutput extends UpdateVariantStoreRespo
  * ```javascript
  * import { OmicsClient, UpdateVariantStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, UpdateVariantStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OmicsClient(config);
  * const input = { // UpdateVariantStoreRequest
  *   name: "STRING_VALUE", // required

@@ -64,6 +64,7 @@ export interface PublishStateMachineVersionCommandOutput extends PublishStateMac
  * ```javascript
  * import { SFNClient, PublishStateMachineVersionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, PublishStateMachineVersionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SFNClient(config);
  * const input = { // PublishStateMachineVersionInput
  *   stateMachineArn: "STRING_VALUE", // required

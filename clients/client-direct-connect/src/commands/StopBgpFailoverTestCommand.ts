@@ -34,6 +34,7 @@ export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestRes
  * ```javascript
  * import { DirectConnectClient, StopBgpFailoverTestCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, StopBgpFailoverTestCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DirectConnectClient(config);
  * const input = { // StopBgpFailoverTestRequest
  *   virtualInterfaceId: "STRING_VALUE", // required

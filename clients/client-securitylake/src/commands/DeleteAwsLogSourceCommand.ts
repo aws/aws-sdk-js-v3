@@ -40,6 +40,7 @@ export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceRespo
  * ```javascript
  * import { SecurityLakeClient, DeleteAwsLogSourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteAwsLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SecurityLakeClient(config);
  * const input = { // DeleteAwsLogSourceRequest
  *   sources: [ // AwsLogSourceConfigurationList // required

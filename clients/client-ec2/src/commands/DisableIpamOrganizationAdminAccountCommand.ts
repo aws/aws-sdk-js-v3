@@ -43,6 +43,7 @@ export interface DisableIpamOrganizationAdminAccountCommandOutput
  * ```javascript
  * import { EC2Client, DisableIpamOrganizationAdminAccountCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableIpamOrganizationAdminAccountCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EC2Client(config);
  * const input = { // DisableIpamOrganizationAdminAccountRequest
  *   DryRun: true || false,

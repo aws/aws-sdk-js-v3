@@ -67,6 +67,7 @@ export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataB
  * ```javascript
  * import { PaymentCryptographyClient, CreateAliasCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
  * // const { PaymentCryptographyClient, CreateAliasCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PaymentCryptographyClient(config);
  * const input = { // CreateAliasInput
  *   AliasName: "STRING_VALUE", // required

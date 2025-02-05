@@ -43,6 +43,7 @@ export interface DescribeTableReplicaAutoScalingCommandOutput
  * ```javascript
  * import { DynamoDBClient, DescribeTableReplicaAutoScalingCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeTableReplicaAutoScalingCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DynamoDBClient(config);
  * const input = { // DescribeTableReplicaAutoScalingInput
  *   TableName: "STRING_VALUE", // required

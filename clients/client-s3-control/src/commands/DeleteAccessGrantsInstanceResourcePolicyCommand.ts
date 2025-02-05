@@ -46,6 +46,7 @@ export interface DeleteAccessGrantsInstanceResourcePolicyCommandOutput extends _
  * ```javascript
  * import { S3ControlClient, DeleteAccessGrantsInstanceResourcePolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteAccessGrantsInstanceResourcePolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3ControlClient(config);
  * const input = { // DeleteAccessGrantsInstanceResourcePolicyRequest
  *   AccountId: "STRING_VALUE",

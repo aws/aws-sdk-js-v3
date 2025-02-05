@@ -34,6 +34,7 @@ export interface DeleteInferenceProfileCommandOutput extends DeleteInferenceProf
  * ```javascript
  * import { BedrockClient, DeleteInferenceProfileCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, DeleteInferenceProfileCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockClient(config);
  * const input = { // DeleteInferenceProfileRequest
  *   inferenceProfileIdentifier: "STRING_VALUE", // required

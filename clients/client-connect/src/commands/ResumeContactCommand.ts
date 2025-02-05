@@ -34,6 +34,7 @@ export interface ResumeContactCommandOutput extends ResumeContactResponse, __Met
  * ```javascript
  * import { ConnectClient, ResumeContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ResumeContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectClient(config);
  * const input = { // ResumeContactRequest
  *   ContactId: "STRING_VALUE", // required

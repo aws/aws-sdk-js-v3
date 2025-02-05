@@ -38,6 +38,7 @@ export interface DescribeDBClusterEndpointsCommandOutput extends DBClusterEndpoi
  * ```javascript
  * import { NeptuneClient, DescribeDBClusterEndpointsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBClusterEndpointsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptuneClient(config);
  * const input = { // DescribeDBClusterEndpointsMessage
  *   DBClusterIdentifier: "STRING_VALUE",

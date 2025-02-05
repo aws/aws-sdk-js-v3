@@ -38,6 +38,7 @@ export interface ListSearchJobResultsCommandOutput extends ListSearchJobResultsO
  * ```javascript
  * import { BackupSearchClient, ListSearchJobResultsCommand } from "@aws-sdk/client-backupsearch"; // ES Modules import
  * // const { BackupSearchClient, ListSearchJobResultsCommand } = require("@aws-sdk/client-backupsearch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BackupSearchClient(config);
  * const input = { // ListSearchJobResultsInput
  *   SearchJobIdentifier: "STRING_VALUE", // required

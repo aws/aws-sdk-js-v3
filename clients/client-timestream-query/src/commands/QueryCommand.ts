@@ -71,6 +71,7 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  * ```javascript
  * import { TimestreamQueryClient, QueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, QueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TimestreamQueryClient(config);
  * const input = { // QueryRequest
  *   QueryString: "STRING_VALUE", // required

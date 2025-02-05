@@ -34,6 +34,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * ```javascript
  * import { MediaLiveClient, CreateClusterCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateClusterCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaLiveClient(config);
  * const input = { // CreateClusterRequest
  *   ClusterType: "ON_PREMISES",

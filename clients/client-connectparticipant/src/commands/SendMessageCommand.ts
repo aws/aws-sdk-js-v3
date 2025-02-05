@@ -46,6 +46,7 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  * ```javascript
  * import { ConnectParticipantClient, SendMessageCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, SendMessageCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectParticipantClient(config);
  * const input = { // SendMessageRequest
  *   ContentType: "STRING_VALUE", // required

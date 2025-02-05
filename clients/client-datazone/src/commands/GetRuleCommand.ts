@@ -40,6 +40,7 @@ export interface GetRuleCommandOutput extends GetRuleOutput, __MetadataBearer {}
  * ```javascript
  * import { DataZoneClient, GetRuleCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetRuleCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataZoneClient(config);
  * const input = { // GetRuleInput
  *   domainIdentifier: "STRING_VALUE", // required

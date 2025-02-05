@@ -35,6 +35,7 @@ export interface ListPipelineBlueprintsCommandOutput extends ListPipelineBluepri
  * ```javascript
  * import { OSISClient, ListPipelineBlueprintsCommand } from "@aws-sdk/client-osis"; // ES Modules import
  * // const { OSISClient, ListPipelineBlueprintsCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OSISClient(config);
  * const input = {};
  * const command = new ListPipelineBlueprintsCommand(input);

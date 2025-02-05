@@ -34,6 +34,7 @@ export interface DeleteFlowAliasCommandOutput extends DeleteFlowAliasResponse, _
  * ```javascript
  * import { BedrockAgentClient, DeleteFlowAliasCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, DeleteFlowAliasCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockAgentClient(config);
  * const input = { // DeleteFlowAliasRequest
  *   flowIdentifier: "STRING_VALUE", // required

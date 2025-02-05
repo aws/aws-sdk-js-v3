@@ -34,6 +34,7 @@ export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __M
  * ```javascript
  * import { MediaStoreDataClient, DescribeObjectCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
  * // const { MediaStoreDataClient, DescribeObjectCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaStoreDataClient(config);
  * const input = { // DescribeObjectRequest
  *   Path: "STRING_VALUE", // required

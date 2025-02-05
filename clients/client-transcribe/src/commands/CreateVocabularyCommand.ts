@@ -44,6 +44,7 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  * ```javascript
  * import { TranscribeClient, CreateVocabularyCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, CreateVocabularyCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TranscribeClient(config);
  * const input = { // CreateVocabularyRequest
  *   VocabularyName: "STRING_VALUE", // required

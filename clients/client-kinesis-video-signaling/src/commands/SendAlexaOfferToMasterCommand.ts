@@ -43,6 +43,7 @@ export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMas
  * ```javascript
  * import { KinesisVideoSignalingClient, SendAlexaOfferToMasterCommand } from "@aws-sdk/client-kinesis-video-signaling"; // ES Modules import
  * // const { KinesisVideoSignalingClient, SendAlexaOfferToMasterCommand } = require("@aws-sdk/client-kinesis-video-signaling"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KinesisVideoSignalingClient(config);
  * const input = { // SendAlexaOfferToMasterRequest
  *   ChannelARN: "STRING_VALUE", // required

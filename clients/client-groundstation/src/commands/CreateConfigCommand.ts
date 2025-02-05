@@ -35,6 +35,7 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * ```javascript
  * import { GroundStationClient, CreateConfigCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, CreateConfigCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GroundStationClient(config);
  * const input = { // CreateConfigRequest
  *   name: "STRING_VALUE", // required

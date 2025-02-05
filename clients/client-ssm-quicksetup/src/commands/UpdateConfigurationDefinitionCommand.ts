@@ -37,6 +37,7 @@ export interface UpdateConfigurationDefinitionCommandOutput extends __MetadataBe
  * ```javascript
  * import { SSMQuickSetupClient, UpdateConfigurationDefinitionCommand } from "@aws-sdk/client-ssm-quicksetup"; // ES Modules import
  * // const { SSMQuickSetupClient, UpdateConfigurationDefinitionCommand } = require("@aws-sdk/client-ssm-quicksetup"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSMQuickSetupClient(config);
  * const input = { // UpdateConfigurationDefinitionInput
  *   ManagerArn: "STRING_VALUE", // required

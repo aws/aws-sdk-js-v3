@@ -35,6 +35,7 @@ export interface CancelSolNetworkOperationCommandOutput extends __MetadataBearer
  * ```javascript
  * import { TnbClient, CancelSolNetworkOperationCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, CancelSolNetworkOperationCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TnbClient(config);
  * const input = { // CancelSolNetworkOperationInput
  *   nsLcmOpOccId: "STRING_VALUE", // required

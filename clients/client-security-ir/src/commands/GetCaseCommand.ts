@@ -34,6 +34,7 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  * ```javascript
  * import { SecurityIRClient, GetCaseCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, GetCaseCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SecurityIRClient(config);
  * const input = { // GetCaseRequest
  *   caseId: "STRING_VALUE", // required

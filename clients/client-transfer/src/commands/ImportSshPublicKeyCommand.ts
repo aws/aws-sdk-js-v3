@@ -38,6 +38,7 @@ export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyRespo
  * ```javascript
  * import { TransferClient, ImportSshPublicKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ImportSshPublicKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TransferClient(config);
  * const input = { // ImportSshPublicKeyRequest
  *   ServerId: "STRING_VALUE", // required

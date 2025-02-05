@@ -41,6 +41,7 @@ export interface UpdateCampaignCommunicationLimitsCommandOutput extends __Metada
  * ```javascript
  * import { ConnectCampaignsV2Client, UpdateCampaignCommunicationLimitsCommand } from "@aws-sdk/client-connectcampaignsv2"; // ES Modules import
  * // const { ConnectCampaignsV2Client, UpdateCampaignCommunicationLimitsCommand } = require("@aws-sdk/client-connectcampaignsv2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectCampaignsV2Client(config);
  * const input = { // UpdateCampaignCommunicationLimitsRequest
  *   id: "STRING_VALUE", // required

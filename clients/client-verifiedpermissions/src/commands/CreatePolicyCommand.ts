@@ -69,6 +69,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyOutput, __Metadat
  * ```javascript
  * import { VerifiedPermissionsClient, CreatePolicyCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, CreatePolicyCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // CreatePolicyInput
  *   clientToken: "STRING_VALUE",

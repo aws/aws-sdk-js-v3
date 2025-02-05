@@ -47,6 +47,7 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ConfigServiceClient, PutDeliveryChannelCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutDeliveryChannelCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConfigServiceClient(config);
  * const input = { // PutDeliveryChannelRequest
  *   DeliveryChannel: { // DeliveryChannel

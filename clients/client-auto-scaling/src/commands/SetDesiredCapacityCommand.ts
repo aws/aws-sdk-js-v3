@@ -39,6 +39,7 @@ export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { AutoScalingClient, SetDesiredCapacityCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, SetDesiredCapacityCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AutoScalingClient(config);
  * const input = { // SetDesiredCapacityType
  *   AutoScalingGroupName: "STRING_VALUE", // required

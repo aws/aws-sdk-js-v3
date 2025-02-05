@@ -34,6 +34,7 @@ export interface DescribeExpressionsCommandOutput extends DescribeExpressionsRes
  * ```javascript
  * import { CloudSearchClient, DescribeExpressionsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DescribeExpressionsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudSearchClient(config);
  * const input = { // DescribeExpressionsRequest
  *   DomainName: "STRING_VALUE", // required

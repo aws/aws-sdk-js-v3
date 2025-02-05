@@ -52,6 +52,7 @@ export interface DescribeUserStackAssociationsCommandOutput
  * ```javascript
  * import { AppStreamClient, DescribeUserStackAssociationsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeUserStackAssociationsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppStreamClient(config);
  * const input = { // DescribeUserStackAssociationsRequest
  *   StackName: "STRING_VALUE",

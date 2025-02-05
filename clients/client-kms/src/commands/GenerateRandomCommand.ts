@@ -61,6 +61,7 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  * ```javascript
  * import { KMSClient, GenerateRandomCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GenerateRandomCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KMSClient(config);
  * const input = { // GenerateRandomRequest
  *   NumberOfBytes: Number("int"),

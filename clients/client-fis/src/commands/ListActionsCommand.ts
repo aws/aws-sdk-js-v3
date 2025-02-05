@@ -34,6 +34,7 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * ```javascript
  * import { FisClient, ListActionsCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, ListActionsCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FisClient(config);
  * const input = { // ListActionsRequest
  *   maxResults: Number("int"),

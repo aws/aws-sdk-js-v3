@@ -37,6 +37,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { TranslateClient, TagResourceCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, TagResourceCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TranslateClient(config);
  * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

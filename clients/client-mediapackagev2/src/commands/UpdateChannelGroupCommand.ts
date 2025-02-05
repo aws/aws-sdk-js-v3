@@ -35,6 +35,7 @@ export interface UpdateChannelGroupCommandOutput extends UpdateChannelGroupRespo
  * ```javascript
  * import { MediaPackageV2Client, UpdateChannelGroupCommand } from "@aws-sdk/client-mediapackagev2"; // ES Modules import
  * // const { MediaPackageV2Client, UpdateChannelGroupCommand } = require("@aws-sdk/client-mediapackagev2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaPackageV2Client(config);
  * const input = { // UpdateChannelGroupRequest
  *   ChannelGroupName: "STRING_VALUE", // required

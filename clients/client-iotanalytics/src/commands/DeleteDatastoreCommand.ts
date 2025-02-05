@@ -34,6 +34,7 @@ export interface DeleteDatastoreCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IoTAnalyticsClient, DeleteDatastoreCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, DeleteDatastoreCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTAnalyticsClient(config);
  * const input = { // DeleteDatastoreRequest
  *   datastoreName: "STRING_VALUE", // required

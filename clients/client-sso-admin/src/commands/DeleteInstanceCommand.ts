@@ -36,6 +36,7 @@ export interface DeleteInstanceCommandOutput extends DeleteInstanceResponse, __M
  * ```javascript
  * import { SSOAdminClient, DeleteInstanceCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DeleteInstanceCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSOAdminClient(config);
  * const input = { // DeleteInstanceRequest
  *   InstanceArn: "STRING_VALUE", // required

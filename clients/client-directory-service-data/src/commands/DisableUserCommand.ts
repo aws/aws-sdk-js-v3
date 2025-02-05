@@ -40,6 +40,7 @@ export interface DisableUserCommandOutput extends DisableUserResult, __MetadataB
  * ```javascript
  * import { DirectoryServiceDataClient, DisableUserCommand } from "@aws-sdk/client-directory-service-data"; // ES Modules import
  * // const { DirectoryServiceDataClient, DisableUserCommand } = require("@aws-sdk/client-directory-service-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DirectoryServiceDataClient(config);
  * const input = { // DisableUserRequest
  *   DirectoryId: "STRING_VALUE", // required

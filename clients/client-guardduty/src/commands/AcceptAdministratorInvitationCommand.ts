@@ -40,6 +40,7 @@ export interface AcceptAdministratorInvitationCommandOutput
  * ```javascript
  * import { GuardDutyClient, AcceptAdministratorInvitationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, AcceptAdministratorInvitationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GuardDutyClient(config);
  * const input = { // AcceptAdministratorInvitationRequest
  *   DetectorId: "STRING_VALUE", // required

@@ -40,6 +40,7 @@ export interface CreateBillEstimateCommandOutput extends CreateBillEstimateRespo
  * ```javascript
  * import { BCMPricingCalculatorClient, CreateBillEstimateCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, CreateBillEstimateCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // CreateBillEstimateRequest
  *   billScenarioId: "STRING_VALUE", // required

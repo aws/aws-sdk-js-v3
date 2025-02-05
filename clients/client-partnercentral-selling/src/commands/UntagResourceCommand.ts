@@ -38,6 +38,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { PartnerCentralSellingClient, UntagResourceCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
  * // const { PartnerCentralSellingClient, UntagResourceCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PartnerCentralSellingClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

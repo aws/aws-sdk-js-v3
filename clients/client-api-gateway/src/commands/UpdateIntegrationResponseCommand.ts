@@ -34,6 +34,7 @@ export interface UpdateIntegrationResponseCommandOutput extends IntegrationRespo
  * ```javascript
  * import { APIGatewayClient, UpdateIntegrationResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateIntegrationResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new APIGatewayClient(config);
  * const input = { // UpdateIntegrationResponseRequest
  *   restApiId: "STRING_VALUE", // required

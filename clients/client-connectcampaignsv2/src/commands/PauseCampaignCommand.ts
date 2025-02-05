@@ -38,6 +38,7 @@ export interface PauseCampaignCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ConnectCampaignsV2Client, PauseCampaignCommand } from "@aws-sdk/client-connectcampaignsv2"; // ES Modules import
  * // const { ConnectCampaignsV2Client, PauseCampaignCommand } = require("@aws-sdk/client-connectcampaignsv2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectCampaignsV2Client(config);
  * const input = { // PauseCampaignRequest
  *   id: "STRING_VALUE", // required

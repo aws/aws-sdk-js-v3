@@ -37,6 +37,7 @@ export interface DeleteContactChannelCommandOutput extends DeleteContactChannelR
  * ```javascript
  * import { SSMContactsClient, DeleteContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, DeleteContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSMContactsClient(config);
  * const input = { // DeleteContactChannelRequest
  *   ContactChannelId: "STRING_VALUE", // required

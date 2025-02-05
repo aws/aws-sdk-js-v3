@@ -44,6 +44,7 @@ export interface RejectEnvironmentAccountConnectionCommandOutput
  * ```javascript
  * import { ProtonClient, RejectEnvironmentAccountConnectionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, RejectEnvironmentAccountConnectionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ProtonClient(config);
  * const input = { // RejectEnvironmentAccountConnectionInput
  *   id: "STRING_VALUE", // required

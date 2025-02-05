@@ -36,6 +36,7 @@ export interface ListSuiteRunsCommandOutput extends ListSuiteRunsResponse, __Met
  * ```javascript
  * import { IotDeviceAdvisorClient, ListSuiteRunsCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, ListSuiteRunsCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IotDeviceAdvisorClient(config);
  * const input = { // ListSuiteRunsRequest
  *   suiteDefinitionId: "STRING_VALUE",

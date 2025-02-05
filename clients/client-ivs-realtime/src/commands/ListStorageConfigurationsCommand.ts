@@ -35,6 +35,7 @@ export interface ListStorageConfigurationsCommandOutput extends ListStorageConfi
  * ```javascript
  * import { IVSRealTimeClient, ListStorageConfigurationsCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, ListStorageConfigurationsCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IVSRealTimeClient(config);
  * const input = { // ListStorageConfigurationsRequest
  *   nextToken: "STRING_VALUE",

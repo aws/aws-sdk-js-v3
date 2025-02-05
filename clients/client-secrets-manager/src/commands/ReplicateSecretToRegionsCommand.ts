@@ -41,6 +41,7 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  * ```javascript
  * import { SecretsManagerClient, ReplicateSecretToRegionsCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, ReplicateSecretToRegionsCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SecretsManagerClient(config);
  * const input = { // ReplicateSecretToRegionsRequest
  *   SecretId: "STRING_VALUE", // required

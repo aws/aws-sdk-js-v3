@@ -39,6 +39,7 @@ export interface CreateTransitGatewayPeeringCommandOutput
  * ```javascript
  * import { NetworkManagerClient, CreateTransitGatewayPeeringCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateTransitGatewayPeeringCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkManagerClient(config);
  * const input = { // CreateTransitGatewayPeeringRequest
  *   CoreNetworkId: "STRING_VALUE", // required

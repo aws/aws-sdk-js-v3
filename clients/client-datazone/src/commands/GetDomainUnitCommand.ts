@@ -34,6 +34,7 @@ export interface GetDomainUnitCommandOutput extends GetDomainUnitOutput, __Metad
  * ```javascript
  * import { DataZoneClient, GetDomainUnitCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetDomainUnitCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataZoneClient(config);
  * const input = { // GetDomainUnitInput
  *   domainIdentifier: "STRING_VALUE", // required

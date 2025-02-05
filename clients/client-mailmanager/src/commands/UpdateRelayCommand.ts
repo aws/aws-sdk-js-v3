@@ -34,6 +34,7 @@ export interface UpdateRelayCommandOutput extends UpdateRelayResponse, __Metadat
  * ```javascript
  * import { MailManagerClient, UpdateRelayCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, UpdateRelayCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MailManagerClient(config);
  * const input = { // UpdateRelayRequest
  *   RelayId: "STRING_VALUE", // required

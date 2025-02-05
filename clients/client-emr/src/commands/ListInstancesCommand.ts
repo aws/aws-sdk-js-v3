@@ -37,6 +37,7 @@ export interface ListInstancesCommandOutput extends ListInstancesOutput, __Metad
  * ```javascript
  * import { EMRClient, ListInstancesCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListInstancesCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EMRClient(config);
  * const input = { // ListInstancesInput
  *   ClusterId: "STRING_VALUE", // required

@@ -42,6 +42,7 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  * ```javascript
  * import { DataSyncClient, CreateLocationSmbCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationSmbCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationSmbRequest
  *   Subdirectory: "STRING_VALUE", // required

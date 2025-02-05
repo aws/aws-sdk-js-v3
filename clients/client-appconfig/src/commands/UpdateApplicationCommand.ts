@@ -34,6 +34,7 @@ export interface UpdateApplicationCommandOutput extends Application, __MetadataB
  * ```javascript
  * import { AppConfigClient, UpdateApplicationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, UpdateApplicationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppConfigClient(config);
  * const input = { // UpdateApplicationRequest
  *   ApplicationId: "STRING_VALUE", // required

@@ -36,6 +36,7 @@ export interface EnableBaselineCommandOutput extends EnableBaselineOutput, __Met
  * ```javascript
  * import { ControlTowerClient, EnableBaselineCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, EnableBaselineCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ControlTowerClient(config);
  * const input = { // EnableBaselineInput
  *   baselineVersion: "STRING_VALUE", // required

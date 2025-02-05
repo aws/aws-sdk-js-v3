@@ -46,6 +46,7 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * ```javascript
  * import { BatchClient, CancelJobCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, CancelJobCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BatchClient(config);
  * const input = { // CancelJobRequest
  *   jobId: "STRING_VALUE", // required

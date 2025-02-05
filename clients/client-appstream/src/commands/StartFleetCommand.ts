@@ -34,6 +34,7 @@ export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBea
  * ```javascript
  * import { AppStreamClient, StartFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, StartFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppStreamClient(config);
  * const input = { // StartFleetRequest
  *   Name: "STRING_VALUE", // required

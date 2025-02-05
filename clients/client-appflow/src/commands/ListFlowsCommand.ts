@@ -34,6 +34,7 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  * ```javascript
  * import { AppflowClient, ListFlowsCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, ListFlowsCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppflowClient(config);
  * const input = { // ListFlowsRequest
  *   maxResults: Number("int"),

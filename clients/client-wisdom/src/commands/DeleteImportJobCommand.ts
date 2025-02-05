@@ -34,6 +34,7 @@ export interface DeleteImportJobCommandOutput extends DeleteImportJobResponse, _
  * ```javascript
  * import { WisdomClient, DeleteImportJobCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, DeleteImportJobCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WisdomClient(config);
  * const input = { // DeleteImportJobRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

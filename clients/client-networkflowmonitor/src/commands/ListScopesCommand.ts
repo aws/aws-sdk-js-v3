@@ -38,6 +38,7 @@ export interface ListScopesCommandOutput extends ListScopesOutput, __MetadataBea
  * ```javascript
  * import { NetworkFlowMonitorClient, ListScopesCommand } from "@aws-sdk/client-networkflowmonitor"; // ES Modules import
  * // const { NetworkFlowMonitorClient, ListScopesCommand } = require("@aws-sdk/client-networkflowmonitor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkFlowMonitorClient(config);
  * const input = { // ListScopesInput
  *   nextToken: "STRING_VALUE",

@@ -36,6 +36,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * ```javascript
  * import { FinspaceClient, ListEnvironmentsCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, ListEnvironmentsCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FinspaceClient(config);
  * const input = { // ListEnvironmentsRequest
  *   nextToken: "STRING_VALUE",

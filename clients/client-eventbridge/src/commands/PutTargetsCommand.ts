@@ -146,6 +146,7 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  * ```javascript
  * import { EventBridgeClient, PutTargetsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, PutTargetsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EventBridgeClient(config);
  * const input = { // PutTargetsRequest
  *   Rule: "STRING_VALUE", // required

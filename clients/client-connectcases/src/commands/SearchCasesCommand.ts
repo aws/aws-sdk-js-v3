@@ -40,6 +40,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  * ```javascript
  * import { ConnectCasesClient, SearchCasesCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, SearchCasesCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectCasesClient(config);
  * const input = { // SearchCasesRequest
  *   domainId: "STRING_VALUE", // required

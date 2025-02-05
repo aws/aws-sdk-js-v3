@@ -34,6 +34,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { OpsWorksCMClient, TagResourceCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, TagResourceCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OpsWorksCMClient(config);
  * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

@@ -36,6 +36,7 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * ```javascript
  * import { NetworkFirewallClient, ListRuleGroupsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, ListRuleGroupsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkFirewallClient(config);
  * const input = { // ListRuleGroupsRequest
  *   NextToken: "STRING_VALUE",

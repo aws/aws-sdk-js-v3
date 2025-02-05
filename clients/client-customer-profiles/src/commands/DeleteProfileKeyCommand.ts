@@ -34,6 +34,7 @@ export interface DeleteProfileKeyCommandOutput extends DeleteProfileKeyResponse,
  * ```javascript
  * import { CustomerProfilesClient, DeleteProfileKeyCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, DeleteProfileKeyCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CustomerProfilesClient(config);
  * const input = { // DeleteProfileKeyRequest
  *   ProfileId: "STRING_VALUE", // required

@@ -35,6 +35,7 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * ```javascript
  * import { AmpClient, ListWorkspacesCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, ListWorkspacesCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AmpClient(config);
  * const input = { // ListWorkspacesRequest
  *   nextToken: "STRING_VALUE",

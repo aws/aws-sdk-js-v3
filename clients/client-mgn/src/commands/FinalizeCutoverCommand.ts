@@ -34,6 +34,7 @@ export interface FinalizeCutoverCommandOutput extends SourceServer, __MetadataBe
  * ```javascript
  * import { MgnClient, FinalizeCutoverCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, FinalizeCutoverCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MgnClient(config);
  * const input = { // FinalizeCutoverRequest
  *   sourceServerID: "STRING_VALUE", // required

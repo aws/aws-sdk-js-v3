@@ -1321,10 +1321,10 @@ export interface MetricDatum {
   Timestamp: Date | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>
    *             <b>Internal only</b>. The dimensions associated with the metric.</p>
+   *
+   * @deprecated
    * @public
    */
   Dimensions?: Dimension[] | undefined;
@@ -1344,10 +1344,10 @@ export interface MetricDatum {
   Unit?: Unit | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>
    *             <b>Internal only</b>. The statistical values for the metric.</p>
+   *
+   * @deprecated
    * @public
    */
   StatisticValues?: StatisticSet | undefined;
@@ -1365,10 +1365,10 @@ export interface PublishMetricsInput {
   EnvironmentName: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>
    *             <b>Internal only</b>. Publishes metrics to Amazon CloudWatch. To learn more about the metrics published to Amazon CloudWatch, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html">Amazon MWAA performance metrics in Amazon CloudWatch</a>.</p>
+   *
+   * @deprecated
    * @public
    */
   MetricData: MetricDatum[] | undefined;

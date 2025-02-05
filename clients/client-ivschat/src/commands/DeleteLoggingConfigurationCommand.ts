@@ -34,6 +34,7 @@ export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBeare
  * ```javascript
  * import { IvschatClient, DeleteLoggingConfigurationCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, DeleteLoggingConfigurationCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IvschatClient(config);
  * const input = { // DeleteLoggingConfigurationRequest
  *   identifier: "STRING_VALUE", // required

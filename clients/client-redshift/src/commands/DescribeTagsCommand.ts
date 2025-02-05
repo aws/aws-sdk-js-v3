@@ -58,6 +58,7 @@ export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __
  * ```javascript
  * import { RedshiftClient, DescribeTagsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeTagsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftClient(config);
  * const input = { // DescribeTagsMessage
  *   ResourceName: "STRING_VALUE",

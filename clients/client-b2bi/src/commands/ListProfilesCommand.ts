@@ -35,6 +35,7 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * ```javascript
  * import { B2biClient, ListProfilesCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, ListProfilesCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new B2biClient(config);
  * const input = { // ListProfilesRequest
  *   nextToken: "STRING_VALUE",

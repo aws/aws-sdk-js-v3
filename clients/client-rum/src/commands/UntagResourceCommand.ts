@@ -34,6 +34,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { RUMClient, UntagResourceCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, UntagResourceCommand } = require("@aws-sdk/client-rum"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RUMClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

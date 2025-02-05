@@ -35,6 +35,7 @@ export interface UpdateScheduledQueryCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { TimestreamQueryClient, UpdateScheduledQueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, UpdateScheduledQueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TimestreamQueryClient(config);
  * const input = { // UpdateScheduledQueryRequest
  *   ScheduledQueryArn: "STRING_VALUE", // required

@@ -35,6 +35,7 @@ export interface ListDataLakesCommandOutput extends ListDataLakesResponse, __Met
  * ```javascript
  * import { SecurityLakeClient, ListDataLakesCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, ListDataLakesCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SecurityLakeClient(config);
  * const input = { // ListDataLakesRequest
  *   regions: [ // RegionList

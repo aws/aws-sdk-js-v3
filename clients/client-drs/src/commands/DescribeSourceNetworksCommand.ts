@@ -38,6 +38,7 @@ export interface DescribeSourceNetworksCommandOutput extends DescribeSourceNetwo
  * ```javascript
  * import { DrsClient, DescribeSourceNetworksCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DescribeSourceNetworksCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DrsClient(config);
  * const input = { // DescribeSourceNetworksRequest
  *   filters: { // DescribeSourceNetworksRequestFilters

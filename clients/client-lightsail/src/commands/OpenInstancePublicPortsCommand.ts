@@ -38,6 +38,7 @@ export interface OpenInstancePublicPortsCommandOutput extends OpenInstancePublic
  * ```javascript
  * import { LightsailClient, OpenInstancePublicPortsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, OpenInstancePublicPortsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LightsailClient(config);
  * const input = { // OpenInstancePublicPortsRequest
  *   portInfo: { // PortInfo

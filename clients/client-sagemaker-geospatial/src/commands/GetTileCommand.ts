@@ -40,6 +40,7 @@ export interface GetTileCommandOutput extends Omit<GetTileOutput, "BinaryFile">,
  * ```javascript
  * import { SageMakerGeospatialClient, GetTileCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, GetTileCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerGeospatialClient(config);
  * const input = { // GetTileInput
  *   x: Number("int"), // required

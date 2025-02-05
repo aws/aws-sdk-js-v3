@@ -38,6 +38,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { Route53RecoveryControlConfigClient, UntagResourceCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, UntagResourceCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Route53RecoveryControlConfigClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

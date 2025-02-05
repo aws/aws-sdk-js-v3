@@ -37,6 +37,7 @@ export interface DeleteDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  * ```javascript
  * import { GroundStationClient, DeleteDataflowEndpointGroupCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, DeleteDataflowEndpointGroupCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GroundStationClient(config);
  * const input = { // DeleteDataflowEndpointGroupRequest
  *   dataflowEndpointGroupId: "STRING_VALUE", // required

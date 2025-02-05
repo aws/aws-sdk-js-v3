@@ -46,6 +46,7 @@ export interface CreateTLSInspectionConfigurationCommandOutput
  * ```javascript
  * import { NetworkFirewallClient, CreateTLSInspectionConfigurationCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, CreateTLSInspectionConfigurationCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkFirewallClient(config);
  * const input = { // CreateTLSInspectionConfigurationRequest
  *   TLSInspectionConfigurationName: "STRING_VALUE", // required

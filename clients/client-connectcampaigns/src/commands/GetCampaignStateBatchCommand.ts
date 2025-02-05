@@ -34,6 +34,7 @@ export interface GetCampaignStateBatchCommandOutput extends GetCampaignStateBatc
  * ```javascript
  * import { ConnectCampaignsClient, GetCampaignStateBatchCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, GetCampaignStateBatchCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectCampaignsClient(config);
  * const input = { // GetCampaignStateBatchRequest
  *   campaignIds: [ // CampaignIdList // required

@@ -57,6 +57,7 @@ export interface CreateConfigurationTemplateCommandOutput extends ConfigurationS
  * ```javascript
  * import { ElasticBeanstalkClient, CreateConfigurationTemplateCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, CreateConfigurationTemplateCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // CreateConfigurationTemplateMessage
  *   ApplicationName: "STRING_VALUE", // required

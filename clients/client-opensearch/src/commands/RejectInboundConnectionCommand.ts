@@ -35,6 +35,7 @@ export interface RejectInboundConnectionCommandOutput extends RejectInboundConne
  * ```javascript
  * import { OpenSearchClient, RejectInboundConnectionCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, RejectInboundConnectionCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OpenSearchClient(config);
  * const input = { // RejectInboundConnectionRequest
  *   ConnectionId: "STRING_VALUE", // required

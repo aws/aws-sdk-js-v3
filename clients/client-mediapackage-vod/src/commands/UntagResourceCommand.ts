@@ -34,6 +34,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { MediaPackageVodClient, UntagResourceCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, UntagResourceCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaPackageVodClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface StartApplicationRefreshCommandOutput extends StartApplicationRe
  * ```javascript
  * import { SsmSapClient, StartApplicationRefreshCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, StartApplicationRefreshCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SsmSapClient(config);
  * const input = { // StartApplicationRefreshInput
  *   ApplicationId: "STRING_VALUE", // required

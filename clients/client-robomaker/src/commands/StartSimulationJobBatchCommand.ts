@@ -43,6 +43,7 @@ export interface StartSimulationJobBatchCommandOutput extends StartSimulationJob
  * ```javascript
  * import { RoboMakerClient, StartSimulationJobBatchCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, StartSimulationJobBatchCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RoboMakerClient(config);
  * const input = { // StartSimulationJobBatchRequest
  *   clientRequestToken: "STRING_VALUE",

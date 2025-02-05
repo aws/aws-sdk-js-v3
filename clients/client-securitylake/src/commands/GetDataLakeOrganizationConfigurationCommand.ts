@@ -44,6 +44,7 @@ export interface GetDataLakeOrganizationConfigurationCommandOutput
  * ```javascript
  * import { SecurityLakeClient, GetDataLakeOrganizationConfigurationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, GetDataLakeOrganizationConfigurationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SecurityLakeClient(config);
  * const input = {};
  * const command = new GetDataLakeOrganizationConfigurationCommand(input);

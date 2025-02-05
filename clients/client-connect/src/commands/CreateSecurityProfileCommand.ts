@@ -38,6 +38,7 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  * ```javascript
  * import { ConnectClient, CreateSecurityProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateSecurityProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectClient(config);
  * const input = { // CreateSecurityProfileRequest
  *   SecurityProfileName: "STRING_VALUE", // required

@@ -35,6 +35,7 @@ export interface DeleteWhatIfForecastExportCommandOutput extends __MetadataBeare
  * ```javascript
  * import { ForecastClient, DeleteWhatIfForecastExportCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteWhatIfForecastExportCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ForecastClient(config);
  * const input = { // DeleteWhatIfForecastExportRequest
  *   WhatIfForecastExportArn: "STRING_VALUE", // required

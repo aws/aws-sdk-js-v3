@@ -43,6 +43,7 @@ export interface DisassociateManagedNotificationAccountContactCommandOutput
  * ```javascript
  * import { NotificationsClient, DisassociateManagedNotificationAccountContactCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, DisassociateManagedNotificationAccountContactCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NotificationsClient(config);
  * const input = { // DisassociateManagedNotificationAccountContactRequest
  *   contactIdentifier: "STRING_VALUE", // required

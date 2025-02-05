@@ -3341,9 +3341,9 @@ export interface AwsSecurityFinding {
   VerificationState?: VerificationState | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The workflow state of a finding. </p>
+   *
+   * @deprecated
    * @public
    */
   WorkflowState?: WorkflowState | undefined;
@@ -3557,18 +3557,18 @@ export interface AwsSecurityFindingFilters {
   UpdatedAt?: DateFilter[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The native severity as defined by the security findings provider's solution that
    *          generated the finding.</p>
+   *
+   * @deprecated
    * @public
    */
   SeverityProduct?: NumberFilter[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The normalized severity of a finding.</p>
+   *
+   * @deprecated
    * @public
    */
   SeverityNormalized?: NumberFilter[] | undefined;
@@ -3912,9 +3912,9 @@ export interface AwsSecurityFindingFilters {
   ResourceAwsS3BucketOwnerName?: StringFilter[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The user associated with the IAM access key related to a finding.</p>
+   *
+   * @deprecated
    * @public
    */
   ResourceAwsIamAccessKeyUserName?: StringFilter[] | undefined;
@@ -4108,9 +4108,9 @@ export interface AwsSecurityFindingFilters {
   NoteUpdatedBy?: StringFilter[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A keyword for a finding.</p>
+   *
+   * @deprecated
    * @public
    */
   Keyword?: KeywordFilter[] | undefined;
@@ -8738,10 +8738,10 @@ export interface Member {
   Email?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This is replaced by <code>AdministratorID</code>.</p>
    *          <p>The Amazon Web Services account ID of the Security Hub administrator account associated with this member account.</p>
+   *
+   * @deprecated
    * @public
    */
   MasterId?: string | undefined;

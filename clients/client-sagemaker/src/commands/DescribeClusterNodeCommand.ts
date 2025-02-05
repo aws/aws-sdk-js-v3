@@ -35,6 +35,7 @@ export interface DescribeClusterNodeCommandOutput extends DescribeClusterNodeRes
  * ```javascript
  * import { SageMakerClient, DescribeClusterNodeCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeClusterNodeCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // DescribeClusterNodeRequest
  *   ClusterName: "STRING_VALUE", // required

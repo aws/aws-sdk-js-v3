@@ -35,6 +35,7 @@ export interface CreateEnvironmentActionCommandOutput extends CreateEnvironmentA
  * ```javascript
  * import { DataZoneClient, CreateEnvironmentActionCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateEnvironmentActionCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataZoneClient(config);
  * const input = { // CreateEnvironmentActionInput
  *   domainIdentifier: "STRING_VALUE", // required

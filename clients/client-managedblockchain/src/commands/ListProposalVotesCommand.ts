@@ -39,6 +39,7 @@ export interface ListProposalVotesCommandOutput extends ListProposalVotesOutput,
  * ```javascript
  * import { ManagedBlockchainClient, ListProposalVotesCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, ListProposalVotesCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ManagedBlockchainClient(config);
  * const input = { // ListProposalVotesInput
  *   NetworkId: "STRING_VALUE", // required

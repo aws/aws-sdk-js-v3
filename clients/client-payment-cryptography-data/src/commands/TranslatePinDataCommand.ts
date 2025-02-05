@@ -69,6 +69,7 @@ export interface TranslatePinDataCommandOutput extends TranslatePinDataOutput, _
  * ```javascript
  * import { PaymentCryptographyDataClient, TranslatePinDataCommand } from "@aws-sdk/client-payment-cryptography-data"; // ES Modules import
  * // const { PaymentCryptographyDataClient, TranslatePinDataCommand } = require("@aws-sdk/client-payment-cryptography-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PaymentCryptographyDataClient(config);
  * const input = { // TranslatePinDataInput
  *   IncomingKeyIdentifier: "STRING_VALUE", // required

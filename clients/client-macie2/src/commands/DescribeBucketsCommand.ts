@@ -34,6 +34,7 @@ export interface DescribeBucketsCommandOutput extends DescribeBucketsResponse, _
  * ```javascript
  * import { Macie2Client, DescribeBucketsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DescribeBucketsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Macie2Client(config);
  * const input = { // DescribeBucketsRequest
  *   criteria: { // BucketCriteria

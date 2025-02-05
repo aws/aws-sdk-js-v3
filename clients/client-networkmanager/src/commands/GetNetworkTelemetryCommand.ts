@@ -34,6 +34,7 @@ export interface GetNetworkTelemetryCommandOutput extends GetNetworkTelemetryRes
  * ```javascript
  * import { NetworkManagerClient, GetNetworkTelemetryCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetNetworkTelemetryCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkManagerClient(config);
  * const input = { // GetNetworkTelemetryRequest
  *   GlobalNetworkId: "STRING_VALUE", // required

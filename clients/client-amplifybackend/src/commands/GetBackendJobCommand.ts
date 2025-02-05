@@ -34,6 +34,7 @@ export interface GetBackendJobCommandOutput extends GetBackendJobResponse, __Met
  * ```javascript
  * import { AmplifyBackendClient, GetBackendJobCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, GetBackendJobCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AmplifyBackendClient(config);
  * const input = { // GetBackendJobRequest
  *   AppId: "STRING_VALUE", // required

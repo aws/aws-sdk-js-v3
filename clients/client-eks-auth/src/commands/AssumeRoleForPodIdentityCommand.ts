@@ -43,6 +43,7 @@ export interface AssumeRoleForPodIdentityCommandOutput extends AssumeRoleForPodI
  * ```javascript
  * import { EKSAuthClient, AssumeRoleForPodIdentityCommand } from "@aws-sdk/client-eks-auth"; // ES Modules import
  * // const { EKSAuthClient, AssumeRoleForPodIdentityCommand } = require("@aws-sdk/client-eks-auth"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EKSAuthClient(config);
  * const input = { // AssumeRoleForPodIdentityRequest
  *   clusterName: "STRING_VALUE", // required

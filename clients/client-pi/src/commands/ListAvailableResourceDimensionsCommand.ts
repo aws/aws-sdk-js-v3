@@ -39,6 +39,7 @@ export interface ListAvailableResourceDimensionsCommandOutput
  * ```javascript
  * import { PIClient, ListAvailableResourceDimensionsCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, ListAvailableResourceDimensionsCommand } = require("@aws-sdk/client-pi"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PIClient(config);
  * const input = { // ListAvailableResourceDimensionsRequest
  *   ServiceType: "RDS" || "DOCDB", // required

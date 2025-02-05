@@ -34,6 +34,7 @@ export interface GetAdmChannelCommandOutput extends GetAdmChannelResponse, __Met
  * ```javascript
  * import { PinpointClient, GetAdmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetAdmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointClient(config);
  * const input = { // GetAdmChannelRequest
  *   ApplicationId: "STRING_VALUE", // required

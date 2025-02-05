@@ -34,6 +34,7 @@ export interface ListNetworksCommandOutput extends ListNetworksResponse, __Metad
  * ```javascript
  * import { MediaLiveClient, ListNetworksCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListNetworksCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaLiveClient(config);
  * const input = { // ListNetworksRequest
  *   MaxResults: Number("int"),

@@ -40,6 +40,7 @@ export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { IAMClient, UpdateSSHPublicKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateSSHPublicKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IAMClient(config);
  * const input = { // UpdateSSHPublicKeyRequest
  *   UserName: "STRING_VALUE", // required

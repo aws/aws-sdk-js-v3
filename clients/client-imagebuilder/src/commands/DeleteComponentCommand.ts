@@ -34,6 +34,7 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * ```javascript
  * import { ImagebuilderClient, DeleteComponentCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, DeleteComponentCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ImagebuilderClient(config);
  * const input = { // DeleteComponentRequest
  *   componentBuildVersionArn: "STRING_VALUE", // required

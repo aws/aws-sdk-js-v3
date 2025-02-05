@@ -50,6 +50,7 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  * ```javascript
  * import { EBSClient, PutSnapshotBlockCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, PutSnapshotBlockCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EBSClient(config);
  * const input = { // PutSnapshotBlockRequest
  *   SnapshotId: "STRING_VALUE", // required

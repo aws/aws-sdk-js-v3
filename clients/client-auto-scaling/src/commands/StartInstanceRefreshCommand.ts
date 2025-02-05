@@ -56,6 +56,7 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  * ```javascript
  * import { AutoScalingClient, StartInstanceRefreshCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, StartInstanceRefreshCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AutoScalingClient(config);
  * const input = { // StartInstanceRefreshType
  *   AutoScalingGroupName: "STRING_VALUE", // required

@@ -39,6 +39,7 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * ```javascript
  * import { BedrockAgentClient, UpdateAgentCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, UpdateAgentCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockAgentClient(config);
  * const input = { // UpdateAgentRequest
  *   agentId: "STRING_VALUE", // required

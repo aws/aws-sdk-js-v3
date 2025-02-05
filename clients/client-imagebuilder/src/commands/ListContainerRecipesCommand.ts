@@ -34,6 +34,7 @@ export interface ListContainerRecipesCommandOutput extends ListContainerRecipesR
  * ```javascript
  * import { ImagebuilderClient, ListContainerRecipesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListContainerRecipesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ImagebuilderClient(config);
  * const input = { // ListContainerRecipesRequest
  *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty" || "AWSMarketplace",

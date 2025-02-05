@@ -53,6 +53,7 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
  * ```javascript
  * import { KendraClient, CreateQuerySuggestionsBlockListCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateQuerySuggestionsBlockListCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KendraClient(config);
  * const input = { // CreateQuerySuggestionsBlockListRequest
  *   IndexId: "STRING_VALUE", // required

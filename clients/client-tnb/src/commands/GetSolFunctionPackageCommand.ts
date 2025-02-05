@@ -40,6 +40,7 @@ export interface GetSolFunctionPackageCommandOutput extends GetSolFunctionPackag
  * ```javascript
  * import { TnbClient, GetSolFunctionPackageCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, GetSolFunctionPackageCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TnbClient(config);
  * const input = { // GetSolFunctionPackageInput
  *   vnfPkgId: "STRING_VALUE", // required

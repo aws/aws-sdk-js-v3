@@ -46,6 +46,7 @@ export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIde
  * ```javascript
  * import { CognitoIdentityClient, MergeDeveloperIdentitiesCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, MergeDeveloperIdentitiesCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CognitoIdentityClient(config);
  * const input = { // MergeDeveloperIdentitiesInput
  *   SourceUserIdentifier: "STRING_VALUE", // required

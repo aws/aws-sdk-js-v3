@@ -37,6 +37,7 @@ export interface DeleteCoreDeviceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { GreengrassV2Client, DeleteCoreDeviceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, DeleteCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GreengrassV2Client(config);
  * const input = { // DeleteCoreDeviceRequest
  *   coreDeviceThingName: "STRING_VALUE", // required

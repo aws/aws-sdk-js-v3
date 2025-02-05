@@ -34,6 +34,7 @@ export interface StartTestSetGenerationCommandOutput extends StartTestSetGenerat
  * ```javascript
  * import { LexModelsV2Client, StartTestSetGenerationCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, StartTestSetGenerationCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LexModelsV2Client(config);
  * const input = { // StartTestSetGenerationRequest
  *   testSetName: "STRING_VALUE", // required

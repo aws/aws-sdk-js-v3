@@ -55,6 +55,7 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  * ```javascript
  * import { RekognitionStreamingClient, StartFaceLivenessSessionCommand } from "@aws-sdk/client-rekognitionstreaming"; // ES Modules import
  * // const { RekognitionStreamingClient, StartFaceLivenessSessionCommand } = require("@aws-sdk/client-rekognitionstreaming"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RekognitionStreamingClient(config);
  * const input = { // StartFaceLivenessSessionRequest
  *   SessionId: "STRING_VALUE", // required

@@ -49,6 +49,7 @@ export interface UpdateOpportunityCommandOutput extends UpdateOpportunityRespons
  * ```javascript
  * import { PartnerCentralSellingClient, UpdateOpportunityCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
  * // const { PartnerCentralSellingClient, UpdateOpportunityCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PartnerCentralSellingClient(config);
  * const input = { // UpdateOpportunityRequest
  *   Catalog: "STRING_VALUE", // required

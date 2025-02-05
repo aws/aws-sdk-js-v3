@@ -34,6 +34,7 @@ export interface GetTestSuiteCommandOutput extends GetTestSuiteResponse, __Metad
  * ```javascript
  * import { AppTestClient, GetTestSuiteCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, GetTestSuiteCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppTestClient(config);
  * const input = { // GetTestSuiteRequest
  *   testSuiteId: "STRING_VALUE", // required

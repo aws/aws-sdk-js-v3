@@ -34,6 +34,7 @@ export interface UpdateServiceAttributesCommandOutput extends UpdateServiceAttri
  * ```javascript
  * import { ServiceDiscoveryClient, UpdateServiceAttributesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, UpdateServiceAttributesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceDiscoveryClient(config);
  * const input = { // UpdateServiceAttributesRequest
  *   ServiceId: "STRING_VALUE", // required

@@ -60,6 +60,7 @@ export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { S3Client, DeleteBucketWebsiteCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeleteBucketWebsiteCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3Client(config);
  * const input = { // DeleteBucketWebsiteRequest
  *   Bucket: "STRING_VALUE", // required

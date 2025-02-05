@@ -34,6 +34,7 @@ export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __Metad
  * ```javascript
  * import { QLDBClient, UpdateLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, UpdateLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QLDBClient(config);
  * const input = { // UpdateLedgerRequest
  *   Name: "STRING_VALUE", // required

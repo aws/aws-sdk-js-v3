@@ -32,6 +32,7 @@ export interface XmlEmptyBlobsCommandOutput extends XmlEmptyBlobsResponse, __Met
  * ```javascript
  * import { RestXmlProtocolClient, XmlEmptyBlobsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlEmptyBlobsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RestXmlProtocolClient(config);
  * const input = { // XmlEmptyBlobsRequest
  *   data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")

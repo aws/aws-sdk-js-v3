@@ -34,6 +34,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * ```javascript
  * import { M2Client, CreateEnvironmentCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, CreateEnvironmentCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new M2Client(config);
  * const input = { // CreateEnvironmentRequest
  *   name: "STRING_VALUE", // required

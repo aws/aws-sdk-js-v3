@@ -35,6 +35,7 @@ export interface ListContributorInsightsCommandOutput extends ListContributorIns
  * ```javascript
  * import { DynamoDBClient, ListContributorInsightsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ListContributorInsightsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DynamoDBClient(config);
  * const input = { // ListContributorInsightsInput
  *   TableName: "STRING_VALUE",

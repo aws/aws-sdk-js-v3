@@ -38,6 +38,7 @@ export interface DisassociateQueueQuickConnectsCommandOutput extends __MetadataB
  * ```javascript
  * import { ConnectClient, DisassociateQueueQuickConnectsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateQueueQuickConnectsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectClient(config);
  * const input = { // DisassociateQueueQuickConnectsRequest
  *   InstanceId: "STRING_VALUE", // required

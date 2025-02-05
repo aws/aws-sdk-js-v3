@@ -50,6 +50,7 @@ export interface SearchTrainingPlanOfferingsCommandOutput
  * ```javascript
  * import { SageMakerClient, SearchTrainingPlanOfferingsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, SearchTrainingPlanOfferingsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // SearchTrainingPlanOfferingsRequest
  *   InstanceType: "ml.p4d.24xlarge" || "ml.p5.48xlarge" || "ml.p5e.48xlarge" || "ml.p5en.48xlarge" || "ml.trn1.32xlarge" || "ml.trn2.48xlarge", // required

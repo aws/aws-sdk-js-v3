@@ -37,6 +37,7 @@ export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersion
  * ```javascript
  * import { EKSClient, DescribeAddonVersionsCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DescribeAddonVersionsCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EKSClient(config);
  * const input = { // DescribeAddonVersionsRequest
  *   kubernetesVersion: "STRING_VALUE",

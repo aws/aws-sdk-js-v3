@@ -35,6 +35,7 @@ export interface MergePullRequestByThreeWayCommandOutput extends MergePullReques
  * ```javascript
  * import { CodeCommitClient, MergePullRequestByThreeWayCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, MergePullRequestByThreeWayCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeCommitClient(config);
  * const input = { // MergePullRequestByThreeWayInput
  *   pullRequestId: "STRING_VALUE", // required

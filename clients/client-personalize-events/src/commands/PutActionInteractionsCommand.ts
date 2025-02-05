@@ -42,6 +42,7 @@ export interface PutActionInteractionsCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { PersonalizeEventsClient, PutActionInteractionsCommand } from "@aws-sdk/client-personalize-events"; // ES Modules import
  * // const { PersonalizeEventsClient, PutActionInteractionsCommand } = require("@aws-sdk/client-personalize-events"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PersonalizeEventsClient(config);
  * const input = { // PutActionInteractionsRequest
  *   trackingId: "STRING_VALUE", // required

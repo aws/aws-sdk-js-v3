@@ -34,6 +34,7 @@ export interface DeleteConnectorCommandOutput extends DeleteConnectorResponse, _
  * ```javascript
  * import { KafkaConnectClient, DeleteConnectorCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, DeleteConnectorCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KafkaConnectClient(config);
  * const input = { // DeleteConnectorRequest
  *   connectorArn: "STRING_VALUE", // required

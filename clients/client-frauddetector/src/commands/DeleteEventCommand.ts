@@ -36,6 +36,7 @@ export interface DeleteEventCommandOutput extends DeleteEventResult, __MetadataB
  * ```javascript
  * import { FraudDetectorClient, DeleteEventCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteEventCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FraudDetectorClient(config);
  * const input = { // DeleteEventRequest
  *   eventId: "STRING_VALUE", // required

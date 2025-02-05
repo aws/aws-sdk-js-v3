@@ -40,6 +40,7 @@ export interface RegisterContainerImageCommandOutput extends RegisterContainerIm
  * ```javascript
  * import { LightsailClient, RegisterContainerImageCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, RegisterContainerImageCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LightsailClient(config);
  * const input = { // RegisterContainerImageRequest
  *   serviceName: "STRING_VALUE", // required

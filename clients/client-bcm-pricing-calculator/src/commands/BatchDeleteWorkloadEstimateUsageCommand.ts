@@ -52,6 +52,7 @@ export interface BatchDeleteWorkloadEstimateUsageCommandOutput
  * ```javascript
  * import { BCMPricingCalculatorClient, BatchDeleteWorkloadEstimateUsageCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, BatchDeleteWorkloadEstimateUsageCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // BatchDeleteWorkloadEstimateUsageRequest
  *   workloadEstimateId: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface DeleteFraudsterCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { VoiceIDClient, DeleteFraudsterCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, DeleteFraudsterCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new VoiceIDClient(config);
  * const input = { // DeleteFraudsterRequest
  *   DomainId: "STRING_VALUE", // required

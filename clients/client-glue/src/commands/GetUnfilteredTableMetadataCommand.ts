@@ -36,6 +36,7 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * ```javascript
  * import { GlueClient, GetUnfilteredTableMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetUnfilteredTableMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GlueClient(config);
  * const input = { // GetUnfilteredTableMetadataRequest
  *   Region: "STRING_VALUE",

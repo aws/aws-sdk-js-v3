@@ -34,6 +34,7 @@ export interface DeleteGraphCommandOutput extends DeleteGraphOutput, __MetadataB
  * ```javascript
  * import { NeptuneGraphClient, DeleteGraphCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
  * // const { NeptuneGraphClient, DeleteGraphCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptuneGraphClient(config);
  * const input = { // DeleteGraphInput
  *   graphIdentifier: "STRING_VALUE", // required

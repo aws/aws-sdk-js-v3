@@ -38,6 +38,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { CodestarNotificationsClient, ListTagsForResourceCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodestarNotificationsClient(config);
  * const input = { // ListTagsForResourceRequest
  *   Arn: "STRING_VALUE", // required

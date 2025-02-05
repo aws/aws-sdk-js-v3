@@ -37,6 +37,7 @@ export interface CreateTrustedTokenIssuerCommandOutput extends CreateTrustedToke
  * ```javascript
  * import { SSOAdminClient, CreateTrustedTokenIssuerCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, CreateTrustedTokenIssuerCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSOAdminClient(config);
  * const input = { // CreateTrustedTokenIssuerRequest
  *   InstanceArn: "STRING_VALUE", // required

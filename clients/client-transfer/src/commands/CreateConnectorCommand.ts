@@ -39,6 +39,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * ```javascript
  * import { TransferClient, CreateConnectorCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateConnectorCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TransferClient(config);
  * const input = { // CreateConnectorRequest
  *   Url: "STRING_VALUE", // required

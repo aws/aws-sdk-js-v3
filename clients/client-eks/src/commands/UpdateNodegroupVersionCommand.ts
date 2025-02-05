@@ -53,6 +53,7 @@ export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVers
  * ```javascript
  * import { EKSClient, UpdateNodegroupVersionCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, UpdateNodegroupVersionCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EKSClient(config);
  * const input = { // UpdateNodegroupVersionRequest
  *   clusterName: "STRING_VALUE", // required

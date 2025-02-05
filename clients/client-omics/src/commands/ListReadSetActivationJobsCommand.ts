@@ -34,6 +34,7 @@ export interface ListReadSetActivationJobsCommandOutput extends ListReadSetActiv
  * ```javascript
  * import { OmicsClient, ListReadSetActivationJobsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListReadSetActivationJobsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OmicsClient(config);
  * const input = { // ListReadSetActivationJobsRequest
  *   sequenceStoreId: "STRING_VALUE", // required

@@ -85,6 +85,7 @@ export interface GetIdentityPoolConfigurationCommandOutput
  * ```javascript
  * import { CognitoSyncClient, GetIdentityPoolConfigurationCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, GetIdentityPoolConfigurationCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CognitoSyncClient(config);
  * const input = { // GetIdentityPoolConfigurationRequest
  *   IdentityPoolId: "STRING_VALUE", // required

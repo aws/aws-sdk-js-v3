@@ -36,6 +36,7 @@ export interface DescribeFlywheelIterationCommandOutput extends DescribeFlywheel
  * ```javascript
  * import { ComprehendClient, DescribeFlywheelIterationCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeFlywheelIterationCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ComprehendClient(config);
  * const input = { // DescribeFlywheelIterationRequest
  *   FlywheelArn: "STRING_VALUE", // required

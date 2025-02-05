@@ -51,6 +51,7 @@ export interface UpdateWorkspaceAuthenticationCommandOutput
  * ```javascript
  * import { GrafanaClient, UpdateWorkspaceAuthenticationCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, UpdateWorkspaceAuthenticationCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GrafanaClient(config);
  * const input = { // UpdateWorkspaceAuthenticationRequest
  *   workspaceId: "STRING_VALUE", // required

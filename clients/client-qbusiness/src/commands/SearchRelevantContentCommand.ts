@@ -39,6 +39,7 @@ export interface SearchRelevantContentCommandOutput extends SearchRelevantConten
  * ```javascript
  * import { QBusinessClient, SearchRelevantContentCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, SearchRelevantContentCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QBusinessClient(config);
  * const input = { // SearchRelevantContentRequest
  *   applicationId: "STRING_VALUE", // required

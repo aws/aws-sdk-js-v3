@@ -54,6 +54,7 @@ export interface CreateWhatIfForecastExportCommandOutput extends CreateWhatIfFor
  * ```javascript
  * import { ForecastClient, CreateWhatIfForecastExportCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateWhatIfForecastExportCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ForecastClient(config);
  * const input = { // CreateWhatIfForecastExportRequest
  *   WhatIfForecastExportName: "STRING_VALUE", // required

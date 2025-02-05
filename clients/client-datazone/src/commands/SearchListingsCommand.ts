@@ -34,6 +34,7 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  * ```javascript
  * import { DataZoneClient, SearchListingsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, SearchListingsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataZoneClient(config);
  * const input = { // SearchListingsInput
  *   domainIdentifier: "STRING_VALUE", // required

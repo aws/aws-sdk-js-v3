@@ -40,6 +40,7 @@ export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse,
  * ```javascript
  * import { LexModelBuildingServiceClient, GetBuiltinIntentCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetBuiltinIntentCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetBuiltinIntentRequest
  *   signature: "STRING_VALUE", // required

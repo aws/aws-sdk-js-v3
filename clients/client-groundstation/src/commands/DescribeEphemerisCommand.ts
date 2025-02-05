@@ -34,6 +34,7 @@ export interface DescribeEphemerisCommandOutput extends DescribeEphemerisRespons
  * ```javascript
  * import { GroundStationClient, DescribeEphemerisCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, DescribeEphemerisCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GroundStationClient(config);
  * const input = { // DescribeEphemerisRequest
  *   ephemerisId: "STRING_VALUE", // required

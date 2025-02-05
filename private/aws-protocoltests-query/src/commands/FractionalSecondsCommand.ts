@@ -33,6 +33,7 @@ export interface FractionalSecondsCommandOutput extends FractionalSecondsOutput,
  * ```javascript
  * import { QueryProtocolClient, FractionalSecondsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, FractionalSecondsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QueryProtocolClient(config);
  * const input = {};
  * const command = new FractionalSecondsCommand(input);

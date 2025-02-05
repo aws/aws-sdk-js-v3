@@ -37,6 +37,7 @@ export interface DeletePlaceIndexCommandOutput extends DeletePlaceIndexResponse,
  * ```javascript
  * import { LocationClient, DeletePlaceIndexCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DeletePlaceIndexCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LocationClient(config);
  * const input = { // DeletePlaceIndexRequest
  *   IndexName: "STRING_VALUE", // required

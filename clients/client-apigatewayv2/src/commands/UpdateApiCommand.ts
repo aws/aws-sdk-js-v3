@@ -34,6 +34,7 @@ export interface UpdateApiCommandOutput extends UpdateApiResponse, __MetadataBea
  * ```javascript
  * import { ApiGatewayV2Client, UpdateApiCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateApiCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ApiGatewayV2Client(config);
  * const input = { // UpdateApiRequest
  *   ApiId: "STRING_VALUE", // required

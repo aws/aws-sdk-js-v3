@@ -40,6 +40,7 @@ export interface CreateReplicationConfigCommandOutput extends CreateReplicationC
  * ```javascript
  * import { DatabaseMigrationServiceClient, CreateReplicationConfigCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CreateReplicationConfigCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // CreateReplicationConfigMessage
  *   ReplicationConfigIdentifier: "STRING_VALUE", // required

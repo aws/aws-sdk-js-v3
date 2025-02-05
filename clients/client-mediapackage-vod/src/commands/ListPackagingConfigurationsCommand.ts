@@ -39,6 +39,7 @@ export interface ListPackagingConfigurationsCommandOutput
  * ```javascript
  * import { MediaPackageVodClient, ListPackagingConfigurationsCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, ListPackagingConfigurationsCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaPackageVodClient(config);
  * const input = { // ListPackagingConfigurationsRequest
  *   MaxResults: Number("int"),

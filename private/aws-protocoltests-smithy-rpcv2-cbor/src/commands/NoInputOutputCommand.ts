@@ -32,6 +32,7 @@ export interface NoInputOutputCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RpcV2ProtocolClient, NoInputOutputCommand } from "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor"; // ES Modules import
  * // const { RpcV2ProtocolClient, NoInputOutputCommand } = require("@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RpcV2ProtocolClient(config);
  * const input = {};
  * const command = new NoInputOutputCommand(input);

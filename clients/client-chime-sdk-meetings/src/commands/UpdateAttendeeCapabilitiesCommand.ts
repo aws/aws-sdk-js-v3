@@ -66,6 +66,7 @@ export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeC
  * ```javascript
  * import { ChimeSDKMeetingsClient, UpdateAttendeeCapabilitiesCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, UpdateAttendeeCapabilitiesCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChimeSDKMeetingsClient(config);
  * const input = { // UpdateAttendeeCapabilitiesRequest
  *   MeetingId: "STRING_VALUE", // required

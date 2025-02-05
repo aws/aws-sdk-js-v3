@@ -37,6 +37,7 @@ export interface ListIncidentFindingsCommandOutput extends ListIncidentFindingsO
  * ```javascript
  * import { SSMIncidentsClient, ListIncidentFindingsCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, ListIncidentFindingsCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSMIncidentsClient(config);
  * const input = { // ListIncidentFindingsInput
  *   incidentRecordArn: "STRING_VALUE", // required

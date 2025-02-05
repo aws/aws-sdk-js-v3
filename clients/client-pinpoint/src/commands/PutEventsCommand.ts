@@ -34,6 +34,7 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * ```javascript
  * import { PinpointClient, PutEventsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, PutEventsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointClient(config);
  * const input = { // PutEventsRequest
  *   ApplicationId: "STRING_VALUE", // required

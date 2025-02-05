@@ -34,6 +34,7 @@ export interface ListTerminologiesCommandOutput extends ListTerminologiesRespons
  * ```javascript
  * import { TranslateClient, ListTerminologiesCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, ListTerminologiesCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TranslateClient(config);
  * const input = { // ListTerminologiesRequest
  *   NextToken: "STRING_VALUE",

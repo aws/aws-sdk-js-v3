@@ -34,6 +34,7 @@ export interface GetBranchCommandOutput extends GetBranchResult, __MetadataBeare
  * ```javascript
  * import { AmplifyClient, GetBranchCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GetBranchCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AmplifyClient(config);
  * const input = { // GetBranchRequest
  *   appId: "STRING_VALUE", // required

@@ -47,6 +47,7 @@ export interface PutPackageOriginConfigurationCommandOutput
  * ```javascript
  * import { CodeartifactClient, PutPackageOriginConfigurationCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, PutPackageOriginConfigurationCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeartifactClient(config);
  * const input = { // PutPackageOriginConfigurationRequest
  *   domain: "STRING_VALUE", // required

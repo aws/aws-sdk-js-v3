@@ -53,6 +53,7 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SageMakerFeatureStoreRuntimeClient, PutRecordCommand } from "@aws-sdk/client-sagemaker-featurestore-runtime"; // ES Modules import
  * // const { SageMakerFeatureStoreRuntimeClient, PutRecordCommand } = require("@aws-sdk/client-sagemaker-featurestore-runtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerFeatureStoreRuntimeClient(config);
  * const input = { // PutRecordRequest
  *   FeatureGroupName: "STRING_VALUE", // required

@@ -35,6 +35,7 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * ```javascript
  * import { GuardDutyClient, DeclineInvitationsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DeclineInvitationsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GuardDutyClient(config);
  * const input = { // DeclineInvitationsRequest
  *   AccountIds: [ // AccountIds // required

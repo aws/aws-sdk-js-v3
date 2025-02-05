@@ -38,6 +38,7 @@ export interface DeleteDeploymentCommandOutput extends DeleteDeploymentOutput, _
  * ```javascript
  * import { ProtonClient, DeleteDeploymentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteDeploymentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ProtonClient(config);
  * const input = { // DeleteDeploymentInput
  *   id: "STRING_VALUE", // required

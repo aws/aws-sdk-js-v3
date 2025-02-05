@@ -38,6 +38,7 @@ export interface ListUserAssociationsCommandOutput extends ListUserAssociationsR
  * ```javascript
  * import { LicenseManagerUserSubscriptionsClient, ListUserAssociationsCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, ListUserAssociationsCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // ListUserAssociationsRequest
  *   InstanceId: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface ListReportsCommandOutput extends ListReportsResponse, __Metadat
  * ```javascript
  * import { ArtifactClient, ListReportsCommand } from "@aws-sdk/client-artifact"; // ES Modules import
  * // const { ArtifactClient, ListReportsCommand } = require("@aws-sdk/client-artifact"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ArtifactClient(config);
  * const input = { // ListReportsRequest
  *   maxResults: Number("int"),

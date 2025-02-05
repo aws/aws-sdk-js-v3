@@ -744,10 +744,10 @@ export interface AlarmRecommendation {
   type: AlarmType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Application Component name for the CloudWatch alarm recommendation. This name is saved as the first
    *       item in the <code>appComponentNames</code> list.</p>
+   *
+   * @deprecated
    * @public
    */
   appComponentName?: string | undefined;

@@ -37,6 +37,7 @@ export interface GenerateFindingRecommendationCommandOutput extends __MetadataBe
  * ```javascript
  * import { AccessAnalyzerClient, GenerateFindingRecommendationCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, GenerateFindingRecommendationCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AccessAnalyzerClient(config);
  * const input = { // GenerateFindingRecommendationRequest
  *   analyzerArn: "STRING_VALUE", // required

@@ -307,6 +307,7 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  * ```javascript
  * import { S3Client, CreateMultipartUploadCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, CreateMultipartUploadCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3Client(config);
  * const input = { // CreateMultipartUploadRequest
  *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",

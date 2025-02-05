@@ -39,6 +39,7 @@ export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse,
  * ```javascript
  * import { LocationClient, BatchPutGeofenceCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, BatchPutGeofenceCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LocationClient(config);
  * const input = { // BatchPutGeofenceRequest
  *   CollectionName: "STRING_VALUE", // required

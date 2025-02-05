@@ -34,6 +34,7 @@ export interface StartInstanceOnboardingJobCommandOutput extends StartInstanceOn
  * ```javascript
  * import { ConnectCampaignsClient, StartInstanceOnboardingJobCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, StartInstanceOnboardingJobCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectCampaignsClient(config);
  * const input = { // StartInstanceOnboardingJobRequest
  *   connectInstanceId: "STRING_VALUE", // required

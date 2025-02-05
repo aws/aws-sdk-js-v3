@@ -1901,9 +1901,9 @@ export interface UpdateSubscriptionGrantStatusOutput {
   assets?: SubscribedAsset[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The identifier of the subscription.</p>
+   *
+   * @deprecated
    * @public
    */
   subscriptionId?: string | undefined;

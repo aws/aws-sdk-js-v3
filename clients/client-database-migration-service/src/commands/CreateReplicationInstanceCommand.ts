@@ -48,6 +48,7 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  * ```javascript
  * import { DatabaseMigrationServiceClient, CreateReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CreateReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // CreateReplicationInstanceMessage
  *   ReplicationInstanceIdentifier: "STRING_VALUE", // required

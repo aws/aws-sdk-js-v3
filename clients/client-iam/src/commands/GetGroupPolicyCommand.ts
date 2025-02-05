@@ -48,6 +48,7 @@ export interface GetGroupPolicyCommandOutput extends GetGroupPolicyResponse, __M
  * ```javascript
  * import { IAMClient, GetGroupPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetGroupPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IAMClient(config);
  * const input = { // GetGroupPolicyRequest
  *   GroupName: "STRING_VALUE", // required

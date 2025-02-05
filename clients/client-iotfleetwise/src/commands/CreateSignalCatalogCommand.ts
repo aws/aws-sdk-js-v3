@@ -35,6 +35,7 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  * ```javascript
  * import { IoTFleetWiseClient, CreateSignalCatalogCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, CreateSignalCatalogCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTFleetWiseClient(config);
  * const input = { // CreateSignalCatalogRequest
  *   name: "STRING_VALUE", // required

@@ -35,6 +35,7 @@ export interface StartCommandExecutionCommandOutput extends StartCommandExecutio
  * ```javascript
  * import { IoTJobsDataPlaneClient, StartCommandExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
  * // const { IoTJobsDataPlaneClient, StartCommandExecutionCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTJobsDataPlaneClient(config);
  * const input = { // StartCommandExecutionRequest
  *   targetArn: "STRING_VALUE", // required

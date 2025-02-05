@@ -39,6 +39,7 @@ export interface CreateProjectProfileCommandOutput extends CreateProjectProfileO
  * ```javascript
  * import { DataZoneClient, CreateProjectProfileCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateProjectProfileCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataZoneClient(config);
  * const input = { // CreateProjectProfileInput
  *   domainIdentifier: "STRING_VALUE", // required

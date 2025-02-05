@@ -34,6 +34,7 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, _
  * ```javascript
  * import { ProtonClient, ListRepositoriesCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListRepositoriesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ProtonClient(config);
  * const input = { // ListRepositoriesInput
  *   nextToken: "STRING_VALUE",

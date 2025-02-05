@@ -5783,13 +5783,13 @@ export interface DomainEntry {
   type?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>(Discontinued) The options for the domain entry.</p>
    *          <note>
    *             <p>In releases prior to November 29, 2017, this parameter was not included in the API
    *         response. It is now discontinued.</p>
    *          </note>
+   *
+   * @deprecated
    * @public
    */
   options?: Record<string, string> | undefined;
@@ -5943,13 +5943,13 @@ export interface CreateInstancesRequest {
   availabilityZone: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>(Discontinued) The name for your custom image.</p>
    *          <note>
    *             <p>In releases prior to June 12, 2017, this parameter was ignored by the API. It is now
    *         discontinued.</p>
    *          </note>
+   *
+   * @deprecated
    * @public
    */
   customImageName?: string | undefined;
@@ -7744,26 +7744,26 @@ export interface Disk {
   isAttached?: boolean | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>(Discontinued) The attachment state of the disk.</p>
    *          <note>
    *             <p>In releases prior to November 14, 2017, this parameter returned <code>attached</code>
    *         for system disks in the API response. It is now discontinued, but still included in the
    *         response. Use <code>isAttached</code> instead.</p>
    *          </note>
+   *
+   * @deprecated
    * @public
    */
   attachmentState?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>(Discontinued) The number of GB in use by the disk.</p>
    *          <note>
    *             <p>In releases prior to November 14, 2017, this parameter was not included in the API
    *         response. It is now discontinued.</p>
    *          </note>
+   *
+   * @deprecated
    * @public
    */
   gbInUse?: number | undefined;

@@ -34,6 +34,7 @@ export interface ModifyDBProxyCommandOutput extends ModifyDBProxyResponse, __Met
  * ```javascript
  * import { RDSClient, ModifyDBProxyCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBProxyCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RDSClient(config);
  * const input = { // ModifyDBProxyRequest
  *   DBProxyName: "STRING_VALUE", // required

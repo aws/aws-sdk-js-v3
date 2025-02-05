@@ -590,10 +590,10 @@ export interface MemberDetail {
   GraphArn?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The Amazon Web Services account identifier of the administrator account for the behavior
    *          graph.</p>
+   *
+   * @deprecated
    * @public
    */
   MasterId?: string | undefined;
@@ -689,25 +689,23 @@ export interface MemberDetail {
   UpdatedTime?: Date | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The data volume in bytes per day for the member account.</p>
+   *
+   * @deprecated
    * @public
    */
   VolumeUsageInBytes?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The data and time when the member account data volume was last updated. The value is an
    *          ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   VolumeUsageUpdatedTime?: Date | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The member account data volume as a percentage of the maximum allowed data volume. 0
    *          indicates 0 percent, and 100 indicates 100 percent.</p>
    *          <p>Note that this is not the percentage of the behavior graph data volume.</p>
@@ -715,15 +713,17 @@ export interface MemberDetail {
    *          volume is 160 GB per day. If the data volume for the member account is 40 GB per day, then
    *             <code>PercentOfGraphUtilization</code> is 25. It represents 25% of the maximum allowed
    *          data volume. </p>
+   *
+   * @deprecated
    * @public
    */
   PercentOfGraphUtilization?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The date and time when the graph utilization percentage was last updated. The value is
    *          an ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   PercentOfGraphUtilizationUpdatedTime?: Date | undefined;

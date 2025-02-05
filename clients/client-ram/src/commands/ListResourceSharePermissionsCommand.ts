@@ -39,6 +39,7 @@ export interface ListResourceSharePermissionsCommandOutput
  * ```javascript
  * import { RAMClient, ListResourceSharePermissionsCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListResourceSharePermissionsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RAMClient(config);
  * const input = { // ListResourceSharePermissionsRequest
  *   resourceShareArn: "STRING_VALUE", // required

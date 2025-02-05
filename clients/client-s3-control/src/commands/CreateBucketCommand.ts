@@ -89,6 +89,7 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * ```javascript
  * import { S3ControlClient, CreateBucketCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, CreateBucketCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3ControlClient(config);
  * const input = { // CreateBucketRequest
  *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read",

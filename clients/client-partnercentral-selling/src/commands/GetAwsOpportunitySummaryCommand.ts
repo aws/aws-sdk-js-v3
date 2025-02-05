@@ -45,6 +45,7 @@ export interface GetAwsOpportunitySummaryCommandOutput extends GetAwsOpportunity
  * ```javascript
  * import { PartnerCentralSellingClient, GetAwsOpportunitySummaryCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
  * // const { PartnerCentralSellingClient, GetAwsOpportunitySummaryCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PartnerCentralSellingClient(config);
  * const input = { // GetAwsOpportunitySummaryRequest
  *   Catalog: "STRING_VALUE", // required

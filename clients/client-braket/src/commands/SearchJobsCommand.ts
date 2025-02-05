@@ -34,6 +34,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * ```javascript
  * import { BraketClient, SearchJobsCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, SearchJobsCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BraketClient(config);
  * const input = { // SearchJobsRequest
  *   nextToken: "STRING_VALUE",

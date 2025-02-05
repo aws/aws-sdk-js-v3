@@ -34,6 +34,7 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  * ```javascript
  * import { BatchClient, RegisterJobDefinitionCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, RegisterJobDefinitionCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BatchClient(config);
  * const input = { // RegisterJobDefinitionRequest
  *   jobDefinitionName: "STRING_VALUE", // required

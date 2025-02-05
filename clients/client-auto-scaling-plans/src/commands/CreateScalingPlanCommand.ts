@@ -34,6 +34,7 @@ export interface CreateScalingPlanCommandOutput extends CreateScalingPlanRespons
  * ```javascript
  * import { AutoScalingPlansClient, CreateScalingPlanCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
  * // const { AutoScalingPlansClient, CreateScalingPlanCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AutoScalingPlansClient(config);
  * const input = { // CreateScalingPlanRequest
  *   ScalingPlanName: "STRING_VALUE", // required

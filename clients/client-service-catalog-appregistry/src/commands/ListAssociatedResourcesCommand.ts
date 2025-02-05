@@ -58,6 +58,7 @@ export interface ListAssociatedResourcesCommandOutput extends ListAssociatedReso
  * ```javascript
  * import { ServiceCatalogAppRegistryClient, ListAssociatedResourcesCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, ListAssociatedResourcesCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const input = { // ListAssociatedResourcesRequest
  *   application: "STRING_VALUE", // required

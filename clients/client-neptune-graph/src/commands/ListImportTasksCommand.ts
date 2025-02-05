@@ -34,6 +34,7 @@ export interface ListImportTasksCommandOutput extends ListImportTasksOutput, __M
  * ```javascript
  * import { NeptuneGraphClient, ListImportTasksCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
  * // const { NeptuneGraphClient, ListImportTasksCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptuneGraphClient(config);
  * const input = { // ListImportTasksInput
  *   nextToken: "STRING_VALUE",

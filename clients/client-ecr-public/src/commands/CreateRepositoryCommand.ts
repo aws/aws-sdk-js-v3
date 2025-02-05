@@ -35,6 +35,7 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * ```javascript
  * import { ECRPUBLICClient, CreateRepositoryCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, CreateRepositoryCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ECRPUBLICClient(config);
  * const input = { // CreateRepositoryRequest
  *   repositoryName: "STRING_VALUE", // required

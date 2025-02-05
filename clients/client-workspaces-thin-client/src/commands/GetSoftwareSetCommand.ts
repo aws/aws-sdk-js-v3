@@ -42,6 +42,7 @@ export interface GetSoftwareSetCommandOutput extends GetSoftwareSetResponse, __M
  * ```javascript
  * import { WorkSpacesThinClientClient, GetSoftwareSetCommand } from "@aws-sdk/client-workspaces-thin-client"; // ES Modules import
  * // const { WorkSpacesThinClientClient, GetSoftwareSetCommand } = require("@aws-sdk/client-workspaces-thin-client"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkSpacesThinClientClient(config);
  * const input = { // GetSoftwareSetRequest
  *   id: "STRING_VALUE", // required

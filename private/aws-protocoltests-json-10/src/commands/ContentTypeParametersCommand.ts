@@ -33,6 +33,7 @@ export interface ContentTypeParametersCommandOutput extends ContentTypeParameter
  * ```javascript
  * import { JSONRPC10Client, ContentTypeParametersCommand } from "@aws-sdk/aws-protocoltests-json-10"; // ES Modules import
  * // const { JSONRPC10Client, ContentTypeParametersCommand } = require("@aws-sdk/aws-protocoltests-json-10"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new JSONRPC10Client(config);
  * const input = { // ContentTypeParametersInput
  *   value: Number("int"),

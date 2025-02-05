@@ -60,6 +60,7 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  * ```javascript
  * import { KinesisClient, SubscribeToShardCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, SubscribeToShardCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KinesisClient(config);
  * const input = { // SubscribeToShardInput
  *   ConsumerARN: "STRING_VALUE", // required

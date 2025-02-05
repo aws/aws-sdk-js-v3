@@ -33,6 +33,7 @@ export interface XmlEmptyStringsCommandOutput extends XmlEmptyStringsResponse, _
  * ```javascript
  * import { RestXmlProtocolClient, XmlEmptyStringsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlEmptyStringsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RestXmlProtocolClient(config);
  * const input = { // XmlEmptyStringsRequest
  *   emptyString: "STRING_VALUE",

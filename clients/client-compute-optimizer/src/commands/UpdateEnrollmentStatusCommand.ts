@@ -41,6 +41,7 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
  * ```javascript
  * import { ComputeOptimizerClient, UpdateEnrollmentStatusCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, UpdateEnrollmentStatusCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ComputeOptimizerClient(config);
  * const input = { // UpdateEnrollmentStatusRequest
  *   status: "Active" || "Inactive" || "Pending" || "Failed", // required

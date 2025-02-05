@@ -39,6 +39,7 @@ export interface DescribeWorkspacesPoolSessionsCommandOutput
  * ```javascript
  * import { WorkSpacesClient, DescribeWorkspacesPoolSessionsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspacesPoolSessionsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkSpacesClient(config);
  * const input = { // DescribeWorkspacesPoolSessionsRequest
  *   PoolId: "STRING_VALUE", // required

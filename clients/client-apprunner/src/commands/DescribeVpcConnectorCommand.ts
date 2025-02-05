@@ -34,6 +34,7 @@ export interface DescribeVpcConnectorCommandOutput extends DescribeVpcConnectorR
  * ```javascript
  * import { AppRunnerClient, DescribeVpcConnectorCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DescribeVpcConnectorCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppRunnerClient(config);
  * const input = { // DescribeVpcConnectorRequest
  *   VpcConnectorArn: "STRING_VALUE", // required

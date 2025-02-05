@@ -40,6 +40,7 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  * ```javascript
  * import { ElasticLoadBalancingV2Client, DescribeSSLPoliciesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeSSLPoliciesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // DescribeSSLPoliciesInput
  *   Names: [ // SslPolicyNames

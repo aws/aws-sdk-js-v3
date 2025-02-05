@@ -49,6 +49,7 @@ export interface UpdateZonalAutoshiftConfigurationCommandOutput
  * ```javascript
  * import { ARCZonalShiftClient, UpdateZonalAutoshiftConfigurationCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
  * // const { ARCZonalShiftClient, UpdateZonalAutoshiftConfigurationCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ARCZonalShiftClient(config);
  * const input = { // UpdateZonalAutoshiftConfigurationRequest
  *   resourceIdentifier: "STRING_VALUE", // required

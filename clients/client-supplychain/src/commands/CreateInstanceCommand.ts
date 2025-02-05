@@ -35,6 +35,7 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  * ```javascript
  * import { SupplyChainClient, CreateInstanceCommand } from "@aws-sdk/client-supplychain"; // ES Modules import
  * // const { SupplyChainClient, CreateInstanceCommand } = require("@aws-sdk/client-supplychain"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SupplyChainClient(config);
  * const input = { // CreateInstanceRequest
  *   instanceName: "STRING_VALUE",

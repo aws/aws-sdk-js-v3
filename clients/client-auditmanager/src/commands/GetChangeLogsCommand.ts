@@ -34,6 +34,7 @@ export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __Met
  * ```javascript
  * import { AuditManagerClient, GetChangeLogsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetChangeLogsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AuditManagerClient(config);
  * const input = { // GetChangeLogsRequest
  *   assessmentId: "STRING_VALUE", // required

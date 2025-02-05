@@ -38,6 +38,7 @@ export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __M
  * ```javascript
  * import { ForecastClient, ListPredictorsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListPredictorsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ForecastClient(config);
  * const input = { // ListPredictorsRequest
  *   NextToken: "STRING_VALUE",

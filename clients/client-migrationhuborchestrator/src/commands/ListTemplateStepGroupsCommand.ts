@@ -38,6 +38,7 @@ export interface ListTemplateStepGroupsCommandOutput extends ListTemplateStepGro
  * ```javascript
  * import { MigrationHubOrchestratorClient, ListTemplateStepGroupsCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, ListTemplateStepGroupsCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // ListTemplateStepGroupsRequest
  *   maxResults: Number("int"),

@@ -34,6 +34,7 @@ export interface DisableUserCommandOutput extends DisableUserResult, __MetadataB
  * ```javascript
  * import { AppStreamClient, DisableUserCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DisableUserCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppStreamClient(config);
  * const input = { // DisableUserRequest
  *   UserName: "STRING_VALUE", // required

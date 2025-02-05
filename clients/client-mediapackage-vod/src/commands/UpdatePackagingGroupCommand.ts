@@ -34,6 +34,7 @@ export interface UpdatePackagingGroupCommandOutput extends UpdatePackagingGroupR
  * ```javascript
  * import { MediaPackageVodClient, UpdatePackagingGroupCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, UpdatePackagingGroupCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaPackageVodClient(config);
  * const input = { // UpdatePackagingGroupRequest
  *   Authorization: { // Authorization

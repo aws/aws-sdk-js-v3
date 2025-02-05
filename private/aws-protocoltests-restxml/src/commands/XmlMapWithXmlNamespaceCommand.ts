@@ -32,6 +32,7 @@ export interface XmlMapWithXmlNamespaceCommandOutput extends XmlMapWithXmlNamesp
  * ```javascript
  * import { RestXmlProtocolClient, XmlMapWithXmlNamespaceCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlMapWithXmlNamespaceCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RestXmlProtocolClient(config);
  * const input = { // XmlMapWithXmlNamespaceRequest
  *   myMap: { // XmlMapWithXmlNamespaceInputOutputMap

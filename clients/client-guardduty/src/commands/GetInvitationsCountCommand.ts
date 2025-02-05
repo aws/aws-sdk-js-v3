@@ -35,6 +35,7 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * ```javascript
  * import { GuardDutyClient, GetInvitationsCountCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetInvitationsCountCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GuardDutyClient(config);
  * const input = {};
  * const command = new GetInvitationsCountCommand(input);

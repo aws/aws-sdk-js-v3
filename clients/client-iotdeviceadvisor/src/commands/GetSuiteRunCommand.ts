@@ -35,6 +35,7 @@ export interface GetSuiteRunCommandOutput extends GetSuiteRunResponse, __Metadat
  * ```javascript
  * import { IotDeviceAdvisorClient, GetSuiteRunCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, GetSuiteRunCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IotDeviceAdvisorClient(config);
  * const input = { // GetSuiteRunRequest
  *   suiteDefinitionId: "STRING_VALUE", // required

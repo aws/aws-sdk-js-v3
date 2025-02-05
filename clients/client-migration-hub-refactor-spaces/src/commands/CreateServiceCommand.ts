@@ -52,6 +52,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * ```javascript
  * import { MigrationHubRefactorSpacesClient, CreateServiceCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, CreateServiceCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // CreateServiceRequest
  *   Name: "STRING_VALUE", // required

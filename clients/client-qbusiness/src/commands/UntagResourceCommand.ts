@@ -34,6 +34,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { QBusinessClient, UntagResourceCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, UntagResourceCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QBusinessClient(config);
  * const input = { // UntagResourceRequest
  *   resourceARN: "STRING_VALUE", // required

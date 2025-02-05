@@ -34,6 +34,7 @@ export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesRes
  * ```javascript
  * import { ConfigServiceClient, DescribeConfigRulesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeConfigRulesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConfigServiceClient(config);
  * const input = { // DescribeConfigRulesRequest
  *   ConfigRuleNames: [ // ConfigRuleNames

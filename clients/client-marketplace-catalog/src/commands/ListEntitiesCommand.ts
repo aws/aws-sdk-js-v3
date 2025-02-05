@@ -38,6 +38,7 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * ```javascript
  * import { MarketplaceCatalogClient, ListEntitiesCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
  * // const { MarketplaceCatalogClient, ListEntitiesCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MarketplaceCatalogClient(config);
  * const input = { // ListEntitiesRequest
  *   Catalog: "STRING_VALUE", // required

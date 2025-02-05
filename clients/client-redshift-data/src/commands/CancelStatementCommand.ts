@@ -37,6 +37,7 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  * ```javascript
  * import { RedshiftDataClient, CancelStatementCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, CancelStatementCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftDataClient(config);
  * const input = { // CancelStatementRequest
  *   Id: "STRING_VALUE", // required

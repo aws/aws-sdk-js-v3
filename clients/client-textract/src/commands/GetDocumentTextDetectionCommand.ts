@@ -57,6 +57,7 @@ export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDe
  * ```javascript
  * import { TextractClient, GetDocumentTextDetectionCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, GetDocumentTextDetectionCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TextractClient(config);
  * const input = { // GetDocumentTextDetectionRequest
  *   JobId: "STRING_VALUE", // required

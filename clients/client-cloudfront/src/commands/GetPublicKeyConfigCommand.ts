@@ -34,6 +34,7 @@ export interface GetPublicKeyConfigCommandOutput extends GetPublicKeyConfigResul
  * ```javascript
  * import { CloudFrontClient, GetPublicKeyConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetPublicKeyConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudFrontClient(config);
  * const input = { // GetPublicKeyConfigRequest
  *   Id: "STRING_VALUE", // required

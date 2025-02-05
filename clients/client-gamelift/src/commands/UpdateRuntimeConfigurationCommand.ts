@@ -53,6 +53,7 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
  * ```javascript
  * import { GameLiftClient, UpdateRuntimeConfigurationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateRuntimeConfigurationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GameLiftClient(config);
  * const input = { // UpdateRuntimeConfigurationInput
  *   FleetId: "STRING_VALUE", // required

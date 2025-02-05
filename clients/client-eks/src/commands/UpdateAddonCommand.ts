@@ -34,6 +34,7 @@ export interface UpdateAddonCommandOutput extends UpdateAddonResponse, __Metadat
  * ```javascript
  * import { EKSClient, UpdateAddonCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, UpdateAddonCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EKSClient(config);
  * const input = { // UpdateAddonRequest
  *   clusterName: "STRING_VALUE", // required

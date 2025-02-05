@@ -34,6 +34,7 @@ export interface CreateHarvestJobCommandOutput extends CreateHarvestJobResponse,
  * ```javascript
  * import { MediaPackageClient, CreateHarvestJobCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, CreateHarvestJobCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaPackageClient(config);
  * const input = { // CreateHarvestJobRequest
  *   EndTime: "STRING_VALUE", // required

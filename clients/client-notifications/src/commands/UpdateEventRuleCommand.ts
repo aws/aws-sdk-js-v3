@@ -34,6 +34,7 @@ export interface UpdateEventRuleCommandOutput extends UpdateEventRuleResponse, _
  * ```javascript
  * import { NotificationsClient, UpdateEventRuleCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, UpdateEventRuleCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NotificationsClient(config);
  * const input = { // UpdateEventRuleRequest
  *   arn: "STRING_VALUE", // required

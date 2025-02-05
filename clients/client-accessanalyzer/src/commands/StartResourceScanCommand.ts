@@ -34,6 +34,7 @@ export interface StartResourceScanCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { AccessAnalyzerClient, StartResourceScanCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, StartResourceScanCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AccessAnalyzerClient(config);
  * const input = { // StartResourceScanRequest
  *   analyzerArn: "STRING_VALUE", // required

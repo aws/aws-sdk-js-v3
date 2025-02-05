@@ -34,6 +34,7 @@ export interface ListAdapterVersionsCommandOutput extends ListAdapterVersionsRes
  * ```javascript
  * import { TextractClient, ListAdapterVersionsCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, ListAdapterVersionsCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TextractClient(config);
  * const input = { // ListAdapterVersionsRequest
  *   AdapterId: "STRING_VALUE",

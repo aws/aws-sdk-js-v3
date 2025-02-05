@@ -34,6 +34,7 @@ export interface DeleteServiceSyncConfigCommandOutput extends DeleteServiceSyncC
  * ```javascript
  * import { ProtonClient, DeleteServiceSyncConfigCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteServiceSyncConfigCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ProtonClient(config);
  * const input = { // DeleteServiceSyncConfigInput
  *   serviceName: "STRING_VALUE", // required

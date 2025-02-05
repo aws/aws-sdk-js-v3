@@ -39,6 +39,7 @@ export interface CreateAPIKeyCommandOutput extends CreateAPIKeyResponse, __Metad
  * ```javascript
  * import { WAFV2Client, CreateAPIKeyCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, CreateAPIKeyCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WAFV2Client(config);
  * const input = { // CreateAPIKeyRequest
  *   Scope: "CLOUDFRONT" || "REGIONAL", // required

@@ -36,6 +36,7 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * ```javascript
  * import { SESClient, GetTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SESClient(config);
  * const input = { // GetTemplateRequest
  *   TemplateName: "STRING_VALUE", // required

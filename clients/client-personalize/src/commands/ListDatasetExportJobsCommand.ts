@@ -39,6 +39,7 @@ export interface ListDatasetExportJobsCommandOutput extends ListDatasetExportJob
  * ```javascript
  * import { PersonalizeClient, ListDatasetExportJobsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListDatasetExportJobsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PersonalizeClient(config);
  * const input = { // ListDatasetExportJobsRequest
  *   datasetArn: "STRING_VALUE",

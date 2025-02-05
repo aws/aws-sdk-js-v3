@@ -34,6 +34,7 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResponse, __M
  * ```javascript
  * import { AppSyncClient, UpdateFunctionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateFunctionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppSyncClient(config);
  * const input = { // UpdateFunctionRequest
  *   apiId: "STRING_VALUE", // required

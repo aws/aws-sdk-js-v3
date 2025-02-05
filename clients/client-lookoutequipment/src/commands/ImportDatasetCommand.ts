@@ -34,6 +34,7 @@ export interface ImportDatasetCommandOutput extends ImportDatasetResponse, __Met
  * ```javascript
  * import { LookoutEquipmentClient, ImportDatasetCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ImportDatasetCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LookoutEquipmentClient(config);
  * const input = { // ImportDatasetRequest
  *   SourceDatasetArn: "STRING_VALUE", // required

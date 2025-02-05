@@ -35,6 +35,7 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * ```javascript
  * import { CodeBuildClient, ListProjectsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListProjectsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeBuildClient(config);
  * const input = { // ListProjectsInput
  *   sortBy: "NAME" || "CREATED_TIME" || "LAST_MODIFIED_TIME",

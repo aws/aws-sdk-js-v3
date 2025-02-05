@@ -47,6 +47,7 @@ export interface DisassociateConfigurationItemsFromApplicationCommandOutput
  * ```javascript
  * import { ApplicationDiscoveryServiceClient, DisassociateConfigurationItemsFromApplicationCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, DisassociateConfigurationItemsFromApplicationCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const input = { // DisassociateConfigurationItemsFromApplicationRequest
  *   applicationConfigurationId: "STRING_VALUE", // required

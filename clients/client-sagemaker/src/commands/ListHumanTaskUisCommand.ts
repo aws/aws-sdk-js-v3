@@ -34,6 +34,7 @@ export interface ListHumanTaskUisCommandOutput extends ListHumanTaskUisResponse,
  * ```javascript
  * import { SageMakerClient, ListHumanTaskUisCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListHumanTaskUisCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // ListHumanTaskUisRequest
  *   CreationTimeAfter: new Date("TIMESTAMP"),

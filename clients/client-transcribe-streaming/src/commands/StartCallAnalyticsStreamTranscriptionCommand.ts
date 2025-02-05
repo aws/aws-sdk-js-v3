@@ -73,6 +73,7 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
  * ```javascript
  * import { TranscribeStreamingClient, StartCallAnalyticsStreamTranscriptionCommand } from "@aws-sdk/client-transcribe-streaming"; // ES Modules import
  * // const { TranscribeStreamingClient, StartCallAnalyticsStreamTranscriptionCommand } = require("@aws-sdk/client-transcribe-streaming"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TranscribeStreamingClient(config);
  * const input = { // StartCallAnalyticsStreamTranscriptionRequest
  *   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR", // required

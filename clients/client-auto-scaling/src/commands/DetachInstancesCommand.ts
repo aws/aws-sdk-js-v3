@@ -43,6 +43,7 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  * ```javascript
  * import { AutoScalingClient, DetachInstancesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DetachInstancesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AutoScalingClient(config);
  * const input = { // DetachInstancesQuery
  *   InstanceIds: [ // InstanceIds

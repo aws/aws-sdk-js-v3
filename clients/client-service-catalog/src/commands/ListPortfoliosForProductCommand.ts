@@ -34,6 +34,7 @@ export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosFor
  * ```javascript
  * import { ServiceCatalogClient, ListPortfoliosForProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListPortfoliosForProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceCatalogClient(config);
  * const input = { // ListPortfoliosForProductInput
  *   AcceptLanguage: "STRING_VALUE",

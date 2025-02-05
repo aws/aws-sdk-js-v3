@@ -38,6 +38,7 @@ export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse,
  * ```javascript
  * import { ElasticsearchServiceClient, GetUpgradeStatusCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, GetUpgradeStatusCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // GetUpgradeStatusRequest
  *   DomainName: "STRING_VALUE", // required

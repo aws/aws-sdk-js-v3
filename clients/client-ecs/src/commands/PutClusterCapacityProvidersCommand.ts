@@ -49,6 +49,7 @@ export interface PutClusterCapacityProvidersCommandOutput
  * ```javascript
  * import { ECSClient, PutClusterCapacityProvidersCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, PutClusterCapacityProvidersCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ECSClient(config);
  * const input = { // PutClusterCapacityProvidersRequest
  *   cluster: "STRING_VALUE", // required

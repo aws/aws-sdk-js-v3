@@ -51,6 +51,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * ```javascript
  * import { ElasticTranscoderClient, CreatePresetCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, CreatePresetCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElasticTranscoderClient(config);
  * const input = { // CreatePresetRequest
  *   Name: "STRING_VALUE", // required

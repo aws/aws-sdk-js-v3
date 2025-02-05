@@ -34,6 +34,7 @@ export interface DeleteIndexFieldCommandOutput extends DeleteIndexFieldResponse,
  * ```javascript
  * import { CloudSearchClient, DeleteIndexFieldCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DeleteIndexFieldCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudSearchClient(config);
  * const input = { // DeleteIndexFieldRequest
  *   DomainName: "STRING_VALUE", // required

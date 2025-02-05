@@ -42,6 +42,7 @@ export interface GetAccountLimitCommandOutput extends GetAccountLimitResponse, _
  * ```javascript
  * import { Route53Client, GetAccountLimitCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetAccountLimitCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Route53Client(config);
  * const input = { // GetAccountLimitRequest
  *   Type: "MAX_HEALTH_CHECKS_BY_OWNER" || "MAX_HOSTED_ZONES_BY_OWNER" || "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER" || "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER" || "MAX_TRAFFIC_POLICIES_BY_OWNER", // required

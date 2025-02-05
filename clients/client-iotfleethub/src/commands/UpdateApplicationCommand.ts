@@ -34,6 +34,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * ```javascript
  * import { IoTFleetHubClient, UpdateApplicationCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
  * // const { IoTFleetHubClient, UpdateApplicationCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTFleetHubClient(config);
  * const input = { // UpdateApplicationRequest
  *   applicationId: "STRING_VALUE", // required

@@ -42,6 +42,7 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleOutput, __Met
  * ```javascript
  * import { SchedulerClient, UpdateScheduleCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, UpdateScheduleCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SchedulerClient(config);
  * const input = { // UpdateScheduleInput
  *   Name: "STRING_VALUE", // required

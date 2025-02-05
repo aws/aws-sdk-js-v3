@@ -34,6 +34,7 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * ```javascript
  * import { MediaPackageV2Client, GetChannelCommand } from "@aws-sdk/client-mediapackagev2"; // ES Modules import
  * // const { MediaPackageV2Client, GetChannelCommand } = require("@aws-sdk/client-mediapackagev2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaPackageV2Client(config);
  * const input = { // GetChannelRequest
  *   ChannelGroupName: "STRING_VALUE", // required

@@ -38,6 +38,7 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * ```javascript
  * import { DatabaseMigrationServiceClient, TestConnectionCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, TestConnectionCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // TestConnectionMessage
  *   ReplicationInstanceArn: "STRING_VALUE", // required

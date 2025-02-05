@@ -34,6 +34,7 @@ export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __M
  * ```javascript
  * import { LexModelsV2Client, UpdateBotAliasCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, UpdateBotAliasCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LexModelsV2Client(config);
  * const input = { // UpdateBotAliasRequest
  *   botAliasId: "STRING_VALUE", // required

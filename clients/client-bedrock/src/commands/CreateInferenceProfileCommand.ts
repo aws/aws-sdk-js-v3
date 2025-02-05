@@ -38,6 +38,7 @@ export interface CreateInferenceProfileCommandOutput extends CreateInferenceProf
  * ```javascript
  * import { BedrockClient, CreateInferenceProfileCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, CreateInferenceProfileCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockClient(config);
  * const input = { // CreateInferenceProfileRequest
  *   inferenceProfileName: "STRING_VALUE", // required

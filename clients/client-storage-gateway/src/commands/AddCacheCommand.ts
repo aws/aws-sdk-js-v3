@@ -37,6 +37,7 @@ export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer 
  * ```javascript
  * import { StorageGatewayClient, AddCacheCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, AddCacheCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new StorageGatewayClient(config);
  * const input = { // AddCacheInput
  *   GatewayARN: "STRING_VALUE", // required

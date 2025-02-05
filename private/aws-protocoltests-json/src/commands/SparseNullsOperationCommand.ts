@@ -33,6 +33,7 @@ export interface SparseNullsOperationCommandOutput extends SparseNullsOperationI
  * ```javascript
  * import { JsonProtocolClient, SparseNullsOperationCommand } from "@aws-sdk/aws-protocoltests-json"; // ES Modules import
  * // const { JsonProtocolClient, SparseNullsOperationCommand } = require("@aws-sdk/aws-protocoltests-json"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new JsonProtocolClient(config);
  * const input = { // SparseNullsOperationInputOutput
  *   sparseStringList: [ // SparseStringList

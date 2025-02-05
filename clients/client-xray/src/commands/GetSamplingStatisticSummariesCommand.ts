@@ -39,6 +39,7 @@ export interface GetSamplingStatisticSummariesCommandOutput
  * ```javascript
  * import { XRayClient, GetSamplingStatisticSummariesCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetSamplingStatisticSummariesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new XRayClient(config);
  * const input = { // GetSamplingStatisticSummariesRequest
  *   NextToken: "STRING_VALUE",

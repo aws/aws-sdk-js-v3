@@ -34,6 +34,7 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * ```javascript
  * import { ConnectCampaignsClient, CreateCampaignCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, CreateCampaignCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectCampaignsClient(config);
  * const input = { // CreateCampaignRequest
  *   name: "STRING_VALUE", // required

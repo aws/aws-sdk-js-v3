@@ -39,6 +39,7 @@ export interface CreateAIGuardrailCommandOutput extends CreateAIGuardrailRespons
  * ```javascript
  * import { QConnectClient, CreateAIGuardrailCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, CreateAIGuardrailCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QConnectClient(config);
  * const input = { // CreateAIGuardrailRequest
  *   clientToken: "STRING_VALUE",

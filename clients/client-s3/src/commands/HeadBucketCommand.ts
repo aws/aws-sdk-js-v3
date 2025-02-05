@@ -103,6 +103,7 @@ export interface HeadBucketCommandOutput extends HeadBucketOutput, __MetadataBea
  * ```javascript
  * import { S3Client, HeadBucketCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, HeadBucketCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3Client(config);
  * const input = { // HeadBucketRequest
  *   Bucket: "STRING_VALUE", // required

@@ -49,6 +49,7 @@ export interface ListBillEstimateInputCommitmentModificationsCommandOutput
  * ```javascript
  * import { BCMPricingCalculatorClient, ListBillEstimateInputCommitmentModificationsCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, ListBillEstimateInputCommitmentModificationsCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // ListBillEstimateInputCommitmentModificationsRequest
  *   billEstimateId: "STRING_VALUE", // required

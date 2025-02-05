@@ -34,6 +34,7 @@ export interface DescribeEnvironmentsCommandOutput extends EnvironmentDescriptio
  * ```javascript
  * import { ElasticBeanstalkClient, DescribeEnvironmentsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeEnvironmentsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DescribeEnvironmentsMessage
  *   ApplicationName: "STRING_VALUE",

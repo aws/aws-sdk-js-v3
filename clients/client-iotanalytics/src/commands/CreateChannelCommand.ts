@@ -35,6 +35,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * ```javascript
  * import { IoTAnalyticsClient, CreateChannelCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, CreateChannelCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTAnalyticsClient(config);
  * const input = { // CreateChannelRequest
  *   channelName: "STRING_VALUE", // required

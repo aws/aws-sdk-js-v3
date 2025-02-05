@@ -34,6 +34,7 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * ```javascript
  * import { MqClient, DeleteUserCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DeleteUserCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MqClient(config);
  * const input = { // DeleteUserRequest
  *   BrokerId: "STRING_VALUE", // required

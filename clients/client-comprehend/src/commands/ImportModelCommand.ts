@@ -39,6 +39,7 @@ export interface ImportModelCommandOutput extends ImportModelResponse, __Metadat
  * ```javascript
  * import { ComprehendClient, ImportModelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ImportModelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ComprehendClient(config);
  * const input = { // ImportModelRequest
  *   SourceModelArn: "STRING_VALUE", // required

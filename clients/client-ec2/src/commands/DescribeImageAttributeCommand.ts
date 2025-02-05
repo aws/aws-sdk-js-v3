@@ -39,6 +39,7 @@ export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __M
  * ```javascript
  * import { EC2Client, DescribeImageAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeImageAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EC2Client(config);
  * const input = { // DescribeImageAttributeRequest
  *   Attribute: "description" || "kernel" || "ramdisk" || "launchPermission" || "productCodes" || "blockDeviceMapping" || "sriovNetSupport" || "bootMode" || "tpmSupport" || "uefiData" || "lastLaunchedTime" || "imdsSupport" || "deregistrationProtection", // required

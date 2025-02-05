@@ -38,6 +38,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { LicenseManagerUserSubscriptionsClient, TagResourceCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, TagResourceCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

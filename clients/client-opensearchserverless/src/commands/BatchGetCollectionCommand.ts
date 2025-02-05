@@ -40,6 +40,7 @@ export interface BatchGetCollectionCommandOutput extends BatchGetCollectionRespo
  * ```javascript
  * import { OpenSearchServerlessClient, BatchGetCollectionCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, BatchGetCollectionCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OpenSearchServerlessClient(config);
  * const input = { // BatchGetCollectionRequest
  *   ids: [ // CollectionIds

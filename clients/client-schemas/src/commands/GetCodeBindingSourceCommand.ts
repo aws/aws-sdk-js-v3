@@ -42,6 +42,7 @@ export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceC
  * ```javascript
  * import { SchemasClient, GetCodeBindingSourceCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, GetCodeBindingSourceCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SchemasClient(config);
  * const input = { // GetCodeBindingSourceRequest
  *   Language: "STRING_VALUE", // required

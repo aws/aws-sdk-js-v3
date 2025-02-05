@@ -39,6 +39,7 @@ export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __Met
  * ```javascript
  * import { CloudFormationClient, DeactivateTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DeactivateTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudFormationClient(config);
  * const input = { // DeactivateTypeInput
  *   TypeName: "STRING_VALUE",

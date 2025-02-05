@@ -34,6 +34,7 @@ export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetIm
  * ```javascript
  * import { PersonalizeClient, DescribeDatasetImportJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeDatasetImportJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PersonalizeClient(config);
  * const input = { // DescribeDatasetImportJobRequest
  *   datasetImportJobArn: "STRING_VALUE", // required

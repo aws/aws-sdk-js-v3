@@ -51,6 +51,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResult, __Met
  * ```javascript
  * import { S3OutpostsClient, CreateEndpointCommand } from "@aws-sdk/client-s3outposts"; // ES Modules import
  * // const { S3OutpostsClient, CreateEndpointCommand } = require("@aws-sdk/client-s3outposts"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3OutpostsClient(config);
  * const input = { // CreateEndpointRequest
  *   OutpostId: "STRING_VALUE", // required

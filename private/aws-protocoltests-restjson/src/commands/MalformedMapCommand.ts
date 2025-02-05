@@ -33,6 +33,7 @@ export interface MalformedMapCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { RestJsonProtocolClient, MalformedMapCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, MalformedMapCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RestJsonProtocolClient(config);
  * const input = { // MalformedMapInput
  *   bodyMap: { // SimpleMap

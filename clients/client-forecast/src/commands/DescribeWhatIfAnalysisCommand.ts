@@ -56,6 +56,7 @@ export interface DescribeWhatIfAnalysisCommandOutput extends DescribeWhatIfAnaly
  * ```javascript
  * import { ForecastClient, DescribeWhatIfAnalysisCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeWhatIfAnalysisCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ForecastClient(config);
  * const input = { // DescribeWhatIfAnalysisRequest
  *   WhatIfAnalysisArn: "STRING_VALUE", // required

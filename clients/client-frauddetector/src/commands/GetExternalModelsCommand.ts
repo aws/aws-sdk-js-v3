@@ -39,6 +39,7 @@ export interface GetExternalModelsCommandOutput extends GetExternalModelsResult,
  * ```javascript
  * import { FraudDetectorClient, GetExternalModelsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetExternalModelsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FraudDetectorClient(config);
  * const input = { // GetExternalModelsRequest
  *   modelEndpoint: "STRING_VALUE",

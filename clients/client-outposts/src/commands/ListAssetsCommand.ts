@@ -37,6 +37,7 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  * ```javascript
  * import { OutpostsClient, ListAssetsCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, ListAssetsCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OutpostsClient(config);
  * const input = { // ListAssetsInput
  *   OutpostIdentifier: "STRING_VALUE", // required

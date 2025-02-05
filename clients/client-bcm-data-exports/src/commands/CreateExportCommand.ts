@@ -50,6 +50,7 @@ export interface CreateExportCommandOutput extends CreateExportResponse, __Metad
  * ```javascript
  * import { BCMDataExportsClient, CreateExportCommand } from "@aws-sdk/client-bcm-data-exports"; // ES Modules import
  * // const { BCMDataExportsClient, CreateExportCommand } = require("@aws-sdk/client-bcm-data-exports"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BCMDataExportsClient(config);
  * const input = { // CreateExportRequest
  *   Export: { // Export

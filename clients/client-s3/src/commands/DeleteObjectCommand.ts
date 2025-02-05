@@ -134,6 +134,7 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * ```javascript
  * import { S3Client, DeleteObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeleteObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3Client(config);
  * const input = { // DeleteObjectRequest
  *   Bucket: "STRING_VALUE", // required
@@ -167,18 +168,6 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To delete an object
- * ```javascript
- * // The following example deletes an object from an S3 bucket.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "objectkey.jpg"
- * };
- * const command = new DeleteObjectCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-object-1472850136595
- * ```
- *
  * @example To delete an object (from a non-versioned bucket)
  * ```javascript
  * // The following example deletes an object from a non-versioned bucket.
@@ -189,6 +178,18 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * const command = new DeleteObjectCommand(input);
  * await client.send(command);
  * // example id: to-delete-an-object-from-a-non-versioned-bucket-1481588533089
+ * ```
+ *
+ * @example To delete an object
+ * ```javascript
+ * // The following example deletes an object from an S3 bucket.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "objectkey.jpg"
+ * };
+ * const command = new DeleteObjectCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-an-object-1472850136595
  * ```
  *
  */

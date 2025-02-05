@@ -38,6 +38,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { MarketplaceDeploymentClient, ListTagsForResourceCommand } from "@aws-sdk/client-marketplace-deployment"; // ES Modules import
  * // const { MarketplaceDeploymentClient, ListTagsForResourceCommand } = require("@aws-sdk/client-marketplace-deployment"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MarketplaceDeploymentClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

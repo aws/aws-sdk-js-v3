@@ -39,6 +39,7 @@ export interface UpdateTargetAccountConfigurationCommandOutput
  * ```javascript
  * import { FisClient, UpdateTargetAccountConfigurationCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, UpdateTargetAccountConfigurationCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FisClient(config);
  * const input = { // UpdateTargetAccountConfigurationRequest
  *   experimentTemplateId: "STRING_VALUE", // required

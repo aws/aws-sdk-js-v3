@@ -79,6 +79,7 @@ export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportO
  * ```javascript
  * import { CloudWatchClient, GetInsightRuleReportCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, GetInsightRuleReportCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudWatchClient(config);
  * const input = { // GetInsightRuleReportInput
  *   RuleName: "STRING_VALUE", // required

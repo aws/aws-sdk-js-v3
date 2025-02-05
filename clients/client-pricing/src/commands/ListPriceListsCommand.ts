@@ -45,6 +45,7 @@ export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __M
  * ```javascript
  * import { PricingClient, ListPriceListsCommand } from "@aws-sdk/client-pricing"; // ES Modules import
  * // const { PricingClient, ListPriceListsCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PricingClient(config);
  * const input = { // ListPriceListsRequest
  *   ServiceCode: "STRING_VALUE", // required

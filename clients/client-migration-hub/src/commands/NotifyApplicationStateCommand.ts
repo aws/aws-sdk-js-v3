@@ -37,6 +37,7 @@ export interface NotifyApplicationStateCommandOutput extends NotifyApplicationSt
  * ```javascript
  * import { MigrationHubClient, NotifyApplicationStateCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, NotifyApplicationStateCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MigrationHubClient(config);
  * const input = { // NotifyApplicationStateRequest
  *   ApplicationId: "STRING_VALUE", // required

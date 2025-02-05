@@ -44,6 +44,7 @@ export interface StartResourceEvaluationCommandOutput extends StartResourceEvalu
  * ```javascript
  * import { ConfigServiceClient, StartResourceEvaluationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, StartResourceEvaluationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConfigServiceClient(config);
  * const input = { // StartResourceEvaluationRequest
  *   ResourceDetails: { // ResourceDetails

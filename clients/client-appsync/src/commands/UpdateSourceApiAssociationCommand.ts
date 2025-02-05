@@ -34,6 +34,7 @@ export interface UpdateSourceApiAssociationCommandOutput extends UpdateSourceApi
  * ```javascript
  * import { AppSyncClient, UpdateSourceApiAssociationCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateSourceApiAssociationCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppSyncClient(config);
  * const input = { // UpdateSourceApiAssociationRequest
  *   associationId: "STRING_VALUE", // required

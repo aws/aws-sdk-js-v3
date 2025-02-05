@@ -40,6 +40,7 @@ export interface UpdateVolumeCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { OpsWorksClient, UpdateVolumeCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateVolumeCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OpsWorksClient(config);
  * const input = { // UpdateVolumeRequest
  *   VolumeId: "STRING_VALUE", // required

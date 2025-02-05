@@ -62,6 +62,7 @@ export interface ListResourceSnapshotsCommandOutput extends ListResourceSnapshot
  * ```javascript
  * import { PartnerCentralSellingClient, ListResourceSnapshotsCommand } from "@aws-sdk/client-partnercentral-selling"; // ES Modules import
  * // const { PartnerCentralSellingClient, ListResourceSnapshotsCommand } = require("@aws-sdk/client-partnercentral-selling"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PartnerCentralSellingClient(config);
  * const input = { // ListResourceSnapshotsRequest
  *   Catalog: "STRING_VALUE", // required

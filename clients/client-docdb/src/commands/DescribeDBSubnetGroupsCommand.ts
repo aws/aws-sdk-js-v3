@@ -35,6 +35,7 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  * ```javascript
  * import { DocDBClient, DescribeDBSubnetGroupsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBSubnetGroupsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DocDBClient(config);
  * const input = { // DescribeDBSubnetGroupsMessage
  *   DBSubnetGroupName: "STRING_VALUE",

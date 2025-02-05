@@ -36,6 +36,7 @@ export interface DeleteRestoreTestingPlanCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { BackupClient, DeleteRestoreTestingPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteRestoreTestingPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BackupClient(config);
  * const input = { // DeleteRestoreTestingPlanInput
  *   RestoreTestingPlanName: "STRING_VALUE", // required

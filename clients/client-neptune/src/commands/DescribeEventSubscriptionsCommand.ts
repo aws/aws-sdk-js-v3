@@ -37,6 +37,7 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * ```javascript
  * import { NeptuneClient, DescribeEventSubscriptionsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeEventSubscriptionsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptuneClient(config);
  * const input = { // DescribeEventSubscriptionsMessage
  *   SubscriptionName: "STRING_VALUE",

@@ -67,6 +67,7 @@ export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput,
  * ```javascript
  * import { MarketplaceAgreementClient, GetAgreementTermsCommand } from "@aws-sdk/client-marketplace-agreement"; // ES Modules import
  * // const { MarketplaceAgreementClient, GetAgreementTermsCommand } = require("@aws-sdk/client-marketplace-agreement"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MarketplaceAgreementClient(config);
  * const input = { // GetAgreementTermsInput
  *   agreementId: "STRING_VALUE", // required

@@ -37,6 +37,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResult, __Metadat
  * ```javascript
  * import { CodeartifactClient, DeleteDomainCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DeleteDomainCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeartifactClient(config);
  * const input = { // DeleteDomainRequest
  *   domain: "STRING_VALUE", // required

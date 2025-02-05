@@ -34,6 +34,7 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * ```javascript
  * import { SageMakerClient, ListPipelineExecutionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListPipelineExecutionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // ListPipelineExecutionsRequest
  *   PipelineName: "STRING_VALUE", // required

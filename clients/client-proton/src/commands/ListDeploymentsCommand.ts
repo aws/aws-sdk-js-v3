@@ -34,6 +34,7 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __M
  * ```javascript
  * import { ProtonClient, ListDeploymentsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListDeploymentsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ProtonClient(config);
  * const input = { // ListDeploymentsInput
  *   nextToken: "STRING_VALUE",

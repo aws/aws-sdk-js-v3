@@ -40,6 +40,7 @@ export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse,
  * ```javascript
  * import { CloudWatchLogsClient, ListTagsLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, ListTagsLogGroupCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudWatchLogsClient(config);
  * const input = { // ListTagsLogGroupRequest
  *   logGroupName: "STRING_VALUE", // required

@@ -48,6 +48,7 @@ export interface UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput
  * ```javascript
  * import { ChimeSDKMediaPipelinesClient, UpdateMediaPipelineKinesisVideoStreamPoolCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, UpdateMediaPipelineKinesisVideoStreamPoolCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChimeSDKMediaPipelinesClient(config);
  * const input = { // UpdateMediaPipelineKinesisVideoStreamPoolRequest
  *   Identifier: "STRING_VALUE", // required

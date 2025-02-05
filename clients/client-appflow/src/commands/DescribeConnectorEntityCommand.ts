@@ -35,6 +35,7 @@ export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorE
  * ```javascript
  * import { AppflowClient, DescribeConnectorEntityCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, DescribeConnectorEntityCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppflowClient(config);
  * const input = { // DescribeConnectorEntityRequest
  *   connectorEntityName: "STRING_VALUE", // required

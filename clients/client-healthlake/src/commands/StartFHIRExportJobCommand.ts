@@ -34,6 +34,7 @@ export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobRespo
  * ```javascript
  * import { HealthLakeClient, StartFHIRExportJobCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, StartFHIRExportJobCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new HealthLakeClient(config);
  * const input = { // StartFHIRExportJobRequest
  *   JobName: "STRING_VALUE",

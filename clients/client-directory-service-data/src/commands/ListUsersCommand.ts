@@ -49,6 +49,7 @@ export interface ListUsersCommandOutput extends ListUsersResult, __MetadataBeare
  * ```javascript
  * import { DirectoryServiceDataClient, ListUsersCommand } from "@aws-sdk/client-directory-service-data"; // ES Modules import
  * // const { DirectoryServiceDataClient, ListUsersCommand } = require("@aws-sdk/client-directory-service-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DirectoryServiceDataClient(config);
  * const input = { // ListUsersRequest
  *   DirectoryId: "STRING_VALUE", // required

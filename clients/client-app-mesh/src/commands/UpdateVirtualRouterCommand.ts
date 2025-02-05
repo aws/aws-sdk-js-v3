@@ -34,6 +34,7 @@ export interface UpdateVirtualRouterCommandOutput extends UpdateVirtualRouterOut
  * ```javascript
  * import { AppMeshClient, UpdateVirtualRouterCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, UpdateVirtualRouterCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppMeshClient(config);
  * const input = { // UpdateVirtualRouterInput
  *   virtualRouterName: "STRING_VALUE", // required

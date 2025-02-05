@@ -47,6 +47,7 @@ export interface CreateVerifiedAccessTrustProviderCommandOutput
  * ```javascript
  * import { EC2Client, CreateVerifiedAccessTrustProviderCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateVerifiedAccessTrustProviderCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EC2Client(config);
  * const input = { // CreateVerifiedAccessTrustProviderRequest
  *   TrustProviderType: "user" || "device", // required

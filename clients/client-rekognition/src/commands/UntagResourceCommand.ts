@@ -37,6 +37,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { RekognitionClient, UntagResourceCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, UntagResourceCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RekognitionClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

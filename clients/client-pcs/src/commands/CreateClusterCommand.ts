@@ -45,6 +45,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * ```javascript
  * import { PCSClient, CreateClusterCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, CreateClusterCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PCSClient(config);
  * const input = { // CreateClusterRequest
  *   clusterName: "STRING_VALUE", // required

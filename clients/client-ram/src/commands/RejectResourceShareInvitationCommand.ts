@@ -39,6 +39,7 @@ export interface RejectResourceShareInvitationCommandOutput
  * ```javascript
  * import { RAMClient, RejectResourceShareInvitationCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, RejectResourceShareInvitationCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RAMClient(config);
  * const input = { // RejectResourceShareInvitationRequest
  *   resourceShareInvitationArn: "STRING_VALUE", // required

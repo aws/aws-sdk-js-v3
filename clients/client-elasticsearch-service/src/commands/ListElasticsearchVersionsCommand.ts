@@ -38,6 +38,7 @@ export interface ListElasticsearchVersionsCommandOutput extends ListElasticsearc
  * ```javascript
  * import { ElasticsearchServiceClient, ListElasticsearchVersionsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, ListElasticsearchVersionsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElasticsearchServiceClient(config);
  * const input = { // ListElasticsearchVersionsRequest
  *   MaxResults: Number("int"),

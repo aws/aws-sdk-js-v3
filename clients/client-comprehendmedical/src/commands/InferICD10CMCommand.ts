@@ -41,6 +41,7 @@ export interface InferICD10CMCommandOutput extends InferICD10CMResponse, __Metad
  * ```javascript
  * import { ComprehendMedicalClient, InferICD10CMCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, InferICD10CMCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ComprehendMedicalClient(config);
  * const input = { // InferICD10CMRequest
  *   Text: "STRING_VALUE", // required

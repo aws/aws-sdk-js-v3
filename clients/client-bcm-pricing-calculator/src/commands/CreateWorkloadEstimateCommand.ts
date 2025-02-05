@@ -40,6 +40,7 @@ export interface CreateWorkloadEstimateCommandOutput extends CreateWorkloadEstim
  * ```javascript
  * import { BCMPricingCalculatorClient, CreateWorkloadEstimateCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, CreateWorkloadEstimateCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // CreateWorkloadEstimateRequest
  *   name: "STRING_VALUE", // required

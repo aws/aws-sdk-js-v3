@@ -34,6 +34,7 @@ export interface ListTestRunsCommandOutput extends ListTestRunsResponse, __Metad
  * ```javascript
  * import { AppTestClient, ListTestRunsCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, ListTestRunsCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppTestClient(config);
  * const input = { // ListTestRunsRequest
  *   testSuiteId: "STRING_VALUE",

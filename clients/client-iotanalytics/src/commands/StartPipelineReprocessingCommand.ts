@@ -34,6 +34,7 @@ export interface StartPipelineReprocessingCommandOutput extends StartPipelineRep
  * ```javascript
  * import { IoTAnalyticsClient, StartPipelineReprocessingCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, StartPipelineReprocessingCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTAnalyticsClient(config);
  * const input = { // StartPipelineReprocessingRequest
  *   pipelineName: "STRING_VALUE", // required

@@ -41,6 +41,7 @@ export interface SetDefaultPermissionVersionCommandOutput
  * ```javascript
  * import { RAMClient, SetDefaultPermissionVersionCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, SetDefaultPermissionVersionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RAMClient(config);
  * const input = { // SetDefaultPermissionVersionRequest
  *   permissionArn: "STRING_VALUE", // required

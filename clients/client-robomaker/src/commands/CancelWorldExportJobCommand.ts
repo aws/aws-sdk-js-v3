@@ -42,6 +42,7 @@ export interface CancelWorldExportJobCommandOutput extends CancelWorldExportJobR
  * ```javascript
  * import { RoboMakerClient, CancelWorldExportJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CancelWorldExportJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RoboMakerClient(config);
  * const input = { // CancelWorldExportJobRequest
  *   job: "STRING_VALUE", // required

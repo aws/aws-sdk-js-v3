@@ -44,6 +44,7 @@ export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResul
  * ```javascript
  * import { OpsWorksClient, RegisterEcsClusterCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, RegisterEcsClusterCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OpsWorksClient(config);
  * const input = { // RegisterEcsClusterRequest
  *   EcsClusterArn: "STRING_VALUE", // required

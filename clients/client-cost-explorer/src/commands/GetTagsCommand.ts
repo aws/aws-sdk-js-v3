@@ -35,6 +35,7 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  * ```javascript
  * import { CostExplorerClient, GetTagsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetTagsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CostExplorerClient(config);
  * const input = { // GetTagsRequest
  *   SearchString: "STRING_VALUE",

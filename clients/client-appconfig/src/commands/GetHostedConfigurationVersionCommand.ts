@@ -51,6 +51,7 @@ export interface GetHostedConfigurationVersionCommandOutput
  * ```javascript
  * import { AppConfigClient, GetHostedConfigurationVersionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetHostedConfigurationVersionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppConfigClient(config);
  * const input = { // GetHostedConfigurationVersionRequest
  *   ApplicationId: "STRING_VALUE", // required

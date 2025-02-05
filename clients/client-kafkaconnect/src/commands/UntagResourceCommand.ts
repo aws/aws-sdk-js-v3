@@ -34,6 +34,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { KafkaConnectClient, UntagResourceCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, UntagResourceCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KafkaConnectClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

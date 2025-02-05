@@ -51,6 +51,7 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  * ```javascript
  * import { MarketplaceMeteringClient, ResolveCustomerCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
  * // const { MarketplaceMeteringClient, ResolveCustomerCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MarketplaceMeteringClient(config);
  * const input = { // ResolveCustomerRequest
  *   RegistrationToken: "STRING_VALUE", // required

@@ -63,6 +63,7 @@ export interface DescribeStateMachineAliasCommandOutput extends DescribeStateMac
  * ```javascript
  * import { SFNClient, DescribeStateMachineAliasCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DescribeStateMachineAliasCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SFNClient(config);
  * const input = { // DescribeStateMachineAliasInput
  *   stateMachineAliasArn: "STRING_VALUE", // required

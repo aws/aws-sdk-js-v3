@@ -38,6 +38,7 @@ export interface InvokeDataAutomationAsyncCommandOutput extends InvokeDataAutoma
  * ```javascript
  * import { BedrockDataAutomationRuntimeClient, InvokeDataAutomationAsyncCommand } from "@aws-sdk/client-bedrock-data-automation-runtime"; // ES Modules import
  * // const { BedrockDataAutomationRuntimeClient, InvokeDataAutomationAsyncCommand } = require("@aws-sdk/client-bedrock-data-automation-runtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockDataAutomationRuntimeClient(config);
  * const input = { // InvokeDataAutomationAsyncRequest
  *   clientToken: "STRING_VALUE",

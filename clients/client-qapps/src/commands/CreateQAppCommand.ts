@@ -36,6 +36,7 @@ export interface CreateQAppCommandOutput extends CreateQAppOutput, __MetadataBea
  * ```javascript
  * import { QAppsClient, CreateQAppCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, CreateQAppCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QAppsClient(config);
  * const input = { // CreateQAppInput
  *   instanceId: "STRING_VALUE", // required

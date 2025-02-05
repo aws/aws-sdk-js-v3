@@ -35,6 +35,7 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
  * ```javascript
  * import { IoTSiteWiseClient, CreateAccessPolicyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreateAccessPolicyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTSiteWiseClient(config);
  * const input = { // CreateAccessPolicyRequest
  *   accessPolicyIdentity: { // Identity

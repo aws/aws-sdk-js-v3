@@ -44,6 +44,7 @@ export interface DeleteServiceNetworkServiceAssociationCommandOutput
  * ```javascript
  * import { VPCLatticeClient, DeleteServiceNetworkServiceAssociationCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, DeleteServiceNetworkServiceAssociationCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new VPCLatticeClient(config);
  * const input = { // DeleteServiceNetworkServiceAssociationRequest
  *   serviceNetworkServiceAssociationIdentifier: "STRING_VALUE", // required

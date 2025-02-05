@@ -66,6 +66,7 @@ export interface UpdateQualificationTypeCommandOutput extends UpdateQualificatio
  * ```javascript
  * import { MTurkClient, UpdateQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, UpdateQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MTurkClient(config);
  * const input = { // UpdateQualificationTypeRequest
  *   QualificationTypeId: "STRING_VALUE", // required

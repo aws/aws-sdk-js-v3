@@ -51,6 +51,7 @@ export interface CancelMessageMoveTaskCommandOutput extends CancelMessageMoveTas
  * ```javascript
  * import { SQSClient, CancelMessageMoveTaskCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, CancelMessageMoveTaskCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SQSClient(config);
  * const input = { // CancelMessageMoveTaskRequest
  *   TaskHandle: "STRING_VALUE", // required

@@ -35,6 +35,7 @@ export interface DescribeStorageSystemCommandOutput extends DescribeStorageSyste
  * ```javascript
  * import { DataSyncClient, DescribeStorageSystemCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeStorageSystemCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataSyncClient(config);
  * const input = { // DescribeStorageSystemRequest
  *   StorageSystemArn: "STRING_VALUE", // required

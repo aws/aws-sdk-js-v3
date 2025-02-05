@@ -47,6 +47,7 @@ export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, _
  * ```javascript
  * import { MedicalImagingClient, SearchImageSetsCommand } from "@aws-sdk/client-medical-imaging"; // ES Modules import
  * // const { MedicalImagingClient, SearchImageSetsCommand } = require("@aws-sdk/client-medical-imaging"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MedicalImagingClient(config);
  * const input = { // SearchImageSetsRequest
  *   datastoreId: "STRING_VALUE", // required

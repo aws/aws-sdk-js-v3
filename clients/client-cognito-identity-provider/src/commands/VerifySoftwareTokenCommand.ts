@@ -51,6 +51,7 @@ export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenRes
  * ```javascript
  * import { CognitoIdentityProviderClient, VerifySoftwareTokenCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, VerifySoftwareTokenCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // VerifySoftwareTokenRequest
  *   AccessToken: "STRING_VALUE",

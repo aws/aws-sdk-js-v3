@@ -37,6 +37,7 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { NeptuneClient, DeleteDBSubnetGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DeleteDBSubnetGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptuneClient(config);
  * const input = { // DeleteDBSubnetGroupMessage
  *   DBSubnetGroupName: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * ```javascript
  * import { WisdomClient, GetSessionCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetSessionCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WisdomClient(config);
  * const input = { // GetSessionRequest
  *   assistantId: "STRING_VALUE", // required

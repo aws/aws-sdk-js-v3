@@ -38,6 +38,7 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * ```javascript
  * import { WorkSpacesThinClientClient, DeleteEnvironmentCommand } from "@aws-sdk/client-workspaces-thin-client"; // ES Modules import
  * // const { WorkSpacesThinClientClient, DeleteEnvironmentCommand } = require("@aws-sdk/client-workspaces-thin-client"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkSpacesThinClientClient(config);
  * const input = { // DeleteEnvironmentRequest
  *   id: "STRING_VALUE", // required

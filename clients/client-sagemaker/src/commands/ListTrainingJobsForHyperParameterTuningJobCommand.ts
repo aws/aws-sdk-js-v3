@@ -44,6 +44,7 @@ export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
  * ```javascript
  * import { SageMakerClient, ListTrainingJobsForHyperParameterTuningJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListTrainingJobsForHyperParameterTuningJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // ListTrainingJobsForHyperParameterTuningJobRequest
  *   HyperParameterTuningJobName: "STRING_VALUE", // required

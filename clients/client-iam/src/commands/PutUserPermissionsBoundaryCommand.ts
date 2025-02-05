@@ -44,6 +44,7 @@ export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBeare
  * ```javascript
  * import { IAMClient, PutUserPermissionsBoundaryCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, PutUserPermissionsBoundaryCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IAMClient(config);
  * const input = { // PutUserPermissionsBoundaryRequest
  *   UserName: "STRING_VALUE", // required

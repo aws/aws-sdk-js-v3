@@ -34,6 +34,7 @@ export interface GetClientCertificatesCommandOutput extends ClientCertificates, 
  * ```javascript
  * import { APIGatewayClient, GetClientCertificatesCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetClientCertificatesCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new APIGatewayClient(config);
  * const input = { // GetClientCertificatesRequest
  *   position: "STRING_VALUE",

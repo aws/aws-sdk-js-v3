@@ -46,6 +46,7 @@ export interface GetAlternateContactCommandOutput extends GetAlternateContactRes
  * ```javascript
  * import { AccountClient, GetAlternateContactCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, GetAlternateContactCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AccountClient(config);
  * const input = { // GetAlternateContactRequest
  *   AlternateContactType: "STRING_VALUE", // required

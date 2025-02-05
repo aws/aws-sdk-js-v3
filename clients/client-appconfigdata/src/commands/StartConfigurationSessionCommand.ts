@@ -37,6 +37,7 @@ export interface StartConfigurationSessionCommandOutput extends StartConfigurati
  * ```javascript
  * import { AppConfigDataClient, StartConfigurationSessionCommand } from "@aws-sdk/client-appconfigdata"; // ES Modules import
  * // const { AppConfigDataClient, StartConfigurationSessionCommand } = require("@aws-sdk/client-appconfigdata"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppConfigDataClient(config);
  * const input = { // StartConfigurationSessionRequest
  *   ApplicationIdentifier: "STRING_VALUE", // required

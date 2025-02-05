@@ -43,6 +43,7 @@ export interface GetCollaborationIdNamespaceAssociationCommandOutput
  * ```javascript
  * import { CleanRoomsClient, GetCollaborationIdNamespaceAssociationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetCollaborationIdNamespaceAssociationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CleanRoomsClient(config);
  * const input = { // GetCollaborationIdNamespaceAssociationInput
  *   collaborationIdentifier: "STRING_VALUE", // required

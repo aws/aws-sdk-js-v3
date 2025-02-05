@@ -39,6 +39,7 @@ export interface UpdateAnomalySubscriptionCommandOutput extends UpdateAnomalySub
  * ```javascript
  * import { CostExplorerClient, UpdateAnomalySubscriptionCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, UpdateAnomalySubscriptionCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CostExplorerClient(config);
  * const input = { // UpdateAnomalySubscriptionRequest
  *   SubscriptionArn: "STRING_VALUE", // required

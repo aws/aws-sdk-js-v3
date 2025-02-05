@@ -41,6 +41,7 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * ```javascript
  * import { IAMClient, CreatePolicyVersionCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreatePolicyVersionCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IAMClient(config);
  * const input = { // CreatePolicyVersionRequest
  *   PolicyArn: "STRING_VALUE", // required

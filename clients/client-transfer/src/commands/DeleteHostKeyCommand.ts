@@ -34,6 +34,7 @@ export interface DeleteHostKeyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { TransferClient, DeleteHostKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteHostKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TransferClient(config);
  * const input = { // DeleteHostKeyRequest
  *   ServerId: "STRING_VALUE", // required

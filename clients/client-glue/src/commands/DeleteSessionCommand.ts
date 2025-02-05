@@ -34,6 +34,7 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * ```javascript
  * import { GlueClient, DeleteSessionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteSessionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GlueClient(config);
  * const input = { // DeleteSessionRequest
  *   Id: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface DeleteChannelGroupCommandOutput extends DeleteChannelGroupRespo
  * ```javascript
  * import { MediaPackageV2Client, DeleteChannelGroupCommand } from "@aws-sdk/client-mediapackagev2"; // ES Modules import
  * // const { MediaPackageV2Client, DeleteChannelGroupCommand } = require("@aws-sdk/client-mediapackagev2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaPackageV2Client(config);
  * const input = { // DeleteChannelGroupRequest
  *   ChannelGroupName: "STRING_VALUE", // required

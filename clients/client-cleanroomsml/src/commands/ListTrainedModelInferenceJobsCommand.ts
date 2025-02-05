@@ -39,6 +39,7 @@ export interface ListTrainedModelInferenceJobsCommandOutput
  * ```javascript
  * import { CleanRoomsMLClient, ListTrainedModelInferenceJobsCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, ListTrainedModelInferenceJobsCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CleanRoomsMLClient(config);
  * const input = { // ListTrainedModelInferenceJobsRequest
  *   nextToken: "STRING_VALUE",

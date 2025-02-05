@@ -36,6 +36,7 @@ export interface EndpointWithHostLabelOperationCommandOutput extends __MetadataB
  * ```javascript
  * import { JsonProtocolClient, EndpointWithHostLabelOperationCommand } from "@aws-sdk/aws-protocoltests-json"; // ES Modules import
  * // const { JsonProtocolClient, EndpointWithHostLabelOperationCommand } = require("@aws-sdk/aws-protocoltests-json"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new JsonProtocolClient(config);
  * const input = { // HostLabelInput
  *   label: "STRING_VALUE", // required

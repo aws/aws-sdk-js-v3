@@ -34,6 +34,7 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * ```javascript
  * import { RDSClient, DescribeDBEngineVersionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBEngineVersionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RDSClient(config);
  * const input = { // DescribeDBEngineVersionsMessage
  *   Engine: "STRING_VALUE",

@@ -34,6 +34,7 @@ export interface CreateBatchPredictionJobCommandOutput extends CreateBatchPredic
  * ```javascript
  * import { FraudDetectorClient, CreateBatchPredictionJobCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateBatchPredictionJobCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FraudDetectorClient(config);
  * const input = { // CreateBatchPredictionJobRequest
  *   jobId: "STRING_VALUE", // required

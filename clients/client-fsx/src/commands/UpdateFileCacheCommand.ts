@@ -35,6 +35,7 @@ export interface UpdateFileCacheCommandOutput extends UpdateFileCacheResponse, _
  * ```javascript
  * import { FSxClient, UpdateFileCacheCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateFileCacheCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FSxClient(config);
  * const input = { // UpdateFileCacheRequest
  *   FileCacheId: "STRING_VALUE", // required

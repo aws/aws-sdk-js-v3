@@ -35,6 +35,7 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  * ```javascript
  * import { PipesClient, CreatePipeCommand } from "@aws-sdk/client-pipes"; // ES Modules import
  * // const { PipesClient, CreatePipeCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PipesClient(config);
  * const input = { // CreatePipeRequest
  *   Name: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface BatchGetFlowAssociationCommandOutput extends BatchGetFlowAssoci
  * ```javascript
  * import { ConnectClient, BatchGetFlowAssociationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, BatchGetFlowAssociationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConnectClient(config);
  * const input = { // BatchGetFlowAssociationRequest
  *   InstanceId: "STRING_VALUE", // required

@@ -44,6 +44,7 @@ export interface SendCustomVerificationEmailCommandOutput
  * ```javascript
  * import { SESClient, SendCustomVerificationEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendCustomVerificationEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SESClient(config);
  * const input = { // SendCustomVerificationEmailRequest
  *   EmailAddress: "STRING_VALUE", // required

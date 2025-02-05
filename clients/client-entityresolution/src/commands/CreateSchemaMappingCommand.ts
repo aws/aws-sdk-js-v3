@@ -36,6 +36,7 @@ export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOut
  * ```javascript
  * import { EntityResolutionClient, CreateSchemaMappingCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
  * // const { EntityResolutionClient, CreateSchemaMappingCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EntityResolutionClient(config);
  * const input = { // CreateSchemaMappingInput
  *   schemaName: "STRING_VALUE", // required

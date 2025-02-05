@@ -80,6 +80,7 @@ export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, _
  * ```javascript
  * import { TextractClient, AnalyzeDocumentCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, AnalyzeDocumentCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TextractClient(config);
  * const input = { // AnalyzeDocumentRequest
  *   Document: { // Document

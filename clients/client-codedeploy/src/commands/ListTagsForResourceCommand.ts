@@ -35,6 +35,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * ```javascript
  * import { CodeDeployClient, ListTagsForResourceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListTagsForResourceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeDeployClient(config);
  * const input = { // ListTagsForResourceInput
  *   ResourceArn: "STRING_VALUE", // required

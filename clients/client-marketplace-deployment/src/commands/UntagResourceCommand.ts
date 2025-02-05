@@ -38,6 +38,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { MarketplaceDeploymentClient, UntagResourceCommand } from "@aws-sdk/client-marketplace-deployment"; // ES Modules import
  * // const { MarketplaceDeploymentClient, UntagResourceCommand } = require("@aws-sdk/client-marketplace-deployment"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MarketplaceDeploymentClient(config);
  * const input = { // UntagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

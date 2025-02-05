@@ -7048,9 +7048,9 @@ export interface UserPoolType {
   LambdaConfig?: LambdaConfigType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This parameter is no longer used.</p>
+   *
+   * @deprecated
    * @public
    */
   Status?: StatusType | undefined;

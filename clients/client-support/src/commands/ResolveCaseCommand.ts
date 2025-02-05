@@ -49,6 +49,7 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  * ```javascript
  * import { SupportClient, ResolveCaseCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, ResolveCaseCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SupportClient(config);
  * const input = { // ResolveCaseRequest
  *   caseId: "STRING_VALUE",

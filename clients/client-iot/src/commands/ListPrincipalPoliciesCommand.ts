@@ -41,6 +41,7 @@ export interface ListPrincipalPoliciesCommandOutput extends ListPrincipalPolicie
  * ```javascript
  * import { IoTClient, ListPrincipalPoliciesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListPrincipalPoliciesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTClient(config);
  * const input = { // ListPrincipalPoliciesRequest
  *   principal: "STRING_VALUE", // required

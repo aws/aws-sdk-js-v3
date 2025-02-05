@@ -634,17 +634,17 @@ export interface GetSpaceOutput {
   storageLimit: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The list of users that are administrators of the private re:Post.</p>
+   *
+   * @deprecated
    * @public
    */
   userAdmins?: string[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The list of groups that are administrators of the private re:Post.</p>
+   *
+   * @deprecated
    * @public
    */
   groupAdmins?: string[] | undefined;

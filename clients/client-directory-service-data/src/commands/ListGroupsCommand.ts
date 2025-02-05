@@ -49,6 +49,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResult, __MetadataBea
  * ```javascript
  * import { DirectoryServiceDataClient, ListGroupsCommand } from "@aws-sdk/client-directory-service-data"; // ES Modules import
  * // const { DirectoryServiceDataClient, ListGroupsCommand } = require("@aws-sdk/client-directory-service-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DirectoryServiceDataClient(config);
  * const input = { // ListGroupsRequest
  *   DirectoryId: "STRING_VALUE", // required

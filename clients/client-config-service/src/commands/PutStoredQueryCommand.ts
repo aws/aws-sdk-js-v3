@@ -43,6 +43,7 @@ export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __M
  * ```javascript
  * import { ConfigServiceClient, PutStoredQueryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutStoredQueryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConfigServiceClient(config);
  * const input = { // PutStoredQueryRequest
  *   StoredQuery: { // StoredQuery

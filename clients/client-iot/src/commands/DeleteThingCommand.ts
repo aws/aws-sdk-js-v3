@@ -36,6 +36,7 @@ export interface DeleteThingCommandOutput extends DeleteThingResponse, __Metadat
  * ```javascript
  * import { IoTClient, DeleteThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTClient(config);
  * const input = { // DeleteThingRequest
  *   thingName: "STRING_VALUE", // required

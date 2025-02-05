@@ -34,6 +34,7 @@ export interface GetGcmChannelCommandOutput extends GetGcmChannelResponse, __Met
  * ```javascript
  * import { PinpointClient, GetGcmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetGcmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointClient(config);
  * const input = { // GetGcmChannelRequest
  *   ApplicationId: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface PutCoreNetworkPolicyCommandOutput extends PutCoreNetworkPolicyR
  * ```javascript
  * import { NetworkManagerClient, PutCoreNetworkPolicyCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, PutCoreNetworkPolicyCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkManagerClient(config);
  * const input = { // PutCoreNetworkPolicyRequest
  *   CoreNetworkId: "STRING_VALUE", // required

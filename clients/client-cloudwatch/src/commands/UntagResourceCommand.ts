@@ -34,6 +34,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * ```javascript
  * import { CloudWatchClient, UntagResourceCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, UntagResourceCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudWatchClient(config);
  * const input = { // UntagResourceInput
  *   ResourceARN: "STRING_VALUE", // required

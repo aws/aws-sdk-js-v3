@@ -74,6 +74,7 @@ export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainR
  * ```javascript
  * import { CognitoIdentityProviderClient, UpdateUserPoolDomainCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateUserPoolDomainCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // UpdateUserPoolDomainRequest
  *   Domain: "STRING_VALUE", // required

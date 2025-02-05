@@ -42,6 +42,7 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  * ```javascript
  * import { InternetMonitorClient, CreateMonitorCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, CreateMonitorCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new InternetMonitorClient(config);
  * const input = { // CreateMonitorInput
  *   MonitorName: "STRING_VALUE", // required

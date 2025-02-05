@@ -34,6 +34,7 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResponse,
  * ```javascript
  * import { SageMakerClient, ListAssociationsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListAssociationsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // ListAssociationsRequest
  *   SourceArn: "STRING_VALUE",

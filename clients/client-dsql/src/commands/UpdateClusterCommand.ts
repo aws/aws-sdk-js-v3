@@ -34,6 +34,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  * ```javascript
  * import { DSQLClient, UpdateClusterCommand } from "@aws-sdk/client-dsql"; // ES Modules import
  * // const { DSQLClient, UpdateClusterCommand } = require("@aws-sdk/client-dsql"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DSQLClient(config);
  * const input = { // UpdateClusterInput
  *   identifier: "STRING_VALUE", // required

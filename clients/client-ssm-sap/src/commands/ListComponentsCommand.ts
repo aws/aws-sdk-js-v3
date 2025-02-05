@@ -34,6 +34,7 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * ```javascript
  * import { SsmSapClient, ListComponentsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, ListComponentsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SsmSapClient(config);
  * const input = { // ListComponentsInput
  *   ApplicationId: "STRING_VALUE",

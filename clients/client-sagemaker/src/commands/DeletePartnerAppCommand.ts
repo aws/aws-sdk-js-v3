@@ -34,6 +34,7 @@ export interface DeletePartnerAppCommandOutput extends DeletePartnerAppResponse,
  * ```javascript
  * import { SageMakerClient, DeletePartnerAppCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeletePartnerAppCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // DeletePartnerAppRequest
  *   Arn: "STRING_VALUE", // required

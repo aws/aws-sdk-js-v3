@@ -34,6 +34,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * ```javascript
  * import { SimSpaceWeaverClient, ListTagsForResourceCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, ListTagsForResourceCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SimSpaceWeaverClient(config);
  * const input = { // ListTagsForResourceInput
  *   ResourceArn: "STRING_VALUE", // required

@@ -40,6 +40,7 @@ export interface SnapToRoadsCommandOutput extends SnapToRoadsResponse, __Metadat
  * ```javascript
  * import { GeoRoutesClient, SnapToRoadsCommand } from "@aws-sdk/client-geo-routes"; // ES Modules import
  * // const { GeoRoutesClient, SnapToRoadsCommand } = require("@aws-sdk/client-geo-routes"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GeoRoutesClient(config);
  * const input = { // SnapToRoadsRequest
  *   Key: "STRING_VALUE",

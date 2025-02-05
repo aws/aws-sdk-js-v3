@@ -39,6 +39,7 @@ export interface GetRestoreTestingSelectionCommandOutput extends GetRestoreTesti
  * ```javascript
  * import { BackupClient, GetRestoreTestingSelectionCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetRestoreTestingSelectionCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BackupClient(config);
  * const input = { // GetRestoreTestingSelectionInput
  *   RestoreTestingPlanName: "STRING_VALUE", // required

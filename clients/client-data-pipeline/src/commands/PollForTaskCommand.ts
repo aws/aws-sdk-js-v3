@@ -112,6 +112,7 @@ export interface PollForTaskCommandOutput extends PollForTaskOutput, __MetadataB
  * ```javascript
  * import { DataPipelineClient, PollForTaskCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, PollForTaskCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataPipelineClient(config);
  * const input = { // PollForTaskInput
  *   workerGroup: "STRING_VALUE", // required

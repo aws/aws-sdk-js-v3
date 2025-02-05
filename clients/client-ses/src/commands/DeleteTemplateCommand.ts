@@ -35,6 +35,7 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * ```javascript
  * import { SESClient, DeleteTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SESClient(config);
  * const input = { // DeleteTemplateRequest
  *   TemplateName: "STRING_VALUE", // required

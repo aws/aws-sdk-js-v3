@@ -34,6 +34,7 @@ export interface DeleteRedshiftIdcApplicationCommandOutput extends __MetadataBea
  * ```javascript
  * import { RedshiftClient, DeleteRedshiftIdcApplicationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteRedshiftIdcApplicationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftClient(config);
  * const input = { // DeleteRedshiftIdcApplicationMessage
  *   RedshiftIdcApplicationArn: "STRING_VALUE", // required

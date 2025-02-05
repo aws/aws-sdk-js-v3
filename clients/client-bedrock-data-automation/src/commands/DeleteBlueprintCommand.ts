@@ -38,6 +38,7 @@ export interface DeleteBlueprintCommandOutput extends DeleteBlueprintResponse, _
  * ```javascript
  * import { BedrockDataAutomationClient, DeleteBlueprintCommand } from "@aws-sdk/client-bedrock-data-automation"; // ES Modules import
  * // const { BedrockDataAutomationClient, DeleteBlueprintCommand } = require("@aws-sdk/client-bedrock-data-automation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockDataAutomationClient(config);
  * const input = { // DeleteBlueprintRequest
  *   blueprintArn: "STRING_VALUE", // required

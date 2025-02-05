@@ -35,6 +35,7 @@ export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __Metad
  * ```javascript
  * import { KendraClient, GetSnapshotsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, GetSnapshotsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KendraClient(config);
  * const input = { // GetSnapshotsRequest
  *   IndexId: "STRING_VALUE", // required

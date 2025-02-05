@@ -44,6 +44,7 @@ export interface ListDataIntegrationAssociationsCommandOutput
  * ```javascript
  * import { AppIntegrationsClient, ListDataIntegrationAssociationsCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, ListDataIntegrationAssociationsCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppIntegrationsClient(config);
  * const input = { // ListDataIntegrationAssociationsRequest
  *   DataIntegrationIdentifier: "STRING_VALUE", // required

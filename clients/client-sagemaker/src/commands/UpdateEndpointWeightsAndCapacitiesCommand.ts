@@ -43,6 +43,7 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
  * ```javascript
  * import { SageMakerClient, UpdateEndpointWeightsAndCapacitiesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateEndpointWeightsAndCapacitiesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // UpdateEndpointWeightsAndCapacitiesInput
  *   EndpointName: "STRING_VALUE", // required

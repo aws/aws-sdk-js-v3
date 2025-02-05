@@ -40,6 +40,7 @@ export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __M
  * ```javascript
  * import { IvschatClient, DisconnectUserCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, DisconnectUserCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IvschatClient(config);
  * const input = { // DisconnectUserRequest
  *   roomIdentifier: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface CreateResourceGatewayCommandOutput extends CreateResourceGatewa
  * ```javascript
  * import { VPCLatticeClient, CreateResourceGatewayCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, CreateResourceGatewayCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new VPCLatticeClient(config);
  * const input = { // CreateResourceGatewayRequest
  *   clientToken: "STRING_VALUE",

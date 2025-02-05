@@ -42,6 +42,7 @@ export interface GetTemporaryGluePartitionCredentialsCommandOutput
  * ```javascript
  * import { LakeFormationClient, GetTemporaryGluePartitionCredentialsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetTemporaryGluePartitionCredentialsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LakeFormationClient(config);
  * const input = { // GetTemporaryGluePartitionCredentialsRequest
  *   TableArn: "STRING_VALUE", // required

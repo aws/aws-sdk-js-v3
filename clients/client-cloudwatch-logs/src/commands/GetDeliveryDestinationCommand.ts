@@ -34,6 +34,7 @@ export interface GetDeliveryDestinationCommandOutput extends GetDeliveryDestinat
  * ```javascript
  * import { CloudWatchLogsClient, GetDeliveryDestinationCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, GetDeliveryDestinationCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudWatchLogsClient(config);
  * const input = { // GetDeliveryDestinationRequest
  *   name: "STRING_VALUE", // required

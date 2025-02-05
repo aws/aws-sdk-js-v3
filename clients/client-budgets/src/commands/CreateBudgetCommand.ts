@@ -37,6 +37,7 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  * ```javascript
  * import { BudgetsClient, CreateBudgetCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, CreateBudgetCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BudgetsClient(config);
  * const input = { // CreateBudgetRequest
  *   AccountId: "STRING_VALUE", // required

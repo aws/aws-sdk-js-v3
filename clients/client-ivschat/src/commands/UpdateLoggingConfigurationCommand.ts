@@ -34,6 +34,7 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * ```javascript
  * import { IvschatClient, UpdateLoggingConfigurationCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, UpdateLoggingConfigurationCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IvschatClient(config);
  * const input = { // UpdateLoggingConfigurationRequest
  *   identifier: "STRING_VALUE", // required

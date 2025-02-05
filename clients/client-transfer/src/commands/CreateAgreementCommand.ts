@@ -43,6 +43,7 @@ export interface CreateAgreementCommandOutput extends CreateAgreementResponse, _
  * ```javascript
  * import { TransferClient, CreateAgreementCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateAgreementCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TransferClient(config);
  * const input = { // CreateAgreementRequest
  *   Description: "STRING_VALUE",

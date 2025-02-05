@@ -131,6 +131,7 @@ export interface CreateContainerFleetCommandOutput extends CreateContainerFleetO
  * ```javascript
  * import { GameLiftClient, CreateContainerFleetCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateContainerFleetCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GameLiftClient(config);
  * const input = { // CreateContainerFleetInput
  *   FleetRoleArn: "STRING_VALUE", // required

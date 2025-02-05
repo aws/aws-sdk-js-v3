@@ -43,6 +43,7 @@ export interface ListRepositoriesForApprovalRuleTemplateCommandOutput
  * ```javascript
  * import { CodeCommitClient, ListRepositoriesForApprovalRuleTemplateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, ListRepositoriesForApprovalRuleTemplateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeCommitClient(config);
  * const input = { // ListRepositoriesForApprovalRuleTemplateInput
  *   approvalRuleTemplateName: "STRING_VALUE", // required

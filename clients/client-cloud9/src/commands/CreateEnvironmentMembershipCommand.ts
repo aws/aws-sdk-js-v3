@@ -40,6 +40,7 @@ export interface CreateEnvironmentMembershipCommandOutput extends CreateEnvironm
  * ```javascript
  * import { Cloud9Client, CreateEnvironmentMembershipCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, CreateEnvironmentMembershipCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Cloud9Client(config);
  * const input = { // CreateEnvironmentMembershipRequest
  *   environmentId: "STRING_VALUE", // required

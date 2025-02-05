@@ -38,6 +38,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * ```javascript
  * import { ServiceCatalogAppRegistryClient, UpdateApplicationCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, UpdateApplicationCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const input = { // UpdateApplicationRequest
  *   application: "STRING_VALUE", // required

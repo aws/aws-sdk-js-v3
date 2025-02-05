@@ -34,6 +34,7 @@ export interface UpdateSiteCommandOutput extends UpdateSiteOutput, __MetadataBea
  * ```javascript
  * import { OutpostsClient, UpdateSiteCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, UpdateSiteCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OutpostsClient(config);
  * const input = { // UpdateSiteInput
  *   SiteId: "STRING_VALUE", // required

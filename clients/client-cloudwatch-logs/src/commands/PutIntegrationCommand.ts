@@ -39,6 +39,7 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * ```javascript
  * import { CloudWatchLogsClient, PutIntegrationCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutIntegrationCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudWatchLogsClient(config);
  * const input = { // PutIntegrationRequest
  *   integrationName: "STRING_VALUE", // required

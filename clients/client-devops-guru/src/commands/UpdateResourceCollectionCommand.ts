@@ -38,6 +38,7 @@ export interface UpdateResourceCollectionCommandOutput extends UpdateResourceCol
  * ```javascript
  * import { DevOpsGuruClient, UpdateResourceCollectionCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, UpdateResourceCollectionCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DevOpsGuruClient(config);
  * const input = { // UpdateResourceCollectionRequest
  *   Action: "ADD" || "REMOVE", // required

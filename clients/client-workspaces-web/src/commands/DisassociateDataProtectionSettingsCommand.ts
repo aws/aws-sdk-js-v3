@@ -42,6 +42,7 @@ export interface DisassociateDataProtectionSettingsCommandOutput
  * ```javascript
  * import { WorkSpacesWebClient, DisassociateDataProtectionSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DisassociateDataProtectionSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkSpacesWebClient(config);
  * const input = { // DisassociateDataProtectionSettingsRequest
  *   portalArn: "STRING_VALUE", // required

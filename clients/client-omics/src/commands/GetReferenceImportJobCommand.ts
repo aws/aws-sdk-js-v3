@@ -34,6 +34,7 @@ export interface GetReferenceImportJobCommandOutput extends GetReferenceImportJo
  * ```javascript
  * import { OmicsClient, GetReferenceImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetReferenceImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OmicsClient(config);
  * const input = { // GetReferenceImportJobRequest
  *   id: "STRING_VALUE", // required

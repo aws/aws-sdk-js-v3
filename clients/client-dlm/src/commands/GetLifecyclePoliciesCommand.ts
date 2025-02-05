@@ -35,6 +35,7 @@ export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesR
  * ```javascript
  * import { DLMClient, GetLifecyclePoliciesCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, GetLifecyclePoliciesCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DLMClient(config);
  * const input = { // GetLifecyclePoliciesRequest
  *   PolicyIds: [ // PolicyIdList

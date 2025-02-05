@@ -42,6 +42,7 @@ export interface CreateDbInstanceCommandOutput extends CreateDbInstanceOutput, _
  * ```javascript
  * import { TimestreamInfluxDBClient, CreateDbInstanceCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
  * // const { TimestreamInfluxDBClient, CreateDbInstanceCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TimestreamInfluxDBClient(config);
  * const input = { // CreateDbInstanceInput
  *   name: "STRING_VALUE", // required

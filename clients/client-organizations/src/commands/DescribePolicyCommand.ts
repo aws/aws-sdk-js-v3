@@ -36,6 +36,7 @@ export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __M
  * ```javascript
  * import { OrganizationsClient, DescribePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DescribePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OrganizationsClient(config);
  * const input = { // DescribePolicyRequest
  *   PolicyId: "STRING_VALUE", // required

@@ -39,6 +39,7 @@ export interface RetrieveDomainAuthCodeCommandOutput extends RetrieveDomainAuthC
  * ```javascript
  * import { Route53DomainsClient, RetrieveDomainAuthCodeCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, RetrieveDomainAuthCodeCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Route53DomainsClient(config);
  * const input = { // RetrieveDomainAuthCodeRequest
  *   DomainName: "STRING_VALUE", // required

@@ -35,6 +35,7 @@ export interface GrantPermissionsCommandOutput extends GrantPermissionsResponse,
  * ```javascript
  * import { LakeFormationClient, GrantPermissionsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GrantPermissionsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LakeFormationClient(config);
  * const input = { // GrantPermissionsRequest
  *   CatalogId: "STRING_VALUE",

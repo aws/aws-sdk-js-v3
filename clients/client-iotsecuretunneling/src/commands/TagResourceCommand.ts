@@ -38,6 +38,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { IoTSecureTunnelingClient, TagResourceCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
  * // const { IoTSecureTunnelingClient, TagResourceCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTSecureTunnelingClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

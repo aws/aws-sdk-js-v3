@@ -34,6 +34,7 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * ```javascript
  * import { AuditManagerClient, RegisterAccountCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, RegisterAccountCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AuditManagerClient(config);
  * const input = { // RegisterAccountRequest
  *   kmsKey: "STRING_VALUE",

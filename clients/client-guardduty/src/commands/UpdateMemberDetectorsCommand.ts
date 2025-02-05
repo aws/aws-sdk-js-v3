@@ -42,6 +42,7 @@ export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetector
  * ```javascript
  * import { GuardDutyClient, UpdateMemberDetectorsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdateMemberDetectorsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GuardDutyClient(config);
  * const input = { // UpdateMemberDetectorsRequest
  *   DetectorId: "STRING_VALUE", // required

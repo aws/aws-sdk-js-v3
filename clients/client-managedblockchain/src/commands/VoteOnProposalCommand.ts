@@ -39,6 +39,7 @@ export interface VoteOnProposalCommandOutput extends VoteOnProposalOutput, __Met
  * ```javascript
  * import { ManagedBlockchainClient, VoteOnProposalCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, VoteOnProposalCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ManagedBlockchainClient(config);
  * const input = { // VoteOnProposalInput
  *   NetworkId: "STRING_VALUE", // required

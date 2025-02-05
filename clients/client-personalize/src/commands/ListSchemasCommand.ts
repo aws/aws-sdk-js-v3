@@ -36,6 +36,7 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * ```javascript
  * import { PersonalizeClient, ListSchemasCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListSchemasCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PersonalizeClient(config);
  * const input = { // ListSchemasRequest
  *   nextToken: "STRING_VALUE",

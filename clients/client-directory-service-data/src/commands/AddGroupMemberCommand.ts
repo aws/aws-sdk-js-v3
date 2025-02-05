@@ -38,6 +38,7 @@ export interface AddGroupMemberCommandOutput extends AddGroupMemberResult, __Met
  * ```javascript
  * import { DirectoryServiceDataClient, AddGroupMemberCommand } from "@aws-sdk/client-directory-service-data"; // ES Modules import
  * // const { DirectoryServiceDataClient, AddGroupMemberCommand } = require("@aws-sdk/client-directory-service-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DirectoryServiceDataClient(config);
  * const input = { // AddGroupMemberRequest
  *   DirectoryId: "STRING_VALUE", // required

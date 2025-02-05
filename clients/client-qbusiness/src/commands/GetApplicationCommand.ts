@@ -38,6 +38,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * ```javascript
  * import { QBusinessClient, GetApplicationCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, GetApplicationCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QBusinessClient(config);
  * const input = { // GetApplicationRequest
  *   applicationId: "STRING_VALUE", // required

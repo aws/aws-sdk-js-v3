@@ -34,6 +34,7 @@ export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __M
  * ```javascript
  * import { SchemasClient, StopDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, StopDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SchemasClient(config);
  * const input = { // StopDiscovererRequest
  *   DiscovererId: "STRING_VALUE", // required

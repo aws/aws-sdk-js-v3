@@ -7556,9 +7556,9 @@ export interface RetrieveAndGenerateResponse {
  */
 export interface CitationEvent {
   /**
-   * @deprecated
-   *
    * <p>The citation.</p>
+   *
+   * @deprecated
    * @public
    */
   citation?: Citation | undefined;

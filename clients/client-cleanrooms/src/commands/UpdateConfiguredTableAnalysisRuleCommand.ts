@@ -39,6 +39,7 @@ export interface UpdateConfiguredTableAnalysisRuleCommandOutput
  * ```javascript
  * import { CleanRoomsClient, UpdateConfiguredTableAnalysisRuleCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, UpdateConfiguredTableAnalysisRuleCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CleanRoomsClient(config);
  * const input = { // UpdateConfiguredTableAnalysisRuleInput
  *   configuredTableIdentifier: "STRING_VALUE", // required

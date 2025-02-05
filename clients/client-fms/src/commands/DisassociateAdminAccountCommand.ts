@@ -35,6 +35,7 @@ export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { FMSClient, DisassociateAdminAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, DisassociateAdminAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FMSClient(config);
  * const input = {};
  * const command = new DisassociateAdminAccountCommand(input);

@@ -41,6 +41,7 @@ export interface CreateConnectionCommandOutput extends Connection, __MetadataBea
  * ```javascript
  * import { DirectConnectClient, CreateConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DirectConnectClient(config);
  * const input = { // CreateConnectionRequest
  *   location: "STRING_VALUE", // required

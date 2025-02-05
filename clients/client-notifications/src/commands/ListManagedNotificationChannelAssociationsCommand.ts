@@ -43,6 +43,7 @@ export interface ListManagedNotificationChannelAssociationsCommandOutput
  * ```javascript
  * import { NotificationsClient, ListManagedNotificationChannelAssociationsCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, ListManagedNotificationChannelAssociationsCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NotificationsClient(config);
  * const input = { // ListManagedNotificationChannelAssociationsRequest
  *   managedNotificationConfigurationArn: "STRING_VALUE", // required

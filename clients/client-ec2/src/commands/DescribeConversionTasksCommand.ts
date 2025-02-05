@@ -40,6 +40,7 @@ export interface DescribeConversionTasksCommandOutput extends DescribeConversion
  * ```javascript
  * import { EC2Client, DescribeConversionTasksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeConversionTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EC2Client(config);
  * const input = { // DescribeConversionTasksRequest
  *   DryRun: true || false,

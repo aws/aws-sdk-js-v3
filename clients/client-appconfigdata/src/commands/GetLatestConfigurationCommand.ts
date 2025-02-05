@@ -68,6 +68,7 @@ export interface GetLatestConfigurationCommandOutput
  * ```javascript
  * import { AppConfigDataClient, GetLatestConfigurationCommand } from "@aws-sdk/client-appconfigdata"; // ES Modules import
  * // const { AppConfigDataClient, GetLatestConfigurationCommand } = require("@aws-sdk/client-appconfigdata"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppConfigDataClient(config);
  * const input = { // GetLatestConfigurationRequest
  *   ConfigurationToken: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface StopQueryCommandOutput extends StopQueryOutput, __MetadataBeare
  * ```javascript
  * import { InternetMonitorClient, StopQueryCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, StopQueryCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new InternetMonitorClient(config);
  * const input = { // StopQueryInput
  *   MonitorName: "STRING_VALUE", // required

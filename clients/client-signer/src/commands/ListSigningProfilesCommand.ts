@@ -41,6 +41,7 @@ export interface ListSigningProfilesCommandOutput extends ListSigningProfilesRes
  * ```javascript
  * import { SignerClient, ListSigningProfilesCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, ListSigningProfilesCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SignerClient(config);
  * const input = { // ListSigningProfilesRequest
  *   includeCanceled: true || false,

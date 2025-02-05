@@ -38,6 +38,7 @@ export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __M
  * ```javascript
  * import { MWAAClient, CreateCliTokenCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, CreateCliTokenCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MWAAClient(config);
  * const input = { // CreateCliTokenRequest
  *   Name: "STRING_VALUE", // required

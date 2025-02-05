@@ -34,6 +34,7 @@ export interface GetEncryptionConfigCommandOutput extends GetEncryptionConfigRes
  * ```javascript
  * import { XRayClient, GetEncryptionConfigCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetEncryptionConfigCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new XRayClient(config);
  * const input = {};
  * const command = new GetEncryptionConfigCommand(input);

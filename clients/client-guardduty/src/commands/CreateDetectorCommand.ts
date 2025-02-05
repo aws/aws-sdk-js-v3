@@ -56,6 +56,7 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  * ```javascript
  * import { GuardDutyClient, CreateDetectorCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateDetectorCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GuardDutyClient(config);
  * const input = { // CreateDetectorRequest
  *   Enable: true || false, // required

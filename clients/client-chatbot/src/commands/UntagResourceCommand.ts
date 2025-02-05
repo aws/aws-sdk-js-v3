@@ -34,6 +34,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { ChatbotClient, UntagResourceCommand } from "@aws-sdk/client-chatbot"; // ES Modules import
  * // const { ChatbotClient, UntagResourceCommand } = require("@aws-sdk/client-chatbot"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChatbotClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

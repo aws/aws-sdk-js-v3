@@ -34,6 +34,7 @@ export interface BatchGetMetricsCommandOutput extends BatchGetMetricsResponse, _
  * ```javascript
  * import { SageMakerMetricsClient, BatchGetMetricsCommand } from "@aws-sdk/client-sagemaker-metrics"; // ES Modules import
  * // const { SageMakerMetricsClient, BatchGetMetricsCommand } = require("@aws-sdk/client-sagemaker-metrics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerMetricsClient(config);
  * const input = { // BatchGetMetricsRequest
  *   MetricQueries: [ // MetricQueryList // required

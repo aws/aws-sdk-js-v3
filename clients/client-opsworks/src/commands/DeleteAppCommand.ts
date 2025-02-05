@@ -40,6 +40,7 @@ export interface DeleteAppCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { OpsWorksClient, DeleteAppCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DeleteAppCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OpsWorksClient(config);
  * const input = { // DeleteAppRequest
  *   AppId: "STRING_VALUE", // required

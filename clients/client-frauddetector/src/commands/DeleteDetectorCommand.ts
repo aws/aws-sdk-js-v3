@@ -35,6 +35,7 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResult, __Met
  * ```javascript
  * import { FraudDetectorClient, DeleteDetectorCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteDetectorCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FraudDetectorClient(config);
  * const input = { // DeleteDetectorRequest
  *   detectorId: "STRING_VALUE", // required

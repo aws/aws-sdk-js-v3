@@ -34,6 +34,7 @@ export interface ListBotAliasesCommandOutput extends ListBotAliasesResponse, __M
  * ```javascript
  * import { LexModelsV2Client, ListBotAliasesCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListBotAliasesCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LexModelsV2Client(config);
  * const input = { // ListBotAliasesRequest
  *   botId: "STRING_VALUE", // required

@@ -43,6 +43,7 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * ```javascript
  * import { ElasticTranscoderClient, CancelJobCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, CancelJobCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElasticTranscoderClient(config);
  * const input = { // CancelJobRequest
  *   Id: "STRING_VALUE", // required

@@ -40,6 +40,7 @@ export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __M
  * ```javascript
  * import { SFNClient, SendTaskSuccessCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, SendTaskSuccessCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SFNClient(config);
  * const input = { // SendTaskSuccessInput
  *   taskToken: "STRING_VALUE", // required

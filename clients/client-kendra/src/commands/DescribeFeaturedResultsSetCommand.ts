@@ -36,6 +36,7 @@ export interface DescribeFeaturedResultsSetCommandOutput extends DescribeFeature
  * ```javascript
  * import { KendraClient, DescribeFeaturedResultsSetCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DescribeFeaturedResultsSetCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KendraClient(config);
  * const input = { // DescribeFeaturedResultsSetRequest
  *   IndexId: "STRING_VALUE", // required

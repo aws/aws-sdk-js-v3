@@ -38,6 +38,7 @@ export interface DescribeAppInstanceCommandOutput extends DescribeAppInstanceRes
  * ```javascript
  * import { ChimeSDKIdentityClient, DescribeAppInstanceCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, DescribeAppInstanceCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChimeSDKIdentityClient(config);
  * const input = { // DescribeAppInstanceRequest
  *   AppInstanceArn: "STRING_VALUE", // required

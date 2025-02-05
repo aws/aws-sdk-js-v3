@@ -40,6 +40,7 @@ export interface GetListElementsCommandOutput extends GetListElementsResult, __M
  * ```javascript
  * import { FraudDetectorClient, GetListElementsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetListElementsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FraudDetectorClient(config);
  * const input = { // GetListElementsRequest
  *   name: "STRING_VALUE", // required

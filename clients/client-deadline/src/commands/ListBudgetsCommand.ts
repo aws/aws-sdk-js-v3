@@ -34,6 +34,7 @@ export interface ListBudgetsCommandOutput extends ListBudgetsResponse, __Metadat
  * ```javascript
  * import { DeadlineClient, ListBudgetsCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, ListBudgetsCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DeadlineClient(config);
  * const input = { // ListBudgetsRequest
  *   nextToken: "STRING_VALUE",

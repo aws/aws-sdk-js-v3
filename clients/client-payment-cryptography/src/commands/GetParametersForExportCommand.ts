@@ -60,6 +60,7 @@ export interface GetParametersForExportCommandOutput extends GetParametersForExp
  * ```javascript
  * import { PaymentCryptographyClient, GetParametersForExportCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
  * // const { PaymentCryptographyClient, GetParametersForExportCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PaymentCryptographyClient(config);
  * const input = { // GetParametersForExportInput
  *   KeyMaterialType: "STRING_VALUE", // required

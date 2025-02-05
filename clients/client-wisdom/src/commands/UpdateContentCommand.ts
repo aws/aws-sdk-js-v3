@@ -38,6 +38,7 @@ export interface UpdateContentCommandOutput extends UpdateContentResponse, __Met
  * ```javascript
  * import { WisdomClient, UpdateContentCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, UpdateContentCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WisdomClient(config);
  * const input = { // UpdateContentRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

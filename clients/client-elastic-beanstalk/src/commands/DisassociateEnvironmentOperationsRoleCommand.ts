@@ -41,6 +41,7 @@ export interface DisassociateEnvironmentOperationsRoleCommandOutput extends __Me
  * ```javascript
  * import { ElasticBeanstalkClient, DisassociateEnvironmentOperationsRoleCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DisassociateEnvironmentOperationsRoleCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElasticBeanstalkClient(config);
  * const input = { // DisassociateEnvironmentOperationsRoleMessage
  *   EnvironmentName: "STRING_VALUE", // required

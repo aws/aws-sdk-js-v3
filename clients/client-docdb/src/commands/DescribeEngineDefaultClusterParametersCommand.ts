@@ -44,6 +44,7 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  * ```javascript
  * import { DocDBClient, DescribeEngineDefaultClusterParametersCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeEngineDefaultClusterParametersCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DocDBClient(config);
  * const input = { // DescribeEngineDefaultClusterParametersMessage
  *   DBParameterGroupFamily: "STRING_VALUE", // required

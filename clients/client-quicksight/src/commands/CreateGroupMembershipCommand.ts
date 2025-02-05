@@ -34,6 +34,7 @@ export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershi
  * ```javascript
  * import { QuickSightClient, CreateGroupMembershipCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateGroupMembershipCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QuickSightClient(config);
  * const input = { // CreateGroupMembershipRequest
  *   MemberName: "STRING_VALUE", // required

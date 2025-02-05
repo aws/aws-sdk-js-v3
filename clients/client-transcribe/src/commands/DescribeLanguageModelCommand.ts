@@ -40,6 +40,7 @@ export interface DescribeLanguageModelCommandOutput extends DescribeLanguageMode
  * ```javascript
  * import { TranscribeClient, DescribeLanguageModelCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, DescribeLanguageModelCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TranscribeClient(config);
  * const input = { // DescribeLanguageModelRequest
  *   ModelName: "STRING_VALUE", // required

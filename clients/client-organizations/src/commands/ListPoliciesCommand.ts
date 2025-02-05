@@ -44,6 +44,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * ```javascript
  * import { OrganizationsClient, ListPoliciesCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListPoliciesCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OrganizationsClient(config);
  * const input = { // ListPoliciesRequest
  *   Filter: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2", // required

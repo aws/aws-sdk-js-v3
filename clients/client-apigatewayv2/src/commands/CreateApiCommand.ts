@@ -34,6 +34,7 @@ export interface CreateApiCommandOutput extends CreateApiResponse, __MetadataBea
  * ```javascript
  * import { ApiGatewayV2Client, CreateApiCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateApiCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ApiGatewayV2Client(config);
  * const input = { // CreateApiRequest
  *   ApiKeySelectionExpression: "STRING_VALUE",

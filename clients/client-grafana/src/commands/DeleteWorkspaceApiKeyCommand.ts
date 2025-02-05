@@ -38,6 +38,7 @@ export interface DeleteWorkspaceApiKeyCommandOutput extends DeleteWorkspaceApiKe
  * ```javascript
  * import { GrafanaClient, DeleteWorkspaceApiKeyCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, DeleteWorkspaceApiKeyCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GrafanaClient(config);
  * const input = { // DeleteWorkspaceApiKeyRequest
  *   keyName: "STRING_VALUE", // required

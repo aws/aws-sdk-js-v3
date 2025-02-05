@@ -34,6 +34,7 @@ export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { SchemasClient, DeleteDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, DeleteDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SchemasClient(config);
  * const input = { // DeleteDiscovererRequest
  *   DiscovererId: "STRING_VALUE", // required

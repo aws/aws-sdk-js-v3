@@ -34,6 +34,7 @@ export interface GetExportJobCommandOutput extends GetExportJobResponse, __Metad
  * ```javascript
  * import { SESv2Client, GetExportJobCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetExportJobCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SESv2Client(config);
  * const input = { // GetExportJobRequest
  *   JobId: "STRING_VALUE", // required

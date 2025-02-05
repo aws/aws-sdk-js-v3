@@ -40,6 +40,7 @@ export interface ListDataAccessorsCommandOutput extends ListDataAccessorsRespons
  * ```javascript
  * import { QBusinessClient, ListDataAccessorsCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, ListDataAccessorsCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QBusinessClient(config);
  * const input = { // ListDataAccessorsRequest
  *   applicationId: "STRING_VALUE", // required

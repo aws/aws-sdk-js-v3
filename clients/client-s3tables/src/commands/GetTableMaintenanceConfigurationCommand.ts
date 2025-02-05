@@ -45,6 +45,7 @@ export interface GetTableMaintenanceConfigurationCommandOutput
  * ```javascript
  * import { S3TablesClient, GetTableMaintenanceConfigurationCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
  * // const { S3TablesClient, GetTableMaintenanceConfigurationCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3TablesClient(config);
  * const input = { // GetTableMaintenanceConfigurationRequest
  *   tableBucketARN: "STRING_VALUE", // required

@@ -38,6 +38,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResult, __MetadataB
  * ```javascript
  * import { DirectoryServiceDataClient, CreateGroupCommand } from "@aws-sdk/client-directory-service-data"; // ES Modules import
  * // const { DirectoryServiceDataClient, CreateGroupCommand } = require("@aws-sdk/client-directory-service-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DirectoryServiceDataClient(config);
  * const input = { // CreateGroupRequest
  *   DirectoryId: "STRING_VALUE", // required

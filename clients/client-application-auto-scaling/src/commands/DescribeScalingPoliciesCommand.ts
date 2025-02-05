@@ -41,6 +41,7 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * ```javascript
  * import { ApplicationAutoScalingClient, DescribeScalingPoliciesCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, DescribeScalingPoliciesCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ApplicationAutoScalingClient(config);
  * const input = { // DescribeScalingPoliciesRequest
  *   PolicyNames: [ // ResourceIdsMaxLen1600

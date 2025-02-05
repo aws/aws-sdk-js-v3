@@ -34,6 +34,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { SupplyChainClient, TagResourceCommand } from "@aws-sdk/client-supplychain"; // ES Modules import
  * // const { SupplyChainClient, TagResourceCommand } = require("@aws-sdk/client-supplychain"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SupplyChainClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

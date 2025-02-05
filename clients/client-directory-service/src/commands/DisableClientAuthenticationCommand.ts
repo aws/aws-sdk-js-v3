@@ -34,6 +34,7 @@ export interface DisableClientAuthenticationCommandOutput extends DisableClientA
  * ```javascript
  * import { DirectoryServiceClient, DisableClientAuthenticationCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DisableClientAuthenticationCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DirectoryServiceClient(config);
  * const input = { // DisableClientAuthenticationRequest
  *   DirectoryId: "STRING_VALUE", // required

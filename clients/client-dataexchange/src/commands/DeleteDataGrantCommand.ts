@@ -34,6 +34,7 @@ export interface DeleteDataGrantCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { DataExchangeClient, DeleteDataGrantCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, DeleteDataGrantCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataExchangeClient(config);
  * const input = { // DeleteDataGrantRequest
  *   DataGrantId: "STRING_VALUE", // required

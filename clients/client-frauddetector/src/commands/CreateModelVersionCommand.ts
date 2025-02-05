@@ -35,6 +35,7 @@ export interface CreateModelVersionCommandOutput extends CreateModelVersionResul
  * ```javascript
  * import { FraudDetectorClient, CreateModelVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateModelVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FraudDetectorClient(config);
  * const input = { // CreateModelVersionRequest
  *   modelId: "STRING_VALUE", // required

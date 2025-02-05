@@ -37,6 +37,7 @@ export interface ListDecoderManifestSignalsCommandOutput extends ListDecoderMani
  * ```javascript
  * import { IoTFleetWiseClient, ListDecoderManifestSignalsCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListDecoderManifestSignalsCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTFleetWiseClient(config);
  * const input = { // ListDecoderManifestSignalsRequest
  *   name: "STRING_VALUE", // required

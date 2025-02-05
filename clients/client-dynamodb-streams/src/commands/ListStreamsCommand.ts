@@ -39,6 +39,7 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * ```javascript
  * import { DynamoDBStreamsClient, ListStreamsCommand } from "@aws-sdk/client-dynamodb-streams"; // ES Modules import
  * // const { DynamoDBStreamsClient, ListStreamsCommand } = require("@aws-sdk/client-dynamodb-streams"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DynamoDBStreamsClient(config);
  * const input = { // ListStreamsInput
  *   TableName: "STRING_VALUE",

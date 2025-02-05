@@ -34,6 +34,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * ```javascript
  * import { CodeConnectionsClient, UntagResourceCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, UntagResourceCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeConnectionsClient(config);
  * const input = { // UntagResourceInput
  *   ResourceArn: "STRING_VALUE", // required

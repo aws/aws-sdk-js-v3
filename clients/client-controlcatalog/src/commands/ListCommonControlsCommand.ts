@@ -37,6 +37,7 @@ export interface ListCommonControlsCommandOutput extends ListCommonControlsRespo
  * ```javascript
  * import { ControlCatalogClient, ListCommonControlsCommand } from "@aws-sdk/client-controlcatalog"; // ES Modules import
  * // const { ControlCatalogClient, ListCommonControlsCommand } = require("@aws-sdk/client-controlcatalog"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ControlCatalogClient(config);
  * const input = { // ListCommonControlsRequest
  *   MaxResults: Number("int"),

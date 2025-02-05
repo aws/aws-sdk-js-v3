@@ -685,10 +685,10 @@ export interface DescribeSimulationOutput {
   SchemaS3Location?: S3Location | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>An error message that SimSpace Weaver returns only if there is a problem with the simulation
    *          schema.</p>
+   *
+   * @deprecated
    * @public
    */
   SchemaError?: string | undefined;

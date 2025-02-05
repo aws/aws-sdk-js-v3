@@ -43,6 +43,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * ```javascript
  * import { KinesisAnalyticsClient, UpdateApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, UpdateApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KinesisAnalyticsClient(config);
  * const input = { // UpdateApplicationRequest
  *   ApplicationName: "STRING_VALUE", // required

@@ -38,6 +38,7 @@ export interface ListDbInstancesCommandOutput extends ListDbInstancesOutput, __M
  * ```javascript
  * import { TimestreamInfluxDBClient, ListDbInstancesCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
  * // const { TimestreamInfluxDBClient, ListDbInstancesCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TimestreamInfluxDBClient(config);
  * const input = { // ListDbInstancesInput
  *   nextToken: "STRING_VALUE",

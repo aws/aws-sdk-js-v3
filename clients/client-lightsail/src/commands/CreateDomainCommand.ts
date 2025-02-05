@@ -36,6 +36,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResult, __Metadat
  * ```javascript
  * import { LightsailClient, CreateDomainCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateDomainCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LightsailClient(config);
  * const input = { // CreateDomainRequest
  *   domainName: "STRING_VALUE", // required

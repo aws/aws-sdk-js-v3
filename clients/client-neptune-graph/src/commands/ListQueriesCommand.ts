@@ -34,6 +34,7 @@ export interface ListQueriesCommandOutput extends ListQueriesOutput, __MetadataB
  * ```javascript
  * import { NeptuneGraphClient, ListQueriesCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
  * // const { NeptuneGraphClient, ListQueriesCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptuneGraphClient(config);
  * const input = { // ListQueriesInput
  *   graphIdentifier: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface GetDocumentationVersionsCommandOutput extends DocumentationVers
  * ```javascript
  * import { APIGatewayClient, GetDocumentationVersionsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetDocumentationVersionsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new APIGatewayClient(config);
  * const input = { // GetDocumentationVersionsRequest
  *   restApiId: "STRING_VALUE", // required

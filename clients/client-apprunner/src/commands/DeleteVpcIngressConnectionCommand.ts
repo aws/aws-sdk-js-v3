@@ -57,6 +57,7 @@ export interface DeleteVpcIngressConnectionCommandOutput extends DeleteVpcIngres
  * ```javascript
  * import { AppRunnerClient, DeleteVpcIngressConnectionCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DeleteVpcIngressConnectionCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppRunnerClient(config);
  * const input = { // DeleteVpcIngressConnectionRequest
  *   VpcIngressConnectionArn: "STRING_VALUE", // required

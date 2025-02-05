@@ -35,6 +35,7 @@ export interface BatchDisableAlarmCommandOutput extends BatchDisableAlarmRespons
  * ```javascript
  * import { IoTEventsDataClient, BatchDisableAlarmCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, BatchDisableAlarmCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTEventsDataClient(config);
  * const input = { // BatchDisableAlarmRequest
  *   disableActionRequests: [ // DisableAlarmActionRequests // required

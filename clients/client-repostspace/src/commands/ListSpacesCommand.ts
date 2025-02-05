@@ -34,6 +34,7 @@ export interface ListSpacesCommandOutput extends ListSpacesOutput, __MetadataBea
  * ```javascript
  * import { RepostspaceClient, ListSpacesCommand } from "@aws-sdk/client-repostspace"; // ES Modules import
  * // const { RepostspaceClient, ListSpacesCommand } = require("@aws-sdk/client-repostspace"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RepostspaceClient(config);
  * const input = { // ListSpacesInput
  *   nextToken: "STRING_VALUE",

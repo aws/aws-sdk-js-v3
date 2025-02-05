@@ -80,6 +80,7 @@ export interface StartModelPackagingJobCommandOutput extends StartModelPackaging
  * ```javascript
  * import { LookoutVisionClient, StartModelPackagingJobCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, StartModelPackagingJobCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LookoutVisionClient(config);
  * const input = { // StartModelPackagingJobRequest
  *   ProjectName: "STRING_VALUE", // required

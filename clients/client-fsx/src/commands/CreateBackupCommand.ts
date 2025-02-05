@@ -89,6 +89,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * ```javascript
  * import { FSxClient, CreateBackupCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateBackupCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FSxClient(config);
  * const input = { // CreateBackupRequest
  *   FileSystemId: "STRING_VALUE",

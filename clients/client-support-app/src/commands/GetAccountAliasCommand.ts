@@ -35,6 +35,7 @@ export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __M
  * ```javascript
  * import { SupportAppClient, GetAccountAliasCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, GetAccountAliasCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SupportAppClient(config);
  * const input = {};
  * const command = new GetAccountAliasCommand(input);

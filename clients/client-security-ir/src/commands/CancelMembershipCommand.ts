@@ -34,6 +34,7 @@ export interface CancelMembershipCommandOutput extends CancelMembershipResponse,
  * ```javascript
  * import { SecurityIRClient, CancelMembershipCommand } from "@aws-sdk/client-security-ir"; // ES Modules import
  * // const { SecurityIRClient, CancelMembershipCommand } = require("@aws-sdk/client-security-ir"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SecurityIRClient(config);
  * const input = { // CancelMembershipRequest
  *   membershipId: "STRING_VALUE", // required

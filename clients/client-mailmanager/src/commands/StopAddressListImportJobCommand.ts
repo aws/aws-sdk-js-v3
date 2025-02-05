@@ -34,6 +34,7 @@ export interface StopAddressListImportJobCommandOutput extends StopAddressListIm
  * ```javascript
  * import { MailManagerClient, StopAddressListImportJobCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, StopAddressListImportJobCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MailManagerClient(config);
  * const input = { // StopAddressListImportJobRequest
  *   JobId: "STRING_VALUE", // required

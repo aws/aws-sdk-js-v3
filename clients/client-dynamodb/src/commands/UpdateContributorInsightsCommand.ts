@@ -40,6 +40,7 @@ export interface UpdateContributorInsightsCommandOutput extends UpdateContributo
  * ```javascript
  * import { DynamoDBClient, UpdateContributorInsightsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateContributorInsightsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DynamoDBClient(config);
  * const input = { // UpdateContributorInsightsInput
  *   TableName: "STRING_VALUE", // required

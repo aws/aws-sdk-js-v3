@@ -57,6 +57,7 @@ export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput,
  * ```javascript
  * import { GameLiftClient, StartFleetActionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StartFleetActionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GameLiftClient(config);
  * const input = { // StartFleetActionsInput
  *   FleetId: "STRING_VALUE", // required

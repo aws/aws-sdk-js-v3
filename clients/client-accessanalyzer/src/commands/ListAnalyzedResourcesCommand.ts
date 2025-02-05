@@ -35,6 +35,7 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
  * ```javascript
  * import { AccessAnalyzerClient, ListAnalyzedResourcesCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, ListAnalyzedResourcesCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AccessAnalyzerClient(config);
  * const input = { // ListAnalyzedResourcesRequest
  *   analyzerArn: "STRING_VALUE", // required

@@ -44,6 +44,7 @@ export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyRespons
  * ```javascript
  * import { SESClient, PutIdentityPolicyCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, PutIdentityPolicyCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SESClient(config);
  * const input = { // PutIdentityPolicyRequest
  *   Identity: "STRING_VALUE", // required

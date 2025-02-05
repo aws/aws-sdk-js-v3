@@ -34,6 +34,7 @@ export interface ExportQAppSessionDataCommandOutput extends ExportQAppSessionDat
  * ```javascript
  * import { QAppsClient, ExportQAppSessionDataCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, ExportQAppSessionDataCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QAppsClient(config);
  * const input = { // ExportQAppSessionDataInput
  *   instanceId: "STRING_VALUE", // required

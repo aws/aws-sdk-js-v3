@@ -36,6 +36,7 @@ export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyRes
  * ```javascript
  * import { ECRClient, SetRepositoryPolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, SetRepositoryPolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ECRClient(config);
  * const input = { // SetRepositoryPolicyRequest
  *   registryId: "STRING_VALUE",

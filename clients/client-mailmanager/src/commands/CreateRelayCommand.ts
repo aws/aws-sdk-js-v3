@@ -35,6 +35,7 @@ export interface CreateRelayCommandOutput extends CreateRelayResponse, __Metadat
  * ```javascript
  * import { MailManagerClient, CreateRelayCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, CreateRelayCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MailManagerClient(config);
  * const input = { // CreateRelayRequest
  *   ClientToken: "STRING_VALUE",

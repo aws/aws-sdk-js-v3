@@ -34,6 +34,7 @@ export interface GetFreeTierUsageCommandOutput extends GetFreeTierUsageResponse,
  * ```javascript
  * import { FreeTierClient, GetFreeTierUsageCommand } from "@aws-sdk/client-freetier"; // ES Modules import
  * // const { FreeTierClient, GetFreeTierUsageCommand } = require("@aws-sdk/client-freetier"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FreeTierClient(config);
  * const input = { // GetFreeTierUsageRequest
  *   filter: { // Expression

@@ -66,6 +66,7 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  * ```javascript
  * import { TranscribeStreamingClient, StartStreamTranscriptionCommand } from "@aws-sdk/client-transcribe-streaming"; // ES Modules import
  * // const { TranscribeStreamingClient, StartStreamTranscriptionCommand } = require("@aws-sdk/client-transcribe-streaming"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TranscribeStreamingClient(config);
  * const input = { // StartStreamTranscriptionRequest
  *   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "th-TH" || "es-ES" || "ar-SA" || "pt-PT" || "ca-ES" || "ar-AE" || "hi-IN" || "zh-HK" || "nl-NL" || "no-NO" || "sv-SE" || "pl-PL" || "fi-FI" || "zh-TW" || "en-IN" || "en-IE" || "en-NZ" || "en-AB" || "en-ZA" || "en-WL" || "de-CH" || "af-ZA" || "eu-ES" || "hr-HR" || "cs-CZ" || "da-DK" || "fa-IR" || "gl-ES" || "el-GR" || "he-IL" || "id-ID" || "lv-LV" || "ms-MY" || "ro-RO" || "ru-RU" || "sr-RS" || "sk-SK" || "so-SO" || "tl-PH" || "uk-UA" || "vi-VN" || "zu-ZA",

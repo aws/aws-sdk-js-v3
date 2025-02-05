@@ -34,6 +34,7 @@ export interface DeleteResourceGatewayCommandOutput extends DeleteResourceGatewa
  * ```javascript
  * import { VPCLatticeClient, DeleteResourceGatewayCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, DeleteResourceGatewayCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new VPCLatticeClient(config);
  * const input = { // DeleteResourceGatewayRequest
  *   resourceGatewayIdentifier: "STRING_VALUE", // required

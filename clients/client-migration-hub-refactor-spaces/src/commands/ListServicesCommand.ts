@@ -38,6 +38,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * ```javascript
  * import { MigrationHubRefactorSpacesClient, ListServicesCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, ListServicesCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // ListServicesRequest
  *   EnvironmentIdentifier: "STRING_VALUE", // required

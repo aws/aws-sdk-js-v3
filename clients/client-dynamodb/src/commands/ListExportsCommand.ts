@@ -34,6 +34,7 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  * ```javascript
  * import { DynamoDBClient, ListExportsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ListExportsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DynamoDBClient(config);
  * const input = { // ListExportsInput
  *   TableArn: "STRING_VALUE",

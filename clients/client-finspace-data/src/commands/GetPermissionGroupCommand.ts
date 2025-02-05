@@ -40,6 +40,7 @@ export interface GetPermissionGroupCommandOutput extends GetPermissionGroupRespo
  * ```javascript
  * import { FinspaceDataClient, GetPermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, GetPermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FinspaceDataClient(config);
  * const input = { // GetPermissionGroupRequest
  *   permissionGroupId: "STRING_VALUE", // required

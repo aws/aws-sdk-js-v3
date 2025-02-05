@@ -40,6 +40,7 @@ export interface CreateBillScenarioCommandOutput extends CreateBillScenarioRespo
  * ```javascript
  * import { BCMPricingCalculatorClient, CreateBillScenarioCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, CreateBillScenarioCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // CreateBillScenarioRequest
  *   name: "STRING_VALUE", // required

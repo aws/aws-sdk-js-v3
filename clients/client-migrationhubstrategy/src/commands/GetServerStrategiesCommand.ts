@@ -38,6 +38,7 @@ export interface GetServerStrategiesCommandOutput extends GetServerStrategiesRes
  * ```javascript
  * import { MigrationHubStrategyClient, GetServerStrategiesCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetServerStrategiesCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MigrationHubStrategyClient(config);
  * const input = { // GetServerStrategiesRequest
  *   serverId: "STRING_VALUE", // required

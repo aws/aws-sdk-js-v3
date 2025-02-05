@@ -41,6 +41,7 @@ export interface StartCalculationExecutionCommandOutput extends StartCalculation
  * ```javascript
  * import { AthenaClient, StartCalculationExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, StartCalculationExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AthenaClient(config);
  * const input = { // StartCalculationExecutionRequest
  *   SessionId: "STRING_VALUE", // required

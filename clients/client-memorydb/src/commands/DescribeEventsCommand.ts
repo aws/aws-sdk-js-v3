@@ -36,6 +36,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * ```javascript
  * import { MemoryDBClient, DescribeEventsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeEventsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MemoryDBClient(config);
  * const input = { // DescribeEventsRequest
  *   SourceName: "STRING_VALUE",

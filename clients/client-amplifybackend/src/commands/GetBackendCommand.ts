@@ -34,6 +34,7 @@ export interface GetBackendCommandOutput extends GetBackendResponse, __MetadataB
  * ```javascript
  * import { AmplifyBackendClient, GetBackendCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, GetBackendCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AmplifyBackendClient(config);
  * const input = { // GetBackendRequest
  *   AppId: "STRING_VALUE", // required

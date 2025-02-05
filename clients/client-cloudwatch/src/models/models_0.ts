@@ -506,33 +506,33 @@ export type AnomalyDetectorStateValue = (typeof AnomalyDetectorStateValue)[keyof
  */
 export interface AnomalyDetector {
   /**
-   * @deprecated
-   *
    * <p>The namespace of the metric associated with the anomaly detection model.</p>
+   *
+   * @deprecated
    * @public
    */
   Namespace?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The name of the metric associated with the anomaly detection model.</p>
+   *
+   * @deprecated
    * @public
    */
   MetricName?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The metric dimensions associated with the anomaly detection model.</p>
+   *
+   * @deprecated
    * @public
    */
   Dimensions?: Dimension[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The statistic associated with the anomaly detection model.</p>
+   *
+   * @deprecated
    * @public
    */
   Stat?: string | undefined;
@@ -1009,33 +1009,33 @@ export class ResourceNotFound extends __BaseException {
  */
 export interface DeleteAnomalyDetectorInput {
   /**
-   * @deprecated
-   *
    * <p>The namespace associated with the anomaly detection model to delete.</p>
+   *
+   * @deprecated
    * @public
    */
   Namespace?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The metric name associated with the anomaly detection model to delete.</p>
+   *
+   * @deprecated
    * @public
    */
   MetricName?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The metric dimensions associated with the anomaly detection model to delete.</p>
+   *
+   * @deprecated
    * @public
    */
   Dimensions?: Dimension[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The statistic associated with the anomaly detection model to delete.</p>
+   *
+   * @deprecated
    * @public
    */
   Stat?: string | undefined;
@@ -3598,33 +3598,33 @@ export interface ListTagsForResourceOutput {
  */
 export interface PutAnomalyDetectorInput {
   /**
-   * @deprecated
-   *
    * <p>The namespace of the metric to create the anomaly detection model for.</p>
+   *
+   * @deprecated
    * @public
    */
   Namespace?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The name of the metric to create the anomaly detection model for.</p>
+   *
+   * @deprecated
    * @public
    */
   MetricName?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The metric dimensions to create the anomaly detection model for.</p>
+   *
+   * @deprecated
    * @public
    */
   Dimensions?: Dimension[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The statistic to use for the metric and the anomaly detection model.</p>
+   *
+   * @deprecated
    * @public
    */
   Stat?: string | undefined;

@@ -37,6 +37,7 @@ export interface GetSystemTemplateRevisionsCommandOutput extends GetSystemTempla
  * ```javascript
  * import { IoTThingsGraphClient, GetSystemTemplateRevisionsCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, GetSystemTemplateRevisionsCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTThingsGraphClient(config);
  * const input = { // GetSystemTemplateRevisionsRequest
  *   id: "STRING_VALUE", // required

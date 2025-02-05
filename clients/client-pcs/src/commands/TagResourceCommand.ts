@@ -37,6 +37,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { PCSClient, TagResourceCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, TagResourceCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PCSClient(config);
  * const input = { // TagResourceRequest
  *   resourceArn: "STRING_VALUE", // required

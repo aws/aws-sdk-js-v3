@@ -40,6 +40,7 @@ export interface ListEntitiesDetectionV2JobsCommandOutput
  * ```javascript
  * import { ComprehendMedicalClient, ListEntitiesDetectionV2JobsCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, ListEntitiesDetectionV2JobsCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ComprehendMedicalClient(config);
  * const input = { // ListEntitiesDetectionV2JobsRequest
  *   Filter: { // ComprehendMedicalAsyncJobFilter

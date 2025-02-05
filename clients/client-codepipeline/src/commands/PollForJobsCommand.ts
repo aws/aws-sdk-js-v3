@@ -43,6 +43,7 @@ export interface PollForJobsCommandOutput extends PollForJobsOutput, __MetadataB
  * ```javascript
  * import { CodePipelineClient, PollForJobsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PollForJobsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodePipelineClient(config);
  * const input = { // PollForJobsInput
  *   actionTypeId: { // ActionTypeId

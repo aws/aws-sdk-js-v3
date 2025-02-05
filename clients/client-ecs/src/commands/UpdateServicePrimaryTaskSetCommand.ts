@@ -40,6 +40,7 @@ export interface UpdateServicePrimaryTaskSetCommandOutput
  * ```javascript
  * import { ECSClient, UpdateServicePrimaryTaskSetCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateServicePrimaryTaskSetCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ECSClient(config);
  * const input = { // UpdateServicePrimaryTaskSetRequest
  *   cluster: "STRING_VALUE", // required

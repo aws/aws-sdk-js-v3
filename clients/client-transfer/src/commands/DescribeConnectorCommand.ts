@@ -35,6 +35,7 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * ```javascript
  * import { TransferClient, DescribeConnectorCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeConnectorCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TransferClient(config);
  * const input = { // DescribeConnectorRequest
  *   ConnectorId: "STRING_VALUE", // required

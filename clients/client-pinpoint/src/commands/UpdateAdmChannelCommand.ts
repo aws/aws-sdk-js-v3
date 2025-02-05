@@ -34,6 +34,7 @@ export interface UpdateAdmChannelCommandOutput extends UpdateAdmChannelResponse,
  * ```javascript
  * import { PinpointClient, UpdateAdmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateAdmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointClient(config);
  * const input = { // UpdateAdmChannelRequest
  *   ADMChannelRequest: { // ADMChannelRequest

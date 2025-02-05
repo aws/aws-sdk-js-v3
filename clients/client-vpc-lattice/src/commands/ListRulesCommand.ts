@@ -34,6 +34,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * ```javascript
  * import { VPCLatticeClient, ListRulesCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, ListRulesCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new VPCLatticeClient(config);
  * const input = { // ListRulesRequest
  *   serviceIdentifier: "STRING_VALUE", // required

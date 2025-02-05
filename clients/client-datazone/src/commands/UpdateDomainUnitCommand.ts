@@ -39,6 +39,7 @@ export interface UpdateDomainUnitCommandOutput extends UpdateDomainUnitOutput, _
  * ```javascript
  * import { DataZoneClient, UpdateDomainUnitCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, UpdateDomainUnitCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataZoneClient(config);
  * const input = { // UpdateDomainUnitInput
  *   domainIdentifier: "STRING_VALUE", // required

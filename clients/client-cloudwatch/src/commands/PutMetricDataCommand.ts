@@ -83,6 +83,7 @@ export interface PutMetricDataCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { CloudWatchClient, PutMetricDataCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutMetricDataCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudWatchClient(config);
  * const input = { // PutMetricDataInput
  *   Namespace: "STRING_VALUE", // required

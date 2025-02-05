@@ -34,6 +34,7 @@ export interface UpdateMapCommandOutput extends UpdateMapResponse, __MetadataBea
  * ```javascript
  * import { LocationClient, UpdateMapCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, UpdateMapCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LocationClient(config);
  * const input = { // UpdateMapRequest
  *   MapName: "STRING_VALUE", // required

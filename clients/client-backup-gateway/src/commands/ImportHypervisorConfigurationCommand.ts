@@ -43,6 +43,7 @@ export interface ImportHypervisorConfigurationCommandOutput
  * ```javascript
  * import { BackupGatewayClient, ImportHypervisorConfigurationCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, ImportHypervisorConfigurationCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BackupGatewayClient(config);
  * const input = { // ImportHypervisorConfigurationInput
  *   Name: "STRING_VALUE", // required

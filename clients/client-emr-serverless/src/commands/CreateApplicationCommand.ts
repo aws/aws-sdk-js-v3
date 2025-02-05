@@ -38,6 +38,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * ```javascript
  * import { EMRServerlessClient, CreateApplicationCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, CreateApplicationCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EMRServerlessClient(config);
  * const input = { // CreateApplicationRequest
  *   name: "STRING_VALUE",

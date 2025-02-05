@@ -58,6 +58,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * ```javascript
  * import { RDSClient, RestoreDBClusterToPointInTimeCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBClusterToPointInTimeCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RDSClient(config);
  * const input = { // RestoreDBClusterToPointInTimeMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required

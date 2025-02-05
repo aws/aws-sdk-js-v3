@@ -37,6 +37,7 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * ```javascript
  * import { DocDBClient, FailoverGlobalClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, FailoverGlobalClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DocDBClient(config);
  * const input = { // FailoverGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required

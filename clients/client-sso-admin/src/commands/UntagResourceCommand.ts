@@ -34,6 +34,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { SSOAdminClient, UntagResourceCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, UntagResourceCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSOAdminClient(config);
  * const input = { // UntagResourceRequest
  *   InstanceArn: "STRING_VALUE",

@@ -241,6 +241,7 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * ```javascript
  * import { S3Client, RestoreObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, RestoreObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3Client(config);
  * const input = { // RestoreObjectRequest
  *   Bucket: "STRING_VALUE", // required

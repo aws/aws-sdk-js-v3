@@ -54,6 +54,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * ```javascript
  * import { ChimeClient, UpdateChannelCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateChannelCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChimeClient(config);
  * const input = { // UpdateChannelRequest
  *   ChannelArn: "STRING_VALUE", // required

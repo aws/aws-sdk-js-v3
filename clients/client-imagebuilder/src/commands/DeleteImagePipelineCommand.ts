@@ -34,6 +34,7 @@ export interface DeleteImagePipelineCommandOutput extends DeleteImagePipelineRes
  * ```javascript
  * import { ImagebuilderClient, DeleteImagePipelineCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, DeleteImagePipelineCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ImagebuilderClient(config);
  * const input = { // DeleteImagePipelineRequest
  *   imagePipelineArn: "STRING_VALUE", // required

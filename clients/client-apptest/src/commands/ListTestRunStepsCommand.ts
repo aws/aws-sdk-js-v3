@@ -34,6 +34,7 @@ export interface ListTestRunStepsCommandOutput extends ListTestRunStepsResponse,
  * ```javascript
  * import { AppTestClient, ListTestRunStepsCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, ListTestRunStepsCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppTestClient(config);
  * const input = { // ListTestRunStepsRequest
  *   testRunId: "STRING_VALUE", // required

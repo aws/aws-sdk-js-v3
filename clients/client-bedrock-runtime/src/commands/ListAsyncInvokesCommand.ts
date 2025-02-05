@@ -38,6 +38,7 @@ export interface ListAsyncInvokesCommandOutput extends ListAsyncInvokesResponse,
  * ```javascript
  * import { BedrockRuntimeClient, ListAsyncInvokesCommand } from "@aws-sdk/client-bedrock-runtime"; // ES Modules import
  * // const { BedrockRuntimeClient, ListAsyncInvokesCommand } = require("@aws-sdk/client-bedrock-runtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockRuntimeClient(config);
  * const input = { // ListAsyncInvokesRequest
  *   submitTimeAfter: new Date("TIMESTAMP"),

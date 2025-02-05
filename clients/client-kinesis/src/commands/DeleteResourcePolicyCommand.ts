@@ -44,6 +44,7 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { KinesisClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KinesisClient(config);
  * const input = { // DeleteResourcePolicyInput
  *   ResourceARN: "STRING_VALUE", // required

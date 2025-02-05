@@ -43,6 +43,7 @@ export interface RerankCommandOutput extends RerankResponse, __MetadataBearer {}
  * ```javascript
  * import { BedrockAgentRuntimeClient, RerankCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, RerankCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // RerankRequest
  *   queries: [ // RerankQueriesList // required

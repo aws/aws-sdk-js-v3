@@ -43,6 +43,7 @@ export interface AllowCustomRoutingTrafficCommandOutput extends __MetadataBearer
  * ```javascript
  * import { GlobalAcceleratorClient, AllowCustomRoutingTrafficCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, AllowCustomRoutingTrafficCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GlobalAcceleratorClient(config);
  * const input = { // AllowCustomRoutingTrafficRequest
  *   EndpointGroupArn: "STRING_VALUE", // required

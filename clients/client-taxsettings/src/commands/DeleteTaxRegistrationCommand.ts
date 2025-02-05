@@ -37,6 +37,7 @@ export interface DeleteTaxRegistrationCommandOutput extends DeleteTaxRegistratio
  * ```javascript
  * import { TaxSettingsClient, DeleteTaxRegistrationCommand } from "@aws-sdk/client-taxsettings"; // ES Modules import
  * // const { TaxSettingsClient, DeleteTaxRegistrationCommand } = require("@aws-sdk/client-taxsettings"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TaxSettingsClient(config);
  * const input = { // DeleteTaxRegistrationRequest
  *   accountId: "STRING_VALUE",

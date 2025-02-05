@@ -52,6 +52,7 @@ export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __M
  * ```javascript
  * import { CloudFormationClient, CreateChangeSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, CreateChangeSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudFormationClient(config);
  * const input = { // CreateChangeSetInput
  *   StackName: "STRING_VALUE", // required

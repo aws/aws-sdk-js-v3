@@ -37,6 +37,7 @@ export interface SearchSampleQueriesCommandOutput extends SearchSampleQueriesRes
  * ```javascript
  * import { CloudTrailClient, SearchSampleQueriesCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, SearchSampleQueriesCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudTrailClient(config);
  * const input = { // SearchSampleQueriesRequest
  *   SearchPhrase: "STRING_VALUE", // required

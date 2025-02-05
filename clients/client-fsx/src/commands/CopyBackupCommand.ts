@@ -54,6 +54,7 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  * ```javascript
  * import { FSxClient, CopyBackupCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CopyBackupCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FSxClient(config);
  * const input = { // CopyBackupRequest
  *   ClientRequestToken: "STRING_VALUE",

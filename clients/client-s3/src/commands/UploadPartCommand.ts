@@ -234,6 +234,7 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  * ```javascript
  * import { S3Client, UploadPartCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, UploadPartCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3Client(config);
  * const input = { // UploadPartRequest
  *   Body: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes

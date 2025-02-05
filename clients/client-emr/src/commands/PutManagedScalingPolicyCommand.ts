@@ -37,6 +37,7 @@ export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingP
  * ```javascript
  * import { EMRClient, PutManagedScalingPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, PutManagedScalingPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EMRClient(config);
  * const input = { // PutManagedScalingPolicyInput
  *   ClusterId: "STRING_VALUE", // required

@@ -36,6 +36,7 @@ export interface StartCanaryCommandOutput extends StartCanaryResponse, __Metadat
  * ```javascript
  * import { SyntheticsClient, StartCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, StartCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SyntheticsClient(config);
  * const input = { // StartCanaryRequest
  *   Name: "STRING_VALUE", // required

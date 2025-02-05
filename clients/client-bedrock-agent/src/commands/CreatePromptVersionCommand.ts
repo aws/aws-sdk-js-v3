@@ -38,6 +38,7 @@ export interface CreatePromptVersionCommandOutput extends CreatePromptVersionRes
  * ```javascript
  * import { BedrockAgentClient, CreatePromptVersionCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, CreatePromptVersionCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockAgentClient(config);
  * const input = { // CreatePromptVersionRequest
  *   promptIdentifier: "STRING_VALUE", // required

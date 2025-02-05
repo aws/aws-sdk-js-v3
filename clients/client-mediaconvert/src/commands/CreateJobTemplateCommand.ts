@@ -34,6 +34,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * ```javascript
  * import { MediaConvertClient, CreateJobTemplateCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, CreateJobTemplateCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaConvertClient(config);
  * const input = { // CreateJobTemplateRequest
  *   AccelerationSettings: { // AccelerationSettings

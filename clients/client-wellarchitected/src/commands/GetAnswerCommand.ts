@@ -34,6 +34,7 @@ export interface GetAnswerCommandOutput extends GetAnswerOutput, __MetadataBeare
  * ```javascript
  * import { WellArchitectedClient, GetAnswerCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, GetAnswerCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WellArchitectedClient(config);
  * const input = { // GetAnswerInput
  *   WorkloadId: "STRING_VALUE", // required

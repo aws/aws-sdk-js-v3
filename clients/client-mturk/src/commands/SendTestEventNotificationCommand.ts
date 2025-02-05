@@ -40,6 +40,7 @@ export interface SendTestEventNotificationCommandOutput extends SendTestEventNot
  * ```javascript
  * import { MTurkClient, SendTestEventNotificationCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, SendTestEventNotificationCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MTurkClient(config);
  * const input = { // SendTestEventNotificationRequest
  *   Notification: { // NotificationSpecification

@@ -37,6 +37,7 @@ export interface GetDomainNameAccessAssociationsCommandOutput extends DomainName
  * ```javascript
  * import { APIGatewayClient, GetDomainNameAccessAssociationsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetDomainNameAccessAssociationsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new APIGatewayClient(config);
  * const input = { // GetDomainNameAccessAssociationsRequest
  *   position: "STRING_VALUE",

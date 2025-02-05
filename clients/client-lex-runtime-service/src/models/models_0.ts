@@ -992,8 +992,6 @@ export interface PostContentResponse {
   sentimentResponse?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>You can only use this field in the de-DE, en-AU, en-GB, en-US, es-419,
    *       es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the
    *         <code>message</code> field is null. You should use the
@@ -1014,6 +1012,8 @@ export interface PostContentResponse {
    *       returned, see <a>msg-prompts-formats</a>.</p>
    *          <p>If the Lambda function returns a message, Amazon Lex passes it to the client
    *       in its response.</p>
+   *
+   * @deprecated
    * @public
    */
   message?: string | undefined;
@@ -1139,8 +1139,6 @@ export interface PostContentResponse {
   slotToElicit?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The text used to process the request.</p>
    *          <p>You can use this field only in the de-DE, en-AU, en-GB, en-US, es-419,
    *       es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the
@@ -1151,6 +1149,8 @@ export interface PostContentResponse {
    *       that is actually processed to recognize intents and slot values. You can
    *       use this information to determine if Amazon Lex is correctly processing the
    *       audio that you send.</p>
+   *
+   * @deprecated
    * @public
    */
   inputTranscript?: string | undefined;
@@ -1893,13 +1893,13 @@ export interface PutSessionResponse {
   sessionAttributes?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The next message that should be presented to the user.</p>
    *          <p>You can only use this field in the de-DE, en-AU, en-GB, en-US, es-419,
    *       es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the
    *         <code>message</code> field is null. You should use the
    *         <code>encodedMessage</code> field instead.</p>
+   *
+   * @deprecated
    * @public
    */
   message?: string | undefined;

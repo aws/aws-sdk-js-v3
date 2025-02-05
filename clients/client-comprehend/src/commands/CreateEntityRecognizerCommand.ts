@@ -36,6 +36,7 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  * ```javascript
  * import { ComprehendClient, CreateEntityRecognizerCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateEntityRecognizerCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ComprehendClient(config);
  * const input = { // CreateEntityRecognizerRequest
  *   RecognizerName: "STRING_VALUE", // required

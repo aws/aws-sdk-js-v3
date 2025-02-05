@@ -43,6 +43,7 @@ export interface CreateBlueprintCommandOutput extends CreateBlueprintResponse, _
  * ```javascript
  * import { BedrockDataAutomationClient, CreateBlueprintCommand } from "@aws-sdk/client-bedrock-data-automation"; // ES Modules import
  * // const { BedrockDataAutomationClient, CreateBlueprintCommand } = require("@aws-sdk/client-bedrock-data-automation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockDataAutomationClient(config);
  * const input = { // CreateBlueprintRequest
  *   blueprintName: "STRING_VALUE", // required

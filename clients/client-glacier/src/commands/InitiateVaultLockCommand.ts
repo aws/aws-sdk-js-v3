@@ -68,6 +68,7 @@ export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput,
  * ```javascript
  * import { GlacierClient, InitiateVaultLockCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, InitiateVaultLockCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GlacierClient(config);
  * const input = { // InitiateVaultLockInput
  *   accountId: "STRING_VALUE", // required

@@ -38,6 +38,7 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  * ```javascript
  * import { OmicsClient, ListRunsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListRunsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OmicsClient(config);
  * const input = { // ListRunsRequest
  *   name: "STRING_VALUE",

@@ -34,6 +34,7 @@ export interface ListDevicesJobsCommandOutput extends ListDevicesJobsResponse, _
  * ```javascript
  * import { PanoramaClient, ListDevicesJobsCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListDevicesJobsCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PanoramaClient(config);
  * const input = { // ListDevicesJobsRequest
  *   DeviceId: "STRING_VALUE",

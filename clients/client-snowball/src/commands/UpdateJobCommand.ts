@@ -36,6 +36,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  * ```javascript
  * import { SnowballClient, UpdateJobCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, UpdateJobCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SnowballClient(config);
  * const input = { // UpdateJobRequest
  *   JobId: "STRING_VALUE", // required

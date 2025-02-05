@@ -38,6 +38,7 @@ export interface DeleteControlPanelCommandOutput extends DeleteControlPanelRespo
  * ```javascript
  * import { Route53RecoveryControlConfigClient, DeleteControlPanelCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, DeleteControlPanelCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Route53RecoveryControlConfigClient(config);
  * const input = { // DeleteControlPanelRequest
  *   ControlPanelArn: "STRING_VALUE", // required

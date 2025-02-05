@@ -42,6 +42,7 @@ export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxRespons
  * ```javascript
  * import { ComprehendClient, BatchDetectSyntaxCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, BatchDetectSyntaxCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ComprehendClient(config);
  * const input = { // BatchDetectSyntaxRequest
  *   TextList: [ // CustomerInputStringList // required

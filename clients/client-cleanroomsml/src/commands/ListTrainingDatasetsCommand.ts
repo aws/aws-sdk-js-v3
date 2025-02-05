@@ -34,6 +34,7 @@ export interface ListTrainingDatasetsCommandOutput extends ListTrainingDatasetsR
  * ```javascript
  * import { CleanRoomsMLClient, ListTrainingDatasetsCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, ListTrainingDatasetsCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CleanRoomsMLClient(config);
  * const input = { // ListTrainingDatasetsRequest
  *   nextToken: "STRING_VALUE",

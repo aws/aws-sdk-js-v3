@@ -78,6 +78,7 @@ export interface GetClipCommandOutput extends Omit<GetClipOutput, "Payload">, __
  * ```javascript
  * import { KinesisVideoArchivedMediaClient, GetClipCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetClipCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KinesisVideoArchivedMediaClient(config);
  * const input = { // GetClipInput
  *   StreamName: "STRING_VALUE",

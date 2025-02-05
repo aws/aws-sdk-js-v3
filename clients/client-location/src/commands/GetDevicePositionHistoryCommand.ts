@@ -42,6 +42,7 @@ export interface GetDevicePositionHistoryCommandOutput extends GetDevicePosition
  * ```javascript
  * import { LocationClient, GetDevicePositionHistoryCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, GetDevicePositionHistoryCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LocationClient(config);
  * const input = { // GetDevicePositionHistoryRequest
  *   TrackerName: "STRING_VALUE", // required

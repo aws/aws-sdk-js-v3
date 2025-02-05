@@ -35,6 +35,7 @@ export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __M
  * ```javascript
  * import { RAMClient, ListPrincipalsCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListPrincipalsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RAMClient(config);
  * const input = { // ListPrincipalsRequest
  *   resourceOwner: "SELF" || "OTHER-ACCOUNTS", // required

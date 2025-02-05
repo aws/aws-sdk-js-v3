@@ -39,6 +39,7 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  * ```javascript
  * import { ResiliencehubClient, StartAppAssessmentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, StartAppAssessmentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ResiliencehubClient(config);
  * const input = { // StartAppAssessmentRequest
  *   appArn: "STRING_VALUE", // required

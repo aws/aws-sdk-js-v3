@@ -39,6 +39,7 @@ export interface GetModelInvocationJobCommandOutput extends GetModelInvocationJo
  * ```javascript
  * import { BedrockClient, GetModelInvocationJobCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, GetModelInvocationJobCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockClient(config);
  * const input = { // GetModelInvocationJobRequest
  *   jobIdentifier: "STRING_VALUE", // required

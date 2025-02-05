@@ -42,6 +42,7 @@ export interface StartTelemetryEvaluationForOrganizationCommandOutput extends __
  * ```javascript
  * import { ObservabilityAdminClient, StartTelemetryEvaluationForOrganizationCommand } from "@aws-sdk/client-observabilityadmin"; // ES Modules import
  * // const { ObservabilityAdminClient, StartTelemetryEvaluationForOrganizationCommand } = require("@aws-sdk/client-observabilityadmin"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ObservabilityAdminClient(config);
  * const input = {};
  * const command = new StartTelemetryEvaluationForOrganizationCommand(input);

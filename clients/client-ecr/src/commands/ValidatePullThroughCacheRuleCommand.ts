@@ -42,6 +42,7 @@ export interface ValidatePullThroughCacheRuleCommandOutput
  * ```javascript
  * import { ECRClient, ValidatePullThroughCacheRuleCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, ValidatePullThroughCacheRuleCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ECRClient(config);
  * const input = { // ValidatePullThroughCacheRuleRequest
  *   ecrRepositoryPrefix: "STRING_VALUE", // required

@@ -55,6 +55,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * ```javascript
  * import { ChimeClient, CreateChannelCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateChannelCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChimeClient(config);
  * const input = { // CreateChannelRequest
  *   AppInstanceArn: "STRING_VALUE", // required

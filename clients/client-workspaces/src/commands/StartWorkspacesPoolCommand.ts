@@ -36,6 +36,7 @@ export interface StartWorkspacesPoolCommandOutput extends StartWorkspacesPoolRes
  * ```javascript
  * import { WorkSpacesClient, StartWorkspacesPoolCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, StartWorkspacesPoolCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkSpacesClient(config);
  * const input = { // StartWorkspacesPoolRequest
  *   PoolId: "STRING_VALUE", // required

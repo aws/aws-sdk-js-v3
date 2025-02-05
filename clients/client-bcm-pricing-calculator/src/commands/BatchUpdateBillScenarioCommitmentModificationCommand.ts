@@ -53,6 +53,7 @@ export interface BatchUpdateBillScenarioCommitmentModificationCommandOutput
  * ```javascript
  * import { BCMPricingCalculatorClient, BatchUpdateBillScenarioCommitmentModificationCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, BatchUpdateBillScenarioCommitmentModificationCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // BatchUpdateBillScenarioCommitmentModificationRequest
  *   billScenarioId: "STRING_VALUE", // required

@@ -45,6 +45,7 @@ export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataB
  * ```javascript
  * import { OrganizationsClient, RegisterDelegatedAdministratorCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, RegisterDelegatedAdministratorCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OrganizationsClient(config);
  * const input = { // RegisterDelegatedAdministratorRequest
  *   AccountId: "STRING_VALUE", // required

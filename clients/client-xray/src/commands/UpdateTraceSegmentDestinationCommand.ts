@@ -41,6 +41,7 @@ export interface UpdateTraceSegmentDestinationCommandOutput
  * ```javascript
  * import { XRayClient, UpdateTraceSegmentDestinationCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, UpdateTraceSegmentDestinationCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new XRayClient(config);
  * const input = { // UpdateTraceSegmentDestinationRequest
  *   Destination: "XRay" || "CloudWatchLogs",

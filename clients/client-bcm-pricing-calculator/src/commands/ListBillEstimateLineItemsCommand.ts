@@ -40,6 +40,7 @@ export interface ListBillEstimateLineItemsCommandOutput extends ListBillEstimate
  * ```javascript
  * import { BCMPricingCalculatorClient, ListBillEstimateLineItemsCommand } from "@aws-sdk/client-bcm-pricing-calculator"; // ES Modules import
  * // const { BCMPricingCalculatorClient, ListBillEstimateLineItemsCommand } = require("@aws-sdk/client-bcm-pricing-calculator"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BCMPricingCalculatorClient(config);
  * const input = { // ListBillEstimateLineItemsRequest
  *   billEstimateId: "STRING_VALUE", // required

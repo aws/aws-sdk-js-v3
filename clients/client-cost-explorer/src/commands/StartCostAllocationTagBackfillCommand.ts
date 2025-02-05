@@ -42,6 +42,7 @@ export interface StartCostAllocationTagBackfillCommandOutput
  * ```javascript
  * import { CostExplorerClient, StartCostAllocationTagBackfillCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, StartCostAllocationTagBackfillCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CostExplorerClient(config);
  * const input = { // StartCostAllocationTagBackfillRequest
  *   BackfillFrom: "STRING_VALUE", // required

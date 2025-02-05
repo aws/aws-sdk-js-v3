@@ -44,6 +44,7 @@ export interface DescribeReplicationConfigurationsCommandOutput
  * ```javascript
  * import { EFSClient, DescribeReplicationConfigurationsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeReplicationConfigurationsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EFSClient(config);
  * const input = { // DescribeReplicationConfigurationsRequest
  *   FileSystemId: "STRING_VALUE",

@@ -34,6 +34,7 @@ export interface GetSparqlStatisticsCommandOutput extends GetSparqlStatisticsOut
  * ```javascript
  * import { NeptunedataClient, GetSparqlStatisticsCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, GetSparqlStatisticsCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptunedataClient(config);
  * const input = {};
  * const command = new GetSparqlStatisticsCommand(input);

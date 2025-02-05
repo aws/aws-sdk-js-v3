@@ -34,6 +34,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * ```javascript
  * import { NetworkMonitorClient, TagResourceCommand } from "@aws-sdk/client-networkmonitor"; // ES Modules import
  * // const { NetworkMonitorClient, TagResourceCommand } = require("@aws-sdk/client-networkmonitor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkMonitorClient(config);
  * const input = { // TagResourceInput
  *   resourceArn: "STRING_VALUE", // required

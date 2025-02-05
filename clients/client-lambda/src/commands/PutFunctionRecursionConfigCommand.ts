@@ -40,6 +40,7 @@ export interface PutFunctionRecursionConfigCommandOutput extends PutFunctionRecu
  * ```javascript
  * import { LambdaClient, PutFunctionRecursionConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, PutFunctionRecursionConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LambdaClient(config);
  * const input = { // PutFunctionRecursionConfigRequest
  *   FunctionName: "STRING_VALUE", // required

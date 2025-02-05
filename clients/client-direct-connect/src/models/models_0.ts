@@ -215,9 +215,9 @@ export interface DirectConnectGatewayAssociation {
   virtualGatewayId?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The Amazon Web Services Region where the virtual private gateway is located.</p>
+   *
+   * @deprecated
    * @public
    */
   virtualGatewayRegion?: string | undefined;
@@ -564,9 +564,9 @@ export interface Connection {
   lagId?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
+   *
+   * @deprecated
    * @public
    */
   awsDevice?: string | undefined;
@@ -2273,9 +2273,9 @@ export interface Interconnect {
   lagId?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
+   *
+   * @deprecated
    * @public
    */
   awsDevice?: string | undefined;
@@ -2496,9 +2496,9 @@ export interface Lag {
   minimumLinks?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The Direct Connect endpoint that hosts the LAG.</p>
+   *
+   * @deprecated
    * @public
    */
   awsDevice?: string | undefined;

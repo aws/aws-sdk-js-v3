@@ -37,6 +37,7 @@ export interface DescribeHostsCommandOutput extends DescribeHostsResult, __Metad
  * ```javascript
  * import { EC2Client, DescribeHostsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeHostsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EC2Client(config);
  * const input = { // DescribeHostsRequest
  *   HostIds: [ // RequestHostIdList

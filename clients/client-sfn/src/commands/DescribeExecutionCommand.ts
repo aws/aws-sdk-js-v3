@@ -44,6 +44,7 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  * ```javascript
  * import { SFNClient, DescribeExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DescribeExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SFNClient(config);
  * const input = { // DescribeExecutionInput
  *   executionArn: "STRING_VALUE", // required

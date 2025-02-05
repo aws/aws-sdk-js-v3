@@ -57,6 +57,7 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * ```javascript
  * import { WisdomClient, CreateKnowledgeBaseCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, CreateKnowledgeBaseCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WisdomClient(config);
  * const input = { // CreateKnowledgeBaseRequest
  *   clientToken: "STRING_VALUE",

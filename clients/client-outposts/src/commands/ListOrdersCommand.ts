@@ -34,6 +34,7 @@ export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBea
  * ```javascript
  * import { OutpostsClient, ListOrdersCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, ListOrdersCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OutpostsClient(config);
  * const input = { // ListOrdersInput
  *   OutpostIdentifierFilter: "STRING_VALUE",

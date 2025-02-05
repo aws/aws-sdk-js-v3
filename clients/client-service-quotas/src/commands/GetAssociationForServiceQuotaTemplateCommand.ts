@@ -43,6 +43,7 @@ export interface GetAssociationForServiceQuotaTemplateCommandOutput
  * ```javascript
  * import { ServiceQuotasClient, GetAssociationForServiceQuotaTemplateCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, GetAssociationForServiceQuotaTemplateCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceQuotasClient(config);
  * const input = {};
  * const command = new GetAssociationForServiceQuotaTemplateCommand(input);

@@ -38,6 +38,7 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  * ```javascript
  * import { GrafanaClient, DeleteWorkspaceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, DeleteWorkspaceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GrafanaClient(config);
  * const input = { // DeleteWorkspaceRequest
  *   workspaceId: "STRING_VALUE", // required

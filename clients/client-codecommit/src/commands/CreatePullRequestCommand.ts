@@ -34,6 +34,7 @@ export interface CreatePullRequestCommandOutput extends CreatePullRequestOutput,
  * ```javascript
  * import { CodeCommitClient, CreatePullRequestCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, CreatePullRequestCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeCommitClient(config);
  * const input = { // CreatePullRequestInput
  *   title: "STRING_VALUE", // required

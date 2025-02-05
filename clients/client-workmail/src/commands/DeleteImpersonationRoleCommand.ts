@@ -34,6 +34,7 @@ export interface DeleteImpersonationRoleCommandOutput extends DeleteImpersonatio
  * ```javascript
  * import { WorkMailClient, DeleteImpersonationRoleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeleteImpersonationRoleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkMailClient(config);
  * const input = { // DeleteImpersonationRoleRequest
  *   OrganizationId: "STRING_VALUE", // required

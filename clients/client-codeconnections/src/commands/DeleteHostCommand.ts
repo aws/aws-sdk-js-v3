@@ -37,6 +37,7 @@ export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBea
  * ```javascript
  * import { CodeConnectionsClient, DeleteHostCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, DeleteHostCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeConnectionsClient(config);
  * const input = { // DeleteHostInput
  *   HostArn: "STRING_VALUE", // required

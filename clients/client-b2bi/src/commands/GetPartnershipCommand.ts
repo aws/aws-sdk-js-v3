@@ -39,6 +39,7 @@ export interface GetPartnershipCommandOutput extends GetPartnershipResponse, __M
  * ```javascript
  * import { B2biClient, GetPartnershipCommand } from "@aws-sdk/client-b2bi"; // ES Modules import
  * // const { B2biClient, GetPartnershipCommand } = require("@aws-sdk/client-b2bi"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new B2biClient(config);
  * const input = { // GetPartnershipRequest
  *   partnershipId: "STRING_VALUE", // required

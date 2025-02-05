@@ -81,6 +81,7 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  * ```javascript
  * import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, InvokeCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LambdaClient(config);
  * const input = { // InvocationRequest
  *   FunctionName: "STRING_VALUE", // required

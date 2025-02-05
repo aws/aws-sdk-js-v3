@@ -36,6 +36,7 @@ export interface DeleteIndexCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { KendraClient, DeleteIndexCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DeleteIndexCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KendraClient(config);
  * const input = { // DeleteIndexRequest
  *   Id: "STRING_VALUE", // required

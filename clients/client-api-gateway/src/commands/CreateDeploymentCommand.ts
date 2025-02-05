@@ -34,6 +34,7 @@ export interface CreateDeploymentCommandOutput extends Deployment, __MetadataBea
  * ```javascript
  * import { APIGatewayClient, CreateDeploymentCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateDeploymentCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new APIGatewayClient(config);
  * const input = { // CreateDeploymentRequest
  *   restApiId: "STRING_VALUE", // required

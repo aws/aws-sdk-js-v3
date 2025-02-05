@@ -35,6 +35,7 @@ export interface CancelImageCreationCommandOutput extends CancelImageCreationRes
  * ```javascript
  * import { ImagebuilderClient, CancelImageCreationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, CancelImageCreationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ImagebuilderClient(config);
  * const input = { // CancelImageCreationRequest
  *   imageBuildVersionArn: "STRING_VALUE", // required

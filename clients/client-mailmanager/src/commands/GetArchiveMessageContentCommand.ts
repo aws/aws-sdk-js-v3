@@ -36,6 +36,7 @@ export interface GetArchiveMessageContentCommandOutput extends GetArchiveMessage
  * ```javascript
  * import { MailManagerClient, GetArchiveMessageContentCommand } from "@aws-sdk/client-mailmanager"; // ES Modules import
  * // const { MailManagerClient, GetArchiveMessageContentCommand } = require("@aws-sdk/client-mailmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MailManagerClient(config);
  * const input = { // GetArchiveMessageContentRequest
  *   ArchivedMessageId: "STRING_VALUE", // required

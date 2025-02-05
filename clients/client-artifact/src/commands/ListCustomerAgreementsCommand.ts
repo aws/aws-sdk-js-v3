@@ -34,6 +34,7 @@ export interface ListCustomerAgreementsCommandOutput extends ListCustomerAgreeme
  * ```javascript
  * import { ArtifactClient, ListCustomerAgreementsCommand } from "@aws-sdk/client-artifact"; // ES Modules import
  * // const { ArtifactClient, ListCustomerAgreementsCommand } = require("@aws-sdk/client-artifact"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ArtifactClient(config);
  * const input = { // ListCustomerAgreementsRequest
  *   maxResults: Number("int"),

@@ -45,6 +45,7 @@ export interface ListSupplementalTaxRegistrationsCommandOutput
  * ```javascript
  * import { TaxSettingsClient, ListSupplementalTaxRegistrationsCommand } from "@aws-sdk/client-taxsettings"; // ES Modules import
  * // const { TaxSettingsClient, ListSupplementalTaxRegistrationsCommand } = require("@aws-sdk/client-taxsettings"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TaxSettingsClient(config);
  * const input = { // ListSupplementalTaxRegistrationsRequest
  *   maxResults: Number("int"),

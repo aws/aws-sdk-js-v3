@@ -36,6 +36,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * ```javascript
  * import { FinspaceClient, GetEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, GetEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FinspaceClient(config);
  * const input = { // GetEnvironmentRequest
  *   environmentId: "STRING_VALUE", // required

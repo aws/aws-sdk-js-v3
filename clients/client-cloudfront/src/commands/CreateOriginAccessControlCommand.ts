@@ -40,6 +40,7 @@ export interface CreateOriginAccessControlCommandOutput extends CreateOriginAcce
  * ```javascript
  * import { CloudFrontClient, CreateOriginAccessControlCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateOriginAccessControlCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudFrontClient(config);
  * const input = { // CreateOriginAccessControlRequest
  *   OriginAccessControlConfig: { // OriginAccessControlConfig

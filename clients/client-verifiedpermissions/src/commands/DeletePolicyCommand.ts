@@ -40,6 +40,7 @@ export interface DeletePolicyCommandOutput extends DeletePolicyOutput, __Metadat
  * ```javascript
  * import { VerifiedPermissionsClient, DeletePolicyCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, DeletePolicyCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // DeletePolicyInput
  *   policyStoreId: "STRING_VALUE", // required

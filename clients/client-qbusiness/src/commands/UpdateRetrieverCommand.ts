@@ -34,6 +34,7 @@ export interface UpdateRetrieverCommandOutput extends UpdateRetrieverResponse, _
  * ```javascript
  * import { QBusinessClient, UpdateRetrieverCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, UpdateRetrieverCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QBusinessClient(config);
  * const input = { // UpdateRetrieverRequest
  *   applicationId: "STRING_VALUE", // required

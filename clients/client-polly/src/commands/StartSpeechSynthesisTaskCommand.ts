@@ -43,6 +43,7 @@ export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthe
  * ```javascript
  * import { PollyClient, StartSpeechSynthesisTaskCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, StartSpeechSynthesisTaskCommand } = require("@aws-sdk/client-polly"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PollyClient(config);
  * const input = { // StartSpeechSynthesisTaskInput
  *   Engine: "standard" || "neural" || "long-form" || "generative",

@@ -50,6 +50,7 @@ export interface RotateTunnelAccessTokenCommandOutput extends RotateTunnelAccess
  * ```javascript
  * import { IoTSecureTunnelingClient, RotateTunnelAccessTokenCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
  * // const { IoTSecureTunnelingClient, RotateTunnelAccessTokenCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTSecureTunnelingClient(config);
  * const input = { // RotateTunnelAccessTokenRequest
  *   tunnelId: "STRING_VALUE", // required

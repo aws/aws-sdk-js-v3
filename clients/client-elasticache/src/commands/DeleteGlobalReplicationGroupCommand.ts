@@ -56,6 +56,7 @@ export interface DeleteGlobalReplicationGroupCommandOutput
  * ```javascript
  * import { ElastiCacheClient, DeleteGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ElastiCacheClient(config);
  * const input = { // DeleteGlobalReplicationGroupMessage
  *   GlobalReplicationGroupId: "STRING_VALUE", // required

@@ -40,6 +40,7 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * ```javascript
  * import { GeoPlacesClient, GetPlaceCommand } from "@aws-sdk/client-geo-places"; // ES Modules import
  * // const { GeoPlacesClient, GetPlaceCommand } = require("@aws-sdk/client-geo-places"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GeoPlacesClient(config);
  * const input = { // GetPlaceRequest
  *   PlaceId: "STRING_VALUE", // required

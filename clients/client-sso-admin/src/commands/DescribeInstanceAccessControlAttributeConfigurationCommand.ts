@@ -46,6 +46,7 @@ export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutpu
  * ```javascript
  * import { SSOAdminClient, DescribeInstanceAccessControlAttributeConfigurationCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DescribeInstanceAccessControlAttributeConfigurationCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSOAdminClient(config);
  * const input = { // DescribeInstanceAccessControlAttributeConfigurationRequest
  *   InstanceArn: "STRING_VALUE", // required

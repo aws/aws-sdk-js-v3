@@ -54,6 +54,7 @@ export interface PublishBatchCommandOutput extends PublishBatchResponse, __Metad
  * ```javascript
  * import { SNSClient, PublishBatchCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, PublishBatchCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SNSClient(config);
  * const input = { // PublishBatchInput
  *   TopicArn: "STRING_VALUE", // required

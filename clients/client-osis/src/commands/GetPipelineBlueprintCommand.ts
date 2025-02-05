@@ -37,6 +37,7 @@ export interface GetPipelineBlueprintCommandOutput extends GetPipelineBlueprintR
  * ```javascript
  * import { OSISClient, GetPipelineBlueprintCommand } from "@aws-sdk/client-osis"; // ES Modules import
  * // const { OSISClient, GetPipelineBlueprintCommand } = require("@aws-sdk/client-osis"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OSISClient(config);
  * const input = { // GetPipelineBlueprintRequest
  *   BlueprintName: "STRING_VALUE", // required

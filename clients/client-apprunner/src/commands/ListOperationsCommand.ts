@@ -36,6 +36,7 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * ```javascript
  * import { AppRunnerClient, ListOperationsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListOperationsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppRunnerClient(config);
  * const input = { // ListOperationsRequest
  *   ServiceArn: "STRING_VALUE", // required

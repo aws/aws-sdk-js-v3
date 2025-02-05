@@ -36,6 +36,7 @@ export interface ListBatchJobDefinitionsCommandOutput extends ListBatchJobDefini
  * ```javascript
  * import { M2Client, ListBatchJobDefinitionsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListBatchJobDefinitionsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new M2Client(config);
  * const input = { // ListBatchJobDefinitionsRequest
  *   nextToken: "STRING_VALUE",

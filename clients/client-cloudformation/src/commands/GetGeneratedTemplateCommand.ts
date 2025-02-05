@@ -37,6 +37,7 @@ export interface GetGeneratedTemplateCommandOutput extends GetGeneratedTemplateO
  * ```javascript
  * import { CloudFormationClient, GetGeneratedTemplateCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, GetGeneratedTemplateCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudFormationClient(config);
  * const input = { // GetGeneratedTemplateInput
  *   Format: "JSON" || "YAML",

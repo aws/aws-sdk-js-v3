@@ -34,6 +34,7 @@ export interface ListResourceDefinitionsCommandOutput extends ListResourceDefini
  * ```javascript
  * import { GreengrassClient, ListResourceDefinitionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListResourceDefinitionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GreengrassClient(config);
  * const input = { // ListResourceDefinitionsRequest
  *   MaxResults: "STRING_VALUE",

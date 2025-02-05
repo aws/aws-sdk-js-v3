@@ -60,6 +60,7 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * ```javascript
  * import { PersonalizeRuntimeClient, GetRecommendationsCommand } from "@aws-sdk/client-personalize-runtime"; // ES Modules import
  * // const { PersonalizeRuntimeClient, GetRecommendationsCommand } = require("@aws-sdk/client-personalize-runtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PersonalizeRuntimeClient(config);
  * const input = { // GetRecommendationsRequest
  *   campaignArn: "STRING_VALUE",

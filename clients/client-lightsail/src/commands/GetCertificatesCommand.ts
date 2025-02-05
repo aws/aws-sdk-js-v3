@@ -39,6 +39,7 @@ export interface GetCertificatesCommandOutput extends GetCertificatesResult, __M
  * ```javascript
  * import { LightsailClient, GetCertificatesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetCertificatesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LightsailClient(config);
  * const input = { // GetCertificatesRequest
  *   certificateStatuses: [ // CertificateStatusList

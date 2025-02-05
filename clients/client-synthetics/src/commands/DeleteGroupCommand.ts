@@ -38,6 +38,7 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * ```javascript
  * import { SyntheticsClient, DeleteGroupCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, DeleteGroupCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SyntheticsClient(config);
  * const input = { // DeleteGroupRequest
  *   GroupIdentifier: "STRING_VALUE", // required

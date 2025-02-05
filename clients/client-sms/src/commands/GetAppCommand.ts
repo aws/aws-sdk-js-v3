@@ -34,6 +34,7 @@ export interface GetAppCommandOutput extends GetAppResponse, __MetadataBearer {}
  * ```javascript
  * import { SMSClient, GetAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GetAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SMSClient(config);
  * const input = { // GetAppRequest
  *   appId: "STRING_VALUE",

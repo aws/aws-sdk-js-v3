@@ -34,6 +34,7 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
  * ```javascript
  * import { MediaPackageVodClient, CreateAssetCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, CreateAssetCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaPackageVodClient(config);
  * const input = { // CreateAssetRequest
  *   Id: "STRING_VALUE", // required

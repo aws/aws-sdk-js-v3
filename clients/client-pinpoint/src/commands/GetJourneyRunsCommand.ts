@@ -34,6 +34,7 @@ export interface GetJourneyRunsCommandOutput extends GetJourneyRunsResponse, __M
  * ```javascript
  * import { PinpointClient, GetJourneyRunsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetJourneyRunsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointClient(config);
  * const input = { // GetJourneyRunsRequest
  *   ApplicationId: "STRING_VALUE", // required

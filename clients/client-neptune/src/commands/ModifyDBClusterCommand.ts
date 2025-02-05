@@ -35,6 +35,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * ```javascript
  * import { NeptuneClient, ModifyDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptuneClient(config);
  * const input = { // ModifyDBClusterMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required

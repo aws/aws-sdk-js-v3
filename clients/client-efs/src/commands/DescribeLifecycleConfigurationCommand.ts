@@ -45,6 +45,7 @@ export interface DescribeLifecycleConfigurationCommandOutput
  * ```javascript
  * import { EFSClient, DescribeLifecycleConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeLifecycleConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EFSClient(config);
  * const input = { // DescribeLifecycleConfigurationRequest
  *   FileSystemId: "STRING_VALUE", // required

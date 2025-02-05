@@ -39,6 +39,7 @@ export interface GetStatementResultV2CommandOutput extends GetStatementResultV2R
  * ```javascript
  * import { RedshiftDataClient, GetStatementResultV2Command } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, GetStatementResultV2Command } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftDataClient(config);
  * const input = { // GetStatementResultV2Request
  *   Id: "STRING_VALUE", // required

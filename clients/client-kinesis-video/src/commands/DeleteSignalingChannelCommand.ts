@@ -36,6 +36,7 @@ export interface DeleteSignalingChannelCommandOutput extends DeleteSignalingChan
  * ```javascript
  * import { KinesisVideoClient, DeleteSignalingChannelCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DeleteSignalingChannelCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KinesisVideoClient(config);
  * const input = { // DeleteSignalingChannelInput
  *   ChannelARN: "STRING_VALUE", // required

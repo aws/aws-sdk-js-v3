@@ -38,6 +38,7 @@ export interface UpdateKeysCommandOutput extends UpdateKeysResponse, __MetadataB
  * ```javascript
  * import { CloudFrontKeyValueStoreClient, UpdateKeysCommand } from "@aws-sdk/client-cloudfront-keyvaluestore"; // ES Modules import
  * // const { CloudFrontKeyValueStoreClient, UpdateKeysCommand } = require("@aws-sdk/client-cloudfront-keyvaluestore"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudFrontKeyValueStoreClient(config);
  * const input = { // UpdateKeysRequest
  *   KvsARN: "STRING_VALUE", // required

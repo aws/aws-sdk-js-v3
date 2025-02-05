@@ -34,6 +34,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * ```javascript
  * import { ECSClient, UpdateClusterCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateClusterCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ECSClient(config);
  * const input = { // UpdateClusterRequest
  *   cluster: "STRING_VALUE", // required

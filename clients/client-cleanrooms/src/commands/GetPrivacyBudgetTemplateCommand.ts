@@ -34,6 +34,7 @@ export interface GetPrivacyBudgetTemplateCommandOutput extends GetPrivacyBudgetT
  * ```javascript
  * import { CleanRoomsClient, GetPrivacyBudgetTemplateCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetPrivacyBudgetTemplateCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CleanRoomsClient(config);
  * const input = { // GetPrivacyBudgetTemplateInput
  *   membershipIdentifier: "STRING_VALUE", // required

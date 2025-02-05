@@ -40,6 +40,7 @@ export interface AssociateTrackerConsumerCommandOutput extends AssociateTrackerC
  * ```javascript
  * import { LocationClient, AssociateTrackerConsumerCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, AssociateTrackerConsumerCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LocationClient(config);
  * const input = { // AssociateTrackerConsumerRequest
  *   TrackerName: "STRING_VALUE", // required

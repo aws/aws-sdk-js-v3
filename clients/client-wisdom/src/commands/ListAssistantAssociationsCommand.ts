@@ -34,6 +34,7 @@ export interface ListAssistantAssociationsCommandOutput extends ListAssistantAss
  * ```javascript
  * import { WisdomClient, ListAssistantAssociationsCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, ListAssistantAssociationsCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WisdomClient(config);
  * const input = { // ListAssistantAssociationsRequest
  *   nextToken: "STRING_VALUE",

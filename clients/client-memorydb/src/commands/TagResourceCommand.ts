@@ -43,6 +43,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { MemoryDBClient, TagResourceCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, TagResourceCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MemoryDBClient(config);
  * const input = { // TagResourceRequest
  *   ResourceArn: "STRING_VALUE", // required

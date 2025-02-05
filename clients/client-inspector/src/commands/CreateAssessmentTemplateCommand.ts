@@ -37,6 +37,7 @@ export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentT
  * ```javascript
  * import { InspectorClient, CreateAssessmentTemplateCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, CreateAssessmentTemplateCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new InspectorClient(config);
  * const input = { // CreateAssessmentTemplateRequest
  *   assessmentTargetArn: "STRING_VALUE", // required

@@ -51,6 +51,7 @@ export interface CancelFlowExecutionsCommandOutput extends CancelFlowExecutionsR
  * ```javascript
  * import { AppflowClient, CancelFlowExecutionsCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, CancelFlowExecutionsCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppflowClient(config);
  * const input = { // CancelFlowExecutionsRequest
  *   flowName: "STRING_VALUE", // required

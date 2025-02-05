@@ -34,6 +34,7 @@ export interface DeleteEmailChannelCommandOutput extends DeleteEmailChannelRespo
  * ```javascript
  * import { PinpointClient, DeleteEmailChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteEmailChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointClient(config);
  * const input = { // DeleteEmailChannelRequest
  *   ApplicationId: "STRING_VALUE", // required

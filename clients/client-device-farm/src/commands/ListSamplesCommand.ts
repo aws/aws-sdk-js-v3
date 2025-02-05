@@ -34,6 +34,7 @@ export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataB
  * ```javascript
  * import { DeviceFarmClient, ListSamplesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListSamplesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DeviceFarmClient(config);
  * const input = { // ListSamplesRequest
  *   arn: "STRING_VALUE", // required

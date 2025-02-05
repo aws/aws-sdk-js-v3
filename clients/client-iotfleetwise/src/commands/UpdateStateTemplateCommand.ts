@@ -37,6 +37,7 @@ export interface UpdateStateTemplateCommandOutput extends UpdateStateTemplateRes
  * ```javascript
  * import { IoTFleetWiseClient, UpdateStateTemplateCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, UpdateStateTemplateCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTFleetWiseClient(config);
  * const input = { // UpdateStateTemplateRequest
  *   identifier: "STRING_VALUE", // required

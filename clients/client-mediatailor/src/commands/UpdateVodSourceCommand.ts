@@ -34,6 +34,7 @@ export interface UpdateVodSourceCommandOutput extends UpdateVodSourceResponse, _
  * ```javascript
  * import { MediaTailorClient, UpdateVodSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, UpdateVodSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaTailorClient(config);
  * const input = { // UpdateVodSourceRequest
  *   HttpPackageConfigurations: [ // HttpPackageConfigurations // required

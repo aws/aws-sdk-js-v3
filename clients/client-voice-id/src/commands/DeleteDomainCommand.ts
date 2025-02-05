@@ -34,6 +34,7 @@ export interface DeleteDomainCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { VoiceIDClient, DeleteDomainCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, DeleteDomainCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new VoiceIDClient(config);
  * const input = { // DeleteDomainRequest
  *   DomainId: "STRING_VALUE", // required

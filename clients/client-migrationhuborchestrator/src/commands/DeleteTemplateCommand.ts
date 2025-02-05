@@ -38,6 +38,7 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * ```javascript
  * import { MigrationHubOrchestratorClient, DeleteTemplateCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, DeleteTemplateCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MigrationHubOrchestratorClient(config);
  * const input = { // DeleteTemplateRequest
  *   id: "STRING_VALUE", // required

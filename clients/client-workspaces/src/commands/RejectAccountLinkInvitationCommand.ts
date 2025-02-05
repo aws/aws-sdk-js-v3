@@ -34,6 +34,7 @@ export interface RejectAccountLinkInvitationCommandOutput extends RejectAccountL
  * ```javascript
  * import { WorkSpacesClient, RejectAccountLinkInvitationCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, RejectAccountLinkInvitationCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkSpacesClient(config);
  * const input = { // RejectAccountLinkInvitationRequest
  *   LinkId: "STRING_VALUE", // required

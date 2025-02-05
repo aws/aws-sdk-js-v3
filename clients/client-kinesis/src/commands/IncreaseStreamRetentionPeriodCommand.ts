@@ -50,6 +50,7 @@ export interface IncreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  * ```javascript
  * import { KinesisClient, IncreaseStreamRetentionPeriodCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, IncreaseStreamRetentionPeriodCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KinesisClient(config);
  * const input = { // IncreaseStreamRetentionPeriodInput
  *   StreamName: "STRING_VALUE",

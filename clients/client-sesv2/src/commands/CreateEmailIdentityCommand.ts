@@ -63,6 +63,7 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * ```javascript
  * import { SESv2Client, CreateEmailIdentityCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateEmailIdentityCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SESv2Client(config);
  * const input = { // CreateEmailIdentityRequest
  *   EmailIdentity: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataB
  * ```javascript
  * import { LicenseManagerClient, ListTokensCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListTokensCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LicenseManagerClient(config);
  * const input = { // ListTokensRequest
  *   TokenIds: [ // StringList

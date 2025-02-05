@@ -34,6 +34,7 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * ```javascript
  * import { IdentitystoreClient, DeleteUserCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, DeleteUserCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IdentitystoreClient(config);
  * const input = { // DeleteUserRequest
  *   IdentityStoreId: "STRING_VALUE", // required

@@ -38,6 +38,7 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * ```javascript
  * import { MigrationHubRefactorSpacesClient, GetServiceCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, GetServiceCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MigrationHubRefactorSpacesClient(config);
  * const input = { // GetServiceRequest
  *   EnvironmentIdentifier: "STRING_VALUE", // required

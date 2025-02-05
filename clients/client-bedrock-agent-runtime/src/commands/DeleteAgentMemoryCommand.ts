@@ -38,6 +38,7 @@ export interface DeleteAgentMemoryCommandOutput extends DeleteAgentMemoryRespons
  * ```javascript
  * import { BedrockAgentRuntimeClient, DeleteAgentMemoryCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
  * // const { BedrockAgentRuntimeClient, DeleteAgentMemoryCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // DeleteAgentMemoryRequest
  *   agentId: "STRING_VALUE", // required

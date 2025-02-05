@@ -34,6 +34,7 @@ export interface ListTestCasesCommandOutput extends ListTestCasesResponse, __Met
  * ```javascript
  * import { AppTestClient, ListTestCasesCommand } from "@aws-sdk/client-apptest"; // ES Modules import
  * // const { AppTestClient, ListTestCasesCommand } = require("@aws-sdk/client-apptest"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppTestClient(config);
  * const input = { // ListTestCasesRequest
  *   testCaseIds: [ // TestCaseIdList

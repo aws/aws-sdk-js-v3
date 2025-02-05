@@ -34,6 +34,7 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  * ```javascript
  * import { AutoScalingClient, DescribePoliciesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribePoliciesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AutoScalingClient(config);
  * const input = { // DescribePoliciesType
  *   AutoScalingGroupName: "STRING_VALUE",

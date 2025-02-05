@@ -34,6 +34,7 @@ export interface ListAssociatedStacksCommandOutput extends ListAssociatedStacksR
  * ```javascript
  * import { AppStreamClient, ListAssociatedStacksCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, ListAssociatedStacksCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppStreamClient(config);
  * const input = { // ListAssociatedStacksRequest
  *   FleetName: "STRING_VALUE", // required

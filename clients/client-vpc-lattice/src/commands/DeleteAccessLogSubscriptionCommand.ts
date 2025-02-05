@@ -39,6 +39,7 @@ export interface DeleteAccessLogSubscriptionCommandOutput
  * ```javascript
  * import { VPCLatticeClient, DeleteAccessLogSubscriptionCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
  * // const { VPCLatticeClient, DeleteAccessLogSubscriptionCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new VPCLatticeClient(config);
  * const input = { // DeleteAccessLogSubscriptionRequest
  *   accessLogSubscriptionIdentifier: "STRING_VALUE", // required

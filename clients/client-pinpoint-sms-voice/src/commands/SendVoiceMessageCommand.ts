@@ -34,6 +34,7 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResponse,
  * ```javascript
  * import { PinpointSMSVoiceClient, SendVoiceMessageCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
  * // const { PinpointSMSVoiceClient, SendVoiceMessageCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointSMSVoiceClient(config);
  * const input = { // SendVoiceMessageRequest
  *   CallerId: "STRING_VALUE",

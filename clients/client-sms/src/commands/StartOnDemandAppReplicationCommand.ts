@@ -36,6 +36,7 @@ export interface StartOnDemandAppReplicationCommandOutput
  * ```javascript
  * import { SMSClient, StartOnDemandAppReplicationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, StartOnDemandAppReplicationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SMSClient(config);
  * const input = { // StartOnDemandAppReplicationRequest
  *   appId: "STRING_VALUE", // required

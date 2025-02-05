@@ -34,6 +34,7 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  * ```javascript
  * import { BedrockAgentClient, DeleteFlowCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, DeleteFlowCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockAgentClient(config);
  * const input = { // DeleteFlowRequest
  *   flowIdentifier: "STRING_VALUE", // required

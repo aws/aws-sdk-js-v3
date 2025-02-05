@@ -38,6 +38,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * ```javascript
  * import { CostAndUsageReportServiceClient, TagResourceCommand } from "@aws-sdk/client-cost-and-usage-report-service"; // ES Modules import
  * // const { CostAndUsageReportServiceClient, TagResourceCommand } = require("@aws-sdk/client-cost-and-usage-report-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CostAndUsageReportServiceClient(config);
  * const input = { // TagResourceRequest
  *   ReportName: "STRING_VALUE", // required

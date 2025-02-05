@@ -35,6 +35,7 @@ export interface UpdateAdapterCommandOutput extends UpdateAdapterResponse, __Met
  * ```javascript
  * import { TextractClient, UpdateAdapterCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, UpdateAdapterCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TextractClient(config);
  * const input = { // UpdateAdapterRequest
  *   AdapterId: "STRING_VALUE", // required

@@ -1389,8 +1389,6 @@ export interface CreateNFSFileShareInput {
   EncryptionType?: EncryptionType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with
    *          your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by
    *             Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the
@@ -1407,6 +1405,8 @@ export interface CreateNFSFileShareInput {
    *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
+   *
+   * @deprecated
    * @public
    */
   KMSEncrypted?: boolean | undefined;
@@ -1673,8 +1673,6 @@ export interface CreateSMBFileShareInput {
   EncryptionType?: EncryptionType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with
    *          your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by
    *             Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the
@@ -1691,6 +1689,8 @@ export interface CreateSMBFileShareInput {
    *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
+   *
+   * @deprecated
    * @public
    */
   KMSEncrypted?: boolean | undefined;
@@ -3698,8 +3698,6 @@ export interface NFSFileShareInfo {
   EncryptionType?: EncryptionType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with
    *          your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by
    *             Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the
@@ -3716,6 +3714,8 @@ export interface NFSFileShareInfo {
    *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
+   *
+   * @deprecated
    * @public
    */
   KMSEncrypted?: boolean | undefined;
@@ -4009,8 +4009,6 @@ export interface SMBFileShareInfo {
   EncryptionType?: EncryptionType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with
    *          your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by
    *             Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the
@@ -4027,6 +4025,8 @@ export interface SMBFileShareInfo {
    *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
+   *
+   * @deprecated
    * @public
    */
   KMSEncrypted?: boolean | undefined;
@@ -7382,8 +7382,6 @@ export interface UpdateNFSFileShareInput {
   EncryptionType?: EncryptionType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with
    *          your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by
    *             Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the
@@ -7400,6 +7398,8 @@ export interface UpdateNFSFileShareInput {
    *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
+   *
+   * @deprecated
    * @public
    */
   KMSEncrypted?: boolean | undefined;
@@ -7596,8 +7596,6 @@ export interface UpdateSMBFileShareInput {
   EncryptionType?: EncryptionType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Optional. Set to <code>true</code> to use Amazon S3 server-side encryption with
    *          your own KMS key (SSE-KMS), or <code>false</code> to use a key managed by
    *             Amazon S3 (SSE-S3). To use dual-layer encryption (DSSE-KMS), set the
@@ -7614,6 +7612,8 @@ export interface UpdateSMBFileShareInput {
    *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
+   *
+   * @deprecated
    * @public
    */
   KMSEncrypted?: boolean | undefined;

@@ -34,6 +34,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { ServiceQuotasClient, ListTagsForResourceCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, ListTagsForResourceCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceQuotasClient(config);
  * const input = { // ListTagsForResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

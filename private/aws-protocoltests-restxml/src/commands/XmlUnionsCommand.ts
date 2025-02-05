@@ -33,6 +33,7 @@ export interface XmlUnionsCommandOutput extends XmlUnionsResponse, __MetadataBea
  * ```javascript
  * import { RestXmlProtocolClient, XmlUnionsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlUnionsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RestXmlProtocolClient(config);
  * const input = { // XmlUnionsRequest
  *   unionValue: { // XmlUnionShape Union: only one key present

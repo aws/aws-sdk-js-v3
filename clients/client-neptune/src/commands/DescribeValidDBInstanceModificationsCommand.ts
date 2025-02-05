@@ -44,6 +44,7 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * ```javascript
  * import { NeptuneClient, DescribeValidDBInstanceModificationsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeValidDBInstanceModificationsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptuneClient(config);
  * const input = { // DescribeValidDBInstanceModificationsMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required

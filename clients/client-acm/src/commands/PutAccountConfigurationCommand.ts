@@ -39,6 +39,7 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  * ```javascript
  * import { ACMClient, PutAccountConfigurationCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, PutAccountConfigurationCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ACMClient(config);
  * const input = { // PutAccountConfigurationRequest
  *   ExpiryEvents: { // ExpiryEventsConfiguration

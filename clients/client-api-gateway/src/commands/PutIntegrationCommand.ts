@@ -34,6 +34,7 @@ export interface PutIntegrationCommandOutput extends Integration, __MetadataBear
  * ```javascript
  * import { APIGatewayClient, PutIntegrationCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, PutIntegrationCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new APIGatewayClient(config);
  * const input = { // PutIntegrationRequest
  *   restApiId: "STRING_VALUE", // required

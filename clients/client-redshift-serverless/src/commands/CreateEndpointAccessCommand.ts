@@ -38,6 +38,7 @@ export interface CreateEndpointAccessCommandOutput extends CreateEndpointAccessR
  * ```javascript
  * import { RedshiftServerlessClient, CreateEndpointAccessCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, CreateEndpointAccessCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftServerlessClient(config);
  * const input = { // CreateEndpointAccessRequest
  *   endpointName: "STRING_VALUE", // required

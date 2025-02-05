@@ -34,6 +34,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __M
  * ```javascript
  * import { BCMDataExportsClient, ListExecutionsCommand } from "@aws-sdk/client-bcm-data-exports"; // ES Modules import
  * // const { BCMDataExportsClient, ListExecutionsCommand } = require("@aws-sdk/client-bcm-data-exports"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BCMDataExportsClient(config);
  * const input = { // ListExecutionsRequest
  *   ExportArn: "STRING_VALUE", // required

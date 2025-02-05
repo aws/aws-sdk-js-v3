@@ -34,6 +34,7 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * ```javascript
  * import { DrsClient, DescribeJobLogItemsCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DescribeJobLogItemsCommand } = require("@aws-sdk/client-drs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DrsClient(config);
  * const input = { // DescribeJobLogItemsRequest
  *   jobID: "STRING_VALUE", // required

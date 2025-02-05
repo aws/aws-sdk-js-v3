@@ -38,6 +38,7 @@ export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __M
  * ```javascript
  * import { CodeGuruProfilerClient, ConfigureAgentCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, ConfigureAgentCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // ConfigureAgentRequest
  *   profilingGroupName: "STRING_VALUE", // required

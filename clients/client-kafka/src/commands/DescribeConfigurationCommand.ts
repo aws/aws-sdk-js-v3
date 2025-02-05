@@ -34,6 +34,7 @@ export interface DescribeConfigurationCommandOutput extends DescribeConfiguratio
  * ```javascript
  * import { KafkaClient, DescribeConfigurationCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, DescribeConfigurationCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KafkaClient(config);
  * const input = { // DescribeConfigurationRequest
  *   Arn: "STRING_VALUE", // required

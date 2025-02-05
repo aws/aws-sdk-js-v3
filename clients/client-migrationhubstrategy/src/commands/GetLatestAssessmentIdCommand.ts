@@ -38,6 +38,7 @@ export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentI
  * ```javascript
  * import { MigrationHubStrategyClient, GetLatestAssessmentIdCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetLatestAssessmentIdCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MigrationHubStrategyClient(config);
  * const input = {};
  * const command = new GetLatestAssessmentIdCommand(input);

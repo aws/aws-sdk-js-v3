@@ -35,6 +35,7 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * ```javascript
  * import { SMSClient, CreateAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, CreateAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SMSClient(config);
  * const input = { // CreateAppRequest
  *   name: "STRING_VALUE",

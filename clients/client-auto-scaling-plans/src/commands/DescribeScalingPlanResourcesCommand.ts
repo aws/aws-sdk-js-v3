@@ -39,6 +39,7 @@ export interface DescribeScalingPlanResourcesCommandOutput
  * ```javascript
  * import { AutoScalingPlansClient, DescribeScalingPlanResourcesCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
  * // const { AutoScalingPlansClient, DescribeScalingPlanResourcesCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AutoScalingPlansClient(config);
  * const input = { // DescribeScalingPlanResourcesRequest
  *   ScalingPlanName: "STRING_VALUE", // required

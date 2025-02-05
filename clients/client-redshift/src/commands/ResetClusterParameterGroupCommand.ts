@@ -38,6 +38,7 @@ export interface ResetClusterParameterGroupCommandOutput extends ClusterParamete
  * ```javascript
  * import { RedshiftClient, ResetClusterParameterGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ResetClusterParameterGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftClient(config);
  * const input = { // ResetClusterParameterGroupMessage
  *   ParameterGroupName: "STRING_VALUE", // required

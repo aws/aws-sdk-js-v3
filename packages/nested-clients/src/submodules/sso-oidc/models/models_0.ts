@@ -11,15 +11,14 @@ export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
   /**
-   * <p>Single error code.
-   *       For this exception the value will be <code>access_denied</code>.</p>
+   * <p>Single error code. For this exception the value will be <code>access_denied</code>.</p>
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the
-   *       client developer in understanding the error that occurred.</p>
+   * <p>Human-readable text providing additional information, used to assist the client developer
+   *       in understanding the error that occurred.</p>
    * @public
    */
   error_description?: string | undefined;
@@ -47,15 +46,15 @@ export class AuthorizationPendingException extends __BaseException {
   readonly name: "AuthorizationPendingException" = "AuthorizationPendingException";
   readonly $fault: "client" = "client";
   /**
-   * <p>Single error code.
-   *       For this exception the value will be <code>authorization_pending</code>.</p>
+   * <p>Single error code. For this exception the value will be
+   *       <code>authorization_pending</code>.</p>
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the
-   *       client developer in understanding the error that occurred.</p>
+   * <p>Human-readable text providing additional information, used to assist the client developer
+   *       in understanding the error that occurred.</p>
    * @public
    */
   error_description?: string | undefined;
@@ -93,39 +92,38 @@ export interface CreateTokenRequest {
   clientSecret: string | undefined;
 
   /**
-   * <p>Supports the following OAuth grant types: Device Code and Refresh Token.
-   *       Specify either of the following values, depending on the grant type that you want:</p>
+   * <p>Supports the following OAuth grant types: Authorization Code, Device Code, and Refresh
+   *       Token. Specify one of the following values, depending on the grant type that you want:</p>
+   *          <p>* Authorization Code - <code>authorization_code</code>
+   *          </p>
    *          <p>* Device Code - <code>urn:ietf:params:oauth:grant-type:device_code</code>
    *          </p>
    *          <p>* Refresh Token - <code>refresh_token</code>
    *          </p>
-   *          <p>For information about how to obtain the device code, see the <a>StartDeviceAuthorization</a> topic.</p>
    * @public
    */
   grantType: string | undefined;
 
   /**
-   * <p>Used only when calling this API for the Device Code grant type. This short-term code is
-   *       used to identify this authorization request. This comes from the result of the
-   *       <a>StartDeviceAuthorization</a> API.</p>
+   * <p>Used only when calling this API for the Device Code grant type. This short-lived code is
+   *       used to identify this authorization request. This comes from the result of the <a>StartDeviceAuthorization</a> API.</p>
    * @public
    */
   deviceCode?: string | undefined;
 
   /**
-   * <p>Used only when calling this API for the Authorization Code grant type. The short-term code is
-   *       used to identify this authorization request. This grant type is currently unsupported for the
-   *       <a>CreateToken</a> API.</p>
+   * <p>Used only when calling this API for the Authorization Code grant type. The short-lived
+   *       code is used to identify this authorization request.</p>
    * @public
    */
   code?: string | undefined;
 
   /**
    * <p>Used only when calling this API for the Refresh Token grant type. This token is used to
-   *       refresh short-term tokens, such as the access token, that might expire.</p>
+   *       refresh short-lived tokens, such as the access token, that might expire.</p>
    *          <p>For more information about the features and limitations of the current IAM Identity Center OIDC
    *       implementation, see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
-   *       OIDC API Reference</a>.</p>
+   *         OIDC API Reference</a>.</p>
    * @public
    */
   refreshToken?: string | undefined;
@@ -133,24 +131,23 @@ export interface CreateTokenRequest {
   /**
    * <p>The list of scopes for which authorization is requested. The access token that is issued
    *       is limited to the scopes that are granted. If this value is not specified, IAM Identity Center authorizes
-   *       all scopes that are configured for the client during the call to
-   *       <a>RegisterClient</a>.</p>
+   *       all scopes that are configured for the client during the call to <a>RegisterClient</a>.</p>
    * @public
    */
   scope?: string[] | undefined;
 
   /**
-   * <p>Used only when calling this API for the Authorization Code grant type. This value specifies
-   *       the location of the client or application that has registered to receive the authorization
-   *         code.</p>
+   * <p>Used only when calling this API for the Authorization Code grant type. This value
+   *       specifies the location of the client or application that has registered to receive the
+   *       authorization code.</p>
    * @public
    */
   redirectUri?: string | undefined;
 
   /**
-   * <p>Used only when calling this API for the Authorization Code grant type. This value is generated
-   *       by the client and presented to validate the original code challenge value the client passed at
-   *       authorization time.</p>
+   * <p>Used only when calling this API for the Authorization Code grant type. This value is
+   *       generated by the client and presented to validate the original code challenge value the client
+   *       passed at authorization time.</p>
    * @public
    */
   codeVerifier?: string | undefined;
@@ -192,9 +189,8 @@ export interface CreateTokenResponse {
   /**
    * <p>A token that, if present, can be used to refresh a previously issued access token that
    *       might have expired.</p>
-   *          <p>For more
-   *       information about the features and limitations of the current IAM Identity Center OIDC implementation,
-   *       see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
+   *          <p>For more information about the features and limitations of the current IAM Identity Center OIDC
+   *       implementation, see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
    *         OIDC API Reference</a>.</p>
    * @public
    */
@@ -202,11 +198,11 @@ export interface CreateTokenResponse {
 
   /**
    * <p>The <code>idToken</code> is not implemented or supported. For more information about the
-   *       features and limitations of the current IAM Identity Center OIDC implementation, see <i>Considerations
-   *       for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
-   *       OIDC API Reference</a>.</p>
+   *       features and limitations of the current IAM Identity Center OIDC implementation, see
+   *         <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
+   *         OIDC API Reference</a>.</p>
    *          <p>A JSON Web Token (JWT) that identifies who is associated with the issued access token.
-   *       </p>
+   *     </p>
    * @public
    */
   idToken?: string | undefined;
@@ -230,15 +226,14 @@ export class ExpiredTokenException extends __BaseException {
   readonly name: "ExpiredTokenException" = "ExpiredTokenException";
   readonly $fault: "client" = "client";
   /**
-   * <p>Single error code.
-   *       For this exception the value will be <code>expired_token</code>.</p>
+   * <p>Single error code. For this exception the value will be <code>expired_token</code>.</p>
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the
-   *       client developer in understanding the error that occurred.</p>
+   * <p>Human-readable text providing additional information, used to assist the client developer
+   *       in understanding the error that occurred.</p>
    * @public
    */
   error_description?: string | undefined;
@@ -266,15 +261,14 @@ export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   /**
-   * <p>Single error code.
-   *       For this exception the value will be <code>server_error</code>.</p>
+   * <p>Single error code. For this exception the value will be <code>server_error</code>.</p>
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the
-   *       client developer in understanding the error that occurred.</p>
+   * <p>Human-readable text providing additional information, used to assist the client developer
+   *       in understanding the error that occurred.</p>
    * @public
    */
   error_description?: string | undefined;
@@ -303,15 +297,15 @@ export class InvalidClientException extends __BaseException {
   readonly name: "InvalidClientException" = "InvalidClientException";
   readonly $fault: "client" = "client";
   /**
-   * <p>Single error code.
-   *       For this exception the value will be <code>invalid_client</code>.</p>
+   * <p>Single error code. For this exception the value will be
+   *       <code>invalid_client</code>.</p>
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the
-   *       client developer in understanding the error that occurred.</p>
+   * <p>Human-readable text providing additional information, used to assist the client developer
+   *       in understanding the error that occurred.</p>
    * @public
    */
   error_description?: string | undefined;
@@ -339,15 +333,14 @@ export class InvalidGrantException extends __BaseException {
   readonly name: "InvalidGrantException" = "InvalidGrantException";
   readonly $fault: "client" = "client";
   /**
-   * <p>Single error code.
-   *       For this exception the value will be <code>invalid_grant</code>.</p>
+   * <p>Single error code. For this exception the value will be <code>invalid_grant</code>.</p>
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the
-   *       client developer in understanding the error that occurred.</p>
+   * <p>Human-readable text providing additional information, used to assist the client developer
+   *       in understanding the error that occurred.</p>
    * @public
    */
   error_description?: string | undefined;
@@ -375,15 +368,15 @@ export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
   /**
-   * <p>Single error code.
-   *       For this exception the value will be <code>invalid_request</code>.</p>
+   * <p>Single error code. For this exception the value will be
+   *       <code>invalid_request</code>.</p>
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the
-   *       client developer in understanding the error that occurred.</p>
+   * <p>Human-readable text providing additional information, used to assist the client developer
+   *       in understanding the error that occurred.</p>
    * @public
    */
   error_description?: string | undefined;
@@ -410,15 +403,14 @@ export class InvalidScopeException extends __BaseException {
   readonly name: "InvalidScopeException" = "InvalidScopeException";
   readonly $fault: "client" = "client";
   /**
-   * <p>Single error code.
-   *       For this exception the value will be <code>invalid_scope</code>.</p>
+   * <p>Single error code. For this exception the value will be <code>invalid_scope</code>.</p>
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the
-   *       client developer in understanding the error that occurred.</p>
+   * <p>Human-readable text providing additional information, used to assist the client developer
+   *       in understanding the error that occurred.</p>
    * @public
    */
   error_description?: string | undefined;
@@ -446,15 +438,14 @@ export class SlowDownException extends __BaseException {
   readonly name: "SlowDownException" = "SlowDownException";
   readonly $fault: "client" = "client";
   /**
-   * <p>Single error code.
-   *       For this exception the value will be <code>slow_down</code>.</p>
+   * <p>Single error code. For this exception the value will be <code>slow_down</code>.</p>
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the
-   *       client developer in understanding the error that occurred.</p>
+   * <p>Human-readable text providing additional information, used to assist the client developer
+   *       in understanding the error that occurred.</p>
    * @public
    */
   error_description?: string | undefined;
@@ -482,15 +473,15 @@ export class UnauthorizedClientException extends __BaseException {
   readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
   readonly $fault: "client" = "client";
   /**
-   * <p>Single error code.
-   *       For this exception the value will be <code>unauthorized_client</code>.</p>
+   * <p>Single error code. For this exception the value will be
+   *       <code>unauthorized_client</code>.</p>
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the
-   *       client developer in understanding the error that occurred.</p>
+   * <p>Human-readable text providing additional information, used to assist the client developer
+   *       in understanding the error that occurred.</p>
    * @public
    */
   error_description?: string | undefined;
@@ -517,15 +508,15 @@ export class UnsupportedGrantTypeException extends __BaseException {
   readonly name: "UnsupportedGrantTypeException" = "UnsupportedGrantTypeException";
   readonly $fault: "client" = "client";
   /**
-   * <p>Single error code.
-   *       For this exception the value will be <code>unsupported_grant_type</code>.</p>
+   * <p>Single error code. For this exception the value will be
+   *         <code>unsupported_grant_type</code>.</p>
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>Human-readable text providing additional information, used to assist the
-   *       client developer in understanding the error that occurred.</p>
+   * <p>Human-readable text providing additional information, used to assist the client developer
+   *       in understanding the error that occurred.</p>
    * @public
    */
   error_description?: string | undefined;

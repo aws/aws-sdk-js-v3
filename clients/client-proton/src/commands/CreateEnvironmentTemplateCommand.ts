@@ -53,6 +53,7 @@ export interface CreateEnvironmentTemplateCommandOutput extends CreateEnvironmen
  * ```javascript
  * import { ProtonClient, CreateEnvironmentTemplateCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateEnvironmentTemplateCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ProtonClient(config);
  * const input = { // CreateEnvironmentTemplateInput
  *   name: "STRING_VALUE", // required

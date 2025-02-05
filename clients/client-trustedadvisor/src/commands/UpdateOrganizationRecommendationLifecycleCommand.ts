@@ -43,6 +43,7 @@ export interface UpdateOrganizationRecommendationLifecycleCommandOutput extends 
  * ```javascript
  * import { TrustedAdvisorClient, UpdateOrganizationRecommendationLifecycleCommand } from "@aws-sdk/client-trustedadvisor"; // ES Modules import
  * // const { TrustedAdvisorClient, UpdateOrganizationRecommendationLifecycleCommand } = require("@aws-sdk/client-trustedadvisor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TrustedAdvisorClient(config);
  * const input = { // UpdateOrganizationRecommendationLifecycleRequest
  *   lifecycleStage: "pending_response" || "in_progress" || "dismissed" || "resolved", // required

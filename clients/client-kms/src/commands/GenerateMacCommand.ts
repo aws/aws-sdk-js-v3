@@ -65,6 +65,7 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  * ```javascript
  * import { KMSClient, GenerateMacCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GenerateMacCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KMSClient(config);
  * const input = { // GenerateMacRequest
  *   Message: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required

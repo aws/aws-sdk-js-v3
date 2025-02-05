@@ -35,6 +35,7 @@ export interface StopClusterCommandOutput extends StopClusterOutput, __MetadataB
  * ```javascript
  * import { DocDBElasticClient, StopClusterCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, StopClusterCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DocDBElasticClient(config);
  * const input = { // StopClusterInput
  *   clusterArn: "STRING_VALUE", // required

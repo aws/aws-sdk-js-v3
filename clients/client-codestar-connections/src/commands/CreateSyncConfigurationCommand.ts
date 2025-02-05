@@ -40,6 +40,7 @@ export interface CreateSyncConfigurationCommandOutput extends CreateSyncConfigur
  * ```javascript
  * import { CodeStarConnectionsClient, CreateSyncConfigurationCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, CreateSyncConfigurationCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // CreateSyncConfigurationInput
  *   Branch: "STRING_VALUE", // required

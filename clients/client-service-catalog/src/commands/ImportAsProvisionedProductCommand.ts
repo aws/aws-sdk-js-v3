@@ -67,6 +67,7 @@ export interface ImportAsProvisionedProductCommandOutput extends ImportAsProvisi
  * ```javascript
  * import { ServiceCatalogClient, ImportAsProvisionedProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ImportAsProvisionedProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceCatalogClient(config);
  * const input = { // ImportAsProvisionedProductInput
  *   AcceptLanguage: "STRING_VALUE",

@@ -34,6 +34,7 @@ export interface GetBudgetCommandOutput extends GetBudgetResponse, __MetadataBea
  * ```javascript
  * import { DeadlineClient, GetBudgetCommand } from "@aws-sdk/client-deadline"; // ES Modules import
  * // const { DeadlineClient, GetBudgetCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DeadlineClient(config);
  * const input = { // GetBudgetRequest
  *   farmId: "STRING_VALUE", // required

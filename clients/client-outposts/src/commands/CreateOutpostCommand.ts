@@ -35,6 +35,7 @@ export interface CreateOutpostCommandOutput extends CreateOutpostOutput, __Metad
  * ```javascript
  * import { OutpostsClient, CreateOutpostCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, CreateOutpostCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OutpostsClient(config);
  * const input = { // CreateOutpostInput
  *   Name: "STRING_VALUE", // required

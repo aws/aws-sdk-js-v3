@@ -34,6 +34,7 @@ export interface PutExternalModelCommandOutput extends PutExternalModelResult, _
  * ```javascript
  * import { FraudDetectorClient, PutExternalModelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, PutExternalModelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new FraudDetectorClient(config);
  * const input = { // PutExternalModelRequest
  *   modelEndpoint: "STRING_VALUE", // required

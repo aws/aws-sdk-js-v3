@@ -48,6 +48,7 @@ export interface UpdateMessageTemplateMetadataCommandOutput
  * ```javascript
  * import { QConnectClient, UpdateMessageTemplateMetadataCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, UpdateMessageTemplateMetadataCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QConnectClient(config);
  * const input = { // UpdateMessageTemplateMetadataRequest
  *   knowledgeBaseId: "STRING_VALUE", // required

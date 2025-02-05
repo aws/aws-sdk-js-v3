@@ -36,6 +36,7 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  * ```javascript
  * import { IoTSiteWiseClient, ExecuteQueryCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ExecuteQueryCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ExecuteQueryRequest
  *   queryStatement: "STRING_VALUE", // required

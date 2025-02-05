@@ -36,6 +36,7 @@ export interface GetBaselineCommandOutput extends GetBaselineOutput, __MetadataB
  * ```javascript
  * import { ControlTowerClient, GetBaselineCommand } from "@aws-sdk/client-controltower"; // ES Modules import
  * // const { ControlTowerClient, GetBaselineCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ControlTowerClient(config);
  * const input = { // GetBaselineInput
  *   baselineIdentifier: "STRING_VALUE", // required

@@ -42,6 +42,7 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * ```javascript
  * import { PinpointSMSVoiceV2Client, CreateConfigurationSetCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, CreateConfigurationSetCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // CreateConfigurationSetRequest
  *   ConfigurationSetName: "STRING_VALUE", // required

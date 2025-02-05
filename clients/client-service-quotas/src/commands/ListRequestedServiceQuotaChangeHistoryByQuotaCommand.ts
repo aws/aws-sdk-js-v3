@@ -43,6 +43,7 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
  * ```javascript
  * import { ServiceQuotasClient, ListRequestedServiceQuotaChangeHistoryByQuotaCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, ListRequestedServiceQuotaChangeHistoryByQuotaCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceQuotasClient(config);
  * const input = { // ListRequestedServiceQuotaChangeHistoryByQuotaRequest
  *   ServiceCode: "STRING_VALUE", // required

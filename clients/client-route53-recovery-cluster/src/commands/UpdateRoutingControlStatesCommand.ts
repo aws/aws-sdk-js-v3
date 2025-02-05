@@ -71,6 +71,7 @@ export interface UpdateRoutingControlStatesCommandOutput extends UpdateRoutingCo
  * ```javascript
  * import { Route53RecoveryClusterClient, UpdateRoutingControlStatesCommand } from "@aws-sdk/client-route53-recovery-cluster"; // ES Modules import
  * // const { Route53RecoveryClusterClient, UpdateRoutingControlStatesCommand } = require("@aws-sdk/client-route53-recovery-cluster"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Route53RecoveryClusterClient(config);
  * const input = { // UpdateRoutingControlStatesRequest
  *   UpdateRoutingControlStateEntries: [ // UpdateRoutingControlStateEntries // required

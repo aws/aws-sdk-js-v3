@@ -34,6 +34,7 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * ```javascript
  * import { ImagebuilderClient, ListWorkflowsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListWorkflowsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ImagebuilderClient(config);
  * const input = { // ListWorkflowsRequest
  *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty" || "AWSMarketplace",

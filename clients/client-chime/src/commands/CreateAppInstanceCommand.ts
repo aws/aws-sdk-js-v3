@@ -48,6 +48,7 @@ export interface CreateAppInstanceCommandOutput extends CreateAppInstanceRespons
  * ```javascript
  * import { ChimeClient, CreateAppInstanceCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateAppInstanceCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChimeClient(config);
  * const input = { // CreateAppInstanceRequest
  *   Name: "STRING_VALUE", // required

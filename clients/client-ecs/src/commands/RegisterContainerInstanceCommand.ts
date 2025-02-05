@@ -38,6 +38,7 @@ export interface RegisterContainerInstanceCommandOutput extends RegisterContaine
  * ```javascript
  * import { ECSClient, RegisterContainerInstanceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, RegisterContainerInstanceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ECSClient(config);
  * const input = { // RegisterContainerInstanceRequest
  *   cluster: "STRING_VALUE",

@@ -41,6 +41,7 @@ export interface PutCapacityAssignmentConfigurationCommandOutput
  * ```javascript
  * import { AthenaClient, PutCapacityAssignmentConfigurationCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, PutCapacityAssignmentConfigurationCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AthenaClient(config);
  * const input = { // PutCapacityAssignmentConfigurationInput
  *   CapacityReservationName: "STRING_VALUE", // required

@@ -43,6 +43,7 @@ export interface DeleteReplicationSubnetGroupCommandOutput
  * ```javascript
  * import { DatabaseMigrationServiceClient, DeleteReplicationSubnetGroupCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteReplicationSubnetGroupCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DatabaseMigrationServiceClient(config);
  * const input = { // DeleteReplicationSubnetGroupMessage
  *   ReplicationSubnetGroupIdentifier: "STRING_VALUE", // required

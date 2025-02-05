@@ -69,6 +69,7 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * ```javascript
  * import { Route53RecoveryClusterClient, ListRoutingControlsCommand } from "@aws-sdk/client-route53-recovery-cluster"; // ES Modules import
  * // const { Route53RecoveryClusterClient, ListRoutingControlsCommand } = require("@aws-sdk/client-route53-recovery-cluster"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Route53RecoveryClusterClient(config);
  * const input = { // ListRoutingControlsRequest
  *   ControlPanelArn: "STRING_VALUE",

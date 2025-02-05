@@ -35,6 +35,7 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * ```javascript
  * import { OpenSearchClient, CreatePackageCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, CreatePackageCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OpenSearchClient(config);
  * const input = { // CreatePackageRequest
  *   PackageName: "STRING_VALUE", // required

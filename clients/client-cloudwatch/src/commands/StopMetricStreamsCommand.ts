@@ -34,6 +34,7 @@ export interface StopMetricStreamsCommandOutput extends StopMetricStreamsOutput,
  * ```javascript
  * import { CloudWatchClient, StopMetricStreamsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, StopMetricStreamsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudWatchClient(config);
  * const input = { // StopMetricStreamsInput
  *   Names: [ // MetricStreamNames // required

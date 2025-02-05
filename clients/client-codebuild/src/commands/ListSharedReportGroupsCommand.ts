@@ -35,6 +35,7 @@ export interface ListSharedReportGroupsCommandOutput extends ListSharedReportGro
  * ```javascript
  * import { CodeBuildClient, ListSharedReportGroupsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListSharedReportGroupsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeBuildClient(config);
  * const input = { // ListSharedReportGroupsInput
  *   sortOrder: "ASCENDING" || "DESCENDING",

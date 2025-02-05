@@ -35,6 +35,7 @@ export interface ModifyEndpointAccessCommandOutput extends EndpointAccess, __Met
  * ```javascript
  * import { RedshiftClient, ModifyEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftClient(config);
  * const input = { // ModifyEndpointAccessMessage
  *   EndpointName: "STRING_VALUE", // required

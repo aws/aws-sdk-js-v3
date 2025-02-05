@@ -45,6 +45,7 @@ export interface PostToConnectionCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { ApiGatewayManagementApiClient, PostToConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi"; // ES Modules import
  * // const { ApiGatewayManagementApiClient, PostToConnectionCommand } = require("@aws-sdk/client-apigatewaymanagementapi"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ApiGatewayManagementApiClient(config);
  * const input = { // PostToConnectionRequest
  *   Data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required

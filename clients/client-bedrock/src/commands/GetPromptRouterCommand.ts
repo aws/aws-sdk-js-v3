@@ -38,6 +38,7 @@ export interface GetPromptRouterCommandOutput extends GetPromptRouterResponse, _
  * ```javascript
  * import { BedrockClient, GetPromptRouterCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, GetPromptRouterCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockClient(config);
  * const input = { // GetPromptRouterRequest
  *   promptRouterArn: "STRING_VALUE", // required

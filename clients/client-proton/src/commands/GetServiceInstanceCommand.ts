@@ -39,6 +39,7 @@ export interface GetServiceInstanceCommandOutput extends GetServiceInstanceOutpu
  * ```javascript
  * import { ProtonClient, GetServiceInstanceCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetServiceInstanceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ProtonClient(config);
  * const input = { // GetServiceInstanceInput
  *   name: "STRING_VALUE", // required

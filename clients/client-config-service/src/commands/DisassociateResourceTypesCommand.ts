@@ -35,6 +35,7 @@ export interface DisassociateResourceTypesCommandOutput extends DisassociateReso
  * ```javascript
  * import { ConfigServiceClient, DisassociateResourceTypesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DisassociateResourceTypesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConfigServiceClient(config);
  * const input = { // DisassociateResourceTypesRequest
  *   ConfigurationRecorderArn: "STRING_VALUE", // required

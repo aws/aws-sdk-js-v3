@@ -39,6 +39,7 @@ export interface CreateAccessCommandOutput extends CreateAccessResponse, __Metad
  * ```javascript
  * import { TransferClient, CreateAccessCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateAccessCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new TransferClient(config);
  * const input = { // CreateAccessRequest
  *   HomeDirectory: "STRING_VALUE",

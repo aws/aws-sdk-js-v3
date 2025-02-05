@@ -38,6 +38,7 @@ export interface DeleteCapacityReservationCommandOutput extends DeleteCapacityRe
  * ```javascript
  * import { AthenaClient, DeleteCapacityReservationCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, DeleteCapacityReservationCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AthenaClient(config);
  * const input = { // DeleteCapacityReservationInput
  *   Name: "STRING_VALUE", // required

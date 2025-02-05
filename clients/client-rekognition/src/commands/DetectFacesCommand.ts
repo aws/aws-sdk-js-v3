@@ -52,6 +52,7 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  * ```javascript
  * import { RekognitionClient, DetectFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RekognitionClient(config);
  * const input = { // DetectFacesRequest
  *   Image: { // Image

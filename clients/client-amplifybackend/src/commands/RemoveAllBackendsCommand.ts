@@ -34,6 +34,7 @@ export interface RemoveAllBackendsCommandOutput extends RemoveAllBackendsRespons
  * ```javascript
  * import { AmplifyBackendClient, RemoveAllBackendsCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, RemoveAllBackendsCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AmplifyBackendClient(config);
  * const input = { // RemoveAllBackendsRequest
  *   AppId: "STRING_VALUE", // required

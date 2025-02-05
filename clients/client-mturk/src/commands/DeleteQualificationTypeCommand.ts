@@ -52,6 +52,7 @@ export interface DeleteQualificationTypeCommandOutput extends DeleteQualificatio
  * ```javascript
  * import { MTurkClient, DeleteQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, DeleteQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MTurkClient(config);
  * const input = { // DeleteQualificationTypeRequest
  *   QualificationTypeId: "STRING_VALUE", // required

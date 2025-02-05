@@ -34,6 +34,7 @@ export interface ModifyLocalGatewayRouteCommandOutput extends ModifyLocalGateway
  * ```javascript
  * import { EC2Client, ModifyLocalGatewayRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyLocalGatewayRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EC2Client(config);
  * const input = { // ModifyLocalGatewayRouteRequest
  *   DestinationCidrBlock: "STRING_VALUE",

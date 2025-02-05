@@ -38,6 +38,7 @@ export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionCo
  * ```javascript
  * import { MigrationHubConfigClient, CreateHomeRegionControlCommand } from "@aws-sdk/client-migrationhub-config"; // ES Modules import
  * // const { MigrationHubConfigClient, CreateHomeRegionControlCommand } = require("@aws-sdk/client-migrationhub-config"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MigrationHubConfigClient(config);
  * const input = { // CreateHomeRegionControlRequest
  *   HomeRegion: "STRING_VALUE", // required

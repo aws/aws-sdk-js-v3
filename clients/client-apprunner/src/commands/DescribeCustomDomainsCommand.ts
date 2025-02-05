@@ -34,6 +34,7 @@ export interface DescribeCustomDomainsCommandOutput extends DescribeCustomDomain
  * ```javascript
  * import { AppRunnerClient, DescribeCustomDomainsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DescribeCustomDomainsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppRunnerClient(config);
  * const input = { // DescribeCustomDomainsRequest
  *   ServiceArn: "STRING_VALUE", // required

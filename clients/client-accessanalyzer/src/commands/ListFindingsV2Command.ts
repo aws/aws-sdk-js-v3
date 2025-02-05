@@ -38,6 +38,7 @@ export interface ListFindingsV2CommandOutput extends ListFindingsV2Response, __M
  * ```javascript
  * import { AccessAnalyzerClient, ListFindingsV2Command } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, ListFindingsV2Command } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AccessAnalyzerClient(config);
  * const input = { // ListFindingsV2Request
  *   analyzerArn: "STRING_VALUE", // required

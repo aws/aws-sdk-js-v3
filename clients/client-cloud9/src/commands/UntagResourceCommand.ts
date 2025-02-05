@@ -44,6 +44,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { Cloud9Client, UntagResourceCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, UntagResourceCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Cloud9Client(config);
  * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

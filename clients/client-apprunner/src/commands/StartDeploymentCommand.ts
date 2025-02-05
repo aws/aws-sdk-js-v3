@@ -39,6 +39,7 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResponse, _
  * ```javascript
  * import { AppRunnerClient, StartDeploymentCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, StartDeploymentCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppRunnerClient(config);
  * const input = { // StartDeploymentRequest
  *   ServiceArn: "STRING_VALUE", // required

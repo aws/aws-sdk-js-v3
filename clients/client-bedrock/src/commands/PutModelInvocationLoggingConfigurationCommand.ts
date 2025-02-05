@@ -43,6 +43,7 @@ export interface PutModelInvocationLoggingConfigurationCommandOutput
  * ```javascript
  * import { BedrockClient, PutModelInvocationLoggingConfigurationCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
  * // const { BedrockClient, PutModelInvocationLoggingConfigurationCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockClient(config);
  * const input = { // PutModelInvocationLoggingConfigurationRequest
  *   loggingConfig: { // LoggingConfig

@@ -34,6 +34,7 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
  * ```javascript
  * import { WorkSpacesClient, ModifyClientPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyClientPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WorkSpacesClient(config);
  * const input = { // ModifyClientPropertiesRequest
  *   ResourceId: "STRING_VALUE", // required

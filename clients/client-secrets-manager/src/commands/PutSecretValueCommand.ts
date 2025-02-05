@@ -68,6 +68,7 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  * ```javascript
  * import { SecretsManagerClient, PutSecretValueCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, PutSecretValueCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SecretsManagerClient(config);
  * const input = { // PutSecretValueRequest
  *   SecretId: "STRING_VALUE", // required

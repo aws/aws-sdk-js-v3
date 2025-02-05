@@ -45,6 +45,7 @@ export interface DescribeBudgetActionsForBudgetCommandOutput
  * ```javascript
  * import { BudgetsClient, DescribeBudgetActionsForBudgetCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DescribeBudgetActionsForBudgetCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BudgetsClient(config);
  * const input = { // DescribeBudgetActionsForBudgetRequest
  *   AccountId: "STRING_VALUE", // required

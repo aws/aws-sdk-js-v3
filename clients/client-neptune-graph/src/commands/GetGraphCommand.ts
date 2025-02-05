@@ -34,6 +34,7 @@ export interface GetGraphCommandOutput extends GetGraphOutput, __MetadataBearer 
  * ```javascript
  * import { NeptuneGraphClient, GetGraphCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
  * // const { NeptuneGraphClient, GetGraphCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptuneGraphClient(config);
  * const input = { // GetGraphInput
  *   graphIdentifier: "STRING_VALUE", // required

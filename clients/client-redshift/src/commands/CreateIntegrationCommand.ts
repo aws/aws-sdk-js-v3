@@ -34,6 +34,7 @@ export interface CreateIntegrationCommandOutput extends Integration, __MetadataB
  * ```javascript
  * import { RedshiftClient, CreateIntegrationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateIntegrationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new RedshiftClient(config);
  * const input = { // CreateIntegrationMessage
  *   SourceArn: "STRING_VALUE", // required

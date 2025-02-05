@@ -34,6 +34,7 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  * ```javascript
  * import { SSMContactsClient, AcceptPageCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, AcceptPageCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSMContactsClient(config);
  * const input = { // AcceptPageRequest
  *   PageId: "STRING_VALUE", // required

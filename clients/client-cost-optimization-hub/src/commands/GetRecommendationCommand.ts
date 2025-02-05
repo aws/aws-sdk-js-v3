@@ -42,6 +42,7 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * ```javascript
  * import { CostOptimizationHubClient, GetRecommendationCommand } from "@aws-sdk/client-cost-optimization-hub"; // ES Modules import
  * // const { CostOptimizationHubClient, GetRecommendationCommand } = require("@aws-sdk/client-cost-optimization-hub"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CostOptimizationHubClient(config);
  * const input = { // GetRecommendationRequest
  *   recommendationId: "STRING_VALUE", // required

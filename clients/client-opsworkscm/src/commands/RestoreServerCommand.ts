@@ -52,6 +52,7 @@ export interface RestoreServerCommandOutput extends RestoreServerResponse, __Met
  * ```javascript
  * import { OpsWorksCMClient, RestoreServerCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, RestoreServerCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OpsWorksCMClient(config);
  * const input = { // RestoreServerRequest
  *   BackupId: "STRING_VALUE", // required

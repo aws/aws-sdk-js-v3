@@ -34,6 +34,7 @@ export interface ListResolversCommandOutput extends ListResolversResponse, __Met
  * ```javascript
  * import { AppSyncClient, ListResolversCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListResolversCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppSyncClient(config);
  * const input = { // ListResolversRequest
  *   apiId: "STRING_VALUE", // required

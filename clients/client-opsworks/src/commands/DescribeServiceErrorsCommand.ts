@@ -40,6 +40,7 @@ export interface DescribeServiceErrorsCommandOutput extends DescribeServiceError
  * ```javascript
  * import { OpsWorksClient, DescribeServiceErrorsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeServiceErrorsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OpsWorksClient(config);
  * const input = { // DescribeServiceErrorsRequest
  *   StackId: "STRING_VALUE",

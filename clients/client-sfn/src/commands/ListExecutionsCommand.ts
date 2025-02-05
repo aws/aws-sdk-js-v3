@@ -43,6 +43,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * ```javascript
  * import { SFNClient, ListExecutionsCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, ListExecutionsCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SFNClient(config);
  * const input = { // ListExecutionsInput
  *   stateMachineArn: "STRING_VALUE",

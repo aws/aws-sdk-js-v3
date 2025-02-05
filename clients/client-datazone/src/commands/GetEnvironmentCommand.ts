@@ -34,6 +34,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * ```javascript
  * import { DataZoneClient, GetEnvironmentCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, GetEnvironmentCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataZoneClient(config);
  * const input = { // GetEnvironmentInput
  *   domainIdentifier: "STRING_VALUE", // required

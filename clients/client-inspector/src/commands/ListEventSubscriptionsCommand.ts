@@ -35,6 +35,7 @@ export interface ListEventSubscriptionsCommandOutput extends ListEventSubscripti
  * ```javascript
  * import { InspectorClient, ListEventSubscriptionsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, ListEventSubscriptionsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new InspectorClient(config);
  * const input = { // ListEventSubscriptionsRequest
  *   resourceArn: "STRING_VALUE",

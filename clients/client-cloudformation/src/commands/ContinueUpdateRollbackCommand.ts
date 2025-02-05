@@ -43,6 +43,7 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  * ```javascript
  * import { CloudFormationClient, ContinueUpdateRollbackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ContinueUpdateRollbackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudFormationClient(config);
  * const input = { // ContinueUpdateRollbackInput
  *   StackName: "STRING_VALUE", // required

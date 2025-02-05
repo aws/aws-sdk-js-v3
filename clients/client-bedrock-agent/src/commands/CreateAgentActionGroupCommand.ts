@@ -44,6 +44,7 @@ export interface CreateAgentActionGroupCommandOutput extends CreateAgentActionGr
  * ```javascript
  * import { BedrockAgentClient, CreateAgentActionGroupCommand } from "@aws-sdk/client-bedrock-agent"; // ES Modules import
  * // const { BedrockAgentClient, CreateAgentActionGroupCommand } = require("@aws-sdk/client-bedrock-agent"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BedrockAgentClient(config);
  * const input = { // CreateAgentActionGroupRequest
  *   agentId: "STRING_VALUE", // required

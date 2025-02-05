@@ -33,6 +33,7 @@ export interface KitchenSinkOperationCommandOutput extends KitchenSink, __Metada
  * ```javascript
  * import { JsonProtocolClient, KitchenSinkOperationCommand } from "@aws-sdk/aws-protocoltests-json"; // ES Modules import
  * // const { JsonProtocolClient, KitchenSinkOperationCommand } = require("@aws-sdk/aws-protocoltests-json"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new JsonProtocolClient(config);
  * const input = { // KitchenSink
  *   Blob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")

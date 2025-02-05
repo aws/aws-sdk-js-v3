@@ -40,6 +40,7 @@ export interface DisassociateElasticIpCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { OpsWorksClient, DisassociateElasticIpCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DisassociateElasticIpCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OpsWorksClient(config);
  * const input = { // DisassociateElasticIpRequest
  *   ElasticIp: "STRING_VALUE", // required

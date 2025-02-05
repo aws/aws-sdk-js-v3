@@ -35,6 +35,7 @@ export interface GenerateTemplateCommandOutput extends GenerateTemplateResponse,
  * ```javascript
  * import { SMSClient, GenerateTemplateCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GenerateTemplateCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SMSClient(config);
  * const input = { // GenerateTemplateRequest
  *   appId: "STRING_VALUE",

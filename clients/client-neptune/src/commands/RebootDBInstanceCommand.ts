@@ -38,6 +38,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * ```javascript
  * import { NeptuneClient, RebootDBInstanceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, RebootDBInstanceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptuneClient(config);
  * const input = { // RebootDBInstanceMessage
  *   DBInstanceIdentifier: "STRING_VALUE", // required

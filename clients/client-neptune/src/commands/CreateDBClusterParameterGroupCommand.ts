@@ -63,6 +63,7 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * ```javascript
  * import { NeptuneClient, CreateDBClusterParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateDBClusterParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptuneClient(config);
  * const input = { // CreateDBClusterParameterGroupMessage
  *   DBClusterParameterGroupName: "STRING_VALUE", // required

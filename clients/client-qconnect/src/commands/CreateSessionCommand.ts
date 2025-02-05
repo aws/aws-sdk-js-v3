@@ -36,6 +36,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * ```javascript
  * import { QConnectClient, CreateSessionCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, CreateSessionCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QConnectClient(config);
  * const input = { // CreateSessionRequest
  *   clientToken: "STRING_VALUE",

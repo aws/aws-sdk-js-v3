@@ -34,6 +34,7 @@ export interface GetProjectCommandOutput extends GetProjectResponse, __MetadataB
  * ```javascript
  * import { CodeCatalystClient, GetProjectCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, GetProjectCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeCatalystClient(config);
  * const input = { // GetProjectRequest
  *   spaceName: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface GetEventRuleCommandOutput extends GetEventRuleResponse, __Metad
  * ```javascript
  * import { NotificationsClient, GetEventRuleCommand } from "@aws-sdk/client-notifications"; // ES Modules import
  * // const { NotificationsClient, GetEventRuleCommand } = require("@aws-sdk/client-notifications"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NotificationsClient(config);
  * const input = { // GetEventRuleRequest
  *   arn: "STRING_VALUE", // required

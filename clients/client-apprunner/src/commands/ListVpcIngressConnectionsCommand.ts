@@ -34,6 +34,7 @@ export interface ListVpcIngressConnectionsCommandOutput extends ListVpcIngressCo
  * ```javascript
  * import { AppRunnerClient, ListVpcIngressConnectionsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListVpcIngressConnectionsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppRunnerClient(config);
  * const input = { // ListVpcIngressConnectionsRequest
  *   Filter: { // ListVpcIngressConnectionsFilter

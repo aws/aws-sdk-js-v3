@@ -34,6 +34,7 @@ export interface SearchProductsAsAdminCommandOutput extends SearchProductsAsAdmi
  * ```javascript
  * import { ServiceCatalogClient, SearchProductsAsAdminCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, SearchProductsAsAdminCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ServiceCatalogClient(config);
  * const input = { // SearchProductsAsAdminInput
  *   AcceptLanguage: "STRING_VALUE",

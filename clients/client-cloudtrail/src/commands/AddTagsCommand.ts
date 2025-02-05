@@ -40,6 +40,7 @@ export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer 
  * ```javascript
  * import { CloudTrailClient, AddTagsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, AddTagsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudTrailClient(config);
  * const input = { // AddTagsRequest
  *   ResourceId: "STRING_VALUE", // required

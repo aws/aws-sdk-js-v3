@@ -50,6 +50,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * ```javascript
  * import { CustomerProfilesClient, CreateDomainCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, CreateDomainCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CustomerProfilesClient(config);
  * const input = { // CreateDomainRequest
  *   DomainName: "STRING_VALUE", // required

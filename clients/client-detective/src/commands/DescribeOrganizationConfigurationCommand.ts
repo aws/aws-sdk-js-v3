@@ -45,6 +45,7 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * ```javascript
  * import { DetectiveClient, DescribeOrganizationConfigurationCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, DescribeOrganizationConfigurationCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DetectiveClient(config);
  * const input = { // DescribeOrganizationConfigurationRequest
  *   GraphArn: "STRING_VALUE", // required

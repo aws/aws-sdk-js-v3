@@ -40,6 +40,7 @@ export interface DeleteRemediationExceptionsCommandOutput
  * ```javascript
  * import { ConfigServiceClient, DeleteRemediationExceptionsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteRemediationExceptionsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ConfigServiceClient(config);
  * const input = { // DeleteRemediationExceptionsRequest
  *   ConfigRuleName: "STRING_VALUE", // required

@@ -37,6 +37,7 @@ export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluati
  * ```javascript
  * import { ForecastClient, ListMonitorEvaluationsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListMonitorEvaluationsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ForecastClient(config);
  * const input = { // ListMonitorEvaluationsRequest
  *   NextToken: "STRING_VALUE",

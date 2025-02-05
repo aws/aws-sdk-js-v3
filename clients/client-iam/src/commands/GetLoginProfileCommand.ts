@@ -43,6 +43,7 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  * ```javascript
  * import { IAMClient, GetLoginProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetLoginProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IAMClient(config);
  * const input = { // GetLoginProfileRequest
  *   UserName: "STRING_VALUE",

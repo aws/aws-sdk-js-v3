@@ -38,6 +38,7 @@ export interface GetPolicyStoreCommandOutput extends GetPolicyStoreOutput, __Met
  * ```javascript
  * import { VerifiedPermissionsClient, GetPolicyStoreCommand } from "@aws-sdk/client-verifiedpermissions"; // ES Modules import
  * // const { VerifiedPermissionsClient, GetPolicyStoreCommand } = require("@aws-sdk/client-verifiedpermissions"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // GetPolicyStoreInput
  *   policyStoreId: "STRING_VALUE", // required

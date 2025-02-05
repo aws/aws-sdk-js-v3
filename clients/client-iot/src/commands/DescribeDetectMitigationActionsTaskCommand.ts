@@ -45,6 +45,7 @@ export interface DescribeDetectMitigationActionsTaskCommandOutput
  * ```javascript
  * import { IoTClient, DescribeDetectMitigationActionsTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeDetectMitigationActionsTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTClient(config);
  * const input = { // DescribeDetectMitigationActionsTaskRequest
  *   taskId: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * ```javascript
  * import { CodeConnectionsClient, GetConnectionCommand } from "@aws-sdk/client-codeconnections"; // ES Modules import
  * // const { CodeConnectionsClient, GetConnectionCommand } = require("@aws-sdk/client-codeconnections"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeConnectionsClient(config);
  * const input = { // GetConnectionInput
  *   ConnectionArn: "STRING_VALUE", // required

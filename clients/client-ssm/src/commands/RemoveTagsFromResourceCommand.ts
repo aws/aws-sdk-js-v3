@@ -34,6 +34,7 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * ```javascript
  * import { SSMClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SSMClient(config);
  * const input = { // RemoveTagsFromResourceRequest
  *   ResourceType: "Document" || "ManagedInstance" || "MaintenanceWindow" || "Parameter" || "PatchBaseline" || "OpsItem" || "OpsMetadata" || "Automation" || "Association", // required

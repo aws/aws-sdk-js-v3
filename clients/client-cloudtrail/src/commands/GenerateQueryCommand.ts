@@ -49,6 +49,7 @@ export interface GenerateQueryCommandOutput extends GenerateQueryResponse, __Met
  * ```javascript
  * import { CloudTrailClient, GenerateQueryCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GenerateQueryCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudTrailClient(config);
  * const input = { // GenerateQueryRequest
  *   EventDataStores: [ // EventDataStoreList // required

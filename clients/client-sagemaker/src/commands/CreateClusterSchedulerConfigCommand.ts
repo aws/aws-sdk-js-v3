@@ -41,6 +41,7 @@ export interface CreateClusterSchedulerConfigCommandOutput
  * ```javascript
  * import { SageMakerClient, CreateClusterSchedulerConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateClusterSchedulerConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SageMakerClient(config);
  * const input = { // CreateClusterSchedulerConfigRequest
  *   Name: "STRING_VALUE", // required

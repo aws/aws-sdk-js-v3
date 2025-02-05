@@ -37,6 +37,7 @@ export interface GetSimilarProfilesCommandOutput extends GetSimilarProfilesRespo
  * ```javascript
  * import { CustomerProfilesClient, GetSimilarProfilesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetSimilarProfilesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CustomerProfilesClient(config);
  * const input = { // GetSimilarProfilesRequest
  *   NextToken: "STRING_VALUE",

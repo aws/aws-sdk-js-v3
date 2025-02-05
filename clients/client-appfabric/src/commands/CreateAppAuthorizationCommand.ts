@@ -39,6 +39,7 @@ export interface CreateAppAuthorizationCommandOutput extends CreateAppAuthorizat
  * ```javascript
  * import { AppFabricClient, CreateAppAuthorizationCommand } from "@aws-sdk/client-appfabric"; // ES Modules import
  * // const { AppFabricClient, CreateAppAuthorizationCommand } = require("@aws-sdk/client-appfabric"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppFabricClient(config);
  * const input = { // CreateAppAuthorizationRequest
  *   appBundleIdentifier: "STRING_VALUE", // required

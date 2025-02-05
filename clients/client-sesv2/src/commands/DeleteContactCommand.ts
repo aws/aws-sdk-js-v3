@@ -34,6 +34,7 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
  * ```javascript
  * import { SESv2Client, DeleteContactCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, DeleteContactCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SESv2Client(config);
  * const input = { // DeleteContactRequest
  *   ContactListName: "STRING_VALUE", // required

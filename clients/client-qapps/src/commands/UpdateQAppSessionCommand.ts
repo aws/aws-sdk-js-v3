@@ -38,6 +38,7 @@ export interface UpdateQAppSessionCommandOutput extends UpdateQAppSessionOutput,
  * ```javascript
  * import { QAppsClient, UpdateQAppSessionCommand } from "@aws-sdk/client-qapps"; // ES Modules import
  * // const { QAppsClient, UpdateQAppSessionCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QAppsClient(config);
  * const input = { // UpdateQAppSessionInput
  *   instanceId: "STRING_VALUE", // required

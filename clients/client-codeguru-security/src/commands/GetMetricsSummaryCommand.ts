@@ -36,6 +36,7 @@ export interface GetMetricsSummaryCommandOutput extends GetMetricsSummaryRespons
  * ```javascript
  * import { CodeGuruSecurityClient, GetMetricsSummaryCommand } from "@aws-sdk/client-codeguru-security"; // ES Modules import
  * // const { CodeGuruSecurityClient, GetMetricsSummaryCommand } = require("@aws-sdk/client-codeguru-security"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeGuruSecurityClient(config);
  * const input = { // GetMetricsSummaryRequest
  *   date: new Date("TIMESTAMP"), // required

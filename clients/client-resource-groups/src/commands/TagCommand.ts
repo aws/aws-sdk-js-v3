@@ -52,6 +52,7 @@ export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
  * ```javascript
  * import { ResourceGroupsClient, TagCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, TagCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ResourceGroupsClient(config);
  * const input = { // TagInput
  *   Arn: "STRING_VALUE", // required

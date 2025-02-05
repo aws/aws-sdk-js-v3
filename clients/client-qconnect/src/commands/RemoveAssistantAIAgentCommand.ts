@@ -35,6 +35,7 @@ export interface RemoveAssistantAIAgentCommandOutput extends RemoveAssistantAIAg
  * ```javascript
  * import { QConnectClient, RemoveAssistantAIAgentCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
  * // const { QConnectClient, RemoveAssistantAIAgentCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QConnectClient(config);
  * const input = { // RemoveAssistantAIAgentRequest
  *   assistantId: "STRING_VALUE", // required

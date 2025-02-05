@@ -34,6 +34,7 @@ export interface CreateVodSourceCommandOutput extends CreateVodSourceResponse, _
  * ```javascript
  * import { MediaTailorClient, CreateVodSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreateVodSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaTailorClient(config);
  * const input = { // CreateVodSourceRequest
  *   HttpPackageConfigurations: [ // HttpPackageConfigurations // required

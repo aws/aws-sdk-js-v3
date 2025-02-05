@@ -55,6 +55,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * ```javascript
  * import { ChimeSDKMeetingsClient, UntagResourceCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, UntagResourceCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ChimeSDKMeetingsClient(config);
  * const input = { // UntagResourceRequest
  *   ResourceARN: "STRING_VALUE", // required

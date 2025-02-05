@@ -34,6 +34,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * ```javascript
  * import { CloudTrailClient, UpdateChannelCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, UpdateChannelCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CloudTrailClient(config);
  * const input = { // UpdateChannelRequest
  *   Channel: "STRING_VALUE", // required

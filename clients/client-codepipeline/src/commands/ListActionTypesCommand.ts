@@ -35,6 +35,7 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
  * ```javascript
  * import { CodePipelineClient, ListActionTypesCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, ListActionTypesCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodePipelineClient(config);
  * const input = { // ListActionTypesInput
  *   actionOwnerFilter: "AWS" || "ThirdParty" || "Custom",

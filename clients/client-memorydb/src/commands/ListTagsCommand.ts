@@ -37,6 +37,7 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * ```javascript
  * import { MemoryDBClient, ListTagsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, ListTagsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MemoryDBClient(config);
  * const input = { // ListTagsRequest
  *   ResourceArn: "STRING_VALUE", // required

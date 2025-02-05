@@ -219,6 +219,7 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * ```javascript
  * import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3Client(config);
  * const input = { // GetObjectRequest
  *   Bucket: "STRING_VALUE", // required

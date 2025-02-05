@@ -34,6 +34,7 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * ```javascript
  * import { NeptuneClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptuneClient(config);
  * const input = { // RemoveTagsFromResourceMessage
  *   ResourceName: "STRING_VALUE", // required

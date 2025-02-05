@@ -37,6 +37,7 @@ export interface DeleteEventBridgeRuleTemplateCommandOutput extends __MetadataBe
  * ```javascript
  * import { MediaLiveClient, DeleteEventBridgeRuleTemplateCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteEventBridgeRuleTemplateCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaLiveClient(config);
  * const input = { // DeleteEventBridgeRuleTemplateRequest
  *   Identifier: "STRING_VALUE", // required

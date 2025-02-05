@@ -34,6 +34,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * ```javascript
  * import { SchemasClient, PutResourcePolicyCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, PutResourcePolicyCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SchemasClient(config);
  * const input = { // PutResourcePolicyRequest
  *   Policy: "STRING_VALUE", // required

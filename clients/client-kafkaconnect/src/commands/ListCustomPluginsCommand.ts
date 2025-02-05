@@ -34,6 +34,7 @@ export interface ListCustomPluginsCommandOutput extends ListCustomPluginsRespons
  * ```javascript
  * import { KafkaConnectClient, ListCustomPluginsCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, ListCustomPluginsCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KafkaConnectClient(config);
  * const input = { // ListCustomPluginsRequest
  *   maxResults: Number("int"),

@@ -53,6 +53,7 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * ```javascript
  * import { NeptuneClient, CreateDBParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateDBParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptuneClient(config);
  * const input = { // CreateDBParameterGroupMessage
  *   DBParameterGroupName: "STRING_VALUE", // required

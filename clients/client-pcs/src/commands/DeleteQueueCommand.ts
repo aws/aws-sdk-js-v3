@@ -36,6 +36,7 @@ export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __Metadat
  * ```javascript
  * import { PCSClient, DeleteQueueCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, DeleteQueueCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PCSClient(config);
  * const input = { // DeleteQueueRequest
  *   clusterIdentifier: "STRING_VALUE", // required

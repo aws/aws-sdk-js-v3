@@ -34,6 +34,7 @@ export interface UpdateOutpostCommandOutput extends UpdateOutpostOutput, __Metad
  * ```javascript
  * import { OutpostsClient, UpdateOutpostCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, UpdateOutpostCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new OutpostsClient(config);
  * const input = { // UpdateOutpostInput
  *   OutpostId: "STRING_VALUE", // required

@@ -43,6 +43,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * ```javascript
  * import { DocDBClient, RestoreDBClusterToPointInTimeCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, RestoreDBClusterToPointInTimeCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DocDBClient(config);
  * const input = { // RestoreDBClusterToPointInTimeMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required

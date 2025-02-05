@@ -42,6 +42,7 @@ export interface ListNetworkResourcesCommandOutput extends ListNetworkResourcesR
  * ```javascript
  * import { PrivateNetworksClient, ListNetworkResourcesCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, ListNetworkResourcesCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PrivateNetworksClient(config);
  * const input = { // ListNetworkResourcesRequest
  *   filters: { // NetworkResourceFilters

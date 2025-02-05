@@ -36,6 +36,7 @@ export interface EndpointWithHostLabelOperationCommandOutput extends __MetadataB
  * ```javascript
  * import { JSONRPC10Client, EndpointWithHostLabelOperationCommand } from "@aws-sdk/aws-protocoltests-json-10"; // ES Modules import
  * // const { JSONRPC10Client, EndpointWithHostLabelOperationCommand } = require("@aws-sdk/aws-protocoltests-json-10"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new JSONRPC10Client(config);
  * const input = { // EndpointWithHostLabelOperationInput
  *   label: "STRING_VALUE", // required

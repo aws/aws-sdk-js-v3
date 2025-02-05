@@ -46,6 +46,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * ```javascript
  * import { SyntheticsClient, CreateGroupCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, CreateGroupCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SyntheticsClient(config);
  * const input = { // CreateGroupRequest
  *   Name: "STRING_VALUE", // required

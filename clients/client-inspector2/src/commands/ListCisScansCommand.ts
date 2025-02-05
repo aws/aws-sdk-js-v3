@@ -34,6 +34,7 @@ export interface ListCisScansCommandOutput extends ListCisScansResponse, __Metad
  * ```javascript
  * import { Inspector2Client, ListCisScansCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, ListCisScansCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new Inspector2Client(config);
  * const input = { // ListCisScansRequest
  *   filterCriteria: { // ListCisScansFilterCriteria

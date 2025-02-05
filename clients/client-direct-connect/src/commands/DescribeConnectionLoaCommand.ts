@@ -43,6 +43,7 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  * ```javascript
  * import { DirectConnectClient, DescribeConnectionLoaCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeConnectionLoaCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DirectConnectClient(config);
  * const input = { // DescribeConnectionLoaRequest
  *   connectionId: "STRING_VALUE", // required

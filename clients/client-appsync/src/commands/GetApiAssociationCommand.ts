@@ -34,6 +34,7 @@ export interface GetApiAssociationCommandOutput extends GetApiAssociationRespons
  * ```javascript
  * import { AppSyncClient, GetApiAssociationCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetApiAssociationCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppSyncClient(config);
  * const input = { // GetApiAssociationRequest
  *   domainName: "STRING_VALUE", // required

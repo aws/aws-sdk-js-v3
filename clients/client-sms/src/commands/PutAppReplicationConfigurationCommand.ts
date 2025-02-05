@@ -39,6 +39,7 @@ export interface PutAppReplicationConfigurationCommandOutput
  * ```javascript
  * import { SMSClient, PutAppReplicationConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, PutAppReplicationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new SMSClient(config);
  * const input = { // PutAppReplicationConfigurationRequest
  *   appId: "STRING_VALUE",

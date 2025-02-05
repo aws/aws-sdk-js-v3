@@ -44,6 +44,7 @@ export interface ListCostAllocationTagBackfillHistoryCommandOutput
  * ```javascript
  * import { CostExplorerClient, ListCostAllocationTagBackfillHistoryCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, ListCostAllocationTagBackfillHistoryCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CostExplorerClient(config);
  * const input = { // ListCostAllocationTagBackfillHistoryRequest
  *   NextToken: "STRING_VALUE",

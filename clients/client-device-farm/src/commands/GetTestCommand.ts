@@ -34,6 +34,7 @@ export interface GetTestCommandOutput extends GetTestResult, __MetadataBearer {}
  * ```javascript
  * import { DeviceFarmClient, GetTestCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetTestCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DeviceFarmClient(config);
  * const input = { // GetTestRequest
  *   arn: "STRING_VALUE", // required

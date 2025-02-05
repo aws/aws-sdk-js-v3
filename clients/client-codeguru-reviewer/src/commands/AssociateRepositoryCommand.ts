@@ -53,6 +53,7 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  * ```javascript
  * import { CodeGuruReviewerClient, AssociateRepositoryCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, AssociateRepositoryCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CodeGuruReviewerClient(config);
  * const input = { // AssociateRepositoryRequest
  *   Repository: { // Repository

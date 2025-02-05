@@ -45,6 +45,7 @@ export interface DeleteContainerFleetCommandOutput extends DeleteContainerFleetO
  * ```javascript
  * import { GameLiftClient, DeleteContainerFleetCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteContainerFleetCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GameLiftClient(config);
  * const input = { // DeleteContainerFleetInput
  *   FleetId: "STRING_VALUE", // required

@@ -34,6 +34,7 @@ export interface CreateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
  * ```javascript
  * import { APIGatewayClient, CreateUsagePlanCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateUsagePlanCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new APIGatewayClient(config);
  * const input = { // CreateUsagePlanRequest
  *   name: "STRING_VALUE", // required

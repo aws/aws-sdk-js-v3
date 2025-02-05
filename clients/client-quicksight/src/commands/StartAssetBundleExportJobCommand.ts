@@ -36,6 +36,7 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  * ```javascript
  * import { QuickSightClient, StartAssetBundleExportJobCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, StartAssetBundleExportJobCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QuickSightClient(config);
  * const input = { // StartAssetBundleExportJobRequest
  *   AwsAccountId: "STRING_VALUE", // required

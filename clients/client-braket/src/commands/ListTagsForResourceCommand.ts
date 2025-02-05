@@ -34,6 +34,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * ```javascript
  * import { BraketClient, ListTagsForResourceCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, ListTagsForResourceCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new BraketClient(config);
  * const input = { // ListTagsForResourceRequest
  *   resourceArn: "STRING_VALUE", // required

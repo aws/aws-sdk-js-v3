@@ -34,6 +34,7 @@ export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansR
  * ```javascript
  * import { AutoScalingPlansClient, DescribeScalingPlansCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
  * // const { AutoScalingPlansClient, DescribeScalingPlansCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AutoScalingPlansClient(config);
  * const input = { // DescribeScalingPlansRequest
  *   ScalingPlanNames: [ // ScalingPlanNames

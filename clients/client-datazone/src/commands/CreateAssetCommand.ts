@@ -39,6 +39,7 @@ export interface CreateAssetCommandOutput extends CreateAssetOutput, __MetadataB
  * ```javascript
  * import { DataZoneClient, CreateAssetCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateAssetCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataZoneClient(config);
  * const input = { // CreateAssetInput
  *   name: "STRING_VALUE", // required

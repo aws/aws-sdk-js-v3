@@ -49,6 +49,7 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  * ```javascript
  * import { IoTFleetWiseClient, CreateDecoderManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, CreateDecoderManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTFleetWiseClient(config);
  * const input = { // CreateDecoderManifestRequest
  *   name: "STRING_VALUE", // required

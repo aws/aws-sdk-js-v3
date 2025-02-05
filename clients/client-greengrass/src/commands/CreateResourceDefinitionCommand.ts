@@ -34,6 +34,7 @@ export interface CreateResourceDefinitionCommandOutput extends CreateResourceDef
  * ```javascript
  * import { GreengrassClient, CreateResourceDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateResourceDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new GreengrassClient(config);
  * const input = { // CreateResourceDefinitionRequest
  *   AmznClientToken: "STRING_VALUE",

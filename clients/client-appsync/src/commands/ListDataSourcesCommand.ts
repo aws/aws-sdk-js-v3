@@ -34,6 +34,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * ```javascript
  * import { AppSyncClient, ListDataSourcesCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListDataSourcesCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AppSyncClient(config);
  * const input = { // ListDataSourcesRequest
  *   apiId: "STRING_VALUE", // required

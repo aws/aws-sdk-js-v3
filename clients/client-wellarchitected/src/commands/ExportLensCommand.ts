@@ -49,6 +49,7 @@ export interface ExportLensCommandOutput extends ExportLensOutput, __MetadataBea
  * ```javascript
  * import { WellArchitectedClient, ExportLensCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ExportLensCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new WellArchitectedClient(config);
  * const input = { // ExportLensInput
  *   LensAlias: "STRING_VALUE", // required

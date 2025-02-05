@@ -39,6 +39,7 @@ export interface ListPendingMaintenanceActionsCommandOutput
  * ```javascript
  * import { DocDBElasticClient, ListPendingMaintenanceActionsCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, ListPendingMaintenanceActionsCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DocDBElasticClient(config);
  * const input = { // ListPendingMaintenanceActionsInput
  *   nextToken: "STRING_VALUE",

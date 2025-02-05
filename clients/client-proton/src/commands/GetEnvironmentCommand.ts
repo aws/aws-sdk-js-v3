@@ -34,6 +34,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * ```javascript
  * import { ProtonClient, GetEnvironmentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetEnvironmentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ProtonClient(config);
  * const input = { // GetEnvironmentInput
  *   name: "STRING_VALUE", // required

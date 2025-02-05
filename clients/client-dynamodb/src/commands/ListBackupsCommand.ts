@@ -45,6 +45,7 @@ export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataB
  * ```javascript
  * import { DynamoDBClient, ListBackupsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ListBackupsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DynamoDBClient(config);
  * const input = { // ListBackupsInput
  *   TableName: "STRING_VALUE",

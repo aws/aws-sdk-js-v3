@@ -34,6 +34,7 @@ export interface DeleteWorkerConfigurationCommandOutput extends DeleteWorkerConf
  * ```javascript
  * import { KafkaConnectClient, DeleteWorkerConfigurationCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, DeleteWorkerConfigurationCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KafkaConnectClient(config);
  * const input = { // DeleteWorkerConfigurationRequest
  *   workerConfigurationArn: "STRING_VALUE", // required

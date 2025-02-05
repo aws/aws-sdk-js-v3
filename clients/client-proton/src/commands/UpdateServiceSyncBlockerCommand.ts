@@ -34,6 +34,7 @@ export interface UpdateServiceSyncBlockerCommandOutput extends UpdateServiceSync
  * ```javascript
  * import { ProtonClient, UpdateServiceSyncBlockerCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateServiceSyncBlockerCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ProtonClient(config);
  * const input = { // UpdateServiceSyncBlockerInput
  *   id: "STRING_VALUE", // required

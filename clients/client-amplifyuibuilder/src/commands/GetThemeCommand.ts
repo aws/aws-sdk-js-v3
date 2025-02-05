@@ -34,6 +34,7 @@ export interface GetThemeCommandOutput extends GetThemeResponse, __MetadataBeare
  * ```javascript
  * import { AmplifyUIBuilderClient, GetThemeCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, GetThemeCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new AmplifyUIBuilderClient(config);
  * const input = { // GetThemeRequest
  *   appId: "STRING_VALUE", // required

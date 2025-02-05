@@ -39,6 +39,7 @@ export interface ListMLModelTransformJobsCommandOutput extends ListMLModelTransf
  * ```javascript
  * import { NeptunedataClient, ListMLModelTransformJobsCommand } from "@aws-sdk/client-neptunedata"; // ES Modules import
  * // const { NeptunedataClient, ListMLModelTransformJobsCommand } = require("@aws-sdk/client-neptunedata"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NeptunedataClient(config);
  * const input = { // ListMLModelTransformJobsInput
  *   maxItems: Number("int"),

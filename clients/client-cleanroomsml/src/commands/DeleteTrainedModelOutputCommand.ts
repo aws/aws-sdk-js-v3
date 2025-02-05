@@ -34,6 +34,7 @@ export interface DeleteTrainedModelOutputCommandOutput extends __MetadataBearer 
  * ```javascript
  * import { CleanRoomsMLClient, DeleteTrainedModelOutputCommand } from "@aws-sdk/client-cleanroomsml"; // ES Modules import
  * // const { CleanRoomsMLClient, DeleteTrainedModelOutputCommand } = require("@aws-sdk/client-cleanroomsml"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new CleanRoomsMLClient(config);
  * const input = { // DeleteTrainedModelOutputRequest
  *   trainedModelArn: "STRING_VALUE", // required

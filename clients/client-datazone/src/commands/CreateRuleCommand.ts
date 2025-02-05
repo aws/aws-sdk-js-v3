@@ -45,6 +45,7 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * ```javascript
  * import { DataZoneClient, CreateRuleCommand } from "@aws-sdk/client-datazone"; // ES Modules import
  * // const { DataZoneClient, CreateRuleCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new DataZoneClient(config);
  * const input = { // CreateRuleInput
  *   domainIdentifier: "STRING_VALUE", // required

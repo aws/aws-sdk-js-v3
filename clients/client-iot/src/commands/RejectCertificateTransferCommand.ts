@@ -41,6 +41,7 @@ export interface RejectCertificateTransferCommandOutput extends __MetadataBearer
  * ```javascript
  * import { IoTClient, RejectCertificateTransferCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, RejectCertificateTransferCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new IoTClient(config);
  * const input = { // RejectCertificateTransferRequest
  *   certificateId: "STRING_VALUE", // required

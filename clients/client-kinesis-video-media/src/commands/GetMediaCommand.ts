@@ -85,6 +85,7 @@ export interface GetMediaCommandOutput extends Omit<GetMediaOutput, "Payload">, 
  * ```javascript
  * import { KinesisVideoMediaClient, GetMediaCommand } from "@aws-sdk/client-kinesis-video-media"; // ES Modules import
  * // const { KinesisVideoMediaClient, GetMediaCommand } = require("@aws-sdk/client-kinesis-video-media"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new KinesisVideoMediaClient(config);
  * const input = { // GetMediaInput
  *   StreamName: "STRING_VALUE",

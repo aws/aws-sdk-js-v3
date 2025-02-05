@@ -39,6 +39,7 @@ export interface DisassociateCustomerGatewayCommandOutput
  * ```javascript
  * import { NetworkManagerClient, DisassociateCustomerGatewayCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DisassociateCustomerGatewayCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new NetworkManagerClient(config);
  * const input = { // DisassociateCustomerGatewayRequest
  *   GlobalNetworkId: "STRING_VALUE", // required

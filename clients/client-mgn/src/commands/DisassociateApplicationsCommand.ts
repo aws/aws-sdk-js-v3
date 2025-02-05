@@ -34,6 +34,7 @@ export interface DisassociateApplicationsCommandOutput extends DisassociateAppli
  * ```javascript
  * import { MgnClient, DisassociateApplicationsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DisassociateApplicationsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MgnClient(config);
  * const input = { // DisassociateApplicationsRequest
  *   waveID: "STRING_VALUE", // required

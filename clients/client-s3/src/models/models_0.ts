@@ -7471,8 +7471,6 @@ export interface LifecycleRule {
   ID?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Prefix identifying one or more objects to which the rule applies. This is
    *          no longer used; use <code>Filter</code> instead.</p>
    *          <important>
@@ -7480,6 +7478,8 @@ export interface LifecycleRule {
    *          XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
    *             XML related object key constraints</a>.</p>
    *          </important>
+   *
+   * @deprecated
    * @public
    */
   Prefix?: string | undefined;
@@ -9214,8 +9214,6 @@ export interface ReplicationRule {
   Priority?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>An object key name prefix that identifies the object or objects to which the rule
    *          applies. The maximum prefix length is 1,024 characters. To include all objects in a bucket,
    *          specify an empty string. </p>
@@ -9224,6 +9222,8 @@ export interface ReplicationRule {
    *          XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
    *             XML related object key constraints</a>.</p>
    *          </important>
+   *
+   * @deprecated
    * @public
    */
   Prefix?: string | undefined;
@@ -9932,9 +9932,9 @@ export interface GetObjectOutput {
   ContentType?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * Deprecated in favor of ExpiresString.
+   *
+   * @deprecated
    * @public
    */
   Expires?: Date | undefined;
@@ -11730,9 +11730,9 @@ export interface HeadObjectOutput {
   ContentType?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * Deprecated in favor of ExpiresString.
+   *
+   * @deprecated
    * @public
    */
   Expires?: Date | undefined;

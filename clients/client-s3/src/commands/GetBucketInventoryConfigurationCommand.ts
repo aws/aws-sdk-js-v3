@@ -73,6 +73,7 @@ export interface GetBucketInventoryConfigurationCommandOutput
  * ```javascript
  * import { S3Client, GetBucketInventoryConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketInventoryConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new S3Client(config);
  * const input = { // GetBucketInventoryConfigurationRequest
  *   Bucket: "STRING_VALUE", // required

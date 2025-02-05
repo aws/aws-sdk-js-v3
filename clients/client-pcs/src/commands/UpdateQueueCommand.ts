@@ -35,6 +35,7 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * ```javascript
  * import { PCSClient, UpdateQueueCommand } from "@aws-sdk/client-pcs"; // ES Modules import
  * // const { PCSClient, UpdateQueueCommand } = require("@aws-sdk/client-pcs"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new PCSClient(config);
  * const input = { // UpdateQueueRequest
  *   clusterIdentifier: "STRING_VALUE", // required

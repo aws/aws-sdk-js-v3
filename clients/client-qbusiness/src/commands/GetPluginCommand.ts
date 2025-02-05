@@ -34,6 +34,7 @@ export interface GetPluginCommandOutput extends GetPluginResponse, __MetadataBea
  * ```javascript
  * import { QBusinessClient, GetPluginCommand } from "@aws-sdk/client-qbusiness"; // ES Modules import
  * // const { QBusinessClient, GetPluginCommand } = require("@aws-sdk/client-qbusiness"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new QBusinessClient(config);
  * const input = { // GetPluginRequest
  *   applicationId: "STRING_VALUE", // required

@@ -37,6 +37,7 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * ```javascript
  * import { ARCZonalShiftClient, CancelZonalShiftCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
  * // const { ARCZonalShiftClient, CancelZonalShiftCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ARCZonalShiftClient(config);
  * const input = { // CancelZonalShiftRequest
  *   zonalShiftId: "STRING_VALUE", // required

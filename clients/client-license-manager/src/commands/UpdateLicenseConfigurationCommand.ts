@@ -34,6 +34,7 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  * ```javascript
  * import { LicenseManagerClient, UpdateLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, UpdateLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LicenseManagerClient(config);
  * const input = { // UpdateLicenseConfigurationRequest
  *   LicenseConfigurationArn: "STRING_VALUE", // required

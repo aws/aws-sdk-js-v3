@@ -36,6 +36,7 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * ```javascript
  * import { LookoutVisionClient, DescribeProjectCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, DescribeProjectCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new LookoutVisionClient(config);
  * const input = { // DescribeProjectRequest
  *   ProjectName: "STRING_VALUE", // required

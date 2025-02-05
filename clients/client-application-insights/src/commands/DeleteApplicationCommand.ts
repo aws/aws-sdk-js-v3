@@ -39,6 +39,7 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * ```javascript
  * import { ApplicationInsightsClient, DeleteApplicationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DeleteApplicationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new ApplicationInsightsClient(config);
  * const input = { // DeleteApplicationRequest
  *   ResourceGroupName: "STRING_VALUE", // required

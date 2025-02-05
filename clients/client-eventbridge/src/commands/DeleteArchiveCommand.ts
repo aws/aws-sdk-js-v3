@@ -34,6 +34,7 @@ export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __Met
  * ```javascript
  * import { EventBridgeClient, DeleteArchiveCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DeleteArchiveCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new EventBridgeClient(config);
  * const input = { // DeleteArchiveRequest
  *   ArchiveName: "STRING_VALUE", // required

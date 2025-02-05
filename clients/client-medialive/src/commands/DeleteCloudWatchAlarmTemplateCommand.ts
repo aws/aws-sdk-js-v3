@@ -37,6 +37,7 @@ export interface DeleteCloudWatchAlarmTemplateCommandOutput extends __MetadataBe
  * ```javascript
  * import { MediaLiveClient, DeleteCloudWatchAlarmTemplateCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteCloudWatchAlarmTemplateCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * // See AWS SDK config options: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/configuring-the-jssdk.html
  * const client = new MediaLiveClient(config);
  * const input = { // DeleteCloudWatchAlarmTemplateRequest
  *   Identifier: "STRING_VALUE", // required
