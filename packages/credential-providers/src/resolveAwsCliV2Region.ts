@@ -1,31 +1,42 @@
 import { MetadataService } from "@aws-sdk/ec2-metadata-service";
-import { logger } from "@aws-sdk/smithy-client/dist-types";
-import { loadSharedConfigFiles } from "@smithy/shared-ini-file-loader";
+import { fromSharedConfigFiles } from "@smithy/node-config-provider";
+
+interface ResolveRegionOptions {
+  defaultRegion?: string;
+  profile?: string;
+}
 
 /**
  * Resolves the AWS region following AWS CLI V2 precedence order.
  */
-export const resolveAwsCliV2Region = async (defaultRegion?: string, maybeProfile?: string): Promise<string> => {
-  const profile = maybeProfile ?? process.env.AWS_PROFILE ?? process.env.AWS_DEFAULT_PROFILE ?? "default";
+export const resolveAwsCliV2Region = async ({
+  defaultRegion,
+  profile,
+}: ResolveRegionOptions): Promise<string | undefined> => {
+  const resolvedProfile = profile ?? process.env.AWS_PROFILE ?? process.env.AWS_DEFAULT_PROFILE ?? "default";
 
   const region =
     process.env.AWS_REGION ||
     process.env.AWS_DEFAULT_REGION ||
-    (await getRegionFromIni(profile)) ||
+    (await getRegionFromIni(resolvedProfile)) ||
     (await regionFromMetadataService());
 
   if (!region) {
-    const usedProfile = !profile ? "" : ` (profile: "${profile}")`;
+    const usedProfile = resolvedProfile ? ` (profile: "${resolvedProfile}")` : "";
+
     if (defaultRegion) {
-      logger.warn(
+      console.warn(
         `Unable to determine AWS region from environment or AWS configuration${usedProfile}, defaulting to '${defaultRegion}'`
       );
       return defaultRegion;
     }
-    throw new Error(
-      `Unable to determine AWS region from environment or AWS configuration${usedProfile}. Please specify a region.`
+
+    console.warn(
+      `Unable to determine AWS region from environment or AWS configuration${usedProfile}. Returning undefined.`
     );
+    return undefined;
   }
+
   return region;
 };
 
@@ -33,7 +44,7 @@ export const resolveAwsCliV2Region = async (defaultRegion?: string, maybeProfile
  * Fetches the region from the AWS shared config files.
  */
 export async function getRegionFromIni(profile: string): Promise<string | undefined> {
-  const sharedFiles = await loadSharedConfigFiles({ ignoreCache: true });
+  const sharedFiles = await fromSharedConfigFiles({ ignoreCache: true });
   return sharedFiles.configFile?.[profile]?.region || sharedFiles.credentialsFile?.[profile]?.region;
 }
 
