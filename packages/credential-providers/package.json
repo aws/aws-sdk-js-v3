@@ -44,6 +44,7 @@
     "@aws-sdk/types": "*",
     "@smithy/core": "^3.1.1",
     "@smithy/credential-provider-imds": "^4.0.1",
+    "@smithy/node-config-provider": "^4.0.1",
     "@smithy/property-provider": "^4.0.1",
     "@smithy/types": "^4.1.0",
     "tslib": "^2.6.2"
