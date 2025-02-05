@@ -9774,6 +9774,7 @@ export interface ModifyDBProxyTargetGroupRequest {
 
   /**
    * <p>The new name for the modified <code>DBProxyTarget</code>. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.</p>
+   *          <p>You can't rename the <code>default</code> target group.</p>
    * @public
    */
   NewName?: string | undefined;
@@ -10267,8 +10268,9 @@ export interface ModifyIntegrationMessage {
   IntegrationName?: string | undefined;
 
   /**
-   * <p>A new data filter for the integration. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Zero_ETL_Filtering.html">Data filtering for Aurora zero-ETL integrations with Amazon Redshift</a>.</p>
+   * <p>A new data filter for the integration. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Zero_ETL_Filtering.html">Data filtering
+   *                 for Aurora zero-ETL integrations with Amazon Redshift</a> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/zero-etl.filtering.html">Data
+   *                 filtering for Amazon RDS zero-ETL integrations with Amazon Redshift</a>.</p>
    * @public
    */
   DataFilter?: string | undefined;

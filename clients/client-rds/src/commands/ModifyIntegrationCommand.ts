@@ -30,9 +30,6 @@ export interface ModifyIntegrationCommandOutput extends Integration, __MetadataB
 
 /**
  * <p>Modifies a zero-ETL integration with Amazon Redshift.</p>
- *          <note>
- *             <p>Currently, you can only modify integrations that have Aurora MySQL source DB clusters. Integrations with Aurora PostgreSQL and RDS sources currently don't support modifying the integration.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

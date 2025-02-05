@@ -5973,9 +5973,9 @@ export interface DBClusterStatusInfo {
  */
 export interface DBCluster {
   /**
-   * <p>For all database engines except Amazon Aurora, <code>AllocatedStorage</code> specifies the allocated storage size in gibibytes (GiB).
-   *           For Aurora, <code>AllocatedStorage</code> always returns 1, because Aurora DB cluster storage size isn't fixed, but instead automatically
-   *       adjusts as needed.</p>
+   * <p>
+   *             <code>AllocatedStorage</code> specifies the allocated storage size in gibibytes (GiB).
+   *           For Aurora, <code>AllocatedStorage</code> can vary because Aurora DB cluster storage size adjusts as needed.</p>
    * @public
    */
   AllocatedStorage?: number | undefined;
@@ -12782,9 +12782,10 @@ export interface CreateIntegrationMessage {
 
   /**
    * <p>Data filtering options for the integration. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html">Data filtering for Aurora zero-ETL integrations with Amazon Redshift</a>.
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html">Data filtering for Aurora zero-ETL integrations with Amazon Redshift</a>
+   *             or
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/zero-etl.filtering.html">Data filtering for Amazon RDS zero-ETL integrations with Amazon Redshift</a>.
    *         </p>
-   *          <p>Valid for: Integrations with Aurora MySQL source DB clusters only</p>
    * @public
    */
   DataFilter?: string | undefined;
@@ -13557,7 +13558,8 @@ export interface DeleteDBClusterMessage {
   /**
    * <p>Specifies whether to remove automated backups immediately after the DB
    *             cluster is deleted. This parameter isn't case-sensitive. The default is to remove
-   *             automated backups immediately after the DB cluster is deleted.</p>
+   *             automated backups immediately after the DB cluster is deleted, unless the Amazon Web Services Backup
+   *             policy specifies a point-in-time restore rule.</p>
    * @public
    */
   DeleteAutomatedBackups?: boolean | undefined;
