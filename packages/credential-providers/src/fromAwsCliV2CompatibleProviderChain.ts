@@ -1,59 +1,77 @@
-import { fromEnv } from "@aws-sdk/credential-provider-env";
-import { fromIni } from "@aws-sdk/credential-provider-ini";
-import { defaultProvider } from "@aws-sdk/credential-provider-node";
-import type { CredentialProviderOptions, Provider } from "@aws-sdk/types";
-import { chain, memoize } from "@smithy/property-provider";
-import type { AwsCredentialIdentity } from "@smithy/types";
+import { remoteProvider } from "@aws-sdk/credential-provider-node/src/remoteProvider";
+import { createCredentialChain } from "@aws-sdk/credential-providers";
+import type { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
+import type { AwsCredentialIdentity } from "@aws-sdk/types";
+import { CredentialsProviderError } from "@smithy/property-provider";
 
-interface AwsCliV2CompatibleProviderOptions extends CredentialProviderOptions {
+interface AwsCliV2CompatibleProviderOptions extends Partial<AwsCredentialIdentity> {
   profile?: string;
-  accessKeyId?: string;
-  secretAccessKey?: string;
-  sessionToken?: string;
+  logger?: Console;
 }
 
 /**
- * AWS CLI V2 Compatible Credential Provider Chain
- * If profile is explicitly provided, uses fromIni with that profile.
- * Otherwise, uses a chain of fromEnv and fromNodeProviderChain.
+ * Custom AWS CLI V2 Compatible Credential Provider Chain.
+ * Uses dynamic imports and `createCredentialChain` to mimic AWS CLI V2 behavior.
  */
-export const fromAwsCliV2CompatibleProviderChain = (
-  options: AwsCliV2CompatibleProviderOptions = {}
-): Provider<AwsCredentialIdentity> => {
-  const { profile, accessKeyId, secretAccessKey, sessionToken } = options;
+export const fromAwsCliV2CompatibleProviderChain =
+  (_init: AwsCliV2CompatibleProviderOptions = {}): RuntimeConfigAwsCredentialIdentityProvider =>
+  async ({ callerClientConfig } = {}): Promise<AwsCredentialIdentity> => {
+    // Merge init with caller's client config (profile/region).
+    const init: AwsCliV2CompatibleProviderOptions = {
+      ..._init,
+      ...callerClientConfig,
+      logger: (_init.logger ?? callerClientConfig?.logger ?? console) as Console,
+    };
 
-  return memoize(
-    async (): Promise<AwsCredentialIdentity> => {
-      // If explicit credentials are provided in the constructor, use them.
-      if (accessKeyId && secretAccessKey) {
-        return {
-          accessKeyId,
-          secretAccessKey,
-          sessionToken, // Optional
-        };
+    init.logger?.debug("@aws-sdk/custom-credential-chain - Initializing credential chain");
+
+    const { profile, ...awsCredentials } = init;
+
+    // 1. If credentials are explicitly provided, return them.
+    if (awsCredentials.accessKeyId && awsCredentials.secretAccessKey) {
+      init.logger?.debug("@aws-sdk/custom-credential-chain - Using credentials from constructor");
+      return awsCredentials as AwsCredentialIdentity;
+    }
+
+    // 2. If a profile is explicitly passed, use `fromIni`.
+    if (profile) {
+      init.logger?.debug("@aws-sdk/custom-credential-chain - Using fromIni with profile:", profile);
+      const { fromIni } = await import("@aws-sdk/credential-provider-ini");
+      return createCredentialChain(fromIni({ profile }))();
+    }
+
+    init.logger?.debug("@aws-sdk/cli-compatible-chain - Using from custom credential chain.");
+    return createCredentialChain(
+      async () => {
+        init.logger?.debug("@aws-sdk/cli-compatible-chain - Trying fromEnv");
+        const { fromEnv } = await import("@aws-sdk/credential-provider-env");
+        return fromEnv()();
+      },
+      async () => {
+        init.logger?.debug("@aws-sdk/cli-compatible-chain - Trying fromTokenFile");
+        const { fromTokenFile } = await import("@aws-sdk/credential-provider-web-identity");
+        return fromTokenFile()();
+      },
+      async () => {
+        init.logger?.debug("@aws-sdk/cli-compatible-chain - Trying fromSSO");
+        const { fromSSO } = await import("@aws-sdk/credential-provider-sso");
+        return fromSSO()();
+      },
+      async () => {
+        init.logger?.debug("@aws-sdk/cli-compatible-chain- Trying fromProcess");
+        const { fromProcess } = await import("@aws-sdk/credential-provider-process");
+        return fromProcess()();
+      },
+      async () => {
+        init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::remoteProvider");
+        return (await remoteProvider(init))();
+      },
+      async () => {
+        init.logger?.debug("@aws-sdk/custom-credential-chain - No valid credentials found. Throwing error.");
+        throw new CredentialsProviderError("Could not load credentials from any providers", {
+          tryNextLink: false,
+          logger: init.logger,
+        });
       }
-      // If profile is explicitly provided, use fromIni directly
-      if (profile) {
-        return fromIni({ profile })();
-      }
-
-      // Otherwise, use the chain of providers
-      const credentials = await chain(fromEnv(), async () => {
-        return defaultProvider()();
-      })();
-
-      if (!credentials) {
-        throw new Error("Failed to retrieve valid AWS credentials");
-      }
-
-      return credentials;
-    },
-    credentialsTreatedAsExpired,
-    credentialsWillNeedRefresh
-  );
-};
-
-export const credentialsTreatedAsExpired = (credentials: AwsCredentialIdentity) =>
-  credentials?.expiration !== undefined && credentials.expiration.getTime() - Date.now() < 300000;
-
-export const credentialsWillNeedRefresh = (credentials: AwsCredentialIdentity) => credentials?.expiration !== undefined;
+    )();
+  };
