@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteDomainRequest, DeleteDomainResponse } from "../models/models_0";
-import { de_DeleteDomainCommand, se_DeleteDomainCommand } from "../protocols/Aws_restJson1";
+import { DeleteCaseRuleRequest, DeleteCaseRuleResponse } from "../models/models_0";
+import { de_DeleteCaseRuleCommand, se_DeleteCaseRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,42 +17,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteDomainCommand}.
+ * The input for {@link DeleteCaseRuleCommand}.
  */
-export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
+export interface DeleteCaseRuleCommandInput extends DeleteCaseRuleRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteDomainCommand}.
+ * The output of {@link DeleteCaseRuleCommand}.
  */
-export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __MetadataBearer {}
+export interface DeleteCaseRuleCommandOutput extends DeleteCaseRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a Cases domain.</p>
- *
- *          <note>
- *             <p>After deleting your domain you must disassociate the deleted domain from your Amazon Connect instance with another API call before being able to use Cases again with this
- *           Amazon Connect instance. See <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteIntegrationAssociation.html">DeleteIntegrationAssociation</a>.</p>
- *          </note>
+ * <p>Deletes a case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.  For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, DeleteDomainCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, DeleteDomainCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, DeleteCaseRuleCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
+ * // const { ConnectCasesClient, DeleteCaseRuleCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
- * const input = { // DeleteDomainRequest
+ * const input = { // DeleteCaseRuleRequest
  *   domainId: "STRING_VALUE", // required
+ *   caseRuleId: "STRING_VALUE", // required
  * };
- * const command = new DeleteDomainCommand(input);
+ * const command = new DeleteCaseRuleCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteDomainCommandInput - {@link DeleteDomainCommandInput}
- * @returns {@link DeleteDomainCommandOutput}
- * @see {@link DeleteDomainCommandInput} for command's `input` shape.
- * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
+ * @param DeleteCaseRuleCommandInput - {@link DeleteCaseRuleCommandInput}
+ * @returns {@link DeleteCaseRuleCommandOutput}
+ * @see {@link DeleteCaseRuleCommandInput} for command's `input` shape.
+ * @see {@link DeleteCaseRuleCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -74,18 +72,15 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
  *
- * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. Check the syntax and try again.</p>
- *
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  * @public
  */
-export class DeleteDomainCommand extends $Command
+export class DeleteCaseRuleCommand extends $Command
   .classBuilder<
-    DeleteDomainCommandInput,
-    DeleteDomainCommandOutput,
+    DeleteCaseRuleCommandInput,
+    DeleteCaseRuleCommandOutput,
     ConnectCasesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -97,21 +92,21 @@ export class DeleteDomainCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectCases", "DeleteDomain", {})
-  .n("ConnectCasesClient", "DeleteDomainCommand")
+  .s("AmazonConnectCases", "DeleteCaseRule", {})
+  .n("ConnectCasesClient", "DeleteCaseRuleCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteDomainCommand)
-  .de(de_DeleteDomainCommand)
+  .ser(se_DeleteCaseRuleCommand)
+  .de(de_DeleteCaseRuleCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteDomainRequest;
+      input: DeleteCaseRuleRequest;
       output: {};
     };
     sdk: {
-      input: DeleteDomainCommandInput;
-      output: DeleteDomainCommandOutput;
+      input: DeleteCaseRuleCommandInput;
+      output: DeleteCaseRuleCommandOutput;
     };
   };
 }

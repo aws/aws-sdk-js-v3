@@ -57,7 +57,7 @@ export interface EmptyFieldValue {}
 /**
  * <p>Object to store union of Field values.</p>
  *          <note>
- *             <p>The <code>Summary</code> system field accepts 1500 characters while all other fields
+ *             <p>The <code>Summary</code> system field accepts 3000 characters while all other fields
  *         accept 500 characters.</p>
  *          </note>
  * @public
@@ -1554,6 +1554,638 @@ export interface UpdateCaseRequest {
 export interface UpdateCaseResponse {}
 
 /**
+ * <p>Object containing case rule identifier information.</p>
+ * @public
+ */
+export interface CaseRuleIdentifier {
+  /**
+   * <p>Unique identifier of a case rule.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetCaseRuleRequest {
+  /**
+   * <p>Unique identifier of a Cases domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>List of case rule identifiers.</p>
+   * @public
+   */
+  caseRules: CaseRuleIdentifier[] | undefined;
+}
+
+/**
+ * <p>Represents the left hand operand in the condition. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export type OperandOne = OperandOne.FieldIdMember | OperandOne.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OperandOne {
+  /**
+   * <p>The field ID that this operand should take the value of.</p>
+   * @public
+   */
+  export interface FieldIdMember {
+    fieldId: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    fieldId?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    fieldId: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: OperandOne, visitor: Visitor<T>): T => {
+    if (value.fieldId !== undefined) return visitor.fieldId(value.fieldId);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Represents an empty operand value. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export interface EmptyOperandValue {}
+
+/**
+ * <p>Represents the right hand operand in the condition. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export type OperandTwo =
+  | OperandTwo.BooleanValueMember
+  | OperandTwo.DoubleValueMember
+  | OperandTwo.EmptyValueMember
+  | OperandTwo.StringValueMember
+  | OperandTwo.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OperandTwo {
+  /**
+   * <p>String value type.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    stringValue: string;
+    booleanValue?: never;
+    doubleValue?: never;
+    emptyValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Boolean value type.</p>
+   * @public
+   */
+  export interface BooleanValueMember {
+    stringValue?: never;
+    booleanValue: boolean;
+    doubleValue?: never;
+    emptyValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Double value type.</p>
+   * @public
+   */
+  export interface DoubleValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    doubleValue: number;
+    emptyValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Empty value type.</p>
+   * @public
+   */
+  export interface EmptyValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    doubleValue?: never;
+    emptyValue: EmptyOperandValue;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    booleanValue?: never;
+    doubleValue?: never;
+    emptyValue?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    booleanValue: (value: boolean) => T;
+    doubleValue: (value: number) => T;
+    emptyValue: (value: EmptyOperandValue) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: OperandTwo, visitor: Visitor<T>): T => {
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
+    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
+    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
+    if (value.emptyValue !== undefined) return visitor.emptyValue(value.emptyValue);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Boolean operands for a condition. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export interface BooleanOperands {
+  /**
+   * <p>Represents the left hand operand in the condition.</p>
+   * @public
+   */
+  operandOne: OperandOne | undefined;
+
+  /**
+   * <p>Represents the right hand operand in the condition.</p>
+   * @public
+   */
+  operandTwo: OperandTwo | undefined;
+
+  /**
+   * <p>The value of the outer rule if the condition evaluates to true.</p>
+   * @public
+   */
+  result: boolean | undefined;
+}
+
+/**
+ * <p>Boolean condition for a rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export type BooleanCondition =
+  | BooleanCondition.EqualToMember
+  | BooleanCondition.NotEqualToMember
+  | BooleanCondition.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace BooleanCondition {
+  /**
+   * <p>Tests that operandOne is equal to operandTwo.</p>
+   * @public
+   */
+  export interface EqualToMember {
+    equalTo: BooleanOperands;
+    notEqualTo?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Tests that operandOne is not equal to operandTwo.</p>
+   * @public
+   */
+  export interface NotEqualToMember {
+    equalTo?: never;
+    notEqualTo: BooleanOperands;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    equalTo?: never;
+    notEqualTo?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    equalTo: (value: BooleanOperands) => T;
+    notEqualTo: (value: BooleanOperands) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: BooleanCondition, visitor: Visitor<T>): T => {
+    if (value.equalTo !== undefined) return visitor.equalTo(value.equalTo);
+    if (value.notEqualTo !== undefined) return visitor.notEqualTo(value.notEqualTo);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Required rule type, used to indicate whether a field is required.
+ *       In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export interface RequiredCaseRule {
+  /**
+   * <p>The value of the rule (that is, whether the field is required) should none of the conditions
+   *       evaluate to true.</p>
+   * @public
+   */
+  defaultValue: boolean | undefined;
+
+  /**
+   * <p>List of conditions for the required rule; the first condition to evaluate to true dictates
+   *       the value of the rule.</p>
+   * @public
+   */
+  conditions: BooleanCondition[] | undefined;
+}
+
+/**
+ * <p>Represents what rule type should take place, under what conditions.
+ *       In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export type CaseRuleDetails = CaseRuleDetails.RequiredMember | CaseRuleDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CaseRuleDetails {
+  /**
+   * <p>Required rule type, used to indicate whether a field is required.</p>
+   * @public
+   */
+  export interface RequiredMember {
+    required: RequiredCaseRule;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    required?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    required: (value: RequiredCaseRule) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: CaseRuleDetails, visitor: Visitor<T>): T => {
+    if (value.required !== undefined) return visitor.required(value.required);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Detailed case rule information. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export interface GetCaseRuleResponse {
+  /**
+   * <p>Unique identifier of a case rule.</p>
+   * @public
+   */
+  caseRuleId: string | undefined;
+
+  /**
+   * <p>Name of the case rule.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the case rule.</p>
+   * @public
+   */
+  caseRuleArn: string | undefined;
+
+  /**
+   * <p>Represents what rule type should take place, under what conditions.</p>
+   * @public
+   */
+  rule: CaseRuleDetails | undefined;
+
+  /**
+   * <p>Description of a case rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Indicates whether the resource has been deleted.</p>
+   * @public
+   */
+  deleted?: boolean | undefined;
+
+  /**
+   * <p>Timestamp when the resource was created.</p>
+   * @public
+   */
+  createdTime?: Date | undefined;
+
+  /**
+   * <p>Timestamp when the resource was created or last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Error for batch describe case rules API failure. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export interface CaseRuleError {
+  /**
+   * <p>The case rule identifier that caused the error.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Error code from getting a case rule.</p>
+   * @public
+   */
+  errorCode: string | undefined;
+
+  /**
+   * <p>Error message from getting a case rule.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetCaseRuleResponse {
+  /**
+   * <p>List of detailed case rule information.</p>
+   * @public
+   */
+  caseRules: GetCaseRuleResponse[] | undefined;
+
+  /**
+   * <p>List of case rule errors.</p>
+   * @public
+   */
+  errors: CaseRuleError[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCaseRuleRequest {
+  /**
+   * <p>Unique identifier of a Cases domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>Name of the case rule.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of a case rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Represents what rule type should take place, under what conditions.</p>
+   * @public
+   */
+  rule: CaseRuleDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCaseRuleResponse {
+  /**
+   * <p>Unique identifier of a case rule.</p>
+   * @public
+   */
+  caseRuleId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a case rule.</p>
+   * @public
+   */
+  caseRuleArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCaseRuleRequest {
+  /**
+   * <p>Unique identifier of a Cases domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>Unique identifier of a case rule.</p>
+   * @public
+   */
+  caseRuleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCaseRuleResponse {}
+
+/**
+ * @public
+ */
+export interface ListCaseRulesRequest {
+  /**
+   * <p>Unique identifier of a Cases domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleType = {
+  REQUIRED: "Required",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleType = (typeof RuleType)[keyof typeof RuleType];
+
+/**
+ * <p>Summary information of this case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export interface CaseRuleSummary {
+  /**
+   * <p>Unique identifier of a case rule.</p>
+   * @public
+   */
+  caseRuleId: string | undefined;
+
+  /**
+   * <p>Name of the case rule.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the case rule. </p>
+   * @public
+   */
+  caseRuleArn: string | undefined;
+
+  /**
+   * <p>Possible types for a rule.</p>
+   * @public
+   */
+  ruleType: RuleType | undefined;
+
+  /**
+   * <p>Description of a case rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCaseRulesResponse {
+  /**
+   * <p>A list of field summary objects.</p>
+   * @public
+   */
+  caseRules: CaseRuleSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. This is null if there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCaseRuleRequest {
+  /**
+   * <p>Unique identifier of a Cases domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>Unique identifier of a case rule.</p>
+   * @public
+   */
+  caseRuleId: string | undefined;
+
+  /**
+   * <p>Name of the case rule.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Description of a case rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Represents what rule type should take place, under what conditions.</p>
+   * @public
+   */
+  rule?: CaseRuleDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCaseRuleResponse {}
+
+/**
  * @public
  */
 export interface CreateDomainRequest {
@@ -2751,6 +3383,27 @@ export interface RequiredField {
 }
 
 /**
+ * <p>An association representing a case rule acting upon a field. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export interface TemplateRule {
+  /**
+   * <p>Unique identifier of a case rule.</p>
+   * @public
+   */
+  caseRuleId: string | undefined;
+
+  /**
+   * <p>Unique identifier of a field.</p>
+   * @public
+   */
+  fieldId: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -2804,6 +3457,13 @@ export interface CreateTemplateRequest {
    * @public
    */
   status?: TemplateStatus | undefined;
+
+  /**
+   * <p>A list of case rules (also known as <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">case field conditions</a>) on a template.
+   *     </p>
+   * @public
+   */
+  rules?: TemplateRule[] | undefined;
 }
 
 /**
@@ -2932,6 +3592,12 @@ export interface GetTemplateResponse {
    * @public
    */
   lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>A list of case rules (also known as <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">case field conditions</a>) on a template. </p>
+   * @public
+   */
+  rules?: TemplateRule[] | undefined;
 }
 
 /**
@@ -3057,6 +3723,12 @@ export interface UpdateTemplateRequest {
    * @public
    */
   status?: TemplateStatus | undefined;
+
+  /**
+   * <p>A list of case rules (also known as <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">case field conditions</a>) on a template.</p>
+   * @public
+   */
+  rules?: TemplateRule[] | undefined;
 }
 
 /**

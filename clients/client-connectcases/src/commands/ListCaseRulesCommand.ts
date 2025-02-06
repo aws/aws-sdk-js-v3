@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteDomainRequest, DeleteDomainResponse } from "../models/models_0";
-import { de_DeleteDomainCommand, se_DeleteDomainCommand } from "../protocols/Aws_restJson1";
+import { ListCaseRulesRequest, ListCaseRulesResponse } from "../models/models_0";
+import { de_ListCaseRulesCommand, se_ListCaseRulesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,51 +17,56 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteDomainCommand}.
+ * The input for {@link ListCaseRulesCommand}.
  */
-export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
+export interface ListCaseRulesCommandInput extends ListCaseRulesRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteDomainCommand}.
+ * The output of {@link ListCaseRulesCommand}.
  */
-export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __MetadataBearer {}
+export interface ListCaseRulesCommandOutput extends ListCaseRulesResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a Cases domain.</p>
- *
- *          <note>
- *             <p>After deleting your domain you must disassociate the deleted domain from your Amazon Connect instance with another API call before being able to use Cases again with this
- *           Amazon Connect instance. See <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteIntegrationAssociation.html">DeleteIntegrationAssociation</a>.</p>
- *          </note>
+ * <p>Lists all case rules in a Cases domain. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.  For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, DeleteDomainCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, DeleteDomainCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, ListCaseRulesCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
+ * // const { ConnectCasesClient, ListCaseRulesCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
- * const input = { // DeleteDomainRequest
+ * const input = { // ListCaseRulesRequest
  *   domainId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new DeleteDomainCommand(input);
+ * const command = new ListCaseRulesCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListCaseRulesResponse
+ * //   caseRules: [ // CaseRuleSummaryList // required
+ * //     { // CaseRuleSummary
+ * //       caseRuleId: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       caseRuleArn: "STRING_VALUE", // required
+ * //       ruleType: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param DeleteDomainCommandInput - {@link DeleteDomainCommandInput}
- * @returns {@link DeleteDomainCommandOutput}
- * @see {@link DeleteDomainCommandInput} for command's `input` shape.
- * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
+ * @param ListCaseRulesCommandInput - {@link ListCaseRulesCommandInput}
+ * @returns {@link ListCaseRulesCommandOutput}
+ * @see {@link ListCaseRulesCommandInput} for command's `input` shape.
+ * @see {@link ListCaseRulesCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service
- *       resource associated with the request. Resolve the conflict before retrying this request. See
- *       the accompanying error message for details.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>We couldn't process your request because of an issue with the server. Try again
@@ -82,10 +87,10 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  *
  * @public
  */
-export class DeleteDomainCommand extends $Command
+export class ListCaseRulesCommand extends $Command
   .classBuilder<
-    DeleteDomainCommandInput,
-    DeleteDomainCommandOutput,
+    ListCaseRulesCommandInput,
+    ListCaseRulesCommandOutput,
     ConnectCasesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -97,21 +102,21 @@ export class DeleteDomainCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectCases", "DeleteDomain", {})
-  .n("ConnectCasesClient", "DeleteDomainCommand")
+  .s("AmazonConnectCases", "ListCaseRules", {})
+  .n("ConnectCasesClient", "ListCaseRulesCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteDomainCommand)
-  .de(de_DeleteDomainCommand)
+  .ser(se_ListCaseRulesCommand)
+  .de(de_ListCaseRulesCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteDomainRequest;
-      output: {};
+      input: ListCaseRulesRequest;
+      output: ListCaseRulesResponse;
     };
     sdk: {
-      input: DeleteDomainCommandInput;
-      output: DeleteDomainCommandOutput;
+      input: ListCaseRulesCommandInput;
+      output: ListCaseRulesCommandOutput;
     };
   };
 }

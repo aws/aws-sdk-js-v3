@@ -31,7 +31,6 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * <note>
  *             <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a> permission on the User ARN resource that you provide</p>
  *          </note>
- *
  *          <p>Creates a case in the specified Cases domain. Case system and custom fields are taken
  *       as an array id/value pairs with a declared data types.</p>
  *          <p>The following fields are required when creating a case:</p>

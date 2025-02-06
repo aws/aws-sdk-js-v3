@@ -43,8 +43,10 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  *                   <p>If you provide a value for <code>performedBy.userArn</code> you must also have
  *               <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">DescribeUser</a> permission on the ARN of the user that you provide.</p>
  *                </li>
+ *                <li>
+ *                   <p>The <code>type</code> field is reserved for internal use only.</p>
+ *                </li>
  *             </ul>
- *
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

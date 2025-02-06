@@ -34,6 +34,29 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *       IDs. Additionally, multiple fields with same IDs are not allowed within the same Template. A
  *       template can be either Active or Inactive, as indicated by its status. Inactive templates
  *       cannot be used to create cases.</p>
+ *          <p> Other template APIs are: </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html">DeleteTemplate</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetTemplate.html">GetTemplate</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html">ListTemplates</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html">UpdateTemplate</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +76,12 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *     },
  *   ],
  *   status: "STRING_VALUE",
+ *   rules: [ // TemplateCaseRuleList
+ *     { // TemplateRule
+ *       caseRuleId: "STRING_VALUE", // required
+ *       fieldId: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateTemplateCommand(input);
  * const response = await client.send(command);
