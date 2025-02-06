@@ -78,6 +78,7 @@ export const ActionType = {
   PURCHASE_RESERVED_INSTANCES: "PurchaseReservedInstances",
   PURCHASE_SAVINGS_PLANS: "PurchaseSavingsPlans",
   RIGHTSIZE: "Rightsize",
+  SCALE_IN: "ScaleIn",
   STOP: "Stop",
   UPGRADE: "Upgrade",
 } as const;
@@ -86,6 +87,20 @@ export const ActionType = {
  * @public
  */
 export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AllocationStrategy = {
+  LOWEST_PRICE: "LowestPrice",
+  PRIORITIZED: "Prioritized",
+} as const;
+
+/**
+ * @public
+ */
+export type AllocationStrategy = (typeof AllocationStrategy)[keyof typeof AllocationStrategy];
 
 /**
  * <p>Describes the Amazon Elastic Block Store performance configuration of the current and
@@ -421,8 +436,7 @@ export interface StorageConfiguration {
 }
 
 /**
- * <p>The Amazon Elastic Block Store volume configuration used for
- *       recommendations.</p>
+ * <p>The Amazon Elastic Block Store volume configuration used for recommendations.</p>
  * @public
  */
 export interface EbsVolumeConfiguration {
@@ -558,14 +572,13 @@ export interface ResourceCostCalculation {
 }
 
 /**
- * <p>Describes the Amazon Elastic Block Store volume configuration of the current and
- *       recommended resource configuration for a recommendation.</p>
+ * <p>Describes the Amazon Elastic Block Store volume configuration of the current and recommended
+ *       resource configuration for a recommendation.</p>
  * @public
  */
 export interface EbsVolume {
   /**
-   * <p>The Amazon Elastic Block Store volume configuration used for
-   *       recommendations.</p>
+   * <p>The Amazon Elastic Block Store volume configuration used for recommendations.</p>
    * @public
    */
   configuration?: EbsVolumeConfiguration | undefined;
@@ -578,27 +591,74 @@ export interface EbsVolume {
 }
 
 /**
- * <p>The Instance configuration used for recommendations.</p>
+ * <p>The instance configuration used for recommendations.</p>
  * @public
  */
 export interface InstanceConfiguration {
   /**
-   * <p>Details about the type.</p>
+   * <p>The instance type of the configuration.</p>
    * @public
    */
   type?: string | undefined;
 }
 
 /**
- * <p>The EC2 auto scaling group configuration used for recommendations.</p>
+ * <p>The configuration for the EC2 Auto Scaling group with mixed instance types.</p>
+ * @public
+ */
+export interface MixedInstanceConfiguration {
+  /**
+   * <p>The instance type of the configuration.</p>
+   * @public
+   */
+  type?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Ec2AutoScalingGroupType = {
+  MIXED_INSTANCE_TYPES: "MixedInstanceTypes",
+  SINGLE_INSTANCE_TYPE: "SingleInstanceType",
+} as const;
+
+/**
+ * @public
+ */
+export type Ec2AutoScalingGroupType = (typeof Ec2AutoScalingGroupType)[keyof typeof Ec2AutoScalingGroupType];
+
+/**
+ * <p>The EC2 Auto Scaling group configuration used for recommendations.</p>
  * @public
  */
 export interface Ec2AutoScalingGroupConfiguration {
   /**
-   * <p>Details about the instance.</p>
+   * <p>Details about the instance for the EC2 Auto Scaling group with a single instance
+   *       type.</p>
    * @public
    */
   instance?: InstanceConfiguration | undefined;
+
+  /**
+   * <p>A list of instance types for an EC2 Auto Scaling group with mixed instance types.</p>
+   * @public
+   */
+  mixedInstances?: MixedInstanceConfiguration[] | undefined;
+
+  /**
+   * <p>The type of EC2 Auto Scaling group, showing whether it consists of a single instance type
+   *       or mixed instance types.</p>
+   * @public
+   */
+  type?: Ec2AutoScalingGroupType | undefined;
+
+  /**
+   * <p>The strategy used for allocating instances, based on a predefined priority order or based
+   *       on the lowest available price.</p>
+   * @public
+   */
+  allocationStrategy?: AllocationStrategy | undefined;
 }
 
 /**
@@ -1810,7 +1870,8 @@ export namespace ResourceDetails {
   }
 
   /**
-   * <p>The SageMaker Savings Plans recommendation details.</p>
+   * <p>The SageMaker AI
+   *       Savings Plans recommendation details.</p>
    * @public
    */
   export interface SageMakerSavingsPlansMember {

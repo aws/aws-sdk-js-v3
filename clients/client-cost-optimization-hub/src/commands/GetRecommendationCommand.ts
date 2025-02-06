@@ -67,7 +67,7 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //   estimatedMonthlyCost: Number("double"),
  * //   implementationEffort: "VeryLow" || "Low" || "Medium" || "High" || "VeryHigh",
  * //   restartNeeded: true || false,
- * //   actionType: "Rightsize" || "Stop" || "Upgrade" || "PurchaseSavingsPlans" || "PurchaseReservedInstances" || "MigrateToGraviton" || "Delete",
+ * //   actionType: "Rightsize" || "Stop" || "Upgrade" || "PurchaseSavingsPlans" || "PurchaseReservedInstances" || "MigrateToGraviton" || "Delete" || "ScaleIn",
  * //   rollbackPossible: true || false,
  * //   currentResourceDetails: { // ResourceDetails Union: only one key present
  * //     lambdaFunction: { // LambdaFunction
@@ -199,6 +199,13 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //         instance: {
  * //           type: "STRING_VALUE",
  * //         },
+ * //         mixedInstances: [ // MixedInstanceConfigurationList
+ * //           { // MixedInstanceConfiguration
+ * //             type: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         type: "SingleInstanceType" || "MixedInstanceTypes",
+ * //         allocationStrategy: "Prioritized" || "LowestPrice",
  * //       },
  * //       costCalculation: {
  * //         usages: [
@@ -471,6 +478,13 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //         instance: {
  * //           type: "STRING_VALUE",
  * //         },
+ * //         mixedInstances: [
+ * //           {
+ * //             type: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         type: "SingleInstanceType" || "MixedInstanceTypes",
+ * //         allocationStrategy: "Prioritized" || "LowestPrice",
  * //       },
  * //       costCalculation: "<ResourceCostCalculation>",
  * //     },

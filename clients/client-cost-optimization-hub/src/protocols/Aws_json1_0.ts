@@ -757,6 +757,10 @@ const de_ListRecommendationSummariesResponse = (
   }) as any;
 };
 
+// de_MixedInstanceConfiguration omitted.
+
+// de_MixedInstanceConfigurationList omitted.
+
 /**
  * deserializeAws_json1_0OpenSearchReservedInstances
  */
