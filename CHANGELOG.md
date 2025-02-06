@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.743.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.742.1...v3.743.0) (2025-02-06)
+
+
+### Features
+
+* **client-cloudformation:** We added 5 new stack refactoring APIs: CreateStackRefactor, ExecuteStackRefactor, ListStackRefactors, DescribeStackRefactor, ListStackRefactorActions. ([0eb8c57](https://github.com/aws/aws-sdk-js-v3/commit/0eb8c573da706d9cb8707d950330083e729f3e43))
+* **client-connectcases:** This release adds the ability to conditionally require fields on a template. Check public documentation for more information. ([83f7355](https://github.com/aws/aws-sdk-js-v3/commit/83f735508f9b7ebd622bbc75ff8c734bf33db41d))
+* **client-cost-optimization-hub:** This release enables AWS Cost Optimization Hub to show cost optimization recommendations for Amazon Auto Scaling Groups, including those with single and mixed instance types. ([57c1525](https://github.com/aws/aws-sdk-js-v3/commit/57c1525456a99c79380d8ee57e113fbebb39bc06))
+* **client-s3:** Updated list of the valid AWS Region values for the LocationConstraint parameter for general purpose buckets. ([794f4b5](https://github.com/aws/aws-sdk-js-v3/commit/794f4b5cd80ada15e689db015546a55b22c736c2))
+
+
+
+
+
 ## [3.742.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.742.0...v3.742.1) (2025-02-05)
 
 

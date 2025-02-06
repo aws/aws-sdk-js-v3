@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.743.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.742.1...v3.743.0) (2025-02-06)
+
+
+### Features
+
+* **client-connectcases:** This release adds the ability to conditionally require fields on a template. Check public documentation for more information. ([83f7355](https://github.com/aws/aws-sdk-js-v3/commit/83f735508f9b7ebd622bbc75ff8c734bf33db41d))
+
+
+
+
+
 # [3.741.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.740.0...v3.741.0) (2025-02-03)
 
 **Note:** Version bump only for package @aws-sdk/client-connectcases

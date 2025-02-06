@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.743.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.742.1...v3.743.0) (2025-02-06)
+
+
+### Features
+
+* **client-cloudformation:** We added 5 new stack refactoring APIs: CreateStackRefactor, ExecuteStackRefactor, ListStackRefactors, DescribeStackRefactor, ListStackRefactorActions. ([0eb8c57](https://github.com/aws/aws-sdk-js-v3/commit/0eb8c573da706d9cb8707d950330083e729f3e43))
+
+
+
+
+
 # [3.741.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.740.0...v3.741.0) (2025-02-03)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudformation

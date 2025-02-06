@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.743.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.742.1...v3.743.0) (2025-02-06)
+
+
+### Features
+
+* **client-cost-optimization-hub:** This release enables AWS Cost Optimization Hub to show cost optimization recommendations for Amazon Auto Scaling Groups, including those with single and mixed instance types. ([57c1525](https://github.com/aws/aws-sdk-js-v3/commit/57c1525456a99c79380d8ee57e113fbebb39bc06))
+
+
+
+
+
 # [3.741.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.740.0...v3.741.0) (2025-02-03)
 
 **Note:** Version bump only for package @aws-sdk/client-cost-optimization-hub

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.743.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.742.1...v3.743.0) (2025-02-06)
+
+
+### Features
+
+* **client-s3:** Updated list of the valid AWS Region values for the LocationConstraint parameter for general purpose buckets. ([794f4b5](https://github.com/aws/aws-sdk-js-v3/commit/794f4b5cd80ada15e689db015546a55b22c736c2))
+
+
+
+
+
 # [3.741.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.740.0...v3.741.0) (2025-02-03)
 
 **Note:** Version bump only for package @aws-sdk/client-s3
