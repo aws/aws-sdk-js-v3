@@ -578,14 +578,14 @@ export type RoutingPolicy = (typeof RoutingPolicy)[keyof typeof RoutingPolicy];
  */
 export interface DnsConfig {
   /**
-   * @deprecated
-   *
    * <p>
    *             <i>Use
    *     NamespaceId in <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html">Service</a>
    *     instead.</i>
    *          </p>
    *          <p>The ID of the namespace to use for DNS configuration.</p>
+   *
+   * @deprecated
    * @public
    */
   NamespaceId?: string | undefined;
@@ -833,8 +833,6 @@ export interface HealthCheckConfig {
  */
 export interface HealthCheckCustomConfig {
   /**
-   * @deprecated
-   *
    * <important>
    *             <p>This parameter is no longer supported and is always set to 1. Cloud Map waits for approximately 30 seconds
    *     after receiving an <code>UpdateInstanceCustomHealthStatus</code> request before changing the status of the
@@ -846,6 +844,8 @@ export interface HealthCheckCustomConfig {
    *          <p>Sending a second or subsequent <code>UpdateInstanceCustomHealthStatus</code> request with the same value
    *    before 30 seconds has passed doesn't accelerate the change. Cloud Map still waits <code>30</code> seconds after the
    *    first request to make the change.</p>
+   *
+   * @deprecated
    * @public
    */
   FailureThreshold?: number | undefined;

@@ -433,10 +433,10 @@ export interface EventAccountFilter {
  */
 export interface DescribeAffectedEntitiesForOrganizationRequest {
   /**
-   * @deprecated
-   *
    * <p>A JSON set of elements including the <code>awsAccountId</code> and the
    *             <code>eventArn</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   organizationEntityFilters?: EventAccountFilter[] | undefined;

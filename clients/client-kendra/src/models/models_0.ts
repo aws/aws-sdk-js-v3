@@ -5126,8 +5126,6 @@ export interface DataSourceConfiguration {
   GitHubConfiguration?: GitHubConfiguration | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Provides the configuration information to connect to Alfresco as your data source.</p>
    *          <note>
    *             <p>Support for <code>AlfrescoConfiguration</code> ended May 2023.
@@ -5135,6 +5133,8 @@ export interface DataSourceConfiguration {
    *         schema / <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html">TemplateConfiguration</a>
    *         API.</p>
    *          </note>
+   *
+   * @deprecated
    * @public
    */
   AlfrescoConfiguration?: AlfrescoConfiguration | undefined;

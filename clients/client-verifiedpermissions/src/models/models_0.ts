@@ -2335,26 +2335,24 @@ export type OpenIdIssuer = (typeof OpenIdIssuer)[keyof typeof OpenIdIssuer];
  */
 export interface IdentitySourceDetails {
   /**
-   * @deprecated
-   *
    * <p>The application client IDs associated with the specified Amazon Cognito user pool that are
    *             enabled for this identity source.</p>
+   *
+   * @deprecated
    * @public
    */
   clientIds?: string[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool whose identities are accessible to this Verified Permissions
    *             policy store.</p>
+   *
+   * @deprecated
    * @public
    */
   userPoolArn?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The well-known URL that points to this user pool's OIDC discovery endpoint. This is a
    *             URL string in the following format. This URL replaces the placeholders for both the
    *             Amazon Web Services Region and the user pool identifier with those appropriate for this user
@@ -2362,15 +2360,17 @@ export interface IdentitySourceDetails {
    *          <p>
    *             <code>https://cognito-idp.<i>&lt;region&gt;</i>.amazonaws.com/<i>&lt;user-pool-id&gt;</i>/.well-known/openid-configuration</code>
    *          </p>
+   *
+   * @deprecated
    * @public
    */
   discoveryUrl?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A string that identifies the type of OIDC service represented by this identity source. </p>
    *          <p>At this time, the only valid value is <code>cognito</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   openIdIssuer?: OpenIdIssuer | undefined;
@@ -2387,9 +2387,9 @@ export interface GetIdentitySourceOutput {
   createdDate: Date | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A structure that describes the configuration of the identity source.</p>
+   *
+   * @deprecated
    * @public
    */
   details?: IdentitySourceDetails | undefined;
@@ -2741,25 +2741,23 @@ export interface ListIdentitySourcesInput {
  */
 export interface IdentitySourceItemDetails {
   /**
-   * @deprecated
-   *
    * <p>The application client IDs associated with the specified Amazon Cognito user pool that are
    *             enabled for this identity source.</p>
+   *
+   * @deprecated
    * @public
    */
   clientIds?: string[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The Amazon Cognito user pool whose identities are accessible to this Verified Permissions policy store.</p>
+   *
+   * @deprecated
    * @public
    */
   userPoolArn?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The well-known URL that points to this user pool's OIDC discovery endpoint. This is a
    *             URL string in the following format. This URL replaces the placeholders for both the
    *             Amazon Web Services Region and the user pool identifier with those appropriate for this user
@@ -2767,15 +2765,17 @@ export interface IdentitySourceItemDetails {
    *          <p>
    *             <code>https://cognito-idp.<i>&lt;region&gt;</i>.amazonaws.com/<i>&lt;user-pool-id&gt;</i>/.well-known/openid-configuration</code>
    *          </p>
+   *
+   * @deprecated
    * @public
    */
   discoveryUrl?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A string that identifies the type of OIDC service represented by this identity source. </p>
    *          <p>At this time, the only valid value is <code>cognito</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   openIdIssuer?: OpenIdIssuer | undefined;
@@ -2795,10 +2795,10 @@ export interface IdentitySourceItem {
   createdDate: Date | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A structure that contains the details of the associated identity provider
    *             (IdP).</p>
+   *
+   * @deprecated
    * @public
    */
   details?: IdentitySourceItemDetails | undefined;

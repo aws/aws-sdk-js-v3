@@ -187,7 +187,7 @@ const partitionHash: PartitionHash = {
     ],
   },
   "aws-iso-f": {
-    regions: [],
+    regions: ["us-isof-east-1", "us-isof-south-1"],
     regionRegex: "^us\\-isof\\-\\w+\\-\\d+$",
     variants: [
       {

@@ -6302,8 +6302,6 @@ export interface AnomalySubscription {
   Subscribers: Subscriber[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>(deprecated)</p>
    *          <p>An absolute dollar value that must be exceeded by the anomaly's total impact (see
    *                 <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Impact.html">Impact</a> for
@@ -6313,6 +6311,8 @@ export interface AnomalySubscription {
    *             ThresholdExpression.</p>
    *          <p>One of Threshold or ThresholdExpression is required for this resource. You cannot
    *             specify both.</p>
+   *
+   * @deprecated
    * @public
    */
   Threshold?: number | undefined;
@@ -9045,13 +9045,13 @@ export interface UpdateAnomalySubscriptionRequest {
   SubscriptionArn: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>(deprecated)</p>
    *          <p>The update to the threshold value for receiving notifications. </p>
    *          <p>This field has been deprecated. To update a threshold, use ThresholdExpression. Continued
    *       use of Threshold will be treated as shorthand syntax for a ThresholdExpression.</p>
    *          <p>You can specify either Threshold or ThresholdExpression, but not both.</p>
+   *
+   * @deprecated
    * @public
    */
   Threshold?: number | undefined;

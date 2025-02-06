@@ -409,9 +409,9 @@ export interface AccountFreeTrialInfo {
   AccountId?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Describes the data source enabled for the GuardDuty member account.</p>
+   *
+   * @deprecated
    * @public
    */
   DataSources?: DataSourcesFreeTrial | undefined;
@@ -1606,55 +1606,55 @@ export interface CloudTrailConfigurationResult {
  */
 export interface Condition {
   /**
-   * @deprecated
-   *
    * <p>Represents the <i>equal</i> condition to be applied to a single field when
    *       querying for findings.</p>
+   *
+   * @deprecated
    * @public
    */
   Eq?: string[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Represents the <i>not equal</i> condition to be applied to a single field
    *       when querying for findings.</p>
+   *
+   * @deprecated
    * @public
    */
   Neq?: string[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Represents a <i>greater than</i> condition to be applied to a single field
    *       when querying for findings.</p>
+   *
+   * @deprecated
    * @public
    */
   Gt?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Represents a <i>greater than or equal</i> condition to be applied to a
    *       single field when querying for findings.</p>
+   *
+   * @deprecated
    * @public
    */
   Gte?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Represents a <i>less than</i> condition to be applied to a single field when
    *       querying for findings.</p>
+   *
+   * @deprecated
    * @public
    */
   Lt?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Represents a <i>less than or equal</i> condition to be applied to a single
    *       field when querying for findings.</p>
+   *
+   * @deprecated
    * @public
    */
   Lte?: number | undefined;
@@ -2510,12 +2510,12 @@ export interface CreateDetectorRequest {
   FindingPublishingFrequency?: FindingPublishingFrequency | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Describes which data sources will be enabled for the detector.</p>
    *          <p>There might be regional differences because some data sources might not be
    *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
    *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
+   *
+   * @deprecated
    * @public
    */
   DataSources?: DataSourceConfigurations | undefined;
@@ -4566,12 +4566,12 @@ export interface OrganizationFeatureConfigurationResult {
  */
 export interface DescribeOrganizationConfigurationResponse {
   /**
-   * @deprecated
-   *
    * <p>Indicates whether GuardDuty is automatically enabled for accounts added to the
    *       organization.</p>
    *          <p>Even though this is still supported, we recommend using
    *         <code>AutoEnableOrganizationMembers</code> to achieve the similar results.</p>
+   *
+   * @deprecated
    * @public
    */
   AutoEnable?: boolean | undefined;
@@ -4584,9 +4584,9 @@ export interface DescribeOrganizationConfigurationResponse {
   MemberAccountLimitReached: boolean | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Describes which data sources are enabled automatically for member accounts.</p>
+   *
+   * @deprecated
    * @public
    */
   DataSources?: OrganizationDataSourceConfigurationsResult | undefined;
@@ -7780,9 +7780,9 @@ export interface SeverityStatistics {
  */
 export interface FindingStatistics {
   /**
-   * @deprecated
-   *
    * <p>Represents a list of map of severity to count statistics for a set of findings.</p>
+   *
+   * @deprecated
    * @public
    */
   CountBySeverity?: Record<string, number> | undefined;
@@ -7943,9 +7943,9 @@ export interface GetDetectorResponse {
   UpdatedAt?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Describes which data sources are enabled for the detector.</p>
+   *
+   * @deprecated
    * @public
    */
   DataSources?: DataSourceConfigurationsResult | undefined;
@@ -8092,9 +8092,9 @@ export interface GetFindingsStatisticsRequest {
   DetectorId: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The types of finding statistics to retrieve.</p>
+   *
+   * @deprecated
    * @public
    */
   FindingStatisticTypes?: FindingStatisticType[] | undefined;

@@ -118,9 +118,9 @@ export interface Actuator {
   max?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A specified value for the actuator.</p>
+   *
+   * @deprecated
    * @public
    */
   assignedValue?: string | undefined;
@@ -426,9 +426,9 @@ export interface Attribute {
   max?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A specified value for the attribute.</p>
+   *
+   * @deprecated
    * @public
    */
   assignedValue?: string | undefined;
@@ -1750,13 +1750,13 @@ export interface CreateCampaignRequest {
   compression?: Compression | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A number indicating the priority of one campaign over another campaign for
    *             a certain vehicle or fleet. A campaign with the lowest value is deployed to vehicles
    *             before any other campaigns. If it's not specified, <code>0</code> is used. </p>
    *          <p>Default: <code>0</code>
    *          </p>
+   *
+   * @deprecated
    * @public
    */
   priority?: number | undefined;
@@ -5531,18 +5531,18 @@ export interface TimestreamResources {
  */
 export interface RegisterAccountRequest {
   /**
-   * @deprecated
-   *
    * <p>The registered Amazon Timestream resources that Amazon Web Services IoT FleetWise edge agent software can transfer
    *             your vehicle data to.</p>
+   *
+   * @deprecated
    * @public
    */
   timestreamResources?: TimestreamResources | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The IAM resource that allows Amazon Web Services IoT FleetWise to send data to Amazon Timestream.</p>
+   *
+   * @deprecated
    * @public
    */
   iamResources?: IamResources | undefined;

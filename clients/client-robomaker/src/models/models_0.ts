@@ -298,12 +298,12 @@ export type SimulationJobErrorCode = (typeof SimulationJobErrorCode)[keyof typeo
  */
 export interface LoggingConfig {
   /**
-   * @deprecated
-   *
    * <p>A boolean indicating whether to record all ROS topics.</p>
    *          <important>
    *             <p>This API is no longer supported and will throw an error if used.</p>
    *          </important>
+   *
+   * @deprecated
    * @public
    */
   recordAllRosTopics?: boolean | undefined;
@@ -582,8 +582,6 @@ export interface RobotApplicationConfig {
   uploadConfigurations?: UploadConfiguration[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A Boolean indicating whether to use default upload configurations. By default,
    *             <code>.ros</code> and <code>.gazebo</code> files are uploaded when the application
    *          terminates and all ROS topics will be recorded.</p>
@@ -591,6 +589,8 @@ export interface RobotApplicationConfig {
    *          <important>
    *             <p>This API is no longer supported and will throw an error if used.</p>
    *          </important>
+   *
+   * @deprecated
    * @public
    */
   useDefaultUploadConfigurations?: boolean | undefined;
@@ -602,13 +602,13 @@ export interface RobotApplicationConfig {
   tools?: Tool[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A Boolean indicating whether to use default robot application tools. The default tools
    *          are rviz, rqt, terminal and rosbag record. The default is <code>False</code>.</p>
    *          <important>
    *             <p>This API is no longer supported and will throw an error if used.</p>
    *          </important>
+   *
+   * @deprecated
    * @public
    */
   useDefaultTools?: boolean | undefined;
@@ -665,8 +665,6 @@ export interface SimulationApplicationConfig {
   worldConfigs?: WorldConfig[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A Boolean indicating whether to use default upload configurations. By default,
    *             <code>.ros</code> and <code>.gazebo</code> files are uploaded when the application
    *          terminates and all ROS topics will be recorded.</p>
@@ -674,6 +672,8 @@ export interface SimulationApplicationConfig {
    *          <important>
    *             <p>This API is no longer supported and will throw an error if used.</p>
    *          </important>
+   *
+   * @deprecated
    * @public
    */
   useDefaultUploadConfigurations?: boolean | undefined;
@@ -685,13 +685,13 @@ export interface SimulationApplicationConfig {
   tools?: Tool[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A Boolean indicating whether to use default simulation application tools. The default
    *          tools are rviz, rqt, terminal and rosbag record. The default is <code>False</code>.</p>
    *          <important>
    *             <p>This API is no longer supported and will throw an error if used.</p>
    *          </important>
+   *
+   * @deprecated
    * @public
    */
   useDefaultTools?: boolean | undefined;

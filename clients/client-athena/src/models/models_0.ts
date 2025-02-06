@@ -4703,9 +4703,9 @@ export interface StartCalculationExecutionRequest {
   Description?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Contains configuration information for the calculation.</p>
+   *
+   * @deprecated
    * @public
    */
   CalculationConfiguration?: CalculationConfiguration | undefined;

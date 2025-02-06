@@ -214,9 +214,9 @@ export interface ResourceShareInvitation {
   status?: ResourceShareInvitationStatus | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>To view the resources associated with a pending resource share invitation, use <a>ListPendingInvitationResources</a>.</p>
+   *
+   * @deprecated
    * @public
    */
   resourceShareAssociations?: ResourceShareAssociation[] | undefined;

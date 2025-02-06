@@ -2768,9 +2768,9 @@ export interface DescribeUsersResponse {
   Users?: User[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The total number of users included in the results.</p>
+   *
+   * @deprecated
    * @public
    */
   TotalNumberOfUsers?: number | undefined;

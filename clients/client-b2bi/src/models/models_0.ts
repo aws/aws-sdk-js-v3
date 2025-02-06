@@ -2878,36 +2878,36 @@ export interface CreateTransformerRequest {
   tags?: Tag[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Specifies that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   fileFormat?: FileFormat | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
    *          <note>
    *             <p>This parameter is available for backwards compatibility. Use the <a href="https://docs.aws.amazon.com/b2bi/latest/APIReference/API_Mapping.html">Mapping</a> data type instead.</p>
    *          </note>
+   *
+   * @deprecated
    * @public
    */
   mappingTemplate?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   *
+   * @deprecated
    * @public
    */
   ediType?: EdiType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Specifies a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   *
+   * @deprecated
    * @public
    */
   sampleDocument?: string | undefined;
@@ -2988,33 +2988,33 @@ export interface CreateTransformerResponse {
   createdAt: Date | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   fileFormat?: FileFormat | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
+   *
+   * @deprecated
    * @public
    */
   mappingTemplate?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   *
+   * @deprecated
    * @public
    */
   ediType?: EdiType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   *
+   * @deprecated
    * @public
    */
   sampleDocument?: string | undefined;
@@ -3109,33 +3109,33 @@ export interface GetTransformerResponse {
   modifiedAt?: Date | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   fileFormat?: FileFormat | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
+   *
+   * @deprecated
    * @public
    */
   mappingTemplate?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   *
+   * @deprecated
    * @public
    */
   ediType?: EdiType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   *
+   * @deprecated
    * @public
    */
   sampleDocument?: string | undefined;
@@ -3223,33 +3223,33 @@ export interface TransformerSummary {
   modifiedAt?: Date | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   fileFormat?: FileFormat | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
+   *
+   * @deprecated
    * @public
    */
   mappingTemplate?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   *
+   * @deprecated
    * @public
    */
   ediType?: EdiType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   *
+   * @deprecated
    * @public
    */
   sampleDocument?: string | undefined;
@@ -3322,36 +3322,36 @@ export interface UpdateTransformerRequest {
   status?: TransformerStatus | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Specifies that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   fileFormat?: FileFormat | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
    *          <note>
    *             <p>This parameter is available for backwards compatibility. Use the <a href="https://docs.aws.amazon.com/b2bi/latest/APIReference/API_Mapping.html">Mapping</a> data type instead.</p>
    *          </note>
+   *
+   * @deprecated
    * @public
    */
   mappingTemplate?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   *
+   * @deprecated
    * @public
    */
   ediType?: EdiType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Specifies a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   *
+   * @deprecated
    * @public
    */
   sampleDocument?: string | undefined;
@@ -3424,33 +3424,33 @@ export interface UpdateTransformerResponse {
   modifiedAt: Date | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   fileFormat?: FileFormat | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
+   *
+   * @deprecated
    * @public
    */
   mappingTemplate?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   *
+   * @deprecated
    * @public
    */
   ediType?: EdiType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   *
+   * @deprecated
    * @public
    */
   sampleDocument?: string | undefined;

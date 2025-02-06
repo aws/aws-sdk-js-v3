@@ -126,17 +126,17 @@ export interface CreateApplicationRequest {
   ApplicationSourceConfig: ApplicationSourceConfig | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The events that the application subscribes.</p>
+   *
+   * @deprecated
    * @public
    */
   Subscriptions?: Subscription[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The events that the application publishes.</p>
+   *
+   * @deprecated
    * @public
    */
   Publications?: Publication[] | undefined;
@@ -806,17 +806,17 @@ export interface GetApplicationResponse {
   ApplicationSourceConfig?: ApplicationSourceConfig | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The events that the application subscribes.</p>
+   *
+   * @deprecated
    * @public
    */
   Subscriptions?: Subscription[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The events that the application publishes.</p>
+   *
+   * @deprecated
    * @public
    */
   Publications?: Publication[] | undefined;
@@ -1547,17 +1547,17 @@ export interface UpdateApplicationRequest {
   ApplicationSourceConfig?: ApplicationSourceConfig | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The events that the application subscribes.</p>
+   *
+   * @deprecated
    * @public
    */
   Subscriptions?: Subscription[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The events that the application publishes.</p>
+   *
+   * @deprecated
    * @public
    */
   Publications?: Publication[] | undefined;

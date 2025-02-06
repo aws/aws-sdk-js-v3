@@ -5904,9 +5904,9 @@ export interface ClientVpnEndpoint {
   VpnPort?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Information about the associated target networks. A target network is a subnet in a VPC.</p>
+   *
+   * @deprecated
    * @public
    */
   AssociatedTargetNetworks?: AssociatedTargetNetwork[] | undefined;

@@ -1284,9 +1284,9 @@ export interface DashboardPublishOptions {
   SheetControlsOption?: SheetControlsOption | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The visual publish options of a visual in a dashboard.</p>
+   *
+   * @deprecated
    * @public
    */
   VisualPublishOptions?: DashboardVisualPublishOptions | undefined;

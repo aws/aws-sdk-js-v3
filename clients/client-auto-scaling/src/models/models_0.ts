@@ -6369,10 +6369,10 @@ export interface ScalingPolicy {
   AdjustmentType?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code>
    *             instead.</p>
+   *
+   * @deprecated
    * @public
    */
   MinAdjustmentStep?: number | undefined;
@@ -6837,9 +6837,9 @@ export interface DescribeTrafficSourcesRequest {
  */
 export interface TrafficSourceState {
   /**
-   * @deprecated
-   *
    * <p>This is replaced by <code>Identifier</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   TrafficSource?: string | undefined;
@@ -7739,10 +7739,10 @@ export interface PutScalingPolicyType {
   AdjustmentType?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code>
    *             instead.</p>
+   *
+   * @deprecated
    * @public
    */
   MinAdjustmentStep?: number | undefined;

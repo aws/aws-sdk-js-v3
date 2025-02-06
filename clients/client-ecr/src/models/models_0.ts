@@ -3402,10 +3402,10 @@ export interface GetAccountSettingResponse {
  */
 export interface GetAuthorizationTokenRequest {
   /**
-   * @deprecated
-   *
    * <p>A list of Amazon Web Services account IDs that are associated with the registries for which to get
    *             AuthorizationData objects. If you do not specify a registry, the default registry is assumed.</p>
+   *
+   * @deprecated
    * @public
    */
   registryIds?: string[] | undefined;

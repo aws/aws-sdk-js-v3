@@ -3883,9 +3883,9 @@ export interface UpdateDomainNameserversRequest {
   DomainName: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The authorization key for .fi domains</p>
+   *
+   * @deprecated
    * @public
    */
   FIAuthKey?: string | undefined;

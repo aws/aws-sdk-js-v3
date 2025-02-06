@@ -403,9 +403,9 @@ export interface Vulnerability {
   filePath?: FilePath | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The number of times the vulnerability appears in your code.</p>
+   *
+   * @deprecated
    * @public
    */
   itemCount?: number | undefined;

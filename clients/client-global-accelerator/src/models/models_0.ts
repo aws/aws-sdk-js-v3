@@ -59,9 +59,9 @@ export type IpAddressFamily = (typeof IpAddressFamily)[keyof typeof IpAddressFam
  */
 export interface IpSet {
   /**
-   * @deprecated
-   *
    * <p>IpFamily is deprecated and has been replaced by IpAddressFamily.</p>
+   *
+   * @deprecated
    * @public
    */
   IpFamily?: string | undefined;

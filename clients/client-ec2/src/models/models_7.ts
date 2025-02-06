@@ -6312,9 +6312,9 @@ export interface ReportInstanceStatusRequest {
   ReasonCodes: ReportInstanceReasonCodes[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Descriptive text about the health state of your instance.</p>
+   *
+   * @deprecated
    * @public
    */
   Description?: string | undefined;

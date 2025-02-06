@@ -968,9 +968,9 @@ export interface UserPoolDescriptionType {
   LambdaConfig?: LambdaConfigType | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The user pool status.</p>
+   *
+   * @deprecated
    * @public
    */
   Status?: StatusType | undefined;

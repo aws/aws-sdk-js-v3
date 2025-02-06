@@ -738,8 +738,6 @@ export interface ComputeResource {
   instanceTypes?: string[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
    *    This parameter is overridden by the <code>imageIdOverride</code> member of the
    *     <code>Ec2Configuration</code> structure.</p>
@@ -754,6 +752,8 @@ export interface ComputeResource {
    *     Amazon Linux 2 AMI</a>
    *     in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *          </note>
+   *
+   * @deprecated
    * @public
    */
   imageId?: string | undefined;
@@ -2733,8 +2733,6 @@ export interface ContainerProperties {
   image?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This parameter is deprecated, use <code>resourceRequirements</code> to specify the vCPU
    *    requirements for the job definition. It's not supported for jobs running on Fargate resources.
    *    For jobs running on Amazon EC2 resources, it specifies the number of vCPUs reserved for the
@@ -2744,19 +2742,21 @@ export interface ContainerProperties {
    *     <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. The
    *    number of vCPUs must be specified but can be specified in several places. You must specify it at
    *    least once for each node.</p>
+   *
+   * @deprecated
    * @public
    */
   vcpus?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This parameter is deprecated, use <code>resourceRequirements</code> to specify the memory
    *    requirements for the job definition. It's not supported for jobs running on Fargate resources.
    *    For jobs that run on Amazon EC2 resources, it specifies the memory hard limit (in MiB) for a
    *    container. If your container attempts to exceed the specified number, it's terminated. You must
    *    specify at least 4 MiB of memory for a job using this parameter. The memory hard limit can be
    *    specified in several places. It must be specified for each node at least once.</p>
+   *
+   * @deprecated
    * @public
    */
   memory?: number | undefined;
@@ -6475,8 +6475,6 @@ export interface RegisterJobDefinitionResponse {
  */
 export interface ContainerOverrides {
   /**
-   * @deprecated
-   *
    * <p>This parameter is deprecated, use <code>resourceRequirements</code> to override the
    *     <code>vcpus</code> parameter that's set in the job definition. It's not supported for jobs
    *    running on Fargate resources. For jobs that run on Amazon EC2 resources, it overrides the
@@ -6487,13 +6485,13 @@ export interface ContainerOverrides {
    *     <code>SubmitJob</code> request, with <code>type</code> set to <code>VCPU</code> and
    *     <code>value</code> set to the new value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't override job
    *     definition resource requirements</a> in the <i>Batch User Guide</i>.</p>
+   *
+   * @deprecated
    * @public
    */
   vcpus?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This parameter is deprecated, use <code>resourceRequirements</code> to override the memory
    *    requirements specified in the job definition. It's not supported for jobs running on Fargate
    *    resources. For jobs that run on Amazon EC2 resources, it overrides the <code>memory</code> parameter
@@ -6504,6 +6502,8 @@ export interface ContainerOverrides {
    *    request, with <code>type</code> set to <code>MEMORY</code> and <code>value</code> set to the new
    *    value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't override job
    *     definition resource requirements</a> in the <i>Batch User Guide</i>.</p>
+   *
+   * @deprecated
    * @public
    */
   memory?: number | undefined;
