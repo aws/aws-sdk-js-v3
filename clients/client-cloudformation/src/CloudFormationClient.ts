@@ -77,6 +77,10 @@ import {
   CreateStackInstancesCommandInput,
   CreateStackInstancesCommandOutput,
 } from "./commands/CreateStackInstancesCommand";
+import {
+  CreateStackRefactorCommandInput,
+  CreateStackRefactorCommandOutput,
+} from "./commands/CreateStackRefactorCommand";
 import { CreateStackSetCommandInput, CreateStackSetCommandOutput } from "./commands/CreateStackSetCommand";
 import {
   DeactivateOrganizationsAccessCommandInput,
@@ -130,6 +134,10 @@ import {
   DescribeStackInstanceCommandOutput,
 } from "./commands/DescribeStackInstanceCommand";
 import {
+  DescribeStackRefactorCommandInput,
+  DescribeStackRefactorCommandOutput,
+} from "./commands/DescribeStackRefactorCommand";
+import {
   DescribeStackResourceCommandInput,
   DescribeStackResourceCommandOutput,
 } from "./commands/DescribeStackResourceCommand";
@@ -167,6 +175,10 @@ import {
 } from "./commands/EstimateTemplateCostCommand";
 import { ExecuteChangeSetCommandInput, ExecuteChangeSetCommandOutput } from "./commands/ExecuteChangeSetCommand";
 import {
+  ExecuteStackRefactorCommandInput,
+  ExecuteStackRefactorCommandOutput,
+} from "./commands/ExecuteStackRefactorCommand";
+import {
   GetGeneratedTemplateCommandInput,
   GetGeneratedTemplateCommandOutput,
 } from "./commands/GetGeneratedTemplateCommand";
@@ -199,6 +211,11 @@ import {
   ListStackInstanceResourceDriftsCommandOutput,
 } from "./commands/ListStackInstanceResourceDriftsCommand";
 import { ListStackInstancesCommandInput, ListStackInstancesCommandOutput } from "./commands/ListStackInstancesCommand";
+import {
+  ListStackRefactorActionsCommandInput,
+  ListStackRefactorActionsCommandOutput,
+} from "./commands/ListStackRefactorActionsCommand";
+import { ListStackRefactorsCommandInput, ListStackRefactorsCommandOutput } from "./commands/ListStackRefactorsCommand";
 import { ListStackResourcesCommandInput, ListStackResourcesCommandOutput } from "./commands/ListStackResourcesCommand";
 import { ListStacksCommandInput, ListStacksCommandOutput } from "./commands/ListStacksCommand";
 import {
@@ -283,6 +300,7 @@ export type ServiceInputTypes =
   | CreateGeneratedTemplateCommandInput
   | CreateStackCommandInput
   | CreateStackInstancesCommandInput
+  | CreateStackRefactorCommandInput
   | CreateStackSetCommandInput
   | DeactivateOrganizationsAccessCommandInput
   | DeactivateTypeCommandInput
@@ -302,6 +320,7 @@ export type ServiceInputTypes =
   | DescribeStackDriftDetectionStatusCommandInput
   | DescribeStackEventsCommandInput
   | DescribeStackInstanceCommandInput
+  | DescribeStackRefactorCommandInput
   | DescribeStackResourceCommandInput
   | DescribeStackResourceDriftsCommandInput
   | DescribeStackResourcesCommandInput
@@ -315,6 +334,7 @@ export type ServiceInputTypes =
   | DetectStackSetDriftCommandInput
   | EstimateTemplateCostCommandInput
   | ExecuteChangeSetCommandInput
+  | ExecuteStackRefactorCommandInput
   | GetGeneratedTemplateCommandInput
   | GetStackPolicyCommandInput
   | GetTemplateCommandInput
@@ -330,6 +350,8 @@ export type ServiceInputTypes =
   | ListResourceScansCommandInput
   | ListStackInstanceResourceDriftsCommandInput
   | ListStackInstancesCommandInput
+  | ListStackRefactorActionsCommandInput
+  | ListStackRefactorsCommandInput
   | ListStackResourcesCommandInput
   | ListStackSetAutoDeploymentTargetsCommandInput
   | ListStackSetOperationResultsCommandInput
@@ -371,6 +393,7 @@ export type ServiceOutputTypes =
   | CreateGeneratedTemplateCommandOutput
   | CreateStackCommandOutput
   | CreateStackInstancesCommandOutput
+  | CreateStackRefactorCommandOutput
   | CreateStackSetCommandOutput
   | DeactivateOrganizationsAccessCommandOutput
   | DeactivateTypeCommandOutput
@@ -390,6 +413,7 @@ export type ServiceOutputTypes =
   | DescribeStackDriftDetectionStatusCommandOutput
   | DescribeStackEventsCommandOutput
   | DescribeStackInstanceCommandOutput
+  | DescribeStackRefactorCommandOutput
   | DescribeStackResourceCommandOutput
   | DescribeStackResourceDriftsCommandOutput
   | DescribeStackResourcesCommandOutput
@@ -403,6 +427,7 @@ export type ServiceOutputTypes =
   | DetectStackSetDriftCommandOutput
   | EstimateTemplateCostCommandOutput
   | ExecuteChangeSetCommandOutput
+  | ExecuteStackRefactorCommandOutput
   | GetGeneratedTemplateCommandOutput
   | GetStackPolicyCommandOutput
   | GetTemplateCommandOutput
@@ -418,6 +443,8 @@ export type ServiceOutputTypes =
   | ListResourceScansCommandOutput
   | ListStackInstanceResourceDriftsCommandOutput
   | ListStackInstancesCommandOutput
+  | ListStackRefactorActionsCommandOutput
+  | ListStackRefactorsCommandOutput
   | ListStackResourcesCommandOutput
   | ListStackSetAutoDeploymentTargetsCommandOutput
   | ListStackSetOperationResultsCommandOutput

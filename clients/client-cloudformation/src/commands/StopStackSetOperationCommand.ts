@@ -28,8 +28,9 @@ export interface StopStackSetOperationCommandInput extends StopStackSetOperation
 export interface StopStackSetOperationCommandOutput extends StopStackSetOperationOutput, __MetadataBearer {}
 
 /**
- * <p>Stops an in-progress operation on a stack set and its associated stack instances. StackSets will cancel all the
- *    unstarted stack instance deployments and wait for those are in-progress to complete.</p>
+ * <p>Stops an in-progress operation on a stack set and its associated stack instances. StackSets
+ *    will cancel all the unstarted stack instance deployments and wait for those are in-progress to
+ *    complete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

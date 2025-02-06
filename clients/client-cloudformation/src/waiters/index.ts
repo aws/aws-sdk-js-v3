@@ -4,6 +4,8 @@ export * from "./waitForStackCreateComplete";
 export * from "./waitForStackDeleteComplete";
 export * from "./waitForStackExists";
 export * from "./waitForStackImportComplete";
+export * from "./waitForStackRefactorCreateComplete";
+export * from "./waitForStackRefactorExecuteComplete";
 export * from "./waitForStackRollbackComplete";
 export * from "./waitForStackUpdateComplete";
 export * from "./waitForTypeRegistrationComplete";

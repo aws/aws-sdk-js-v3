@@ -7,19 +7,845 @@ import {
   AutoDeployment,
   CallAs,
   Capability,
+  Category,
   DeploymentTargets,
+  DeprecatedStatus,
+  IdentityProvider,
   LoggingConfig,
   ManagedExecution,
   Parameter,
   PermissionModels,
+  ProvisioningType,
+  RegistrationStatus,
   RegistryType,
   ResourceDefinition,
   RollbackConfiguration,
   StackSetOperationPreferences,
+  StackSetSummary,
   Tag,
   TemplateConfiguration,
   ThirdPartyType,
+  Visibility,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListStackSetsOutput {
+  /**
+   * <p>A list of <code>StackSetSummary</code> structures that contain information about the
+   *       user's stack sets.</p>
+   * @public
+   */
+  Summaries?: StackSetSummary[] | undefined;
+
+  /**
+   * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set
+   *       to a token. To retrieve the next set of results, call <code>ListStackInstances</code> again
+   *       and assign that token to the request object's <code>NextToken</code> parameter. If the request
+   *       returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTypeRegistrationsInput {
+  /**
+   * <p>The kind of extension.</p>
+   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or
+   *         <code>Arn</code>.</p>
+   * @public
+   */
+  Type?: RegistryType | undefined;
+
+  /**
+   * <p>The name of the extension.</p>
+   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or
+   *         <code>Arn</code>.</p>
+   * @public
+   */
+  TypeName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extension.</p>
+   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or
+   *         <code>Arn</code>.</p>
+   * @public
+   */
+  TypeArn?: string | undefined;
+
+  /**
+   * <p>The current status of the extension registration request.</p>
+   *          <p>The default is <code>IN_PROGRESS</code>.</p>
+   * @public
+   */
+  RegistrationStatusFilter?: RegistrationStatus | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned with a single call. If the number of
+   *       available results exceeds this maximum, the response includes a <code>NextToken</code> value
+   *       that you can assign to the <code>NextToken</code> request parameter to get the next set of
+   *       results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the previous paginated request didn't return all the remaining results, the response
+   *       object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
+   *       results, call this action again and assign that token to the request object's
+   *         <code>NextToken</code> parameter. If there are no remaining results, the previous response
+   *       object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTypeRegistrationsOutput {
+  /**
+   * <p>A list of extension registration tokens.</p>
+   *          <p>Use <a>DescribeTypeRegistration</a> to return detailed information about a type
+   *       registration request.</p>
+   * @public
+   */
+  RegistrationTokenList?: string[] | undefined;
+
+  /**
+   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
+   *       a token. To retrieve the next set of results, call this action again and assign that token to
+   *       the request object's <code>NextToken</code> parameter. If the request returns all results,
+   *         <code>NextToken</code> is set to <code>null</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Filter criteria to use in determining which extensions to return.</p>
+ * @public
+ */
+export interface TypeFilters {
+  /**
+   * <p>The category of extensions to return.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>REGISTERED</code>: Private extensions that have been registered for this account and
+   *      Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVATED</code>: Public extensions that have been activated for this account and
+   *      Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>THIRD_PARTY</code>: Extensions available for use from publishers other than Amazon.
+   *      This includes:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Private extensions registered in the account.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Public extensions from publishers other than Amazon, whether activated or not.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_TYPES</code>: Extensions available for use from Amazon.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Category?: Category | undefined;
+
+  /**
+   * <p>The id of the publisher of the extension.</p>
+   *          <p>Extensions published by Amazon aren't assigned a publisher ID. Use the
+   *     <code>AWS_TYPES</code> category to specify a list of types published by Amazon.</p>
+   * @public
+   */
+  PublisherId?: string | undefined;
+
+  /**
+   * <p>A prefix to use as a filter for results.</p>
+   * @public
+   */
+  TypeNamePrefix?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTypesInput {
+  /**
+   * <p>The scope at which the extensions are visible and usable in CloudFormation operations.</p>
+   *          <p>Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PRIVATE</code>: Extensions that are visible and usable within this account and
+   *           Region. This includes:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Private extensions you have registered in this account and Region.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Public extensions that you have activated in this account and Region.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PUBLIC</code>: Extensions that are publicly visible and available to be
+   *           activated within any Amazon Web Services account. This includes extensions from Amazon Web Services, in addition to
+   *           third-party publishers.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The default is <code>PRIVATE</code>.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>For resource types, the provisioning behavior of the resource type. CloudFormation determines
+   *       the provisioning type during registration, based on the types of handlers in the schema
+   *       handler package submitted.</p>
+   *          <p>Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FULLY_MUTABLE</code>: The resource type includes an update handler to process
+   *           updates to the type during stack update operations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IMMUTABLE</code>: The resource type doesn't include an update handler, so the
+   *           type can't be updated and must instead be replaced during stack update operations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NON_PROVISIONABLE</code>: The resource type doesn't include create, read, and
+   *           delete handlers, and therefore can't actually be provisioned.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The default is <code>FULLY_MUTABLE</code>.</p>
+   * @public
+   */
+  ProvisioningType?: ProvisioningType | undefined;
+
+  /**
+   * <p>The deprecation status of the extension that you want to get summary information
+   *       about.</p>
+   *          <p>Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LIVE</code>: The extension is registered for use in CloudFormation
+   *           operations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DEPRECATED</code>: The extension has been deregistered and can no longer be used
+   *           in CloudFormation operations.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DeprecatedStatus?: DeprecatedStatus | undefined;
+
+  /**
+   * <p>The type of extension.</p>
+   * @public
+   */
+  Type?: RegistryType | undefined;
+
+  /**
+   * <p>Filter criteria to use in determining which extensions to return.</p>
+   *          <p>Filters must be compatible with <code>Visibility</code> to return valid results. For
+   *       example, specifying <code>AWS_TYPES</code> for <code>Category</code> and <code>PRIVATE</code>
+   *       for <code>Visibility</code> returns an empty list of types, but specifying <code>PUBLIC</code>
+   *       for <code>Visibility</code> returns the desired list.</p>
+   * @public
+   */
+  Filters?: TypeFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned with a single call. If the number of
+   *       available results exceeds this maximum, the response includes a <code>NextToken</code> value
+   *       that you can assign to the <code>NextToken</code> request parameter to get the next set of
+   *       results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the previous paginated request didn't return all the remaining results, the response
+   *       object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
+   *       results, call this action again and assign that token to the request object's
+   *         <code>NextToken</code> parameter. If there are no remaining results, the previous response
+   *       object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about the specified CloudFormation extension.</p>
+ * @public
+ */
+export interface TypeSummary {
+  /**
+   * <p>The kind of extension.</p>
+   * @public
+   */
+  Type?: RegistryType | undefined;
+
+  /**
+   * <p>The name of the extension.</p>
+   *          <p>If you specified a <code>TypeNameAlias</code> when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">ActivateType</a> API
+   *    operation in your account and Region, CloudFormation considers that alias as the type name.</p>
+   * @public
+   */
+  TypeName?: string | undefined;
+
+  /**
+   * <p>The ID of the default version of the extension. The default version is used when the
+   *    extension version isn't specified.</p>
+   *          <p>This applies only to private extensions you have registered in your account. For public
+   *    extensions, both those provided by Amazon and published by third parties, CloudFormation returns
+   *     <code>null</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
+   *          <p>To set the default version of an extension, use <a>SetTypeDefaultVersion</a>.</p>
+   * @public
+   */
+  DefaultVersionId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extension.</p>
+   * @public
+   */
+  TypeArn?: string | undefined;
+
+  /**
+   * <p>When the specified extension version was registered. This applies only to:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Private extensions you have registered in your account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Public extensions you have activated in your account with auto-update specified. For more
+   *      information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">ActivateType</a>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For all other extension types, CloudFormation returns <code>null</code>.</p>
+   * @public
+   */
+  LastUpdated?: Date | undefined;
+
+  /**
+   * <p>The description of the extension.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The ID of the extension publisher, if the extension is published by a third party.
+   *    Extensions published by Amazon don't return a publisher ID.</p>
+   * @public
+   */
+  PublisherId?: string | undefined;
+
+  /**
+   * <p>For public extensions that have been activated for this account and Region, the type name of
+   *    the public extension.</p>
+   *          <p>If you specified a <code>TypeNameAlias</code> when enabling the extension in this account
+   *    and Region, CloudFormation treats that alias as the extension's type name within the account and
+   *    Region, not the type name of the public extension. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-alias">Use
+   *     aliases to refer to extensions</a> in the <i>CloudFormation User Guide</i>.</p>
+   * @public
+   */
+  OriginalTypeName?: string | undefined;
+
+  /**
+   * <p>For public extensions that have been activated for this account and Region, the version of
+   *    the public extension to be used for CloudFormation operations in this account and Region.</p>
+   *          <p>How you specified <code>AutoUpdate</code> when enabling the extension affects whether
+   *    CloudFormation automatically updates the extension in this account and Region when a new version is
+   *    released. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto">Automatically use new versions of extensions</a> in the
+   *     <i>CloudFormation User Guide</i>.</p>
+   * @public
+   */
+  PublicVersionNumber?: string | undefined;
+
+  /**
+   * <p>For public extensions that have been activated for this account and Region, the latest
+   *    version of the public extension <i>that is available</i>. For any extensions other
+   *    than activated third-party extensions, CloudFormation returns <code>null</code>.</p>
+   *          <p>How you specified <code>AutoUpdate</code> when enabling the extension affects whether
+   *    CloudFormation automatically updates the extension in this account and Region when a new version is
+   *    released. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto">Automatically use new versions of extensions</a> in the
+   *     <i>CloudFormation User Guide</i>.</p>
+   * @public
+   */
+  LatestPublicVersion?: string | undefined;
+
+  /**
+   * <p>The service used to verify the publisher identity.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing extensions to make
+   *     them available for public use</a> in the <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
+   * @public
+   */
+  PublisherIdentity?: IdentityProvider | undefined;
+
+  /**
+   * <p>The publisher name, as defined in the public profile for that publisher in the service used
+   *    to verify the publisher identity.</p>
+   * @public
+   */
+  PublisherName?: string | undefined;
+
+  /**
+   * <p>Whether the extension is activated for this account and Region.</p>
+   *          <p>This applies only to third-party public extensions. Extensions published by Amazon are
+   *    activated by default.</p>
+   * @public
+   */
+  IsActivated?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTypesOutput {
+  /**
+   * <p>A list of <code>TypeSummary</code> structures that contain information about the specified
+   *       extensions.</p>
+   * @public
+   */
+  TypeSummaries?: TypeSummary[] | undefined;
+
+  /**
+   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
+   *       a token. To retrieve the next set of results, call this action again and assign that token to
+   *       the request object's <code>NextToken</code> parameter. If the request returns all results,
+   *         <code>NextToken</code> is set to <code>null</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTypeVersionsInput {
+  /**
+   * <p>The kind of the extension.</p>
+   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or
+   *         <code>Arn</code>.</p>
+   * @public
+   */
+  Type?: RegistryType | undefined;
+
+  /**
+   * <p>The name of the extension for which you want version summary information.</p>
+   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or
+   *         <code>Arn</code>.</p>
+   * @public
+   */
+  TypeName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extension for which you want version summary
+   *       information.</p>
+   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or
+   *         <code>Arn</code>.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned with a single call. If the number of
+   *       available results exceeds this maximum, the response includes a <code>NextToken</code> value
+   *       that you can assign to the <code>NextToken</code> request parameter to get the next set of
+   *       results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the previous paginated request didn't return all of the remaining results, the response
+   *       object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
+   *       results, call this action again and assign that token to the request object's
+   *         <code>NextToken</code> parameter. If there are no remaining results, the previous response
+   *       object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The deprecation status of the extension versions that you want to get summary information
+   *       about.</p>
+   *          <p>Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LIVE</code>: The extension version is registered and can be used in CloudFormation
+   *           operations, dependent on its provisioning behavior and visibility scope.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DEPRECATED</code>: The extension version has been deregistered and can no longer
+   *           be used in CloudFormation operations.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The default is <code>LIVE</code>.</p>
+   * @public
+   */
+  DeprecatedStatus?: DeprecatedStatus | undefined;
+
+  /**
+   * <p>The publisher ID of the extension publisher.</p>
+   *          <p>Extensions published by Amazon aren't assigned a publisher ID.</p>
+   * @public
+   */
+  PublisherId?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a specific version of a CloudFormation extension.</p>
+ * @public
+ */
+export interface TypeVersionSummary {
+  /**
+   * <p>The kind of extension.</p>
+   * @public
+   */
+  Type?: RegistryType | undefined;
+
+  /**
+   * <p>The name of the extension.</p>
+   * @public
+   */
+  TypeName?: string | undefined;
+
+  /**
+   * <p>The ID of a specific version of the extension. The version ID is the value at the end of the
+   *    Amazon Resource Name (ARN) assigned to the extension version when it's registered.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
+
+  /**
+   * <p>Whether the specified extension version is set as the default version.</p>
+   *          <p>This applies only to private extensions you have registered in your account, and extensions
+   *    published by Amazon. For public third-party extensions, CloudFormation returns
+   *    <code>null</code>.</p>
+   * @public
+   */
+  IsDefaultVersion?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extension version.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>When the version was registered.</p>
+   * @public
+   */
+  TimeCreated?: Date | undefined;
+
+  /**
+   * <p>The description of the extension version.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>For public extensions that have been activated for this account and Region, the version of
+   *    the public extension to be used for CloudFormation operations in this account and Region. For any
+   *    extensions other than activated third-party extensions, CloudFormation returns
+   *    <code>null</code>.</p>
+   *          <p>How you specified <code>AutoUpdate</code> when enabling the extension affects whether
+   *    CloudFormation automatically updates the extension in this account and Region when a new version is
+   *    released. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto">Automatically use new versions of extensions</a> in the
+   *     <i>CloudFormation User Guide</i>.</p>
+   * @public
+   */
+  PublicVersionNumber?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTypeVersionsOutput {
+  /**
+   * <p>A list of <code>TypeVersionSummary</code> structures that contain information about the
+   *       specified extension's versions.</p>
+   * @public
+   */
+  TypeVersionSummaries?: TypeVersionSummary[] | undefined;
+
+  /**
+   * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set
+   *       to a token. To retrieve the next set of results, call this action again and assign that token
+   *       to the request object's <code>NextToken</code> parameter. If the request returns all results,
+   *         <code>NextToken</code> is set to <code>null</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PublishTypeInput {
+  /**
+   * <p>The type of the extension.</p>
+   *          <p>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and
+   *         <code>Type</code>.</p>
+   * @public
+   */
+  Type?: ThirdPartyType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extension.</p>
+   *          <p>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and
+   *         <code>Type</code>.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the extension.</p>
+   *          <p>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and
+   *         <code>Type</code>.</p>
+   * @public
+   */
+  TypeName?: string | undefined;
+
+  /**
+   * <p>The version number to assign to this version of the extension.</p>
+   *          <p>Use the following format, and adhere to semantic versioning when assigning a version
+   *       number to your extension:</p>
+   *          <p>
+   *             <code>MAJOR.MINOR.PATCH</code>
+   *          </p>
+   *          <p>For more information, see <a href="https://semver.org/">Semantic Versioning
+   *         2.0.0</a>.</p>
+   *          <p>If you don't specify a version number, CloudFormation increments the version number by one
+   *       minor version release.</p>
+   *          <p>You cannot specify a version number the first time you publish a type. CloudFormation
+   *       automatically sets the first version number to be <code>1.0.0</code>.</p>
+   * @public
+   */
+  PublicVersionNumber?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PublishTypeOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) assigned to the public extension upon publication.</p>
+   * @public
+   */
+  PublicTypeArn?: string | undefined;
+}
+
+/**
+ * <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation doesn't
+ *    return this error to users.</p>
+ * @public
+ */
+export class InvalidStateTransitionException extends __BaseException {
+  readonly name: "InvalidStateTransitionException" = "InvalidStateTransitionException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidStateTransitionException, __BaseException>) {
+    super({
+      name: "InvalidStateTransitionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateTransitionException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation doesn't
+ *    return this error to users.</p>
+ * @public
+ */
+export class OperationStatusCheckFailedException extends __BaseException {
+  readonly name: "OperationStatusCheckFailedException" = "OperationStatusCheckFailedException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationStatusCheckFailedException, __BaseException>) {
+    super({
+      name: "OperationStatusCheckFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationStatusCheckFailedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const HandlerErrorCode = {
+  AccessDenied: "AccessDenied",
+  AlreadyExists: "AlreadyExists",
+  GeneralServiceException: "GeneralServiceException",
+  HandlerInternalFailure: "HandlerInternalFailure",
+  InternalFailure: "InternalFailure",
+  InvalidCredentials: "InvalidCredentials",
+  InvalidRequest: "InvalidRequest",
+  InvalidTypeConfiguration: "InvalidTypeConfiguration",
+  NetworkFailure: "NetworkFailure",
+  NonCompliant: "NonCompliant",
+  NotFound: "NotFound",
+  NotUpdatable: "NotUpdatable",
+  ResourceConflict: "ResourceConflict",
+  ServiceInternalError: "ServiceInternalError",
+  ServiceLimitExceeded: "ServiceLimitExceeded",
+  ServiceTimeout: "NotStabilized",
+  Throttling: "Throttling",
+  Unknown: "Unknown",
+  UnsupportedTarget: "UnsupportedTarget",
+} as const;
+
+/**
+ * @public
+ */
+export type HandlerErrorCode = (typeof HandlerErrorCode)[keyof typeof HandlerErrorCode];
+
+/**
+ * @public
+ */
+export interface RecordHandlerProgressInput {
+  /**
+   * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation
+   *         CLI</a>.</p>
+   * @public
+   */
+  BearerToken: string | undefined;
+
+  /**
+   * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation
+   *         CLI</a>.</p>
+   * @public
+   */
+  OperationStatus: OperationStatus | undefined;
+
+  /**
+   * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation
+   *         CLI</a>.</p>
+   * @public
+   */
+  CurrentOperationStatus?: OperationStatus | undefined;
+
+  /**
+   * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation
+   *         CLI</a>.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation
+   *         CLI</a>.</p>
+   * @public
+   */
+  ErrorCode?: HandlerErrorCode | undefined;
+
+  /**
+   * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation
+   *         CLI</a>.</p>
+   * @public
+   */
+  ResourceModel?: string | undefined;
+
+  /**
+   * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation
+   *         CLI</a>.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RecordHandlerProgressOutput {}
+
+/**
+ * @public
+ */
+export interface RegisterPublisherInput {
+  /**
+   * <p>Whether you accept the <a href="https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf">Terms and Conditions</a> for publishing extensions in the CloudFormation registry. You must
+   *       accept the terms and conditions in order to register to publish public extensions to the
+   *       CloudFormation registry.</p>
+   *          <p>The default is <code>false</code>.</p>
+   * @public
+   */
+  AcceptTermsAndConditions?: boolean | undefined;
+
+  /**
+   * <p>If you are using a Bitbucket or GitHub account for identity verification, the Amazon
+   *       Resource Name (ARN) for your connection to that account.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs">Prerequisite: Registering your account to publish CloudFormation extensions</a> in the
+   *         <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
+   * @public
+   */
+  ConnectionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterPublisherOutput {
+  /**
+   * <p>The ID assigned this account by CloudFormation for publishing extensions.</p>
+   * @public
+   */
+  PublisherId?: string | undefined;
+}
 
 /**
  * @public
@@ -42,7 +868,7 @@ export interface RegisterTypeInput {
    *                <p>For modules, <code>company_or_organization::service::type::MODULE</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For hooks, <code>MyCompany::Testing::MyTestHook</code>.</p>
+   *                <p>For Hooks, <code>MyCompany::Testing::MyTestHook</code>.</p>
    *             </li>
    *          </ul>
    *          <note>
@@ -461,18 +1287,21 @@ export interface StopStackSetOperationInput {
   OperationId: string | undefined;
 
   /**
-   * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *     management account or as a delegated administrator in a member account.</p>
-   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
-   *    permissions.</p>
+   * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
+   *    in the organization's management account or as a delegated administrator in a member
+   *    account.</p>
+   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
+   *    self-managed permissions.</p>
    *          <ul>
    *             <li>
-   *                <p>If you are signed in to the management account, specify <code>SELF</code>.</p>
+   *                <p>If you are signed in to the management account, specify
+   *      <code>SELF</code>.</p>
    *             </li>
    *             <li>
-   *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
-   *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *        administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *                <p>If you are signed in to a delegated administrator account, specify
+   *       <code>DELEGATED_ADMIN</code>.</p>
+   *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a
+   *       delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -641,7 +1470,7 @@ export interface UpdateStackInput {
   TemplateBody?: string | undefined;
 
   /**
-   * <p>Location of file containing the template body. The URL must point to a template that's
+   * <p>The URL of a file containing the template body. The URL must point to a template that's
    *       located in an Amazon S3 bucket or a Systems Manager document. The location for an Amazon S3 bucket must
    *       start with <code>https://</code>.</p>
    *          <p>Conditional: You must specify only one of the following parameters:
@@ -741,6 +1570,12 @@ export interface UpdateStackInput {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html">
+   *                 AWS::IAM::ManagedPolicy</a>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html">AWS::IAM::Policy</a>
    *                      </p>
    *                   </li>
@@ -762,7 +1597,7 @@ export interface UpdateStackInput {
    *                      </p>
    *                   </li>
    *                </ul>
-   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities">Acknowledging IAM resources in CloudFormation templates</a>.</p>
+   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html#using-iam-capabilities">Acknowledging IAM resources in CloudFormation templates</a>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -775,7 +1610,7 @@ export interface UpdateStackInput {
    *           before actually updating the stack. If your stack template contains one or more macros,
    *           and you choose to update a stack directly from the processed template, without first
    *           reviewing the resulting changes in a change set, you must acknowledge this capability.
-   *           This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by CloudFormation.</p>
+   *           This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-include.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by CloudFormation.</p>
    *                <p>If you want to update a stack from a stack template that contains macros
    *             <i>and</i> nested stacks, you must update the stack directly from the
    *           template using this capability.</p>
@@ -805,7 +1640,7 @@ export interface UpdateStackInput {
    *          <p>If the list of resource types doesn't include a resource that you're updating, the stack
    *       update fails. By default, CloudFormation grants permissions to all resource types. IAM uses this
    *       parameter for CloudFormation-specific condition keys in IAM policies. For more information, see
-   *         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Control access with Identity and Access Management</a>.</p>
+   *         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html">Control access with Identity and Access Management</a>.</p>
    *          <note>
    *             <p>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters can
    *         be specified.</p>
@@ -936,9 +1771,9 @@ export interface UpdateStackInstancesInput {
   StackSetName: string | undefined;
 
   /**
-   * <p>[Self-managed permissions] The names of one or more Amazon Web Services accounts for which you want to
-   *       update parameter values for stack instances. The overridden parameter values will be applied
-   *       to all stack instances in the specified accounts and Amazon Web Services Regions.</p>
+   * <p>[Self-managed permissions] The account IDs of one or more Amazon Web Services accounts for which you
+   *       want to update parameter values for stack instances. The overridden parameter values will be
+   *       applied to all stack instances in the specified accounts and Amazon Web Services Regions.</p>
    *          <p>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not
    *       both.</p>
    * @public
@@ -1082,9 +1917,9 @@ export interface UpdateStackSetInput {
   TemplateBody?: string | undefined;
 
   /**
-   * <p>The location of the file that contains the template body. The URL must point to a template
-   *       (maximum size: 460,800 bytes) that is located in an Amazon S3 bucket or a Systems Manager
-   *       document.</p>
+   * <p>The URL of a file that contains the template body. The URL must point to a template
+   *       (maximum size: 1 MB) that is located in an Amazon S3 bucket or a Systems Manager document.
+   *       The location for an Amazon S3 bucket must start with <code>https://</code>.</p>
    *          <p>Conditional: You must specify only one of the following parameters:
    *         <code>TemplateBody</code> or <code>TemplateURL</code>—or set
    *         <code>UsePreviousTemplate</code> to true.</p>
@@ -1174,7 +2009,7 @@ export interface UpdateStackSetInput {
    *                      </p>
    *                   </li>
    *                </ul>
-   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities">Acknowledging IAM resources in CloudFormation templates</a>.</p>
+   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html#using-iam-capabilities">Acknowledging IAM resources in CloudFormation templates</a>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1183,11 +2018,11 @@ export interface UpdateStackSetInput {
    *                <p>Some templates reference macros. If your stack set template references one or more
    *           macros, you must update the stack set directly from the processed template, without first
    *           reviewing the resulting changes in a change set. To update the stack set directly, you
-   *           must acknowledge this capability. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation Macros to
-   *             Perform Custom Processing on Templates</a>.</p>
+   *           must acknowledge this capability. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Perform custom processing
+   *             on CloudFormation templates with template macros</a>.</p>
    *                <important>
    *                   <p>Stack sets with service-managed permissions do not currently support the use of
-   *             macros in templates. (This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by CloudFormation.) Even if
+   *             macros in templates. (This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-include.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by CloudFormation.) Even if
    *             you specify this capability for a stack set with service-managed permissions, if you
    *             reference a macro in your template the stack set operation will fail.</p>
    *                </important>
@@ -1242,8 +2077,8 @@ export interface UpdateStackSetInput {
    * <p>The Amazon Resource Name (ARN) of the IAM role to use to update this stack set.</p>
    *          <p>Specify an IAM role only if you are using customized administrator roles to control
    *       which users or groups can manage specific stack sets within the same administrator account.
-   *       For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Granting Permissions for
-   *         Stack Set Operations</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites for using
+   *         CloudFormation StackSets</a> in the <i>CloudFormation User Guide</i>.</p>
    *          <p>If you specified a customized administrator role when you created the stack set, you must
    *       specify a customized administrator role, even if it is the same customized administrator role
    *       used with this stack set previously.</p>
@@ -1289,13 +2124,12 @@ export interface UpdateStackSetInput {
    *             <li>
    *                <p>With <code>self-managed</code> permissions, you must create the administrator and
    *           execution roles required to deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
-   *             Self-Managed Stack Set Permissions</a>.</p>
+   *             self-managed permissions</a>.</p>
    *             </li>
    *             <li>
    *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the
    *           IAM roles required to deploy to accounts managed by Organizations. For more
-   *           information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant
-   *             Service-Managed Stack Set Permissions</a>.</p>
+   *           information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html">Activate trusted access for stack sets with Organizations</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1443,8 +2277,8 @@ export interface ValidateTemplateInput {
   TemplateBody?: string | undefined;
 
   /**
-   * <p>Location of file containing the template body. The URL must point to a template (max size:
-   *       460,800 bytes) that is located in an Amazon S3 bucket or a Systems Manager document. The location
+   * <p>The URL of a file containing the template body. The URL must point to a template (max size:
+   *       1 MB) that is located in an Amazon S3 bucket or a Systems Manager document. The location
    *       for an Amazon S3 bucket must start with <code>https://</code>.</p>
    *          <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both
    *       are passed, only <code>TemplateBody</code> is used.</p>
@@ -1506,7 +2340,7 @@ export interface ValidateTemplateOutput {
    *       must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use
    *       the <a>CreateStack</a> or <a>UpdateStack</a> actions with your template;
    *       otherwise, those actions return an InsufficientCapabilities error.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities">Acknowledging IAM resources in CloudFormation templates</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html#using-iam-capabilities">Acknowledging IAM resources in CloudFormation templates</a>.</p>
    * @public
    */
   Capabilities?: Capability[] | undefined;

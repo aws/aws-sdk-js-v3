@@ -46,6 +46,10 @@ import {
   CreateStackInstancesCommandInput,
   CreateStackInstancesCommandOutput,
 } from "../commands/CreateStackInstancesCommand";
+import {
+  CreateStackRefactorCommandInput,
+  CreateStackRefactorCommandOutput,
+} from "../commands/CreateStackRefactorCommand";
 import { CreateStackSetCommandInput, CreateStackSetCommandOutput } from "../commands/CreateStackSetCommand";
 import {
   DeactivateOrganizationsAccessCommandInput,
@@ -99,6 +103,10 @@ import {
   DescribeStackInstanceCommandOutput,
 } from "../commands/DescribeStackInstanceCommand";
 import {
+  DescribeStackRefactorCommandInput,
+  DescribeStackRefactorCommandOutput,
+} from "../commands/DescribeStackRefactorCommand";
+import {
   DescribeStackResourceCommandInput,
   DescribeStackResourceCommandOutput,
 } from "../commands/DescribeStackResourceCommand";
@@ -136,6 +144,10 @@ import {
 } from "../commands/EstimateTemplateCostCommand";
 import { ExecuteChangeSetCommandInput, ExecuteChangeSetCommandOutput } from "../commands/ExecuteChangeSetCommand";
 import {
+  ExecuteStackRefactorCommandInput,
+  ExecuteStackRefactorCommandOutput,
+} from "../commands/ExecuteStackRefactorCommand";
+import {
   GetGeneratedTemplateCommandInput,
   GetGeneratedTemplateCommandOutput,
 } from "../commands/GetGeneratedTemplateCommand";
@@ -168,6 +180,11 @@ import {
   ListStackInstanceResourceDriftsCommandOutput,
 } from "../commands/ListStackInstanceResourceDriftsCommand";
 import { ListStackInstancesCommandInput, ListStackInstancesCommandOutput } from "../commands/ListStackInstancesCommand";
+import {
+  ListStackRefactorActionsCommandInput,
+  ListStackRefactorActionsCommandOutput,
+} from "../commands/ListStackRefactorActionsCommand";
+import { ListStackRefactorsCommandInput, ListStackRefactorsCommandOutput } from "../commands/ListStackRefactorsCommand";
 import { ListStackResourcesCommandInput, ListStackResourcesCommandOutput } from "../commands/ListStackResourcesCommand";
 import { ListStacksCommandInput, ListStacksCommandOutput } from "../commands/ListStacksCommand";
 import {
@@ -262,6 +279,8 @@ import {
   CreateStackInstancesInput,
   CreateStackInstancesOutput,
   CreateStackOutput,
+  CreateStackRefactorInput,
+  CreateStackRefactorOutput,
   CreateStackSetInput,
   CreateStackSetOutput,
   DeactivateOrganizationsAccessInput,
@@ -299,6 +318,8 @@ import {
   DescribeStackEventsOutput,
   DescribeStackInstanceInput,
   DescribeStackInstanceOutput,
+  DescribeStackRefactorInput,
+  DescribeStackRefactorOutput,
   DescribeStackResourceDriftsInput,
   DescribeStackResourceDriftsOutput,
   DescribeStackResourceInput,
@@ -325,6 +346,7 @@ import {
   EstimateTemplateCostOutput,
   ExecuteChangeSetInput,
   ExecuteChangeSetOutput,
+  ExecuteStackRefactorInput,
   Export,
   GeneratedTemplateNotFoundException,
   GetGeneratedTemplateInput,
@@ -342,7 +364,6 @@ import {
   InsufficientCapabilitiesException,
   InvalidChangeSetStatusException,
   InvalidOperationException,
-  InvalidStateTransitionException,
   LimitExceededException,
   ListChangeSetsInput,
   ListChangeSetsOutput,
@@ -364,6 +385,10 @@ import {
   ListStackInstanceResourceDriftsOutput,
   ListStackInstancesInput,
   ListStackInstancesOutput,
+  ListStackRefactorActionsInput,
+  ListStackRefactorActionsOutput,
+  ListStackRefactorsInput,
+  ListStackRefactorsOutput,
   ListStackResourcesInput,
   ListStackResourcesOutput,
   ListStackSetAutoDeploymentTargetsInput,
@@ -373,15 +398,8 @@ import {
   ListStackSetOperationsInput,
   ListStackSetOperationsOutput,
   ListStackSetsInput,
-  ListStackSetsOutput,
   ListStacksInput,
   ListStacksOutput,
-  ListTypeRegistrationsInput,
-  ListTypeRegistrationsOutput,
-  ListTypesInput,
-  ListTypesOutput,
-  ListTypeVersionsInput,
-  ListTypeVersionsOutput,
   LoggingConfig,
   ManagedExecution,
   ModuleInfo,
@@ -390,19 +408,12 @@ import {
   OperationInProgressException,
   OperationNotFoundException,
   OperationResultFilter,
-  OperationStatusCheckFailedException,
   Output,
   Parameter,
   ParameterConstraints,
   ParameterDeclaration,
   PhysicalResourceIdContextKeyValuePair,
   PropertyDifference,
-  PublishTypeInput,
-  PublishTypeOutput,
-  RecordHandlerProgressInput,
-  RecordHandlerProgressOutput,
-  RegisterPublisherInput,
-  RegisterPublisherOutput,
   RequiredActivatedType,
   ResourceAttribute,
   ResourceChange,
@@ -410,6 +421,8 @@ import {
   ResourceDefinition,
   ResourceDetail,
   ResourceIdentifierSummary,
+  ResourceLocation,
+  ResourceMapping,
   ResourceScanInProgressException,
   ResourceScanNotFoundException,
   ResourceScanSummary,
@@ -420,6 +433,7 @@ import {
   ScannedResource,
   ScannedResourceIdentifier,
   Stack,
+  StackDefinition,
   StackDriftInformation,
   StackDriftInformationSummary,
   StackEvent,
@@ -430,6 +444,10 @@ import {
   StackInstanceResourceDriftsSummary,
   StackInstanceSummary,
   StackNotFoundException,
+  StackRefactorAction,
+  StackRefactorExecutionStatus,
+  StackRefactorNotFoundException,
+  StackRefactorSummary,
   StackResource,
   StackResourceDetail,
   StackResourceDrift,
@@ -461,15 +479,27 @@ import {
   TypeConfigurationDetails,
   TypeConfigurationIdentifier,
   TypeConfigurationNotFoundException,
-  TypeFilters,
   TypeNotFoundException,
-  TypeSummary,
-  TypeVersionSummary,
   WarningDetail,
   WarningProperty,
   Warnings,
 } from "../models/models_0";
 import {
+  InvalidStateTransitionException,
+  ListStackSetsOutput,
+  ListTypeRegistrationsInput,
+  ListTypeRegistrationsOutput,
+  ListTypesInput,
+  ListTypesOutput,
+  ListTypeVersionsInput,
+  ListTypeVersionsOutput,
+  OperationStatusCheckFailedException,
+  PublishTypeInput,
+  PublishTypeOutput,
+  RecordHandlerProgressInput,
+  RecordHandlerProgressOutput,
+  RegisterPublisherInput,
+  RegisterPublisherOutput,
   RegisterTypeInput,
   RegisterTypeOutput,
   ResourceScanLimitExceededException,
@@ -488,6 +518,9 @@ import {
   TemplateParameter,
   TestTypeInput,
   TestTypeOutput,
+  TypeFilters,
+  TypeSummary,
+  TypeVersionSummary,
   UpdateGeneratedTemplateInput,
   UpdateGeneratedTemplateOutput,
   UpdateStackInput,
@@ -650,6 +683,23 @@ export const se_CreateStackInstancesCommand = async (
   body = buildFormUrlencodedString({
     ...se_CreateStackInstancesInput(input, context),
     [_A]: _CSI,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryCreateStackRefactorCommand
+ */
+export const se_CreateStackRefactorCommand = async (
+  input: CreateStackRefactorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateStackRefactorInput(input, context),
+    [_A]: _CSR,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -979,6 +1029,23 @@ export const se_DescribeStackInstanceCommand = async (
 };
 
 /**
+ * serializeAws_queryDescribeStackRefactorCommand
+ */
+export const se_DescribeStackRefactorCommand = async (
+  input: DescribeStackRefactorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeStackRefactorInput(input, context),
+    [_A]: _DSR,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryDescribeStackResourceCommand
  */
 export const se_DescribeStackResourceCommand = async (
@@ -989,7 +1056,7 @@ export const se_DescribeStackResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackResourceInput(input, context),
-    [_A]: _DSR,
+    [_A]: _DSRe,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1023,7 +1090,7 @@ export const se_DescribeStackResourcesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackResourcesInput(input, context),
-    [_A]: _DSRe,
+    [_A]: _DSRes,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1194,6 +1261,23 @@ export const se_ExecuteChangeSetCommand = async (
   body = buildFormUrlencodedString({
     ...se_ExecuteChangeSetInput(input, context),
     [_A]: _ECS,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryExecuteStackRefactorCommand
+ */
+export const se_ExecuteStackRefactorCommand = async (
+  input: ExecuteStackRefactorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ExecuteStackRefactorInput(input, context),
+    [_A]: _ESR,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1455,6 +1539,40 @@ export const se_ListStackInstancesCommand = async (
 };
 
 /**
+ * serializeAws_queryListStackRefactorActionsCommand
+ */
+export const se_ListStackRefactorActionsCommand = async (
+  input: ListStackRefactorActionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ListStackRefactorActionsInput(input, context),
+    [_A]: _LSRA,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryListStackRefactorsCommand
+ */
+export const se_ListStackRefactorsCommand = async (
+  input: ListStackRefactorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ListStackRefactorsInput(input, context),
+    [_A]: _LSR,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryListStackResourcesCommand
  */
 export const se_ListStackResourcesCommand = async (
@@ -1465,7 +1583,7 @@ export const se_ListStackResourcesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListStackResourcesInput(input, context),
-    [_A]: _LSR,
+    [_A]: _LSRi,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2091,6 +2209,26 @@ export const de_CreateStackInstancesCommand = async (
 };
 
 /**
+ * deserializeAws_queryCreateStackRefactorCommand
+ */
+export const de_CreateStackRefactorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStackRefactorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateStackRefactorOutput(data.CreateStackRefactorResult, context);
+  const response: CreateStackRefactorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_queryCreateStackSetCommand
  */
 export const de_CreateStackSetCommand = async (
@@ -2465,6 +2603,26 @@ export const de_DescribeStackInstanceCommand = async (
 };
 
 /**
+ * deserializeAws_queryDescribeStackRefactorCommand
+ */
+export const de_DescribeStackRefactorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStackRefactorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeStackRefactorOutput(data.DescribeStackRefactorResult, context);
+  const response: DescribeStackRefactorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_queryDescribeStackResourceCommand
  */
 export const de_DescribeStackResourceCommand = async (
@@ -2720,6 +2878,23 @@ export const de_ExecuteChangeSetCommand = async (
   const response: ExecuteChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryExecuteStackRefactorCommand
+ */
+export const de_ExecuteStackRefactorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteStackRefactorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: ExecuteStackRefactorCommandOutput = {
+    $metadata: deserializeMetadata(output),
   };
   return response;
 };
@@ -3018,6 +3193,46 @@ export const de_ListStackInstancesCommand = async (
   let contents: any = {};
   contents = de_ListStackInstancesOutput(data.ListStackInstancesResult, context);
   const response: ListStackInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListStackRefactorActionsCommand
+ */
+export const de_ListStackRefactorActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStackRefactorActionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListStackRefactorActionsOutput(data.ListStackRefactorActionsResult, context);
+  const response: ListStackRefactorActionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListStackRefactorsCommand
+ */
+export const de_ListStackRefactorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStackRefactorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListStackRefactorsOutput(data.ListStackRefactorsResult, context);
+  const response: ListStackRefactorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3634,6 +3849,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "StackInstanceNotFoundException":
     case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
       throw await de_StackInstanceNotFoundExceptionRes(parsedOutput, context);
+    case "StackRefactorNotFoundException":
+    case "com.amazonaws.cloudformation#StackRefactorNotFoundException":
+      throw await de_StackRefactorNotFoundExceptionRes(parsedOutput, context);
     case "StackNotFoundException":
     case "com.amazonaws.cloudformation#StackNotFoundException":
       throw await de_StackNotFoundExceptionRes(parsedOutput, context);
@@ -4008,6 +4226,22 @@ const de_StackNotFoundExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_StackNotFoundException(body.Error, context);
   const exception = new StackNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryStackRefactorNotFoundExceptionRes
+ */
+const de_StackRefactorNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<StackRefactorNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_StackRefactorNotFoundException(body.Error, context);
+  const exception = new StackRefactorNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -4576,6 +4810,40 @@ const se_CreateStackInstancesInput = (input: CreateStackInstancesInput, context:
 };
 
 /**
+ * serializeAws_queryCreateStackRefactorInput
+ */
+const se_CreateStackRefactorInput = (input: CreateStackRefactorInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
+  }
+  if (input[_ESC] != null) {
+    entries[_ESC] = input[_ESC];
+  }
+  if (input[_RM] != null) {
+    const memberEntries = se_ResourceMappings(input[_RM], context);
+    if (input[_RM]?.length === 0) {
+      entries.ResourceMappings = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ResourceMappings.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_SD] != null) {
+    const memberEntries = se_StackDefinitions(input[_SD], context);
+    if (input[_SD]?.length === 0) {
+      entries.StackDefinitions = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `StackDefinitions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryCreateStackSetInput
  */
 const se_CreateStackSetInput = (input: CreateStackSetInput, context: __SerdeContext): any => {
@@ -5012,6 +5280,17 @@ const se_DescribeStackInstanceInput = (input: DescribeStackInstanceInput, contex
 };
 
 /**
+ * serializeAws_queryDescribeStackRefactorInput
+ */
+const se_DescribeStackRefactorInput = (input: DescribeStackRefactorInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_SRI] != null) {
+    entries[_SRI] = input[_SRI];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDescribeStackResourceDriftsInput
  */
 const se_DescribeStackResourceDriftsInput = (input: DescribeStackResourceDriftsInput, context: __SerdeContext): any => {
@@ -5256,6 +5535,17 @@ const se_ExecuteChangeSetInput = (input: ExecuteChangeSetInput, context: __Serde
   }
   if (input[_REOC] != null) {
     entries[_REOC] = input[_REOC];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryExecuteStackRefactorInput
+ */
+const se_ExecuteStackRefactorInput = (input: ExecuteStackRefactorInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_SRI] != null) {
+    entries[_SRI] = input[_SRI];
   }
   return entries;
 };
@@ -5631,6 +5921,47 @@ const se_ListStackInstancesInput = (input: ListStackInstancesInput, context: __S
   }
   if (input[_CA] != null) {
     entries[_CA] = input[_CA];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryListStackRefactorActionsInput
+ */
+const se_ListStackRefactorActionsInput = (input: ListStackRefactorActionsInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_SRI] != null) {
+    entries[_SRI] = input[_SRI];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryListStackRefactorsInput
+ */
+const se_ListStackRefactorsInput = (input: ListStackRefactorsInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_ESF] != null) {
+    const memberEntries = se_StackRefactorExecutionStatusFilter(input[_ESF], context);
+    if (input[_ESF]?.length === 0) {
+      entries.ExecutionStatusFilter = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ExecutionStatusFilter.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
   return entries;
 };
@@ -6042,8 +6373,8 @@ const se_RecordHandlerProgressInput = (input: RecordHandlerProgressInput, contex
   if (input[_EC] != null) {
     entries[_EC] = input[_EC];
   }
-  if (input[_RM] != null) {
-    entries[_RM] = input[_RM];
+  if (input[_RMe] != null) {
+    entries[_RMe] = input[_RMe];
   }
   if (input[_CRT] != null) {
     entries[_CRT] = input[_CRT];
@@ -6164,6 +6495,61 @@ const se_ResourceIdentifierProperties = (input: Record<string, string>, context:
       entries[`entry.${counter}.value`] = input[key as keyof typeof input]!;
       counter++;
     });
+  return entries;
+};
+
+/**
+ * serializeAws_queryResourceLocation
+ */
+const se_ResourceLocation = (input: ResourceLocation, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
+  }
+  if (input[_LRI] != null) {
+    entries[_LRI] = input[_LRI];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryResourceMapping
+ */
+const se_ResourceMapping = (input: ResourceMapping, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_So] != null) {
+    const memberEntries = se_ResourceLocation(input[_So], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Source.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_De] != null) {
+    const memberEntries = se_ResourceLocation(input[_De], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Destination.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryResourceMappings
+ */
+const se_ResourceMappings = (input: ResourceMapping[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_ResourceMapping(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
   return entries;
 };
 
@@ -6447,6 +6833,42 @@ const se_SignalResourceInput = (input: SignalResourceInput, context: __SerdeCont
 };
 
 /**
+ * serializeAws_queryStackDefinition
+ */
+const se_StackDefinition = (input: StackDefinition, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
+  }
+  if (input[_TB] != null) {
+    entries[_TB] = input[_TB];
+  }
+  if (input[_TURL] != null) {
+    entries[_TURL] = input[_TURL];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryStackDefinitions
+ */
+const se_StackDefinitions = (input: StackDefinition[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_StackDefinition(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryStackIdList
  */
 const se_StackIdList = (input: string[], context: __SerdeContext): any => {
@@ -6490,6 +6912,22 @@ const se_StackInstanceFilters = (input: StackInstanceFilter[], context: __SerdeC
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryStackRefactorExecutionStatusFilter
+ */
+const se_StackRefactorExecutionStatusFilter = (input: StackRefactorExecutionStatus[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
     counter++;
   }
   return entries;
@@ -7526,6 +7964,17 @@ const de_CreateStackOutput = (output: any, context: __SerdeContext): CreateStack
 };
 
 /**
+ * deserializeAws_queryCreateStackRefactorOutput
+ */
+const de_CreateStackRefactorOutput = (output: any, context: __SerdeContext): CreateStackRefactorOutput => {
+  const contents: any = {};
+  if (output[_SRI] != null) {
+    contents[_SRI] = __expectString(output[_SRI]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryCreateStackSetOutput
  */
 const de_CreateStackSetOutput = (output: any, context: __SerdeContext): CreateStackSetOutput => {
@@ -7911,6 +8360,37 @@ const de_DescribeStackInstanceOutput = (output: any, context: __SerdeContext): D
   const contents: any = {};
   if (output[_SIta] != null) {
     contents[_SIta] = de_StackInstance(output[_SIta], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDescribeStackRefactorOutput
+ */
+const de_DescribeStackRefactorOutput = (output: any, context: __SerdeContext): DescribeStackRefactorOutput => {
+  const contents: any = {};
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
+  }
+  if (output[_SRI] != null) {
+    contents[_SRI] = __expectString(output[_SRI]);
+  }
+  if (output.StackIds === "") {
+    contents[_SIt] = [];
+  } else if (output[_SIt] != null && output[_SIt][_m] != null) {
+    contents[_SIt] = de_StackIds(__getArrayIfSingleItem(output[_SIt][_m]), context);
+  }
+  if (output[_ES] != null) {
+    contents[_ES] = __expectString(output[_ES]);
+  }
+  if (output[_ESRx] != null) {
+    contents[_ESRx] = __expectString(output[_ESRx]);
+  }
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
+  }
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
   }
   return contents;
 };
@@ -8607,14 +9087,46 @@ const de_ListStackInstancesOutput = (output: any, context: __SerdeContext): List
 };
 
 /**
+ * deserializeAws_queryListStackRefactorActionsOutput
+ */
+const de_ListStackRefactorActionsOutput = (output: any, context: __SerdeContext): ListStackRefactorActionsOutput => {
+  const contents: any = {};
+  if (output.StackRefactorActions === "") {
+    contents[_SRA] = [];
+  } else if (output[_SRA] != null && output[_SRA][_m] != null) {
+    contents[_SRA] = de_StackRefactorActions(__getArrayIfSingleItem(output[_SRA][_m]), context);
+  }
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryListStackRefactorsOutput
+ */
+const de_ListStackRefactorsOutput = (output: any, context: __SerdeContext): ListStackRefactorsOutput => {
+  const contents: any = {};
+  if (output.StackRefactorSummaries === "") {
+    contents[_SRSt] = [];
+  } else if (output[_SRSt] != null && output[_SRSt][_m] != null) {
+    contents[_SRSt] = de_StackRefactorSummaries(__getArrayIfSingleItem(output[_SRSt][_m]), context);
+  }
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryListStackResourcesOutput
  */
 const de_ListStackResourcesOutput = (output: any, context: __SerdeContext): ListStackResourcesOutput => {
   const contents: any = {};
   if (output.StackResourceSummaries === "") {
-    contents[_SRSt] = [];
-  } else if (output[_SRSt] != null && output[_SRSt][_m] != null) {
-    contents[_SRSt] = de_StackResourceSummaries(__getArrayIfSingleItem(output[_SRSt][_m]), context);
+    contents[_SRSta] = [];
+  } else if (output[_SRSta] != null && output[_SRSta][_m] != null) {
+    contents[_SRSta] = de_StackResourceSummaries(__getArrayIfSingleItem(output[_SRSta][_m]), context);
   }
   if (output[_NT] != null) {
     contents[_NT] = __expectString(output[_NT]);
@@ -9199,9 +9711,9 @@ const de_ResourceChange = (output: any, context: __SerdeContext): ResourceChange
     contents[_Sco] = de_Scope(__getArrayIfSingleItem(output[_Sco][_m]), context);
   }
   if (output.Details === "") {
-    contents[_De] = [];
-  } else if (output[_De] != null && output[_De][_m] != null) {
-    contents[_De] = de_ResourceChangeDetails(__getArrayIfSingleItem(output[_De][_m]), context);
+    contents[_Det] = [];
+  } else if (output[_Det] != null && output[_Det][_m] != null) {
+    contents[_Det] = de_ResourceChangeDetails(__getArrayIfSingleItem(output[_Det][_m]), context);
   }
   if (output[_CSIh] != null) {
     contents[_CSIh] = __expectString(output[_CSIh]);
@@ -9342,6 +9854,34 @@ const de_ResourceIdentifierSummary = (output: any, context: __SerdeContext): Res
     contents[_RIe] = [];
   } else if (output[_RIe] != null && output[_RIe][_m] != null) {
     contents[_RIe] = de_ResourceIdentifiers(__getArrayIfSingleItem(output[_RIe][_m]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryResourceLocation
+ */
+const de_ResourceLocation = (output: any, context: __SerdeContext): ResourceLocation => {
+  const contents: any = {};
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
+  }
+  if (output[_LRI] != null) {
+    contents[_LRI] = __expectString(output[_LRI]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryResourceMapping
+ */
+const de_ResourceMapping = (output: any, context: __SerdeContext): ResourceMapping => {
+  const contents: any = {};
+  if (output[_So] != null) {
+    contents[_So] = de_ResourceLocation(output[_So], context);
+  }
+  if (output[_De] != null) {
+    contents[_De] = de_ResourceLocation(output[_De], context);
   }
   return contents;
 };
@@ -9763,6 +10303,17 @@ const de_StackEvents = (output: any, context: __SerdeContext): StackEvent[] => {
 };
 
 /**
+ * deserializeAws_queryStackIds
+ */
+const de_StackIds = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
  * deserializeAws_queryStackInstance
  */
 const de_StackInstance = (output: any, context: __SerdeContext): StackInstance => {
@@ -9947,6 +10498,129 @@ const de_StackNotFoundException = (output: any, context: __SerdeContext): StackN
     contents[_M] = __expectString(output[_M]);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_queryStackRefactorAction
+ */
+const de_StackRefactorAction = (output: any, context: __SerdeContext): StackRefactorAction => {
+  const contents: any = {};
+  if (output[_A] != null) {
+    contents[_A] = __expectString(output[_A]);
+  }
+  if (output[_En] != null) {
+    contents[_En] = __expectString(output[_En]);
+  }
+  if (output[_PRI] != null) {
+    contents[_PRI] = __expectString(output[_PRI]);
+  }
+  if (output[_RI] != null) {
+    contents[_RI] = __expectString(output[_RI]);
+  }
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
+  }
+  if (output[_Dete] != null) {
+    contents[_Dete] = __expectString(output[_Dete]);
+  }
+  if (output[_DRe] != null) {
+    contents[_DRe] = __expectString(output[_DRe]);
+  }
+  if (output.TagResources === "") {
+    contents[_TR] = [];
+  } else if (output[_TR] != null && output[_TR][_m] != null) {
+    contents[_TR] = de_StackRefactorTagResources(__getArrayIfSingleItem(output[_TR][_m]), context);
+  }
+  if (output.UntagResources === "") {
+    contents[_UR] = [];
+  } else if (output[_UR] != null && output[_UR][_m] != null) {
+    contents[_UR] = de_StackRefactorUntagResources(__getArrayIfSingleItem(output[_UR][_m]), context);
+  }
+  if (output[_RMes] != null) {
+    contents[_RMes] = de_ResourceMapping(output[_RMes], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryStackRefactorActions
+ */
+const de_StackRefactorActions = (output: any, context: __SerdeContext): StackRefactorAction[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_StackRefactorAction(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryStackRefactorNotFoundException
+ */
+const de_StackRefactorNotFoundException = (output: any, context: __SerdeContext): StackRefactorNotFoundException => {
+  const contents: any = {};
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryStackRefactorSummaries
+ */
+const de_StackRefactorSummaries = (output: any, context: __SerdeContext): StackRefactorSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_StackRefactorSummary(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryStackRefactorSummary
+ */
+const de_StackRefactorSummary = (output: any, context: __SerdeContext): StackRefactorSummary => {
+  const contents: any = {};
+  if (output[_SRI] != null) {
+    contents[_SRI] = __expectString(output[_SRI]);
+  }
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
+  }
+  if (output[_ES] != null) {
+    contents[_ES] = __expectString(output[_ES]);
+  }
+  if (output[_ESRx] != null) {
+    contents[_ESRx] = __expectString(output[_ESRx]);
+  }
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
+  }
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryStackRefactorTagResources
+ */
+const de_StackRefactorTagResources = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Tag(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryStackRefactorUntagResources
+ */
+const de_StackRefactorUntagResources = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
 };
 
 /**
@@ -10386,8 +11060,8 @@ const de_StackSetOperation = (output: any, context: __SerdeContext): StackSetOpe
   if (output[_SRt] != null) {
     contents[_SRt] = __expectString(output[_SRt]);
   }
-  if (output[_SD] != null) {
-    contents[_SD] = de_StackSetOperationStatusDetails(output[_SD], context);
+  if (output[_SDt] != null) {
+    contents[_SDt] = de_StackSetOperationStatusDetails(output[_SDt], context);
   }
   return contents;
 };
@@ -10508,8 +11182,8 @@ const de_StackSetOperationSummary = (output: any, context: __SerdeContext): Stac
   if (output[_SRt] != null) {
     contents[_SRt] = __expectString(output[_SRt]);
   }
-  if (output[_SD] != null) {
-    contents[_SD] = de_StackSetOperationStatusDetails(output[_SD], context);
+  if (output[_SDt] != null) {
+    contents[_SDt] = de_StackSetOperationStatusDetails(output[_SDt], context);
   }
   if (output[_OP] != null) {
     contents[_OP] = de_StackSetOperationPreferences(output[_OP], context);
@@ -11271,6 +11945,7 @@ const _CS = "CreateStack";
 const _CSI = "CreateStackInstances";
 const _CSIh = "ChangeSetId";
 const _CSN = "ChangeSetName";
+const _CSR = "CreateStackRefactor";
 const _CSS = "CreateStackSet";
 const _CST = "ChangeSetType";
 const _CSh = "ChangeSource";
@@ -11299,6 +11974,7 @@ const _DP = "DescribePublisher";
 const _DPe = "DeletionPolicy";
 const _DR = "DisableRollback";
 const _DRS = "DescribeResourceScan";
+const _DRe = "DetectionReason";
 const _DS = "DeleteStack";
 const _DSD = "DetectStackDrift";
 const _DSDDS = "DescribeStackDriftDetectionStatus";
@@ -11306,11 +11982,12 @@ const _DSE = "DescribeStackEvents";
 const _DSI = "DeleteStackInstances";
 const _DSIC = "DriftedStackInstancesCount";
 const _DSIe = "DescribeStackInstance";
-const _DSR = "DescribeStackResource";
+const _DSR = "DescribeStackRefactor";
 const _DSRC = "DriftedStackResourceCount";
 const _DSRD = "DescribeStackResourceDrifts";
 const _DSRDe = "DetectStackResourceDrift";
-const _DSRe = "DescribeStackResources";
+const _DSRe = "DescribeStackResource";
+const _DSRes = "DescribeStackResources";
 const _DSRet = "DetectionStatusReason";
 const _DSS = "DeleteStackSet";
 const _DSSD = "DetectStackSetDrift";
@@ -11332,7 +12009,9 @@ const _DTi = "DifferenceType";
 const _DU = "DocumentationUrl";
 const _DV = "DefaultValue";
 const _DVI = "DefaultVersionId";
-const _De = "Details";
+const _De = "Destination";
+const _Det = "Details";
+const _Dete = "Detection";
 const _E = "Enabled";
 const _EC = "ErrorCode";
 const _ECS = "ExecuteChangeSet";
@@ -11343,12 +12022,17 @@ const _EP = "ExpectedProperties";
 const _ERA = "ExecutionRoleArn";
 const _ERN = "ExecutionRoleName";
 const _ES = "ExecutionStatus";
+const _ESC = "EnableStackCreation";
+const _ESF = "ExecutionStatusFilter";
 const _ESI = "ExportingStackId";
+const _ESR = "ExecuteStackRefactor";
+const _ESRx = "ExecutionStatusReason";
 const _ET = "EndTime";
 const _ETC = "EstimateTemplateCost";
 const _ETP = "EnableTerminationProtection";
 const _ETn = "EndTimestamp";
 const _EV = "ExpectedValue";
+const _En = "Entity";
 const _Er = "Errors";
 const _Ev = "Evaluation";
 const _Ex = "Exports";
@@ -11408,7 +12092,9 @@ const _LRSRR = "ListResourceScanRelatedResources";
 const _LS = "ListStacks";
 const _LSI = "ListStackInstances";
 const _LSIRD = "ListStackInstanceResourceDrifts";
-const _LSR = "ListStackResources";
+const _LSR = "ListStackRefactors";
+const _LSRA = "ListStackRefactorActions";
+const _LSRi = "ListStackResources";
 const _LSS = "ListStackSets";
 const _LSSADT = "ListStackSetAutoDeploymentTargets";
 const _LSSO = "ListStackSetOperations";
@@ -11491,7 +12177,9 @@ const _RI = "ResourceIdentifier";
 const _RIS = "ResourceIdentifierSummaries";
 const _RIe = "ResourceIdentifiers";
 const _RIo = "RootId";
-const _RM = "ResourceModel";
+const _RM = "ResourceMappings";
+const _RMe = "ResourceModel";
+const _RMes = "ResourceMapping";
 const _RO = "RegionOrder";
 const _RP = "RegisterPublisher";
 const _RPe = "ResourceProperties";
@@ -11529,9 +12217,10 @@ const _Rep = "Replacement";
 const _Req = "Required";
 const _S = "Status";
 const _SA = "StagesAvailable";
-const _SD = "StatusDetails";
+const _SD = "StackDefinitions";
 const _SDDI = "StackDriftDetectionId";
 const _SDS = "StackDriftStatus";
+const _SDt = "StatusDetails";
 const _SE = "StackEvents";
 const _SHP = "SchemaHandlerPackage";
 const _SI = "StackId";
@@ -11550,13 +12239,16 @@ const _SPDUB = "StackPolicyDuringUpdateBody";
 const _SPDUURL = "StackPolicyDuringUpdateURL";
 const _SPURL = "StackPolicyURL";
 const _SR = "SignalResource";
+const _SRA = "StackRefactorActions";
 const _SRD = "StackResourceDrifts";
 const _SRDS = "StackResourceDriftStatus";
 const _SRDSF = "StackResourceDriftStatusFilters";
 const _SRDt = "StackResourceDetail";
 const _SRDta = "StackResourceDrift";
+const _SRI = "StackRefactorId";
 const _SRS = "StartResourceScan";
-const _SRSt = "StackResourceSummaries";
+const _SRSt = "StackRefactorSummaries";
+const _SRSta = "StackResourceSummaries";
 const _SRt = "StatusReason";
 const _SRta = "StackResources";
 const _SS = "StackSet";
@@ -11577,6 +12269,7 @@ const _STDV = "SetTypeDefaultVersion";
 const _SU = "SourceUrl";
 const _Sc = "Schema";
 const _Sco = "Scope";
+const _So = "Source";
 const _St = "Stacks";
 const _Su = "Summaries";
 const _T = "Type";
@@ -11599,6 +12292,7 @@ const _TK = "TagKey";
 const _TN = "TypeName";
 const _TNA = "TypeNameAlias";
 const _TNP = "TypeNamePrefix";
+const _TR = "TagResources";
 const _TS = "TemplateStage";
 const _TSC = "TemplateSummaryConfig";
 const _TSIC = "TotalStackInstancesCount";
@@ -11622,6 +12316,7 @@ const _UGT = "UpdateGeneratedTemplate";
 const _UI = "UniqueId";
 const _UPT = "UsePreviousTemplate";
 const _UPV = "UsePreviousValue";
+const _UR = "UntagResources";
 const _URP = "UpdateReplacePolicy";
 const _URT = "UnrecognizedResourceTypes";
 const _US = "UpdateStack";

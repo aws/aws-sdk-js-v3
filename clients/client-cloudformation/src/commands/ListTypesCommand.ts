@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTypesInput, ListTypesOutput } from "../models/models_0";
+import { ListTypesInput, ListTypesOutput } from "../models/models_1";
 import { de_ListTypesCommand, se_ListTypesCommand } from "../protocols/Aws_query";
 
 /**

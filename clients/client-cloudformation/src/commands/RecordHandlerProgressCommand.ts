@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RecordHandlerProgressInput, RecordHandlerProgressOutput } from "../models/models_0";
+import { RecordHandlerProgressInput, RecordHandlerProgressOutput } from "../models/models_1";
 import { de_RecordHandlerProgressCommand, se_RecordHandlerProgressCommand } from "../protocols/Aws_query";
 
 /**

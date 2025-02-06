@@ -45,6 +45,11 @@ import {
   CreateStackInstancesCommandOutput,
 } from "./commands/CreateStackInstancesCommand";
 import {
+  CreateStackRefactorCommand,
+  CreateStackRefactorCommandInput,
+  CreateStackRefactorCommandOutput,
+} from "./commands/CreateStackRefactorCommand";
+import {
   CreateStackSetCommand,
   CreateStackSetCommandInput,
   CreateStackSetCommandOutput,
@@ -136,6 +141,11 @@ import {
   DescribeStackInstanceCommandOutput,
 } from "./commands/DescribeStackInstanceCommand";
 import {
+  DescribeStackRefactorCommand,
+  DescribeStackRefactorCommandInput,
+  DescribeStackRefactorCommandOutput,
+} from "./commands/DescribeStackRefactorCommand";
+import {
   DescribeStackResourceCommand,
   DescribeStackResourceCommandInput,
   DescribeStackResourceCommandOutput,
@@ -201,6 +211,11 @@ import {
   ExecuteChangeSetCommandOutput,
 } from "./commands/ExecuteChangeSetCommand";
 import {
+  ExecuteStackRefactorCommand,
+  ExecuteStackRefactorCommandInput,
+  ExecuteStackRefactorCommandOutput,
+} from "./commands/ExecuteStackRefactorCommand";
+import {
   GetGeneratedTemplateCommand,
   GetGeneratedTemplateCommandInput,
   GetGeneratedTemplateCommandOutput,
@@ -263,6 +278,16 @@ import {
   ListStackInstancesCommandInput,
   ListStackInstancesCommandOutput,
 } from "./commands/ListStackInstancesCommand";
+import {
+  ListStackRefactorActionsCommand,
+  ListStackRefactorActionsCommandInput,
+  ListStackRefactorActionsCommandOutput,
+} from "./commands/ListStackRefactorActionsCommand";
+import {
+  ListStackRefactorsCommand,
+  ListStackRefactorsCommandInput,
+  ListStackRefactorsCommandOutput,
+} from "./commands/ListStackRefactorsCommand";
 import {
   ListStackResourcesCommand,
   ListStackResourcesCommandInput,
@@ -389,6 +414,7 @@ const commands = {
   CreateGeneratedTemplateCommand,
   CreateStackCommand,
   CreateStackInstancesCommand,
+  CreateStackRefactorCommand,
   CreateStackSetCommand,
   DeactivateOrganizationsAccessCommand,
   DeactivateTypeCommand,
@@ -408,6 +434,7 @@ const commands = {
   DescribeStackDriftDetectionStatusCommand,
   DescribeStackEventsCommand,
   DescribeStackInstanceCommand,
+  DescribeStackRefactorCommand,
   DescribeStackResourceCommand,
   DescribeStackResourceDriftsCommand,
   DescribeStackResourcesCommand,
@@ -421,6 +448,7 @@ const commands = {
   DetectStackSetDriftCommand,
   EstimateTemplateCostCommand,
   ExecuteChangeSetCommand,
+  ExecuteStackRefactorCommand,
   GetGeneratedTemplateCommand,
   GetStackPolicyCommand,
   GetTemplateCommand,
@@ -436,6 +464,8 @@ const commands = {
   ListResourceScansCommand,
   ListStackInstanceResourceDriftsCommand,
   ListStackInstancesCommand,
+  ListStackRefactorActionsCommand,
+  ListStackRefactorsCommand,
   ListStackResourcesCommand,
   ListStacksCommand,
   ListStackSetAutoDeploymentTargetsCommand,
@@ -604,6 +634,23 @@ export interface CloudFormation {
     args: CreateStackInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateStackInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateStackRefactorCommand}
+   */
+  createStackRefactor(
+    args: CreateStackRefactorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStackRefactorCommandOutput>;
+  createStackRefactor(
+    args: CreateStackRefactorCommandInput,
+    cb: (err: any, data?: CreateStackRefactorCommandOutput) => void
+  ): void;
+  createStackRefactor(
+    args: CreateStackRefactorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStackRefactorCommandOutput) => void
   ): void;
 
   /**
@@ -916,6 +963,23 @@ export interface CloudFormation {
   ): void;
 
   /**
+   * @see {@link DescribeStackRefactorCommand}
+   */
+  describeStackRefactor(
+    args: DescribeStackRefactorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStackRefactorCommandOutput>;
+  describeStackRefactor(
+    args: DescribeStackRefactorCommandInput,
+    cb: (err: any, data?: DescribeStackRefactorCommandOutput) => void
+  ): void;
+  describeStackRefactor(
+    args: DescribeStackRefactorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStackRefactorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeStackResourceCommand}
    */
   describeStackResource(
@@ -1129,6 +1193,23 @@ export interface CloudFormation {
     args: ExecuteChangeSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ExecuteChangeSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ExecuteStackRefactorCommand}
+   */
+  executeStackRefactor(
+    args: ExecuteStackRefactorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExecuteStackRefactorCommandOutput>;
+  executeStackRefactor(
+    args: ExecuteStackRefactorCommandInput,
+    cb: (err: any, data?: ExecuteStackRefactorCommandOutput) => void
+  ): void;
+  executeStackRefactor(
+    args: ExecuteStackRefactorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExecuteStackRefactorCommandOutput) => void
   ): void;
 
   /**
@@ -1362,6 +1443,41 @@ export interface CloudFormation {
     args: ListStackInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListStackInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListStackRefactorActionsCommand}
+   */
+  listStackRefactorActions(
+    args: ListStackRefactorActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStackRefactorActionsCommandOutput>;
+  listStackRefactorActions(
+    args: ListStackRefactorActionsCommandInput,
+    cb: (err: any, data?: ListStackRefactorActionsCommandOutput) => void
+  ): void;
+  listStackRefactorActions(
+    args: ListStackRefactorActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStackRefactorActionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListStackRefactorsCommand}
+   */
+  listStackRefactors(): Promise<ListStackRefactorsCommandOutput>;
+  listStackRefactors(
+    args: ListStackRefactorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStackRefactorsCommandOutput>;
+  listStackRefactors(
+    args: ListStackRefactorsCommandInput,
+    cb: (err: any, data?: ListStackRefactorsCommandOutput) => void
+  ): void;
+  listStackRefactors(
+    args: ListStackRefactorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStackRefactorsCommandOutput) => void
   ): void;
 
   /**
