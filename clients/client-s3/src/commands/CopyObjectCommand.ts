@@ -54,9 +54,9 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *                <li>
  *                   <p>
  *                      <b>Directory buckets </b> -
- *                   For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
- *                      </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
- *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Available Local Zone for directory buckets</a> in the
+ *                   For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>amzn-s3-demo-bucket</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
+ *                      </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
+ *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *                </li>
  *                <li>
@@ -211,9 +211,19 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *             </dd>
  *             <dt>HTTP Host header syntax</dt>
  *             <dd>
- *                <p>
- *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>
- *                      <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>.</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <b>Directory buckets </b> - The HTTP Host header syntax is <code>
+ *                            <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>Amazon S3 on Outposts</b> - When you use this action with S3 on Outposts through the REST API, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
+ *                      form <code>
+ *                            <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. The hostname isn't required when you use the Amazon Web Services CLI or SDKs.</p>
+ *                   </li>
+ *                </ul>
  *             </dd>
  *          </dl>
  *          <p>The following operations are related to <code>CopyObject</code>:</p>

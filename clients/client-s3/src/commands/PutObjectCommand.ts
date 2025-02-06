@@ -56,9 +56,9 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *                <li>
  *                   <p>
  *                      <b>Directory buckets</b> -
- *                   For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
- *                      </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
- *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Available Local Zone for directory buckets</a> in the
+ *                   For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>amzn-s3-demo-bucket</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
+ *                      </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
+ *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *                </li>
  *             </ul>
@@ -74,6 +74,16 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *                   Lock</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                <note>
  *                   <p>This functionality is not supported for directory buckets.</p>
+ *                </note>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>If-None-Match</b> - Uploads the object only if the object key name does not already exist in the specified bucket. Otherwise, Amazon S3 returns a <code>412 Precondition Failed</code> error. If a conflicting operation occurs during the upload, S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 failure, retry the upload.</p>
+ *                <p>Expects the * character (asterisk).</p>
+ *                <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-requests.html">Add preconditions to S3 operations with conditional requests</a> in the <i>Amazon S3 User Guide</i> or <a href="https://datatracker.ietf.org/doc/rfc7232/">RFC 7232</a>.
+ *             </p>
+ *                <note>
+ *                   <p>This functionality is not supported for S3 on Outposts.</p>
  *                </note>
  *             </li>
  *             <li>
@@ -321,6 +331,49 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * // example id: to-create-an-object-1483147613675
  * ```
  *
+ * @example To upload an object and specify optional tags
+ * ```javascript
+ * // The following example uploads an object. The request specifies optional object tags. The bucket is versioned, therefore S3 returns version ID of the newly created object.
+ * const input = {
+ *   "Body": "c:\\HappyFace.jpg",
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg",
+ *   "Tagging": "key1=value1&key2=value2"
+ * };
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "VersionId": "psM2sYY4.o1501dSx8wMvnkOzSBB.V4a"
+ * }
+ * *\/
+ * // example id: to-upload-an-object-and-specify-optional-tags-1481762310955
+ * ```
+ *
+ * @example To upload object and specify user-defined metadata
+ * ```javascript
+ * // The following example creates an object. The request also specifies optional metadata. If the bucket is versioning enabled, S3 returns version ID in response.
+ * const input = {
+ *   "Body": "filetoupload",
+ *   "Bucket": "examplebucket",
+ *   "Key": "exampleobject",
+ *   "Metadata": {
+ *     "metadata1": "value1",
+ *     "metadata2": "value2"
+ *   }
+ * };
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "VersionId": "pSKidl4pHBiNwukdbcPXAIs.sshFFOc0"
+ * }
+ * *\/
+ * // example id: to-upload-object-and-specify-user-defined-metadata-1483396974757
+ * ```
+ *
  * @example To upload an object
  * ```javascript
  * // The following example uploads an object to a versioning-enabled bucket. The source file is specified using Windows file syntax. S3 returns VersionId of the newly created object.
@@ -360,49 +413,6 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * }
  * *\/
  * // example id: to-upload-an-object-and-specify-server-side-encryption-and-object-tags-1483398331831
- * ```
- *
- * @example To upload object and specify user-defined metadata
- * ```javascript
- * // The following example creates an object. The request also specifies optional metadata. If the bucket is versioning enabled, S3 returns version ID in response.
- * const input = {
- *   "Body": "filetoupload",
- *   "Bucket": "examplebucket",
- *   "Key": "exampleobject",
- *   "Metadata": {
- *     "metadata1": "value1",
- *     "metadata2": "value2"
- *   }
- * };
- * const command = new PutObjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "VersionId": "pSKidl4pHBiNwukdbcPXAIs.sshFFOc0"
- * }
- * *\/
- * // example id: to-upload-object-and-specify-user-defined-metadata-1483396974757
- * ```
- *
- * @example To upload an object and specify optional tags
- * ```javascript
- * // The following example uploads an object. The request specifies optional object tags. The bucket is versioned, therefore S3 returns version ID of the newly created object.
- * const input = {
- *   "Body": "c:\\HappyFace.jpg",
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg",
- *   "Tagging": "key1=value1&key2=value2"
- * };
- * const command = new PutObjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "VersionId": "psM2sYY4.o1501dSx8wMvnkOzSBB.V4a"
- * }
- * *\/
- * // example id: to-upload-an-object-and-specify-optional-tags-1481762310955
  * ```
  *
  * @example To upload an object (specify optional headers)
