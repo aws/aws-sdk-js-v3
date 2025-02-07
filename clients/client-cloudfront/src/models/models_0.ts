@@ -1308,8 +1308,6 @@ export interface CacheBehavior {
   GrpcConfig?: GrpcConfig | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is deprecated. We recommend that you use a cache policy or an origin
    * 			request policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html">Working with policies</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -1324,13 +1322,13 @@ export interface CacheBehavior {
    * 			<code>CachePolicyId</code>.</p>
    *          <p>A complex type that specifies how CloudFront handles query strings, cookies, and HTTP
    * 			headers.</p>
+   *
+   * @deprecated
    * @public
    */
   ForwardedValues?: ForwardedValues | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is deprecated. We recommend that you use the <code>MinTTL</code> field in a
    * 			cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -1343,13 +1341,13 @@ export interface CacheBehavior {
    * 			forward all headers to your origin (under <code>Headers</code>, if you specify
    * 				<code>1</code> for <code>Quantity</code> and <code>*</code> for
    * 			<code>Name</code>).</p>
+   *
+   * @deprecated
    * @public
    */
   MinTTL?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is deprecated. We recommend that you use the <code>DefaultTTL</code> field
    * 			in a cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -1359,13 +1357,13 @@ export interface CacheBehavior {
    * 			headers such as <code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>,
    * 			and <code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays in an Edge Cache (Expiration)</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+   *
+   * @deprecated
    * @public
    */
   DefaultTTL?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is deprecated. We recommend that you use the <code>MaxTTL</code> field in a
    * 			cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -1375,6 +1373,8 @@ export interface CacheBehavior {
    * 			as <code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>, and
    * 				<code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays in an Edge Cache (Expiration)</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+   *
+   * @deprecated
    * @public
    */
   MaxTTL?: number | undefined;
@@ -2420,8 +2420,6 @@ export interface DefaultCacheBehavior {
   GrpcConfig?: GrpcConfig | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is deprecated. We recommend that you use a cache policy or an origin
    * 			request policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html">Working with policies</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -2436,13 +2434,13 @@ export interface DefaultCacheBehavior {
    * 			<code>CachePolicyId</code>.</p>
    *          <p>A complex type that specifies how CloudFront handles query strings, cookies, and HTTP
    * 			headers.</p>
+   *
+   * @deprecated
    * @public
    */
   ForwardedValues?: ForwardedValues | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is deprecated. We recommend that you use the <code>MinTTL</code> field in a
    * 			cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -2455,13 +2453,13 @@ export interface DefaultCacheBehavior {
    * 			forward all headers to your origin (under <code>Headers</code>, if you specify
    * 				<code>1</code> for <code>Quantity</code> and <code>*</code> for
    * 			<code>Name</code>).</p>
+   *
+   * @deprecated
    * @public
    */
   MinTTL?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is deprecated. We recommend that you use the <code>DefaultTTL</code> field
    * 			in a cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -2471,13 +2469,13 @@ export interface DefaultCacheBehavior {
    * 			headers such as <code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>,
    * 			and <code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays in an Edge Cache (Expiration)</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+   *
+   * @deprecated
    * @public
    */
   DefaultTTL?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is deprecated. We recommend that you use the <code>MaxTTL</code> field in a
    * 			cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -2487,6 +2485,8 @@ export interface DefaultCacheBehavior {
    * 			as <code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>, and
    * 				<code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays in an Edge Cache (Expiration)</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+   *
+   * @deprecated
    * @public
    */
   MaxTTL?: number | undefined;
@@ -3434,8 +3434,6 @@ export interface ViewerCertificate {
   MinimumProtocolVersion?: MinimumProtocolVersion | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is deprecated. Use one of the following fields instead:</p>
    *          <ul>
    *             <li>
@@ -3454,13 +3452,13 @@ export interface ViewerCertificate {
    *                </p>
    *             </li>
    *          </ul>
+   *
+   * @deprecated
    * @public
    */
   Certificate?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is deprecated. Use one of the following fields instead:</p>
    *          <ul>
    *             <li>
@@ -3479,6 +3477,8 @@ export interface ViewerCertificate {
    *                </p>
    *             </li>
    *          </ul>
+   *
+   * @deprecated
    * @public
    */
   CertificateSource?: CertificateSource | undefined;

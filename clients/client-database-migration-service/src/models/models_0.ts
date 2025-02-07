@@ -7357,17 +7357,17 @@ export interface ReplicationInstance {
   ReplicationInstanceArn?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The public IP address of the replication instance.</p>
+   *
+   * @deprecated
    * @public
    */
   ReplicationInstancePublicIpAddress?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The private IP address of the replication instance.</p>
+   *
+   * @deprecated
    * @public
    */
   ReplicationInstancePrivateIpAddress?: string | undefined;

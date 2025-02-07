@@ -1101,10 +1101,10 @@ export interface DeleteDataSourceInput {
   identifier: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   *
+   * @deprecated
    * @public
    */
   clientToken?: string | undefined;
@@ -2796,9 +2796,9 @@ export interface DeleteSubscriptionGrantOutput {
   assets?: SubscribedAsset[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The identifier of the subsctiption whose subscription grant is to be deleted.</p>
+   *
+   * @deprecated
    * @public
    */
   subscriptionId?: string | undefined;
@@ -5552,9 +5552,9 @@ export interface GetSubscriptionGrantOutput {
   assets?: SubscribedAsset[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The identifier of the subscription.</p>
+   *
+   * @deprecated
    * @public
    */
   subscriptionId?: string | undefined;
@@ -9149,9 +9149,9 @@ export interface SubscriptionGrantSummary {
   assets?: SubscribedAsset[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The ID of the subscription.</p>
+   *
+   * @deprecated
    * @public
    */
   subscriptionId?: string | undefined;

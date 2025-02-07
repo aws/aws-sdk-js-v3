@@ -4371,9 +4371,9 @@ export interface DescribeProvisioningParametersOutput {
   ProvisioningArtifactPreferences?: ProvisioningArtifactPreferences | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The output of the provisioning artifact.</p>
+   *
+   * @deprecated
    * @public
    */
   ProvisioningArtifactOutputs?: ProvisioningArtifactOutput[] | undefined;

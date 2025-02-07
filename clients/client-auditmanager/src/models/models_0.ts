@@ -554,8 +554,6 @@ export interface Scope {
   awsAccounts?: AWSAccount[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p> The Amazon Web Services services that are included in the scope of the assessment.
    *       </p>
    *          <important>
@@ -563,6 +561,8 @@ export interface Scope {
    *             or more Amazon Web Services, Audit Manager ignores this input. Instead, the
    *             value for <code>awsServices</code> will show as empty.</p>
    *          </important>
+   *
+   * @deprecated
    * @public
    */
   awsServices?: AWSService[] | undefined;

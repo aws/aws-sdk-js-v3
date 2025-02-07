@@ -1804,8 +1804,6 @@ export interface ReceiveMessageRequest {
   QueueUrl: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <important>
    *             <p>This parameter has been discontinued but will be supported for backward
    *                 compatibility. To provide attribute names, you are encouraged to use
@@ -1884,6 +1882,8 @@ export interface ReceiveMessageRequest {
    *                     Amazon SQS.</p>
    *             </li>
    *          </ul>
+   *
+   * @deprecated
    * @public
    */
   AttributeNames?: QueueAttributeName[] | undefined;

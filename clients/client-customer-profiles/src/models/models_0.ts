@@ -1737,9 +1737,9 @@ export interface Profile {
   AdditionalInformation?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The type of profile used to describe the customer.</p>
+   *
+   * @deprecated
    * @public
    */
   PartyType?: PartyType | undefined;
@@ -1775,9 +1775,9 @@ export interface Profile {
   BirthDate?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The gender with which the customer identifies. </p>
+   *
+   * @deprecated
    * @public
    */
   Gender?: Gender | undefined;
@@ -3268,9 +3268,9 @@ export interface CreateProfileRequest {
   AdditionalInformation?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The type of profile used to describe the customer.</p>
+   *
+   * @deprecated
    * @public
    */
   PartyType?: PartyType | undefined;
@@ -3306,9 +3306,9 @@ export interface CreateProfileRequest {
   BirthDate?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The gender with which the customer identifies. </p>
+   *
+   * @deprecated
    * @public
    */
   Gender?: Gender | undefined;
@@ -8452,9 +8452,9 @@ export interface UpdateProfileRequest {
   AccountNumber?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The type of profile used to describe the customer.</p>
+   *
+   * @deprecated
    * @public
    */
   PartyType?: PartyType | undefined;
@@ -8490,9 +8490,9 @@ export interface UpdateProfileRequest {
   BirthDate?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The gender with which the customer identifies. </p>
+   *
+   * @deprecated
    * @public
    */
   Gender?: Gender | undefined;

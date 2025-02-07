@@ -2887,13 +2887,13 @@ export interface LogStream {
   arn?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The number of bytes stored.</p>
    *          <p>
    *             <b>Important:</b> As of June 17, 2019, this parameter is no
    *       longer supported for log streams, and is always reported as zero. This change applies only to
    *       log streams. The <code>storedBytes</code> parameter for log groups is not affected.</p>
+   *
+   * @deprecated
    * @public
    */
   storedBytes?: number | undefined;
@@ -3742,8 +3742,6 @@ export interface FilterLogEventsRequest {
   limit?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>If the value is true, the operation attempts to provide responses that contain events
    *       from multiple log streams within the log group, interleaved in a single response. If the value
    *       is false, all the matched log events in the first log stream are searched first, then those in
@@ -3752,6 +3750,8 @@ export interface FilterLogEventsRequest {
    *             <b>Important</b> As of June 17, 2019, this parameter is
    *       ignored and the value is assumed to be true. The response from this operation always
    *       interleaves events from multiple log streams within a log group.</p>
+   *
+   * @deprecated
    * @public
    */
   interleaved?: boolean | undefined;

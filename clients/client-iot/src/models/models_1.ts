@@ -3790,8 +3790,6 @@ export interface DescribeSecurityProfileResponse {
   alertTargets?: Partial<Record<AlertTargetType, AlertTarget>> | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>
    *             <i>Please use
    *           <a>DescribeSecurityProfileResponse$additionalMetricsToRetainV2</a>
@@ -3802,6 +3800,8 @@ export interface DescribeSecurityProfileResponse {
    *       used in the profile's <code>behaviors</code>, but
    *       it is
    *       also retained for any metric specified here.</p>
+   *
+   * @deprecated
    * @public
    */
   additionalMetricsToRetain?: string[] | undefined;

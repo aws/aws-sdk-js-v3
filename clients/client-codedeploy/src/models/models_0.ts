@@ -706,10 +706,10 @@ export interface RevisionLocation {
   gitHubLocation?: GitHubLocation | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Information about the location of an Lambda deployment revision stored
    *             as a RawString.</p>
+   *
+   * @deprecated
    * @public
    */
   string?: RawString | undefined;
@@ -2021,8 +2021,6 @@ export interface InstanceSummary {
   instanceId?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The deployment status for this instance:</p>
    *          <ul>
    *             <li>
@@ -2053,6 +2051,8 @@ export interface InstanceSummary {
    *                     instance.</p>
    *             </li>
    *          </ul>
+   *
+   * @deprecated
    * @public
    */
   status?: InstanceStatus | undefined;
@@ -2687,10 +2687,10 @@ export interface DeploymentInfo {
   loadBalancerInfo?: LoadBalancerInfo | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Provides information about the results of a deployment, such as whether instances in
    *             the original environment in a blue/green deployment were not terminated.</p>
+   *
+   * @deprecated
    * @public
    */
   additionalDeploymentStatusInfo?: string | undefined;
@@ -5601,9 +5601,9 @@ export interface GetDeploymentInstanceInput {
  */
 export interface GetDeploymentInstanceOutput {
   /**
-   * @deprecated
-   *
    * <p> Information about the instance. </p>
+   *
+   * @deprecated
    * @public
    */
   instanceSummary?: InstanceSummary | undefined;

@@ -2794,9 +2794,9 @@ export interface CreateDBInstanceMessage {
   CharacterSetName?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This flag should no longer be used.</p>
+   *
+   * @deprecated
    * @public
    */
   PubliclyAccessible?: boolean | undefined;
@@ -3502,9 +3502,9 @@ export interface DBInstance {
   SecondaryAvailabilityZone?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This flag should no longer be used.</p>
+   *
+   * @deprecated
    * @public
    */
   PubliclyAccessible?: boolean | undefined;
@@ -8016,9 +8016,9 @@ export interface ModifyDBInstanceMessage {
   DBPortNumber?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This flag should no longer be used.</p>
+   *
+   * @deprecated
    * @public
    */
   PubliclyAccessible?: boolean | undefined;

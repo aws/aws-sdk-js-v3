@@ -11034,9 +11034,9 @@ export interface ModifyReplicationGroupMessage {
   MultiAZEnabled?: boolean | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Deprecated. This parameter is not used.</p>
+   *
+   * @deprecated
    * @public
    */
   NodeGroupId?: string | undefined;

@@ -651,9 +651,9 @@ export interface CreateGroupOutput {
  */
 export interface DeleteGroupInput {
   /**
-   * @deprecated
-   *
    * <p>Deprecated - don't use this parameter. Use <code>Group</code> instead.</p>
+   *
+   * @deprecated
    * @public
    */
   GroupName?: string | undefined;
@@ -714,9 +714,9 @@ export interface GetAccountSettingsOutput {
  */
 export interface GetGroupInput {
   /**
-   * @deprecated
-   *
    * <p>Deprecated - don't use this parameter. Use <code>Group</code> instead.</p>
+   *
+   * @deprecated
    * @public
    */
   GroupName?: string | undefined;
@@ -771,9 +771,9 @@ export interface GetGroupConfigurationOutput {
  */
 export interface GetGroupQueryInput {
   /**
-   * @deprecated
-   *
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   *
+   * @deprecated
    * @public
    */
   GroupName?: string | undefined;
@@ -1243,8 +1243,6 @@ export interface ResourceFilter {
  */
 export interface ListGroupResourcesInput {
   /**
-   * @deprecated
-   *
    * <important>
    *             <p>
    *                <i>
@@ -1253,6 +1251,8 @@ export interface ListGroupResourcesInput {
    *                </i>
    *             </p>
    *          </important>
+   *
+   * @deprecated
    * @public
    */
   GroupName?: string | undefined;
@@ -1438,8 +1438,6 @@ export interface ListGroupResourcesOutput {
   Resources?: ListGroupResourcesItem[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <important>
    *             <p>
    *                <b>
@@ -1449,6 +1447,8 @@ export interface ListGroupResourcesOutput {
    *                </b>
    *             </p>
    *          </important>
+   *
+   * @deprecated
    * @public
    */
   ResourceIdentifiers?: ResourceIdentifier[] | undefined;
@@ -1651,8 +1651,6 @@ export interface ListGroupsOutput {
   GroupIdentifiers?: GroupIdentifier[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <important>
    *             <p>
    *                <i>
@@ -1662,6 +1660,8 @@ export interface ListGroupsOutput {
    *                </i>
    *             </p>
    *          </important>
+   *
+   * @deprecated
    * @public
    */
   Groups?: Group[] | undefined;
@@ -2150,9 +2150,9 @@ export interface UpdateAccountSettingsOutput {
  */
 export interface UpdateGroupInput {
   /**
-   * @deprecated
-   *
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   *
+   * @deprecated
    * @public
    */
   GroupName?: string | undefined;
@@ -2207,9 +2207,9 @@ export interface UpdateGroupOutput {
  */
 export interface UpdateGroupQueryInput {
   /**
-   * @deprecated
-   *
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   *
+   * @deprecated
    * @public
    */
   GroupName?: string | undefined;

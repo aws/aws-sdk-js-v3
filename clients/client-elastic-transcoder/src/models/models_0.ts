@@ -843,8 +843,6 @@ export interface CaptionSource {
  */
 export interface Captions {
   /**
-   * @deprecated
-   *
    * <p>A policy that determines how Elastic Transcoder handles the existence of multiple captions.</p>
    *          <ul>
    *             <li>
@@ -870,15 +868,17 @@ export interface Captions {
    *          </ul>
    *          <p>
    *             <code>MergePolicy</code> cannot be null.</p>
+   *
+   * @deprecated
    * @public
    */
   MergePolicy?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Source files for the input sidecar captions used during the transcoding
    *          process. To omit all sidecar captions, leave <code>CaptionSources</code> blank.</p>
+   *
+   * @deprecated
    * @public
    */
   CaptionSources?: CaptionSource[] | undefined;
@@ -1345,12 +1345,12 @@ export interface CreateJobOutput {
   AlbumArt?: JobAlbumArt | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>You can create an output file that contains an excerpt from the input file. This excerpt, called a
    *             clip, can come from the beginning, middle, or end of the file. The Composition object contains settings
    *             for the clips that make up an output file. For the current release, you can only specify settings for a
    *             single clip per output file. The Composition object cannot be null.</p>
+   *
+   * @deprecated
    * @public
    */
   Composition?: Clip[] | undefined;
@@ -1909,12 +1909,12 @@ export interface JobOutput {
   AlbumArt?: JobAlbumArt | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>You can create an output file that contains an excerpt from the input file. This excerpt, called
    *             a clip, can come from the beginning, middle, or end of the file. The Composition object contains settings
    *             for the clips that make up an output file. For the current release, you can only specify settings for a
    *             single clip per output file. The Composition object cannot be null.</p>
+   *
+   * @deprecated
    * @public
    */
   Composition?: Clip[] | undefined;

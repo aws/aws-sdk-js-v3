@@ -4912,10 +4912,10 @@ export interface GetWebExperienceResponse {
   identityProviderConfiguration?: IdentityProviderConfiguration | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The authentication configuration information for your Amazon Q Business web
    *             experience.</p>
+   *
+   * @deprecated
    * @public
    */
   authenticationConfiguration?: WebExperienceAuthConfiguration | undefined;
@@ -5047,9 +5047,9 @@ export interface UpdateWebExperienceRequest {
   roleArn?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The authentication configuration of the Amazon Q Business web experience.</p>
+   *
+   * @deprecated
    * @public
    */
   authenticationConfiguration?: WebExperienceAuthConfiguration | undefined;

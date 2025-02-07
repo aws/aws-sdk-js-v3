@@ -561,8 +561,6 @@ export interface QualificationRequirement {
   LocaleValues?: Locale[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p> DEPRECATED: Use the <code>ActionsGuarded</code> field instead.
    *             If RequiredToPreview is true, the question data for the HIT will not be shown
    *             when a Worker whose Qualifications do not meet this requirement tries
@@ -575,6 +573,8 @@ export interface QualificationRequirement {
    *             to accept and complete the HIT. The default is false. This should not
    *             be used in combination with the <code>ActionsGuarded</code> field.
    *         </p>
+   *
+   * @deprecated
    * @public
    */
   RequiredToPreview?: boolean | undefined;

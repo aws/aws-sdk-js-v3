@@ -1713,10 +1713,10 @@ export interface CreateManagedEndpointRequest {
   executionRoleArn: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The certificate ARN provided by users for the managed endpoint. This field is under
    *          deprecation and will be removed in future releases.</p>
+   *
+   * @deprecated
    * @public
    */
   certificateArn?: string | undefined;
@@ -1794,10 +1794,10 @@ export interface Endpoint {
   executionRoleArn?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The certificate ARN of the endpoint. This field is under deprecation and will be removed
    *          in future.</p>
+   *
+   * @deprecated
    * @public
    */
   certificateArn?: string | undefined;

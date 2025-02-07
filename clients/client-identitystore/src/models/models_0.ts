@@ -986,10 +986,10 @@ export interface ListGroupsRequest {
   NextToken?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code> and
    *             <code>ListGroups</code> requests.</p>
+   *
+   * @deprecated
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -1579,10 +1579,10 @@ export interface ListUsersRequest {
   NextToken?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code> and
    *             <code>ListGroups</code> requests. </p>
+   *
+   * @deprecated
    * @public
    */
   Filters?: Filter[] | undefined;

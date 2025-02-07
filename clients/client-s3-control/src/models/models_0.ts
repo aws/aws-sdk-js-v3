@@ -68,9 +68,9 @@ export interface ListAccessGrantsInstanceEntry {
   CreatedAt?: Date | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>If you associated your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance, this field returns the Amazon Resource Name (ARN) of the IAM Identity Center instance application; a subresource of the original Identity Center instance. S3 Access Grants creates this Identity Center application for the specific S3 Access Grants instance. </p>
+   *
+   * @deprecated
    * @public
    */
   IdentityCenterArn?: string | undefined;
@@ -1160,9 +1160,9 @@ export interface CreateAccessGrantsInstanceResult {
   AccessGrantsInstanceArn?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>If you associated your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance, this field returns the Amazon Resource Name (ARN) of the IAM Identity Center instance application; a subresource of the original Identity Center instance. S3 Access Grants creates this Identity Center application for the specific S3 Access Grants instance. </p>
+   *
+   * @deprecated
    * @public
    */
   IdentityCenterArn?: string | undefined;
@@ -4378,9 +4378,9 @@ export interface GetAccessGrantsInstanceResult {
   AccessGrantsInstanceId?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>If you associated your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance, this field returns the Amazon Resource Name (ARN) of the IAM Identity Center instance application; a subresource of the original Identity Center instance. S3 Access Grants creates this Identity Center application for the specific S3 Access Grants instance. </p>
+   *
+   * @deprecated
    * @public
    */
   IdentityCenterArn?: string | undefined;
@@ -5714,8 +5714,6 @@ export interface ReplicationRule {
   Priority?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>An object key name prefix that identifies the object or objects to which the rule
    *          applies. The maximum prefix length is 1,024 characters. To include all objects in an
    *          Outposts bucket, specify an empty string.</p>
@@ -5725,6 +5723,8 @@ export interface ReplicationRule {
    * For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
    *             XML-related object key constraints</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          </important>
+   *
+   * @deprecated
    * @public
    */
   Prefix?: string | undefined;

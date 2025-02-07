@@ -648,17 +648,17 @@ export interface Component {
   Databases?: string[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The hosts of the component.</p>
+   *
+   * @deprecated
    * @public
    */
   Hosts?: Host[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The primary host of the component.</p>
+   *
+   * @deprecated
    * @public
    */
   PrimaryHost?: string | undefined;

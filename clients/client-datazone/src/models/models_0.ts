@@ -10495,9 +10495,9 @@ export interface CreateSubscriptionGrantOutput {
   assets?: SubscribedAsset[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The identifier of the subscription grant.</p>
+   *
+   * @deprecated
    * @public
    */
   subscriptionId?: string | undefined;

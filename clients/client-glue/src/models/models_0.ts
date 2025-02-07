@@ -8102,10 +8102,10 @@ export interface TableOptimizerRun {
   endTimestamp?: Date | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>A <code>RunMetrics</code> object containing metrics for the optimizer run.</p>
    *          <p>This member is deprecated. See the individual metric members for compaction, retention, and orphan file deletion.</p>
+   *
+   * @deprecated
    * @public
    */
   metrics?: RunMetrics | undefined;
@@ -8768,14 +8768,14 @@ export interface JobRun {
   PredecessorRuns?: Predecessor[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
    *          <p>The number of Glue data processing units (DPUs) allocated to this JobRun.
    *       From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure
    *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
    *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
    *         pricing page</a>.</p>
+   *
+   * @deprecated
    * @public
    */
   AllocatedCapacity?: number | undefined;

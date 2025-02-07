@@ -760,10 +760,10 @@ export type BillingMode = (typeof BillingMode)[keyof typeof BillingMode];
  */
 export interface CancelQueryRequest {
   /**
-   * @deprecated
-   *
    * <p>The ARN (or the ID suffix of the ARN) of an event data store on which the specified
    *          query is running.</p>
+   *
+   * @deprecated
    * @public
    */
   EventDataStore?: string | undefined;
@@ -2355,9 +2355,9 @@ export interface CreateTrailResponse {
   S3KeyPrefix?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is no longer in use. Use <code>SnsTopicARN</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   SnsTopicName?: string | undefined;
@@ -3152,10 +3152,10 @@ export class NotOrganizationManagementAccountException extends __BaseException {
  */
 export interface DescribeQueryRequest {
   /**
-   * @deprecated
-   *
    * <p>The ARN (or the ID suffix of the ARN) of an event data store on which the specified
    *          query was run.</p>
+   *
+   * @deprecated
    * @public
    */
   EventDataStore?: string | undefined;
@@ -3397,9 +3397,9 @@ export interface Trail {
   S3KeyPrefix?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is no longer in use. Use <code>SnsTopicARN</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   SnsTopicName?: string | undefined;
@@ -4724,10 +4724,10 @@ export class InsightNotEnabledException extends __BaseException {
  */
 export interface GetQueryResultsRequest {
   /**
-   * @deprecated
-   *
    * <p>The ARN (or ID suffix of the ARN) of the event data store against which the query was
    *          run.</p>
+   *
+   * @deprecated
    * @public
    */
   EventDataStore?: string | undefined;
@@ -5270,71 +5270,71 @@ export interface EventDataStore {
   Name?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Indicates whether the event data store is protected from
    *          termination.</p>
+   *
+   * @deprecated
    * @public
    */
   TerminationProtectionEnabled?: boolean | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The status of an event data store.</p>
+   *
+   * @deprecated
    * @public
    */
   Status?: EventDataStoreStatus | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The advanced event selectors that were used to select
    *          events for the data store.</p>
+   *
+   * @deprecated
    * @public
    */
   AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Indicates whether the event data store includes events
    *          from all Regions, or only from the Region in which it was created.</p>
+   *
+   * @deprecated
    * @public
    */
   MultiRegionEnabled?: boolean | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Indicates that an event data store is collecting logged
    *          events for an organization.</p>
+   *
+   * @deprecated
    * @public
    */
   OrganizationEnabled?: boolean | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The retention period, in days.</p>
+   *
+   * @deprecated
    * @public
    */
   RetentionPeriod?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The timestamp of the event data store's creation.</p>
+   *
+   * @deprecated
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The timestamp showing when an event data store was
    *          updated, if applicable. <code>UpdatedTimestamp</code> is always either the same or newer
    *          than the time shown in <code>CreatedTimestamp</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   UpdatedTimestamp?: Date | undefined;
@@ -7944,9 +7944,9 @@ export interface UpdateTrailResponse {
   S3KeyPrefix?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is no longer in use. Use <code>SnsTopicARN</code>.</p>
+   *
+   * @deprecated
    * @public
    */
   SnsTopicName?: string | undefined;

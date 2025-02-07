@@ -7382,9 +7382,9 @@ export interface CreateOntapVolumeConfiguration {
   SecurityStyle?: SecurityStyle | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Use <code>SizeInBytes</code> instead. Specifies the size of the volume, in megabytes (MB), that you are creating.</p>
+   *
+   * @deprecated
    * @public
    */
   SizeInMegabytes?: number | undefined;
