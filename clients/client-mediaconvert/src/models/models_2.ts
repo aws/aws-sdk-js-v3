@@ -6,25 +6,239 @@ import { MediaConvertServiceException as __BaseException } from "./MediaConvertS
 import {
   AccelerationSettings,
   AudioDescription,
+  AvailBlanking,
   BillingTagsSource,
   CaptionDescriptionPreset,
+  ColorConversion3DLUTSetting,
   Endpoint,
+  EsamSettings,
+  ExtendedDataServices,
   HopDestination,
+  InputTemplate,
+  KantarWatermarkSettings,
+  MotionImageInserter,
+  NielsenConfiguration,
+  NielsenNonLinearWatermarkSettings,
 } from "./models_0";
 
 import {
   ContainerSettings,
   Job,
-  JobEngineVersion,
   JobSettings,
   JobStatus,
-  JobTemplate,
-  JobTemplateSettings,
+  OutputGroup,
   SimulateReservedQueue,
   StatusUpdateInterval,
-  Type,
+  TimecodeConfig,
+  TimedMetadataInsertion,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * Use Job engine versions to run jobs for your production workflow on one version, while you test and validate the latest version. Job engine versions are in a YYYY-MM-DD format.
+ * @public
+ */
+export interface JobEngineVersion {
+  /**
+   * The date that this Job engine version expires. Requests to create jobs with an expired version result in a regular job, as if no specific Job engine version was requested.
+   * @public
+   */
+  ExpirationDate?: Date | undefined;
+
+  /**
+   * Use Job engine versions to run jobs for your production workflow on one version, while you test and validate the latest version. Job engine versions are in a YYYY-MM-DD format.
+   * @public
+   */
+  Version?: string | undefined;
+}
+
+/**
+ * JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
+ * @public
+ */
+export interface JobTemplateSettings {
+  /**
+   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time.
+   * @public
+   */
+  AdAvailOffset?: number | undefined;
+
+  /**
+   * Settings for ad avail blanking. Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
+   * @public
+   */
+  AvailBlanking?: AvailBlanking | undefined;
+
+  /**
+   * Use 3D LUTs to specify custom color mapping behavior when you convert from one color space into another. You can include up to 8 different 3D LUTs. For more information, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/3d-luts.html
+   * @public
+   */
+  ColorConversion3DLUTSettings?: ColorConversion3DLUTSetting[] | undefined;
+
+  /**
+   * Settings for Event Signaling And Messaging (ESAM). If you don't do ad insertion, you can ignore these settings.
+   * @public
+   */
+  Esam?: EsamSettings | undefined;
+
+  /**
+   * If your source content has EIA-608 Line 21 Data Services, enable this feature to specify what MediaConvert does with the Extended Data Services (XDS) packets. You can choose to pass through XDS packets, or remove them from the output. For more information about XDS, see EIA-608 Line Data Services, section 9.5.1.5 05h Content Advisory.
+   * @public
+   */
+  ExtendedDataServices?: ExtendedDataServices | undefined;
+
+  /**
+   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * @public
+   */
+  FollowSource?: number | undefined;
+
+  /**
+   * Use Inputs to define the source file used in the transcode job. There can only be one input in a job template. Using the API, you can include multiple inputs when referencing a job template.
+   * @public
+   */
+  Inputs?: InputTemplate[] | undefined;
+
+  /**
+   * Use these settings only when you use Kantar watermarking. Specify the values that MediaConvert uses to generate and place Kantar watermarks in your output audio. These settings apply to every output in your job. In addition to specifying these values, you also need to store your Kantar credentials in AWS Secrets Manager. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/kantar-watermarking.html.
+   * @public
+   */
+  KantarWatermark?: KantarWatermarkSettings | undefined;
+
+  /**
+   * Overlay motion graphics on top of your video. The motion graphics that you specify here appear on all outputs in all output groups. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/motion-graphic-overlay.html.
+   * @public
+   */
+  MotionImageInserter?: MotionImageInserter | undefined;
+
+  /**
+   * Settings for your Nielsen configuration. If you don't do Nielsen measurement and analytics, ignore these settings. When you enable Nielsen configuration, MediaConvert enables PCM to ID3 tagging for all outputs in the job.
+   * @public
+   */
+  NielsenConfiguration?: NielsenConfiguration | undefined;
+
+  /**
+   * Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to specifying these values, you also need to set up your cloud TIC server. These settings apply to every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 6.0.13 Nielsen NLM Watermark Engine Version 1.3.3 Nielsen Watermark Authenticator [SID_TIC] Version [7.0.0]
+   * @public
+   */
+  NielsenNonLinearWatermark?: NielsenNonLinearWatermarkSettings | undefined;
+
+  /**
+   * Contains one group of settings for each set of outputs that share a common package type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as well. Required in is a group of settings that apply to the whole group. This required object depends on the value you set for Type. Type, settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS, CmafGroupSettings
+   * @public
+   */
+  OutputGroups?: OutputGroup[] | undefined;
+
+  /**
+   * These settings control how the service handles timecodes throughout the job. These settings don't affect input clipping.
+   * @public
+   */
+  TimecodeConfig?: TimecodeConfig | undefined;
+
+  /**
+   * Insert user-defined custom ID3 metadata at timecodes that you specify. In each output that you want to include this metadata, you must set ID3 metadata to Passthrough.
+   * @public
+   */
+  TimedMetadataInsertion?: TimedMetadataInsertion | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Type = {
+  CUSTOM: "CUSTOM",
+  SYSTEM: "SYSTEM",
+} as const;
+
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
+
+/**
+ * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
+ * @public
+ */
+export interface JobTemplate {
+  /**
+   * Accelerated transcoding can significantly speed up jobs with long, visually complex content.
+   * @public
+   */
+  AccelerationSettings?: AccelerationSettings | undefined;
+
+  /**
+   * An identifier for this resource that is unique within all of AWS.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * An optional category you create to organize your job templates.
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * The timestamp in epoch seconds for Job template creation.
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * An optional description you create for each job template.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * Optional list of hop destinations.
+   * @public
+   */
+  HopDestinations?: HopDestination[] | undefined;
+
+  /**
+   * The timestamp in epoch seconds when the Job template was last updated.
+   * @public
+   */
+  LastUpdated?: Date | undefined;
+
+  /**
+   * A name you create for each job template. Each name must be unique within your account.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Relative priority on the job.
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * Optional. The queue that jobs created from this template are assigned to. If you don't specify this, jobs will go to the default queue.
+   * @public
+   */
+  Queue?: string | undefined;
+
+  /**
+   * JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
+   * @public
+   */
+  Settings: JobTemplateSettings | undefined;
+
+  /**
+   * Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+   * @public
+   */
+  StatusUpdateInterval?: StatusUpdateInterval | undefined;
+
+  /**
+   * A job template can be of two types: system or custom. System or built-in job templates can't be modified or deleted by the user.
+   * @public
+   */
+  Type?: Type | undefined;
+}
 
 /**
  * Settings for preset

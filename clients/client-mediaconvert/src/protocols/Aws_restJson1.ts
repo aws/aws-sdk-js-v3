@@ -202,6 +202,7 @@ import {
   DvbTdtSettings,
   F4vSettings,
   FrameCaptureSettings,
+  GifSettings,
   H264QvbrSettings,
   H264Settings,
   H265QvbrSettings,
@@ -209,10 +210,7 @@ import {
   Hdr10Plus,
   HlsSettings,
   Job,
-  JobEngineVersion,
   JobSettings,
-  JobTemplate,
-  JobTemplateSettings,
   M2tsScte35Esam,
   M2tsSettings,
   M3u8Settings,
@@ -258,6 +256,9 @@ import {
   ConflictException,
   ForbiddenException,
   InternalServerErrorException,
+  JobEngineVersion,
+  JobTemplate,
+  JobTemplateSettings,
   NotFoundException,
   Policy,
   Preset,
@@ -2988,6 +2989,18 @@ const se_FrameCaptureSettings = (input: FrameCaptureSettings, context: __SerdeCo
 };
 
 /**
+ * serializeAws_restJson1GifSettings
+ */
+const se_GifSettings = (input: GifSettings, context: __SerdeContext): any => {
+  return take(input, {
+    framerateControl: [, , `FramerateControl`],
+    framerateConversionAlgorithm: [, , `FramerateConversionAlgorithm`],
+    framerateDenominator: [, , `FramerateDenominator`],
+    framerateNumerator: [, , `FramerateNumerator`],
+  });
+};
+
+/**
  * serializeAws_restJson1H264QvbrSettings
  */
 const se_H264QvbrSettings = (input: H264QvbrSettings, context: __SerdeContext): any => {
@@ -4271,6 +4284,7 @@ const se_VideoCodecSettings = (input: VideoCodecSettings, context: __SerdeContex
     avcIntraSettings: [, (_) => se_AvcIntraSettings(_, context), `AvcIntraSettings`],
     codec: [, , `Codec`],
     frameCaptureSettings: [, (_) => se_FrameCaptureSettings(_, context), `FrameCaptureSettings`],
+    gifSettings: [, (_) => se_GifSettings(_, context), `GifSettings`],
     h264Settings: [, (_) => se_H264Settings(_, context), `H264Settings`],
     h265Settings: [, (_) => se_H265Settings(_, context), `H265Settings`],
     mpeg2Settings: [, (_) => se_Mpeg2Settings(_, context), `Mpeg2Settings`],
@@ -4290,6 +4304,7 @@ const se_VideoDescription = (input: VideoDescription, context: __SerdeContext): 
   return take(input, {
     afdSignaling: [, , `AfdSignaling`],
     antiAlias: [, , `AntiAlias`],
+    chromaPositionMode: [, , `ChromaPositionMode`],
     codecSettings: [, (_) => se_VideoCodecSettings(_, context), `CodecSettings`],
     colorMetadata: [, , `ColorMetadata`],
     crop: [, (_) => se_Rectangle(_, context), `Crop`],
@@ -6105,6 +6120,18 @@ const de_FrameCaptureSettings = (output: any, context: __SerdeContext): FrameCap
 };
 
 /**
+ * deserializeAws_restJson1GifSettings
+ */
+const de_GifSettings = (output: any, context: __SerdeContext): GifSettings => {
+  return take(output, {
+    FramerateControl: [, __expectString, `framerateControl`],
+    FramerateConversionAlgorithm: [, __expectString, `framerateConversionAlgorithm`],
+    FramerateDenominator: [, __expectInt32, `framerateDenominator`],
+    FramerateNumerator: [, __expectInt32, `framerateNumerator`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1H264QvbrSettings
  */
 const de_H264QvbrSettings = (output: any, context: __SerdeContext): H264QvbrSettings => {
@@ -7589,6 +7616,7 @@ const de_VideoCodecSettings = (output: any, context: __SerdeContext): VideoCodec
     AvcIntraSettings: [, (_: any) => de_AvcIntraSettings(_, context), `avcIntraSettings`],
     Codec: [, __expectString, `codec`],
     FrameCaptureSettings: [, (_: any) => de_FrameCaptureSettings(_, context), `frameCaptureSettings`],
+    GifSettings: [, (_: any) => de_GifSettings(_, context), `gifSettings`],
     H264Settings: [, (_: any) => de_H264Settings(_, context), `h264Settings`],
     H265Settings: [, (_: any) => de_H265Settings(_, context), `h265Settings`],
     Mpeg2Settings: [, (_: any) => de_Mpeg2Settings(_, context), `mpeg2Settings`],
@@ -7608,6 +7636,7 @@ const de_VideoDescription = (output: any, context: __SerdeContext): VideoDescrip
   return take(output, {
     AfdSignaling: [, __expectString, `afdSignaling`],
     AntiAlias: [, __expectString, `antiAlias`],
+    ChromaPositionMode: [, __expectString, `chromaPositionMode`],
     CodecSettings: [, (_: any) => de_VideoCodecSettings(_, context), `codecSettings`],
     ColorMetadata: [, __expectString, `colorMetadata`],
     Crop: [, (_: any) => de_Rectangle(_, context), `crop`],

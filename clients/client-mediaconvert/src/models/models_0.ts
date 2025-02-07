@@ -1379,6 +1379,7 @@ export interface VorbisSettings {
  * @enum
  */
 export const WavFormat = {
+  EXTENSIBLE: "EXTENSIBLE",
   RF64: "RF64",
   RIFF: "RIFF",
 } as const;
@@ -1406,7 +1407,7 @@ export interface WavSettings {
   Channels?: number | undefined;
 
   /**
-   * The service defaults to using RIFF for WAV outputs. If your output audio is likely to exceed 4 GB in file size, or if you otherwise need the extended support of the RF64 format, set your output WAV file format to RF64.
+   * Specify the file format for your wave audio output. To use a RIFF wave format: Keep the default value, RIFF. If your output audio is likely to exceed 4GB in file size, or if you otherwise need the extended support of the RF64 format: Choose RF64. If your player only supports the extensible wave format: Choose Extensible.
    * @public
    */
   Format?: WavFormat | undefined;
@@ -2899,6 +2900,7 @@ export type WebvttAccessibilitySubs = (typeof WebvttAccessibilitySubs)[keyof typ
 export const WebvttStylePassthrough = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
+  MERGE: "MERGE",
   STRICT: "STRICT",
 } as const;
 
@@ -2919,7 +2921,7 @@ export interface WebvttDestinationSettings {
   Accessibility?: WebvttAccessibilitySubs | undefined;
 
   /**
-   * To use the available style, color, and position information from your input captions: Set Style passthrough to Enabled. MediaConvert uses default settings when style and position information is missing from your input captions. To recreate the input captions exactly: Set Style passthrough to Strict. MediaConvert automatically applies timing adjustments, including adjustments for frame rate conversion, ad avails, and input clipping. Your input captions format must be WebVTT. To ignore the style and position information from your input captions and use simplified output captions: Set Style passthrough to Disabled, or leave blank.
+   * Specify how MediaConvert writes style information in your output WebVTT captions. To use the available style, color, and position information from your input captions: Choose Enabled. MediaConvert uses default settings when style and position information is missing from your input captions. To recreate the input captions exactly: Choose Strict. MediaConvert automatically applies timing adjustments, including adjustments for frame rate conversion, ad avails, and input clipping. Your input captions format must be WebVTT. To ignore the style and position information from your input captions and use simplified output captions: Keep the default value, Disabled. Or leave blank. To use the available style, color, and position information from your input captions, while merging cues with identical time ranges: Choose merge. This setting can help prevent positioning overlaps for certain players that expect a single single cue for any given time range.
    * @public
    */
   StylePassthrough?: WebvttStylePassthrough | undefined;
