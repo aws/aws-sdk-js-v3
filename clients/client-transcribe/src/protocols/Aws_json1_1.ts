@@ -178,6 +178,7 @@ import {
   CallAnalyticsJobSummary,
   CategoryProperties,
   ChannelDefinition,
+  ClinicalNoteGenerationSettings,
   ConflictException,
   ContentRedaction,
   CreateCallAnalyticsCategoryRequest,
@@ -1805,6 +1806,8 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
 
 // se_ChannelDefinitions omitted.
 
+// se_ClinicalNoteGenerationSettings omitted.
+
 // se_ContentRedaction omitted.
 
 // se_CreateCallAnalyticsCategoryRequest omitted.
@@ -2055,6 +2058,8 @@ const de_CategoryPropertiesList = (output: any, context: __SerdeContext): Catego
 // de_ChannelDefinition omitted.
 
 // de_ChannelDefinitions omitted.
+
+// de_ClinicalNoteGenerationSettings omitted.
 
 // de_ConflictException omitted.
 

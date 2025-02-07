@@ -657,7 +657,7 @@ export interface CallAnalyticsJobSettings {
    *          <p>Including language options can improve the accuracy of language identification.</p>
    *          <p>For a list of languages supported with Call Analytics, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
    *                 languages</a> table.</p>
-   *          <p>To transcribe speech in Modern Standard Arabic (<code>ar-SA</code>), your media file
+   *          <p>To transcribe speech in Modern Standard Arabic (<code>ar-SA</code>) in Amazon Web Services GovCloud (US) (US-West, us-gov-west-1), Amazon Web Services GovCloud (US) (US-East, us-gov-east-1), Canada (Calgary) ca-west-1 and Africa (Cape Town) af-south-1, your media file
    *             must be encoded at a sample rate of 16,000 Hz or higher.</p>
    * @public
    */
@@ -1527,6 +1527,41 @@ export interface CategoryProperties {
    * @public
    */
   InputType?: InputType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MedicalScribeNoteTemplate = {
+  GIRPP: "GIRPP",
+  HISTORY_AND_PHYSICAL: "HISTORY_AND_PHYSICAL",
+} as const;
+
+/**
+ * @public
+ */
+export type MedicalScribeNoteTemplate = (typeof MedicalScribeNoteTemplate)[keyof typeof MedicalScribeNoteTemplate];
+
+/**
+ * <p>The output configuration for clinical note generation.</p>
+ * @public
+ */
+export interface ClinicalNoteGenerationSettings {
+  /**
+   * <p>Specify one of the following templates to use for the clinical note summary. The default is <code>HISTORY_AND_PHYSICAL</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>HISTORY_AND_PHYSICAL: Provides summaries for key sections of the clinical documentation. Sections include Chief Complaint,
+   *                 History of Present Illness, Review of Systems, Past Medical History, Assessment, and Plan.</p>
+   *             </li>
+   *             <li>
+   *                <p>GIRPP: Provides summaries based on the patients progress toward goals. Sections include Goal, Intervention, Response, Progress, and Plan.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  NoteTemplate?: MedicalScribeNoteTemplate | undefined;
 }
 
 /**
@@ -2663,6 +2698,12 @@ export interface MedicalScribeSettings {
    * @public
    */
   VocabularyFilterMethod?: VocabularyFilterMethod | undefined;
+
+  /**
+   * <p>Specify settings for the clinical note generation.</p>
+   * @public
+   */
+  ClinicalNoteGenerationSettings?: ClinicalNoteGenerationSettings | undefined;
 }
 
 /**
@@ -5421,7 +5462,7 @@ export interface StartTranscriptionJobRequest {
    *          <p>For a list of supported languages and their associated language codes, refer to the
    *                 <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table.</p>
    *          <note>
-   *             <p>To transcribe speech in Modern Standard Arabic (<code>ar-SA</code>), your media
+   *             <p>To transcribe speech in Modern Standard Arabic (<code>ar-SA</code>) in Amazon Web Services GovCloud (US) (US-West, us-gov-west-1), Amazon Web Services GovCloud (US) (US-East, us-gov-east-1), Canada (Calgary, ca-west-1) and Africa (Cape Town, af-south-1), your media
    *                 file must be encoded at a sample rate of 16,000 Hz or higher.</p>
    *          </note>
    * @public
@@ -5666,7 +5707,7 @@ export interface StartTranscriptionJobRequest {
    *                 <code>IdentifyLanguage</code>.</p>
    *          <p>For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
    *             languages</a>.</p>
-   *          <p>To transcribe speech in Modern Standard Arabic (<code>ar-SA</code>), your media file
+   *          <p>To transcribe speech in Modern Standard Arabic (<code>ar-SA</code>)in Amazon Web Services GovCloud (US) (US-West, us-gov-west-1), Amazon Web Services GovCloud (US) (US-East, us-gov-east-1), in Canada (Calgary) ca-west-1 and Africa (Cape Town) af-south-1, your media file
    *             must be encoded at a sample rate of 16,000 Hz or higher.</p>
    * @public
    */
