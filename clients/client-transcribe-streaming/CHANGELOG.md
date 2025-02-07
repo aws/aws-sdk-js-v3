@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.744.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.743.0...v3.744.0) (2025-02-07)
+
+
+### Features
+
+* **client-transcribe-streaming:** This release adds support for the Clinical Note Template Customization feature for the AWS HealthScribe Streaming APIs within Amazon Transcribe. ([d338b70](https://github.com/aws/aws-sdk-js-v3/commit/d338b705261cdb64ad735d5e5b014943dae4b154))
+
+
+
+
+
 # [3.743.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.742.1...v3.743.0) (2025-02-06)
 
 **Note:** Version bump only for package @aws-sdk/client-transcribe-streaming

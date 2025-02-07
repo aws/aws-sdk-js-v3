@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.744.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.743.0...v3.744.0) (2025-02-07)
+
+
+### Features
+
+* **client-ecr:** Adds support to handle the new basic scanning daily quota. ([07297d3](https://github.com/aws/aws-sdk-js-v3/commit/07297d32b51b73e73edcb75e64622bdbf4de7bff))
+* **client-eks:** Introduce versionStatus field to take place of status field in EKS DescribeClusterVersions API ([5b42130](https://github.com/aws/aws-sdk-js-v3/commit/5b4213062077016d650cf5be0ae63e2bb1880f6d))
+* **client-mediaconvert:** This release adds support for Animated GIF output, forced chroma sample positioning metadata, and Extensible Wave Container format ([5f0e21d](https://github.com/aws/aws-sdk-js-v3/commit/5f0e21d87db7c7f714f1b57f4090bc4d54096ac4))
+* **client-pi:** Adds documentation for dimension groups and dimensions to analyze locks for Database Insights. ([94f7ccb](https://github.com/aws/aws-sdk-js-v3/commit/94f7ccb95985c7e8528bb30bd5223168c02f19b2))
+* **client-transcribe-streaming:** This release adds support for the Clinical Note Template Customization feature for the AWS HealthScribe Streaming APIs within Amazon Transcribe. ([d338b70](https://github.com/aws/aws-sdk-js-v3/commit/d338b705261cdb64ad735d5e5b014943dae4b154))
+* **client-transcribe:** This release adds support for the Clinical Note Template Customization feature for the AWS HealthScribe APIs within Amazon Transcribe. ([91fce74](https://github.com/aws/aws-sdk-js-v3/commit/91fce740bcd429da57566822d588a10869fe76d8))
+* **clients:** update client endpoints as of 2025-02-07 ([abfb6ea](https://github.com/aws/aws-sdk-js-v3/commit/abfb6eab532f5f98db041d5eed37bc0e06004afb))
+
+
+
+
+
 # [3.743.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.742.1...v3.743.0) (2025-02-06)
 
 

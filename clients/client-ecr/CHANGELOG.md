@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.744.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.743.0...v3.744.0) (2025-02-07)
+
+
+### Features
+
+* **client-ecr:** Adds support to handle the new basic scanning daily quota. ([07297d3](https://github.com/aws/aws-sdk-js-v3/commit/07297d32b51b73e73edcb75e64622bdbf4de7bff))
+
+
+
+
+
 # [3.743.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.742.1...v3.743.0) (2025-02-06)
 
 **Note:** Version bump only for package @aws-sdk/client-ecr

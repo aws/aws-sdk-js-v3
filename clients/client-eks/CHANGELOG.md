@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.744.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.743.0...v3.744.0) (2025-02-07)
+
+
+### Features
+
+* **client-eks:** Introduce versionStatus field to take place of status field in EKS DescribeClusterVersions API ([5b42130](https://github.com/aws/aws-sdk-js-v3/commit/5b4213062077016d650cf5be0ae63e2bb1880f6d))
+
+
+
+
+
 # [3.743.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.742.1...v3.743.0) (2025-02-06)
 
 **Note:** Version bump only for package @aws-sdk/client-eks
