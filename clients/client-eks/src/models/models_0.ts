@@ -1671,7 +1671,9 @@ export interface CreateAddonRequest {
    *                     option. If the self-managed version of the add-on is installed on your cluster
    *                         Amazon EKS doesn't change the add-on resource properties. Creation
    *                     of the add-on might fail if conflicts are detected. This option works
-   *                     differently during the update operation. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html">UpdateAddon</a>.</p>
+   *                     differently during the update operation. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html">
+   *                      <code>UpdateAddon</code>
+   *                   </a>.</p>
    *             </li>
    *          </ul>
    *          <p>If you don't currently have the self-managed version of the add-on installed on your
@@ -3794,7 +3796,9 @@ export interface NodegroupUpdateConfig {
   /**
    * <p>The configuration for the behavior to follow during a node group version update of this managed
    *             node group. You choose between two possible strategies for replacing nodes during an
-   *                 <a href="https://docs.aws.amazon.com/latest/APIReference/API_UpdateNodegroupVersion.html">UpdateNodegroupVersion</a> action.</p>
+   *                 <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateNodegroupVersion.html">
+   *                <code>UpdateNodegroupVersion</code>
+   *             </a> action.</p>
    *          <p>An Amazon EKS managed node group updates by replacing nodes with new nodes of newer AMI
    *             versions in parallel. The <i>update strategy</i> changes the managed node
    *             update behavior of the managed node group for each quantity. The
@@ -5060,6 +5064,21 @@ export type ClusterVersionStatus = (typeof ClusterVersionStatus)[keyof typeof Cl
 
 /**
  * @public
+ * @enum
+ */
+export const VersionStatus = {
+  EXTENDED_SUPPORT: "EXTENDED_SUPPORT",
+  STANDARD_SUPPORT: "STANDARD_SUPPORT",
+  UNSUPPORTED: "UNSUPPORTED",
+} as const;
+
+/**
+ * @public
+ */
+export type VersionStatus = (typeof VersionStatus)[keyof typeof VersionStatus];
+
+/**
+ * @public
  */
 export interface DescribeClusterVersionsRequest {
   /**
@@ -5099,10 +5118,22 @@ export interface DescribeClusterVersionsRequest {
   clusterVersions?: string[] | undefined;
 
   /**
-   * <p>Filter versions by their current status.</p>
+   * <important>
+   *             <p>This field is deprecated. Use <code>versionStatus</code> instead, as that field
+   *             matches for input and output of this action.</p>
+   *          </important>
+   *          <p>Filter versions by their current status.</p>
+   *
+   * @deprecated
    * @public
    */
   status?: ClusterVersionStatus | undefined;
+
+  /**
+   * <p>Filter versions by their current status.</p>
+   * @public
+   */
+  versionStatus?: VersionStatus | undefined;
 }
 
 /**
@@ -5153,10 +5184,20 @@ export interface ClusterVersionInformation {
   endOfExtendedSupportDate?: Date | undefined;
 
   /**
-   * <p>Current status of this cluster version.</p>
+   * <important>
+   *             <p>This field is deprecated. Use <code>versionStatus</code> instead, as that field
+   *                 matches for input and output of this action.</p>
+   *          </important>
+   *          <p>Current status of this cluster version.</p>
    * @public
    */
   status?: ClusterVersionStatus | undefined;
+
+  /**
+   * <p>Current status of this cluster version.</p>
+   * @public
+   */
+  versionStatus?: VersionStatus | undefined;
 
   /**
    * <p>The patch version of Kubernetes for this cluster version.</p>
@@ -6589,9 +6630,9 @@ export interface ListPodIdentityAssociationsRequest {
 
 /**
  * <p>The summarized description of the association.</p>
- *          <p>Each summary is simplified by removing these fields compared to the full <code>
- *                <a>PodIdentityAssociation</a>
- *             </code>:</p>
+ *          <p>Each summary is simplified by removing these fields compared to the full <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_PodIdentityAssociation.html">
+ *                <code>PodIdentityAssociation</code>
+ *             </a>:</p>
  *          <ul>
  *             <li>
  *                <p>The IAM role: <code>roleArn</code>
@@ -6660,9 +6701,9 @@ export interface ListPodIdentityAssociationsResponse {
   /**
    * <p>The list of summarized descriptions of the associations that are in the cluster and match
    *             any filters that you provided.</p>
-   *          <p>Each summary is simplified by removing these fields compared to the full <code>
-   *                <a>PodIdentityAssociation</a>
-   *             </code>:</p>
+   *          <p>Each summary is simplified by removing these fields compared to the full <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_PodIdentityAssociation.html">
+   *                <code>PodIdentityAssociation</code>
+   *             </a>:</p>
    *          <ul>
    *             <li>
    *                <p>The IAM role: <code>roleArn</code>

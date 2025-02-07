@@ -30,7 +30,10 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
 /**
  * <p>Updates an Amazon EKS managed node group configuration. Your node group
  *             continues to function during the update. The response output includes an update ID that
- *             you can use to track the status of your node group update with the <a>DescribeUpdate</a> API operation. You can update the Kubernetes labels and taints
+ *             you can use to track the status of your node group update with the
+ *             <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeUpdate.html">
+ *                <code>DescribeUpdate</code>
+ *             </a> API operation. You can update the Kubernetes labels and taints
  *             for a node group and the scaling and version update configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

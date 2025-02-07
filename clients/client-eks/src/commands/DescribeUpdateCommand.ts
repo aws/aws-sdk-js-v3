@@ -29,7 +29,7 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
 
 /**
  * <p>Describes an update to an Amazon EKS resource.</p>
- *          <p>When the status of the update is <code>Succeeded</code>, the update is complete. If an
+ *          <p>When the status of the update is <code>Successful</code>, the update is complete. If an
  *             update fails, the status is <code>Failed</code>, and an error detail explains the reason
  *             for the failure.</p>
  * @example

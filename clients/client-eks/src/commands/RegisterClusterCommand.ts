@@ -31,9 +31,9 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  * <p>Connects a Kubernetes cluster to the Amazon EKS control plane. </p>
  *          <p>Any Kubernetes cluster can be connected to the Amazon EKS control plane to view
  *             current information about the cluster and its nodes. </p>
- *          <p>Cluster connection requires two steps. First, send a <code>
- *                <a>RegisterClusterRequest</a>
- *             </code> to add it to the Amazon EKS
+ *          <p>Cluster connection requires two steps. First, send a <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_RegisterClusterRequest.html">
+ *                <code>RegisterClusterRequest</code>
+ *             </a> to add it to the Amazon EKS
  *             control plane.</p>
  *          <p>Second, a <a href="https://amazon-eks.s3.us-west-2.amazonaws.com/eks-connector/manifests/eks-connector/latest/eks-connector.yaml">Manifest</a> containing the <code>activationID</code> and
  *                 <code>activationCode</code> must be applied to the Kubernetes cluster through it's native

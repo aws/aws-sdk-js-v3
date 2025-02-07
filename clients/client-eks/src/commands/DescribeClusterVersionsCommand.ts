@@ -45,6 +45,7 @@ export interface DescribeClusterVersionsCommandOutput extends DescribeClusterVer
  *     "STRING_VALUE",
  *   ],
  *   status: "unsupported" || "standard-support" || "extended-support",
+ *   versionStatus: "UNSUPPORTED" || "STANDARD_SUPPORT" || "EXTENDED_SUPPORT",
  * };
  * const command = new DescribeClusterVersionsCommand(input);
  * const response = await client.send(command);
@@ -60,6 +61,7 @@ export interface DescribeClusterVersionsCommandOutput extends DescribeClusterVer
  * //       endOfStandardSupportDate: new Date("TIMESTAMP"),
  * //       endOfExtendedSupportDate: new Date("TIMESTAMP"),
  * //       status: "unsupported" || "standard-support" || "extended-support",
+ * //       versionStatus: "UNSUPPORTED" || "STANDARD_SUPPORT" || "EXTENDED_SUPPORT",
  * //       kubernetesPatchVersion: "STRING_VALUE",
  * //     },
  * //   ],

@@ -787,6 +787,7 @@ export const se_DescribeClusterVersionsCommand = async (
     [_iA]: [() => input.includeAll !== void 0, () => input[_iA]!.toString()],
     [_cV]: [() => input.clusterVersions !== void 0, () => input[_cV]! || []],
     [_s]: [, input[_s]!],
+    [_vS]: [, input[_vS]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -3337,6 +3338,7 @@ const de_ClusterVersionInformation = (output: any, context: __SerdeContext): Clu
     kubernetesPatchVersion: __expectString,
     releaseDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     status: __expectString,
+    versionStatus: __expectString,
   }) as any;
 };
 
@@ -3717,3 +3719,4 @@ const _s = "status";
 const _sA = "serviceAccount";
 const _t = "types";
 const _tK = "tagKeys";
+const _vS = "versionStatus";
