@@ -40,6 +40,12 @@ export interface PerformanceInsightsMetric {
   Dimensions?: Record<string, string> | undefined;
 
   /**
+   * <p>The filter for the Performance Insights metric.</p>
+   * @public
+   */
+  Filter?: Record<string, string> | undefined;
+
+  /**
    * <p>The value of the metric. For example, <code>9</code> for <code>db.load.avg</code>.</p>
    * @public
    */
@@ -463,7 +469,23 @@ export interface DimensionGroup {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>db.blocking_sql</code> - The SQL queries blocking the most DB load.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.blocking_session</code> - The sessions blocking the most DB load.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.blocking_object</code> - The object resources acquired by other sessions that are blocking the most DB load.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>db.host</code> - The host name of the connected client (all engines).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.plans</code> - The execution plans for the query (only Aurora PostgreSQL).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -526,6 +548,30 @@ export interface DimensionGroup {
    *                      <p>Amazon DocumentDB</p>
    *                   </li>
    *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.blocking_sql.id</code> - The ID for each of the SQL queries blocking the most DB load.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.blocking_sql.sql</code> - The SQL text for each of the SQL queries blocking the most DB load.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.blocking_session.id</code> - The ID for each of the sessions blocking the most DB load.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.blocking_object.id</code> - The ID for each of the object resources acquired by other sessions that are blocking the most DB load.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.blocking_object.type</code> - The object type for each of the object resources acquired by other sessions that are blocking the most DB load.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.blocking_object.value</code> - The value for each of the object resources acquired by other sessions that are blocking the most DB load.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -785,7 +831,8 @@ export interface DescribeDimensionKeysRequest {
   /**
    * <p>Additional metrics for the top <code>N</code> dimension keys. If the specified dimension group in the <code>GroupBy</code> parameter is
    *                 <code>db.sql_tokenized</code>, you can specify per-SQL metrics to get the values for the top <code>N</code> SQL digests. The response
-   *             syntax is as follows: <code>"AdditionalMetrics" : \{ "<i>string</i>" : "<i>string</i>" \}</code>. </p>
+   *             syntax is as follows: <code>"AdditionalMetrics" : \{ "<i>string</i>" : "<i>string</i>" \}</code>.</p>
+   *          <p>The only supported statistic function is <code>.avg</code>.</p>
    * @public
    */
   AdditionalMetrics?: string[] | undefined;
@@ -1102,6 +1149,10 @@ export interface GetDimensionKeyDetailsRequest {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>db.lock_snapshot</code> (Aurora only)</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>db.query</code> (Amazon DocumentDB only)</p>
    *             </li>
    *             <li>
@@ -1125,6 +1176,10 @@ export interface GetDimensionKeyDetailsRequest {
    *                <p>
    *                   <code>db.query.id</code> for dimension group <code>db.query</code> (DocumentDB only)</p>
    *             </li>
+   *             <li>
+   *                <p>For the dimension group <code>db.lock_snapshot</code>, the <code>GroupIdentifier</code> is the epoch timestamp when Performance Insights captured the snapshot, in seconds.
+   *                     You can retrieve this value with the <code>GetResourceMetrics</code> operation for a 1 second period.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -1134,6 +1189,10 @@ export interface GetDimensionKeyDetailsRequest {
    * <p>A list of dimensions to retrieve the detail data for within the given dimension group. If you don't specify this parameter, Performance Insights returns
    *             all dimension data within the specified dimension group. Specify dimension names for the following dimension groups:</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db.lock_trees</code> - Specify the dimension name <code>db.lock_trees</code>. (Aurora only)</p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>db.sql</code> - Specify either the full dimension name <code>db.sql.statement</code> or the short dimension name
@@ -1437,8 +1496,7 @@ export interface GetResourceMetricsRequest {
   PeriodInSeconds?: number | undefined;
 
   /**
-   * <p>The maximum number of items to return in the response. If more items exist than the specified <code>MaxRecords</code> value, a
-   *             pagination token is included in the response so that the remaining results can be retrieved. </p>
+   * <p>The maximum number of items to return in the response.</p>
    * @public
    */
   MaxResults?: number | undefined;

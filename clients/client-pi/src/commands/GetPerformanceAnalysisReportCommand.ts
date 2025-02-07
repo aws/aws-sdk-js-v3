@@ -97,6 +97,9 @@ export interface GetPerformanceAnalysisReportCommandOutput
  * //                   Dimensions: { // DescriptiveMap
  * //                     "<keys>": "STRING_VALUE",
  * //                   },
+ * //                   Filter: {
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
  * //                   Value: Number("double"),
  * //                 },
  * //               },
@@ -107,6 +110,9 @@ export interface GetPerformanceAnalysisReportCommandOutput
  * //                   Metric: "STRING_VALUE",
  * //                   DisplayName: "STRING_VALUE",
  * //                   Dimensions: {
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                   Filter: {
  * //                     "<keys>": "STRING_VALUE",
  * //                   },
  * //                   Value: Number("double"),
@@ -130,6 +136,7 @@ export interface GetPerformanceAnalysisReportCommandOutput
  * //               Dimensions: {
  * //                 "<keys>": "STRING_VALUE",
  * //               },
+ * //               Filter: "<DescriptiveMap>",
  * //               Value: Number("double"),
  * //             },
  * //           },
@@ -139,9 +146,8 @@ export interface GetPerformanceAnalysisReportCommandOutput
  * //             PerformanceInsightsMetric: {
  * //               Metric: "STRING_VALUE",
  * //               DisplayName: "STRING_VALUE",
- * //               Dimensions: {
- * //                 "<keys>": "STRING_VALUE",
- * //               },
+ * //               Dimensions: "<DescriptiveMap>",
+ * //               Filter: "<DescriptiveMap>",
  * //               Value: Number("double"),
  * //             },
  * //           },

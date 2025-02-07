@@ -31,7 +31,7 @@ export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDeta
  * <p>Get the attributes of the specified dimension group for a DB instance or data source. For example, if you specify a SQL ID,
  *                 <code>GetDimensionKeyDetails</code> retrieves the full text of the dimension <code>db.sql.statement</code> associated with this ID.
  *             This operation is useful because <code>GetResourceMetrics</code> and <code>DescribeDimensionKeys</code> don't support retrieval of large
- *             SQL statement text.</p>
+ *           SQL statement text, lock snapshots, and execution plans.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
