@@ -1076,6 +1076,20 @@ export interface ClinicalNoteGenerationResult {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const MedicalScribeNoteTemplate = {
+  GIRPP: "GIRPP",
+  HISTORY_AND_PHYSICAL: "HISTORY_AND_PHYSICAL",
+} as const;
+
+/**
+ * @public
+ */
+export type MedicalScribeNoteTemplate = (typeof MedicalScribeNoteTemplate)[keyof typeof MedicalScribeNoteTemplate];
+
+/**
  * <p>The output configuration for aggregated transcript and clinical note generation.</p>
  * @public
  */
@@ -1092,6 +1106,21 @@ export interface ClinicalNoteGenerationSettings {
    * @public
    */
   OutputBucketName: string | undefined;
+
+  /**
+   * <p>Specify one of the following templates to use for the clinical note summary. The default is <code>HISTORY_AND_PHYSICAL</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>HISTORY_AND_PHYSICAL: Provides summaries for key sections of the clinical documentation. Sections include Chief Complaint,
+   *         History of Present Illness, Review of Systems, Past Medical History, Assessment, and Plan.</p>
+   *             </li>
+   *             <li>
+   *                <p>GIRPP: Provides summaries based on the patients progress toward goals. Sections include Goal, Intervention, Response, Progress, and Plan.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  NoteTemplate?: MedicalScribeNoteTemplate | undefined;
 }
 
 /**
