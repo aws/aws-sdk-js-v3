@@ -70,7 +70,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * //       imageSizeInBytes: Number("long"),
  * //       imagePushedAt: new Date("TIMESTAMP"),
  * //       imageScanStatus: { // ImageScanStatus
- * //         status: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "UNSUPPORTED_IMAGE" || "ACTIVE" || "PENDING" || "SCAN_ELIGIBILITY_EXPIRED" || "FINDINGS_UNAVAILABLE",
+ * //         status: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "UNSUPPORTED_IMAGE" || "ACTIVE" || "PENDING" || "SCAN_ELIGIBILITY_EXPIRED" || "FINDINGS_UNAVAILABLE" || "LIMIT_EXCEEDED",
  * //         description: "STRING_VALUE",
  * //       },
  * //       imageScanFindingsSummary: { // ImageScanFindingsSummary
