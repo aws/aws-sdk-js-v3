@@ -679,7 +679,7 @@ export interface Integration {
   PassthroughBehavior?: PassthroughBehavior | undefined;
 
   /**
-   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
+   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs. Supported values for Lambda proxy integrations are 1.0 and 2.0. For all other integrations, 1.0 is the only supported value. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html">Working with AWS Lambda proxy integrations for HTTP APIs</a>.</p>
    * @public
    */
   PayloadFormatVersion?: string | undefined;
@@ -1960,7 +1960,7 @@ export interface CreateIntegrationRequest {
   PassthroughBehavior?: PassthroughBehavior | undefined;
 
   /**
-   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
+   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs. Supported values for Lambda proxy integrations are 1.0 and 2.0. For all other integrations, 1.0 is the only supported value. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html">Working with AWS Lambda proxy integrations for HTTP APIs</a>.</p>
    * @public
    */
   PayloadFormatVersion?: string | undefined;
@@ -2090,7 +2090,7 @@ export interface CreateIntegrationResult {
   PassthroughBehavior?: PassthroughBehavior | undefined;
 
   /**
-   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
+   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs. Supported values for Lambda proxy integrations are 1.0 and 2.0. For all other integrations, 1.0 is the only supported value. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html">Working with AWS Lambda proxy integrations for HTTP APIs</a>.</p>
    * @public
    */
   PayloadFormatVersion?: string | undefined;
@@ -3753,7 +3753,7 @@ export interface GetIntegrationResult {
   PassthroughBehavior?: PassthroughBehavior | undefined;
 
   /**
-   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
+   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs. Supported values for Lambda proxy integrations are 1.0 and 2.0. For all other integrations, 1.0 is the only supported value. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html">Working with AWS Lambda proxy integrations for HTTP APIs</a>.</p>
    * @public
    */
   PayloadFormatVersion?: string | undefined;
@@ -5496,7 +5496,7 @@ export interface UpdateIntegrationRequest {
   PassthroughBehavior?: PassthroughBehavior | undefined;
 
   /**
-   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
+   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs. Supported values for Lambda proxy integrations are 1.0 and 2.0. For all other integrations, 1.0 is the only supported value. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html">Working with AWS Lambda proxy integrations for HTTP APIs</a>.</p>
    * @public
    */
   PayloadFormatVersion?: string | undefined;
@@ -5626,7 +5626,7 @@ export interface UpdateIntegrationResult {
   PassthroughBehavior?: PassthroughBehavior | undefined;
 
   /**
-   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
+   * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs. Supported values for Lambda proxy integrations are 1.0 and 2.0. For all other integrations, 1.0 is the only supported value. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html">Working with AWS Lambda proxy integrations for HTTP APIs</a>.</p>
    * @public
    */
   PayloadFormatVersion?: string | undefined;
