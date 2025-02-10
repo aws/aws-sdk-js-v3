@@ -69,6 +69,99 @@ import {
 } from "./models_0";
 
 /**
+ * <p>Provides information that describes an individual assessment from a premigration
+ *          assessment run.</p>
+ * @public
+ */
+export interface ReplicationTaskIndividualAssessment {
+  /**
+   * <p>Amazon Resource Name (ARN) of this individual assessment.</p>
+   * @public
+   */
+  ReplicationTaskIndividualAssessmentArn?: string | undefined;
+
+  /**
+   * <p>ARN of the premigration assessment run that is created to run this individual
+   *          assessment.</p>
+   * @public
+   */
+  ReplicationTaskAssessmentRunArn?: string | undefined;
+
+  /**
+   * <p>Name of this individual assessment.</p>
+   * @public
+   */
+  IndividualAssessmentName?: string | undefined;
+
+  /**
+   * <p>Individual assessment status.</p>
+   *          <p>This status can have one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"cancelled"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"error"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"failed"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"passed"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"pending"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"running"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>Date when this individual assessment was started as part of running the
+   *             <code>StartReplicationTaskAssessmentRun</code> operation.</p>
+   * @public
+   */
+  ReplicationTaskIndividualAssessmentStartDate?: Date | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationTaskIndividualAssessmentsResponse {
+  /**
+   * <p>A pagination token returned for you to pass to a subsequent request. If you pass this
+   *          token as the <code>Marker</code> value in a subsequent request, the response includes only
+   *          records beyond the marker, up to the value specified in the request by
+   *             <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>One or more individual assessments as specified by <code>Filters</code>.</p>
+   * @public
+   */
+  ReplicationTaskIndividualAssessments?: ReplicationTaskIndividualAssessment[] | undefined;
+}
+
+/**
  * <p></p>
  * @public
  */
@@ -546,7 +639,7 @@ export interface ModifyDataProviderMessage {
   /**
    * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
    *          <code>"aurora-postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, and <code>docdb</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
+   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, <code>db2</code>, <code>db2-zos</code> and <code>docdb</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
    * @public
    */
   Engine?: string | undefined;
@@ -1310,7 +1403,7 @@ export interface ModifyReplicationInstanceMessage {
   NetworkType?: string | undefined;
 
   /**
-   * <p>Specifies the ID of the secret that stores the key cache file required for kerberos authentication, when modifying a replication instance.</p>
+   * <p>Specifies the settings required for kerberos authentication when modifying a replication instance.</p>
    * @public
    */
   KerberosAuthenticationSettings?: KerberosAuthenticationSettings | undefined;

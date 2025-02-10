@@ -176,7 +176,7 @@ export interface ApplyPendingMaintenanceActionMessage {
 
   /**
    * <p>The pending maintenance action to apply to this resource.</p>
-   *          <p>Valid values: <code>os-upgrade</code>, <code>system-update</code>, <code>db-upgrade</code>
+   *          <p>Valid values: <code>os-upgrade</code>, <code>system-update</code>, <code>db-upgrade</code>, <code>os-patch</code>
    *          </p>
    * @public
    */
@@ -1121,6 +1121,80 @@ export interface DocDbDataProviderSettings {
 }
 
 /**
+ * <p>Provides information about an IBM DB2 LUW data provider.</p>
+ * @public
+ */
+export interface IbmDb2LuwDataProviderSettings {
+  /**
+   * <p>The name of the DB2 LUW server.</p>
+   * @public
+   */
+  ServerName?: string | undefined;
+
+  /**
+   * <p>The port value for the DB2 LUW data provider.</p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>The database name on the DB2 LUW data provider.</p>
+   * @public
+   */
+  DatabaseName?: string | undefined;
+
+  /**
+   * <p>The SSL mode used to connect to the DB2 LUW data provider.
+   *          The default value is <code>none</code>. Valid Values: <code>none</code> and <code>verify-ca</code>.</p>
+   * @public
+   */
+  SslMode?: DmsSslModeValue | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
+   * @public
+   */
+  CertificateArn?: string | undefined;
+}
+
+/**
+ * <p>Provides information about an IBM DB2 for z/OS data provider.</p>
+ * @public
+ */
+export interface IbmDb2zOsDataProviderSettings {
+  /**
+   * <p>The name of the DB2 for z/OS server.</p>
+   * @public
+   */
+  ServerName?: string | undefined;
+
+  /**
+   * <p>The port value for the DB2 for z/OS data provider.</p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>The database name on the DB2 for z/OS data provider.</p>
+   * @public
+   */
+  DatabaseName?: string | undefined;
+
+  /**
+   * <p>The SSL mode used to connect to the DB2 for z/OS data provider.
+   *          The default value is <code>none</code>. Valid Values: <code>none</code> and <code>verify-ca</code>.</p>
+   * @public
+   */
+  SslMode?: DmsSslModeValue | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
+   * @public
+   */
+  CertificateArn?: string | undefined;
+}
+
+/**
  * <p>Provides information that defines a MariaDB data provider.</p>
  * @public
  */
@@ -1447,6 +1521,8 @@ export interface RedshiftDataProviderSettings {
  */
 export type DataProviderSettings =
   | DataProviderSettings.DocDbSettingsMember
+  | DataProviderSettings.IbmDb2LuwSettingsMember
+  | DataProviderSettings.IbmDb2zOsSettingsMember
   | DataProviderSettings.MariaDbSettingsMember
   | DataProviderSettings.MicrosoftSqlServerSettingsMember
   | DataProviderSettings.MongoDbSettingsMember
@@ -1472,6 +1548,8 @@ export namespace DataProviderSettings {
     MicrosoftSqlServerSettings?: never;
     DocDbSettings?: never;
     MariaDbSettings?: never;
+    IbmDb2LuwSettings?: never;
+    IbmDb2zOsSettings?: never;
     MongoDbSettings?: never;
     $unknown?: never;
   }
@@ -1488,6 +1566,8 @@ export namespace DataProviderSettings {
     MicrosoftSqlServerSettings?: never;
     DocDbSettings?: never;
     MariaDbSettings?: never;
+    IbmDb2LuwSettings?: never;
+    IbmDb2zOsSettings?: never;
     MongoDbSettings?: never;
     $unknown?: never;
   }
@@ -1504,6 +1584,8 @@ export namespace DataProviderSettings {
     MicrosoftSqlServerSettings?: never;
     DocDbSettings?: never;
     MariaDbSettings?: never;
+    IbmDb2LuwSettings?: never;
+    IbmDb2zOsSettings?: never;
     MongoDbSettings?: never;
     $unknown?: never;
   }
@@ -1520,6 +1602,8 @@ export namespace DataProviderSettings {
     MicrosoftSqlServerSettings?: never;
     DocDbSettings?: never;
     MariaDbSettings?: never;
+    IbmDb2LuwSettings?: never;
+    IbmDb2zOsSettings?: never;
     MongoDbSettings?: never;
     $unknown?: never;
   }
@@ -1536,6 +1620,8 @@ export namespace DataProviderSettings {
     MicrosoftSqlServerSettings: MicrosoftSqlServerDataProviderSettings;
     DocDbSettings?: never;
     MariaDbSettings?: never;
+    IbmDb2LuwSettings?: never;
+    IbmDb2zOsSettings?: never;
     MongoDbSettings?: never;
     $unknown?: never;
   }
@@ -1552,6 +1638,8 @@ export namespace DataProviderSettings {
     MicrosoftSqlServerSettings?: never;
     DocDbSettings: DocDbDataProviderSettings;
     MariaDbSettings?: never;
+    IbmDb2LuwSettings?: never;
+    IbmDb2zOsSettings?: never;
     MongoDbSettings?: never;
     $unknown?: never;
   }
@@ -1568,6 +1656,44 @@ export namespace DataProviderSettings {
     MicrosoftSqlServerSettings?: never;
     DocDbSettings?: never;
     MariaDbSettings: MariaDbDataProviderSettings;
+    IbmDb2LuwSettings?: never;
+    IbmDb2zOsSettings?: never;
+    MongoDbSettings?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Provides information that defines an IBM DB2 LUW data provider.</p>
+   * @public
+   */
+  export interface IbmDb2LuwSettingsMember {
+    RedshiftSettings?: never;
+    PostgreSqlSettings?: never;
+    MySqlSettings?: never;
+    OracleSettings?: never;
+    MicrosoftSqlServerSettings?: never;
+    DocDbSettings?: never;
+    MariaDbSettings?: never;
+    IbmDb2LuwSettings: IbmDb2LuwDataProviderSettings;
+    IbmDb2zOsSettings?: never;
+    MongoDbSettings?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Provides information that defines an IBM DB2 for z/OS data provider.</p>
+   * @public
+   */
+  export interface IbmDb2zOsSettingsMember {
+    RedshiftSettings?: never;
+    PostgreSqlSettings?: never;
+    MySqlSettings?: never;
+    OracleSettings?: never;
+    MicrosoftSqlServerSettings?: never;
+    DocDbSettings?: never;
+    MariaDbSettings?: never;
+    IbmDb2LuwSettings?: never;
+    IbmDb2zOsSettings: IbmDb2zOsDataProviderSettings;
     MongoDbSettings?: never;
     $unknown?: never;
   }
@@ -1584,6 +1710,8 @@ export namespace DataProviderSettings {
     MicrosoftSqlServerSettings?: never;
     DocDbSettings?: never;
     MariaDbSettings?: never;
+    IbmDb2LuwSettings?: never;
+    IbmDb2zOsSettings?: never;
     MongoDbSettings: MongoDbDataProviderSettings;
     $unknown?: never;
   }
@@ -1599,6 +1727,8 @@ export namespace DataProviderSettings {
     MicrosoftSqlServerSettings?: never;
     DocDbSettings?: never;
     MariaDbSettings?: never;
+    IbmDb2LuwSettings?: never;
+    IbmDb2zOsSettings?: never;
     MongoDbSettings?: never;
     $unknown: [string, any];
   }
@@ -1611,6 +1741,8 @@ export namespace DataProviderSettings {
     MicrosoftSqlServerSettings: (value: MicrosoftSqlServerDataProviderSettings) => T;
     DocDbSettings: (value: DocDbDataProviderSettings) => T;
     MariaDbSettings: (value: MariaDbDataProviderSettings) => T;
+    IbmDb2LuwSettings: (value: IbmDb2LuwDataProviderSettings) => T;
+    IbmDb2zOsSettings: (value: IbmDb2zOsDataProviderSettings) => T;
     MongoDbSettings: (value: MongoDbDataProviderSettings) => T;
     _: (name: string, value: any) => T;
   }
@@ -1624,6 +1756,8 @@ export namespace DataProviderSettings {
       return visitor.MicrosoftSqlServerSettings(value.MicrosoftSqlServerSettings);
     if (value.DocDbSettings !== undefined) return visitor.DocDbSettings(value.DocDbSettings);
     if (value.MariaDbSettings !== undefined) return visitor.MariaDbSettings(value.MariaDbSettings);
+    if (value.IbmDb2LuwSettings !== undefined) return visitor.IbmDb2LuwSettings(value.IbmDb2LuwSettings);
+    if (value.IbmDb2zOsSettings !== undefined) return visitor.IbmDb2zOsSettings(value.IbmDb2zOsSettings);
     if (value.MongoDbSettings !== undefined) return visitor.MongoDbSettings(value.MongoDbSettings);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
@@ -1648,7 +1782,7 @@ export interface CreateDataProviderMessage {
   /**
    * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
    *          <code>"aurora-postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, and <code>docdb</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
+   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, <code>db2</code>, <code>db2-zos</code> and <code>docdb</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
    * @public
    */
   Engine: string | undefined;
@@ -1700,7 +1834,7 @@ export interface DataProvider {
   /**
    * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
    *          <code>"aurora-postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, and <code>docdb</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
+   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, <code>db2</code>, <code>db2-zos</code> and <code>docdb</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
    * @public
    */
   Engine?: string | undefined;
@@ -6995,7 +7129,7 @@ export interface CreateReplicationInstanceMessage {
   NetworkType?: string | undefined;
 
   /**
-   * <p>Specifies the ID of the secret that stores the key cache file required for kerberos authentication, when creating a replication instance.</p>
+   * <p>Specifies the settings required for kerberos authentication when creating the replication instance.</p>
    * @public
    */
   KerberosAuthenticationSettings?: KerberosAuthenticationSettings | undefined;
@@ -7428,7 +7562,7 @@ export interface ReplicationInstance {
   NetworkType?: string | undefined;
 
   /**
-   * <p>Specifies the ID of the secret that stores the key cache file required for kerberos authentication, when replicating an instance.</p>
+   * <p>Specifies the settings required for kerberos authentication when replicating an instance.</p>
    * @public
    */
   KerberosAuthenticationSettings?: KerberosAuthenticationSettings | undefined;
@@ -12657,99 +12791,6 @@ export interface DescribeReplicationTaskIndividualAssessmentsMessage {
    * @public
    */
   Marker?: string | undefined;
-}
-
-/**
- * <p>Provides information that describes an individual assessment from a premigration
- *          assessment run.</p>
- * @public
- */
-export interface ReplicationTaskIndividualAssessment {
-  /**
-   * <p>Amazon Resource Name (ARN) of this individual assessment.</p>
-   * @public
-   */
-  ReplicationTaskIndividualAssessmentArn?: string | undefined;
-
-  /**
-   * <p>ARN of the premigration assessment run that is created to run this individual
-   *          assessment.</p>
-   * @public
-   */
-  ReplicationTaskAssessmentRunArn?: string | undefined;
-
-  /**
-   * <p>Name of this individual assessment.</p>
-   * @public
-   */
-  IndividualAssessmentName?: string | undefined;
-
-  /**
-   * <p>Individual assessment status.</p>
-   *          <p>This status can have one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"cancelled"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"error"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"failed"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"passed"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"pending"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"running"</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>Date when this individual assessment was started as part of running the
-   *             <code>StartReplicationTaskAssessmentRun</code> operation.</p>
-   * @public
-   */
-  ReplicationTaskIndividualAssessmentStartDate?: Date | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeReplicationTaskIndividualAssessmentsResponse {
-  /**
-   * <p>A pagination token returned for you to pass to a subsequent request. If you pass this
-   *          token as the <code>Marker</code> value in a subsequent request, the response includes only
-   *          records beyond the marker, up to the value specified in the request by
-   *             <code>MaxRecords</code>.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>One or more individual assessments as specified by <code>Filters</code>.</p>
-   * @public
-   */
-  ReplicationTaskIndividualAssessments?: ReplicationTaskIndividualAssessment[] | undefined;
 }
 
 /**

@@ -10,10 +10,8 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeReplicationTaskIndividualAssessmentsMessage,
-  DescribeReplicationTaskIndividualAssessmentsResponse,
-} from "../models/models_0";
+import { DescribeReplicationTaskIndividualAssessmentsMessage } from "../models/models_0";
+import { DescribeReplicationTaskIndividualAssessmentsResponse } from "../models/models_1";
 import {
   de_DescribeReplicationTaskIndividualAssessmentsCommand,
   se_DescribeReplicationTaskIndividualAssessmentsCommand,

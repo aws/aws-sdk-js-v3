@@ -113,6 +113,20 @@ export interface DescribeDataProvidersCommandOutput extends DescribeDataProvider
  * //           SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //           CertificateArn: "STRING_VALUE",
  * //         },
+ * //         IbmDb2LuwSettings: { // IbmDb2LuwDataProviderSettings
+ * //           ServerName: "STRING_VALUE",
+ * //           Port: Number("int"),
+ * //           DatabaseName: "STRING_VALUE",
+ * //           SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //           CertificateArn: "STRING_VALUE",
+ * //         },
+ * //         IbmDb2zOsSettings: { // IbmDb2zOsDataProviderSettings
+ * //           ServerName: "STRING_VALUE",
+ * //           Port: Number("int"),
+ * //           DatabaseName: "STRING_VALUE",
+ * //           SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //           CertificateArn: "STRING_VALUE",
+ * //         },
  * //         MongoDbSettings: { // MongoDbDataProviderSettings
  * //           ServerName: "STRING_VALUE",
  * //           Port: Number("int"),

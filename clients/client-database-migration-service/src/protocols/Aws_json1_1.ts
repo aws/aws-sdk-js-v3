@@ -535,7 +535,6 @@ import {
   DescribeReplicationTaskAssessmentRunsMessage,
   DescribeReplicationTaskAssessmentRunsResponse,
   DescribeReplicationTaskIndividualAssessmentsMessage,
-  DescribeReplicationTaskIndividualAssessmentsResponse,
   DmsTransferSettings,
   DocDbDataProviderSettings,
   DocDbSettings,
@@ -546,7 +545,9 @@ import {
   FailedDependencyFault,
   Filter,
   GcpMySQLSettings,
+  IbmDb2LuwDataProviderSettings,
   IBMDb2Settings,
+  IbmDb2zOsDataProviderSettings,
   InstanceProfile,
   InsufficientResourceCapacityFault,
   InvalidOperationFault,
@@ -594,7 +595,6 @@ import {
   ReplicationTask,
   ReplicationTaskAssessmentResult,
   ReplicationTaskAssessmentRun,
-  ReplicationTaskIndividualAssessment,
   ReplicationTaskStats,
   ResourceAlreadyExistsFault,
   ResourceNotFoundFault,
@@ -618,6 +618,7 @@ import {
 } from "../models/models_0";
 import {
   AssessmentReportType,
+  DescribeReplicationTaskIndividualAssessmentsResponse,
   DescribeReplicationTasksMessage,
   DescribeReplicationTasksResponse,
   DescribeSchemasMessage,
@@ -656,6 +657,7 @@ import {
   ReloadReplicationTablesMessage,
   ReloadTablesMessage,
   RemoveTagsFromResourceMessage,
+  ReplicationTaskIndividualAssessment,
   StartDataMigrationMessage,
   StartDataMigrationResponse,
   StartExtensionPackAssociationMessage,
@@ -5099,7 +5101,11 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
 
 // se_GcpMySQLSettings omitted.
 
+// se_IbmDb2LuwDataProviderSettings omitted.
+
 // se_IBMDb2Settings omitted.
+
+// se_IbmDb2zOsDataProviderSettings omitted.
 
 /**
  * serializeAws_json1_1ImportCertificateMessage
@@ -6098,7 +6104,11 @@ const de_FleetAdvisorSchemaList = (output: any, context: __SerdeContext): Schema
 
 // de_GcpMySQLSettings omitted.
 
+// de_IbmDb2LuwDataProviderSettings omitted.
+
 // de_IBMDb2Settings omitted.
+
+// de_IbmDb2zOsDataProviderSettings omitted.
 
 /**
  * deserializeAws_json1_1ImportCertificateResponse
