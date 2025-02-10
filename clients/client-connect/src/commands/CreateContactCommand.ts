@@ -29,7 +29,11 @@ export interface CreateContactCommandInput extends CreateContactRequest {}
 export interface CreateContactCommandOutput extends CreateContactResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new contact.</p>
+ * <important>
+ *             <p>Only the EMAIL channel is supported. The supported initiation
+ *    methods are: OUTBOUND, AGENT_REPLY, and FLOW.</p>
+ *          </important>
+ *          <p>Creates a new EMAIL contact. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

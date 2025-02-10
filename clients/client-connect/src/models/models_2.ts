@@ -3613,34 +3613,41 @@ export interface SearchResourceTagsRequest {
 
   /**
    * <p>The list of resource types to be used to search tags from. If not provided or if any empty
-   *    list is provided, this API will search from all supported resource types.</p>
+   *    list is provided, this API will search from all supported resource types. Note that lowercase and
+   *    - are required.</p>
    *          <p class="title">
    *             <b>Supported resource types</b>
    *          </p>
    *          <ul>
    *             <li>
-   *                <p>AGENT</p>
+   *                <p>agent</p>
    *             </li>
    *             <li>
-   *                <p>ROUTING_PROFILE</p>
+   *                <p>agent-state</p>
    *             </li>
    *             <li>
-   *                <p>STANDARD_QUEUE</p>
+   *                <p>routing-profile</p>
    *             </li>
    *             <li>
-   *                <p>SECURITY_PROFILE</p>
+   *                <p>standard-queue</p>
    *             </li>
    *             <li>
-   *                <p>OPERATING_HOURS</p>
+   *                <p>security-profile</p>
    *             </li>
    *             <li>
-   *                <p>PROMPT</p>
+   *                <p>operating-hours</p>
    *             </li>
    *             <li>
-   *                <p>CONTACT_FLOW</p>
+   *                <p>prompt</p>
    *             </li>
    *             <li>
-   *                <p>FLOW_MODULE</p>
+   *                <p>contact-flow</p>
+   *             </li>
+   *             <li>
+   *                <p>flow- module</p>
+   *             </li>
+   *             <li>
+   *                <p>transfer-destination (also known as quick connect)</p>
    *             </li>
    *          </ul>
    * @public
@@ -6417,8 +6424,9 @@ export interface UpdateContactAttributesRequest {
    *    other contact attributes.</p>
    *          <p>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys
    *    can include only alphanumeric, dash, and underscore characters.</p>
-   *          <p>When the attributes for a contact exceed 32 KB, the contact is routed down the Error branch
-   *    of the flow. As a mitigation, consider the following options:</p>
+   *          <p>In the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-contact-attributes.html">Set contact attributes</a>
+   *    block, when the attributes for a contact exceed 32 KB, the contact is routed down the Error
+   *    branch of the flow. As a mitigation, consider the following options:</p>
    *          <ul>
    *             <li>
    *                <p>Remove unnecessary attributes by setting their values to empty.</p>

@@ -29,6 +29,11 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
 
 /**
  * <p>Updates the traffic distribution for a given traffic distribution group. </p>
+ *          <important>
+ *             <p>When you shift telephony traffic, also shift agents and/or agent sign-ins to ensure they
+ *     can handle the calls in the other Region. If you don't shift the agents, voice calls will go to
+ *     the shifted Region but there won't be any agents available to receive the calls.</p>
+ *          </important>
  *          <note>
  *             <p>The <code>SignInConfig</code> distribution is available only on a
  * default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the

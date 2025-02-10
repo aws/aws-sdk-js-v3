@@ -5312,7 +5312,9 @@ export interface NotificationRecipientType {
   UserTags?: Record<string, string> | undefined;
 
   /**
-   * <p>A list of user IDs.</p>
+   * <p>A list of user IDs. Supports variable injection of
+   *     <code>$.ContactLens.ContactEvaluation.Agent.AgentId</code> for
+   *     <code>OnContactEvaluationSubmit</code> event source. </p>
    * @public
    */
   UserIds?: string[] | undefined;
@@ -5689,9 +5691,10 @@ export interface CreateSecurityProfileRequest {
   AllowedAccessControlTags?: Record<string, string> | undefined;
 
   /**
-   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code> |
-   *     <code>SecurityProfile</code> | <code>Queue</code> | <code>RoutingProfile</code>
-   *          </p>
+   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect. For a list of Amazon Connect resources that you can tag, see
+   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html">Add tags to resources
+   *     in Amazon Connect</a> in the <i>Amazon Connect Administrator
+   *    Guide</i>. </p>
    * @public
    */
   TagRestrictedResources?: string[] | undefined;

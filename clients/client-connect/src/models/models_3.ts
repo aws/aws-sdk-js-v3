@@ -1028,12 +1028,21 @@ export interface CreateContactRequest {
 
   /**
    * <p>The channel for the contact</p>
+   *          <important>
+   *             <p>CreateContact only supports the EMAIL channel. The following information that states other
+   *     channels are supported is incorrect. We are working to update this topic.</p>
+   *          </important>
    * @public
    */
   Channel: Channel | undefined;
 
   /**
-   * <p>Indicates how the contact was initiated.</p>
+   * <p>Indicates how the contact was initiated. </p>
+   *          <important>
+   *             <p>CreateContact only supports the following initiation methods: OUTBOUND, AGENT_REPLY, and
+   *     FLOW. The following information that states other initiation methods are supported is incorrect. We are
+   *     working to update this topic.</p>
+   *          </important>
    * @public
    */
   InitiationMethod: ContactInitiationMethod | undefined;
@@ -2848,9 +2857,6 @@ export interface SearchUserHierarchyGroupsRequest {
 export interface SearchUsersRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   *          <note>
-   *             <p>InstanceID is a required field. The "Required: No" below is incorrect.</p>
-   *          </note>
    * @public
    */
   InstanceId: string | undefined;
