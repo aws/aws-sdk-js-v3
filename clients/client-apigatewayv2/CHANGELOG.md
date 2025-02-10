@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.745.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.744.0...v3.745.0) (2025-02-10)
+
+
+### Features
+
+* **client-apigatewayv2:** Documentation updates for Amazon API Gateway ([892454b](https://github.com/aws/aws-sdk-js-v3/commit/892454b3f1552d2075e4a2da2ff994ee3ac23f47))
+
+
+
+
+
 # [3.744.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.743.0...v3.744.0) (2025-02-07)
 
 **Note:** Version bump only for package @aws-sdk/client-apigatewayv2

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.745.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.744.0...v3.745.0) (2025-02-10)
+
+
+### Features
+
+* **client-database-migration-service:** New vendors for DMS Data Providers: DB2 LUW and DB2 for z/OS ([d7d0ef3](https://github.com/aws/aws-sdk-js-v3/commit/d7d0ef3d6c1c6032fd4cad8129499fbfb6362cb3))
+
+
+
+
+
 # [3.744.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.743.0...v3.744.0) (2025-02-07)
 
 **Note:** Version bump only for package @aws-sdk/client-database-migration-service
