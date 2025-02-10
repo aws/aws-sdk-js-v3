@@ -1296,13 +1296,13 @@ export interface VpcOriginEndpointConfig {
   Arn: string | undefined;
 
   /**
-   * <p>The HTTP port for the CloudFront VPC origin endpoint configuration.</p>
+   * <p>The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is <code>80</code>.</p>
    * @public
    */
   HTTPPort: number | undefined;
 
   /**
-   * <p>The HTTPS port of the CloudFront VPC origin endpoint configuration.</p>
+   * <p>The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is <code>443</code>.</p>
    * @public
    */
   HTTPSPort: number | undefined;
@@ -2204,7 +2204,7 @@ export interface DeleteVpcOriginRequest {
   Id: string | undefined;
 
   /**
-   * <p>The VPC origin to delete, if a match occurs.</p>
+   * <p>The version identifier of the VPC origin to delete. This is the <code>ETag</code> value returned in the response to <a>GetVpcOrigin</a>.</p>
    * @public
    */
   IfMatch: string | undefined;

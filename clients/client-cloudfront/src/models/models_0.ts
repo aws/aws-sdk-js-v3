@@ -361,7 +361,7 @@ export interface AllowedMethods {
 }
 
 /**
- * <p>An Anycast static IP list.</p>
+ * <p>An Anycast static IP list. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/request-static-ips.html">Request Anycast static IPs to use for allowlisting</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  * @public
  */
 export interface AnycastIpList {
