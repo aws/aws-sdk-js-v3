@@ -31,8 +31,7 @@ export interface ListChannelNamespacesCommandOutput extends ListChannelNamespace
  * <p>Lists the channel namespaces for a specified <code>Api</code>.</p>
  *          <p>
  *             <code>ListChannelNamespaces</code> returns only high level details for the channel
- *             namespace. To retrieve code handlers, use
- *          <code>GetChannelNamespace</code>.</p>
+ *          namespace. To retrieve code handlers, use <code>GetChannelNamespace</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

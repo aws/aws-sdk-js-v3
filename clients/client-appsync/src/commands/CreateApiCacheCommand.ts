@@ -40,7 +40,7 @@ export interface CreateApiCacheCommandOutput extends CreateApiCacheResponse, __M
  *   ttl: Number("long"), // required
  *   transitEncryptionEnabled: true || false,
  *   atRestEncryptionEnabled: true || false,
- *   apiCachingBehavior: "FULL_REQUEST_CACHING" || "PER_RESOLVER_CACHING", // required
+ *   apiCachingBehavior: "FULL_REQUEST_CACHING" || "PER_RESOLVER_CACHING" || "OPERATION_LEVEL_CACHING", // required
  *   type: "T2_SMALL" || "T2_MEDIUM" || "R4_LARGE" || "R4_XLARGE" || "R4_2XLARGE" || "R4_4XLARGE" || "R4_8XLARGE" || "SMALL" || "MEDIUM" || "LARGE" || "XLARGE" || "LARGE_2X" || "LARGE_4X" || "LARGE_8X" || "LARGE_12X", // required
  *   healthMetricsConfig: "ENABLED" || "DISABLED",
  * };
@@ -49,7 +49,7 @@ export interface CreateApiCacheCommandOutput extends CreateApiCacheResponse, __M
  * // { // CreateApiCacheResponse
  * //   apiCache: { // ApiCache
  * //     ttl: Number("long"),
- * //     apiCachingBehavior: "FULL_REQUEST_CACHING" || "PER_RESOLVER_CACHING",
+ * //     apiCachingBehavior: "FULL_REQUEST_CACHING" || "PER_RESOLVER_CACHING" || "OPERATION_LEVEL_CACHING",
  * //     transitEncryptionEnabled: true || false,
  * //     atRestEncryptionEnabled: true || false,
  * //     type: "T2_SMALL" || "T2_MEDIUM" || "R4_LARGE" || "R4_XLARGE" || "R4_2XLARGE" || "R4_4XLARGE" || "R4_8XLARGE" || "SMALL" || "MEDIUM" || "LARGE" || "XLARGE" || "LARGE_2X" || "LARGE_4X" || "LARGE_8X" || "LARGE_12X",

@@ -96,10 +96,9 @@ export interface CreateChannelNamespaceCommandOutput extends CreateChannelNamesp
  *          make your change.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict with a previous successful update is detected. This typically
- *          occurs when the previous update did not have time to propagate before the next update was
- *          made. A retry (with appropriate backoff logic) is the recommended response to this
- *          exception.</p>
+ *  <p>A conflict with a previous successful update is detected. This typically occurs when the
+ *          previous update did not have time to propagate before the next update was made. A retry
+ *          (with appropriate backoff logic) is the recommended response to this exception.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>

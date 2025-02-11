@@ -38,7 +38,7 @@ export interface UpdateApiCacheCommandOutput extends UpdateApiCacheResponse, __M
  * const input = { // UpdateApiCacheRequest
  *   apiId: "STRING_VALUE", // required
  *   ttl: Number("long"), // required
- *   apiCachingBehavior: "FULL_REQUEST_CACHING" || "PER_RESOLVER_CACHING", // required
+ *   apiCachingBehavior: "FULL_REQUEST_CACHING" || "PER_RESOLVER_CACHING" || "OPERATION_LEVEL_CACHING", // required
  *   type: "T2_SMALL" || "T2_MEDIUM" || "R4_LARGE" || "R4_XLARGE" || "R4_2XLARGE" || "R4_4XLARGE" || "R4_8XLARGE" || "SMALL" || "MEDIUM" || "LARGE" || "XLARGE" || "LARGE_2X" || "LARGE_4X" || "LARGE_8X" || "LARGE_12X", // required
  *   healthMetricsConfig: "ENABLED" || "DISABLED",
  * };
@@ -47,7 +47,7 @@ export interface UpdateApiCacheCommandOutput extends UpdateApiCacheResponse, __M
  * // { // UpdateApiCacheResponse
  * //   apiCache: { // ApiCache
  * //     ttl: Number("long"),
- * //     apiCachingBehavior: "FULL_REQUEST_CACHING" || "PER_RESOLVER_CACHING",
+ * //     apiCachingBehavior: "FULL_REQUEST_CACHING" || "PER_RESOLVER_CACHING" || "OPERATION_LEVEL_CACHING",
  * //     transitEncryptionEnabled: true || false,
  * //     atRestEncryptionEnabled: true || false,
  * //     type: "T2_SMALL" || "T2_MEDIUM" || "R4_LARGE" || "R4_XLARGE" || "R4_2XLARGE" || "R4_4XLARGE" || "R4_8XLARGE" || "SMALL" || "MEDIUM" || "LARGE" || "XLARGE" || "LARGE_2X" || "LARGE_4X" || "LARGE_8X" || "LARGE_12X",

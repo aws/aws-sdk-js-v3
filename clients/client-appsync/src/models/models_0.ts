@@ -316,9 +316,8 @@ export interface EventConfig {
 }
 
 /**
- * <p>Describes an AppSync API. You can use <code>Api</code> for an AppSync
- *          API with your preferred configuration, such as an Event API that provides real-time message
- *          publishing and message subscriptions over WebSockets.</p>
+ * <p>Describes an AppSync API. You can use <code>Api</code> for an AppSync API with your preferred configuration, such as an Event API that provides
+ *          real-time message publishing and message subscriptions over WebSockets.</p>
  * @public
  */
 export interface Api {
@@ -456,6 +455,7 @@ export interface ApiAssociation {
  */
 export const ApiCachingBehavior = {
   FULL_REQUEST_CACHING: "FULL_REQUEST_CACHING",
+  OPERATION_LEVEL_CACHING: "OPERATION_LEVEL_CACHING",
   PER_RESOLVER_CACHING: "PER_RESOLVER_CACHING",
 } as const;
 
@@ -539,13 +539,18 @@ export interface ApiCache {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>FULL_REQUEST_CACHING</b>: All requests are fully
-   *                cached.</p>
+   *                   <b>FULL_REQUEST_CACHING</b>: All requests from the
+   *                same user are cached. Individual resolvers are automatically cached. All API calls
+   *                will try to return responses from the cache.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>PER_RESOLVER_CACHING</b>: Individual resolvers
    *                that you specify are cached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>OPERATION_LEVEL_CACHING</b>: Full requests are cached together and returned without executing resolvers.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1515,13 +1520,18 @@ export interface CreateApiCacheRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>FULL_REQUEST_CACHING</b>: All requests are fully
-   *                cached.</p>
+   *                   <b>FULL_REQUEST_CACHING</b>: All requests from the
+   *                same user are cached. Individual resolvers are automatically cached. All API calls
+   *                will try to return responses from the cache.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>PER_RESOLVER_CACHING</b>: Individual resolvers
    *                that you specify are cached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>OPERATION_LEVEL_CACHING</b>: Full requests are cached together and returned without executing resolvers.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1678,10 +1688,9 @@ export interface CreateApiKeyResponse {
 }
 
 /**
- * <p>A conflict with a previous successful update is detected. This typically
- *          occurs when the previous update did not have time to propagate before the next update was
- *          made. A retry (with appropriate backoff logic) is the recommended response to this
- *          exception.</p>
+ * <p>A conflict with a previous successful update is detected. This typically occurs when the
+ *          previous update did not have time to propagate before the next update was made. A retry
+ *          (with appropriate backoff logic) is the recommended response to this exception.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -1748,7 +1757,9 @@ export interface CreateChannelNamespaceRequest {
 }
 
 /**
- * <p>Describes a channel namespace associated with an <code>Api</code>. The <code>ChannelNamespace</code> contains the definitions for code handlers for the <code>Api</code>.</p>
+ * <p>Describes a channel namespace associated with an <code>Api</code>. The
+ *             <code>ChannelNamespace</code> contains the definitions for code handlers for the
+ *             <code>Api</code>.</p>
  * @public
  */
 export interface ChannelNamespace {
@@ -2226,7 +2237,8 @@ export interface DataSource {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>AMAZON_BEDROCK_RUNTIME</b>: The data source is the Amazon Bedrock runtime.</p>
+   *                   <b>AMAZON_BEDROCK_RUNTIME</b>: The data source is the
+   *                   Amazon Bedrock runtime.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5666,13 +5678,18 @@ export interface UpdateApiCacheRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>FULL_REQUEST_CACHING</b>: All requests are fully
-   *                cached.</p>
+   *                   <b>FULL_REQUEST_CACHING</b>: All requests from the
+   *                same user are cached. Individual resolvers are automatically cached. All API calls
+   *                will try to return responses from the cache.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>PER_RESOLVER_CACHING</b>: Individual resolvers
    *                that you specify are cached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>OPERATION_LEVEL_CACHING</b>: Full requests are cached together and returned without executing resolvers.</p>
    *             </li>
    *          </ul>
    * @public
