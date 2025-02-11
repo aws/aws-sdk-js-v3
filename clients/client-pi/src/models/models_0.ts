@@ -1149,6 +1149,10 @@ export interface GetDimensionKeyDetailsRequest {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>db.execution_plan</code> (Amazon RDS and Aurora only)</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>db.lock_snapshot</code> (Aurora only)</p>
    *             </li>
    *             <li>
@@ -1168,6 +1172,10 @@ export interface GetDimensionKeyDetailsRequest {
    * <p>The ID of the dimension group from which to retrieve dimension details. For dimension group <code>db.sql</code>, the group ID is
    *                 <code>db.sql.id</code>. The following group ID values are valid:</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db.execution_plan.id</code> for dimension group <code>db.execution_plan</code> (Aurora and RDS only)</p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>db.sql.id</code> for dimension group <code>db.sql</code> (Aurora and RDS only)</p>
@@ -1191,7 +1199,11 @@ export interface GetDimensionKeyDetailsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>db.lock_trees</code> - Specify the dimension name <code>db.lock_trees</code>. (Aurora only)</p>
+   *                   <code>db.execution_plan</code> - Specify the dimension name <code>db.execution_plan.raw_plan</code> or the short dimension name <code>raw_plan</code> (Amazon RDS and Aurora only)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.lock_snapshot</code> - Specify the dimension name <code>db.lock_snapshot.lock_trees</code> or the short dimension name <code>lock_trees</code>. (Aurora only)</p>
    *             </li>
    *             <li>
    *                <p>
