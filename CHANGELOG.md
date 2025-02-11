@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.746.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.745.0...v3.746.0) (2025-02-11)
+
+
+### Features
+
+* **client-acm-pca:** Private Certificate Authority service now supports Partitioned CRL as a revocation configuration option. ([dc054bb](https://github.com/aws/aws-sdk-js-v3/commit/dc054bb8d7d13f29e0f8fdc7f64fbac07348cf72))
+* **client-appsync:** Add support for operation level caching ([4a66449](https://github.com/aws/aws-sdk-js-v3/commit/4a6644977374f24aca3e2eb686afad60497cf888))
+* **client-ec2:** Adding support for the new fullSnapshotSizeInBytes field in the response of the EC2 EBS DescribeSnapshots API. This field represents the size of all the blocks that were written to the source volume at the time the snapshot was created. ([2962b1b](https://github.com/aws/aws-sdk-js-v3/commit/2962b1bca17eaaacc3f6b8930648cfb632bca653))
+* **clients:** update client endpoints as of 2025-02-11 ([c324a56](https://github.com/aws/aws-sdk-js-v3/commit/c324a56a559cc05a020e5fe3239329c0d453c8f5))
+
+
+
+
+
 # [3.745.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.744.0...v3.745.0) (2025-02-10)
 
 
