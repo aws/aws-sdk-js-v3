@@ -3903,7 +3903,7 @@ export interface AssignIpv6AddressesRequest {
   Ipv6PrefixCount?: number | undefined;
 
   /**
-   * <p>One or more IPv6 prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
+   * <p>One or more IPv6 prefixes assigned to the network interface. You can't use this option if you use the <code>Ipv6PrefixCount</code> option.</p>
    * @public
    */
   Ipv6Prefixes?: string[] | undefined;
@@ -3961,13 +3961,13 @@ export interface AssignIpv6AddressesResult {
  */
 export interface AssignPrivateIpAddressesRequest {
   /**
-   * <p>One or more IPv4 prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
+   * <p>One or more IPv4 prefixes assigned to the network interface. You can't use this option if you use the <code>Ipv4PrefixCount</code> option.</p>
    * @public
    */
   Ipv4Prefixes?: string[] | undefined;
 
   /**
-   * <p>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code> option.</p>
+   * <p>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the network interface. You can't use this option if you use the <code>Ipv4 Prefixes</code> option.</p>
    * @public
    */
   Ipv4PrefixCount?: number | undefined;
@@ -6739,6 +6739,14 @@ export interface IpRange {
   /**
    * <p>The IPv4 address range. You can either specify a CIDR block or a source security group,
    *             not both. To specify a single IPv4 address, use the /32 prefix length.</p>
+   *          <note>
+   *             <p>
+   *               Amazon Web Services <a href="https://en.wikipedia.org/wiki/Canonicalization">canonicalizes</a> IPv4 and IPv6 CIDRs. For example, if you specify 100.68.0.18/18 for the CIDR block,
+   *               Amazon Web Services canonicalizes the CIDR block to 100.68.0.0/18. Any subsequent DescribeSecurityGroups and DescribeSecurityGroupRules calls will
+   *               return the canonicalized form of the CIDR block. Additionally, if you attempt to add another rule with the
+   *               non-canonical form of the CIDR (such as 100.68.0.18/18) and there is already a rule for the canonicalized
+   *               form of the CIDR block (such as 100.68.0.0/18), the API throws an duplicate rule error.</p>
+   *          </note>
    * @public
    */
   CidrIp?: string | undefined;
@@ -6760,6 +6768,14 @@ export interface Ipv6Range {
   /**
    * <p>The IPv6 address range. You can either specify a CIDR block or a source security group,
    *         not both. To specify a single IPv6 address, use the /128 prefix length.</p>
+   *          <note>
+   *             <p>
+   *               Amazon Web Services <a href="https://en.wikipedia.org/wiki/Canonicalization">canonicalizes</a> IPv4 and IPv6 CIDRs. For example, if you specify 100.68.0.18/18 for the CIDR block,
+   *               Amazon Web Services canonicalizes the CIDR block to 100.68.0.0/18. Any subsequent DescribeSecurityGroups and DescribeSecurityGroupRules calls will
+   *               return the canonicalized form of the CIDR block. Additionally, if you attempt to add another rule with the
+   *               non-canonical form of the CIDR (such as 100.68.0.18/18) and there is already a rule for the canonicalized
+   *               form of the CIDR block (such as 100.68.0.0/18), the API throws an duplicate rule error.</p>
+   *          </note>
    * @public
    */
   CidrIpv6?: string | undefined;
@@ -7121,6 +7137,14 @@ export interface AuthorizeSecurityGroupEgressResult {
 export interface AuthorizeSecurityGroupIngressRequest {
   /**
    * <p>The IPv4 address range, in CIDR format.</p>
+   *          <note>
+   *             <p>
+   *                Amazon Web Services <a href="https://en.wikipedia.org/wiki/Canonicalization">canonicalizes</a> IPv4 and IPv6 CIDRs. For example, if you specify 100.68.0.18/18 for the CIDR block,
+   *               Amazon Web Services canonicalizes the CIDR block to 100.68.0.0/18. Any subsequent DescribeSecurityGroups and DescribeSecurityGroupRules calls will
+   *               return the canonicalized form of the CIDR block. Additionally, if you attempt to add another rule with the
+   *               non-canonical form of the CIDR (such as 100.68.0.18/18) and there is already a rule for the canonicalized
+   *               form of the CIDR block (such as 100.68.0.0/18), the API throws an duplicate rule error.</p>
+   *          </note>
    *          <p>To specify an IPv6 address range, use IP permissions instead.</p>
    *          <p>To specify multiple rules and descriptions for the rules, use IP permissions instead.</p>
    * @public

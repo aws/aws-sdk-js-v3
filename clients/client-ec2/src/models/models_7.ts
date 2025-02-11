@@ -962,12 +962,22 @@ export interface ModifyIpamResourceDiscoveryRequest {
 
   /**
    * <p>Add an Organizational Unit (OU) exclusion to your IPAM. If your IPAM is integrated with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a limit on the number of exclusions you can create. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   *          <note>
+   *             <p>The resulting set of exclusions must not result in "overlap", meaning two or more OU
+   *          exclusions must not exclude the same OU. For more information and examples, see the Amazon Web Services CLI request process in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/exclude-ous.html#exclude-ous-create-delete">Add or remove OU exclusions
+   *          </a> in the <i>Amazon VPC User Guide</i>.</p>
+   *          </note>
    * @public
    */
   AddOrganizationalUnitExclusions?: AddIpamOrganizationalUnitExclusion[] | undefined;
 
   /**
    * <p>Remove an Organizational Unit (OU) exclusion to your IPAM. If your IPAM is integrated with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a limit on the number of exclusions you can create. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   *          <note>
+   *             <p>The resulting set of exclusions must not result in "overlap", meaning two or more OU
+   *             exclusions must not exclude the same OU. For more information and examples, see the Amazon Web Services CLI request process in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/exclude-ous.html#exclude-ous-create-delete">Add or remove OU exclusions
+   *             </a> in the <i>Amazon VPC User Guide</i>.</p>
+   *          </note>
    * @public
    */
   RemoveOrganizationalUnitExclusions?: RemoveIpamOrganizationalUnitExclusion[] | undefined;
@@ -1426,6 +1436,14 @@ export interface ModifyReservedInstancesResult {
  *                <p>ReferencedGroupId</p>
  *             </li>
  *          </ul>
+ *          <note>
+ *             <p>
+ *                 Amazon Web Services <a href="https://en.wikipedia.org/wiki/Canonicalization">canonicalizes</a> IPv4 and IPv6 CIDRs. For example, if you specify 100.68.0.18/18 for the CIDR block,
+ *               Amazon Web Services canonicalizes the CIDR block to 100.68.0.0/18. Any subsequent DescribeSecurityGroups and DescribeSecurityGroupRules calls will
+ *               return the canonicalized form of the CIDR block. Additionally, if you attempt to add another rule with the
+ *               non-canonical form of the CIDR (such as 100.68.0.18/18) and there is already a rule for the canonicalized
+ *               form of the CIDR block (such as 100.68.0.0/18), the API throws an duplicate rule error.</p>
+ *          </note>
  *          <p>When you modify a rule, you cannot change the rule type. For example, if the rule
  *             uses an IPv4 address range, you must use <code>CidrIpv4</code> to specify a new IPv4
  *             address range.</p>
@@ -8146,13 +8164,11 @@ export interface RunInstancesRequest {
   DryRun?: boolean | undefined;
 
   /**
-   * <p>If you set this parameter to <code>true</code>, you can't terminate the instance using
-   *             the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after
-   *             launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>. Alternatively, if you set
-   *                 <code>InstanceInitiatedShutdownBehavior</code> to <code>terminate</code>, you can
-   *             terminate the instance by running the shutdown command from the instance.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
+   * <p>Indicates whether termination protection is enabled for the instance. The default
+   *             is <code>false</code>, which means that you can terminate the instance using
+   *             the Amazon EC2 console, command line tools, or API. You can enable termination protection
+   *             when you launch an instance, while the instance is running, or while the instance
+   *             is stopped.</p>
    * @public
    */
   DisableApiTermination?: boolean | undefined;
@@ -9448,7 +9464,7 @@ export interface UnassignIpv6AddressesResult {
   UnassignedIpv6Addresses?: string[] | undefined;
 
   /**
-   * <p>The IPv4 prefixes that have been unassigned from  the network interface.</p>
+   * <p>The IPv6 prefixes that have been unassigned from  the network interface.</p>
    * @public
    */
   UnassignedIpv6Prefixes?: string[] | undefined;

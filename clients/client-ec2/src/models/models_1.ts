@@ -161,7 +161,7 @@ export interface CreateCapacityReservationRequest {
    * <p>The number of instances for which to reserve capacity.</p>
    *          <note>
    *             <p>You can request future-dated Capacity Reservations for an instance count
-   * 				with a minimum of 100 VPUs. For example, if you request a future-dated Capacity
+   * 				with a minimum of 100 vCPUs. For example, if you request a future-dated Capacity
    * 				Reservation for <code>m5.xlarge</code> instances, you must request at least
    * 				25 instances (<i>25 * m5.xlarge = 100 vCPUs</i>).</p>
    *          </note>
@@ -9669,7 +9669,7 @@ export interface InstanceIpv6AddressRequest {
 }
 
 /**
- * <p>Describes the IPv4 prefix option for a network interface.</p>
+ * <p>Describes the IPv6 prefix option for a network interface.</p>
  * @public
  */
 export interface Ipv6PrefixSpecificationRequest {
@@ -10210,11 +10210,11 @@ export interface RequestLaunchTemplateData {
   RamDiskId?: string | undefined;
 
   /**
-   * <p>If you set this parameter to <code>true</code>, you can't terminate the instance using
-   *             the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after
-   *             launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>. Alternatively, if you set
-   *                 <code>InstanceInitiatedShutdownBehavior</code> to <code>terminate</code>, you can
-   *             terminate the instance by running the shutdown command from the instance.</p>
+   * <p>Indicates whether termination protection is enabled for the instance. The default
+   *             is <code>false</code>, which means that you can terminate the instance using
+   *             the Amazon EC2 console, command line tools, or API. You can enable termination protection
+   *             when you launch an instance, while the instance is running, or while the instance
+   *             is stopped.</p>
    * @public
    */
   DisableApiTermination?: boolean | undefined;

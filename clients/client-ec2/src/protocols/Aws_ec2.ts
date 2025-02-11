@@ -81461,6 +81461,9 @@ const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   if (output[_cTomp] != null) {
     contents[_CTomp] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTomp]));
   }
+  if (output[_fSSIB] != null) {
+    contents[_FSSIB] = __strictParseLong(output[_fSSIB]) as number;
+  }
   if (output[_sIn] != null) {
     contents[_SIn] = __expectString(output[_sIn]);
   }
@@ -88400,6 +88403,7 @@ const _FSR = "FastSnapshotRestores";
 const _FSRSE = "FastSnapshotRestoreStateErrors";
 const _FSRi = "FirewallStatelessRule";
 const _FSRir = "FirewallStatefulRule";
+const _FSSIB = "FullSnapshotSizeInBytes";
 const _FSST = "FirstSlotStartTime";
 const _FSSTR = "FirstSlotStartTimeRange";
 const _FTE = "FreeTierEligible";
@@ -90554,6 +90558,7 @@ const _fSR = "firewallStatelessRule";
 const _fSRS = "fastSnapshotRestoreSet";
 const _fSRSES = "fastSnapshotRestoreStateErrorSet";
 const _fSRi = "firewallStatefulRule";
+const _fSSIB = "fullSnapshotSizeInBytes";
 const _fSST = "firstSlotStartTime";
 const _fSl = "fleetState";
 const _fTE = "freeTierEligible";

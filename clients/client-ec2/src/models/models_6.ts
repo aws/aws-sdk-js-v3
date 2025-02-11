@@ -7290,7 +7290,7 @@ export interface SnapshotRecycleBinInfo {
   SnapshotId?: string | undefined;
 
   /**
-   * <p>The date and time when the snaphsot entered the Recycle Bin.</p>
+   * <p>The date and time when the snapshot entered the Recycle Bin.</p>
    * @public
    */
   RecycleBinEnterTime?: Date | undefined;
@@ -8590,9 +8590,9 @@ export interface ModifyInstanceAttributeRequest {
   BlockDeviceMappings?: InstanceBlockDeviceMappingSpecification[] | undefined;
 
   /**
-   * <p>If the value is <code>true</code>, you can't terminate the instance using the Amazon
-   *             EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot
-   *             Instances.</p>
+   * <p>Enable or disable termination protection for the instance. If the value is <code>true</code>,
+   *             you can't terminate the instance using the Amazon EC2 console, command line interface, or API.
+   *             You can't enable termination protection for Spot Instances.</p>
    * @public
    */
   DisableApiTermination?: AttributeBooleanValue | undefined;

@@ -3480,10 +3480,9 @@ export interface DescribeAvailabilityZonesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>group-name</code> - For Availability Zones, use the Region name. For Local
-   *           Zones, use the name of the group associated with the Local Zone (for example,
-   *             <code>us-west-2-lax-1</code>) For Wavelength Zones, use the name of the group associated
-   *           with the Wavelength Zone (for example, <code>us-east-1-wl1</code>).</p>
+   *                   <code>group-name</code> - The name of the zone group for the Availability Zone (for
+   *           example, <code>us-east-1-zg-1</code>), the Local Zone (for example, <code>us-west-2-lax-1</code>),
+   *           or the Wavelength Zone (for example, <code>us-east-1-wl1</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3621,11 +3620,21 @@ export interface AvailabilityZone {
   ZoneId?: string | undefined;
 
   /**
-   * <p> For Availability Zones, this parameter has the same value as the Region name.</p>
-   *          <p>For Local Zones, the name of the associated group, for example
-   *         <code>us-west-2-lax-1</code>.</p>
-   *          <p>For Wavelength Zones, the name of the associated group, for example
-   *         <code>us-east-1-wl1-bos-wlz-1</code>.</p>
+   * <p>The name of the zone group. For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Availability Zones - <code>us-east-1-zg-1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Local Zones - <code>us-west-2-lax-1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Wavelength Zones - <code>us-east-1-wl1-bos-wlz-1</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   GroupName?: string | undefined;

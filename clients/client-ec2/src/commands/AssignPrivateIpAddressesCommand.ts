@@ -28,9 +28,9 @@ export interface AssignPrivateIpAddressesCommandInput extends AssignPrivateIpAdd
 export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAddressesResult, __MetadataBearer {}
 
 /**
- * <p>Assigns one or more secondary private IP addresses to the specified network interface.</p>
- *          <p>You can specify one or more specific secondary IP addresses, or you can specify the number
- *             of secondary IP addresses to be automatically assigned within the subnet's CIDR block range.
+ * <p>Assigns the specified secondary private IP addresses to the specified network interface.</p>
+ *          <p>You can specify specific secondary IP addresses, or you can specify the number
+ *             of secondary IP addresses to be automatically assigned from the subnet's CIDR block range.
  *             The number of secondary IP addresses that you can assign to an instance varies by instance type.
  *             For more information about Elastic IP addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          <p>When you move a secondary private IP address to another network interface, any Elastic IP address

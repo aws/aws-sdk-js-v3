@@ -38,8 +38,8 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  *           Region as the volume.</p>
  *             </li>
  *             <li>
- *                <p>If the source volume is in a Local Zone, you can create the snapshot in the same
- *           Local Zone or in parent Amazon Web Services Region.</p>
+ *                <p>If the source volume is in a Local Zone, you can create the snapshot in the same Local
+ *           Zone or in its parent Amazon Web Services Region.</p>
  *             </li>
  *             <li>
  *                <p>If the source volume is on an Outpost, you can create the snapshot on the same
@@ -60,8 +60,7 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  *       that you stop the instance before taking the snapshot.</p>
  *          <p>Snapshots that are taken from encrypted volumes are automatically encrypted. Volumes that
  *       are created from encrypted snapshots are also automatically encrypted. Your encrypted volumes
- *       and any associated snapshots always remain protected. For more information,
- *       <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a>
+ *       and any associated snapshots always remain protected. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a>
  *       in the <i>Amazon EBS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  * //   TransferType: "time-based" || "standard",
  * //   CompletionDurationMinutes: Number("int"),
  * //   CompletionTime: new Date("TIMESTAMP"),
+ * //   FullSnapshotSizeInBytes: Number("long"),
  * //   SnapshotId: "STRING_VALUE",
  * //   VolumeId: "STRING_VALUE",
  * //   State: "pending" || "completed" || "error" || "recoverable" || "recovering",

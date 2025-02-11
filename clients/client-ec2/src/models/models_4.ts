@@ -3715,7 +3715,7 @@ export interface DescribeInstanceAttributeRequest {
 
   /**
    * <p>The instance attribute.</p>
-   *          <p>Note: The <code>enaSupport</code> attribute is not supported at this time.</p>
+   *          <p>Note that the <code>enaSupport</code> attribute is not supported.</p>
    * @public
    */
   Attribute: InstanceAttributeName | undefined;
@@ -3829,8 +3829,8 @@ export interface InstanceAttribute {
   BlockDeviceMappings?: InstanceBlockDeviceMapping[] | undefined;
 
   /**
-   * <p>If the value is <code>true</code>, you can't terminate the instance through the Amazon
-   *             EC2 console, CLI, or API; otherwise, you can.</p>
+   * <p>Indicates whether termination protection is enabled. If the value is <code>true</code>,
+   *             you can't terminate the instance using the Amazon EC2 console, command line tools, or API.</p>
    * @public
    */
   DisableApiTermination?: AttributeBooleanValue | undefined;
@@ -3842,8 +3842,7 @@ export interface InstanceAttribute {
   EnaSupport?: AttributeBooleanValue | undefined;
 
   /**
-   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to
-   *                 <code>true</code>; otherwise, set it to <code>false</code>.</p>
+   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
    * @public
    */
   EnclaveOptions?: EnclaveOptions | undefined;
@@ -3880,7 +3879,7 @@ export interface InstanceAttribute {
   KernelId?: AttributeValue | undefined;
 
   /**
-   * <p>A list of product codes.</p>
+   * <p>The product codes.</p>
    * @public
    */
   ProductCodes?: ProductCode[] | undefined;
@@ -3899,12 +3898,7 @@ export interface InstanceAttribute {
   RootDeviceName?: AttributeValue | undefined;
 
   /**
-   * <p>Enable or disable source/destination checks, which ensure that the instance is either
-   *             the source or the destination of any traffic that it receives. If the value is
-   *                 <code>true</code>, source/destination checks are enabled; otherwise, they are
-   *             disabled. The default value is <code>true</code>. You must disable source/destination
-   *             checks if the instance runs services such as network address translation, routing, or
-   *             firewalls.</p>
+   * <p>Indicates whether source/destination checks are enabled.</p>
    * @public
    */
   SourceDestCheck?: AttributeBooleanValue | undefined;
@@ -3923,8 +3917,7 @@ export interface InstanceAttribute {
   UserData?: AttributeValue | undefined;
 
   /**
-   * <p>To enable the instance for Amazon Web Services Stop Protection, set this parameter to
-   *                 <code>true</code>; otherwise, set it to <code>false</code>.</p>
+   * <p>Indicates whether stop protection is enabled for the instance.</p>
    * @public
    */
   DisableApiStop?: AttributeBooleanValue | undefined;
@@ -11836,6 +11829,17 @@ export interface DescribeNetworkInterfacesRequest {
    *             <li>
    *                <p>
    *                   <code>network-interface-id</code> - The ID of the network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>operator.managed</code> - A Boolean that indicates whether this is a
+   *                     managed network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>operator.principal</code> - The principal that manages the network
+   *                     interface. Only valid for managed network interfaces, where <code>managed</code>
+   *                     is <code>true</code>.</p>
    *             </li>
    *             <li>
    *                <p>
