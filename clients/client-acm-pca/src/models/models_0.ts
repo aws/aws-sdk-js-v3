@@ -512,6 +512,20 @@ export interface CrlDistributionPointExtensionConfiguration {
  * @public
  * @enum
  */
+export const CrlType = {
+  COMPLETE: "COMPLETE",
+  PARTITIONED: "PARTITIONED",
+} as const;
+
+/**
+ * @public
+ */
+export type CrlType = (typeof CrlType)[keyof typeof CrlType];
+
+/**
+ * @public
+ * @enum
+ */
 export const S3ObjectAcl = {
   BUCKET_OWNER_FULL_CONTROL: "BUCKET_OWNER_FULL_CONTROL",
   PUBLIC_READ: "PUBLIC_READ",
@@ -708,6 +722,31 @@ export interface CrlConfiguration {
    * @public
    */
   CrlDistributionPointExtensionConfiguration?: CrlDistributionPointExtensionConfiguration | undefined;
+
+  /**
+   * <p>Choose whether to use a partitioned or complete CRL. Your choice determines the maximum number of certificates that the certificate authority can issue and revoke, as described in the <a href="https://docs.aws.amazon.com/general/latest/gr/pca.html#limits_pca-connector-ad">Amazon Web Services Private CA quotas</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PARTITIONED</code> - The default setting. Partitioned CRLs are an especially good option for devices that have limited processing power or storage capacity, such as certain IoT devices. Compared to complete CRLs, partitioned CRLs dramatically increase the number of certificates your private CA can issue. Each certificate that Amazon Web Services Private CA issues is bound to a specific CRL partition through the CRL distribution point (CDP) defined in <a href="https://datatracker.ietf.org/doc/html/rfc5280">RFC 5280</a>.</p>
+   *                <important>
+   *                   <p>To make sure that your client fetches the CRL from a valid endpoint, we recommend that you programmatically validate that the CRL's issuing distribution point (IDP) URI matches the certificate's CDP URI. Amazon Web Services Private CA marks the IDP extension as critical, which your client must be able to process.</p>
+   *                </important>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETE</code> - Amazon Web Services Private CA maintains a single CRL file for all unexpired certificates issued by a CA that have been revoked for any reason.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CrlType?: CrlType | undefined;
+
+  /**
+   * <p>Designates a custom file path in S3 for CRL(s). For example, <code>http://&lt;CustomName&gt;/&lt;CustomPath&gt;/&lt;CrlPartition_GUID&gt;.crl</code>. You can change the custom path up to five times.</p>
+   * @public
+   */
+  CustomPath?: string | undefined;
 }
 
 /**

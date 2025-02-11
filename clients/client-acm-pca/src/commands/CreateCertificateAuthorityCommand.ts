@@ -150,6 +150,8 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *       CrlDistributionPointExtensionConfiguration: { // CrlDistributionPointExtensionConfiguration
  *         OmitExtension: true || false, // required
  *       },
+ *       CrlType: "COMPLETE" || "PARTITIONED",
+ *       CustomPath: "STRING_VALUE",
  *     },
  *     OcspConfiguration: { // OcspConfiguration
  *       Enabled: true || false, // required
