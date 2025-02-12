@@ -53,6 +53,7 @@ export interface CreateEventBridgeRuleTemplateCommandOutput
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   RequestId: "STRING_VALUE",
  * };
  * const command = new CreateEventBridgeRuleTemplateCommand(input);
  * const response = await client.send(command);

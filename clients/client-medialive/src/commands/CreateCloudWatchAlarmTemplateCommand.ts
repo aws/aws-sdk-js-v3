@@ -56,6 +56,7 @@ export interface CreateCloudWatchAlarmTemplateCommandOutput
  *   TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET", // required
  *   Threshold: Number("double"), // required
  *   TreatMissingData: "notBreaching" || "breaching" || "ignore" || "missing", // required
+ *   RequestId: "STRING_VALUE",
  * };
  * const command = new CreateCloudWatchAlarmTemplateCommand(input);
  * const response = await client.send(command);

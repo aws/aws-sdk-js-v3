@@ -38,6 +38,7 @@ export interface StartMonitorDeploymentCommandOutput extends StartMonitorDeploym
  * const input = { // StartMonitorDeploymentRequest
  *   DryRun: true || false,
  *   Identifier: "STRING_VALUE", // required
+ *   RequestId: "STRING_VALUE",
  * };
  * const command = new StartMonitorDeploymentCommand(input);
  * const response = await client.send(command);

@@ -49,6 +49,7 @@ export interface CreateCloudWatchAlarmTemplateGroupCommandOutput
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   RequestId: "STRING_VALUE",
  * };
  * const command = new CreateCloudWatchAlarmTemplateGroupCommand(input);
  * const response = await client.send(command);

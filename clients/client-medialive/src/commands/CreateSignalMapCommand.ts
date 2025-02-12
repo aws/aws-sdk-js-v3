@@ -48,6 +48,7 @@ export interface CreateSignalMapCommandOutput extends CreateSignalMapResponse, _
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   RequestId: "STRING_VALUE",
  * };
  * const command = new CreateSignalMapCommand(input);
  * const response = await client.send(command);

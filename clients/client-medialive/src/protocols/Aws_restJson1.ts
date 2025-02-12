@@ -873,6 +873,7 @@ export const se_CreateCloudWatchAlarmTemplateCommand = async (
       metricName: [, , `MetricName`],
       name: [, , `Name`],
       period: [, , `Period`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       statistic: [, , `Statistic`],
       tags: [, (_) => _json(_), `Tags`],
       targetResourceType: [, , `TargetResourceType`],
@@ -901,6 +902,7 @@ export const se_CreateCloudWatchAlarmTemplateGroupCommand = async (
     take(input, {
       description: [, , `Description`],
       name: [, , `Name`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       tags: [, (_) => _json(_), `Tags`],
     })
   );
@@ -955,6 +957,7 @@ export const se_CreateEventBridgeRuleTemplateCommand = async (
       eventType: [, , `EventType`],
       groupIdentifier: [, , `GroupIdentifier`],
       name: [, , `Name`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       tags: [, (_) => _json(_), `Tags`],
     })
   );
@@ -979,6 +982,7 @@ export const se_CreateEventBridgeRuleTemplateGroupCommand = async (
     take(input, {
       description: [, , `Description`],
       name: [, , `Name`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       tags: [, (_) => _json(_), `Tags`],
     })
   );
@@ -1223,6 +1227,7 @@ export const se_CreateSignalMapCommand = async (
       discoveryEntryPointArn: [, , `DiscoveryEntryPointArn`],
       eventBridgeRuleTemplateGroupIdentifiers: [, (_) => _json(_), `EventBridgeRuleTemplateGroupIdentifiers`],
       name: [, , `Name`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       tags: [, (_) => _json(_), `Tags`],
     })
   );
@@ -2455,6 +2460,7 @@ export const se_StartMonitorDeploymentCommand = async (
   body = JSON.stringify(
     take(input, {
       dryRun: [, , `DryRun`],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
     })
   );
   b.m("POST").h(headers).b(body);
