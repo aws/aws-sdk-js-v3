@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.747.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.746.0...v3.747.0) (2025-02-12)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This releases adds the additionalModelRequestFields field to the InvokeInlineAgent operation. Use additionalModelRequestFields to specify  additional inference parameters for a model beyond the base inference parameters. ([3fee5bd](https://github.com/aws/aws-sdk-js-v3/commit/3fee5bd43b0191e892f048e0ea57354bfecd15b9))
+
+
+
+
+
 # [3.744.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.743.0...v3.744.0) (2025-02-07)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent-runtime

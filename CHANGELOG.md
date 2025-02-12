@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.747.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.746.0...v3.747.0) (2025-02-12)
+
+
+### Features
+
+* **client-b2bi:** Allow spaces in the following fields in the Partnership resource: ISA 06 - Sender ID, ISA 08 - Receiver ID, GS 02 - Application Sender Code, GS 03 - Application Receiver Code ([fb13699](https://github.com/aws/aws-sdk-js-v3/commit/fb136999297a31f3f50bc1fba69933000b8e8b76))
+* **client-bedrock-agent-runtime:** This releases adds the additionalModelRequestFields field to the InvokeInlineAgent operation. Use additionalModelRequestFields to specify  additional inference parameters for a model beyond the base inference parameters. ([3fee5bd](https://github.com/aws/aws-sdk-js-v3/commit/3fee5bd43b0191e892f048e0ea57354bfecd15b9))
+* **client-bedrock-agent:** This releases adds the additionalModelRequestFields field to the CreateAgent and UpdateAgent operations. Use additionalModelRequestFields to specify  additional inference parameters for a model beyond the base inference parameters. ([bfbf34a](https://github.com/aws/aws-sdk-js-v3/commit/bfbf34abe4dcfd1f0e6a00fbab77779696fcca28))
+* **client-fsx:** Support for in-place Lustre version upgrades ([726f85a](https://github.com/aws/aws-sdk-js-v3/commit/726f85aab768a4ff6a511a2cbff7361f79c8801a))
+* **client-medialive:** Adds a RequestId parameter to all MediaLive Workflow Monitor create operations.  The RequestId parameter allows idempotent operations. ([c4598a2](https://github.com/aws/aws-sdk-js-v3/commit/c4598a298a36eed409ce499b66abcebf494e2765))
+* **client-opensearchserverless:** Custom OpenSearchServerless Entity ID for SAML Config. ([6456332](https://github.com/aws/aws-sdk-js-v3/commit/64563321fb764d366e874064ff3903ed8f75e1e2))
+* **client-polly:** Added support for the new voice - Jasmine (en-SG). Jasmine is available as a Neural voice only. ([217e1cb](https://github.com/aws/aws-sdk-js-v3/commit/217e1cb29a3f5908ad68416b3348e97e67608ec6))
+
+
+
+
+
 # [3.746.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.745.0...v3.746.0) (2025-02-11)
 
 
