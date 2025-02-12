@@ -288,6 +288,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  *           ],
  *         },
  *         parserMode: "DEFAULT" || "OVERRIDDEN",
+ *         additionalModelRequestFields: "DOCUMENT_VALUE",
  *       },
  *     ],
  *     overrideLambda: "STRING_VALUE",

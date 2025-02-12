@@ -1952,6 +1952,7 @@ const se_OrchestrationConfiguration = (input: OrchestrationConfiguration, contex
  */
 const se_PromptConfiguration = (input: PromptConfiguration, context: __SerdeContext): any => {
   return take(input, {
+    additionalModelRequestFields: (_) => se_Document(_, context),
     basePromptTemplate: [],
     inferenceConfiguration: (_) => se_InferenceConfiguration(_, context),
     parserMode: [],

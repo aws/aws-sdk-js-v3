@@ -5845,6 +5845,18 @@ export interface PromptConfiguration {
    * @public
    */
   parserMode?: CreationMode | undefined;
+
+  /**
+   * <p>If the Converse or ConverseStream operations support the model,
+   *             <code>additionalModelRequestFields</code> contains additional inference parameters,
+   *             beyond the base set of inference parameters in the <code>inferenceConfiguration</code>
+   *             field. </p>
+   *          <p>For more information, see <i>Inference request parameters and
+   *             response fields for foundation models</i> in the Amazon Bedrock user
+   *             guide.</p>
+   * @public
+   */
+  additionalModelRequestFields?: __DocumentType | undefined;
 }
 
 /**
