@@ -1679,6 +1679,12 @@ export interface SamlConfigOptions {
   groupAttribute?: string | undefined;
 
   /**
+   * <p>Custom entity id attribute to override default entity id for this saml integration.</p>
+   * @public
+   */
+  openSearchServerlessEntityId?: string | undefined;
+
+  /**
    * <p>The session timeout, in minutes. Default is 60 minutes (12 hours).</p>
    * @public
    */

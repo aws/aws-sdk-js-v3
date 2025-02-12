@@ -49,6 +49,7 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  *     metadata: "STRING_VALUE", // required
  *     userAttribute: "STRING_VALUE",
  *     groupAttribute: "STRING_VALUE",
+ *     openSearchServerlessEntityId: "STRING_VALUE",
  *     sessionTimeout: Number("int"),
  *   },
  *   iamIdentityCenterOptions: { // CreateIamIdentityCenterConfigOptions
@@ -70,6 +71,7 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  * //       metadata: "STRING_VALUE", // required
  * //       userAttribute: "STRING_VALUE",
  * //       groupAttribute: "STRING_VALUE",
+ * //       openSearchServerlessEntityId: "STRING_VALUE",
  * //       sessionTimeout: Number("int"),
  * //     },
  * //     iamIdentityCenterOptions: { // IamIdentityCenterConfigOptions
