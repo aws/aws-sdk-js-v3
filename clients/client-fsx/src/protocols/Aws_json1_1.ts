@@ -3039,6 +3039,7 @@ const se_UpdateFileSystemRequest = (input: UpdateFileSystemRequest, context: __S
   return take(input, {
     ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FileSystemId: [],
+    FileSystemTypeVersion: [],
     LustreConfiguration: _json,
     OntapConfiguration: _json,
     OpenZFSConfiguration: _json,

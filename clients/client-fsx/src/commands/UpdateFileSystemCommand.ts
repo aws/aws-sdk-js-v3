@@ -109,6 +109,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>FileSystemTypeVersion</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>LogConfiguration</code>
  *                </p>
  *             </li>
@@ -355,6 +360,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *     },
  *   },
  *   StorageType: "SSD" || "HDD" || "INTELLIGENT_TIERING",
+ *   FileSystemTypeVersion: "STRING_VALUE",
  * };
  * const command = new UpdateFileSystemCommand(input);
  * const response = await client.send(command);

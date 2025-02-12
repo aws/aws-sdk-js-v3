@@ -29,7 +29,7 @@ export interface CancelDataRepositoryTaskCommandOutput extends CancelDataReposit
 
 /**
  * <p>Cancels an existing Amazon FSx for Lustre data repository task if that task is in either the
- *             <code>PENDING</code> or <code>EXECUTING</code> state. When you cancel am export task, Amazon FSx
+ *             <code>PENDING</code> or <code>EXECUTING</code> state. When you cancel an export task, Amazon FSx
  *             does the following.</p>
  *          <ul>
  *             <li>

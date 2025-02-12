@@ -39,7 +39,7 @@ export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, _
  *             <code>CreateFileCache</code> does the following: </p>
  *          <ul>
  *             <li>
- *                <p>Creates a new, empty Amazon File Cache resourcewith an assigned ID, and
+ *                <p>Creates a new, empty Amazon File Cache resource with an assigned ID, and
  *                     an initial lifecycle state of <code>CREATING</code>.</p>
  *             </li>
  *             <li>

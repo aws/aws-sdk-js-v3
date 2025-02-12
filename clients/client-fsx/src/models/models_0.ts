@@ -2469,7 +2469,7 @@ export interface OpenZFSVolumeConfiguration {
   StorageCapacityReservationGiB?: number | undefined;
 
   /**
-   * <p>The maximum amount of storage in gibibtyes (GiB) that the volume can use from its
+   * <p>The maximum amount of storage in gibibytes (GiB) that the volume can use from its
    *             parent. You can specify a quota larger than the storage on the parent volume.</p>
    * @public
    */
@@ -6819,10 +6819,9 @@ export interface CreateFileSystemFromBackupRequest {
    * <p>Sets the version for the Amazon FSx for Lustre file system that you're
    *             creating from a backup. Valid values are <code>2.10</code>, <code>2.12</code>,
    *             and <code>2.15</code>.</p>
-   *          <p>You don't need to specify <code>FileSystemTypeVersion</code> because it will
-   *             be applied using the backup's <code>FileSystemTypeVersion</code> setting.
-   *             If you choose to specify <code>FileSystemTypeVersion</code> when creating from backup, the
-   *             value must match the backup's <code>FileSystemTypeVersion</code> setting.</p>
+   *          <p>You can enter a Lustre version that is newer than the backup's
+   *             <code>FileSystemTypeVersion</code> setting. If you don't enter a newer Lustre version,
+   *             it defaults to the backup's setting.</p>
    * @public
    */
   FileSystemTypeVersion?: string | undefined;
@@ -6841,7 +6840,7 @@ export interface CreateFileSystemFromBackupRequest {
    *             parameter, the default is the backup's <code>StorageCapacity</code> value.</p>
    *          <p>If used to create a file system other than OpenZFS, you must provide a value
    *             that matches the backup's <code>StorageCapacity</code> value. If you provide any
-   *             other value, Amazon FSx responds with with an HTTP status code 400 Bad Request. </p>
+   *             other value, Amazon FSx responds with an HTTP status code 400 Bad Request. </p>
    * @public
    */
   StorageCapacity?: number | undefined;
@@ -7601,7 +7600,7 @@ export interface CreateOpenZFSVolumeConfiguration {
 
   /**
    * <p>Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
-   *             For file systems using the Intelligent-Tiering storage class, valid values are 128, 256, 512, 1024, 2048, or 4096 KiB, with a default of 2048 KiB.
+   *             For file systems using the Intelligent-Tiering storage class, valid values are 128, 256, 512, 1024, 2048, or 4096 KiB, with a default of 1024 KiB.
    *             For all other file systems, valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB, with a default of 128 KiB.
    *             We recommend using the default setting for the majority of use cases. Generally, workloads that write in fixed small or large record sizes may benefit from setting a custom record size, like database workloads (small record size) or media streaming workloads (large record size).
    *             For additional guidance on when to set a custom record size, see
@@ -8696,7 +8695,7 @@ export type DataRepositoryTaskFilterName =
   (typeof DataRepositoryTaskFilterName)[keyof typeof DataRepositoryTaskFilterName];
 
 /**
- * <p>(Optional) An array of filter objects you can use to filter the response of data repository tasks you will see in the the response.
+ * <p>(Optional) An array of filter objects you can use to filter the response of data repository tasks you will see in the response.
  *             You can filter the tasks returned in the response by one or more file system IDs, task lifecycles, and by task type.
  *             A filter object consists of a filter <code>Name</code>, and one or more <code>Values</code> for the filter.</p>
  * @public
@@ -9950,7 +9949,7 @@ export interface UpdateFileSystemOntapConfiguration {
    * <p>Update the password for the <code>fsxadmin</code> user by entering a new password.
    *         You use the <code>fsxadmin</code> user to access the NetApp ONTAP CLI and REST API to manage your file system resources.
    *             For more information, see
-   *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-resources-ontap-apps.html">Managing resources using NetApp Applicaton</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-resources-ontap-apps.html">Managing resources using NetApp Application</a>.</p>
    * @public
    */
   FsxAdminPassword?: string | undefined;
@@ -10364,6 +10363,14 @@ export interface UpdateFileSystemRequest {
    * @public
    */
   StorageType?: StorageType | undefined;
+
+  /**
+   * <p>The Lustre version you are updating an FSx for Lustre file system to.
+   *       Valid values are <code>2.12</code> and <code>2.15</code>. The value you choose must be
+   *       newer than the file system's current Lustre version.</p>
+   * @public
+   */
+  FileSystemTypeVersion?: string | undefined;
 }
 
 /**
