@@ -84,6 +84,7 @@ export interface GetAgentVersionCommandOutput extends GetAgentVersionResponse, _
  * //           },
  * //           parserMode: "DEFAULT" || "OVERRIDDEN",
  * //           foundationModel: "STRING_VALUE",
+ * //           additionalModelRequestFields: "DOCUMENT_VALUE",
  * //         },
  * //       ],
  * //       overrideLambda: "STRING_VALUE",

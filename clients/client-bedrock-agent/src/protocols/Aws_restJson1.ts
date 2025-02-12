@@ -4155,6 +4155,7 @@ const se_MetadataAttributeValue = (input: MetadataAttributeValue, context: __Ser
  */
 const se_PromptConfiguration = (input: PromptConfiguration, context: __SerdeContext): any => {
   return take(input, {
+    additionalModelRequestFields: (_) => se_Document(_, context),
     basePromptTemplate: [],
     foundationModel: [],
     inferenceConfiguration: (_) => se_InferenceConfiguration(_, context),
@@ -5387,6 +5388,7 @@ const de_KnowledgeBaseSummary = (output: any, context: __SerdeContext): Knowledg
  */
 const de_PromptConfiguration = (output: any, context: __SerdeContext): PromptConfiguration => {
   return take(output, {
+    additionalModelRequestFields: (_: any) => de_Document(_, context),
     basePromptTemplate: __expectString,
     foundationModel: __expectString,
     inferenceConfiguration: (_: any) => de_InferenceConfiguration(_, context),

@@ -87,6 +87,7 @@ export interface GetAgentCommandOutput extends GetAgentResponse, __MetadataBeare
  * //           },
  * //           parserMode: "DEFAULT" || "OVERRIDDEN",
  * //           foundationModel: "STRING_VALUE",
+ * //           additionalModelRequestFields: "DOCUMENT_VALUE",
  * //         },
  * //       ],
  * //       overrideLambda: "STRING_VALUE",
