@@ -672,12 +672,14 @@ export interface ExecuteCommandConfiguration {
 export interface ManagedStorageConfiguration {
   /**
    * <p>Specify a Key Management Service key ID to encrypt the managed storage.</p>
+   *          <p>The key must be a single Region key.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
    * <p>Specify the Key Management Service key ID for the Fargate ephemeral storage.</p>
+   *          <p>The key must be a single Region key.</p>
    * @public
    */
   fargateEphemeralStorageKmsKeyId?: string | undefined;
@@ -2800,7 +2802,9 @@ export interface CreateServiceRequest {
   /**
    * <p>Indicates whether to use Availability Zone rebalancing for the service.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html">Balancing an Amazon ECS service across Availability Zones</a> in
-   * 			the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			the <i>
+   *                <i>Amazon Elastic Container Service Developer Guide</i>
+   *             </i>.</p>
    * @public
    */
   availabilityZoneRebalancing?: AvailabilityZoneRebalancing | undefined;
@@ -3977,7 +3981,9 @@ export interface Service {
   /**
    * <p>Indicates whether to use Availability Zone rebalancing for the service.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html">Balancing an Amazon ECS service across Availability Zones</a> in
-   * 			the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			the <i>
+   *                <i>Amazon Elastic Container Service Developer Guide</i>
+   *             </i>.</p>
    * @public
    */
   availabilityZoneRebalancing?: AvailabilityZoneRebalancing | undefined;
@@ -5046,6 +5052,7 @@ export interface FirelensConfiguration {
  * 					that's configured to use a Classic Load Balancer.</p>
  *             </li>
  *          </ul>
+ *          <p>For an example of how to specify a task definition with multiple containers where container dependency is specified, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/example_task_definitions.html#example_task_definition-containerdependency">Container dependency</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @public
  */
 export interface HealthCheck {
@@ -5071,23 +5078,25 @@ export interface HealthCheck {
   command: string[] | undefined;
 
   /**
-   * <p>The time period in seconds between each health check execution. You may specify
-   * 			between 5 and 300 seconds. The default value is 30 seconds.</p>
+   * <p>The time period in seconds between each health check execution. You may specify between 5
+   * 			and 300 seconds. The default value is 30 seconds. This value applies only when you
+   * 			specify a <code>command</code>. </p>
    * @public
    */
   interval?: number | undefined;
 
   /**
-   * <p>The time period in seconds to wait for a health check to succeed before it is
-   * 			considered a failure. You may specify between 2 and 60 seconds. The default value is
-   * 			5.</p>
+   * <p>The time period in seconds to wait for a health check to succeed before it is considered a
+   * 			failure. You may specify between 2 and 60 seconds. The default value is 5. This value
+   * 			applies only when you specify a <code>command</code>. </p>
    * @public
    */
   timeout?: number | undefined;
 
   /**
    * <p>The number of times to retry a failed health check before the container is considered
-   * 			unhealthy. You may specify between 1 and 10 retries. The default value is 3.</p>
+   * 			unhealthy. You may specify between 1 and 10 retries. The default value is 3. This value
+   * 			applies only when you specify a <code>command</code>. </p>
    * @public
    */
   retries?: number | undefined;
@@ -5095,7 +5104,8 @@ export interface HealthCheck {
   /**
    * <p>The optional grace period to provide containers time to bootstrap before failed health
    * 			checks count towards the maximum number of retries. You can specify between 0 and 300
-   * 			seconds. By default, the <code>startPeriod</code> is off.</p>
+   * 			seconds. By default, the <code>startPeriod</code> is off. This value applies only when
+   * 			you specify a <code>command</code>. </p>
    *          <note>
    *             <p>If a health check succeeds within the <code>startPeriod</code>, then the container
    * 				is considered healthy and any subsequent failures count toward the maximum number of
@@ -5110,6 +5120,35 @@ export interface HealthCheck {
  * <p>The Linux capabilities to add or remove from the default Docker configuration for a
  * 			container defined in the task definition. For more detailed information about these
  * 			Linux capabilities, see the <a href="http://man7.org/linux/man-pages/man7/capabilities.7.html">capabilities(7)</a> Linux manual page.</p>
+ *          <p>The following describes how Docker processes the Linux capabilities specified in the <code>add</code> and
+ * 				<code>drop</code> request parameters. For information about the latest behavior, see
+ * 			<a href="https://forums.docker.com/t/docker-compose-order-of-cap-drop-and-cap-add/97136/1">Docker Compose: order of cap_drop and cap_add</a>  in the Docker Community Forum.</p>
+ *          <ul>
+ *             <li>
+ *                <p>When the container is a privleged container, the container capabilities are all of the
+ * 					default Docker capabilities. The capabilities specified in the <code>add</code>
+ * 					request parameter, and the <code>drop</code> request parameter are
+ * 					ignored.</p>
+ *             </li>
+ *             <li>
+ *                <p>When the <code>add</code> request parameter is set to ALL, the container
+ * 					capabilities are all of the default Docker capabilities, excluding those
+ * 					specified in the <code>drop</code> request parameter.</p>
+ *             </li>
+ *             <li>
+ *                <p>When the <code>drop</code> request parameter is set to ALL, the container capabilities are
+ * 					the capabilities specified in the <code>add</code> request parameter.</p>
+ *             </li>
+ *             <li>
+ *                <p>When the <code>add</code> request parameter and the <code>drop</code> request parameter are both empty, the capabilities the container
+ * 					capabilities are all of the default Docker capabilities.</p>
+ *             </li>
+ *             <li>
+ *                <p>The default is to first drop the capabilities specified in the <code>drop</code> request
+ * 					parameter, and then add the capabilities specified in the <code>add</code>
+ * 					request parameter.</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface KernelCapabilities {
@@ -12875,7 +12914,7 @@ export interface StopTaskRequest {
   cluster?: string | undefined;
 
   /**
-   * <p>The task ID of the task to stop.</p>
+   * <p>Thefull Amazon Resource Name (ARN) of the task.</p>
    * @public
    */
   task: string | undefined;
@@ -13175,6 +13214,17 @@ export interface TagResourceRequest {
    * <p>The Amazon Resource Name (ARN) of the resource to add tags to. Currently, the supported resources are
    * 			Amazon ECS capacity providers, tasks, services, task definitions, clusters, and container
    * 			instances.</p>
+   *          <p>In order to tag a service that has the following ARN format, you need to migrate the
+   * 			service to the long ARN. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-arn-migration.html">Migrate an Amazon ECS short service ARN to a long ARN</a> in the <i>Amazon Elastic Container Service
+   * 				Developer Guide</i>.</p>
+   *          <p>
+   *             <code>arn:aws:ecs:region:aws_account_id:service/service-name</code>
+   *          </p>
+   *          <p>After the migration is complete, the service has the long ARN format, as shown below. Use this ARN to tag the service.</p>
+   *          <p>
+   *             <code>arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name</code>
+   *          </p>
+   *          <p>If you try to tag a service with a short ARN, you receive an <code>InvalidParameterException</code> error.</p>
    * @public
    */
   resourceArn: string | undefined;

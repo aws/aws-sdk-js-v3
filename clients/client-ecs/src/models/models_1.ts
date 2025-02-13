@@ -377,7 +377,9 @@ export interface UpdateServiceRequest {
   /**
    * <p>Indicates whether to use Availability Zone rebalancing for the service.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html">Balancing an Amazon ECS service across Availability Zones</a> in
-   * 			the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			the <i>
+   *                <i>Amazon Elastic Container Service Developer Guide</i>
+   *             </i>.</p>
    * @public
    */
   availabilityZoneRebalancing?: AvailabilityZoneRebalancing | undefined;
