@@ -91,6 +91,10 @@ import {
   GetFindingRecommendationCommandInput,
   GetFindingRecommendationCommandOutput,
 } from "./commands/GetFindingRecommendationCommand";
+import {
+  GetFindingsStatisticsCommandInput,
+  GetFindingsStatisticsCommandOutput,
+} from "./commands/GetFindingsStatisticsCommand";
 import { GetFindingV2CommandInput, GetFindingV2CommandOutput } from "./commands/GetFindingV2Command";
 import { GetGeneratedPolicyCommandInput, GetGeneratedPolicyCommandOutput } from "./commands/GetGeneratedPolicyCommand";
 import {
@@ -158,6 +162,7 @@ export type ServiceInputTypes =
   | GetFindingCommandInput
   | GetFindingRecommendationCommandInput
   | GetFindingV2CommandInput
+  | GetFindingsStatisticsCommandInput
   | GetGeneratedPolicyCommandInput
   | ListAccessPreviewFindingsCommandInput
   | ListAccessPreviewsCommandInput
@@ -199,6 +204,7 @@ export type ServiceOutputTypes =
   | GetFindingCommandOutput
   | GetFindingRecommendationCommandOutput
   | GetFindingV2CommandOutput
+  | GetFindingsStatisticsCommandOutput
   | GetGeneratedPolicyCommandOutput
   | ListAccessPreviewFindingsCommandOutput
   | ListAccessPreviewsCommandOutput

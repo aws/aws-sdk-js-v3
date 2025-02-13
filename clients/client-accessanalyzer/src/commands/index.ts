@@ -17,6 +17,7 @@ export * from "./GetArchiveRuleCommand";
 export * from "./GetFindingCommand";
 export * from "./GetFindingRecommendationCommand";
 export * from "./GetFindingV2Command";
+export * from "./GetFindingsStatisticsCommand";
 export * from "./GetGeneratedPolicyCommand";
 export * from "./ListAccessPreviewFindingsCommand";
 export * from "./ListAccessPreviewsCommand";

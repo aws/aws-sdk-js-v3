@@ -69,6 +69,10 @@ import {
   GetFindingRecommendationCommandInput,
   GetFindingRecommendationCommandOutput,
 } from "../commands/GetFindingRecommendationCommand";
+import {
+  GetFindingsStatisticsCommandInput,
+  GetFindingsStatisticsCommandOutput,
+} from "../commands/GetFindingsStatisticsCommand";
 import { GetFindingV2CommandInput, GetFindingV2CommandOutput } from "../commands/GetFindingV2Command";
 import { GetGeneratedPolicyCommandInput, GetGeneratedPolicyCommandOutput } from "../commands/GetGeneratedPolicyCommand";
 import {
@@ -529,6 +533,28 @@ export const se_GetFindingRecommendationCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetFindingsStatisticsCommand
+ */
+export const se_GetFindingsStatisticsCommand = async (
+  input: GetFindingsStatisticsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/analyzer/findings/statistics");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      analyzerArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1306,6 +1332,28 @@ export const de_GetFindingRecommendationCommand = async (
     resourceArn: __expectString,
     startedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetFindingsStatisticsCommand
+ */
+export const de_GetFindingsStatisticsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFindingsStatisticsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    findingsStatistics: _json,
+    lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2155,6 +2203,8 @@ const de_AccessPreviewSummary = (output: any, context: __SerdeContext): AccessPr
   }) as any;
 };
 
+// de_AccountAggregations omitted.
+
 // de_AccountIdsList omitted.
 
 // de_AclGrantee omitted.
@@ -2281,6 +2331,8 @@ const de_CloudTrailProperties = (output: any, context: __SerdeContext): CloudTra
 
 // de_ExternalAccessDetails omitted.
 
+// de_ExternalAccessFindingsStatistics omitted.
+
 // de_FilterCriteriaMap omitted.
 
 /**
@@ -2305,6 +2357,10 @@ const de_Finding = (output: any, context: __SerdeContext): Finding => {
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
+
+// de_FindingAggregationAccountDetails omitted.
+
+// de_FindingAggregationAccountDetailsMap omitted.
 
 /**
  * deserializeAws_restJson1FindingDetails
@@ -2379,6 +2435,10 @@ const de_FindingsListV2 = (output: any, context: __SerdeContext): FindingSummary
 // de_FindingSourceDetail omitted.
 
 // de_FindingSourceList omitted.
+
+// de_FindingsStatistics omitted.
+
+// de_FindingsStatisticsList omitted.
 
 /**
  * deserializeAws_restJson1FindingSummary
@@ -2569,6 +2629,10 @@ const de_RecommendedStepList = (output: any, context: __SerdeContext): Recommend
 
 // de_RegionList omitted.
 
+// de_ResourceTypeDetails omitted.
+
+// de_ResourceTypeStatisticsMap omitted.
+
 // de_S3AccessPointConfiguration omitted.
 
 // de_S3AccessPointConfigurationsMap omitted.
@@ -2606,6 +2670,12 @@ const de_RecommendedStepList = (output: any, context: __SerdeContext): Recommend
 // de_TrailPropertiesList omitted.
 
 // de_UnusedAccessConfiguration omitted.
+
+// de_UnusedAccessFindingsStatistics omitted.
+
+// de_UnusedAccessTypeStatistics omitted.
+
+// de_UnusedAccessTypeStatisticsList omitted.
 
 /**
  * deserializeAws_restJson1UnusedAction

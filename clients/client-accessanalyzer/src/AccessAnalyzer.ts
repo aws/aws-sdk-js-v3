@@ -81,6 +81,11 @@ import {
   GetFindingRecommendationCommandOutput,
 } from "./commands/GetFindingRecommendationCommand";
 import {
+  GetFindingsStatisticsCommand,
+  GetFindingsStatisticsCommandInput,
+  GetFindingsStatisticsCommandOutput,
+} from "./commands/GetFindingsStatisticsCommand";
+import {
   GetFindingV2Command,
   GetFindingV2CommandInput,
   GetFindingV2CommandOutput,
@@ -190,6 +195,7 @@ const commands = {
   GetArchiveRuleCommand,
   GetFindingCommand,
   GetFindingRecommendationCommand,
+  GetFindingsStatisticsCommand,
   GetFindingV2Command,
   GetGeneratedPolicyCommand,
   ListAccessPreviewFindingsCommand,
@@ -478,6 +484,23 @@ export interface AccessAnalyzer {
     args: GetFindingRecommendationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetFindingRecommendationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFindingsStatisticsCommand}
+   */
+  getFindingsStatistics(
+    args: GetFindingsStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFindingsStatisticsCommandOutput>;
+  getFindingsStatistics(
+    args: GetFindingsStatisticsCommandInput,
+    cb: (err: any, data?: GetFindingsStatisticsCommandOutput) => void
+  ): void;
+  getFindingsStatistics(
+    args: GetFindingsStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFindingsStatisticsCommandOutput) => void
   ): void;
 
   /**

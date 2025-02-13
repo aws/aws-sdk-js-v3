@@ -3308,6 +3308,231 @@ export interface GetFindingRecommendationResponse {
 /**
  * @public
  */
+export interface GetFindingsStatisticsRequest {
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
+   *             the analyzer</a> used to generate the statistics.</p>
+   * @public
+   */
+  analyzerArn: string | undefined;
+}
+
+/**
+ * <p>Contains information about the total number of active cross-account and public findings
+ *          for a resource type of an external access analyzer.</p>
+ * @public
+ */
+export interface ResourceTypeDetails {
+  /**
+   * <p>The total number of active public findings for the resource type.</p>
+   * @public
+   */
+  totalActivePublic?: number | undefined;
+
+  /**
+   * <p>The total number of active cross-account findings for the resource type.</p>
+   * @public
+   */
+  totalActiveCrossAccount?: number | undefined;
+}
+
+/**
+ * <p>Provides aggregate statistics about the findings for the specified external access
+ *          analyzer.</p>
+ * @public
+ */
+export interface ExternalAccessFindingsStatistics {
+  /**
+   * <p>The total number of active cross-account and public findings for each resource type of
+   *          the specified external access analyzer.</p>
+   * @public
+   */
+  resourceTypeStatistics?: Partial<Record<ResourceType, ResourceTypeDetails>> | undefined;
+
+  /**
+   * <p>The number of active findings for the specified external access analyzer.</p>
+   * @public
+   */
+  totalActiveFindings?: number | undefined;
+
+  /**
+   * <p>The number of archived findings for the specified external access analyzer.</p>
+   * @public
+   */
+  totalArchivedFindings?: number | undefined;
+
+  /**
+   * <p>The number of resolved findings for the specified external access analyzer.</p>
+   * @public
+   */
+  totalResolvedFindings?: number | undefined;
+}
+
+/**
+ * <p>Contains information about the findings for an Amazon Web Services account in an organization unused
+ *          access analyzer.</p>
+ * @public
+ */
+export interface FindingAggregationAccountDetails {
+  /**
+   * <p>The ID of the Amazon Web Services account for which unused access finding details are provided.</p>
+   * @public
+   */
+  account?: string | undefined;
+
+  /**
+   * <p>The number of active unused access findings for the specified Amazon Web Services account.</p>
+   * @public
+   */
+  numberOfActiveFindings?: number | undefined;
+
+  /**
+   * <p>Provides the number of active findings for each type of unused access for the specified
+   *          Amazon Web Services account.</p>
+   * @public
+   */
+  details?: Record<string, number> | undefined;
+}
+
+/**
+ * <p>Contains information about the total number of findings for a type of unused
+ *          access.</p>
+ * @public
+ */
+export interface UnusedAccessTypeStatistics {
+  /**
+   * <p>The type of unused access.</p>
+   * @public
+   */
+  unusedAccessType?: string | undefined;
+
+  /**
+   * <p>The total number of findings for the specified unused access type.</p>
+   * @public
+   */
+  total?: number | undefined;
+}
+
+/**
+ * <p>Provides aggregate statistics about the findings for the specified unused access
+ *          analyzer.</p>
+ * @public
+ */
+export interface UnusedAccessFindingsStatistics {
+  /**
+   * <p>A list of details about the total number of findings for each type of unused access for
+   *          the analyzer. </p>
+   * @public
+   */
+  unusedAccessTypeStatistics?: UnusedAccessTypeStatistics[] | undefined;
+
+  /**
+   * <p>A list of one to ten Amazon Web Services accounts that have the most active findings for the unused
+   *          access analyzer.</p>
+   * @public
+   */
+  topAccounts?: FindingAggregationAccountDetails[] | undefined;
+
+  /**
+   * <p>The total number of active findings for the unused access analyzer.</p>
+   * @public
+   */
+  totalActiveFindings?: number | undefined;
+
+  /**
+   * <p>The total number of archived findings for the unused access analyzer.</p>
+   * @public
+   */
+  totalArchivedFindings?: number | undefined;
+
+  /**
+   * <p>The total number of resolved findings for the unused access analyzer.</p>
+   * @public
+   */
+  totalResolvedFindings?: number | undefined;
+}
+
+/**
+ * <p>Contains information about the aggregate statistics for an external or unused access
+ *          analyzer. Only one parameter can be used in a <code>FindingsStatistics</code>
+ *          object.</p>
+ * @public
+ */
+export type FindingsStatistics =
+  | FindingsStatistics.ExternalAccessFindingsStatisticsMember
+  | FindingsStatistics.UnusedAccessFindingsStatisticsMember
+  | FindingsStatistics.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FindingsStatistics {
+  /**
+   * <p>The aggregate statistics for an external access analyzer.</p>
+   * @public
+   */
+  export interface ExternalAccessFindingsStatisticsMember {
+    externalAccessFindingsStatistics: ExternalAccessFindingsStatistics;
+    unusedAccessFindingsStatistics?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The aggregate statistics for an unused access analyzer.</p>
+   * @public
+   */
+  export interface UnusedAccessFindingsStatisticsMember {
+    externalAccessFindingsStatistics?: never;
+    unusedAccessFindingsStatistics: UnusedAccessFindingsStatistics;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    externalAccessFindingsStatistics?: never;
+    unusedAccessFindingsStatistics?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    externalAccessFindingsStatistics: (value: ExternalAccessFindingsStatistics) => T;
+    unusedAccessFindingsStatistics: (value: UnusedAccessFindingsStatistics) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FindingsStatistics, visitor: Visitor<T>): T => {
+    if (value.externalAccessFindingsStatistics !== undefined)
+      return visitor.externalAccessFindingsStatistics(value.externalAccessFindingsStatistics);
+    if (value.unusedAccessFindingsStatistics !== undefined)
+      return visitor.unusedAccessFindingsStatistics(value.unusedAccessFindingsStatistics);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface GetFindingsStatisticsResponse {
+  /**
+   * <p>A group of external access or unused access findings statistics.</p>
+   * @public
+   */
+  findingsStatistics?: FindingsStatistics[] | undefined;
+
+  /**
+   * <p>The time at which the retrieval of the findings statistics was last updated. If the
+   *          findings statistics have not been previously retrieved for the specified analyzer, this
+   *          field will not be populated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetFindingV2Request {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of

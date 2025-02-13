@@ -364,6 +364,14 @@ GetFindingRecommendation
 </details>
 <details>
 <summary>
+GetFindingsStatistics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/GetFindingsStatisticsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetFindingsStatisticsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetFindingsStatisticsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetFindingV2
 </summary>
 
