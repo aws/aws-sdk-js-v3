@@ -20,27 +20,20 @@ const adjacentSmithyPkgs = fs.readdirSync(smithyPackages);
     if (!fs.existsSync(path.join(smithyPackages, smithyPkg, "dist-cjs"))) {
       continue;
     }
-    await Promise.all([
-      spawnProcess("cp", [
-        "-r",
-        path.join(smithyPackages, smithyPkg, "dist-cjs"),
-        path.join(node_modules, "@smithy", smithyPkg),
-      ]),
-      spawnProcess("cp", [
-        "-r",
-        path.join(smithyPackages, smithyPkg, "dist-types"),
-        path.join(node_modules, "@smithy", smithyPkg),
-      ]),
-      spawnProcess("cp", [
-        "-r",
-        path.join(smithyPackages, smithyPkg, "dist-es"),
-        path.join(node_modules, "@smithy", smithyPkg),
-      ]),
-      spawnProcess("cp", [
-        "-r",
+
+    const operations = [
+      [path.join(smithyPackages, smithyPkg, "dist-cjs"), path.join(node_modules, "@smithy", smithyPkg, "dist-cjs")],
+      [path.join(smithyPackages, smithyPkg, "dist-types"), path.join(node_modules, "@smithy", smithyPkg, "dist-types")],
+      [path.join(smithyPackages, smithyPkg, "dist-es"), path.join(node_modules, "@smithy", smithyPkg, "dist-es")],
+      [
         path.join(smithyPackages, smithyPkg, "package.json"),
-        path.join(node_modules, "@smithy", smithyPkg),
-      ]),
-    ]);
+        path.join(node_modules, "@smithy", smithyPkg, "package.json"),
+      ],
+    ];
+
+    for (const [from, to] of operations) {
+      fs.cpSync(from, to, { recursive: true, force: true, errorOnExist: false });
+    }
+    process.stdout.write(".");
   }
 })();
