@@ -66,4 +66,9 @@ export interface PreviouslyResolved {
    * Collects streams into buffers.
    */
   streamCollector: StreamCollector;
+
+  /**
+   * Minimum bytes from a stream to buffer into a chunk before passing to chunked encoding.
+   */
+  requestStreamBufferSize: number;
 }
