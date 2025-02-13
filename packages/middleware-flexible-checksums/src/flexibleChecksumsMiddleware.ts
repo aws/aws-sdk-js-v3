@@ -9,6 +9,7 @@ import {
   HandlerExecutionContext,
   MetadataBearer,
 } from "@smithy/types";
+import { createBufferedReadable } from "@smithy/util-stream";
 
 import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm, DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation } from "./constants";
@@ -119,13 +120,18 @@ export const flexibleChecksumsMiddleware =
       const checksumAlgorithmFn = selectChecksumAlgorithmFunction(checksumAlgorithm, config);
       if (isStreaming(requestBody)) {
         const { getAwsChunkedEncodingStream, bodyLengthChecker } = config;
-        updatedBody = getAwsChunkedEncodingStream(requestBody, {
-          base64Encoder,
-          bodyLengthChecker,
-          checksumLocationName,
-          checksumAlgorithmFn,
-          streamHasher,
-        });
+        updatedBody = getAwsChunkedEncodingStream(
+          typeof config.requestStreamBufferSize === "number" && config.requestStreamBufferSize >= 8 * 1024
+            ? createBufferedReadable(requestBody, config.requestStreamBufferSize, context.logger)
+            : requestBody,
+          {
+            base64Encoder,
+            bodyLengthChecker,
+            checksumLocationName,
+            checksumAlgorithmFn,
+            streamHasher,
+          }
+        );
         updatedHeaders = {
           ...headers,
           "content-encoding": headers["content-encoding"]
