@@ -65,6 +65,7 @@ import {
 } from "./commands/AssociateFileSystemCommand";
 import { AttachVolumeCommandInput, AttachVolumeCommandOutput } from "./commands/AttachVolumeCommand";
 import { CancelArchivalCommandInput, CancelArchivalCommandOutput } from "./commands/CancelArchivalCommand";
+import { CancelCacheReportCommandInput, CancelCacheReportCommandOutput } from "./commands/CancelCacheReportCommand";
 import { CancelRetrievalCommandInput, CancelRetrievalCommandOutput } from "./commands/CancelRetrievalCommand";
 import {
   CreateCachediSCSIVolumeCommandInput,
@@ -95,6 +96,7 @@ import {
   DeleteBandwidthRateLimitCommandInput,
   DeleteBandwidthRateLimitCommandOutput,
 } from "./commands/DeleteBandwidthRateLimitCommand";
+import { DeleteCacheReportCommandInput, DeleteCacheReportCommandOutput } from "./commands/DeleteCacheReportCommand";
 import {
   DeleteChapCredentialsCommandInput,
   DeleteChapCredentialsCommandOutput,
@@ -126,6 +128,10 @@ import {
   DescribeCachediSCSIVolumesCommandInput,
   DescribeCachediSCSIVolumesCommandOutput,
 } from "./commands/DescribeCachediSCSIVolumesCommand";
+import {
+  DescribeCacheReportCommandInput,
+  DescribeCacheReportCommandOutput,
+} from "./commands/DescribeCacheReportCommand";
 import {
   DescribeChapCredentialsCommandInput,
   DescribeChapCredentialsCommandOutput,
@@ -191,6 +197,7 @@ import {
   ListAutomaticTapeCreationPoliciesCommandInput,
   ListAutomaticTapeCreationPoliciesCommandOutput,
 } from "./commands/ListAutomaticTapeCreationPoliciesCommand";
+import { ListCacheReportsCommandInput, ListCacheReportsCommandOutput } from "./commands/ListCacheReportsCommand";
 import { ListFileSharesCommandInput, ListFileSharesCommandOutput } from "./commands/ListFileSharesCommand";
 import {
   ListFileSystemAssociationsCommandInput,
@@ -241,6 +248,7 @@ import {
   StartAvailabilityMonitorTestCommandInput,
   StartAvailabilityMonitorTestCommandOutput,
 } from "./commands/StartAvailabilityMonitorTestCommand";
+import { StartCacheReportCommandInput, StartCacheReportCommandOutput } from "./commands/StartCacheReportCommand";
 import { StartGatewayCommandInput, StartGatewayCommandOutput } from "./commands/StartGatewayCommand";
 import {
   UpdateAutomaticTapeCreationPolicyCommandInput,
@@ -320,6 +328,7 @@ export type ServiceInputTypes =
   | AssociateFileSystemCommandInput
   | AttachVolumeCommandInput
   | CancelArchivalCommandInput
+  | CancelCacheReportCommandInput
   | CancelRetrievalCommandInput
   | CreateCachediSCSIVolumeCommandInput
   | CreateNFSFileShareCommandInput
@@ -332,6 +341,7 @@ export type ServiceInputTypes =
   | CreateTapesCommandInput
   | DeleteAutomaticTapeCreationPolicyCommandInput
   | DeleteBandwidthRateLimitCommandInput
+  | DeleteCacheReportCommandInput
   | DeleteChapCredentialsCommandInput
   | DeleteFileShareCommandInput
   | DeleteGatewayCommandInput
@@ -344,6 +354,7 @@ export type ServiceInputTypes =
   | DescribeBandwidthRateLimitCommandInput
   | DescribeBandwidthRateLimitScheduleCommandInput
   | DescribeCacheCommandInput
+  | DescribeCacheReportCommandInput
   | DescribeCachediSCSIVolumesCommandInput
   | DescribeChapCredentialsCommandInput
   | DescribeFileSystemAssociationsCommandInput
@@ -365,6 +376,7 @@ export type ServiceInputTypes =
   | DisassociateFileSystemCommandInput
   | JoinDomainCommandInput
   | ListAutomaticTapeCreationPoliciesCommandInput
+  | ListCacheReportsCommandInput
   | ListFileSharesCommandInput
   | ListFileSystemAssociationsCommandInput
   | ListGatewaysCommandInput
@@ -385,6 +397,7 @@ export type ServiceInputTypes =
   | SetSMBGuestPasswordCommandInput
   | ShutdownGatewayCommandInput
   | StartAvailabilityMonitorTestCommandInput
+  | StartCacheReportCommandInput
   | StartGatewayCommandInput
   | UpdateAutomaticTapeCreationPolicyCommandInput
   | UpdateBandwidthRateLimitCommandInput
@@ -415,6 +428,7 @@ export type ServiceOutputTypes =
   | AssociateFileSystemCommandOutput
   | AttachVolumeCommandOutput
   | CancelArchivalCommandOutput
+  | CancelCacheReportCommandOutput
   | CancelRetrievalCommandOutput
   | CreateCachediSCSIVolumeCommandOutput
   | CreateNFSFileShareCommandOutput
@@ -427,6 +441,7 @@ export type ServiceOutputTypes =
   | CreateTapesCommandOutput
   | DeleteAutomaticTapeCreationPolicyCommandOutput
   | DeleteBandwidthRateLimitCommandOutput
+  | DeleteCacheReportCommandOutput
   | DeleteChapCredentialsCommandOutput
   | DeleteFileShareCommandOutput
   | DeleteGatewayCommandOutput
@@ -439,6 +454,7 @@ export type ServiceOutputTypes =
   | DescribeBandwidthRateLimitCommandOutput
   | DescribeBandwidthRateLimitScheduleCommandOutput
   | DescribeCacheCommandOutput
+  | DescribeCacheReportCommandOutput
   | DescribeCachediSCSIVolumesCommandOutput
   | DescribeChapCredentialsCommandOutput
   | DescribeFileSystemAssociationsCommandOutput
@@ -460,6 +476,7 @@ export type ServiceOutputTypes =
   | DisassociateFileSystemCommandOutput
   | JoinDomainCommandOutput
   | ListAutomaticTapeCreationPoliciesCommandOutput
+  | ListCacheReportsCommandOutput
   | ListFileSharesCommandOutput
   | ListFileSystemAssociationsCommandOutput
   | ListGatewaysCommandOutput
@@ -480,6 +497,7 @@ export type ServiceOutputTypes =
   | SetSMBGuestPasswordCommandOutput
   | ShutdownGatewayCommandOutput
   | StartAvailabilityMonitorTestCommandOutput
+  | StartCacheReportCommandOutput
   | StartGatewayCommandOutput
   | UpdateAutomaticTapeCreationPolicyCommandOutput
   | UpdateBandwidthRateLimitCommandOutput

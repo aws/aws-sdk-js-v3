@@ -1048,6 +1048,160 @@ export interface CachediSCSIVolume {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const CacheReportFilterName = {
+  UploadFailureReason: "UploadFailureReason",
+  UploadState: "UploadState",
+} as const;
+
+/**
+ * @public
+ */
+export type CacheReportFilterName = (typeof CacheReportFilterName)[keyof typeof CacheReportFilterName];
+
+/**
+ * <p>A list of filter parameters and associated values that determine which files are
+ *          included or excluded from a cache report created by a <code>StartCacheReport</code>
+ *          request. Multiple instances of the same filter parameter are combined with an OR operation,
+ *          while different parameters are combined with an AND operation.</p>
+ * @public
+ */
+export interface CacheReportFilter {
+  /**
+   * <p>The parameter name for a filter that determines which files are included or excluded
+   *          from a cache report.</p>
+   *          <p>
+   *             <b>Valid Names:</b>
+   *          </p>
+   *          <p>UploadFailureReason | UploadState</p>
+   * @public
+   */
+  Name: CacheReportFilterName | undefined;
+
+  /**
+   * <p>The parameter value for a filter that determines which files are included or excluded
+   *          from a cache report.</p>
+   *          <p>
+   *             <b>Valid <code>UploadFailureReason</code> Values:</b>
+   *          </p>
+   *          <p>
+   *             <code>InaccessibleStorageClass</code> | <code>InvalidObjectState</code> |
+   *             <code>ObjectMissing</code> | <code>S3AccessDenied</code>
+   *          </p>
+   *          <p>
+   *             <b>Valid <code>UploadState</code> Values:</b>
+   *          </p>
+   *          <p>
+   *             <code>FailingUpload</code>
+   *          </p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CacheReportStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  ERROR: "ERROR",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type CacheReportStatus = (typeof CacheReportStatus)[keyof typeof CacheReportStatus];
+
+/**
+ * <p>Contains all informational fields associated with a cache report. Includes name, ARN,
+ *          tags, status, progress, filters, start time, and end time.</p>
+ * @public
+ */
+export interface CacheReportInfo {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cache report you want to describe.</p>
+   * @public
+   */
+  CacheReportARN?: string | undefined;
+
+  /**
+   * <p>The status of the specified cache report.</p>
+   * @public
+   */
+  CacheReportStatus?: CacheReportStatus | undefined;
+
+  /**
+   * <p>The percentage of the report generation process that has been completed at time of
+   *          inquiry.</p>
+   * @public
+   */
+  ReportCompletionPercent?: number | undefined;
+
+  /**
+   * <p>The time at which the gateway stopped generating the cache report.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that an S3 File Gateway assumes when it accesses the underlying
+   *          storage.</p>
+   * @public
+   */
+  Role?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the file share.</p>
+   * @public
+   */
+  FileShareARN?: string | undefined;
+
+  /**
+   * <p>The ARN of the Amazon S3 bucket location where the cache report is saved.</p>
+   * @public
+   */
+  LocationARN?: string | undefined;
+
+  /**
+   * <p>The time at which the gateway started generating the cache report.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The list of filters and parameters that determine which files are included in the
+   *          report.</p>
+   * @public
+   */
+  InclusionFilters?: CacheReportFilter[] | undefined;
+
+  /**
+   * <p>The list of filters and parameters that determine which files are excluded from the
+   *          report.</p>
+   * @public
+   */
+  ExclusionFilters?: CacheReportFilter[] | undefined;
+
+  /**
+   * <p>The file name of the completed cache report object stored in Amazon S3.</p>
+   * @public
+   */
+  ReportName?: string | undefined;
+
+  /**
+   * <p>The list of key/value tags associated with the report.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
  * <p>CancelArchivalInput</p>
  * @public
  */
@@ -1078,6 +1232,28 @@ export interface CancelArchivalOutput {
    * @public
    */
   TapeARN?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelCacheReportInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cache report you want to cancel.</p>
+   * @public
+   */
+  CacheReportARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelCacheReportOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cache report you want to cancel.</p>
+   * @public
+   */
+  CacheReportARN?: string | undefined;
 }
 
 /**
@@ -2631,6 +2807,28 @@ export interface DeleteBandwidthRateLimitOutput {
 }
 
 /**
+ * @public
+ */
+export interface DeleteCacheReportInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cache report you want to delete.</p>
+   * @public
+   */
+  CacheReportARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCacheReportOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cache report you want to delete.</p>
+   * @public
+   */
+  CacheReportARN?: string | undefined;
+}
+
+/**
  * <p>A JSON object containing one or more of the following fields:</p>
  *          <ul>
  *             <li>
@@ -3085,6 +3283,29 @@ export interface DescribeCachediSCSIVolumesOutput {
    * @public
    */
   CachediSCSIVolumes?: CachediSCSIVolume[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCacheReportInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cache report you want to describe.</p>
+   * @public
+   */
+  CacheReportARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCacheReportOutput {
+  /**
+   * <p>Contains all informational fields associated with a cache report. Includes name, ARN,
+   *          tags, status, progress, filters, start time, and end time.</p>
+   * @public
+   */
+  CacheReportInfo?: CacheReportInfo | undefined;
 }
 
 /**
@@ -4369,6 +4590,11 @@ export interface DescribeSMBSettingsOutput {
   /**
    * <p>Indicates the status of a gateway that is a member of the Active Directory
    *          domain.</p>
+   *          <note>
+   *             <p>This field is only used as part of a <code>JoinDomain</code> request. It is not
+   *             affected by Active Directory connectivity changes that occur after the
+   *                <code>JoinDomain</code> request succeeds.</p>
+   *          </note>
    *          <ul>
    *             <li>
    *                <p>
@@ -5781,6 +6007,11 @@ export interface JoinDomainOutput {
 
   /**
    * <p>Indicates the status of the gateway as a member of the Active Directory domain.</p>
+   *          <note>
+   *             <p>This field is only used as part of a <code>JoinDomain</code> request. It is not
+   *             affected by Active Directory connectivity changes that occur after the
+   *                <code>JoinDomain</code> request succeeds.</p>
+   *          </note>
    *          <ul>
    *             <li>
    *                <p>
@@ -5845,6 +6076,39 @@ export interface ListAutomaticTapeCreationPoliciesOutput {
    * @public
    */
   AutomaticTapeCreationPolicyInfos?: AutomaticTapeCreationPolicyInfo[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCacheReportsInput {
+  /**
+   * <p>Opaque pagination token returned from a previous <code>ListCacheReports</code>
+   *          operation. If present, <code>Marker</code> specifies where to continue the list from after
+   *          a previous call to <code>ListCacheReports</code>. Optional.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCacheReportsOutput {
+  /**
+   * <p>A list of existing cache reports for all file shares associated with your Amazon Web Services account. This list includes all information provided by the
+   *             <code>DescribeCacheReport</code> action, such as report status, completion progress,
+   *          start time, end time, filters, and tags.</p>
+   * @public
+   */
+  CacheReportList?: CacheReportInfo[] | undefined;
+
+  /**
+   * <p>If the request includes <code>Marker</code>, the response returns that value in this
+   *          field.</p>
+   * @public
+   */
+  Marker?: string | undefined;
 }
 
 /**
@@ -6891,6 +7155,91 @@ export interface StartAvailabilityMonitorTestOutput {
    * @public
    */
   GatewayARN?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartCacheReportInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the file share.</p>
+   * @public
+   */
+  FileShareARN: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role used when saving the cache report to Amazon S3.</p>
+   * @public
+   */
+  Role: string | undefined;
+
+  /**
+   * <p>The ARN of the Amazon S3 bucket where the cache report will be saved.</p>
+   *          <note>
+   *             <p>We do not recommend saving the cache report to the same Amazon S3 bucket for
+   *             which you are generating the report.</p>
+   *             <p>This field does not accept access point ARNs.</p>
+   *          </note>
+   * @public
+   */
+  LocationARN: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region of the Amazon S3 bucket associated with the file
+   *          share for which you want to generate the cache report.</p>
+   * @public
+   */
+  BucketRegion: string | undefined;
+
+  /**
+   * <p>The DNS name of the VPC endpoint associated with the Amazon S3 where you want to
+   *          save the cache report. Optional.</p>
+   * @public
+   */
+  VPCEndpointDNSName?: string | undefined;
+
+  /**
+   * <p>The list of filters and parameters that determine which files are included in the
+   *          report. You must specify at least one value for <code>InclusionFilters</code> or
+   *             <code>ExclusionFilters</code> in a <code>StartCacheReport</code> request.</p>
+   * @public
+   */
+  InclusionFilters?: CacheReportFilter[] | undefined;
+
+  /**
+   * <p>The list of filters and parameters that determine which files are excluded from the
+   *          report. You must specify at least one value for <code>InclusionFilters</code> or
+   *             <code>ExclusionFilters</code> in a <code>StartCacheReport</code> request.</p>
+   * @public
+   */
+  ExclusionFilters?: CacheReportFilter[] | undefined;
+
+  /**
+   * <p>A unique identifier that you use to ensure idempotent report generation if you need to
+   *          retry an unsuccessful <code>StartCacheReport</code> request. If you retry a request, use
+   *          the same <code>ClientToken</code> you specified in the initial request.</p>
+   * @public
+   */
+  ClientToken: string | undefined;
+
+  /**
+   * <p>A list of up to 50 key/value tags that you can assign to the cache report. Using tags
+   *          can help you categorize your reports and more easily locate them in search results.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartCacheReportOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cache report generated by the
+   *             <code>StartCacheReport</code> request.</p>
+   * @public
+   */
+  CacheReportARN?: string | undefined;
 }
 
 /**
