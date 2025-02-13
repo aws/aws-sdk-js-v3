@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.748.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.747.0...v3.748.0) (2025-02-13)
+
+
+### Features
+
+* **client-accessanalyzer:** This release introduces the getFindingsStatistics API, enabling users to retrieve aggregated finding statistics for IAM Access Analyzer's external access and unused access analysis features. Updated service API and documentation. ([18ecb88](https://github.com/aws/aws-sdk-js-v3/commit/18ecb8898c178c3b8f7f5209afaf115376bb46f1))
+
+
+
+
+
 # [3.744.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.743.0...v3.744.0) (2025-02-07)
 
 **Note:** Version bump only for package @aws-sdk/client-accessanalyzer

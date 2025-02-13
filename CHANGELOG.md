@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.748.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.747.0...v3.748.0) (2025-02-13)
+
+
+### Features
+
+* **client-accessanalyzer:** This release introduces the getFindingsStatistics API, enabling users to retrieve aggregated finding statistics for IAM Access Analyzer's external access and unused access analysis features. Updated service API and documentation. ([18ecb88](https://github.com/aws/aws-sdk-js-v3/commit/18ecb8898c178c3b8f7f5209afaf115376bb46f1))
+* **client-fis:** Adds auto-pagination for the following operations: ListActions, ListExperimentTemplates, ListTargetAccountConfigurations, ListExperiments, ListExperimentResolvedTargets, ListTargetResourceTypes. Reduces length constraints of prefixes for logConfiguration and experimentReportConfiguration. ([1d6b9e5](https://github.com/aws/aws-sdk-js-v3/commit/1d6b9e5e3b8e3c2f7eeac547f1d4fe6bc7c79b53))
+* **client-sagemaker:** Adds additional values to the InferenceAmiVersion parameter in the ProductionVariant data type. ([a068ee6](https://github.com/aws/aws-sdk-js-v3/commit/a068ee6ef8e690bbcdae678ae2663820226b1bf0))
+* **client-storage-gateway:** This release adds support for generating cache reports on S3 File Gateways for files that fail to upload. ([aeef69f](https://github.com/aws/aws-sdk-js-v3/commit/aeef69ff3188c2fb25f65c84d1d43c8cc60f7903))
+
+
+
+
+
 # [3.747.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.746.0...v3.747.0) (2025-02-12)
 
 

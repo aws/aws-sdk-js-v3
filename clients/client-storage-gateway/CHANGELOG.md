@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.748.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.747.0...v3.748.0) (2025-02-13)
+
+
+### Features
+
+* **client-storage-gateway:** This release adds support for generating cache reports on S3 File Gateways for files that fail to upload. ([aeef69f](https://github.com/aws/aws-sdk-js-v3/commit/aeef69ff3188c2fb25f65c84d1d43c8cc60f7903))
+
+
+
+
+
 # [3.744.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.743.0...v3.744.0) (2025-02-07)
 
 **Note:** Version bump only for package @aws-sdk/client-storage-gateway
