@@ -195,8 +195,14 @@ we have them listed in [UPGRADING.md](https://github.com/aws/aws-sdk-js-v3/blob/
 
 ### General Info
 
-The Lambda provided AWS SDK is set to a specific minor version, and **NOT** the latest version. To check the minor version used by Lambda, please refer to [Lambda runtimes doc page](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html).
-If you wish to use the latest / different version of the SDK from the one provided by lambda, we recommend that you [bundle and minify](https://aws.amazon.com/blogs/compute/optimizing-node-js-dependencies-in-aws-lambda/) your project, or [upload it as a Lambda layer](https://aws.amazon.com/blogs/compute/using-lambda-layers-to-simplify-your-development-process/).
+The Lambda provided AWS SDK is set to a specific minor version, and NOT the latest version. To 
+determine which version of the SDK is included with the runtime you're using, 
+see [Runtime-included SDK versions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-nodejs.html#nodejs-sdk-included) 
+in the Lambda Developer Guide. To maintain full control of your dependencies, and to maximize 
+backward compatibility during automatic runtime updates, we recommend that you always include 
+the SDK modules your code uses in your function's deployment package or in a Lambda  layer. 
+See [Backward compatibility](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-update-compatibility) 
+to learn more.
 
 The performance of the AWS SDK for JavaScript v3 on node 18 has improved from v2 as seen in the [performance benchmarking](https://aws.amazon.com/blogs/developer/reduce-lambda-cold-start-times-migrate-to-aws-sdk-for-javascript-v3/)
 
