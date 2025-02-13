@@ -96,7 +96,7 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  *       RoutingConfig: { // ProductionVariantRoutingConfig
  *         RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
  *       },
- *       InferenceAmiVersion: "al2-ami-sagemaker-inference-gpu-2",
+ *       InferenceAmiVersion: "al2-ami-sagemaker-inference-gpu-2" || "al2-ami-sagemaker-inference-gpu-2-1" || "al2-ami-sagemaker-inference-gpu-3-1",
  *     },
  *   ],
  *   DataCaptureConfig: { // DataCaptureConfig
@@ -209,7 +209,7 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  *       RoutingConfig: {
  *         RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
  *       },
- *       InferenceAmiVersion: "al2-ami-sagemaker-inference-gpu-2",
+ *       InferenceAmiVersion: "al2-ami-sagemaker-inference-gpu-2" || "al2-ami-sagemaker-inference-gpu-2-1" || "al2-ami-sagemaker-inference-gpu-3-1",
  *     },
  *   ],
  *   ExecutionRoleArn: "STRING_VALUE",

@@ -1243,10 +1243,9 @@ export type TrainingInputMode = (typeof TrainingInputMode)[keyof typeof Training
  * <p>Specifies the training algorithm to use in a <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> request.</p>
  *          <important>
  *             <p>SageMaker uses its own SageMaker account credentials to pull and access built-in algorithms
- *                 so built-in algorithms are universally accessible across all Amazon Web Services accounts. As a
- *                 result, built-in algorithms have standard, unrestricted access. You cannot restrict
- *                 built-in algorithms using IAM roles. Use custom algorithms if you require specific
- *                 access controls.</p>
+ *                 so built-in algorithms are universally accessible across all Amazon Web Services accounts. As a result, built-in algorithms have standard,
+ *                 unrestricted access. You cannot restrict built-in algorithms using IAM roles. Use
+ *                 custom algorithms if you require specific access controls.</p>
  *          </important>
  *          <p>For more information about algorithms provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For
  *             information about using your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
@@ -1607,10 +1606,10 @@ export interface S3DataSource {
    *          <p>If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object that
    *             is a manifest file containing a list of object keys that you want SageMaker to use for model
    *             training. </p>
-   *          <p>If you choose <code>AugmentedManifestFile</code>, <code>S3Uri</code> identifies an object that is
-   *             an augmented manifest file in JSON lines format. This file contains the data you want to
-   *             use for model training. <code>AugmentedManifestFile</code> can only be used if the
-   *             Channel's input mode is <code>Pipe</code>.</p>
+   *          <p>If you choose <code>AugmentedManifestFile</code>, <code>S3Uri</code> identifies an
+   *             object that is an augmented manifest file in JSON lines format. This file contains the
+   *             data you want to use for model training. <code>AugmentedManifestFile</code> can only be
+   *             used if the Channel's input mode is <code>Pipe</code>.</p>
    * @public
    */
   S3DataType: S3DataType | undefined;

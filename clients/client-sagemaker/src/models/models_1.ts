@@ -4358,6 +4358,8 @@ export interface ProductionVariantCoreDumpConfig {
  */
 export const ProductionVariantInferenceAmiVersion = {
   AL2_GPU_2: "al2-ami-sagemaker-inference-gpu-2",
+  AL2_GPU_2_1: "al2-ami-sagemaker-inference-gpu-2-1",
+  AL2_GPU_3_1: "al2-ami-sagemaker-inference-gpu-3-1",
 } as const;
 
 /**
@@ -4610,11 +4612,41 @@ export interface ProductionVariant {
    *                      <p>NVIDIA driver version: 535.54.03</p>
    *                   </li>
    *                   <li>
+   *                      <p>CUDA version: 12.2</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>al2-ami-sagemaker-inference-gpu-2-1</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>Accelerator: GPU</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>NVIDIA driver version: 535.54.03</p>
+   *                   </li>
+   *                   <li>
    *                      <p>CUDA driver version: 12.2</p>
    *                   </li>
    *                   <li>
-   *                      <p>Supported instance types: ml.g4dn.*, ml.g5.*, ml.g6.*, ml.p3.*,
-   *                                 ml.p4d.*, ml.p4de.*, ml.p5.*</p>
+   *                      <p>CUDA Container Toolkit with disabled CUDA-compat mounting</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>al2-ami-sagemaker-inference-gpu-3-1</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>Accelerator: GPU</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>NVIDIA driver version: 550.144.01</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>CUDA version: 12.4</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Container Toolkit with disabled CUDA-compat mounting</p>
    *                   </li>
    *                </ul>
    *             </dd>
