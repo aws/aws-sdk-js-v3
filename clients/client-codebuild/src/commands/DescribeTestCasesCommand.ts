@@ -60,6 +60,7 @@ export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput,
  * //       durationInNanoSeconds: Number("long"),
  * //       message: "STRING_VALUE",
  * //       expired: new Date("TIMESTAMP"),
+ * //       testSuiteName: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

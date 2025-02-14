@@ -3137,6 +3137,7 @@ const de_TestCase = (output: any, context: __SerdeContext): TestCase => {
     reportArn: __expectString,
     status: __expectString,
     testRawDataPath: __expectString,
+    testSuiteName: __expectString,
   }) as any;
 };
 

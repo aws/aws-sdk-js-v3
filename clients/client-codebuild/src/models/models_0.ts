@@ -6022,6 +6022,12 @@ export interface TestCase {
    * @public
    */
   expired?: Date | undefined;
+
+  /**
+   * <p>The name of the test suite that the test case is a part of.</p>
+   * @public
+   */
+  testSuiteName?: string | undefined;
 }
 
 /**
