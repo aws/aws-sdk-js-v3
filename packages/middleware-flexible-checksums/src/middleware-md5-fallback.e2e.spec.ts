@@ -1,4 +1,4 @@
-// packages/middleware-flexible-checksums/src/middleware-md5-fallback.e2e.spec.ts
+// see supplemental-docs/MD5_FALLBACK for more details
 import {
   CreateBucketCommand,
   DeleteBucketCommand,

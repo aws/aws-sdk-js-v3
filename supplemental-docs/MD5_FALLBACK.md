@@ -32,7 +32,7 @@ export function createS3ClientWithMD5() {
   client.middlewareStack.add(
     (next, context) => async (args) => {
       // Check if this is a DeleteObjects command
-      const isDeleteObjects = context.commandName === "DeleteObjects";
+      const isDeleteObjects = context.commandName === "DeleteObjectsCommand";
 
       if (!isDeleteObjects) {
         return next(args);
