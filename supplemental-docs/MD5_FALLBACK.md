@@ -30,8 +30,12 @@ export function createS3ClientWithMD5() {
         return next(args);
       }
 
-      // Remove any checksum headers
+      const result = await next(args);
+
+      // Modify the final request headers
       const headers = args.request.headers;
+
+      // Remove any checksum headers
       Object.keys(headers).forEach((header) => {
         if (
           header.toLowerCase().startsWith("x-amz-checksum-") ||
@@ -48,10 +52,10 @@ export function createS3ClientWithMD5() {
         headers["Content-MD5"] = md5Hash;
       }
 
-      return next(args);
+      return result;
     },
     {
-      step: "build",
+      step: "finalizeRequest", // Run after all other request modifications
       name: "addMD5Checksum",
     }
   );
@@ -92,14 +96,17 @@ try {
 The solution adds middleware to the S3 client that:
 
 1. Detects DeleteObjects operations
-2. Removes any checksum headers
-3. Calculates an MD5 hash of the request body (in the `build` step of the request lifecycle, as per the middleware implementation above)
-4. Adds the MD5 hash as a Content-MD5 header
+2. Lets the SDK add its default headers
+3. Removes any checksum headers in the finalizeRequest step
+4. Calculates an MD5 hash of the request body
+5. Adds the MD5 hash as a Content-MD5 header
+
+This sequence ensures that we properly replace the current checksums with the MD5 checksum.
 
 ## Usage Notes
 
 - The client can be configured with additional options as needed (region, credentials, etc.)
-- If your S3-compatible service supports the SDK's new checksum options or adds support in the future, you should use the standard S3 client instead
+- If your S3-compatible service supports the SDK's new checksum options or adds support in the future, you should use the standard S3 client instead.
 
 ## Debugging
 
