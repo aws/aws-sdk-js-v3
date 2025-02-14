@@ -13,7 +13,6 @@ describe("S3 MD5 Fallback for DeleteObjects", () => {
   let s3: S3;
   let Bucket: string;
   const testFiles = ["md5-test-1.txt", "md5-test-2.txt"];
-  const md5Hash = createHash("md5");
 
   beforeAll(async () => {
     s3 = new S3({ region: "us-west-2" });
@@ -76,7 +75,7 @@ describe("S3 MD5 Fallback for DeleteObjects", () => {
     md5S3Client.middlewareStack.add(
       (next, context) => async (args) => {
         // Check if this is a DeleteObjects command
-        const isDeleteObjects = context.commandName === "DeleteObjects";
+        const isDeleteObjects = context.commandName === "DeleteObjectsCommand";
 
         if (!isDeleteObjects) {
           return next(args);
@@ -99,7 +98,8 @@ describe("S3 MD5 Fallback for DeleteObjects", () => {
         // Add MD5
         if (args.request.body) {
           const bodyContent = Buffer.from(args.request.body);
-          headers["Content-MD5"] = md5Hash.update(bodyContent).digest("base64");
+          const md5Hash = createHash("md5").update(bodyContent).digest("base64");
+          headers["Content-MD5"] = md5Hash;
           md5Added = true;
         }
 
