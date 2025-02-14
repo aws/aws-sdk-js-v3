@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.749.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.748.0...v3.749.0) (2025-02-14)
+
+
+### Features
+
+* **client-codebuild:** Added test suite names to test case metadata ([a6db26e](https://github.com/aws/aws-sdk-js-v3/commit/a6db26e5799037d11e87c9723d40287ca26177f5))
+* **client-connect:** Release Notes: 1) Analytics API enhancements: Added new ListAnalyticsDataLakeDataSets API. 2)  Onboarding API Idempotency: Adds ClientToken to instance creation and management APIs to support idempotency. ([6fb2941](https://github.com/aws/aws-sdk-js-v3/commit/6fb29416735f6a0a4a30327fce2537e9e3b00a26))
+* **client-database-migration-service:** Introduces premigration assessment feature to DMS Serverless API for start-replication and describe-replications ([fd40a1f](https://github.com/aws/aws-sdk-js-v3/commit/fd40a1f66601f5f3a319dc484616be306061ded3))
+* **client-rds-data:** Add support for Stop DB feature. ([d356927](https://github.com/aws/aws-sdk-js-v3/commit/d35692793691c0036146e3186e79fc84ba4c23bf))
+* **client-s3:** Added support for Content-Range header in HeadObject response. ([5b15ad8](https://github.com/aws/aws-sdk-js-v3/commit/5b15ad8260c5d20adf77b35d1762982827c9266b))
+* **client-wafv2:** The WAFv2 API now supports configuring data protection in webACLs. ([04209f9](https://github.com/aws/aws-sdk-js-v3/commit/04209f983f4695550a0d6e4d70d2edf74dd5e19d))
+* **client-workspaces-thin-client:** Update Environment and Device name field definitions ([70549de](https://github.com/aws/aws-sdk-js-v3/commit/70549deb5033f50acdf49ab5cf6815ae7da54b9d))
+
+
+
+
+
 # [3.748.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.747.0...v3.748.0) (2025-02-13)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.749.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.748.0...v3.749.0) (2025-02-14)
+
+
+### Features
+
+* **client-database-migration-service:** Introduces premigration assessment feature to DMS Serverless API for start-replication and describe-replications ([fd40a1f](https://github.com/aws/aws-sdk-js-v3/commit/fd40a1f66601f5f3a319dc484616be306061ded3))
+
+
+
+
+
 # [3.745.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.744.0...v3.745.0) (2025-02-10)
 
 

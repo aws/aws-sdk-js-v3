@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.749.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.748.0...v3.749.0) (2025-02-14)
+
+
+### Features
+
+* **client-connect:** Release Notes: 1) Analytics API enhancements: Added new ListAnalyticsDataLakeDataSets API. 2)  Onboarding API Idempotency: Adds ClientToken to instance creation and management APIs to support idempotency. ([6fb2941](https://github.com/aws/aws-sdk-js-v3/commit/6fb29416735f6a0a4a30327fce2537e9e3b00a26))
+
+
+
+
+
 # [3.745.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.744.0...v3.745.0) (2025-02-10)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

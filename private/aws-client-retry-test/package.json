@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-client-retry-test",
   "description": "Integration test suite for middleware-retry",
-  "version": "3.744.0",
+  "version": "3.749.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
