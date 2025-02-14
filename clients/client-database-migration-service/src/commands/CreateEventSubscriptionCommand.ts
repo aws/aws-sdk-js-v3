@@ -45,8 +45,7 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  *             <code>SourceIdentifier</code>, you will be notified of events generated from all DMS
  *          sources belonging to your customer account.</p>
  *          <p>For more information about DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events and
- *             Notifications</a> in the <i>Database Migration Service User
- *             Guide.</i>
+ *             Notifications</a> in the <i>Database Migration Service User Guide.</i>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -32,7 +32,8 @@ export interface DescribeInstanceProfilesCommandInput extends DescribeInstancePr
 export interface DescribeInstanceProfilesCommandOutput extends DescribeInstanceProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of instance profiles for your account in the current region.</p>
+ * <p>Returns a paginated list of instance profiles for your account in the current
+ *          region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

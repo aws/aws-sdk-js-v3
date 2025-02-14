@@ -37,8 +37,8 @@ export interface ExportMetadataModelAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Saves a copy of a database migration assessment report to your Amazon S3 bucket. DMS can save
- *          your assessment report as a comma-separated value (CSV) or a PDF file. </p>
+ * <p>Saves a copy of a database migration assessment report to your Amazon S3 bucket. DMS can
+ *          save your assessment report as a comma-separated value (CSV) or a PDF file. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -33,7 +33,8 @@ export interface StartMetadataModelImportCommandOutput extends StartMetadataMode
 
 /**
  * <p>Loads the metadata for all the dependent database objects of the parent object.</p>
- *          <p>This operation uses your project's Amazon S3 bucket as a metadata cache to improve performance.</p>
+ *          <p>This operation uses your project's Amazon S3 bucket as a metadata cache to improve
+ *          performance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

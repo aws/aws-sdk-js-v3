@@ -34,8 +34,8 @@ export interface ModifyInstanceProfileCommandOutput extends ModifyInstanceProfil
 /**
  * <p>Modifies the specified instance profile using the provided parameters.</p>
  *          <note>
- *             <p>All migration projects associated with the instance profile must be deleted
- *             or modified before you can modify the instance profile.</p>
+ *             <p>All migration projects associated with the instance profile must be deleted or
+ *             modified before you can modify the instance profile.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

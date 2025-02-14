@@ -43,11 +43,9 @@ export interface DescribeReplicationTaskAssessmentResultsCommandOutput
 
 /**
  * <p>Returns the task assessment results from the Amazon S3 bucket that DMS creates in your
- *           Amazon Web Services account.  This action always returns the
- *          latest results.</p>
- *          <p>For more information about DMS task assessments, see
- *            <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html">Creating a task assessment report</a>
- *            in the <i>Database Migration Service User Guide</i>.</p>
+ *          Amazon Web Services account. This action always returns the latest results.</p>
+ *          <p>For more information about DMS task assessments, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html">Creating a task assessment
+ *             report</a> in the <i>Database Migration Service User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -72,6 +72,30 @@ export interface DescribeReplicationsCommandOutput extends DescribeReplicationsR
  * //         DateNewProvisioningDataAvailable: new Date("TIMESTAMP"),
  * //         ReasonForNewProvisioningData: "STRING_VALUE",
  * //       },
+ * //       PremigrationAssessmentStatuses: [ // PremigrationAssessmentStatusList
+ * //         { // PremigrationAssessmentStatus
+ * //           PremigrationAssessmentRunArn: "STRING_VALUE",
+ * //           FailOnAssessmentFailure: true || false,
+ * //           Status: "STRING_VALUE",
+ * //           PremigrationAssessmentRunCreationDate: new Date("TIMESTAMP"),
+ * //           AssessmentProgress: { // ReplicationTaskAssessmentRunProgress
+ * //             IndividualAssessmentCount: Number("int"),
+ * //             IndividualAssessmentCompletedCount: Number("int"),
+ * //           },
+ * //           LastFailureMessage: "STRING_VALUE",
+ * //           ResultLocationBucket: "STRING_VALUE",
+ * //           ResultLocationFolder: "STRING_VALUE",
+ * //           ResultEncryptionMode: "STRING_VALUE",
+ * //           ResultKmsKeyArn: "STRING_VALUE",
+ * //           ResultStatistic: { // ReplicationTaskAssessmentRunResultStatistic
+ * //             Passed: Number("int"),
+ * //             Failed: Number("int"),
+ * //             Error: Number("int"),
+ * //             Warning: Number("int"),
+ * //             Cancelled: Number("int"),
+ * //           },
+ * //         },
+ * //       ],
  * //       StopReason: "STRING_VALUE",
  * //       FailureMessages: [ // StringList
  * //         "STRING_VALUE",

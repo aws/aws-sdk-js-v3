@@ -34,8 +34,7 @@ export interface DescribeEventCategoriesCommandOutput extends DescribeEventCateg
 /**
  * <p>Lists categories for all event source types, or, if specified, for a specified source
  *          type. You can see a list of the event categories and source types in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events
- *             and Notifications</a> in the <i>Database Migration Service User
- *             Guide.</i>
+ *             and Notifications</a> in the <i>Database Migration Service User Guide.</i>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

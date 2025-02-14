@@ -34,8 +34,7 @@ export interface MoveReplicationTaskCommandOutput extends MoveReplicationTaskRes
 /**
  * <p>Moves a replication task from its current replication instance to a different target
  *          replication instance using the specified parameters. The target replication instance must
- *          be created with the same or later DMS version as the current replication
- *          instance.</p>
+ *          be created with the same or later DMS version as the current replication instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

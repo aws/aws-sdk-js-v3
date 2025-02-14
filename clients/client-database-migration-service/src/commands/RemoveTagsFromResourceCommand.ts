@@ -32,12 +32,11 @@ export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResour
 export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes metadata tags from an DMS resource, including replication instance,
- *          endpoint, subnet group, and migration task. For more information, see
- *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
+ * <p>Removes metadata tags from an DMS resource, including replication instance, endpoint,
+ *          subnet group, and migration task. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
  *                <code>Tag</code>
- *             </a>
- *          data type description.</p>
+ *             </a> data type
+ *          description.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

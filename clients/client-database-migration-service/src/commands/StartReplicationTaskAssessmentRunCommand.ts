@@ -40,8 +40,8 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Starts a new premigration assessment run for one or more individual assessments
- *          of a migration task.</p>
+ * <p>Starts a new premigration assessment run for one or more individual assessments of a
+ *          migration task.</p>
  *          <p>The assessments that you can specify depend on the source and target database engine and
  *          the migration type defined for the given task. To run this operation, your migration task
  *          must already be created. After you run this operation, you can review the status of each

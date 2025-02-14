@@ -69,6 +69,38 @@ import {
 } from "./models_0";
 
 /**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationTaskIndividualAssessmentsMessage {
+  /**
+   * <p>Filters applied to the individual assessments described in the form of key-value
+   *          pairs.</p>
+   *          <p>Valid filter names: <code>replication-task-assessment-run-arn</code>,
+   *             <code>replication-task-arn</code>, <code>status</code>
+   *          </p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the
+   *          specified <code>MaxRecords</code> value, a pagination token called a marker is included in
+   *          the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
  * <p>Provides information that describes an individual assessment from a premigration
  *          assessment run.</p>
  * @public
@@ -433,8 +465,9 @@ export interface ImportCertificateMessage {
   CertificatePem?: string | undefined;
 
   /**
-   * <p>The location of an imported Oracle Wallet certificate for use with SSL. Provide the name of a <code>.sso</code> file
-   *           using the <code>fileb://</code> prefix. You can't provide the certificate inline.</p>
+   * <p>The location of an imported Oracle Wallet certificate for use with SSL. Provide the name
+   *          of a <code>.sso</code> file using the <code>fileb://</code> prefix. You can't provide the
+   *          certificate inline.</p>
    *          <p>Example: <code>filebase64("$\{path.root\}/rds-ca-2019-root.sso")</code>
    *          </p>
    * @public
@@ -589,13 +622,15 @@ export interface ModifyDataMigrationMessage {
   TargetDataSettings?: TargetDataSetting[] | undefined;
 
   /**
-   * <p>The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.</p>
+   * <p>The number of parallel jobs that trigger parallel threads to unload the tables from the
+   *          source, and then load them to the target.</p>
    * @public
    */
   NumberOfJobs?: number | undefined;
 
   /**
-   * <p>A JSON-formatted string that defines what objects to include and exclude from the migration.</p>
+   * <p>A JSON-formatted string that defines what objects to include and exclude from the
+   *          migration.</p>
    * @public
    */
   SelectionRules?: string | undefined;
@@ -700,20 +735,21 @@ export interface ModifyEndpointMessage {
   EndpointIdentifier?: string | undefined;
 
   /**
-   * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
+   * <p>The type of endpoint. Valid values are <code>source</code> and
+   *          <code>target</code>.</p>
    * @public
    */
   EndpointType?: ReplicationEndpointTypeValue | undefined;
 
   /**
    * <p>The database engine name. Valid values, depending on the EndpointType, include
-   *          <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>,
-   *          <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"db2-zos"</code>,
-   *          <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>,
-   *          <code>"mongodb"</code>, <code>"kinesis"</code>, <code>"kafka"</code>,
-   *          <code>"elasticsearch"</code>, <code>"documentdb"</code>, <code>"sqlserver"</code>,
-   *          <code>"neptune"</code>, and <code>"babelfish"</code>.</p>
+   *             <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
+   *             <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>,
+   *             <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"db2-zos"</code>,
+   *             <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>,
+   *             <code>"mongodb"</code>, <code>"kinesis"</code>, <code>"kafka"</code>,
+   *             <code>"elasticsearch"</code>, <code>"documentdb"</code>, <code>"sqlserver"</code>,
+   *             <code>"neptune"</code>, and <code>"babelfish"</code>.</p>
    * @public
    */
   EngineName?: string | undefined;
@@ -743,7 +779,8 @@ export interface ModifyEndpointMessage {
   Port?: number | undefined;
 
   /**
-   * <p>The name of the endpoint database. For a MySQL source or target endpoint, do not specify DatabaseName.</p>
+   * <p>The name of the endpoint database. For a MySQL source or target endpoint, do not specify
+   *          DatabaseName.</p>
    * @public
    */
   DatabaseName?: string | undefined;
@@ -762,14 +799,15 @@ export interface ModifyEndpointMessage {
   CertificateArn?: string | undefined;
 
   /**
-   * <p>The SSL mode used to connect to the endpoint.  The default value is <code>none</code>.</p>
+   * <p>The SSL mode used to connect to the endpoint. The default value is
+   *          <code>none</code>.</p>
    * @public
    */
   SslMode?: DmsSslModeValue | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) for the IAM role you want to use to modify
-   *          the endpoint. The role must allow the <code>iam:PassRole</code> action.</p>
+   * <p> The Amazon Resource Name (ARN) for the IAM role you want to use to modify the endpoint.
+   *          The role must allow the <code>iam:PassRole</code> action.</p>
    * @public
    */
   ServiceAccessRoleArn?: string | undefined;
@@ -781,10 +819,9 @@ export interface ModifyEndpointMessage {
   ExternalTableDefinition?: string | undefined;
 
   /**
-   * <p>Settings in JSON format for the target Amazon DynamoDB endpoint. For information about other
-   *             available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html#CHAP_Target.DynamoDB.ObjectMapping">Using Object Mapping to Migrate
-   *             Data to DynamoDB</a> in the <i>Database Migration Service User
-   *             Guide.</i>
+   * <p>Settings in JSON format for the target Amazon DynamoDB endpoint. For information about
+   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html#CHAP_Target.DynamoDB.ObjectMapping">Using Object Mapping to Migrate Data to DynamoDB</a> in the <i>Database Migration Service
+   *             User Guide.</i>
    *          </p>
    * @public
    */
@@ -792,7 +829,7 @@ export interface ModifyEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the target Amazon S3 endpoint. For more information about
-   *             the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring">Extra
+   *          the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring">Extra
    *             Connection Attributes When Using Amazon S3 as a Target for DMS</a> in the
    *             <i>Database Migration Service User Guide.</i>
    *          </p>
@@ -805,7 +842,8 @@ export interface ModifyEndpointMessage {
    *          <p>Attributes include the following:</p>
    *          <ul>
    *             <li>
-   *                <p>serviceAccessRoleArn - The Amazon Resource Name (ARN) used by the service access IAM role. The role must allow the <code>iam:PassRole</code> action.</p>
+   *                <p>serviceAccessRoleArn - The Amazon Resource Name (ARN) used by the service access
+   *                IAM role. The role must allow the <code>iam:PassRole</code> action.</p>
    *             </li>
    *             <li>
    *                <p>BucketName - The name of the S3 bucket to use.</p>
@@ -823,9 +861,8 @@ export interface ModifyEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the source MongoDB endpoint. For more information about the
-   *          available settings, see the configuration properties section in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html#CHAP_Source.MongoDB.Configuration">Endpoint configuration settings
-   *             when using MongoDB as a source for Database Migration Service</a> in the
-   *          <i>Database Migration Service User Guide.</i>
+   *          available settings, see the configuration properties section in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html#CHAP_Source.MongoDB.Configuration">Endpoint configuration settings when using MongoDB as a source for Database Migration Service</a> in
+   *          the <i>Database Migration Service User Guide.</i>
    *          </p>
    * @public
    */
@@ -833,8 +870,8 @@ export interface ModifyEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams. For
-   *          more information about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping">Using object mapping to
-   *             migrate data to a Kinesis data stream</a> in the <i>Database Migration Service User Guide.</i>
+   *          more information about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping">Using object mapping to migrate data to a Kinesis data stream</a> in the
+   *             <i>Database Migration Service User Guide.</i>
    *          </p>
    * @public
    */
@@ -842,17 +879,18 @@ export interface ModifyEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the target Apache Kafka endpoint. For more information about
-   *          the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html#CHAP_Target.Kafka.ObjectMapping">Using object mapping
-   *             to migrate data to a Kafka topic</a> in the <i>Database Migration Service User Guide.</i>
+   *          the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html#CHAP_Target.Kafka.ObjectMapping">Using
+   *             object mapping to migrate data to a Kafka topic</a> in the <i>Database Migration Service User
+   *             Guide.</i>
    *          </p>
    * @public
    */
   KafkaSettings?: KafkaSettings | undefined;
 
   /**
-   * <p>Settings in JSON format for the target OpenSearch endpoint. For more information
-   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration">Extra Connection Attributes When Using OpenSearch as a Target for DMS</a> in
-   *          the <i>Database Migration Service User Guide.</i>
+   * <p>Settings in JSON format for the target OpenSearch endpoint. For more
+   *          information about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration">Extra Connection Attributes When Using OpenSearch as a Target for
+   *             DMS</a> in the <i>Database Migration Service User Guide.</i>
    *          </p>
    * @public
    */
@@ -860,8 +898,8 @@ export interface ModifyEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the target Amazon Neptune endpoint. For more information
-   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.EndpointSettings">Specifying graph-mapping rules using Gremlin and R2RML for Amazon Neptune as a target</a>
-   *          in the <i>Database Migration Service User Guide.</i>
+   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.EndpointSettings">Specifying graph-mapping rules using Gremlin and R2RML for Amazon
+   *             Neptune as a target</a> in the <i>Database Migration Service User Guide.</i>
    *          </p>
    * @public
    */
@@ -875,9 +913,8 @@ export interface ModifyEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the source and target PostgreSQL endpoint. For information
-   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra connection
-   *             attributes when using PostgreSQL as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.PostgreSQL.html#CHAP_Target.PostgreSQL.ConnectionAttrib">
-   *             Extra connection attributes when using PostgreSQL as a target for DMS</a> in the
+   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra connection attributes when using PostgreSQL as a source for DMS</a> and
+   *             <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.PostgreSQL.html#CHAP_Target.PostgreSQL.ConnectionAttrib"> Extra connection attributes when using PostgreSQL as a target for DMS</a> in the
    *             <i>Database Migration Service User Guide.</i>
    *          </p>
    * @public
@@ -886,10 +923,8 @@ export interface ModifyEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the source and target MySQL endpoint. For information about
-   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.ConnectionAttrib">Extra connection
-   *             attributes when using MySQL as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.html#CHAP_Target.MySQL.ConnectionAttrib">Extra
-   *             connection attributes when using a MySQL-compatible database as a target for DMS</a> in the <i>Database Migration Service User
-   *          Guide.</i>
+   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.ConnectionAttrib">Extra connection attributes when using MySQL as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.html#CHAP_Target.MySQL.ConnectionAttrib">Extra connection attributes when using a MySQL-compatible database as a target for
+   *             DMS</a> in the <i>Database Migration Service User Guide.</i>
    *          </p>
    * @public
    */
@@ -897,8 +932,7 @@ export interface ModifyEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the source and target Oracle endpoint. For information about
-   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.ConnectionAttrib">Extra connection
-   *             attributes when using Oracle as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Oracle.html#CHAP_Target.Oracle.ConnectionAttrib">
+   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.ConnectionAttrib">Extra connection attributes when using Oracle as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Oracle.html#CHAP_Target.Oracle.ConnectionAttrib">
    *             Extra connection attributes when using Oracle as a target for DMS</a> in the
    *             <i>Database Migration Service User Guide.</i>
    *          </p>
@@ -908,10 +942,10 @@ export interface ModifyEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the source and target SAP ASE endpoint. For information
-   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.html#CHAP_Source.SAP.ConnectionAttrib">Extra connection attributes
-   *             when using SAP ASE as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SAP.html#CHAP_Target.SAP.ConnectionAttrib">Extra connection attributes
-   *             when using SAP ASE as a target for DMS</a> in the <i>Database Migration Service
-   *                 User Guide.</i>
+   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.html#CHAP_Source.SAP.ConnectionAttrib">Extra
+   *             connection attributes when using SAP ASE as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SAP.html#CHAP_Target.SAP.ConnectionAttrib">Extra
+   *             connection attributes when using SAP ASE as a target for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
    *          </p>
    * @public
    */
@@ -919,9 +953,8 @@ export interface ModifyEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the source and target Microsoft SQL Server endpoint. For
-   *          information about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.html#CHAP_Source.SQLServer.ConnectionAttrib">Extra connection
-   *             attributes when using SQL Server as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SQLServer.html#CHAP_Target.SQLServer.ConnectionAttrib">
-   *             Extra connection attributes when using SQL Server as a target for DMS</a> in the
+   *          information about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.html#CHAP_Source.SQLServer.ConnectionAttrib">Extra connection attributes when using SQL Server as a source for DMS</a> and
+   *             <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SQLServer.html#CHAP_Target.SQLServer.ConnectionAttrib"> Extra connection attributes when using SQL Server as a target for DMS</a> in the
    *             <i>Database Migration Service User Guide.</i>
    *          </p>
    * @public
@@ -930,19 +963,19 @@ export interface ModifyEndpointMessage {
 
   /**
    * <p>Settings in JSON format for the source IBM Db2 LUW endpoint. For information about other
-   *          available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DB2.html#CHAP_Source.DB2.ConnectionAttrib">Extra connection attributes
-   *             when using Db2 LUW as a source for DMS</a> in the <i>Database Migration Service
-   *                 User Guide.</i>
+   *          available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DB2.html#CHAP_Source.DB2.ConnectionAttrib">Extra
+   *             connection attributes when using Db2 LUW as a source for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
    *          </p>
    * @public
    */
   IBMDb2Settings?: IBMDb2Settings | undefined;
 
   /**
-   * <p>Settings in JSON format for the source DocumentDB endpoint. For more information about the
-   *          available settings, see the configuration properties section in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DocumentDB.html"> Using DocumentDB as a Target for Database Migration Service
-   *              </a> in the <i>Database Migration Service User
-   *                Guide.</i>
+   * <p>Settings in JSON format for the source DocumentDB endpoint. For more information about
+   *          the available settings, see the configuration properties section in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DocumentDB.html"> Using
+   *             DocumentDB as a Target for Database Migration Service </a> in the <i>Database Migration Service User
+   *             Guide.</i>
    *          </p>
    * @public
    */
@@ -960,12 +993,12 @@ export interface ModifyEndpointMessage {
    *          attribute is N, the current call to <code>ModifyEndpoint</code> does two things: </p>
    *          <ul>
    *             <li>
-   *                <p>It replaces any endpoint settings that already exist with new values, for settings with the
-   *                same names.</p>
+   *                <p>It replaces any endpoint settings that already exist with new values, for settings
+   *                with the same names.</p>
    *             </li>
    *             <li>
-   *                <p>It creates new endpoint settings that you specify in the call, for settings with different
-   *                names. </p>
+   *                <p>It creates new endpoint settings that you specify in the call, for settings with
+   *                different names. </p>
    *             </li>
    *          </ul>
    *          <p>For example, if you call <code>create-endpoint ... --endpoint-settings '\{"a":1\}'
@@ -1258,15 +1291,15 @@ export interface ModifyReplicationConfigMessage {
   ComputeConfig?: ComputeConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source endpoint for
-   *          this DMS serverless replication configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the source endpoint for this DMS serverless
+   *          replication configuration.</p>
    * @public
    */
   SourceEndpointArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the target endpoint for
-   *          this DMS serverless replication configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the target endpoint for this DMS serverless
+   *          replication configuration.</p>
    * @public
    */
   TargetEndpointArn?: string | undefined;
@@ -1310,11 +1343,11 @@ export interface ModifyReplicationInstanceMessage {
 
   /**
    * <p>The compute and memory capacity of the replication instance as defined for the specified
-   *          replication instance class. For example to specify the instance class dms.c4.large, set this parameter to <code>"dms.c4.large"</code>.</p>
-   *          <p>For more information on the settings and capacities for the available replication instance classes, see
-   *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth">
-   *             Selecting the right DMS replication instance for your migration</a>.
-   *       </p>
+   *          replication instance class. For example to specify the instance class dms.c4.large, set
+   *          this parameter to <code>"dms.c4.large"</code>.</p>
+   *          <p>For more information on the settings and capacities for the available replication
+   *          instance classes, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth"> Selecting the right DMS replication instance for your
+   *             migration</a>. </p>
    * @public
    */
   ReplicationInstanceClass?: string | undefined;
@@ -1341,8 +1374,8 @@ export interface ModifyReplicationInstanceMessage {
   PreferredMaintenanceWindow?: string | undefined;
 
   /**
-   * <p> Specifies whether the replication instance is a Multi-AZ deployment. You can't set the
-   *             <code>AvailabilityZone</code> parameter if the Multi-AZ parameter is set to
+   * <p> Specifies whether the replication instance is a Multi-AZ deployment. You can't set
+   *          the <code>AvailabilityZone</code> parameter if the Multi-AZ parameter is set to
    *             <code>true</code>. </p>
    * @public
    */
@@ -1351,7 +1384,7 @@ export interface ModifyReplicationInstanceMessage {
   /**
    * <p>The engine version number of the replication instance.</p>
    *          <p>When modifying a major engine version of an instance, also set
-   *          <code>AllowMajorVersionUpgrade</code> to <code>true</code>.</p>
+   *             <code>AllowMajorVersionUpgrade</code> to <code>true</code>.</p>
    * @public
    */
   EngineVersion?: string | undefined;
@@ -1395,15 +1428,16 @@ export interface ModifyReplicationInstanceMessage {
   ReplicationInstanceIdentifier?: string | undefined;
 
   /**
-   * <p>The type of IP address protocol used by a replication instance,
-   *          such as IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
-   *          IPv6 only is not yet supported.</p>
+   * <p>The type of IP address protocol used by a replication instance, such as IPv4 only or
+   *          Dual-stack that supports both IPv4 and IPv6 addressing. IPv6 only is not yet
+   *          supported.</p>
    * @public
    */
   NetworkType?: string | undefined;
 
   /**
-   * <p>Specifies the settings required for kerberos authentication when modifying a replication instance.</p>
+   * <p>Specifies the settings required for kerberos authentication when modifying a replication
+   *          instance.</p>
    * @public
    */
   KerberosAuthenticationSettings?: KerberosAuthenticationSettings | undefined;
@@ -1527,18 +1561,18 @@ export interface ModifyReplicationTaskMessage {
   ReplicationTaskIdentifier?: string | undefined;
 
   /**
-   * <p>The migration type. Valid values: <code>full-load</code> | <code>cdc</code> | <code>full-load-and-cdc</code>
+   * <p>The migration type. Valid values: <code>full-load</code> | <code>cdc</code> |
+   *             <code>full-load-and-cdc</code>
    *          </p>
    * @public
    */
   MigrationType?: MigrationTypeValue | undefined;
 
   /**
-   * <p>When using the CLI or boto3, provide the path of the JSON file that contains the
-   *          table mappings. Precede the path with <code>file://</code>.  For example,
-   *          <code>--table-mappings file://mappingfile.json</code>. When working with the DMS  API,
-   *          provide the JSON as the parameter value.
-   *     </p>
+   * <p>When using the CLI or boto3, provide the path of the JSON file that contains the table
+   *          mappings. Precede the path with <code>file://</code>. For example, <code>--table-mappings
+   *             file://mappingfile.json</code>. When working with the DMS API, provide the JSON as the
+   *          parameter value. </p>
    * @public
    */
   TableMappings?: string | undefined;
@@ -1588,9 +1622,9 @@ export interface ModifyReplicationTaskMessage {
   CdcStopPosition?: string | undefined;
 
   /**
-   * <p>Supplemental information that the task requires to migrate the data for certain source and target endpoints.
-   *             For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html">Specifying Supplemental Data for Task Settings</a> in the
-   *          <i>Database Migration Service User Guide.</i>
+   * <p>Supplemental information that the task requires to migrate the data for certain source
+   *          and target endpoints. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html">Specifying Supplemental Data for
+   *             Task Settings</a> in the <i>Database Migration Service User Guide.</i>
    *          </p>
    * @public
    */
@@ -1652,16 +1686,18 @@ export interface RebootReplicationInstanceMessage {
   /**
    * <p>If this parameter is <code>true</code>, the reboot is conducted through a Multi-AZ
    *          failover. If the instance isn't configured for Multi-AZ, then you can't specify
-   *          <code>true</code>.  ( <code>--force-planned-failover</code> and <code>--force-failover</code> can't both be set to <code>true</code>.)</p>
+   *             <code>true</code>. ( <code>--force-planned-failover</code> and
+   *             <code>--force-failover</code> can't both be set to <code>true</code>.)</p>
    * @public
    */
   ForceFailover?: boolean | undefined;
 
   /**
-   * <p>If this parameter is <code>true</code>, the reboot is conducted through a planned Multi-AZ failover
-   *          where resources are released and cleaned up prior to conducting the failover.
-   *          If the instance isn''t configured for Multi-AZ, then you can't specify <code>true</code>.
-   *          ( <code>--force-planned-failover</code> and <code>--force-failover</code> can't both be set to <code>true</code>.)</p>
+   * <p>If this parameter is <code>true</code>, the reboot is conducted through a planned
+   *          Multi-AZ failover where resources are released and cleaned up prior to conducting the
+   *          failover. If the instance isn''t configured for Multi-AZ, then you can't specify
+   *             <code>true</code>. ( <code>--force-planned-failover</code> and
+   *             <code>--force-failover</code> can't both be set to <code>true</code>.)</p>
    * @public
    */
   ForcePlannedFailover?: boolean | undefined;
@@ -1822,7 +1858,8 @@ export interface ReloadTablesResponse {
  */
 export interface RemoveTagsFromResourceMessage {
   /**
-   * <p>An DMS resource from which you want to remove tag(s). The value for this parameter is an Amazon Resource Name (ARN).</p>
+   * <p>An DMS resource from which you want to remove tag(s). The value for this parameter is
+   *          an Amazon Resource Name (ARN).</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -1885,7 +1922,8 @@ export interface StartDataMigrationMessage {
 
   /**
    * <p>Specifies the start type for the data migration. Valid values include
-   *          <code>start-replication</code>, <code>reload-target</code>, and <code>resume-processing</code>.</p>
+   *             <code>start-replication</code>, <code>reload-target</code>, and
+   *             <code>resume-processing</code>.</p>
    * @public
    */
   StartType: StartReplicationMigrationTypeValue | undefined;
@@ -2146,30 +2184,79 @@ export interface StartReplicationMessage {
 
   /**
    * <p>The replication type.</p>
-   *          <p>When the replication type is <code>full-load</code> or <code>full-load-and-cdc</code>, the only valid value
-   *          for the first run of the replication is <code>start-replication</code>. This option will start the replication.</p>
-   *          <p>You can also use <a>ReloadTables</a> to reload specific tables that failed during replication instead
-   *          of restarting the replication.</p>
+   *          <p>When the replication type is <code>full-load</code> or <code>full-load-and-cdc</code>,
+   *          the only valid value for the first run of the replication is
+   *          <code>start-replication</code>. This option will start the replication.</p>
+   *          <p>You can also use <a>ReloadTables</a> to reload specific tables that failed
+   *          during replication instead of restarting the replication.</p>
    *          <p>The <code>resume-processing</code> option isn't applicable for a full-load replication,
    *          because you can't resume partially loaded tables during the full load phase.</p>
-   *          <p>For a <code>full-load-and-cdc</code> replication, DMS migrates table data, and then applies data changes
-   *          that occur on the source. To load all the tables again, and start capturing source changes,
-   *          use <code>reload-target</code>. Otherwise use <code>resume-processing</code>, to replicate the
-   *          changes from the last stop position.</p>
+   *          <p>For a <code>full-load-and-cdc</code> replication, DMS migrates table data, and then
+   *          applies data changes that occur on the source. To load all the tables again, and start
+   *          capturing source changes, use <code>reload-target</code>. Otherwise use
+   *             <code>resume-processing</code>, to replicate the changes from the last stop
+   *          position.</p>
    * @public
    */
   StartReplicationType: string | undefined;
 
   /**
-   * <p>Indicates the start time for a change data capture (CDC) operation. Use either <code>CdcStartTime</code>
-   *          or <code>CdcStartPosition</code> to specify when you want a CDC operation to start. Specifying both values results in an error.</p>
+   * <p>User-defined settings for the premigration assessment. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ResultLocationFinder</code>: The folder within an Amazon Amazon S3 bucket where
+   *                you want DMS to store the results of this assessment run.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ResultEncryptionMode</code>: The supported values are <code>SSE_KMS</code>
+   *                and <code>SSE_S3</code>. If these values are not provided, then the files are not
+   *                encrypted at rest. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.KMSKeys">Creating
+   *                   Amazon Web Services KMS keys to encrypt Amazon Amazon S3 target objects</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ResultKmsKeyArn</code>: The ARN of a customer KMS encryption key that you
+   *                specify when you set <code>ResultEncryptionMode</code> to
+   *                <code>SSE_KMS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IncludeOnly</code>: A space-separated list of names for specific individual
+   *                assessments that you want to include. These names come from the default list of
+   *                individual assessments that Database Migration Service supports for the associated migration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Exclude</code>: A space-separated list of names for specific individual
+   *                assessments that you want to exclude. These names come from the default list of
+   *                individual assessments that Database Migration Service supports for the associated migration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FailOnAssessmentFailure</code>: A configurable setting you can set to
+   *                   <code>true</code> (the default setting) or <code>false</code>. Use this setting to
+   *                to stop the replication from starting automatically if the assessment fails. This can
+   *                help you evaluate the issue that is preventing the replication from running
+   *                successfully.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PremigrationAssessmentSettings?: string | undefined;
+
+  /**
+   * <p>Indicates the start time for a change data capture (CDC) operation. Use either
+   *             <code>CdcStartTime</code> or <code>CdcStartPosition</code> to specify when you want a
+   *          CDC operation to start. Specifying both values results in an error.</p>
    * @public
    */
   CdcStartTime?: Date | undefined;
 
   /**
    * <p>Indicates when you want a change data capture (CDC) operation to start. Use either
-   *          <code>CdcStartPosition</code> or <code>CdcStartTime</code> to specify when you want a
+   *             <code>CdcStartPosition</code> or <code>CdcStartTime</code> to specify when you want a
    *          CDC operation to start. Specifying both values results in an error.</p>
    *          <p>The value can be in date, checkpoint, or LSN/SCN format.</p>
    * @public
@@ -2225,16 +2312,18 @@ export interface StartReplicationTaskMessage {
 
   /**
    * <p>The type of replication task to start.</p>
-   *          <p>When the migration type is <code>full-load</code> or <code>full-load-and-cdc</code>, the only valid value
-   *            for the first run of the task is <code>start-replication</code>. This option will start the migration.</p>
-   *          <p>You can also use <a>ReloadTables</a> to reload specific tables that failed during migration instead
-   *          of restarting the task.</p>
-   *          <p>The <code>resume-processing</code> option isn't applicable for a full-load task,
-   *          because you can't resume partially loaded tables during the full load phase.</p>
-   *          <p>For a <code>full-load-and-cdc</code> task, DMS migrates table data, and then applies data changes
-   *          that occur on the source. To load all the tables again, and start capturing source changes,
-   *          use <code>reload-target</code>. Otherwise use <code>resume-processing</code>, to replicate the
-   *          changes from the last stop position.</p>
+   *          <p>When the migration type is <code>full-load</code> or <code>full-load-and-cdc</code>, the
+   *          only valid value for the first run of the task is <code>start-replication</code>. This
+   *          option will start the migration.</p>
+   *          <p>You can also use <a>ReloadTables</a> to reload specific tables that failed
+   *          during migration instead of restarting the task.</p>
+   *          <p>The <code>resume-processing</code> option isn't applicable for a full-load task, because
+   *          you can't resume partially loaded tables during the full load phase.</p>
+   *          <p>For a <code>full-load-and-cdc</code> task, DMS migrates table data, and then applies
+   *          data changes that occur on the source. To load all the tables again, and start capturing
+   *          source changes, use <code>reload-target</code>. Otherwise use
+   *             <code>resume-processing</code>, to replicate the changes from the last stop
+   *          position.</p>
    * @public
    */
   StartReplicationTaskType: StartReplicationTaskTypeValue | undefined;
@@ -2347,7 +2436,8 @@ export interface StartReplicationTaskAssessmentRunMessage {
   ReplicationTaskArn: string | undefined;
 
   /**
-   * <p>ARN of the service role needed to start the assessment run. The role must allow the <code>iam:PassRole</code> action.</p>
+   * <p>ARN of the service role needed to start the assessment run. The role must allow the
+   *             <code>iam:PassRole</code> action.</p>
    * @public
    */
   ServiceAccessRoleArn: string | undefined;
@@ -2360,8 +2450,8 @@ export interface StartReplicationTaskAssessmentRunMessage {
   ResultLocationBucket: string | undefined;
 
   /**
-   * <p>Folder within an Amazon S3 bucket where you want DMS to store the results of this assessment
-   *          run.</p>
+   * <p>Folder within an Amazon S3 bucket where you want DMS to store the results of this
+   *          assessment run.</p>
    * @public
    */
   ResultLocationFolder?: string | undefined;
@@ -2378,9 +2468,9 @@ export interface StartReplicationTaskAssessmentRunMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>"SSE_KMS"</code> – Key Management Service (KMS) encryption.
-   *                This encryption can use either a custom KMS encryption key that you specify or the
-   *                default KMS encryption key that DMS provides.</p>
+   *                   <code>"SSE_KMS"</code> – Key Management Service (KMS) encryption. This encryption can
+   *                use either a custom KMS encryption key that you specify or the default KMS encryption
+   *                key that DMS provides.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2407,11 +2497,12 @@ export interface StartReplicationTaskAssessmentRunMessage {
    *             <code>ReplicationTaskArn</code>.</p>
    *          <note>
    *             <p>You can't set a value for <code>IncludeOnly</code> if you also set a value for
-   *             <code>Exclude</code> in the API operation. </p>
-   *             <p>To identify the names of the default individual assessments that DMS
-   *             supports for the associated migration task, run the
-   *             <code>DescribeApplicableIndividualAssessments</code> operation using its own
-   *             <code>ReplicationTaskArn</code> request parameter.</p>
+   *                <code>Exclude</code> in the API operation.
+   *             </p>
+   *             <p>To identify the names of the default individual assessments that DMS supports for
+   *             the associated migration task, run the
+   *                <code>DescribeApplicableIndividualAssessments</code> operation using its own
+   *                <code>ReplicationTaskArn</code> request parameter.</p>
    *          </note>
    * @public
    */
@@ -2424,18 +2515,19 @@ export interface StartReplicationTaskAssessmentRunMessage {
    *             <code>ReplicationTaskArn</code>.</p>
    *          <note>
    *             <p>You can't set a value for <code>Exclude</code> if you also set a value for
-   *             <code>IncludeOnly</code> in the API operation.</p>
-   *             <p>To identify the names of the default individual assessments that DMS
-   *             supports for the associated migration task, run the
-   *             <code>DescribeApplicableIndividualAssessments</code> operation using its own
-   *             <code>ReplicationTaskArn</code> request parameter.</p>
+   *                <code>IncludeOnly</code> in the API operation.</p>
+   *             <p>To identify the names of the default individual assessments that DMS supports for
+   *             the associated migration task, run the
+   *                <code>DescribeApplicableIndividualAssessments</code> operation using its own
+   *                <code>ReplicationTaskArn</code> request parameter.</p>
    *          </note>
    * @public
    */
   Exclude?: string[] | undefined;
 
   /**
-   * <p>One or more tags to be assigned to the premigration assessment run that you want to start.</p>
+   * <p>One or more tags to be assigned to the premigration assessment run that you want to
+   *          start.</p>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -2558,11 +2650,9 @@ export interface TestConnectionResponse {
  */
 export interface UpdateSubscriptionsToEventBridgeMessage {
   /**
-   * <p>When set to true, this operation migrates DMS subscriptions for Amazon SNS
-   *          notifications no matter what your replication instance version is. If not set or set to
-   *          false, this operation runs only when all your replication instances are from DMS
-   *          version 3.4.5 or higher.
-   *       </p>
+   * <p>When set to true, this operation migrates DMS subscriptions for Amazon
+   *          SNS notifications no matter what your replication instance version is. If not set or set to
+   *          false, this operation runs only when all your replication instances are from DMS version 3.4.5 or higher. </p>
    * @public
    */
   ForceMove?: boolean | undefined;
@@ -2574,7 +2664,8 @@ export interface UpdateSubscriptionsToEventBridgeMessage {
  */
 export interface UpdateSubscriptionsToEventBridgeResponse {
   /**
-   * <p>A string that indicates how many event subscriptions were migrated and how many remain to be migrated.</p>
+   * <p>A string that indicates how many event subscriptions were migrated and how many remain
+   *          to be migrated.</p>
    * @public
    */
   Result?: string | undefined;

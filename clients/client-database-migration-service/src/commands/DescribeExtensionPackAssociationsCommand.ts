@@ -40,10 +40,9 @@ export interface DescribeExtensionPackAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of extension pack associations for the specified migration project.
- *          An extension pack is an add-on module
- *          that emulates functions present in a source database that are required when converting objects
- *          to the target database.</p>
+ * <p>Returns a paginated list of extension pack associations for the specified migration
+ *          project. An extension pack is an add-on module that emulates functions present in a source
+ *          database that are required when converting objects to the target database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

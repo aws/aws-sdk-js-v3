@@ -534,7 +534,6 @@ import {
   DescribeReplicationTaskAssessmentResultsResponse,
   DescribeReplicationTaskAssessmentRunsMessage,
   DescribeReplicationTaskAssessmentRunsResponse,
-  DescribeReplicationTaskIndividualAssessmentsMessage,
   DmsTransferSettings,
   DocDbDataProviderSettings,
   DocDbSettings,
@@ -576,6 +575,7 @@ import {
   PendingMaintenanceAction,
   PostgreSqlDataProviderSettings,
   PostgreSQLSettings,
+  PremigrationAssessmentStatus,
   ProvisionData,
   RdsConfiguration,
   RdsRecommendation,
@@ -618,6 +618,7 @@ import {
 } from "../models/models_0";
 import {
   AssessmentReportType,
+  DescribeReplicationTaskIndividualAssessmentsMessage,
   DescribeReplicationTaskIndividualAssessmentsResponse,
   DescribeReplicationTasksMessage,
   DescribeReplicationTasksResponse,
@@ -5286,6 +5287,7 @@ const se_StartReplicationMessage = (input: StartReplicationMessage, context: __S
     CdcStartPosition: [],
     CdcStartTime: (_) => _.getTime() / 1_000,
     CdcStopPosition: [],
+    PremigrationAssessmentSettings: [],
     ReplicationConfigArn: [],
     StartReplicationType: [],
   });
@@ -6371,6 +6373,37 @@ const de_PendingMaintenanceActions = (output: any, context: __SerdeContext): Res
 // de_PostgreSQLSettings omitted.
 
 /**
+ * deserializeAws_json1_1PremigrationAssessmentStatus
+ */
+const de_PremigrationAssessmentStatus = (output: any, context: __SerdeContext): PremigrationAssessmentStatus => {
+  return take(output, {
+    AssessmentProgress: _json,
+    FailOnAssessmentFailure: __expectBoolean,
+    LastFailureMessage: __expectString,
+    PremigrationAssessmentRunArn: __expectString,
+    PremigrationAssessmentRunCreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResultEncryptionMode: __expectString,
+    ResultKmsKeyArn: __expectString,
+    ResultLocationBucket: __expectString,
+    ResultLocationFolder: __expectString,
+    ResultStatistic: _json,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1PremigrationAssessmentStatusList
+ */
+const de_PremigrationAssessmentStatusList = (output: any, context: __SerdeContext): PremigrationAssessmentStatus[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PremigrationAssessmentStatus(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_json1_1ProvisionData
  */
 const de_ProvisionData = (output: any, context: __SerdeContext): ProvisionData => {
@@ -6521,6 +6554,7 @@ const de_Replication = (output: any, context: __SerdeContext): Replication => {
     CdcStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     CdcStopPosition: __expectString,
     FailureMessages: _json,
+    PremigrationAssessmentStatuses: (_: any) => de_PremigrationAssessmentStatusList(_, context),
     ProvisionData: (_: any) => de_ProvisionData(_, context),
     RecoveryCheckpoint: __expectString,
     ReplicationConfigArn: __expectString,

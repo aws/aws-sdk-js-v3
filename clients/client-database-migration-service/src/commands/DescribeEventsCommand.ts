@@ -34,8 +34,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
 /**
  * <p> Lists events for a given source identifier and source type. You can also specify a
  *          start and end time. For more information on DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events and
- *             Notifications</a> in the <i>Database Migration Service User
- *          Guide.</i>
+ *             Notifications</a> in the <i>Database Migration Service User Guide.</i>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

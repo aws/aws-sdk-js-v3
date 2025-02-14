@@ -37,7 +37,8 @@ export interface ApplyPendingMaintenanceActionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Applies a pending maintenance action to a resource (for example, to a replication instance).</p>
+ * <p>Applies a pending maintenance action to a resource (for example, to a replication
+ *          instance).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

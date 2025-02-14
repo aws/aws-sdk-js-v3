@@ -32,7 +32,8 @@ export interface DescribeReplicationConfigsCommandInput extends DescribeReplicat
 export interface DescribeReplicationConfigsCommandOutput extends DescribeReplicationConfigsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns one or more existing DMS Serverless replication configurations as a list of structures.</p>
+ * <p>Returns one or more existing DMS Serverless replication configurations as a list of
+ *          structures.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

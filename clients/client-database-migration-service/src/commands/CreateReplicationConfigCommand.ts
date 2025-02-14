@@ -32,9 +32,9 @@ export interface CreateReplicationConfigCommandInput extends CreateReplicationCo
 export interface CreateReplicationConfigCommandOutput extends CreateReplicationConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a configuration that you can later provide to configure and start an DMS Serverless
- *          replication. You can also provide options to validate the configuration inputs before you start the
- *          replication.</p>
+ * <p>Creates a configuration that you can later provide to configure and start an DMS
+ *          Serverless replication. You can also provide options to validate the configuration inputs
+ *          before you start the replication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

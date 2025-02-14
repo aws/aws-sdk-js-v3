@@ -34,7 +34,8 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
 /**
  * <p>Modifies the specified data provider using the provided settings.</p>
  *          <note>
- *             <p>You must remove the data provider from all migration projects before you can modify it.</p>
+ *             <p>You must remove the data provider from all migration projects before you can modify
+ *             it.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

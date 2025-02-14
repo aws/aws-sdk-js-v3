@@ -37,7 +37,8 @@ export interface StartMetadataModelExportAsScriptCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Saves your converted code to a file as a SQL script, and stores this file on your Amazon S3 bucket.</p>
+ * <p>Saves your converted code to a file as a SQL script, and stores this file on your Amazon S3
+ *          bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

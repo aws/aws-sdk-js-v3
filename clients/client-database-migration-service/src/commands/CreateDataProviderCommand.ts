@@ -32,8 +32,8 @@ export interface CreateDataProviderCommandInput extends CreateDataProviderMessag
 export interface CreateDataProviderCommandOutput extends CreateDataProviderResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a data provider using the provided settings. A data provider stores
- *          a data store type and location information about your database. </p>
+ * <p>Creates a data provider using the provided settings. A data provider stores a data store
+ *          type and location information about your database. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

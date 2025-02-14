@@ -32,8 +32,8 @@ export interface DescribeEndpointSettingsCommandInput extends DescribeEndpointSe
 export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the possible endpoint settings available
- *          when you create an endpoint for a specific database engine.</p>
+ * <p>Returns information about the possible endpoint settings available when you create an
+ *          endpoint for a specific database engine.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

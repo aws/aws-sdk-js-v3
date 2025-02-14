@@ -39,8 +39,7 @@ export interface StartExtensionPackAssociationCommandOutput
 /**
  * <p>Applies the extension pack to your target database. An extension pack is an add-on
  *          module that emulates functions present in a source database that are required when
- *          converting objects to the target database.
- *       </p>
+ *          converting objects to the target database. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

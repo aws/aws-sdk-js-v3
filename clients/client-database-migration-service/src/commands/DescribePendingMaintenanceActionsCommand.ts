@@ -40,7 +40,8 @@ export interface DescribePendingMaintenanceActionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a list of upcoming maintenance events for replication instances in your account in the current Region.</p>
+ * <p>Returns a list of upcoming maintenance events for replication instances in your account
+ *          in the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

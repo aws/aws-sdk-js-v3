@@ -32,9 +32,10 @@ export interface DeleteReplicationConfigCommandInput extends DeleteReplicationCo
 export interface DeleteReplicationConfigCommandOutput extends DeleteReplicationConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an DMS Serverless replication configuration. This effectively deprovisions any and all
- *          replications that use this configuration. You can't delete the configuration for an DMS Serverless replication
- *          that is ongoing. You can delete the configuration when the replication is in a non-RUNNING and non-STARTING state.</p>
+ * <p>Deletes an DMS Serverless replication configuration. This effectively deprovisions any
+ *          and all replications that use this configuration. You can't delete the configuration for an
+ *          DMS Serverless replication that is ongoing. You can delete the configuration when the
+ *          replication is in a non-RUNNING and non-STARTING state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

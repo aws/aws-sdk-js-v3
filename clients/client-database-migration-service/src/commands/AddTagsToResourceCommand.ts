@@ -37,7 +37,8 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  *          reporting to track cost associated with DMS resources, or used in a Condition statement in
  *          an IAM policy for DMS. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
  *                <code>Tag</code>
- *             </a> data type description.</p>
+ *             </a> data type
+ *          description.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

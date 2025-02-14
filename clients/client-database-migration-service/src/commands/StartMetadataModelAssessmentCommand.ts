@@ -39,8 +39,8 @@ export interface StartMetadataModelAssessmentCommandOutput
 /**
  * <p>Creates a database migration assessment report by assessing the migration complexity for
  *          your source database. A database migration assessment report summarizes all of the schema
- *          conversion tasks. It also details the action items for database objects that can't be converted
- *          to the database engine of your target database instance. </p>
+ *          conversion tasks. It also details the action items for database objects that can't be
+ *          converted to the database engine of your target database instance. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

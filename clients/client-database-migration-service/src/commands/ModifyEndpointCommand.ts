@@ -40,10 +40,11 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  * <p>Modifies the specified endpoint.</p>
  *          <note>
  *             <p>For a MySQL source or target endpoint, don't explicitly specify the database using
- *          the <code>DatabaseName</code> request parameter on the <code>ModifyEndpoint</code> API call.
- *          Specifying <code>DatabaseName</code> when you modify a MySQL endpoint replicates all the
- *          task tables to this single database. For MySQL endpoints, you specify the database only when
- *          you specify the schema in the table-mapping rules of the DMS task.</p>
+ *             the <code>DatabaseName</code> request parameter on the <code>ModifyEndpoint</code> API
+ *             call. Specifying <code>DatabaseName</code> when you modify a MySQL endpoint replicates
+ *             all the task tables to this single database. For MySQL endpoints, you specify the
+ *             database only when you specify the schema in the table-mapping rules of the DMS
+ *             task.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
