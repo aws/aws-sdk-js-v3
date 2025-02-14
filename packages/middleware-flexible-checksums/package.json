@@ -42,7 +42,7 @@
     "@smithy/protocol-http": "^5.0.1",
     "@smithy/types": "^4.1.0",
     "@smithy/util-middleware": "^4.0.1",
-    "@smithy/util-stream": "^4.0.2",
+    "@smithy/util-stream": "^4.1.0",
     "@smithy/util-utf8": "^4.0.0",
     "tslib": "^2.6.2"
   },
