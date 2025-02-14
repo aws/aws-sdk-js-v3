@@ -78,6 +78,9 @@ export interface RollbackTransactionCommandOutput extends RollbackTransactionRes
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal error occurred.</p>
  *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The resource is in an invalid state.</p>
+ *
  * @throws {@link InvalidSecretException} (client fault)
  *  <p>The Secrets Manager secret used with the request isn't valid.</p>
  *

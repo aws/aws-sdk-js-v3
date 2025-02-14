@@ -102,9 +102,9 @@ export class DatabaseNotFoundException extends __BaseException {
 }
 
 /**
- * <p>A request was canceled because the Aurora Serverless v2 DB instance was in a paused state.
- *       The Data API request automatically causes the DB instance to begin resuming. Wait a few seconds and
- *       try again.</p>
+ * <p>A request was cancelled because the Aurora Serverless v2 DB instance was paused.
+ *          The Data API request automatically resumes the DB instance. Wait a few seconds and
+ *          try again.</p>
  * @public
  */
 export class DatabaseResumingException extends __BaseException {
@@ -200,6 +200,26 @@ export class InternalServerErrorException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalServerErrorException.prototype);
+  }
+}
+
+/**
+ * <p>The resource is in an invalid state.</p>
+ * @public
+ */
+export class InvalidResourceStateException extends __BaseException {
+  readonly name: "InvalidResourceStateException" = "InvalidResourceStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourceStateException, __BaseException>) {
+    super({
+      name: "InvalidResourceStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceStateException.prototype);
   }
 }
 

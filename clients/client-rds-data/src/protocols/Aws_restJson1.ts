@@ -55,6 +55,7 @@ import {
   ForbiddenException,
   HttpEndpointNotEnabledException,
   InternalServerErrorException,
+  InvalidResourceStateException,
   InvalidSecretException,
   NotFoundException,
   ResultFrame,
@@ -398,6 +399,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InternalServerErrorException":
     case "com.amazonaws.rdsdata#InternalServerErrorException":
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "InvalidResourceStateException":
+    case "com.amazonaws.rdsdata#InvalidResourceStateException":
+      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
     case "InvalidSecretException":
     case "com.amazonaws.rdsdata#InvalidSecretException":
       throw await de_InvalidSecretExceptionRes(parsedOutput, context);
@@ -594,6 +598,26 @@ const de_InternalServerErrorExceptionRes = async (
   const doc = take(data, {});
   Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1InvalidResourceStateExceptionRes
+ */
+const de_InvalidResourceStateExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidResourceStateException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidResourceStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });

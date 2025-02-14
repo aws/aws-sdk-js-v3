@@ -76,9 +76,9 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  *  <p>The DB cluster doesn't have a DB instance.</p>
  *
  * @throws {@link DatabaseResumingException} (client fault)
- *  <p>A request was canceled because the Aurora Serverless v2 DB instance was in a paused state.
- *       The Data API request automatically causes the DB instance to begin resuming. Wait a few seconds and
- *       try again.</p>
+ *  <p>A request was cancelled because the Aurora Serverless v2 DB instance was paused.
+ *          The Data API request automatically resumes the DB instance. Wait a few seconds and
+ *          try again.</p>
  *
  * @throws {@link DatabaseUnavailableException} (server fault)
  *  <p>The writer instance in the DB cluster isn't available.</p>
@@ -91,6 +91,9 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  *
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The resource is in an invalid state.</p>
  *
  * @throws {@link InvalidSecretException} (client fault)
  *  <p>The Secrets Manager secret used with the request isn't valid.</p>
