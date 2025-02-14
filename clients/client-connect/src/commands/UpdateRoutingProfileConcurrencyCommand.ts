@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateRoutingProfileConcurrencyRequest } from "../models/models_2";
+import { UpdateRoutingProfileConcurrencyRequest } from "../models/models_3";
 import {
   de_UpdateRoutingProfileConcurrencyCommand,
   se_UpdateRoutingProfileConcurrencyCommand,

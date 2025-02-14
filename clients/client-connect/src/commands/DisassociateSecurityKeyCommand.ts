@@ -39,6 +39,7 @@ export interface DisassociateSecurityKeyCommandOutput extends __MetadataBearer {
  * const input = { // DisassociateSecurityKeyRequest
  *   InstanceId: "STRING_VALUE", // required
  *   AssociationId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new DisassociateSecurityKeyCommand(input);
  * const response = await client.send(command);

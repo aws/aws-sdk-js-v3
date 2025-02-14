@@ -39,6 +39,7 @@ export interface AssociateSecurityKeyCommandOutput extends AssociateSecurityKeyR
  * const input = { // AssociateSecurityKeyRequest
  *   InstanceId: "STRING_VALUE", // required
  *   Key: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new AssociateSecurityKeyCommand(input);
  * const response = await client.send(command);

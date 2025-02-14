@@ -1308,6 +1308,14 @@ ListAnalyticsDataAssociations
 </details>
 <details>
 <summary>
+ListAnalyticsDataLakeDataSets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListAnalyticsDataLakeDataSetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListAnalyticsDataLakeDataSetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListAnalyticsDataLakeDataSetsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListApprovedOrigins
 </summary>
 

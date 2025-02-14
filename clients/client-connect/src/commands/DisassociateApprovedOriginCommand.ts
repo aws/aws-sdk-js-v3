@@ -39,6 +39,7 @@ export interface DisassociateApprovedOriginCommandOutput extends __MetadataBeare
  * const input = { // DisassociateApprovedOriginRequest
  *   InstanceId: "STRING_VALUE", // required
  *   Origin: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new DisassociateApprovedOriginCommand(input);
  * const response = await client.send(command);

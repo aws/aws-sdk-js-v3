@@ -39,6 +39,7 @@ export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {
  * const input = { // AssociateApprovedOriginRequest
  *   InstanceId: "STRING_VALUE", // required
  *   Origin: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new AssociateApprovedOriginCommand(input);
  * const response = await client.send(command);

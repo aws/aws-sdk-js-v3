@@ -646,6 +646,11 @@ import {
   ListAnalyticsDataAssociationsCommandOutput,
 } from "./commands/ListAnalyticsDataAssociationsCommand";
 import {
+  ListAnalyticsDataLakeDataSetsCommand,
+  ListAnalyticsDataLakeDataSetsCommandInput,
+  ListAnalyticsDataLakeDataSetsCommandOutput,
+} from "./commands/ListAnalyticsDataLakeDataSetsCommand";
+import {
   ListApprovedOriginsCommand,
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
@@ -1465,6 +1470,7 @@ const commands = {
   ImportPhoneNumberCommand,
   ListAgentStatusesCommand,
   ListAnalyticsDataAssociationsCommand,
+  ListAnalyticsDataLakeDataSetsCommand,
   ListApprovedOriginsCommand,
   ListAssociatedContactsCommand,
   ListAuthenticationProfilesCommand,
@@ -3751,6 +3757,23 @@ export interface Connect {
     args: ListAnalyticsDataAssociationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAnalyticsDataAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAnalyticsDataLakeDataSetsCommand}
+   */
+  listAnalyticsDataLakeDataSets(
+    args: ListAnalyticsDataLakeDataSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnalyticsDataLakeDataSetsCommandOutput>;
+  listAnalyticsDataLakeDataSets(
+    args: ListAnalyticsDataLakeDataSetsCommandInput,
+    cb: (err: any, data?: ListAnalyticsDataLakeDataSetsCommandOutput) => void
+  ): void;
+  listAnalyticsDataLakeDataSets(
+    args: ListAnalyticsDataLakeDataSetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnalyticsDataLakeDataSetsCommandOutput) => void
   ): void;
 
   /**

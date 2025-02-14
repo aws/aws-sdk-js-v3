@@ -46,6 +46,7 @@ export interface DisassociateBotCommandOutput extends __MetadataBearer {}
  *   LexV2Bot: { // LexV2Bot
  *     AliasArn: "STRING_VALUE",
  *   },
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new DisassociateBotCommand(input);
  * const response = await client.send(command);

@@ -46,6 +46,7 @@ export interface AssociateBotCommandOutput extends __MetadataBearer {}
  *   LexV2Bot: { // LexV2Bot
  *     AliasArn: "STRING_VALUE",
  *   },
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new AssociateBotCommand(input);
  * const response = await client.send(command);

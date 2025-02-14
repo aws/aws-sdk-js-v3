@@ -45,7 +45,7 @@ export interface ImportPhoneNumberCommandOutput extends ImportPhoneNumberRespons
  *          <p>For example, if you already have 99 claimed or imported numbers and a service level quota of
  *    99 phone numbers, and in any 180 day period you release 99, claim 99, and then release 99, you
  *    will have exceeded the 200% limit. At that point you are blocked from claiming any more numbers
- *    until you open an Amazon Web Services Support ticket. </p>
+ *    until you open an Amazon Web ServicesSupport ticket. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

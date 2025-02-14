@@ -406,6 +406,10 @@ import {
   ListAnalyticsDataAssociationsCommandOutput,
 } from "../commands/ListAnalyticsDataAssociationsCommand";
 import {
+  ListAnalyticsDataLakeDataSetsCommandInput,
+  ListAnalyticsDataLakeDataSetsCommandOutput,
+} from "../commands/ListAnalyticsDataLakeDataSetsCommand";
+import {
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
 } from "../commands/ListApprovedOriginsCommand";
@@ -1006,7 +1010,6 @@ import {
   QualityMetrics,
   Queue,
   QueueInfo,
-  QueueSummary,
   QuickConnect,
   QuickConnectSummary,
   Range,
@@ -1072,6 +1075,7 @@ import {
   PromptSearchFilter,
   QueueInfoInput,
   QueueSearchFilter,
+  QueueSummary,
   QuickConnectSearchFilter,
   RealtimeContactAnalysisSegment,
   RealTimeContactAnalysisSegmentAttachments,
@@ -1202,6 +1206,7 @@ export const se_AssociateApprovedOriginCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Origin: [],
     })
   );
@@ -1225,6 +1230,7 @@ export const se_AssociateBotCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       LexBot: (_) => _json(_),
       LexV2Bot: (_) => _json(_),
     })
@@ -1298,6 +1304,7 @@ export const se_AssociateInstanceStorageConfigCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ResourceType: [],
       StorageConfig: (_) => _json(_),
     })
@@ -1322,6 +1329,7 @@ export const se_AssociateLambdaFunctionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       FunctionArn: [],
     })
   );
@@ -1345,6 +1353,7 @@ export const se_AssociateLexBotCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       LexBot: (_) => _json(_),
     })
   );
@@ -1440,6 +1449,7 @@ export const se_AssociateSecurityKeyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Key: [],
     })
   );
@@ -1932,7 +1942,7 @@ export const se_CreateInstanceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ClientToken: [],
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       DirectoryId: [],
       IdentityManagementType: [],
       InboundCallsEnabled: [],
@@ -2659,8 +2669,11 @@ export const se_DeleteInstanceCommand = async (
   const headers: any = {};
   b.bp("/instance/{InstanceId}");
   b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    [_cT]: [, input[_CT] ?? generateIdempotencyToken()],
+  });
   let body: any;
-  b.m("DELETE").h(headers).b(body);
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -3456,6 +3469,7 @@ export const se_DisassociateApprovedOriginCommand = async (
   b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
     [_o]: [, __expectNonNull(input[_O]!, `Origin`)],
+    [_cT]: [, input[_CT] ?? generateIdempotencyToken()],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -3478,6 +3492,7 @@ export const se_DisassociateBotCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       LexBot: (_) => _json(_),
       LexV2Bot: (_) => _json(_),
     })
@@ -3518,6 +3533,7 @@ export const se_DisassociateInstanceStorageConfigCommand = async (
   b.p("AssociationId", () => input.AssociationId!, "{AssociationId}", false);
   const query: any = map({
     [_rT]: [, __expectNonNull(input[_RT]!, `ResourceType`)],
+    [_cT]: [, input[_CT] ?? generateIdempotencyToken()],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -3537,6 +3553,7 @@ export const se_DisassociateLambdaFunctionCommand = async (
   b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
     [_fA]: [, __expectNonNull(input[_FA]!, `FunctionArn`)],
+    [_cT]: [, input[_CT] ?? generateIdempotencyToken()],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -3557,6 +3574,7 @@ export const se_DisassociateLexBotCommand = async (
   const query: any = map({
     [_bN]: [, __expectNonNull(input[_BN]!, `BotName`)],
     [_lR]: [, __expectNonNull(input[_LR]!, `LexRegion`)],
+    [_cT]: [, input[_CT] ?? generateIdempotencyToken()],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -3642,8 +3660,11 @@ export const se_DisassociateSecurityKeyCommand = async (
   b.bp("/instance/{InstanceId}/security-key/{AssociationId}");
   b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   b.p("AssociationId", () => input.AssociationId!, "{AssociationId}", false);
+  const query: any = map({
+    [_cT]: [, input[_CT] ?? generateIdempotencyToken()],
+  });
   let body: any;
-  b.m("DELETE").h(headers).b(body);
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -4033,6 +4054,26 @@ export const se_ListAnalyticsDataAssociationsCommand = async (
   b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
     [_DSI]: [, input[_DSI]!],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAnalyticsDataLakeDataSetsCommand
+ */
+export const se_ListAnalyticsDataLakeDataSetsCommand = async (
+  input: ListAnalyticsDataLakeDataSetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/analytics-data/instance/{InstanceId}/datasets");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
     [_nT]: [, input[_NT]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
@@ -6732,6 +6773,7 @@ export const se_UpdateInstanceAttributeCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Value: [],
     })
   );
@@ -6759,6 +6801,7 @@ export const se_UpdateInstanceStorageConfigCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       StorageConfig: (_) => _json(_),
     })
   );
@@ -10285,6 +10328,28 @@ export const de_ListAnalyticsDataAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAnalyticsDataAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Results: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAnalyticsDataLakeDataSetsCommand
+ */
+export const de_ListAnalyticsDataLakeDataSetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnalyticsDataLakeDataSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -15189,6 +15254,10 @@ const de_AgentStatusSummaryList = (output: any, context: __SerdeContext): AgentS
 // de_AnalyticsDataAssociationResult omitted.
 
 // de_AnalyticsDataAssociationResults omitted.
+
+// de_AnalyticsDataSetsResult omitted.
+
+// de_AnalyticsDataSetsResults omitted.
 
 // de_Application omitted.
 

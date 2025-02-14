@@ -6,8 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListQuickConnectsRequest, ListQuickConnectsResponse } from "../models/models_2";
-import { de_ListQuickConnectsCommand, se_ListQuickConnectsCommand } from "../protocols/Aws_restJson1";
+import { ListAnalyticsDataLakeDataSetsRequest, ListAnalyticsDataLakeDataSetsResponse } from "../models/models_1";
+import {
+  de_ListAnalyticsDataLakeDataSetsCommand,
+  se_ListAnalyticsDataLakeDataSetsCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,44 +20,39 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListQuickConnectsCommand}.
+ * The input for {@link ListAnalyticsDataLakeDataSetsCommand}.
  */
-export interface ListQuickConnectsCommandInput extends ListQuickConnectsRequest {}
+export interface ListAnalyticsDataLakeDataSetsCommandInput extends ListAnalyticsDataLakeDataSetsRequest {}
 /**
  * @public
  *
- * The output of {@link ListQuickConnectsCommand}.
+ * The output of {@link ListAnalyticsDataLakeDataSetsCommand}.
  */
-export interface ListQuickConnectsCommandOutput extends ListQuickConnectsResponse, __MetadataBearer {}
+export interface ListAnalyticsDataLakeDataSetsCommandOutput
+  extends ListAnalyticsDataLakeDataSetsResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Provides information about the quick connects for the specified Amazon Connect instance.
- *   </p>
+ * <p>Lists the data lake datasets available to associate with for a given Amazon Connect
+ *    instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListQuickConnectsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListQuickConnectsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListAnalyticsDataLakeDataSetsCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ListAnalyticsDataLakeDataSetsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // ListQuickConnectsRequest
+ * const input = { // ListAnalyticsDataLakeDataSetsRequest
  *   InstanceId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   QuickConnectTypes: [ // QuickConnectTypes
- *     "USER" || "QUEUE" || "PHONE_NUMBER",
- *   ],
  * };
- * const command = new ListQuickConnectsCommand(input);
+ * const command = new ListAnalyticsDataLakeDataSetsCommand(input);
  * const response = await client.send(command);
- * // { // ListQuickConnectsResponse
- * //   QuickConnectSummaryList: [ // QuickConnectSummaryList
- * //     { // QuickConnectSummary
- * //       Id: "STRING_VALUE",
- * //       Arn: "STRING_VALUE",
- * //       Name: "STRING_VALUE",
- * //       QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER",
- * //       LastModifiedTime: new Date("TIMESTAMP"),
- * //       LastModifiedRegion: "STRING_VALUE",
+ * // { // ListAnalyticsDataLakeDataSetsResponse
+ * //   Results: [ // AnalyticsDataSetsResults
+ * //     { // AnalyticsDataSetsResult
+ * //       DataSetId: "STRING_VALUE",
+ * //       DataSetName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -62,10 +60,10 @@ export interface ListQuickConnectsCommandOutput extends ListQuickConnectsRespons
  *
  * ```
  *
- * @param ListQuickConnectsCommandInput - {@link ListQuickConnectsCommandInput}
- * @returns {@link ListQuickConnectsCommandOutput}
- * @see {@link ListQuickConnectsCommandInput} for command's `input` shape.
- * @see {@link ListQuickConnectsCommandOutput} for command's `response` shape.
+ * @param ListAnalyticsDataLakeDataSetsCommandInput - {@link ListAnalyticsDataLakeDataSetsCommandInput}
+ * @returns {@link ListAnalyticsDataLakeDataSetsCommandOutput}
+ * @see {@link ListAnalyticsDataLakeDataSetsCommandInput} for command's `input` shape.
+ * @see {@link ListAnalyticsDataLakeDataSetsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
@@ -88,10 +86,10 @@ export interface ListQuickConnectsCommandOutput extends ListQuickConnectsRespons
  *
  * @public
  */
-export class ListQuickConnectsCommand extends $Command
+export class ListAnalyticsDataLakeDataSetsCommand extends $Command
   .classBuilder<
-    ListQuickConnectsCommandInput,
-    ListQuickConnectsCommandOutput,
+    ListAnalyticsDataLakeDataSetsCommandInput,
+    ListAnalyticsDataLakeDataSetsCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,21 +101,21 @@ export class ListQuickConnectsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectService", "ListQuickConnects", {})
-  .n("ConnectClient", "ListQuickConnectsCommand")
+  .s("AmazonConnectService", "ListAnalyticsDataLakeDataSets", {})
+  .n("ConnectClient", "ListAnalyticsDataLakeDataSetsCommand")
   .f(void 0, void 0)
-  .ser(se_ListQuickConnectsCommand)
-  .de(de_ListQuickConnectsCommand)
+  .ser(se_ListAnalyticsDataLakeDataSetsCommand)
+  .de(de_ListAnalyticsDataLakeDataSetsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListQuickConnectsRequest;
-      output: ListQuickConnectsResponse;
+      input: ListAnalyticsDataLakeDataSetsRequest;
+      output: ListAnalyticsDataLakeDataSetsResponse;
     };
     sdk: {
-      input: ListQuickConnectsCommandInput;
-      output: ListQuickConnectsCommandOutput;
+      input: ListAnalyticsDataLakeDataSetsCommandInput;
+      output: ListAnalyticsDataLakeDataSetsCommandOutput;
     };
   };
 }

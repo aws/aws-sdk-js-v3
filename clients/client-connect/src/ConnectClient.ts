@@ -423,6 +423,10 @@ import {
   ListAnalyticsDataAssociationsCommandOutput,
 } from "./commands/ListAnalyticsDataAssociationsCommand";
 import {
+  ListAnalyticsDataLakeDataSetsCommandInput,
+  ListAnalyticsDataLakeDataSetsCommandOutput,
+} from "./commands/ListAnalyticsDataLakeDataSetsCommand";
+import {
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
 } from "./commands/ListApprovedOriginsCommand";
@@ -1003,6 +1007,7 @@ export type ServiceInputTypes =
   | ImportPhoneNumberCommandInput
   | ListAgentStatusesCommandInput
   | ListAnalyticsDataAssociationsCommandInput
+  | ListAnalyticsDataLakeDataSetsCommandInput
   | ListApprovedOriginsCommandInput
   | ListAssociatedContactsCommandInput
   | ListAuthenticationProfilesCommandInput
@@ -1289,6 +1294,7 @@ export type ServiceOutputTypes =
   | ImportPhoneNumberCommandOutput
   | ListAgentStatusesCommandOutput
   | ListAnalyticsDataAssociationsCommandOutput
+  | ListAnalyticsDataLakeDataSetsCommandOutput
   | ListApprovedOriginsCommandOutput
   | ListAssociatedContactsCommandOutput
   | ListAuthenticationProfilesCommandOutput

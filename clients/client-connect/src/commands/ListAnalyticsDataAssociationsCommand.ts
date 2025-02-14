@@ -56,6 +56,7 @@ export interface ListAnalyticsDataAssociationsCommandOutput
  * //       TargetAccountId: "STRING_VALUE",
  * //       ResourceShareId: "STRING_VALUE",
  * //       ResourceShareArn: "STRING_VALUE",
+ * //       ResourceShareStatus: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

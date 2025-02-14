@@ -32,7 +32,7 @@ export interface UpdateAuthenticationProfileCommandOutput extends __MetadataBear
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change. To
- * request access to this API, contact Amazon Web Services Support.</p>
+ * request access to this API, contact Amazon Web ServicesSupport.</p>
  *          <p>Updates the selected authentication profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

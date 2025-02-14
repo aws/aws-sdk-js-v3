@@ -75,6 +75,7 @@ export interface AssociateInstanceStorageConfigCommandOutput
  *       FirehoseArn: "STRING_VALUE", // required
  *     },
  *   },
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new AssociateInstanceStorageConfigCommand(input);
  * const response = await client.send(command);

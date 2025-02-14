@@ -3,6 +3,7 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   AdditionalEmailRecipients,
+  AgentAvailabilityTimer,
   AgentConfig,
   AgentInfo,
   AgentStatusSearchFilter,
@@ -16,6 +17,7 @@ import {
   EvaluationFormQuestion,
   EvaluationFormScoringStrategy,
   InitiateAs,
+  MediaConcurrency,
   Reference,
   RoutingProfileQueueConfig,
   RuleAction,
@@ -87,6 +89,77 @@ import {
   UserHierarchyGroupSearchFilter,
   UserSearchFilter,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface UpdateRoutingProfileAgentAvailabilityTimerRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   * @public
+   */
+  RoutingProfileId: string | undefined;
+
+  /**
+   * <p>Whether agents with this routing profile will have their routing order calculated based on
+   *     <i>time since their last inbound contact</i> or <i>longest idle
+   *     time</i>. </p>
+   * @public
+   */
+  AgentAvailabilityTimer: AgentAvailabilityTimer | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRoutingProfileConcurrencyRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   * @public
+   */
+  RoutingProfileId: string | undefined;
+
+  /**
+   * <p>The channels that agents can handle in the Contact Control Panel (CCP).</p>
+   * @public
+   */
+  MediaConcurrencies: MediaConcurrency[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRoutingProfileDefaultOutboundQueueRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   * @public
+   */
+  RoutingProfileId: string | undefined;
+
+  /**
+   * <p>The identifier for the default outbound queue.</p>
+   * @public
+   */
+  DefaultOutboundQueueId: string | undefined;
+}
 
 /**
  * @public
@@ -1040,8 +1113,8 @@ export interface CreateContactRequest {
    * <p>Indicates how the contact was initiated. </p>
    *          <important>
    *             <p>CreateContact only supports the following initiation methods: OUTBOUND, AGENT_REPLY, and
-   *     FLOW. The following information that states other initiation methods are supported is incorrect. We are
-   *     working to update this topic.</p>
+   *     FLOW. The following information that states other initiation methods are supported is incorrect.
+   *     We are working to update this topic.</p>
    *          </important>
    * @public
    */

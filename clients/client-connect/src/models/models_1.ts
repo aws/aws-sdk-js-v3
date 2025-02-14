@@ -337,7 +337,7 @@ export interface DescribeAuthenticationProfileRequest {
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change. To
- * request access to this API, contact Amazon Web Services Support.</p>
+ * request access to this API, contact Amazon Web ServicesSupport.</p>
  *          <p>Information about an authentication profile. An authentication profile is a resource that
  *    stores the authentication settings for users in your contact center. You use authentication
  *    profiles to set up IP address range restrictions and session timeouts. For more information, see
@@ -3650,6 +3650,15 @@ export interface DisassociateApprovedOriginRequest {
    * @public
    */
   Origin: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -3673,6 +3682,15 @@ export interface DisassociateBotRequest {
    * @public
    */
   LexV2Bot?: LexV2Bot | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -3736,6 +3754,15 @@ export interface DisassociateInstanceStorageConfigRequest {
    * @public
    */
   ResourceType: InstanceStorageResourceType | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -3753,6 +3780,15 @@ export interface DisassociateLambdaFunctionRequest {
    * @public
    */
   FunctionArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -3776,6 +3812,15 @@ export interface DisassociateLexBotRequest {
    * @public
    */
   LexRegion: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -3856,6 +3901,15 @@ export interface DisassociateSecurityKeyRequest {
    * @public
    */
   AssociationId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -5797,14 +5851,16 @@ export interface GetMetricDataV2Request {
    *       <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> |<code>CASE_TEMPLATE_ARN</code> |
    *       <code>CASE_STATUS</code> | <code>CHANNEL</code> |
    *       <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> |
-   *       <code>FEATURE</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> |
-   *       <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_ID</code> |
-   *       <code>FLOWS_NEXT_RESOURCE_QUEUE_ID</code> | <code>FLOWS_OUTCOME_TYPE</code> |
-   *       <code>FLOWS_RESOURCE_ID</code> | <code>INITIATION_METHOD</code> |
-   *       <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> |
-   *       <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> |
-   *       <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>QUEUE</code> |
-   *       <code>Q_CONNECT_ENABLED</code> | </p>
+   *       <code>EVALUATION_FORM</code> | <code>EVALUATION_SECTION</code> |
+   *       <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SOURCE</code> | <code>FEATURE</code> |
+   *       <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> |
+   *       <code>FLOWS_NEXT_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_QUEUE_ID</code> |
+   *       <code>FLOWS_OUTCOME_TYPE</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FORM_VERSION</code> |
+   *       <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> |
+   *       <code>INVOKING_RESOURCE_TYPE</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> |
+   *       <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> |
+   *       <code>ROUTING_STEP_EXPRESSION</code> | <code>QUEUE</code> | <code>Q_CONNECT_ENABLED</code> |
+   *     </p>
    *             </li>
    *             <li>
    *                <p>
@@ -5859,13 +5915,19 @@ export interface GetMetricDataV2Request {
    *     <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> |
    *     <code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> | <code>CHANNEL</code> |
    *     <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> |
+   *     <code>EVALUATION_FORM</code> | <code>EVALUATION_SECTION</code> |
+   *     <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SOURCE</code> |
    *     <code>FLOWS_RESOURCE_ID</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> |
    *     <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_OUTCOME_TYPE</code> |
-   *     <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> |
-   *     <code>INVOKING_RESOURCE_TYPE</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> |
-   *     <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code>
-   *    | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code>
+   *     <code>FORM_VERSION</code> | <code>INITIATION_METHOD</code> |
+   *     <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> |
+   *     <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> |
+   *     <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> |
+   *     <code>ROUTING_STEP_EXPRESSION</code>
    *          </p>
+   *          <p>Type: Array of strings</p>
+   *          <p>Array Members: Maximum number of 4 items</p>
+   *          <p>Required: No</p>
    * @public
    */
   Groupings?: string[] | undefined;
@@ -6059,6 +6121,14 @@ export interface GetMetricDataV2Request {
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-dials-historical">Average dials per minute</a>
    *                </p>
    *             </dd>
+   *             <dt>AVG_EVALUATION_SCORE</dt>
+   *             <dd>
+   *                <p>Unit: Percent</p>
+   *                <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID, Evaluation Section ID,
+   *       Evaluation Question ID, Evaluation Source, Form Version, Queue, Routing Profile</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-agent-evaluation-score-historical">Average agent evaluation score</a>
+   *                </p>
+   *             </dd>
    *             <dt>AVG_FLOW_TIME</dt>
    *             <dd>
    *                <p>Unit: Seconds</p>
@@ -6226,6 +6296,14 @@ export interface GetMetricDataV2Request {
    *                <p>Unit: Seconds</p>
    *                <p>Valid groupings and filters: Campaign</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-wait-time-historical">Average wait time after customer connection</a>
+   *                </p>
+   *             </dd>
+   *             <dt>AVG_WEIGHTED_EVALUATION_SCORE</dt>
+   *             <dd>
+   *                <p>Unit: Percent</p>
+   *                <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form Id, Evaluation Section ID,
+   *       Evaluation Question ID, Evaluation Source, Form Version, Queue, Routing Profile</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-weighted-agent-evaluation-score-historical">Average weighted agent evaluation score</a>
    *                </p>
    *             </dd>
    *             <dt>BOT_CONVERSATIONS_COMPLETED</dt>
@@ -6490,6 +6568,14 @@ export interface GetMetricDataV2Request {
    *        delivery modes. </p>
    *                </note>
    *             </dd>
+   *             <dt>EVALUATIONS_PERFORMED</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID, Evaluation Source, Form
+   *       Version, Queue, Routing Profile</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#evaluations-performed-historical">Evaluations performed</a>
+   *                </p>
+   *             </dd>
    *             <dt>FLOWS_OUTCOME</dt>
    *             <dd>
    *                <p>Unit: Count</p>
@@ -6541,6 +6627,14 @@ export interface GetMetricDataV2Request {
    *       resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows
    *       resource ID, Initiation method, Resource published timestamp</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#minimum-flow-time-historical">Minimum flow time</a>
+   *                </p>
+   *             </dd>
+   *             <dt>PERCENT_AUTOMATIC_FAILS</dt>
+   *             <dd>
+   *                <p>Unit: Percent</p>
+   *                <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID, Evaluation Source, Form
+   *       Version, Queue, Routing Profile</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#percent-evaluation-automatic-failures-historical">Automatic fails percent</a>
    *                </p>
    *             </dd>
    *             <dt>PERCENT_BOT_CONVERSATIONS_OUTCOME</dt>
@@ -7340,6 +7434,68 @@ export interface ListAnalyticsDataAssociationsResponse {
 /**
  * @public
  */
+export interface ListAnalyticsDataLakeDataSetsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Information about datasets that are available to associate with: <code>DataSetId</code>,
+ *     <code>DataSetName</code>.</p>
+ * @public
+ */
+export interface AnalyticsDataSetsResult {
+  /**
+   * <p>The identifier of the dataset.</p>
+   * @public
+   */
+  DataSetId?: string | undefined;
+
+  /**
+   * <p>The name of the dataset.</p>
+   * @public
+   */
+  DataSetName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAnalyticsDataLakeDataSetsResponse {
+  /**
+   * <p>An array of successful results: <code>DataSetId</code>, <code>DataSetName</code>. This is a
+   *    paginated API, so <code>nextToken</code> is given if there are more results to be
+   *    returned.</p>
+   * @public
+   */
+  Results?: AnalyticsDataSetsResult[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListApprovedOriginsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -7514,7 +7670,7 @@ export interface ListAuthenticationProfilesRequest {
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change. To
- * request access to this API, contact Amazon Web Services Support.</p>
+ * request access to this API, contact Amazon Web ServicesSupport.</p>
  *          <p>A summary of a given authentication profile.</p>
  * @public
  */
@@ -9755,96 +9911,6 @@ export interface ListQueuesRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * <p>Contains summary information about a queue.</p>
- * @public
- */
-export interface QueueSummary {
-  /**
-   * <p>The identifier of the queue.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the queue.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the queue.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The type of queue.</p>
-   * @public
-   */
-  QueueType?: QueueType | undefined;
-
-  /**
-   * <p>The timestamp when this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListQueuesResponse {
-  /**
-   * <p>Information about the queues.</p>
-   * @public
-   */
-  QueueSummaryList?: QueueSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListQuickConnectsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The type of quick connect. In the Amazon Connect admin website, when you create a quick connect, you are
-   *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
-   * @public
-   */
-  QuickConnectTypes?: QuickConnectType[] | undefined;
 }
 
 /**

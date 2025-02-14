@@ -41,6 +41,7 @@ export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
  *   InstanceId: "STRING_VALUE", // required
  *   BotName: "STRING_VALUE", // required
  *   LexRegion: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new DisassociateLexBotCommand(input);
  * const response = await client.send(command);

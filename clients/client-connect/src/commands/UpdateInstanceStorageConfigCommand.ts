@@ -69,6 +69,7 @@ export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBear
  *       FirehoseArn: "STRING_VALUE", // required
  *     },
  *   },
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new UpdateInstanceStorageConfigCommand(input);
  * const response = await client.send(command);

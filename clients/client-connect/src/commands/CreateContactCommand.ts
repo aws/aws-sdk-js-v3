@@ -30,8 +30,8 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
 
 /**
  * <important>
- *             <p>Only the EMAIL channel is supported. The supported initiation
- *    methods are: OUTBOUND, AGENT_REPLY, and FLOW.</p>
+ *             <p>Only the EMAIL channel is supported. The supported initiation methods are: OUTBOUND,
+ *     AGENT_REPLY, and FLOW.</p>
  *          </important>
  *          <p>Creates a new EMAIL contact. </p>
  * @example

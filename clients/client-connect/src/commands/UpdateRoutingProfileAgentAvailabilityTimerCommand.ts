@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateRoutingProfileAgentAvailabilityTimerRequest } from "../models/models_2";
+import { UpdateRoutingProfileAgentAvailabilityTimerRequest } from "../models/models_3";
 import {
   de_UpdateRoutingProfileAgentAvailabilityTimerCommand,
   se_UpdateRoutingProfileAgentAvailabilityTimerCommand,

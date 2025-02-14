@@ -40,6 +40,7 @@ export interface AssociateLambdaFunctionCommandOutput extends __MetadataBearer {
  * const input = { // AssociateLambdaFunctionRequest
  *   InstanceId: "STRING_VALUE", // required
  *   FunctionArn: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new AssociateLambdaFunctionCommand(input);
  * const response = await client.send(command);

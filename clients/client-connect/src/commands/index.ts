@@ -134,6 +134,7 @@ export * from "./GetTrafficDistributionCommand";
 export * from "./ImportPhoneNumberCommand";
 export * from "./ListAgentStatusesCommand";
 export * from "./ListAnalyticsDataAssociationsCommand";
+export * from "./ListAnalyticsDataLakeDataSetsCommand";
 export * from "./ListApprovedOriginsCommand";
 export * from "./ListAssociatedContactsCommand";
 export * from "./ListAuthenticationProfilesCommand";

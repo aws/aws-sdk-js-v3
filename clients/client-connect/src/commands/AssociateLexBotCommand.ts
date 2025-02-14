@@ -43,6 +43,7 @@ export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
  *     Name: "STRING_VALUE", // required
  *     LexRegion: "STRING_VALUE", // required
  *   },
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new AssociateLexBotCommand(input);
  * const response = await client.send(command);

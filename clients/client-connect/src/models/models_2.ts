@@ -5,7 +5,6 @@ import { ConnectServiceException as __BaseException } from "./ConnectServiceExce
 
 import {
   ActionSummary,
-  AgentAvailabilityTimer,
   AgentHierarchyGroups,
   AgentStatus,
   AgentStatusState,
@@ -22,13 +21,13 @@ import {
   HoursOfOperationOverrideConfig,
   InstanceStorageConfig,
   InstanceStorageResourceType,
-  MediaConcurrency,
   MonitorCapability,
   OutboundCallerConfig,
   OutboundEmailConfig,
   ParticipantRole,
   PredefinedAttributeValues,
   QuickConnectConfig,
+  QuickConnectType,
   Reference,
   RehydrationType,
   RulePublishStatus,
@@ -63,12 +62,103 @@ import {
   Prompt,
   Queue,
   QueueStatus,
+  QueueType,
   QuickConnect,
   QuickConnectSummary,
   RoutingProfile,
   SortOrder,
   TrafficDistributionGroupStatus,
 } from "./models_1";
+
+/**
+ * <p>Contains summary information about a queue.</p>
+ * @public
+ */
+export interface QueueSummary {
+  /**
+   * <p>The identifier of the queue.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the queue.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the queue.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The type of queue.</p>
+   * @public
+   */
+  QueueType?: QueueType | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQueuesResponse {
+  /**
+   * <p>Information about the queues.</p>
+   * @public
+   */
+  QueueSummaryList?: QueueSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQuickConnectsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The type of quick connect. In the Amazon Connect admin website, when you create a quick connect, you are
+   *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
+   * @public
+   */
+  QuickConnectTypes?: QuickConnectType[] | undefined;
+}
 
 /**
  * @public
@@ -6924,7 +7014,7 @@ export interface UpdateInstanceAttributeRequest {
    * <p>The type of attribute.</p>
    *          <note>
    *             <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature,
-   *     contact Amazon Web Services Support for allowlisting.</p>
+   *     contact Amazon Web ServicesSupport for allowlisting.</p>
    *          </note>
    * @public
    */
@@ -6935,6 +7025,15 @@ export interface UpdateInstanceAttributeRequest {
    * @public
    */
   Value: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -6964,6 +7063,15 @@ export interface UpdateInstanceStorageConfigRequest {
    * @public
    */
   StorageConfig: InstanceStorageConfig | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -7575,77 +7683,6 @@ export interface UpdateQuickConnectNameRequest {
    * @public
    */
   Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRoutingProfileAgentAvailabilityTimerRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the routing profile.</p>
-   * @public
-   */
-  RoutingProfileId: string | undefined;
-
-  /**
-   * <p>Whether agents with this routing profile will have their routing order calculated based on
-   *     <i>time since their last inbound contact</i> or <i>longest idle
-   *     time</i>. </p>
-   * @public
-   */
-  AgentAvailabilityTimer: AgentAvailabilityTimer | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRoutingProfileConcurrencyRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the routing profile.</p>
-   * @public
-   */
-  RoutingProfileId: string | undefined;
-
-  /**
-   * <p>The channels that agents can handle in the Contact Control Panel (CCP).</p>
-   * @public
-   */
-  MediaConcurrencies: MediaConcurrency[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRoutingProfileDefaultOutboundQueueRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the routing profile.</p>
-   * @public
-   */
-  RoutingProfileId: string | undefined;
-
-  /**
-   * <p>The identifier for the default outbound queue.</p>
-   * @public
-   */
-  DefaultOutboundQueueId: string | undefined;
 }
 
 /**

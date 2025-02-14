@@ -40,6 +40,7 @@ export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBeare
  * const input = { // DisassociateLambdaFunctionRequest
  *   InstanceId: "STRING_VALUE", // required
  *   FunctionArn: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new DisassociateLambdaFunctionCommand(input);
  * const response = await client.send(command);

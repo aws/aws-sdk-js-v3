@@ -43,6 +43,7 @@ export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
  * const client = new ConnectClient(config);
  * const input = { // DeleteInstanceRequest
  *   InstanceId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new DeleteInstanceCommand(input);
  * const response = await client.send(command);
