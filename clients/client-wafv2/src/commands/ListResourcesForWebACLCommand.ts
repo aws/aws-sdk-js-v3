@@ -28,7 +28,7 @@ export interface ListResourcesForWebACLCommandInput extends ListResourcesForWebA
 export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWebACLResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves an array of the Amazon Resource Names (ARNs) for the regional resources that
+ * <p>Retrieves an array of the Amazon Resource Names (ARNs) for the resources that
  *       are associated with the specified web ACL. </p>
  *          <p>For Amazon CloudFront, don't use this call. Instead, use the CloudFront call
  *           <code>ListDistributionsByWebACLId</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html">ListDistributionsByWebACLId</a>

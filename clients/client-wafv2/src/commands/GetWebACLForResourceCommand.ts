@@ -1000,6 +1000,21 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //       CloudWatchMetricsEnabled: true || false, // required
  * //       MetricName: "STRING_VALUE", // required
  * //     },
+ * //     DataProtectionConfig: { // DataProtectionConfig
+ * //       DataProtections: [ // DataProtections // required
+ * //         { // DataProtection
+ * //           Field: { // FieldToProtect
+ * //             FieldType: "SINGLE_HEADER" || "SINGLE_COOKIE" || "SINGLE_QUERY_ARGUMENT" || "QUERY_STRING" || "BODY", // required
+ * //             FieldKeys: [ // FieldToProtectKeys
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           Action: "SUBSTITUTION" || "HASH", // required
+ * //           ExcludeRuleMatchDetails: true || false,
+ * //           ExcludeRateBasedDetails: true || false,
+ * //         },
+ * //       ],
+ * //     },
  * //     Capacity: Number("long"),
  * //     PreProcessFirewallManagerRuleGroups: [ // FirewallManagerRuleGroups
  * //       { // FirewallManagerRuleGroup
@@ -1275,7 +1290,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  *  <p>WAF couldn’t retrieve a resource that you specified for this operation.
  *        If you've just created a resource that you're using in this operation, you might
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
- *        for changes to propagate. Verify the resources that you are specifying in your request
+ *        for changes to propagate. Verify the resource specifications in your request
  *        parameters and then retry the operation.</p>
  *
  * @throws {@link WAFV2ServiceException}

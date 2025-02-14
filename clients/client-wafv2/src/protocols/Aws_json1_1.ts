@@ -193,6 +193,8 @@ import {
   CustomRequestHandling,
   CustomResponse,
   CustomResponseBody,
+  DataProtection,
+  DataProtectionConfig,
   DefaultAction,
   DeleteAPIKeyRequest,
   DeleteFirewallManagerRuleGroupsRequest,
@@ -209,6 +211,7 @@ import {
   EmailField,
   ExcludedRule,
   FieldToMatch,
+  FieldToProtect,
   Filter,
   FirewallManagerRuleGroup,
   FirewallManagerStatement,
@@ -2628,6 +2631,7 @@ const se_CreateWebACLRequest = (input: CreateWebACLRequest, context: __SerdeCont
     CaptchaConfig: _json,
     ChallengeConfig: _json,
     CustomResponseBodies: _json,
+    DataProtectionConfig: _json,
     DefaultAction: _json,
     Description: [],
     Name: [],
@@ -2650,6 +2654,12 @@ const se_CreateWebACLRequest = (input: CreateWebACLRequest, context: __SerdeCont
 // se_CustomResponseBodies omitted.
 
 // se_CustomResponseBody omitted.
+
+// se_DataProtection omitted.
+
+// se_DataProtectionConfig omitted.
+
+// se_DataProtections omitted.
 
 // se_DefaultAction omitted.
 
@@ -2684,6 +2694,10 @@ const se_CreateWebACLRequest = (input: CreateWebACLRequest, context: __SerdeCont
 // se_ExcludedRules omitted.
 
 // se_FieldToMatch omitted.
+
+// se_FieldToProtect omitted.
+
+// se_FieldToProtectKeys omitted.
 
 // se_Filter omitted.
 
@@ -3079,6 +3093,7 @@ const se_UpdateWebACLRequest = (input: UpdateWebACLRequest, context: __SerdeCont
     CaptchaConfig: _json,
     ChallengeConfig: _json,
     CustomResponseBodies: _json,
+    DataProtectionConfig: _json,
     DefaultAction: _json,
     Description: [],
     Id: [],
@@ -3224,6 +3239,12 @@ const de_ByteMatchStatement = (output: any, context: __SerdeContext): ByteMatchS
 
 // de_CustomResponseBody omitted.
 
+// de_DataProtection omitted.
+
+// de_DataProtectionConfig omitted.
+
+// de_DataProtections omitted.
+
 // de_DefaultAction omitted.
 
 // de_DeleteAPIKeyResponse omitted.
@@ -3257,6 +3278,10 @@ const de_ByteMatchStatement = (output: any, context: __SerdeContext): ByteMatchS
 // de_ExcludedRules omitted.
 
 // de_FieldToMatch omitted.
+
+// de_FieldToProtect omitted.
+
+// de_FieldToProtectKeys omitted.
 
 // de_Filter omitted.
 
@@ -3990,6 +4015,7 @@ const de_WebACL = (output: any, context: __SerdeContext): WebACL => {
     CaptchaConfig: _json,
     ChallengeConfig: _json,
     CustomResponseBodies: _json,
+    DataProtectionConfig: _json,
     DefaultAction: _json,
     Description: __expectString,
     Id: __expectString,

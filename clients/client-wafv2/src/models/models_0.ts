@@ -754,7 +754,8 @@ export interface UriPath {}
  *                   </li>
  *                   <li>
  *                      <p>If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling.
- *                   The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration. </p>
+ *                         You can only exclude fields from request sampling by disabling sampling in the web ACL visibility configuration
+ *                       or by configuring data protection for the web ACL.</p>
  *                   </li>
  *                </ul>
  *             </li>
@@ -2532,12 +2533,18 @@ export interface RuleAction {
 
 /**
  * <p>Action setting to use in the place of a rule action that is configured inside the rule group. You specify one override for each rule whose action you want to change. </p>
+ *          <note>
+ *             <p>Take care to verify the rule names in your overrides. If you provide a rule name that doesn't match the name of any rule in the rule group, WAF doesn't return an error and doesn't apply the override setting.</p>
+ *          </note>
  *          <p>You can use overrides for testing, for example you can override all of rule actions to <code>Count</code> and then monitor the resulting count metrics to understand how the rule group would handle your web traffic. You can also permanently override some or all actions, to modify how the rule group manages your web traffic.</p>
  * @public
  */
 export interface RuleActionOverride {
   /**
    * <p>The name of the rule to override.</p>
+   *          <note>
+   *             <p>Take care to verify the rule names in your overrides. If you provide a rule name that doesn't match the name of any rule in the rule group, WAF doesn't return an error and doesn't apply the override setting.</p>
+   *          </note>
    * @public
    */
   Name: string | undefined;
@@ -2849,6 +2856,9 @@ export interface RuleGroupReferenceStatement {
 
   /**
    * <p>Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. </p>
+   *          <note>
+   *             <p>Take care to verify the rule names in your overrides. If you provide a rule name that doesn't match the name of any rule in the rule group, WAF doesn't return an error and doesn't apply the override setting.</p>
+   *          </note>
    *          <p>You can use overrides for testing, for example you can override all of rule actions to <code>Count</code> and then monitor the resulting count metrics to understand how the rule group would handle your web traffic. You can also permanently override some or all actions, to modify how the rule group manages your web traffic.</p>
    * @public
    */
@@ -3143,6 +3153,7 @@ export const ParameterExceptionField = {
   CUSTOM_REQUEST_HANDLING: "CUSTOM_REQUEST_HANDLING",
   CUSTOM_RESPONSE: "CUSTOM_RESPONSE",
   CUSTOM_RESPONSE_BODY: "CUSTOM_RESPONSE_BODY",
+  DATA_PROTECTION_CONFIG: "DATA_PROTECTION_CONFIG",
   DEFAULT_ACTION: "DEFAULT_ACTION",
   ENTITY_LIMIT: "ENTITY_LIMIT",
   EXCLUDED_RULE: "EXCLUDED_RULE",
@@ -3294,7 +3305,7 @@ export class WAFNonexistentItemException extends __BaseException {
  * <p>WAF couldn’t retrieve a resource that you specified for this operation.
  *        If you've just created a resource that you're using in this operation, you might
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
- *        for changes to propagate. Verify the resources that you are specifying in your request
+ *        for changes to propagate. Verify the resource specifications in your request
  *        parameters and then retry the operation.</p>
  * @public
  */
@@ -3486,9 +3497,11 @@ export interface VisibilityConfig {
   /**
    * <p>Indicates whether WAF should store a sampling of the web requests that
    *          match the rules. You can view the sampled requests through the WAF console. </p>
+   *          <p>If you configure data protection for the web ACL, the protection applies to the web ACL's sampled web request data. </p>
    *          <note>
    *             <p>Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling.
-   *                   The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration. </p>
+   *                 You can only exclude fields from request sampling by disabling sampling in the web ACL visibility configuration
+   *                       or by configuring data protection for the web ACL.</p>
    *          </note>
    * @public
    */
@@ -3647,7 +3660,7 @@ export class WAFSubscriptionNotFoundException extends __BaseException {
  */
 export interface CreateAPIKeyRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3737,7 +3750,7 @@ export interface CreateIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3973,7 +3986,7 @@ export interface CreateRegexPatternSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4141,6 +4154,121 @@ export interface CreateRuleGroupResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DataProtectionAction = {
+  HASH: "HASH",
+  SUBSTITUTION: "SUBSTITUTION",
+} as const;
+
+/**
+ * @public
+ */
+export type DataProtectionAction = (typeof DataProtectionAction)[keyof typeof DataProtectionAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const FieldToProtectType = {
+  BODY: "BODY",
+  QUERY_STRING: "QUERY_STRING",
+  SINGLE_COOKIE: "SINGLE_COOKIE",
+  SINGLE_HEADER: "SINGLE_HEADER",
+  SINGLE_QUERY_ARGUMENT: "SINGLE_QUERY_ARGUMENT",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldToProtectType = (typeof FieldToProtectType)[keyof typeof FieldToProtectType];
+
+/**
+ * <p>Specifies a field type and keys to protect in stored web request data. This is part of the data protection configuration for a web ACL. </p>
+ * @public
+ */
+export interface FieldToProtect {
+  /**
+   * <p>Specifies the web request component type to protect.  </p>
+   * @public
+   */
+  FieldType: FieldToProtectType | undefined;
+
+  /**
+   * <p>Specifies the keys to protect for the specified field type. If you don't specify any key, then all keys for the field type are protected.  </p>
+   * @public
+   */
+  FieldKeys?: string[] | undefined;
+}
+
+/**
+ * <p>Specifies the protection behavior for a field type. This is part of the data protection configuration for a web ACL. </p>
+ * @public
+ */
+export interface DataProtection {
+  /**
+   * <p>Specifies the field type and optional keys to apply the protection behavior to. </p>
+   * @public
+   */
+  Field: FieldToProtect | undefined;
+
+  /**
+   * <p>Specifies how to protect the field. WAF can apply a one-way hash to the field or hard code a string substitution. </p>
+   *          <ul>
+   *             <li>
+   *                <p>One-way hash example: <code>ade099751dEXAMPLEHASH2ea9f3393f80dd5d3bEXAMPLEHASH966ae0d3cd5a1e</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Substitution example: <code>REDACTED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Action: DataProtectionAction | undefined;
+
+  /**
+   * <p>Specifies whether to also protect any rule match details from the web ACL logs when applying data protection this field type and keys. WAF logs these details for non-terminating
+   *            matching rules and for the terminating matching rule. For additional information, see
+   *             <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html">Log fields for web ACL traffic</a> in the
+   *             <i>WAF Developer Guide</i>.</p>
+   *          <p>Default: <code>FALSE</code>
+   *          </p>
+   * @public
+   */
+  ExcludeRuleMatchDetails?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to also protect any rate-based rule details from the web ACL logs when applying data protection for this field type and keys.
+   *            For additional information, see the log field <code>rateBasedRuleList</code> at
+   *             <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html">Log fields for web ACL traffic</a> in the
+   *             <i>WAF Developer Guide</i>.</p>
+   *          <p>Default: <code>FALSE</code>
+   *          </p>
+   * @public
+   */
+  ExcludeRateBasedDetails?: boolean | undefined;
+}
+
+/**
+ * <p>Specifies data protection to apply to the web request data that WAF stores for the web ACL. This is a web ACL level data protection option. </p>
+ *          <p>The data protection that you configure for the web ACL alters the data that's available for any other data collection activity,
+ *   including WAF logging, web ACL request sampling, Amazon Web Services Managed Rules, and Amazon Security Lake data collection and management. Your other option for data protection is in the logging configuration, which only affects logging. </p>
+ *          <p>This is part of the data protection configuration for a web ACL. </p>
+ * @public
+ */
+export interface DataProtectionConfig {
+  /**
+   * <p>An array of data protection configurations for specific web request field types. This is defined for each
+   *            web ACL. WAF applies the specified protection to all web requests that the web ACL inspects.  </p>
+   * @public
+   */
+  DataProtections: DataProtection[] | undefined;
+}
+
+/**
  * <p>In a <a>WebACL</a>, this is the action that you want WAF to perform
  *          when a web request doesn't match any of the rules in the <code>WebACL</code>. The default
  *          action must be a terminating action.</p>
@@ -4244,7 +4372,7 @@ export class WAFConfigurationWarningException extends __BaseException {
  */
 export interface DeleteAPIKeyRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4309,7 +4437,7 @@ export interface DeleteIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4455,7 +4583,7 @@ export interface DeleteRegexPatternSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4498,7 +4626,7 @@ export interface DeleteRuleGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4541,7 +4669,7 @@ export interface DeleteWebACLRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4578,7 +4706,7 @@ export interface DeleteWebACLResponse {}
  */
 export interface DescribeAllManagedProductsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4679,7 +4807,7 @@ export interface DescribeManagedProductsByVendorRequest {
   VendorName: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4722,7 +4850,7 @@ export interface DescribeManagedRuleGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4956,7 +5084,7 @@ export interface GenerateMobileSdkReleaseUrlResponse {
  */
 export interface GetDecryptedAPIKeyRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5005,7 +5133,7 @@ export interface GetIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5268,6 +5396,7 @@ export interface LoggingFilter {
  *          from WAF. As part of the association, you can specify parts of the standard logging
  *          fields to keep out of the logs and you can specify filters so that you log only a subset of
  *          the logging records. </p>
+ *          <p>If you configure data protection for the web ACL, the protection applies to the data that WAF sends to the logs. </p>
  *          <note>
  *             <p>You can define one logging destination per web ACL.</p>
  *          </note>
@@ -5319,6 +5448,7 @@ export interface LoggingConfiguration {
    *          redact the <code>SingleHeader</code> field, the <code>HEADER</code> field in the logs will
    *          be <code>REDACTED</code> for all rules that use the <code>SingleHeader</code>
    *             <code>FieldToMatch</code> setting. </p>
+   *          <p>If you configure data protection for the web ACL, the protection applies to the data that WAF sends to the logs. </p>
    *          <p>Redaction applies only to the component that's specified in the rule's <code>FieldToMatch</code> setting, so the <code>SingleHeader</code> redaction
    *          doesn't apply to rules that use the <code>Headers</code>
    *             <code>FieldToMatch</code>.</p>
@@ -5327,8 +5457,8 @@ export interface LoggingConfiguration {
    *          <code>QueryString</code>, <code>SingleHeader</code>, and <code>Method</code>.</p>
    *          </note>
    *          <note>
-   *             <p>This setting has no impact on request sampling. With request sampling,
-   *                 the only way to exclude fields is by disabling sampling in the web ACL visibility configuration. </p>
+   *             <p>This setting has no impact on request sampling. You can only exclude fields from request sampling by disabling sampling in the web ACL visibility configuration
+   *                       or by configuring data protection for the web ACL.</p>
    *          </note>
    * @public
    */
@@ -5397,7 +5527,7 @@ export interface GetManagedRuleSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5650,7 +5780,7 @@ export interface GetPermissionPolicyResponse {
  */
 export interface GetRateBasedStatementManagedKeysRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5764,7 +5894,7 @@ export interface GetRegexPatternSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5851,7 +5981,7 @@ export interface GetRuleGroupRequest {
   Name?: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5936,7 +6066,7 @@ export interface GetSampledRequestsRequest {
   RuleMetricName: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6253,7 +6383,7 @@ export interface GetWebACLRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6323,7 +6453,7 @@ export interface GetWebACLForResourceRequest {
  */
 export interface ListAPIKeysRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6384,7 +6514,7 @@ export interface ListAPIKeysResponse {
  */
 export interface ListAvailableManagedRuleGroupsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6482,7 +6612,7 @@ export interface ListAvailableManagedRuleGroupVersionsRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6562,7 +6692,7 @@ export interface ListAvailableManagedRuleGroupVersionsResponse {
  */
 export interface ListIPSetsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6617,7 +6747,7 @@ export interface ListIPSetsResponse {
  */
 export interface ListLoggingConfigurationsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6683,7 +6813,7 @@ export interface ListLoggingConfigurationsResponse {
  */
 export interface ListManagedRuleSetsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6862,7 +6992,7 @@ export interface ListMobileSdkReleasesResponse {
  */
 export interface ListRegexPatternSetsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6941,8 +7071,10 @@ export interface ListResourcesForWebACLRequest {
   WebACLArn: string | undefined;
 
   /**
-   * <p>Used for web ACLs that are scoped for regional applications.
-   *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p>
+   * <p>Retrieves the web ACLs that are used by the specified resource type. </p>
+   *          <p>For Amazon CloudFront, don't use this call. Instead, use the CloudFront call
+   *           <code>ListDistributionsByWebACLId</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html">ListDistributionsByWebACLId</a>
+   *           in the <i>Amazon CloudFront API Reference</i>. </p>
    *          <note>
    *             <p>If you don't provide a resource type, the call uses the resource type <code>APPLICATION_LOAD_BALANCER</code>. </p>
    *          </note>
@@ -6969,7 +7101,7 @@ export interface ListResourcesForWebACLResponse {
  */
 export interface ListRuleGroupsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -7097,7 +7229,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListWebACLsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -7257,7 +7389,7 @@ export interface PutManagedRuleSetVersionsRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -7455,7 +7587,7 @@ export interface UpdateIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -7552,7 +7684,7 @@ export interface UpdateManagedRuleSetVersionExpiryDateRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -7628,7 +7760,7 @@ export interface UpdateRegexPatternSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -7962,6 +8094,9 @@ export interface ManagedRuleGroupStatement {
 
   /**
    * <p>Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. </p>
+   *          <note>
+   *             <p>Take care to verify the rule names in your overrides. If you provide a rule name that doesn't match the name of any rule in the rule group, WAF doesn't return an error and doesn't apply the override setting.</p>
+   *          </note>
    *          <p>You can use overrides for testing, for example you can override all of rule actions to <code>Count</code> and then monitor the resulting count metrics to understand how the rule group would handle your web traffic. You can also permanently override some or all actions, to modify how the rule group manages your web traffic.</p>
    * @public
    */
@@ -8054,7 +8189,7 @@ export interface NotStatement {
  */
 export interface RateBasedStatement {
   /**
-   * <p>The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule.
+   * <p>The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule.
    *        If the rate-based statement includes a <code>ScopeDownStatement</code>, this limit is applied only to the
    *          requests that match the statement.</p>
    *          <p>Examples: </p>
@@ -8212,6 +8347,9 @@ export interface Rule {
    *          fully qualified labels to matching web requests. A fully qualified label is the
    *          concatenation of a label namespace and a rule label. The rule's rule group or web ACL
    *          defines the label namespace. </p>
+   *          <note>
+   *             <p>Any rule that isn't a rule group reference statement or managed rule group statement can add labels to matching web requests.</p>
+   *          </note>
    *          <p>Rules that run after this rule in the web ACL can match against these labels using a
    *             <code>LabelMatchStatement</code>.</p>
    *          <p>For each label, provide a case-sensitive string containing optional namespaces and a
@@ -8353,7 +8491,7 @@ export interface FirewallManagerRuleGroup {
  */
 export interface CheckCapacityRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -8386,7 +8524,7 @@ export interface CreateRuleGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -8467,7 +8605,7 @@ export interface CreateWebACLRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -8507,6 +8645,14 @@ export interface CreateWebACLRequest {
    * @public
    */
   VisibilityConfig: VisibilityConfig | undefined;
+
+  /**
+   * <p>Specifies data protection to apply to the web request data that WAF stores for the web ACL. This is a web ACL level data protection option. </p>
+   *          <p>The data protection that you configure for the web ACL alters the data that's available for any other data collection activity,
+   *   including WAF logging, web ACL request sampling, Amazon Web Services Managed Rules, and Amazon Security Lake data collection and management. Your other option for data protection is in the logging configuration, which only affects logging. </p>
+   * @public
+   */
+  DataProtectionConfig?: DataProtectionConfig | undefined;
 
   /**
    * <p>An array of key:value pairs to associate with the resource.</p>
@@ -8676,7 +8822,7 @@ export interface UpdateRuleGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -8746,7 +8892,7 @@ export interface UpdateWebACLRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -8792,6 +8938,14 @@ export interface UpdateWebACLRequest {
    * @public
    */
   VisibilityConfig: VisibilityConfig | undefined;
+
+  /**
+   * <p>Specifies data protection to apply to the web request data that WAF stores for the web ACL. This is a web ACL level data protection option. </p>
+   *          <p>The data protection that you configure for the web ACL alters the data that's available for any other data collection activity,
+   *   including WAF logging, web ACL request sampling, Amazon Web Services Managed Rules, and Amazon Security Lake data collection and management. Your other option for data protection is in the logging configuration, which only affects logging. </p>
+   * @public
+   */
+  DataProtectionConfig?: DataProtectionConfig | undefined;
 
   /**
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
@@ -8863,7 +9017,7 @@ export interface GetRuleGroupResponse {
 }
 
 /**
- * <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+ * <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resource types include Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito user pool, App Runner service, and Amazon Web Services Verified Access instance.  </p>
  * @public
  */
 export interface WebACL {
@@ -8914,6 +9068,14 @@ export interface WebACL {
    * @public
    */
   VisibilityConfig: VisibilityConfig | undefined;
+
+  /**
+   * <p>Specifies data protection to apply to the web request data that WAF stores for the web ACL. This is a web ACL level data protection option. </p>
+   *          <p>The data protection that you configure for the web ACL alters the data that's available for any other data collection activity,
+   *   including WAF logging, web ACL request sampling, Amazon Web Services Managed Rules, and Amazon Security Lake data collection and management. Your other option for data protection is in the logging configuration, which only affects logging. </p>
+   * @public
+   */
+  DataProtectionConfig?: DataProtectionConfig | undefined;
 
   /**
    * <p>The web ACL capacity units (WCUs) currently being used by this web ACL. </p>

@@ -992,6 +992,21 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //       CloudWatchMetricsEnabled: true || false, // required
  * //       MetricName: "STRING_VALUE", // required
  * //     },
+ * //     DataProtectionConfig: { // DataProtectionConfig
+ * //       DataProtections: [ // DataProtections // required
+ * //         { // DataProtection
+ * //           Field: { // FieldToProtect
+ * //             FieldType: "SINGLE_HEADER" || "SINGLE_COOKIE" || "SINGLE_QUERY_ARGUMENT" || "QUERY_STRING" || "BODY", // required
+ * //             FieldKeys: [ // FieldToProtectKeys
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           Action: "SUBSTITUTION" || "HASH", // required
+ * //           ExcludeRuleMatchDetails: true || false,
+ * //           ExcludeRateBasedDetails: true || false,
+ * //         },
+ * //       ],
+ * //     },
  * //     Capacity: Number("long"),
  * //     PreProcessFirewallManagerRuleGroups: [ // FirewallManagerRuleGroups
  * //       { // FirewallManagerRuleGroup

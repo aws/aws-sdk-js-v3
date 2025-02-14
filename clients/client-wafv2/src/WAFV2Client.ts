@@ -508,7 +508,7 @@ export type WAFV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
 export interface WAFV2ClientResolvedConfig extends WAFV2ClientResolvedConfigType {}
 
 /**
- * <fullname>WAF</fullname>
+ * <fullname>WAF </fullname>
  *          <note>
  *             <p>This is the latest version of the <b>WAF</b> API,
  *             released in November, 2019. The names of the entities that you use to access this API,
@@ -521,8 +521,8 @@ export interface WAFV2ClientResolvedConfig extends WAFV2ClientResolvedConfigType
  *             see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
  *          </note>
  *          <p>WAF is a web application firewall that lets you monitor the HTTP and HTTPS
- *          requests that are forwarded to an Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync
- *       GraphQL API, Amazon Cognito user pool, App Runner service, or Amazon Web Services Verified Access instance. WAF also lets you control access to your content,
+ *          requests that are forwarded to a protected resource. Protected resource types include Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync
+ *       GraphQL API, Amazon Cognito user pool, App Runner service, and Amazon Web Services Verified Access instance. WAF also lets you control access to your content,
  *       to protect the Amazon Web Services resource that WAF is monitoring. Based on conditions that
  *          you specify, such as the IP addresses that requests originate from or the values of query
  *          strings, the protected resource responds to requests with either the requested content, an HTTP 403 status code
@@ -534,11 +534,11 @@ export interface WAFV2ClientResolvedConfig extends WAFV2ClientResolvedConfigType
  *          <p>You can make calls using the endpoints listed in <a href="https://docs.aws.amazon.com/general/latest/gr/waf.html">WAF endpoints and quotas</a>. </p>
  *          <ul>
  *             <li>
- *                <p>For regional applications, you can use any of the endpoints in the list.
+ *                <p>For regional resources, you can use any of the endpoints in the list.
  *                A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p>
  *             </li>
  *             <li>
- *                <p>For Amazon CloudFront applications, you must use the API endpoint listed for
+ *                <p>For Amazon CloudFront, you must use the API endpoint listed for
  *                US East (N. Virginia): us-east-1.</p>
  *             </li>
  *          </ul>

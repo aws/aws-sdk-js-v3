@@ -38,12 +38,12 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  *                   following calls:</p>
  *                   <ul>
  *                      <li>
- *                         <p>For regional resources, call <a>ListResourcesForWebACL</a>.</p>
- *                      </li>
- *                      <li>
  *                         <p>For Amazon CloudFront distributions, use the CloudFront call
  *                            <code>ListDistributionsByWebACLId</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html">ListDistributionsByWebACLId</a>
  *                                in the <i>Amazon CloudFront API Reference</i>. </p>
+ *                      </li>
+ *                      <li>
+ *                         <p>For all other resources, call <a>ListResourcesForWebACL</a>.</p>
  *                      </li>
  *                   </ul>
  *                </li>
@@ -51,12 +51,12 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  *                   <p>To disassociate a resource from a web ACL, use the following calls:</p>
  *                   <ul>
  *                      <li>
- *                         <p>For regional resources, call <a>DisassociateWebACL</a>.</p>
- *                      </li>
- *                      <li>
  *                         <p>For Amazon CloudFront distributions, provide an empty web ACL ID in the CloudFront call
  *                            <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>
  *                                in the <i>Amazon CloudFront API Reference</i>. </p>
+ *                      </li>
+ *                      <li>
+ *                         <p>For all other resources, call <a>DisassociateWebACL</a>.</p>
  *                      </li>
  *                   </ul>
  *                </li>
