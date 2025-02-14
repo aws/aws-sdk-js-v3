@@ -2,15 +2,20 @@
 
 ## Background
 
-In AWS SDK for JavaScript [v3.729.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.729.0), we shipped a feature that [changed default object integrity in S3](https://github.com/aws/aws-sdk-js-v3/issues/6810). The SDKs now default to using more modern checksums (like CRC32) to ensure object integrity, whereas previously MD5 checksums were being used. Some third-party S3-compatible services currently do not support these checksums. To our knowledge, this affects only the S3 `DeleteObjects` operation.
+In AWS SDK for JavaScript [v3.729.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.729.0),
+we shipped a feature that [changed default object integrity in
+S3](https://github.com/aws/aws-sdk-js-v3/issues/6810). The SDKs now default to using more modern
+checksums (like CRC32) to ensure object integrity, whereas previously MD5 checksums were being used.
+Some third-party S3-compatible services currently do not support these checksums. To our knowledge,
+this affects only the S3 `DeleteObjects` operation.
 
-If you wish to fallback to the old behavior of sending MD5 checksums, for operations like `DeleteObjectsCommand` this is how
-you can do it in AWS SDK for JavaScript v3:
+If you wish to fallback to the old behavior of sending MD5 checksums, for operations like
+`DeleteObjectsCommand` this is how you can do it in AWS SDK for JavaScript v3:
 
 ## MD5 fallback
 
-The following code provides a custom S3 client that will use MD5 checksums for DeleteObjects operations while maintaining the
-default behavior for all other operations.
+The following code provides a custom S3 client that will use MD5 checksums for DeleteObjects
+operations while maintaining the default behavior for all other operations.
 
 ```javascript
 // md5ClientS3.mjs
@@ -106,12 +111,13 @@ This sequence ensures that we properly replace the checksums with MD5 checksum.
 ## Usage Notes
 
 - The client can be configured with additional options as needed (region, credentials, etc.)
-- If your S3-compatible service supports the SDK's new checksum options or adds support in the future, you should use the standard S3 client instead.
+- If your S3-compatible service supports the SDK's new checksum options or adds support in the
+  future, you should use the standard S3 client instead.
 
 ## Debugging
 
-To verify that the MD5 checksum is being correctly applied, you can add console logging to the middleware by modifying the
-code to include logging statements:
+To verify that the MD5 checksum is being correctly applied, you can add console logging to the
+middleware by modifying the code to include logging statements:
 
 ```javascript
 // Inside the middleware function, add:
