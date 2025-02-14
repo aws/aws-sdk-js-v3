@@ -25,6 +25,7 @@ describe(resolveFlexibleChecksumsConfig.name, () => {
     expect(resolvedConfig).toEqual({
       requestChecksumCalculation: DEFAULT_REQUEST_CHECKSUM_CALCULATION,
       responseChecksumValidation: DEFAULT_RESPONSE_CHECKSUM_VALIDATION,
+      requestStreamBufferSize: 65536,
     });
     expect(normalizeProvider).toHaveBeenCalledTimes(2);
   });
@@ -33,6 +34,7 @@ describe(resolveFlexibleChecksumsConfig.name, () => {
     const mockInput = {
       requestChecksumCalculation: RequestChecksumCalculation.WHEN_REQUIRED,
       responseChecksumValidation: ResponseChecksumValidation.WHEN_REQUIRED,
+      requestStreamBufferSize: 65536,
     };
     const resolvedConfig = resolveFlexibleChecksumsConfig(mockInput);
     expect(resolvedConfig).toEqual(mockInput);

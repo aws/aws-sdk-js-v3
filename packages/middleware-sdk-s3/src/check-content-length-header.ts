@@ -12,6 +12,7 @@ import {
 } from "@smithy/types";
 
 const CONTENT_LENGTH_HEADER = "content-length";
+const DECODED_CONTENT_LENGTH_HEADER = "x-amz-decoded-content-length";
 
 /**
  * @internal
@@ -28,7 +29,7 @@ export function checkContentLengthHeader(): FinalizeRequestMiddleware<any, any> 
       const { request } = args;
 
       if (HttpRequest.isInstance(request)) {
-        if (!(CONTENT_LENGTH_HEADER in request.headers)) {
+        if (!(CONTENT_LENGTH_HEADER in request.headers) && !(DECODED_CONTENT_LENGTH_HEADER in request.headers)) {
           const message = `Are you using a Stream of unknown length as the Body of a PutObject request? Consider using Upload instead from @aws-sdk/lib-storage.`;
           if (typeof context?.logger?.warn === "function" && !(context.logger instanceof NoOpLogger)) {
             context.logger.warn(message);
