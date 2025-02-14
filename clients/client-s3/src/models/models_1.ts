@@ -543,27 +543,27 @@ export interface PutBucketPolicyRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CRC-32</code>
+   *                   <code>CRC32</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CRC-32C</code>
+   *                   <code>CRC32C</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CRC-64NVME</code>
+   *                   <code>CRC64NVME</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SHA-1</code>
+   *                   <code>SHA1</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SHA-256</code>
+   *                   <code>SHA256</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -1053,7 +1053,7 @@ export interface PutObjectOutput {
   ETag?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 32-bit <code>CRC-32 checksum</code> of the object. This checksum is only be present if the checksum was uploaded
+   * <p>The Base64 encoded, 32-bit <code>CRC32 checksum</code> of the object. This checksum is only be present if the checksum was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -1062,7 +1062,7 @@ export interface PutObjectOutput {
   ChecksumCRC32?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 32-bit <code>CRC-32C</code> checksum of the object. This checksum is only present if the checksum was uploaded
+   * <p>The Base64 encoded, 32-bit <code>CRC32C</code> checksum of the object. This checksum is only present if the checksum was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -1071,10 +1071,10 @@ export interface PutObjectOutput {
   ChecksumCRC32C?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 64-bit <code>CRC-64NVME</code> checksum of the object. This header
-   *          is present if the object was uploaded with the <code>CRC-64NVME</code> checksum algorithm, or if it
+   * <p>The Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the object. This header
+   *          is present if the object was uploaded with the <code>CRC64NVME</code> checksum algorithm, or if it
    *          was uploaded without a checksum (and Amazon S3 added the default checksum,
-   *             <code>CRC-64NVME</code>, to the uploaded object). For more information about how
+   *             <code>CRC64NVME</code>, to the uploaded object). For more information about how
    *          checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity
    *             in the Amazon S3 User Guide</a>.</p>
    * @public
@@ -1082,7 +1082,7 @@ export interface PutObjectOutput {
   ChecksumCRC64NVME?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 160-bit <code>SHA-1</code> digest of the object. This will only be present if the object was uploaded
+   * <p>The Base64 encoded, 160-bit <code>SHA1</code> digest of the object. This will only be present if the object was uploaded
    *     with the object. When you use the API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -1091,7 +1091,7 @@ export interface PutObjectOutput {
   ChecksumSHA1?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 256-bit <code>SHA-256</code> digest of the object. This will only be present if the object was uploaded
+   * <p>The Base64 encoded, 256-bit <code>SHA256</code> digest of the object. This will only be present if the object was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -1336,27 +1336,27 @@ export interface PutObjectRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CRC-32</code>
+   *                   <code>CRC32</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CRC-32C</code>
+   *                   <code>CRC32C</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CRC-64NVME</code>
+   *                   <code>CRC64NVME</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SHA-1</code>
+   *                   <code>SHA1</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SHA-256</code>
+   *                   <code>SHA256</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -1378,7 +1378,7 @@ export interface PutObjectRequest {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
-   *     This header specifies the Base64 encoded, 32-bit <code>CRC-32</code> checksum of the object. For more information, see
+   *     This header specifies the Base64 encoded, 32-bit <code>CRC32</code> checksum of the object. For more information, see
    *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -1387,7 +1387,7 @@ export interface PutObjectRequest {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
-   *     This header specifies the Base64 encoded, 32-bit <code>CRC-32C</code> checksum of the object. For more information, see
+   *     This header specifies the Base64 encoded, 32-bit <code>CRC32C</code> checksum of the object. For more information, see
    *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -1397,7 +1397,7 @@ export interface PutObjectRequest {
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is
    *          the same data that was originally sent. This header specifies the Base64 encoded, 64-bit
-   *             <code>CRC-64NVME</code> checksum of the object. The <code>CRC-64NVME</code> checksum is
+   *             <code>CRC64NVME</code> checksum of the object. The <code>CRC64NVME</code> checksum is
    *          always a full object checksum. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity
    *             in the Amazon S3 User Guide</a>.</p>
    * @public
@@ -1406,7 +1406,7 @@ export interface PutObjectRequest {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
-   *     This header specifies the Base64 encoded, 160-bit <code>SHA-1</code> digest of the object. For more information, see
+   *     This header specifies the Base64 encoded, 160-bit <code>SHA1</code> digest of the object. For more information, see
    *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -1415,7 +1415,7 @@ export interface PutObjectRequest {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
-   *     This header specifies the Base64 encoded, 256-bit <code>SHA-256</code> digest of the object. For more information, see
+   *     This header specifies the Base64 encoded, 256-bit <code>SHA256</code> digest of the object. For more information, see
    *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -3396,7 +3396,7 @@ export interface UploadPartOutput {
   ETag?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 32-bit <code>CRC-32 checksum</code> of the object. This checksum is only be present if the checksum was uploaded
+   * <p>The Base64 encoded, 32-bit <code>CRC32 checksum</code> of the object. This checksum is only be present if the checksum was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -3405,7 +3405,7 @@ export interface UploadPartOutput {
   ChecksumCRC32?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 32-bit <code>CRC-32C</code> checksum of the object. This checksum is only present if the checksum was uploaded
+   * <p>The Base64 encoded, 32-bit <code>CRC32C</code> checksum of the object. This checksum is only present if the checksum was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -3416,13 +3416,13 @@ export interface UploadPartOutput {
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is
    *          the same data that was originally sent. This header specifies the Base64 encoded, 64-bit
-   *          <code>CRC-64NVME</code> checksum of the part. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <code>CRC64NVME</code> checksum of the part. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
   ChecksumCRC64NVME?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 160-bit <code>SHA-1</code> digest of the object. This will only be present if the object was uploaded
+   * <p>The Base64 encoded, 160-bit <code>SHA1</code> digest of the object. This will only be present if the object was uploaded
    *     with the object. When you use the API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -3431,7 +3431,7 @@ export interface UploadPartOutput {
   ChecksumSHA1?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 256-bit <code>SHA-256</code> digest of the object. This will only be present if the object was uploaded
+   * <p>The Base64 encoded, 256-bit <code>SHA256</code> digest of the object. This will only be present if the object was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -3553,7 +3553,7 @@ export interface UploadPartRequest {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
-   *     This header specifies the Base64 encoded, 32-bit <code>CRC-32</code> checksum of the object. For more information, see
+   *     This header specifies the Base64 encoded, 32-bit <code>CRC32</code> checksum of the object. For more information, see
    *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -3562,7 +3562,7 @@ export interface UploadPartRequest {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
-   *     This header specifies the Base64 encoded, 32-bit <code>CRC-32C</code> checksum of the object. For more information, see
+   *     This header specifies the Base64 encoded, 32-bit <code>CRC32C</code> checksum of the object. For more information, see
    *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -3572,14 +3572,14 @@ export interface UploadPartRequest {
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is
    *          the same data that was originally sent. This header specifies the Base64 encoded, 64-bit
-   *          <code>CRC-64NVME</code> checksum of the part. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <code>CRC64NVME</code> checksum of the part. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
   ChecksumCRC64NVME?: string | undefined;
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
-   *     This header specifies the Base64 encoded, 160-bit <code>SHA-1</code> digest of the object. For more information, see
+   *     This header specifies the Base64 encoded, 160-bit <code>SHA1</code> digest of the object. For more information, see
    *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -3588,7 +3588,7 @@ export interface UploadPartRequest {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
-   *     This header specifies the Base64 encoded, 256-bit <code>SHA-256</code> digest of the object. For more information, see
+   *     This header specifies the Base64 encoded, 256-bit <code>SHA256</code> digest of the object. For more information, see
    *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -3687,7 +3687,7 @@ export interface CopyPartResult {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
-   *          This header specifies the Base64 encoded, 32-bit <code>CRC-32</code> checksum of the part. For more information, see
+   *          This header specifies the Base64 encoded, 32-bit <code>CRC32</code> checksum of the part. For more information, see
    *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
    *          <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -3696,7 +3696,7 @@ export interface CopyPartResult {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
-   *          This header specifies the Base64 encoded, 32-bit <code>CRC-32C</code> checksum of the part. For more information, see
+   *          This header specifies the Base64 encoded, 32-bit <code>CRC32C</code> checksum of the part. For more information, see
    *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
    *          <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -3704,15 +3704,15 @@ export interface CopyPartResult {
   ChecksumCRC32C?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 64-bit <code>CRC-64NVME</code> checksum of the part. This checksum is present
-   *          if the multipart upload request was created with the <code>CRC-64NVME</code> checksum algorithm to the uploaded object). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>The Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the part. This checksum is present
+   *          if the multipart upload request was created with the <code>CRC64NVME</code> checksum algorithm to the uploaded object). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
   ChecksumCRC64NVME?: string | undefined;
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
-   *          This header specifies the Base64 encoded, 160-bit <code>SHA-1</code> checksum of the part. For more information, see
+   *          This header specifies the Base64 encoded, 160-bit <code>SHA1</code> checksum of the part. For more information, see
    *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
    *          <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -3721,7 +3721,7 @@ export interface CopyPartResult {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
-   *          This header specifies the Base64 encoded, 256-bit <code>SHA-256</code> checksum of the part. For more information, see
+   *          This header specifies the Base64 encoded, 256-bit <code>SHA256</code> checksum of the part. For more information, see
    *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
    *          <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -4241,7 +4241,7 @@ export interface WriteGetObjectResponseRequest {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is
-   *          the same data that was originally sent. This specifies the Base64 encoded, 32-bit <code>CRC-32</code>
+   *          the same data that was originally sent. This specifies the Base64 encoded, 32-bit <code>CRC32</code>
    *          checksum of the object returned by the Object Lambda function. This may not match the
    *          checksum for the object stored in Amazon S3. Amazon S3 will perform validation of the checksum values
    *          only when the original <code>GetObject</code> request required checksum validation. For
@@ -4256,7 +4256,7 @@ export interface WriteGetObjectResponseRequest {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is
-   *          the same data that was originally sent. This specifies the Base64 encoded, 32-bit <code>CRC-32C</code>
+   *          the same data that was originally sent. This specifies the Base64 encoded, 32-bit <code>CRC32C</code>
    *          checksum of the object returned by the Object Lambda function. This may not match the
    *          checksum for the object stored in Amazon S3. Amazon S3 will perform validation of the checksum values
    *          only when the original <code>GetObject</code> request required checksum validation. For
@@ -4271,14 +4271,14 @@ export interface WriteGetObjectResponseRequest {
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is
    *          the same data that was originally sent. This header specifies the Base64 encoded, 64-bit
-   *          <code>CRC-64NVME</code> checksum of the part. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <code>CRC64NVME</code> checksum of the part. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
   ChecksumCRC64NVME?: string | undefined;
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is
-   *          the same data that was originally sent. This specifies the Base64 encoded, 160-bit <code>SHA-1</code>
+   *          the same data that was originally sent. This specifies the Base64 encoded, 160-bit <code>SHA1</code>
    *          digest of the object returned by the Object Lambda function. This may not match the
    *          checksum for the object stored in Amazon S3. Amazon S3 will perform validation of the checksum values
    *          only when the original <code>GetObject</code> request required checksum validation. For
@@ -4292,7 +4292,7 @@ export interface WriteGetObjectResponseRequest {
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is
-   *          the same data that was originally sent. This specifies the Base64 encoded, 256-bit <code>SHA-256</code>
+   *          the same data that was originally sent. This specifies the Base64 encoded, 256-bit <code>SHA256</code>
    *          digest of the object returned by the Object Lambda function. This may not match the
    *          checksum for the object stored in Amazon S3. Amazon S3 will perform validation of the checksum values
    *          only when the original <code>GetObject</code> request required checksum validation. For

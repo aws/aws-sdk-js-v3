@@ -251,6 +251,7 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  * //   ContentEncoding: "STRING_VALUE",
  * //   ContentLanguage: "STRING_VALUE",
  * //   ContentType: "STRING_VALUE",
+ * //   ContentRange: "STRING_VALUE",
  * //   Expires: new Date("TIMESTAMP"),
  * //   ExpiresString: "STRING_VALUE",
  * //   WebsiteRedirectLocation: "STRING_VALUE",

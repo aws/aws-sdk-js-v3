@@ -4490,6 +4490,7 @@ export const de_HeadObjectCommand = async (
     [_CE]: [, output.headers[_ce]],
     [_CL]: [, output.headers[_cl]],
     [_CTo]: [, output.headers[_ct]],
+    [_CR]: [, output.headers[_cr]],
     [_E]: [() => void 0 !== output.headers[_e], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_e]))],
     [_ES]: [, output.headers[_ex]],
     [_WRL]: [, output.headers[_xawrl]],
