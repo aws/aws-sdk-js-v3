@@ -14190,7 +14190,7 @@ const se_EvaluationAnswerData = (input: EvaluationAnswerData, context: __SerdeCo
     NotApplicable: (value) => ({ NotApplicable: value }),
     NumericValue: (value) => ({ NumericValue: __serializeFloat(value) }),
     StringValue: (value) => ({ StringValue: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -14223,7 +14223,7 @@ const se_EvaluationFormItem = (input: EvaluationFormItem, context: __SerdeContex
   return EvaluationFormItem.visit(input, {
     Question: (value) => ({ Question: se_EvaluationFormQuestion(value, context) }),
     Section: (value) => ({ Section: se_EvaluationFormSection(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

@@ -1044,7 +1044,7 @@ const se_ContentBlock = (input: ContentBlock, context: __SerdeContext): any => {
     toolResult: (value) => ({ toolResult: se_ToolResultBlock(value, context) }),
     toolUse: (value) => ({ toolUse: se_ToolUseBlock(value, context) }),
     video: (value) => ({ video: se_VideoBlock(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1076,7 +1076,7 @@ const se_DocumentBlock = (input: DocumentBlock, context: __SerdeContext): any =>
 const se_DocumentSource = (input: DocumentSource, context: __SerdeContext): any => {
   return DocumentSource.visit(input, {
     bytes: (value) => ({ bytes: context.base64Encoder(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1089,7 +1089,7 @@ const se_GuardrailContentBlock = (input: GuardrailContentBlock, context: __Serde
   return GuardrailContentBlock.visit(input, {
     image: (value) => ({ image: se_GuardrailImageBlock(value, context) }),
     text: (value) => ({ text: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1113,7 +1113,7 @@ const se_GuardrailConverseContentBlock = (input: GuardrailConverseContentBlock, 
   return GuardrailConverseContentBlock.visit(input, {
     image: (value) => ({ image: se_GuardrailConverseImageBlock(value, context) }),
     text: (value) => ({ text: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1135,7 +1135,7 @@ const se_GuardrailConverseImageBlock = (input: GuardrailConverseImageBlock, cont
 const se_GuardrailConverseImageSource = (input: GuardrailConverseImageSource, context: __SerdeContext): any => {
   return GuardrailConverseImageSource.visit(input, {
     bytes: (value) => ({ bytes: context.base64Encoder(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1157,7 +1157,7 @@ const se_GuardrailImageBlock = (input: GuardrailImageBlock, context: __SerdeCont
 const se_GuardrailImageSource = (input: GuardrailImageSource, context: __SerdeContext): any => {
   return GuardrailImageSource.visit(input, {
     bytes: (value) => ({ bytes: context.base64Encoder(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1181,7 +1181,7 @@ const se_ImageBlock = (input: ImageBlock, context: __SerdeContext): any => {
 const se_ImageSource = (input: ImageSource, context: __SerdeContext): any => {
   return ImageSource.visit(input, {
     bytes: (value) => ({ bytes: context.base64Encoder(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1246,7 +1246,7 @@ const se_SystemContentBlock = (input: SystemContentBlock, context: __SerdeContex
   return SystemContentBlock.visit(input, {
     guardContent: (value) => ({ guardContent: se_GuardrailConverseContentBlock(value, context) }),
     text: (value) => ({ text: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1271,7 +1271,7 @@ const se_SystemContentBlocks = (input: SystemContentBlock[], context: __SerdeCon
 const se_Tool = (input: Tool, context: __SerdeContext): any => {
   return Tool.visit(input, {
     toolSpec: (value) => ({ toolSpec: se_ToolSpecification(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1293,7 +1293,7 @@ const se_ToolConfiguration = (input: ToolConfiguration, context: __SerdeContext)
 const se_ToolInputSchema = (input: ToolInputSchema, context: __SerdeContext): any => {
   return ToolInputSchema.visit(input, {
     json: (value) => ({ json: se_Document(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1318,7 +1318,7 @@ const se_ToolResultContentBlock = (input: ToolResultContentBlock, context: __Ser
     json: (value) => ({ json: se_Document(value, context) }),
     text: (value) => ({ text: value }),
     video: (value) => ({ video: se_VideoBlock(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1383,7 +1383,7 @@ const se_VideoSource = (input: VideoSource, context: __SerdeContext): any => {
   return VideoSource.visit(input, {
     bytes: (value) => ({ bytes: context.base64Encoder(value) }),
     s3Location: (value) => ({ s3Location: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

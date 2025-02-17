@@ -2686,7 +2686,7 @@ const se_MessageSignal = (input: MessageSignal, context: __SerdeContext): any =>
 const se_NetworkFileDefinition = (input: NetworkFileDefinition, context: __SerdeContext): any => {
   return NetworkFileDefinition.visit(input, {
     canDbc: (value) => ({ canDbc: se_CanDbcDefinition(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2727,7 +2727,7 @@ const se_Node = (input: Node, context: __SerdeContext): any => {
     property: (value) => ({ property: _json(value) }),
     sensor: (value) => ({ sensor: se_Sensor(value, context) }),
     struct: (value) => ({ struct: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2775,7 +2775,7 @@ const se_PrimitiveMessageDefinition = (input: PrimitiveMessageDefinition, contex
     ros2PrimitiveMessageDefinition: (value) => ({
       ros2PrimitiveMessageDefinition: se_ROS2PrimitiveMessageDefinition(value, context),
     }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2885,7 +2885,7 @@ const se_StructuredMessage = (input: StructuredMessage, context: __SerdeContext)
     structuredMessageListDefinition: (value) => ({
       structuredMessageListDefinition: se_StructuredMessageListDefinition(value, context),
     }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

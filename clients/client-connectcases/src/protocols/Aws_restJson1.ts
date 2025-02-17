@@ -2003,7 +2003,7 @@ const se_BooleanCondition = (input: BooleanCondition, context: __SerdeContext): 
   return BooleanCondition.visit(input, {
     equalTo: (value) => ({ equalTo: se_BooleanOperands(value, context) }),
     notEqualTo: (value) => ({ notEqualTo: se_BooleanOperands(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2040,7 +2040,7 @@ const se_CaseFilter = (input: CaseFilter, context: __SerdeContext): any => {
     field: (value) => ({ field: se_FieldFilter(value, context) }),
     not: (value) => ({ not: se_CaseFilter(value, context) }),
     orAll: (value) => ({ orAll: se_CaseFilterList(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2061,7 +2061,7 @@ const se_CaseFilterList = (input: CaseFilter[], context: __SerdeContext): any =>
 const se_CaseRuleDetails = (input: CaseRuleDetails, context: __SerdeContext): any => {
   return CaseRuleDetails.visit(input, {
     required: (value) => ({ required: se_RequiredCaseRule(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2098,7 +2098,7 @@ const se_FieldFilter = (input: FieldFilter, context: __SerdeContext): any => {
     greaterThanOrEqualTo: (value) => ({ greaterThanOrEqualTo: se_FieldValue(value, context) }),
     lessThan: (value) => ({ lessThan: se_FieldValue(value, context) }),
     lessThanOrEqualTo: (value) => ({ lessThanOrEqualTo: se_FieldValue(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2147,7 +2147,7 @@ const se_FieldValueUnion = (input: FieldValueUnion, context: __SerdeContext): an
     emptyValue: (value) => ({ emptyValue: _json(value) }),
     stringValue: (value) => ({ stringValue: value }),
     userArnValue: (value) => ({ userArnValue: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2172,7 +2172,7 @@ const se_OperandTwo = (input: OperandTwo, context: __SerdeContext): any => {
     doubleValue: (value) => ({ doubleValue: __serializeFloat(value) }),
     emptyValue: (value) => ({ emptyValue: _json(value) }),
     stringValue: (value) => ({ stringValue: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

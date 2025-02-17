@@ -875,7 +875,7 @@ const se_AlternateIdentifier = (input: AlternateIdentifier, context: __SerdeCont
   return AlternateIdentifier.visit(input, {
     ExternalId: (value) => ({ ExternalId: _json(value) }),
     UniqueAttribute: (value) => ({ UniqueAttribute: se_UniqueAttribute(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

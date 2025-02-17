@@ -2115,7 +2115,7 @@ const de_TooManyTagsExceptionRes = async (
 const se_IndexingRuleValueUpdate = (input: IndexingRuleValueUpdate, context: __SerdeContext): any => {
   return IndexingRuleValueUpdate.visit(input, {
     Probabilistic: (value) => ({ Probabilistic: se_ProbabilisticRuleValueUpdate(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

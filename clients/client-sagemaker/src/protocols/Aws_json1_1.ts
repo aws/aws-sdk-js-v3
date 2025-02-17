@@ -17336,7 +17336,7 @@ const se_TrialComponentParameterValue = (input: TrialComponentParameterValue, co
   return TrialComponentParameterValue.visit(input, {
     NumberValue: (value) => ({ NumberValue: __serializeFloat(value) }),
     StringValue: (value) => ({ StringValue: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

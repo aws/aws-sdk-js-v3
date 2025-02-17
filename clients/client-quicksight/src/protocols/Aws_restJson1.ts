@@ -17333,7 +17333,7 @@ const se_TransformOperation = (input: TransformOperation, context: __SerdeContex
     RenameColumnOperation: (value) => ({ RenameColumnOperation: _json(value) }),
     TagColumnOperation: (value) => ({ TagColumnOperation: _json(value) }),
     UntagColumnOperation: (value) => ({ UntagColumnOperation: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

@@ -1455,7 +1455,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_ScrapeConfiguration = (input: ScrapeConfiguration, context: __SerdeContext): any => {
   return ScrapeConfiguration.visit(input, {
     configurationBlob: (value) => ({ configurationBlob: context.base64Encoder(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

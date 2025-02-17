@@ -2929,7 +2929,7 @@ const se_AttributeValue = (input: AttributeValue, context: __SerdeContext): any 
     NULL: (value) => ({ NULL: value }),
     S: (value) => ({ S: value }),
     SS: (value) => ({ SS: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

@@ -4232,7 +4232,7 @@ const se_DocumentAttributeValue = (input: DocumentAttributeValue, context: __Ser
     longValue: (value) => ({ longValue: value }),
     stringListValue: (value) => ({ stringListValue: _json(value) }),
     stringValue: (value) => ({ stringValue: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -4243,7 +4243,7 @@ const se_DocumentContent = (input: DocumentContent, context: __SerdeContext): an
   return DocumentContent.visit(input, {
     blob: (value) => ({ blob: context.base64Encoder(value) }),
     s3: (value) => ({ s3: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

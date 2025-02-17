@@ -1384,7 +1384,7 @@ const se_ExportPreferences = (input: ExportPreferences, context: __SerdeContext)
     ec2RecommendationsPreferences: (value) => ({
       ec2RecommendationsPreferences: se_Ec2RecommendationsExportPreferences(value, context),
     }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

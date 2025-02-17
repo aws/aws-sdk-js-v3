@@ -3972,7 +3972,7 @@ const se_FlowNodeConfiguration = (input: FlowNodeConfiguration, context: __Serde
     prompt: (value) => ({ prompt: se_PromptFlowNodeConfiguration(value, context) }),
     retrieval: (value) => ({ retrieval: _json(value) }),
     storage: (value) => ({ storage: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -4215,7 +4215,7 @@ const se_PromptFlowNodeSourceConfiguration = (
   return PromptFlowNodeSourceConfiguration.visit(input, {
     inline: (value) => ({ inline: se_PromptFlowNodeInlineConfiguration(value, context) }),
     resource: (value) => ({ resource: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -4227,7 +4227,7 @@ const se_PromptFlowNodeSourceConfiguration = (
 const se_PromptInferenceConfiguration = (input: PromptInferenceConfiguration, context: __SerdeContext): any => {
   return PromptInferenceConfiguration.visit(input, {
     text: (value) => ({ text: se_PromptModelInferenceConfiguration(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -4271,7 +4271,7 @@ const se_PromptTemplateConfiguration = (input: PromptTemplateConfiguration, cont
   return PromptTemplateConfiguration.visit(input, {
     chat: (value) => ({ chat: se_ChatPromptTemplateConfiguration(value, context) }),
     text: (value) => ({ text: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -4421,7 +4421,7 @@ const se_Tool = (input: Tool, context: __SerdeContext): any => {
   return Tool.visit(input, {
     cachePoint: (value) => ({ cachePoint: _json(value) }),
     toolSpec: (value) => ({ toolSpec: se_ToolSpecification(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -4443,7 +4443,7 @@ const se_ToolConfiguration = (input: ToolConfiguration, context: __SerdeContext)
 const se_ToolInputSchema = (input: ToolInputSchema, context: __SerdeContext): any => {
   return ToolInputSchema.visit(input, {
     json: (value) => ({ json: se_Document(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

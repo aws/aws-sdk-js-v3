@@ -1908,7 +1908,7 @@ const se_TelephonyOutboundMode = (input: TelephonyOutboundMode, context: __Serde
     agentless: (value) => ({ agentless: _json(value) }),
     predictive: (value) => ({ predictive: se_PredictiveConfig(value, context) }),
     progressive: (value) => ({ progressive: se_ProgressiveConfig(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

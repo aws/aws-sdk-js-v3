@@ -8047,7 +8047,7 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
     stringValue: (value) => ({ stringValue: value }),
     structureValue: (value) => ({ structureValue: se_GreetingStruct(value, context) }),
     timestampValue: (value) => ({ timestampValue: value.getTime() / 1_000 }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -8076,7 +8076,7 @@ const se_PayloadConfig = (input: PayloadConfig, context: __SerdeContext): any =>
 const se_PlayerAction = (input: PlayerAction, context: __SerdeContext): any => {
   return PlayerAction.visit(input, {
     quit: (value) => ({ quit: se_Unit(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -8218,7 +8218,7 @@ const se_TestStringMap = (input: Record<string, string>, context: __SerdeContext
 const se_UnionPayload = (input: UnionPayload, context: __SerdeContext): any => {
   return UnionPayload.visit(input, {
     greeting: (value) => ({ greeting: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -8230,7 +8230,7 @@ const se_UnionWithJsonName = (input: UnionWithJsonName, context: __SerdeContext)
     bar: (value) => ({ bar: value }),
     baz: (value) => ({ _baz: value }),
     foo: (value) => ({ FOO: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

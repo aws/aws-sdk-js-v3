@@ -8576,7 +8576,7 @@ const se_AssetFilterConfiguration = (input: AssetFilterConfiguration, context: _
   return AssetFilterConfiguration.visit(input, {
     columnConfiguration: (value) => ({ columnConfiguration: _json(value) }),
     rowConfiguration: (value) => ({ rowConfiguration: se_RowFilterConfiguration(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -8692,7 +8692,7 @@ const se_FilterClause = (input: FilterClause, context: __SerdeContext): any => {
     and: (value) => ({ and: se_FilterList(value, context) }),
     filter: (value) => ({ filter: _json(value) }),
     or: (value) => ({ or: se_FilterList(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -8881,7 +8881,7 @@ const se_RowFilter = (input: RowFilter, context: __SerdeContext): any => {
     and: (value) => ({ and: se_RowFilterList(value, context) }),
     expression: (value) => ({ expression: _json(value) }),
     or: (value) => ({ or: se_RowFilterList(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

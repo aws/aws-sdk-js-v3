@@ -1234,7 +1234,7 @@ const se_AttributeValue = (input: AttributeValue, context: __SerdeContext): any 
     record: (value) => ({ record: se_RecordAttribute(value, context) }),
     set: (value) => ({ set: se_SetAttribute(value, context) }),
     string: (value) => ({ string: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1336,7 +1336,7 @@ const se_ContextDefinition = (input: ContextDefinition, context: __SerdeContext)
   return ContextDefinition.visit(input, {
     cedarJson: (value) => ({ cedarJson: value }),
     contextMap: (value) => ({ contextMap: se_ContextMap(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1414,7 +1414,7 @@ const se_EntitiesDefinition = (input: EntitiesDefinition, context: __SerdeContex
   return EntitiesDefinition.visit(input, {
     cedarJson: (value) => ({ cedarJson: value }),
     entityList: (value) => ({ entityList: se_EntityList(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

@@ -962,7 +962,7 @@ const se_Interval = (input: Interval, context: __SerdeContext): any => {
   return Interval.visit(input, {
     CalendarInterval: (value) => ({ CalendarInterval: se_CalendarInterval(value, context) }),
     RollingInterval: (value) => ({ RollingInterval: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

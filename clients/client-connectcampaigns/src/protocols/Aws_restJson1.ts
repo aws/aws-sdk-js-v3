@@ -1210,7 +1210,7 @@ const se_DialerConfig = (input: DialerConfig, context: __SerdeContext): any => {
     agentlessDialerConfig: (value) => ({ agentlessDialerConfig: se_AgentlessDialerConfig(value, context) }),
     predictiveDialerConfig: (value) => ({ predictiveDialerConfig: se_PredictiveDialerConfig(value, context) }),
     progressiveDialerConfig: (value) => ({ progressiveDialerConfig: se_ProgressiveDialerConfig(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

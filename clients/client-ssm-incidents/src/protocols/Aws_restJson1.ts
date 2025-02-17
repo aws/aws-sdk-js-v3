@@ -1702,7 +1702,7 @@ const se_Condition = (input: Condition, context: __SerdeContext): any => {
     after: (value) => ({ after: value.getTime() / 1_000 }),
     before: (value) => ({ before: value.getTime() / 1_000 }),
     equals: (value) => ({ equals: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
