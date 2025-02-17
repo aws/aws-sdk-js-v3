@@ -251,7 +251,17 @@ export interface CreateAppRequest {
   platform?: Platform | undefined;
 
   /**
-   * <p>The AWS Identity and Access Management (IAM) service role for an Amplify app. </p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to assign to an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
+   *             based on the role's permissions. For more information about the SSR Compute role, see
+   *                 <a href="https://docs.aws.amazon.com/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *                 Guide</i>.</p>
+   * @public
+   */
+  computeRoleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name
+   *             (ARN) of the IAM service role for the Amplify app.</p>
    * @public
    */
   iamServiceRoleArn?: string | undefined;
@@ -532,8 +542,17 @@ export interface App {
   updateTime: Date | undefined;
 
   /**
-   * <p>The AWS Identity and Access Management (IAM) service role for the Amazon Resource Name
-   *             (ARN) of the Amplify app. </p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
+   *             based on the role's permissions. For more information about the SSR Compute role, see
+   *             <a href="https://docs.aws.amazon.com/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  computeRoleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name
+   *             (ARN) of the IAM service role for the Amplify app.</p>
    * @public
    */
   iamServiceRoleArn?: string | undefined;
@@ -1007,6 +1026,15 @@ export interface CreateBranchRequest {
    * @public
    */
   backend?: Backend | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
+   *             based on the role's permissions. For more information about the SSR Compute role, see
+   *             <a href="https://docs.aws.amazon.com/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  computeRoleArn?: string | undefined;
 }
 
 /**
@@ -1194,6 +1222,15 @@ export interface Branch {
    * @public
    */
   backend?: Backend | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role for a branch of an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
+   *             based on the role's permissions. For more information about the SSR Compute role, see
+   *             <a href="https://docs.aws.amazon.com/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  computeRoleArn?: string | undefined;
 }
 
 /**
@@ -2979,7 +3016,17 @@ export interface UpdateAppRequest {
   platform?: Platform | undefined;
 
   /**
-   * <p>The AWS Identity and Access Management (IAM) service role for an Amplify app. </p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to assign to an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
+   *             based on the role's permissions. For more information about the SSR Compute role, see
+   *             <a href="https://docs.aws.amazon.com/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  computeRoleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name
+   *             (ARN) of the IAM service role for the Amplify app.</p>
    * @public
    */
   iamServiceRoleArn?: string | undefined;
@@ -3237,6 +3284,15 @@ export interface UpdateBranchRequest {
    * @public
    */
   backend?: Backend | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
+   *             based on the role's permissions. For more information about the SSR Compute role, see
+   *             <a href="https://docs.aws.amazon.com/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  computeRoleArn?: string | undefined;
 }
 
 /**

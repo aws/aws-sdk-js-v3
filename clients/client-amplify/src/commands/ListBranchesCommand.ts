@@ -83,6 +83,7 @@ export interface ListBranchesCommandOutput extends ListBranchesResult, __Metadat
  * //       backend: { // Backend
  * //         stackArn: "STRING_VALUE",
  * //       },
+ * //       computeRoleArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

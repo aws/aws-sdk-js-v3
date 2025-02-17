@@ -53,6 +53,7 @@ export interface GetAppCommandOutput extends GetAppResult, __MetadataBearer {}
  * //     platform: "WEB" || "WEB_DYNAMIC" || "WEB_COMPUTE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
+ * //     computeRoleArn: "STRING_VALUE",
  * //     iamServiceRoleArn: "STRING_VALUE",
  * //     environmentVariables: { // EnvironmentVariables // required
  * //       "<keys>": "STRING_VALUE",

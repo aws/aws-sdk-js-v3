@@ -63,6 +63,7 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  *   backend: { // Backend
  *     stackArn: "STRING_VALUE",
  *   },
+ *   computeRoleArn: "STRING_VALUE",
  * };
  * const command = new UpdateBranchCommand(input);
  * const response = await client.send(command);
@@ -106,6 +107,7 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  * //     backend: { // Backend
  * //       stackArn: "STRING_VALUE",
  * //     },
+ * //     computeRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *

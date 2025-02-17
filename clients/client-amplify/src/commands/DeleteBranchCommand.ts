@@ -81,6 +81,7 @@ export interface DeleteBranchCommandOutput extends DeleteBranchResult, __Metadat
  * //     backend: { // Backend
  * //       stackArn: "STRING_VALUE",
  * //     },
+ * //     computeRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *

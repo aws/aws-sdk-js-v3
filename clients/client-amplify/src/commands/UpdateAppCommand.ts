@@ -45,6 +45,7 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   platform: "WEB" || "WEB_DYNAMIC" || "WEB_COMPUTE",
+ *   computeRoleArn: "STRING_VALUE",
  *   iamServiceRoleArn: "STRING_VALUE",
  *   environmentVariables: { // EnvironmentVariables
  *     "<keys>": "STRING_VALUE",
@@ -103,6 +104,7 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  * //     platform: "WEB" || "WEB_DYNAMIC" || "WEB_COMPUTE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
+ * //     computeRoleArn: "STRING_VALUE",
  * //     iamServiceRoleArn: "STRING_VALUE",
  * //     environmentVariables: { // EnvironmentVariables // required
  * //       "<keys>": "STRING_VALUE",

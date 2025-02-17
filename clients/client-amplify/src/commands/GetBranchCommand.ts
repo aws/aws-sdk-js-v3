@@ -81,6 +81,7 @@ export interface GetBranchCommandOutput extends GetBranchResult, __MetadataBeare
  * //     backend: { // Backend
  * //       stackArn: "STRING_VALUE",
  * //     },
+ * //     computeRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *

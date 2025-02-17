@@ -66,6 +66,7 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  *   backend: { // Backend
  *     stackArn: "STRING_VALUE",
  *   },
+ *   computeRoleArn: "STRING_VALUE",
  * };
  * const command = new CreateBranchCommand(input);
  * const response = await client.send(command);
@@ -109,6 +110,7 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  * //     backend: { // Backend
  * //       stackArn: "STRING_VALUE",
  * //     },
+ * //     computeRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *
