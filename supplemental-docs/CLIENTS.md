@@ -753,13 +753,36 @@ See also https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk
 
 ### S3
 
-`followRegionRedirects`:
+#### `followRegionRedirects`:
+
 This feature was previously called the S3 Global Client. Setting this option to true enables failed requests to be retried with a corrected region when receiving a permanent redirect error with status 301. Note that this can result in additional latency owing to the retried request. This feature should only be used as a last resort if you do not know the region of your bucket(s) ahead of time.
 
 ```ts
 // Example: setting followRegionRedirect
 new S3Client({
   followRegionRedirects: true,
+});
+```
+
+#### `requestChecksumCalculation` and `responseChecksumValidation`:
+
+These may be set to `WHEN_REQUIRED` or `WHEN_SUPPORTED`. See https://github.com/aws/aws-sdk-js-v3/issues/6810.
+
+#### `requestStreamBufferSize`:
+
+This only comes into play when request checksums are enabled.
+When you set a value greater than or equal to 8kb, or 8192 bytes,
+your input streams that emit chunks having size less than the value
+configured will be buffered until the buffer exceeds the desired size
+before continuing to flow.
+
+See https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-streaming.html.
+
+```ts
+// example: configuring the S3 client to buffer your
+// input streams into chunks of 64kb or higher.
+new S3Client({
+  requestStreamBufferSize: 64 * 1024,
 });
 ```
 

@@ -130,6 +130,7 @@ export const initializeWithMaximalConfiguration = () => {
     requestChecksumCalculation: DEFAULT_REQUEST_CHECKSUM_CALCULATION,
     responseChecksumValidation: DEFAULT_RESPONSE_CHECKSUM_VALIDATION,
     userAgentAppId: "testApp",
+    requestStreamBufferSize: 8 * 1024,
   };
 
   const s3 = new S3Client(config);

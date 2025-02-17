@@ -130,4 +130,24 @@ describe("checkContentLengthHeaderMiddleware", () => {
 
     expect(spy).not.toHaveBeenCalled();
   });
+
+  it("does not warn if uploading a payload of known length via alternate header x-amz-decoded-content-length", async () => {
+    const handler = checkContentLengthHeader()(mockNextHandler, {});
+
+    await handler({
+      request: {
+        method: null,
+        protocol: null,
+        hostname: null,
+        path: null,
+        query: {},
+        headers: {
+          "x-amz-decoded-content-length": "5",
+        },
+      },
+      input: {},
+    });
+
+    expect(spy).not.toHaveBeenCalled();
+  });
 });
