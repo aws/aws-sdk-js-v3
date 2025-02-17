@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.750.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.749.0...v3.750.0) (2025-02-17)
+
+
+### Features
+
+* **client-amplify:** Add ComputeRoleArn to CreateApp, UpdateApp, CreateBranch, and UpdateBranch, allowing caller to specify a role to be assumed by Amplify Hosting for server-side rendered applications. ([3c35c6e](https://github.com/aws/aws-sdk-js-v3/commit/3c35c6e9a449cb0622efd9a93b73d3f76831ee95))
+
+
+
+
+
 # [3.749.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.748.0...v3.749.0) (2025-02-14)
 
 **Note:** Version bump only for package @aws-sdk/client-amplify

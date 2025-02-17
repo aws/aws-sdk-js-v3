@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.750.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.749.0...v3.750.0) (2025-02-17)
+
+
+### Features
+
+* **client-timestream-influxdb:** This release introduces APIs to manage DbClusters and adds support for read replicas ([b77c92f](https://github.com/aws/aws-sdk-js-v3/commit/b77c92f2477ce3745eb1fb4e1998c5190b283514))
+
+
+
+
+
 # [3.749.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.748.0...v3.749.0) (2025-02-14)
 
 **Note:** Version bump only for package @aws-sdk/client-timestream-influxdb

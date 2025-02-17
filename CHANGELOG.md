@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.750.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.749.0...v3.750.0) (2025-02-17)
+
+
+### Bug Fixes
+
+* **middleware-flexible-checksums:** buffer stream chunks to minimum required size ([#6882](https://github.com/aws/aws-sdk-js-v3/issues/6882)) ([1f1905e](https://github.com/aws/aws-sdk-js-v3/commit/1f1905efeb5b5f9e923ea6f5ff466fe60343f908))
+
+
+### Features
+
+* **client-amplify:** Add ComputeRoleArn to CreateApp, UpdateApp, CreateBranch, and UpdateBranch, allowing caller to specify a role to be assumed by Amplify Hosting for server-side rendered applications. ([3c35c6e](https://github.com/aws/aws-sdk-js-v3/commit/3c35c6e9a449cb0622efd9a93b73d3f76831ee95))
+* **client-database-migration-service:** Support replicationConfigArn in DMS DescribeApplicableIndividualAssessments API. ([e7db4d8](https://github.com/aws/aws-sdk-js-v3/commit/e7db4d813766b40ff6d5a76299faf7ff188d375c))
+* **client-timestream-influxdb:** This release introduces APIs to manage DbClusters and adds support for read replicas ([b77c92f](https://github.com/aws/aws-sdk-js-v3/commit/b77c92f2477ce3745eb1fb4e1998c5190b283514))
+* **clients:** update client endpoints as of 2025-02-17 ([30bcfba](https://github.com/aws/aws-sdk-js-v3/commit/30bcfba4dfb5c0753d46956a203d33b455c32257))
+
+
+
+
+
 # [3.749.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.748.0...v3.749.0) (2025-02-14)
 
 
