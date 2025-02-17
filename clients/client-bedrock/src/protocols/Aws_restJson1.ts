@@ -3096,7 +3096,7 @@ const se_EvaluationInferenceConfig = (input: EvaluationInferenceConfig, context:
   return EvaluationInferenceConfig.visit(input, {
     models: (value) => ({ models: _json(value) }),
     ragConfigs: (value) => ({ ragConfigs: se_RagConfigs(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -3301,7 +3301,7 @@ const se_KnowledgeBaseConfig = (input: KnowledgeBaseConfig, context: __SerdeCont
       retrieveAndGenerateConfig: se_RetrieveAndGenerateConfiguration(value, context),
     }),
     retrieveConfig: (value) => ({ retrieveConfig: se_RetrieveConfig(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -3377,7 +3377,7 @@ const se_KnowledgeBaseVectorSearchConfiguration = (
 const se_RAGConfig = (input: RAGConfig, context: __SerdeContext): any => {
   return RAGConfig.visit(input, {
     knowledgeBaseConfig: (value) => ({ knowledgeBaseConfig: se_KnowledgeBaseConfig(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -3420,7 +3420,7 @@ const se_RetrievalFilter = (input: RetrievalFilter, context: __SerdeContext): an
     orAll: (value) => ({ orAll: se_RetrievalFilterList(value, context) }),
     startsWith: (value) => ({ startsWith: se_FilterAttribute(value, context) }),
     stringContains: (value) => ({ stringContains: se_FilterAttribute(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

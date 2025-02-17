@@ -4767,7 +4767,7 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
     stringValue: (value) => ({ stringValue: value }),
     structureValue: (value) => ({ structureValue: _json(value) }),
     timestampValue: (value) => ({ timestampValue: value.getTime() / 1_000 }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -4904,7 +4904,7 @@ const se_UnionWithJsonName = (input: UnionWithJsonName, context: __SerdeContext)
     bar: (value) => ({ bar: value }),
     baz: (value) => ({ _baz: value }),
     foo: (value) => ({ FOO: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

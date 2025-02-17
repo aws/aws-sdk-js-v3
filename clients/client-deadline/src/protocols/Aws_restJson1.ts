@@ -6490,7 +6490,7 @@ const se_BudgetActionToRemove = (input: BudgetActionToRemove, context: __SerdeCo
 const se_BudgetSchedule = (input: BudgetSchedule, context: __SerdeContext): any => {
   return BudgetSchedule.visit(input, {
     fixed: (value) => ({ fixed: se_FixedBudgetSchedule(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -6592,7 +6592,7 @@ const se_FleetConfiguration = (input: FleetConfiguration, context: __SerdeContex
   return FleetConfiguration.visit(input, {
     customerManaged: (value) => ({ customerManaged: se_CustomerManagedFleetConfiguration(value, context) }),
     serviceManagedEc2: (value) => ({ serviceManagedEc2: se_ServiceManagedEc2FleetConfiguration(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -6654,7 +6654,7 @@ const se_SearchFilterExpression = (input: SearchFilterExpression, context: __Ser
     parameterFilter: (value) => ({ parameterFilter: _json(value) }),
     searchTermFilter: (value) => ({ searchTermFilter: _json(value) }),
     stringFilter: (value) => ({ stringFilter: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

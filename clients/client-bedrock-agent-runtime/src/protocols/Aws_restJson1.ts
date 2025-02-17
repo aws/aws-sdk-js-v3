@@ -1722,7 +1722,7 @@ const se_FlowInput = (input: FlowInput, context: __SerdeContext): any => {
 const se_FlowInputContent = (input: FlowInputContent, context: __SerdeContext): any => {
   return FlowInputContent.visit(input, {
     document: (value) => ({ document: se_Document(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2063,7 +2063,7 @@ const se_RetrievalFilter = (input: RetrievalFilter, context: __SerdeContext): an
     orAll: (value) => ({ orAll: se_RetrievalFilterList(value, context) }),
     startsWith: (value) => ({ startsWith: se_FilterAttribute(value, context) }),
     stringContains: (value) => ({ stringContains: se_FilterAttribute(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

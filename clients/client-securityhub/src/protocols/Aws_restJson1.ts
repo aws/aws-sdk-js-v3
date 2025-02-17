@@ -6685,7 +6685,7 @@ const se_ParameterValue = (input: ParameterValue, context: __SerdeContext): any 
     IntegerList: (value) => ({ IntegerList: _json(value) }),
     String: (value) => ({ String: value }),
     StringList: (value) => ({ StringList: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -6697,7 +6697,7 @@ const se_ParameterValue = (input: ParameterValue, context: __SerdeContext): any 
 const se_Policy = (input: Policy, context: __SerdeContext): any => {
   return Policy.visit(input, {
     SecurityHub: (value) => ({ SecurityHub: se_SecurityHubPolicy(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

@@ -2730,7 +2730,7 @@ const se_RuleCondition = (input: RuleCondition, context: __SerdeContext): any =>
     NumberExpression: (value) => ({ NumberExpression: se_RuleNumberExpression(value, context) }),
     StringExpression: (value) => ({ StringExpression: _json(value) }),
     VerdictExpression: (value) => ({ VerdictExpression: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

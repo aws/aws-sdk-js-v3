@@ -781,7 +781,7 @@ const se_ArrayValue = (input: ArrayValue, context: __SerdeContext): any => {
     doubleValues: (value) => ({ doubleValues: se_DoubleArray(value, context) }),
     longValues: (value) => ({ longValues: _json(value) }),
     stringValues: (value) => ({ stringValues: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -810,7 +810,7 @@ const se_Field = (input: Field, context: __SerdeContext): any => {
     isNull: (value) => ({ isNull: value }),
     longValue: (value) => ({ longValue: value }),
     stringValue: (value) => ({ stringValue: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

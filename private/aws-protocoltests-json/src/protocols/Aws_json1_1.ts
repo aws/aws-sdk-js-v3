@@ -875,7 +875,7 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
     stringValue: (value) => ({ stringValue: value }),
     structureValue: (value) => ({ structureValue: _json(value) }),
     timestampValue: (value) => ({ timestampValue: value.getTime() / 1_000 }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

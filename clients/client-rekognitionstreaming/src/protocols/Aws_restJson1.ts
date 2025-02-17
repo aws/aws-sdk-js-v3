@@ -460,7 +460,7 @@ const se_ClientChallenge = (input: ClientChallenge, context: __SerdeContext): an
     FaceMovementAndLightChallenge: (value) => ({
       FaceMovementAndLightChallenge: se_FaceMovementAndLightClientChallenge(value, context),
     }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

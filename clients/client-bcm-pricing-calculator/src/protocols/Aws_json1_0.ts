@@ -1867,7 +1867,7 @@ const se_BillScenarioCommitmentModificationAction = (
     addSavingsPlanAction: (value) => ({ addSavingsPlanAction: se_AddSavingsPlanAction(value, context) }),
     negateReservedInstanceAction: (value) => ({ negateReservedInstanceAction: _json(value) }),
     negateSavingsPlanAction: (value) => ({ negateSavingsPlanAction: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

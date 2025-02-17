@@ -3844,7 +3844,7 @@ const se_Dimension = (input: Dimension, context: __SerdeContext): any => {
   return Dimension.visit(input, {
     CalculatedAttributes: (value) => ({ CalculatedAttributes: se_CalculatedCustomAttributes(value, context) }),
     ProfileAttributes: (value) => ({ ProfileAttributes: se_ProfileAttributes(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

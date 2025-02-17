@@ -2508,7 +2508,7 @@ const se_Schedule = (input: Schedule, context: __SerdeContext): any => {
   return Schedule.visit(input, {
     at: (value) => ({ at: value.getTime() / 1_000 }),
     cron: (value) => ({ cron: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

@@ -2169,7 +2169,7 @@ const se_VariableValue = (input: VariableValue, context: __SerdeContext): any =>
     doubleValue: (value) => ({ doubleValue: __serializeFloat(value) }),
     longValue: (value) => ({ longValue: value }),
     stringValue: (value) => ({ stringValue: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

@@ -1204,7 +1204,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_AreaOfInterest = (input: AreaOfInterest, context: __SerdeContext): any => {
   return AreaOfInterest.visit(input, {
     AreaOfInterestGeometry: (value) => ({ AreaOfInterestGeometry: se_AreaOfInterestGeometry(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1215,7 +1215,7 @@ const se_AreaOfInterestGeometry = (input: AreaOfInterestGeometry, context: __Ser
   return AreaOfInterestGeometry.visit(input, {
     MultiPolygonGeometry: (value) => ({ MultiPolygonGeometry: se_MultiPolygonGeometryInput(value, context) }),
     PolygonGeometry: (value) => ({ PolygonGeometry: se_PolygonGeometryInput(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1267,7 +1267,7 @@ const se_JobConfigInput = (input: JobConfigInput, context: __SerdeContext): any 
     StackConfig: (value) => ({ StackConfig: se_StackConfigInput(value, context) }),
     TemporalStatisticsConfig: (value) => ({ TemporalStatisticsConfig: _json(value) }),
     ZonalStatisticsConfig: (value) => ({ ZonalStatisticsConfig: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1385,7 +1385,7 @@ const se_Property = (input: Property, context: __SerdeContext): any => {
     ViewOffNadir: (value) => ({ ViewOffNadir: se_ViewOffNadirInput(value, context) }),
     ViewSunAzimuth: (value) => ({ ViewSunAzimuth: se_ViewSunAzimuthInput(value, context) }),
     ViewSunElevation: (value) => ({ ViewSunElevation: se_ViewSunElevationInput(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

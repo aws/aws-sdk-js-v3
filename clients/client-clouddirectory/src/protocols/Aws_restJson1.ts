@@ -4447,7 +4447,7 @@ const se_TypedAttributeValue = (input: TypedAttributeValue, context: __SerdeCont
     DatetimeValue: (value) => ({ DatetimeValue: value.getTime() / 1_000 }),
     NumberValue: (value) => ({ NumberValue: value }),
     StringValue: (value) => ({ StringValue: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

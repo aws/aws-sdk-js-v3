@@ -1157,7 +1157,7 @@ const se_MetadataUpdates = (input: MetadataUpdates, context: __SerdeContext): an
   return MetadataUpdates.visit(input, {
     DICOMUpdates: (value) => ({ DICOMUpdates: se_DICOMUpdates(value, context) }),
     revertToVersionId: (value) => ({ revertToVersionId: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1174,7 +1174,7 @@ const se_SearchByAttributeValue = (input: SearchByAttributeValue, context: __Ser
     DICOMStudyInstanceUID: (value) => ({ DICOMStudyInstanceUID: value }),
     createdAt: (value) => ({ createdAt: value.getTime() / 1_000 }),
     updatedAt: (value) => ({ updatedAt: value.getTime() / 1_000 }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

@@ -4531,7 +4531,7 @@ const se_AIAgentConfiguration = (input: AIAgentConfiguration, context: __SerdeCo
     answerRecommendationAIAgentConfiguration: (value) => ({ answerRecommendationAIAgentConfiguration: _json(value) }),
     manualSearchAIAgentConfiguration: (value) => ({ manualSearchAIAgentConfiguration: _json(value) }),
     selfServiceAIAgentConfiguration: (value) => ({ selfServiceAIAgentConfiguration: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

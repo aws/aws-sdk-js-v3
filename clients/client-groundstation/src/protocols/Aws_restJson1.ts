@@ -1769,7 +1769,7 @@ const se_ConfigTypeData = (input: ConfigTypeData, context: __SerdeContext): any 
     s3RecordingConfig: (value) => ({ s3RecordingConfig: _json(value) }),
     trackingConfig: (value) => ({ trackingConfig: _json(value) }),
     uplinkEchoConfig: (value) => ({ uplinkEchoConfig: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1810,7 +1810,7 @@ const se_EphemerisData = (input: EphemerisData, context: __SerdeContext): any =>
   return EphemerisData.visit(input, {
     oem: (value) => ({ oem: _json(value) }),
     tle: (value) => ({ tle: se_TLEEphemeris(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

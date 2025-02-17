@@ -2023,7 +2023,7 @@ const se_CardInput = (input: CardInput, context: __SerdeContext): any => {
     qPlugin: (value) => ({ qPlugin: _json(value) }),
     qQuery: (value) => ({ qQuery: se_QQueryCardInput(value, context) }),
     textInput: (value) => ({ textInput: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2073,7 +2073,7 @@ const se_DocumentAttributeValue = (input: DocumentAttributeValue, context: __Ser
     longValue: (value) => ({ longValue: value }),
     stringListValue: (value) => ({ stringListValue: _json(value) }),
     stringValue: (value) => ({ stringValue: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

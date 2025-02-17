@@ -1932,7 +1932,7 @@ const se_StorageConfiguration = (input: StorageConfiguration, context: __SerdeCo
   return StorageConfiguration.visit(input, {
     efs: (value) => ({ efs: se_EfsStorageConfiguration(value, context) }),
     fsx: (value) => ({ fsx: se_FsxStorageConfiguration(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
