@@ -8779,6 +8779,13 @@ export interface DescribeApplicableIndividualAssessmentsMessage {
   ReplicationInstanceArn?: string | undefined;
 
   /**
+   * <p>Amazon Resource Name (ARN) of a serverless replication on which you want to base the default
+   *          list of individual assessments.</p>
+   * @public
+   */
+  ReplicationConfigArn?: string | undefined;
+
+  /**
    * <p>Name of a database engine that the specified replication instance supports as a
    *          source.</p>
    * @public

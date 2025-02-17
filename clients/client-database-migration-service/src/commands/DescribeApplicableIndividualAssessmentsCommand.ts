@@ -66,6 +66,7 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput
  * const input = { // DescribeApplicableIndividualAssessmentsMessage
  *   ReplicationTaskArn: "STRING_VALUE",
  *   ReplicationInstanceArn: "STRING_VALUE",
+ *   ReplicationConfigArn: "STRING_VALUE",
  *   SourceEngineName: "STRING_VALUE",
  *   TargetEngineName: "STRING_VALUE",
  *   MigrationType: "full-load" || "cdc" || "full-load-and-cdc",
