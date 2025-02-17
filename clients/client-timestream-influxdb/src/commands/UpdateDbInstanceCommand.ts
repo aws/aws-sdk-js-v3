@@ -85,6 +85,8 @@ export interface UpdateDbInstanceCommandOutput extends UpdateDbInstanceOutput, _
  * //     },
  * //   },
  * //   influxAuthParametersSecretArn: "STRING_VALUE",
+ * //   dbClusterId: "STRING_VALUE",
+ * //   instanceMode: "PRIMARY" || "STANDBY" || "REPLICA",
  * // };
  *
  * ```

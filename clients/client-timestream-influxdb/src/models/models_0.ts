@@ -96,15 +96,28 @@ export type DbStorageType = (typeof DbStorageType)[keyof typeof DbStorageType];
  * @public
  * @enum
  */
-export const DeploymentType = {
-  SINGLE_AZ: "SINGLE_AZ",
-  WITH_MULTIAZ_STANDBY: "WITH_MULTIAZ_STANDBY",
+export const ClusterDeploymentType = {
+  MULTI_NODE_READ_REPLICAS: "MULTI_NODE_READ_REPLICAS",
 } as const;
 
 /**
  * @public
  */
-export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType];
+export type ClusterDeploymentType = (typeof ClusterDeploymentType)[keyof typeof ClusterDeploymentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FailoverMode = {
+  AUTOMATIC: "AUTOMATIC",
+  NO_FAILOVER: "NO_FAILOVER",
+} as const;
+
+/**
+ * @public
+ */
+export type FailoverMode = (typeof FailoverMode)[keyof typeof FailoverMode];
 
 /**
  * <p>Configuration for S3 bucket log delivery.</p>
@@ -153,21 +166,21 @@ export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
 /**
  * @public
  */
-export interface CreateDbInstanceInput {
+export interface CreateDbClusterInput {
   /**
-   * <p>The name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region.</p>
+   * <p>The name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB cluster names must be unique per customer and per region.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. For example, my-user1. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a Secret created in Amazon Secrets Manager in your account.</p>
+   * <p>The username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. For example, my-user1. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a secret created in Amazon Web Services Secrets Manager in your account.</p>
    * @public
    */
   username?: string | undefined;
 
   /**
-   * <p>The password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a Secret created in Amazon Web Services SecretManager in your account.</p>
+   * <p>The password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a secret created in Amazon Web Services Secrets Manager in your account.</p>
    * @public
    */
   password: string | undefined;
@@ -185,41 +198,38 @@ export interface CreateDbInstanceInput {
   bucket?: string | undefined;
 
   /**
+   * <p>The port number on which InfluxDB accepts connections.</p>
+   *          <p>Valid Values: 1024-65535</p>
+   *          <p>Default: 8086</p>
+   *          <p>Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680</p>
+   * @public
+   */
+  port?: number | undefined;
+
+  /**
+   * <p>The ID of the DB parameter group to assign to your DB cluster. DB parameter groups specify how the database is configured. For example, DB parameter groups can specify the limit for query concurrency.</p>
+   * @public
+   */
+  dbParameterGroupIdentifier?: string | undefined;
+
+  /**
    * <p>The Timestream for InfluxDB DB instance type to run InfluxDB on.</p>
    * @public
    */
   dbInstanceType: DbInstanceType | undefined;
 
   /**
-   * <p>A list of VPC subnet IDs to associate with the DB instance. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.</p>
-   * @public
-   */
-  vpcSubnetIds: string[] | undefined;
-
-  /**
-   * <p>A list of VPC security group IDs to associate with the DB instance.</p>
-   * @public
-   */
-  vpcSecurityGroupIds: string[] | undefined;
-
-  /**
-   * <p>Configures the DB instance with a public IP to facilitate access.</p>
-   * @public
-   */
-  publiclyAccessible?: boolean | undefined;
-
-  /**
    * <p>The Timestream for InfluxDB DB storage type to read and write InfluxDB data.</p>
-   *          <p>You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements:</p>
+   *          <p>You can choose between three different types of provisioned Influx IOPS Included storage according to your workload requirements:</p>
    *          <ul>
    *             <li>
-   *                <p>Influx IO Included 3000 IOPS</p>
+   *                <p>Influx I/O Included 3000 IOPS</p>
    *             </li>
    *             <li>
-   *                <p>Influx IO Included 12000 IOPS</p>
+   *                <p>Influx I/O Included 12000 IOPS</p>
    *             </li>
    *             <li>
-   *                <p>Influx IO Included 16000 IOPS</p>
+   *                <p>Influx I/O Included 16000 IOPS</p>
    *             </li>
    *          </ul>
    * @public
@@ -233,16 +243,40 @@ export interface CreateDbInstanceInput {
   allocatedStorage: number | undefined;
 
   /**
-   * <p>The id of the DB parameter group to assign to your DB instance. DB parameter groups specify how the database is configured. For example, DB parameter groups can specify the limit for query concurrency.</p>
+   * <p>Specifies whether the network type of the Timestream for InfluxDB cluster is IPv4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
    * @public
    */
-  dbParameterGroupIdentifier?: string | undefined;
+  networkType?: NetworkType | undefined;
 
   /**
-   * <p>Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability.</p>
+   * <p>Configures the Timestream for InfluxDB cluster with a public IP to facilitate access from outside the VPC.</p>
    * @public
    */
-  deploymentType?: DeploymentType | undefined;
+  publiclyAccessible?: boolean | undefined;
+
+  /**
+   * <p>A list of VPC subnet IDs to associate with the DB cluster. Provide at least two VPC subnet IDs in different Availability Zones when deploying with a Multi-AZ standby.</p>
+   * @public
+   */
+  vpcSubnetIds: string[] | undefined;
+
+  /**
+   * <p>A list of VPC security group IDs to associate with the Timestream for InfluxDB cluster.</p>
+   * @public
+   */
+  vpcSecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>Specifies the type of cluster to create.</p>
+   * @public
+   */
+  deploymentType: ClusterDeploymentType | undefined;
+
+  /**
+   * <p>Specifies the behavior of failure recovery when the primary node of the cluster fails.</p>
+   * @public
+   */
+  failoverMode?: FailoverMode | undefined;
 
   /**
    * <p>Configuration for sending InfluxDB engine logs to a specified S3 bucket.</p>
@@ -255,161 +289,41 @@ export interface CreateDbInstanceInput {
    * @public
    */
   tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>The port number on which InfluxDB accepts connections.</p>
-   *          <p>Valid Values: 1024-65535</p>
-   *          <p>Default: 8086</p>
-   *          <p>Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680</p>
-   * @public
-   */
-  port?: number | undefined;
-
-  /**
-   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
-   * @public
-   */
-  networkType?: NetworkType | undefined;
 }
 
 /**
  * @public
  * @enum
  */
-export const Status = {
+export const ClusterStatus = {
   AVAILABLE: "AVAILABLE",
   CREATING: "CREATING",
   DELETED: "DELETED",
   DELETING: "DELETING",
   FAILED: "FAILED",
-  MODIFYING: "MODIFYING",
   UPDATING: "UPDATING",
-  UPDATING_DEPLOYMENT_TYPE: "UPDATING_DEPLOYMENT_TYPE",
-  UPDATING_INSTANCE_TYPE: "UPDATING_INSTANCE_TYPE",
 } as const;
 
 /**
  * @public
  */
-export type Status = (typeof Status)[keyof typeof Status];
+export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
 
 /**
  * @public
  */
-export interface CreateDbInstanceOutput {
+export interface CreateDbClusterOutput {
   /**
    * <p>A service-generated unique identifier.</p>
    * @public
    */
-  id: string | undefined;
+  dbClusterId?: string | undefined;
 
   /**
-   * <p>The customer-supplied name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.</p>
+   * <p>The status of the DB cluster.</p>
    * @public
    */
-  name: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the DB instance.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The status of the DB instance.</p>
-   * @public
-   */
-  status?: Status | undefined;
-
-  /**
-   * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
-   * @public
-   */
-  endpoint?: string | undefined;
-
-  /**
-   * <p>The port number on which InfluxDB accepts connections. The default value is 8086.</p>
-   * @public
-   */
-  port?: number | undefined;
-
-  /**
-   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
-   * @public
-   */
-  networkType?: NetworkType | undefined;
-
-  /**
-   * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
-   * @public
-   */
-  dbInstanceType?: DbInstanceType | undefined;
-
-  /**
-   * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
-   * @public
-   */
-  dbStorageType?: DbStorageType | undefined;
-
-  /**
-   * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
-   * @public
-   */
-  allocatedStorage?: number | undefined;
-
-  /**
-   * <p>Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.</p>
-   * @public
-   */
-  deploymentType?: DeploymentType | undefined;
-
-  /**
-   * <p>A list of VPC subnet IDs associated with the DB instance.</p>
-   * @public
-   */
-  vpcSubnetIds: string[] | undefined;
-
-  /**
-   * <p>Indicates if the DB instance has a public IP to facilitate access.</p>
-   * @public
-   */
-  publiclyAccessible?: boolean | undefined;
-
-  /**
-   * <p>A list of VPC security group IDs associated with the DB instance.</p>
-   * @public
-   */
-  vpcSecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>The id of the DB parameter group assigned to your DB instance.</p>
-   * @public
-   */
-  dbParameterGroupIdentifier?: string | undefined;
-
-  /**
-   * <p>The Availability Zone in which the DB instance resides.</p>
-   * @public
-   */
-  availabilityZone?: string | undefined;
-
-  /**
-   * <p>The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.</p>
-   * @public
-   */
-  secondaryAvailabilityZone?: string | undefined;
-
-  /**
-   * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
-   * @public
-   */
-  logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
-   * @public
-   */
-  influxAuthParametersSecretArn?: string | undefined;
+  dbClusterStatus?: ClusterStatus | undefined;
 }
 
 /**
@@ -559,6 +473,745 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
+export interface DeleteDbClusterInput {
+  /**
+   * <p>Service-generated unique identifier of the DB cluster.</p>
+   * @public
+   */
+  dbClusterId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDbClusterOutput {
+  /**
+   * <p>The status of the DB cluster.</p>
+   * @public
+   */
+  dbClusterStatus?: ClusterStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDbClusterInput {
+  /**
+   * <p>Service-generated unique identifier of the DB cluster to retrieve.</p>
+   * @public
+   */
+  dbClusterId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDbClusterOutput {
+  /**
+   * <p>Service-generated unique identifier of the DB cluster to retrieve.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Customer-supplied name of the Timestream for InfluxDB cluster.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the DB cluster.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status of the DB cluster.</p>
+   * @public
+   */
+  status?: ClusterStatus | undefined;
+
+  /**
+   * <p>The endpoint used to connect to the Timestream for InfluxDB cluster for write and read operations.</p>
+   * @public
+   */
+  endpoint?: string | undefined;
+
+  /**
+   * <p>The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.</p>
+   * @public
+   */
+  readerEndpoint?: string | undefined;
+
+  /**
+   * <p>The port number on which InfluxDB accepts connections.</p>
+   * @public
+   */
+  port?: number | undefined;
+
+  /**
+   * <p>Deployment type of the DB cluster.</p>
+   * @public
+   */
+  deploymentType?: ClusterDeploymentType | undefined;
+
+  /**
+   * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
+   * @public
+   */
+  dbInstanceType?: DbInstanceType | undefined;
+
+  /**
+   * <p>Specifies whether the network type of the Timestream for InfluxDB cluster is IPv4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
+
+  /**
+   * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * @public
+   */
+  dbStorageType?: DbStorageType | undefined;
+
+  /**
+   * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
+   * @public
+   */
+  allocatedStorage?: number | undefined;
+
+  /**
+   * <p>Indicates if the DB cluster has a public IP to facilitate access from outside the VPC.</p>
+   * @public
+   */
+  publiclyAccessible?: boolean | undefined;
+
+  /**
+   * <p>The ID of the DB parameter group assigned to your DB cluster.</p>
+   * @public
+   */
+  dbParameterGroupIdentifier?: string | undefined;
+
+  /**
+   * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+   * @public
+   */
+  logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * @public
+   */
+  influxAuthParametersSecretArn?: string | undefined;
+
+  /**
+   * <p>A list of VPC subnet IDs associated with the DB cluster.</p>
+   * @public
+   */
+  vpcSubnetIds?: string[] | undefined;
+
+  /**
+   * <p>A list of VPC security group IDs associated with the DB cluster.</p>
+   * @public
+   */
+  vpcSecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The configured failover mode for the DB cluster.</p>
+   * @public
+   */
+  failoverMode?: FailoverMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDbClustersInput {
+  /**
+   * <p>The pagination token. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a nextToken is provided in the output. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Describes a summary of a Timestream for InfluxDB cluster.</p>
+ * @public
+ */
+export interface DbClusterSummary {
+  /**
+   * <p>Service-generated unique identifier of the DB cluster to retrieve.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Customer supplied name of the Timestream for InfluxDB cluster.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the DB cluster.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status of the DB cluster.</p>
+   * @public
+   */
+  status?: ClusterStatus | undefined;
+
+  /**
+   * <p>The endpoint used to connect to the Timestream for InfluxDB cluster for write and read operations.</p>
+   * @public
+   */
+  endpoint?: string | undefined;
+
+  /**
+   * <p>The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.</p>
+   * @public
+   */
+  readerEndpoint?: string | undefined;
+
+  /**
+   * <p>The port number on which InfluxDB accepts connections.</p>
+   * @public
+   */
+  port?: number | undefined;
+
+  /**
+   * <p>Deployment type of the DB cluster</p>
+   * @public
+   */
+  deploymentType?: ClusterDeploymentType | undefined;
+
+  /**
+   * <p>The Timestream for InfluxDB DB instance type that InfluxDB runs on.</p>
+   * @public
+   */
+  dbInstanceType?: DbInstanceType | undefined;
+
+  /**
+   * <p>Specifies whether the network type of the Timestream for InfluxDB Cluster is IPv4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
+
+  /**
+   * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * @public
+   */
+  dbStorageType?: DbStorageType | undefined;
+
+  /**
+   * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
+   * @public
+   */
+  allocatedStorage?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDbClustersOutput {
+  /**
+   * <p>A list of Timestream for InfluxDB cluster summaries.</p>
+   * @public
+   */
+  items: DbClusterSummary[] | undefined;
+
+  /**
+   * <p>Token from a previous call of the operation. When this value is provided, the
+   *             service returns results from where the previous response left off.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDbInstancesForClusterInput {
+  /**
+   * <p>Service-generated unique identifier of the DB cluster.</p>
+   * @public
+   */
+  dbClusterId: string | undefined;
+
+  /**
+   * <p>The pagination token. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a nextToken is provided in the output. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentType = {
+  SINGLE_AZ: "SINGLE_AZ",
+  WITH_MULTIAZ_STANDBY: "WITH_MULTIAZ_STANDBY",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceMode = {
+  PRIMARY: "PRIMARY",
+  REPLICA: "REPLICA",
+  STANDBY: "STANDBY",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceMode = (typeof InstanceMode)[keyof typeof InstanceMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  MODIFYING: "MODIFYING",
+  UPDATING: "UPDATING",
+  UPDATING_DEPLOYMENT_TYPE: "UPDATING_DEPLOYMENT_TYPE",
+  UPDATING_INSTANCE_TYPE: "UPDATING_INSTANCE_TYPE",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * <p>Contains a summary of a DB instance belonging to a DB cluster.</p>
+ * @public
+ */
+export interface DbInstanceForClusterSummary {
+  /**
+   * <p>The service-generated unique identifier of the DB instance.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>A service-generated name for the DB instance based on the customer-supplied name for the DB cluster.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the DB instance.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status of the DB instance.</p>
+   * @public
+   */
+  status?: Status | undefined;
+
+  /**
+   * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
+   * @public
+   */
+  endpoint?: string | undefined;
+
+  /**
+   * <p>The port number on which InfluxDB accepts connections.</p>
+   * @public
+   */
+  port?: number | undefined;
+
+  /**
+   * <p>Specifies whether the network type of the Timestream for InfluxDB instance is IPv4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
+
+  /**
+   * <p>The Timestream for InfluxDB instance type to run InfluxDB on.</p>
+   * @public
+   */
+  dbInstanceType?: DbInstanceType | undefined;
+
+  /**
+   * <p>The storage type for your DB instance.</p>
+   * @public
+   */
+  dbStorageType?: DbStorageType | undefined;
+
+  /**
+   * <p>The amount of storage allocated for your DB storage type in GiB (gibibytes).</p>
+   * @public
+   */
+  allocatedStorage?: number | undefined;
+
+  /**
+   * <p>Specifies the deployment type if applicable.</p>
+   * @public
+   */
+  deploymentType?: DeploymentType | undefined;
+
+  /**
+   * <p>Specifies the DB instance's role in the cluster.</p>
+   * @public
+   */
+  instanceMode?: InstanceMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDbInstancesForClusterOutput {
+  /**
+   * <p>A list of Timestream for InfluxDB instance summaries belonging to the cluster.</p>
+   * @public
+   */
+  items: DbInstanceForClusterSummary[] | undefined;
+
+  /**
+   * <p>Token from a previous call of the operation. When this value is provided, the
+   *             service returns results from where the previous response left off.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDbClusterInput {
+  /**
+   * <p>Service-generated unique identifier of the DB cluster to update.</p>
+   * @public
+   */
+  dbClusterId: string | undefined;
+
+  /**
+   * <p>The log delivery configuration to apply to the DB cluster.</p>
+   * @public
+   */
+  logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
+
+  /**
+   * <p>Update the DB cluster to use the specified DB parameter group.</p>
+   * @public
+   */
+  dbParameterGroupIdentifier?: string | undefined;
+
+  /**
+   * <p>Update the DB cluster to use the specified port.</p>
+   * @public
+   */
+  port?: number | undefined;
+
+  /**
+   * <p>Update the DB cluster to use the specified DB instance Type.</p>
+   * @public
+   */
+  dbInstanceType?: DbInstanceType | undefined;
+
+  /**
+   * <p>Update the DB cluster's failover behavior.</p>
+   * @public
+   */
+  failoverMode?: FailoverMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDbClusterOutput {
+  /**
+   * <p>The status of the DB cluster.</p>
+   * @public
+   */
+  dbClusterStatus?: ClusterStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDbInstanceInput {
+  /**
+   * <p>The name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. For example, my-user1. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a Secret created in Amazon Secrets Manager in your account.</p>
+   * @public
+   */
+  username?: string | undefined;
+
+  /**
+   * <p>The password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a Secret created in Amazon Web Services SecretManager in your account.</p>
+   * @public
+   */
+  password: string | undefined;
+
+  /**
+   * <p>The name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users.</p>
+   * @public
+   */
+  organization?: string | undefined;
+
+  /**
+   * <p>The name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization.</p>
+   * @public
+   */
+  bucket?: string | undefined;
+
+  /**
+   * <p>The Timestream for InfluxDB DB instance type to run InfluxDB on.</p>
+   * @public
+   */
+  dbInstanceType: DbInstanceType | undefined;
+
+  /**
+   * <p>A list of VPC subnet IDs to associate with the DB instance. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.</p>
+   * @public
+   */
+  vpcSubnetIds: string[] | undefined;
+
+  /**
+   * <p>A list of VPC security group IDs to associate with the DB instance.</p>
+   * @public
+   */
+  vpcSecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>Configures the DB instance with a public IP to facilitate access.</p>
+   * @public
+   */
+  publiclyAccessible?: boolean | undefined;
+
+  /**
+   * <p>The Timestream for InfluxDB DB storage type to read and write InfluxDB data.</p>
+   *          <p>You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Influx IO Included 3000 IOPS</p>
+   *             </li>
+   *             <li>
+   *                <p>Influx IO Included 12000 IOPS</p>
+   *             </li>
+   *             <li>
+   *                <p>Influx IO Included 16000 IOPS</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  dbStorageType?: DbStorageType | undefined;
+
+  /**
+   * <p>The amount of storage to allocate for your DB storage type in GiB (gibibytes).</p>
+   * @public
+   */
+  allocatedStorage: number | undefined;
+
+  /**
+   * <p>The id of the DB parameter group to assign to your DB instance. DB parameter groups specify how the database is configured. For example, DB parameter groups can specify the limit for query concurrency.</p>
+   * @public
+   */
+  dbParameterGroupIdentifier?: string | undefined;
+
+  /**
+   * <p>Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability.</p>
+   * @public
+   */
+  deploymentType?: DeploymentType | undefined;
+
+  /**
+   * <p>Configuration for sending InfluxDB engine logs to a specified S3 bucket.</p>
+   * @public
+   */
+  logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
+
+  /**
+   * <p>A list of key-value pairs to associate with the DB instance.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The port number on which InfluxDB accepts connections.</p>
+   *          <p>Valid Values: 1024-65535</p>
+   *          <p>Default: 8086</p>
+   *          <p>Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680</p>
+   * @public
+   */
+  port?: number | undefined;
+
+  /**
+   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDbInstanceOutput {
+  /**
+   * <p>A service-generated unique identifier.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The customer-supplied name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the DB instance.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status of the DB instance.</p>
+   * @public
+   */
+  status?: Status | undefined;
+
+  /**
+   * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
+   * @public
+   */
+  endpoint?: string | undefined;
+
+  /**
+   * <p>The port number on which InfluxDB accepts connections. The default value is 8086.</p>
+   * @public
+   */
+  port?: number | undefined;
+
+  /**
+   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
+
+  /**
+   * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
+   * @public
+   */
+  dbInstanceType?: DbInstanceType | undefined;
+
+  /**
+   * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * @public
+   */
+  dbStorageType?: DbStorageType | undefined;
+
+  /**
+   * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
+   * @public
+   */
+  allocatedStorage?: number | undefined;
+
+  /**
+   * <p>Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.</p>
+   * @public
+   */
+  deploymentType?: DeploymentType | undefined;
+
+  /**
+   * <p>A list of VPC subnet IDs associated with the DB instance.</p>
+   * @public
+   */
+  vpcSubnetIds: string[] | undefined;
+
+  /**
+   * <p>Indicates if the DB instance has a public IP to facilitate access.</p>
+   * @public
+   */
+  publiclyAccessible?: boolean | undefined;
+
+  /**
+   * <p>A list of VPC security group IDs associated with the DB instance.</p>
+   * @public
+   */
+  vpcSecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The id of the DB parameter group assigned to your DB instance.</p>
+   * @public
+   */
+  dbParameterGroupIdentifier?: string | undefined;
+
+  /**
+   * <p>The Availability Zone in which the DB instance resides.</p>
+   * @public
+   */
+  availabilityZone?: string | undefined;
+
+  /**
+   * <p>The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.</p>
+   * @public
+   */
+  secondaryAvailabilityZone?: string | undefined;
+
+  /**
+   * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+   * @public
+   */
+  logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * @public
+   */
+  influxAuthParametersSecretArn?: string | undefined;
+
+  /**
+   * <p>Specifies the DbCluster to which this DbInstance belongs to.</p>
+   * @public
+   */
+  dbClusterId?: string | undefined;
+
+  /**
+   * <p>Specifies the DbInstance's role in the cluster.</p>
+   * @public
+   */
+  instanceMode?: InstanceMode | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteDbInstanceInput {
   /**
    * <p>The id of the DB instance.</p>
@@ -684,6 +1337,18 @@ export interface DeleteDbInstanceOutput {
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
+
+  /**
+   * <p>Specifies the DbCluster to which this DbInstance belongs to.</p>
+   * @public
+   */
+  dbClusterId?: string | undefined;
+
+  /**
+   * <p>Specifies the DbInstance's role in the cluster.</p>
+   * @public
+   */
+  instanceMode?: InstanceMode | undefined;
 }
 
 /**
@@ -814,6 +1479,18 @@ export interface GetDbInstanceOutput {
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
+
+  /**
+   * <p>Specifies the DbCluster to which this DbInstance belongs to.</p>
+   * @public
+   */
+  dbClusterId?: string | undefined;
+
+  /**
+   * <p>Specifies the DbInstance's role in the cluster.</p>
+   * @public
+   */
+  instanceMode?: InstanceMode | undefined;
 }
 
 /**
@@ -1097,6 +1774,18 @@ export interface UpdateDbInstanceOutput {
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
+
+  /**
+   * <p>Specifies the DbCluster to which this DbInstance belongs to.</p>
+   * @public
+   */
+  dbClusterId?: string | undefined;
+
+  /**
+   * <p>Specifies the DbInstance's role in the cluster.</p>
+   * @public
+   */
+  instanceMode?: InstanceMode | undefined;
 }
 
 /**
@@ -1673,6 +2362,15 @@ export interface UntagResourceRequest {
    */
   tagKeys: string[] | undefined;
 }
+
+/**
+ * @internal
+ */
+export const CreateDbClusterInputFilterSensitiveLog = (obj: CreateDbClusterInput): any => ({
+  ...obj,
+  ...(obj.username && { username: SENSITIVE_STRING }),
+  ...(obj.password && { password: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

@@ -73,6 +73,8 @@ export interface DeleteDbInstanceCommandOutput extends DeleteDbInstanceOutput, _
  * //     },
  * //   },
  * //   influxAuthParametersSecretArn: "STRING_VALUE",
+ * //   dbClusterId: "STRING_VALUE",
+ * //   instanceMode: "PRIMARY" || "STANDBY" || "REPLICA",
  * // };
  *
  * ```

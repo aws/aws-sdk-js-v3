@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  CreateDbClusterCommand,
+  CreateDbClusterCommandInput,
+  CreateDbClusterCommandOutput,
+} from "./commands/CreateDbClusterCommand";
+import {
   CreateDbInstanceCommand,
   CreateDbInstanceCommandInput,
   CreateDbInstanceCommandOutput,
@@ -13,10 +18,20 @@ import {
   CreateDbParameterGroupCommandOutput,
 } from "./commands/CreateDbParameterGroupCommand";
 import {
+  DeleteDbClusterCommand,
+  DeleteDbClusterCommandInput,
+  DeleteDbClusterCommandOutput,
+} from "./commands/DeleteDbClusterCommand";
+import {
   DeleteDbInstanceCommand,
   DeleteDbInstanceCommandInput,
   DeleteDbInstanceCommandOutput,
 } from "./commands/DeleteDbInstanceCommand";
+import {
+  GetDbClusterCommand,
+  GetDbClusterCommandInput,
+  GetDbClusterCommandOutput,
+} from "./commands/GetDbClusterCommand";
 import {
   GetDbInstanceCommand,
   GetDbInstanceCommandInput,
@@ -28,10 +43,20 @@ import {
   GetDbParameterGroupCommandOutput,
 } from "./commands/GetDbParameterGroupCommand";
 import {
+  ListDbClustersCommand,
+  ListDbClustersCommandInput,
+  ListDbClustersCommandOutput,
+} from "./commands/ListDbClustersCommand";
+import {
   ListDbInstancesCommand,
   ListDbInstancesCommandInput,
   ListDbInstancesCommandOutput,
 } from "./commands/ListDbInstancesCommand";
+import {
+  ListDbInstancesForClusterCommand,
+  ListDbInstancesForClusterCommandInput,
+  ListDbInstancesForClusterCommandOutput,
+} from "./commands/ListDbInstancesForClusterCommand";
 import {
   ListDbParameterGroupsCommand,
   ListDbParameterGroupsCommandInput,
@@ -49,6 +74,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateDbClusterCommand,
+  UpdateDbClusterCommandInput,
+  UpdateDbClusterCommandOutput,
+} from "./commands/UpdateDbClusterCommand";
+import {
   UpdateDbInstanceCommand,
   UpdateDbInstanceCommandInput,
   UpdateDbInstanceCommandOutput,
@@ -56,20 +86,40 @@ import {
 import { TimestreamInfluxDBClient, TimestreamInfluxDBClientConfig } from "./TimestreamInfluxDBClient";
 
 const commands = {
+  CreateDbClusterCommand,
   CreateDbInstanceCommand,
   CreateDbParameterGroupCommand,
+  DeleteDbClusterCommand,
   DeleteDbInstanceCommand,
+  GetDbClusterCommand,
   GetDbInstanceCommand,
   GetDbParameterGroupCommand,
+  ListDbClustersCommand,
   ListDbInstancesCommand,
+  ListDbInstancesForClusterCommand,
   ListDbParameterGroupsCommand,
   ListTagsForResourceCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateDbClusterCommand,
   UpdateDbInstanceCommand,
 };
 
 export interface TimestreamInfluxDB {
+  /**
+   * @see {@link CreateDbClusterCommand}
+   */
+  createDbCluster(
+    args: CreateDbClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDbClusterCommandOutput>;
+  createDbCluster(args: CreateDbClusterCommandInput, cb: (err: any, data?: CreateDbClusterCommandOutput) => void): void;
+  createDbCluster(
+    args: CreateDbClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDbClusterCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateDbInstanceCommand}
    */
@@ -105,6 +155,20 @@ export interface TimestreamInfluxDB {
   ): void;
 
   /**
+   * @see {@link DeleteDbClusterCommand}
+   */
+  deleteDbCluster(
+    args: DeleteDbClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDbClusterCommandOutput>;
+  deleteDbCluster(args: DeleteDbClusterCommandInput, cb: (err: any, data?: DeleteDbClusterCommandOutput) => void): void;
+  deleteDbCluster(
+    args: DeleteDbClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDbClusterCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDbInstanceCommand}
    */
   deleteDbInstance(
@@ -119,6 +183,17 @@ export interface TimestreamInfluxDB {
     args: DeleteDbInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDbInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDbClusterCommand}
+   */
+  getDbCluster(args: GetDbClusterCommandInput, options?: __HttpHandlerOptions): Promise<GetDbClusterCommandOutput>;
+  getDbCluster(args: GetDbClusterCommandInput, cb: (err: any, data?: GetDbClusterCommandOutput) => void): void;
+  getDbCluster(
+    args: GetDbClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDbClusterCommandOutput) => void
   ): void;
 
   /**
@@ -150,6 +225,21 @@ export interface TimestreamInfluxDB {
   ): void;
 
   /**
+   * @see {@link ListDbClustersCommand}
+   */
+  listDbClusters(): Promise<ListDbClustersCommandOutput>;
+  listDbClusters(
+    args: ListDbClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDbClustersCommandOutput>;
+  listDbClusters(args: ListDbClustersCommandInput, cb: (err: any, data?: ListDbClustersCommandOutput) => void): void;
+  listDbClusters(
+    args: ListDbClustersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDbClustersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDbInstancesCommand}
    */
   listDbInstances(): Promise<ListDbInstancesCommandOutput>;
@@ -162,6 +252,23 @@ export interface TimestreamInfluxDB {
     args: ListDbInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDbInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDbInstancesForClusterCommand}
+   */
+  listDbInstancesForCluster(
+    args: ListDbInstancesForClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDbInstancesForClusterCommandOutput>;
+  listDbInstancesForCluster(
+    args: ListDbInstancesForClusterCommandInput,
+    cb: (err: any, data?: ListDbInstancesForClusterCommandOutput) => void
+  ): void;
+  listDbInstancesForCluster(
+    args: ListDbInstancesForClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDbInstancesForClusterCommandOutput) => void
   ): void;
 
   /**
@@ -219,6 +326,20 @@ export interface TimestreamInfluxDB {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDbClusterCommand}
+   */
+  updateDbCluster(
+    args: UpdateDbClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDbClusterCommandOutput>;
+  updateDbCluster(args: UpdateDbClusterCommandInput, cb: (err: any, data?: UpdateDbClusterCommandOutput) => void): void;
+  updateDbCluster(
+    args: UpdateDbClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDbClusterCommandOutput) => void
   ): void;
 
   /**

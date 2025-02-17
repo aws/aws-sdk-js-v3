@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `TimestreamInfluxDBClient` and
-the commands you need, for example `ListDbInstancesCommand`:
+the commands you need, for example `ListDbClustersCommand`:
 
 ```js
 // ES5 example
-const { TimestreamInfluxDBClient, ListDbInstancesCommand } = require("@aws-sdk/client-timestream-influxdb");
+const { TimestreamInfluxDBClient, ListDbClustersCommand } = require("@aws-sdk/client-timestream-influxdb");
 ```
 
 ```ts
 // ES6+ example
-import { TimestreamInfluxDBClient, ListDbInstancesCommand } from "@aws-sdk/client-timestream-influxdb";
+import { TimestreamInfluxDBClient, ListDbClustersCommand } from "@aws-sdk/client-timestream-influxdb";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new TimestreamInfluxDBClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListDbInstancesCommand(params);
+const command = new ListDbClustersCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.TimestreamInfluxDB({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listDbInstances(params);
+  const data = await client.listDbClusters(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .listDbInstances(params)
+  .listDbClusters(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.listDbInstances(params, (err, data) => {
+client.listDbClusters(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -205,6 +205,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CreateDbCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/CreateDbClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/CreateDbClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/CreateDbClusterCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateDbInstance
 </summary>
 
@@ -221,10 +229,26 @@ CreateDbParameterGroup
 </details>
 <details>
 <summary>
+DeleteDbCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/DeleteDbClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/DeleteDbClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/DeleteDbClusterCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteDbInstance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/DeleteDbInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/DeleteDbInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/DeleteDbInstanceCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDbCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/GetDbClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/GetDbClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/GetDbClusterCommandOutput/)
 
 </details>
 <details>
@@ -245,10 +269,26 @@ GetDbParameterGroup
 </details>
 <details>
 <summary>
+ListDbClusters
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/ListDbClustersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/ListDbClustersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/ListDbClustersCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListDbInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/ListDbInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/ListDbInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/ListDbInstancesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDbInstancesForCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/ListDbInstancesForClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/ListDbInstancesForClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/ListDbInstancesForClusterCommandOutput/)
 
 </details>
 <details>
@@ -281,6 +321,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateDbCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/UpdateDbClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/UpdateDbClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/UpdateDbClusterCommandOutput/)
 
 </details>
 <details>

@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetDbInstanceInput, GetDbInstanceOutput } from "../models/models_0";
-import { de_GetDbInstanceCommand, se_GetDbInstanceCommand } from "../protocols/Aws_json1_0";
+import { GetDbClusterInput, GetDbClusterOutput } from "../models/models_0";
+import { de_GetDbClusterCommand, se_GetDbClusterCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -21,51 +21,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetDbInstanceCommand}.
+ * The input for {@link GetDbClusterCommand}.
  */
-export interface GetDbInstanceCommandInput extends GetDbInstanceInput {}
+export interface GetDbClusterCommandInput extends GetDbClusterInput {}
 /**
  * @public
  *
- * The output of {@link GetDbInstanceCommand}.
+ * The output of {@link GetDbClusterCommand}.
  */
-export interface GetDbInstanceCommandOutput extends GetDbInstanceOutput, __MetadataBearer {}
+export interface GetDbClusterCommandOutput extends GetDbClusterOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a Timestream for InfluxDB DB instance.</p>
+ * <p>Retrieves information about a Timestream for InfluxDB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamInfluxDBClient, GetDbInstanceCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
- * // const { TimestreamInfluxDBClient, GetDbInstanceCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
+ * import { TimestreamInfluxDBClient, GetDbClusterCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
+ * // const { TimestreamInfluxDBClient, GetDbClusterCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
  * const client = new TimestreamInfluxDBClient(config);
- * const input = { // GetDbInstanceInput
- *   identifier: "STRING_VALUE", // required
+ * const input = { // GetDbClusterInput
+ *   dbClusterId: "STRING_VALUE", // required
  * };
- * const command = new GetDbInstanceCommand(input);
+ * const command = new GetDbClusterCommand(input);
  * const response = await client.send(command);
- * // { // GetDbInstanceOutput
+ * // { // GetDbClusterOutput
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
- * //   status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED" || "UPDATING_DEPLOYMENT_TYPE" || "UPDATING_INSTANCE_TYPE",
+ * //   status: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED",
  * //   endpoint: "STRING_VALUE",
+ * //   readerEndpoint: "STRING_VALUE",
  * //   port: Number("int"),
- * //   networkType: "IPV4" || "DUAL",
+ * //   deploymentType: "MULTI_NODE_READ_REPLICAS",
  * //   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge",
+ * //   networkType: "IPV4" || "DUAL",
  * //   dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
  * //   allocatedStorage: Number("int"),
- * //   deploymentType: "SINGLE_AZ" || "WITH_MULTIAZ_STANDBY",
- * //   vpcSubnetIds: [ // VpcSubnetIdList // required
- * //     "STRING_VALUE",
- * //   ],
  * //   publiclyAccessible: true || false,
- * //   vpcSecurityGroupIds: [ // VpcSecurityGroupIdList
- * //     "STRING_VALUE",
- * //   ],
  * //   dbParameterGroupIdentifier: "STRING_VALUE",
- * //   availabilityZone: "STRING_VALUE",
- * //   secondaryAvailabilityZone: "STRING_VALUE",
  * //   logDeliveryConfiguration: { // LogDeliveryConfiguration
  * //     s3Configuration: { // S3Configuration
  * //       bucketName: "STRING_VALUE", // required
@@ -73,16 +66,21 @@ export interface GetDbInstanceCommandOutput extends GetDbInstanceOutput, __Metad
  * //     },
  * //   },
  * //   influxAuthParametersSecretArn: "STRING_VALUE",
- * //   dbClusterId: "STRING_VALUE",
- * //   instanceMode: "PRIMARY" || "STANDBY" || "REPLICA",
+ * //   vpcSubnetIds: [ // VpcSubnetIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   vpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   failoverMode: "AUTOMATIC" || "NO_FAILOVER",
  * // };
  *
  * ```
  *
- * @param GetDbInstanceCommandInput - {@link GetDbInstanceCommandInput}
- * @returns {@link GetDbInstanceCommandOutput}
- * @see {@link GetDbInstanceCommandInput} for command's `input` shape.
- * @see {@link GetDbInstanceCommandOutput} for command's `response` shape.
+ * @param GetDbClusterCommandInput - {@link GetDbClusterCommandInput}
+ * @returns {@link GetDbClusterCommandOutput}
+ * @see {@link GetDbClusterCommandInput} for command's `input` shape.
+ * @see {@link GetDbClusterCommandOutput} for command's `response` shape.
  * @see {@link TimestreamInfluxDBClientResolvedConfig | config} for TimestreamInfluxDBClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -105,10 +103,10 @@ export interface GetDbInstanceCommandOutput extends GetDbInstanceOutput, __Metad
  *
  * @public
  */
-export class GetDbInstanceCommand extends $Command
+export class GetDbClusterCommand extends $Command
   .classBuilder<
-    GetDbInstanceCommandInput,
-    GetDbInstanceCommandOutput,
+    GetDbClusterCommandInput,
+    GetDbClusterCommandOutput,
     TimestreamInfluxDBClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -120,21 +118,21 @@ export class GetDbInstanceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonTimestreamInfluxDB", "GetDbInstance", {})
-  .n("TimestreamInfluxDBClient", "GetDbInstanceCommand")
+  .s("AmazonTimestreamInfluxDB", "GetDbCluster", {})
+  .n("TimestreamInfluxDBClient", "GetDbClusterCommand")
   .f(void 0, void 0)
-  .ser(se_GetDbInstanceCommand)
-  .de(de_GetDbInstanceCommand)
+  .ser(se_GetDbClusterCommand)
+  .de(de_GetDbClusterCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetDbInstanceInput;
-      output: GetDbInstanceOutput;
+      input: GetDbClusterInput;
+      output: GetDbClusterOutput;
     };
     sdk: {
-      input: GetDbInstanceCommandInput;
-      output: GetDbInstanceCommandOutput;
+      input: GetDbClusterCommandInput;
+      output: GetDbClusterCommandOutput;
     };
   };
 }

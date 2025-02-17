@@ -53,18 +53,26 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { CreateDbClusterCommandInput, CreateDbClusterCommandOutput } from "./commands/CreateDbClusterCommand";
 import { CreateDbInstanceCommandInput, CreateDbInstanceCommandOutput } from "./commands/CreateDbInstanceCommand";
 import {
   CreateDbParameterGroupCommandInput,
   CreateDbParameterGroupCommandOutput,
 } from "./commands/CreateDbParameterGroupCommand";
+import { DeleteDbClusterCommandInput, DeleteDbClusterCommandOutput } from "./commands/DeleteDbClusterCommand";
 import { DeleteDbInstanceCommandInput, DeleteDbInstanceCommandOutput } from "./commands/DeleteDbInstanceCommand";
+import { GetDbClusterCommandInput, GetDbClusterCommandOutput } from "./commands/GetDbClusterCommand";
 import { GetDbInstanceCommandInput, GetDbInstanceCommandOutput } from "./commands/GetDbInstanceCommand";
 import {
   GetDbParameterGroupCommandInput,
   GetDbParameterGroupCommandOutput,
 } from "./commands/GetDbParameterGroupCommand";
+import { ListDbClustersCommandInput, ListDbClustersCommandOutput } from "./commands/ListDbClustersCommand";
 import { ListDbInstancesCommandInput, ListDbInstancesCommandOutput } from "./commands/ListDbInstancesCommand";
+import {
+  ListDbInstancesForClusterCommandInput,
+  ListDbInstancesForClusterCommandOutput,
+} from "./commands/ListDbInstancesForClusterCommand";
 import {
   ListDbParameterGroupsCommandInput,
   ListDbParameterGroupsCommandOutput,
@@ -75,6 +83,7 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateDbClusterCommandInput, UpdateDbClusterCommandOutput } from "./commands/UpdateDbClusterCommand";
 import { UpdateDbInstanceCommandInput, UpdateDbInstanceCommandOutput } from "./commands/UpdateDbInstanceCommand";
 import {
   ClientInputEndpointParameters,
@@ -91,32 +100,44 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateDbClusterCommandInput
   | CreateDbInstanceCommandInput
   | CreateDbParameterGroupCommandInput
+  | DeleteDbClusterCommandInput
   | DeleteDbInstanceCommandInput
+  | GetDbClusterCommandInput
   | GetDbInstanceCommandInput
   | GetDbParameterGroupCommandInput
+  | ListDbClustersCommandInput
   | ListDbInstancesCommandInput
+  | ListDbInstancesForClusterCommandInput
   | ListDbParameterGroupsCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateDbClusterCommandInput
   | UpdateDbInstanceCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateDbClusterCommandOutput
   | CreateDbInstanceCommandOutput
   | CreateDbParameterGroupCommandOutput
+  | DeleteDbClusterCommandOutput
   | DeleteDbInstanceCommandOutput
+  | GetDbClusterCommandOutput
   | GetDbInstanceCommandOutput
   | GetDbParameterGroupCommandOutput
+  | ListDbClustersCommandOutput
   | ListDbInstancesCommandOutput
+  | ListDbInstancesForClusterCommandOutput
   | ListDbParameterGroupsCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateDbClusterCommandOutput
   | UpdateDbInstanceCommandOutput;
 
 /**
