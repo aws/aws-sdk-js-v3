@@ -19641,6 +19641,14 @@
                 }
               ]
             },
+            "eu-south-2": {
+              "variants": [
+                {
+                  "hostname": "polly.eu-south-2.api.aws",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "eu-west-1": {
               "variants": [
                 {
@@ -20347,6 +20355,14 @@
               "variants": [
                 {
                   "tags": ["dualstack"]
+                },
+                {
+                  "hostname": "ram-fips.ca-west-1.amazonaws.com",
+                  "tags": ["fips"]
+                },
+                {
+                  "hostname": "ram-fips.ca-west-1.api.aws",
+                  "tags": ["dualstack", "fips"]
                 }
               ]
             },
@@ -20412,6 +20428,13 @@
               },
               "deprecated": true,
               "hostname": "ram-fips.ca-central-1.amazonaws.com"
+            },
+            "fips-ca-west-1": {
+              "credentialScope": {
+                "region": "ca-west-1"
+              },
+              "deprecated": true,
+              "hostname": "ram-fips.ca-west-1.amazonaws.com"
             },
             "fips-us-east-1": {
               "credentialScope": {
