@@ -3858,6 +3858,7 @@ export const CloudWatchAlarmTemplateTargetResourceType = {
   MEDIALIVE_MULTIPLEX: "MEDIALIVE_MULTIPLEX",
   MEDIAPACKAGE_CHANNEL: "MEDIAPACKAGE_CHANNEL",
   MEDIAPACKAGE_ORIGIN_ENDPOINT: "MEDIAPACKAGE_ORIGIN_ENDPOINT",
+  MEDIATAILOR_PLAYBACK_CONFIGURATION: "MEDIATAILOR_PLAYBACK_CONFIGURATION",
   S3_BUCKET: "S3_BUCKET",
 } as const;
 
@@ -4087,7 +4088,7 @@ export interface DescribeChannelPlacementGroupSummary {
   Name?: string | undefined;
 
   /**
-   * An array with one item, which is the signle Node that is associated with the ChannelPlacementGroup.
+   * An array with one item, which is the single Node that is associated with the ChannelPlacementGroup.
    * @public
    */
   Nodes?: string[] | undefined;

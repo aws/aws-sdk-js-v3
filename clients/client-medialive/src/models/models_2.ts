@@ -944,7 +944,7 @@ export interface CreateChannelPlacementGroupResponse {
   Name?: string | undefined;
 
   /**
-   * An array with one item, which is the signle Node that is associated with the ChannelPlacementGroup.
+   * An array with one item, which is the single Node that is associated with the ChannelPlacementGroup.
    * @public
    */
   Nodes?: string[] | undefined;
@@ -2870,7 +2870,7 @@ export interface DeleteChannelPlacementGroupResponse {
   Name?: string | undefined;
 
   /**
-   * An array with one item, which is the signle Node that is associated with the ChannelPlacementGroup.
+   * An array with one item, which is the single Node that is associated with the ChannelPlacementGroup.
    * @public
    */
   Nodes?: string[] | undefined;
@@ -3700,7 +3700,7 @@ export interface DescribeChannelPlacementGroupResponse {
   Name?: string | undefined;
 
   /**
-   * An array with one item, which is the signle Node that is associated with the ChannelPlacementGroup.
+   * An array with one item, which is the single Node that is associated with the ChannelPlacementGroup.
    * @public
    */
   Nodes?: string[] | undefined;
@@ -6713,12 +6713,6 @@ export interface StartMonitorDeploymentRequest {
    * @public
    */
   Identifier: string | undefined;
-
-  /**
-   * An ID that you assign to a create request. This ID ensures idempotency when creating resources.
-   * @public
-   */
-  RequestId?: string | undefined;
 }
 
 /**
@@ -7563,7 +7557,7 @@ export interface UpdateChannelPlacementGroupResponse {
   Name?: string | undefined;
 
   /**
-   * An array with one item, which is the signle Node that is associated with the ChannelPlacementGroup.
+   * An array with one item, which is the single Node that is associated with the ChannelPlacementGroup.
    * @public
    */
   Nodes?: string[] | undefined;
