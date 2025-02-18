@@ -7,6 +7,20 @@ import { EMRContainersServiceException as __BaseException } from "./EMRContainer
  * @public
  * @enum
  */
+export const AllowAWSToRetainLogs = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AllowAWSToRetainLogs = (typeof AllowAWSToRetainLogs)[keyof typeof AllowAWSToRetainLogs];
+
+/**
+ * @public
+ * @enum
+ */
 export const CertificateProviderType = {
   PEM: "PEM",
 } as const;
@@ -444,6 +458,24 @@ export interface ContainerLogRotationConfiguration {
 }
 
 /**
+ * <p>The entity that provides configuration control over managed logs.</p>
+ * @public
+ */
+export interface ManagedLogs {
+  /**
+   * <p>Determines whether Amazon Web Services can retain logs.</p>
+   * @public
+   */
+  allowAWSToRetainLogs?: AllowAWSToRetainLogs | undefined;
+
+  /**
+   * <p>The Amazon resource name (ARN) of the encryption key for logs.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -475,6 +507,12 @@ export interface S3MonitoringConfiguration {
  * @public
  */
 export interface MonitoringConfiguration {
+  /**
+   * <p>The entity that controls configuration for managed logs.</p>
+   * @public
+   */
+  managedLogs?: ManagedLogs | undefined;
+
   /**
    * <p>Monitoring configurations for the persistent application UI. </p>
    * @public

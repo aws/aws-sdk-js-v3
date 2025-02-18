@@ -114,6 +114,7 @@ import {
   JobTemplate,
   JobTemplateData,
   LakeFormationConfiguration,
+  ManagedLogs,
   MonitoringConfiguration,
   ParametricCloudWatchMonitoringConfiguration,
   ParametricConfigurationOverrides,
@@ -1320,6 +1321,8 @@ const se_JobTemplateData = (input: JobTemplateData, context: __SerdeContext): an
 
 // se_LakeFormationConfiguration omitted.
 
+// se_ManagedLogs omitted.
+
 // se_MonitoringConfiguration omitted.
 
 // se_ParametricCloudWatchMonitoringConfiguration omitted.
@@ -1539,6 +1542,8 @@ const de_JobTemplates = (output: any, context: __SerdeContext): JobTemplate[] =>
 };
 
 // de_LakeFormationConfiguration omitted.
+
+// de_ManagedLogs omitted.
 
 // de_MonitoringConfiguration omitted.
 

@@ -80,6 +80,10 @@ export interface DescribeManagedEndpointCommandOutput extends DescribeManagedEnd
  * //         },
  * //       ],
  * //       monitoringConfiguration: { // MonitoringConfiguration
+ * //         managedLogs: { // ManagedLogs
+ * //           allowAWSToRetainLogs: "ENABLED" || "DISABLED",
+ * //           encryptionKeyArn: "STRING_VALUE",
+ * //         },
  * //         persistentAppUI: "ENABLED" || "DISABLED",
  * //         cloudWatchMonitoringConfiguration: { // CloudWatchMonitoringConfiguration
  * //           logGroupName: "STRING_VALUE", // required
