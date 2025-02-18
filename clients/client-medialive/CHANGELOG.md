@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.751.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.750.0...v3.751.0) (2025-02-18)
+
+
+### Features
+
+* **client-medialive:** Adds support for creating CloudWatchAlarmTemplates for AWS Elemental MediaTailor Playback Configuration resources. ([91498e9](https://github.com/aws/aws-sdk-js-v3/commit/91498e96cb9db531de47532d77a9be191e8dbd89))
+
+
+
+
+
 # [3.750.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.749.0...v3.750.0) (2025-02-17)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.751.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.750.0...v3.751.0) (2025-02-18)
+
+
+### Bug Fixes
+
+* **clients:** unknown union member serialization in json ([#6892](https://github.com/aws/aws-sdk-js-v3/issues/6892)) ([23d5fe8](https://github.com/aws/aws-sdk-js-v3/commit/23d5fe858d6edd5e3b9126a787a936404d0a3148))
+
+
+
+
+
 # [3.750.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.749.0...v3.750.0) (2025-02-17)
 
 **Note:** Version bump only for package @aws-sdk/client-evidently

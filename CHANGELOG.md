@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.751.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.750.0...v3.751.0) (2025-02-18)
+
+
+### Bug Fixes
+
+* **clients:** unknown union member serialization in json ([#6892](https://github.com/aws/aws-sdk-js-v3/issues/6892)) ([23d5fe8](https://github.com/aws/aws-sdk-js-v3/commit/23d5fe858d6edd5e3b9126a787a936404d0a3148))
+
+
+### Features
+
+* **client-emr-containers:** EMR on EKS StartJobRun Api will be supporting the configuration of log storage in AWS by using "managedLogs" under "MonitoringConfiguration". ([bfd1030](https://github.com/aws/aws-sdk-js-v3/commit/bfd103021c7d17ee402397c9af82b05387726d46))
+* **client-medialive:** Adds support for creating CloudWatchAlarmTemplates for AWS Elemental MediaTailor Playback Configuration resources. ([91498e9](https://github.com/aws/aws-sdk-js-v3/commit/91498e96cb9db531de47532d77a9be191e8dbd89))
+* **clients:** update client endpoints as of 2025-02-18 ([fcadd2c](https://github.com/aws/aws-sdk-js-v3/commit/fcadd2c3c05ce8f8634e66fed4917f1c6be7b6c3))
+
+
+
+
+
 # [3.750.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.749.0...v3.750.0) (2025-02-17)
 
 
