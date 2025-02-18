@@ -1002,8 +1002,8 @@ export interface CreateComputeEnvironmentRequest {
 
   /**
    * <p>The maximum number of vCPUs for an unmanaged compute environment. This parameter is only
-   *       used for fair share scheduling to reserve vCPU capacity for new share identifiers. If this
-   *       parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.</p>
+   *       used for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this
+   *       parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.</p>
    *          <note>
    *             <p>This parameter is only supported when the <code>type</code> parameter is set to
    *           <code>UNMANAGED</code>.</p>
@@ -1214,13 +1214,13 @@ export interface CreateJobQueueRequest {
   state?: JQState | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the fair share scheduling policy. Job queues that don't have a scheduling policy are scheduled in a first-in, first-out (FIFO) model.  After a job queue has a scheduling policy, it can be replaced but can't be removed.</p>
+   * <p>The Amazon Resource Name (ARN) of the fair-share scheduling policy. Job queues that don't have a fair-share scheduling policy are scheduled in a first-in, first-out (FIFO) model.  After a job queue has a fair-share scheduling policy, it can be replaced but can't be removed.</p>
    *          <p>The format is
    *           <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i>
    *             </code>.</p>
    *          <p>An example is
    *         <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</p>
-   *          <p>A job queue without a scheduling policy is scheduled as a FIFO job queue and can't have a scheduling policy added. Jobs queues with a scheduling policy can have a maximum of 500 active fair share identifiers. When the limit has been reached, submissions of any jobs that add a new fair share identifier fail.</p>
+   *          <p>A job queue without a fair-share scheduling policy is scheduled as a FIFO job queue and can't have a fair-share scheduling policy added. Jobs queues with a fair-share scheduling policy can have a maximum of 500 active share identifiers. When the limit has been reached, submissions of any jobs that add a new share identifier fail.</p>
    * @public
    */
   schedulingPolicyArn?: string | undefined;
@@ -1287,18 +1287,18 @@ export interface CreateJobQueueResponse {
 }
 
 /**
- * <p>Specifies the weights for the fair share identifiers for the fair share policy. Fair share
+ * <p>Specifies the weights for the share identifiers for the fair-share policy. Share
  *    identifiers that aren't included have a default weight of <code>1.0</code>.</p>
  * @public
  */
 export interface ShareAttributes {
   /**
-   * <p>A fair share identifier or fair share identifier prefix. If the string ends with an asterisk
-   *    (*), this entry specifies the weight factor to use for fair share identifiers that start with
-   *    that prefix. The list of fair share identifiers in a fair share policy can't overlap. For
+   * <p>A share identifier or share identifier prefix. If the string ends with an asterisk
+   *    (*), this entry specifies the weight factor to use for share identifiers that start with
+   *    that prefix. The list of share identifiers in a fair-share policy can't overlap. For
    *    example, you can't have one that specifies a <code>shareIdentifier</code> of <code>UserA*</code>
    *    and another that specifies a <code>shareIdentifier</code> of <code>UserA-1</code>.</p>
-   *          <p>There can be no more than 500 fair share identifiers active in a job queue.</p>
+   *          <p>There can be no more than 500 share identifiers active in a job queue.</p>
    *          <p>The string is limited to 255 alphanumeric characters, and can be followed by an asterisk
    *    (*).</p>
    * @public
@@ -1306,7 +1306,7 @@ export interface ShareAttributes {
   shareIdentifier: string | undefined;
 
   /**
-   * <p>The weight factor for the fair share identifier. The default value is 1.0. A lower value has
+   * <p>The weight factor for the share identifier. The default value is 1.0. A lower value has
    *    a higher priority for compute resources. For example, jobs that use a share identifier with a
    *    weight factor of 0.125 (1/8) get 8 times the compute resources of jobs that use a share
    *    identifier with a weight factor of 1.</p>
@@ -1317,12 +1317,12 @@ export interface ShareAttributes {
 }
 
 /**
- * <p>The fair share policy for a scheduling policy.</p>
+ * <p>The fair-share scheduling policy details.</p>
  * @public
  */
 export interface FairsharePolicy {
   /**
-   * <p>The amount of time (in seconds) to use to calculate a fair share percentage for each fair
+   * <p>The amount of time (in seconds) to use to calculate a fair-share percentage for each
    *    share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds).
    *    The maximum supported value is 604800 (1 week).</p>
    *          <p>The decay allows for more recently run jobs to have more weight than jobs that ran earlier.
@@ -1334,29 +1334,29 @@ export interface FairsharePolicy {
   shareDecaySeconds?: number | undefined;
 
   /**
-   * <p>A value used to reserve some of the available maximum vCPU for fair share identifiers that
+   * <p>A value used to reserve some of the available maximum vCPU for share identifiers that
    *    aren't already used.</p>
    *          <p>The reserved ratio is
    *      <code>(<i>computeReservation</i>/100)^<i>ActiveFairShares</i>
    *             </code>
    *    where <code>
    *                <i>ActiveFairShares</i>
-   *             </code> is the number of active fair share
+   *             </code> is the number of active share
    *    identifiers.</p>
    *          <p>For example, a <code>computeReservation</code> value of 50 indicates that Batch reserves
-   *    50% of the maximum available vCPU if there's only one fair share identifier. It reserves 25% if
-   *    there are two fair share identifiers. It reserves 12.5% if there are three fair share
+   *    50% of the maximum available vCPU if there's only one share identifier. It reserves 25% if
+   *    there are two share identifiers. It reserves 12.5% if there are three share
    *    identifiers. A <code>computeReservation</code> value of 25 indicates that Batch should reserve
-   *    25% of the maximum available vCPU if there's only one fair share identifier, 6.25% if there are
-   *    two fair share identifiers, and 1.56% if there are three fair share identifiers.</p>
+   *    25% of the maximum available vCPU if there's only one share identifier, 6.25% if there are
+   *    two fair share identifiers, and 1.56% if there are three share identifiers.</p>
    *          <p>The minimum value is 0 and the maximum value is 99.</p>
    * @public
    */
   computeReservation?: number | undefined;
 
   /**
-   * <p>An array of <code>SharedIdentifier</code> objects that contain the weights for the fair
-   *    share identifiers for the fair share policy. Fair share identifiers that aren't included have a
+   * <p>An array of <code>SharedIdentifier</code> objects that contain the weights for the
+   *    share identifiers for the fair-share policy. Share identifiers that aren't included have a
    *    default weight of <code>1.0</code>.</p>
    * @public
    */
@@ -1369,14 +1369,14 @@ export interface FairsharePolicy {
  */
 export interface CreateSchedulingPolicyRequest {
   /**
-   * <p>The name of the scheduling policy. It can be up to 128 letters long. It can contain
+   * <p>The name of the fair-share scheduling policy. It can be up to 128 letters long. It can contain
    *       uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The fair share policy of the scheduling policy.</p>
+   * <p>The fair-share scheduling policy details.</p>
    * @public
    */
   fairsharePolicy?: FairsharePolicy | undefined;
@@ -1980,7 +1980,7 @@ export interface LinuxParameters {
    *          <p>If a <code>maxSwap</code> value of <code>0</code> is specified, the container doesn't use
    *    swap. Accepted values are <code>0</code> or any positive integer. If the <code>maxSwap</code>
    *    parameter is omitted, the container doesn't use the swap configuration for the container instance
-   *    that it's running on. A <code>maxSwap</code> value must be set for the <code>swappiness</code>
+   *    on which it runs. A <code>maxSwap</code> value must be set for the <code>swappiness</code>
    *    parameter to be used.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
@@ -4236,7 +4236,7 @@ export interface JobDefinition {
 
   /**
    * <p>The scheduling priority of the job definition. This only affects jobs in job queues with a
-   *    fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower
+   *    fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower
    *    scheduling priority.</p>
    * @public
    */
@@ -5593,7 +5593,7 @@ export interface JobDetail {
 
   /**
    * <p>The scheduling policy of the job definition. This only affects jobs in job queues with a
-   *    fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower
+   *    fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower
    *    scheduling priority.</p>
    * @public
    */
@@ -5804,7 +5804,7 @@ export interface DescribeSchedulingPoliciesRequest {
  */
 export interface SchedulingPolicyDetail {
   /**
-   * <p>The name of the scheduling policy.</p>
+   * <p>The name of the fair-share scheduling policy.</p>
    * @public
    */
   name: string | undefined;
@@ -5818,13 +5818,13 @@ export interface SchedulingPolicyDetail {
   arn: string | undefined;
 
   /**
-   * <p>The fair share policy for the scheduling policy.</p>
+   * <p>The fair-share scheduling policy details.</p>
    * @public
    */
   fairsharePolicy?: FairsharePolicy | undefined;
 
   /**
-   * <p>The tags that you apply to the scheduling policy to categorize and organize your resources.
+   * <p>The tags that you apply to the fair-share scheduling policy to categorize and organize your resources.
    *    Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in
    *     <i>Amazon Web Services General Reference</i>.</p>
    * @public
@@ -5878,7 +5878,7 @@ export interface FrontOfQueueJobSummary {
  */
 export interface FrontOfQueueDetail {
   /**
-   * <p>The Amazon Resource Names (ARNs) of the first 100 <code>RUNNABLE</code> jobs in a named job queue. For first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For fair share scheduling (FSS) job queues, jobs are ordered based on their job priority and share usage.</p>
+   * <p>The Amazon Resource Names (ARNs) of the first 100 <code>RUNNABLE</code> jobs in a named job queue. For first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For fair-share scheduling (FSS) job queues, jobs are ordered based on their job priority and share usage.</p>
    * @public
    */
   jobs?: FrontOfQueueJobSummary[] | undefined;
@@ -5895,7 +5895,7 @@ export interface FrontOfQueueDetail {
  */
 export interface GetJobQueueSnapshotResponse {
   /**
-   * <p>The list of the first 100 <code>RUNNABLE</code> jobs in each job queue. For first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For fair share scheduling (FSS) job queues, jobs are ordered based on their job priority and share usage.</p>
+   * <p>The list of the first 100 <code>RUNNABLE</code> jobs in each job queue. For first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For fair-share scheduling (FSS) job queues, jobs are ordered based on their job priority and share usage.</p>
    * @public
    */
   frontOfQueue?: FrontOfQueueDetail | undefined;
@@ -6340,7 +6340,7 @@ export interface RegisterJobDefinitionRequest {
 
   /**
    * <p>The scheduling priority for jobs that are submitted with this job definition. This only
-   *       affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority
+   *       affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority
    *       are scheduled before jobs with a lower scheduling priority.</p>
    *          <p>The minimum supported value is 0 and the maximum supported value is 9999.</p>
    * @public
@@ -6692,7 +6692,7 @@ export interface EksPodPropertiesOverride {
 
   /**
    * <p>The overrides for the <code>initContainers</code> defined in the Amazon EKS pod. These containers run before
-   *    application containers, always runs to completion, and must complete successfully before the next
+   *    application containers, always run to completion, and must complete successfully before the next
    *    container starts. These containers are registered with the Amazon EKS Connector agent and persists the
    *    registration information in the Kubernetes backend data store. For more information, see <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/">Init
    *     Containers</a> in the <i>Kubernetes documentation</i>.</p>
@@ -6823,7 +6823,7 @@ export interface SubmitJobRequest {
 
   /**
    * <p>The share identifier for the job. Don't specify this parameter if the job queue doesn't
-   *       have a scheduling policy. If the job queue has a scheduling policy, then this parameter must
+   *       have a fair-share scheduling policy. If the job queue has a fair-share scheduling policy, then this parameter must
    *       be specified.</p>
    *          <p>This string is limited to 255 alphanumeric characters, and can be followed by an asterisk
    *       (*).</p>
@@ -6832,8 +6832,8 @@ export interface SubmitJobRequest {
   shareIdentifier?: string | undefined;
 
   /**
-   * <p>The scheduling priority for the job. This only affects jobs in job queues with a fair
-   *       share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower
+   * <p>The scheduling priority for the job. This only affects jobs in job queues with a
+   *       fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower
    *       scheduling priority. This overrides any scheduling priority in the job definition and works only
    *       within a single share identifier.</p>
    *          <p>The minimum supported value is 0 and the maximum supported value is 9999.</p>
@@ -7443,8 +7443,8 @@ export interface UpdateComputeEnvironmentRequest {
   /**
    * <p>The maximum number of vCPUs expected to be used for an unmanaged compute environment.
    *       Don't specify this parameter for a managed compute environment. This parameter is only used
-   *       for fair share scheduling to reserve vCPU capacity for new share identifiers. If this
-   *       parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.</p>
+   *       for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this
+   *       parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.</p>
    * @public
    */
   unmanagedvCpus?: number | undefined;
@@ -7535,7 +7535,7 @@ export interface UpdateJobQueueRequest {
   state?: JQState | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the fair share scheduling policy. Once a job queue is created, the fair share
+   * <p>Amazon Resource Name (ARN) of the fair-share scheduling policy. Once a job queue is created, the fair-share
    *       scheduling policy can be replaced but not removed. The format is
    *           <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i>
    *             </code>.
@@ -7609,7 +7609,7 @@ export interface UpdateSchedulingPolicyRequest {
   arn: string | undefined;
 
   /**
-   * <p>The fair share policy.</p>
+   * <p>The fair-share policy scheduling details.</p>
    * @public
    */
   fairsharePolicy?: FairsharePolicy | undefined;
