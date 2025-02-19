@@ -1008,13 +1008,32 @@ export interface CreateClusterRequest {
    *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker access to resources
    *             in your Amazon VPC</a>.</p>
    *          <note>
-   *             <p> If you configure your VPC with IPv6 support and specify subnets with IPv6 addressing
-   *             enabled in your VPC configuration, the cluster automatically uses IPv6 addressing for
-   *             network communication.</p>
-   *             <p> For information about adding IPv6 support for your VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-migrate-ipv6.html">IPv6 support
-   *                for your VPC</a>.</p>
-   *             <p> For information about creating a new VPC for use with IPv6, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/create-vpc.html">Create a
-   *             VPC</a>.</p>
+   *             <p>When your Amazon VPC and subnets support IPv6, network communications differ
+   *             based on the cluster orchestration platform:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Slurm-orchestrated clusters automatically configure nodes with dual IPv6 and
+   *                   IPv4 addresses, allowing immediate IPv6 network communications.</p>
+   *                </li>
+   *                <li>
+   *                   <p>In Amazon EKS-orchestrated clusters, nodes receive dual-stack
+   *                   addressing, but pods can only use IPv6 when the Amazon EKS cluster is
+   *                   explicitly IPv6-enabled. For information about deploying an IPv6 Amazon EKS cluster, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/deploy-ipv6-cluster.html#_deploy_an_ipv6_cluster_with_eksctl">Amazon EKS IPv6 Cluster Deployment</a>.</p>
+   *                </li>
+   *             </ul>
+   *             <p>Additional resources for IPv6 configuration:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>For information about adding IPv6 support to your VPC, see to <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-migrate-ipv6.html">IPv6
+   *                      Support for VPC</a>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>For information about creating a new IPv6-compatible VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/create-vpc.html">Amazon VPC Creation Guide</a>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>To configure SageMaker HyperPod with a custom Amazon VPC, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-prerequisites.html#sagemaker-hyperpod-prerequisites-optional-vpc">Custom Amazon VPC Setup for SageMaker HyperPod</a>.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    * @public
    */
@@ -4609,7 +4628,7 @@ export interface ProductionVariant {
    *                      <p>Accelerator: GPU</p>
    *                   </li>
    *                   <li>
-   *                      <p>NVIDIA driver version: 535.54.03</p>
+   *                      <p>NVIDIA driver version: 535</p>
    *                   </li>
    *                   <li>
    *                      <p>CUDA version: 12.2</p>
@@ -4623,13 +4642,13 @@ export interface ProductionVariant {
    *                      <p>Accelerator: GPU</p>
    *                   </li>
    *                   <li>
-   *                      <p>NVIDIA driver version: 535.54.03</p>
+   *                      <p>NVIDIA driver version: 535</p>
    *                   </li>
    *                   <li>
-   *                      <p>CUDA driver version: 12.2</p>
+   *                      <p>CUDA version: 12.2</p>
    *                   </li>
    *                   <li>
-   *                      <p>CUDA Container Toolkit with disabled CUDA-compat mounting</p>
+   *                      <p>NVIDIA Container Toolkit with disabled CUDA-compat mounting</p>
    *                   </li>
    *                </ul>
    *             </dd>
@@ -4640,13 +4659,13 @@ export interface ProductionVariant {
    *                      <p>Accelerator: GPU</p>
    *                   </li>
    *                   <li>
-   *                      <p>NVIDIA driver version: 550.144.01</p>
+   *                      <p>NVIDIA driver version: 550</p>
    *                   </li>
    *                   <li>
    *                      <p>CUDA version: 12.4</p>
    *                   </li>
    *                   <li>
-   *                      <p>Container Toolkit with disabled CUDA-compat mounting</p>
+   *                      <p>NVIDIA Container Toolkit with disabled CUDA-compat mounting</p>
    *                   </li>
    *                </ul>
    *             </dd>
