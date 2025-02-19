@@ -376,6 +376,24 @@ export interface ActionTypeId {
 }
 
 /**
+ * <p>The environment variables for the action.</p>
+ * @public
+ */
+export interface EnvironmentVariable {
+  /**
+   * <p>The environment variable name in the key-value pair.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The environment variable value in the key-value pair.</p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
  * <p>Represents information about an artifact to be worked on, such as a test or build
  *             artifact.</p>
  * @public
@@ -522,6 +540,12 @@ export interface ActionDeclaration {
    * @public
    */
   timeoutInMinutes?: number | undefined;
+
+  /**
+   * <p>The environment variables for the action.</p>
+   * @public
+   */
+  environmentVariables?: EnvironmentVariable[] | undefined;
 }
 
 /**
@@ -1830,7 +1854,10 @@ export type RuleOwner = (typeof RuleOwner)[keyof typeof RuleOwner];
 
 /**
  * <p>The ID for the rule type, which is made up of the combined values for category, owner,
- *             provider, and version.</p>
+ *             provider, and version. For more
+ *             information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage conditions</a>.
+ *             For more information about rules, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">CodePipeline rule
+ *                 reference</a>.</p>
  * @public
  */
 export interface RuleTypeId {
@@ -1849,7 +1876,8 @@ export interface RuleTypeId {
   owner?: RuleOwner | undefined;
 
   /**
-   * <p>The rule provider, such as the <code>DeploymentWindow</code> rule.</p>
+   * <p>The rule provider, such as the <code>DeploymentWindow</code> rule. For a list of rule provider names, see the rules listed in the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">CodePipeline rule
+   *                 reference</a>.</p>
    * @public
    */
   provider: string | undefined;
@@ -1864,8 +1892,8 @@ export interface RuleTypeId {
 /**
  * <p>Represents information about the rule to be created for an associated condition. An
  *             example would be creating a new rule for an entry condition, such as a rule that checks
- *             for a test result before allowing the run to enter the deployment stage. For more
- *             information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage conditions</a>.
+ *             for a test result before allowing the run to enter the deployment stage. For more information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage
+ *                 conditions</a> and <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html">How do stage conditions work?</a>.
  *             For more information about rules, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">CodePipeline rule
  *                 reference</a>.</p>
  * @public
@@ -1930,7 +1958,8 @@ export interface RuleDeclaration {
 
 /**
  * <p>The condition for the stage. A condition is made up of the rules and the result for
- *             the condition. For more information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage conditions</a>.
+ *             the condition. For more information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage
+ *                 conditions</a> and <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html">How do stage conditions work?</a>..
  *             For more information about rules, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">CodePipeline rule
  *                 reference</a>.</p>
  * @public
@@ -1951,7 +1980,8 @@ export interface Condition {
 }
 
 /**
- * <p>The conditions for making checks for entry to a stage. </p>
+ * <p>The conditions for making checks for entry to a stage. For more information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage
+ *                 conditions</a> and <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html">How do stage conditions work?</a>. </p>
  * @public
  */
 export interface BeforeEntryConditions {
@@ -2223,9 +2253,8 @@ export type StageRetryMode = (typeof StageRetryMode)[keyof typeof StageRetryMode
  */
 export interface RetryConfiguration {
   /**
-   * <p>The method that you want to configure for automatic stage retry on stage
-   *             failure. You can specify to retry only failed action in the stage or all actions in the
-   *             stage.</p>
+   * <p>The method that you want to configure for automatic stage retry on stage failure. You
+   *             can specify to retry only failed action in the stage or all actions in the stage.</p>
    * @public
    */
   retryMode?: StageRetryMode | undefined;
@@ -2233,7 +2262,8 @@ export interface RetryConfiguration {
 
 /**
  * <p>The configuration that specifies the result, such as rollback, to occur upon stage
- *             failure. </p>
+ *             failure. For more information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage
+ *                 conditions</a> and <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html">How do stage conditions work?</a>. </p>
  * @public
  */
 export interface FailureConditions {
@@ -2252,14 +2282,16 @@ export interface FailureConditions {
   retryConfiguration?: RetryConfiguration | undefined;
 
   /**
-   * <p>The conditions that are configured as failure conditions.</p>
+   * <p>The conditions that are configured as failure conditions. For more information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage
+   *                 conditions</a> and <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html">How do stage conditions work?</a>.</p>
    * @public
    */
   conditions?: Condition[] | undefined;
 }
 
 /**
- * <p>The conditions for making checks that, if met, succeed a stage.</p>
+ * <p>The conditions for making checks that, if met, succeed a stage. For more information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage
+ *                 conditions</a> and <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html">How do stage conditions work?</a>.</p>
  * @public
  */
 export interface SuccessConditions {
@@ -2376,12 +2408,24 @@ export interface GitFilePathFilterCriteria {
 /**
  * <p>The event criteria for the pull request trigger configuration, such as the lists of
  *             branches or file paths to include and exclude.</p>
+ *          <p>The following are valid values for the events for this filter:</p>
+ *          <ul>
+ *             <li>
+ *                <p>CLOSED</p>
+ *             </li>
+ *             <li>
+ *                <p>OPEN</p>
+ *             </li>
+ *             <li>
+ *                <p>UPDATED</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface GitPullRequestFilter {
   /**
-   * <p>The field that specifies which pull request events to filter on (opened, updated,
-   *             closed) for the trigger configuration.</p>
+   * <p>The field that specifies which pull request events to filter on (OPEN, UPDATED,
+   *             CLOSED) for the trigger configuration.</p>
    * @public
    */
   events?: GitPullRequestEventType[] | undefined;
@@ -3979,24 +4023,28 @@ export const RetryTrigger = {
 export type RetryTrigger = (typeof RetryTrigger)[keyof typeof RetryTrigger];
 
 /**
- * <p>The details of a specific automatic retry on stage failure, including the attempt number and trigger.</p>
+ * <p>The details of a specific automatic retry on stage failure, including the attempt
+ *             number and trigger.</p>
  * @public
  */
 export interface RetryStageMetadata {
   /**
-   * <p>The number of attempts for a specific stage with automatic retry on stage failure. One attempt is allowed for automatic stage retry on failure.</p>
+   * <p>The number of attempts for a specific stage with automatic retry on stage failure. One
+   *             attempt is allowed for automatic stage retry on failure.</p>
    * @public
    */
   autoStageRetryAttempt?: number | undefined;
 
   /**
-   * <p>The number of attempts for a specific stage where manual retries have been made upon stage failure.</p>
+   * <p>The number of attempts for a specific stage where manual retries have been made upon
+   *             stage failure.</p>
    * @public
    */
   manualStageRetryAttempt?: number | undefined;
 
   /**
-   * <p>The latest trigger for a specific stage where manual or automatic retries have been made upon stage failure.</p>
+   * <p>The latest trigger for a specific stage where manual or automatic retries have been
+   *             made upon stage failure.</p>
    * @public
    */
   latestRetryTrigger?: RetryTrigger | undefined;
@@ -4063,7 +4111,8 @@ export interface StageState {
   onFailureConditionState?: StageConditionState | undefined;
 
   /**
-   * <p>he details of a specific automatic retry on stage failure, including the attempt number and trigger.</p>
+   * <p>he details of a specific automatic retry on stage failure, including the attempt
+   *             number and trigger.</p>
    * @public
    */
   retryStageMetadata?: RetryStageMetadata | undefined;
@@ -4777,7 +4826,10 @@ export interface ListRuleExecutionsInput {
 export interface RuleExecutionInput {
   /**
    * <p>The ID for the rule type, which is made up of the combined values for category, owner,
-   *             provider, and version.</p>
+   *             provider, and version. For more
+   *             information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage conditions</a>.
+   *             For more information about rules, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">CodePipeline rule
+   *                 reference</a>.</p>
    * @public
    */
   ruleTypeId?: RuleTypeId | undefined;
@@ -5809,9 +5861,9 @@ export interface PutApprovalResultInput {
    *             request corresponding to this token is still valid.</p>
    *          <important>
    *             <p>For a pipeline where the execution mode is set to PARALLEL, the token required to
-   *                 approve/reject approval request as detailed above is not available. Instead, use the
-   *                     <code>externalExecutionId</code> from the <code>GetPipelineState</code> action
-   *                 as the token in the approval request.</p>
+   *                 approve/reject an approval request as detailed above is not available. Instead, use
+   *                 the <code>externalExecutionId</code> in the response output from the <a>ListActionExecutions</a> action as the token in the approval
+   *                 request.</p>
    *          </important>
    * @public
    */

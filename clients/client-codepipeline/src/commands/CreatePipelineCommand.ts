@@ -108,6 +108,12 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  *             region: "STRING_VALUE",
  *             namespace: "STRING_VALUE",
  *             timeoutInMinutes: Number("int"),
+ *             environmentVariables: [ // EnvironmentVariableList
+ *               { // EnvironmentVariable
+ *                 name: "STRING_VALUE", // required
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *             ],
  *           },
  *         ],
  *         onFailure: { // FailureConditions
@@ -358,6 +364,12 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * //             region: "STRING_VALUE",
  * //             namespace: "STRING_VALUE",
  * //             timeoutInMinutes: Number("int"),
+ * //             environmentVariables: [ // EnvironmentVariableList
+ * //               { // EnvironmentVariable
+ * //                 name: "STRING_VALUE", // required
+ * //                 value: "STRING_VALUE", // required
+ * //               },
+ * //             ],
  * //           },
  * //         ],
  * //         onFailure: { // FailureConditions

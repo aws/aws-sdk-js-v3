@@ -176,6 +176,7 @@ import {
   DuplicatedStopRequestException,
   EnableStageTransitionInput,
   EncryptionKey,
+  EnvironmentVariable,
   ExecutionDetails,
   ExecutorConfiguration,
   FailureConditions,
@@ -2559,6 +2560,10 @@ const se_CurrentRevision = (input: CurrentRevision, context: __SerdeContext): an
 
 // se_EncryptionKey omitted.
 
+// se_EnvironmentVariable omitted.
+
+// se_EnvironmentVariableList omitted.
+
 // se_ExecutionDetails omitted.
 
 // se_ExecutorConfiguration omitted.
@@ -3047,6 +3052,10 @@ const de_CreatePipelineOutput = (output: any, context: __SerdeContext): CreatePi
 // de_DuplicatedStopRequestException omitted.
 
 // de_EncryptionKey omitted.
+
+// de_EnvironmentVariable omitted.
+
+// de_EnvironmentVariableList omitted.
 
 // de_ErrorDetails omitted.
 
