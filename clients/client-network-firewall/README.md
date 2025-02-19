@@ -32,7 +32,10 @@ Guide</a>.</p>
 prevention service for Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the
 perimeter of your VPC. This includes filtering traffic going to and coming from an internet
 gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules that are compatible
-with Suricata, a free, open source network analysis and threat detection engine. </p>
+with Suricata, a free, open source network analysis and threat detection engine.
+Network Firewall supports Suricata version 7.0.3. For information about Suricata,
+see the <a href="https://suricata.io/">Suricata website</a> and the
+<a href="https://suricata.readthedocs.io/en/suricata-7.0.3/">Suricata User Guide</a>. </p>
 <p>You can use Network Firewall to monitor and protect your VPC traffic in a number of ways.
 The following are just a few examples: </p>
 <ul>
@@ -432,6 +435,22 @@ DisassociateSubnets
 </details>
 <details>
 <summary>
+GetAnalysisReportResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/GetAnalysisReportResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/GetAnalysisReportResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/GetAnalysisReportResultsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAnalysisReports
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/ListAnalysisReportsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/ListAnalysisReportsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/ListAnalysisReportsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListFirewallPolicies
 </summary>
 
@@ -480,6 +499,14 @@ PutResourcePolicy
 </details>
 <details>
 <summary>
+StartAnalysisReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/StartAnalysisReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/StartAnalysisReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/StartAnalysisReportCommandOutput/)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 
@@ -492,6 +519,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateFirewallAnalysisSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/UpdateFirewallAnalysisSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/UpdateFirewallAnalysisSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/UpdateFirewallAnalysisSettingsCommandOutput/)
 
 </details>
 <details>

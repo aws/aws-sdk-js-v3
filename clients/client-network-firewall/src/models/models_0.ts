@@ -86,6 +86,120 @@ export interface Address {
  * @public
  * @enum
  */
+export const EnabledAnalysisType = {
+  HTTP_HOST: "HTTP_HOST",
+  TLS_SNI: "TLS_SNI",
+} as const;
+
+/**
+ * @public
+ */
+export type EnabledAnalysisType = (typeof EnabledAnalysisType)[keyof typeof EnabledAnalysisType];
+
+/**
+ * <p>A report that captures key activity from the last 30 days of network traffic monitored by your firewall.</p>
+ *          <p>You can generate up to one report per traffic type, per 30 day period. For example, when you successfully create an HTTP traffic report,
+ *          you cannot create another HTTP traffic report until 30 days pass. Alternatively, if you generate a report that combines metrics on both HTTP
+ *          and HTTPS traffic, you cannot create another report for either traffic type until 30 days pass.</p>
+ * @public
+ */
+export interface AnalysisReport {
+  /**
+   * <p>The unique ID of the query that ran when you requested an analysis report. </p>
+   * @public
+   */
+  AnalysisReportId?: string | undefined;
+
+  /**
+   * <p>The type of traffic that will be used to generate a report. </p>
+   * @public
+   */
+  AnalysisType?: EnabledAnalysisType | undefined;
+
+  /**
+   * <p>The date and time the analysis report was ran. </p>
+   * @public
+   */
+  ReportTime?: Date | undefined;
+
+  /**
+   * <p>The status of the analysis report you specify. Statuses include <code>RUNNING</code>, <code>COMPLETED</code>, or <code>FAILED</code>.</p>
+   * @public
+   */
+  Status?: string | undefined;
+}
+
+/**
+ * <p>Attempts made to a access domain.</p>
+ * @public
+ */
+export interface Hits {
+  /**
+   * <p>The number of attempts made to access a domain.</p>
+   * @public
+   */
+  Count?: number | undefined;
+}
+
+/**
+ * <p>A unique source IP address that connected to a domain.</p>
+ * @public
+ */
+export interface UniqueSources {
+  /**
+   * <p>The number of unique source IP addresses that connected to a domain.</p>
+   * @public
+   */
+  Count?: number | undefined;
+}
+
+/**
+ * <p>The results of a <code>COMPLETED</code> analysis report generated with <a>StartAnalysisReport</a>.</p>
+ *          <p>For an example of traffic analysis report results, see the response syntax of <a>GetAnalysisReportResults</a>.</p>
+ * @public
+ */
+export interface AnalysisTypeReportResult {
+  /**
+   * <p>The type of traffic captured by the analysis report.</p>
+   * @public
+   */
+  Protocol?: string | undefined;
+
+  /**
+   * <p>The date and time any domain was first accessed (within the last 30 day period).</p>
+   * @public
+   */
+  FirstAccessed?: Date | undefined;
+
+  /**
+   * <p>The date and time any domain was last accessed (within the last 30 day period).</p>
+   * @public
+   */
+  LastAccessed?: Date | undefined;
+
+  /**
+   * <p>The most frequently accessed domains.</p>
+   * @public
+   */
+  Domain?: string | undefined;
+
+  /**
+   * <p>The number of attempts made to access a observed domain.</p>
+   * @public
+   */
+  Hits?: Hits | undefined;
+
+  /**
+   * <p>The number of unique source IP addresses that connected to a domain.</p>
+   * @public
+   */
+  UniqueSources?: UniqueSources | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const IdentifiedType = {
   STATELESS_RULE_CONTAINS_TCP_FLAGS: "STATELESS_RULE_CONTAINS_TCP_FLAGS",
   STATELESS_RULE_FORWARDING_ASYMMETRICALLY: "STATELESS_RULE_FORWARDING_ASYMMETRICALLY",
@@ -98,6 +212,7 @@ export type IdentifiedType = (typeof IdentifiedType)[keyof typeof IdentifiedType
 
 /**
  * <p>The analysis result for Network Firewall's stateless rule group analyzer. Every time you call <a>CreateRuleGroup</a>, <a>UpdateRuleGroup</a>, or <a>DescribeRuleGroup</a> on a stateless rule group, Network Firewall analyzes the stateless rule groups in your account and identifies the rules that might adversely effect your firewall's functionality. For example, if Network Firewall detects a rule that's routing traffic asymmetrically, which impacts the service's ability to properly process traffic, the service includes the rule in a list of analysis results.</p>
+ *          <p>The <code>AnalysisResult</code> data type is not related to traffic analysis reports you generate using <a>StartAnalysisReport</a>. For information on traffic analysis report results, see <a>AnalysisTypeReportResult</a>.</p>
  * @public
  */
 export interface AnalysisResult {
@@ -767,7 +882,7 @@ export interface CreateFirewallRequest {
    *          <p>You can't change this setting after you create the firewall. </p>
    * @public
    */
-  VpcId: string | undefined;
+  VpcId?: string | undefined;
 
   /**
    * <p>The public subnets to use for your Network Firewall firewalls. Each subnet must belong to a
@@ -775,7 +890,7 @@ export interface CreateFirewallRequest {
    *          subnet. </p>
    * @public
    */
-  SubnetMappings: SubnetMapping[] | undefined;
+  SubnetMappings?: SubnetMapping[] | undefined;
 
   /**
    * <p>A flag indicating whether it is possible to delete the firewall. A setting of <code>TRUE</code> indicates
@@ -818,6 +933,12 @@ export interface CreateFirewallRequest {
    * @public
    */
   EncryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>An optional setting indicating the specific traffic analysis types to enable on the firewall. </p>
+   * @public
+   */
+  EnabledAnalysisTypes?: EnabledAnalysisType[] | undefined;
 }
 
 /**
@@ -909,6 +1030,12 @@ export interface Firewall {
    * @public
    */
   EncryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>An optional setting indicating the specific traffic analysis types to enable on the firewall. </p>
+   * @public
+   */
+  EnabledAnalysisTypes?: EnabledAnalysisType[] | undefined;
 }
 
 /**
@@ -1834,13 +1961,13 @@ export interface Header {
  */
 export interface RuleOption {
   /**
-   * <p>The keyword for the Suricata compatible rule option. You must include a <code>sid</code> (signature ID), and can optionally include other keywords. For information about Suricata compatible keywords, see <a href="https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html#rule-options">Rule options</a> in the Suricata documentation.</p>
+   * <p>The keyword for the Suricata compatible rule option. You must include a <code>sid</code> (signature ID), and can optionally include other keywords. For information about Suricata compatible keywords, see <a href="https://suricata.readthedocs.io/en/suricata-7.0.3/rules/intro.html#rule-options">Rule options</a> in the Suricata documentation.</p>
    * @public
    */
   Keyword: string | undefined;
 
   /**
-   * <p>The settings of the Suricata compatible rule option. Rule options have zero or more setting values, and the number of possible and required settings depends on the <code>Keyword</code>. For more information about the settings for specific options, see <a href="https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html#rule-options">Rule options</a>.</p>
+   * <p>The settings of the Suricata compatible rule option. Rule options have zero or more setting values, and the number of possible and required settings depends on the <code>Keyword</code>. For more information about the settings for specific options, see <a href="https://suricata.readthedocs.io/en/suricata-7.0.3/rules/intro.html#rule-options">Rule options</a>.</p>
    * @public
    */
   Settings?: string[] | undefined;
@@ -1850,7 +1977,7 @@ export interface RuleOption {
  * <p>A single Suricata rules specification, for use in a stateful rule group.
  *        Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options.
  *        For information about the Suricata <code>Rules</code> format, see
- *                                         <a href="https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html">Rules Format</a>. </p>
+ *                                         <a href="https://suricata.readthedocs.io/en/suricata-7.0.3/rules/intro.html">Rules Format</a>. </p>
  * @public
  */
 export interface StatefulRule {
@@ -2162,7 +2289,7 @@ export interface RulesSource {
    * <p>An array of individual stateful rules inspection criteria to be used together in a stateful rule group.
    *        Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options.
    *        For information about the Suricata <code>Rules</code> format, see
-   *                                         <a href="https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html">Rules Format</a>. </p>
+   *                                         <a href="https://suricata.readthedocs.io/en/suricata-7.0.3/rules/intro.html">Rules Format</a>. </p>
    * @public
    */
   StatefulRules?: StatefulRule[] | undefined;
@@ -3548,6 +3675,152 @@ export interface FirewallPolicyMetadata {
 /**
  * @public
  */
+export interface GetAnalysisReportResultsRequest {
+  /**
+   * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallName?: string | undefined;
+
+  /**
+   * <p>The unique ID of the query that ran when you requested an analysis report. </p>
+   * @public
+   */
+  AnalysisReportId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
+   *           objects are available, in the response, Network Firewall provides a
+   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAnalysisReportResultsResponse {
+  /**
+   * <p>The status of the analysis report you specify. Statuses include <code>RUNNING</code>, <code>COMPLETED</code>, or <code>FAILED</code>.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p> The date and time within the last 30 days from which to start retrieving analysis data,
+   *    in UTC format (for example, <code>YYYY-MM-DDTHH:MM:SSZ</code>. </p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The date and time, up to the current date, from which to stop retrieving analysis data,
+   *    in UTC format (for example, <code>YYYY-MM-DDTHH:MM:SSZ</code>). </p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The date and time the analysis report was ran. </p>
+   * @public
+   */
+  ReportTime?: Date | undefined;
+
+  /**
+   * <p>The type of traffic that will be used to generate a report. </p>
+   * @public
+   */
+  AnalysisType?: EnabledAnalysisType | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Retrieves the results of a traffic analysis report.</p>
+   * @public
+   */
+  AnalysisReportResults?: AnalysisTypeReportResult[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAnalysisReportsRequest {
+  /**
+   * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
+   *           objects are available, in the response, Network Firewall provides a
+   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAnalysisReportsResponse {
+  /**
+   * <p>The <code>id</code> and <code>ReportTime</code> associated with a requested analysis report. Does not provide the status of the analysis report. </p>
+   * @public
+   */
+  AnalysisReports?: AnalysisReport[] | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListFirewallPoliciesRequest {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -3918,6 +4191,42 @@ export interface PutResourcePolicyResponse {}
 /**
  * @public
  */
+export interface StartAnalysisReportRequest {
+  /**
+   * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>The type of traffic that will be used to generate a report. </p>
+   * @public
+   */
+  AnalysisType: EnabledAnalysisType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAnalysisReportResponse {
+  /**
+   * <p>The unique ID of the query that ran when you requested an analysis report. </p>
+   * @public
+   */
+  AnalysisReportId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3958,6 +4267,72 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateFirewallAnalysisSettingsRequest {
+  /**
+   * <p>An optional setting indicating the specific traffic analysis types to enable on the firewall. </p>
+   * @public
+   */
+  EnabledAnalysisTypes?: EnabledAnalysisType[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallName?: string | undefined;
+
+  /**
+   * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
+   *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
+   *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   * @public
+   */
+  UpdateToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFirewallAnalysisSettingsResponse {
+  /**
+   * <p>An optional setting indicating the specific traffic analysis types to enable on the firewall. </p>
+   * @public
+   */
+  EnabledAnalysisTypes?: EnabledAnalysisType[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallName?: string | undefined;
+
+  /**
+   * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
+   *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
+   *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   * @public
+   */
+  UpdateToken?: string | undefined;
+}
 
 /**
  * <p>Unable to change the resource because your account doesn't own it. </p>

@@ -109,6 +109,14 @@ import {
   DisassociateSubnetsCommandOutput,
 } from "./commands/DisassociateSubnetsCommand";
 import {
+  GetAnalysisReportResultsCommandInput,
+  GetAnalysisReportResultsCommandOutput,
+} from "./commands/GetAnalysisReportResultsCommand";
+import {
+  ListAnalysisReportsCommandInput,
+  ListAnalysisReportsCommandOutput,
+} from "./commands/ListAnalysisReportsCommand";
+import {
   ListFirewallPoliciesCommandInput,
   ListFirewallPoliciesCommandOutput,
 } from "./commands/ListFirewallPoliciesCommand";
@@ -123,8 +131,16 @@ import {
   ListTLSInspectionConfigurationsCommandOutput,
 } from "./commands/ListTLSInspectionConfigurationsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
+import {
+  StartAnalysisReportCommandInput,
+  StartAnalysisReportCommandOutput,
+} from "./commands/StartAnalysisReportCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateFirewallAnalysisSettingsCommandInput,
+  UpdateFirewallAnalysisSettingsCommandOutput,
+} from "./commands/UpdateFirewallAnalysisSettingsCommand";
 import {
   UpdateFirewallDeleteProtectionCommandInput,
   UpdateFirewallDeleteProtectionCommandOutput,
@@ -192,14 +208,18 @@ export type ServiceInputTypes =
   | DescribeRuleGroupMetadataCommandInput
   | DescribeTLSInspectionConfigurationCommandInput
   | DisassociateSubnetsCommandInput
+  | GetAnalysisReportResultsCommandInput
+  | ListAnalysisReportsCommandInput
   | ListFirewallPoliciesCommandInput
   | ListFirewallsCommandInput
   | ListRuleGroupsCommandInput
   | ListTLSInspectionConfigurationsCommandInput
   | ListTagsForResourceCommandInput
   | PutResourcePolicyCommandInput
+  | StartAnalysisReportCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateFirewallAnalysisSettingsCommandInput
   | UpdateFirewallDeleteProtectionCommandInput
   | UpdateFirewallDescriptionCommandInput
   | UpdateFirewallEncryptionConfigurationCommandInput
@@ -233,14 +253,18 @@ export type ServiceOutputTypes =
   | DescribeRuleGroupMetadataCommandOutput
   | DescribeTLSInspectionConfigurationCommandOutput
   | DisassociateSubnetsCommandOutput
+  | GetAnalysisReportResultsCommandOutput
+  | ListAnalysisReportsCommandOutput
   | ListFirewallPoliciesCommandOutput
   | ListFirewallsCommandOutput
   | ListRuleGroupsCommandOutput
   | ListTLSInspectionConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutResourcePolicyCommandOutput
+  | StartAnalysisReportCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateFirewallAnalysisSettingsCommandOutput
   | UpdateFirewallDeleteProtectionCommandOutput
   | UpdateFirewallDescriptionCommandOutput
   | UpdateFirewallEncryptionConfigurationCommandOutput
@@ -468,7 +492,10 @@ export interface NetworkFirewallClientResolvedConfig extends NetworkFirewallClie
  *          prevention service for Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the
  *          perimeter of your VPC. This includes filtering traffic going to and coming from an internet
  *          gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules that are compatible
- *       with Suricata, a free, open source network analysis and threat detection engine. </p>
+ *       with Suricata, a free, open source network analysis and threat detection engine.
+ *       Network Firewall supports Suricata version 7.0.3. For information about Suricata,
+ *           see the <a href="https://suricata.io/">Suricata website</a> and the
+ *           <a href="https://suricata.readthedocs.io/en/suricata-7.0.3/">Suricata User Guide</a>. </p>
  *          <p>You can use Network Firewall to monitor and protect your VPC traffic in a number of ways.
  *          The following are just a few examples: </p>
  *          <ul>

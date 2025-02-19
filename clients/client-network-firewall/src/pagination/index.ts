@@ -1,5 +1,7 @@
+export * from "./GetAnalysisReportResultsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ListAnalysisReportsPaginator";
 export * from "./ListFirewallPoliciesPaginator";
 export * from "./ListFirewallsPaginator";
 export * from "./ListRuleGroupsPaginator";

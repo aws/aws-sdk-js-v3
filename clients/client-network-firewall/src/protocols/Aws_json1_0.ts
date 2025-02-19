@@ -76,6 +76,14 @@ import {
   DisassociateSubnetsCommandOutput,
 } from "../commands/DisassociateSubnetsCommand";
 import {
+  GetAnalysisReportResultsCommandInput,
+  GetAnalysisReportResultsCommandOutput,
+} from "../commands/GetAnalysisReportResultsCommand";
+import {
+  ListAnalysisReportsCommandInput,
+  ListAnalysisReportsCommandOutput,
+} from "../commands/ListAnalysisReportsCommand";
+import {
   ListFirewallPoliciesCommandInput,
   ListFirewallPoliciesCommandOutput,
 } from "../commands/ListFirewallPoliciesCommand";
@@ -90,8 +98,16 @@ import {
   ListTLSInspectionConfigurationsCommandOutput,
 } from "../commands/ListTLSInspectionConfigurationsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
+import {
+  StartAnalysisReportCommandInput,
+  StartAnalysisReportCommandOutput,
+} from "../commands/StartAnalysisReportCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateFirewallAnalysisSettingsCommandInput,
+  UpdateFirewallAnalysisSettingsCommandOutput,
+} from "../commands/UpdateFirewallAnalysisSettingsCommand";
 import {
   UpdateFirewallDeleteProtectionCommandInput,
   UpdateFirewallDeleteProtectionCommandOutput,
@@ -128,6 +144,8 @@ import {
 import {
   ActionDefinition,
   Address,
+  AnalysisReport,
+  AnalysisTypeReportResult,
   AssociateFirewallPolicyRequest,
   AssociateSubnetsRequest,
   CheckCertificateRevocationStatusActions,
@@ -160,10 +178,13 @@ import {
   DescribeTLSInspectionConfigurationResponse,
   Dimension,
   DisassociateSubnetsRequest,
+  EnabledAnalysisType,
   EncryptionConfiguration,
   FirewallPolicy,
   FirewallPolicyResponse,
   FlowTimeouts,
+  GetAnalysisReportResultsRequest,
+  GetAnalysisReportResultsResponse,
   Header,
   InsufficientCapacityException,
   InternalServerError,
@@ -174,6 +195,8 @@ import {
   IPSet,
   IPSetReference,
   LimitExceededException,
+  ListAnalysisReportsRequest,
+  ListAnalysisReportsResponse,
   ListFirewallPoliciesRequest,
   ListFirewallsRequest,
   ListRuleGroupsRequest,
@@ -202,6 +225,7 @@ import {
   ServerCertificateConfiguration,
   ServerCertificateScope,
   SourceMetadata,
+  StartAnalysisReportRequest,
   StatefulEngineOptions,
   StatefulRule,
   StatefulRuleGroupOverride,
@@ -221,6 +245,7 @@ import {
   TLSInspectionConfigurationResponse,
   UnsupportedOperationException,
   UntagResourceRequest,
+  UpdateFirewallAnalysisSettingsRequest,
   UpdateFirewallDeleteProtectionRequest,
   UpdateFirewallDescriptionRequest,
   UpdateFirewallEncryptionConfigurationRequest,
@@ -484,6 +509,32 @@ export const se_DisassociateSubnetsCommand = async (
 };
 
 /**
+ * serializeAws_json1_0GetAnalysisReportResultsCommand
+ */
+export const se_GetAnalysisReportResultsCommand = async (
+  input: GetAnalysisReportResultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetAnalysisReportResults");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ListAnalysisReportsCommand
+ */
+export const se_ListAnalysisReportsCommand = async (
+  input: ListAnalysisReportsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListAnalysisReports");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ListFirewallPoliciesCommand
  */
 export const se_ListFirewallPoliciesCommand = async (
@@ -562,6 +613,19 @@ export const se_PutResourcePolicyCommand = async (
 };
 
 /**
+ * serializeAws_json1_0StartAnalysisReportCommand
+ */
+export const se_StartAnalysisReportCommand = async (
+  input: StartAnalysisReportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartAnalysisReport");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -582,6 +646,19 @@ export const se_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UpdateFirewallAnalysisSettingsCommand
+ */
+export const se_UpdateFirewallAnalysisSettingsCommand = async (
+  input: UpdateFirewallAnalysisSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateFirewallAnalysisSettings");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1085,6 +1162,46 @@ export const de_DisassociateSubnetsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0GetAnalysisReportResultsCommand
+ */
+export const de_GetAnalysisReportResultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAnalysisReportResultsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetAnalysisReportResultsResponse(data, context);
+  const response: GetAnalysisReportResultsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListAnalysisReportsCommand
+ */
+export const de_ListAnalysisReportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnalysisReportsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAnalysisReportsResponse(data, context);
+  const response: ListAnalysisReportsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0ListFirewallPoliciesCommand
  */
 export const de_ListFirewallPoliciesCommand = async (
@@ -1205,6 +1322,26 @@ export const de_PutResourcePolicyCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0StartAnalysisReportCommand
+ */
+export const de_StartAnalysisReportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAnalysisReportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartAnalysisReportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1238,6 +1375,26 @@ export const de_UntagResourceCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateFirewallAnalysisSettingsCommand
+ */
+export const de_UpdateFirewallAnalysisSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFirewallAnalysisSettingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateFirewallAnalysisSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1739,6 +1896,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 
 // se_DisassociateSubnetsRequest omitted.
 
+// se_EnabledAnalysisTypes omitted.
+
 // se_EncryptionConfiguration omitted.
 
 // se_FirewallPolicy omitted.
@@ -1746,6 +1905,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 // se_Flags omitted.
 
 // se_FlowTimeouts omitted.
+
+// se_GetAnalysisReportResultsRequest omitted.
 
 // se_Header omitted.
 
@@ -1756,6 +1917,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 // se_IPSetReferenceMap omitted.
 
 // se_IPSets omitted.
+
+// se_ListAnalysisReportsRequest omitted.
 
 // se_ListFirewallPoliciesRequest omitted.
 
@@ -1827,6 +1990,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 
 // se_SourceMetadata omitted.
 
+// se_StartAnalysisReportRequest omitted.
+
 // se_StatefulActions omitted.
 
 // se_StatefulEngineOptions omitted.
@@ -1877,6 +2042,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 
 // se_UntagResourceRequest omitted.
 
+// se_UpdateFirewallAnalysisSettingsRequest omitted.
+
 // se_UpdateFirewallDeleteProtectionRequest omitted.
 
 // se_UpdateFirewallDescriptionRequest omitted.
@@ -1922,9 +2089,59 @@ const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __Ser
 
 // de_Addresses omitted.
 
+/**
+ * deserializeAws_json1_0AnalysisReport
+ */
+const de_AnalysisReport = (output: any, context: __SerdeContext): AnalysisReport => {
+  return take(output, {
+    AnalysisReportId: __expectString,
+    AnalysisType: __expectString,
+    ReportTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0AnalysisReportResults
+ */
+const de_AnalysisReportResults = (output: any, context: __SerdeContext): AnalysisTypeReportResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AnalysisTypeReportResult(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0AnalysisReports
+ */
+const de_AnalysisReports = (output: any, context: __SerdeContext): AnalysisReport[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AnalysisReport(entry, context);
+    });
+  return retVal;
+};
+
 // de_AnalysisResult omitted.
 
 // de_AnalysisResultList omitted.
+
+/**
+ * deserializeAws_json1_0AnalysisTypeReportResult
+ */
+const de_AnalysisTypeReportResult = (output: any, context: __SerdeContext): AnalysisTypeReportResult => {
+  return take(output, {
+    Domain: __expectString,
+    FirstAccessed: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Hits: _json,
+    LastAccessed: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Protocol: __expectString,
+    UniqueSources: _json,
+  }) as any;
+};
 
 // de_AssociateFirewallPolicyResponse omitted.
 
@@ -2079,6 +2296,8 @@ const de_DescribeTLSInspectionConfigurationResponse = (
 
 // de_DisassociateSubnetsResponse omitted.
 
+// de_EnabledAnalysisTypes omitted.
+
 // de_EncryptionConfiguration omitted.
 
 // de_Firewall omitted.
@@ -2118,7 +2337,27 @@ const de_FirewallPolicyResponse = (output: any, context: __SerdeContext): Firewa
 
 // de_FlowTimeouts omitted.
 
+/**
+ * deserializeAws_json1_0GetAnalysisReportResultsResponse
+ */
+const de_GetAnalysisReportResultsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetAnalysisReportResultsResponse => {
+  return take(output, {
+    AnalysisReportResults: (_: any) => de_AnalysisReportResults(_, context),
+    AnalysisType: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NextToken: __expectString,
+    ReportTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
+};
+
 // de_Header omitted.
+
+// de_Hits omitted.
 
 // de_InsufficientCapacityException omitted.
 
@@ -2145,6 +2384,16 @@ const de_FirewallPolicyResponse = (output: any, context: __SerdeContext): Firewa
 // de_IPSets omitted.
 
 // de_LimitExceededException omitted.
+
+/**
+ * deserializeAws_json1_0ListAnalysisReportsResponse
+ */
+const de_ListAnalysisReportsResponse = (output: any, context: __SerdeContext): ListAnalysisReportsResponse => {
+  return take(output, {
+    AnalysisReports: (_: any) => de_AnalysisReports(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
 
 // de_ListFirewallPoliciesResponse omitted.
 
@@ -2253,6 +2502,8 @@ const de_RuleGroupResponse = (output: any, context: __SerdeContext): RuleGroupRe
 
 // de_SourceMetadata omitted.
 
+// de_StartAnalysisReportResponse omitted.
+
 // de_StatefulActions omitted.
 
 // de_StatefulEngineOptions omitted.
@@ -2335,9 +2586,13 @@ const de_TLSInspectionConfigurationResponse = (
 
 // de_TLSInspectionConfigurations omitted.
 
+// de_UniqueSources omitted.
+
 // de_UnsupportedOperationException omitted.
 
 // de_UntagResourceResponse omitted.
+
+// de_UpdateFirewallAnalysisSettingsResponse omitted.
 
 // de_UpdateFirewallDeleteProtectionResponse omitted.
 

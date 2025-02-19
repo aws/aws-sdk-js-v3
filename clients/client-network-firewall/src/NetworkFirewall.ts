@@ -98,6 +98,16 @@ import {
   DisassociateSubnetsCommandOutput,
 } from "./commands/DisassociateSubnetsCommand";
 import {
+  GetAnalysisReportResultsCommand,
+  GetAnalysisReportResultsCommandInput,
+  GetAnalysisReportResultsCommandOutput,
+} from "./commands/GetAnalysisReportResultsCommand";
+import {
+  ListAnalysisReportsCommand,
+  ListAnalysisReportsCommandInput,
+  ListAnalysisReportsCommandOutput,
+} from "./commands/ListAnalysisReportsCommand";
+import {
   ListFirewallPoliciesCommand,
   ListFirewallPoliciesCommandInput,
   ListFirewallPoliciesCommandOutput,
@@ -127,12 +137,22 @@ import {
   PutResourcePolicyCommandInput,
   PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
+import {
+  StartAnalysisReportCommand,
+  StartAnalysisReportCommandInput,
+  StartAnalysisReportCommandOutput,
+} from "./commands/StartAnalysisReportCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateFirewallAnalysisSettingsCommand,
+  UpdateFirewallAnalysisSettingsCommandInput,
+  UpdateFirewallAnalysisSettingsCommandOutput,
+} from "./commands/UpdateFirewallAnalysisSettingsCommand";
 import {
   UpdateFirewallDeleteProtectionCommand,
   UpdateFirewallDeleteProtectionCommandInput,
@@ -200,14 +220,18 @@ const commands = {
   DescribeRuleGroupMetadataCommand,
   DescribeTLSInspectionConfigurationCommand,
   DisassociateSubnetsCommand,
+  GetAnalysisReportResultsCommand,
+  ListAnalysisReportsCommand,
   ListFirewallPoliciesCommand,
   ListFirewallsCommand,
   ListRuleGroupsCommand,
   ListTagsForResourceCommand,
   ListTLSInspectionConfigurationsCommand,
   PutResourcePolicyCommand,
+  StartAnalysisReportCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateFirewallAnalysisSettingsCommand,
   UpdateFirewallDeleteProtectionCommand,
   UpdateFirewallDescriptionCommand,
   UpdateFirewallEncryptionConfigurationCommand,
@@ -542,6 +566,41 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link GetAnalysisReportResultsCommand}
+   */
+  getAnalysisReportResults(
+    args: GetAnalysisReportResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAnalysisReportResultsCommandOutput>;
+  getAnalysisReportResults(
+    args: GetAnalysisReportResultsCommandInput,
+    cb: (err: any, data?: GetAnalysisReportResultsCommandOutput) => void
+  ): void;
+  getAnalysisReportResults(
+    args: GetAnalysisReportResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAnalysisReportResultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAnalysisReportsCommand}
+   */
+  listAnalysisReports(): Promise<ListAnalysisReportsCommandOutput>;
+  listAnalysisReports(
+    args: ListAnalysisReportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnalysisReportsCommandOutput>;
+  listAnalysisReports(
+    args: ListAnalysisReportsCommandInput,
+    cb: (err: any, data?: ListAnalysisReportsCommandOutput) => void
+  ): void;
+  listAnalysisReports(
+    args: ListAnalysisReportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnalysisReportsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListFirewallPoliciesCommand}
    */
   listFirewallPolicies(): Promise<ListFirewallPoliciesCommandOutput>;
@@ -639,6 +698,23 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link StartAnalysisReportCommand}
+   */
+  startAnalysisReport(
+    args: StartAnalysisReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAnalysisReportCommandOutput>;
+  startAnalysisReport(
+    args: StartAnalysisReportCommandInput,
+    cb: (err: any, data?: StartAnalysisReportCommandOutput) => void
+  ): void;
+  startAnalysisReport(
+    args: StartAnalysisReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAnalysisReportCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -658,6 +734,24 @@ export interface NetworkFirewall {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateFirewallAnalysisSettingsCommand}
+   */
+  updateFirewallAnalysisSettings(): Promise<UpdateFirewallAnalysisSettingsCommandOutput>;
+  updateFirewallAnalysisSettings(
+    args: UpdateFirewallAnalysisSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFirewallAnalysisSettingsCommandOutput>;
+  updateFirewallAnalysisSettings(
+    args: UpdateFirewallAnalysisSettingsCommandInput,
+    cb: (err: any, data?: UpdateFirewallAnalysisSettingsCommandOutput) => void
+  ): void;
+  updateFirewallAnalysisSettings(
+    args: UpdateFirewallAnalysisSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFirewallAnalysisSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -841,7 +935,10 @@ export interface NetworkFirewall {
  *          prevention service for Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the
  *          perimeter of your VPC. This includes filtering traffic going to and coming from an internet
  *          gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules that are compatible
- *       with Suricata, a free, open source network analysis and threat detection engine. </p>
+ *       with Suricata, a free, open source network analysis and threat detection engine.
+ *       Network Firewall supports Suricata version 7.0.3. For information about Suricata,
+ *           see the <a href="https://suricata.io/">Suricata website</a> and the
+ *           <a href="https://suricata.readthedocs.io/en/suricata-7.0.3/">Suricata User Guide</a>. </p>
  *          <p>You can use Network Firewall to monitor and protect your VPC traffic in a number of ways.
  *          The following are just a few examples: </p>
  *          <ul>
