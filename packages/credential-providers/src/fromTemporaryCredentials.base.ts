@@ -21,13 +21,14 @@ const ASSUME_ROLE_DEFAULT_REGION = "us-east-1";
 
 export const fromTemporaryCredentials = (
   options: FromTemporaryCredentialsOptions,
-  credentialDefaultProvider?: () => AwsCredentialIdentityProvider
+  credentialDefaultProvider?: (init: { profile?: string; logger?: Logger }) => AwsCredentialIdentityProvider
 ): RuntimeConfigAwsCredentialIdentityProvider => {
   let stsClient: STSClient;
   return async (awsIdentityProperties: AwsIdentityProperties = {}): Promise<AwsCredentialIdentity> => {
     const { callerClientConfig } = awsIdentityProperties;
     const logger = options.logger ?? callerClientConfig?.logger;
     logger?.debug("@aws-sdk/credential-providers - fromTemporaryCredentials (STS)");
+    const profile = options.clientConfig?.profile ?? callerClientConfig?.profile;
 
     const params = { ...options.params, RoleSessionName: options.params.RoleSessionName ?? "aws-sdk-js-" + Date.now() };
     if (params?.SerialNumber) {
@@ -45,9 +46,15 @@ export const fromTemporaryCredentials = (
 
     const { AssumeRoleCommand, STSClient } = await import("./loadSts");
 
+    const credentialProviderInit = {
+      profile,
+      logger,
+      parentClientConfig: callerClientConfig,
+    };
+
     if (!stsClient) {
       const defaultCredentialsOrError =
-        typeof credentialDefaultProvider === "function" ? credentialDefaultProvider() : undefined;
+        typeof credentialDefaultProvider === "function" ? credentialDefaultProvider(credentialProviderInit) : undefined;
 
       const credentialSources = [
         options.masterCredentials,
@@ -58,7 +65,7 @@ export const fromTemporaryCredentials = (
          * is the caller client's credential provider function.
          */
         void callerClientConfig?.credentials,
-        callerClientConfig?.credentialDefaultProvider?.(),
+        callerClientConfig?.credentialDefaultProvider?.(credentialProviderInit),
         defaultCredentialsOrError,
       ];
       let credentialSource = "STS client default credentials";
@@ -108,7 +115,7 @@ export const fromTemporaryCredentials = (
         ...options.clientConfig,
         credentials: coalesce(credentialSources),
         logger,
-        profile: options.clientConfig?.profile ?? callerClientConfig?.profile,
+        profile,
         region: coalesce(regionSources),
         requestHandler: coalesce(requestHandlerSources),
       });
