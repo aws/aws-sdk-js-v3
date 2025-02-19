@@ -3962,6 +3962,40 @@ export interface Metadata {
    * @public
    */
   TlsProtocol?: string | undefined;
+
+  /**
+   * <p>The name of the API call used when sent through a configuration set with archiving enabled.</p>
+   * @public
+   */
+  SendingMethod?: string | undefined;
+
+  /**
+   * <p>The identity name used to authorize the sending action when sent through a configuration set with
+   *         archiving enabled.</p>
+   * @public
+   */
+  SourceIdentity?: string | undefined;
+
+  /**
+   * <p>The name of the dedicated IP pool used when sent through a configuration set with archiving
+   *         enabled.</p>
+   * @public
+   */
+  SendingPool?: string | undefined;
+
+  /**
+   * <p>The name of the configuration set used when sent through a configuration set with archiving
+   *         enabled.</p>
+   * @public
+   */
+  ConfigurationSet?: string | undefined;
+
+  /**
+   * <p>Specifies the archived email source, identified by either a Rule Set's ARN with an Archive action, or a
+   *         Configuration Set's Archive ARN.</p>
+   * @public
+   */
+  SourceArn?: string | undefined;
 }
 
 /**
@@ -4251,7 +4285,16 @@ export interface Row {
   SenderHostname?: string | undefined;
 
   /**
-   * <p>The IP address of the host from which the email was received.</p>
+   * <ul>
+   *             <li>
+   *                <p>Mail archived with Mail Manager: The IP address of the client that connects to
+   *         the ingress endpoint.</p>
+   *             </li>
+   *             <li>
+   *                <p>Mail sent through a configuration set with the
+   *         archiving option enabled: The IP address of the client that makes the SendEmail API call.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   SenderIpAddress?: string | undefined;
@@ -4261,6 +4304,13 @@ export interface Row {
    * @public
    */
   Envelope?: Envelope | undefined;
+
+  /**
+   * <p>Specifies the archived email source, identified by either a Rule Set's ARN with an Archive action, or a
+   *         Configuration Set's Archive ARN.</p>
+   * @public
+   */
+  SourceArn?: string | undefined;
 }
 
 /**

@@ -57,6 +57,11 @@ export interface GetArchiveMessageCommandOutput extends GetArchiveMessageRespons
  * //     SenderIpAddress: "STRING_VALUE",
  * //     TlsCipherSuite: "STRING_VALUE",
  * //     TlsProtocol: "STRING_VALUE",
+ * //     SendingMethod: "STRING_VALUE",
+ * //     SourceIdentity: "STRING_VALUE",
+ * //     SendingPool: "STRING_VALUE",
+ * //     ConfigurationSet: "STRING_VALUE",
+ * //     SourceArn: "STRING_VALUE",
  * //   },
  * //   Envelope: { // Envelope
  * //     Helo: "STRING_VALUE",

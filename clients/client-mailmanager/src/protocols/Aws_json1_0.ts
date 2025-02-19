@@ -3477,10 +3477,15 @@ const de_ListRuleSetsResponse = (output: any, context: __SerdeContext): ListRule
  */
 const de_Metadata = (output: any, context: __SerdeContext): Metadata => {
   return take(output, {
+    ConfigurationSet: __expectString,
     IngressPointId: __expectString,
     RuleSetId: __expectString,
     SenderHostname: __expectString,
     SenderIpAddress: __expectString,
+    SendingMethod: __expectString,
+    SendingPool: __expectString,
+    SourceArn: __expectString,
+    SourceIdentity: __expectString,
     Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     TlsCipherSuite: __expectString,
     TlsProtocol: __expectString,
@@ -3551,6 +3556,7 @@ const de_Row = (output: any, context: __SerdeContext): Row => {
     ReceivedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     SenderHostname: __expectString,
     SenderIpAddress: __expectString,
+    SourceArn: __expectString,
     Subject: __expectString,
     To: __expectString,
     XMailer: __expectString,

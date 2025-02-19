@@ -73,6 +73,7 @@ export interface GetArchiveSearchResultsCommandOutput extends GetArchiveSearchRe
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       SourceArn: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
