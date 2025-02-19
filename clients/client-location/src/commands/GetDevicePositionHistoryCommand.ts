@@ -65,7 +65,7 @@ export interface GetDevicePositionHistoryCommandOutput extends GetDevicePosition
  * //       Accuracy: { // PositionalAccuracy
  * //         Horizontal: Number("double"), // required
  * //       },
- * //       PositionProperties: { // PropertyMap
+ * //       PositionProperties: { // PositionPropertyMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //     },

@@ -3844,6 +3844,8 @@ const se_PositionList = (input: number[][], context: __SerdeContext): any => {
     });
 };
 
+// se_PositionPropertyMap omitted.
+
 // se_PropertyMap omitted.
 
 // se_RefererPatternList omitted.
@@ -4486,6 +4488,8 @@ const de_PositionList = (output: any, context: __SerdeContext): number[][] => {
     });
   return retVal;
 };
+
+// de_PositionPropertyMap omitted.
 
 // de_PropertyMap omitted.
 

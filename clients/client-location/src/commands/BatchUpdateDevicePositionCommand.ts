@@ -73,7 +73,7 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  *       Accuracy: { // PositionalAccuracy
  *         Horizontal: Number("double"), // required
  *       },
- *       PositionProperties: { // PropertyMap
+ *       PositionProperties: { // PositionPropertyMap
  *         "<keys>": "STRING_VALUE",
  *       },
  *     },

@@ -423,6 +423,7 @@ export type ValidationExceptionReason =
   | "FieldValidationFailed"
   | "Missing"
   | "Other"
+  | "UnknownField"
   | "UnknownOperation";
 
 /**

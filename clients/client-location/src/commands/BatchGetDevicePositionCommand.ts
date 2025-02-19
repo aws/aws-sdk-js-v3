@@ -68,7 +68,7 @@ export interface BatchGetDevicePositionCommandOutput extends BatchGetDevicePosit
  * //       Accuracy: { // PositionalAccuracy
  * //         Horizontal: Number("double"), // required
  * //       },
- * //       PositionProperties: { // PropertyMap
+ * //       PositionProperties: { // PositionPropertyMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //     },
