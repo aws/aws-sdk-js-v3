@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.752.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.751.0...v3.752.0) (2025-02-19)
+
+
+### Features
+
+* **client-codepipeline:** Add environment variables to codepipeline action declaration. ([54c94f6](https://github.com/aws/aws-sdk-js-v3/commit/54c94f6835924da53cfd726900b3b83e319c5a55))
+* **client-location:** Adds support for larger property maps for tracking and geofence positions changes. It increases the maximum number of items from 3 to 4, and the maximum value length from 40 to 150. ([985543d](https://github.com/aws/aws-sdk-js-v3/commit/985543d24c913aa4d494d2f79cd1fcaf3fb7a8f7))
+* **client-mailmanager:** This release adds additional metadata fields in Mail Manager archive searches to show email source and details about emails that were archived when being sent with SES. ([14f5f05](https://github.com/aws/aws-sdk-js-v3/commit/14f5f056d3602d1fbc20c266547e0f108f95ea85))
+* **client-network-firewall:** This release introduces Network Firewall's Automated Domain List feature. New APIs include UpdateFirewallAnalysisSettings, StartAnalysisReport, GetAnalysisReportResults, and ListAnalysisReports. These allow customers to enable analysis on firewalls to identify and report frequently accessed domain. ([5409d38](https://github.com/aws/aws-sdk-js-v3/commit/5409d387cd4e5685d4f4c4791ac20fe843c95327))
+* **client-sagemaker:** Adds r8g instance type support to SageMaker Realtime Endpoints ([9c30155](https://github.com/aws/aws-sdk-js-v3/commit/9c3015539212b547fbe0f6a2ea0c7ddf27a08dda))
+* **client-sesv2:** This release adds the ability for outbound email sent with SES to preserve emails to a Mail Manager archive. ([a798115](https://github.com/aws/aws-sdk-js-v3/commit/a7981154aee7bbfa57e90c83d1ac72d6fade299a))
+
+
+
+
+
 # [3.751.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.750.0...v3.751.0) (2025-02-18)
 
 

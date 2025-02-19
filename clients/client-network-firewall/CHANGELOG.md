@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.752.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.751.0...v3.752.0) (2025-02-19)
+
+
+### Features
+
+* **client-network-firewall:** This release introduces Network Firewall's Automated Domain List feature. New APIs include UpdateFirewallAnalysisSettings, StartAnalysisReport, GetAnalysisReportResults, and ListAnalysisReports. These allow customers to enable analysis on firewalls to identify and report frequently accessed domain. ([5409d38](https://github.com/aws/aws-sdk-js-v3/commit/5409d387cd4e5685d4f4c4791ac20fe843c95327))
+
+
+
+
+
 # [3.750.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.749.0...v3.750.0) (2025-02-17)
 
 **Note:** Version bump only for package @aws-sdk/client-network-firewall

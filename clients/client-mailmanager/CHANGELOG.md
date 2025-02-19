@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.752.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.751.0...v3.752.0) (2025-02-19)
+
+
+### Features
+
+* **client-mailmanager:** This release adds additional metadata fields in Mail Manager archive searches to show email source and details about emails that were archived when being sent with SES. ([14f5f05](https://github.com/aws/aws-sdk-js-v3/commit/14f5f056d3602d1fbc20c266547e0f108f95ea85))
+
+
+
+
+
 # [3.751.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.750.0...v3.751.0) (2025-02-18)
 
 
