@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { MalformedLongInput } from "../models/models_0";
-import { de_MalformedLongCommand, se_MalformedLongCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { MalformedLong } from "../schemas/schemas";
 
 /**
  * @public
@@ -66,13 +65,12 @@ export class MalformedLongCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "MalformedLong", {})
   .n("RestJsonProtocolClient", "MalformedLongCommand")
   .f(void 0, void 0)
-  .ser(se_MalformedLongCommand)
-  .de(de_MalformedLongCommand)
+  .sc(MalformedLong)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { MediaTypeHeaderInput, MediaTypeHeaderOutput } from "../models/models_0";
-import { de_MediaTypeHeaderCommand, se_MediaTypeHeaderCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { MediaTypeHeader } from "../schemas/schemas";
 
 /**
  * @public
@@ -65,13 +64,12 @@ export class MediaTypeHeaderCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "MediaTypeHeader", {})
   .n("RestJsonProtocolClient", "MediaTypeHeaderCommand")
   .f(void 0, void 0)
-  .ser(se_MediaTypeHeaderCommand)
-  .de(de_MediaTypeHeaderCommand)
+  .sc(MediaTypeHeader)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

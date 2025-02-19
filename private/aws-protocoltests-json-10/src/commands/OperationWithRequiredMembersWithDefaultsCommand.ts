@@ -1,14 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
 import { OperationWithRequiredMembersWithDefaultsOutput } from "../models/models_0";
-import {
-  de_OperationWithRequiredMembersWithDefaultsCommand,
-  se_OperationWithRequiredMembersWithDefaultsCommand,
-} from "../protocols/Aws_json1_0";
+import { OperationWithRequiredMembersWithDefaults } from "../schemas/schemas";
 
 /**
  * @public
@@ -85,13 +81,12 @@ export class OperationWithRequiredMembersWithDefaultsCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: JSONRPC10ClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("JsonRpc10", "OperationWithRequiredMembersWithDefaults", {})
   .n("JSONRPC10Client", "OperationWithRequiredMembersWithDefaultsCommand")
   .f(void 0, void 0)
-  .ser(se_OperationWithRequiredMembersWithDefaultsCommand)
-  .de(de_OperationWithRequiredMembersWithDefaultsCommand)
+  .sc(OperationWithRequiredMembersWithDefaults)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

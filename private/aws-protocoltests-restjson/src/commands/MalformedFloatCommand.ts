@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { MalformedFloatInput } from "../models/models_0";
-import { de_MalformedFloatCommand, se_MalformedFloatCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { MalformedFloat } from "../schemas/schemas";
 
 /**
  * @public
@@ -66,13 +65,12 @@ export class MalformedFloatCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "MalformedFloat", {})
   .n("RestJsonProtocolClient", "MalformedFloatCommand")
   .f(void 0, void 0)
-  .ser(se_MalformedFloatCommand)
-  .de(de_MalformedFloatCommand)
+  .sc(MalformedFloat)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

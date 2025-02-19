@@ -1,10 +1,9 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import { de_NoInputAndNoOutputCommand, se_NoInputAndNoOutputCommand } from "../protocols/Aws_json1_0";
+import { NoInputAndNoOutput } from "../schemas/schemas";
 
 /**
  * @public
@@ -62,13 +61,12 @@ export class NoInputAndNoOutputCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: JSONRPC10ClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("JsonRpc10", "NoInputAndNoOutput", {})
   .n("JSONRPC10Client", "NoInputAndNoOutputCommand")
   .f(void 0, void 0)
-  .ser(se_NoInputAndNoOutputCommand)
-  .de(de_NoInputAndNoOutputCommand)
+  .sc(NoInputAndNoOutput)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

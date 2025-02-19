@@ -3,6 +3,7 @@ import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 import { toUtf8 as __utf8Encoder } from "@smithy/util-utf8";
 import { Readable } from "stream";
+import { expect, test as it } from "vitest";
 
 import { getRestJsonValidationServiceHandler } from "../../src/server";
 import { MalformedEnum } from "../../src/server/operations/MalformedEnum";
@@ -242,10 +243,9 @@ it("RestJsonMalformedEnumString_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
     \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/string\"}]}`;
@@ -281,10 +281,9 @@ it("RestJsonMalformedEnumString_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
     \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/string\"}]}`;
@@ -320,10 +319,9 @@ it("RestJsonMalformedEnumTraitString_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/stringWithEnumTrait' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
     \"fieldList\" : [{\"message\": \"Value at '/stringWithEnumTrait' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/stringWithEnumTrait\"}]}`;
@@ -359,10 +357,9 @@ it("RestJsonMalformedEnumTraitString_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/stringWithEnumTrait' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
     \"fieldList\" : [{\"message\": \"Value at '/stringWithEnumTrait' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/stringWithEnumTrait\"}]}`;
@@ -398,10 +395,9 @@ it("RestJsonMalformedEnumList_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
     \"fieldList\" : [{\"message\": \"Value at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/list/0\"}]}`;
@@ -437,10 +433,9 @@ it("RestJsonMalformedEnumList_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
     \"fieldList\" : [{\"message\": \"Value at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/list/0\"}]}`;
@@ -476,10 +471,9 @@ it("RestJsonMalformedEnumMapKey_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
     \"fieldList\" : [{\"message\": \"Value at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/map\"}]}`;
@@ -515,10 +509,9 @@ it("RestJsonMalformedEnumMapKey_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
     \"fieldList\" : [{\"message\": \"Value at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/map\"}]}`;
@@ -554,10 +547,9 @@ it("RestJsonMalformedEnumMapValue_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
     \"fieldList\" : [{\"message\": \"Value at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/map/abc\"}]}`;
@@ -593,10 +585,9 @@ it("RestJsonMalformedEnumMapValue_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
     \"fieldList\" : [{\"message\": \"Value at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/map/abc\"}]}`;
@@ -632,10 +623,9 @@ it("RestJsonMalformedEnumUnion_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
     \"fieldList\" : [{\"message\": \"Value at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/union/first\"}]}`;
@@ -671,10 +661,9 @@ it("RestJsonMalformedEnumUnion_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\",
     \"fieldList\" : [{\"message\": \"Value at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def, jkl]\", \"path\": \"/union/first\"}]}`;
@@ -709,10 +698,9 @@ it("RestJsonMalformedLengthBlob_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 1 at '/blob' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 1 at '/blob' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\", \"path\": \"/blob\"}]}`;
@@ -747,10 +735,9 @@ it("RestJsonMalformedLengthBlob_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 26 at '/blob' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 26 at '/blob' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\", \"path\": \"/blob\"}]}`;
@@ -785,10 +772,9 @@ it("RestJsonMalformedLengthString_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 1 at '/string' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 1 at '/string' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\", \"path\": \"/string\"}]}`;
@@ -823,10 +809,9 @@ it("RestJsonMalformedLengthString_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 26 at '/string' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 26 at '/string' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\", \"path\": \"/string\"}]}`;
@@ -861,10 +846,9 @@ it("RestJsonMalformedLengthString_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 1 at '/string' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 1 at '/string' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\", \"path\": \"/string\"}]}`;
@@ -899,10 +883,9 @@ it("RestJsonMalformedLengthMinString:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 1 at '/minString' failed to satisfy constraint: Member must have length greater than or equal to 2\",
     \"fieldList\" : [{\"message\": \"Value with length 1 at '/minString' failed to satisfy constraint: Member must have length greater than or equal to 2\", \"path\": \"/minString\"}]}`;
@@ -937,10 +920,9 @@ it("RestJsonMalformedLengthMaxString:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 26 at '/maxString' failed to satisfy constraint: Member must have length less than or equal to 8\",
     \"fieldList\" : [{\"message\": \"Value with length 26 at '/maxString' failed to satisfy constraint: Member must have length less than or equal to 8\", \"path\": \"/maxString\"}]}`;
@@ -975,10 +957,9 @@ it("RestJsonMalformedLengthList_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 1 at '/list' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 1 at '/list' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\", \"path\": \"/list\"}]}`;
@@ -1013,10 +994,9 @@ it("RestJsonMalformedLengthList_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 10 at '/list' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 10 at '/list' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\", \"path\": \"/list\"}]}`;
@@ -1051,10 +1031,9 @@ it("RestJsonMalformedLengthListValue_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 1 at '/list/0' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 1 at '/list/0' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\", \"path\": \"/list/0\"}]}`;
@@ -1089,10 +1068,9 @@ it("RestJsonMalformedLengthListValue_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 26 at '/list/0' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 26 at '/list/0' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\", \"path\": \"/list/0\"}]}`;
@@ -1127,10 +1105,9 @@ it("RestJsonMalformedLengthMap_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 1 at '/map' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 1 at '/map' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\", \"path\": \"/map\"}]}`;
@@ -1167,10 +1144,9 @@ it("RestJsonMalformedLengthMap_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 10 at '/map' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 10 at '/map' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\", \"path\": \"/map\"}]}`;
@@ -1207,10 +1183,9 @@ it("RestJsonMalformedLengthMapKey_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 1 at '/map' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 1 at '/map' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\", \"path\": \"/map\"}]}`;
@@ -1247,10 +1222,9 @@ it("RestJsonMalformedLengthMapKey_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 26 at '/map' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 26 at '/map' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\", \"path\": \"/map\"}]}`;
@@ -1285,10 +1259,9 @@ it("RestJsonMalformedLengthMapValue_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 1 at '/map/abc' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 1 at '/map/abc' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\", \"path\": \"/map/abc\"}]}`;
@@ -1325,10 +1298,9 @@ it("RestJsonMalformedLengthMapValue_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 10 at '/map/abc' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 10 at '/map/abc' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\", \"path\": \"/map/abc\"}]}`;
@@ -1363,10 +1335,9 @@ it("RestJsonMalformedLengthBlobOverride_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 3 at '/blob' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 3 at '/blob' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\", \"path\": \"/blob\"}]}`;
@@ -1401,10 +1372,9 @@ it("RestJsonMalformedLengthBlobOverride_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 7 at '/blob' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 7 at '/blob' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\", \"path\": \"/blob\"}]}`;
@@ -1439,10 +1409,9 @@ it("RestJsonMalformedLengthStringOverride_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 3 at '/string' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 3 at '/string' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\", \"path\": \"/string\"}]}`;
@@ -1477,10 +1446,9 @@ it("RestJsonMalformedLengthStringOverride_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 7 at '/string' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 7 at '/string' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\", \"path\": \"/string\"}]}`;
@@ -1515,10 +1483,9 @@ it("RestJsonMalformedLengthStringOverride_case2:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 3 at '/string' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 3 at '/string' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\", \"path\": \"/string\"}]}`;
@@ -1553,10 +1520,9 @@ it("RestJsonMalformedLengthMinStringOverride:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 3 at '/minString' failed to satisfy constraint: Member must have length greater than or equal to 4\",
     \"fieldList\" : [{\"message\": \"Value with length 3 at '/minString' failed to satisfy constraint: Member must have length greater than or equal to 4\", \"path\": \"/minString\"}]}`;
@@ -1591,10 +1557,9 @@ it("RestJsonMalformedLengthMaxStringOverride:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 7 at '/maxString' failed to satisfy constraint: Member must have length less than or equal to 6\",
     \"fieldList\" : [{\"message\": \"Value with length 7 at '/maxString' failed to satisfy constraint: Member must have length less than or equal to 6\", \"path\": \"/maxString\"}]}`;
@@ -1629,10 +1594,9 @@ it("RestJsonMalformedLengthListOverride_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 3 at '/list' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 3 at '/list' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\", \"path\": \"/list\"}]}`;
@@ -1667,10 +1631,9 @@ it("RestJsonMalformedLengthListOverride_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 7 at '/list' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 7 at '/list' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\", \"path\": \"/list\"}]}`;
@@ -1707,10 +1670,9 @@ it("RestJsonMalformedLengthMapOverride_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 3 at '/map' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 3 at '/map' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\", \"path\": \"/map\"}]}`;
@@ -1747,10 +1709,9 @@ it("RestJsonMalformedLengthMapOverride_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 7 at '/map' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 7 at '/map' failed to satisfy constraint: Member must have length between 4 and 6, inclusive\", \"path\": \"/map\"}]}`;
@@ -1787,10 +1748,9 @@ it("RestJsonMalformedLengthQueryStringNoValue:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value with length 0 at '/string' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value with length 0 at '/string' failed to satisfy constraint: Member must have length between 2 and 8, inclusive\", \"path\": \"/string\"}]}`;
@@ -1825,10 +1785,9 @@ it("RestJsonMalformedPatternString_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/string\"}]}`;
@@ -1863,10 +1822,9 @@ it("RestJsonMalformedPatternString_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/string\"}]}`;
@@ -1903,10 +1861,9 @@ it.skip("RestJsonMalformedPatternReDOSString:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/evilString' failed to satisfy constraint: Member must satisfy regular expression pattern: ^([0-9]+)+$$\",
     \"fieldList\" : [{\"message\": \"Value at '/evilString' failed to satisfy constraint: Member must satisfy regular expression pattern: ^([0-9]+)+$$\", \"path\": \"/evilString\"}]}`;
@@ -1941,10 +1898,9 @@ it("RestJsonMalformedPatternList_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/list/0\"}]}`;
@@ -1979,10 +1935,9 @@ it("RestJsonMalformedPatternList_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/list/0\"}]}`;
@@ -2017,10 +1972,9 @@ it("RestJsonMalformedPatternMapKey_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/map\"}]}`;
@@ -2055,10 +2009,9 @@ it("RestJsonMalformedPatternMapKey_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/map\"}]}`;
@@ -2093,10 +2046,9 @@ it("RestJsonMalformedPatternMapValue_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map/abc' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/map/abc' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/map/abc\"}]}`;
@@ -2131,10 +2083,9 @@ it("RestJsonMalformedPatternMapValue_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map/abc' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/map/abc' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/map/abc\"}]}`;
@@ -2169,10 +2120,9 @@ it("RestJsonMalformedPatternUnion_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/union/first\"}]}`;
@@ -2207,10 +2157,9 @@ it("RestJsonMalformedPatternUnion_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/union/first\"}]}`;
@@ -2245,10 +2194,9 @@ it("RestJsonMalformedPatternStringOverride_case0:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/string\"}]}`;
@@ -2283,10 +2231,9 @@ it("RestJsonMalformedPatternStringOverride_case1:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/string\"}]}`;
@@ -2321,10 +2268,9 @@ it("RestJsonMalformedPatternListOverride_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/list/0\"}]}`;
@@ -2359,10 +2305,9 @@ it("RestJsonMalformedPatternListOverride_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/list/0\"}]}`;
@@ -2397,10 +2342,9 @@ it("RestJsonMalformedPatternMapKeyOverride_case0:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/map\"}]}`;
@@ -2435,10 +2379,9 @@ it("RestJsonMalformedPatternMapKeyOverride_case1:MalformedRequest", async () => 
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/map\"}]}`;
@@ -2473,10 +2416,9 @@ it("RestJsonMalformedPatternMapValueOverride_case0:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map/ghi' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/map/ghi' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/map/ghi\"}]}`;
@@ -2511,10 +2453,9 @@ it("RestJsonMalformedPatternMapValueOverride_case1:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map/ghi' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/map/ghi' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/map/ghi\"}]}`;
@@ -2549,10 +2490,9 @@ it("RestJsonMalformedPatternUnionOverride_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/union/first\"}]}`;
@@ -2587,10 +2527,9 @@ it("RestJsonMalformedPatternUnionOverride_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/union/first\"}]}`;
@@ -2625,10 +2564,9 @@ it("RestJsonMalformedRangeByte_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/byte' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/byte' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/byte\"}]}`;
@@ -2663,10 +2601,9 @@ it("RestJsonMalformedRangeByte_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/byte' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/byte' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/byte\"}]}`;
@@ -2701,10 +2638,9 @@ it("RestJsonMalformedRangeMinByte:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minByte' failed to satisfy constraint: Member must be greater than or equal to 2\",
     \"fieldList\" : [{\"message\": \"Value at '/minByte' failed to satisfy constraint: Member must be greater than or equal to 2\", \"path\": \"/minByte\"}]}`;
@@ -2739,10 +2675,9 @@ it("RestJsonMalformedRangeMaxByte:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxByte' failed to satisfy constraint: Member must be less than or equal to 8\",
     \"fieldList\" : [{\"message\": \"Value at '/maxByte' failed to satisfy constraint: Member must be less than or equal to 8\", \"path\": \"/maxByte\"}]}`;
@@ -2777,10 +2712,9 @@ it("RestJsonMalformedRangeFloat_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/float' failed to satisfy constraint: Member must be between 2.2 and 8.8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/float' failed to satisfy constraint: Member must be between 2.2 and 8.8, inclusive\", \"path\": \"/float\"}]}`;
@@ -2815,10 +2749,9 @@ it("RestJsonMalformedRangeFloat_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/float' failed to satisfy constraint: Member must be between 2.2 and 8.8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/float' failed to satisfy constraint: Member must be between 2.2 and 8.8, inclusive\", \"path\": \"/float\"}]}`;
@@ -2853,10 +2786,9 @@ it("RestJsonMalformedRangeMinFloat:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minFloat' failed to satisfy constraint: Member must be greater than or equal to 2.2\",
     \"fieldList\" : [{\"message\": \"Value at '/minFloat' failed to satisfy constraint: Member must be greater than or equal to 2.2\", \"path\": \"/minFloat\"}]}`;
@@ -2891,10 +2823,9 @@ it("RestJsonMalformedRangeMaxFloat:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxFloat' failed to satisfy constraint: Member must be less than or equal to 8.8\",
     \"fieldList\" : [{\"message\": \"Value at '/maxFloat' failed to satisfy constraint: Member must be less than or equal to 8.8\", \"path\": \"/maxFloat\"}]}`;
@@ -2929,10 +2860,9 @@ it("RestJsonMalformedRangeShort_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/short' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/short' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/short\"}]}`;
@@ -2967,10 +2897,9 @@ it("RestJsonMalformedRangeShort_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/short' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/short' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/short\"}]}`;
@@ -3005,10 +2934,9 @@ it("RestJsonMalformedRangeMinShort:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minShort' failed to satisfy constraint: Member must be greater than or equal to 2\",
     \"fieldList\" : [{\"message\": \"Value at '/minShort' failed to satisfy constraint: Member must be greater than or equal to 2\", \"path\": \"/minShort\"}]}`;
@@ -3043,10 +2971,9 @@ it("RestJsonMalformedRangeMaxShort:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxShort' failed to satisfy constraint: Member must be less than or equal to 8\",
     \"fieldList\" : [{\"message\": \"Value at '/maxShort' failed to satisfy constraint: Member must be less than or equal to 8\", \"path\": \"/maxShort\"}]}`;
@@ -3081,10 +3008,9 @@ it("RestJsonMalformedRangeInteger_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/integer' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/integer' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/integer\"}]}`;
@@ -3119,10 +3045,9 @@ it("RestJsonMalformedRangeInteger_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/integer' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/integer' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/integer\"}]}`;
@@ -3157,10 +3082,9 @@ it("RestJsonMalformedRangeMinInteger:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minInteger' failed to satisfy constraint: Member must be greater than or equal to 2\",
     \"fieldList\" : [{\"message\": \"Value at '/minInteger' failed to satisfy constraint: Member must be greater than or equal to 2\", \"path\": \"/minInteger\"}]}`;
@@ -3195,10 +3119,9 @@ it("RestJsonMalformedRangeMaxInteger:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxInteger' failed to satisfy constraint: Member must be less than or equal to 8\",
     \"fieldList\" : [{\"message\": \"Value at '/maxInteger' failed to satisfy constraint: Member must be less than or equal to 8\", \"path\": \"/maxInteger\"}]}`;
@@ -3233,10 +3156,9 @@ it("RestJsonMalformedRangeLong_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/long' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/long' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/long\"}]}`;
@@ -3271,10 +3193,9 @@ it("RestJsonMalformedRangeLong_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/long' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/long' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/long\"}]}`;
@@ -3309,10 +3230,9 @@ it("RestJsonMalformedRangeMinLong:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minLong' failed to satisfy constraint: Member must be greater than or equal to 2\",
     \"fieldList\" : [{\"message\": \"Value at '/minLong' failed to satisfy constraint: Member must be greater than or equal to 2\", \"path\": \"/minLong\"}]}`;
@@ -3347,10 +3267,9 @@ it("RestJsonMalformedRangeMaxLong:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxLong' failed to satisfy constraint: Member must be less than or equal to 8\",
     \"fieldList\" : [{\"message\": \"Value at '/maxLong' failed to satisfy constraint: Member must be less than or equal to 8\", \"path\": \"/maxLong\"}]}`;
@@ -3385,10 +3304,9 @@ it("RestJsonMalformedRangeByteOverride_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/byte' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/byte' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/byte\"}]}`;
@@ -3423,10 +3341,9 @@ it("RestJsonMalformedRangeByteOverride_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/byte' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/byte' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/byte\"}]}`;
@@ -3461,10 +3378,9 @@ it("RestJsonMalformedRangeMinByteOverride:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minByte' failed to satisfy constraint: Member must be greater than or equal to 4\",
     \"fieldList\" : [{\"message\": \"Value at '/minByte' failed to satisfy constraint: Member must be greater than or equal to 4\", \"path\": \"/minByte\"}]}`;
@@ -3499,10 +3415,9 @@ it("RestJsonMalformedRangeMaxByteOverride:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxByte' failed to satisfy constraint: Member must be less than or equal to 6\",
     \"fieldList\" : [{\"message\": \"Value at '/maxByte' failed to satisfy constraint: Member must be less than or equal to 6\", \"path\": \"/maxByte\"}]}`;
@@ -3537,10 +3452,9 @@ it("RestJsonMalformedRangeFloatOverride_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/float' failed to satisfy constraint: Member must be between 4.4 and 6.6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/float' failed to satisfy constraint: Member must be between 4.4 and 6.6, inclusive\", \"path\": \"/float\"}]}`;
@@ -3575,10 +3489,9 @@ it("RestJsonMalformedRangeFloatOverride_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/float' failed to satisfy constraint: Member must be between 4.4 and 6.6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/float' failed to satisfy constraint: Member must be between 4.4 and 6.6, inclusive\", \"path\": \"/float\"}]}`;
@@ -3613,10 +3526,9 @@ it("RestJsonMalformedRangeMinFloatOverride:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minFloat' failed to satisfy constraint: Member must be greater than or equal to 4.4\",
     \"fieldList\" : [{\"message\": \"Value at '/minFloat' failed to satisfy constraint: Member must be greater than or equal to 4.4\", \"path\": \"/minFloat\"}]}`;
@@ -3651,10 +3563,9 @@ it("RestJsonMalformedRangeMaxFloatOverride:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxFloat' failed to satisfy constraint: Member must be less than or equal to 6.6\",
     \"fieldList\" : [{\"message\": \"Value at '/maxFloat' failed to satisfy constraint: Member must be less than or equal to 6.6\", \"path\": \"/maxFloat\"}]}`;
@@ -3689,10 +3600,9 @@ it("RestJsonMalformedRangeShortOverride_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/short' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/short' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/short\"}]}`;
@@ -3727,10 +3637,9 @@ it("RestJsonMalformedRangeShortOverride_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/short' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/short' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/short\"}]}`;
@@ -3765,10 +3674,9 @@ it("RestJsonMalformedRangeMinShortOverride:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minShort' failed to satisfy constraint: Member must be greater than or equal to 4\",
     \"fieldList\" : [{\"message\": \"Value at '/minShort' failed to satisfy constraint: Member must be greater than or equal to 4\", \"path\": \"/minShort\"}]}`;
@@ -3803,10 +3711,9 @@ it("RestJsonMalformedRangeMaxShortOverride:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxShort' failed to satisfy constraint: Member must be less than or equal to 6\",
     \"fieldList\" : [{\"message\": \"Value at '/maxShort' failed to satisfy constraint: Member must be less than or equal to 6\", \"path\": \"/maxShort\"}]}`;
@@ -3841,10 +3748,9 @@ it("RestJsonMalformedRangeIntegerOverride_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/integer' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/integer' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/integer\"}]}`;
@@ -3879,10 +3785,9 @@ it("RestJsonMalformedRangeIntegerOverride_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/integer' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/integer' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/integer\"}]}`;
@@ -3917,10 +3822,9 @@ it("RestJsonMalformedRangeMinIntegerOverride:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minInteger' failed to satisfy constraint: Member must be greater than or equal to 4\",
     \"fieldList\" : [{\"message\": \"Value at '/minInteger' failed to satisfy constraint: Member must be greater than or equal to 4\", \"path\": \"/minInteger\"}]}`;
@@ -3955,10 +3859,9 @@ it("RestJsonMalformedRangeMaxIntegerOverride:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxInteger' failed to satisfy constraint: Member must be less than or equal to 6\",
     \"fieldList\" : [{\"message\": \"Value at '/maxInteger' failed to satisfy constraint: Member must be less than or equal to 6\", \"path\": \"/maxInteger\"}]}`;
@@ -3993,10 +3896,9 @@ it("RestJsonMalformedRangeLongOverride_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/long' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/long' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/long\"}]}`;
@@ -4031,10 +3933,9 @@ it("RestJsonMalformedRangeLongOverride_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/long' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
     \"fieldList\" : [{\"message\": \"Value at '/long' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/long\"}]}`;
@@ -4069,10 +3970,9 @@ it("RestJsonMalformedRangeMinLongOverride:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minLong' failed to satisfy constraint: Member must be greater than or equal to 4\",
     \"fieldList\" : [{\"message\": \"Value at '/minLong' failed to satisfy constraint: Member must be greater than or equal to 4\", \"path\": \"/minLong\"}]}`;
@@ -4107,10 +4007,9 @@ it("RestJsonMalformedRangeMaxLongOverride:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxLong' failed to satisfy constraint: Member must be less than or equal to 6\",
     \"fieldList\" : [{\"message\": \"Value at '/maxLong' failed to satisfy constraint: Member must be less than or equal to 6\", \"path\": \"/maxLong\"}]}`;
@@ -4148,10 +4047,9 @@ it("RestJsonMalformedRequiredBodyUnset:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must not be null\",
     \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must not be null\", \"path\": \"/string\"}]}`;
@@ -4189,10 +4087,9 @@ it("RestJsonMalformedRequiredBodyExplicitNull:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must not be null\",
     \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must not be null\", \"path\": \"/string\"}]}`;
@@ -4229,10 +4126,9 @@ it("RestJsonMalformedRequiredHeaderUnset:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/stringInHeader' failed to satisfy constraint: Member must not be null\",
     \"fieldList\" : [{\"message\": \"Value at '/stringInHeader' failed to satisfy constraint: Member must not be null\", \"path\": \"/stringInHeader\"}]}`;
@@ -4267,10 +4163,9 @@ it("RestJsonMalformedUniqueItemsBlobList:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/blobList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/blobList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/blobList\"}]}`;
@@ -4305,10 +4200,9 @@ it("RestJsonMalformedUniqueItemsBooleanList_case0:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/booleanList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/booleanList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/booleanList\"}]}`;
@@ -4343,10 +4237,9 @@ it("RestJsonMalformedUniqueItemsBooleanList_case1:MalformedRequest", async () =>
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/booleanList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/booleanList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/booleanList\"}]}`;
@@ -4381,10 +4274,9 @@ it("RestJsonMalformedUniqueItemsStringList:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/stringList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/stringList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/stringList\"}]}`;
@@ -4419,10 +4311,9 @@ it("RestJsonMalformedUniqueItemsByteList:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/byteList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/byteList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/byteList\"}]}`;
@@ -4457,10 +4348,9 @@ it("RestJsonMalformedUniqueItemsShortList:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/shortList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/shortList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/shortList\"}]}`;
@@ -4495,10 +4385,9 @@ it("RestJsonMalformedUniqueItemsIntegerList:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/integerList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/integerList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/integerList\"}]}`;
@@ -4533,10 +4422,9 @@ it("RestJsonMalformedUniqueItemsLongList:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/longList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/longList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/longList\"}]}`;
@@ -4571,10 +4459,9 @@ it("RestJsonMalformedUniqueItemsTimestampList:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/timestampList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/timestampList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/timestampList\"}]}`;
@@ -4609,10 +4496,9 @@ it("RestJsonMalformedUniqueItemsDateTimeList:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/dateTimeList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/dateTimeList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/dateTimeList\"}]}`;
@@ -4647,10 +4533,9 @@ it("RestJsonMalformedUniqueItemsHttpDateList_case0:MalformedRequest", async () =
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/httpDateList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/httpDateList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/httpDateList\"}]}`;
@@ -4685,10 +4570,9 @@ it("RestJsonMalformedUniqueItemsEnumList:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/enumList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/enumList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/enumList\"}]}`;
@@ -4723,10 +4607,9 @@ it("RestJsonMalformedUniqueItemsIntEnumList:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/intEnumList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/intEnumList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/intEnumList\"}]}`;
@@ -4761,10 +4644,9 @@ it("RestJsonMalformedUniqueItemsListList:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/listList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/listList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/listList\"}]}`;
@@ -4799,10 +4681,9 @@ it("RestJsonMalformedUniqueItemsStructureList:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/structureList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/structureList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/structureList\"}]}`;
@@ -4838,10 +4719,9 @@ it("RestJsonMalformedUniqueItemsStructureMissingKeyList:MalformedRequest", async
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/structureListWithNoKey/0/hi' failed to satisfy constraint: Member must not be null\",
     \"fieldList\" : [{\"message\": \"Value at '/structureListWithNoKey/0/hi' failed to satisfy constraint: Member must not be null\", \"path\": \"/structureListWithNoKey/0/hi\"}]}`;
@@ -4876,10 +4756,9 @@ it("RestJsonMalformedUniqueItemsUnionList_case0:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/unionList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/unionList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/unionList\"}]}`;
@@ -4914,10 +4793,9 @@ it("RestJsonMalformedUniqueItemsUnionList_case1:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/unionList' failed to satisfy constraint: Member must have unique values\",
     \"fieldList\" : [{\"message\": \"Value at '/unionList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/unionList\"}]}`;
@@ -4962,7 +4840,10 @@ it("RestJsonRecursiveStructuresValidate:ServerRequest", async () => {
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
@@ -4994,10 +4875,9 @@ it("RestJsonMalformedRecursiveStructures:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/union/union/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
     \"fieldList\" : [{\"message\": \"Value at '/union/union/union/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/union/union/union/string\"}]}`;
@@ -5032,10 +4912,9 @@ it("RestJsonMalformedPatternSensitiveString:MalformedRequest", async () => {
 
   expect(testFunction.mock.calls.length).toBe(0);
   expect(r.statusCode).toBe(400);
-  expect(r.headers["x-amzn-errortype"]).toBeDefined();
   expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
 
-  expect(r.body).toBeDefined();
+  expect(r.body, `Body was undefined.`).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
     \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/string\"}]}`;

@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { QueryMapsInput } from "../models/models_0";
-import { de_QueryMapsCommand, se_QueryMapsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
+import { QueryMaps } from "../schemas/schemas";
 
 /**
  * @public
@@ -92,13 +91,12 @@ export class QueryMapsCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("AwsQuery", "QueryMaps", {})
   .n("QueryProtocolClient", "QueryMapsCommand")
   .f(void 0, void 0)
-  .ser(se_QueryMapsCommand)
-  .de(de_QueryMapsCommand)
+  .sc(QueryMaps)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

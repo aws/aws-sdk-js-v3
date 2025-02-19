@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { KitchenSink } from "../models/models_0";
-import { de_KitchenSinkOperationCommand, se_KitchenSinkOperationCommand } from "../protocols/Aws_json1_1";
+import { KitchenSinkOperation } from "../schemas/schemas";
 
 /**
  * @public
@@ -285,13 +284,12 @@ export class KitchenSinkOperationCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("JsonProtocol", "KitchenSinkOperation", {})
   .n("JsonProtocolClient", "KitchenSinkOperationCommand")
   .f(void 0, void 0)
-  .ser(se_KitchenSinkOperationCommand)
-  .de(de_KitchenSinkOperationCommand)
+  .sc(KitchenSinkOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

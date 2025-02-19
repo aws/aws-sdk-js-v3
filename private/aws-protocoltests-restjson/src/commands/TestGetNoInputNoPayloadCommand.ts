@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { TestNoPayloadInputOutput } from "../models/models_0";
-import { de_TestGetNoInputNoPayloadCommand, se_TestGetNoInputNoPayloadCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { TestGetNoInputNoPayload } from "../schemas/schemas";
 
 /**
  * @public
@@ -68,13 +67,12 @@ export class TestGetNoInputNoPayloadCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "TestGetNoInputNoPayload", {})
   .n("RestJsonProtocolClient", "TestGetNoInputNoPayloadCommand")
   .f(void 0, void 0)
-  .ser(se_TestGetNoInputNoPayloadCommand)
-  .de(de_TestGetNoInputNoPayloadCommand)
+  .sc(TestGetNoInputNoPayload)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,4 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import {
   MetadataBearer as __MetadataBearer,
@@ -11,11 +10,8 @@ import {
   StreamingTraitsWithMediaTypeInputOutput,
   StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_StreamingTraitsWithMediaTypeCommand,
-  se_StreamingTraitsWithMediaTypeCommand,
-} from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { StreamingTraitsWithMediaType } from "../schemas/schemas";
 
 /**
  * @public
@@ -93,7 +89,7 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "StreamingTraitsWithMediaType", {})
   .n("RestJsonProtocolClient", "StreamingTraitsWithMediaTypeCommand")
@@ -101,8 +97,7 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command
     StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog,
     StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog
   )
-  .ser(se_StreamingTraitsWithMediaTypeCommand)
-  .de(de_StreamingTraitsWithMediaTypeCommand)
+  .sc(StreamingTraitsWithMediaType)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,14 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { OperationWithOptionalInputOutputInput, OperationWithOptionalInputOutputOutput } from "../models/models_0";
-import {
-  de_OperationWithOptionalInputOutputCommand,
-  se_OperationWithOptionalInputOutputCommand,
-} from "../protocols/Aws_json1_1";
+import { OperationWithOptionalInputOutput } from "../schemas/schemas";
 
 /**
  * @public
@@ -70,13 +66,12 @@ export class OperationWithOptionalInputOutputCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("JsonProtocol", "OperationWithOptionalInputOutput", {})
   .n("JsonProtocolClient", "OperationWithOptionalInputOutputCommand")
   .f(void 0, void 0)
-  .ser(se_OperationWithOptionalInputOutputCommand)
-  .de(de_OperationWithOptionalInputOutputCommand)
+  .sc(OperationWithOptionalInputOutput)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

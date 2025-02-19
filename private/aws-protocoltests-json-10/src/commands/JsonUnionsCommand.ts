@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
 import { JsonUnionsInput, JsonUnionsOutput } from "../models/models_0";
-import { de_JsonUnionsCommand, se_JsonUnionsCommand } from "../protocols/Aws_json1_0";
+import { JsonUnions } from "../schemas/schemas";
 
 /**
  * @public
@@ -99,13 +98,12 @@ export class JsonUnionsCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: JSONRPC10ClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("JsonRpc10", "JsonUnions", {})
   .n("JSONRPC10Client", "JsonUnionsCommand")
   .f(void 0, void 0)
-  .ser(se_JsonUnionsCommand)
-  .de(de_JsonUnionsCommand)
+  .sc(JsonUnions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

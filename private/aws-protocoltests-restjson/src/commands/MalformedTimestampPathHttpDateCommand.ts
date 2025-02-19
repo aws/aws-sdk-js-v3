@@ -1,14 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { MalformedTimestampPathHttpDateInput } from "../models/models_0";
-import {
-  de_MalformedTimestampPathHttpDateCommand,
-  se_MalformedTimestampPathHttpDateCommand,
-} from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { MalformedTimestampPathHttpDate } from "../schemas/schemas";
 
 /**
  * @public
@@ -66,13 +62,12 @@ export class MalformedTimestampPathHttpDateCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestJson", "MalformedTimestampPathHttpDate", {})
   .n("RestJsonProtocolClient", "MalformedTimestampPathHttpDateCommand")
   .f(void 0, void 0)
-  .ser(se_MalformedTimestampPathHttpDateCommand)
-  .de(de_MalformedTimestampPathHttpDateCommand)
+  .sc(MalformedTimestampPathHttpDate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

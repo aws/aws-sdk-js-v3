@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { SimpleScalarXmlPropertiesOutput } from "../models/models_0";
-import { de_SimpleScalarXmlPropertiesCommand, se_SimpleScalarXmlPropertiesCommand } from "../protocols/Aws_ec2";
+import { SimpleScalarXmlProperties } from "../schemas/schemas";
 
 /**
  * @public
@@ -72,13 +71,12 @@ export class SimpleScalarXmlPropertiesCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: EC2ProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("AwsEc2", "SimpleScalarXmlProperties", {})
   .n("EC2ProtocolClient", "SimpleScalarXmlPropertiesCommand")
   .f(void 0, void 0)
-  .ser(se_SimpleScalarXmlPropertiesCommand)
-  .de(de_SimpleScalarXmlPropertiesCommand)
+  .sc(SimpleScalarXmlProperties)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

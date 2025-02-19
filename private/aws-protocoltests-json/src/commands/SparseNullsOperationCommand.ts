@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { SparseNullsOperationInputOutput } from "../models/models_0";
-import { de_SparseNullsOperationCommand, se_SparseNullsOperationCommand } from "../protocols/Aws_json1_1";
+import { SparseNullsOperation } from "../schemas/schemas";
 
 /**
  * @public
@@ -75,13 +74,12 @@ export class SparseNullsOperationCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("JsonProtocol", "SparseNullsOperation", {})
   .n("JsonProtocolClient", "SparseNullsOperationCommand")
   .f(void 0, void 0)
-  .ser(se_SparseNullsOperationCommand)
-  .de(de_SparseNullsOperationCommand)
+  .sc(SparseNullsOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
