@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutBucketOwnershipControlsRequest } from "../models/models_1";
-import { de_PutBucketOwnershipControlsCommand, se_PutBucketOwnershipControlsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { PutBucketOwnershipControls } from "../schemas/com.amazonaws.s3";
 
 /**
  * @public
@@ -101,7 +100,6 @@ export class PutBucketOwnershipControlsCommand extends $Command
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
         requestChecksumRequired: true,
@@ -111,8 +109,7 @@ export class PutBucketOwnershipControlsCommand extends $Command
   .s("AmazonS3", "PutBucketOwnershipControls", {})
   .n("S3Client", "PutBucketOwnershipControlsCommand")
   .f(void 0, void 0)
-  .ser(se_PutBucketOwnershipControlsCommand)
-  .de(de_PutBucketOwnershipControlsCommand)
+  .sc(PutBucketOwnershipControls)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

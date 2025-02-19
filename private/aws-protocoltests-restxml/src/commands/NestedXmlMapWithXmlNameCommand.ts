@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { NestedXmlMapWithXmlNameInputOutput } from "../models/models_0";
-import { de_NestedXmlMapWithXmlNameCommand, se_NestedXmlMapWithXmlNameCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import { NestedXmlMapWithXmlName } from "../schemas/aws.protocoltests.restxml";
 
 /**
  * @public
@@ -72,13 +71,12 @@ export class NestedXmlMapWithXmlNameCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestXml", "NestedXmlMapWithXmlName", {})
   .n("RestXmlProtocolClient", "NestedXmlMapWithXmlNameCommand")
   .f(void 0, void 0)
-  .ser(se_NestedXmlMapWithXmlNameCommand)
-  .de(de_NestedXmlMapWithXmlNameCommand)
+  .sc(NestedXmlMapWithXmlName)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

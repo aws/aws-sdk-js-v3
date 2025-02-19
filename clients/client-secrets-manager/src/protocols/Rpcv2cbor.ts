@@ -1,5 +1,12 @@
 // smithy-typescript generated code
-import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
+import {
+  buildHttpRpcRequest,
+  cbor,
+  checkCborResponse as cr,
+  loadSmithyRpcV2CborErrorCode,
+  parseCborBody as parseBody,
+  parseCborErrorBody as parseErrorBody,
+} from "@smithy/core/cbor";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -7,7 +14,6 @@ import {
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
   take,
@@ -125,314 +131,364 @@ import {
 import { SecretsManagerServiceException as __BaseException } from "../models/SecretsManagerServiceException";
 
 /**
- * serializeAws_json1_1BatchGetSecretValueCommand
+ * serializeRpcv2cborBatchGetSecretValueCommand
  */
 export const se_BatchGetSecretValueCommand = async (
   input: BatchGetSecretValueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("BatchGetSecretValue");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(
+    context,
+    headers,
+    "/service/secretsmanager/operation/BatchGetSecretValue",
+    undefined,
+    body
+  );
 };
 
 /**
- * serializeAws_json1_1CancelRotateSecretCommand
+ * serializeRpcv2cborCancelRotateSecretCommand
  */
 export const se_CancelRotateSecretCommand = async (
   input: CancelRotateSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("CancelRotateSecret");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(context, headers, "/service/secretsmanager/operation/CancelRotateSecret", undefined, body);
 };
 
 /**
- * serializeAws_json1_1CreateSecretCommand
+ * serializeRpcv2cborCreateSecretCommand
  */
 export const se_CreateSecretCommand = async (
   input: CreateSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("CreateSecret");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(se_CreateSecretRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(se_CreateSecretRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/service/secretsmanager/operation/CreateSecret", undefined, body);
 };
 
 /**
- * serializeAws_json1_1DeleteResourcePolicyCommand
+ * serializeRpcv2cborDeleteResourcePolicyCommand
  */
 export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(
+    context,
+    headers,
+    "/service/secretsmanager/operation/DeleteResourcePolicy",
+    undefined,
+    body
+  );
 };
 
 /**
- * serializeAws_json1_1DeleteSecretCommand
+ * serializeRpcv2cborDeleteSecretCommand
  */
 export const se_DeleteSecretCommand = async (
   input: DeleteSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("DeleteSecret");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(context, headers, "/service/secretsmanager/operation/DeleteSecret", undefined, body);
 };
 
 /**
- * serializeAws_json1_1DescribeSecretCommand
+ * serializeRpcv2cborDescribeSecretCommand
  */
 export const se_DescribeSecretCommand = async (
   input: DescribeSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("DescribeSecret");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(context, headers, "/service/secretsmanager/operation/DescribeSecret", undefined, body);
 };
 
 /**
- * serializeAws_json1_1GetRandomPasswordCommand
+ * serializeRpcv2cborGetRandomPasswordCommand
  */
 export const se_GetRandomPasswordCommand = async (
   input: GetRandomPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("GetRandomPassword");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(context, headers, "/service/secretsmanager/operation/GetRandomPassword", undefined, body);
 };
 
 /**
- * serializeAws_json1_1GetResourcePolicyCommand
+ * serializeRpcv2cborGetResourcePolicyCommand
  */
 export const se_GetResourcePolicyCommand = async (
   input: GetResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("GetResourcePolicy");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(context, headers, "/service/secretsmanager/operation/GetResourcePolicy", undefined, body);
 };
 
 /**
- * serializeAws_json1_1GetSecretValueCommand
+ * serializeRpcv2cborGetSecretValueCommand
  */
 export const se_GetSecretValueCommand = async (
   input: GetSecretValueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("GetSecretValue");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(context, headers, "/service/secretsmanager/operation/GetSecretValue", undefined, body);
 };
 
 /**
- * serializeAws_json1_1ListSecretsCommand
+ * serializeRpcv2cborListSecretsCommand
  */
 export const se_ListSecretsCommand = async (
   input: ListSecretsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("ListSecrets");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(context, headers, "/service/secretsmanager/operation/ListSecrets", undefined, body);
 };
 
 /**
- * serializeAws_json1_1ListSecretVersionIdsCommand
+ * serializeRpcv2cborListSecretVersionIdsCommand
  */
 export const se_ListSecretVersionIdsCommand = async (
   input: ListSecretVersionIdsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("ListSecretVersionIds");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(
+    context,
+    headers,
+    "/service/secretsmanager/operation/ListSecretVersionIds",
+    undefined,
+    body
+  );
 };
 
 /**
- * serializeAws_json1_1PutResourcePolicyCommand
+ * serializeRpcv2cborPutResourcePolicyCommand
  */
 export const se_PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(context, headers, "/service/secretsmanager/operation/PutResourcePolicy", undefined, body);
 };
 
 /**
- * serializeAws_json1_1PutSecretValueCommand
+ * serializeRpcv2cborPutSecretValueCommand
  */
 export const se_PutSecretValueCommand = async (
   input: PutSecretValueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("PutSecretValue");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(se_PutSecretValueRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(se_PutSecretValueRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/service/secretsmanager/operation/PutSecretValue", undefined, body);
 };
 
 /**
- * serializeAws_json1_1RemoveRegionsFromReplicationCommand
+ * serializeRpcv2cborRemoveRegionsFromReplicationCommand
  */
 export const se_RemoveRegionsFromReplicationCommand = async (
   input: RemoveRegionsFromReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("RemoveRegionsFromReplication");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(
+    context,
+    headers,
+    "/service/secretsmanager/operation/RemoveRegionsFromReplication",
+    undefined,
+    body
+  );
 };
 
 /**
- * serializeAws_json1_1ReplicateSecretToRegionsCommand
+ * serializeRpcv2cborReplicateSecretToRegionsCommand
  */
 export const se_ReplicateSecretToRegionsCommand = async (
   input: ReplicateSecretToRegionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("ReplicateSecretToRegions");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(
+    context,
+    headers,
+    "/service/secretsmanager/operation/ReplicateSecretToRegions",
+    undefined,
+    body
+  );
 };
 
 /**
- * serializeAws_json1_1RestoreSecretCommand
+ * serializeRpcv2cborRestoreSecretCommand
  */
 export const se_RestoreSecretCommand = async (
   input: RestoreSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("RestoreSecret");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(context, headers, "/service/secretsmanager/operation/RestoreSecret", undefined, body);
 };
 
 /**
- * serializeAws_json1_1RotateSecretCommand
+ * serializeRpcv2cborRotateSecretCommand
  */
 export const se_RotateSecretCommand = async (
   input: RotateSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("RotateSecret");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(se_RotateSecretRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(se_RotateSecretRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/service/secretsmanager/operation/RotateSecret", undefined, body);
 };
 
 /**
- * serializeAws_json1_1StopReplicationToReplicaCommand
+ * serializeRpcv2cborStopReplicationToReplicaCommand
  */
 export const se_StopReplicationToReplicaCommand = async (
   input: StopReplicationToReplicaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("StopReplicationToReplica");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(
+    context,
+    headers,
+    "/service/secretsmanager/operation/StopReplicationToReplica",
+    undefined,
+    body
+  );
 };
 
 /**
- * serializeAws_json1_1TagResourceCommand
+ * serializeRpcv2cborTagResourceCommand
  */
 export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("TagResource");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(context, headers, "/service/secretsmanager/operation/TagResource", undefined, body);
 };
 
 /**
- * serializeAws_json1_1UntagResourceCommand
+ * serializeRpcv2cborUntagResourceCommand
  */
 export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("UntagResource");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(context, headers, "/service/secretsmanager/operation/UntagResource", undefined, body);
 };
 
 /**
- * serializeAws_json1_1UpdateSecretCommand
+ * serializeRpcv2cborUpdateSecretCommand
  */
 export const se_UpdateSecretCommand = async (
   input: UpdateSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("UpdateSecret");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(se_UpdateSecretRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(se_UpdateSecretRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/service/secretsmanager/operation/UpdateSecret", undefined, body);
 };
 
 /**
- * serializeAws_json1_1UpdateSecretVersionStageCommand
+ * serializeRpcv2cborUpdateSecretVersionStageCommand
  */
 export const se_UpdateSecretVersionStageCommand = async (
   input: UpdateSecretVersionStageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("UpdateSecretVersionStage");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(
+    context,
+    headers,
+    "/service/secretsmanager/operation/UpdateSecretVersionStage",
+    undefined,
+    body
+  );
 };
 
 /**
- * serializeAws_json1_1ValidateResourcePolicyCommand
+ * serializeRpcv2cborValidateResourcePolicyCommand
  */
 export const se_ValidateResourcePolicyCommand = async (
   input: ValidateResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("ValidateResourcePolicy");
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
-  body = JSON.stringify(_json(input));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(
+    context,
+    headers,
+    "/service/secretsmanager/operation/ValidateResourcePolicy",
+    undefined,
+    body
+  );
 };
 
 /**
- * deserializeAws_json1_1BatchGetSecretValueCommand
+ * deserializeRpcv2cborBatchGetSecretValueCommand
  */
 export const de_BatchGetSecretValueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetSecretValueCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = de_BatchGetSecretValueResponse(data, context);
@@ -444,15 +500,17 @@ export const de_BatchGetSecretValueCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelRotateSecretCommand
+ * deserializeRpcv2cborCancelRotateSecretCommand
  */
 export const de_CancelRotateSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelRotateSecretCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = _json(data);
@@ -464,15 +522,17 @@ export const de_CancelRotateSecretCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSecretCommand
+ * deserializeRpcv2cborCreateSecretCommand
  */
 export const de_CreateSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSecretCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = de_CreateSecretResponse(data, context);
@@ -484,15 +544,17 @@ export const de_CreateSecretCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteResourcePolicyCommand
+ * deserializeRpcv2cborDeleteResourcePolicyCommand
  */
 export const de_DeleteResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = _json(data);
@@ -504,15 +566,17 @@ export const de_DeleteResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteSecretCommand
+ * deserializeRpcv2cborDeleteSecretCommand
  */
 export const de_DeleteSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSecretCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = de_DeleteSecretResponse(data, context);
@@ -524,15 +588,17 @@ export const de_DeleteSecretCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSecretCommand
+ * deserializeRpcv2cborDescribeSecretCommand
  */
 export const de_DescribeSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSecretCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = de_DescribeSecretResponse(data, context);
@@ -544,15 +610,17 @@ export const de_DescribeSecretCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRandomPasswordCommand
+ * deserializeRpcv2cborGetRandomPasswordCommand
  */
 export const de_GetRandomPasswordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRandomPasswordCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = _json(data);
@@ -564,15 +632,17 @@ export const de_GetRandomPasswordCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResourcePolicyCommand
+ * deserializeRpcv2cborGetResourcePolicyCommand
  */
 export const de_GetResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcePolicyCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = _json(data);
@@ -584,15 +654,17 @@ export const de_GetResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSecretValueCommand
+ * deserializeRpcv2cborGetSecretValueCommand
  */
 export const de_GetSecretValueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSecretValueCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = de_GetSecretValueResponse(data, context);
@@ -604,15 +676,17 @@ export const de_GetSecretValueCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSecretsCommand
+ * deserializeRpcv2cborListSecretsCommand
  */
 export const de_ListSecretsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecretsCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = de_ListSecretsResponse(data, context);
@@ -624,15 +698,17 @@ export const de_ListSecretsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSecretVersionIdsCommand
+ * deserializeRpcv2cborListSecretVersionIdsCommand
  */
 export const de_ListSecretVersionIdsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecretVersionIdsCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = de_ListSecretVersionIdsResponse(data, context);
@@ -644,15 +720,17 @@ export const de_ListSecretVersionIdsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutResourcePolicyCommand
+ * deserializeRpcv2cborPutResourcePolicyCommand
  */
 export const de_PutResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = _json(data);
@@ -664,15 +742,17 @@ export const de_PutResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutSecretValueCommand
+ * deserializeRpcv2cborPutSecretValueCommand
  */
 export const de_PutSecretValueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSecretValueCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = _json(data);
@@ -684,15 +764,17 @@ export const de_PutSecretValueCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RemoveRegionsFromReplicationCommand
+ * deserializeRpcv2cborRemoveRegionsFromReplicationCommand
  */
 export const de_RemoveRegionsFromReplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveRegionsFromReplicationCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = de_RemoveRegionsFromReplicationResponse(data, context);
@@ -704,15 +786,17 @@ export const de_RemoveRegionsFromReplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ReplicateSecretToRegionsCommand
+ * deserializeRpcv2cborReplicateSecretToRegionsCommand
  */
 export const de_ReplicateSecretToRegionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReplicateSecretToRegionsCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = de_ReplicateSecretToRegionsResponse(data, context);
@@ -724,15 +808,17 @@ export const de_ReplicateSecretToRegionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RestoreSecretCommand
+ * deserializeRpcv2cborRestoreSecretCommand
  */
 export const de_RestoreSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreSecretCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = _json(data);
@@ -744,15 +830,17 @@ export const de_RestoreSecretCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RotateSecretCommand
+ * deserializeRpcv2cborRotateSecretCommand
  */
 export const de_RotateSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RotateSecretCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = _json(data);
@@ -764,15 +852,17 @@ export const de_RotateSecretCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopReplicationToReplicaCommand
+ * deserializeRpcv2cborStopReplicationToReplicaCommand
  */
 export const de_StopReplicationToReplicaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopReplicationToReplicaCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = _json(data);
@@ -784,15 +874,17 @@ export const de_StopReplicationToReplicaCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommand
+ * deserializeRpcv2cborTagResourceCommand
  */
 export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -801,15 +893,17 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommand
+ * deserializeRpcv2cborUntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -818,15 +912,17 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateSecretCommand
+ * deserializeRpcv2cborUpdateSecretCommand
  */
 export const de_UpdateSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSecretCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = _json(data);
@@ -838,15 +934,17 @@ export const de_UpdateSecretCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateSecretVersionStageCommand
+ * deserializeRpcv2cborUpdateSecretVersionStageCommand
  */
 export const de_UpdateSecretVersionStageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSecretVersionStageCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = _json(data);
@@ -858,15 +956,17 @@ export const de_UpdateSecretVersionStageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ValidateResourcePolicyCommand
+ * deserializeRpcv2cborValidateResourcePolicyCommand
  */
 export const de_ValidateResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ValidateResourcePolicyCommandOutput> => {
+  cr(output);
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
+
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = _json(data);
@@ -878,14 +978,14 @@ export const de_ValidateResourcePolicyCommand = async (
 };
 
 /**
- * deserialize_Aws_json1_1CommandError
+ * deserialize_Rpcv2cborCommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadSmithyRpcV2CborErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DecryptionFailure":
     case "com.amazonaws.secretsmanager#DecryptionFailure":
@@ -934,7 +1034,7 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
 };
 
 /**
- * deserializeAws_json1_1DecryptionFailureRes
+ * deserializeRpcv2cborDecryptionFailureRes
  */
 const de_DecryptionFailureRes = async (parsedOutput: any, context: __SerdeContext): Promise<DecryptionFailure> => {
   const body = parsedOutput.body;
@@ -947,7 +1047,7 @@ const de_DecryptionFailureRes = async (parsedOutput: any, context: __SerdeContex
 };
 
 /**
- * deserializeAws_json1_1EncryptionFailureRes
+ * deserializeRpcv2cborEncryptionFailureRes
  */
 const de_EncryptionFailureRes = async (parsedOutput: any, context: __SerdeContext): Promise<EncryptionFailure> => {
   const body = parsedOutput.body;
@@ -960,7 +1060,7 @@ const de_EncryptionFailureRes = async (parsedOutput: any, context: __SerdeContex
 };
 
 /**
- * deserializeAws_json1_1InternalServiceErrorRes
+ * deserializeRpcv2cborInternalServiceErrorRes
  */
 const de_InternalServiceErrorRes = async (
   parsedOutput: any,
@@ -976,7 +1076,7 @@ const de_InternalServiceErrorRes = async (
 };
 
 /**
- * deserializeAws_json1_1InvalidNextTokenExceptionRes
+ * deserializeRpcv2cborInvalidNextTokenExceptionRes
  */
 const de_InvalidNextTokenExceptionRes = async (
   parsedOutput: any,
@@ -992,7 +1092,7 @@ const de_InvalidNextTokenExceptionRes = async (
 };
 
 /**
- * deserializeAws_json1_1InvalidParameterExceptionRes
+ * deserializeRpcv2cborInvalidParameterExceptionRes
  */
 const de_InvalidParameterExceptionRes = async (
   parsedOutput: any,
@@ -1008,7 +1108,7 @@ const de_InvalidParameterExceptionRes = async (
 };
 
 /**
- * deserializeAws_json1_1InvalidRequestExceptionRes
+ * deserializeRpcv2cborInvalidRequestExceptionRes
  */
 const de_InvalidRequestExceptionRes = async (
   parsedOutput: any,
@@ -1024,7 +1124,7 @@ const de_InvalidRequestExceptionRes = async (
 };
 
 /**
- * deserializeAws_json1_1LimitExceededExceptionRes
+ * deserializeRpcv2cborLimitExceededExceptionRes
  */
 const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
@@ -1040,7 +1140,7 @@ const de_LimitExceededExceptionRes = async (
 };
 
 /**
- * deserializeAws_json1_1MalformedPolicyDocumentExceptionRes
+ * deserializeRpcv2cborMalformedPolicyDocumentExceptionRes
  */
 const de_MalformedPolicyDocumentExceptionRes = async (
   parsedOutput: any,
@@ -1056,7 +1156,7 @@ const de_MalformedPolicyDocumentExceptionRes = async (
 };
 
 /**
- * deserializeAws_json1_1PreconditionNotMetExceptionRes
+ * deserializeRpcv2cborPreconditionNotMetExceptionRes
  */
 const de_PreconditionNotMetExceptionRes = async (
   parsedOutput: any,
@@ -1072,7 +1172,7 @@ const de_PreconditionNotMetExceptionRes = async (
 };
 
 /**
- * deserializeAws_json1_1PublicPolicyExceptionRes
+ * deserializeRpcv2cborPublicPolicyExceptionRes
  */
 const de_PublicPolicyExceptionRes = async (
   parsedOutput: any,
@@ -1088,7 +1188,7 @@ const de_PublicPolicyExceptionRes = async (
 };
 
 /**
- * deserializeAws_json1_1ResourceExistsExceptionRes
+ * deserializeRpcv2cborResourceExistsExceptionRes
  */
 const de_ResourceExistsExceptionRes = async (
   parsedOutput: any,
@@ -1104,7 +1204,7 @@ const de_ResourceExistsExceptionRes = async (
 };
 
 /**
- * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ * deserializeRpcv2cborResourceNotFoundExceptionRes
  */
 const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
@@ -1126,7 +1226,7 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_CancelRotateSecretRequest omitted.
 
 /**
- * serializeAws_json1_1CreateSecretRequest
+ * serializeRpcv2cborCreateSecretRequest
  */
 const se_CreateSecretRequest = (input: CreateSecretRequest, context: __SerdeContext): any => {
   return take(input, {
@@ -1136,7 +1236,7 @@ const se_CreateSecretRequest = (input: CreateSecretRequest, context: __SerdeCont
     ForceOverwriteReplicaSecret: [],
     KmsKeyId: [],
     Name: [],
-    SecretBinary: context.base64Encoder,
+    SecretBinary: [],
     SecretString: [],
     Tags: _json,
   });
@@ -1167,13 +1267,13 @@ const se_CreateSecretRequest = (input: CreateSecretRequest, context: __SerdeCont
 // se_PutResourcePolicyRequest omitted.
 
 /**
- * serializeAws_json1_1PutSecretValueRequest
+ * serializeRpcv2cborPutSecretValueRequest
  */
 const se_PutSecretValueRequest = (input: PutSecretValueRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     RotationToken: [],
-    SecretBinary: context.base64Encoder,
+    SecretBinary: [],
     SecretId: [],
     SecretString: [],
     VersionStages: _json,
@@ -1191,7 +1291,7 @@ const se_PutSecretValueRequest = (input: PutSecretValueRequest, context: __Serde
 // se_RestoreSecretRequest omitted.
 
 /**
- * serializeAws_json1_1RotateSecretRequest
+ * serializeRpcv2cborRotateSecretRequest
  */
 const se_RotateSecretRequest = (input: RotateSecretRequest, context: __SerdeContext): any => {
   return take(input, {
@@ -1222,14 +1322,14 @@ const se_RotateSecretRequest = (input: RotateSecretRequest, context: __SerdeCont
 // se_UntagResourceRequest omitted.
 
 /**
- * serializeAws_json1_1UpdateSecretRequest
+ * serializeRpcv2cborUpdateSecretRequest
  */
 const se_UpdateSecretRequest = (input: UpdateSecretRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     KmsKeyId: [],
-    SecretBinary: context.base64Encoder,
+    SecretBinary: [],
     SecretId: [],
     SecretString: [],
   });
@@ -1244,7 +1344,7 @@ const se_UpdateSecretRequest = (input: UpdateSecretRequest, context: __SerdeCont
 // de_APIErrorType omitted.
 
 /**
- * deserializeAws_json1_1BatchGetSecretValueResponse
+ * deserializeRpcv2cborBatchGetSecretValueResponse
  */
 const de_BatchGetSecretValueResponse = (output: any, context: __SerdeContext): BatchGetSecretValueResponse => {
   return take(output, {
@@ -1257,7 +1357,7 @@ const de_BatchGetSecretValueResponse = (output: any, context: __SerdeContext): B
 // de_CancelRotateSecretResponse omitted.
 
 /**
- * deserializeAws_json1_1CreateSecretResponse
+ * deserializeRpcv2cborCreateSecretResponse
  */
 const de_CreateSecretResponse = (output: any, context: __SerdeContext): CreateSecretResponse => {
   return take(output, {
@@ -1273,31 +1373,31 @@ const de_CreateSecretResponse = (output: any, context: __SerdeContext): CreateSe
 // de_DeleteResourcePolicyResponse omitted.
 
 /**
- * deserializeAws_json1_1DeleteSecretResponse
+ * deserializeRpcv2cborDeleteSecretResponse
  */
 const de_DeleteSecretResponse = (output: any, context: __SerdeContext): DeleteSecretResponse => {
   return take(output, {
     ARN: __expectString,
-    DeletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
     Name: __expectString,
   }) as any;
 };
 
 /**
- * deserializeAws_json1_1DescribeSecretResponse
+ * deserializeRpcv2cborDescribeSecretResponse
  */
 const de_DescribeSecretResponse = (output: any, context: __SerdeContext): DescribeSecretResponse => {
   return take(output, {
     ARN: __expectString,
-    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    DeletedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
+    DeletedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
     Description: __expectString,
     KmsKeyId: __expectString,
-    LastAccessedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    LastChangedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    LastRotatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastAccessedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
+    LastChangedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
+    LastRotatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
     Name: __expectString,
-    NextRotationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NextRotationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
     OwningService: __expectString,
     PrimaryRegion: __expectString,
     ReplicationStatus: (_: any) => de_ReplicationStatusListType(_, context),
@@ -1316,14 +1416,14 @@ const de_DescribeSecretResponse = (output: any, context: __SerdeContext): Descri
 // de_GetResourcePolicyResponse omitted.
 
 /**
- * deserializeAws_json1_1GetSecretValueResponse
+ * deserializeRpcv2cborGetSecretValueResponse
  */
 const de_GetSecretValueResponse = (output: any, context: __SerdeContext): GetSecretValueResponse => {
   return take(output, {
     ARN: __expectString,
-    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
     Name: __expectString,
-    SecretBinary: context.base64Decoder,
+    SecretBinary: [],
     SecretString: __expectString,
     VersionId: __expectString,
     VersionStages: _json,
@@ -1343,7 +1443,7 @@ const de_GetSecretValueResponse = (output: any, context: __SerdeContext): GetSec
 // de_LimitExceededException omitted.
 
 /**
- * deserializeAws_json1_1ListSecretsResponse
+ * deserializeRpcv2cborListSecretsResponse
  */
 const de_ListSecretsResponse = (output: any, context: __SerdeContext): ListSecretsResponse => {
   return take(output, {
@@ -1353,7 +1453,7 @@ const de_ListSecretsResponse = (output: any, context: __SerdeContext): ListSecre
 };
 
 /**
- * deserializeAws_json1_1ListSecretVersionIdsResponse
+ * deserializeRpcv2cborListSecretVersionIdsResponse
  */
 const de_ListSecretVersionIdsResponse = (output: any, context: __SerdeContext): ListSecretVersionIdsResponse => {
   return take(output, {
@@ -1375,7 +1475,7 @@ const de_ListSecretVersionIdsResponse = (output: any, context: __SerdeContext): 
 // de_PutSecretValueResponse omitted.
 
 /**
- * deserializeAws_json1_1RemoveRegionsFromReplicationResponse
+ * deserializeRpcv2cborRemoveRegionsFromReplicationResponse
  */
 const de_RemoveRegionsFromReplicationResponse = (
   output: any,
@@ -1388,7 +1488,7 @@ const de_RemoveRegionsFromReplicationResponse = (
 };
 
 /**
- * deserializeAws_json1_1ReplicateSecretToRegionsResponse
+ * deserializeRpcv2cborReplicateSecretToRegionsResponse
  */
 const de_ReplicateSecretToRegionsResponse = (
   output: any,
@@ -1401,24 +1501,24 @@ const de_ReplicateSecretToRegionsResponse = (
 };
 
 /**
- * deserializeAws_json1_1ReplicationStatusListType
+ * deserializeRpcv2cborReplicationStatusListType
  */
 const de_ReplicationStatusListType = (output: any, context: __SerdeContext): ReplicationStatusType[] => {
-  const retVal = (output || [])
+  const collection = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_ReplicationStatusType(entry, context);
     });
-  return retVal;
+  return collection;
 };
 
 /**
- * deserializeAws_json1_1ReplicationStatusType
+ * deserializeRpcv2cborReplicationStatusType
  */
 const de_ReplicationStatusType = (output: any, context: __SerdeContext): ReplicationStatusType => {
   return take(output, {
     KmsKeyId: __expectString,
-    LastAccessedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastAccessedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
     Region: __expectString,
     Status: __expectString,
     StatusMessage: __expectString,
@@ -1436,20 +1536,20 @@ const de_ReplicationStatusType = (output: any, context: __SerdeContext): Replica
 // de_RotationRulesType omitted.
 
 /**
- * deserializeAws_json1_1SecretListEntry
+ * deserializeRpcv2cborSecretListEntry
  */
 const de_SecretListEntry = (output: any, context: __SerdeContext): SecretListEntry => {
   return take(output, {
     ARN: __expectString,
-    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    DeletedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
+    DeletedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
     Description: __expectString,
     KmsKeyId: __expectString,
-    LastAccessedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    LastChangedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    LastRotatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastAccessedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
+    LastChangedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
+    LastRotatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
     Name: __expectString,
-    NextRotationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NextRotationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
     OwningService: __expectString,
     PrimaryRegion: __expectString,
     RotationEnabled: __expectBoolean,
@@ -1461,26 +1561,26 @@ const de_SecretListEntry = (output: any, context: __SerdeContext): SecretListEnt
 };
 
 /**
- * deserializeAws_json1_1SecretListType
+ * deserializeRpcv2cborSecretListType
  */
 const de_SecretListType = (output: any, context: __SerdeContext): SecretListEntry[] => {
-  const retVal = (output || [])
+  const collection = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_SecretListEntry(entry, context);
     });
-  return retVal;
+  return collection;
 };
 
 /**
- * deserializeAws_json1_1SecretValueEntry
+ * deserializeRpcv2cborSecretValueEntry
  */
 const de_SecretValueEntry = (output: any, context: __SerdeContext): SecretValueEntry => {
   return take(output, {
     ARN: __expectString,
-    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
     Name: __expectString,
-    SecretBinary: context.base64Decoder,
+    SecretBinary: [],
     SecretString: __expectString,
     VersionId: __expectString,
     VersionStages: _json,
@@ -1488,40 +1588,40 @@ const de_SecretValueEntry = (output: any, context: __SerdeContext): SecretValueE
 };
 
 /**
- * deserializeAws_json1_1SecretValuesType
+ * deserializeRpcv2cborSecretValuesType
  */
 const de_SecretValuesType = (output: any, context: __SerdeContext): SecretValueEntry[] => {
-  const retVal = (output || [])
+  const collection = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_SecretValueEntry(entry, context);
     });
-  return retVal;
+  return collection;
 };
 
 /**
- * deserializeAws_json1_1SecretVersionsListEntry
+ * deserializeRpcv2cborSecretVersionsListEntry
  */
 const de_SecretVersionsListEntry = (output: any, context: __SerdeContext): SecretVersionsListEntry => {
   return take(output, {
-    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
     KmsKeyIds: _json,
-    LastAccessedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastAccessedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(_)),
     VersionId: __expectString,
     VersionStages: _json,
   }) as any;
 };
 
 /**
- * deserializeAws_json1_1SecretVersionsListType
+ * deserializeRpcv2cborSecretVersionsListType
  */
 const de_SecretVersionsListType = (output: any, context: __SerdeContext): SecretVersionsListEntry[] => {
-  const retVal = (output || [])
+  const collection = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_SecretVersionsListEntry(entry, context);
     });
-  return retVal;
+  return collection;
 };
 
 // de_SecretVersionStagesType omitted.
@@ -1552,38 +1652,9 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   cfId: output.headers["x-amz-cf-id"],
 });
 
-// Encode Uint8Array data into string with utf-8.
-const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
-  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
 const throwDefaultError = withBaseException(__BaseException);
-const buildHttpRpcRequest = async (
-  context: __SerdeContext,
-  headers: __HeaderBag,
-  path: string,
-  resolvedHostname: string | undefined,
-  body: any
-): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const contents: any = {
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    path: basePath.endsWith("/") ? basePath.slice(0, -1) + path : basePath + path,
-    headers,
-  };
-  if (resolvedHostname !== undefined) {
-    contents.hostname = resolvedHostname;
-  }
-  if (body !== undefined) {
-    contents.body = body;
-  }
-  return new __HttpRequest(contents);
+const SHARED_HEADERS: __HeaderBag = {
+  "content-type": "application/cbor",
+  "smithy-protocol": "rpc-v2-cbor",
+  accept: "application/cbor",
 };
-function sharedHeaders(operation: string): __HeaderBag {
-  return {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": `secretsmanager.${operation}`,
-  };
-}

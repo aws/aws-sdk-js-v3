@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { OperationWithDefaultsInput, OperationWithDefaultsOutput } from "../models/models_0";
-import { de_OperationWithDefaultsCommand, se_OperationWithDefaultsCommand } from "../protocols/Rpcv2cbor";
 import { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
+import { OperationWithDefaults } from "../schemas/smithy.protocoltests.rpcv2Cbor";
 
 /**
  * @public
@@ -128,13 +127,12 @@ export class OperationWithDefaultsCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RpcV2ProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RpcV2Protocol", "OperationWithDefaults", {})
   .n("RpcV2ProtocolClient", "OperationWithDefaultsCommand")
   .f(void 0, void 0)
-  .ser(se_OperationWithDefaultsCommand)
-  .de(de_OperationWithDefaultsCommand)
+  .sc(OperationWithDefaults)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

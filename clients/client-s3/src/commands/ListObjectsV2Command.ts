@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListObjectsV2Output, ListObjectsV2Request } from "../models/models_0";
-import { de_ListObjectsV2Command, se_ListObjectsV2Command } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { ListObjectsV2 } from "../schemas/com.amazonaws.s3";
 
 /**
  * @public
@@ -263,17 +262,12 @@ export class ListObjectsV2Command extends $Command
     Prefix: { type: "contextParams", name: "Prefix" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
   })
   .s("AmazonS3", "ListObjectsV2", {})
   .n("S3Client", "ListObjectsV2Command")
   .f(void 0, void 0)
-  .ser(se_ListObjectsV2Command)
-  .de(de_ListObjectsV2Command)
+  .sc(ListObjectsV2)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

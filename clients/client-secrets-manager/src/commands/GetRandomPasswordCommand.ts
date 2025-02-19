@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,7 +9,7 @@ import {
   GetRandomPasswordResponse,
   GetRandomPasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { de_GetRandomPasswordCommand, se_GetRandomPasswordCommand } from "../protocols/Aws_json1_1";
+import { GetRandomPassword } from "../schemas/com.amazonaws.secretsmanager";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -130,16 +129,12 @@ export class GetRandomPasswordCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("secretsmanager", "GetRandomPassword", {})
   .n("SecretsManagerClient", "GetRandomPasswordCommand")
   .f(void 0, GetRandomPasswordResponseFilterSensitiveLog)
-  .ser(se_GetRandomPasswordCommand)
-  .de(de_GetRandomPasswordCommand)
+  .sc(GetRandomPassword)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

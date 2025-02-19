@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { GreetingWithErrorsOutput } from "../models/models_0";
-import { de_GreetingWithErrorsCommand, se_GreetingWithErrorsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import { GreetingWithErrors } from "../schemas/aws.protocoltests.restxml";
 
 /**
  * @public
@@ -76,13 +75,12 @@ export class GreetingWithErrorsCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestXml", "GreetingWithErrors", {})
   .n("RestXmlProtocolClient", "GreetingWithErrorsCommand")
   .f(void 0, void 0)
-  .ser(se_GreetingWithErrorsCommand)
-  .de(de_GreetingWithErrorsCommand)
+  .sc(GreetingWithErrors)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

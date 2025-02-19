@@ -2,7 +2,6 @@
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -12,8 +11,8 @@ import {
   GetObjectAttributesRequest,
   GetObjectAttributesRequestFilterSensitiveLog,
 } from "../models/models_0";
-import { de_GetObjectAttributesCommand, se_GetObjectAttributesCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { GetObjectAttributes } from "../schemas/com.amazonaws.s3";
 
 /**
  * @public
@@ -335,7 +334,6 @@ export class GetObjectAttributesCommand extends $Command
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getThrow200ExceptionsPlugin(config),
       getSsecPlugin(config),
@@ -344,8 +342,7 @@ export class GetObjectAttributesCommand extends $Command
   .s("AmazonS3", "GetObjectAttributes", {})
   .n("S3Client", "GetObjectAttributesCommand")
   .f(GetObjectAttributesRequestFilterSensitiveLog, void 0)
-  .ser(se_GetObjectAttributesCommand)
-  .de(de_GetObjectAttributesCommand)
+  .sc(GetObjectAttributes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

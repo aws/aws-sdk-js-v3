@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CancelRotateSecretRequest, CancelRotateSecretResponse } from "../models/models_0";
-import { de_CancelRotateSecretCommand, se_CancelRotateSecretCommand } from "../protocols/Aws_json1_1";
+import { CancelRotateSecret } from "../schemas/com.amazonaws.secretsmanager";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -131,16 +130,12 @@ export class CancelRotateSecretCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("secretsmanager", "CancelRotateSecret", {})
   .n("SecretsManagerClient", "CancelRotateSecretCommand")
   .f(void 0, void 0)
-  .ser(se_CancelRotateSecretCommand)
-  .de(de_CancelRotateSecretCommand)
+  .sc(CancelRotateSecret)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

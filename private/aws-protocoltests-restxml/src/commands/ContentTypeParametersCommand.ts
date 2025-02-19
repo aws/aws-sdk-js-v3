@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ContentTypeParametersInput, ContentTypeParametersOutput } from "../models/models_0";
-import { de_ContentTypeParametersCommand, se_ContentTypeParametersCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import { ContentTypeParameters } from "../schemas/aws.protocoltests.restxml";
 
 /**
  * @public
@@ -63,13 +62,12 @@ export class ContentTypeParametersCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestXml", "ContentTypeParameters", {})
   .n("RestXmlProtocolClient", "ContentTypeParametersCommand")
   .f(void 0, void 0)
-  .ser(se_ContentTypeParametersCommand)
-  .de(de_ContentTypeParametersCommand)
+  .sc(ContentTypeParameters)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
