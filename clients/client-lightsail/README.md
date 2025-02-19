@@ -14,7 +14,7 @@ registered domains, and resource snapshots (backups) - for a low, predictable mo
 price.</p>
 <p>You can manage your Lightsail resources using the Lightsail console, Lightsail API,
 Command Line Interface (CLI), or SDKs. For more information about Lightsail
-concepts and tasks, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Amazon Lightsail Developer Guide</a>.</p>
+concepts and tasks, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Amazon Lightsail Developer Guide</a>.</p>
 <p>This API Reference provides detailed information about the actions, data types,
 parameters, and errors of the Lightsail service. For more information about the supported
 Amazon Web Services Regions, endpoints, and service quotas of the Lightsail service, see

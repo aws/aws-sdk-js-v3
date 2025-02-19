@@ -93,7 +93,7 @@ export type StatusType = (typeof StatusType)[keyof typeof StatusType];
  * <p>Describes an access key for an Amazon Lightsail bucket.</p>
  *          <p>Access keys grant full programmatic access to the specified bucket and its objects. You
  *       can have a maximum of two access keys per bucket. Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html">CreateBucketAccessKey</a> action to create an access key for a specific bucket. For
- *       more information about access keys, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys">Creating access keys for a bucket in Amazon Lightsail</a> in the
+ *       more information about access keys, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-bucket-access-keys">Creating access keys for a bucket in Amazon Lightsail</a> in the
  *         <i>Amazon Lightsail Developer Guide</i>.</p>
  *          <important>
  *             <p>The <code>secretAccessKey</code> value is returned only in response to the
@@ -179,7 +179,7 @@ export type AccessType = (typeof AccessType)[keyof typeof AccessType];
 /**
  * <p>Describes the anonymous access permissions for an Amazon Lightsail bucket and its
  *       objects.</p>
- *          <p>For more information about bucket access permissions, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-understanding-bucket-permissions">Understanding bucket permissions in Amazon Lightsail</a> in the </p>
+ *          <p>For more information about bucket access permissions, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-understanding-bucket-permissions">Understanding bucket permissions in Amazon Lightsail</a> in the </p>
  *          <p>
  *             <i>Amazon Lightsail Developer Guide</i>.</p>
  * @public
@@ -266,7 +266,7 @@ export type AccountLevelBpaSyncStatus = (typeof AccountLevelBpaSyncStatus)[keyof
  *       do this, Lightsail periodically fetches the account-level BPA configuration
  *       from Amazon S3. When the account-level BPA status is <code>InSync</code>, the Amazon S3 account-level BPA configuration is synchronized and it applies to your Lightsail
  *       buckets. For more information about Amazon Simple Storage Service account-level BPA and how it affects
- *         Lightsail buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-block-public-access-for-buckets">Block public access for buckets in Amazon Lightsail</a> in the
+ *         Lightsail buckets, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-block-public-access-for-buckets">Block public access for buckets in Amazon Lightsail</a> in the
  *           <i>Amazon Lightsail Developer Guide</i>.</p>
  * @public
  */
@@ -331,7 +331,7 @@ export interface AccountLevelBpaSync {
    *           account-level BPA configuration for your Lightsail buckets is defaulted to
    *             <i>active</i> until the synchronization can occur. This means that all
    *           your buckets are private and not publicly accessible. For more information about how to
-   *           create the required service-linked role to allow synchronization, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-service-linked-roles">Using Service-Linked Roles for Amazon Lightsail</a> in the
+   *           create the required service-linked role to allow synchronization, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-using-service-linked-roles">Using Service-Linked Roles for Amazon Lightsail</a> in the
    *               <i>Amazon Lightsail Developer Guide</i>.</p>
    *             </li>
    *             <li>
@@ -341,13 +341,13 @@ export interface AccountLevelBpaSync {
    *           Account-level BPA is not yet configured for your Lightsail buckets. Therefore, only the
    *           bucket access permissions and individual object access permissions apply to your
    *           Lightsail buckets. For more information about how to create the required service-linked
-   *           role to allow synchronization, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-service-linked-roles">Using Service-Linked Roles for Amazon Lightsail</a> in the
+   *           role to allow synchronization, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-using-service-linked-roles">Using Service-Linked Roles for Amazon Lightsail</a> in the
    *               <i>Amazon Lightsail Developer Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>Unknown</code> - The reason that synchronization failed is unknown. Contact
-   *             Amazon Web Services Support for more information.</p>
+   *             Amazon Web ServicesSupport for more information.</p>
    *             </li>
    *          </ul>
    * @public
@@ -721,7 +721,7 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 /**
  * <p>Describes resource being monitored by an alarm.</p>
  *          <p>An alarm is a way to monitor your Amazon Lightsail resource metrics. For more information,
- *       see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms">Alarms
+ *       see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms">Alarms
  *         in Amazon Lightsail</a>.</p>
  * @public
  */
@@ -837,7 +837,7 @@ export type MetricUnit = (typeof MetricUnit)[keyof typeof MetricUnit];
 /**
  * <p>Describes an alarm.</p>
  *          <p>An alarm is a way to monitor your Lightsail resource metrics. For more information, see
- *         <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms">Alarms in Amazon Lightsail</a>.</p>
+ *         <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms">Alarms in Amazon Lightsail</a>.</p>
  * @public
  */
 export interface Alarm {
@@ -1844,7 +1844,7 @@ export interface Blueprint {
 /**
  * <p>Describes the access log configuration for a bucket in the Amazon Lightsail object storage
  *       service.</p>
- *          <p>For more information about bucket access logs, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-bucket-access-logs">Logging bucket requests using access logging in Amazon Lightsail</a> in the
+ *          <p>For more information about bucket access logs, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-bucket-access-logs">Logging bucket requests using access logging in Amazon Lightsail</a> in the
  *         <i>Amazon Lightsail Developer Guide</i>.</p>
  * @public
  */
@@ -1915,7 +1915,7 @@ export interface BucketState {
 
 /**
  * <p>Describes a tag key and optional value assigned to an Amazon Lightsail resource.</p>
- *          <p>For more information about tags in Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+ *          <p>For more information about tags in Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @public
  */
 export interface Tag {
@@ -2629,7 +2629,7 @@ export type DnsRecordCreationStateCode = (typeof DnsRecordCreationStateCode)[key
  *       of the domain if the DNS zone for the domain exists within your Lightsail
  *       account. If automatic record addition fails, or if you manage the DNS of your domain using a
  *       third-party service, then you must manually add the CNAME records to the DNS of your domain.
- *       For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/verify-tls-ssl-certificate-using-dns-cname-https">Verify an SSL/TLS certificate in Amazon Lightsail</a> in the
+ *       For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/verify-tls-ssl-certificate-using-dns-cname-https">Verify an SSL/TLS certificate in Amazon Lightsail</a> in the
  *           <i>Amazon Lightsail Developer Guide</i>.</p>
  * @public
  */
@@ -3035,7 +3035,7 @@ export interface Certificate {
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -3093,7 +3093,7 @@ export interface CertificateSummary {
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -3443,7 +3443,7 @@ export type ContactMethodStatus = (typeof ContactMethodStatus)[keyof typeof Cont
 
 /**
  * <p>Describes a contact method.</p>
- *          <p>A contact method is a way to send you notifications. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
+ *          <p>A contact method is a way to send you notifications. For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
  * @public
  */
 export interface ContactMethod {
@@ -3800,7 +3800,7 @@ export type ContainerServicePowerName = (typeof ContainerServicePowerName)[keyof
  *       for the specified Lightsail container service. You can use the ARN of the role to create a
  *       trust relationship between your Lightsail container service and an Amazon ECR private repository in your Amazon Web Services account. This allows your container
  *       service to pull images from Amazon ECR private repositories. For more information, see
- *         <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+ *         <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
  * @public
  */
 export interface ContainerServiceECRImagePullerRole {
@@ -3820,7 +3820,7 @@ export interface ContainerServiceECRImagePullerRole {
 /**
  * <p>Describes the configuration for an Amazon Lightsail container service to
  *       access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.</p>
- *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
  * @public
  */
 export interface PrivateRegistryAccess {
@@ -3994,7 +3994,7 @@ export interface ContainerService {
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -4140,7 +4140,7 @@ export interface ContainerService {
    * <p>An object that describes the configuration for the container service to access private
    *       container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private
    *       repositories.</p>
-   *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
    * @public
    */
   privateRegistryAccess?: PrivateRegistryAccess | undefined;
@@ -4199,7 +4199,7 @@ export interface ContainerServiceDeploymentRequest {
  *       for the specified Lightsail container service. You can use the ARN of the role to create a
  *       trust relationship between your Lightsail container service and an Amazon ECR private repository in your Amazon Web Services account. This allows your container
  *       service to pull images from Amazon ECR private repositories. For more information, see
- *         <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+ *         <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
  * @public
  */
 export interface ContainerServiceECRImagePullerRoleRequest {
@@ -4360,7 +4360,7 @@ export interface CopySnapshotRequest {
    *          <ul>
    *             <li>
    *                <p>Define this parameter only when copying an automatic snapshot as a manual snapshot.
-   *           For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
+   *           For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-keeping-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4382,7 +4382,7 @@ export interface CopySnapshotRequest {
    *             </li>
    *             <li>
    *                <p>Define this parameter only when copying an automatic snapshot as a manual snapshot.
-   *           For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
+   *           For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-keeping-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4401,7 +4401,7 @@ export interface CopySnapshotRequest {
    *             </li>
    *             <li>
    *                <p>Define this parameter only when copying an automatic snapshot as a manual snapshot.
-   *           For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
+   *           For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-keeping-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4554,7 +4554,7 @@ export interface CostEstimate {
 export interface CreateBucketRequest {
   /**
    * <p>The name for the bucket.</p>
-   *          <p>For more information about bucket names, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/bucket-naming-rules-in-amazon-lightsail">Bucket naming rules in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
+   *          <p>For more information about bucket names, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/bucket-naming-rules-in-amazon-lightsail">Bucket naming rules in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
    *         Guide</i>.</p>
    * @public
    */
@@ -4583,7 +4583,7 @@ export interface CreateBucketRequest {
   /**
    * <p>A Boolean value that indicates whether to enable versioning of objects in the
    *       bucket.</p>
-   *          <p>For more information about versioning, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-managing-bucket-object-versioning">Enabling and suspending object versioning in a bucket in Amazon Lightsail</a> in the
+   *          <p>For more information about versioning, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-managing-bucket-object-versioning">Enabling and suspending object versioning in a bucket in Amazon Lightsail</a> in the
    *         <i>Amazon Lightsail Developer Guide</i>.</p>
    * @public
    */
@@ -4843,7 +4843,7 @@ export interface CreateContactMethodRequest {
    *          <p>For a list of countries/regions where SMS text messages can be sent, and the latest
    *         Amazon Web Services Regions where SMS text messaging is supported, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html">Supported Regions and Countries</a> in the <i>Amazon SNS Developer
    *         Guide</i>.</p>
-   *          <p>For more information about notifications in Amazon Lightsail, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
+   *          <p>For more information about notifications in Amazon Lightsail, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
    * @public
    */
   protocol: ContactProtocol | undefined;
@@ -4876,7 +4876,7 @@ export interface CreateContactMethodResult {
 /**
  * <p>Describes a request to configure an Amazon Lightsail container service to
  *       access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.</p>
- *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
  * @public
  */
 export interface PrivateRegistryAccessRequest {
@@ -4950,7 +4950,7 @@ export interface CreateContainerServiceRequest {
   /**
    * <p>The tag keys and optional values to add to the container service during create.</p>
    *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
-   *          <p>For more information about tags in Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   *          <p>For more information about tags in Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -4989,7 +4989,7 @@ export interface CreateContainerServiceRequest {
    * <p>An object to describe the configuration for the container service to access private
    *       container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private
    *       repositories.</p>
-   *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
    * @public
    */
   privateRegistryAccess?: PrivateRegistryAccessRequest | undefined;
@@ -5176,7 +5176,7 @@ export interface CreateDiskFromSnapshotRequest {
    *             </li>
    *             <li>
    *                <p>Define this parameter only when creating a new disk from an automatic snapshot. For
-   *           more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
+   *           more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5199,7 +5199,7 @@ export interface CreateDiskFromSnapshotRequest {
    *             </li>
    *             <li>
    *                <p>Define this parameter only when creating a new disk from an automatic snapshot. For
-   *           more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
+   *           more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5217,7 +5217,7 @@ export interface CreateDiskFromSnapshotRequest {
    *             </li>
    *             <li>
    *                <p>Define this parameter only when creating a new disk from an automatic snapshot. For
-   *           more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
+   *           more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5630,7 +5630,7 @@ export interface LightsailDistribution {
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -5837,7 +5837,7 @@ export interface CreateGUISessionAccessDetailsRequest {
 }
 
 /**
- * <p>Describes a web-based, remote graphical user interface (GUI), NICE DCV session. The
+ * <p>Describes a web-based, remote graphical user interface (GUI), Amazon DCV session. The
  *       session is used to access a virtual computer’s operating system or application.</p>
  * @public
  */
@@ -5913,7 +5913,7 @@ export interface CreateGUISessionAccessDetailsResult {
   failureReason?: string | undefined;
 
   /**
-   * <p>Returns information about the specified NICE DCV GUI session.</p>
+   * <p>Returns information about the specified Amazon DCV GUI session.</p>
    * @public
    */
   sessions?: Session[] | undefined;
@@ -5982,7 +5982,7 @@ export interface CreateInstancesRequest {
    *             <p>Depending on the machine image you choose, the command to get software on your instance
    *         varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use
    *           <code>apt-get</code>, and FreeBSD uses <code>pkg</code>. For a complete list, see the
-   *           <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/compare-options-choose-lightsail-instance-image">Amazon Lightsail Developer Guide</a>.</p>
+   *           <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/compare-options-choose-lightsail-instance-image">Amazon Lightsail Developer Guide</a>.</p>
    *          </note>
    * @public
    */
@@ -6084,7 +6084,7 @@ export interface CreateInstancesFromSnapshotRequest {
    *             <p>Depending on the machine image you choose, the command to get software on your instance
    *         varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use
    *           <code>apt-get</code>, and FreeBSD uses <code>pkg</code>. For a complete list, see the
-   *           <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/compare-options-choose-lightsail-instance-image">Amazon Lightsail Developer Guide</a>.</p>
+   *           <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/compare-options-choose-lightsail-instance-image">Amazon Lightsail Developer Guide</a>.</p>
    *          </note>
    * @public
    */
@@ -6130,7 +6130,7 @@ export interface CreateInstancesFromSnapshotRequest {
    *             </li>
    *             <li>
    *                <p>Define this parameter only when creating a new instance from an automatic snapshot.
-   *           For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
+   *           For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6153,7 +6153,7 @@ export interface CreateInstancesFromSnapshotRequest {
    *             </li>
    *             <li>
    *                <p>Define this parameter only when creating a new instance from an automatic snapshot.
-   *           For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
+   *           For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6171,7 +6171,7 @@ export interface CreateInstancesFromSnapshotRequest {
    *             </li>
    *             <li>
    *                <p>Define this parameter only when creating a new instance from an automatic snapshot.
-   *           For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
+   *           For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6291,7 +6291,7 @@ export interface KeyPair {
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -6404,7 +6404,7 @@ export interface CreateLoadBalancerRequest {
    * <p>The name of the TLS policy to apply to the load balancer.</p>
    *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsPolicies.html">GetLoadBalancerTlsPolicies</a> action to get a list of TLS policy names that you can
    *       specify.</p>
-   *          <p>For more information about load balancer TLS policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
+   *          <p>For more information about load balancer TLS policies, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
    *         balancers</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
    * @public
    */
@@ -7689,7 +7689,7 @@ export interface Disk {
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -7870,7 +7870,7 @@ export interface DiskSnapshot {
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -8014,7 +8014,7 @@ export type NameServersUpdateStateCode = (typeof NameServersUpdateStateCode)[key
 /**
  * <p>Describes the state of the name server records update made by Amazon Lightsail
  *       to an Amazon Route 53 registered domain.</p>
- *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/understanding-dns-in-amazon-lightsail">DNS in Amazon Lightsail</a> in the <i>Amazon Lightsail
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/understanding-dns-in-amazon-lightsail">DNS in Amazon Lightsail</a> in the <i>Amazon Lightsail
  *         Developer Guide</i>.</p>
  * @public
  */
@@ -8130,7 +8130,7 @@ export interface R53HostedZoneDeletionState {
  *          </ul>
  *          <p>If automatic domain delegation fails, or if you manage the DNS of your domain using a
  *       service other than Route 53, then you must manually add the Lightsail
- *       DNS zone name servers to your domain in order to delegate management of its DNS to Lightsail. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-create-dns-entry">Creating a DNS zone to manage your domain’s records in Amazon Lightsail</a>
+ *       DNS zone name servers to your domain in order to delegate management of its DNS to Lightsail. For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-how-to-create-dns-entry">Creating a DNS zone to manage your domain’s records in Amazon Lightsail</a>
  *       in the <i>Amazon Lightsail Developer Guide</i>.</p>
  * @public
  */
@@ -8196,7 +8196,7 @@ export interface Domain {
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -8889,7 +8889,7 @@ export interface GetBucketsResult {
   /**
    * <p>An object that describes the synchronization status of the Amazon S3 account-level
    *       block public access feature for your Lightsail buckets.</p>
-   *          <p>For more information about this feature and how it affects Lightsail buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-block-public-access-for-buckets">Block public access for buckets in Amazon Lightsail</a>.</p>
+   *          <p>For more information about this feature and how it affects Lightsail buckets, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-block-public-access-for-buckets">Block public access for buckets in Amazon Lightsail</a>.</p>
    * @public
    */
   accountLevelBpaSync?: AccountLevelBpaSync | undefined;

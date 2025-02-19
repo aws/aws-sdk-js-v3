@@ -38,8 +38,8 @@ export interface CreateGUISessionAccessDetailsCommandOutput
 
 /**
  * <p>Creates two URLs that are used to access a virtual computer’s graphical user interface
- *       (GUI) session. The primary URL initiates a web-based NICE DCV session to the virtual
- *       computer's application. The secondary URL initiates a web-based NICE DCV session to the
+ *       (GUI) session. The primary URL initiates a web-based Amazon DCV session to the virtual
+ *       computer's application. The secondary URL initiates a web-based Amazon DCV session to the
  *       virtual computer's operating session. </p>
  *          <p>Use <code>StartGUISession</code> to open the session.</p>
  * @example

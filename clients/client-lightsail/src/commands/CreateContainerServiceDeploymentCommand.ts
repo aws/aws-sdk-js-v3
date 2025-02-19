@@ -41,7 +41,7 @@ export interface CreateContainerServiceDeploymentCommandOutput
  *       configuration.</p>
  *          <p>You can deploy containers to your container service using container images from a public
  *       registry such as Amazon ECR Public, or from your local machine. For more information, see
- *         <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images">Creating container images for your Amazon Lightsail container services</a> in the
+ *         <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-container-images">Creating container images for your Amazon Lightsail container services</a> in the
  *         <i>Amazon Lightsail Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

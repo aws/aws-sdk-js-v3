@@ -38,7 +38,7 @@ export interface UpdateInstanceMetadataOptionsCommandOutput
  *       or <code>GetInstances</code> API operation initially responds with a state of
  *         <code>pending</code>. After the parameter modifications are successfully applied, the state
  *       changes to <code>applied</code> in subsequent <code>GetInstance</code> or
- *         <code>GetInstances</code> API calls. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-instance-metadata-service">Use IMDSv2 with an Amazon Lightsail instance</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+ *         <code>GetInstances</code> API calls. For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-instance-metadata-service">Use IMDSv2 with an Amazon Lightsail instance</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

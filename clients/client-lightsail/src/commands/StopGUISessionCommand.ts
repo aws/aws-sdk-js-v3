@@ -28,7 +28,7 @@ export interface StopGUISessionCommandInput extends StopGUISessionRequest {}
 export interface StopGUISessionCommandOutput extends StopGUISessionResult, __MetadataBearer {}
 
 /**
- * <p>Terminates a web-based NICE DCV session that’s used to access a virtual computer’s
+ * <p>Terminates a web-based Amazon DCV session that’s used to access a virtual computer’s
  *       operating system or application. The session will close and any unsaved data will be
  *       lost.</p>
  * @example

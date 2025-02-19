@@ -33,7 +33,7 @@ export interface CreateDomainEntryCommandOutput extends CreateDomainEntryResult,
  *       (SOA), service locator (SRV), or text (TXT).</p>
  *          <p>The <code>create domain entry</code> operation supports tag-based access control via
  *       resource tags applied to the resource identified by <code>domain name</code>. For more
- *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
+ *       information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

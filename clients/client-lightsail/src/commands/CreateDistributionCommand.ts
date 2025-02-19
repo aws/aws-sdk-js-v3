@@ -31,7 +31,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * <p>Creates an Amazon Lightsail content delivery network (CDN) distribution.</p>
  *          <p>A distribution is a globally distributed network of caching servers that improve the
  *       performance of your website or web application hosted on a Lightsail instance. For more
- *       information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-content-delivery-network-distributions">Content delivery networks in Amazon Lightsail</a>.</p>
+ *       information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-content-delivery-network-distributions">Content delivery networks in Amazon Lightsail</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

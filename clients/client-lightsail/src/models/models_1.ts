@@ -789,7 +789,7 @@ export interface InstanceMetadataOptions {
    *             <p>Not all instance blueprints in Lightsail support version 2.0 credentials.
    *         Use the <code>MetadataNoToken</code> instance metric to track the number of calls to the
    *         instance metadata service that are using version 1.0 credentials. For more information, see
-   *           <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-health-metrics">Viewing instance metrics in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+   *           <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-viewing-instance-health-metrics">Viewing instance metrics in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
    *          </important>
    * @public
    */
@@ -1093,7 +1093,7 @@ export interface Instance {
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -1495,7 +1495,7 @@ export interface GetInstanceMetricDataRequest {
    *           of CPU performance available for your instance to burst above its baseline. Your instance
    *           continuously accrues and consumes burst capacity. Burst capacity stops accruing when your
    *           instance's <code>BurstCapacityPercentage</code> reaches 100%. For more information, see
-   *             <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-burst-capacity">Viewing instance burst capacity in Amazon Lightsail</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-viewing-instance-burst-capacity">Viewing instance burst capacity in Amazon Lightsail</a>.</p>
    *                <p>
    *                   <code>Statistics</code>: The most useful statistics are <code>Maximum</code> and
    *             <code>Average</code>.</p>
@@ -1514,7 +1514,7 @@ export interface GetInstanceMetricDataRequest {
    *           100% CPU utilization. For example, if your instance operates at 50% CPU utilization in the
    *           burstable zone for a 5-minute period, then it consumes CPU burst capacity minutes at a 50%
    *           rate in that period. Your instance consumed 2 minutes and 30 seconds of CPU burst capacity
-   *           minutes in the 5-minute period. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-burst-capacity">Viewing instance burst capacity in Amazon Lightsail</a>.</p>
+   *           minutes in the 5-minute period. For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-viewing-instance-burst-capacity">Viewing instance burst capacity in Amazon Lightsail</a>.</p>
    *                <p>
    *                   <code>Statistics</code>: The most useful statistics are <code>Maximum</code> and
    *             <code>Average</code>.</p>
@@ -1996,7 +1996,7 @@ export interface InstanceSnapshot {
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -2506,7 +2506,7 @@ export interface LoadBalancer {
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -3365,7 +3365,7 @@ export interface LoadBalancerTlsCertificate {
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -3577,7 +3577,7 @@ export interface GetLoadBalancerTlsPoliciesRequest {
 /**
  * <p>Describes the TLS security policies that are available for Lightsail load
  *       balancers.</p>
- *          <p>For more information about load balancer TLS security policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
+ *          <p>For more information about load balancer TLS security policies, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
  *         balancers</a> in the <i>Amazon Lightsail Developer
  *       Guide</i>.</p>
  * @public
@@ -3970,7 +3970,7 @@ export interface RelationalDatabase {
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -4984,7 +4984,7 @@ export interface RelationalDatabaseSnapshot {
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    * @public
    */
   tags?: Tag[] | undefined;
@@ -5544,7 +5544,7 @@ export interface PutAlarmRequest {
    *             <code>NetworkTransmitThroughput</code>.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information about these metrics, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-resource-health-metrics#available-metrics">Metrics available in Lightsail</a>.</p>
+   *          <p>For more information about these metrics, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-resource-health-metrics#available-metrics">Metrics available in Lightsail</a>.</p>
    * @public
    */
   metricName: MetricName | undefined;
@@ -6525,7 +6525,7 @@ export interface UpdateContainerServiceRequest {
    * <p>An object to describe the configuration for the container service to access private
    *       container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private
    *       repositories.</p>
-   *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-container-service-ecr-private-repo-access">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
    * @public
    */
   privateRegistryAccess?: PrivateRegistryAccessRequest | undefined;

@@ -31,7 +31,7 @@ export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBea
  * <p>Returns information about one or more Amazon Lightsail buckets. The information returned
  *       includes the synchronization status of the Amazon Simple Storage Service (Amazon S3)
  *       account-level block public access feature for your Lightsail buckets.</p>
- *          <p>For more information about buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
+ *          <p>For more information about buckets, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/buckets-in-amazon-lightsail">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
  *         Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

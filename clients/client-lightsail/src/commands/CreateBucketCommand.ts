@@ -31,7 +31,7 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * <p>Creates an Amazon Lightsail bucket.</p>
  *          <p>A bucket is a cloud storage resource available in the Lightsail object storage service.
  *       Use buckets to store objects such as data and its descriptive metadata. For more information
- *       about buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
+ *       about buckets, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/buckets-in-amazon-lightsail">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
  *         Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

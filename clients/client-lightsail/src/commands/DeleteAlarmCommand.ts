@@ -31,7 +31,7 @@ export interface DeleteAlarmCommandOutput extends DeleteAlarmResult, __MetadataB
  * <p>Deletes an alarm.</p>
  *          <p>An alarm is used to monitor a single metric for one of your resources. When a metric
  *       condition is met, the alarm can notify you by email, SMS text message, and a banner displayed
- *       on the Amazon Lightsail console. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms">Alarms
+ *       on the Amazon Lightsail console. For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms">Alarms
  *         in Amazon Lightsail</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

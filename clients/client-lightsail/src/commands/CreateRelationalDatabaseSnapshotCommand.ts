@@ -36,7 +36,7 @@ export interface CreateRelationalDatabaseSnapshotCommandOutput
  * <p>Creates a snapshot of your database in Amazon Lightsail. You can use snapshots for backups,
  *       to make copies of a database, and to save data before deleting a database.</p>
  *          <p>The <code>create relational database snapshot</code> operation supports tag-based access
- *       control via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
+ *       control via request tags. For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
