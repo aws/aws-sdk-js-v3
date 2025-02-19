@@ -20,7 +20,40 @@ import {
   Tag,
   Topic,
   TopicPreference,
+  VdmOptions,
 } from "./models_0";
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetTrackingOptionsResponse {}
+
+/**
+ * <p>A request to add specific VDM settings to a configuration set.</p>
+ * @public
+ */
+export interface PutConfigurationSetVdmOptionsRequest {
+  /**
+   * <p>The name of the configuration set.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The VDM options to apply to the configuration set.</p>
+   * @public
+   */
+  VdmOptions?: VdmOptions | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetVdmOptionsResponse {}
 
 /**
  * <p>A request to move a dedicated IP address to a dedicated IP pool.</p>

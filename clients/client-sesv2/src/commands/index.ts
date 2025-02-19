@@ -67,6 +67,7 @@ export * from "./PutAccountDetailsCommand";
 export * from "./PutAccountSendingAttributesCommand";
 export * from "./PutAccountSuppressionAttributesCommand";
 export * from "./PutAccountVdmAttributesCommand";
+export * from "./PutConfigurationSetArchivingOptionsCommand";
 export * from "./PutConfigurationSetDeliveryOptionsCommand";
 export * from "./PutConfigurationSetReputationOptionsCommand";
 export * from "./PutConfigurationSetSendingOptionsCommand";

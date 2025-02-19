@@ -190,6 +190,19 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
+ * <p>Used to associate a configuration set with a MailManager archive.</p>
+ * @public
+ */
+export interface ArchivingOptions {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the MailManager archive where the Amazon SES API v2 will archive sent
+   *         emails.</p>
+   * @public
+   */
+  ArchiveArn?: string | undefined;
+}
+
+/**
  * <p>The input you provided is invalid.</p>
  * @public
  */
@@ -1727,6 +1740,13 @@ export interface CreateConfigurationSetRequest {
    * @public
    */
   VdmOptions?: VdmOptions | undefined;
+
+  /**
+   * <p>An object that defines the MailManager archiving options for emails that you send
+   *             using the configuration set.</p>
+   * @public
+   */
+  ArchivingOptions?: ArchivingOptions | undefined;
 }
 
 /**
@@ -5075,6 +5095,13 @@ export interface GetConfigurationSetResponse {
    * @public
    */
   VdmOptions?: VdmOptions | undefined;
+
+  /**
+   * <p>An object that defines the MailManager archive where sent emails are archived that you send
+   *             using the configuration set.</p>
+   * @public
+   */
+  ArchivingOptions?: ArchivingOptions | undefined;
 }
 
 /**
@@ -5869,7 +5896,7 @@ export interface VerificationInfo {
    *             <li>
    *                <p>
    *                   <code>REPLICATION_PRIMARY_INVALID_REGION</code> – The verification failed due to an invalid
-   *                     primary region specified. Ensure you provide a valid AWS region where Amazon SES is available and different
+   *                     primary region specified. Ensure you provide a valid Amazon Web Services region where Amazon SES is available and different
    *                     from the replica region.
    *                 </p>
    *             </li>
@@ -7410,7 +7437,7 @@ export interface Recommendation {
 
   /**
    * <p>The recommendation type, with values like <code>DKIM</code>,
-   *             <code>SPF</code>, <code>DMARC</code> or <code>BIMI</code>.</p>
+   *             <code>SPF</code>, <code>DMARC</code>, <code>BIMI</code>, or <code>COMPLAINT</code>.</p>
    * @public
    */
   Type?: RecommendationType | undefined;
@@ -7746,6 +7773,32 @@ export interface PutAccountVdmAttributesRequest {
 export interface PutAccountVdmAttributesResponse {}
 
 /**
+ * <p>A request to associate a configuration set with a MailManager archive.</p>
+ * @public
+ */
+export interface PutConfigurationSetArchivingOptionsRequest {
+  /**
+   * <p>The name of the configuration set to associate with a MailManager archive.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the MailManager archive that the Amazon SES API v2 sends email
+   *             to.</p>
+   * @public
+   */
+  ArchiveArn?: string | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetArchivingOptionsResponse {}
+
+/**
  * <p>A request to associate a configuration set with a dedicated IP pool.</p>
  * @public
  */
@@ -7914,38 +7967,6 @@ export interface PutConfigurationSetTrackingOptionsRequest {
    */
   HttpsPolicy?: HttpsPolicy | undefined;
 }
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutConfigurationSetTrackingOptionsResponse {}
-
-/**
- * <p>A request to add specific VDM settings to a configuration set.</p>
- * @public
- */
-export interface PutConfigurationSetVdmOptionsRequest {
-  /**
-   * <p>The name of the configuration set.</p>
-   * @public
-   */
-  ConfigurationSetName: string | undefined;
-
-  /**
-   * <p>The VDM options to apply to the configuration set.</p>
-   * @public
-   */
-  VdmOptions?: VdmOptions | undefined;
-}
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutConfigurationSetVdmOptionsResponse {}
 
 /**
  * @internal

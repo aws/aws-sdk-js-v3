@@ -76,6 +76,9 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  *       OptimizedSharedDelivery: "ENABLED" || "DISABLED",
  *     },
  *   },
+ *   ArchivingOptions: { // ArchivingOptions
+ *     ArchiveArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateConfigurationSetCommand(input);
  * const response = await client.send(command);

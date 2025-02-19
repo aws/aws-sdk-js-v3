@@ -756,6 +756,14 @@ PutAccountVdmAttributes
 </details>
 <details>
 <summary>
+PutConfigurationSetArchivingOptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/PutConfigurationSetArchivingOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/PutConfigurationSetArchivingOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/PutConfigurationSetArchivingOptionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 PutConfigurationSetDeliveryOptions
 </summary>
 

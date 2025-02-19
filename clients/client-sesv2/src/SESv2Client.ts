@@ -251,6 +251,10 @@ import {
   PutAccountVdmAttributesCommandOutput,
 } from "./commands/PutAccountVdmAttributesCommand";
 import {
+  PutConfigurationSetArchivingOptionsCommandInput,
+  PutConfigurationSetArchivingOptionsCommandOutput,
+} from "./commands/PutConfigurationSetArchivingOptionsCommand";
+import {
   PutConfigurationSetDeliveryOptionsCommandInput,
   PutConfigurationSetDeliveryOptionsCommandOutput,
 } from "./commands/PutConfigurationSetDeliveryOptionsCommand";
@@ -427,6 +431,7 @@ export type ServiceInputTypes =
   | PutAccountSendingAttributesCommandInput
   | PutAccountSuppressionAttributesCommandInput
   | PutAccountVdmAttributesCommandInput
+  | PutConfigurationSetArchivingOptionsCommandInput
   | PutConfigurationSetDeliveryOptionsCommandInput
   | PutConfigurationSetReputationOptionsCommandInput
   | PutConfigurationSetSendingOptionsCommandInput
@@ -528,6 +533,7 @@ export type ServiceOutputTypes =
   | PutAccountSendingAttributesCommandOutput
   | PutAccountSuppressionAttributesCommandOutput
   | PutAccountVdmAttributesCommandOutput
+  | PutConfigurationSetArchivingOptionsCommandOutput
   | PutConfigurationSetDeliveryOptionsCommandOutput
   | PutConfigurationSetReputationOptionsCommandOutput
   | PutConfigurationSetSendingOptionsCommandOutput

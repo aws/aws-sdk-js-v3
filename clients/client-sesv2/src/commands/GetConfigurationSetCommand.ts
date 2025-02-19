@@ -84,6 +84,9 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  * //       OptimizedSharedDelivery: "ENABLED" || "DISABLED",
  * //     },
  * //   },
+ * //   ArchivingOptions: { // ArchivingOptions
+ * //     ArchiveArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

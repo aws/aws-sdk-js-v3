@@ -335,6 +335,11 @@ import {
   PutAccountVdmAttributesCommandOutput,
 } from "./commands/PutAccountVdmAttributesCommand";
 import {
+  PutConfigurationSetArchivingOptionsCommand,
+  PutConfigurationSetArchivingOptionsCommandInput,
+  PutConfigurationSetArchivingOptionsCommandOutput,
+} from "./commands/PutConfigurationSetArchivingOptionsCommand";
+import {
   PutConfigurationSetDeliveryOptionsCommand,
   PutConfigurationSetDeliveryOptionsCommandInput,
   PutConfigurationSetDeliveryOptionsCommandOutput,
@@ -537,6 +542,7 @@ const commands = {
   PutAccountSendingAttributesCommand,
   PutAccountSuppressionAttributesCommand,
   PutAccountVdmAttributesCommand,
+  PutConfigurationSetArchivingOptionsCommand,
   PutConfigurationSetDeliveryOptionsCommand,
   PutConfigurationSetReputationOptionsCommand,
   PutConfigurationSetSendingOptionsCommand,
@@ -1674,6 +1680,23 @@ export interface SESv2 {
     args: PutAccountVdmAttributesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutAccountVdmAttributesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutConfigurationSetArchivingOptionsCommand}
+   */
+  putConfigurationSetArchivingOptions(
+    args: PutConfigurationSetArchivingOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutConfigurationSetArchivingOptionsCommandOutput>;
+  putConfigurationSetArchivingOptions(
+    args: PutConfigurationSetArchivingOptionsCommandInput,
+    cb: (err: any, data?: PutConfigurationSetArchivingOptionsCommandOutput) => void
+  ): void;
+  putConfigurationSetArchivingOptions(
+    args: PutConfigurationSetArchivingOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutConfigurationSetArchivingOptionsCommandOutput) => void
   ): void;
 
   /**

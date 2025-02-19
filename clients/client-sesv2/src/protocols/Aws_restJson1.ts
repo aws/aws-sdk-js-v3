@@ -226,6 +226,10 @@ import {
   PutAccountVdmAttributesCommandOutput,
 } from "../commands/PutAccountVdmAttributesCommand";
 import {
+  PutConfigurationSetArchivingOptionsCommandInput,
+  PutConfigurationSetArchivingOptionsCommandOutput,
+} from "../commands/PutConfigurationSetArchivingOptionsCommand";
+import {
   PutConfigurationSetDeliveryOptionsCommandInput,
   PutConfigurationSetDeliveryOptionsCommandOutput,
 } from "../commands/PutConfigurationSetDeliveryOptionsCommand";
@@ -322,6 +326,7 @@ import {
 import {
   AccountSuspendedException,
   AlreadyExistsException,
+  ArchivingOptions,
   BadRequestException,
   BatchGetMetricDataQuery,
   BlacklistEntry,
@@ -472,6 +477,7 @@ export const se_CreateConfigurationSetCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ArchivingOptions: (_) => _json(_),
       ConfigurationSetName: [],
       DeliveryOptions: (_) => _json(_),
       ReputationOptions: (_) => se_ReputationOptions(_, context),
@@ -1747,6 +1753,29 @@ export const se_PutAccountVdmAttributesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1PutConfigurationSetArchivingOptionsCommand
+ */
+export const se_PutConfigurationSetArchivingOptionsCommand = async (
+  input: PutConfigurationSetArchivingOptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/configuration-sets/{ConfigurationSetName}/archiving-options");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ArchiveArn: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand
  */
 export const se_PutConfigurationSetDeliveryOptionsCommand = async (
@@ -2958,6 +2987,7 @@ export const de_GetConfigurationSetCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    ArchivingOptions: _json,
     ConfigurationSetName: __expectString,
     DeliveryOptions: _json,
     ReputationOptions: (_) => de_ReputationOptions(_, context),
@@ -3847,6 +3877,23 @@ export const de_PutAccountVdmAttributesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1PutConfigurationSetArchivingOptionsCommand
+ */
+export const de_PutConfigurationSetArchivingOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConfigurationSetArchivingOptionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand
  */
 export const de_PutConfigurationSetDeliveryOptionsCommand = async (
@@ -4653,6 +4700,8 @@ const de_TooManyRequestsExceptionRes = async (
 
 // se_AdditionalContactEmailAddresses omitted.
 
+// se_ArchivingOptions omitted.
+
 /**
  * serializeAws_restJson1BatchGetMetricDataQueries
  */
@@ -4911,6 +4960,8 @@ const se_ReputationOptions = (input: ReputationOptions, context: __SerdeContext)
 // de_AccountDetails omitted.
 
 // de_AdditionalContactEmailAddresses omitted.
+
+// de_ArchivingOptions omitted.
 
 /**
  * deserializeAws_restJson1BlacklistEntries
