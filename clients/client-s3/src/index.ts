@@ -14,5 +14,6 @@ export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
+export * as schemas from "./schemas";
 
 export { S3ServiceException } from "./models/S3ServiceException";
