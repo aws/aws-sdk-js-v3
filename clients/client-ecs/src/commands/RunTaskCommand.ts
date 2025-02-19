@@ -382,7 +382,7 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *
  * @throws {@link BlockedException} (client fault)
  *  <p>Your Amazon Web Services account was blocked. For more information, contact <a href="http://aws.amazon.com/contact-us/">
- * 				Amazon Web Services Support</a>.</p>
+ * 				Amazon Web ServicesSupport</a>.</p>
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. This client action might be using

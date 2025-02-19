@@ -1740,8 +1740,22 @@ export interface AwsVpcConfiguration {
   securityGroups?: string[] | undefined;
 
   /**
-   * <p>Whether the task's elastic network interface receives a public IP address. The default
-   * 			value is <code>ENABLED</code>.</p>
+   * <p>Whether the task's elastic network interface receives a public IP address. </p>
+   *          <p>Consider the following when you set this value:</p>
+   *          <ul>
+   *             <li>
+   *                <p>When you use <code>create-service</code> or <code>update-service</code>, the default is
+   * 						<code>DISABLED</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>When the service <code>deploymentController</code> is <code>ECS</code>, the value must be
+   * 						<code>DISABLED</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>When you use <code>create-service</code> or <code>update-service</code>, the
+   * 					default is <code>ENABLED</code>. </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   assignPublicIp?: AssignPublicIp | undefined;
@@ -7414,11 +7428,14 @@ export interface TaskDefinition {
    * 			this field is optional. Any value can be used. If you use the Fargate launch type, this
    * 			field is required. You must use one of the following values. The value that you choose
    * 			determines your range of valid values for the <code>memory</code> parameter.</p>
-   *          <p>If you use the EC2 launch type, this field is optional. Supported values
-   * 			are between <code>128</code> CPU units (<code>0.125</code> vCPUs) and <code>10240</code>
-   * 			CPU units (<code>10</code> vCPUs).</p>
-   *          <p>The CPU units cannot be less than 1 vCPU when you use Windows containers on
-   * 			Fargate.</p>
+   *          <p>If you're using the EC2 launch type or the external launch type, this
+   * 			field is optional. Supported values are between <code>128</code> CPU units
+   * 				(<code>0.125</code> vCPUs) and <code>196608</code> CPU units (<code>192</code>
+   * 			vCPUs). </p>
+   *          <p>If you're using the Fargate launch type, this field is required and you
+   * 				must use one of the following values, which determines your range of supported values
+   * 				for the <code>memory</code> parameter. The CPU units cannot be less than 1 vCPU when you use Windows containers on
+   * 				Fargate.</p>
    *          <ul>
    *             <li>
    *                <p>256 (.25 vCPU) - Available <code>memory</code> values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)</p>
@@ -9589,10 +9606,11 @@ export interface Task {
    * 			expressed as a string using vCPUs (for example, <code>1 vCPU</code> or <code>1
    * 				vcpu</code>). String values are converted to an integer that indicates the CPU units
    * 			when the task definition is registered.</p>
-   *          <p>If you use the EC2 launch type, this field is optional. Supported values
-   * 			are between <code>128</code> CPU units (<code>0.125</code> vCPUs) and <code>10240</code>
-   * 			CPU units (<code>10</code> vCPUs).</p>
-   *          <p>If you use the Fargate launch type, this field is required. You must use
+   *          <p>If you're using the EC2 launch type or the external launch type, this field is
+   * 			optional. Supported values are between <code>128</code> CPU units (<code>0.125</code>
+   * 			vCPUs) and <code>196608</code> CPU units (<code>192</code> vCPUs). If you do not specify
+   * 			a value, the parameter is ignored.</p>
+   *          <p>If you're using the Fargate launch type, this field is required. You must use
    * 			one of the following values. These values determine the range of supported values for
    * 			the <code>memory</code> parameter:</p>
    *          <p>The CPU units cannot be less than 1 vCPU when you use Windows containers on
@@ -11948,10 +11966,10 @@ export interface RegisterTaskDefinitionRequest {
    *             <p>Task-level CPU and memory parameters are ignored for Windows containers. We
    * 				recommend specifying container-level resources for Windows containers.</p>
    *          </note>
-   *          <p>If you're using the EC2 launch type, this field is optional. Supported
-   * 			values are between <code>128</code> CPU units (<code>0.125</code> vCPUs) and
-   * 				<code>10240</code> CPU units (<code>10</code> vCPUs). If you do not specify a value,
-   * 			the parameter is ignored.</p>
+   *          <p>If you're using the EC2 launch type or external launch type, this field is
+   * 			optional. Supported values are between <code>128</code> CPU units (<code>0.125</code>
+   * 			vCPUs) and <code>196608</code> CPU units (<code>192</code> vCPUs). If you do not specify
+   * 			a value, the parameter is ignored.</p>
    *          <p>If you're using the Fargate launch type, this field is required and you
    * 			must use one of the following values, which determines your range of supported values
    * 			for the <code>memory</code> parameter:</p>
@@ -12209,7 +12227,7 @@ export interface RegisterTaskDefinitionResponse {
 
 /**
  * <p>Your Amazon Web Services account was blocked. For more information, contact <a href="http://aws.amazon.com/contact-us/">
- * 				Amazon Web Services Support</a>.</p>
+ * 				Amazon Web ServicesSupport</a>.</p>
  * @public
  */
 export class BlockedException extends __BaseException {
