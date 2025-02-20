@@ -3990,6 +3990,22 @@ export interface ScopeConfiguration {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const WebhookStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type WebhookStatus = (typeof WebhookStatus)[keyof typeof WebhookStatus];
+
+/**
  * <p>Information about a webhook that connects repository events to a build project in
  *       CodeBuild.</p>
  * @public
@@ -4077,6 +4093,36 @@ export interface Webhook {
    * @public
    */
   scopeConfiguration?: ScopeConfiguration | undefined;
+
+  /**
+   * <p>The status of the webhook. Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code>: The webhook is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_FAILED</code>: The webhook has failed to create.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>: The webhook has succeeded and is active.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code>: The webhook is being deleted.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  status?: WebhookStatus | undefined;
+
+  /**
+   * <p>A message associated with the status of a webhook.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
 }
 
 /**

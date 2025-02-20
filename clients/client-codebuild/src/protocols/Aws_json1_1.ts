@@ -3208,6 +3208,8 @@ const de_Webhook = (output: any, context: __SerdeContext): Webhook => {
     payloadUrl: __expectString,
     scopeConfiguration: _json,
     secret: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
     url: __expectString,
   }) as any;
 };

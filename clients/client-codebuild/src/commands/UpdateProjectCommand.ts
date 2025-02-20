@@ -359,6 +359,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * //         domain: "STRING_VALUE",
  * //         scope: "GITHUB_ORGANIZATION" || "GITHUB_GLOBAL" || "GITLAB_GROUP", // required
  * //       },
+ * //       status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "DELETING",
+ * //       statusMessage: "STRING_VALUE",
  * //     },
  * //     vpcConfig: { // VpcConfig
  * //       vpcId: "STRING_VALUE",
