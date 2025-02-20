@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.753.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.752.0...v3.753.0) (2025-02-20)
+
+
+### Features
+
+* **client-codebuild:** Add webhook status and status message to AWS CodeBuild webhooks ([a5e8b89](https://github.com/aws/aws-sdk-js-v3/commit/a5e8b8976e2fda3f1b9a1184116eacc496532201))
+* **client-guardduty:** Reduce the minimum number of required attack sequence signals from 2 to 1 ([e5560ad](https://github.com/aws/aws-sdk-js-v3/commit/e5560add15c609b8e81d960fe0ed23899619932e))
+* **client-sagemaker:** Added new capability in the UpdateCluster operation to remove instance groups from your SageMaker HyperPod cluster. ([98ed404](https://github.com/aws/aws-sdk-js-v3/commit/98ed4044f629b8efbdcab072a34837f633c5b071))
+* **client-workspaces-web:** Add support for toolbar configuration under user settings. ([4b613e3](https://github.com/aws/aws-sdk-js-v3/commit/4b613e3e5c1126ccd83cac81f09aef4783680fc4))
+* **clients:** update client endpoints as of 2025-02-20 ([697dd68](https://github.com/aws/aws-sdk-js-v3/commit/697dd688e9c091564e301ab9f2eaf6984af7ed45))
+
+
+
+
+
 # [3.752.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.751.0...v3.752.0) (2025-02-19)
 
 

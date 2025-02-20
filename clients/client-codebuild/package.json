@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-codebuild",
   "description": "AWS SDK for JavaScript Codebuild Client for Node.js, Browser and React Native",
-  "version": "3.750.0",
+  "version": "3.753.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-codebuild",

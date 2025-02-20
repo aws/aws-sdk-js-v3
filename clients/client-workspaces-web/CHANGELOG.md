@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.753.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.752.0...v3.753.0) (2025-02-20)
+
+
+### Features
+
+* **client-workspaces-web:** Add support for toolbar configuration under user settings. ([4b613e3](https://github.com/aws/aws-sdk-js-v3/commit/4b613e3e5c1126ccd83cac81f09aef4783680fc4))
+
+
+
+
+
 # [3.750.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.749.0...v3.750.0) (2025-02-17)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces-web

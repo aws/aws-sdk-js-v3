@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.753.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.752.0...v3.753.0) (2025-02-20)
+
+
+### Features
+
+* **client-sagemaker:** Added new capability in the UpdateCluster operation to remove instance groups from your SageMaker HyperPod cluster. ([98ed404](https://github.com/aws/aws-sdk-js-v3/commit/98ed4044f629b8efbdcab072a34837f633c5b071))
+
+
+
+
+
 # [3.752.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.751.0...v3.752.0) (2025-02-19)
 
 

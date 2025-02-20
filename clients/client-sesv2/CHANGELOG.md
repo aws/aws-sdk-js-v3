@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.753.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.752.0...v3.753.0) (2025-02-20)
+
+**Note:** Version bump only for package @aws-sdk/client-sesv2
+
+
+
+
+
 # [3.752.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.751.0...v3.752.0) (2025-02-19)
 
 
