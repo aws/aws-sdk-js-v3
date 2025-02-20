@@ -7942,7 +7942,7 @@ export interface ModifyDBClusterMessage {
    *             <code>PerformanceInsightsRetentionPeriod</code> parameter to 465.</p>
    *          <p>If you change the value from <code>advanced</code> to <code>standard</code>, you must
    *             set the <code>PerformanceInsightsEnabled</code> parameter to <code>false</code>.</p>
-   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    * @public
    */
   DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
@@ -9129,9 +9129,8 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>Specifies the mode of Database Insights to enable for the DB instance.</p>
-   *          <p>This setting only applies to Amazon Aurora DB instances.</p>
    *          <note>
-   *             <p>Currently, this value is inherited from the DB cluster and can't be changed.</p>
+   *             <p>Aurora DB instances inherit this value from the DB cluster, so you can't change this value.</p>
    *          </note>
    * @public
    */
@@ -13764,9 +13763,8 @@ export interface RestoreDBInstanceFromS3Message {
 
   /**
    * <p>Specifies the mode of Database Insights to enable for the DB instance.</p>
-   *          <p>This setting only applies to Amazon Aurora DB instances.</p>
    *          <note>
-   *             <p>Currently, this value is inherited from the DB cluster and can't be changed.</p>
+   *             <p>Aurora DB instances inherit this value from the DB cluster, so you can't change this value.</p>
    *          </note>
    * @public
    */

@@ -5252,7 +5252,7 @@ export interface CreateDBClusterMessage {
    * <p>The mode of Database Insights to enable for the DB cluster.</p>
    *          <p>If you set this value to <code>advanced</code>, you must also set the <code>PerformanceInsightsEnabled</code>
    *             parameter to <code>true</code> and the <code>PerformanceInsightsRetentionPeriod</code> parameter to 465.</p>
-   *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    * @public
    */
   DatabaseInsightsMode?: DatabaseInsightsMode | undefined;
@@ -8415,9 +8415,8 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>The mode of Database Insights to enable for the DB instance.</p>
-   *          <p>This setting only applies to Amazon Aurora DB instances.</p>
    *          <note>
-   *             <p>Currently, this value is inherited from the DB cluster and can't be changed.</p>
+   *             <p>Aurora DB instances inherit this value from the DB cluster, so you can't change this value.</p>
    *          </note>
    * @public
    */
@@ -10413,7 +10412,7 @@ export interface CreateDBInstanceReadReplicaMessage {
   /**
    * <p>The mode of Database Insights to enable for the read replica.</p>
    *          <note>
-   *             <p>Currently, this setting is not supported.</p>
+   *             <p>This setting isn't supported.</p>
    *          </note>
    * @public
    */
