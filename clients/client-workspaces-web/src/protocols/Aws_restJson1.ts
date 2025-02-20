@@ -257,6 +257,8 @@ import {
   SessionSummary,
   Tag,
   ThrottlingException,
+  ToolbarConfiguration,
+  ToolbarItem,
   TooManyTagsException,
   ValidationException,
 } from "../models/models_0";
@@ -634,6 +636,7 @@ export const se_CreateUserSettingsCommand = async (
       pasteAllowed: [],
       printAllowed: [],
       tags: (_) => _json(_),
+      toolbarConfiguration: (_) => _json(_),
       uploadAllowed: [],
     })
   );
@@ -1628,6 +1631,7 @@ export const se_UpdateUserSettingsCommand = async (
       idleDisconnectTimeoutInMinutes: [],
       pasteAllowed: [],
       printAllowed: [],
+      toolbarConfiguration: (_) => _json(_),
       uploadAllowed: [],
     })
   );
@@ -3247,6 +3251,8 @@ const se_CertificateList = (input: Uint8Array[], context: __SerdeContext): any =
 
 // se_GlobalInlineRedactionUrls omitted.
 
+// se_HiddenToolbarItemList omitted.
+
 // se_IdentityProviderDetails omitted.
 
 // se_InlineRedactionConfiguration omitted.
@@ -3270,6 +3276,8 @@ const se_CertificateList = (input: Uint8Array[], context: __SerdeContext): any =
 // se_Tag omitted.
 
 // se_TagList omitted.
+
+// se_ToolbarConfiguration omitted.
 
 // de_ArnList omitted.
 
@@ -3369,6 +3377,8 @@ const de_DataProtectionSettingsSummary = (output: any, context: __SerdeContext):
 // de_EncryptionContextMap omitted.
 
 // de_GlobalInlineRedactionUrls omitted.
+
+// de_HiddenToolbarItemList omitted.
 
 // de_IdentityProvider omitted.
 
@@ -3553,6 +3563,8 @@ const de_SessionSummaryList = (output: any, context: __SerdeContext): SessionSum
 // de_Tag omitted.
 
 // de_TagList omitted.
+
+// de_ToolbarConfiguration omitted.
 
 // de_TrustStore omitted.
 

@@ -77,6 +77,14 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  *     "<keys>": "STRING_VALUE",
  *   },
  *   deepLinkAllowed: "STRING_VALUE",
+ *   toolbarConfiguration: { // ToolbarConfiguration
+ *     toolbarType: "STRING_VALUE",
+ *     visualMode: "STRING_VALUE",
+ *     hiddenToolbarItems: [ // HiddenToolbarItemList
+ *       "STRING_VALUE",
+ *     ],
+ *     maxDisplayResolution: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateUserSettingsCommand(input);
  * const response = await client.send(command);

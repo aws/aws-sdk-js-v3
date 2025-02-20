@@ -4092,6 +4092,101 @@ export type EnabledType = (typeof EnabledType)[keyof typeof EnabledType];
 
 /**
  * @public
+ * @enum
+ */
+export const ToolbarItem = {
+  DUAL_MONITOR: "DualMonitor",
+  FULL_SCREEN: "FullScreen",
+  MICROPHONE: "Microphone",
+  WEBCAM: "Webcam",
+  WINDOWS: "Windows",
+} as const;
+
+/**
+ * @public
+ */
+export type ToolbarItem = (typeof ToolbarItem)[keyof typeof ToolbarItem];
+
+/**
+ * @public
+ * @enum
+ */
+export const MaxDisplayResolution = {
+  RESOLUTION_1080P: "size1920X1080",
+  RESOLUTION_1440P: "size2560X1440",
+  RESOLUTION_1440P_ULTRA_WIDE: "size3440X1440",
+  RESOLUTION_600P: "size800X600",
+  RESOLUTION_720P: "size1280X720",
+  RESOLUTION_768P: "size1024X768",
+  RESOLUTION_DCI_4K: "size4096X2160",
+  RESOLUTION_UHD_4K: "size3840X2160",
+} as const;
+
+/**
+ * @public
+ */
+export type MaxDisplayResolution = (typeof MaxDisplayResolution)[keyof typeof MaxDisplayResolution];
+
+/**
+ * @public
+ * @enum
+ */
+export const ToolbarType = {
+  DOCKED: "Docked",
+  FLOATING: "Floating",
+} as const;
+
+/**
+ * @public
+ */
+export type ToolbarType = (typeof ToolbarType)[keyof typeof ToolbarType];
+
+/**
+ * @public
+ * @enum
+ */
+export const VisualMode = {
+  DARK: "Dark",
+  LIGHT: "Light",
+} as const;
+
+/**
+ * @public
+ */
+export type VisualMode = (typeof VisualMode)[keyof typeof VisualMode];
+
+/**
+ * <p>The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.</p>
+ * @public
+ */
+export interface ToolbarConfiguration {
+  /**
+   * <p>The type of toolbar displayed during the session.</p>
+   * @public
+   */
+  toolbarType?: ToolbarType | undefined;
+
+  /**
+   * <p>The visual mode of the toolbar.</p>
+   * @public
+   */
+  visualMode?: VisualMode | undefined;
+
+  /**
+   * <p>The list of toolbar items to be hidden.</p>
+   * @public
+   */
+  hiddenToolbarItems?: ToolbarItem[] | undefined;
+
+  /**
+   * <p>The maximum display resolution that is allowed for the session.</p>
+   * @public
+   */
+  maxDisplayResolution?: MaxDisplayResolution | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateUserSettingsRequest {
   /**
@@ -4185,6 +4280,12 @@ export interface CreateUserSettingsRequest {
    * @public
    */
   deepLinkAllowed?: EnabledType | undefined;
+
+  /**
+   * <p>The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.</p>
+   * @public
+   */
+  toolbarConfiguration?: ToolbarConfiguration | undefined;
 }
 
 /**
@@ -4318,6 +4419,12 @@ export interface UserSettings {
    * @public
    */
   deepLinkAllowed?: EnabledType | undefined;
+
+  /**
+   * <p>The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.</p>
+   * @public
+   */
+  toolbarConfiguration?: ToolbarConfiguration | undefined;
 }
 
 /**
@@ -4421,6 +4528,12 @@ export interface UserSettingsSummary {
    * @public
    */
   deepLinkAllowed?: EnabledType | undefined;
+
+  /**
+   * <p>The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.</p>
+   * @public
+   */
+  toolbarConfiguration?: ToolbarConfiguration | undefined;
 }
 
 /**
@@ -4524,6 +4637,12 @@ export interface UpdateUserSettingsRequest {
    * @public
    */
   deepLinkAllowed?: EnabledType | undefined;
+
+  /**
+   * <p>The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.</p>
+   * @public
+   */
+  toolbarConfiguration?: ToolbarConfiguration | undefined;
 }
 
 /**

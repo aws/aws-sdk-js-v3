@@ -78,6 +78,14 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     deepLinkAllowed: "STRING_VALUE",
+ * //     toolbarConfiguration: { // ToolbarConfiguration
+ * //       toolbarType: "STRING_VALUE",
+ * //       visualMode: "STRING_VALUE",
+ * //       hiddenToolbarItems: [ // HiddenToolbarItemList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       maxDisplayResolution: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
