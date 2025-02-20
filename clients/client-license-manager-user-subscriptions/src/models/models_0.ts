@@ -776,7 +776,8 @@ export interface DeregisterIdentityProviderRequest {
 
   /**
    * <p>The name of the user-based subscription product.</p>
-   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code>
+   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> |
+   * <code>REMOTE_DESKTOP_SERVICES</code>
    *          </p>
    * @public
    */
@@ -1136,7 +1137,8 @@ export interface ListLicenseServerEndpointsResponse {
 export interface ListProductSubscriptionsRequest {
   /**
    * <p>The name of the user-based subscription product.</p>
-   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code>
+   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> |
+   * <code>REMOTE_DESKTOP_SERVICES</code>
    *          </p>
    * @public
    */
@@ -1358,7 +1360,8 @@ export interface RegisterIdentityProviderRequest {
 
   /**
    * <p>The name of the user-based subscription product.</p>
-   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code>
+   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> |
+   * <code>REMOTE_DESKTOP_SERVICES</code>
    *          </p>
    * @public
    */
@@ -1407,7 +1410,8 @@ export interface StartProductSubscriptionRequest {
 
   /**
    * <p>The name of the user-based subscription product.</p>
-   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code>
+   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> |
+   * <code>REMOTE_DESKTOP_SERVICES</code>
    *          </p>
    * @public
    */
@@ -1456,7 +1460,8 @@ export interface StopProductSubscriptionRequest {
 
   /**
    * <p>The name of the user-based subscription product.</p>
-   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code>
+   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> |
+   * <code>REMOTE_DESKTOP_SERVICES</code>
    *          </p>
    * @public
    */
@@ -1570,7 +1575,8 @@ export interface UpdateIdentityProviderSettingsRequest {
 
   /**
    * <p>The name of the user-based subscription product.</p>
-   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code>
+   *          <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> |
+   * <code>REMOTE_DESKTOP_SERVICES</code>
    *          </p>
    * @public
    */
