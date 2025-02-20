@@ -70,6 +70,9 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *     },
  *   ],
  *   NodeRecovery: "Automatic" || "None",
+ *   InstanceGroupsToDelete: [ // ClusterInstanceGroupsToDelete
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);

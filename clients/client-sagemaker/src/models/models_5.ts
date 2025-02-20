@@ -205,6 +205,13 @@ export interface UpdateClusterRequest {
    * @public
    */
   NodeRecovery?: ClusterNodeRecovery | undefined;
+
+  /**
+   * <p>Specify the names of the instance groups to delete.
+   *       Use a single <code>,</code> as the separator between multiple names.</p>
+   * @public
+   */
+  InstanceGroupsToDelete?: string[] | undefined;
 }
 
 /**

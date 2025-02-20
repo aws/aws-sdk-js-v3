@@ -14144,6 +14144,8 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
 
 // se_ClusterInstanceGroupSpecifications omitted.
 
+// se_ClusterInstanceGroupsToDelete omitted.
+
 // se_ClusterInstanceStorageConfig omitted.
 
 // se_ClusterInstanceStorageConfigs omitted.
