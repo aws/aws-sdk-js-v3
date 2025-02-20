@@ -2987,7 +2987,7 @@ export interface CreateFilterRequest {
    *                <p>service.runtimeDetails.process.name</p>
    *             </li>
    *             <li>
-   *                <p>service.runtimeDetails.process.name</p>
+   *                <p>service.runtimeDetails.process.executablePath</p>
    *             </li>
    *             <li>
    *                <p>resource.lambdaDetails.functionName</p>
@@ -5351,7 +5351,8 @@ export type IndicatorType = (typeof IndicatorType)[keyof typeof IndicatorType];
  */
 export interface Indicator {
   /**
-   * <p>Specific indicator keys observed in the attack sequence.</p>
+   * <p>Specific indicator keys observed in the attack sequence. For description of the valid values for key,
+   *         see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-summary.html#guardduty-extended-threat-detection-attack-sequence-finding-details">Attack sequence finding details</a> in the <i>Amazon GuardDuty User Guide</i>.</p>
    * @public
    */
   Key: IndicatorType | undefined;
@@ -5360,10 +5361,6 @@ export interface Indicator {
    * <p>Values associated with each indicator key. For example, if the indicator key is
    *         <code>SUSPICIOUS_NETWORK</code>, then the value will be the name of the network. If
    *         the indicator key is <code>ATTACK_TACTIC</code>, then the value will be one of the MITRE tactics. </p>
-   *          <p>For more information about the
-   *       values associated with the key, see GuardDuty Extended Threat Detection in the
-   *       <i>GuardDuty User Guide.</i>
-   *          </p>
    * @public
    */
   Values?: string[] | undefined;
@@ -5406,7 +5403,7 @@ export interface Signal {
    *          <p>Signals can be GuardDuty findings or activities observed in data sources that GuardDuty monitors. For
    *        more information, see
    *        <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_data-sources.html">Foundational data sources</a> in the
-   *      <i>GuardDuty User Guide</i>.</p>
+   *      <i>Amazon GuardDuty User Guide</i>.</p>
    *          <p>A signal type can be one of the valid values listed in this API. Here are the related descriptions:</p>
    *          <ul>
    *             <li>
@@ -5423,7 +5420,7 @@ export interface Signal {
    *            with this type will show up only when
    *            you have enabled GuardDuty S3 Protection feature in your account. For more information about S3 Protection and
    *            steps to enable it, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html">S3 Protection</a> in the
-   *            <i>GuardDuty User Guide</i>.</p>
+   *            <i>Amazon GuardDuty User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5470,7 +5467,7 @@ export interface Signal {
   /**
    * <p>The severity associated with the signal. For more information about severity, see
    *        <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-severity.html">Findings severity levels</a>
-   *      in the <i>GuardDuty User Guide</i>.</p>
+   *      in the <i>Amazon GuardDuty User Guide</i>.</p>
    * @public
    */
   Severity?: number | undefined;

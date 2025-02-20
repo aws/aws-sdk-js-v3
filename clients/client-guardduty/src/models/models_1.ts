@@ -147,7 +147,7 @@ export interface MalwareProtectionPlanStatusReason {
    * <p>Issue message that specifies the reason. For information
    *       about potential troubleshooting steps, see
    *       <a href="https://docs.aws.amazon.com/guardduty/latest/ug/troubleshoot-s3-malware-protection-status-errors.html">Troubleshooting Malware Protection for S3 status issues</a> in the
-   *       <i>GuardDuty User Guide</i>.</p>
+   *       <i>Amazon GuardDuty User Guide</i>.</p>
    * @public
    */
   Message?: string | undefined;
