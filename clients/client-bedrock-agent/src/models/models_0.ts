@@ -3455,13 +3455,19 @@ export interface WebCrawlerConfiguration {
   scope?: WebScopeType | undefined;
 
   /**
-   * <p>A string used for identifying the crawler or a bot when it accesses a web server. By default,
-   *             this is set to <code>bedrockbot_UUID</code> for your crawler.  You can optionally append a custom
-   *             string to <code>bedrockbot_UUID</code> to allowlist a specific user agent permitted to access your source URLs.
-   *         </p>
+   * <p>Returns the user agent suffix for your web crawler.</p>
    * @public
    */
   userAgent?: string | undefined;
+
+  /**
+   * <p>A string used for identifying the crawler or bot when it accesses a web server. The user agent header value
+   *         consists of the <code>bedrockbot</code>, UUID, and a user agent suffix for your crawler (if one is provided).
+   *         By default, it is set to <code>bedrockbot_UUID</code>. You can optionally append a custom
+   *         suffix to <code>bedrockbot_UUID</code> to allowlist a specific user agent permitted to access your source URLs. </p>
+   * @public
+   */
+  userAgentHeader?: string | undefined;
 }
 
 /**
@@ -3892,12 +3898,12 @@ export interface ParsingPrompt {
 }
 
 /**
- * <p>Settings for a foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> used to parse documents for a data source.</p>
+ * <p>Settings for a foundation model used to parse documents for a data source.</p>
  * @public
  */
 export interface BedrockFoundationModelConfiguration {
   /**
-   * <p>The ARN of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> to use for parsing.</p>
+   * <p>The ARN of the foundation model to use for parsing.</p>
    * @public
    */
   modelArn: string | undefined;
@@ -9681,6 +9687,7 @@ export const WebCrawlerConfigurationFilterSensitiveLog = (obj: WebCrawlerConfigu
   ...(obj.inclusionFilters && { inclusionFilters: SENSITIVE_STRING }),
   ...(obj.exclusionFilters && { exclusionFilters: SENSITIVE_STRING }),
   ...(obj.userAgent && { userAgent: SENSITIVE_STRING }),
+  ...(obj.userAgentHeader && { userAgentHeader: SENSITIVE_STRING }),
 });
 
 /**

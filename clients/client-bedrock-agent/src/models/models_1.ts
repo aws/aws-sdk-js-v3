@@ -1068,7 +1068,7 @@ export interface SupplementalDataStorageConfiguration {
  */
 export interface VectorKnowledgeBaseConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the model or inference profile used to create vector embeddings for the knowledge base.</p>
+   * <p>The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.</p>
    * @public
    */
   embeddingModelArn: string | undefined;

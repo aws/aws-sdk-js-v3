@@ -84,6 +84,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
  * //           ],
  * //           scope: "HOST_ONLY" || "SUBDOMAINS",
  * //           userAgent: "STRING_VALUE",
+ * //           userAgentHeader: "STRING_VALUE",
  * //         },
  * //       },
  * //       confluenceConfiguration: { // ConfluenceDataSourceConfiguration
