@@ -85,6 +85,9 @@ export interface UpdateDirectoryConfigCommandOutput extends UpdateDirectoryConfi
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>An API error occurred. Wait a few minutes and try again.</p>
  *
+ * @throws {@link IncompatibleImageException} (client fault)
+ *  <p>The image can't be updated because it's not compatible for updates.</p>
+ *
  * @throws {@link InvalidRoleException} (client fault)
  *  <p>The specified role is invalid.</p>
  *
