@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.754.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.753.0...v3.754.0) (2025-02-21)
+
+
+### Features
+
+* **client-appstream:** Added support for Certificate-Based Authentication on AppStream 2.0 multi-session fleets. ([2a8c44a](https://github.com/aws/aws-sdk-js-v3/commit/2a8c44a510546aa89b2837b1b786b5054a752f3c))
+
+
+
+
+
 # [3.750.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.749.0...v3.750.0) (2025-02-17)
 
 **Note:** Version bump only for package @aws-sdk/client-appstream
