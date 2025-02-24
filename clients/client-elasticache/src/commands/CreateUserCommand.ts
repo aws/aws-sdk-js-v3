@@ -28,7 +28,7 @@ export interface CreateUserCommandInput extends CreateUserMessage {}
 export interface CreateUserCommandOutput extends User, __MetadataBearer {}
 
 /**
- * <p>For Valkey engine version 7.2 onwards and Redis OSS 6.0 and onwards: Creates a user. For more information, see
+ * <p>For Valkey engine version 7.2 onwards and Redis OSS 6.0 to 7.1: Creates a user. For more information, see
  *                 <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

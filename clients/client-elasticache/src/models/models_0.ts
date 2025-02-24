@@ -1600,7 +1600,7 @@ export interface ReplicationGroup {
   /**
    * <p>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6
    *             is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2
-   *             and above or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   *             to 7.1 or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
   NetworkType?: NetworkType | undefined;
@@ -1608,7 +1608,7 @@ export interface ReplicationGroup {
   /**
    * <p>The network type you choose when modifying a cluster, either <code>ipv4</code> |
    *             <code>ipv6</code>. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2
-   *             and above or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   *             to 7.1 or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
   IpDiscovery?: IpDiscovery | undefined;
@@ -3124,8 +3124,8 @@ export interface CreateCacheClusterMessage {
 
   /**
    * <p>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6
-   *             is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2
-   *             and above or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>. </p>
+   *             is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 to 7.1
+   *             and Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>. </p>
    * @public
    */
   NetworkType?: NetworkType | undefined;
@@ -3133,7 +3133,7 @@ export interface CreateCacheClusterMessage {
   /**
    * <p>The network type you choose when modifying a cluster, either <code>ipv4</code> |
    *             <code>ipv6</code>. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2
-   *             and above or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   *             to 7.1 and Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
   IpDiscovery?: IpDiscovery | undefined;
@@ -4011,7 +4011,7 @@ export interface CacheCluster {
   /**
    * <p>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6
    *             is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2
-   *             and above or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   *             7.1 or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
   NetworkType?: NetworkType | undefined;
@@ -4019,7 +4019,7 @@ export interface CacheCluster {
   /**
    * <p>The network type associated with the cluster, either <code>ipv4</code> |
    *                 <code>ipv6</code>. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2
-   *             and above or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   *             to 7.1 or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
   IpDiscovery?: IpDiscovery | undefined;
@@ -4525,7 +4525,7 @@ export interface Subnet {
   /**
    * <p>Either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6 is
    *             supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2
-   *             and above or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   *             to 7.1 or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
   SupportedNetworkTypes?: NetworkType[] | undefined;
@@ -4581,7 +4581,7 @@ export interface CacheSubnetGroup {
   /**
    * <p>Either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6 is
    *             supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2
-   *             and above or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   *             to 7.1 or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
   SupportedNetworkTypes?: NetworkType[] | undefined;
@@ -5214,7 +5214,7 @@ export interface CreateReplicationGroupMessage {
 
   /**
    * <p>The name of the cache engine to be used for the clusters in this replication group.
-   *             The value must be set to <code>Redis</code>.</p>
+   *             The value must be set to <code>valkey</code> or <code>redis</code>.</p>
    * @public
    */
   Engine?: string | undefined;
@@ -5467,10 +5467,9 @@ export interface CreateReplicationGroupMessage {
    *             replication group. </p>
    *          <p>
    *             <b>Required:</b> Only available when creating a replication
-   *             group in an Amazon VPC using Redis OSS version <code>3.2.6</code>, <code>4.x</code> or
+   *             group in an Amazon VPC using Valkey 7.2 and later, Redis OSS version <code>3.2.6</code>, or Redis OSS <code>4.x</code> and
    *             later.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
+   *          <p>Default: <code>true</code> when using Valkey, <code>false</code> when using Redis OSS</p>
    * @public
    */
   AtRestEncryptionEnabled?: boolean | undefined;
@@ -5504,7 +5503,7 @@ export interface CreateReplicationGroupMessage {
   /**
    * <p>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6
    *             is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2
-   *             and above or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   *             to 7.1 and Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
   NetworkType?: NetworkType | undefined;
@@ -5512,7 +5511,7 @@ export interface CreateReplicationGroupMessage {
   /**
    * <p>The network type you choose when creating a replication group, either
    *             <code>ipv4</code> | <code>ipv6</code>. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2
-   *             and above or Memcached engine version 1.6.6 and above on all instances built on
+   *             to 7.1 or Memcached engine version 1.6.6 and above on all instances built on
    *             the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
@@ -6209,7 +6208,7 @@ export interface CreateUserMessage {
   UserName: string | undefined;
 
   /**
-   * <p>The current supported value is Redis. </p>
+   * <p>The options are valkey or redis. </p>
    * @public
    */
   Engine: string | undefined;
@@ -6322,7 +6321,7 @@ export interface User {
   Status?: string | undefined;
 
   /**
-   * <p>The current supported value is Redis.</p>
+   * <p>The options are valkey or redis.</p>
    * @public
    */
   Engine?: string | undefined;
@@ -6409,7 +6408,7 @@ export interface CreateUserGroupMessage {
   UserGroupId: string | undefined;
 
   /**
-   * <p>The current supported value is Redis user. </p>
+   * <p>Sets the engine listed in a user group. The options are valkey or redis.</p>
    * @public
    */
   Engine: string | undefined;
@@ -6484,7 +6483,7 @@ export interface UserGroup {
   Status?: string | undefined;
 
   /**
-   * <p>The current supported value is Redis user. </p>
+   * <p>The options are valkey or redis.</p>
    * @public
    */
   Engine?: string | undefined;
@@ -10756,7 +10755,7 @@ export interface ModifyCacheClusterMessage {
   /**
    * <p>The network type you choose when modifying a cluster, either <code>ipv4</code> |
    *             <code>ipv6</code>. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2
-   *             and above or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   *             to 7.1 or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
   IpDiscovery?: IpDiscovery | undefined;
@@ -11276,7 +11275,7 @@ export interface ModifyReplicationGroupMessage {
   /**
    * <p>The network type you choose when modifying a cluster, either <code>ipv4</code> |
    *             <code>ipv6</code>. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2
-   *             and above or Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   *             to 7.1 and Memcached engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
   IpDiscovery?: IpDiscovery | undefined;
@@ -11528,7 +11527,7 @@ export interface ModifyUserMessage {
   AuthenticationMode?: AuthenticationMode | undefined;
 
   /**
-   * <p>The engine for a specific user. </p>
+   * <p>Modifies the engine listed for a user. The options are valkey or redis.</p>
    * @public
    */
   Engine?: string | undefined;
@@ -11557,7 +11556,7 @@ export interface ModifyUserGroupMessage {
   UserIdsToRemove?: string[] | undefined;
 
   /**
-   * <p>The engine for a user group. </p>
+   * <p>Modifies the engine listed in a user group. The options are valkey or redis.</p>
    * @public
    */
   Engine?: string | undefined;
