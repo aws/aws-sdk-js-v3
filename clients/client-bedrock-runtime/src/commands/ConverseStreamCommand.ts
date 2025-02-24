@@ -152,6 +152,13 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *               },
  *             },
  *           },
+ *           reasoningContent: { // ReasoningContentBlock Union: only one key present
+ *             reasoningText: { // ReasoningTextBlock
+ *               text: "STRING_VALUE", // required
+ *               signature: "STRING_VALUE",
+ *             },
+ *             redactedContent: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *           },
  *         },
  *       ],
  *     },
@@ -246,6 +253,11 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //         text: "STRING_VALUE",
  * //         toolUse: { // ToolUseBlockDelta
  * //           input: "STRING_VALUE", // required
+ * //         },
+ * //         reasoningContent: { // ReasoningContentBlockDelta Union: only one key present
+ * //           text: "STRING_VALUE",
+ * //           redactedContent: new Uint8Array(),
+ * //           signature: "STRING_VALUE",
  * //         },
  * //       },
  * //       contentBlockIndex: Number("int"), // required

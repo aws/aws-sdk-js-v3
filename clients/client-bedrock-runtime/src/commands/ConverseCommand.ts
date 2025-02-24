@@ -146,6 +146,13 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *               },
  *             },
  *           },
+ *           reasoningContent: { // ReasoningContentBlock Union: only one key present
+ *             reasoningText: { // ReasoningTextBlock
+ *               text: "STRING_VALUE", // required
+ *               signature: "STRING_VALUE",
+ *             },
+ *             redactedContent: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *           },
  *         },
  *       ],
  *     },
@@ -301,6 +308,13 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //                 bytes: new Uint8Array(),
  * //               },
  * //             },
+ * //           },
+ * //           reasoningContent: { // ReasoningContentBlock Union: only one key present
+ * //             reasoningText: { // ReasoningTextBlock
+ * //               text: "STRING_VALUE", // required
+ * //               signature: "STRING_VALUE",
+ * //             },
+ * //             redactedContent: new Uint8Array(),
  * //           },
  * //         },
  * //       ],

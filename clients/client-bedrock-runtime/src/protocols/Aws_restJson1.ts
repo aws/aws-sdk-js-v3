@@ -56,6 +56,7 @@ import {
   AutoToolChoice,
   ConflictException,
   ContentBlock,
+  ContentBlockDelta,
   ContentBlockDeltaEvent,
   ContentBlockStartEvent,
   ContentBlockStopEvent,
@@ -96,6 +97,9 @@ import {
   PayloadPart,
   PerformanceConfiguration,
   PromptVariableValues,
+  ReasoningContentBlock,
+  ReasoningContentBlockDelta,
+  ReasoningTextBlock,
   ResourceNotFoundException,
   ResponseStream,
   S3Location,
@@ -926,7 +930,7 @@ const de_ContentBlockDeltaEvent_event = async (
 ): Promise<ContentBlockDeltaEvent> => {
   const contents: ContentBlockDeltaEvent = {} as any;
   const data: any = await parseBody(output.body, context);
-  Object.assign(contents, _json(data));
+  Object.assign(contents, de_ContentBlockDeltaEvent(data, context));
   return contents;
 };
 const de_ContentBlockStartEvent_event = async (
@@ -1040,6 +1044,7 @@ const se_ContentBlock = (input: ContentBlock, context: __SerdeContext): any => {
     document: (value) => ({ document: se_DocumentBlock(value, context) }),
     guardContent: (value) => ({ guardContent: se_GuardrailConverseContentBlock(value, context) }),
     image: (value) => ({ image: se_ImageBlock(value, context) }),
+    reasoningContent: (value) => ({ reasoningContent: se_ReasoningContentBlock(value, context) }),
     text: (value) => ({ text: value }),
     toolResult: (value) => ({ toolResult: se_ToolResultBlock(value, context) }),
     toolUse: (value) => ({ toolUse: se_ToolUseBlock(value, context) }),
@@ -1232,6 +1237,19 @@ const se_ModelInputPayload = (input: __DocumentType, context: __SerdeContext): a
 // se_PromptVariableMap omitted.
 
 // se_PromptVariableValues omitted.
+
+/**
+ * serializeAws_restJson1ReasoningContentBlock
+ */
+const se_ReasoningContentBlock = (input: ReasoningContentBlock, context: __SerdeContext): any => {
+  return ReasoningContentBlock.visit(input, {
+    reasoningText: (value) => ({ reasoningText: _json(value) }),
+    redactedContent: (value) => ({ redactedContent: context.base64Encoder(value) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
+
+// se_ReasoningTextBlock omitted.
 
 // se_RequestMetadata omitted.
 
@@ -1446,6 +1464,11 @@ const de_ContentBlock = (output: any, context: __SerdeContext): ContentBlock => 
       image: de_ImageBlock(output.image, context),
     };
   }
+  if (output.reasoningContent != null) {
+    return {
+      reasoningContent: de_ReasoningContentBlock(__expectUnion(output.reasoningContent), context),
+    };
+  }
   if (__expectString(output.text) !== undefined) {
     return { text: __expectString(output.text) as any };
   }
@@ -1467,9 +1490,35 @@ const de_ContentBlock = (output: any, context: __SerdeContext): ContentBlock => 
   return { $unknown: Object.entries(output)[0] };
 };
 
-// de_ContentBlockDelta omitted.
+/**
+ * deserializeAws_restJson1ContentBlockDelta
+ */
+const de_ContentBlockDelta = (output: any, context: __SerdeContext): ContentBlockDelta => {
+  if (output.reasoningContent != null) {
+    return {
+      reasoningContent: de_ReasoningContentBlockDelta(__expectUnion(output.reasoningContent), context),
+    };
+  }
+  if (__expectString(output.text) !== undefined) {
+    return { text: __expectString(output.text) as any };
+  }
+  if (output.toolUse != null) {
+    return {
+      toolUse: _json(output.toolUse),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
-// de_ContentBlockDeltaEvent omitted.
+/**
+ * deserializeAws_restJson1ContentBlockDeltaEvent
+ */
+const de_ContentBlockDeltaEvent = (output: any, context: __SerdeContext): ContentBlockDeltaEvent => {
+  return take(output, {
+    contentBlockIndex: __expectInt32,
+    delta: (_: any) => de_ContentBlockDelta(__expectUnion(_), context),
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1ContentBlocks
@@ -1812,6 +1861,43 @@ const de_PayloadPart = (output: any, context: __SerdeContext): PayloadPart => {
 // de_PerformanceConfiguration omitted.
 
 // de_PromptRouterTrace omitted.
+
+/**
+ * deserializeAws_restJson1ReasoningContentBlock
+ */
+const de_ReasoningContentBlock = (output: any, context: __SerdeContext): ReasoningContentBlock => {
+  if (output.reasoningText != null) {
+    return {
+      reasoningText: _json(output.reasoningText),
+    };
+  }
+  if (output.redactedContent != null) {
+    return {
+      redactedContent: context.base64Decoder(output.redactedContent),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1ReasoningContentBlockDelta
+ */
+const de_ReasoningContentBlockDelta = (output: any, context: __SerdeContext): ReasoningContentBlockDelta => {
+  if (output.redactedContent != null) {
+    return {
+      redactedContent: context.base64Decoder(output.redactedContent),
+    };
+  }
+  if (__expectString(output.signature) !== undefined) {
+    return { signature: __expectString(output.signature) as any };
+  }
+  if (__expectString(output.text) !== undefined) {
+    return { text: __expectString(output.text) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+// de_ReasoningTextBlock omitted.
 
 // de_S3Location omitted.
 
