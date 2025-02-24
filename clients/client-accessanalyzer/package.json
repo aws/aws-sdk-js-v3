@@ -3,8 +3,7 @@
   "description": "AWS SDK for JavaScript Accessanalyzer Client for Node.js, Browser and React Native",
   "version": "3.758.0",
   "scripts": {
-    "build": "concurrently 'yarn generate:version' 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types' ",
-    "build:webpack": "webpack",
+    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-accessanalyzer",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
@@ -12,8 +11,7 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
-    "generate:client": "node ../../scripts/generate-clients/single-service --solo accessanalyzer",
-    "generate:version": "node src/scripts/generate-version.js"
+    "generate:client": "node ../../scripts/generate-clients/single-service --solo accessanalyzer"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",
@@ -65,23 +63,10 @@
   "devDependencies": {
     "@tsconfig/node18": "18.2.4",
     "@types/node": "^18.19.69",
-    "@types/path-browserify": "^1",
-    "@types/webpack-bundle-analyzer": "^4",
-    "assert": "^2.1.0",
-    "browserify-zlib": "^0.2.0",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
-    "http2-wrapper": "^2.2.1",
-    "https-browserify": "^1.0.0",
-    "os-browserify": "^0.3.0",
-    "path-browserify": "^1.0.1",
     "rimraf": "3.0.2",
-    "stream-http": "^3.2.0",
-    "typescript": "~5.2.2",
-    "url": "^0.11.4",
-    "webpack": "^5.97.1",
-    "webpack-bundle-analyzer": "^4.10.2",
-    "webpack-cli": "^6.0.1"
+    "typescript": "~5.2.2"
   },
   "engines": {
     "node": ">=18.0.0"
