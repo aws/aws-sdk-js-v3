@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.755.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.754.0...v3.755.0) (2025-02-24)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Adding support for ReasoningContent fields in Pre-Processing, Post-Processing and Orchestration Trace outputs. ([43a0b65](https://github.com/aws/aws-sdk-js-v3/commit/43a0b65a7b3ddc889fd753b59f942a25f65aaab1))
+
+
+
+
+
 # [3.751.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.750.0...v3.751.0) (2025-02-18)
 
 

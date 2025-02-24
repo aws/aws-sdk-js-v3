@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.755.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.754.0...v3.755.0) (2025-02-24)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Adding support for ReasoningContent fields in Pre-Processing, Post-Processing and Orchestration Trace outputs. ([43a0b65](https://github.com/aws/aws-sdk-js-v3/commit/43a0b65a7b3ddc889fd753b59f942a25f65aaab1))
+* **client-bedrock-agent:** This release improves support for newer models in Amazon Bedrock Flows. ([9192742](https://github.com/aws/aws-sdk-js-v3/commit/9192742b792efd2542bf7940d7235d495e4fb4e4))
+* **client-bedrock-runtime:** This release adds Reasoning Content support to Converse and ConverseStream APIs ([1d7b1c1](https://github.com/aws/aws-sdk-js-v3/commit/1d7b1c1cfed561d5b4dcb9820ac78463a8ffe625))
+* **clients:** update client endpoints as of 2025-02-24 ([438cf24](https://github.com/aws/aws-sdk-js-v3/commit/438cf24b45e5ebe8449b5226f3079eb92438c539))
+
+
+
+
+
 # [3.754.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.753.0...v3.754.0) (2025-02-21)
 
 
