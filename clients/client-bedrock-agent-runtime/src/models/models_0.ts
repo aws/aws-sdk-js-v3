@@ -4344,6 +4344,85 @@ export interface RawResponse {
 }
 
 /**
+ * <p>Contains information about the reasoning that the model used to return the content in the content block.</p>
+ * @public
+ */
+export interface ReasoningTextBlock {
+  /**
+   * <p>Text describing the reasoning that the model used to return the content in the content block.</p>
+   * @public
+   */
+  text: string | undefined;
+
+  /**
+   * <p>A hash of all the messages in the conversation to ensure that the content in the
+   *             reasoning text block isn't tampered with. You must submit the signature in subsequent
+   *                 <code>Converse</code> requests, in addition to the previous messages. If the
+   *             previous messages are tampered with, the response throws an error.</p>
+   * @public
+   */
+  signature?: string | undefined;
+}
+
+/**
+ * <p>Contains content regarding the reasoning that the foundation model made with respect
+ *             to the content in the content block. Reasoning refers to a Chain of Thought (CoT) that
+ *             the model generates to enhance the accuracy of its final response.</p>
+ * @public
+ */
+export type ReasoningContentBlock =
+  | ReasoningContentBlock.ReasoningTextMember
+  | ReasoningContentBlock.RedactedContentMember
+  | ReasoningContentBlock.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ReasoningContentBlock {
+  /**
+   * <p>Contains information about the reasoning that the model used to return the content in
+   *             the content block.</p>
+   * @public
+   */
+  export interface ReasoningTextMember {
+    reasoningText: ReasoningTextBlock;
+    redactedContent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The content in the reasoning that was encrypted by the model provider for trust and safety reasons.</p>
+   * @public
+   */
+  export interface RedactedContentMember {
+    reasoningText?: never;
+    redactedContent: Uint8Array;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    reasoningText?: never;
+    redactedContent?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    reasoningText: (value: ReasoningTextBlock) => T;
+    redactedContent: (value: Uint8Array) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ReasoningContentBlock, visitor: Visitor<T>): T => {
+    if (value.reasoningText !== undefined) return visitor.reasoningText(value.reasoningText);
+    if (value.redactedContent !== undefined) return visitor.redactedContent(value.redactedContent);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>The foundation model output from the orchestration step.</p>
  * @public
  */
@@ -4365,6 +4444,12 @@ export interface OrchestrationModelInvocationOutput {
    * @public
    */
   metadata?: Metadata | undefined;
+
+  /**
+   * <p>Contains content about the reasoning that the model made during the orchestration step. </p>
+   * @public
+   */
+  reasoningContent?: ReasoningContentBlock | undefined;
 }
 
 /**
@@ -4733,6 +4818,12 @@ export interface PostProcessingModelInvocationOutput {
    * @public
    */
   metadata?: Metadata | undefined;
+
+  /**
+   * <p>Contains content about the reasoning that the model made during the post-processing step.</p>
+   * @public
+   */
+  reasoningContent?: ReasoningContentBlock | undefined;
 }
 
 /**
@@ -4851,6 +4942,12 @@ export interface PreProcessingModelInvocationOutput {
    * @public
    */
   metadata?: Metadata | undefined;
+
+  /**
+   * <p>Contains content about the reasoning that the model made during the pre-processing step. </p>
+   * @public
+   */
+  reasoningContent?: ReasoningContentBlock | undefined;
 }
 
 /**
@@ -5841,7 +5938,7 @@ export interface PromptConfiguration {
   inferenceConfiguration?: InferenceConfiguration | undefined;
 
   /**
-   * <p>Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the <code>promptType</code>. If you set the field as <code>OVERRIDEN</code>, the <code>overrideLambda</code> field in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> must be specified with the ARN of a Lambda function.</p>
+   * <p>Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the <code>promptType</code>. If you set the field as <code>OVERRIDDEN</code>, the <code>overrideLambda</code> field in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> must be specified with the ARN of a Lambda function.</p>
    * @public
    */
   parserMode?: CreationMode | undefined;
@@ -9731,10 +9828,27 @@ export const RawResponseFilterSensitiveLog = (obj: RawResponse): any => ({
 /**
  * @internal
  */
+export const ReasoningTextBlockFilterSensitiveLog = (obj: ReasoningTextBlock): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReasoningContentBlockFilterSensitiveLog = (obj: ReasoningContentBlock): any => {
+  if (obj.reasoningText !== undefined) return { reasoningText: SENSITIVE_STRING };
+  if (obj.redactedContent !== undefined) return { redactedContent: obj.redactedContent };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const OrchestrationModelInvocationOutputFilterSensitiveLog = (obj: OrchestrationModelInvocationOutput): any => ({
   ...obj,
   ...(obj.rawResponse && { rawResponse: SENSITIVE_STRING }),
   ...(obj.metadata && { metadata: SENSITIVE_STRING }),
+  ...(obj.reasoningContent && { reasoningContent: SENSITIVE_STRING }),
 });
 
 /**
@@ -9821,6 +9935,7 @@ export const PostProcessingModelInvocationOutputFilterSensitiveLog = (
   ...(obj.parsedResponse && { parsedResponse: SENSITIVE_STRING }),
   ...(obj.rawResponse && { rawResponse: SENSITIVE_STRING }),
   ...(obj.metadata && { metadata: SENSITIVE_STRING }),
+  ...(obj.reasoningContent && { reasoningContent: SENSITIVE_STRING }),
 });
 
 /**
@@ -9848,6 +9963,7 @@ export const PreProcessingModelInvocationOutputFilterSensitiveLog = (obj: PrePro
   ...(obj.parsedResponse && { parsedResponse: SENSITIVE_STRING }),
   ...(obj.rawResponse && { rawResponse: SENSITIVE_STRING }),
   ...(obj.metadata && { metadata: SENSITIVE_STRING }),
+  ...(obj.reasoningContent && { reasoningContent: SENSITIVE_STRING }),
 });
 
 /**

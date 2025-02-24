@@ -498,6 +498,13 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                 outputTokens: Number("int"),
  * //               },
  * //             },
+ * //             reasoningContent: { // ReasoningContentBlock Union: only one key present
+ * //               reasoningText: { // ReasoningTextBlock
+ * //                 text: "STRING_VALUE", // required
+ * //                 signature: "STRING_VALUE",
+ * //               },
+ * //               redactedContent: new Uint8Array(),
+ * //             },
  * //           },
  * //         },
  * //         orchestrationTrace: { // OrchestrationTrace Union: only one key present
@@ -738,6 +745,13 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                 outputTokens: Number("int"),
  * //               },
  * //             },
+ * //             reasoningContent: {//  Union: only one key present
+ * //               reasoningText: {
+ * //                 text: "STRING_VALUE", // required
+ * //                 signature: "STRING_VALUE",
+ * //               },
+ * //               redactedContent: new Uint8Array(),
+ * //             },
  * //           },
  * //         },
  * //         postProcessingTrace: { // PostProcessingTrace Union: only one key present
@@ -772,6 +786,13 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                 inputTokens: Number("int"),
  * //                 outputTokens: Number("int"),
  * //               },
+ * //             },
+ * //             reasoningContent: {//  Union: only one key present
+ * //               reasoningText: {
+ * //                 text: "STRING_VALUE", // required
+ * //                 signature: "STRING_VALUE",
+ * //               },
+ * //               redactedContent: new Uint8Array(),
  * //             },
  * //           },
  * //         },

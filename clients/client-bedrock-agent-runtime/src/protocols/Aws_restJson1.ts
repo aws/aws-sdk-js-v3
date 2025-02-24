@@ -139,18 +139,22 @@ import {
   OptimizedPromptEvent,
   OptimizedPromptStream,
   OrchestrationConfiguration,
+  OrchestrationModelInvocationOutput,
   OrchestrationTrace,
   OutputFile,
   ParameterDetail,
   PayloadPart,
   PerformanceConfiguration,
+  PostProcessingModelInvocationOutput,
   PostProcessingTrace,
+  PreProcessingModelInvocationOutput,
   PreProcessingTrace,
   PromptConfiguration,
   PromptOverrideConfiguration,
   PromptTemplate,
   QueryGenerationInput,
   QueryTransformationConfiguration,
+  ReasoningContentBlock,
   RerankDocument,
   RerankingConfiguration,
   RerankingMetadataSelectiveModeConfiguration,
@@ -2703,7 +2707,20 @@ const de_Observation = (output: any, context: __SerdeContext): Observation => {
 
 // de_OptimizedPromptEvent omitted.
 
-// de_OrchestrationModelInvocationOutput omitted.
+/**
+ * deserializeAws_restJson1OrchestrationModelInvocationOutput
+ */
+const de_OrchestrationModelInvocationOutput = (
+  output: any,
+  context: __SerdeContext
+): OrchestrationModelInvocationOutput => {
+  return take(output, {
+    metadata: _json,
+    rawResponse: _json,
+    reasoningContent: (_: any) => de_ReasoningContentBlock(__expectUnion(_), context),
+    traceId: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1OrchestrationTrace
@@ -2721,7 +2738,7 @@ const de_OrchestrationTrace = (output: any, context: __SerdeContext): Orchestrat
   }
   if (output.modelInvocationOutput != null) {
     return {
-      modelInvocationOutput: _json(output.modelInvocationOutput),
+      modelInvocationOutput: de_OrchestrationModelInvocationOutput(output.modelInvocationOutput, context),
     };
   }
   if (output.observation != null) {
@@ -2776,7 +2793,21 @@ const de_PayloadPart = (output: any, context: __SerdeContext): PayloadPart => {
   }) as any;
 };
 
-// de_PostProcessingModelInvocationOutput omitted.
+/**
+ * deserializeAws_restJson1PostProcessingModelInvocationOutput
+ */
+const de_PostProcessingModelInvocationOutput = (
+  output: any,
+  context: __SerdeContext
+): PostProcessingModelInvocationOutput => {
+  return take(output, {
+    metadata: _json,
+    parsedResponse: _json,
+    rawResponse: _json,
+    reasoningContent: (_: any) => de_ReasoningContentBlock(__expectUnion(_), context),
+    traceId: __expectString,
+  }) as any;
+};
 
 // de_PostProcessingParsedResponse omitted.
 
@@ -2791,13 +2822,27 @@ const de_PostProcessingTrace = (output: any, context: __SerdeContext): PostProce
   }
   if (output.modelInvocationOutput != null) {
     return {
-      modelInvocationOutput: _json(output.modelInvocationOutput),
+      modelInvocationOutput: de_PostProcessingModelInvocationOutput(output.modelInvocationOutput, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-// de_PreProcessingModelInvocationOutput omitted.
+/**
+ * deserializeAws_restJson1PreProcessingModelInvocationOutput
+ */
+const de_PreProcessingModelInvocationOutput = (
+  output: any,
+  context: __SerdeContext
+): PreProcessingModelInvocationOutput => {
+  return take(output, {
+    metadata: _json,
+    parsedResponse: _json,
+    rawResponse: _json,
+    reasoningContent: (_: any) => de_ReasoningContentBlock(__expectUnion(_), context),
+    traceId: __expectString,
+  }) as any;
+};
 
 // de_PreProcessingParsedResponse omitted.
 
@@ -2812,7 +2857,7 @@ const de_PreProcessingTrace = (output: any, context: __SerdeContext): PreProcess
   }
   if (output.modelInvocationOutput != null) {
     return {
-      modelInvocationOutput: _json(output.modelInvocationOutput),
+      modelInvocationOutput: de_PreProcessingModelInvocationOutput(output.modelInvocationOutput, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -2823,6 +2868,25 @@ const de_PreProcessingTrace = (output: any, context: __SerdeContext): PreProcess
 // de_Rationale omitted.
 
 // de_RawResponse omitted.
+
+/**
+ * deserializeAws_restJson1ReasoningContentBlock
+ */
+const de_ReasoningContentBlock = (output: any, context: __SerdeContext): ReasoningContentBlock => {
+  if (output.reasoningText != null) {
+    return {
+      reasoningText: _json(output.reasoningText),
+    };
+  }
+  if (output.redactedContent != null) {
+    return {
+      redactedContent: context.base64Decoder(output.redactedContent),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+// de_ReasoningTextBlock omitted.
 
 // de_RepromptResponse omitted.
 
