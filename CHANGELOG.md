@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.756.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.755.0...v3.756.0) (2025-02-25)
+
+
+### Features
+
+* **client-codebuild:** Adding "reportArns" field in output of BatchGetBuildBatches API. "reportArns" is an array that contains the ARNs of reports created by merging reports from builds associated with the batch build. ([7e91040](https://github.com/aws/aws-sdk-js-v3/commit/7e9104058e26665391ee98d60cad8bb2d5590ee5))
+* **client-device-farm:** Add an optional configuration to the ScheduleRun and CreateRemoteAccessSession API to set a device level http/s proxy. ([6702dbb](https://github.com/aws/aws-sdk-js-v3/commit/6702dbb2311edc3a6b725030a4c0b0708710e452))
+* **client-ec2:** Adds support for time-based EBS-backed AMI copy operations. Time-based copy ensures that EBS-backed AMIs are copied within and across Regions in a specified timeframe. ([027515e](https://github.com/aws/aws-sdk-js-v3/commit/027515e1b2e32bd18737e41ecae2d5721490cafb))
+* **client-iot:** AWS IoT - AWS IoT Device Defender adds support for a new Device Defender Audit Check that monitors device certificate age and custom threshold configurations for both the new device certificate age check and existing device certificate expiry check. ([267052f](https://github.com/aws/aws-sdk-js-v3/commit/267052f69f8a081d4dc7b12e2c0db9ad10448a5d))
+* **client-taxsettings:** PutTaxRegistration API changes for Egypt, Greece, Vietnam countries ([ff74907](https://github.com/aws/aws-sdk-js-v3/commit/ff7490704f40e765dc4261764cddbadaebb1fb8a))
+* **clients:** update client endpoints as of 2025-02-25 ([1317733](https://github.com/aws/aws-sdk-js-v3/commit/13177339ef3fba32cdf3a82bdf966a1839ae21f6))
+
+
+
+
+
 # [3.755.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.754.0...v3.755.0) (2025-02-24)
 
 
