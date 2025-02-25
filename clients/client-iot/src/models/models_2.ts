@@ -89,6 +89,28 @@ import {
 /**
  * @public
  */
+export interface ListCustomMetricsResponse {
+  /**
+   * <p>
+   *       The name of the custom metric.
+   *     </p>
+   * @public
+   */
+  metricNames?: string[] | undefined;
+
+  /**
+   * <p>
+   *       A token that can be used to retrieve the next set of results,
+   *       or <code>null</code> if there are no additional results.
+   *     </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListDetectMitigationActionsExecutionsRequest {
   /**
    * <p>

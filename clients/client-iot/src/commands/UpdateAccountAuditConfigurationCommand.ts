@@ -55,6 +55,9 @@ export interface UpdateAccountAuditConfigurationCommandOutput
  *   auditCheckConfigurations: { // AuditCheckConfigurations
  *     "<keys>": { // AuditCheckConfiguration
  *       enabled: true || false,
+ *       configuration: { // CheckCustomConfiguration
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *     },
  *   },
  * };

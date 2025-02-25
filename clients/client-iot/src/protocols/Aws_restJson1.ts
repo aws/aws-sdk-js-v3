@@ -820,6 +820,7 @@ import {
   CommandParameter,
   CommandParameterValue,
   CommandPayload,
+  ConfigName,
   ConflictException,
   ConflictingResourceUpdateException,
   CustomCodeSigning,
@@ -13417,6 +13418,8 @@ const se_Behaviors = (input: Behavior[], context: __SerdeContext): any => {
 
 // se_CertificateProviderAccountDefaultForOperations omitted.
 
+// se_CheckCustomConfiguration omitted.
+
 // se_Cidrs omitted.
 
 // se_ClientCertificateConfig omitted.
@@ -14366,6 +14369,8 @@ const de_CertificateValidity = (output: any, context: __SerdeContext): Certifica
     notBefore: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_CheckCustomConfiguration omitted.
 
 // de_Cidrs omitted.
 

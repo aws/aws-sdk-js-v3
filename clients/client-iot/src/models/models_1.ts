@@ -78,8 +78,37 @@ import {
   TlsConfig,
   TopicRuleDestinationStatus,
   VerificationState,
-  VpcDestinationProperties,
 } from "./models_0";
+
+/**
+ * <p>The properties of a virtual private cloud (VPC) destination.</p>
+ * @public
+ */
+export interface VpcDestinationProperties {
+  /**
+   * <p>The subnet IDs of the VPC destination.</p>
+   * @public
+   */
+  subnetIds?: string[] | undefined;
+
+  /**
+   * <p>The security groups of the VPC destination.</p>
+   * @public
+   */
+  securityGroups?: string[] | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  vpcId?: string | undefined;
+
+  /**
+   * <p>The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+}
 
 /**
  * <p>A topic rule destination.</p>
@@ -7444,28 +7473,6 @@ export interface ListCustomMetricsRequest {
    * @public
    */
   maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCustomMetricsResponse {
-  /**
-   * <p>
-   *       The name of the custom metric.
-   *     </p>
-   * @public
-   */
-  metricNames?: string[] | undefined;
-
-  /**
-   * <p>
-   *       A token that can be used to retrieve the next set of results,
-   *       or <code>null</code> if there are no additional results.
-   *     </p>
-   * @public
-   */
-  nextToken?: string | undefined;
 }
 
 /**

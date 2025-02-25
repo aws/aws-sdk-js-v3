@@ -2768,6 +2768,20 @@ export interface AttributePayload {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ConfigName = {
+  CERT_AGE_THRESHOLD_IN_DAYS: "CERT_AGE_THRESHOLD_IN_DAYS",
+  CERT_EXPIRATION_THRESHOLD_IN_DAYS: "CERT_EXPIRATION_THRESHOLD_IN_DAYS",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigName = (typeof ConfigName)[keyof typeof ConfigName];
+
+/**
  * <p>Which audit checks are enabled and disabled for this account.</p>
  * @public
  */
@@ -2777,6 +2791,12 @@ export interface AuditCheckConfiguration {
    * @public
    */
   enabled?: boolean | undefined;
+
+  /**
+   * <p>A structure containing the configName and corresponding configValue for configuring audit checks.</p>
+   * @public
+   */
+  configuration?: Partial<Record<ConfigName, string>> | undefined;
 }
 
 /**
@@ -7974,36 +7994,6 @@ export const TopicRuleDestinationStatus = {
  * @public
  */
 export type TopicRuleDestinationStatus = (typeof TopicRuleDestinationStatus)[keyof typeof TopicRuleDestinationStatus];
-
-/**
- * <p>The properties of a virtual private cloud (VPC) destination.</p>
- * @public
- */
-export interface VpcDestinationProperties {
-  /**
-   * <p>The subnet IDs of the VPC destination.</p>
-   * @public
-   */
-  subnetIds?: string[] | undefined;
-
-  /**
-   * <p>The security groups of the VPC destination.</p>
-   * @public
-   */
-  securityGroups?: string[] | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  vpcId?: string | undefined;
-
-  /**
-   * <p>The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).</p>
-   * @public
-   */
-  roleArn?: string | undefined;
-}
 
 /**
  * @internal
