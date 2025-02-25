@@ -66,6 +66,7 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  *       ],
  *     },
  *   ],
+ *   SnapshotCopyCompletionDurationMinutes: Number("long"),
  *   DryRun: true || false,
  * };
  * const command = new CopyImageCommand(input);

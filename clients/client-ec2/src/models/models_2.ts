@@ -6422,7 +6422,7 @@ export interface CreateVerifiedAccessEndpointLoadBalancerOptions {
   LoadBalancerArn?: string | undefined;
 
   /**
-   * <p>The IDs of the subnets.</p>
+   * <p>The IDs of the subnets. You can specify only one subnet per Availability Zone.</p>
    * @public
    */
   SubnetIds?: string[] | undefined;
@@ -6507,7 +6507,7 @@ export interface CreateVerifiedAccessEndpointRdsOptions {
   RdsEndpoint?: string | undefined;
 
   /**
-   * <p>The IDs of the subnets.</p>
+   * <p>The IDs of the subnets. You can specify only one subnet per Availability Zone.</p>
    * @public
    */
   SubnetIds?: string[] | undefined;

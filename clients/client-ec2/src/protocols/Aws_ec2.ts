@@ -31030,6 +31030,9 @@ const se_CopyImageRequest = (input: CopyImageRequest, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
+  if (input[_SCCDM] != null) {
+    entries[_SCCDM] = input[_SCCDM];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -89504,6 +89507,7 @@ const _SC = "SubnetConfigurations";
 const _SCA = "ServerCertificateArn";
 const _SCAE = "SerialConsoleAccessEnabled";
 const _SCB = "SourceCidrBlock";
+const _SCCDM = "SnapshotCopyCompletionDurationMinutes";
 const _SCR = "SourceCapacityReservation";
 const _SCRI = "SourceCapacityReservationId";
 const _SCRIu = "SubnetCidrReservationId";

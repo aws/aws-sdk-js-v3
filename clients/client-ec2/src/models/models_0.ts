@@ -8375,6 +8375,19 @@ export interface CopyImageRequest {
   TagSpecifications?: TagSpecification[] | undefined;
 
   /**
+   * <p>Specify a completion duration, in 15 minute increments, to initiate a time-based
+   *       AMI copy. The specified completion duration applies to each of the snapshots associated
+   *       with the AMI. Each snapshot associated with the AMI will be completed within the
+   *       specified completion duration, regardless of their size.</p>
+   *          <p>If you do not specify a value, the AMI copy operation is completed on a best-effort
+   *       basis.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/time-based-copies.html">
+   *       Time-based copies</a>.</p>
+   * @public
+   */
+  SnapshotCopyCompletionDurationMinutes?: number | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
