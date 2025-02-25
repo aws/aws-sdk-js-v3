@@ -131,6 +131,19 @@ export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsR
  * //           indiaAdditionalInfo: { // IndiaAdditionalInfo
  * //             pan: "STRING_VALUE",
  * //           },
+ * //           vietnamAdditionalInfo: { // VietnamAdditionalInfo
+ * //             enterpriseIdentificationNumber: "STRING_VALUE",
+ * //             electronicTransactionCodeNumber: "STRING_VALUE",
+ * //             paymentVoucherNumber: "STRING_VALUE",
+ * //             paymentVoucherNumberDate: "STRING_VALUE",
+ * //           },
+ * //           egyptAdditionalInfo: { // EgyptAdditionalInfo
+ * //             uniqueIdentificationNumber: "STRING_VALUE",
+ * //             uniqueIdentificationNumberExpirationDate: "STRING_VALUE",
+ * //           },
+ * //           greeceAdditionalInfo: { // GreeceAdditionalInfo
+ * //             contractingAuthorityCode: "STRING_VALUE",
+ * //           },
  * //         },
  * //         jurisdiction: { // Jurisdiction
  * //           stateOrRegion: "STRING_VALUE",

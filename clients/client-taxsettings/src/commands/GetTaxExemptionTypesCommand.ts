@@ -28,7 +28,7 @@ export interface GetTaxExemptionTypesCommandInput extends GetTaxExemptionTypesRe
 export interface GetTaxExemptionTypesCommandOutput extends GetTaxExemptionTypesResponse, __MetadataBearer {}
 
 /**
- * <p>Get supported tax exemption types.
+ * <p>Get supported tax exemption types. The IAM action is <code>tax:GetExemptions</code>.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

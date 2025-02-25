@@ -28,7 +28,7 @@ export interface BatchGetTaxExemptionsCommandInput extends BatchGetTaxExemptions
 export interface BatchGetTaxExemptionsCommandOutput extends BatchGetTaxExemptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Get the active tax exemptions for a given list of accounts.
+ * <p>Get the active tax exemptions for a given list of accounts. The IAM action is <code>tax:GetExemptions</code>.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

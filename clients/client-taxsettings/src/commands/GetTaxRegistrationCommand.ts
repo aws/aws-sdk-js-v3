@@ -125,6 +125,19 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  * //       indiaAdditionalInfo: { // IndiaAdditionalInfo
  * //         pan: "STRING_VALUE",
  * //       },
+ * //       vietnamAdditionalInfo: { // VietnamAdditionalInfo
+ * //         enterpriseIdentificationNumber: "STRING_VALUE",
+ * //         electronicTransactionCodeNumber: "STRING_VALUE",
+ * //         paymentVoucherNumber: "STRING_VALUE",
+ * //         paymentVoucherNumberDate: "STRING_VALUE",
+ * //       },
+ * //       egyptAdditionalInfo: { // EgyptAdditionalInfo
+ * //         uniqueIdentificationNumber: "STRING_VALUE",
+ * //         uniqueIdentificationNumberExpirationDate: "STRING_VALUE",
+ * //       },
+ * //       greeceAdditionalInfo: { // GreeceAdditionalInfo
+ * //         contractingAuthorityCode: "STRING_VALUE",
+ * //       },
  * //     },
  * //     legalAddress: { // Address
  * //       addressLine1: "STRING_VALUE", // required

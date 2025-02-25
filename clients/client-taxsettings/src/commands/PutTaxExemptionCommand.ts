@@ -28,7 +28,7 @@ export interface PutTaxExemptionCommandInput extends PutTaxExemptionRequest {}
 export interface PutTaxExemptionCommandOutput extends PutTaxExemptionResponse, __MetadataBearer {}
 
 /**
- * <p>Adds the tax exemption for a single account or all accounts listed in a consolidated billing family.
+ * <p>Adds the tax exemption for a single account or all accounts listed in a consolidated billing family. The IAM action is <code>tax:UpdateExemptions</code>.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,15 +65,15 @@ export interface PutTaxExemptionCommandOutput extends PutTaxExemptionResponse, _
  * @see {@link TaxSettingsClientResolvedConfig | config} for TaxSettingsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The access is denied for the Amazon Web Services Support API.
+ *  <p>The access is denied for the Amazon Web ServicesSupport API.
  *     </p>
  *
  * @throws {@link AttachmentUploadException} (client fault)
- *  <p>Failed to upload the tax exemption document to Amazon Web Services Support case.
+ *  <p>Failed to upload the tax exemption document to Amazon Web ServicesSupport case.
  *     </p>
  *
  * @throws {@link CaseCreationLimitExceededException} (client fault)
- *  <p>You've exceeded the Amazon Web Services Support case creation limit for your account.
+ *  <p>You've exceeded the Amazon Web ServicesSupport case creation limit for your account.
  *     </p>
  *
  * @throws {@link InternalServerException} (server fault)

@@ -4,7 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { TaxSettingsServiceException as __BaseException } from "./TaxSettingsServiceException";
 
 /**
- * <p>The access is denied for the Amazon Web Services Support API.
+ * <p>The access is denied for the Amazon Web ServicesSupport API.
  *     </p>
  * @public
  */
@@ -264,6 +264,24 @@ export interface CanadaAdditionalInfo {
 }
 
 /**
+ * <p>Additional tax information to specify for a TRN in Egypt.</p>
+ * @public
+ */
+export interface EgyptAdditionalInfo {
+  /**
+   * <p>The unique identification number provided by the Egypt Tax Authority.</p>
+   * @public
+   */
+  uniqueIdentificationNumber?: string | undefined;
+
+  /**
+   * <p>The expiration date of the unique identification number provided by the Egypt Tax Authority.</p>
+   * @public
+   */
+  uniqueIdentificationNumberExpirationDate?: string | undefined;
+}
+
+/**
  * <p> Additional tax information associated with your TRN in Estonia.</p>
  * @public
  */
@@ -305,6 +323,19 @@ export interface GeorgiaAdditionalInfo {
    * @public
    */
   personType: PersonType | undefined;
+}
+
+/**
+ * <p>Additional tax information to specify for a TRN in Greece.
+ *     </p>
+ * @public
+ */
+export interface GreeceAdditionalInfo {
+  /**
+   * <p>The code of contracting authority for e-invoicing.</p>
+   * @public
+   */
+  contractingAuthorityCode?: string | undefined;
 }
 
 /**
@@ -689,6 +720,36 @@ export interface UkraineAdditionalInfo {
 }
 
 /**
+ * <p>Additional tax information to specify for a TRN in Vietnam.</p>
+ * @public
+ */
+export interface VietnamAdditionalInfo {
+  /**
+   * <p>The enterprise identification number for tax registration.</p>
+   * @public
+   */
+  enterpriseIdentificationNumber?: string | undefined;
+
+  /**
+   * <p>The electronic transaction code number on the tax return document.</p>
+   * @public
+   */
+  electronicTransactionCodeNumber?: string | undefined;
+
+  /**
+   * <p>The payment voucher number on the tax return payment document.</p>
+   * @public
+   */
+  paymentVoucherNumber?: string | undefined;
+
+  /**
+   * <p>The date on the tax return payment document.</p>
+   * @public
+   */
+  paymentVoucherNumberDate?: string | undefined;
+}
+
+/**
  * <p> Additional tax information associated with your TRN. The Tax Settings API returns
  *       country-specific information in the response when any additional information is present with
  *       your TRN for the following countries.</p>
@@ -804,6 +865,27 @@ export interface AdditionalInfoResponse {
    * @public
    */
   indiaAdditionalInfo?: IndiaAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a TRN in Vietnam.
+   *     </p>
+   * @public
+   */
+  vietnamAdditionalInfo?: VietnamAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a TRN in Egypt.
+   *     </p>
+   * @public
+   */
+  egyptAdditionalInfo?: EgyptAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a TRN in Greece.
+   *     </p>
+   * @public
+   */
+  greeceAdditionalInfo?: GreeceAdditionalInfo | undefined;
 }
 
 /**
@@ -1082,10 +1164,30 @@ export interface AdditionalInfoRequest {
    * @public
    */
   saudiArabiaAdditionalInfo?: SaudiArabiaAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a TRN in Vietnam.
+   *     </p>
+   * @public
+   */
+  vietnamAdditionalInfo?: VietnamAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a TRN in Egypt.
+   *     </p>
+   * @public
+   */
+  egyptAdditionalInfo?: EgyptAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a TRN in Greece.</p>
+   * @public
+   */
+  greeceAdditionalInfo?: GreeceAdditionalInfo | undefined;
 }
 
 /**
- * <p>Failed to upload the tax exemption document to Amazon Web Services Support case.
+ * <p>Failed to upload the tax exemption document to Amazon Web ServicesSupport case.
  *     </p>
  * @public
  */
@@ -1700,7 +1802,7 @@ export interface BatchPutTaxRegistrationResponse {
 }
 
 /**
- * <p>You've exceeded the Amazon Web Services Support case creation limit for your account.
+ * <p>You've exceeded the Amazon Web ServicesSupport case creation limit for your account.
  *     </p>
  * @public
  */

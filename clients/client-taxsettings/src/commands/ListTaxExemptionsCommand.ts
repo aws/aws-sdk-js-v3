@@ -28,8 +28,7 @@ export interface ListTaxExemptionsCommandInput extends ListTaxExemptionsRequest 
 export interface ListTaxExemptionsCommandOutput extends ListTaxExemptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the tax exemption of accounts listed in a consolidated billing family.
- *     </p>
+ * <p>Retrieves the tax exemption of accounts listed in a consolidated billing family. The IAM action is <code>tax:GetExemptions</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

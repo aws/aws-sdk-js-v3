@@ -301,6 +301,19 @@ export interface BatchPutTaxRegistrationCommandOutput extends BatchPutTaxRegistr
  *       saudiArabiaAdditionalInfo: { // SaudiArabiaAdditionalInfo
  *         taxRegistrationNumberType: "TaxRegistrationNumber" || "TaxIdentificationNumber" || "CommercialRegistrationNumber",
  *       },
+ *       vietnamAdditionalInfo: { // VietnamAdditionalInfo
+ *         enterpriseIdentificationNumber: "STRING_VALUE",
+ *         electronicTransactionCodeNumber: "STRING_VALUE",
+ *         paymentVoucherNumber: "STRING_VALUE",
+ *         paymentVoucherNumberDate: "STRING_VALUE",
+ *       },
+ *       egyptAdditionalInfo: { // EgyptAdditionalInfo
+ *         uniqueIdentificationNumber: "STRING_VALUE",
+ *         uniqueIdentificationNumberExpirationDate: "STRING_VALUE",
+ *       },
+ *       greeceAdditionalInfo: { // GreeceAdditionalInfo
+ *         contractingAuthorityCode: "STRING_VALUE",
+ *       },
  *     },
  *     verificationDetails: { // VerificationDetails
  *       dateOfBirth: "STRING_VALUE",

@@ -78,9 +78,11 @@ import {
   CaseCreationLimitExceededException,
   ConflictException,
   DestinationS3Location,
+  EgyptAdditionalInfo,
   EstoniaAdditionalInfo,
   ExemptionCertificate,
   GeorgiaAdditionalInfo,
+  GreeceAdditionalInfo,
   InternalServerException,
   IsraelAdditionalInfo,
   ItalyAdditionalInfo,
@@ -105,6 +107,7 @@ import {
   UkraineAdditionalInfo,
   ValidationException,
   VerificationDetails,
+  VietnamAdditionalInfo,
 } from "../models/models_0";
 import { TaxSettingsServiceException as __BaseException } from "../models/TaxSettingsServiceException";
 
@@ -979,6 +982,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DestinationS3Location omitted.
 
+// se_EgyptAdditionalInfo omitted.
+
 // se_EstoniaAdditionalInfo omitted.
 
 /**
@@ -992,6 +997,8 @@ const se_ExemptionCertificate = (input: ExemptionCertificate, context: __SerdeCo
 };
 
 // se_GeorgiaAdditionalInfo omitted.
+
+// se_GreeceAdditionalInfo omitted.
 
 // se_IsraelAdditionalInfo omitted.
 
@@ -1080,6 +1087,8 @@ const se_VerificationDetails = (input: VerificationDetails, context: __SerdeCont
   });
 };
 
+// se_VietnamAdditionalInfo omitted.
+
 // de_AccountDetails omitted.
 
 // de_AccountDetailsList omitted.
@@ -1110,9 +1119,13 @@ const se_VerificationDetails = (input: VerificationDetails, context: __SerdeCont
 
 // de_CanadaAdditionalInfo omitted.
 
+// de_EgyptAdditionalInfo omitted.
+
 // de_EstoniaAdditionalInfo omitted.
 
 // de_GeorgiaAdditionalInfo omitted.
+
+// de_GreeceAdditionalInfo omitted.
 
 // de_IndiaAdditionalInfo omitted.
 
@@ -1214,6 +1227,8 @@ const de_TaxExemptions = (output: any, context: __SerdeContext): TaxExemption[] 
 // de_ValidationExceptionField omitted.
 
 // de_ValidationExceptionFieldList omitted.
+
+// de_VietnamAdditionalInfo omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
