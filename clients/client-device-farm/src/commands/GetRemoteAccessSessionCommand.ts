@@ -125,6 +125,10 @@ export interface GetRemoteAccessSessionCommandOutput extends GetRemoteAccessSess
  * //       ],
  * //       vpcId: "STRING_VALUE", // required
  * //     },
+ * //     deviceProxy: { // DeviceProxy
+ * //       host: "STRING_VALUE", // required
+ * //       port: Number("int"), // required
+ * //     },
  * //   },
  * // };
  *

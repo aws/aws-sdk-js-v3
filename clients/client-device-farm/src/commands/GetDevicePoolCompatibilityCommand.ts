@@ -59,6 +59,10 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  *     vpceConfigurationArns: [ // AmazonResourceNames
  *       "STRING_VALUE",
  *     ],
+ *     deviceProxy: { // DeviceProxy
+ *       host: "STRING_VALUE", // required
+ *       port: Number("int"), // required
+ *     },
  *     customerArtifactPaths: { // CustomerArtifactPaths
  *       iosPaths: [ // IosPaths
  *         "STRING_VALUE",

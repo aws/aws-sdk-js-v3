@@ -127,6 +127,10 @@ export interface ListRemoteAccessSessionsCommandOutput extends ListRemoteAccessS
  * //         ],
  * //         vpcId: "STRING_VALUE", // required
  * //       },
+ * //       deviceProxy: { // DeviceProxy
+ * //         host: "STRING_VALUE", // required
+ * //         port: Number("int"), // required
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

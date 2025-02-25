@@ -72,6 +72,10 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  *     vpceConfigurationArns: [ // AmazonResourceNames
  *       "STRING_VALUE",
  *     ],
+ *     deviceProxy: { // DeviceProxy
+ *       host: "STRING_VALUE", // required
+ *       port: Number("int"), // required
+ *     },
  *     customerArtifactPaths: { // CustomerArtifactPaths
  *       iosPaths: [ // IosPaths
  *         "STRING_VALUE",
@@ -146,6 +150,10 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  * //       downlinkJitterMs: Number("long"),
  * //       uplinkLossPercent: Number("int"),
  * //       downlinkLossPercent: Number("int"),
+ * //     },
+ * //     deviceProxy: { // DeviceProxy
+ * //       host: "STRING_VALUE", // required
+ * //       port: Number("int"), // required
  * //     },
  * //     parsingResultUrl: "STRING_VALUE",
  * //     resultCode: "PARSING_FAILED" || "VPC_ENDPOINT_SETUP_FAILED",

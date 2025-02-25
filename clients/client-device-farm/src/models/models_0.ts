@@ -1156,6 +1156,24 @@ export class TagOperationException extends __BaseException {
 }
 
 /**
+ * <p>Represents the http/s proxy configuration that will be applied to a device during a run.</p>
+ * @public
+ */
+export interface DeviceProxy {
+  /**
+   * <p>Hostname or IPv4 address of the proxy.</p>
+   * @public
+   */
+  host: string | undefined;
+
+  /**
+   * <p>The port number on which the http/s proxy is listening.</p>
+   * @public
+   */
+  port: number | undefined;
+}
+
+/**
  * <p>Configuration settings for a remote access session, including billing
  *             method.</p>
  * @public
@@ -1172,6 +1190,12 @@ export interface CreateRemoteAccessSessionConfiguration {
    * @public
    */
   vpceConfigurationArns?: string[] | undefined;
+
+  /**
+   * <p>The device proxy to be configured on the device for the remote access session.</p>
+   * @public
+   */
+  deviceProxy?: DeviceProxy | undefined;
 }
 
 /**
@@ -1853,6 +1877,12 @@ export interface RemoteAccessSession {
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The device proxy configured for the remote access session.</p>
+   * @public
+   */
+  deviceProxy?: DeviceProxy | undefined;
 }
 
 /**
@@ -2894,6 +2924,12 @@ export interface ScheduleRunConfiguration {
    * @public
    */
   vpceConfigurationArns?: string[] | undefined;
+
+  /**
+   * <p>The device proxy to be configured on the device for the run.</p>
+   * @public
+   */
+  deviceProxy?: DeviceProxy | undefined;
 
   /**
    * <p>Input <code>CustomerArtifactPaths</code> object for the scheduled run
@@ -4247,6 +4283,12 @@ export interface Run {
    * @public
    */
   networkProfile?: NetworkProfile | undefined;
+
+  /**
+   * <p>The device proxy configured for the devices in the run.</p>
+   * @public
+   */
+  deviceProxy?: DeviceProxy | undefined;
 
   /**
    * <p>Read-only URL for an object in an S3 bucket where you can get the parsing results of the test package.

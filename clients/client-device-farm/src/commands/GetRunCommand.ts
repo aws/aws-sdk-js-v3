@@ -83,6 +83,10 @@ export interface GetRunCommandOutput extends GetRunResult, __MetadataBearer {}
  * //       uplinkLossPercent: Number("int"),
  * //       downlinkLossPercent: Number("int"),
  * //     },
+ * //     deviceProxy: { // DeviceProxy
+ * //       host: "STRING_VALUE", // required
+ * //       port: Number("int"), // required
+ * //     },
  * //     parsingResultUrl: "STRING_VALUE",
  * //     resultCode: "PARSING_FAILED" || "VPC_ENDPOINT_SETUP_FAILED",
  * //     seed: Number("int"),

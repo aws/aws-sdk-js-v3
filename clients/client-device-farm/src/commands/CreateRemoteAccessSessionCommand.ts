@@ -50,6 +50,10 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  *     vpceConfigurationArns: [ // AmazonResourceNames
  *       "STRING_VALUE",
  *     ],
+ *     deviceProxy: { // DeviceProxy
+ *       host: "STRING_VALUE", // required
+ *       port: Number("int"), // required
+ *     },
  *   },
  *   interactionMode: "INTERACTIVE" || "NO_VIDEO" || "VIDEO_ONLY",
  *   skipAppResign: true || false,
@@ -140,6 +144,10 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  * //         "STRING_VALUE",
  * //       ],
  * //       vpcId: "STRING_VALUE", // required
+ * //     },
+ * //     deviceProxy: { // DeviceProxy
+ * //       host: "STRING_VALUE", // required
+ * //       port: Number("int"), // required
  * //     },
  * //   },
  * // };
