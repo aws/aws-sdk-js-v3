@@ -2438,6 +2438,7 @@ const de_BuildBatch = (output: any, context: __SerdeContext): BuildBatch => {
     phases: (_: any) => de_BuildBatchPhases(_, context),
     projectName: __expectString,
     queuedTimeoutInMinutes: __expectInt32,
+    reportArns: _json,
     resolvedSourceVersion: __expectString,
     secondaryArtifacts: _json,
     secondarySourceVersions: _json,

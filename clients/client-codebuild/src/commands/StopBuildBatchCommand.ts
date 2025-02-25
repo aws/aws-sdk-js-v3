@@ -264,6 +264,9 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * //       },
  * //     ],
  * //     debugSessionEnabled: true || false,
+ * //     reportArns: [ // BuildReportArns
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

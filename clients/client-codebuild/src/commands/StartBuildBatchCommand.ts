@@ -390,6 +390,9 @@ export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __M
  * //       },
  * //     ],
  * //     debugSessionEnabled: true || false,
+ * //     reportArns: [ // BuildReportArns
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

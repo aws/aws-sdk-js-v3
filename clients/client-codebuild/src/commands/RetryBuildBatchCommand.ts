@@ -266,6 +266,9 @@ export interface RetryBuildBatchCommandOutput extends RetryBuildBatchOutput, __M
  * //       },
  * //     ],
  * //     debugSessionEnabled: true || false,
+ * //     reportArns: [ // BuildReportArns
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

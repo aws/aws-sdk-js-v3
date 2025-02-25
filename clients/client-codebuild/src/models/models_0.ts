@@ -2196,6 +2196,12 @@ export interface BuildBatch {
    * @public
    */
   debugSessionEnabled?: boolean | undefined;
+
+  /**
+   * <p>An array that contains the ARNs of reports created by merging reports from builds associated with this batch build.</p>
+   * @public
+   */
+  reportArns?: string[] | undefined;
 }
 
 /**

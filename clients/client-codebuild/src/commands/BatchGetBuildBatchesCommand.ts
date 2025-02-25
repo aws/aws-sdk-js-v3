@@ -267,6 +267,9 @@ export interface BatchGetBuildBatchesCommandOutput extends BatchGetBuildBatchesO
  * //         },
  * //       ],
  * //       debugSessionEnabled: true || false,
+ * //       reportArns: [ // BuildReportArns
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   buildBatchesNotFound: [ // BuildBatchIds
