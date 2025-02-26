@@ -2982,6 +2982,9 @@ export interface VpcOriginConfig {
  * 					configured with static website hosting.</p>
  *             </li>
  *             <li>
+ *                <p>Use <code>VpcOriginConfig</code> to specify a VPC origin.</p>
+ *             </li>
+ *             <li>
  *                <p>Use <code>CustomOriginConfig</code> to specify all other kinds of origins,
  * 					including:</p>
  *                <ul>
@@ -3393,7 +3396,7 @@ export interface ViewerCertificate {
    *                   <code>static-ip</code> - Do not specify this value unless your distribution
    * 					has been enabled for this feature by the CloudFront team. If you have a use case
    * 					that requires static IP addresses for a distribution, contact CloudFront through
-   * 					the <a href="https://console.aws.amazon.com/support/home">Amazon Web Services Support Center</a>.</p>
+   * 					the <a href="https://console.aws.amazon.com/support/home">Amazon Web ServicesSupport Center</a>.</p>
    *             </li>
    *          </ul>
    *          <p>If the distribution uses the CloudFront domain name such as
