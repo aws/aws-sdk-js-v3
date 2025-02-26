@@ -10,7 +10,7 @@ import {
   ListRoomMembershipsRequest,
   ListRoomMembershipsResponse,
   ListRoomMembershipsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_ListRoomMembershipsCommand, se_ListRoomMembershipsCommand } from "../protocols/Aws_restJson1";
 
 /**

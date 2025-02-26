@@ -11,7 +11,7 @@ import {
   UpdatePhoneNumberRequestFilterSensitiveLog,
   UpdatePhoneNumberResponse,
   UpdatePhoneNumberResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_UpdatePhoneNumberCommand, se_UpdatePhoneNumberCommand } from "../protocols/Aws_restJson1";
 
 /**

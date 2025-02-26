@@ -10,7 +10,7 @@ import {
   ResetPersonalPINRequest,
   ResetPersonalPINResponse,
   ResetPersonalPINResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_ResetPersonalPINCommand, se_ResetPersonalPINCommand } from "../protocols/Aws_restJson1";
 
 /**

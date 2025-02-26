@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { LogoutUserRequest, LogoutUserResponse } from "../models/models_1";
+import { LogoutUserRequest, LogoutUserResponse } from "../models/models_0";
 import { de_LogoutUserCommand, se_LogoutUserCommand } from "../protocols/Aws_restJson1";
 
 /**

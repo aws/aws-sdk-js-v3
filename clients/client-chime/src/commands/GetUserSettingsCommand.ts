@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetUserSettingsRequest, GetUserSettingsResponse } from "../models/models_1";
+import { GetUserSettingsRequest, GetUserSettingsResponse } from "../models/models_0";
 import { de_GetUserSettingsCommand, se_GetUserSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**

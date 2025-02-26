@@ -10,7 +10,7 @@ import {
   ListPhoneNumbersRequest,
   ListPhoneNumbersResponse,
   ListPhoneNumbersResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_ListPhoneNumbersCommand, se_ListPhoneNumbersCommand } from "../protocols/Aws_restJson1";
 
 /**

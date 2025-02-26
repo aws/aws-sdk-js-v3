@@ -10,7 +10,7 @@ import {
   UpdateRoomMembershipRequest,
   UpdateRoomMembershipResponse,
   UpdateRoomMembershipResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_UpdateRoomMembershipCommand, se_UpdateRoomMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -10,7 +10,7 @@ import {
   SearchAvailablePhoneNumbersRequest,
   SearchAvailablePhoneNumbersResponse,
   SearchAvailablePhoneNumbersResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   de_SearchAvailablePhoneNumbersCommand,
   se_SearchAvailablePhoneNumbersCommand,

@@ -11,7 +11,7 @@ import {
   ListUsersRequestFilterSensitiveLog,
   ListUsersResponse,
   ListUsersResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetRetentionSettingsRequest } from "../models/models_0";
-import { GetRetentionSettingsResponse } from "../models/models_1";
+import { GetRetentionSettingsRequest, GetRetentionSettingsResponse } from "../models/models_0";
 import { de_GetRetentionSettingsCommand, se_GetRetentionSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**

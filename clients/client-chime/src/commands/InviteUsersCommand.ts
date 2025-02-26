@@ -11,7 +11,7 @@ import {
   InviteUsersRequestFilterSensitiveLog,
   InviteUsersResponse,
   InviteUsersResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_InviteUsersCommand, se_InviteUsersCommand } from "../protocols/Aws_restJson1";
 
 /**

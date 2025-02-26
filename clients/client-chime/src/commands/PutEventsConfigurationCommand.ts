@@ -11,7 +11,7 @@ import {
   PutEventsConfigurationRequestFilterSensitiveLog,
   PutEventsConfigurationResponse,
   PutEventsConfigurationResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_PutEventsConfigurationCommand, se_PutEventsConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**

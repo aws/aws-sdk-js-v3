@@ -10,7 +10,7 @@ import {
   RegenerateSecurityTokenRequest,
   RegenerateSecurityTokenResponse,
   RegenerateSecurityTokenResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_RegenerateSecurityTokenCommand, se_RegenerateSecurityTokenCommand } from "../protocols/Aws_restJson1";
 
 /**

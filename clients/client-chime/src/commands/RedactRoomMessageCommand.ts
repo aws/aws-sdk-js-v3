@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RedactRoomMessageRequest, RedactRoomMessageResponse } from "../models/models_1";
+import { RedactRoomMessageRequest, RedactRoomMessageResponse } from "../models/models_0";
 import { de_RedactRoomMessageCommand, se_RedactRoomMessageCommand } from "../protocols/Aws_restJson1";
 
 /**

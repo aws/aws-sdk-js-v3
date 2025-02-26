@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdatePhoneNumberSettingsRequest,
   UpdatePhoneNumberSettingsRequestFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_UpdatePhoneNumberSettingsCommand, se_UpdatePhoneNumberSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**

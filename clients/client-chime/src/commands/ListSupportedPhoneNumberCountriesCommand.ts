@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListSupportedPhoneNumberCountriesRequest,
   ListSupportedPhoneNumberCountriesResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import {
   de_ListSupportedPhoneNumberCountriesCommand,
   se_ListSupportedPhoneNumberCountriesCommand,

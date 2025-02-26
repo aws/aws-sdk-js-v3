@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRoomsRequest, ListRoomsResponse, ListRoomsResponseFilterSensitiveLog } from "../models/models_1";
+import { ListRoomsRequest, ListRoomsResponse, ListRoomsResponseFilterSensitiveLog } from "../models/models_0";
 import { de_ListRoomsCommand, se_ListRoomsCommand } from "../protocols/Aws_restJson1";
 
 /**

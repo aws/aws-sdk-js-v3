@@ -11,7 +11,7 @@ import {
   UpdateUserRequestFilterSensitiveLog,
   UpdateUserResponse,
   UpdateUserResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_UpdateUserCommand, se_UpdateUserCommand } from "../protocols/Aws_restJson1";
 
 /**

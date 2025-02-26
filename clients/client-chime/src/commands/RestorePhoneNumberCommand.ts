@@ -10,7 +10,7 @@ import {
   RestorePhoneNumberRequest,
   RestorePhoneNumberResponse,
   RestorePhoneNumberResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_RestorePhoneNumberCommand, se_RestorePhoneNumberCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -11,7 +11,7 @@ import {
   UpdateRoomRequestFilterSensitiveLog,
   UpdateRoomResponse,
   UpdateRoomResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_UpdateRoomCommand, se_UpdateRoomCommand } from "../protocols/Aws_restJson1";
 
 /**

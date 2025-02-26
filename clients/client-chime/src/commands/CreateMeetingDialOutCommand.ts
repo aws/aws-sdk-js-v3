@@ -38,7 +38,7 @@ export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutR
  * <code>CreateSipMediaApplicationCall</code> action with the corresponding SIP media application ID.</p>
  *          <important>
  *             <p>
- *                <b>This API is is not available in a dedicated namespace.</b>
+ *                <b>This API is not available in a dedicated namespace.</b>
  *             </p>
  *          </important>
  * @example

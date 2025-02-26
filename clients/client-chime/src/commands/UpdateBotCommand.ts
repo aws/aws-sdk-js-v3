@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateBotRequest, UpdateBotResponse, UpdateBotResponseFilterSensitiveLog } from "../models/models_1";
+import { UpdateBotRequest, UpdateBotResponse, UpdateBotResponseFilterSensitiveLog } from "../models/models_0";
 import { de_UpdateBotCommand, se_UpdateBotCommand } from "../protocols/Aws_restJson1";
 
 /**
