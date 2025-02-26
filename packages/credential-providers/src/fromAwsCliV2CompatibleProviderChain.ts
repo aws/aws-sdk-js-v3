@@ -22,20 +22,11 @@ export type AwsCliV2CompatibleProviderOptions = Partial<AwsCredentialIdentity> &
   FromSSOInit &
   FromTokenFileInit & {
     /**
-     * Setting a client profile is similar to setting a value for the
-     * AWS_PROFILE environment variable. Setting a profile on a client
-     * in code only affects the single client instance, unlike AWS_PROFILE.
-     *
-     * When set, and only for environments where an AWS configuration
-     * file exists, fields configurable by this file will be retrieved
-     * from the specified profile within that file.
-     * Conflicting code configuration and environment variables will
-     * still have higher priority.
-     *
-     * For client credential resolution that involves checking the AWS
-     * configuration file, the client's profile (this value) will be
-     * used unless a different profile is set in the credential
-     * provider options.
+     * The name of the profile to use while loading credentials.
+     * If specified, credentials will be loaded from the shared credentials file
+     * or shared config file using this profile.
+     * If not specified, the provider chain will attempt to load credentials from
+     * other sources according to order of precedence.
      *
      */
     profile?: string;
@@ -52,18 +43,18 @@ export type AwsCliV2CompatibleProviderOptions = Partial<AwsCredentialIdentity> &
  * Creates a credential provider that sources credentials using the same priority
  * chain as the AWS CLI v2:
  *
- * 1. Static credentials from initialization
- * 2. Profile credentials (if profile specified)
- * 3. Environment variables
- * 4. Web Identity Token credentials
- * 5. SSO credentials
- * 6. Process credentials
- * 7. Remote credentials (ECS, EC2 Instance Metadata)
+ * 1. Static credentials from initialization.
+ * 2. Profile credentials (if profile specified).
+ * 3. Environment variables.
+ * 4. Web Identity Token credentials.
+ * 5. SSO credentials.
+ * 6. Process credentials.
+ * 7. Remote credentials (ECS, EC2 Instance Metadata).
  *
  * Uses dynamic imports and `createCredentialChain` to mimic AWS CLI V2 behavior.
  *
  * @param init - Configuration options for the provider chain
- * @returns An AWS credential provider function that returns a promise for credentials
+ * @returns An AWS credential provider function
  */
 
 export const fromAwsCliV2CompatibleProviderChain =
@@ -73,6 +64,7 @@ export const fromAwsCliV2CompatibleProviderChain =
     const init: AwsCliV2CompatibleProviderOptions = {
       ..._init,
       ...callerClientConfig,
+      profile: _init.profile ?? callerClientConfig?.profile,
       logger: _init.logger ?? callerClientConfig?.logger,
     };
 
@@ -80,24 +72,28 @@ export const fromAwsCliV2CompatibleProviderChain =
       "@aws-sdk/credential-providers - fromAwsCliV2CompatibleProviderChain - Initializing credential chain"
     );
 
-    const { profile, logger, ...awsCredentials } = init;
+    const { profile, logger, accessKeyId, secretAccessKey, sessionToken, expiration, ...rest } = init;
 
     // 1. If credentials are explicitly provided, return them.
-    if (awsCredentials.accessKeyId && awsCredentials.secretAccessKey) {
+    if (accessKeyId && secretAccessKey) {
       logger?.debug(
         "@aws-sdk/credential-providers - fromAwsCliV2CompatibleProviderChain - using static credentials from initialization"
       );
-      return awsCredentials as AwsCredentialIdentity;
+      return {
+        accessKeyId,
+        secretAccessKey,
+        ...(sessionToken && { sessionToken }),
+        ...(expiration && { expiration }),
+      } as AwsCredentialIdentity;
     }
 
     // 2. If a profile is explicitly passed, use `fromIni`.
     if (profile) {
       logger?.debug(
-        "@aws-sdk/credential-providers - fromAwsCliV2CompatibleProviderChain - Using fromIni with profile:",
-        profile
+        "@aws-sdk/credential-providers - fromAwsCliV2CompatibleProviderChain - Using fromIni with profile:" + profile
       );
       const { fromIni } = await import("@aws-sdk/credential-provider-ini");
-      return fromIni({ profile, logger })();
+      return fromIni({ profile, logger, ...init })();
     }
 
     logger?.debug(
