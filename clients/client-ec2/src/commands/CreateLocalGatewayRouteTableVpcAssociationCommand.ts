@@ -6,8 +6,10 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateLocalGatewayRouteTableVpcAssociationRequest } from "../models/models_1";
-import { CreateLocalGatewayRouteTableVpcAssociationResult } from "../models/models_2";
+import {
+  CreateLocalGatewayRouteTableVpcAssociationRequest,
+  CreateLocalGatewayRouteTableVpcAssociationResult,
+} from "../models/models_2";
 import {
   de_CreateLocalGatewayRouteTableVpcAssociationCommand,
   se_CreateLocalGatewayRouteTableVpcAssociationCommand,

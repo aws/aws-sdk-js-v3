@@ -20,7 +20,6 @@ import {
   InstanceEventWindow,
   IpPermission,
   Ipv6SupportValue,
-  NatGatewayAddress,
   PortRange,
   RouteTableAssociationState,
   SecurityGroupReferencingSupportValue,
@@ -131,6 +130,7 @@ import {
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
   InstanceState,
+  InstanceStatusEvent,
   Monitoring,
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
@@ -158,7 +158,114 @@ import {
   VpcBlockPublicAccessOptions,
 } from "./models_5";
 
-import { CapacityReservationSpecification, IpamResourceCidr, OperationType, Purchase } from "./models_6";
+import {
+  CapacityReservationSpecification,
+  IpamResourceCidr,
+  OperationType,
+  Purchase,
+  SuccessfulInstanceCreditSpecificationItem,
+  UnsuccessfulInstanceCreditSpecificationErrorCode,
+} from "./models_6";
+
+/**
+ * <p>Information about the error for the burstable performance instance whose credit option
+ *             for CPU usage was not modified.</p>
+ * @public
+ */
+export interface UnsuccessfulInstanceCreditSpecificationItemError {
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  Code?: UnsuccessfulInstanceCreditSpecificationErrorCode | undefined;
+
+  /**
+   * <p>The applicable error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>Describes the burstable performance instance whose credit option for CPU usage was not
+ *             modified.</p>
+ * @public
+ */
+export interface UnsuccessfulInstanceCreditSpecificationItem {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The applicable error for the burstable performance instance whose credit option for
+   *             CPU usage was not modified.</p>
+   * @public
+   */
+  Error?: UnsuccessfulInstanceCreditSpecificationItemError | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceCreditSpecificationResult {
+  /**
+   * <p>Information about the instances whose credit option for CPU usage was successfully
+   *             modified.</p>
+   * @public
+   */
+  SuccessfulInstanceCreditSpecifications?: SuccessfulInstanceCreditSpecificationItem[] | undefined;
+
+  /**
+   * <p>Information about the instances whose credit option for CPU usage was not
+   *             modified.</p>
+   * @public
+   */
+  UnsuccessfulInstanceCreditSpecifications?: UnsuccessfulInstanceCreditSpecificationItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceEventStartTimeRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the instance with the scheduled event.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The ID of the event whose date and time you are modifying.</p>
+   * @public
+   */
+  InstanceEventId: string | undefined;
+
+  /**
+   * <p>The new date and time when the event will take place.</p>
+   * @public
+   */
+  NotBefore: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceEventStartTimeResult {
+  /**
+   * <p>Information about the event.</p>
+   * @public
+   */
+  Event?: InstanceStatusEvent | undefined;
+}
 
 /**
  * @public
@@ -1045,8 +1152,8 @@ export interface ModifyLaunchTemplateRequest {
 
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *                 idempotency</a>.</p>
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency
+   *                 in Amazon EC2 API requests</a>.</p>
    *          <p>Constraint: Maximum 128 ASCII characters.</p>
    * @public
    */
@@ -9422,125 +9529,6 @@ export interface TerminateInstancesResult {
    * @public
    */
   TerminatingInstances?: InstanceStateChange[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UnassignIpv6AddressesRequest {
-  /**
-   * <p>The IPv6 prefixes to unassign from the network interface.</p>
-   * @public
-   */
-  Ipv6Prefixes?: string[] | undefined;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * <p>The IPv6 addresses to unassign from the network interface.</p>
-   * @public
-   */
-  Ipv6Addresses?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UnassignIpv6AddressesResult {
-  /**
-   * <p>The ID of the network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId?: string | undefined;
-
-  /**
-   * <p>The IPv6 addresses that have been unassigned from the network interface.</p>
-   * @public
-   */
-  UnassignedIpv6Addresses?: string[] | undefined;
-
-  /**
-   * <p>The IPv6 prefixes that have been unassigned from  the network interface.</p>
-   * @public
-   */
-  UnassignedIpv6Prefixes?: string[] | undefined;
-}
-
-/**
- * <p>Contains the parameters for UnassignPrivateIpAddresses.</p>
- * @public
- */
-export interface UnassignPrivateIpAddressesRequest {
-  /**
-   * <p>The IPv4 prefixes to unassign from  the network interface.</p>
-   * @public
-   */
-  Ipv4Prefixes?: string[] | undefined;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * <p>The secondary private IP addresses to unassign from the network interface. You can specify this
-   *         	option multiple times to unassign more than one IP address.</p>
-   * @public
-   */
-  PrivateIpAddresses?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UnassignPrivateNatGatewayAddressRequest {
-  /**
-   * <p>The ID of the NAT gateway.</p>
-   * @public
-   */
-  NatGatewayId: string | undefined;
-
-  /**
-   * <p>The private IPv4 addresses you want to unassign.</p>
-   * @public
-   */
-  PrivateIpAddresses: string[] | undefined;
-
-  /**
-   * <p>The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.</p>
-   * @public
-   */
-  MaxDrainDurationSeconds?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UnassignPrivateNatGatewayAddressResult {
-  /**
-   * <p>The ID of the NAT gateway.</p>
-   * @public
-   */
-  NatGatewayId?: string | undefined;
-
-  /**
-   * <p>Information about the NAT gateway IP addresses.</p>
-   * @public
-   */
-  NatGatewayAddresses?: NatGatewayAddress[] | undefined;
 }
 
 /**

@@ -2524,6 +2524,7 @@ import {
   BaselinePerformanceFactors,
   BaselinePerformanceFactorsRequest,
   BlockDeviceMapping,
+  BlockDeviceMappingResponse,
   BlockPublicAccessStates,
   CapacityAllocation,
   CapacityReservation,
@@ -2610,8 +2611,6 @@ import {
   CreateLocalGatewayRouteTableRequest,
   CreateLocalGatewayRouteTableResult,
   CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
-  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
-  CreateLocalGatewayRouteTableVpcAssociationRequest,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
@@ -2620,6 +2619,7 @@ import {
   DhcpOptions,
   DirectoryServiceAuthenticationRequest,
   EbsBlockDevice,
+  EbsBlockDeviceResponse,
   Ec2InstanceConnectEndpoint,
   EgressOnlyInternetGateway,
   ElasticGpuSpecification,
@@ -2630,7 +2630,9 @@ import {
   ExportToS3Task,
   ExportToS3TaskSpecification,
   FederatedAuthenticationRequest,
+  FleetBlockDeviceMappingRequest,
   FleetCapacityReservation,
+  FleetEbsBlockDeviceRequest,
   FleetLaunchTemplateConfigRequest,
   FleetLaunchTemplateOverrides,
   FleetLaunchTemplateOverridesRequest,
@@ -2707,8 +2709,6 @@ import {
   LaunchTemplateVersion,
   LocalGatewayRoute,
   LocalGatewayRouteTable,
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
-  LocalGatewayRouteTableVpcAssociation,
   LocalStorageType,
   MemoryGiBPerVCpu,
   MemoryGiBPerVCpuRequest,
@@ -2752,6 +2752,8 @@ import {
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
   ConnectionTrackingConfiguration,
+  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
+  CreateLocalGatewayRouteTableVpcAssociationRequest,
   CreateLocalGatewayRouteTableVpcAssociationResult,
   CreateManagedPrefixListRequest,
   CreateManagedPrefixListResult,
@@ -2864,10 +2866,6 @@ import {
   CreateVpnConnectionRouteRequest,
   CreateVpnGatewayRequest,
   CreateVpnGatewayResult,
-  DeleteCarrierGatewayRequest,
-  DeleteCarrierGatewayResult,
-  DeleteClientVpnEndpointRequest,
-  DeleteClientVpnEndpointResult,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2879,6 +2877,8 @@ import {
   InstanceSpecification,
   Ipv6PrefixSpecification,
   LastError,
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
+  LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
   NatGateway,
   NetworkAcl,
@@ -3004,6 +3004,10 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   DeclarativePoliciesReport,
+  DeleteCarrierGatewayRequest,
+  DeleteCarrierGatewayResult,
+  DeleteClientVpnEndpointRequest,
+  DeleteClientVpnEndpointResult,
   DeleteClientVpnRouteRequest,
   DeleteClientVpnRouteResult,
   DeleteCoipCidrRequest,
@@ -3149,6 +3153,7 @@ import {
   DeprovisionPublicIpv4PoolCidrRequest,
   DeprovisionPublicIpv4PoolCidrResult,
   DeregisterImageRequest,
+  DeregisterImageResult,
   DeregisterInstanceEventNotificationAttributesRequest,
   DeregisterInstanceEventNotificationAttributesResult,
   DeregisterInstanceTagAttributeRequest,
@@ -3222,15 +3227,12 @@ import {
   DescribeFastLaunchImagesResult,
   DescribeFastLaunchImagesSuccessItem,
   DescribeFastSnapshotRestoresRequest,
-  DescribeFastSnapshotRestoresResult,
   DescribeFastSnapshotRestoreSuccessItem,
-  DescribeFleetHistoryRequest,
   DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
   ElasticGpuHealth,
   ElasticGpus,
-  EventInformation,
   ExportImageTask,
   ExportTaskS3Location,
   FailedQueuedPurchaseDeletion,
@@ -3238,7 +3240,6 @@ import {
   FastLaunchSnapshotConfigurationResponse,
   FederatedAuthentication,
   Filter,
-  HistoryRecordEntry,
   IdFormat,
   ImportInstanceTaskDetails,
   ImportInstanceVolumeDetailItem,
@@ -3264,7 +3265,9 @@ import {
   CapacityReservationSpecificationResponse,
   ConnectionTrackingSpecificationResponse,
   CpuOptions,
+  DescribeFastSnapshotRestoresResult,
   DescribeFleetError,
+  DescribeFleetHistoryRequest,
   DescribeFleetHistoryResult,
   DescribeFleetInstancesRequest,
   DescribeFleetInstancesResult,
@@ -3388,9 +3391,6 @@ import {
   DescribePublicIpv4PoolsRequest,
   DescribePublicIpv4PoolsResult,
   DescribeRegionsRequest,
-  DescribeRegionsResult,
-  DescribeReplaceRootVolumeTasksRequest,
-  DescribeReplaceRootVolumeTasksResult,
   DestinationOptionsResponse,
   DiskInfo,
   EbsInfo,
@@ -3402,6 +3402,7 @@ import {
   ElasticGpuAssociation,
   ElasticInferenceAcceleratorAssociation,
   EnclaveOptions,
+  EventInformation,
   FleetData,
   FleetLaunchTemplateConfig,
   FleetSpotCapacityRebalance,
@@ -3417,6 +3418,7 @@ import {
   GpuDeviceMemoryInfo,
   GpuInfo,
   HibernationOptions,
+  HistoryRecordEntry,
   Host,
   HostInstance,
   HostOffering,
@@ -3494,7 +3496,6 @@ import {
   ProductCode,
   PublicIpv4Pool,
   PublicIpv4PoolRange,
-  Region,
   Reservation,
   RootDeviceType,
   SnapshotDetail,
@@ -3512,6 +3513,9 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeRegionsResult,
+  DescribeReplaceRootVolumeTasksRequest,
+  DescribeReplaceRootVolumeTasksResult,
   DescribeReservedInstancesListingsRequest,
   DescribeReservedInstancesListingsResult,
   DescribeReservedInstancesModificationsRequest,
@@ -3713,11 +3717,6 @@ import {
   DisassociateTransitGatewayPolicyTableResult,
   DisassociateTransitGatewayRouteTableRequest,
   DisassociateTransitGatewayRouteTableResult,
-  DisassociateTrunkInterfaceRequest,
-  DisassociateTrunkInterfaceResult,
-  DisassociateVpcCidrBlockRequest,
-  DisassociateVpcCidrBlockResult,
-  EnableAddressTransferRequest,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceNetworkInterfaceSpecification,
@@ -3728,6 +3727,7 @@ import {
   PricingDetail,
   PrivateDnsDetails,
   RecurringCharge,
+  Region,
   ReservedInstances,
   ReservedInstancesConfiguration,
   ReservedInstancesId,
@@ -3796,10 +3796,15 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DisassociateTrunkInterfaceRequest,
+  DisassociateTrunkInterfaceResult,
+  DisassociateVpcCidrBlockRequest,
+  DisassociateVpcCidrBlockResult,
   DiskImage,
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  EnableAddressTransferRequest,
   EnableAddressTransferResult,
   EnableAllowedImagesSettingsRequest,
   EnableAllowedImagesSettingsResult,
@@ -4031,9 +4036,6 @@ import {
   ModifyInstanceCpuOptionsRequest,
   ModifyInstanceCpuOptionsResult,
   ModifyInstanceCreditSpecificationRequest,
-  ModifyInstanceCreditSpecificationResult,
-  ModifyInstanceEventStartTimeRequest,
-  ModifyInstanceEventStartTimeResult,
   PrefixListAssociation,
   PrefixListEntry,
   Purchase,
@@ -4054,8 +4056,6 @@ import {
   TransitGatewayPolicyTableEntry,
   TransitGatewayRouteTableAssociation,
   TransitGatewayRouteTablePropagation,
-  UnsuccessfulInstanceCreditSpecificationItem,
-  UnsuccessfulInstanceCreditSpecificationItemError,
   UserBucket,
   UserData,
   VerifiedAccessEndpointTarget,
@@ -4083,6 +4083,9 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyInstanceCreditSpecificationResult,
+  ModifyInstanceEventStartTimeRequest,
+  ModifyInstanceEventStartTimeResult,
   ModifyInstanceEventWindowRequest,
   ModifyInstanceEventWindowResult,
   ModifyInstanceMaintenanceOptionsRequest,
@@ -4345,11 +4348,8 @@ import {
   TransitGatewayMulticastGroup,
   TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayMulticastRegisteredGroupSources,
-  UnassignIpv6AddressesRequest,
-  UnassignIpv6AddressesResult,
-  UnassignPrivateIpAddressesRequest,
-  UnassignPrivateNatGatewayAddressRequest,
-  UnassignPrivateNatGatewayAddressResult,
+  UnsuccessfulInstanceCreditSpecificationItem,
+  UnsuccessfulInstanceCreditSpecificationItemError,
   VerifiedAccessLogCloudWatchLogsDestinationOptions,
   VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
   VerifiedAccessLogOptions,
@@ -4357,6 +4357,11 @@ import {
 } from "../models/models_7";
 import {
   SecurityGroupRuleDescription,
+  UnassignIpv6AddressesRequest,
+  UnassignIpv6AddressesResult,
+  UnassignPrivateIpAddressesRequest,
+  UnassignPrivateNatGatewayAddressRequest,
+  UnassignPrivateNatGatewayAddressResult,
   UnlockSnapshotRequest,
   UnlockSnapshotResult,
   UnmonitorInstancesRequest,
@@ -19970,9 +19975,12 @@ export const de_DeregisterImageCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  await collectBody(output.body, context);
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeregisterImageResult(data, context);
   const response: DeregisterImageCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -43136,6 +43144,84 @@ const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_ec2FleetBlockDeviceMappingRequest
+ */
+const se_FleetBlockDeviceMappingRequest = (input: FleetBlockDeviceMappingRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
+  }
+  if (input[_VN] != null) {
+    entries[_VN] = input[_VN];
+  }
+  if (input[_E] != null) {
+    const memberEntries = se_FleetEbsBlockDeviceRequest(input[_E], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Ebs.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_ND] != null) {
+    entries[_ND] = input[_ND];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2FleetBlockDeviceMappingRequestList
+ */
+const se_FleetBlockDeviceMappingRequestList = (
+  input: FleetBlockDeviceMappingRequest[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_FleetBlockDeviceMappingRequest(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`BlockDeviceMapping.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2FleetEbsBlockDeviceRequest
+ */
+const se_FleetEbsBlockDeviceRequest = (input: FleetEbsBlockDeviceRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_Enc] != null) {
+    entries[_Enc] = input[_Enc];
+  }
+  if (input[_DOT] != null) {
+    entries[_DOT] = input[_DOT];
+  }
+  if (input[_Io] != null) {
+    entries[_Io] = input[_Io];
+  }
+  if (input[_Th] != null) {
+    entries[_Th] = input[_Th];
+  }
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
+  }
+  if (input[_SIn] != null) {
+    entries[_SIn] = input[_SIn];
+  }
+  if (input[_VS] != null) {
+    entries[_VS] = input[_VS];
+  }
+  if (input[_VT] != null) {
+    entries[_VT] = input[_VT];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2FleetIdSet
  */
 const se_FleetIdSet = (input: string[], context: __SerdeContext): any => {
@@ -43247,6 +43333,13 @@ const se_FleetLaunchTemplateOverridesRequest = (
     const memberEntries = se_Placement(input[_Pl], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Placement.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_BDM] != null) {
+    const memberEntries = se_FleetBlockDeviceMappingRequestList(input[_BDM], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -58852,6 +58945,37 @@ const de_BlockDeviceMappingList = (output: any, context: __SerdeContext): BlockD
 };
 
 /**
+ * deserializeAws_ec2BlockDeviceMappingResponse
+ */
+const de_BlockDeviceMappingResponse = (output: any, context: __SerdeContext): BlockDeviceMappingResponse => {
+  const contents: any = {};
+  if (output[_dN] != null) {
+    contents[_DN] = __expectString(output[_dN]);
+  }
+  if (output[_vN] != null) {
+    contents[_VN] = __expectString(output[_vN]);
+  }
+  if (output[_eb] != null) {
+    contents[_E] = de_EbsBlockDeviceResponse(output[_eb], context);
+  }
+  if (output[_nD] != null) {
+    contents[_ND] = __expectString(output[_nD]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2BlockDeviceMappingResponseList
+ */
+const de_BlockDeviceMappingResponseList = (output: any, context: __SerdeContext): BlockDeviceMappingResponse[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BlockDeviceMappingResponse(entry, context);
+    });
+};
+
+/**
  * deserializeAws_ec2BlockPublicAccessStates
  */
 const de_BlockPublicAccessStates = (output: any, context: __SerdeContext): BlockPublicAccessStates => {
@@ -63059,6 +63183,14 @@ const de_DeprovisionPublicIpv4PoolCidrResult = (
 };
 
 /**
+ * deserializeAws_ec2DeregisterImageResult
+ */
+const de_DeregisterImageResult = (output: any, context: __SerdeContext): DeregisterImageResult => {
+  const contents: any = {};
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DeregisterInstanceEventNotificationAttributesResult
  */
 const de_DeregisterInstanceEventNotificationAttributesResult = (
@@ -66987,6 +67119,38 @@ const de_EbsBlockDevice = (output: any, context: __SerdeContext): EbsBlockDevice
 };
 
 /**
+ * deserializeAws_ec2EbsBlockDeviceResponse
+ */
+const de_EbsBlockDeviceResponse = (output: any, context: __SerdeContext): EbsBlockDeviceResponse => {
+  const contents: any = {};
+  if (output[_enc] != null) {
+    contents[_Enc] = __parseBoolean(output[_enc]);
+  }
+  if (output[_dOT] != null) {
+    contents[_DOT] = __parseBoolean(output[_dOT]);
+  }
+  if (output[_io] != null) {
+    contents[_Io] = __strictParseInt32(output[_io]) as number;
+  }
+  if (output[_th] != null) {
+    contents[_Th] = __strictParseInt32(output[_th]) as number;
+  }
+  if (output[_kKI] != null) {
+    contents[_KKI] = __expectString(output[_kKI]);
+  }
+  if (output[_sIn] != null) {
+    contents[_SIn] = __expectString(output[_sIn]);
+  }
+  if (output[_vSo] != null) {
+    contents[_VS] = __strictParseInt32(output[_vSo]) as number;
+  }
+  if (output[_vT] != null) {
+    contents[_VT] = __expectString(output[_vT]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2EbsInfo
  */
 const de_EbsInfo = (output: any, context: __SerdeContext): EbsInfo => {
@@ -68652,6 +68816,11 @@ const de_FleetLaunchTemplateOverrides = (output: any, context: __SerdeContext): 
   }
   if (output[_iIma] != null) {
     contents[_IIma] = __expectString(output[_iIma]);
+  }
+  if (output.blockDeviceMappingSet === "") {
+    contents[_BDM] = [];
+  } else if (output[_bDMS] != null && output[_bDMS][_i] != null) {
+    contents[_BDM] = de_BlockDeviceMappingResponseList(__getArrayIfSingleItem(output[_bDMS][_i]), context);
   }
   return contents;
 };

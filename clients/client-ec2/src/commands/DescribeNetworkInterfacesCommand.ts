@@ -32,7 +32,7 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  *          <p>If you have a large number of network interfaces, the operation fails unless
  *            you use pagination or one of the following filters: <code>group-id</code>,
  *            <code>mac-address</code>, <code>private-dns-name</code>, <code>private-ip-address</code>,
- *            <code>private-dns-name</code>, <code>subnet-id</code>, or <code>vpc-id</code>.</p>
+ *            <code>subnet-id</code>, or <code>vpc-id</code>.</p>
  *          <important>
  *             <p>We strongly recommend using only paginated requests. Unpaginated requests are
  *                susceptible to throttling and timeouts.</p>

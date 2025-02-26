@@ -94,6 +94,23 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *             GroupId: "STRING_VALUE",
  *             AvailabilityZone: "STRING_VALUE",
  *           },
+ *           BlockDeviceMappings: [ // FleetBlockDeviceMappingRequestList
+ *             { // FleetBlockDeviceMappingRequest
+ *               DeviceName: "STRING_VALUE",
+ *               VirtualName: "STRING_VALUE",
+ *               Ebs: { // FleetEbsBlockDeviceRequest
+ *                 Encrypted: true || false,
+ *                 DeleteOnTermination: true || false,
+ *                 Iops: Number("int"),
+ *                 Throughput: Number("int"),
+ *                 KmsKeyId: "STRING_VALUE",
+ *                 SnapshotId: "STRING_VALUE",
+ *                 VolumeSize: Number("int"),
+ *                 VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ *               },
+ *               NoDevice: "STRING_VALUE",
+ *             },
+ *           ],
  *           InstanceRequirements: { // InstanceRequirementsRequest
  *             VCpuCount: { // VCpuCountRangeRequest
  *               Min: Number("int"), // required
@@ -303,6 +320,23 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //             },
  * //           },
  * //           ImageId: "STRING_VALUE",
+ * //           BlockDeviceMappings: [ // BlockDeviceMappingResponseList
+ * //             { // BlockDeviceMappingResponse
+ * //               DeviceName: "STRING_VALUE",
+ * //               VirtualName: "STRING_VALUE",
+ * //               Ebs: { // EbsBlockDeviceResponse
+ * //                 Encrypted: true || false,
+ * //                 DeleteOnTermination: true || false,
+ * //                 Iops: Number("int"),
+ * //                 Throughput: Number("int"),
+ * //                 KmsKeyId: "STRING_VALUE",
+ * //                 SnapshotId: "STRING_VALUE",
+ * //                 VolumeSize: Number("int"),
+ * //                 VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ * //               },
+ * //               NoDevice: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //         },
  * //       },
  * //       Lifecycle: "spot" || "on-demand",
@@ -407,6 +441,23 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //             },
  * //           },
  * //           ImageId: "STRING_VALUE",
+ * //           BlockDeviceMappings: [
+ * //             {
+ * //               DeviceName: "STRING_VALUE",
+ * //               VirtualName: "STRING_VALUE",
+ * //               Ebs: {
+ * //                 Encrypted: true || false,
+ * //                 DeleteOnTermination: true || false,
+ * //                 Iops: Number("int"),
+ * //                 Throughput: Number("int"),
+ * //                 KmsKeyId: "STRING_VALUE",
+ * //                 SnapshotId: "STRING_VALUE",
+ * //                 VolumeSize: Number("int"),
+ * //                 VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ * //               },
+ * //               NoDevice: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //         },
  * //       },
  * //       Lifecycle: "spot" || "on-demand",

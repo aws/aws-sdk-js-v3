@@ -38,8 +38,6 @@ import {
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
   VerifiedAccessTrustProviderFilterSensitiveLog,
-  VpcCidrBlockAssociation,
-  VpcIpv6CidrBlockAssociation,
   VpcPeeringConnection,
 } from "./models_0";
 
@@ -71,6 +69,7 @@ import {
   GroupIdentifier,
   IpAddressType,
   PayerResponsibility,
+  ReplaceRootVolumeTask,
   RouteTable,
   ServiceConfiguration,
   ServiceConnectivityType,
@@ -103,7 +102,6 @@ import {
 } from "./models_2";
 
 import {
-  EventInformation,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchResourceType,
   FastLaunchSnapshotConfigurationResponse,
@@ -114,7 +112,121 @@ import {
   StatisticType,
 } from "./models_3";
 
-import { AttributeBooleanValue, OfferingClassType, PermissionGroup, ProductCode } from "./models_4";
+import { AttributeBooleanValue, EventInformation, PermissionGroup, ProductCode } from "./models_4";
+
+/**
+ * <p>Describes a Region.</p>
+ * @public
+ */
+export interface Region {
+  /**
+   * <p>The Region opt-in status. The possible values are <code>opt-in-not-required</code>, <code>opted-in</code>, and
+   *         <code>not-opted-in</code>.</p>
+   * @public
+   */
+  OptInStatus?: string | undefined;
+
+  /**
+   * <p>The name of the Region.</p>
+   * @public
+   */
+  RegionName?: string | undefined;
+
+  /**
+   * <p>The Region service endpoint.</p>
+   * @public
+   */
+  Endpoint?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegionsResult {
+  /**
+   * <p>Information about the Regions.</p>
+   * @public
+   */
+  Regions?: Region[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeReplaceRootVolumeTasksRequest {
+  /**
+   * <p>The ID of the root volume replacement task to view.</p>
+   * @public
+   */
+  ReplaceRootVolumeTaskIds?: string[] | undefined;
+
+  /**
+   * <p>Filter to use:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>instance-id</code> - The ID of the instance for which the root volume replacement task was created.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeReplaceRootVolumeTasksResult {
+  /**
+   * <p>Information about the root volume replacement task.</p>
+   * @public
+   */
+  ReplaceRootVolumeTasks?: ReplaceRootVolumeTask[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OfferingClassType = {
+  CONVERTIBLE: "convertible",
+  STANDARD: "standard",
+} as const;
+
+/**
+ * @public
+ */
+export type OfferingClassType = (typeof OfferingClassType)[keyof typeof OfferingClassType];
 
 /**
  * @public
@@ -10975,111 +11087,6 @@ export interface DisassociateTransitGatewayRouteTableResult {
    * @public
    */
   Association?: TransitGatewayAssociation | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTrunkInterfaceRequest {
-  /**
-   * <p>The ID of the association</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
-   *                 idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTrunkInterfaceResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
-   *                 idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateVpcCidrBlockRequest {
-  /**
-   * <p>The association ID for the CIDR block.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateVpcCidrBlockResult {
-  /**
-   * <p>Information about the IPv6 CIDR block association.</p>
-   * @public
-   */
-  Ipv6CidrBlockAssociation?: VpcIpv6CidrBlockAssociation | undefined;
-
-  /**
-   * <p>Information about the IPv4 CIDR block association.</p>
-   * @public
-   */
-  CidrBlockAssociation?: VpcCidrBlockAssociation | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableAddressTransferRequest {
-  /**
-   * <p>The allocation ID of an Elastic IP address.</p>
-   * @public
-   */
-  AllocationId: string | undefined;
-
-  /**
-   * <p>The ID of the account that you want to transfer the Elastic IP address to.</p>
-   * @public
-   */
-  TransferAccountId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

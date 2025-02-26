@@ -21,6 +21,8 @@ import {
   TransitGatewayPolicyTableAssociation,
   UnsuccessfulItem,
   UserTrustProviderType,
+  VpcCidrBlockAssociation,
+  VpcIpv6CidrBlockAssociation,
 } from "./models_0";
 
 import {
@@ -86,7 +88,6 @@ import {
   InstanceAttributeName,
   InstanceMetadataEndpointState,
   InstanceMetadataTagsState,
-  InstanceStatusEvent,
   LaunchPermission,
   LockState,
   PaymentOption,
@@ -104,6 +105,111 @@ import {
   TransitGatewayPropagation,
   TransitGatewayPropagationState,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface DisassociateTrunkInterfaceRequest {
+  /**
+   * <p>The ID of the association</p>
+   * @public
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
+   *                 idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTrunkInterfaceResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
+   *                 idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateVpcCidrBlockRequest {
+  /**
+   * <p>The association ID for the CIDR block.</p>
+   * @public
+   */
+  AssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateVpcCidrBlockResult {
+  /**
+   * <p>Information about the IPv6 CIDR block association.</p>
+   * @public
+   */
+  Ipv6CidrBlockAssociation?: VpcIpv6CidrBlockAssociation | undefined;
+
+  /**
+   * <p>Information about the IPv4 CIDR block association.</p>
+   * @public
+   */
+  CidrBlockAssociation?: VpcCidrBlockAssociation | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableAddressTransferRequest {
+  /**
+   * <p>The allocation ID of an Elastic IP address.</p>
+   * @public
+   */
+  AllocationId: string | undefined;
+
+  /**
+   * <p>The ID of the account that you want to transfer the Elastic IP address to.</p>
+   * @public
+   */
+  TransferAccountId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -8886,106 +8992,6 @@ export const UnsuccessfulInstanceCreditSpecificationErrorCode = {
  */
 export type UnsuccessfulInstanceCreditSpecificationErrorCode =
   (typeof UnsuccessfulInstanceCreditSpecificationErrorCode)[keyof typeof UnsuccessfulInstanceCreditSpecificationErrorCode];
-
-/**
- * <p>Information about the error for the burstable performance instance whose credit option
- *             for CPU usage was not modified.</p>
- * @public
- */
-export interface UnsuccessfulInstanceCreditSpecificationItemError {
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code?: UnsuccessfulInstanceCreditSpecificationErrorCode | undefined;
-
-  /**
-   * <p>The applicable error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>Describes the burstable performance instance whose credit option for CPU usage was not
- *             modified.</p>
- * @public
- */
-export interface UnsuccessfulInstanceCreditSpecificationItem {
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The applicable error for the burstable performance instance whose credit option for
-   *             CPU usage was not modified.</p>
-   * @public
-   */
-  Error?: UnsuccessfulInstanceCreditSpecificationItemError | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyInstanceCreditSpecificationResult {
-  /**
-   * <p>Information about the instances whose credit option for CPU usage was successfully
-   *             modified.</p>
-   * @public
-   */
-  SuccessfulInstanceCreditSpecifications?: SuccessfulInstanceCreditSpecificationItem[] | undefined;
-
-  /**
-   * <p>Information about the instances whose credit option for CPU usage was not
-   *             modified.</p>
-   * @public
-   */
-  UnsuccessfulInstanceCreditSpecifications?: UnsuccessfulInstanceCreditSpecificationItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyInstanceEventStartTimeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the instance with the scheduled event.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The ID of the event whose date and time you are modifying.</p>
-   * @public
-   */
-  InstanceEventId: string | undefined;
-
-  /**
-   * <p>The new date and time when the event will take place.</p>
-   * @public
-   */
-  NotBefore: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyInstanceEventStartTimeResult {
-  /**
-   * <p>Information about the event.</p>
-   * @public
-   */
-  Event?: InstanceStatusEvent | undefined;
-}
 
 /**
  * @internal

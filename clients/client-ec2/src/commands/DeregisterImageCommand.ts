@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeregisterImageRequest } from "../models/models_3";
+import { DeregisterImageRequest, DeregisterImageResult } from "../models/models_3";
 import { de_DeregisterImageCommand, se_DeregisterImageCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -25,7 +25,7 @@ export interface DeregisterImageCommandInput extends DeregisterImageRequest {}
  *
  * The output of {@link DeregisterImageCommand}.
  */
-export interface DeregisterImageCommandOutput extends __MetadataBearer {}
+export interface DeregisterImageCommandOutput extends DeregisterImageResult, __MetadataBearer {}
 
 /**
  * <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch new

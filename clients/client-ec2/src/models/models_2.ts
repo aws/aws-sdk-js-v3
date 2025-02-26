@@ -37,14 +37,11 @@ import {
 } from "./models_0";
 
 import {
-  CarrierGateway,
-  ClientVpnEndpointStatus,
   ConnectionTrackingSpecificationRequest,
   GatewayType,
   InstanceIpv6Address,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
-  LocalGatewayRouteTableVpcAssociation,
   OperatorRequest,
   OperatorResponse,
   PrivateIpAddressSpecification,
@@ -53,6 +50,158 @@ import {
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Describes an association between a local gateway route table and a virtual interface group.</p>
+ * @public
+ */
+export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
+  /**
+   * <p>The ID of the association.</p>
+   * @public
+   */
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociationId?: string | undefined;
+
+  /**
+   * <p>The ID of the virtual interface group.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceGroupId?: string | undefined;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   * @public
+   */
+  LocalGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   * @public
+   */
+  LocalGatewayRouteTableId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the local gateway route table for the virtual interface group.</p>
+   * @public
+   */
+  LocalGatewayRouteTableArn?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the local gateway virtual interface group association.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The state of the association.</p>
+   * @public
+   */
+  State?: string | undefined;
+
+  /**
+   * <p>The tags assigned to the association.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult {
+  /**
+   * <p>Information about the local gateway route table virtual interface group association.</p>
+   * @public
+   */
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociation?:
+    | LocalGatewayRouteTableVirtualInterfaceGroupAssociation
+    | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLocalGatewayRouteTableVpcAssociationRequest {
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   * @public
+   */
+  LocalGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The tags to assign to the local gateway route table VPC association.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes an association between a local gateway route table and a VPC.</p>
+ * @public
+ */
+export interface LocalGatewayRouteTableVpcAssociation {
+  /**
+   * <p>The ID of the association.</p>
+   * @public
+   */
+  LocalGatewayRouteTableVpcAssociationId?: string | undefined;
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   * @public
+   */
+  LocalGatewayRouteTableId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the local gateway route table for the association.</p>
+   * @public
+   */
+  LocalGatewayRouteTableArn?: string | undefined;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   * @public
+   */
+  LocalGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the local gateway route table for the association.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The state of the association.</p>
+   * @public
+   */
+  State?: string | undefined;
+
+  /**
+   * <p>The tags assigned to the association.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
 
 /**
  * @public
@@ -10296,64 +10445,6 @@ export interface CreateVpnGatewayResult {
    * @public
    */
   VpnGateway?: VpnGateway | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteCarrierGatewayRequest {
-  /**
-   * <p>The ID of the carrier gateway.</p>
-   * @public
-   */
-  CarrierGatewayId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteCarrierGatewayResult {
-  /**
-   * <p>Information about the carrier gateway.</p>
-   * @public
-   */
-  CarrierGateway?: CarrierGateway | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteClientVpnEndpointRequest {
-  /**
-   * <p>The ID of the Client VPN to be deleted.</p>
-   * @public
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteClientVpnEndpointResult {
-  /**
-   * <p>The current state of the Client VPN endpoint.</p>
-   * @public
-   */
-  Status?: ClientVpnEndpointStatus | undefined;
 }
 
 /**

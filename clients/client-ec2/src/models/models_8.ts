@@ -1,7 +1,126 @@
 // smithy-typescript generated code
-import { ByoipCidr, IpPermission } from "./models_0";
+import { ByoipCidr, IpPermission, NatGatewayAddress } from "./models_0";
 
 import { InstanceMonitoring } from "./models_7";
+
+/**
+ * @public
+ */
+export interface UnassignIpv6AddressesRequest {
+  /**
+   * <p>The IPv6 prefixes to unassign from the network interface.</p>
+   * @public
+   */
+  Ipv6Prefixes?: string[] | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>The IPv6 addresses to unassign from the network interface.</p>
+   * @public
+   */
+  Ipv6Addresses?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UnassignIpv6AddressesResult {
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string | undefined;
+
+  /**
+   * <p>The IPv6 addresses that have been unassigned from the network interface.</p>
+   * @public
+   */
+  UnassignedIpv6Addresses?: string[] | undefined;
+
+  /**
+   * <p>The IPv6 prefixes that have been unassigned from  the network interface.</p>
+   * @public
+   */
+  UnassignedIpv6Prefixes?: string[] | undefined;
+}
+
+/**
+ * <p>Contains the parameters for UnassignPrivateIpAddresses.</p>
+ * @public
+ */
+export interface UnassignPrivateIpAddressesRequest {
+  /**
+   * <p>The IPv4 prefixes to unassign from  the network interface.</p>
+   * @public
+   */
+  Ipv4Prefixes?: string[] | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>The secondary private IP addresses to unassign from the network interface. You can specify this
+   *         	option multiple times to unassign more than one IP address.</p>
+   * @public
+   */
+  PrivateIpAddresses?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UnassignPrivateNatGatewayAddressRequest {
+  /**
+   * <p>The ID of the NAT gateway.</p>
+   * @public
+   */
+  NatGatewayId: string | undefined;
+
+  /**
+   * <p>The private IPv4 addresses you want to unassign.</p>
+   * @public
+   */
+  PrivateIpAddresses: string[] | undefined;
+
+  /**
+   * <p>The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.</p>
+   * @public
+   */
+  MaxDrainDurationSeconds?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UnassignPrivateNatGatewayAddressResult {
+  /**
+   * <p>The ID of the NAT gateway.</p>
+   * @public
+   */
+  NatGatewayId?: string | undefined;
+
+  /**
+   * <p>Information about the NAT gateway IP addresses.</p>
+   * @public
+   */
+  NatGatewayAddresses?: NatGatewayAddress[] | undefined;
+}
 
 /**
  * @public

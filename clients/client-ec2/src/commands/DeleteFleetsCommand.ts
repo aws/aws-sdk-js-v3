@@ -28,16 +28,18 @@ export interface DeleteFleetsCommandInput extends DeleteFleetsRequest {}
 export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified EC2 Fleets.</p>
- *          <p>After you delete an EC2 Fleet, it launches no new instances.</p>
- *          <p>You must also specify whether a deleted EC2 Fleet should terminate its instances. If you
- *          choose to terminate the instances, the EC2 Fleet enters the <code>deleted_terminating</code>
- *          state. Otherwise, the EC2 Fleet enters the <code>deleted_running</code> state, and the instances
- *          continue to run until they are interrupted or you terminate them manually.</p>
- *          <p>For <code>instant</code> fleets, EC2 Fleet must terminate the instances when the fleet is
- *          deleted. Up to 1000 instances can be terminated in a single request to delete
- *             <code>instant</code> fleets. A deleted <code>instant</code> fleet with running instances
- *          is not supported.</p>
+ * <p>Deletes the specified EC2 Fleet request.</p>
+ *          <p>After you delete an EC2 Fleet request, it launches no new instances.</p>
+ *          <p>You must also specify whether a deleted EC2 Fleet request should terminate its instances. If
+ *          you choose to terminate the instances, the EC2 Fleet request enters the
+ *             <code>deleted_terminating</code> state. Otherwise, it enters the
+ *             <code>deleted_running</code> state, and the instances continue to run until they are
+ *          interrupted or you terminate them manually.</p>
+ *          <p>A deleted <code>instant</code> fleet with running instances is not supported. When you
+ *          delete an <code>instant</code> fleet, Amazon EC2 automatically terminates all its instances. For
+ *          fleets with more than 1000 instances, the deletion request might fail. If your fleet has
+ *          more than 1000 instances, first terminate most of the instances manually, leaving 1000 or
+ *          fewer. Then delete the fleet, and the remaining instances will be terminated automatically.</p>
  *          <p class="title">
  *             <b>Restrictions</b>
  *          </p>
@@ -59,8 +61,8 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  *                deleted.</p>
  *             </li>
  *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Delete an EC2
- *          Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/delete-fleet.html">Delete an EC2 Fleet request and the instances
+ *             in the fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

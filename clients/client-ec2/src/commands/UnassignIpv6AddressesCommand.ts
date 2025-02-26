@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UnassignIpv6AddressesRequest, UnassignIpv6AddressesResult } from "../models/models_7";
+import { UnassignIpv6AddressesRequest, UnassignIpv6AddressesResult } from "../models/models_8";
 import { de_UnassignIpv6AddressesCommand, se_UnassignIpv6AddressesCommand } from "../protocols/Aws_ec2";
 
 /**

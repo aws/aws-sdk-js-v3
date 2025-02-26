@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisassociateVpcCidrBlockRequest, DisassociateVpcCidrBlockResult } from "../models/models_5";
+import { DisassociateVpcCidrBlockRequest, DisassociateVpcCidrBlockResult } from "../models/models_6";
 import { de_DisassociateVpcCidrBlockCommand, se_DisassociateVpcCidrBlockCommand } from "../protocols/Aws_ec2";
 
 /**

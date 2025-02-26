@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteCarrierGatewayRequest, DeleteCarrierGatewayResult } from "../models/models_2";
+import { DeleteCarrierGatewayRequest, DeleteCarrierGatewayResult } from "../models/models_3";
 import { de_DeleteCarrierGatewayCommand, se_DeleteCarrierGatewayCommand } from "../protocols/Aws_ec2";
 
 /**
