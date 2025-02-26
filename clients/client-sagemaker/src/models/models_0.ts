@@ -533,7 +533,7 @@ export interface ModelPackageContainerDefinition {
    * <p>The Amazon Elastic Container Registry (Amazon ECR) path where inference code is stored.</p>
    *          <p>If you are using your own custom algorithm instead of an algorithm provided by SageMaker,
    *             the inference code must meet SageMaker requirements. SageMaker supports both
-   *             <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
+   *                 <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
    *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
    *                 SageMaker</a>.</p>
    * @public
@@ -550,7 +550,7 @@ export interface ModelPackageContainerDefinition {
   /**
    * <p>The Amazon S3 path where the model artifacts, which result from model training, are stored.
    *             This path must point to a single <code>gzip</code> compressed tar archive
-   *             (<code>.tar.gz</code> suffix).</p>
+   *                 (<code>.tar.gz</code> suffix).</p>
    *          <note>
    *             <p>The model artifacts must be in an S3 bucket that is in the same region as the
    *                 model package.</p>
@@ -573,7 +573,7 @@ export interface ModelPackageContainerDefinition {
 
   /**
    * <p>The environment variables to set in the Docker container. Each key and value in the
-   *             <code>Environment</code> string to string map can have length of up to 1024. We
+   *                 <code>Environment</code> string to string map can have length of up to 1024. We
    *             support up to 16 entries in the map.</p>
    * @public
    */
@@ -7783,8 +7783,15 @@ export interface BatchDeleteClusterNodesRequest {
   /**
    * <p>A list of node IDs to be deleted from the specified cluster.</p>
    *          <note>
-   *             <p>For SageMaker HyperPod clusters using the Slurm workload manager, you cannot remove instances
-   *             that are configured as Slurm controller nodes.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>For SageMaker HyperPod clusters using the Slurm workload manager, you cannot remove
+   *                   instances that are configured as Slurm controller nodes.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you need to delete more than 99 instances, contact <a href="http://aws.amazon.com/contact-us/">Support</a> for assistance.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    * @public
    */
@@ -8018,8 +8025,8 @@ export interface BatchDescribeModelPackageOutput {
   ModelPackageSummaries?: Record<string, BatchDescribeModelPackageSummary> | undefined;
 
   /**
-   * <p>A map of the resource and BatchDescribeModelPackageError objects
-   *             reporting the error associated with describing the model package.</p>
+   * <p>A map of the resource and BatchDescribeModelPackageError objects reporting the error
+   *             associated with describing the model package.</p>
    * @public
    */
   BatchDescribeModelPackageErrorMap?: Record<string, BatchDescribeModelPackageError> | undefined;
@@ -8324,8 +8331,8 @@ export const TrafficRoutingConfigType = {
 export type TrafficRoutingConfigType = (typeof TrafficRoutingConfigType)[keyof typeof TrafficRoutingConfigType];
 
 /**
- * <p>Defines the traffic routing strategy during an endpoint deployment to shift traffic from the
- *             old fleet to the new fleet.</p>
+ * <p>Defines the traffic routing strategy during an endpoint deployment to shift traffic
+ *             from the old fleet to the new fleet.</p>
  * @public
  */
 export interface TrafficRoutingConfig {
@@ -8334,22 +8341,19 @@ export interface TrafficRoutingConfig {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ALL_AT_ONCE</code>: Endpoint traffic shifts to the new fleet
-   *                 in a single step.
-   *             </p>
+   *                   <code>ALL_AT_ONCE</code>: Endpoint traffic shifts to the new fleet in a single
+   *                     step. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CANARY</code>: Endpoint traffic shifts to the new fleet
-   *                 in two steps. The first step is the canary, which is a small portion of the traffic. The
-   *                 second step is the remainder of the traffic.
-   *             </p>
+   *                   <code>CANARY</code>: Endpoint traffic shifts to the new fleet in two steps.
+   *                     The first step is the canary, which is a small portion of the traffic. The
+   *                     second step is the remainder of the traffic. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>LINEAR</code>: Endpoint traffic shifts to the new fleet in
-   *                 n steps of a configurable size.
-   *             </p>
+   *                   <code>LINEAR</code>: Endpoint traffic shifts to the new fleet in n steps of a
+   *                     configurable size. </p>
    *             </li>
    *          </ul>
    * @public
@@ -8357,22 +8361,23 @@ export interface TrafficRoutingConfig {
   Type: TrafficRoutingConfigType | undefined;
 
   /**
-   * <p>The waiting time (in seconds) between incremental steps to turn on traffic on the
-   *             new endpoint fleet.</p>
+   * <p>The waiting time (in seconds) between incremental steps to turn on traffic on the new
+   *             endpoint fleet.</p>
    * @public
    */
   WaitIntervalInSeconds: number | undefined;
 
   /**
-   * <p>Batch size for the first step to turn on traffic on the new endpoint fleet. <code>Value</code> must be less than
-   *             or equal to 50% of the variant's total instance count.</p>
+   * <p>Batch size for the first step to turn on traffic on the new endpoint fleet.
+   *                 <code>Value</code> must be less than or equal to 50% of the variant's total instance
+   *             count.</p>
    * @public
    */
   CanarySize?: CapacitySize | undefined;
 
   /**
-   * <p>Batch size for each step to turn on traffic on the new endpoint fleet. <code>Value</code> must be
-   *             10-50% of the variant's total instance count.</p>
+   * <p>Batch size for each step to turn on traffic on the new endpoint fleet.
+   *                 <code>Value</code> must be 10-50% of the variant's total instance count.</p>
    * @public
    */
   LinearStepSize?: CapacitySize | undefined;
@@ -8907,9 +8912,9 @@ export interface CheckpointConfig {
 }
 
 /**
- * <p>The container for the metadata for the ClarifyCheck step. For more information,
- *             see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/build-and-manage-steps.html#step-type-clarify-check">ClarifyCheck step</a> in the <i>Amazon SageMaker Developer Guide</i>.
- *         </p>
+ * <p>The container for the metadata for the ClarifyCheck step. For more information, see
+ *             the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/build-and-manage-steps.html#step-type-clarify-check">ClarifyCheck step</a> in the <i>Amazon SageMaker Developer
+ *                 Guide</i>. </p>
  * @public
  */
 export interface ClarifyCheckStepMetadata {
@@ -8944,23 +8949,27 @@ export interface ClarifyCheckStepMetadata {
   ViolationReport?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the check processing job that was run by this step's execution.</p>
+   * <p>The Amazon Resource Name (ARN) of the check processing job that was run by this step's
+   *             execution.</p>
    * @public
    */
   CheckJobArn?: string | undefined;
 
   /**
-   * <p>This flag indicates if the drift check against the previous baseline will be skipped or not.
-   *             If it is set to <code>False</code>, the previous baseline of the configured check type must be available.</p>
+   * <p>This flag indicates if the drift check against the previous baseline will be skipped
+   *             or not. If it is set to <code>False</code>, the previous baseline of the configured
+   *             check type must be available.</p>
    * @public
    */
   SkipCheck?: boolean | undefined;
 
   /**
-   * <p>This flag indicates if a newly calculated baseline can be accessed through step properties
-   *             <code>BaselineUsedForDriftCheckConstraints</code> and <code>BaselineUsedForDriftCheckStatistics</code>.
-   *             If it is set to <code>False</code>, the previous baseline of the configured check type must also be available.
-   *             These can be accessed through the <code>BaselineUsedForDriftCheckConstraints</code> property. </p>
+   * <p>This flag indicates if a newly calculated baseline can be accessed through step
+   *             properties <code>BaselineUsedForDriftCheckConstraints</code> and
+   *                 <code>BaselineUsedForDriftCheckStatistics</code>. If it is set to
+   *             <code>False</code>, the previous baseline of the configured check type must also be
+   *             available. These can be accessed through the
+   *                 <code>BaselineUsedForDriftCheckConstraints</code> property. </p>
    * @public
    */
   RegisterNewBaseline?: boolean | undefined;

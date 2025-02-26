@@ -2,6 +2,7 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
+  ActionStatus,
   ActivationState,
   AdditionalInferenceSpecificationDefinition,
   AppNetworkAccessType,
@@ -78,6 +79,7 @@ import {
   DomainSettingsForUpdate,
   Filter,
   GitConfigForUpdate,
+  InferenceComponentDeploymentConfig,
   ResourceType,
   Workforce,
   Workteam,
@@ -92,6 +94,74 @@ import {
   SearchSortOrder,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface StopProcessingJobRequest {
+  /**
+   * <p>The name of the processing job to stop.</p>
+   * @public
+   */
+  ProcessingJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTrainingJobRequest {
+  /**
+   * <p>The name of the training job to stop.</p>
+   * @public
+   */
+  TrainingJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTransformJobRequest {
+  /**
+   * <p>The name of the batch transform job to stop.</p>
+   * @public
+   */
+  TransformJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateActionRequest {
+  /**
+   * <p>The name of the action to update.</p>
+   * @public
+   */
+  ActionName: string | undefined;
+
+  /**
+   * <p>The new description for the action.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The new status for the action.</p>
+   * @public
+   */
+  Status?: ActionStatus | undefined;
+
+  /**
+   * <p>The new list of properties. Overwrites the current property list.</p>
+   * @public
+   */
+  Properties?: Record<string, string> | undefined;
+
+  /**
+   * <p>A list of properties to remove.</p>
+   * @public
+   */
+  PropertiesToRemove?: string[] | undefined;
+}
 
 /**
  * @public
@@ -1103,6 +1173,13 @@ export interface UpdateInferenceComponentInput {
    * @public
    */
   RuntimeConfig?: InferenceComponentRuntimeConfig | undefined;
+
+  /**
+   * <p>The deployment configuration for the inference component. The configuration contains the
+   *          desired deployment strategy and rollback settings.</p>
+   * @public
+   */
+  DeploymentConfig?: InferenceComponentDeploymentConfig | undefined;
 }
 
 /**
@@ -1359,8 +1436,8 @@ export interface UpdateModelPackageInput {
   AdditionalInferenceSpecificationsToAdd?: AdditionalInferenceSpecificationDefinition[] | undefined;
 
   /**
-   * <p>Specifies details about inference jobs that you can run with models based on this model
-   *             package, including the following information:</p>
+   * <p>Specifies details about inference jobs that you can run with models based on this
+   *             model package, including the following information:</p>
    *          <ul>
    *             <li>
    *                <p>The Amazon ECR paths of containers that contain the inference code and model
@@ -1386,32 +1463,28 @@ export interface UpdateModelPackageInput {
   SourceUri?: string | undefined;
 
   /**
-   * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is
-   *             tied to a model package, it is a specific usage of a model card and its schema is
-   *             simplified compared to the schema of <code>ModelCard</code>. The
-   *             <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>,
-   *             and <code>model_overview</code> is composed of the <code>model_creator</code> and
-   *             <code>model_artifact</code> properties. For more information about the model package model
-   *             card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
-   *                 package model card schema</a>. For more information about
-   *             the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View
-   *                 the Details of a Model Version</a>.</p>
+   * <p>The model card associated with the model package. Since
+   *                 <code>ModelPackageModelCard</code> is tied to a model package, it is a specific
+   *             usage of a model card and its schema is simplified compared to the schema of
+   *                 <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not
+   *             include <code>model_package_details</code>, and <code>model_overview</code> is composed
+   *             of the <code>model_creator</code> and <code>model_artifact</code> properties. For more
+   *             information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
+   *                 package model card schema</a>. For more information about the model card
+   *             associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model
+   *                 Version</a>.</p>
    * @public
    */
   ModelCard?: ModelPackageModelCard | undefined;
 
   /**
-   * <p>
-   *             A structure describing the current state of the model in its life cycle.
-   *         </p>
+   * <p> A structure describing the current state of the model in its life cycle. </p>
    * @public
    */
   ModelLifeCycle?: ModelLifeCycle | undefined;
 
   /**
-   * <p>
-   *             A unique token that guarantees that the call to this API is idempotent.
-   *         </p>
+   * <p> A unique token that guarantees that the call to this API is idempotent. </p>
    * @public
    */
   ClientToken?: string | undefined;

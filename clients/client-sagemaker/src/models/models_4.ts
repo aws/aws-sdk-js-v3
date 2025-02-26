@@ -2,7 +2,6 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
-  ActionStatus,
   AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
   AppSpecification,
@@ -157,7 +156,6 @@ import {
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
   MonitoringJobDefinitionSortKey,
-  MonitoringJobDefinitionSummary,
   NotebookInstanceStatus,
   OptimizationJobStatus,
   PartnerAppStatus,
@@ -192,6 +190,129 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * <p>Summary information about a monitoring job.</p>
+ * @public
+ */
+export interface MonitoringJobDefinitionSummary {
+  /**
+   * <p>The name of the monitoring job.</p>
+   * @public
+   */
+  MonitoringJobDefinitionName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitoring job.</p>
+   * @public
+   */
+  MonitoringJobDefinitionArn: string | undefined;
+
+  /**
+   * <p>The time that the monitoring job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The name of the endpoint that the job monitors.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDataQualityJobDefinitionsResponse {
+  /**
+   * <p>A list of data quality monitoring job definitions.</p>
+   * @public
+   */
+  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListDataQualityJobDefinitions</code> request was
+   *          truncated, the response includes a <code>NextToken</code>. To retrieve the next set of data
+   *          quality monitoring job definitions, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ListDeviceFleetsSortBy = {
+  CreationTime: "CREATION_TIME",
+  LastModifiedTime: "LAST_MODIFIED_TIME",
+  Name: "NAME",
+} as const;
+
+/**
+ * @public
+ */
+export type ListDeviceFleetsSortBy = (typeof ListDeviceFleetsSortBy)[keyof typeof ListDeviceFleetsSortBy];
+
+/**
+ * @public
+ */
+export interface ListDeviceFleetsRequest {
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to select.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filter fleets where packaging job was created after specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Filter fleets where the edge packaging job was created before specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Select fleets where the job was updated after X</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Select fleets where the job was updated before X</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Filter for fleets containing this name in their fleet device name.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>The column to sort by.</p>
+   * @public
+   */
+  SortBy?: ListDeviceFleetsSortBy | undefined;
+
+  /**
+   * <p>What direction to sort in.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
 
 /**
  * @public
@@ -3047,11 +3168,11 @@ export interface ListModelPackageGroupsInput {
   SortOrder?: SortOrder | undefined;
 
   /**
-   * <p>A filter that returns either model groups shared with you or model groups in
-   * 	  your own account. When the value is <code>CrossAccount</code>, the results show
-   * 	  the resources made discoverable to you from other accounts. When the value is
-   *           <code>SameAccount</code> or <code>null</code>, the results show resources from your
-   *  	  account. The default is <code>SameAccount</code>.</p>
+   * <p>A filter that returns either model groups shared with you or model groups in your own
+   *             account. When the value is <code>CrossAccount</code>, the results show the resources
+   *             made discoverable to you from other accounts. When the value is <code>SameAccount</code>
+   *             or <code>null</code>, the results show resources from your account. The default is
+   *                 <code>SameAccount</code>.</p>
    * @public
    */
   CrossAccountFilterOption?: CrossAccountFilterOption | undefined;
@@ -3104,8 +3225,8 @@ export interface ListModelPackageGroupsOutput {
   ModelPackageGroupSummaryList: ModelPackageGroupSummary[] | undefined;
 
   /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set
-   *             of model groups, use it in the subsequent request.</p>
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *             model groups, use it in the subsequent request.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3179,7 +3300,8 @@ export interface ListModelPackagesInput {
   ModelApprovalStatus?: ModelApprovalStatus | undefined;
 
   /**
-   * <p>A filter that returns only model versions that belong to the specified model group.</p>
+   * <p>A filter that returns only model versions that belong to the specified model
+   *             group.</p>
    * @public
    */
   ModelPackageGroupName?: string | undefined;
@@ -3190,8 +3312,8 @@ export interface ListModelPackagesInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>UNVERSIONED</code> - List only unversioined models.
-   *                     This is the default value if no <code>ModelPackageType</code> is specified.</p>
+   *                   <code>UNVERSIONED</code> - List only unversioined models. This is the default
+   *                     value if no <code>ModelPackageType</code> is specified.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8218,12 +8340,35 @@ export interface ModelDashboardModel {
 }
 
 /**
- * <p>A versioned model that can be deployed for SageMaker inference.</p>
+ * <p>A container for your trained model that can be deployed for SageMaker inference. This can
+ *             include inference code, artifacts, and metadata. The model package type can be one of
+ *             the following.</p>
+ *          <ul>
+ *             <li>
+ *                <p>Versioned model: A part of a model package group in Model Registry.</p>
+ *             </li>
+ *             <li>
+ *                <p>Unversioned model: Not part of a model package group and used in Amazon Web Services Marketplace.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModelPackage.html">
+ *                <code>CreateModelPackage</code>
+ *             </a>.</p>
  * @public
  */
 export interface ModelPackage {
   /**
-   * <p>The name of the model.</p>
+   * <p>The name of the model package. The name can be as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For a versioned model, the name is automatically generated by SageMaker Model Registry and
+   *                     follows the format
+   *                     '<code>ModelPackageGroupName/ModelPackageVersion</code>'.</p>
+   *             </li>
+   *             <li>
+   *                <p>For an unversioned model, you must provide the name.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ModelPackageName?: string | undefined;
@@ -8271,7 +8416,8 @@ export interface ModelPackage {
   SourceAlgorithmSpecification?: SourceAlgorithmSpecification | undefined;
 
   /**
-   * <p>Specifies batch transform jobs that SageMaker runs to validate your model package.</p>
+   * <p>Specifies batch transform jobs that SageMaker runs to validate your model
+   *             package.</p>
    * @public
    */
   ValidationSpecification?: ModelPackageValidationSpecification | undefined;
@@ -8298,7 +8444,8 @@ export interface ModelPackage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETING</code> - The model package is in the process of being deleted.</p>
+   *                   <code>DELETING</code> - The model package is in the process of being
+   *                     deleted.</p>
    *             </li>
    *          </ul>
    * @public
@@ -8312,9 +8459,10 @@ export interface ModelPackage {
   ModelPackageStatusDetails?: ModelPackageStatusDetails | undefined;
 
   /**
-   * <p>Whether the model package is to be certified to be listed on Amazon Web Services Marketplace. For
-   *             information about listing model packages on Amazon Web Services Marketplace, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html">List Your
-   *                 Algorithm or Model Package on Amazon Web Services Marketplace</a>.</p>
+   * <p>Whether the model package is to be certified to be listed on Amazon Web Services
+   *             Marketplace. For information about listing model packages on Amazon Web Services
+   *             Marketplace, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html">List Your Algorithm or Model
+   *                 Package on Amazon Web Services Marketplace</a>.</p>
    * @public
    */
   CertifyForMarketplace?: boolean | undefined;
@@ -8341,7 +8489,8 @@ export interface ModelPackage {
   ModelApprovalStatus?: ModelApprovalStatus | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *             component, lineage group, or project.</p>
    * @public
    */
   CreatedBy?: UserContext | undefined;
@@ -8365,7 +8514,8 @@ export interface ModelPackage {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.</p>
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *             component, lineage group, or project.</p>
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
@@ -8377,22 +8527,22 @@ export interface ModelPackage {
   ApprovalDescription?: string | undefined;
 
   /**
-   * <p>The machine learning domain of your model package and its components. Common
-   *             machine learning domains include computer vision and natural language processing.</p>
+   * <p>The machine learning domain of your model package and its components. Common machine
+   *             learning domains include computer vision and natural language processing.</p>
    * @public
    */
   Domain?: string | undefined;
 
   /**
-   * <p>The machine learning task your model package accomplishes. Common machine
-   *             learning tasks include object detection and image classification.</p>
+   * <p>The machine learning task your model package accomplishes. Common machine learning
+   *             tasks include object detection and image classification.</p>
    * @public
    */
   Task?: string | undefined;
 
   /**
-   * <p>The Amazon Simple Storage Service path where the sample payload are stored. This path must point to
-   *            a single gzip compressed tar archive (.tar.gz suffix).</p>
+   * <p>The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a
+   *             single gzip compressed tar archive (.tar.gz suffix).</p>
    * @public
    */
   SamplePayloadUrl?: string | undefined;
@@ -8410,39 +8560,36 @@ export interface ModelPackage {
   SourceUri?: string | undefined;
 
   /**
-   * <p>An optional Key Management Service
-   *          key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with
-   *          highly sensitive data.</p>
+   * <p>An optional Key Management Service key to encrypt, decrypt, and re-encrypt model
+   *             package information for regulated workloads with highly sensitive data.</p>
    * @public
    */
   SecurityConfig?: ModelPackageSecurityConfig | undefined;
 
   /**
-   * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is
-   *             tied to a model package, it is a specific usage of a model card and its schema is
-   *             simplified compared to the schema of <code>ModelCard</code>. The
-   *             <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>,
-   *             and <code>model_overview</code> is composed of the <code>model_creator</code> and
-   *             <code>model_artifact</code> properties. For more information about the model package model
-   *             card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
-   *                 package model card schema</a>. For more information about
-   *             the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View
-   *                 the Details of a Model Version</a>.</p>
+   * <p>The model card associated with the model package. Since
+   *                 <code>ModelPackageModelCard</code> is tied to a model package, it is a specific
+   *             usage of a model card and its schema is simplified compared to the schema of
+   *                 <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not
+   *             include <code>model_package_details</code>, and <code>model_overview</code> is composed
+   *             of the <code>model_creator</code> and <code>model_artifact</code> properties. For more
+   *             information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
+   *                 package model card schema</a>. For more information about the model card
+   *             associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model
+   *                 Version</a>.</p>
    * @public
    */
   ModelCard?: ModelPackageModelCard | undefined;
 
   /**
-   * <p>
-   *             A structure describing the current state of the model in its life cycle.
-   *         </p>
+   * <p> A structure describing the current state of the model in its life cycle. </p>
    * @public
    */
   ModelLifeCycle?: ModelLifeCycle | undefined;
 
   /**
-   * <p>A list of the tags associated with the model package. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+   * <p>A list of the tags associated with the model package. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General
+   *                 Reference Guide</i>.</p>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -8454,7 +8601,8 @@ export interface ModelPackage {
   CustomerMetadataProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.</p>
+   * <p>Represents the drift check baselines that can be used when the model monitor is set
+   *             using the model package.</p>
    * @public
    */
   DriftCheckBaselines?: DriftCheckBaselines | undefined;
@@ -8467,7 +8615,7 @@ export interface ModelPackage {
 }
 
 /**
- * <p>A group of versioned models in the model registry.</p>
+ * <p>A group of versioned models in the Model Registry.</p>
  * @public
  */
 export interface ModelPackageGroup {
@@ -8524,7 +8672,8 @@ export interface ModelPackageGroup {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETING</code> - The model group is in the process of being deleted.</p>
+   *                   <code>DELETING</code> - The model group is in the process of being
+   *                     deleted.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8536,8 +8685,8 @@ export interface ModelPackageGroup {
   ModelPackageGroupStatus?: ModelPackageGroupStatus | undefined;
 
   /**
-   * <p>A list of the tags associated with the model group. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+   * <p>A list of the tags associated with the model group. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General
+   *                 Reference Guide</i>.</p>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -10289,13 +10438,26 @@ export interface SearchRecord {
   Endpoint?: Endpoint | undefined;
 
   /**
-   * <p>A versioned model that can be deployed for SageMaker inference.</p>
+   * <p>A container for your trained model that can be deployed for SageMaker inference. This can
+   *             include inference code, artifacts, and metadata. The model package type can be one of
+   *             the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Versioned model: A part of a model package group in Model Registry.</p>
+   *             </li>
+   *             <li>
+   *                <p>Unversioned model: Not part of a model package group and used in Amazon Web Services Marketplace.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModelPackage.html">
+   *                <code>CreateModelPackage</code>
+   *             </a>.</p>
    * @public
    */
   ModelPackage?: ModelPackage | undefined;
 
   /**
-   * <p>A group of versioned models in the model registry.</p>
+   * <p>A group of versioned models in the Model Registry.</p>
    * @public
    */
   ModelPackageGroup?: ModelPackageGroup | undefined;
@@ -10980,74 +11142,6 @@ export interface StopPipelineExecutionResponse {
    * @public
    */
   PipelineExecutionArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopProcessingJobRequest {
-  /**
-   * <p>The name of the processing job to stop.</p>
-   * @public
-   */
-  ProcessingJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopTrainingJobRequest {
-  /**
-   * <p>The name of the training job to stop.</p>
-   * @public
-   */
-  TrainingJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopTransformJobRequest {
-  /**
-   * <p>The name of the batch transform job to stop.</p>
-   * @public
-   */
-  TransformJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateActionRequest {
-  /**
-   * <p>The name of the action to update.</p>
-   * @public
-   */
-  ActionName: string | undefined;
-
-  /**
-   * <p>The new description for the action.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The new status for the action.</p>
-   * @public
-   */
-  Status?: ActionStatus | undefined;
-
-  /**
-   * <p>The new list of properties. Overwrites the current property list.</p>
-   * @public
-   */
-  Properties?: Record<string, string> | undefined;
-
-  /**
-   * <p>A list of properties to remove.</p>
-   * @public
-   */
-  PropertiesToRemove?: string[] | undefined;
 }
 
 /**

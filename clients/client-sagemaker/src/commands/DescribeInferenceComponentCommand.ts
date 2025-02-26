@@ -79,6 +79,27 @@ export interface DescribeInferenceComponentCommandOutput extends DescribeInferen
  * //   CreationTime: new Date("TIMESTAMP"), // required
  * //   LastModifiedTime: new Date("TIMESTAMP"), // required
  * //   InferenceComponentStatus: "InService" || "Creating" || "Updating" || "Failed" || "Deleting",
+ * //   LastDeploymentConfig: { // InferenceComponentDeploymentConfig
+ * //     RollingUpdatePolicy: { // InferenceComponentRollingUpdatePolicy
+ * //       MaximumBatchSize: { // InferenceComponentCapacitySize
+ * //         Type: "COPY_COUNT" || "CAPACITY_PERCENT", // required
+ * //         Value: Number("int"), // required
+ * //       },
+ * //       WaitIntervalInSeconds: Number("int"), // required
+ * //       MaximumExecutionTimeoutInSeconds: Number("int"),
+ * //       RollbackMaximumBatchSize: {
+ * //         Type: "COPY_COUNT" || "CAPACITY_PERCENT", // required
+ * //         Value: Number("int"), // required
+ * //       },
+ * //     },
+ * //     AutoRollbackConfiguration: { // AutoRollbackConfig
+ * //       Alarms: [ // AlarmList
+ * //         { // Alarm
+ * //           AlarmName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
  * // };
  *
  * ```

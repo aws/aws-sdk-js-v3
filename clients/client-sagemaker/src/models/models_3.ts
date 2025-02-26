@@ -22,6 +22,7 @@ import {
   AutoMLJobSummary,
   AutoMLSortBy,
   AutoMLSortOrder,
+  AutoRollbackConfig,
   Autotune,
   BatchDataCaptureConfig,
   BatchStrategy,
@@ -985,6 +986,122 @@ export const InferenceComponentStatus = {
 export type InferenceComponentStatus = (typeof InferenceComponentStatus)[keyof typeof InferenceComponentStatus];
 
 /**
+ * @public
+ * @enum
+ */
+export const InferenceComponentCapacitySizeType = {
+  CAPACITY_PERCENT: "CAPACITY_PERCENT",
+  COPY_COUNT: "COPY_COUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type InferenceComponentCapacitySizeType =
+  (typeof InferenceComponentCapacitySizeType)[keyof typeof InferenceComponentCapacitySizeType];
+
+/**
+ * <p>Specifies the type and size of the endpoint capacity to activate for a rolling
+ *          deployment or a rollback strategy. You can specify your batches as either of the
+ *          following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>A count of inference component copies </p>
+ *             </li>
+ *             <li>
+ *                <p>The overall percentage or your fleet </p>
+ *             </li>
+ *          </ul>
+ *          <p>For a rollback strategy, if you don't specify the fields in this object, or if you set
+ *          the <code>Value</code> parameter to 100%, then SageMaker AI uses a blue/green rollback
+ *          strategy and rolls all traffic back to the blue fleet.</p>
+ * @public
+ */
+export interface InferenceComponentCapacitySize {
+  /**
+   * <p>Specifies the endpoint capacity type.</p>
+   *          <dl>
+   *             <dt>COPY_COUNT</dt>
+   *             <dd>
+   *                <p>The endpoint activates based on the number of inference component
+   *                   copies.</p>
+   *             </dd>
+   *             <dt>CAPACITY_PERCENT</dt>
+   *             <dd>
+   *                <p>The endpoint activates based on the specified percentage of capacity.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  Type: InferenceComponentCapacitySizeType | undefined;
+
+  /**
+   * <p>Defines the capacity size, either as a number of inference component copies or a
+   *          capacity percentage.</p>
+   * @public
+   */
+  Value: number | undefined;
+}
+
+/**
+ * <p>Specifies a rolling deployment strategy for updating a SageMaker AI inference
+ *          component.</p>
+ * @public
+ */
+export interface InferenceComponentRollingUpdatePolicy {
+  /**
+   * <p>The batch size for each rolling step in the deployment process. For each step, SageMaker AI provisions capacity on the new endpoint fleet, routes traffic to that fleet,
+   *          and terminates capacity on the old endpoint fleet. The value must be between 5% to 50% of
+   *          the copy count of the inference component.</p>
+   * @public
+   */
+  MaximumBatchSize: InferenceComponentCapacitySize | undefined;
+
+  /**
+   * <p>The length of the baking period, during which SageMaker AI monitors alarms for each
+   *          batch on the new fleet.</p>
+   * @public
+   */
+  WaitIntervalInSeconds: number | undefined;
+
+  /**
+   * <p>The time limit for the total deployment. Exceeding this limit causes a timeout.</p>
+   * @public
+   */
+  MaximumExecutionTimeoutInSeconds?: number | undefined;
+
+  /**
+   * <p>The batch size for a rollback to the old endpoint fleet. If this field is absent, the
+   *          value is set to the default, which is 100% of the total capacity. When the default is used,
+   *             SageMaker AI provisions the entire capacity of the old fleet at once during
+   *          rollback.</p>
+   * @public
+   */
+  RollbackMaximumBatchSize?: InferenceComponentCapacitySize | undefined;
+}
+
+/**
+ * <p>The deployment configuration for an endpoint that hosts inference components. The
+ *          configuration includes the desired deployment strategy and rollback settings.</p>
+ * @public
+ */
+export interface InferenceComponentDeploymentConfig {
+  /**
+   * <p>Specifies a rolling deployment strategy for updating a SageMaker AI
+   *          endpoint.</p>
+   * @public
+   */
+  RollingUpdatePolicy: InferenceComponentRollingUpdatePolicy | undefined;
+
+  /**
+   * <p>Automatic rollback configuration for handling endpoint deployment failures and
+   *             recovery.</p>
+   * @public
+   */
+  AutoRollbackConfiguration?: AutoRollbackConfig | undefined;
+}
+
+/**
  * <p>Details about the runtime settings for the model that is deployed with the inference
  *          component.</p>
  * @public
@@ -1143,6 +1260,13 @@ export interface DescribeInferenceComponentOutput {
    * @public
    */
   InferenceComponentStatus?: InferenceComponentStatus | undefined;
+
+  /**
+   * <p>The deployment and rollback settings that you assigned to the inference
+   *          component.</p>
+   * @public
+   */
+  LastDeploymentConfig?: InferenceComponentDeploymentConfig | undefined;
 }
 
 /**
@@ -2806,8 +2930,8 @@ export interface DescribeModelExplainabilityJobDefinitionResponse {
 export interface DescribeModelPackageInput {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the model package to describe.</p>
-   *          <p>When you specify a name, the name must have 1 to 63 characters. Valid
-   *             characters are a-z, A-Z, 0-9, and - (hyphen).</p>
+   *          <p>When you specify a name, the name must have 1 to 63 characters. Valid characters are
+   *             a-z, A-Z, 0-9, and - (hyphen).</p>
    * @public
    */
   ModelPackageName: string | undefined;
@@ -2945,7 +3069,8 @@ export interface DescribeModelPackageOutput {
   ModelPackageStatusDetails: ModelPackageStatusDetails | undefined;
 
   /**
-   * <p>Whether the model package is certified for listing on Amazon Web Services Marketplace.</p>
+   * <p>Whether the model package is certified for listing on Amazon Web Services
+   *             Marketplace.</p>
    * @public
    */
   CertifyForMarketplace?: boolean | undefined;
@@ -3002,15 +3127,15 @@ export interface DescribeModelPackageOutput {
   Domain?: string | undefined;
 
   /**
-   * <p>The machine learning task you specified that your model package accomplishes.
-   *             Common machine learning tasks include object detection and image classification.</p>
+   * <p>The machine learning task you specified that your model package accomplishes. Common
+   *             machine learning tasks include object detection and image classification.</p>
    * @public
    */
   Task?: string | undefined;
 
   /**
-   * <p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload are stored. This path points to a single
-   *             gzip compressed tar archive (.tar.gz suffix).</p>
+   * <p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload are stored. This path points to a
+   *             single gzip compressed tar archive (.tar.gz suffix).</p>
    * @public
    */
   SamplePayloadUrl?: string | undefined;
@@ -3022,17 +3147,18 @@ export interface DescribeModelPackageOutput {
   CustomerMetadataProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.
-   *             For more information, see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection">Drift Detection against Previous Baselines in SageMaker Pipelines</a> in the <i>Amazon SageMaker Developer Guide</i>.
-   *         </p>
+   * <p>Represents the drift check baselines that can be used when the model monitor is set
+   *             using the model package. For more information, see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection">Drift Detection against Previous Baselines in SageMaker
+   *                 Pipelines</a> in the <i>Amazon SageMaker Developer Guide</i>. </p>
    * @public
    */
   DriftCheckBaselines?: DriftCheckBaselines | undefined;
 
   /**
-   * <p>An array of additional Inference Specification objects. Each additional
-   *             Inference Specification specifies artifacts based on this model package that can
-   *             be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.</p>
+   * <p>An array of additional Inference Specification objects. Each additional Inference
+   *             Specification specifies artifacts based on this model package that can be used on
+   *             inference endpoints. Generally used with SageMaker Neo to store the compiled
+   *             artifacts.</p>
    * @public
    */
   AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[] | undefined;
@@ -3050,30 +3176,29 @@ export interface DescribeModelPackageOutput {
   SourceUri?: string | undefined;
 
   /**
-   * <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model package information.</p>
+   * <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model
+   *             package information.</p>
    * @public
    */
   SecurityConfig?: ModelPackageSecurityConfig | undefined;
 
   /**
-   * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is
-   *             tied to a model package, it is a specific usage of a model card and its schema is
-   *             simplified compared to the schema of <code>ModelCard</code>. The
-   *             <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>,
-   *             and <code>model_overview</code> is composed of the <code>model_creator</code> and
-   *             <code>model_artifact</code> properties. For more information about the model package model
-   *             card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
-   *                 package model card schema</a>. For more information about
-   *             the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View
-   *                 the Details of a Model Version</a>.</p>
+   * <p>The model card associated with the model package. Since
+   *                 <code>ModelPackageModelCard</code> is tied to a model package, it is a specific
+   *             usage of a model card and its schema is simplified compared to the schema of
+   *                 <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not
+   *             include <code>model_package_details</code>, and <code>model_overview</code> is composed
+   *             of the <code>model_creator</code> and <code>model_artifact</code> properties. For more
+   *             information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
+   *                 package model card schema</a>. For more information about the model card
+   *             associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model
+   *                 Version</a>.</p>
    * @public
    */
   ModelCard?: ModelPackageModelCard | undefined;
 
   /**
-   * <p>
-   *             A structure describing the current state of the model in its life cycle.
-   *         </p>
+   * <p> A structure describing the current state of the model in its life cycle. </p>
    * @public
    */
   ModelLifeCycle?: ModelLifeCycle | undefined;
@@ -7759,8 +7884,7 @@ export interface EnableSagemakerServicecatalogPortfolioInput {}
 export interface EnableSagemakerServicecatalogPortfolioOutput {}
 
 /**
- * <p>A schedule for a model monitoring job. For information about model monitor, see
- *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker Model
+ * <p>A schedule for a model monitoring job. For information about model monitor, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker Model
  *                 Monitor</a>.</p>
  * @public
  */
@@ -7844,8 +7968,9 @@ export interface MonitoringSchedule {
   LastMonitoringExecutionSummary?: MonitoringExecutionSummary | undefined;
 
   /**
-   * <p>A list of the tags associated with the monitoring schedlue. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+   * <p>A list of the tags associated with the monitoring schedlue. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General
+   *                 Reference Guide</i>.</p>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -8097,7 +8222,9 @@ export interface EndpointSummary {
 }
 
 /**
- * <p>The properties of an experiment as returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
+ * <p>The properties of an experiment as returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.
+ *       For information about experiments, see the
+ *       <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateExperiment.html">CreateExperiment</a> API.</p>
  * @public
  */
 export interface Experiment {
@@ -11864,129 +11991,6 @@ export interface ListDataQualityJobDefinitionsRequest {
    * @public
    */
   CreationTimeAfter?: Date | undefined;
-}
-
-/**
- * <p>Summary information about a monitoring job.</p>
- * @public
- */
-export interface MonitoringJobDefinitionSummary {
-  /**
-   * <p>The name of the monitoring job.</p>
-   * @public
-   */
-  MonitoringJobDefinitionName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the monitoring job.</p>
-   * @public
-   */
-  MonitoringJobDefinitionArn: string | undefined;
-
-  /**
-   * <p>The time that the monitoring job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The name of the endpoint that the job monitors.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDataQualityJobDefinitionsResponse {
-  /**
-   * <p>A list of data quality monitoring job definitions.</p>
-   * @public
-   */
-  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListDataQualityJobDefinitions</code> request was
-   *          truncated, the response includes a <code>NextToken</code>. To retrieve the next set of data
-   *          quality monitoring job definitions, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ListDeviceFleetsSortBy = {
-  CreationTime: "CREATION_TIME",
-  LastModifiedTime: "LAST_MODIFIED_TIME",
-  Name: "NAME",
-} as const;
-
-/**
- * @public
- */
-export type ListDeviceFleetsSortBy = (typeof ListDeviceFleetsSortBy)[keyof typeof ListDeviceFleetsSortBy];
-
-/**
- * @public
- */
-export interface ListDeviceFleetsRequest {
-  /**
-   * <p>The response from the last list when returning a list large enough to need tokening.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to select.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Filter fleets where packaging job was created after specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Filter fleets where the edge packaging job was created before specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Select fleets where the job was updated after X</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Select fleets where the job was updated before X</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Filter for fleets containing this name in their fleet device name.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>The column to sort by.</p>
-   * @public
-   */
-  SortBy?: ListDeviceFleetsSortBy | undefined;
-
-  /**
-   * <p>What direction to sort in.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
 }
 
 /**

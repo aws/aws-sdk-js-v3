@@ -61,6 +61,27 @@ export interface UpdateInferenceComponentCommandOutput extends UpdateInferenceCo
  *   RuntimeConfig: { // InferenceComponentRuntimeConfig
  *     CopyCount: Number("int"), // required
  *   },
+ *   DeploymentConfig: { // InferenceComponentDeploymentConfig
+ *     RollingUpdatePolicy: { // InferenceComponentRollingUpdatePolicy
+ *       MaximumBatchSize: { // InferenceComponentCapacitySize
+ *         Type: "COPY_COUNT" || "CAPACITY_PERCENT", // required
+ *         Value: Number("int"), // required
+ *       },
+ *       WaitIntervalInSeconds: Number("int"), // required
+ *       MaximumExecutionTimeoutInSeconds: Number("int"),
+ *       RollbackMaximumBatchSize: {
+ *         Type: "COPY_COUNT" || "CAPACITY_PERCENT", // required
+ *         Value: Number("int"), // required
+ *       },
+ *     },
+ *     AutoRollbackConfiguration: { // AutoRollbackConfig
+ *       Alarms: [ // AlarmList
+ *         { // Alarm
+ *           AlarmName: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new UpdateInferenceComponentCommand(input);
  * const response = await client.send(command);

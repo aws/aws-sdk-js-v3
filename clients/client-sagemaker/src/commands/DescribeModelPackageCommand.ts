@@ -36,11 +36,10 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  *             models or list them on Amazon Web Services Marketplace.</p>
  *          <important>
  *             <p>If you provided a KMS Key ID when you created your model package,
- *             you will see the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html">KMS
- *                 Decrypt</a> API call in your CloudTrail logs when you use this API.</p>
+ *                 you will see the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html">KMS Decrypt</a> API call in
+ *                 your CloudTrail logs when you use this API.</p>
  *          </important>
- *          <p>To create models in SageMaker, buyers can subscribe to model packages listed on Amazon Web Services
- *             Marketplace.</p>
+ *          <p>To create models in SageMaker, buyers can subscribe to model packages listed on Amazon Web Services Marketplace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

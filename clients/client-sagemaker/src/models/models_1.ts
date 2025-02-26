@@ -11879,8 +11879,8 @@ export interface FileSource {
 }
 
 /**
- * <p>Represents the drift check bias baselines that can be used when the model monitor is set using the
- *             model package.</p>
+ * <p>Represents the drift check bias baselines that can be used when the model monitor is
+ *             set using the model package.</p>
  * @public
  */
 export interface DriftCheckBias {
@@ -11904,8 +11904,8 @@ export interface DriftCheckBias {
 }
 
 /**
- * <p>Represents the drift check explainability baselines that can be used when the model monitor is set
- *             using the model package. </p>
+ * <p>Represents the drift check explainability baselines that can be used when the model
+ *             monitor is set using the model package. </p>
  * @public
  */
 export interface DriftCheckExplainability {
@@ -11923,8 +11923,8 @@ export interface DriftCheckExplainability {
 }
 
 /**
- * <p>Represents the drift check data quality baselines that can be used when the model monitor is set using
- *             the model package. </p>
+ * <p>Represents the drift check data quality baselines that can be used when the model
+ *             monitor is set using the model package. </p>
  * @public
  */
 export interface DriftCheckModelDataQuality {
@@ -11942,8 +11942,8 @@ export interface DriftCheckModelDataQuality {
 }
 
 /**
- * <p>Represents the drift check model quality baselines that can be used when the model monitor is set using
- *             the model package. </p>
+ * <p>Represents the drift check model quality baselines that can be used when the model
+ *             monitor is set using the model package. </p>
  * @public
  */
 export interface DriftCheckModelQuality {
@@ -11961,64 +11961,64 @@ export interface DriftCheckModelQuality {
 }
 
 /**
- * <p>Represents the drift check baselines that can be used when the model monitor is set using the model
- *             package. </p>
+ * <p>Represents the drift check baselines that can be used when the model monitor is set
+ *             using the model package. </p>
  * @public
  */
 export interface DriftCheckBaselines {
   /**
-   * <p>Represents the drift check bias baselines that can be used when the model monitor is set using the model
-   *             package. </p>
+   * <p>Represents the drift check bias baselines that can be used when the model monitor is
+   *             set using the model package. </p>
    * @public
    */
   Bias?: DriftCheckBias | undefined;
 
   /**
-   * <p>Represents the drift check explainability baselines that can be used when the model monitor is set using
-   *             the model package. </p>
+   * <p>Represents the drift check explainability baselines that can be used when the model
+   *             monitor is set using the model package. </p>
    * @public
    */
   Explainability?: DriftCheckExplainability | undefined;
 
   /**
-   * <p>Represents the drift check model quality baselines that can be used when the model monitor is set using
-   *             the model package.</p>
+   * <p>Represents the drift check model quality baselines that can be used when the model
+   *             monitor is set using the model package.</p>
    * @public
    */
   ModelQuality?: DriftCheckModelQuality | undefined;
 
   /**
-   * <p>Represents the drift check model data quality baselines that can be used when the model monitor is set
-   *             using the model package.</p>
+   * <p>Represents the drift check model data quality baselines that can be used when the
+   *             model monitor is set using the model package.</p>
    * @public
    */
   ModelDataQuality?: DriftCheckModelDataQuality | undefined;
 }
 
 /**
- * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is
- *             tied to a model package, it is a specific usage of a model card and its schema is
- *             simplified compared to the schema of <code>ModelCard</code>. The
- *             <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>,
- *             and <code>model_overview</code> is composed of the <code>model_creator</code> and
- *             <code>model_artifact</code> properties. For more information about the model package model
- *             card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
- *                 package model card schema</a>. For more information about
- *             the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View
- *                 the Details of a Model Version</a>.</p>
+ * <p>The model card associated with the model package. Since
+ *                 <code>ModelPackageModelCard</code> is tied to a model package, it is a specific
+ *             usage of a model card and its schema is simplified compared to the schema of
+ *                 <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not
+ *             include <code>model_package_details</code>, and <code>model_overview</code> is composed
+ *             of the <code>model_creator</code> and <code>model_artifact</code> properties. For more
+ *             information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
+ *                 package model card schema</a>. For more information about the model card
+ *             associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model
+ *                 Version</a>.</p>
  * @public
  */
 export interface ModelPackageModelCard {
   /**
-   * <p>The content of the model card. The content must follow the schema described
-   *            in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
-   *                Package Model Card Schema</a>.</p>
+   * <p>The content of the model card. The content must follow the schema described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
+   *                 Package Model Card Schema</a>.</p>
    * @public
    */
   ModelCardContent?: string | undefined;
 
   /**
-   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p>
+   * <p>The approval status of the model card within your organization. Different
+   *             organizations might have different criteria for model card review and approval.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -12034,9 +12034,9 @@ export interface ModelPackageModelCard {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Archived</code>: The model card is archived. No more updates can be made to the model
-   *                card content. If you try to update the model card content, you will receive the message <code>Model Card
-   *  	       is in Archived state</code>.</p>
+   *                   <code>Archived</code>: The model card is archived. No more updates can be made
+   *                     to the model card content. If you try to update the model card content, you will
+   *                     receive the message <code>Model Card is in Archived state</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -12045,32 +12045,24 @@ export interface ModelPackageModelCard {
 }
 
 /**
- * <p>
- *             A structure describing the current state of the model in its life cycle.
- *         </p>
+ * <p> A structure describing the current state of the model in its life cycle. </p>
  * @public
  */
 export interface ModelLifeCycle {
   /**
-   * <p>
-   *             The current stage in the model life cycle.
-   *         </p>
+   * <p> The current stage in the model life cycle. </p>
    * @public
    */
   Stage: string | undefined;
 
   /**
-   * <p>
-   *             The current status of a stage in model life cycle.
-   *         </p>
+   * <p> The current status of a stage in model life cycle. </p>
    * @public
    */
   StageStatus: string | undefined;
 
   /**
-   * <p>
-   *             Describes the stage related details.
-   *         </p>
+   * <p> Describes the stage related details. </p>
    * @public
    */
   StageDescription?: string | undefined;
@@ -12155,14 +12147,14 @@ export interface ModelMetrics {
 }
 
 /**
- * <p>An optional Key Management Service
- *          key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with
- *          highly sensitive data.</p>
+ * <p>An optional Key Management Service key to encrypt, decrypt, and re-encrypt model
+ *             package information for regulated workloads with highly sensitive data.</p>
  * @public
  */
 export interface ModelPackageSecurityConfig {
   /**
-   * <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model package information.</p>
+   * <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model
+   *             package information.</p>
    * @public
    */
   KmsKeyId: string | undefined;
@@ -12235,8 +12227,8 @@ export interface SourceAlgorithmSpecification {
 /**
  * <p>Contains data, such as the inputs and targeted instance types that are used in the
  *             process of validating the model package.</p>
- *          <p>The data provided in the validation profile is made available to your buyers on Amazon Web Services
- *             Marketplace.</p>
+ *          <p>The data provided in the validation profile is made available to your buyers on
+ *                 Amazon Web Services Marketplace.</p>
  * @public
  */
 export interface ModelPackageValidationProfile {
@@ -12287,7 +12279,8 @@ export interface CreateModelPackageInput {
   ModelPackageName?: string | undefined;
 
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the model package group that this model version belongs to.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the model package group that this model version belongs
+   *             to.</p>
    *          <p>This parameter is required for versioned models, and does not apply to unversioned
    *             models.</p>
    * @public
@@ -12301,8 +12294,8 @@ export interface CreateModelPackageInput {
   ModelPackageDescription?: string | undefined;
 
   /**
-   * <p>Specifies details about inference jobs that you can run with models based on this model
-   *             package, including the following information:</p>
+   * <p>Specifies details about inference jobs that you can run with models based on this
+   *             model package, including the following information:</p>
    *          <ul>
    *             <li>
    *                <p>The Amazon ECR paths of containers that contain the inference code and model
@@ -12335,7 +12328,8 @@ export interface CreateModelPackageInput {
   SourceAlgorithmSpecification?: SourceAlgorithmSpecification | undefined;
 
   /**
-   * <p>Whether to certify the model package for listing on Amazon Web Services Marketplace.</p>
+   * <p>Whether to certify the model package for listing on Amazon Web Services
+   *             Marketplace.</p>
    *          <p>This parameter is optional for unversioned models, and does not apply to versioned
    *             models.</p>
    * @public
@@ -12343,12 +12337,11 @@ export interface CreateModelPackageInput {
   CertifyForMarketplace?: boolean | undefined;
 
   /**
-   * <p>A list of key value pairs associated with the model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
-   *          <p>If you supply <code>ModelPackageGroupName</code>, your model package belongs to the model group
-   * 	    you specify and uses the tags associated with the model group. In this case, you cannot
-   * 	    supply a <code>tag</code> argument.
-   * </p>
+   * <p>A list of key value pairs associated with the model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General
+   *                 Reference Guide</i>.</p>
+   *          <p>If you supply <code>ModelPackageGroupName</code>, your model package belongs to the
+   *             model group you specify and uses the tags associated with the model group. In this case,
+   *             you cannot supply a <code>tag</code> argument. </p>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -12358,7 +12351,7 @@ export interface CreateModelPackageInput {
    *          <p>This parameter is optional for versioned models, and does not apply to unversioned
    *             models.</p>
    *          <p>For versioned models, the value of this parameter must be set to <code>Approved</code>
-   *         to deploy the model.</p>
+   *             to deploy the model.</p>
    * @public
    */
   ModelApprovalStatus?: ModelApprovalStatus | undefined;
@@ -12382,28 +12375,30 @@ export interface CreateModelPackageInput {
   ClientToken?: string | undefined;
 
   /**
-   * <p>The machine learning domain of your model package and its components. Common
-   *             machine learning domains include computer vision and natural language processing.</p>
+   * <p>The machine learning domain of your model package and its components. Common machine
+   *             learning domains include computer vision and natural language processing.</p>
    * @public
    */
   Domain?: string | undefined;
 
   /**
-   * <p>The machine learning task your model package accomplishes. Common machine
-   *             learning tasks include object detection and image classification. The following
-   *             tasks are supported by Inference Recommender:
-   *             <code>"IMAGE_CLASSIFICATION"</code> | <code>"OBJECT_DETECTION"</code> | <code>"TEXT_GENERATION"</code> |<code>"IMAGE_SEGMENTATION"</code> |
-   *             <code>"FILL_MASK"</code> | <code>"CLASSIFICATION"</code> | <code>"REGRESSION"</code> | <code>"OTHER"</code>.</p>
+   * <p>The machine learning task your model package accomplishes. Common machine learning
+   *             tasks include object detection and image classification. The following tasks are
+   *             supported by Inference Recommender: <code>"IMAGE_CLASSIFICATION"</code> |
+   *                 <code>"OBJECT_DETECTION"</code> | <code>"TEXT_GENERATION"</code>
+   *                 |<code>"IMAGE_SEGMENTATION"</code> | <code>"FILL_MASK"</code> |
+   *                 <code>"CLASSIFICATION"</code> | <code>"REGRESSION"</code> |
+   *             <code>"OTHER"</code>.</p>
    *          <p>Specify "OTHER" if none of the tasks listed fit your use case.</p>
    * @public
    */
   Task?: string | undefined;
 
   /**
-   * <p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload is stored. This path must point
-   *             to a single gzip compressed tar archive (.tar.gz suffix). This archive can hold multiple files
-   *             that are all equally used in the load test. Each file in the archive must satisfy the size constraints of the
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html#API_runtime_InvokeEndpoint_RequestSyntax">InvokeEndpoint</a> call.</p>
+   * <p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload is stored. This path must point to a
+   *             single gzip compressed tar archive (.tar.gz suffix). This archive can hold multiple
+   *             files that are all equally used in the load test. Each file in the archive must satisfy
+   *             the size constraints of the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html#API_runtime_InvokeEndpoint_RequestSyntax">InvokeEndpoint</a> call.</p>
    * @public
    */
   SamplePayloadUrl?: string | undefined;
@@ -12415,18 +12410,18 @@ export interface CreateModelPackageInput {
   CustomerMetadataProperties?: Record<string, string> | undefined;
 
   /**
-   * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.
-   *             For more information, see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection">Drift Detection against Previous Baselines in SageMaker Pipelines</a> in the <i>Amazon SageMaker Developer Guide</i>.
-   *         </p>
+   * <p>Represents the drift check baselines that can be used when the model monitor is set
+   *             using the model package. For more information, see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection">Drift Detection against Previous Baselines in SageMaker
+   *                 Pipelines</a> in the <i>Amazon SageMaker Developer Guide</i>. </p>
    * @public
    */
   DriftCheckBaselines?: DriftCheckBaselines | undefined;
 
   /**
-   * <p>An array of additional Inference Specification objects. Each additional
-   *             Inference Specification specifies artifacts based on this model package that can
-   *             be used on inference endpoints. Generally used with SageMaker Neo to store the
-   *             compiled artifacts. </p>
+   * <p>An array of additional Inference Specification objects. Each additional Inference
+   *             Specification specifies artifacts based on this model package that can be used on
+   *             inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
+   *         </p>
    * @public
    */
   AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[] | undefined;
@@ -12438,38 +12433,37 @@ export interface CreateModelPackageInput {
   SkipModelValidation?: SkipModelValidation | undefined;
 
   /**
-   * <p>The URI of the source for the model package. If you want to clone a model package,
-   *                 set it to the model package Amazon Resource Name (ARN). If you want to register a model,
-   *                 set it to the model ARN.</p>
+   * <p>The URI of the source for the model package. If you want to clone a model package, set
+   *             it to the model package Amazon Resource Name (ARN). If you want to register a model, set
+   *             it to the model ARN.</p>
    * @public
    */
   SourceUri?: string | undefined;
 
   /**
-   * <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model package information.</p>
+   * <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model
+   *             package information.</p>
    * @public
    */
   SecurityConfig?: ModelPackageSecurityConfig | undefined;
 
   /**
-   * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is
-   *            tied to a model package, it is a specific usage of a model card and its schema is
-   *            simplified compared to the schema of <code>ModelCard</code>. The
-   *            <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>,
-   *            and <code>model_overview</code> is composed of the <code>model_creator</code> and
-   *            <code>model_artifact</code> properties. For more information about the model package model
-   *            card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
-   *                package model card schema</a>. For more information about
-   *            the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View
-   *                the Details of a Model Version</a>.</p>
+   * <p>The model card associated with the model package. Since
+   *                 <code>ModelPackageModelCard</code> is tied to a model package, it is a specific
+   *             usage of a model card and its schema is simplified compared to the schema of
+   *                 <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not
+   *             include <code>model_package_details</code>, and <code>model_overview</code> is composed
+   *             of the <code>model_creator</code> and <code>model_artifact</code> properties. For more
+   *             information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
+   *                 package model card schema</a>. For more information about the model card
+   *             associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model
+   *                 Version</a>.</p>
    * @public
    */
   ModelCard?: ModelPackageModelCard | undefined;
 
   /**
-   * <p>
-   *             A structure describing the current state of the model in its life cycle.
-   *         </p>
+   * <p> A structure describing the current state of the model in its life cycle. </p>
    * @public
    */
   ModelLifeCycle?: ModelLifeCycle | undefined;
@@ -12504,8 +12498,8 @@ export interface CreateModelPackageGroupInput {
 
   /**
    * <p>A list of key value pairs associated with the model group. For more information, see
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+   *                 <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General
+   *                 Reference Guide</i>.</p>
    * @public
    */
   Tags?: Tag[] | undefined;

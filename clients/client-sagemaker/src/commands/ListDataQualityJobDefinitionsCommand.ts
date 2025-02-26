@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDataQualityJobDefinitionsRequest, ListDataQualityJobDefinitionsResponse } from "../models/models_3";
+import { ListDataQualityJobDefinitionsRequest } from "../models/models_3";
+import { ListDataQualityJobDefinitionsResponse } from "../models/models_4";
 import {
   de_ListDataQualityJobDefinitionsCommand,
   se_ListDataQualityJobDefinitionsCommand,

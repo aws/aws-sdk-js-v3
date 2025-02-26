@@ -1837,7 +1837,10 @@ import {
   ImageVersion,
   ImportHubContentRequest,
   ImportHubContentResponse,
+  InferenceComponentCapacitySize,
   InferenceComponentContainerSpecificationSummary,
+  InferenceComponentDeploymentConfig,
+  InferenceComponentRollingUpdatePolicy,
   InferenceComponentRuntimeConfigSummary,
   InferenceComponentSpecificationSummary,
   InferenceComponentSummary,
@@ -1887,8 +1890,6 @@ import {
   ListContextsRequest,
   ListContextsResponse,
   ListDataQualityJobDefinitionsRequest,
-  ListDataQualityJobDefinitionsResponse,
-  ListDeviceFleetsRequest,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
@@ -1897,7 +1898,6 @@ import {
   ModelPackageStatusItem,
   ModelVariantConfigSummary,
   MonitoringExecutionSummary,
-  MonitoringJobDefinitionSummary,
   MonitoringSchedule,
   ObjectiveStatusCounters,
   OidcConfigForResponse,
@@ -1934,6 +1934,8 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListDataQualityJobDefinitionsResponse,
+  ListDeviceFleetsRequest,
   ListDeviceFleetsResponse,
   ListDevicesRequest,
   ListDevicesResponse,
@@ -2084,6 +2086,7 @@ import {
   MonitoringAlertActions,
   MonitoringAlertHistorySummary,
   MonitoringAlertSummary,
+  MonitoringJobDefinitionSummary,
   MonitoringScheduleSummary,
   NestedFilters,
   NotebookInstanceLifecycleConfigSummary,
@@ -2161,9 +2164,6 @@ import {
   StopOptimizationJobRequest,
   StopPipelineExecutionRequest,
   StopPipelineExecutionResponse,
-  StopProcessingJobRequest,
-  StopTrainingJobRequest,
-  StopTransformJobRequest,
   StudioLifecycleConfigDetails,
   TrackingServerSummary,
   TrainingJob,
@@ -2182,7 +2182,6 @@ import {
   TrialComponentSummary,
   TrialSummary,
   TuningJobStepMetaData,
-  UpdateActionRequest,
   UserProfileDetails,
   Vertex,
   VisibilityConditions,
@@ -2191,7 +2190,11 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  StopProcessingJobRequest,
+  StopTrainingJobRequest,
+  StopTransformJobRequest,
   ThroughputConfigUpdate,
+  UpdateActionRequest,
   UpdateActionResponse,
   UpdateAppImageConfigRequest,
   UpdateAppImageConfigResponse,
@@ -15243,6 +15246,8 @@ const se_HyperParameterTuningJobConfig = (input: HyperParameterTuningJobConfig, 
 
 // se_ImportHubContentRequest omitted.
 
+// se_InferenceComponentCapacitySize omitted.
+
 /**
  * serializeAws_json1_1InferenceComponentComputeResourceRequirements
  */
@@ -15259,6 +15264,10 @@ const se_InferenceComponentComputeResourceRequirements = (
 };
 
 // se_InferenceComponentContainerSpecification omitted.
+
+// se_InferenceComponentDeploymentConfig omitted.
+
+// se_InferenceComponentRollingUpdatePolicy omitted.
 
 // se_InferenceComponentRuntimeConfig omitted.
 
@@ -17417,6 +17426,7 @@ const se_UpdateEndpointWeightsAndCapacitiesInput = (
  */
 const se_UpdateInferenceComponentInput = (input: UpdateInferenceComponentInput, context: __SerdeContext): any => {
   return take(input, {
+    DeploymentConfig: _json,
     InferenceComponentName: [],
     RuntimeConfig: _json,
     Specification: (_) => se_InferenceComponentSpecification(_, context),
@@ -21707,6 +21717,7 @@ const de_DescribeInferenceComponentOutput = (
     InferenceComponentArn: __expectString,
     InferenceComponentName: __expectString,
     InferenceComponentStatus: __expectString,
+    LastDeploymentConfig: (_: any) => de_InferenceComponentDeploymentConfig(_, context),
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     RuntimeConfig: (_: any) => de_InferenceComponentRuntimeConfigSummary(_, context),
     Specification: (_: any) => de_InferenceComponentSpecificationSummary(_, context),
@@ -24614,6 +24625,16 @@ const de_ImportHubContentResponse = (output: any, context: __SerdeContext): Impo
 };
 
 /**
+ * deserializeAws_json1_1InferenceComponentCapacitySize
+ */
+const de_InferenceComponentCapacitySize = (output: any, context: __SerdeContext): InferenceComponentCapacitySize => {
+  return take(output, {
+    Type: __expectString,
+    Value: __expectInt32,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1InferenceComponentComputeResourceRequirements
  */
 const de_InferenceComponentComputeResourceRequirements = (
@@ -24639,6 +24660,34 @@ const de_InferenceComponentContainerSpecificationSummary = (
     ArtifactUrl: __expectString,
     DeployedImage: (_: any) => de_DeployedImage(_, context),
     Environment: (_: any) => de_EnvironmentMap(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1InferenceComponentDeploymentConfig
+ */
+const de_InferenceComponentDeploymentConfig = (
+  output: any,
+  context: __SerdeContext
+): InferenceComponentDeploymentConfig => {
+  return take(output, {
+    AutoRollbackConfiguration: (_: any) => de_AutoRollbackConfig(_, context),
+    RollingUpdatePolicy: (_: any) => de_InferenceComponentRollingUpdatePolicy(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1InferenceComponentRollingUpdatePolicy
+ */
+const de_InferenceComponentRollingUpdatePolicy = (
+  output: any,
+  context: __SerdeContext
+): InferenceComponentRollingUpdatePolicy => {
+  return take(output, {
+    MaximumBatchSize: (_: any) => de_InferenceComponentCapacitySize(_, context),
+    MaximumExecutionTimeoutInSeconds: __expectInt32,
+    RollbackMaximumBatchSize: (_: any) => de_InferenceComponentCapacitySize(_, context),
+    WaitIntervalInSeconds: __expectInt32,
   }) as any;
 };
 
