@@ -49,7 +49,7 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  * const input = { // CreateLinkInput
  *   LabelTemplate: "STRING_VALUE", // required
  *   ResourceTypes: [ // ResourceTypesInput // required
- *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace" || "AWS::ApplicationInsights::Application" || "AWS::InternetMonitor::Monitor",
+ *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace" || "AWS::ApplicationInsights::Application" || "AWS::InternetMonitor::Monitor" || "AWS::ApplicationSignals::Service" || "AWS::ApplicationSignals::ServiceLevelObjective",
  *   ],
  *   SinkIdentifier: "STRING_VALUE", // required
  *   Tags: { // TagMapInput
