@@ -101,6 +101,49 @@ export interface ListJobsByConsumableResourceCommandOutput
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @public
+ * @example To get a list of Batch jobs by consumable resource
+ * ```javascript
+ * // Returns a list of Batch jobs that require a specific consumable resource.
+ * const input = {
+ *   "consumableResource": "myConsumableResource",
+ *   "filters": [
+ *     {
+ *       "name": "CONSUMABLE_RESOURCE_NAME",
+ *       "values": [
+ *         "my*"
+ *       ]
+ *     }
+ *   ],
+ *   "maxResults": 123
+ * };
+ * const command = new ListJobsByConsumableResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "jobs": [
+ *     {
+ *       "consumableResourceProperties": {
+ *         "consumableResourceList": [
+ *           {
+ *             "consumableResource": "myConsumableResource",
+ *             "quantity": 123
+ *           }
+ *         ]
+ *       },
+ *       "createdAt": 1480460782010,
+ *       "jobArn": "arn:aws:batch:us-east-1:012345678910:job/myJob",
+ *       "jobDefinitionArn": "arn:aws:batch:us-east-1:012345678910:job-definition/myJobDef",
+ *       "jobName": "myJob",
+ *       "jobQueueArn": "arn:aws:batch:us-east-1:012345678910:job-queue/myJobQueue",
+ *       "jobStatus": "PENDING",
+ *       "quantity": 123
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-get-a-list-of-batch-jobs-by-consumable-resource-1739496640347
+ * ```
+ *
  */
 export class ListJobsByConsumableResourceCommand extends $Command
   .classBuilder<

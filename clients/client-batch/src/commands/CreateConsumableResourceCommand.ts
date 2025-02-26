@@ -70,6 +70,29 @@ export interface CreateConsumableResourceCommandOutput extends CreateConsumableR
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @public
+ * @example To create a consumable resource
+ * ```javascript
+ * // Creates a Batch consumable resource.
+ * const input = {
+ *   "consumableResourceName": "myConsumableResource",
+ *   "resourceType": "REPLENISHABLE",
+ *   "tags": {
+ *     "Department": "Engineering",
+ *     "User": "JaneDoe"
+ *   },
+ *   "totalQuantity": 123
+ * };
+ * const command = new CreateConsumableResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "consumableResourceArn": "arn:aws:batch:us-east-1:012345678910:consumable-resource/myConsumableResource",
+ *   "consumableResourceName": "myConsumableResource"
+ * }
+ * *\/
+ * // example id: to-create-a-consumable-resource-1739494856623
+ * ```
+ *
  */
 export class CreateConsumableResourceCommand extends $Command
   .classBuilder<

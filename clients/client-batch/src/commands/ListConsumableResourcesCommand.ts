@@ -82,6 +82,38 @@ export interface ListConsumableResourcesCommandOutput extends ListConsumableReso
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @public
+ * @example To get a list of a consumable resources
+ * ```javascript
+ * // Returns a list of the consumable resources for your account.
+ * const input = {
+ *   "filters": [
+ *     {
+ *       "name": "CONSUMABLE_RESOURCE_NAME",
+ *       "values": [
+ *         "my*"
+ *       ]
+ *     }
+ *   ],
+ *   "maxResults": 123
+ * };
+ * const command = new ListConsumableResourcesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "consumableResources": [
+ *     {
+ *       "consumableResourceArn": "arn:aws:batch:us-east-1:012345678910:consumable-resource/myConsumableResource",
+ *       "consumableResourceName": "myConsumableResource",
+ *       "inUseQuantity": 12,
+ *       "resourceType": "REPLENISHABLE",
+ *       "totalQuantity": 123
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-get-a-list-of-a-consumable-resources-1739496071960
+ * ```
+ *
  */
 export class ListConsumableResourcesCommand extends $Command
   .classBuilder<
