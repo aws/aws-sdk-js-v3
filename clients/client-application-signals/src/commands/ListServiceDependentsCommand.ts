@@ -72,6 +72,7 @@ export interface ListServiceDependentsCommandOutput extends ListServiceDependent
  * //             },
  * //           ],
  * //           MetricName: "STRING_VALUE", // required
+ * //           AccountId: "STRING_VALUE",
  * //         },
  * //       ],
  * //     },

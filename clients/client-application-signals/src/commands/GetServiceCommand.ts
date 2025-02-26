@@ -69,6 +69,7 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * //           },
  * //         ],
  * //         MetricName: "STRING_VALUE", // required
+ * //         AccountId: "STRING_VALUE",
  * //       },
  * //     ],
  * //     LogGroupReferences: [ // LogGroupReferences

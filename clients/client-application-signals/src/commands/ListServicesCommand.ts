@@ -46,6 +46,8 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  *   EndTime: new Date("TIMESTAMP"), // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   IncludeLinkedAccounts: true || false,
+ *   AwsAccountId: "STRING_VALUE",
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
@@ -73,6 +75,7 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * //             },
  * //           ],
  * //           MetricName: "STRING_VALUE", // required
+ * //           AccountId: "STRING_VALUE",
  * //         },
  * //       ],
  * //     },

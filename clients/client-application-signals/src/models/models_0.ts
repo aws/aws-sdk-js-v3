@@ -1035,6 +1035,12 @@ export interface MetricReference {
    * @public
    */
   MetricName: string | undefined;
+
+  /**
+   * <p>Amazon Web Services account ID.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
 }
 
 /**
@@ -1747,6 +1753,20 @@ export interface ListServicesInput {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>If you are using this operation in a monitoring account, specify <code>true</code> to include services from source accounts in the returned data.
+   *
+   *       </p>
+   * @public
+   */
+  IncludeLinkedAccounts?: boolean | undefined;
+
+  /**
+   * <p>Amazon Web Services Account ID.</p>
+   * @public
+   */
+  AwsAccountId?: string | undefined;
 }
 
 /**
@@ -2022,7 +2042,7 @@ export class ConflictException extends __BaseException {
  *       exactly 1 indicates that the SLO goal will be met exactly.</p>
  *          <p>For example, if you specify 60 as the number of minutes in the look-back window, the burn rate is calculated as the following:</p>
  *          <p>
- *             <i>burn rate = error rate over the look-back window / (1 - attainment goal percentage)</i>
+ *             <i>burn rate = error rate over the look-back window / (100% - attainment goal percentage)</i>
  *          </p>
  *          <p>For more information about burn rates, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html#CloudWatch-ServiceLevelObjectives-burn">Calculate burn rates</a>.</p>
  * @public
@@ -2497,6 +2517,23 @@ export interface ListServiceLevelObjectivesInput {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>If you are using this operation in a monitoring account, specify <code>true</code> to include SLO from source accounts in the returned data.
+   *
+   *       </p>
+   *          <p>When you are monitoring an account, you can use Amazon Web Services account ID in <code>KeyAttribute</code> filter for service source account and <code>SloOwnerawsaccountID</code> for SLO source account with <code>IncludeLinkedAccounts</code> to filter the returned data to only a single source account.
+   *
+   *       </p>
+   * @public
+   */
+  IncludeLinkedAccounts?: boolean | undefined;
+
+  /**
+   * <p>SLO's Amazon Web Services account ID.</p>
+   * @public
+   */
+  SloOwnerAwsAccountId?: string | undefined;
 }
 
 /**

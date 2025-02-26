@@ -288,6 +288,8 @@ export const se_ListServiceLevelObjectivesCommand = async (
     [_ON]: [, input[_ON]!],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_NT]: [, input[_NT]!],
+    [_ILA]: [() => input.IncludeLinkedAccounts !== void 0, () => input[_ILA]!.toString()],
+    [_SOAAI]: [, input[_SOAAI]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -342,6 +344,8 @@ export const se_ListServicesCommand = async (
     [_ET]: [__expectNonNull(input.EndTime, `EndTime`) != null, () => __serializeDateTime(input[_ET]!).toString()],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_NT]: [, input[_NT]!],
+    [_ILA]: [() => input.IncludeLinkedAccounts !== void 0, () => input[_ILA]!.toString()],
+    [_AAI]: [, input[_AAI]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1234,9 +1238,12 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _AAI = "AwsAccountId";
 const _ET = "EndTime";
+const _ILA = "IncludeLinkedAccounts";
 const _MR = "MaxResults";
 const _NT = "NextToken";
 const _ON = "OperationName";
 const _RA = "ResourceArn";
+const _SOAAI = "SloOwnerAwsAccountId";
 const _ST = "StartTime";

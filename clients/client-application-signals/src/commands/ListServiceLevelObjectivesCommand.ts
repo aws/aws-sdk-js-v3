@@ -46,6 +46,8 @@ export interface ListServiceLevelObjectivesCommandOutput extends ListServiceLeve
  *   OperationName: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   IncludeLinkedAccounts: true || false,
+ *   SloOwnerAwsAccountId: "STRING_VALUE",
  * };
  * const command = new ListServiceLevelObjectivesCommand(input);
  * const response = await client.send(command);
