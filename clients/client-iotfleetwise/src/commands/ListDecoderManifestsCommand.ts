@@ -42,6 +42,7 @@ export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsR
  *   modelManifestArn: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   listResponseScope: "METADATA_ONLY",
  * };
  * const command = new ListDecoderManifestsCommand(input);
  * const response = await client.send(command);

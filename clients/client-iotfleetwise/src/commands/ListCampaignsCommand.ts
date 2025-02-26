@@ -42,6 +42,7 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   status: "STRING_VALUE",
+ *   listResponseScope: "METADATA_ONLY",
  * };
  * const command = new ListCampaignsCommand(input);
  * const response = await client.send(command);

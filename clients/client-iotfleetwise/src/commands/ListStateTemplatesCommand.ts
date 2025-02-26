@@ -41,6 +41,7 @@ export interface ListStateTemplatesCommandOutput extends ListStateTemplatesRespo
  * const input = { // ListStateTemplatesRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   listResponseScope: "METADATA_ONLY",
  * };
  * const command = new ListStateTemplatesCommand(input);
  * const response = await client.send(command);

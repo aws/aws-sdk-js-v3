@@ -48,6 +48,7 @@ export interface ListVehiclesCommandOutput extends ListVehiclesResponse, __Metad
  *   ],
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   listResponseScope: "METADATA_ONLY",
  * };
  * const command = new ListVehiclesCommand(input);
  * const response = await client.send(command);

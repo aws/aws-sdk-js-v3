@@ -585,7 +585,7 @@ export namespace StateTemplateUpdateStrategy {
  */
 export interface StateTemplateAssociation {
   /**
-   * <p>A unique, service-generated identifier.</p>
+   * <p>The unique ID of the state template.</p>
    * @public
    */
   identifier: string | undefined;
@@ -2049,6 +2049,19 @@ export interface GetCampaignResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const ListResponseScope = {
+  METADATA_ONLY: "METADATA_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type ListResponseScope = (typeof ListResponseScope)[keyof typeof ListResponseScope];
+
+/**
+ * @public
  */
 export interface ListCampaignsRequest {
   /**
@@ -2072,6 +2085,12 @@ export interface ListCampaignsRequest {
    * @public
    */
   status?: string | undefined;
+
+  /**
+   * <p>When you set the <code>listResponseScope</code> parameter to <code>METADATA_ONLY</code>, the list response includes: campaign name, Amazon Resource Name (ARN), creation time, and last modification time.</p>
+   * @public
+   */
+  listResponseScope?: ListResponseScope | undefined;
 }
 
 /**
@@ -3919,6 +3938,12 @@ export interface ListDecoderManifestsRequest {
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>When you set the <code>listResponseScope</code> parameter to <code>METADATA_ONLY</code>, the list response includes: decoder manifest name, Amazon Resource Name (ARN), creation time, and last modification time.</p>
+   * @public
+   */
+  listResponseScope?: ListResponseScope | undefined;
 }
 
 /**
@@ -4131,7 +4156,7 @@ export interface DeleteSignalCatalogResponse {
  */
 export interface DeleteStateTemplateRequest {
   /**
-   * <p>A unique, service-generated identifier.</p>
+   * <p>The unique ID of the state template.</p>
    * @public
    */
   identifier: string | undefined;
@@ -4350,6 +4375,12 @@ export interface ListFleetsRequest {
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>When you set the <code>listResponseScope</code> parameter to <code>METADATA_ONLY</code>, the list response includes: fleet ID, Amazon Resource Name (ARN), creation time, and last modification time.</p>
+   * @public
+   */
+  listResponseScope?: ListResponseScope | undefined;
 }
 
 /**
@@ -4916,7 +4947,7 @@ export interface GetSignalCatalogResponse {
  */
 export interface GetStateTemplateRequest {
   /**
-   * <p>A unique, service-generated identifier.</p>
+   * <p>The unique ID of the state template.</p>
    * @public
    */
   identifier: string | undefined;
@@ -5320,6 +5351,12 @@ export interface ListModelManifestsRequest {
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>When you set the <code>listResponseScope</code> parameter to <code>METADATA_ONLY</code>, the list response includes: model manifest name, Amazon Resource Name (ARN), creation time, and last modification time.</p>
+   * @public
+   */
+  listResponseScope?: ListResponseScope | undefined;
 }
 
 /**
@@ -5786,6 +5823,12 @@ export interface ListStateTemplatesRequest {
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>When you set the <code>listResponseScope</code> parameter to <code>METADATA_ONLY</code>, the list response includes: state template ID, Amazon Resource Name (ARN), creation time, and last modification time.</p>
+   * @public
+   */
+  listResponseScope?: ListResponseScope | undefined;
 }
 
 /**
@@ -5861,7 +5904,7 @@ export interface ListStateTemplatesResponse {
  */
 export interface UpdateStateTemplateRequest {
   /**
-   * <p>A unique, service-generated identifier.</p>
+   * <p>The unique ID of the state template.</p>
    * @public
    */
   identifier: string | undefined;
@@ -6026,6 +6069,12 @@ export interface ListVehiclesRequest {
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>When you set the <code>listResponseScope</code> parameter to <code>METADATA_ONLY</code>, the list response includes: vehicle name, Amazon Resource Name (ARN), creation time, and last modification time.</p>
+   * @public
+   */
+  listResponseScope?: ListResponseScope | undefined;
 }
 
 /**
@@ -6604,9 +6653,7 @@ export const CreateCampaignRequestFilterSensitiveLog = (obj: CreateCampaignReque
   ...(obj.dataPartitions && {
     dataPartitions: obj.dataPartitions.map((item) => DataPartitionFilterSensitiveLog(item)),
   }),
-  ...(obj.signalsToFetch && {
-    signalsToFetch: obj.signalsToFetch.map((item) => SignalFetchInformationFilterSensitiveLog(item)),
-  }),
+  ...(obj.signalsToFetch && { signalsToFetch: SENSITIVE_STRING }),
 });
 
 /**
@@ -6621,9 +6668,7 @@ export const GetCampaignResponseFilterSensitiveLog = (obj: GetCampaignResponse):
   ...(obj.dataPartitions && {
     dataPartitions: obj.dataPartitions.map((item) => DataPartitionFilterSensitiveLog(item)),
   }),
-  ...(obj.signalsToFetch && {
-    signalsToFetch: obj.signalsToFetch.map((item) => SignalFetchInformationFilterSensitiveLog(item)),
-  }),
+  ...(obj.signalsToFetch && { signalsToFetch: SENSITIVE_STRING }),
 });
 
 /**

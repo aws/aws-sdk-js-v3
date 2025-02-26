@@ -42,6 +42,7 @@ export interface ListModelManifestsCommandOutput extends ListModelManifestsRespo
  *   signalCatalogArn: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   listResponseScope: "METADATA_ONLY",
  * };
  * const command = new ListModelManifestsCommand(input);
  * const response = await client.send(command);

@@ -41,6 +41,7 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * const input = { // ListFleetsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   listResponseScope: "METADATA_ONLY",
  * };
  * const command = new ListFleetsCommand(input);
  * const response = await client.send(command);
