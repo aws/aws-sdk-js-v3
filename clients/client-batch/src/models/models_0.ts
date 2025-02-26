@@ -1002,8 +1002,8 @@ export interface CreateComputeEnvironmentRequest {
 
   /**
    * <p>The maximum number of vCPUs for an unmanaged compute environment. This parameter is only
-   *       used for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this
-   *       parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.</p>
+   *       used for fair share scheduling to reserve vCPU capacity for new share identifiers. If this
+   *       parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.</p>
    *          <note>
    *             <p>This parameter is only supported when the <code>type</code> parameter is set to
    *           <code>UNMANAGED</code>.</p>
@@ -1086,6 +1086,65 @@ export interface CreateComputeEnvironmentResponse {
    * @public
    */
   computeEnvironmentArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConsumableResourceRequest {
+  /**
+   * <p>The name of the consumable resource. Must be unique.</p>
+   * @public
+   */
+  consumableResourceName: string | undefined;
+
+  /**
+   * <p>The total amount of the consumable resource that is available. Must be non-negative.</p>
+   * @public
+   */
+  totalQuantity?: number | undefined;
+
+  /**
+   * <p>Indicates whether the resource is available to be re-used after a job completes. Can be
+   *             one of: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>REPLENISHABLE</code> (default)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NON_REPLENISHABLE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  resourceType?: string | undefined;
+
+  /**
+   * <p>The tags that you apply to the consumable resource to help you categorize and organize your
+   *             resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConsumableResourceResponse {
+  /**
+   * <p>The name of the consumable resource.</p>
+   * @public
+   */
+  consumableResourceName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
+   * @public
+   */
+  consumableResourceArn: string | undefined;
 }
 
 /**
@@ -1214,13 +1273,13 @@ export interface CreateJobQueueRequest {
   state?: JQState | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the fair-share scheduling policy. Job queues that don't have a fair-share scheduling policy are scheduled in a first-in, first-out (FIFO) model.  After a job queue has a fair-share scheduling policy, it can be replaced but can't be removed.</p>
+   * <p>The Amazon Resource Name (ARN) of the fair share scheduling policy. Job queues that don't have a scheduling policy are scheduled in a first-in, first-out (FIFO) model.  After a job queue has a scheduling policy, it can be replaced but can't be removed.</p>
    *          <p>The format is
    *           <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i>
    *             </code>.</p>
    *          <p>An example is
    *         <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</p>
-   *          <p>A job queue without a fair-share scheduling policy is scheduled as a FIFO job queue and can't have a fair-share scheduling policy added. Jobs queues with a fair-share scheduling policy can have a maximum of 500 active share identifiers. When the limit has been reached, submissions of any jobs that add a new share identifier fail.</p>
+   *          <p>A job queue without a scheduling policy is scheduled as a FIFO job queue and can't have a scheduling policy added. Jobs queues with a scheduling policy can have a maximum of 500 active fair share identifiers. When the limit has been reached, submissions of any jobs that add a new fair share identifier fail.</p>
    * @public
    */
   schedulingPolicyArn?: string | undefined;
@@ -1287,18 +1346,18 @@ export interface CreateJobQueueResponse {
 }
 
 /**
- * <p>Specifies the weights for the share identifiers for the fair-share policy. Share
+ * <p>Specifies the weights for the fair share identifiers for the fair share policy. Fair share
  *    identifiers that aren't included have a default weight of <code>1.0</code>.</p>
  * @public
  */
 export interface ShareAttributes {
   /**
-   * <p>A share identifier or share identifier prefix. If the string ends with an asterisk
-   *    (*), this entry specifies the weight factor to use for share identifiers that start with
-   *    that prefix. The list of share identifiers in a fair-share policy can't overlap. For
+   * <p>A fair share identifier or fair share identifier prefix. If the string ends with an asterisk
+   *    (*), this entry specifies the weight factor to use for fair share identifiers that start with
+   *    that prefix. The list of fair share identifiers in a fair share policy can't overlap. For
    *    example, you can't have one that specifies a <code>shareIdentifier</code> of <code>UserA*</code>
    *    and another that specifies a <code>shareIdentifier</code> of <code>UserA-1</code>.</p>
-   *          <p>There can be no more than 500 share identifiers active in a job queue.</p>
+   *          <p>There can be no more than 500 fair share identifiers active in a job queue.</p>
    *          <p>The string is limited to 255 alphanumeric characters, and can be followed by an asterisk
    *    (*).</p>
    * @public
@@ -1306,7 +1365,7 @@ export interface ShareAttributes {
   shareIdentifier: string | undefined;
 
   /**
-   * <p>The weight factor for the share identifier. The default value is 1.0. A lower value has
+   * <p>The weight factor for the fair share identifier. The default value is 1.0. A lower value has
    *    a higher priority for compute resources. For example, jobs that use a share identifier with a
    *    weight factor of 0.125 (1/8) get 8 times the compute resources of jobs that use a share
    *    identifier with a weight factor of 1.</p>
@@ -1317,12 +1376,12 @@ export interface ShareAttributes {
 }
 
 /**
- * <p>The fair-share scheduling policy details.</p>
+ * <p>The fair share policy for a scheduling policy.</p>
  * @public
  */
 export interface FairsharePolicy {
   /**
-   * <p>The amount of time (in seconds) to use to calculate a fair-share percentage for each
+   * <p>The amount of time (in seconds) to use to calculate a fair share percentage for each fair
    *    share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds).
    *    The maximum supported value is 604800 (1 week).</p>
    *          <p>The decay allows for more recently run jobs to have more weight than jobs that ran earlier.
@@ -1334,29 +1393,29 @@ export interface FairsharePolicy {
   shareDecaySeconds?: number | undefined;
 
   /**
-   * <p>A value used to reserve some of the available maximum vCPU for share identifiers that
+   * <p>A value used to reserve some of the available maximum vCPU for fair share identifiers that
    *    aren't already used.</p>
    *          <p>The reserved ratio is
    *      <code>(<i>computeReservation</i>/100)^<i>ActiveFairShares</i>
    *             </code>
    *    where <code>
    *                <i>ActiveFairShares</i>
-   *             </code> is the number of active share
+   *             </code> is the number of active fair share
    *    identifiers.</p>
    *          <p>For example, a <code>computeReservation</code> value of 50 indicates that Batch reserves
-   *    50% of the maximum available vCPU if there's only one share identifier. It reserves 25% if
-   *    there are two share identifiers. It reserves 12.5% if there are three share
+   *    50% of the maximum available vCPU if there's only one fair share identifier. It reserves 25% if
+   *    there are two fair share identifiers. It reserves 12.5% if there are three fair share
    *    identifiers. A <code>computeReservation</code> value of 25 indicates that Batch should reserve
-   *    25% of the maximum available vCPU if there's only one share identifier, 6.25% if there are
-   *    two fair share identifiers, and 1.56% if there are three share identifiers.</p>
+   *    25% of the maximum available vCPU if there's only one fair share identifier, 6.25% if there are
+   *    two fair share identifiers, and 1.56% if there are three fair share identifiers.</p>
    *          <p>The minimum value is 0 and the maximum value is 99.</p>
    * @public
    */
   computeReservation?: number | undefined;
 
   /**
-   * <p>An array of <code>SharedIdentifier</code> objects that contain the weights for the
-   *    share identifiers for the fair-share policy. Share identifiers that aren't included have a
+   * <p>An array of <code>SharedIdentifier</code> objects that contain the weights for the fair
+   *    share identifiers for the fair share policy. Fair share identifiers that aren't included have a
    *    default weight of <code>1.0</code>.</p>
    * @public
    */
@@ -1369,14 +1428,14 @@ export interface FairsharePolicy {
  */
 export interface CreateSchedulingPolicyRequest {
   /**
-   * <p>The name of the fair-share scheduling policy. It can be up to 128 letters long. It can contain
+   * <p>The name of the scheduling policy. It can be up to 128 letters long. It can contain
    *       uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The fair-share scheduling policy details.</p>
+   * <p>The fair share policy of the scheduling policy.</p>
    * @public
    */
   fairsharePolicy?: FairsharePolicy | undefined;
@@ -1428,6 +1487,22 @@ export interface DeleteComputeEnvironmentRequest {
  * @public
  */
 export interface DeleteComputeEnvironmentResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteConsumableResourceRequest {
+  /**
+   * <p>The name or ARN of the consumable resource that will be deleted.</p>
+   * @public
+   */
+  consumableResource: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConsumableResourceResponse {}
 
 /**
  * <p>Contains the parameters for <code>DeleteJobQueue</code>.</p>
@@ -1728,6 +1803,84 @@ export interface DescribeComputeEnvironmentsResponse {
 }
 
 /**
+ * @public
+ */
+export interface DescribeConsumableResourceRequest {
+  /**
+   * <p>The name or ARN of the consumable resource whose description will be returned.</p>
+   * @public
+   */
+  consumableResource: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeConsumableResourceResponse {
+  /**
+   * <p>The name of the consumable resource.</p>
+   * @public
+   */
+  consumableResourceName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
+   * @public
+   */
+  consumableResourceArn: string | undefined;
+
+  /**
+   * <p>The total amount of the consumable resource that is available.</p>
+   * @public
+   */
+  totalQuantity?: number | undefined;
+
+  /**
+   * <p>The amount of the consumable resource that is currently in use.</p>
+   * @public
+   */
+  inUseQuantity?: number | undefined;
+
+  /**
+   * <p>The amount of the consumable resource that is currently available to use.</p>
+   * @public
+   */
+  availableQuantity?: number | undefined;
+
+  /**
+   * <p>Indicates whether the resource is available to be re-used after a job completes. Can be
+   *             one of: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>REPLENISHABLE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NON_REPLENISHABLE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  resourceType?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when the consumable resource was created.</p>
+   * @public
+   */
+  createdAt?: number | undefined;
+
+  /**
+   * <p>The tags that you apply to the consumable resource to help you categorize and organize your
+   *             resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
  * <p>Contains the parameters for <code>DescribeJobDefinitions</code>.</p>
  * @public
  */
@@ -1780,6 +1933,36 @@ export interface DescribeJobDefinitionsRequest {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * <p>Information about a consumable resource required to run a job.</p>
+ * @public
+ */
+export interface ConsumableResourceRequirement {
+  /**
+   * <p>The name or ARN of the consumable resource.</p>
+   * @public
+   */
+  consumableResource?: string | undefined;
+
+  /**
+   * <p>The quantity of the consumable resource that is needed.</p>
+   * @public
+   */
+  quantity?: number | undefined;
+}
+
+/**
+ * <p>Contains a list of consumable resources required by a job.</p>
+ * @public
+ */
+export interface ConsumableResourceProperties {
+  /**
+   * <p>The list of consumable resources required by a job.</p>
+   * @public
+   */
+  consumableResourceList?: ConsumableResourceRequirement[] | undefined;
 }
 
 /**
@@ -1980,7 +2163,7 @@ export interface LinuxParameters {
    *          <p>If a <code>maxSwap</code> value of <code>0</code> is specified, the container doesn't use
    *    swap. Accepted values are <code>0</code> or any positive integer. If the <code>maxSwap</code>
    *    parameter is omitted, the container doesn't use the swap configuration for the container instance
-   *    on which it runs. A <code>maxSwap</code> value must be set for the <code>swappiness</code>
+   *    that it's running on. A <code>maxSwap</code> value must be set for the <code>swappiness</code>
    *    parameter to be used.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
@@ -4052,6 +4235,12 @@ export interface NodeRangeProperty {
    * @public
    */
   eksProperties?: EksProperties | undefined;
+
+  /**
+   * <p>Contains a list of consumable resources required by a job.</p>
+   * @public
+   */
+  consumableResourceProperties?: ConsumableResourceProperties | undefined;
 }
 
 /**
@@ -4236,7 +4425,7 @@ export interface JobDefinition {
 
   /**
    * <p>The scheduling priority of the job definition. This only affects jobs in job queues with a
-   *    fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower
+   *    fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower
    *    scheduling priority.</p>
    * @public
    */
@@ -4335,6 +4524,12 @@ export interface JobDefinition {
    * @public
    */
   containerOrchestrationType?: OrchestrationType | undefined;
+
+  /**
+   * <p>Contains a list of consumable resources required by the job.</p>
+   * @public
+   */
+  consumableResourceProperties?: ConsumableResourceProperties | undefined;
 }
 
 /**
@@ -5593,7 +5788,7 @@ export interface JobDetail {
 
   /**
    * <p>The scheduling policy of the job definition. This only affects jobs in job queues with a
-   *    fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower
+   *    fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower
    *    scheduling priority.</p>
    * @public
    */
@@ -5773,6 +5968,12 @@ export interface JobDetail {
    * @public
    */
   isTerminated?: boolean | undefined;
+
+  /**
+   * <p>Contains a list of consumable resources required by the job.</p>
+   * @public
+   */
+  consumableResourceProperties?: ConsumableResourceProperties | undefined;
 }
 
 /**
@@ -5804,7 +6005,7 @@ export interface DescribeSchedulingPoliciesRequest {
  */
 export interface SchedulingPolicyDetail {
   /**
-   * <p>The name of the fair-share scheduling policy.</p>
+   * <p>The name of the scheduling policy.</p>
    * @public
    */
   name: string | undefined;
@@ -5818,13 +6019,13 @@ export interface SchedulingPolicyDetail {
   arn: string | undefined;
 
   /**
-   * <p>The fair-share scheduling policy details.</p>
+   * <p>The fair share policy for the scheduling policy.</p>
    * @public
    */
   fairsharePolicy?: FairsharePolicy | undefined;
 
   /**
-   * <p>The tags that you apply to the fair-share scheduling policy to categorize and organize your resources.
+   * <p>The tags that you apply to the scheduling policy to categorize and organize your resources.
    *    Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in
    *     <i>Amazon Web Services General Reference</i>.</p>
    * @public
@@ -5878,7 +6079,7 @@ export interface FrontOfQueueJobSummary {
  */
 export interface FrontOfQueueDetail {
   /**
-   * <p>The Amazon Resource Names (ARNs) of the first 100 <code>RUNNABLE</code> jobs in a named job queue. For first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For fair-share scheduling (FSS) job queues, jobs are ordered based on their job priority and share usage.</p>
+   * <p>The Amazon Resource Names (ARNs) of the first 100 <code>RUNNABLE</code> jobs in a named job queue. For first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For fair share scheduling (FSS) job queues, jobs are ordered based on their job priority and share usage.</p>
    * @public
    */
   jobs?: FrontOfQueueJobSummary[] | undefined;
@@ -5895,7 +6096,7 @@ export interface FrontOfQueueDetail {
  */
 export interface GetJobQueueSnapshotResponse {
   /**
-   * <p>The list of the first 100 <code>RUNNABLE</code> jobs in each job queue. For first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For fair-share scheduling (FSS) job queues, jobs are ordered based on their job priority and share usage.</p>
+   * <p>The list of the first 100 <code>RUNNABLE</code> jobs in each job queue. For first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For fair share scheduling (FSS) job queues, jobs are ordered based on their job priority and share usage.</p>
    * @public
    */
   frontOfQueue?: FrontOfQueueDetail | undefined;
@@ -5903,7 +6104,7 @@ export interface GetJobQueueSnapshotResponse {
 
 /**
  * <p>A filter name and value pair that's used to return a more specific list of results from a
- *     <code>ListJobs</code> API operation.</p>
+ *     <code>ListJobs</code> or <code>ListJobsByConsumableResource</code> API operation.</p>
  * @public
  */
 export interface KeyValuesPair {
@@ -5918,6 +6119,123 @@ export interface KeyValuesPair {
    * @public
    */
   values?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConsumableResourcesRequest {
+  /**
+   * <p>The filters to apply to the consumable resource list query. If used, only those consumable
+   *             resources that match the filter are listed. Filter names and values can be:</p>
+   *          <ul>
+   *             <li>
+   *                <p>name: <code>CONSUMABLE_RESOURCE_NAME </code>
+   *                </p>
+   *                <p>values: case-insensitive matches for the consumable resource name. If a filter
+   *                     value ends with an asterisk (*), it matches any consumable resource name that begins
+   *                     with the string before the '*'.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  filters?: KeyValuesPair[] | undefined;
+
+  /**
+   * <p>The maximum number of results returned by <code>ListConsumableResources</code> in paginated
+   *             output. When this parameter is used, <code>ListConsumableResources</code> only returns
+   *             <code>maxResults</code> results in a single page and a <code>nextToken</code> response
+   *             element. The remaining results of the initial request can be seen by sending another
+   *             <code>ListConsumableResources</code> request with the returned <code>nextToken</code> value.
+   *             This value can be between 1 and 100. If this parameter isn't
+   *             used, then <code>ListConsumableResources</code> returns up to 100 results and
+   *             a <code>nextToken</code> value if applicable.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>ListConsumableResources</code> request where <code>maxResults</code> was used and the
+   *             results exceeded the value of that parameter. Pagination continues from the end of the previous
+   *             results that returned the <code>nextToken</code> value. This value is <code>null</code> when
+   *             there are no more results to return.</p>
+   *          <note>
+   *             <p>Treat this token as an opaque identifier that's only used to
+   *  retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Current information about a consumable resource.</p>
+ * @public
+ */
+export interface ConsumableResourceSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
+   * @public
+   */
+  consumableResourceArn: string | undefined;
+
+  /**
+   * <p>The name of the consumable resource.</p>
+   * @public
+   */
+  consumableResourceName: string | undefined;
+
+  /**
+   * <p>The total amount of the consumable resource that is available.</p>
+   * @public
+   */
+  totalQuantity?: number | undefined;
+
+  /**
+   * <p>The amount of the consumable resource that is currently in use.</p>
+   * @public
+   */
+  inUseQuantity?: number | undefined;
+
+  /**
+   * <p>Indicates whether the resource is available to be re-used after a job completes. Can be
+   *             one of: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>REPLENISHABLE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NON_REPLENISHABLE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  resourceType?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConsumableResourcesResponse {
+  /**
+   * <p>A list of consumable resources that match the request.</p>
+   * @public
+   */
+  consumableResources: ConsumableResourceSummary[] | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future <code>ListConsumableResources</code>
+   *             request. When the results of a <code>ListConsumableResources</code> request exceed <code>maxResults</code>,
+   *             this value can be used to retrieve the next page of results. This value is <code>null</code>
+   *             when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6195,6 +6513,197 @@ export interface ListJobsResponse {
 }
 
 /**
+ * @public
+ */
+export interface ListJobsByConsumableResourceRequest {
+  /**
+   * <p>The name or ARN of the consumable resource.</p>
+   * @public
+   */
+  consumableResource: string | undefined;
+
+  /**
+   * <p>The filters to apply to the job list query. If used, only those jobs requiring the specified
+   *             consumable resource (<code>consumableResource</code>) and that match the value of the filters
+   *             are listed. The filter names and values can be:</p>
+   *          <ul>
+   *             <li>
+   *                <p>name: <code>JOB_STATUS</code>
+   *                </p>
+   *                <p>values: <code>SUBMITTED | PENDING | RUNNABLE | STARTING | RUNNING | SUCCEEDED | FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>name: <code>JOB_NAME </code>
+   *                </p>
+   *                <p>The values are case-insensitive matches for the job name. If a filter value ends
+   *                     with an asterisk (*), it matches any job name that begins with the string before
+   *                     the '*'.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  filters?: KeyValuesPair[] | undefined;
+
+  /**
+   * <p>The maximum number of results returned by <code>ListJobsByConsumableResource</code> in paginated
+   *             output. When this parameter is used, <code>ListJobsByConsumableResource</code> only returns
+   *             <code>maxResults</code> results in a single page and a <code>nextToken</code> response
+   *             element. The remaining results of the initial request can be seen by sending another
+   *             <code>ListJobsByConsumableResource</code> request with the returned <code>nextToken</code> value.
+   *             This value can be between 1 and 100. If this parameter isn't
+   *             used, then <code>ListJobsByConsumableResource</code> returns up to 100 results
+   *             and a <code>nextToken</code> value if applicable.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>ListJobsByConsumableResource</code> request where <code>maxResults</code> was used and the
+   *             results exceeded the value of that parameter. Pagination continues from the end of the previous
+   *             results that returned the <code>nextToken</code> value. This value is <code>null</code> when
+   *             there are no more results to return.</p>
+   *          <note>
+   *             <p>Treat this token as an opaque identifier that's only used to
+   *  retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Current information about a consumable resource required by a job.</p>
+ * @public
+ */
+export interface ListJobsByConsumableResourceSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job.</p>
+   * @public
+   */
+  jobArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job queue.</p>
+   * @public
+   */
+  jobQueueArn: string | undefined;
+
+  /**
+   * <p>The name of the job.</p>
+   * @public
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job definition.</p>
+   * @public
+   */
+  jobDefinitionArn?: string | undefined;
+
+  /**
+   * <p>The fair-share scheduling policy identifier for the job.</p>
+   * @public
+   */
+  shareIdentifier?: string | undefined;
+
+  /**
+   * <p>The status of the job. Can be one of:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUBMITTED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RUNNABLE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STARTING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RUNNING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  jobStatus: string | undefined;
+
+  /**
+   * <p>The total amount of the consumable resource that is available.</p>
+   * @public
+   */
+  quantity: number | undefined;
+
+  /**
+   * <p>A short, human-readable string to provide more details for the current status of the job.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp for when the job was started. More specifically, it's when the job transitioned
+   *             from the <code>STARTING</code> state to the <code>RUNNING</code> state.</p>
+   * @public
+   */
+  startedAt?: number | undefined;
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when the consumable resource was created.</p>
+   * @public
+   */
+  createdAt: number | undefined;
+
+  /**
+   * <p>Contains a list of consumable resources required by the job.</p>
+   * @public
+   */
+  consumableResourceProperties: ConsumableResourceProperties | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListJobsByConsumableResourceResponse {
+  /**
+   * <p>The list of jobs that require the specified consumable resources.</p>
+   * @public
+   */
+  jobs: ListJobsByConsumableResourceSummary[] | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future <code>ListJobsByConsumableResource</code>
+   *             request. When the results of a <code>ListJobsByConsumableResource</code> request exceed
+   *             <code>maxResults</code>, this value can be used to retrieve the next page of results. This
+   *             value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * <p>Contains the parameters for <code>ListSchedulingPolicies</code>.</p>
  * @public
  */
@@ -6340,7 +6849,7 @@ export interface RegisterJobDefinitionRequest {
 
   /**
    * <p>The scheduling priority for jobs that are submitted with this job definition. This only
-   *       affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority
+   *       affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority
    *       are scheduled before jobs with a lower scheduling priority.</p>
    *          <p>The minimum supported value is 0 and the maximum supported value is 9999.</p>
    * @public
@@ -6442,6 +6951,12 @@ export interface RegisterJobDefinitionRequest {
    * @public
    */
   ecsProperties?: EcsProperties | undefined;
+
+  /**
+   * <p>Contains a list of consumable resources required by the job.</p>
+   * @public
+   */
+  consumableResourceProperties?: ConsumableResourceProperties | undefined;
 }
 
 /**
@@ -6692,7 +7207,7 @@ export interface EksPodPropertiesOverride {
 
   /**
    * <p>The overrides for the <code>initContainers</code> defined in the Amazon EKS pod. These containers run before
-   *    application containers, always run to completion, and must complete successfully before the next
+   *    application containers, always runs to completion, and must complete successfully before the next
    *    container starts. These containers are registered with the Amazon EKS Connector agent and persists the
    *    registration information in the Kubernetes backend data store. For more information, see <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/">Init
    *     Containers</a> in the <i>Kubernetes documentation</i>.</p>
@@ -6760,6 +7275,12 @@ export interface NodePropertyOverride {
    * @public
    */
   eksPropertiesOverride?: EksPropertiesOverride | undefined;
+
+  /**
+   * <p>An object that contains overrides for the consumable resources of a job.</p>
+   * @public
+   */
+  consumableResourcePropertiesOverride?: ConsumableResourceProperties | undefined;
 }
 
 /**
@@ -6823,7 +7344,7 @@ export interface SubmitJobRequest {
 
   /**
    * <p>The share identifier for the job. Don't specify this parameter if the job queue doesn't
-   *       have a fair-share scheduling policy. If the job queue has a fair-share scheduling policy, then this parameter must
+   *       have a scheduling policy. If the job queue has a scheduling policy, then this parameter must
    *       be specified.</p>
    *          <p>This string is limited to 255 alphanumeric characters, and can be followed by an asterisk
    *       (*).</p>
@@ -6832,8 +7353,8 @@ export interface SubmitJobRequest {
   shareIdentifier?: string | undefined;
 
   /**
-   * <p>The scheduling priority for the job. This only affects jobs in job queues with a
-   *       fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower
+   * <p>The scheduling priority for the job. This only affects jobs in job queues with a fair
+   *       share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower
    *       scheduling priority. This overrides any scheduling priority in the job definition and works only
    *       within a single share identifier.</p>
    *          <p>The minimum supported value is 0 and the maximum supported value is 9999.</p>
@@ -6955,6 +7476,12 @@ export interface SubmitJobRequest {
    * @public
    */
   ecsPropertiesOverride?: EcsPropertiesOverride | undefined;
+
+  /**
+   * <p>An object that contains overrides for the consumable resources of a job.</p>
+   * @public
+   */
+  consumableResourcePropertiesOverride?: ConsumableResourceProperties | undefined;
 }
 
 /**
@@ -7443,8 +7970,8 @@ export interface UpdateComputeEnvironmentRequest {
   /**
    * <p>The maximum number of vCPUs expected to be used for an unmanaged compute environment.
    *       Don't specify this parameter for a managed compute environment. This parameter is only used
-   *       for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this
-   *       parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.</p>
+   *       for fair share scheduling to reserve vCPU capacity for new share identifiers. If this
+   *       parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.</p>
    * @public
    */
   unmanagedvCpus?: number | undefined;
@@ -7516,6 +8043,87 @@ export interface UpdateComputeEnvironmentResponse {
 }
 
 /**
+ * @public
+ */
+export interface UpdateConsumableResourceRequest {
+  /**
+   * <p>The name or ARN of the consumable resource to be updated.</p>
+   * @public
+   */
+  consumableResource: string | undefined;
+
+  /**
+   * <p>Indicates how the quantity of the consumable resource will be updated. Must be one of:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SET</code>
+   *                </p>
+   *                <p>Sets the quantity of the resource to the value specified by the <code>quantity</code>
+   *                     parameter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ADD</code>
+   *                </p>
+   *                <p>Increases the quantity of the resource by the value specified by the <code>quantity</code>
+   *                     parameter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REMOVE</code>
+   *                </p>
+   *                <p>Reduces the quantity of the resource by the value specified by the <code>quantity</code>
+   *                     parameter.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  operation?: string | undefined;
+
+  /**
+   * <p>The change in the total quantity of the consumable resource. The <code>operation</code>
+   *             parameter determines whether the value specified here will be the new total quantity, or
+   *             the amount by which the total quantity will be increased or reduced. Must be a non-negative
+   *             value.</p>
+   * @public
+   */
+  quantity?: number | undefined;
+
+  /**
+   * <p>If this parameter is specified and two update requests with identical payloads and
+   *           <code>clientToken</code>s are received, these requests are considered the same request and
+   *           the second request is rejected. A <code>clientToken</code> is valid for 8 hours or until
+   *           one hour after the consumable resource is deleted, whichever is less.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConsumableResourceResponse {
+  /**
+   * <p>The name of the consumable resource to be updated.</p>
+   * @public
+   */
+  consumableResourceName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
+   * @public
+   */
+  consumableResourceArn: string | undefined;
+
+  /**
+   * <p>The total amount of the consumable resource that is available.</p>
+   * @public
+   */
+  totalQuantity?: number | undefined;
+}
+
+/**
  * <p>Contains the parameters for <code>UpdateJobQueue</code>.</p>
  * @public
  */
@@ -7535,7 +8143,7 @@ export interface UpdateJobQueueRequest {
   state?: JQState | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the fair-share scheduling policy. Once a job queue is created, the fair-share
+   * <p>Amazon Resource Name (ARN) of the fair share scheduling policy. Once a job queue is created, the fair share
    *       scheduling policy can be replaced but not removed. The format is
    *           <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i>
    *             </code>.
@@ -7609,7 +8217,7 @@ export interface UpdateSchedulingPolicyRequest {
   arn: string | undefined;
 
   /**
-   * <p>The fair-share policy scheduling details.</p>
+   * <p>The fair share policy.</p>
    * @public
    */
   fairsharePolicy?: FairsharePolicy | undefined;

@@ -35,7 +35,7 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *       parameters in a <code>resourceRequirements</code> object that's included in the
  *         <code>containerOverrides</code> parameter.</p>
  *          <note>
- *             <p>Job queues with a scheduling policy are limited to 500 active share identifiers at
+ *             <p>Job queues with a scheduling policy are limited to 500 active fair share identifiers at
  *         a time. </p>
  *          </note>
  *          <important>
@@ -184,6 +184,14 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *             },
  *           },
  *         },
+ *         consumableResourcePropertiesOverride: { // ConsumableResourceProperties
+ *           consumableResourceList: [ // ConsumableResourceList
+ *             { // ConsumableResourceRequirement
+ *               consumableResource: "STRING_VALUE",
+ *               quantity: Number("long"),
+ *             },
+ *           ],
+ *         },
  *       },
  *     ],
  *   },
@@ -273,6 +281,14 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *             resourceRequirements: "<ResourceRequirements>",
  *           },
  *         ],
+ *       },
+ *     ],
+ *   },
+ *   consumableResourcePropertiesOverride: {
+ *     consumableResourceList: [
+ *       {
+ *         consumableResource: "STRING_VALUE",
+ *         quantity: Number("long"),
  *       },
  *     ],
  *   },

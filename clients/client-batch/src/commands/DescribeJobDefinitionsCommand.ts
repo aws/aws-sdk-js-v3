@@ -460,6 +460,14 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                 shareProcessNamespace: true || false,
  * //               },
  * //             },
+ * //             consumableResourceProperties: { // ConsumableResourceProperties
+ * //               consumableResourceList: [ // ConsumableResourceList
+ * //                 { // ConsumableResourceRequirement
+ * //                   consumableResource: "STRING_VALUE",
+ * //                   quantity: Number("long"),
+ * //                 },
+ * //               ],
+ * //             },
  * //           },
  * //         ],
  * //       },
@@ -631,6 +639,14 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //         },
  * //       },
  * //       containerOrchestrationType: "ECS" || "EKS",
+ * //       consumableResourceProperties: {
+ * //         consumableResourceList: [
+ * //           {
+ * //             consumableResource: "STRING_VALUE",
+ * //             quantity: Number("long"),
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

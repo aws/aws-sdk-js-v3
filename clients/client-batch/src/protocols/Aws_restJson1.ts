@@ -25,12 +25,17 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import { CancelJobCommandInput, CancelJobCommandOutput } from "../commands/CancelJobCommand";
 import {
   CreateComputeEnvironmentCommandInput,
   CreateComputeEnvironmentCommandOutput,
 } from "../commands/CreateComputeEnvironmentCommand";
+import {
+  CreateConsumableResourceCommandInput,
+  CreateConsumableResourceCommandOutput,
+} from "../commands/CreateConsumableResourceCommand";
 import { CreateJobQueueCommandInput, CreateJobQueueCommandOutput } from "../commands/CreateJobQueueCommand";
 import {
   CreateSchedulingPolicyCommandInput,
@@ -40,6 +45,10 @@ import {
   DeleteComputeEnvironmentCommandInput,
   DeleteComputeEnvironmentCommandOutput,
 } from "../commands/DeleteComputeEnvironmentCommand";
+import {
+  DeleteConsumableResourceCommandInput,
+  DeleteConsumableResourceCommandOutput,
+} from "../commands/DeleteConsumableResourceCommand";
 import { DeleteJobQueueCommandInput, DeleteJobQueueCommandOutput } from "../commands/DeleteJobQueueCommand";
 import {
   DeleteSchedulingPolicyCommandInput,
@@ -54,6 +63,10 @@ import {
   DescribeComputeEnvironmentsCommandOutput,
 } from "../commands/DescribeComputeEnvironmentsCommand";
 import {
+  DescribeConsumableResourceCommandInput,
+  DescribeConsumableResourceCommandOutput,
+} from "../commands/DescribeConsumableResourceCommand";
+import {
   DescribeJobDefinitionsCommandInput,
   DescribeJobDefinitionsCommandOutput,
 } from "../commands/DescribeJobDefinitionsCommand";
@@ -67,6 +80,14 @@ import {
   GetJobQueueSnapshotCommandInput,
   GetJobQueueSnapshotCommandOutput,
 } from "../commands/GetJobQueueSnapshotCommand";
+import {
+  ListConsumableResourcesCommandInput,
+  ListConsumableResourcesCommandOutput,
+} from "../commands/ListConsumableResourcesCommand";
+import {
+  ListJobsByConsumableResourceCommandInput,
+  ListJobsByConsumableResourceCommandOutput,
+} from "../commands/ListJobsByConsumableResourceCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import {
   ListSchedulingPoliciesCommandInput,
@@ -88,6 +109,10 @@ import {
   UpdateComputeEnvironmentCommandInput,
   UpdateComputeEnvironmentCommandOutput,
 } from "../commands/UpdateComputeEnvironmentCommand";
+import {
+  UpdateConsumableResourceCommandInput,
+  UpdateConsumableResourceCommandOutput,
+} from "../commands/UpdateConsumableResourceCommand";
 import { UpdateJobQueueCommandInput, UpdateJobQueueCommandOutput } from "../commands/UpdateJobQueueCommand";
 import {
   UpdateSchedulingPolicyCommandInput,
@@ -100,6 +125,8 @@ import {
   ComputeEnvironmentOrder,
   ComputeResource,
   ComputeResourceUpdate,
+  ConsumableResourceProperties,
+  ConsumableResourceRequirement,
   ContainerOverrides,
   ContainerProperties,
   Device,
@@ -223,6 +250,31 @@ export const se_CreateComputeEnvironmentCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateConsumableResourceCommand
+ */
+export const se_CreateConsumableResourceCommand = async (
+  input: CreateConsumableResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/createconsumableresource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      consumableResourceName: [],
+      resourceType: [],
+      tags: (_) => _json(_),
+      totalQuantity: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateJobQueueCommand
  */
 export const se_CreateJobQueueCommand = async (
@@ -290,6 +342,28 @@ export const se_DeleteComputeEnvironmentCommand = async (
   body = JSON.stringify(
     take(input, {
       computeEnvironment: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteConsumableResourceCommand
+ */
+export const se_DeleteConsumableResourceCommand = async (
+  input: DeleteConsumableResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/deleteconsumableresource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      consumableResource: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -380,6 +454,28 @@ export const se_DescribeComputeEnvironmentsCommand = async (
       computeEnvironments: (_) => _json(_),
       maxResults: [],
       nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeConsumableResourceCommand
+ */
+export const se_DescribeConsumableResourceCommand = async (
+  input: DescribeConsumableResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/describeconsumableresource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      consumableResource: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -503,6 +599,30 @@ export const se_GetJobQueueSnapshotCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListConsumableResourcesCommand
+ */
+export const se_ListConsumableResourcesCommand = async (
+  input: ListConsumableResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/listconsumableresources");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListJobsCommand
  */
 export const se_ListJobsCommand = async (
@@ -523,6 +643,31 @@ export const se_ListJobsCommand = async (
       jobStatus: [],
       maxResults: [],
       multiNodeJobId: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListJobsByConsumableResourceCommand
+ */
+export const se_ListJobsByConsumableResourceCommand = async (
+  input: ListJobsByConsumableResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/listjobsbyconsumableresource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      consumableResource: [],
+      filters: (_) => _json(_),
+      maxResults: [],
       nextToken: [],
     })
   );
@@ -584,6 +729,7 @@ export const se_RegisterJobDefinitionCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      consumableResourceProperties: (_) => _json(_),
       containerProperties: (_) => _json(_),
       ecsProperties: (_) => _json(_),
       eksProperties: (_) => _json(_),
@@ -619,6 +765,7 @@ export const se_SubmitJobCommand = async (
   body = JSON.stringify(
     take(input, {
       arrayProperties: (_) => _json(_),
+      consumableResourcePropertiesOverride: (_) => _json(_),
       containerOverrides: (_) => _json(_),
       dependsOn: (_) => _json(_),
       ecsPropertiesOverride: (_) => _json(_),
@@ -734,6 +881,31 @@ export const se_UpdateComputeEnvironmentCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateConsumableResourceCommand
+ */
+export const se_UpdateConsumableResourceCommand = async (
+  input: UpdateConsumableResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/updateconsumableresource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      consumableResource: [],
+      operation: [],
+      quantity: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateJobQueueCommand
  */
 export const se_UpdateJobQueueCommand = async (
@@ -823,6 +995,28 @@ export const de_CreateComputeEnvironmentCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateConsumableResourceCommand
+ */
+export const de_CreateConsumableResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConsumableResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    consumableResourceArn: __expectString,
+    consumableResourceName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateJobQueueCommand
  */
 export const de_CreateJobQueueCommand = async (
@@ -873,6 +1067,23 @@ export const de_DeleteComputeEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteComputeEnvironmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteConsumableResourceCommand
+ */
+export const de_DeleteConsumableResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConsumableResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -951,6 +1162,34 @@ export const de_DescribeComputeEnvironmentsCommand = async (
   const doc = take(data, {
     computeEnvironments: _json,
     nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeConsumableResourceCommand
+ */
+export const de_DescribeConsumableResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConsumableResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    availableQuantity: __expectLong,
+    consumableResourceArn: __expectString,
+    consumableResourceName: __expectString,
+    createdAt: __expectLong,
+    inUseQuantity: __expectLong,
+    resourceType: __expectString,
+    tags: _json,
+    totalQuantity: __expectLong,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1064,6 +1303,28 @@ export const de_GetJobQueueSnapshotCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListConsumableResourcesCommand
+ */
+export const de_ListConsumableResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConsumableResourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    consumableResources: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListJobsCommand
  */
 export const de_ListJobsCommand = async (
@@ -1079,6 +1340,28 @@ export const de_ListJobsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     jobSummaryList: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListJobsByConsumableResourceCommand
+ */
+export const de_ListJobsByConsumableResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListJobsByConsumableResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobs: _json,
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -1248,6 +1531,29 @@ export const de_UpdateComputeEnvironmentCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateConsumableResourceCommand
+ */
+export const de_UpdateConsumableResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConsumableResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    consumableResourceArn: __expectString,
+    consumableResourceName: __expectString,
+    totalQuantity: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateJobQueueCommand
  */
 export const de_UpdateJobQueueCommand = async (
@@ -1356,6 +1662,12 @@ const de_ServerExceptionRes = async (parsedOutput: any, context: __SerdeContext)
 // se_ComputeResource omitted.
 
 // se_ComputeResourceUpdate omitted.
+
+// se_ConsumableResourceList omitted.
+
+// se_ConsumableResourceProperties omitted.
+
+// se_ConsumableResourceRequirement omitted.
 
 // se_ContainerOverrides omitted.
 
@@ -1482,7 +1794,11 @@ const se_FairsharePolicy = (input: FairsharePolicy, context: __SerdeContext): an
 
 // se_LinuxParameters omitted.
 
+// se_ListConsumableResourcesFilterList omitted.
+
 // se_ListEcsTaskProperties omitted.
+
+// se_ListJobsByConsumableResourceFilterList omitted.
 
 // se_ListJobsFilterList omitted.
 
@@ -1627,6 +1943,16 @@ const se_ShareAttributesList = (input: ShareAttributes[], context: __SerdeContex
 
 // de_ComputeResource omitted.
 
+// de_ConsumableResourceList omitted.
+
+// de_ConsumableResourceProperties omitted.
+
+// de_ConsumableResourceRequirement omitted.
+
+// de_ConsumableResourceSummary omitted.
+
+// de_ConsumableResourceSummaryList omitted.
+
 // de_ContainerDetail omitted.
 
 // de_ContainerProperties omitted.
@@ -1753,6 +2079,7 @@ const de_FairsharePolicy = (output: any, context: __SerdeContext): FairsharePoli
  */
 const de_JobDefinition = (output: any, context: __SerdeContext): JobDefinition => {
   return take(output, {
+    consumableResourceProperties: _json,
     containerOrchestrationType: __expectString,
     containerProperties: _json,
     ecsProperties: _json,
@@ -1796,6 +2123,7 @@ const de_JobDetail = (output: any, context: __SerdeContext): JobDetail => {
   return take(output, {
     arrayProperties: _json,
     attempts: _json,
+    consumableResourceProperties: _json,
     container: _json,
     createdAt: __expectLong,
     dependsOn: _json,
@@ -1869,6 +2197,10 @@ const de_JobDetailList = (output: any, context: __SerdeContext): JobDetail[] => 
 // de_ListEcsTaskDetails omitted.
 
 // de_ListEcsTaskProperties omitted.
+
+// de_ListJobsByConsumableResourceSummary omitted.
+
+// de_ListJobsByConsumableResourceSummaryList omitted.
 
 // de_ListTaskContainerDetails omitted.
 

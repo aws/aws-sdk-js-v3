@@ -516,6 +516,14 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //                 shareProcessNamespace: true || false,
  * //               },
  * //             },
+ * //             consumableResourceProperties: { // ConsumableResourceProperties
+ * //               consumableResourceList: [ // ConsumableResourceList
+ * //                 { // ConsumableResourceRequirement
+ * //                   consumableResource: "STRING_VALUE",
+ * //                   quantity: Number("long"),
+ * //                 },
+ * //               ],
+ * //             },
  * //           },
  * //         ],
  * //       },
@@ -737,6 +745,14 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //       },
  * //       isCancelled: true || false,
  * //       isTerminated: true || false,
+ * //       consumableResourceProperties: {
+ * //         consumableResourceList: [
+ * //           {
+ * //             consumableResource: "STRING_VALUE",
+ * //             quantity: Number("long"),
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * // };

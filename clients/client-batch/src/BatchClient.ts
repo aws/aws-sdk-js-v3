@@ -58,6 +58,10 @@ import {
   CreateComputeEnvironmentCommandInput,
   CreateComputeEnvironmentCommandOutput,
 } from "./commands/CreateComputeEnvironmentCommand";
+import {
+  CreateConsumableResourceCommandInput,
+  CreateConsumableResourceCommandOutput,
+} from "./commands/CreateConsumableResourceCommand";
 import { CreateJobQueueCommandInput, CreateJobQueueCommandOutput } from "./commands/CreateJobQueueCommand";
 import {
   CreateSchedulingPolicyCommandInput,
@@ -67,6 +71,10 @@ import {
   DeleteComputeEnvironmentCommandInput,
   DeleteComputeEnvironmentCommandOutput,
 } from "./commands/DeleteComputeEnvironmentCommand";
+import {
+  DeleteConsumableResourceCommandInput,
+  DeleteConsumableResourceCommandOutput,
+} from "./commands/DeleteConsumableResourceCommand";
 import { DeleteJobQueueCommandInput, DeleteJobQueueCommandOutput } from "./commands/DeleteJobQueueCommand";
 import {
   DeleteSchedulingPolicyCommandInput,
@@ -81,6 +89,10 @@ import {
   DescribeComputeEnvironmentsCommandOutput,
 } from "./commands/DescribeComputeEnvironmentsCommand";
 import {
+  DescribeConsumableResourceCommandInput,
+  DescribeConsumableResourceCommandOutput,
+} from "./commands/DescribeConsumableResourceCommand";
+import {
   DescribeJobDefinitionsCommandInput,
   DescribeJobDefinitionsCommandOutput,
 } from "./commands/DescribeJobDefinitionsCommand";
@@ -94,6 +106,14 @@ import {
   GetJobQueueSnapshotCommandInput,
   GetJobQueueSnapshotCommandOutput,
 } from "./commands/GetJobQueueSnapshotCommand";
+import {
+  ListConsumableResourcesCommandInput,
+  ListConsumableResourcesCommandOutput,
+} from "./commands/ListConsumableResourcesCommand";
+import {
+  ListJobsByConsumableResourceCommandInput,
+  ListJobsByConsumableResourceCommandOutput,
+} from "./commands/ListJobsByConsumableResourceCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListSchedulingPoliciesCommandInput,
@@ -115,6 +135,10 @@ import {
   UpdateComputeEnvironmentCommandInput,
   UpdateComputeEnvironmentCommandOutput,
 } from "./commands/UpdateComputeEnvironmentCommand";
+import {
+  UpdateConsumableResourceCommandInput,
+  UpdateConsumableResourceCommandOutput,
+} from "./commands/UpdateConsumableResourceCommand";
 import { UpdateJobQueueCommandInput, UpdateJobQueueCommandOutput } from "./commands/UpdateJobQueueCommand";
 import {
   UpdateSchedulingPolicyCommandInput,
@@ -137,18 +161,23 @@ export { __Client };
 export type ServiceInputTypes =
   | CancelJobCommandInput
   | CreateComputeEnvironmentCommandInput
+  | CreateConsumableResourceCommandInput
   | CreateJobQueueCommandInput
   | CreateSchedulingPolicyCommandInput
   | DeleteComputeEnvironmentCommandInput
+  | DeleteConsumableResourceCommandInput
   | DeleteJobQueueCommandInput
   | DeleteSchedulingPolicyCommandInput
   | DeregisterJobDefinitionCommandInput
   | DescribeComputeEnvironmentsCommandInput
+  | DescribeConsumableResourceCommandInput
   | DescribeJobDefinitionsCommandInput
   | DescribeJobQueuesCommandInput
   | DescribeJobsCommandInput
   | DescribeSchedulingPoliciesCommandInput
   | GetJobQueueSnapshotCommandInput
+  | ListConsumableResourcesCommandInput
+  | ListJobsByConsumableResourceCommandInput
   | ListJobsCommandInput
   | ListSchedulingPoliciesCommandInput
   | ListTagsForResourceCommandInput
@@ -158,6 +187,7 @@ export type ServiceInputTypes =
   | TerminateJobCommandInput
   | UntagResourceCommandInput
   | UpdateComputeEnvironmentCommandInput
+  | UpdateConsumableResourceCommandInput
   | UpdateJobQueueCommandInput
   | UpdateSchedulingPolicyCommandInput;
 
@@ -167,18 +197,23 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CancelJobCommandOutput
   | CreateComputeEnvironmentCommandOutput
+  | CreateConsumableResourceCommandOutput
   | CreateJobQueueCommandOutput
   | CreateSchedulingPolicyCommandOutput
   | DeleteComputeEnvironmentCommandOutput
+  | DeleteConsumableResourceCommandOutput
   | DeleteJobQueueCommandOutput
   | DeleteSchedulingPolicyCommandOutput
   | DeregisterJobDefinitionCommandOutput
   | DescribeComputeEnvironmentsCommandOutput
+  | DescribeConsumableResourceCommandOutput
   | DescribeJobDefinitionsCommandOutput
   | DescribeJobQueuesCommandOutput
   | DescribeJobsCommandOutput
   | DescribeSchedulingPoliciesCommandOutput
   | GetJobQueueSnapshotCommandOutput
+  | ListConsumableResourcesCommandOutput
+  | ListJobsByConsumableResourceCommandOutput
   | ListJobsCommandOutput
   | ListSchedulingPoliciesCommandOutput
   | ListTagsForResourceCommandOutput
@@ -188,6 +223,7 @@ export type ServiceOutputTypes =
   | TerminateJobCommandOutput
   | UntagResourceCommandOutput
   | UpdateComputeEnvironmentCommandOutput
+  | UpdateConsumableResourceCommandOutput
   | UpdateJobQueueCommandOutput
   | UpdateSchedulingPolicyCommandOutput;
 

@@ -429,6 +429,14 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *             shareProcessNamespace: true || false,
  *           },
  *         },
+ *         consumableResourceProperties: { // ConsumableResourceProperties
+ *           consumableResourceList: [ // ConsumableResourceList
+ *             { // ConsumableResourceRequirement
+ *               consumableResource: "STRING_VALUE",
+ *               quantity: Number("long"),
+ *             },
+ *           ],
+ *         },
  *       },
  *     ],
  *   },
@@ -610,6 +618,14 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *         networkConfiguration: "<NetworkConfiguration>",
  *         runtimePlatform: "<RuntimePlatform>",
  *         volumes: "<Volumes>",
+ *       },
+ *     ],
+ *   },
+ *   consumableResourceProperties: {
+ *     consumableResourceList: [
+ *       {
+ *         consumableResource: "STRING_VALUE",
+ *         quantity: Number("long"),
  *       },
  *     ],
  *   },
