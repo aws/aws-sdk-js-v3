@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.757.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.756.0...v3.757.0) (2025-02-26)
+
+
+### Features
+
+* **client-application-signals:** This release adds API support for reading Service Level Objectives and Services from monitoring accounts, from SLO and Service-scoped operations, including ListServices and ListServiceLevelObjectives. ([577b28e](https://github.com/aws/aws-sdk-js-v3/commit/577b28e6e1db9ecf1f8813f0625c47b5a316be1c))
+
+
+
+
+
 # [3.751.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.750.0...v3.751.0) (2025-02-18)
 
 

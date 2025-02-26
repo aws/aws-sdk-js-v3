@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.757.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.756.0...v3.757.0) (2025-02-26)
+
+
+### Features
+
+* **client-batch:** AWS Batch: Resource Aware Scheduling feature support ([a48eb96](https://github.com/aws/aws-sdk-js-v3/commit/a48eb96bb757872a5333c8f3627f07019b006046))
+
+
+
+
+
 # [3.751.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.750.0...v3.751.0) (2025-02-18)
 
 **Note:** Version bump only for package @aws-sdk/client-batch

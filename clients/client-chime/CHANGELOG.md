@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.757.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.756.0...v3.757.0) (2025-02-26)
+
+
+### Features
+
+* **client-chime:** Removes the Amazon Chime SDK APIs from the "chime" namespace.  Amazon Chime SDK APIs continue to be available in the AWS SDK via the dedicated Amazon Chime SDK namespaces: chime-sdk-identity, chime-sdk-mediapipelines, chime-sdk-meetings, chime-sdk-messaging, and chime-sdk-voice. ([95b84bb](https://github.com/aws/aws-sdk-js-v3/commit/95b84bb2203a2eb680dbf003186021d5a9737e68))
+
+
+
+
+
 # [3.750.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.749.0...v3.750.0) (2025-02-17)
 
 **Note:** Version bump only for package @aws-sdk/client-chime

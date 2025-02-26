@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.757.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.756.0...v3.757.0) (2025-02-26)
+
+
+### Features
+
+* **client-application-signals:** This release adds API support for reading Service Level Objectives and Services from monitoring accounts, from SLO and Service-scoped operations, including ListServices and ListServiceLevelObjectives. ([577b28e](https://github.com/aws/aws-sdk-js-v3/commit/577b28e6e1db9ecf1f8813f0625c47b5a316be1c))
+* **client-batch:** AWS Batch: Resource Aware Scheduling feature support ([a48eb96](https://github.com/aws/aws-sdk-js-v3/commit/a48eb96bb757872a5333c8f3627f07019b006046))
+* **client-chime:** Removes the Amazon Chime SDK APIs from the "chime" namespace.  Amazon Chime SDK APIs continue to be available in the AWS SDK via the dedicated Amazon Chime SDK namespaces: chime-sdk-identity, chime-sdk-mediapipelines, chime-sdk-meetings, chime-sdk-messaging, and chime-sdk-voice. ([95b84bb](https://github.com/aws/aws-sdk-js-v3/commit/95b84bb2203a2eb680dbf003186021d5a9737e68))
+* **client-ec2:** Amazon EC2 Fleet customers can now override the Block Device Mapping specified in the Launch Template when creating a new Fleet request, saving the effort of creating and associating new Launch Templates to customize the Block Device Mapping. ([7ac960d](https://github.com/aws/aws-sdk-js-v3/commit/7ac960d6d3ee35faaddce19443478a54097eed98))
+* **client-iotfleetwise:** This release adds an optional listResponseScope request parameter in certain list API requests to limit the response to metadata only. ([618b5ed](https://github.com/aws/aws-sdk-js-v3/commit/618b5ed482e218fd652cd25a4eeb0726980cba48))
+* **client-oam:** This release adds support for sharing AWS::ApplicationSignals::Service and AWS::ApplicationSignals::ServiceLevelObjective resources. ([c338212](https://github.com/aws/aws-sdk-js-v3/commit/c33821282d9a56a0626c9a0c348fa764b4c374fc))
+* **client-sagemaker:** AWS SageMaker InferenceComponents now support rolling update deployments for Inference Components. ([91fa4eb](https://github.com/aws/aws-sdk-js-v3/commit/91fa4ebabccbd2c49b77d228b7953d3c7a59f9b8))
+* **clients:** update client endpoints as of 2025-02-26 ([19a610d](https://github.com/aws/aws-sdk-js-v3/commit/19a610d41a47f34761e1d23b1a5854e227d0a4c8))
+
+
+
+
+
 # [3.756.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.755.0...v3.756.0) (2025-02-25)
 
 

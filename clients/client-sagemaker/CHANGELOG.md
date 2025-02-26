@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.757.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.756.0...v3.757.0) (2025-02-26)
+
+
+### Features
+
+* **client-sagemaker:** AWS SageMaker InferenceComponents now support rolling update deployments for Inference Components. ([91fa4eb](https://github.com/aws/aws-sdk-js-v3/commit/91fa4ebabccbd2c49b77d228b7953d3c7a59f9b8))
+
+
+
+
+
 # [3.753.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.752.0...v3.753.0) (2025-02-20)
 
 

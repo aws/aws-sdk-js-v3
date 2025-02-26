@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.757.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.756.0...v3.757.0) (2025-02-26)
+
+
+### Features
+
+* **client-ec2:** Amazon EC2 Fleet customers can now override the Block Device Mapping specified in the Launch Template when creating a new Fleet request, saving the effort of creating and associating new Launch Templates to customize the Block Device Mapping. ([7ac960d](https://github.com/aws/aws-sdk-js-v3/commit/7ac960d6d3ee35faaddce19443478a54097eed98))
+
+
+
+
+
 # [3.756.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.755.0...v3.756.0) (2025-02-25)
 
 

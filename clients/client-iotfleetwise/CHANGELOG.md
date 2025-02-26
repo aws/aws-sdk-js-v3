@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.757.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.756.0...v3.757.0) (2025-02-26)
+
+
+### Features
+
+* **client-iotfleetwise:** This release adds an optional listResponseScope request parameter in certain list API requests to limit the response to metadata only. ([618b5ed](https://github.com/aws/aws-sdk-js-v3/commit/618b5ed482e218fd652cd25a4eeb0726980cba48))
+
+
+
+
+
 # [3.751.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.750.0...v3.751.0) (2025-02-18)
 
 
