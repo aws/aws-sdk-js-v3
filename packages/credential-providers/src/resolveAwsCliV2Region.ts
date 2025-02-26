@@ -57,6 +57,7 @@ export async function regionFromMetadataService(): Promise<string | undefined> {
     const document = await metadataService.request("/latest/dynamic/instance-identity/document", {});
     return JSON.parse(document).region;
   } catch (e) {
+    console.warn(`Unable to fetch region from EC2 Instance Metadata Service. Error: ${e.message}`);
     return undefined;
   }
 }
