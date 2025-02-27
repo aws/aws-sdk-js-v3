@@ -549,6 +549,45 @@ export interface OperationWithRequiredMembersOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const RequiredEnum = {
+  BAR: "BAR",
+  BAZ: "BAZ",
+  FOO: "FOO",
+} as const;
+/**
+ * @public
+ */
+export type RequiredEnum = (typeof RequiredEnum)[keyof typeof RequiredEnum];
+
+export enum RequiredIntEnum {
+  ONE = 1,
+  TWO = 2,
+}
+
+/**
+ * @public
+ */
+export interface OperationWithRequiredMembersWithDefaultsOutput {
+  requiredString: string | undefined;
+  requiredBoolean: boolean | undefined;
+  requiredList: string[] | undefined;
+  requiredTimestamp: Date | undefined;
+  requiredBlob: Uint8Array | undefined;
+  requiredByte: number | undefined;
+  requiredShort: number | undefined;
+  requiredInteger: number | undefined;
+  requiredLong: number | undefined;
+  requiredFloat: number | undefined;
+  requiredDouble: number | undefined;
+  requiredMap: Record<string, string> | undefined;
+  requiredEnum: RequiredEnum | undefined;
+  requiredIntEnum: RequiredIntEnum | undefined;
+}
+
+/**
+ * @public
  */
 export interface PutWithContentEncodingInput {
   encoding?: string | undefined;

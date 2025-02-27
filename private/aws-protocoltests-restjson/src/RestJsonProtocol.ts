@@ -218,6 +218,11 @@ import {
   MalformedContentTypeWithoutBodyCommandOutput,
 } from "./commands/MalformedContentTypeWithoutBodyCommand";
 import {
+  MalformedContentTypeWithoutBodyEmptyInputCommand,
+  MalformedContentTypeWithoutBodyEmptyInputCommandInput,
+  MalformedContentTypeWithoutBodyEmptyInputCommandOutput,
+} from "./commands/MalformedContentTypeWithoutBodyEmptyInputCommand";
+import {
   MalformedContentTypeWithPayloadCommand,
   MalformedContentTypeWithPayloadCommandInput,
   MalformedContentTypeWithPayloadCommandOutput,
@@ -413,6 +418,16 @@ import {
   RecursiveShapesCommandOutput,
 } from "./commands/RecursiveShapesCommand";
 import {
+  ResponseCodeHttpFallbackCommand,
+  ResponseCodeHttpFallbackCommandInput,
+  ResponseCodeHttpFallbackCommandOutput,
+} from "./commands/ResponseCodeHttpFallbackCommand";
+import {
+  ResponseCodeRequiredCommand,
+  ResponseCodeRequiredCommandInput,
+  ResponseCodeRequiredCommandOutput,
+} from "./commands/ResponseCodeRequiredCommand";
+import {
   SimpleScalarPropertiesCommand,
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
@@ -537,6 +552,7 @@ const commands = {
   MalformedContentTypeWithBodyCommand,
   MalformedContentTypeWithGenericStringCommand,
   MalformedContentTypeWithoutBodyCommand,
+  MalformedContentTypeWithoutBodyEmptyInputCommand,
   MalformedContentTypeWithPayloadCommand,
   MalformedDoubleCommand,
   MalformedFloatCommand,
@@ -576,6 +592,8 @@ const commands = {
   QueryParamsAsStringListMapCommand,
   QueryPrecedenceCommand,
   RecursiveShapesCommand,
+  ResponseCodeHttpFallbackCommand,
+  ResponseCodeRequiredCommand,
   SimpleScalarPropertiesCommand,
   SparseJsonListsCommand,
   SparseJsonMapsCommand,
@@ -1369,6 +1387,24 @@ export interface RestJsonProtocol {
   ): void;
 
   /**
+   * @see {@link MalformedContentTypeWithoutBodyEmptyInputCommand}
+   */
+  malformedContentTypeWithoutBodyEmptyInput(): Promise<MalformedContentTypeWithoutBodyEmptyInputCommandOutput>;
+  malformedContentTypeWithoutBodyEmptyInput(
+    args: MalformedContentTypeWithoutBodyEmptyInputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MalformedContentTypeWithoutBodyEmptyInputCommandOutput>;
+  malformedContentTypeWithoutBodyEmptyInput(
+    args: MalformedContentTypeWithoutBodyEmptyInputCommandInput,
+    cb: (err: any, data?: MalformedContentTypeWithoutBodyEmptyInputCommandOutput) => void
+  ): void;
+  malformedContentTypeWithoutBodyEmptyInput(
+    args: MalformedContentTypeWithoutBodyEmptyInputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MalformedContentTypeWithoutBodyEmptyInputCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link MalformedContentTypeWithPayloadCommand}
    */
   malformedContentTypeWithPayload(): Promise<MalformedContentTypeWithPayloadCommandOutput>;
@@ -2008,6 +2044,42 @@ export interface RestJsonProtocol {
     args: RecursiveShapesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RecursiveShapesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResponseCodeHttpFallbackCommand}
+   */
+  responseCodeHttpFallback(): Promise<ResponseCodeHttpFallbackCommandOutput>;
+  responseCodeHttpFallback(
+    args: ResponseCodeHttpFallbackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResponseCodeHttpFallbackCommandOutput>;
+  responseCodeHttpFallback(
+    args: ResponseCodeHttpFallbackCommandInput,
+    cb: (err: any, data?: ResponseCodeHttpFallbackCommandOutput) => void
+  ): void;
+  responseCodeHttpFallback(
+    args: ResponseCodeHttpFallbackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResponseCodeHttpFallbackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResponseCodeRequiredCommand}
+   */
+  responseCodeRequired(): Promise<ResponseCodeRequiredCommandOutput>;
+  responseCodeRequired(
+    args: ResponseCodeRequiredCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResponseCodeRequiredCommandOutput>;
+  responseCodeRequired(
+    args: ResponseCodeRequiredCommandInput,
+    cb: (err: any, data?: ResponseCodeRequiredCommandOutput) => void
+  ): void;
+  responseCodeRequired(
+    args: ResponseCodeRequiredCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResponseCodeRequiredCommandOutput) => void
   ): void;
 
   /**

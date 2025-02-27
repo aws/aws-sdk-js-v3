@@ -189,6 +189,10 @@ import {
   MalformedContentTypeWithoutBodyCommandOutput,
 } from "../commands/MalformedContentTypeWithoutBodyCommand";
 import {
+  MalformedContentTypeWithoutBodyEmptyInputCommandInput,
+  MalformedContentTypeWithoutBodyEmptyInputCommandOutput,
+} from "../commands/MalformedContentTypeWithoutBodyEmptyInputCommand";
+import {
   MalformedContentTypeWithPayloadCommandInput,
   MalformedContentTypeWithPayloadCommandOutput,
 } from "../commands/MalformedContentTypeWithPayloadCommand";
@@ -299,6 +303,14 @@ import {
 } from "../commands/QueryParamsAsStringListMapCommand";
 import { QueryPrecedenceCommandInput, QueryPrecedenceCommandOutput } from "../commands/QueryPrecedenceCommand";
 import { RecursiveShapesCommandInput, RecursiveShapesCommandOutput } from "../commands/RecursiveShapesCommand";
+import {
+  ResponseCodeHttpFallbackCommandInput,
+  ResponseCodeHttpFallbackCommandOutput,
+} from "../commands/ResponseCodeHttpFallbackCommand";
+import {
+  ResponseCodeRequiredCommandInput,
+  ResponseCodeRequiredCommandOutput,
+} from "../commands/ResponseCodeRequiredCommand";
 import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
@@ -1429,6 +1441,23 @@ export const se_MalformedContentTypeWithoutBodyCommand = async (
 };
 
 /**
+ * serializeAws_restJson1MalformedContentTypeWithoutBodyEmptyInputCommand
+ */
+export const se_MalformedContentTypeWithoutBodyEmptyInputCommand = async (
+  input: MalformedContentTypeWithoutBodyEmptyInputCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_he]: input[_he]!,
+  });
+  b.bp("/MalformedContentTypeWithoutBodyEmptyInput");
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1MalformedContentTypeWithPayloadCommand
  */
 export const se_MalformedContentTypeWithPayloadCommand = async (
@@ -2268,6 +2297,36 @@ export const se_RecursiveShapesCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ResponseCodeHttpFallbackCommand
+ */
+export const se_ResponseCodeHttpFallbackCommand = async (
+  input: ResponseCodeHttpFallbackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/responseCodeHttpFallback");
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ResponseCodeRequiredCommand
+ */
+export const se_ResponseCodeRequiredCommand = async (
+  input: ResponseCodeRequiredCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/responseCodeRequired");
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -3548,6 +3607,23 @@ export const de_MalformedContentTypeWithoutBodyCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1MalformedContentTypeWithoutBodyEmptyInputCommand
+ */
+export const de_MalformedContentTypeWithoutBodyEmptyInputCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MalformedContentTypeWithoutBodyEmptyInputCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1MalformedContentTypeWithPayloadCommand
  */
 export const de_MalformedContentTypeWithPayloadCommand = async (
@@ -4272,6 +4348,43 @@ export const de_RecursiveShapesCommand = async (
     nested: (_) => de_RecursiveShapesInputOutputNested1(_, context),
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ResponseCodeHttpFallbackCommand
+ */
+export const de_ResponseCodeHttpFallbackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResponseCodeHttpFallbackCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ResponseCodeRequiredCommand
+ */
+export const de_ResponseCodeRequiredCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResponseCodeRequiredCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  map(contents, {
+    responseCode: [, output.statusCode],
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -5371,6 +5484,7 @@ const _hSS = "headerStringSet";
 const _hSe = "headerShort";
 const _hTB = "headerTrueBool";
 const _hTL = "headerTimestampList";
+const _he = "header";
 const _i = "integerinheader";
 const _iIH = "integerInHeader";
 const _iIQ = "integerInQuery";

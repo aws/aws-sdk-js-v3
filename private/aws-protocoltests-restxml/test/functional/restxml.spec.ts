@@ -2276,8 +2276,8 @@ it("HttpPrefixHeadersArePresent:Request", async () => {
   const command = new HttpPrefixHeadersCommand({
     foo: "Foo",
     fooMap: {
-      Abc: "Abc value",
-      Def: "Def value",
+      abc: "Abc value",
+      def: "Def value",
     } as any,
   } as any);
   try {
@@ -2348,7 +2348,7 @@ it("HttpPrefixEmptyHeaders:Request", async () => {
 
   const command = new HttpPrefixHeadersCommand({
     fooMap: {
-      Abc: "",
+      abc: "",
     } as any,
   } as any);
   try {
@@ -3708,7 +3708,7 @@ it.skip("NestedXmlMapWithXmlNameSerializes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `    <NestedXmlMapWithXmlNameRequest>
+    const bodyString = `    <NestedXmlMapWithXmlNameInputOutput>
             <nestedXmlMapWithXmlNameMap>
                 <entry>
                     <OuterKey>foo</OuterKey>
@@ -3737,7 +3737,7 @@ it.skip("NestedXmlMapWithXmlNameSerializes:Request", async () => {
                     </value>
                 </entry>
             </nestedXmlMapWithXmlNameMap>
-        </NestedXmlMapWithXmlNameRequest>
+        </NestedXmlMapWithXmlNameInputOutput>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -3756,7 +3756,7 @@ it("NestedXmlMapWithXmlNameDeserializes:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `    <NestedXmlMapWithXmlNameResponse>
+      `    <NestedXmlMapWithXmlNameInputOutput>
               <nestedXmlMapWithXmlNameMap>
                   <entry>
                       <OuterKey>foo</OuterKey>
@@ -3785,7 +3785,7 @@ it("NestedXmlMapWithXmlNameDeserializes:Response", async () => {
                       </value>
                   </entry>
               </nestedXmlMapWithXmlNameMap>
-          </NestedXmlMapWithXmlNameResponse>
+          </NestedXmlMapWithXmlNameInputOutput>
       `
     ),
   });

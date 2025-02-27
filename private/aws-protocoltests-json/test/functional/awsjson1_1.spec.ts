@@ -12,6 +12,7 @@ import { FractionalSecondsCommand } from "../../src/commands/FractionalSecondsCo
 import { GreetingWithErrorsCommand } from "../../src/commands/GreetingWithErrorsCommand";
 import { HostWithPathOperationCommand } from "../../src/commands/HostWithPathOperationCommand";
 import { JsonEnumsCommand } from "../../src/commands/JsonEnumsCommand";
+import { JsonIntEnumsCommand } from "../../src/commands/JsonIntEnumsCommand";
 import { JsonUnionsCommand } from "../../src/commands/JsonUnionsCommand";
 import { KitchenSinkOperationCommand } from "../../src/commands/KitchenSinkOperationCommand";
 import { NullOperationCommand } from "../../src/commands/NullOperationCommand";
@@ -1217,6 +1218,131 @@ it("AwsJson11Enums:Response", async () => {
       fooEnumMap: {
         hi: "Foo",
         zero: "0",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes simple scalar properties
+ */
+it("AwsJson11IntEnums:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonIntEnumsCommand({
+    intEnum1: 1,
+    intEnum2: 2,
+    intEnum3: 3,
+    intEnumList: [1, 2],
+    intEnumSet: [1, 2],
+    intEnumMap: {
+      a: 1,
+      b: 2,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.JsonIntEnums");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"intEnum1\": 1,
+        \"intEnum2\": 2,
+        \"intEnum3\": 3,
+        \"intEnumList\": [
+            1,
+            2
+        ],
+        \"intEnumSet\": [
+            1,
+            2
+        ],
+        \"intEnumMap\": {
+            \"a\": 1,
+            \"b\": 2
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes simple scalar properties
+ */
+it("AwsJson11IntEnums:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "x-amz-target": "JsonProtocol.JsonIntEnums",
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "intEnum1": 1,
+          "intEnum2": 2,
+          "intEnum3": 3,
+          "intEnumList": [
+              1,
+              2
+          ],
+          "intEnumSet": [
+              1,
+              2
+          ],
+          "intEnumMap": {
+              "a": 1,
+              "b": 2
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonIntEnumsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      intEnum1: 1,
+      intEnum2: 2,
+      intEnum3: 3,
+      intEnumList: [1, 2],
+      intEnumSet: [1, 2],
+      intEnumMap: {
+        a: 1,
+        b: 2,
       },
     },
   ][0];

@@ -11,5 +11,6 @@ export * from "./NoInputAndOutputCommand";
 export * from "./OperationWithDefaultsCommand";
 export * from "./OperationWithNestedStructureCommand";
 export * from "./OperationWithRequiredMembersCommand";
+export * from "./OperationWithRequiredMembersWithDefaultsCommand";
 export * from "./PutWithContentEncodingCommand";
 export * from "./SimpleScalarPropertiesCommand";

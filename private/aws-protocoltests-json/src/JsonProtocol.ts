@@ -43,6 +43,11 @@ import {
   HostWithPathOperationCommandOutput,
 } from "./commands/HostWithPathOperationCommand";
 import { JsonEnumsCommand, JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
+import {
+  JsonIntEnumsCommand,
+  JsonIntEnumsCommandInput,
+  JsonIntEnumsCommandOutput,
+} from "./commands/JsonIntEnumsCommand";
 import { JsonUnionsCommand, JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/JsonUnionsCommand";
 import {
   KitchenSinkOperationCommand,
@@ -91,6 +96,7 @@ const commands = {
   GreetingWithErrorsCommand,
   HostWithPathOperationCommand,
   JsonEnumsCommand,
+  JsonIntEnumsCommand,
   JsonUnionsCommand,
   KitchenSinkOperationCommand,
   NullOperationCommand,
@@ -249,6 +255,18 @@ export interface JsonProtocol {
     args: JsonEnumsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: JsonEnumsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link JsonIntEnumsCommand}
+   */
+  jsonIntEnums(): Promise<JsonIntEnumsCommandOutput>;
+  jsonIntEnums(args: JsonIntEnumsCommandInput, options?: __HttpHandlerOptions): Promise<JsonIntEnumsCommandOutput>;
+  jsonIntEnums(args: JsonIntEnumsCommandInput, cb: (err: any, data?: JsonIntEnumsCommandOutput) => void): void;
+  jsonIntEnums(
+    args: JsonIntEnumsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: JsonIntEnumsCommandOutput) => void
   ): void;
 
   /**

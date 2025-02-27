@@ -59,6 +59,11 @@ import {
   OperationWithRequiredMembersCommandOutput,
 } from "./commands/OperationWithRequiredMembersCommand";
 import {
+  OperationWithRequiredMembersWithDefaultsCommand,
+  OperationWithRequiredMembersWithDefaultsCommandInput,
+  OperationWithRequiredMembersWithDefaultsCommandOutput,
+} from "./commands/OperationWithRequiredMembersWithDefaultsCommand";
+import {
   PutWithContentEncodingCommand,
   PutWithContentEncodingCommandInput,
   PutWithContentEncodingCommandOutput,
@@ -83,6 +88,7 @@ const commands = {
   OperationWithDefaultsCommand,
   OperationWithNestedStructureCommand,
   OperationWithRequiredMembersCommand,
+  OperationWithRequiredMembersWithDefaultsCommand,
   PutWithContentEncodingCommand,
   SimpleScalarPropertiesCommand,
 };
@@ -294,6 +300,24 @@ export interface JSONRPC10 {
     args: OperationWithRequiredMembersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: OperationWithRequiredMembersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link OperationWithRequiredMembersWithDefaultsCommand}
+   */
+  operationWithRequiredMembersWithDefaults(): Promise<OperationWithRequiredMembersWithDefaultsCommandOutput>;
+  operationWithRequiredMembersWithDefaults(
+    args: OperationWithRequiredMembersWithDefaultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<OperationWithRequiredMembersWithDefaultsCommandOutput>;
+  operationWithRequiredMembersWithDefaults(
+    args: OperationWithRequiredMembersWithDefaultsCommandInput,
+    cb: (err: any, data?: OperationWithRequiredMembersWithDefaultsCommandOutput) => void
+  ): void;
+  operationWithRequiredMembersWithDefaults(
+    args: OperationWithRequiredMembersWithDefaultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: OperationWithRequiredMembersWithDefaultsCommandOutput) => void
   ): void;
 
   /**

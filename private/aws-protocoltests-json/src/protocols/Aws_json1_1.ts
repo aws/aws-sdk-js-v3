@@ -59,6 +59,7 @@ import {
   HostWithPathOperationCommandOutput,
 } from "../commands/HostWithPathOperationCommand";
 import { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "../commands/JsonEnumsCommand";
+import { JsonIntEnumsCommandInput, JsonIntEnumsCommandOutput } from "../commands/JsonIntEnumsCommand";
 import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "../commands/JsonUnionsCommand";
 import {
   KitchenSinkOperationCommandInput,
@@ -99,8 +100,10 @@ import {
   FractionalSecondsOutput,
   GreetingStruct,
   HostLabelInput,
+  IntegerEnum,
   InvalidGreeting,
   JsonEnumsInputOutput,
+  JsonIntEnumsInputOutput,
   KitchenSink,
   MyUnion,
   NullOperationInputOutput,
@@ -238,6 +241,19 @@ export const se_JsonEnumsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("JsonEnums");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1JsonIntEnumsCommand
+ */
+export const se_JsonIntEnumsCommand = async (
+  input: JsonIntEnumsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("JsonIntEnums");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -516,6 +532,26 @@ export const de_JsonEnumsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1JsonIntEnumsCommand
+ */
+export const de_JsonIntEnumsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<JsonIntEnumsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: JsonIntEnumsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1JsonUnionsCommand
  */
 export const de_JsonUnionsCommand = async (
@@ -787,6 +823,8 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 
 // se_JsonEnumsInputOutput omitted.
 
+// se_JsonIntEnumsInputOutput omitted.
+
 /**
  * serializeAws_json1_1KitchenSink
  */
@@ -948,6 +986,12 @@ const se_UnionInputOutput = (input: UnionInputOutput, context: __SerdeContext): 
 
 // se_GreetingStruct omitted.
 
+// se_IntegerEnumList omitted.
+
+// se_IntegerEnumMap omitted.
+
+// se_IntegerEnumSet omitted.
+
 /**
  * serializeAws_json1_1SparseStringList
  */
@@ -1045,6 +1089,8 @@ const de_FractionalSecondsOutput = (output: any, context: __SerdeContext): Fract
 // de_InvalidGreeting omitted.
 
 // de_JsonEnumsInputOutput omitted.
+
+// de_JsonIntEnumsInputOutput omitted.
 
 /**
  * deserializeAws_json1_1KitchenSink
@@ -1231,6 +1277,12 @@ const de_UnionInputOutput = (output: any, context: __SerdeContext): UnionInputOu
 // de_FooEnumSet omitted.
 
 // de_GreetingStruct omitted.
+
+// de_IntegerEnumList omitted.
+
+// de_IntegerEnumMap omitted.
+
+// de_IntegerEnumSet omitted.
 
 /**
  * deserializeAws_json1_1SparseStringList

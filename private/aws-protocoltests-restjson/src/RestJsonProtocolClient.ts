@@ -193,6 +193,10 @@ import {
   MalformedContentTypeWithoutBodyCommandOutput,
 } from "./commands/MalformedContentTypeWithoutBodyCommand";
 import {
+  MalformedContentTypeWithoutBodyEmptyInputCommandInput,
+  MalformedContentTypeWithoutBodyEmptyInputCommandOutput,
+} from "./commands/MalformedContentTypeWithoutBodyEmptyInputCommand";
+import {
   MalformedContentTypeWithPayloadCommandInput,
   MalformedContentTypeWithPayloadCommandOutput,
 } from "./commands/MalformedContentTypeWithPayloadCommand";
@@ -304,6 +308,14 @@ import {
 import { QueryPrecedenceCommandInput, QueryPrecedenceCommandOutput } from "./commands/QueryPrecedenceCommand";
 import { RecursiveShapesCommandInput, RecursiveShapesCommandOutput } from "./commands/RecursiveShapesCommand";
 import {
+  ResponseCodeHttpFallbackCommandInput,
+  ResponseCodeHttpFallbackCommandOutput,
+} from "./commands/ResponseCodeHttpFallbackCommand";
+import {
+  ResponseCodeRequiredCommandInput,
+  ResponseCodeRequiredCommandOutput,
+} from "./commands/ResponseCodeRequiredCommand";
+import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
@@ -396,6 +408,7 @@ export type ServiceInputTypes =
   | MalformedContentTypeWithGenericStringCommandInput
   | MalformedContentTypeWithPayloadCommandInput
   | MalformedContentTypeWithoutBodyCommandInput
+  | MalformedContentTypeWithoutBodyEmptyInputCommandInput
   | MalformedDoubleCommandInput
   | MalformedFloatCommandInput
   | MalformedIntegerCommandInput
@@ -434,6 +447,8 @@ export type ServiceInputTypes =
   | QueryParamsAsStringListMapCommandInput
   | QueryPrecedenceCommandInput
   | RecursiveShapesCommandInput
+  | ResponseCodeHttpFallbackCommandInput
+  | ResponseCodeRequiredCommandInput
   | SimpleScalarPropertiesCommandInput
   | SparseJsonListsCommandInput
   | SparseJsonMapsCommandInput
@@ -502,6 +517,7 @@ export type ServiceOutputTypes =
   | MalformedContentTypeWithGenericStringCommandOutput
   | MalformedContentTypeWithPayloadCommandOutput
   | MalformedContentTypeWithoutBodyCommandOutput
+  | MalformedContentTypeWithoutBodyEmptyInputCommandOutput
   | MalformedDoubleCommandOutput
   | MalformedFloatCommandOutput
   | MalformedIntegerCommandOutput
@@ -540,6 +556,8 @@ export type ServiceOutputTypes =
   | QueryParamsAsStringListMapCommandOutput
   | QueryPrecedenceCommandOutput
   | RecursiveShapesCommandOutput
+  | ResponseCodeHttpFallbackCommandOutput
+  | ResponseCodeRequiredCommandOutput
   | SimpleScalarPropertiesCommandOutput
   | SparseJsonListsCommandOutput
   | SparseJsonMapsCommandOutput
