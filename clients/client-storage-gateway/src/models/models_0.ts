@@ -5761,6 +5761,57 @@ export interface Disk {
 
 /**
  * @public
+ */
+export interface EvictFilesFailingUploadInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the file share for which you want to start the cache
+   *          clean operation.</p>
+   * @public
+   */
+  FileShareARN: string | undefined;
+
+  /**
+   * <p>Specifies whether cache entries with full or partial file data currently stored on the
+   *          gateway will be forcibly removed by the cache clean operation.</p>
+   *          <p>Valid arguments:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>False</code> - The cache clean operation skips cache entries failing upload
+   *                if they are associated with data currently stored on the gateway. This preserves the
+   *                cached data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>True</code> - The cache clean operation removes cache entries failing upload
+   *                even if they are associated with data currently stored on the gateway. This deletes
+   *                the cached data.</p>
+   *                <important>
+   *                   <p>If <code>ForceRemove</code> is set to <code>True</code>, the cache clean
+   *                   operation will delete file data from the gateway which might otherwise be
+   *                   recoverable.</p>
+   *                </important>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ForceRemove?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EvictFilesFailingUploadOutput {
+  /**
+   * <p>The randomly generated ID of the CloudWatch notification associated with the
+   *          cache clean operation. This ID is in UUID format.</p>
+   * @public
+   */
+  NotificationId?: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const FileShareType = {

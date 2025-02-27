@@ -265,6 +265,11 @@ import {
   DisassociateFileSystemCommandInput,
   DisassociateFileSystemCommandOutput,
 } from "./commands/DisassociateFileSystemCommand";
+import {
+  EvictFilesFailingUploadCommand,
+  EvictFilesFailingUploadCommandInput,
+  EvictFilesFailingUploadCommandOutput,
+} from "./commands/EvictFilesFailingUploadCommand";
 import { JoinDomainCommand, JoinDomainCommandInput, JoinDomainCommandOutput } from "./commands/JoinDomainCommand";
 import {
   ListAutomaticTapeCreationPoliciesCommand,
@@ -507,6 +512,7 @@ const commands = {
   DetachVolumeCommand,
   DisableGatewayCommand,
   DisassociateFileSystemCommand,
+  EvictFilesFailingUploadCommand,
   JoinDomainCommand,
   ListAutomaticTapeCreationPoliciesCommand,
   ListCacheReportsCommand,
@@ -1400,6 +1406,23 @@ export interface StorageGateway {
     args: DisassociateFileSystemCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateFileSystemCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EvictFilesFailingUploadCommand}
+   */
+  evictFilesFailingUpload(
+    args: EvictFilesFailingUploadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EvictFilesFailingUploadCommandOutput>;
+  evictFilesFailingUpload(
+    args: EvictFilesFailingUploadCommandInput,
+    cb: (err: any, data?: EvictFilesFailingUploadCommandOutput) => void
+  ): void;
+  evictFilesFailingUpload(
+    args: EvictFilesFailingUploadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EvictFilesFailingUploadCommandOutput) => void
   ): void;
 
   /**

@@ -54,6 +54,7 @@ export * from "./DescribeWorkingStorageCommand";
 export * from "./DetachVolumeCommand";
 export * from "./DisableGatewayCommand";
 export * from "./DisassociateFileSystemCommand";
+export * from "./EvictFilesFailingUploadCommand";
 export * from "./JoinDomainCommand";
 export * from "./ListAutomaticTapeCreationPoliciesCommand";
 export * from "./ListCacheReportsCommand";

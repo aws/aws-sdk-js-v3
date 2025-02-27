@@ -709,6 +709,14 @@ DisassociateFileSystem
 </details>
 <details>
 <summary>
+EvictFilesFailingUpload
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/EvictFilesFailingUploadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/EvictFilesFailingUploadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/EvictFilesFailingUploadCommandOutput/)
+
+</details>
+<details>
+<summary>
 JoinDomain
 </summary>
 

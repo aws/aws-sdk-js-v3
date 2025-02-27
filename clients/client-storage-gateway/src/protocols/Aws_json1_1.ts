@@ -162,6 +162,10 @@ import {
   DisassociateFileSystemCommandInput,
   DisassociateFileSystemCommandOutput,
 } from "../commands/DisassociateFileSystemCommand";
+import {
+  EvictFilesFailingUploadCommandInput,
+  EvictFilesFailingUploadCommandOutput,
+} from "../commands/EvictFilesFailingUploadCommand";
 import { JoinDomainCommandInput, JoinDomainCommandOutput } from "../commands/JoinDomainCommand";
 import {
   ListAutomaticTapeCreationPoliciesCommandInput,
@@ -345,6 +349,7 @@ import {
   DisableGatewayInput,
   DisassociateFileSystemInput,
   EndpointNetworkConfiguration,
+  EvictFilesFailingUploadInput,
   InternalServerError,
   InvalidGatewayRequestException,
   JoinDomainInput,
@@ -1112,6 +1117,19 @@ export const se_DisassociateFileSystemCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateFileSystem");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1EvictFilesFailingUploadCommand
+ */
+export const se_EvictFilesFailingUploadCommand = async (
+  input: EvictFilesFailingUploadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("EvictFilesFailingUpload");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2738,6 +2756,26 @@ export const de_DisassociateFileSystemCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1EvictFilesFailingUploadCommand
+ */
+export const de_EvictFilesFailingUploadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EvictFilesFailingUploadCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: EvictFilesFailingUploadCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1JoinDomainCommand
  */
 export const de_JoinDomainCommand = async (
@@ -3743,6 +3781,8 @@ const de_ServiceUnavailableErrorRes = async (
 
 // se_EndpointNetworkConfiguration omitted.
 
+// se_EvictFilesFailingUploadInput omitted.
+
 // se_FileShareARNList omitted.
 
 // se_FileShareClientList omitted.
@@ -4151,6 +4191,8 @@ const de_DescribeTapesOutput = (output: any, context: __SerdeContext): DescribeT
 // de_EndpointNetworkConfiguration omitted.
 
 // de_errorDetails omitted.
+
+// de_EvictFilesFailingUploadOutput omitted.
 
 // de_FileShareClientList omitted.
 

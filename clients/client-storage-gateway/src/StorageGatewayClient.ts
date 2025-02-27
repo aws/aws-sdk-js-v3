@@ -192,6 +192,10 @@ import {
   DisassociateFileSystemCommandInput,
   DisassociateFileSystemCommandOutput,
 } from "./commands/DisassociateFileSystemCommand";
+import {
+  EvictFilesFailingUploadCommandInput,
+  EvictFilesFailingUploadCommandOutput,
+} from "./commands/EvictFilesFailingUploadCommand";
 import { JoinDomainCommandInput, JoinDomainCommandOutput } from "./commands/JoinDomainCommand";
 import {
   ListAutomaticTapeCreationPoliciesCommandInput,
@@ -374,6 +378,7 @@ export type ServiceInputTypes =
   | DetachVolumeCommandInput
   | DisableGatewayCommandInput
   | DisassociateFileSystemCommandInput
+  | EvictFilesFailingUploadCommandInput
   | JoinDomainCommandInput
   | ListAutomaticTapeCreationPoliciesCommandInput
   | ListCacheReportsCommandInput
@@ -474,6 +479,7 @@ export type ServiceOutputTypes =
   | DetachVolumeCommandOutput
   | DisableGatewayCommandOutput
   | DisassociateFileSystemCommandOutput
+  | EvictFilesFailingUploadCommandOutput
   | JoinDomainCommandOutput
   | ListAutomaticTapeCreationPoliciesCommandOutput
   | ListCacheReportsCommandOutput
