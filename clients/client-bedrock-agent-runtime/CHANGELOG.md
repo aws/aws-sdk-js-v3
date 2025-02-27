@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Introduces Sessions (preview) to enable stateful conversations in GenAI applications. ([f62fcc0](https://github.com/aws/aws-sdk-js-v3/commit/f62fcc0a1d210615c24662bb7280cc8f1efa3b8d))
+
+
+
+
+
 # [3.755.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.754.0...v3.755.0) (2025-02-24)
 
 

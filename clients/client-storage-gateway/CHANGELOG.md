@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
+
+
+### Features
+
+* **client-storage-gateway:** This release adds support to invoke a process that cleans the specified file share's cache of file entries that are failing upload to Amazon S3. ([6ee1cf4](https://github.com/aws/aws-sdk-js-v3/commit/6ee1cf4d6fe4518ac4874ab3d3453767e0f92ae3))
+
+
+
+
+
 # [3.750.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.749.0...v3.750.0) (2025-02-17)
 
 **Note:** Version bump only for package @aws-sdk/client-storage-gateway

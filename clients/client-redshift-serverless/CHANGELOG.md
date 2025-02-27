@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
+
+
+### Features
+
+* **client-redshift-serverless:** Add track support for Redshift Serverless workgroup. ([a3fdee6](https://github.com/aws/aws-sdk-js-v3/commit/a3fdee6cd5deb1592ae6d948f07d69820d122508))
+
+
+
+
+
 # [3.751.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.750.0...v3.751.0) (2025-02-18)
 
 

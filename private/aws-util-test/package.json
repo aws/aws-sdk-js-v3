@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/aws-util-test",
-  "version": "3.751.0",
+  "version": "3.758.0",
   "private": true,
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:types'",

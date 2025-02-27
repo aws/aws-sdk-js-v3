@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
+
+
+### Features
+
+* **client-qbusiness:** This release supports deleting attachments from conversations. ([e5ad270](https://github.com/aws/aws-sdk-js-v3/commit/e5ad27044a373b9807607836fb570be977cad1cc))
+
+
+
+
+
 # [3.751.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.750.0...v3.751.0) (2025-02-18)
 
 

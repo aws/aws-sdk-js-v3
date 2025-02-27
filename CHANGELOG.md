@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
+
+
+### Bug Fixes
+
+* **codegen:** variable allocation in StringStore ([#6903](https://github.com/aws/aws-sdk-js-v3/issues/6903)) ([5deccb9](https://github.com/aws/aws-sdk-js-v3/commit/5deccb91ad1f07179410220b51a70c26882eb619))
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Introduces Sessions (preview) to enable stateful conversations in GenAI applications. ([f62fcc0](https://github.com/aws/aws-sdk-js-v3/commit/f62fcc0a1d210615c24662bb7280cc8f1efa3b8d))
+* **client-qbusiness:** This release supports deleting attachments from conversations. ([e5ad270](https://github.com/aws/aws-sdk-js-v3/commit/e5ad27044a373b9807607836fb570be977cad1cc))
+* **client-redshift-serverless:** Add track support for Redshift Serverless workgroup. ([a3fdee6](https://github.com/aws/aws-sdk-js-v3/commit/a3fdee6cd5deb1592ae6d948f07d69820d122508))
+* **client-sagemaker:** SageMaker HubService is introducing support for creating Training Jobs in Curated Hub (Private Hub). Additionally, it is introducing two new APIs: UpdateHubContent and UpdateHubContentReference. ([5850cdd](https://github.com/aws/aws-sdk-js-v3/commit/5850cddf6635958d35b9674f8befd59552d7dac6))
+* **client-storage-gateway:** This release adds support to invoke a process that cleans the specified file share's cache of file entries that are failing upload to Amazon S3. ([6ee1cf4](https://github.com/aws/aws-sdk-js-v3/commit/6ee1cf4d6fe4518ac4874ab3d3453767e0f92ae3))
+* **clients:** update client endpoints as of 2025-02-27 ([cee1e67](https://github.com/aws/aws-sdk-js-v3/commit/cee1e677361265db4659fc46069b42e8422171e8))
+
+
+
+
+
 # [3.757.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.756.0...v3.757.0) (2025-02-26)
 
 
