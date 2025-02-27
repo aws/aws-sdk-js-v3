@@ -16,7 +16,7 @@ import {
   DocumentAttribute,
   EndOfInputEvent,
   MembershipType,
-  MessageUsefulnessFeedback,
+  MessageUsefulnessReason,
   OrchestrationControl,
   ResponseScope,
   S3,
@@ -27,6 +27,51 @@ import {
   TopicConfiguration,
   UserAlias,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const MessageUsefulness = {
+  NOT_USEFUL: "NOT_USEFUL",
+  USEFUL: "USEFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageUsefulness = (typeof MessageUsefulness)[keyof typeof MessageUsefulness];
+
+/**
+ * <p>End user feedback on an AI-generated web experience chat message usefulness.</p>
+ * @public
+ */
+export interface MessageUsefulnessFeedback {
+  /**
+   * <p>The usefulness value assigned by an end user to a message.</p>
+   * @public
+   */
+  usefulness: MessageUsefulness | undefined;
+
+  /**
+   * <p>The reason for a usefulness rating.</p>
+   * @public
+   */
+  reason?: MessageUsefulnessReason | undefined;
+
+  /**
+   * <p>A comment given by an end user on the usefulness of an AI-generated chat
+   *             message.</p>
+   * @public
+   */
+  comment?: string | undefined;
+
+  /**
+   * <p>The timestamp for when the feedback was submitted.</p>
+   * @public
+   */
+  submittedAt: Date | undefined;
+}
 
 /**
  * @public

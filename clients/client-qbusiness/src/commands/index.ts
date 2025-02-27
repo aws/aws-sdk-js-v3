@@ -15,6 +15,7 @@ export * from "./CreateSubscriptionCommand";
 export * from "./CreateUserCommand";
 export * from "./CreateWebExperienceCommand";
 export * from "./DeleteApplicationCommand";
+export * from "./DeleteAttachmentCommand";
 export * from "./DeleteChatControlsConfigurationCommand";
 export * from "./DeleteConversationCommand";
 export * from "./DeleteDataAccessorCommand";

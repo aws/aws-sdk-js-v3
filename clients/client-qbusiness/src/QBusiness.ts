@@ -67,6 +67,11 @@ import {
   DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  DeleteAttachmentCommand,
+  DeleteAttachmentCommandInput,
+  DeleteAttachmentCommandOutput,
+} from "./commands/DeleteAttachmentCommand";
+import {
   DeleteChatControlsConfigurationCommand,
   DeleteChatControlsConfigurationCommandInput,
   DeleteChatControlsConfigurationCommandOutput,
@@ -307,6 +312,7 @@ const commands = {
   CreateUserCommand,
   CreateWebExperienceCommand,
   DeleteApplicationCommand,
+  DeleteAttachmentCommand,
   DeleteChatControlsConfigurationCommand,
   DeleteConversationCommand,
   DeleteDataAccessorCommand,
@@ -601,6 +607,23 @@ export interface QBusiness {
     args: DeleteApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAttachmentCommand}
+   */
+  deleteAttachment(
+    args: DeleteAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAttachmentCommandOutput>;
+  deleteAttachment(
+    args: DeleteAttachmentCommandInput,
+    cb: (err: any, data?: DeleteAttachmentCommandOutput) => void
+  ): void;
+  deleteAttachment(
+    args: DeleteAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAttachmentCommandOutput) => void
   ): void;
 
   /**

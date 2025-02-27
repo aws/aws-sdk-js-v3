@@ -90,6 +90,7 @@ import {
   CreateWebExperienceCommandOutput,
 } from "./commands/CreateWebExperienceCommand";
 import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
+import { DeleteAttachmentCommandInput, DeleteAttachmentCommandOutput } from "./commands/DeleteAttachmentCommand";
 import {
   DeleteChatControlsConfigurationCommandInput,
   DeleteChatControlsConfigurationCommandOutput,
@@ -218,6 +219,7 @@ export type ServiceInputTypes =
   | CreateUserCommandInput
   | CreateWebExperienceCommandInput
   | DeleteApplicationCommandInput
+  | DeleteAttachmentCommandInput
   | DeleteChatControlsConfigurationCommandInput
   | DeleteConversationCommandInput
   | DeleteDataAccessorCommandInput
@@ -297,6 +299,7 @@ export type ServiceOutputTypes =
   | CreateUserCommandOutput
   | CreateWebExperienceCommandOutput
   | DeleteApplicationCommandOutput
+  | DeleteAttachmentCommandOutput
   | DeleteChatControlsConfigurationCommandOutput
   | DeleteConversationCommandOutput
   | DeleteDataAccessorCommandOutput

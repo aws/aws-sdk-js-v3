@@ -371,6 +371,14 @@ DeleteApplication
 </details>
 <details>
 <summary>
+DeleteAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/DeleteAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/DeleteAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/DeleteAttachmentCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteChatControlsConfiguration
 </summary>
 

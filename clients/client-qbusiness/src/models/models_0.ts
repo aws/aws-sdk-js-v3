@@ -6820,6 +6820,40 @@ export interface DataSourceSyncJob {
 /**
  * @public
  */
+export interface DeleteAttachmentRequest {
+  /**
+   * <p>The unique identifier for the Amazon Q Business application environment.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the conversation.</p>
+   * @public
+   */
+  conversationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the attachment.</p>
+   * @public
+   */
+  attachmentId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the user involved in the conversation.</p>
+   * @public
+   */
+  userId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAttachmentResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteChatControlsConfigurationRequest {
   /**
    * <p>The identifier of the application the chat controls have been configured for.</p>
@@ -8190,51 +8224,6 @@ export const MessageUsefulnessReason = {
  * @public
  */
 export type MessageUsefulnessReason = (typeof MessageUsefulnessReason)[keyof typeof MessageUsefulnessReason];
-
-/**
- * @public
- * @enum
- */
-export const MessageUsefulness = {
-  NOT_USEFUL: "NOT_USEFUL",
-  USEFUL: "USEFUL",
-} as const;
-
-/**
- * @public
- */
-export type MessageUsefulness = (typeof MessageUsefulness)[keyof typeof MessageUsefulness];
-
-/**
- * <p>End user feedback on an AI-generated web experience chat message usefulness.</p>
- * @public
- */
-export interface MessageUsefulnessFeedback {
-  /**
-   * <p>The usefulness value assigned by an end user to a message.</p>
-   * @public
-   */
-  usefulness: MessageUsefulness | undefined;
-
-  /**
-   * <p>The reason for a usefulness rating.</p>
-   * @public
-   */
-  reason?: MessageUsefulnessReason | undefined;
-
-  /**
-   * <p>A comment given by an end user on the usefulness of an AI-generated chat
-   *             message.</p>
-   * @public
-   */
-  comment?: string | undefined;
-
-  /**
-   * <p>The timestamp for when the feedback was submitted.</p>
-   * @public
-   */
-  submittedAt: Date | undefined;
-}
 
 /**
  * @internal

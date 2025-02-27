@@ -62,6 +62,7 @@ import {
   CreateWebExperienceCommandOutput,
 } from "../commands/CreateWebExperienceCommand";
 import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "../commands/DeleteApplicationCommand";
+import { DeleteAttachmentCommandInput, DeleteAttachmentCommandOutput } from "../commands/DeleteAttachmentCommand";
 import {
   DeleteChatControlsConfigurationCommandInput,
   DeleteChatControlsConfigurationCommandOutput,
@@ -231,7 +232,6 @@ import {
   MediaExtractionConfiguration,
   MediaTooLargeException,
   Message,
-  MessageUsefulnessFeedback,
   MetadataEvent,
   NativeIndexConfiguration,
   NoAuthConfiguration,
@@ -281,6 +281,7 @@ import {
   GroupMembers,
   MemberGroup,
   MemberUser,
+  MessageUsefulnessFeedback,
   OrchestrationConfiguration,
   RelevantContent,
 } from "../models/models_1";
@@ -720,6 +721,27 @@ export const se_DeleteApplicationCommand = async (
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteAttachmentCommand
+ */
+export const se_DeleteAttachmentCommand = async (
+  input: DeleteAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/conversations/{conversationId}/attachments/{attachmentId}");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("conversationId", () => input.conversationId!, "{conversationId}", false);
+  b.p("attachmentId", () => input.attachmentId!, "{attachmentId}", false);
+  const query: any = map({
+    [_uI]: [, input[_uI]!],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -2280,6 +2302,23 @@ export const de_DeleteApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteAttachmentCommand
+ */
+export const de_DeleteAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAttachmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
