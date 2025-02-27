@@ -4,10 +4,26 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { BedrockAgentRuntimeClient, BedrockAgentRuntimeClientConfig } from "./BedrockAgentRuntimeClient";
 import {
+  CreateInvocationCommand,
+  CreateInvocationCommandInput,
+  CreateInvocationCommandOutput,
+} from "./commands/CreateInvocationCommand";
+import {
+  CreateSessionCommand,
+  CreateSessionCommandInput,
+  CreateSessionCommandOutput,
+} from "./commands/CreateSessionCommand";
+import {
   DeleteAgentMemoryCommand,
   DeleteAgentMemoryCommandInput,
   DeleteAgentMemoryCommandOutput,
 } from "./commands/DeleteAgentMemoryCommand";
+import {
+  DeleteSessionCommand,
+  DeleteSessionCommandInput,
+  DeleteSessionCommandOutput,
+} from "./commands/DeleteSessionCommand";
+import { EndSessionCommand, EndSessionCommandInput, EndSessionCommandOutput } from "./commands/EndSessionCommand";
 import {
   GenerateQueryCommand,
   GenerateQueryCommandInput,
@@ -18,6 +34,12 @@ import {
   GetAgentMemoryCommandInput,
   GetAgentMemoryCommandOutput,
 } from "./commands/GetAgentMemoryCommand";
+import {
+  GetInvocationStepCommand,
+  GetInvocationStepCommandInput,
+  GetInvocationStepCommandOutput,
+} from "./commands/GetInvocationStepCommand";
+import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import { InvokeAgentCommand, InvokeAgentCommandInput, InvokeAgentCommandOutput } from "./commands/InvokeAgentCommand";
 import { InvokeFlowCommand, InvokeFlowCommandInput, InvokeFlowCommandOutput } from "./commands/InvokeFlowCommand";
 import {
@@ -26,10 +48,35 @@ import {
   InvokeInlineAgentCommandOutput,
 } from "./commands/InvokeInlineAgentCommand";
 import {
+  ListInvocationsCommand,
+  ListInvocationsCommandInput,
+  ListInvocationsCommandOutput,
+} from "./commands/ListInvocationsCommand";
+import {
+  ListInvocationStepsCommand,
+  ListInvocationStepsCommandInput,
+  ListInvocationStepsCommandOutput,
+} from "./commands/ListInvocationStepsCommand";
+import {
+  ListSessionsCommand,
+  ListSessionsCommandInput,
+  ListSessionsCommandOutput,
+} from "./commands/ListSessionsCommand";
+import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   OptimizePromptCommand,
   OptimizePromptCommandInput,
   OptimizePromptCommandOutput,
 } from "./commands/OptimizePromptCommand";
+import {
+  PutInvocationStepCommand,
+  PutInvocationStepCommandInput,
+  PutInvocationStepCommandOutput,
+} from "./commands/PutInvocationStepCommand";
 import { RerankCommand, RerankCommandInput, RerankCommandOutput } from "./commands/RerankCommand";
 import {
   RetrieveAndGenerateCommand,
@@ -42,22 +89,76 @@ import {
   RetrieveAndGenerateStreamCommandOutput,
 } from "./commands/RetrieveAndGenerateStreamCommand";
 import { RetrieveCommand, RetrieveCommandInput, RetrieveCommandOutput } from "./commands/RetrieveCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateSessionCommand,
+  UpdateSessionCommandInput,
+  UpdateSessionCommandOutput,
+} from "./commands/UpdateSessionCommand";
 
 const commands = {
+  CreateInvocationCommand,
+  CreateSessionCommand,
   DeleteAgentMemoryCommand,
+  DeleteSessionCommand,
+  EndSessionCommand,
   GenerateQueryCommand,
   GetAgentMemoryCommand,
+  GetInvocationStepCommand,
+  GetSessionCommand,
   InvokeAgentCommand,
   InvokeFlowCommand,
   InvokeInlineAgentCommand,
+  ListInvocationsCommand,
+  ListInvocationStepsCommand,
+  ListSessionsCommand,
+  ListTagsForResourceCommand,
   OptimizePromptCommand,
+  PutInvocationStepCommand,
   RerankCommand,
   RetrieveCommand,
   RetrieveAndGenerateCommand,
   RetrieveAndGenerateStreamCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateSessionCommand,
 };
 
 export interface BedrockAgentRuntime {
+  /**
+   * @see {@link CreateInvocationCommand}
+   */
+  createInvocation(
+    args: CreateInvocationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInvocationCommandOutput>;
+  createInvocation(
+    args: CreateInvocationCommandInput,
+    cb: (err: any, data?: CreateInvocationCommandOutput) => void
+  ): void;
+  createInvocation(
+    args: CreateInvocationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInvocationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSessionCommand}
+   */
+  createSession(): Promise<CreateSessionCommandOutput>;
+  createSession(args: CreateSessionCommandInput, options?: __HttpHandlerOptions): Promise<CreateSessionCommandOutput>;
+  createSession(args: CreateSessionCommandInput, cb: (err: any, data?: CreateSessionCommandOutput) => void): void;
+  createSession(
+    args: CreateSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSessionCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link DeleteAgentMemoryCommand}
    */
@@ -73,6 +174,28 @@ export interface BedrockAgentRuntime {
     args: DeleteAgentMemoryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAgentMemoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSessionCommand}
+   */
+  deleteSession(args: DeleteSessionCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSessionCommandOutput>;
+  deleteSession(args: DeleteSessionCommandInput, cb: (err: any, data?: DeleteSessionCommandOutput) => void): void;
+  deleteSession(
+    args: DeleteSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EndSessionCommand}
+   */
+  endSession(args: EndSessionCommandInput, options?: __HttpHandlerOptions): Promise<EndSessionCommandOutput>;
+  endSession(args: EndSessionCommandInput, cb: (err: any, data?: EndSessionCommandOutput) => void): void;
+  endSession(
+    args: EndSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EndSessionCommandOutput) => void
   ): void;
 
   /**
@@ -98,6 +221,34 @@ export interface BedrockAgentRuntime {
     args: GetAgentMemoryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAgentMemoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetInvocationStepCommand}
+   */
+  getInvocationStep(
+    args: GetInvocationStepCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInvocationStepCommandOutput>;
+  getInvocationStep(
+    args: GetInvocationStepCommandInput,
+    cb: (err: any, data?: GetInvocationStepCommandOutput) => void
+  ): void;
+  getInvocationStep(
+    args: GetInvocationStepCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInvocationStepCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSessionCommand}
+   */
+  getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
+  getSession(args: GetSessionCommandInput, cb: (err: any, data?: GetSessionCommandOutput) => void): void;
+  getSession(
+    args: GetSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
   ): void;
 
   /**
@@ -140,6 +291,66 @@ export interface BedrockAgentRuntime {
   ): void;
 
   /**
+   * @see {@link ListInvocationsCommand}
+   */
+  listInvocations(
+    args: ListInvocationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInvocationsCommandOutput>;
+  listInvocations(args: ListInvocationsCommandInput, cb: (err: any, data?: ListInvocationsCommandOutput) => void): void;
+  listInvocations(
+    args: ListInvocationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInvocationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListInvocationStepsCommand}
+   */
+  listInvocationSteps(
+    args: ListInvocationStepsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInvocationStepsCommandOutput>;
+  listInvocationSteps(
+    args: ListInvocationStepsCommandInput,
+    cb: (err: any, data?: ListInvocationStepsCommandOutput) => void
+  ): void;
+  listInvocationSteps(
+    args: ListInvocationStepsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInvocationStepsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   */
+  listSessions(): Promise<ListSessionsCommandOutput>;
+  listSessions(args: ListSessionsCommandInput, options?: __HttpHandlerOptions): Promise<ListSessionsCommandOutput>;
+  listSessions(args: ListSessionsCommandInput, cb: (err: any, data?: ListSessionsCommandOutput) => void): void;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link OptimizePromptCommand}
    */
   optimizePrompt(
@@ -151,6 +362,23 @@ export interface BedrockAgentRuntime {
     args: OptimizePromptCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: OptimizePromptCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutInvocationStepCommand}
+   */
+  putInvocationStep(
+    args: PutInvocationStepCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutInvocationStepCommandOutput>;
+  putInvocationStep(
+    args: PutInvocationStepCommandInput,
+    cb: (err: any, data?: PutInvocationStepCommandOutput) => void
+  ): void;
+  putInvocationStep(
+    args: PutInvocationStepCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutInvocationStepCommandOutput) => void
   ): void;
 
   /**
@@ -207,6 +435,39 @@ export interface BedrockAgentRuntime {
     args: RetrieveAndGenerateStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RetrieveAndGenerateStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSessionCommand}
+   */
+  updateSession(args: UpdateSessionCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSessionCommandOutput>;
+  updateSession(args: UpdateSessionCommandInput, cb: (err: any, data?: UpdateSessionCommandOutput) => void): void;
+  updateSession(
+    args: UpdateSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSessionCommandOutput) => void
   ): void;
 }
 

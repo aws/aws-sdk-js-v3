@@ -10,12 +10,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  InvokeInlineAgentRequest,
-  InvokeInlineAgentRequestFilterSensitiveLog,
-  InvokeInlineAgentResponse,
-  InvokeInlineAgentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { InvokeInlineAgentResponse, InvokeInlineAgentResponseFilterSensitiveLog } from "../models/models_0";
+import { InvokeInlineAgentRequest, InvokeInlineAgentRequestFilterSensitiveLog } from "../models/models_1";
 import { de_InvokeInlineAgentCommand, se_InvokeInlineAgentCommand } from "../protocols/Aws_restJson1";
 
 /**

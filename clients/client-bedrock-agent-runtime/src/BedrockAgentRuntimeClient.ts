@@ -59,13 +59,30 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { CreateInvocationCommandInput, CreateInvocationCommandOutput } from "./commands/CreateInvocationCommand";
+import { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
 import { DeleteAgentMemoryCommandInput, DeleteAgentMemoryCommandOutput } from "./commands/DeleteAgentMemoryCommand";
+import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "./commands/DeleteSessionCommand";
+import { EndSessionCommandInput, EndSessionCommandOutput } from "./commands/EndSessionCommand";
 import { GenerateQueryCommandInput, GenerateQueryCommandOutput } from "./commands/GenerateQueryCommand";
 import { GetAgentMemoryCommandInput, GetAgentMemoryCommandOutput } from "./commands/GetAgentMemoryCommand";
+import { GetInvocationStepCommandInput, GetInvocationStepCommandOutput } from "./commands/GetInvocationStepCommand";
+import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import { InvokeAgentCommandInput, InvokeAgentCommandOutput } from "./commands/InvokeAgentCommand";
 import { InvokeFlowCommandInput, InvokeFlowCommandOutput } from "./commands/InvokeFlowCommand";
 import { InvokeInlineAgentCommandInput, InvokeInlineAgentCommandOutput } from "./commands/InvokeInlineAgentCommand";
+import { ListInvocationsCommandInput, ListInvocationsCommandOutput } from "./commands/ListInvocationsCommand";
+import {
+  ListInvocationStepsCommandInput,
+  ListInvocationStepsCommandOutput,
+} from "./commands/ListInvocationStepsCommand";
+import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { OptimizePromptCommandInput, OptimizePromptCommandOutput } from "./commands/OptimizePromptCommand";
+import { PutInvocationStepCommandInput, PutInvocationStepCommandOutput } from "./commands/PutInvocationStepCommand";
 import { RerankCommandInput, RerankCommandOutput } from "./commands/RerankCommand";
 import {
   RetrieveAndGenerateCommandInput,
@@ -76,6 +93,9 @@ import {
   RetrieveAndGenerateStreamCommandOutput,
 } from "./commands/RetrieveAndGenerateStreamCommand";
 import { RetrieveCommandInput, RetrieveCommandOutput } from "./commands/RetrieveCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateSessionCommandInput, UpdateSessionCommandOutput } from "./commands/UpdateSessionCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -91,33 +111,61 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateInvocationCommandInput
+  | CreateSessionCommandInput
   | DeleteAgentMemoryCommandInput
+  | DeleteSessionCommandInput
+  | EndSessionCommandInput
   | GenerateQueryCommandInput
   | GetAgentMemoryCommandInput
+  | GetInvocationStepCommandInput
+  | GetSessionCommandInput
   | InvokeAgentCommandInput
   | InvokeFlowCommandInput
   | InvokeInlineAgentCommandInput
+  | ListInvocationStepsCommandInput
+  | ListInvocationsCommandInput
+  | ListSessionsCommandInput
+  | ListTagsForResourceCommandInput
   | OptimizePromptCommandInput
+  | PutInvocationStepCommandInput
   | RerankCommandInput
   | RetrieveAndGenerateCommandInput
   | RetrieveAndGenerateStreamCommandInput
-  | RetrieveCommandInput;
+  | RetrieveCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateSessionCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateInvocationCommandOutput
+  | CreateSessionCommandOutput
   | DeleteAgentMemoryCommandOutput
+  | DeleteSessionCommandOutput
+  | EndSessionCommandOutput
   | GenerateQueryCommandOutput
   | GetAgentMemoryCommandOutput
+  | GetInvocationStepCommandOutput
+  | GetSessionCommandOutput
   | InvokeAgentCommandOutput
   | InvokeFlowCommandOutput
   | InvokeInlineAgentCommandOutput
+  | ListInvocationStepsCommandOutput
+  | ListInvocationsCommandOutput
+  | ListSessionsCommandOutput
+  | ListTagsForResourceCommandOutput
   | OptimizePromptCommandOutput
+  | PutInvocationStepCommandOutput
   | RerankCommandOutput
   | RetrieveAndGenerateCommandOutput
   | RetrieveAndGenerateStreamCommandOutput
-  | RetrieveCommandOutput;
+  | RetrieveCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateSessionCommandOutput;
 
 /**
  * @public

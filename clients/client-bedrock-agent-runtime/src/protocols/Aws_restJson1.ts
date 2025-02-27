@@ -22,6 +22,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   take,
   withBaseException,
@@ -34,13 +35,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import { CreateInvocationCommandInput, CreateInvocationCommandOutput } from "../commands/CreateInvocationCommand";
+import { CreateSessionCommandInput, CreateSessionCommandOutput } from "../commands/CreateSessionCommand";
 import { DeleteAgentMemoryCommandInput, DeleteAgentMemoryCommandOutput } from "../commands/DeleteAgentMemoryCommand";
+import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "../commands/DeleteSessionCommand";
+import { EndSessionCommandInput, EndSessionCommandOutput } from "../commands/EndSessionCommand";
 import { GenerateQueryCommandInput, GenerateQueryCommandOutput } from "../commands/GenerateQueryCommand";
 import { GetAgentMemoryCommandInput, GetAgentMemoryCommandOutput } from "../commands/GetAgentMemoryCommand";
+import { GetInvocationStepCommandInput, GetInvocationStepCommandOutput } from "../commands/GetInvocationStepCommand";
+import { GetSessionCommandInput, GetSessionCommandOutput } from "../commands/GetSessionCommand";
 import { InvokeAgentCommandInput, InvokeAgentCommandOutput } from "../commands/InvokeAgentCommand";
 import { InvokeFlowCommandInput, InvokeFlowCommandOutput } from "../commands/InvokeFlowCommand";
 import { InvokeInlineAgentCommandInput, InvokeInlineAgentCommandOutput } from "../commands/InvokeInlineAgentCommand";
+import { ListInvocationsCommandInput, ListInvocationsCommandOutput } from "../commands/ListInvocationsCommand";
+import {
+  ListInvocationStepsCommandInput,
+  ListInvocationStepsCommandOutput,
+} from "../commands/ListInvocationStepsCommand";
+import { ListSessionsCommandInput, ListSessionsCommandOutput } from "../commands/ListSessionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import { OptimizePromptCommandInput, OptimizePromptCommandOutput } from "../commands/OptimizePromptCommand";
+import { PutInvocationStepCommandInput, PutInvocationStepCommandOutput } from "../commands/PutInvocationStepCommand";
 import { RerankCommandInput, RerankCommandOutput } from "../commands/RerankCommand";
 import {
   RetrieveAndGenerateCommandInput,
@@ -51,6 +69,9 @@ import {
   RetrieveAndGenerateStreamCommandOutput,
 } from "../commands/RetrieveAndGenerateStreamCommand";
 import { RetrieveCommandInput, RetrieveCommandOutput } from "../commands/RetrieveCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateSessionCommandInput, UpdateSessionCommandOutput } from "../commands/UpdateSessionCommand";
 import { BedrockAgentRuntimeServiceException as __BaseException } from "../models/BedrockAgentRuntimeServiceException";
 import {
   AccessDeniedException,
@@ -65,6 +86,7 @@ import {
   BedrockModelConfigurations,
   BedrockRerankingConfiguration,
   BedrockRerankingModelConfiguration,
+  BedrockSessionContentBlock,
   ByteContentDoc,
   ByteContentFile,
   Citation,
@@ -105,6 +127,8 @@ import {
   GuardrailConfiguration,
   GuardrailConfigurationWithArn,
   GuardrailEvent,
+  ImageBlock,
+  ImageSource,
   ImplicitFilterConfiguration,
   InferenceConfig,
   InferenceConfiguration,
@@ -119,14 +143,13 @@ import {
   InputPrompt,
   InternalServerException,
   InvocationResultMember,
-  KnowledgeBase,
-  KnowledgeBaseConfiguration,
+  InvocationStep,
+  InvocationStepPayload,
+  InvocationStepSummary,
+  InvocationSummary,
   KnowledgeBaseLookupOutput,
   KnowledgeBaseQuery,
-  KnowledgeBaseRetrievalConfiguration,
   KnowledgeBaseRetrievalResult,
-  KnowledgeBaseRetrieveAndGenerateConfiguration,
-  KnowledgeBaseVectorSearchConfiguration,
   Memory,
   MemorySessionSummary,
   Message,
@@ -164,8 +187,6 @@ import {
   RerankTextDocument,
   ResourceNotFoundException,
   ResponseStream,
-  RetrievalFilter,
-  RetrieveAndGenerateConfiguration,
   RetrieveAndGenerateInput,
   RetrieveAndGenerateOutputEvent,
   RetrieveAndGenerateSessionConfiguration,
@@ -174,10 +195,11 @@ import {
   ReturnControlPayload,
   RoutingClassifierTrace,
   S3Identifier,
+  S3Location,
   S3ObjectDoc,
   S3ObjectFile,
   ServiceQuotaExceededException,
-  SessionState,
+  SessionSummary,
   StreamingConfigurations,
   TextInferenceConfig,
   TextPrompt,
@@ -192,6 +214,64 @@ import {
   VectorSearchBedrockRerankingModelConfiguration,
   VectorSearchRerankingConfiguration,
 } from "../models/models_0";
+import {
+  KnowledgeBase,
+  KnowledgeBaseConfiguration,
+  KnowledgeBaseRetrievalConfiguration,
+  KnowledgeBaseRetrieveAndGenerateConfiguration,
+  KnowledgeBaseVectorSearchConfiguration,
+  RetrievalFilter,
+  RetrieveAndGenerateConfiguration,
+  SessionState,
+} from "../models/models_1";
+
+/**
+ * serializeAws_restJson1CreateInvocationCommand
+ */
+export const se_CreateInvocationCommand = async (
+  input: CreateInvocationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/sessions/{sessionIdentifier}/invocations");
+  b.p("sessionIdentifier", () => input.sessionIdentifier!, "{sessionIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      invocationId: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateSessionCommand
+ */
+export const se_CreateSessionCommand = async (
+  input: CreateSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/sessions");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      encryptionKeyArn: [],
+      sessionMetadata: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1DeleteAgentMemoryCommand
@@ -211,6 +291,38 @@ export const se_DeleteAgentMemoryCommand = async (
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteSessionCommand
+ */
+export const se_DeleteSessionCommand = async (
+  input: DeleteSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/sessions/{sessionIdentifier}");
+  b.p("sessionIdentifier", () => input.sessionIdentifier!, "{sessionIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1EndSessionCommand
+ */
+export const se_EndSessionCommand = async (
+  input: EndSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/sessions/{sessionIdentifier}");
+  b.p("sessionIdentifier", () => input.sessionIdentifier!, "{sessionIdentifier}", false);
+  let body: any;
+  b.m("PATCH").h(headers).b(body);
   return b.build();
 };
 
@@ -257,6 +369,46 @@ export const se_GetAgentMemoryCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetInvocationStepCommand
+ */
+export const se_GetInvocationStepCommand = async (
+  input: GetInvocationStepCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/sessions/{sessionIdentifier}/invocationSteps/{invocationStepId}");
+  b.p("invocationStepId", () => input.invocationStepId!, "{invocationStepId}", false);
+  b.p("sessionIdentifier", () => input.sessionIdentifier!, "{sessionIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      invocationIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetSessionCommand
+ */
+export const se_GetSessionCommand = async (
+  input: GetSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/sessions/{sessionIdentifier}");
+  b.p("sessionIdentifier", () => input.sessionIdentifier!, "{sessionIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -356,6 +508,88 @@ export const se_InvokeInlineAgentCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListInvocationsCommand
+ */
+export const se_ListInvocationsCommand = async (
+  input: ListInvocationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/sessions/{sessionIdentifier}/invocations");
+  b.p("sessionIdentifier", () => input.sessionIdentifier!, "{sessionIdentifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListInvocationStepsCommand
+ */
+export const se_ListInvocationStepsCommand = async (
+  input: ListInvocationStepsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/sessions/{sessionIdentifier}/invocationSteps");
+  b.p("sessionIdentifier", () => input.sessionIdentifier!, "{sessionIdentifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      invocationIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListSessionsCommand
+ */
+export const se_ListSessionsCommand = async (
+  input: ListSessionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/sessions");
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1OptimizePromptCommand
  */
 export const se_OptimizePromptCommand = async (
@@ -375,6 +609,32 @@ export const se_OptimizePromptCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutInvocationStepCommand
+ */
+export const se_PutInvocationStepCommand = async (
+  input: PutInvocationStepCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/sessions/{sessionIdentifier}/invocationSteps");
+  b.p("sessionIdentifier", () => input.sessionIdentifier!, "{sessionIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      invocationIdentifier: [],
+      invocationStepId: [],
+      invocationStepTime: (_) => __serializeDateTime(_),
+      payload: (_) => se_InvocationStepPayload(_, context),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -477,6 +737,118 @@ export const se_RetrieveAndGenerateStreamCommand = async (
 };
 
 /**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  const query: any = map({
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateSessionCommand
+ */
+export const se_UpdateSessionCommand = async (
+  input: UpdateSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/sessions/{sessionIdentifier}");
+  b.p("sessionIdentifier", () => input.sessionIdentifier!, "{sessionIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sessionMetadata: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * deserializeAws_restJson1CreateInvocationCommand
+ */
+export const de_CreateInvocationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInvocationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    invocationId: __expectString,
+    sessionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateSessionCommand
+ */
+export const de_CreateSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSessionCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    sessionArn: __expectString,
+    sessionId: __expectString,
+    sessionStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteAgentMemoryCommand
  */
 export const de_DeleteAgentMemoryCommand = async (
@@ -490,6 +862,46 @@ export const de_DeleteAgentMemoryCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteSessionCommand
+ */
+export const de_DeleteSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1EndSessionCommand
+ */
+export const de_EndSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EndSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sessionArn: __expectString,
+    sessionId: __expectString,
+    sessionStatus: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -531,6 +943,54 @@ export const de_GetAgentMemoryCommand = async (
   const doc = take(data, {
     memoryContents: (_) => de_Memories(_, context),
     nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetInvocationStepCommand
+ */
+export const de_GetInvocationStepCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInvocationStepCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    invocationStep: (_) => de_InvocationStep(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetSessionCommand
+ */
+export const de_GetSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    encryptionKeyArn: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    sessionArn: __expectString,
+    sessionId: __expectString,
+    sessionMetadata: _json,
+    sessionStatus: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -597,6 +1057,93 @@ export const de_InvokeInlineAgentCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListInvocationsCommand
+ */
+export const de_ListInvocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInvocationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    invocationSummaries: (_) => de_InvocationSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListInvocationStepsCommand
+ */
+export const de_ListInvocationStepsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInvocationStepsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    invocationStepSummaries: (_) => de_InvocationStepSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSessionsCommand
+ */
+export const de_ListSessionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSessionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    sessionSummaries: (_) => de_SessionSummaries(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1OptimizePromptCommand
  */
 export const de_OptimizePromptCommand = async (
@@ -611,6 +1158,27 @@ export const de_OptimizePromptCommand = async (
   });
   const data: any = output.body;
   contents.optimizedPrompt = de_OptimizedPromptStream(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutInvocationStepCommand
+ */
+export const de_PutInvocationStepCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutInvocationStepCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    invocationStepId: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -703,6 +1271,65 @@ export const de_RetrieveAndGenerateStreamCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateSessionCommand
+ */
+export const de_UpdateSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    sessionArn: __expectString,
+    sessionId: __expectString,
+    sessionStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserialize_Aws_restJson1CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -715,15 +1342,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.bedrockagentruntime#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadGatewayException":
-    case "com.amazonaws.bedrockagentruntime#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.bedrockagentruntime#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DependencyFailedException":
-    case "com.amazonaws.bedrockagentruntime#DependencyFailedException":
-      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.bedrockagentruntime#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -739,6 +1360,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.bedrockagentruntime#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "BadGatewayException":
+    case "com.amazonaws.bedrockagentruntime#BadGatewayException":
+      throw await de_BadGatewayExceptionRes(parsedOutput, context);
+    case "DependencyFailedException":
+    case "com.amazonaws.bedrockagentruntime#DependencyFailedException":
+      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
     case "ModelNotReadyException":
     case "com.amazonaws.bedrockagentruntime#ModelNotReadyException":
       throw await de_ModelNotReadyExceptionRes(parsedOutput, context);
@@ -1596,6 +2223,28 @@ const se_BedrockRerankingModelConfiguration = (
 };
 
 /**
+ * serializeAws_restJson1BedrockSessionContentBlock
+ */
+const se_BedrockSessionContentBlock = (input: BedrockSessionContentBlock, context: __SerdeContext): any => {
+  return BedrockSessionContentBlock.visit(input, {
+    image: (value) => ({ image: se_ImageBlock(value, context) }),
+    text: (value) => ({ text: value }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
+
+/**
+ * serializeAws_restJson1BedrockSessionContentBlocks
+ */
+const se_BedrockSessionContentBlocks = (input: BedrockSessionContentBlock[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_BedrockSessionContentBlock(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1ByteContentDoc
  */
 const se_ByteContentDoc = (input: ByteContentDoc, context: __SerdeContext): any => {
@@ -1766,6 +2415,27 @@ const se_GenerationConfiguration = (input: GenerationConfiguration, context: __S
 
 // se_GuardrailConfigurationWithArn omitted.
 
+/**
+ * serializeAws_restJson1ImageBlock
+ */
+const se_ImageBlock = (input: ImageBlock, context: __SerdeContext): any => {
+  return take(input, {
+    format: [],
+    source: (_) => se_ImageSource(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1ImageSource
+ */
+const se_ImageSource = (input: ImageSource, context: __SerdeContext): any => {
+  return ImageSource.visit(input, {
+    bytes: (value) => ({ bytes: context.base64Encoder(value) }),
+    s3Location: (value) => ({ s3Location: _json(value) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
+
 // se_ImplicitFilterConfiguration omitted.
 
 /**
@@ -1830,6 +2500,16 @@ const se_InputFiles = (input: InputFile[], context: __SerdeContext): any => {
 // se_InputPrompt omitted.
 
 // se_InvocationResultMember omitted.
+
+/**
+ * serializeAws_restJson1InvocationStepPayload
+ */
+const se_InvocationStepPayload = (input: InvocationStepPayload, context: __SerdeContext): any => {
+  return InvocationStepPayload.visit(input, {
+    contentBlocks: (value) => ({ contentBlocks: se_BedrockSessionContentBlocks(value, context) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
 
 /**
  * serializeAws_restJson1KnowledgeBase
@@ -2101,11 +2781,15 @@ const se_RetrieveAndGenerateConfiguration = (input: RetrieveAndGenerateConfigura
 
 // se_S3Identifier omitted.
 
+// se_S3Location omitted.
+
 // se_S3ObjectDoc omitted.
 
 // se_S3ObjectFile omitted.
 
 // se_SessionAttributesMap omitted.
+
+// se_SessionMetadataMap omitted.
 
 /**
  * serializeAws_restJson1SessionState
@@ -2125,6 +2809,8 @@ const se_SessionState = (input: SessionState, context: __SerdeContext): any => {
 // se_StopSequences omitted.
 
 // se_StreamingConfigurations omitted.
+
+// se_TagsMap omitted.
 
 /**
  * serializeAws_restJson1TextInferenceConfig
@@ -2238,6 +2924,33 @@ const de_Attribution = (output: any, context: __SerdeContext): Attribution => {
   return take(output, {
     citations: (_: any) => de_Citations(_, context),
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1BedrockSessionContentBlock
+ */
+const de_BedrockSessionContentBlock = (output: any, context: __SerdeContext): BedrockSessionContentBlock => {
+  if (output.image != null) {
+    return {
+      image: de_ImageBlock(output.image, context),
+    };
+  }
+  if (__expectString(output.text) !== undefined) {
+    return { text: __expectString(output.text) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1BedrockSessionContentBlocks
+ */
+const de_BedrockSessionContentBlocks = (output: any, context: __SerdeContext): BedrockSessionContentBlock[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BedrockSessionContentBlock(__expectUnion(entry), context);
+    });
+  return retVal;
 };
 
 // de_Caller omitted.
@@ -2546,6 +3259,33 @@ const de_FlowTraceNodeOutputFields = (output: any, context: __SerdeContext): Flo
 // de_GuardrailWordPolicyAssessment omitted.
 
 /**
+ * deserializeAws_restJson1ImageBlock
+ */
+const de_ImageBlock = (output: any, context: __SerdeContext): ImageBlock => {
+  return take(output, {
+    format: __expectString,
+    source: (_: any) => de_ImageSource(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ImageSource
+ */
+const de_ImageSource = (output: any, context: __SerdeContext): ImageSource => {
+  if (output.bytes != null) {
+    return {
+      bytes: context.base64Decoder(output.bytes),
+    };
+  }
+  if (output.s3Location != null) {
+    return {
+      s3Location: _json(output.s3Location),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
  * deserializeAws_restJson1InferenceConfiguration
  */
 const de_InferenceConfiguration = (output: any, context: __SerdeContext): InferenceConfiguration => {
@@ -2596,6 +3336,78 @@ const de_InlineAgentTracePart = (output: any, context: __SerdeContext): InlineAg
 // de_InvocationInputs omitted.
 
 // de_InvocationResultMember omitted.
+
+/**
+ * deserializeAws_restJson1InvocationStep
+ */
+const de_InvocationStep = (output: any, context: __SerdeContext): InvocationStep => {
+  return take(output, {
+    invocationId: __expectString,
+    invocationStepId: __expectString,
+    invocationStepTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    payload: (_: any) => de_InvocationStepPayload(__expectUnion(_), context),
+    sessionId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1InvocationStepPayload
+ */
+const de_InvocationStepPayload = (output: any, context: __SerdeContext): InvocationStepPayload => {
+  if (output.contentBlocks != null) {
+    return {
+      contentBlocks: de_BedrockSessionContentBlocks(output.contentBlocks, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1InvocationStepSummaries
+ */
+const de_InvocationStepSummaries = (output: any, context: __SerdeContext): InvocationStepSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InvocationStepSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1InvocationStepSummary
+ */
+const de_InvocationStepSummary = (output: any, context: __SerdeContext): InvocationStepSummary => {
+  return take(output, {
+    invocationId: __expectString,
+    invocationStepId: __expectString,
+    invocationStepTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    sessionId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1InvocationSummaries
+ */
+const de_InvocationSummaries = (output: any, context: __SerdeContext): InvocationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InvocationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1InvocationSummary
+ */
+const de_InvocationSummary = (output: any, context: __SerdeContext): InvocationSummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    invocationId: __expectString,
+    sessionId: __expectString,
+  }) as any;
+};
 
 // de_KnowledgeBaseLookupInput omitted.
 
@@ -3036,9 +3848,40 @@ const de_RoutingClassifierTrace = (output: any, context: __SerdeContext): Routin
   return { $unknown: Object.entries(output)[0] };
 };
 
+// de_S3Location omitted.
+
+// de_SessionMetadataMap omitted.
+
+/**
+ * deserializeAws_restJson1SessionSummaries
+ */
+const de_SessionSummaries = (output: any, context: __SerdeContext): SessionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SessionSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1SessionSummary
+ */
+const de_SessionSummary = (output: any, context: __SerdeContext): SessionSummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    sessionArn: __expectString,
+    sessionId: __expectString,
+    sessionStatus: __expectString,
+  }) as any;
+};
+
 // de_Span omitted.
 
 // de_StopSequences omitted.
+
+// de_TagsMap omitted.
 
 // de_TextPrompt omitted.
 
@@ -3126,10 +3969,12 @@ const _cT = "contentType";
 const _eI = "executionId";
 const _mI = "memoryId";
 const _mIa = "maxItems";
+const _mR = "maxResults";
 const _mT = "memoryType";
 const _nT = "nextToken";
 const _sA = "sourceArn";
 const _sI = "sessionId";
+const _tK = "tagKeys";
 const _xabact = "x-amzn-bedrock-agent-content-type";
 const _xabami = "x-amz-bedrock-agent-memory-id";
 const _xabasi = "x-amz-bedrock-agent-session-id";

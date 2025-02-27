@@ -10,12 +10,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RetrieveRequest,
-  RetrieveRequestFilterSensitiveLog,
-  RetrieveResponse,
-  RetrieveResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RetrieveResponse, RetrieveResponseFilterSensitiveLog } from "../models/models_0";
+import { RetrieveRequest, RetrieveRequestFilterSensitiveLog } from "../models/models_1";
 import { de_RetrieveCommand, se_RetrieveCommand } from "../protocols/Aws_restJson1";
 
 /**
