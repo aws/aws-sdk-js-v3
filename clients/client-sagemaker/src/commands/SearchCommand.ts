@@ -161,6 +161,12 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                 InstanceGroupNames: [ // InstanceGroupNames
  * //                   "STRING_VALUE",
  * //                 ],
+ * //                 ModelAccessConfig: { // ModelAccessConfig
+ * //                   AcceptEula: true || false, // required
+ * //                 },
+ * //                 HubAccessConfig: { // HubAccessConfig
+ * //                   HubContentArn: "STRING_VALUE", // required
+ * //                 },
  * //               },
  * //               FileSystemDataSource: { // FileSystemDataSource
  * //                 FileSystemId: "STRING_VALUE", // required
@@ -521,6 +527,12 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                     InstanceGroupNames: [
  * //                       "STRING_VALUE",
  * //                     ],
+ * //                     ModelAccessConfig: {
+ * //                       AcceptEula: true || false, // required
+ * //                     },
+ * //                     HubAccessConfig: {
+ * //                       HubContentArn: "STRING_VALUE", // required
+ * //                     },
  * //                   },
  * //                   FileSystemDataSource: {
  * //                     FileSystemId: "STRING_VALUE", // required
@@ -1096,9 +1108,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                   S3Uri: "STRING_VALUE", // required
  * //                   S3DataType: "S3Prefix" || "S3Object", // required
  * //                   CompressionType: "None" || "Gzip", // required
- * //                   ModelAccessConfig: { // ModelAccessConfig
- * //                     AcceptEula: true || false, // required
- * //                   },
+ * //                   ModelAccessConfig: "<ModelAccessConfig>",
  * //                   HubAccessConfig: { // InferenceHubAccessConfig
  * //                     HubContentArn: "STRING_VALUE", // required
  * //                   },
@@ -1148,9 +1158,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                   S3Uri: "STRING_VALUE", // required
  * //                   S3DataType: "S3Prefix" || "S3Object", // required
  * //                   CompressionType: "None" || "Gzip", // required
- * //                   ModelAccessConfig: {
- * //                     AcceptEula: true || false, // required
- * //                   },
+ * //                   ModelAccessConfig: "<ModelAccessConfig>",
  * //                   HubAccessConfig: {
  * //                     HubContentArn: "STRING_VALUE", // required
  * //                   },
@@ -1287,9 +1295,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                     S3Uri: "STRING_VALUE", // required
  * //                     S3DataType: "S3Prefix" || "S3Object", // required
  * //                     CompressionType: "None" || "Gzip", // required
- * //                     ModelAccessConfig: {
- * //                       AcceptEula: true || false, // required
- * //                     },
+ * //                     ModelAccessConfig: "<ModelAccessConfig>",
  * //                     HubAccessConfig: {
  * //                       HubContentArn: "STRING_VALUE", // required
  * //                     },
@@ -1860,9 +1866,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                   S3Uri: "STRING_VALUE", // required
  * //                   S3DataType: "S3Prefix" || "S3Object", // required
  * //                   CompressionType: "None" || "Gzip", // required
- * //                   ModelAccessConfig: {
- * //                     AcceptEula: true || false, // required
- * //                   },
+ * //                   ModelAccessConfig: "<ModelAccessConfig>",
  * //                   HubAccessConfig: {
  * //                     HubContentArn: "STRING_VALUE", // required
  * //                   },
@@ -1899,9 +1903,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                     S3Uri: "STRING_VALUE", // required
  * //                     S3DataType: "S3Prefix" || "S3Object", // required
  * //                     CompressionType: "None" || "Gzip", // required
- * //                     ModelAccessConfig: {
- * //                       AcceptEula: true || false, // required
- * //                     },
+ * //                     ModelAccessConfig: "<ModelAccessConfig>",
  * //                     HubAccessConfig: {
  * //                       HubContentArn: "STRING_VALUE", // required
  * //                     },

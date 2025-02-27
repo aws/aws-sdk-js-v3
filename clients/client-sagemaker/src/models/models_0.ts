@@ -1575,6 +1575,20 @@ export interface FileSystemDataSource {
 }
 
 /**
+ * <p>The configuration for a private hub model reference that points to a public SageMaker JumpStart model.</p>
+ *          <p>For more information about private hubs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-curated-hubs.html">Private curated hubs for foundation model access control in JumpStart</a>.</p>
+ * @public
+ */
+export interface HubAccessConfig {
+  /**
+   * <p>The ARN of your private model hub content. This should be a <code>ModelReference</code>
+   *          resource type that points to a SageMaker JumpStart public hub model.</p>
+   * @public
+   */
+  HubContentArn: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1720,6 +1734,30 @@ export interface S3DataSource {
    * @public
    */
   InstanceGroupNames?: string[] | undefined;
+
+  /**
+   * <p>The access configuration file to control access to the ML model. You can explicitly accept the model
+   *          end-user license agreement (EULA) within the <code>ModelAccessConfig</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you are a Jumpstart user, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula">End-user license agreements</a> section for more details on accepting the EULA.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are an AutoML user, see the  <i>Optional Parameters</i> section of
+   *                <i>Create an AutoML job to fine-tune text generation models using the
+   *                   API</i> for details on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-create-experiment-finetune-llms.html#autopilot-llms-finetuning-api-optional-params">How to set the EULA acceptance when fine-tuning a model using the AutoML
+   *                   API</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ModelAccessConfig?: ModelAccessConfig | undefined;
+
+  /**
+   * <p>The configuration for a private hub model reference that points to a SageMaker JumpStart public hub model.</p>
+   * @public
+   */
+  HubAccessConfig?: HubAccessConfig | undefined;
 }
 
 /**
@@ -11392,22 +11430,4 @@ export interface ContinuousParameterRange {
    * @public
    */
   ScalingType?: HyperParameterScalingType | undefined;
-}
-
-/**
- * <p>Defines the possible values for a continuous hyperparameter.</p>
- * @public
- */
-export interface ContinuousParameterRangeSpecification {
-  /**
-   * <p>The minimum floating-point value allowed.</p>
-   * @public
-   */
-  MinValue: string | undefined;
-
-  /**
-   * <p>The maximum floating-point value allowed.</p>
-   * @public
-   */
-  MaxValue: string | undefined;
 }

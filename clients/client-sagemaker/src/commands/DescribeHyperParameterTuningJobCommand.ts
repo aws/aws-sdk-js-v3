@@ -178,6 +178,12 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * //             InstanceGroupNames: [ // InstanceGroupNames
  * //               "STRING_VALUE",
  * //             ],
+ * //             ModelAccessConfig: { // ModelAccessConfig
+ * //               AcceptEula: true || false, // required
+ * //             },
+ * //             HubAccessConfig: { // HubAccessConfig
+ * //               HubContentArn: "STRING_VALUE", // required
+ * //             },
  * //           },
  * //           FileSystemDataSource: { // FileSystemDataSource
  * //             FileSystemId: "STRING_VALUE", // required
@@ -324,6 +330,12 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * //               InstanceGroupNames: [
  * //                 "STRING_VALUE",
  * //               ],
+ * //               ModelAccessConfig: {
+ * //                 AcceptEula: true || false, // required
+ * //               },
+ * //               HubAccessConfig: {
+ * //                 HubContentArn: "STRING_VALUE", // required
+ * //               },
  * //             },
  * //             FileSystemDataSource: {
  * //               FileSystemId: "STRING_VALUE", // required

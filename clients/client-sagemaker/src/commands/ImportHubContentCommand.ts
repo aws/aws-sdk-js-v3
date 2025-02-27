@@ -45,6 +45,7 @@ export interface ImportHubContentCommandOutput extends ImportHubContentResponse,
  *   HubContentDescription: "STRING_VALUE",
  *   HubContentMarkdown: "STRING_VALUE",
  *   HubContentDocument: "STRING_VALUE", // required
+ *   SupportStatus: "Supported" || "Deprecated" || "Restricted",
  *   HubContentSearchKeywords: [ // HubContentSearchKeywordList
  *     "STRING_VALUE",
  *   ],

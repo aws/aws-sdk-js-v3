@@ -128,6 +128,17 @@ import {
 
 /**
  * @public
+ */
+export interface CreateMonitoringScheduleResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
+   * @public
+   */
+  MonitoringScheduleArn: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const NotebookInstanceAcceleratorType = {
@@ -8604,6 +8615,7 @@ export type HubContentStatus = (typeof HubContentStatus)[keyof typeof HubContent
  */
 export const HubContentSupportStatus = {
   DEPRECATED: "Deprecated",
+  RESTRICTED: "Restricted",
   SUPPORTED: "Supported",
 } as const;
 
@@ -8729,6 +8741,12 @@ export interface DescribeHubContentResponse {
    * @public
    */
   CreationTime: Date | undefined;
+
+  /**
+   * <p>The last modified time of the hub content.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
 }
 
 /**
@@ -8742,20 +8760,6 @@ export interface DescribeHumanTaskUiRequest {
    */
   HumanTaskUiName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HumanTaskUiStatus = {
-  ACTIVE: "Active",
-  DELETING: "Deleting",
-} as const;
-
-/**
- * @public
- */
-export type HumanTaskUiStatus = (typeof HumanTaskUiStatus)[keyof typeof HumanTaskUiStatus];
 
 /**
  * @internal

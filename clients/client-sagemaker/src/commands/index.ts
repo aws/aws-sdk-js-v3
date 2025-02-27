@@ -332,6 +332,8 @@ export * from "./UpdateExperimentCommand";
 export * from "./UpdateFeatureGroupCommand";
 export * from "./UpdateFeatureMetadataCommand";
 export * from "./UpdateHubCommand";
+export * from "./UpdateHubContentCommand";
+export * from "./UpdateHubContentReferenceCommand";
 export * from "./UpdateImageCommand";
 export * from "./UpdateImageVersionCommand";
 export * from "./UpdateInferenceComponentCommand";

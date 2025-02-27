@@ -66,7 +66,6 @@ import {
   ContentClassifier,
   ContextSource,
   ContinuousParameterRange,
-  ContinuousParameterRangeSpecification,
   CustomImage,
   FeatureStatus,
   GitConfig,
@@ -98,6 +97,24 @@ import {
 } from "./models_0";
 
 import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
+
+/**
+ * <p>Defines the possible values for a continuous hyperparameter.</p>
+ * @public
+ */
+export interface ContinuousParameterRangeSpecification {
+  /**
+   * <p>The minimum floating-point value allowed.</p>
+   * @public
+   */
+  MinValue: string | undefined;
+
+  /**
+   * <p>The maximum floating-point value allowed.</p>
+   * @public
+   */
+  MaxValue: string | undefined;
+}
 
 /**
  * <p>A flag to indicating that automatic model tuning (AMT) has detected model convergence,
@@ -13061,17 +13078,6 @@ export interface CreateMonitoringScheduleRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMonitoringScheduleResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
-   * @public
-   */
-  MonitoringScheduleArn: string | undefined;
 }
 
 /**

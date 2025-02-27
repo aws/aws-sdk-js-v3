@@ -192,6 +192,67 @@ import {
 } from "./models_3";
 
 /**
+ * @public
+ */
+export interface ListDataQualityJobDefinitionsRequest {
+  /**
+   * <p>A filter that lists the data quality job definitions associated with the specified
+   *          endpoint.</p>
+   * @public
+   */
+  EndpointName?: string | undefined;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: MonitoringJobDefinitionSortKey | undefined;
+
+  /**
+   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
+   *    The default is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListDataQualityJobDefinitions</code> request was
+   *          truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
+   *          transform jobs, use the token in the next request.></p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of data quality monitoring job definitions to return in the
+   *          response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A string in the data quality monitoring job definition name. This filter returns only
+   *          data quality monitoring job definitions whose name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A filter that returns only data quality monitoring job definitions created before the
+   *          specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only data quality monitoring job definitions created after the
+   *          specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+}
+
+/**
  * <p>Summary information about a monitoring job.</p>
  * @public
  */
@@ -11131,17 +11192,6 @@ export interface StopPipelineExecutionRequest {
    * @public
    */
   ClientRequestToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopPipelineExecutionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionArn?: string | undefined;
 }
 
 /**

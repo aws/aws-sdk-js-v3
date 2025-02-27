@@ -50,6 +50,8 @@ import {
 import {
   CrossAccountFilterOption,
   FeatureParameter,
+  HubContentSupportStatus,
+  HubContentType,
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
   NotebookInstanceAcceleratorType,
@@ -94,6 +96,17 @@ import {
   SearchSortOrder,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface StopPipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn?: string | undefined;
+}
 
 /**
  * @public
@@ -972,6 +985,137 @@ export interface UpdateHubResponse {
    * @public
    */
   HubArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHubContentRequest {
+  /**
+   * <p>The name of the SageMaker hub that contains the hub content you want to update.
+   *          You can optionally use the hub ARN instead.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The name of the hub content resource that you want to update.</p>
+   * @public
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The content type of the resource that you want to update. Only specify a
+   *          <code>Model</code> or <code>Notebook</code> resource for this API. To
+   *          update a <code>ModelReference</code>, use the
+   *          <code>UpdateHubContentReference</code> API instead.</p>
+   * @public
+   */
+  HubContentType: HubContentType | undefined;
+
+  /**
+   * <p>The hub content version that you want to update. For example, if you have
+   *          two versions of a resource in your hub, you can update the second version.</p>
+   * @public
+   */
+  HubContentVersion: string | undefined;
+
+  /**
+   * <p>The display name of the hub content.</p>
+   * @public
+   */
+  HubContentDisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the hub content.</p>
+   * @public
+   */
+  HubContentDescription?: string | undefined;
+
+  /**
+   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formatting.</p>
+   * @public
+   */
+  HubContentMarkdown?: string | undefined;
+
+  /**
+   * <p>The searchable keywords of the hub content.</p>
+   * @public
+   */
+  HubContentSearchKeywords?: string[] | undefined;
+
+  /**
+   * <p>Indicates the current status of the hub content resource.</p>
+   * @public
+   */
+  SupportStatus?: HubContentSupportStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHubContentResponse {
+  /**
+   * <p>The ARN of the private model hub that contains the updated hub content.</p>
+   * @public
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The ARN of the hub content resource that was updated.</p>
+   * @public
+   */
+  HubContentArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHubContentReferenceRequest {
+  /**
+   * <p>The name of the SageMaker hub that contains the hub content you want to update. You can optionally use the hub ARN instead.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The name of the hub content resource that you want to update.</p>
+   * @public
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The content type of the resource that you want to update. Only specify a
+   *          <code>ModelReference</code> resource for this API. To update a <code>Model</code>
+   *          or <code>Notebook</code> resource, use the <code>UpdateHubContent</code> API instead.</p>
+   * @public
+   */
+  HubContentType: HubContentType | undefined;
+
+  /**
+   * <p>The minimum hub content version of the referenced model that you want to use.
+   *          The minimum version must be older than the latest available version of the referenced model.
+   *          To support all versions of a model, set the value to <code>1.0.0</code>.</p>
+   * @public
+   */
+  MinVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHubContentReferenceResponse {
+  /**
+   * <p>The ARN of the private model hub that contains the updated hub content.</p>
+   * @public
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The ARN of the hub content resource that was updated.</p>
+   * @public
+   */
+  HubContentArn: string | undefined;
 }
 
 /**

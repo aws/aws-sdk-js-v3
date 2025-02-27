@@ -902,6 +902,11 @@ import {
   UpdateFeatureMetadataCommandOutput,
 } from "../commands/UpdateFeatureMetadataCommand";
 import { UpdateHubCommandInput, UpdateHubCommandOutput } from "../commands/UpdateHubCommand";
+import { UpdateHubContentCommandInput, UpdateHubContentCommandOutput } from "../commands/UpdateHubContentCommand";
+import {
+  UpdateHubContentReferenceCommandInput,
+  UpdateHubContentReferenceCommandOutput,
+} from "../commands/UpdateHubContentReferenceCommand";
 import { UpdateImageCommandInput, UpdateImageCommandOutput } from "../commands/UpdateImageCommand";
 import { UpdateImageVersionCommandInput, UpdateImageVersionCommandOutput } from "../commands/UpdateImageVersionCommand";
 import {
@@ -1091,7 +1096,6 @@ import {
   ContextSource,
   ContextSummary,
   ContinuousParameterRange,
-  ContinuousParameterRangeSpecification,
   CustomImage,
   DataSource,
   DeepHealthCheckType,
@@ -1105,6 +1109,7 @@ import {
   GenerativeAiSettings,
   GitConfig,
   HolidayConfigAttributes,
+  HubAccessConfig,
   IamIdentity,
   IdentityProviderOAuthSetting,
   IdleSettings,
@@ -1172,6 +1177,7 @@ import {
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  ContinuousParameterRangeSpecification,
   ConvergenceDetected,
   CreateActionRequest,
   CreateActionResponse,
@@ -1257,7 +1263,6 @@ import {
   CreateModelQualityJobDefinitionRequest,
   CreateModelQualityJobDefinitionResponse,
   CreateMonitoringScheduleRequest,
-  CreateMonitoringScheduleResponse,
   CustomFileSystemConfig,
   CustomPosixUserConfig,
   DataCaptureConfig,
@@ -1429,6 +1434,7 @@ import {
   UserSettings,
 } from "../models/models_1";
 import {
+  CreateMonitoringScheduleResponse,
   CreateNotebookInstanceInput,
   CreateNotebookInstanceLifecycleConfigInput,
   CreateNotebookInstanceLifecycleConfigOutput,
@@ -1889,7 +1895,6 @@ import {
   ListComputeQuotasResponse,
   ListContextsRequest,
   ListContextsResponse,
-  ListDataQualityJobDefinitionsRequest,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
@@ -1934,6 +1939,7 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListDataQualityJobDefinitionsRequest,
   ListDataQualityJobDefinitionsResponse,
   ListDeviceFleetsRequest,
   ListDeviceFleetsResponse,
@@ -2163,7 +2169,6 @@ import {
   StopNotebookInstanceInput,
   StopOptimizationJobRequest,
   StopPipelineExecutionRequest,
-  StopPipelineExecutionResponse,
   StudioLifecycleConfigDetails,
   TrackingServerSummary,
   TrainingJob,
@@ -2190,6 +2195,7 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  StopPipelineExecutionResponse,
   StopProcessingJobRequest,
   StopTrainingJobRequest,
   StopTransformJobRequest,
@@ -2225,6 +2231,10 @@ import {
   UpdateFeatureGroupRequest,
   UpdateFeatureGroupResponse,
   UpdateFeatureMetadataRequest,
+  UpdateHubContentReferenceRequest,
+  UpdateHubContentReferenceResponse,
+  UpdateHubContentRequest,
+  UpdateHubContentResponse,
   UpdateHubRequest,
   UpdateHubResponse,
   UpdateImageRequest,
@@ -6598,6 +6608,32 @@ export const se_UpdateHubCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateHub");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateHubContentCommand
+ */
+export const se_UpdateHubContentCommand = async (
+  input: UpdateHubContentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateHubContent");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateHubContentReferenceCommand
+ */
+export const se_UpdateHubContentReferenceCommand = async (
+  input: UpdateHubContentReferenceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateHubContentReference");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -13383,6 +13419,46 @@ export const de_UpdateHubCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateHubContentCommand
+ */
+export const de_UpdateHubContentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHubContentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateHubContentResponse(data, context);
+  const response: UpdateHubContentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateHubContentReferenceCommand
+ */
+export const de_UpdateHubContentReferenceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHubContentReferenceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateHubContentReferenceResponse(data, context);
+  const response: UpdateHubContentReferenceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1UpdateImageCommand
  */
 export const de_UpdateImageCommand = async (
@@ -15150,6 +15226,8 @@ const se_EndpointInput = (input: EndpointInput, context: __SerdeContext): any =>
 // se_HolidayConfigAttributes omitted.
 
 // se_HookParameters omitted.
+
+// se_HubAccessConfig omitted.
 
 // se_HubContentSearchKeywordList omitted.
 
@@ -17414,6 +17492,10 @@ const se_UpdateEndpointWeightsAndCapacitiesInput = (
 // se_UpdateFeatureGroupRequest omitted.
 
 // se_UpdateFeatureMetadataRequest omitted.
+
+// se_UpdateHubContentReferenceRequest omitted.
+
+// se_UpdateHubContentRequest omitted.
 
 // se_UpdateHubRequest omitted.
 
@@ -21595,6 +21677,7 @@ const de_DescribeHubContentResponse = (output: any, context: __SerdeContext): De
     HubContentType: __expectString,
     HubContentVersion: __expectString,
     HubName: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ReferenceMinVersion: __expectString,
     SageMakerPublicHubContentArn: __expectString,
     SupportStatus: __expectString,
@@ -23914,6 +23997,15 @@ const de_HookParameters = (output: any, context: __SerdeContext): Record<string,
     acc[key as string] = __expectString(value) as any;
     return acc;
   }, {} as Record<string, string>);
+};
+
+/**
+ * deserializeAws_json1_1HubAccessConfig
+ */
+const de_HubAccessConfig = (output: any, context: __SerdeContext): HubAccessConfig => {
+  return take(output, {
+    HubContentArn: __expectString,
+  }) as any;
 };
 
 /**
@@ -29774,7 +29866,9 @@ const de_RuleParameters = (output: any, context: __SerdeContext): Record<string,
 const de_S3DataSource = (output: any, context: __SerdeContext): S3DataSource => {
   return take(output, {
     AttributeNames: (_: any) => de_AttributeNames(_, context),
+    HubAccessConfig: (_: any) => de_HubAccessConfig(_, context),
     InstanceGroupNames: (_: any) => de_InstanceGroupNames(_, context),
+    ModelAccessConfig: (_: any) => de_ModelAccessConfig(_, context),
     S3DataDistributionType: __expectString,
     S3DataType: __expectString,
     S3Uri: __expectString,
@@ -31606,6 +31700,29 @@ const de_UpdateExperimentResponse = (output: any, context: __SerdeContext): Upda
 const de_UpdateFeatureGroupResponse = (output: any, context: __SerdeContext): UpdateFeatureGroupResponse => {
   return take(output, {
     FeatureGroupArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateHubContentReferenceResponse
+ */
+const de_UpdateHubContentReferenceResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateHubContentReferenceResponse => {
+  return take(output, {
+    HubArn: __expectString,
+    HubContentArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateHubContentResponse
+ */
+const de_UpdateHubContentResponse = (output: any, context: __SerdeContext): UpdateHubContentResponse => {
+  return take(output, {
+    HubArn: __expectString,
+    HubContentArn: __expectString,
   }) as any;
 };
 

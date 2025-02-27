@@ -184,6 +184,12 @@ export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __M
  *                   InstanceGroupNames: [ // InstanceGroupNames
  *                     "STRING_VALUE",
  *                   ],
+ *                   ModelAccessConfig: {
+ *                     AcceptEula: true || false, // required
+ *                   },
+ *                   HubAccessConfig: { // HubAccessConfig
+ *                     HubContentArn: "STRING_VALUE", // required
+ *                   },
  *                 },
  *                 FileSystemDataSource: { // FileSystemDataSource
  *                   FileSystemId: "STRING_VALUE", // required

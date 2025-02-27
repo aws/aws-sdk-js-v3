@@ -60,7 +60,7 @@ export interface ListHubContentsCommandOutput extends ListHubContentsResponse, _
  * //       DocumentSchemaVersion: "STRING_VALUE", // required
  * //       HubContentDisplayName: "STRING_VALUE",
  * //       HubContentDescription: "STRING_VALUE",
- * //       SupportStatus: "Supported" || "Deprecated",
+ * //       SupportStatus: "Supported" || "Deprecated" || "Restricted",
  * //       HubContentSearchKeywords: [ // HubContentSearchKeywordList
  * //         "STRING_VALUE",
  * //       ],

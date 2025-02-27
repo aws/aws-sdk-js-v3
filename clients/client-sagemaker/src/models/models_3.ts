@@ -154,7 +154,6 @@ import {
   HubContentSupportStatus,
   HubContentType,
   HubStatus,
-  HumanTaskUiStatus,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
   LastUpdateStatus,
@@ -197,6 +196,20 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const HumanTaskUiStatus = {
+  ACTIVE: "Active",
+  DELETING: "Deleting",
+} as const;
+
+/**
+ * @public
+ */
+export type HumanTaskUiStatus = (typeof HumanTaskUiStatus)[keyof typeof HumanTaskUiStatus];
 
 /**
  * <p>Container for user interface template information.</p>
@@ -9905,6 +9918,12 @@ export interface ImportHubContentRequest {
   HubContentDocument: string | undefined;
 
   /**
+   * <p>The status of the hub content resource.</p>
+   * @public
+   */
+  SupportStatus?: HubContentSupportStatus | undefined;
+
+  /**
    * <p>The searchable keywords of the hub content.</p>
    * @public
    */
@@ -11931,67 +11950,6 @@ export const MonitoringJobDefinitionSortKey = {
  */
 export type MonitoringJobDefinitionSortKey =
   (typeof MonitoringJobDefinitionSortKey)[keyof typeof MonitoringJobDefinitionSortKey];
-
-/**
- * @public
- */
-export interface ListDataQualityJobDefinitionsRequest {
-  /**
-   * <p>A filter that lists the data quality job definitions associated with the specified
-   *          endpoint.</p>
-   * @public
-   */
-  EndpointName?: string | undefined;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: MonitoringJobDefinitionSortKey | undefined;
-
-  /**
-   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *    The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListDataQualityJobDefinitions</code> request was
-   *          truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
-   *          transform jobs, use the token in the next request.></p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of data quality monitoring job definitions to return in the
-   *          response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A string in the data quality monitoring job definition name. This filter returns only
-   *          data quality monitoring job definitions whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A filter that returns only data quality monitoring job definitions created before the
-   *          specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only data quality monitoring job definitions created after the
-   *          specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-}
 
 /**
  * @internal

@@ -100,6 +100,12 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
  * //           InstanceGroupNames: [ // InstanceGroupNames
  * //             "STRING_VALUE",
  * //           ],
+ * //           ModelAccessConfig: { // ModelAccessConfig
+ * //             AcceptEula: true || false, // required
+ * //           },
+ * //           HubAccessConfig: { // HubAccessConfig
+ * //             HubContentArn: "STRING_VALUE", // required
+ * //           },
  * //         },
  * //         FileSystemDataSource: { // FileSystemDataSource
  * //           FileSystemId: "STRING_VALUE", // required

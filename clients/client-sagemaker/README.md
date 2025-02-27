@@ -2884,6 +2884,22 @@ UpdateHub
 </details>
 <details>
 <summary>
+UpdateHubContent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/UpdateHubContentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/UpdateHubContentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/UpdateHubContentCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateHubContentReference
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/UpdateHubContentReferenceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/UpdateHubContentReferenceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/UpdateHubContentReferenceCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateImage
 </summary>
 

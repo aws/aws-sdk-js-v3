@@ -1551,6 +1551,16 @@ import {
   UpdateFeatureMetadataCommandOutput,
 } from "./commands/UpdateFeatureMetadataCommand";
 import { UpdateHubCommand, UpdateHubCommandInput, UpdateHubCommandOutput } from "./commands/UpdateHubCommand";
+import {
+  UpdateHubContentCommand,
+  UpdateHubContentCommandInput,
+  UpdateHubContentCommandOutput,
+} from "./commands/UpdateHubContentCommand";
+import {
+  UpdateHubContentReferenceCommand,
+  UpdateHubContentReferenceCommandInput,
+  UpdateHubContentReferenceCommandOutput,
+} from "./commands/UpdateHubContentReferenceCommand";
 import { UpdateImageCommand, UpdateImageCommandInput, UpdateImageCommandOutput } from "./commands/UpdateImageCommand";
 import {
   UpdateImageVersionCommand,
@@ -1990,6 +2000,8 @@ const commands = {
   UpdateFeatureGroupCommand,
   UpdateFeatureMetadataCommand,
   UpdateHubCommand,
+  UpdateHubContentCommand,
+  UpdateHubContentReferenceCommand,
   UpdateImageCommand,
   UpdateImageVersionCommand,
   UpdateInferenceComponentCommand,
@@ -7302,6 +7314,40 @@ export interface SageMaker {
     args: UpdateHubCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateHubCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateHubContentCommand}
+   */
+  updateHubContent(
+    args: UpdateHubContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateHubContentCommandOutput>;
+  updateHubContent(
+    args: UpdateHubContentCommandInput,
+    cb: (err: any, data?: UpdateHubContentCommandOutput) => void
+  ): void;
+  updateHubContent(
+    args: UpdateHubContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateHubContentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateHubContentReferenceCommand}
+   */
+  updateHubContentReference(
+    args: UpdateHubContentReferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateHubContentReferenceCommandOutput>;
+  updateHubContentReference(
+    args: UpdateHubContentReferenceCommandInput,
+    cb: (err: any, data?: UpdateHubContentReferenceCommandOutput) => void
+  ): void;
+  updateHubContentReference(
+    args: UpdateHubContentReferenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateHubContentReferenceCommandOutput) => void
   ): void;
 
   /**

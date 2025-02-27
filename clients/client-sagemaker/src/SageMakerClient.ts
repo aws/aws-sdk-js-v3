@@ -923,6 +923,11 @@ import {
   UpdateFeatureMetadataCommandOutput,
 } from "./commands/UpdateFeatureMetadataCommand";
 import { UpdateHubCommandInput, UpdateHubCommandOutput } from "./commands/UpdateHubCommand";
+import { UpdateHubContentCommandInput, UpdateHubContentCommandOutput } from "./commands/UpdateHubContentCommand";
+import {
+  UpdateHubContentReferenceCommandInput,
+  UpdateHubContentReferenceCommandOutput,
+} from "./commands/UpdateHubContentReferenceCommand";
 import { UpdateImageCommandInput, UpdateImageCommandOutput } from "./commands/UpdateImageCommand";
 import { UpdateImageVersionCommandInput, UpdateImageVersionCommandOutput } from "./commands/UpdateImageVersionCommand";
 import {
@@ -1324,6 +1329,8 @@ export type ServiceInputTypes =
   | UpdateFeatureGroupCommandInput
   | UpdateFeatureMetadataCommandInput
   | UpdateHubCommandInput
+  | UpdateHubContentCommandInput
+  | UpdateHubContentReferenceCommandInput
   | UpdateImageCommandInput
   | UpdateImageVersionCommandInput
   | UpdateInferenceComponentCommandInput
@@ -1685,6 +1692,8 @@ export type ServiceOutputTypes =
   | UpdateFeatureGroupCommandOutput
   | UpdateFeatureMetadataCommandOutput
   | UpdateHubCommandOutput
+  | UpdateHubContentCommandOutput
+  | UpdateHubContentReferenceCommandOutput
   | UpdateImageCommandOutput
   | UpdateImageVersionCommandOutput
   | UpdateInferenceComponentCommandOutput

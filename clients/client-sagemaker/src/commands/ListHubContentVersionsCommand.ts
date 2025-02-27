@@ -61,7 +61,7 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
  * //       DocumentSchemaVersion: "STRING_VALUE", // required
  * //       HubContentDisplayName: "STRING_VALUE",
  * //       HubContentDescription: "STRING_VALUE",
- * //       SupportStatus: "Supported" || "Deprecated",
+ * //       SupportStatus: "Supported" || "Deprecated" || "Restricted",
  * //       HubContentSearchKeywords: [ // HubContentSearchKeywordList
  * //         "STRING_VALUE",
  * //       ],
