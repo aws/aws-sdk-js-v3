@@ -1,5 +1,5 @@
 import { MetadataService } from "@aws-sdk/ec2-metadata-service";
-import { fromSharedConfigFiles } from "@smithy/node-config-provider";
+import { loadSharedConfigFiles } from "@smithy/shared-ini-file-loader";
 
 interface ResolveRegionOptions {
   defaultRegion?: string;
@@ -44,7 +44,7 @@ export const resolveAwsCliV2Region = async ({
  * Fetches the region from the AWS shared config files.
  */
 export async function getRegionFromIni(profile: string): Promise<string | undefined> {
-  const sharedFiles = await fromSharedConfigFiles({ ignoreCache: true });
+  const sharedFiles = await loadSharedConfigFiles({ ignoreCache: true });
   return sharedFiles.configFile?.[profile]?.region || sharedFiles.credentialsFile?.[profile]?.region;
 }
 
