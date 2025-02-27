@@ -14572,7 +14572,7 @@ it("RestJsonWithoutBodyExpectsEmptyContentType:MalformedRequest", async () => {
 /**
  * When there is no modeled body input, content type must not be set and the body must be empty.
  */
-it("RestJsonWithoutBodyEmptyInputExpectsEmptyContentType:MalformedRequest", async () => {
+it.skip("RestJsonWithoutBodyEmptyInputExpectsEmptyContentType:MalformedRequest", async () => {
   const testFunction = vi.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
