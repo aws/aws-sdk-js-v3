@@ -211,6 +211,11 @@ import {
   MalformedContentTypeWithoutBodyServerInput,
 } from "./operations/MalformedContentTypeWithoutBody";
 import {
+  MalformedContentTypeWithoutBodyEmptyInput,
+  MalformedContentTypeWithoutBodyEmptyInputSerializer,
+  MalformedContentTypeWithoutBodyEmptyInputServerInput,
+} from "./operations/MalformedContentTypeWithoutBodyEmptyInput";
+import {
   MalformedContentTypeWithPayload,
   MalformedContentTypeWithPayloadSerializer,
   MalformedContentTypeWithPayloadServerInput,
@@ -362,6 +367,16 @@ import {
 import { QueryPrecedence, QueryPrecedenceSerializer, QueryPrecedenceServerInput } from "./operations/QueryPrecedence";
 import { RecursiveShapes, RecursiveShapesSerializer, RecursiveShapesServerInput } from "./operations/RecursiveShapes";
 import {
+  ResponseCodeHttpFallback,
+  ResponseCodeHttpFallbackSerializer,
+  ResponseCodeHttpFallbackServerInput,
+} from "./operations/ResponseCodeHttpFallback";
+import {
+  ResponseCodeRequired,
+  ResponseCodeRequiredSerializer,
+  ResponseCodeRequiredServerInput,
+} from "./operations/ResponseCodeRequired";
+import {
   SimpleScalarProperties,
   SimpleScalarPropertiesSerializer,
   SimpleScalarPropertiesServerInput,
@@ -469,6 +484,7 @@ export type RestJsonServiceOperations =
   | "MalformedContentTypeWithBody"
   | "MalformedContentTypeWithGenericString"
   | "MalformedContentTypeWithoutBody"
+  | "MalformedContentTypeWithoutBodyEmptyInput"
   | "MalformedContentTypeWithPayload"
   | "MalformedDouble"
   | "MalformedFloat"
@@ -508,6 +524,8 @@ export type RestJsonServiceOperations =
   | "QueryParamsAsStringListMap"
   | "QueryPrecedence"
   | "RecursiveShapes"
+  | "ResponseCodeHttpFallback"
+  | "ResponseCodeRequired"
   | "SimpleScalarProperties"
   | "SparseJsonLists"
   | "SparseJsonMaps"
@@ -571,6 +589,7 @@ export interface RestJsonService<Context> {
   MalformedContentTypeWithBody: MalformedContentTypeWithBody<Context>;
   MalformedContentTypeWithGenericString: MalformedContentTypeWithGenericString<Context>;
   MalformedContentTypeWithoutBody: MalformedContentTypeWithoutBody<Context>;
+  MalformedContentTypeWithoutBodyEmptyInput: MalformedContentTypeWithoutBodyEmptyInput<Context>;
   MalformedContentTypeWithPayload: MalformedContentTypeWithPayload<Context>;
   MalformedDouble: MalformedDouble<Context>;
   MalformedFloat: MalformedFloat<Context>;
@@ -610,6 +629,8 @@ export interface RestJsonService<Context> {
   QueryParamsAsStringListMap: QueryParamsAsStringListMap<Context>;
   QueryPrecedence: QueryPrecedence<Context>;
   RecursiveShapes: RecursiveShapes<Context>;
+  ResponseCodeHttpFallback: ResponseCodeHttpFallback<Context>;
+  ResponseCodeRequired: ResponseCodeRequired<Context>;
   SimpleScalarProperties: SimpleScalarProperties<Context>;
   SparseJsonLists: SparseJsonLists<Context>;
   SparseJsonMaps: SparseJsonMaps<Context>;
@@ -1280,6 +1301,18 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.validationCustomizer
         );
       }
+      case "MalformedContentTypeWithoutBodyEmptyInput": {
+        return handle(
+          request,
+          context,
+          "MalformedContentTypeWithoutBodyEmptyInput",
+          this.serializerFactory("MalformedContentTypeWithoutBodyEmptyInput"),
+          this.service.MalformedContentTypeWithoutBodyEmptyInput,
+          this.serializeFrameworkException,
+          MalformedContentTypeWithoutBodyEmptyInputServerInput.validate,
+          this.validationCustomizer
+        );
+      }
       case "MalformedContentTypeWithPayload": {
         return handle(
           request,
@@ -1745,6 +1778,30 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.service.RecursiveShapes,
           this.serializeFrameworkException,
           RecursiveShapesServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "ResponseCodeHttpFallback": {
+        return handle(
+          request,
+          context,
+          "ResponseCodeHttpFallback",
+          this.serializerFactory("ResponseCodeHttpFallback"),
+          this.service.ResponseCodeHttpFallback,
+          this.serializeFrameworkException,
+          ResponseCodeHttpFallbackServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "ResponseCodeRequired": {
+        return handle(
+          request,
+          context,
+          "ResponseCodeRequired",
+          this.serializerFactory("ResponseCodeRequired"),
+          this.service.ResponseCodeRequired,
+          this.serializeFrameworkException,
+          ResponseCodeRequiredServerInput.validate,
           this.validationCustomizer
         );
       }
@@ -2233,6 +2290,12 @@ export const getRestJsonServiceHandler = <Context>(
       [],
       { service: "RestJson", operation: "MalformedContentTypeWithoutBody" }
     ),
+    new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithoutBodyEmptyInput">(
+      "POST",
+      [{ type: "path_literal", value: "MalformedContentTypeWithoutBodyEmptyInput" }],
+      [],
+      { service: "RestJson", operation: "MalformedContentTypeWithoutBodyEmptyInput" }
+    ),
     new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithPayload">(
       "POST",
       [{ type: "path_literal", value: "MalformedContentTypeWithPayload" }],
@@ -2468,6 +2531,18 @@ export const getRestJsonServiceHandler = <Context>(
       [],
       { service: "RestJson", operation: "RecursiveShapes" }
     ),
+    new httpbinding.UriSpec<"RestJson", "ResponseCodeHttpFallback">(
+      "GET",
+      [{ type: "path_literal", value: "responseCodeHttpFallback" }],
+      [],
+      { service: "RestJson", operation: "ResponseCodeHttpFallback" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "ResponseCodeRequired">(
+      "GET",
+      [{ type: "path_literal", value: "responseCodeRequired" }],
+      [],
+      { service: "RestJson", operation: "ResponseCodeRequired" }
+    ),
     new httpbinding.UriSpec<"RestJson", "SimpleScalarProperties">(
       "PUT",
       [{ type: "path_literal", value: "SimpleScalarProperties" }],
@@ -2655,6 +2730,8 @@ export const getRestJsonServiceHandler = <Context>(
         return new MalformedContentTypeWithGenericStringSerializer();
       case "MalformedContentTypeWithoutBody":
         return new MalformedContentTypeWithoutBodySerializer();
+      case "MalformedContentTypeWithoutBodyEmptyInput":
+        return new MalformedContentTypeWithoutBodyEmptyInputSerializer();
       case "MalformedContentTypeWithPayload":
         return new MalformedContentTypeWithPayloadSerializer();
       case "MalformedDouble":
@@ -2733,6 +2810,10 @@ export const getRestJsonServiceHandler = <Context>(
         return new QueryPrecedenceSerializer();
       case "RecursiveShapes":
         return new RecursiveShapesSerializer();
+      case "ResponseCodeHttpFallback":
+        return new ResponseCodeHttpFallbackSerializer();
+      case "ResponseCodeRequired":
+        return new ResponseCodeRequiredSerializer();
       case "SimpleScalarProperties":
         return new SimpleScalarPropertiesSerializer();
       case "SparseJsonLists":
