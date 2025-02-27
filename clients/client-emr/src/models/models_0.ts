@@ -104,7 +104,8 @@ export interface EbsConfiguration {
   EbsBlockDeviceConfigs?: EbsBlockDeviceConfig[] | undefined;
 
   /**
-   * <p>Indicates whether an Amazon EBS volume is EBS-optimized.</p>
+   * <p>Indicates whether an Amazon EBS volume is EBS-optimized. The default is false. You should explicitly set this value to true to enable the Amazon EBS-optimized setting
+   *          for an EC2 instance.</p>
    * @public
    */
   EbsOptimized?: boolean | undefined;
