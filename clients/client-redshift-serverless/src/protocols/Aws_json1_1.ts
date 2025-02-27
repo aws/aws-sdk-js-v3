@@ -92,6 +92,7 @@ import {
   GetTableRestoreStatusCommandInput,
   GetTableRestoreStatusCommandOutput,
 } from "../commands/GetTableRestoreStatusCommand";
+import { GetTrackCommandInput, GetTrackCommandOutput } from "../commands/GetTrackCommand";
 import { GetUsageLimitCommandInput, GetUsageLimitCommandOutput } from "../commands/GetUsageLimitCommand";
 import { GetWorkgroupCommandInput, GetWorkgroupCommandOutput } from "../commands/GetWorkgroupCommand";
 import {
@@ -122,6 +123,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListTracksCommandInput, ListTracksCommandOutput } from "../commands/ListTracksCommand";
 import { ListUsageLimitsCommandInput, ListUsageLimitsCommandOutput } from "../commands/ListUsageLimitsCommand";
 import { ListWorkgroupsCommandInput, ListWorkgroupsCommandOutput } from "../commands/ListWorkgroupsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
@@ -217,6 +219,7 @@ import {
   GetSnapshotResponse,
   GetTableRestoreStatusRequest,
   GetTableRestoreStatusResponse,
+  GetTrackRequest,
   GetUsageLimitRequest,
   GetWorkgroupRequest,
   GetWorkgroupResponse,
@@ -241,6 +244,7 @@ import {
   ListTableRestoreStatusRequest,
   ListTableRestoreStatusResponse,
   ListTagsForResourceRequest,
+  ListTracksRequest,
   ListUsageLimitsRequest,
   ListWorkgroupsRequest,
   ListWorkgroupsResponse,
@@ -641,6 +645,19 @@ export const se_GetTableRestoreStatusCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetTrackCommand
+ */
+export const se_GetTrackCommand = async (
+  input: GetTrackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetTrack");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetUsageLimitCommand
  */
 export const se_GetUsageLimitCommand = async (
@@ -791,6 +808,19 @@ export const se_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListTracksCommand
+ */
+export const se_ListTracksCommand = async (
+  input: ListTracksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListTracks");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1558,6 +1588,26 @@ export const de_GetTableRestoreStatusCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetTrackCommand
+ */
+export const de_GetTrackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTrackCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetTrackCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetUsageLimitCommand
  */
 export const de_GetUsageLimitCommand = async (
@@ -1791,6 +1841,26 @@ export const de_ListTagsForResourceCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTracksCommand
+ */
+export const de_ListTracksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTracksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTracksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2432,6 +2502,8 @@ const se_CreateScheduledActionRequest = (input: CreateScheduledActionRequest, co
 
 // se_GetTableRestoreStatusRequest omitted.
 
+// se_GetTrackRequest omitted.
+
 // se_GetUsageLimitRequest omitted.
 
 // se_GetWorkgroupRequest omitted.
@@ -2482,6 +2554,8 @@ const se_ListSnapshotsRequest = (input: ListSnapshotsRequest, context: __SerdeCo
 // se_ListTableRestoreStatusRequest omitted.
 
 // se_ListTagsForResourceRequest omitted.
+
+// se_ListTracksRequest omitted.
 
 // se_ListUsageLimitsRequest omitted.
 
@@ -2840,6 +2914,8 @@ const de_GetTableRestoreStatusResponse = (output: any, context: __SerdeContext):
   }) as any;
 };
 
+// de_GetTrackResponse omitted.
+
 // de_GetUsageLimitResponse omitted.
 
 /**
@@ -2939,6 +3015,8 @@ const de_ListTableRestoreStatusResponse = (output: any, context: __SerdeContext)
 };
 
 // de_ListTagsForResourceResponse omitted.
+
+// de_ListTracksResponse omitted.
 
 // de_ListUsageLimitsResponse omitted.
 
@@ -3150,6 +3228,8 @@ const de_ScheduledActionResponse = (output: any, context: __SerdeContext): Sched
 
 // de_SecurityGroupIdList omitted.
 
+// de_ServerlessTrack omitted.
+
 // de_ServiceQuotaExceededException omitted.
 
 /**
@@ -3248,6 +3328,8 @@ const de_TableRestoreStatusList = (output: any, context: __SerdeContext): TableR
 
 // de_TooManyTagsException omitted.
 
+// de_TrackList omitted.
+
 // de_UntagResourceResponse omitted.
 
 /**
@@ -3303,6 +3385,10 @@ const de_UpdateSnapshotResponse = (output: any, context: __SerdeContext): Update
   }) as any;
 };
 
+// de_UpdateTarget omitted.
+
+// de_UpdateTargetsList omitted.
+
 // de_UpdateUsageLimitResponse omitted.
 
 /**
@@ -3348,12 +3434,14 @@ const de_Workgroup = (output: any, context: __SerdeContext): Workgroup => {
     maxCapacity: __expectInt32,
     namespaceName: __expectString,
     patchVersion: __expectString,
+    pendingTrackName: __expectString,
     port: __expectInt32,
     pricePerformanceTarget: _json,
     publiclyAccessible: __expectBoolean,
     securityGroupIds: _json,
     status: __expectString,
     subnetIds: _json,
+    trackName: __expectString,
     workgroupArn: __expectString,
     workgroupId: __expectString,
     workgroupName: __expectString,

@@ -116,6 +116,7 @@ import {
   GetTableRestoreStatusCommandInput,
   GetTableRestoreStatusCommandOutput,
 } from "./commands/GetTableRestoreStatusCommand";
+import { GetTrackCommandInput, GetTrackCommandOutput } from "./commands/GetTrackCommand";
 import { GetUsageLimitCommandInput, GetUsageLimitCommandOutput } from "./commands/GetUsageLimitCommand";
 import { GetWorkgroupCommandInput, GetWorkgroupCommandOutput } from "./commands/GetWorkgroupCommand";
 import {
@@ -146,6 +147,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTracksCommandInput, ListTracksCommandOutput } from "./commands/ListTracksCommand";
 import { ListUsageLimitsCommandInput, ListUsageLimitsCommandOutput } from "./commands/ListUsageLimitsCommand";
 import { ListWorkgroupsCommandInput, ListWorkgroupsCommandOutput } from "./commands/ListWorkgroupsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
@@ -229,6 +231,7 @@ export type ServiceInputTypes =
   | GetScheduledActionCommandInput
   | GetSnapshotCommandInput
   | GetTableRestoreStatusCommandInput
+  | GetTrackCommandInput
   | GetUsageLimitCommandInput
   | GetWorkgroupCommandInput
   | ListCustomDomainAssociationsCommandInput
@@ -241,6 +244,7 @@ export type ServiceInputTypes =
   | ListSnapshotsCommandInput
   | ListTableRestoreStatusCommandInput
   | ListTagsForResourceCommandInput
+  | ListTracksCommandInput
   | ListUsageLimitsCommandInput
   | ListWorkgroupsCommandInput
   | PutResourcePolicyCommandInput
@@ -290,6 +294,7 @@ export type ServiceOutputTypes =
   | GetScheduledActionCommandOutput
   | GetSnapshotCommandOutput
   | GetTableRestoreStatusCommandOutput
+  | GetTrackCommandOutput
   | GetUsageLimitCommandOutput
   | GetWorkgroupCommandOutput
   | ListCustomDomainAssociationsCommandOutput
@@ -302,6 +307,7 @@ export type ServiceOutputTypes =
   | ListSnapshotsCommandOutput
   | ListTableRestoreStatusCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTracksCommandOutput
   | ListUsageLimitsCommandOutput
   | ListWorkgroupsCommandOutput
   | PutResourcePolicyCommandOutput

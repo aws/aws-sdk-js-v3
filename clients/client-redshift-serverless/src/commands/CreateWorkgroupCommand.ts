@@ -87,6 +87,7 @@ export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, _
  *     level: Number("int"),
  *   },
  *   ipAddressType: "STRING_VALUE",
+ *   trackName: "STRING_VALUE",
  * };
  * const command = new CreateWorkgroupCommand(input);
  * const response = await client.send(command);
@@ -147,6 +148,8 @@ export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, _
  * //       status: "STRING_VALUE",
  * //       level: Number("int"),
  * //     },
+ * //     trackName: "STRING_VALUE",
+ * //     pendingTrackName: "STRING_VALUE",
  * //   },
  * // };
  *

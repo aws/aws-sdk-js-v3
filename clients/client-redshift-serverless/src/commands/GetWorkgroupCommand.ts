@@ -101,6 +101,8 @@ export interface GetWorkgroupCommandOutput extends GetWorkgroupResponse, __Metad
  * //       status: "STRING_VALUE",
  * //       level: Number("int"),
  * //     },
+ * //     trackName: "STRING_VALUE",
+ * //     pendingTrackName: "STRING_VALUE",
  * //   },
  * // };
  *

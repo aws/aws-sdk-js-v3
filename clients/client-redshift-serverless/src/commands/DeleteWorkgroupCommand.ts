@@ -101,6 +101,8 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  * //       status: "STRING_VALUE",
  * //       level: Number("int"),
  * //     },
+ * //     trackName: "STRING_VALUE",
+ * //     pendingTrackName: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -31,16 +31,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RedshiftServerlessClient` and
-the commands you need, for example `ListNamespacesCommand`:
+the commands you need, for example `ListTracksCommand`:
 
 ```js
 // ES5 example
-const { RedshiftServerlessClient, ListNamespacesCommand } = require("@aws-sdk/client-redshift-serverless");
+const { RedshiftServerlessClient, ListTracksCommand } = require("@aws-sdk/client-redshift-serverless");
 ```
 
 ```ts
 // ES6+ example
-import { RedshiftServerlessClient, ListNamespacesCommand } from "@aws-sdk/client-redshift-serverless";
+import { RedshiftServerlessClient, ListTracksCommand } from "@aws-sdk/client-redshift-serverless";
 ```
 
 ### Usage
@@ -59,7 +59,7 @@ const client = new RedshiftServerlessClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListNamespacesCommand(params);
+const command = new ListTracksCommand(params);
 ```
 
 #### Async/await
@@ -138,7 +138,7 @@ const client = new AWS.RedshiftServerless({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listNamespaces(params);
+  const data = await client.listTracks(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -146,7 +146,7 @@ try {
 
 // Promises.
 client
-  .listNamespaces(params)
+  .listTracks(params)
   .then((data) => {
     // process data.
   })
@@ -155,7 +155,7 @@ client
   });
 
 // callbacks.
-client.listNamespaces(params, (err, data) => {
+client.listTracks(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -429,6 +429,14 @@ GetTableRestoreStatus
 </details>
 <details>
 <summary>
+GetTrack
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/GetTrackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/GetTrackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/GetTrackCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetUsageLimit
 </summary>
 
@@ -521,6 +529,14 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListTracks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-serverless/command/ListTracksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/ListTracksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-serverless/Interface/ListTracksCommandOutput/)
 
 </details>
 <details>

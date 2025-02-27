@@ -133,6 +133,7 @@ import {
   GetTableRestoreStatusCommandInput,
   GetTableRestoreStatusCommandOutput,
 } from "./commands/GetTableRestoreStatusCommand";
+import { GetTrackCommand, GetTrackCommandInput, GetTrackCommandOutput } from "./commands/GetTrackCommand";
 import {
   GetUsageLimitCommand,
   GetUsageLimitCommandInput,
@@ -193,6 +194,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTracksCommand, ListTracksCommandInput, ListTracksCommandOutput } from "./commands/ListTracksCommand";
 import {
   ListUsageLimitsCommand,
   ListUsageLimitsCommandInput,
@@ -304,6 +306,7 @@ const commands = {
   GetScheduledActionCommand,
   GetSnapshotCommand,
   GetTableRestoreStatusCommand,
+  GetTrackCommand,
   GetUsageLimitCommand,
   GetWorkgroupCommand,
   ListCustomDomainAssociationsCommand,
@@ -316,6 +319,7 @@ const commands = {
   ListSnapshotsCommand,
   ListTableRestoreStatusCommand,
   ListTagsForResourceCommand,
+  ListTracksCommand,
   ListUsageLimitsCommand,
   ListWorkgroupsCommand,
   PutResourcePolicyCommand,
@@ -765,6 +769,17 @@ export interface RedshiftServerless {
   ): void;
 
   /**
+   * @see {@link GetTrackCommand}
+   */
+  getTrack(args: GetTrackCommandInput, options?: __HttpHandlerOptions): Promise<GetTrackCommandOutput>;
+  getTrack(args: GetTrackCommandInput, cb: (err: any, data?: GetTrackCommandOutput) => void): void;
+  getTrack(
+    args: GetTrackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTrackCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetUsageLimitCommand}
    */
   getUsageLimit(args: GetUsageLimitCommandInput, options?: __HttpHandlerOptions): Promise<GetUsageLimitCommandOutput>;
@@ -954,6 +969,18 @@ export interface RedshiftServerless {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTracksCommand}
+   */
+  listTracks(): Promise<ListTracksCommandOutput>;
+  listTracks(args: ListTracksCommandInput, options?: __HttpHandlerOptions): Promise<ListTracksCommandOutput>;
+  listTracks(args: ListTracksCommandInput, cb: (err: any, data?: ListTracksCommandOutput) => void): void;
+  listTracks(
+    args: ListTracksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTracksCommandOutput) => void
   ): void;
 
   /**

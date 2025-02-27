@@ -9,5 +9,6 @@ export * from "./ListScheduledActionsPaginator";
 export * from "./ListSnapshotCopyConfigurationsPaginator";
 export * from "./ListSnapshotsPaginator";
 export * from "./ListTableRestoreStatusPaginator";
+export * from "./ListTracksPaginator";
 export * from "./ListUsageLimitsPaginator";
 export * from "./ListWorkgroupsPaginator";

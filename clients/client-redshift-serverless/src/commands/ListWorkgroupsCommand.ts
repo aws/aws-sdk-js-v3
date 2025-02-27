@@ -105,6 +105,8 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  * //         status: "STRING_VALUE",
  * //         level: Number("int"),
  * //       },
+ * //       trackName: "STRING_VALUE",
+ * //       pendingTrackName: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

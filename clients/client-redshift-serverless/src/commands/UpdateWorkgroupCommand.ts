@@ -82,6 +82,7 @@ export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, _
  *     status: "STRING_VALUE",
  *     level: Number("int"),
  *   },
+ *   trackName: "STRING_VALUE",
  * };
  * const command = new UpdateWorkgroupCommand(input);
  * const response = await client.send(command);
@@ -142,6 +143,8 @@ export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, _
  * //       status: "STRING_VALUE",
  * //       level: Number("int"),
  * //     },
+ * //     trackName: "STRING_VALUE",
+ * //     pendingTrackName: "STRING_VALUE",
  * //   },
  * // };
  *

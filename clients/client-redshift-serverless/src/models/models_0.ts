@@ -1607,6 +1607,13 @@ export interface CreateWorkgroupRequest {
    * @public
    */
   ipAddressType?: string | undefined;
+
+  /**
+   * <p>An optional parameter for the name of the track for the workgroup. If you don't provide
+   *          a track name, the workgroup is assigned to the <code>current</code> track.</p>
+   * @public
+   */
+  trackName?: string | undefined;
 }
 
 /**
@@ -1796,6 +1803,20 @@ export interface Workgroup {
    * @public
    */
   pricePerformanceTarget?: PerformanceTarget | undefined;
+
+  /**
+   * <p>The name of the track for the workgroup.</p>
+   * @public
+   */
+  trackName?: string | undefined;
+
+  /**
+   * <p>The name for the track that you want to assign to the workgroup. When the track changes, the
+   *          workgroup is switched to the latest workgroup release available for the track. At this point, the
+   *          track name is applied.</p>
+   * @public
+   */
+  pendingTrackName?: string | undefined;
 }
 
 /**
@@ -2604,6 +2625,73 @@ export interface GetTableRestoreStatusResponse {
 /**
  * @public
  */
+export interface GetTrackRequest {
+  /**
+   * <p>The name of the track of which its version is fetched.</p>
+   * @public
+   */
+  trackName: string | undefined;
+}
+
+/**
+ * <p>A track that you can switch the current track to.</p>
+ * @public
+ */
+export interface UpdateTarget {
+  /**
+   * <p>The name of the new track.</p>
+   * @public
+   */
+  trackName?: string | undefined;
+
+  /**
+   * <p>The workgroup version for the new track.</p>
+   * @public
+   */
+  workgroupVersion?: string | undefined;
+}
+
+/**
+ * <p>Defines a track that determines which Amazon Redshift version
+ *          to apply after a new version is released. If the value for <code>ServerlessTrack</code> is
+ *          <code>current</code>, the workgroup is updated to the most recently certified release.
+ *          If the value is <code>trailing</code>, the workgroup is updated to the previously certified release.</p>
+ * @public
+ */
+export interface ServerlessTrack {
+  /**
+   * <p>The name of the track. Valid values are <code>current</code> and <code>trailing</code>.</p>
+   * @public
+   */
+  trackName?: string | undefined;
+
+  /**
+   * <p>The workgroup version number for the workgroup release.</p>
+   * @public
+   */
+  workgroupVersion?: string | undefined;
+
+  /**
+   * <p>An array of <code>UpdateTarget</code> objects to update with the track.</p>
+   * @public
+   */
+  updateTargets?: UpdateTarget[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTrackResponse {
+  /**
+   * <p>The version of the specified track.</p>
+   * @public
+   */
+  track?: ServerlessTrack | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetUsageLimitRequest {
   /**
    * <p>The unique identifier of the usage limit to return information for.</p>
@@ -3159,6 +3247,47 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTracksRequest {
+  /**
+   * <p>If your initial <code>ListTracksRequest</code> operation returns a
+   *          <code>nextToken</code>, you can include the returned <code>nextToken</code>
+   *          in following <code>ListTracksRequest</code> operations, which returns results in the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call.
+   *          If the number of remaining response records exceeds the specified
+   *          MaxRecords value, a value is returned in a marker field of the response.
+   *          You can retrieve the next set of records by retrying the command with the
+   *          returned marker value.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTracksResponse {
+  /**
+   * <p>The returned tracks.</p>
+   * @public
+   */
+  tracks?: ServerlessTrack[] | undefined;
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code>
+   *          is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3983,6 +4112,13 @@ export interface UpdateWorkgroupRequest {
    * @public
    */
   pricePerformanceTarget?: PerformanceTarget | undefined;
+
+  /**
+   * <p>An optional parameter for the name of the track for the workgroup. If you don't provide
+   *          a track name, the workgroup is assigned to the <code>current</code> track.</p>
+   * @public
+   */
+  trackName?: string | undefined;
 }
 
 /**
