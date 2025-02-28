@@ -1463,20 +1463,25 @@ export interface UpdateAssociationRequest {
 
   /**
    * <p>By default, when you update an association, the system runs it immediately after it is
-   *    updated and then according to the schedule you specified. Specify this option if you don't want
-   *    an association to run immediately after you update it. This parameter isn't supported for rate
-   *    expressions.</p>
+   *    updated and then according to the schedule you specified. Specify <code>true</code> for
+   *     <code>ApplyOnlyAtCronInterval</code> if you want the association to run only according to the
+   *    schedule you specified.</p>
    *          <p>If you chose this option when you created an association and later you edit that association
-   *    or you make changes to the SSM document on which that association is based (by using the
-   *    Documents page in the console), State Manager applies the association at the next specified cron
-   *    interval. For example, if you chose the <code>Latest</code> version of an SSM document when you
-   *    created an association and you edit the association by choosing a different document version on
-   *    the Documents page, State Manager applies the association at the next specified cron interval if
-   *    you previously selected this option. If this option wasn't selected, State Manager immediately
-   *    runs the association.</p>
-   *          <p>You can reset this option. To do so, specify the <code>no-apply-only-at-cron-interval</code>
-   *    parameter when you update the association from the command line. This parameter forces the
-   *    association to run immediately after updating it and according to the interval specified.</p>
+   *    or you make changes to the Automation runbook or SSM document on which that association is based,
+   *    State Manager applies the association at the next specified cron interval. For example, if you
+   *    chose the <code>Latest</code> version of an SSM document when you created an association and you
+   *    edit the association by choosing a different document version on the Documents page, State
+   *    Manager applies the association at the next specified cron interval if you previously set
+   *     <code>ApplyOnlyAtCronInterval</code> to <code>true</code>. If this option wasn't selected, State
+   *    Manager immediately runs the association.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/state-manager-about.html#state-manager-about-scheduling">Understanding when associations are applied to resources</a> and <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/state-manager-about.html#runbook-target-updates">About
+   *     target updates with Automation runbooks</a> in the
+   *    <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          <p>This parameter isn't supported for rate expressions.</p>
+   *          <p>You can reset this parameter. To do so, specify the
+   *     <code>no-apply-only-at-cron-interval</code> parameter when you update the association from the
+   *    command line. This parameter forces the association to run immediately after updating it and
+   *    according to the interval specified.</p>
    * @public
    */
   ApplyOnlyAtCronInterval?: boolean | undefined;
@@ -1485,7 +1490,7 @@ export interface UpdateAssociationRequest {
    * <p>The names or Amazon Resource Names (ARNs) of the Change Calendar type documents you want to
    *    gate your associations under. The associations only run when that change calendar is open. For
    *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">Amazon Web Services Systems Manager Change
-   *     Calendar</a>.</p>
+   *     Calendar</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   CalendarNames?: string[] | undefined;
@@ -3259,9 +3264,10 @@ export interface GetOpsSummaryRequest {
  */
 export interface ListNodesSummaryRequest {
   /**
-   * <p>The name of the resource data sync to retrieve information about. Required for
-   *    cross-account/cross-Region configuration. Optional for single account/single-Region
-   *    configurations.</p>
+   * <p>The name of the Amazon Web Services managed resource data sync to retrieve information about.</p>
+   *          <p>For cross-account/cross-Region configurations, this parameter is required, and the name of
+   *    the supported resource data sync is <code>AWS-QuickSetup-ManagedNode</code>.</p>
+   *          <p>For single account/single-Region configurations, the parameter is not required.</p>
    * @public
    */
   SyncName?: string | undefined;

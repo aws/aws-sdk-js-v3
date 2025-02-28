@@ -28,7 +28,7 @@ export interface PutParameterCommandInput extends PutParameterRequest {}
 export interface PutParameterCommandOutput extends PutParameterResult, __MetadataBearer {}
 
 /**
- * <p>Add a parameter to the system.</p>
+ * <p>Create or update a parameter in Parameter Store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

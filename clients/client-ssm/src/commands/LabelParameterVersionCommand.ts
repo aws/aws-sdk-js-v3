@@ -100,6 +100,11 @@ export interface LabelParameterVersionCommandOutput extends LabelParameterVersio
  *
  * @throws {@link ParameterNotFound} (client fault)
  *  <p>The parameter couldn't be found. Verify the name and try again.</p>
+ *          <note>
+ *             <p>For the <code>DeleteParameter</code> and <code>GetParameter</code> actions, if the
+ *     specified parameter doesn't exist, the <code>ParameterNotFound</code> exception is
+ *      <i>not</i> recorded in CloudTrail event logs.</p>
+ *          </note>
  *
  * @throws {@link ParameterVersionLabelLimitExceeded} (client fault)
  *  <p>A parameter version can have a maximum of ten labels.</p>

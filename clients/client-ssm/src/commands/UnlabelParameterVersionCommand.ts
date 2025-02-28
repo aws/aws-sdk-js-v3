@@ -66,6 +66,11 @@ export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVe
  *
  * @throws {@link ParameterNotFound} (client fault)
  *  <p>The parameter couldn't be found. Verify the name and try again.</p>
+ *          <note>
+ *             <p>For the <code>DeleteParameter</code> and <code>GetParameter</code> actions, if the
+ *     specified parameter doesn't exist, the <code>ParameterNotFound</code> exception is
+ *      <i>not</i> recorded in CloudTrail event logs.</p>
+ *          </note>
  *
  * @throws {@link ParameterVersionNotFound} (client fault)
  *  <p>The specified parameter version wasn't found. Verify the parameter name and version, and try

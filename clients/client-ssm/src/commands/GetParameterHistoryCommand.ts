@@ -101,6 +101,11 @@ export interface GetParameterHistoryCommandOutput extends GetParameterHistoryRes
  *
  * @throws {@link ParameterNotFound} (client fault)
  *  <p>The parameter couldn't be found. Verify the name and try again.</p>
+ *          <note>
+ *             <p>For the <code>DeleteParameter</code> and <code>GetParameter</code> actions, if the
+ *     specified parameter doesn't exist, the <code>ParameterNotFound</code> exception is
+ *      <i>not</i> recorded in CloudTrail event logs.</p>
+ *          </note>
  *
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>

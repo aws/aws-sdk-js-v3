@@ -1346,18 +1346,22 @@ export interface CreateAssociationRequest {
 
   /**
    * <p>By default, when you create a new association, the system runs it immediately after it is
-   *    created and then according to the schedule you specified. Specify this option if you don't want
-   *    an association to run immediately after you create it. This parameter isn't supported for rate
-   *    expressions.</p>
+   *    created and then according to the schedule you specified and when target changes are detected.
+   *    Specify <code>true</code> for <code>ApplyOnlyAtCronInterval</code>if you want the association to
+   *    run only according to the schedule you specified.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/state-manager-about.html#state-manager-about-scheduling">Understanding when associations are applied to resources</a> and <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/state-manager-about.html#runbook-target-updates">>About
+   *     target updates with Automation runbooks</a> in the
+   *    <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          <p>This parameter isn't supported for rate expressions.</p>
    * @public
    */
   ApplyOnlyAtCronInterval?: boolean | undefined;
 
   /**
-   * <p>The names or Amazon Resource Names (ARNs) of the Change Calendar type documents you want to
+   * <p>The names of Amazon Resource Names (ARNs) of the Change Calendar type documents you want to
    *    gate your associations under. The associations only run when that change calendar is open. For
    *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">Amazon Web Services Systems Manager Change
-   *     Calendar</a>.</p>
+   *     Calendar</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   CalendarNames?: string[] | undefined;
@@ -1671,7 +1675,7 @@ export interface AssociationDescription {
    * <p>The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your
    *    associations are gated under. The associations only run when that change calendar is open. For
    *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">Amazon Web Services Systems Manager Change
-   *     Calendar</a>.</p>
+   *     Calendar</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   CalendarNames?: string[] | undefined;
@@ -2047,10 +2051,14 @@ export interface CreateAssociationBatchRequestEntry {
   SyncCompliance?: AssociationSyncCompliance | undefined;
 
   /**
-   * <p>By default, when you create a new associations, the system runs it immediately after it is
-   *    created and then according to the schedule you specified. Specify this option if you don't want
-   *    an association to run immediately after you create it. This parameter isn't supported for rate
-   *    expressions.</p>
+   * <p>By default, when you create a new association, the system runs it immediately after it is
+   *    created and then according to the schedule you specified and when target changes are detected.
+   *    Specify <code>true</code> for <code>ApplyOnlyAtCronInterval</code> if you want the association to
+   *    run only according to the schedule you specified.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/state-manager-about.html#state-manager-about-scheduling">Understanding when associations are applied to resources</a> and <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/state-manager-about.html#runbook-target-updates">>About
+   *     target updates with Automation runbooks</a> in the
+   *    <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          <p>This parameter isn't supported for rate expressions.</p>
    * @public
    */
   ApplyOnlyAtCronInterval?: boolean | undefined;
@@ -2059,7 +2067,7 @@ export interface CreateAssociationBatchRequestEntry {
    * <p>The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your
    *    associations are gated under. The associations only run when that Change Calendar is open. For
    *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">Amazon Web Services Systems Manager Change
-   *     Calendar</a>.</p>
+   *     Calendar</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   CalendarNames?: string[] | undefined;
@@ -4767,6 +4775,11 @@ export interface DeleteParameterResult {}
 
 /**
  * <p>The parameter couldn't be found. Verify the name and try again.</p>
+ *          <note>
+ *             <p>For the <code>DeleteParameter</code> and <code>GetParameter</code> actions, if the
+ *     specified parameter doesn't exist, the <code>ParameterNotFound</code> exception is
+ *      <i>not</i> recorded in CloudTrail event logs.</p>
+ *          </note>
  * @public
  */
 export class ParameterNotFound extends __BaseException {

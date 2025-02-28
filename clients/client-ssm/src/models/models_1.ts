@@ -2144,7 +2144,7 @@ export interface GetAutomationExecutionResult {
  */
 export interface GetCalendarStateRequest {
   /**
-   * <p>The names or Amazon Resource Names (ARNs) of the Systems Manager documents (SSM documents) that
+   * <p>The names of Amazon Resource Names (ARNs) of the Systems Manager documents (SSM documents) that
    *    represent the calendar entries for which you want to get the state.</p>
    * @public
    */
@@ -5976,7 +5976,7 @@ export interface AssociationVersionInfo {
   SyncCompliance?: AssociationSyncCompliance | undefined;
 
   /**
-   * <p>By default, when you create a new associations, the system runs it immediately after it is
+   * <p>By default, when you create new associations, the system runs it immediately after it is
    *    created and then according to the schedule you specified. Specify this option if you don't want
    *    an association to run immediately after you create it. This parameter isn't supported for rate
    *    expressions.</p>
@@ -5988,7 +5988,7 @@ export interface AssociationVersionInfo {
    * <p>The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your
    *    associations are gated under. The associations for this version only run when that Change
    *    Calendar is open. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">Amazon Web Services Systems Manager Change
-   *     Calendar</a>.</p>
+   *     Calendar</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   CalendarNames?: string[] | undefined;
@@ -8142,9 +8142,10 @@ export interface NodeFilter {
  */
 export interface ListNodesRequest {
   /**
-   * <p>The name of the resource data sync to retrieve information about. Required for
-   *    cross-account/cross-Region configurations. Optional for single account/single-Region
-   *    configurations.</p>
+   * <p>The name of the Amazon Web Services managed resource data sync to retrieve information about.</p>
+   *          <p>For cross-account/cross-Region configurations, this parameter is required, and the name of
+   *    the supported resource data sync is <code>AWS-QuickSetup-ManagedNode</code>.</p>
+   *          <p>For single account/single-Region configurations, the parameter is not required.</p>
    * @public
    */
   SyncName?: string | undefined;
@@ -9251,7 +9252,7 @@ export interface ModifyDocumentPermissionRequest {
 
   /**
    * <p>The Amazon Web Services users that should have access to the document. The account IDs can either be a
-   *    group of account IDs or <i>All</i>.</p>
+   *    group of account IDs or <i>All</i>. </p>
    * @public
    */
   AccountIdsToAdd?: string[] | undefined;
@@ -9260,7 +9261,7 @@ export interface ModifyDocumentPermissionRequest {
    * <p>The Amazon Web Services users that should no longer have access to the document. The Amazon Web Services user
    *    can either be a group of account IDs or <i>All</i>. This action has a higher
    *    priority than <code>AccountIdsToAdd</code>. If you specify an ID to add and the same ID to
-   *    remove, the system removes access to the document.</p>
+   *    remove, the system removes access to the document. </p>
    * @public
    */
   AccountIdsToRemove?: string[] | undefined;
@@ -9961,7 +9962,7 @@ export class PoliciesLimitExceededException extends __BaseException {
  */
 export interface PutParameterRequest {
   /**
-   * <p>The fully qualified name of the parameter that you want to add to the system.</p>
+   * <p>The fully qualified name of the parameter that you want to create or update.</p>
    *          <note>
    *             <p>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter name
    *     itself.</p>
@@ -10031,7 +10032,7 @@ export interface PutParameterRequest {
   Value: string | undefined;
 
   /**
-   * <p>The type of parameter that you want to add to the system.</p>
+   * <p>The type of parameter that you want to create.</p>
    *          <note>
    *             <p>
    *                <code>SecureString</code> isn't currently supported for CloudFormation templates.</p>
@@ -10051,7 +10052,7 @@ export interface PutParameterRequest {
    * <p>The Key Management Service (KMS) ID that you want to use to encrypt a
    *    parameter. Use a custom key for better security. Required for parameters that use the <code>SecureString</code> data type.</p>
    *          <p>If you don't specify a key ID, the system uses the default key associated with your
-   *    Amazon Web Services account which is not as secure as using a custom key.</p>
+   *    Amazon Web Services account, which is not as secure as using a custom key.</p>
    *          <ul>
    *             <li>
    *                <p>To use a custom KMS key, choose the <code>SecureString</code>
