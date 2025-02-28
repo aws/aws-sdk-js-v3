@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.759.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.758.0...v3.759.0) (2025-02-28)
+
+
+### Features
+
+* **client-bedrock-agent:** This release lets Amazon Bedrock Flows support newer models by increasing the maximum length of output in a prompt configuration. This release also increases the maximum number of prompt variables to 20 and the maximum number of node inputs to 20. ([39f03eb](https://github.com/aws/aws-sdk-js-v3/commit/39f03eb64e8d8369b3ae8fa925bbd733c0691b8a))
+* **client-bedrock-data-automation-runtime:** Added a mandatory parameter DataAutomationProfileArn to support for cross region inference for InvokeDataAutomationAsync API. Renamed DataAutomationArn to DataAutomationProjectArn. Added APIs to support tagging. ([4d48950](https://github.com/aws/aws-sdk-js-v3/commit/4d48950ede309b0fed0d6fc85e2eb11246514416))
+* **client-bedrock-data-automation:** Renamed and added new StandardConfiguration enums. Added support to update EncryptionConfiguration in UpdateBlueprint and UpdateDataAutomation APIs. Changed HttpStatus code for DeleteBlueprint and DeleteDataAutomationProject APIs to 200 from 204. Added APIs to support tagging. ([15f7c5a](https://github.com/aws/aws-sdk-js-v3/commit/15f7c5ac37b27a5d99a2700cf5fe03dd0eef7925))
+* **client-database-migration-service:** Add skipped status to the Result Statistics of an Assessment Run ([e2316ab](https://github.com/aws/aws-sdk-js-v3/commit/e2316abb7ce93fd0fe4d58033cb13b0cc330f37a))
+* **client-eks:** Adding licenses to EKS Anywhere Subscription operations response. ([a76ce64](https://github.com/aws/aws-sdk-js-v3/commit/a76ce64c878a5bdb6e9b7d8c1c95c47906016b45))
+* **client-mediaconvert:** The AWS MediaConvert Probe API allows you to analyze media files and retrieve detailed metadata about their content, format, and structure. ([0eb9cee](https://github.com/aws/aws-sdk-js-v3/commit/0eb9cee8e86998de04bd19db6bebfe528cf83127))
+* **client-pricing:** Update GetProducts and DescribeServices API request input validations. ([2657cc9](https://github.com/aws/aws-sdk-js-v3/commit/2657cc9719514b268fbf14478708d1f2b62f69c4))
+* **clients:** update client endpoints as of 2025-02-28 ([a25751f](https://github.com/aws/aws-sdk-js-v3/commit/a25751f8d337fd067c859f57d1d8c8ccc5af6f29))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 

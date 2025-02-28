@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.759.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.758.0...v3.759.0) (2025-02-28)
+
+
+### Features
+
+* **client-mediaconvert:** The AWS MediaConvert Probe API allows you to analyze media files and retrieve detailed metadata about their content, format, and structure. ([0eb9cee](https://github.com/aws/aws-sdk-js-v3/commit/0eb9cee8e86998de04bd19db6bebfe528cf83127))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert
