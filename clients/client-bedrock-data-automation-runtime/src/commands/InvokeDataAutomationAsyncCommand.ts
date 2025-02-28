@@ -48,7 +48,7 @@ export interface InvokeDataAutomationAsyncCommandOutput extends InvokeDataAutoma
  *     s3Uri: "STRING_VALUE", // required
  *   },
  *   dataAutomationConfiguration: { // DataAutomationConfiguration
- *     dataAutomationArn: "STRING_VALUE", // required
+ *     dataAutomationProjectArn: "STRING_VALUE", // required
  *     stage: "LIVE" || "DEVELOPMENT",
  *   },
  *   encryptionConfiguration: { // EncryptionConfiguration
@@ -67,6 +67,13 @@ export interface InvokeDataAutomationAsyncCommandOutput extends InvokeDataAutoma
  *       blueprintArn: "STRING_VALUE", // required
  *       version: "STRING_VALUE",
  *       stage: "DEVELOPMENT" || "LIVE",
+ *     },
+ *   ],
+ *   dataAutomationProfileArn: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
  *     },
  *   ],
  * };

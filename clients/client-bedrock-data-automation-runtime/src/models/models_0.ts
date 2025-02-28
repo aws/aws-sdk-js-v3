@@ -232,10 +232,10 @@ export type DataAutomationStage = (typeof DataAutomationStage)[keyof typeof Data
  */
 export interface DataAutomationConfiguration {
   /**
-   * Data automation arn.
+   * Data automation project arn.
    * @public
    */
-  dataAutomationArn: string | undefined;
+  dataAutomationProjectArn: string | undefined;
 
   /**
    * Data automation stage.
@@ -250,7 +250,7 @@ export interface DataAutomationConfiguration {
  */
 export interface EncryptionConfiguration {
   /**
-   * KMS key id.
+   * Customer KMS key used for encryption
    * @public
    */
   kmsKeyId: string | undefined;
@@ -299,6 +299,24 @@ export interface NotificationConfiguration {
 }
 
 /**
+ * Key value pair of a tag
+ * @public
+ */
+export interface Tag {
+  /**
+   * Defines the context of the tag.
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * Defines the value within the context. e.g. <key=reason, value=training>.
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
  * Invoke Data Automation Async Request
  * @public
  */
@@ -344,6 +362,18 @@ export interface InvokeDataAutomationAsyncRequest {
    * @public
    */
   blueprints?: Blueprint[] | undefined;
+
+  /**
+   * Data automation profile ARN
+   * @public
+   */
+  dataAutomationProfileArn: string | undefined;
+
+  /**
+   * List of tags.
+   * @public
+   */
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -377,3 +407,69 @@ export class ServiceQuotaExceededException extends __BaseException {
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
   }
 }
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * ARN of a taggable resource
+   * @public
+   */
+  resourceARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * List of tags
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * ARN of a taggable resource
+   * @public
+   */
+  resourceARN: string | undefined;
+
+  /**
+   * List of tags
+   * @public
+   */
+  tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * ARN of a taggable resource
+   * @public
+   */
+  resourceARN: string | undefined;
+
+  /**
+   * List of tag keys
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}

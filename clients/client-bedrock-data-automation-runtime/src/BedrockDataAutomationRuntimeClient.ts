@@ -62,6 +62,12 @@ import {
   InvokeDataAutomationAsyncCommandOutput,
 } from "./commands/InvokeDataAutomationAsyncCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -75,12 +81,22 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = GetDataAutomationStatusCommandInput | InvokeDataAutomationAsyncCommandInput;
+export type ServiceInputTypes =
+  | GetDataAutomationStatusCommandInput
+  | InvokeDataAutomationAsyncCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = GetDataAutomationStatusCommandOutput | InvokeDataAutomationAsyncCommandOutput;
+export type ServiceOutputTypes =
+  | GetDataAutomationStatusCommandOutput
+  | InvokeDataAutomationAsyncCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 /**
  * @public

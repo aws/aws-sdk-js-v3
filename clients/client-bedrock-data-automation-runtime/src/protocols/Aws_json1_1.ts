@@ -24,6 +24,12 @@ import {
   InvokeDataAutomationAsyncCommandInput,
   InvokeDataAutomationAsyncCommandOutput,
 } from "../commands/InvokeDataAutomationAsyncCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { BedrockDataAutomationRuntimeServiceException as __BaseException } from "../models/BedrockDataAutomationRuntimeServiceException";
 import {
   AccessDeniedException,
@@ -35,11 +41,15 @@ import {
   InputConfiguration,
   InternalServerException,
   InvokeDataAutomationAsyncRequest,
+  ListTagsForResourceRequest,
   NotificationConfiguration,
   OutputConfiguration,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  Tag,
+  TagResourceRequest,
   ThrottlingException,
+  UntagResourceRequest,
   ValidationException,
 } from "../models/models_0";
 
@@ -66,6 +76,45 @@ export const se_InvokeDataAutomationAsyncCommand = async (
   const headers: __HeaderBag = sharedHeaders("InvokeDataAutomationAsync");
   let body: any;
   body = JSON.stringify(se_InvokeDataAutomationAsyncRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -103,6 +152,66 @@ export const de_InvokeDataAutomationAsyncCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: InvokeDataAutomationAsyncCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -261,16 +370,30 @@ const se_InvokeDataAutomationAsyncRequest = (input: InvokeDataAutomationAsyncReq
     blueprints: _json,
     clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     dataAutomationConfiguration: _json,
+    dataAutomationProfileArn: [],
     encryptionConfiguration: _json,
     inputConfiguration: _json,
     notificationConfiguration: _json,
     outputConfiguration: _json,
+    tags: _json,
   });
 };
+
+// se_ListTagsForResourceRequest omitted.
 
 // se_NotificationConfiguration omitted.
 
 // se_OutputConfiguration omitted.
+
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
+// se_TagResourceRequest omitted.
+
+// se_UntagResourceRequest omitted.
 
 // de_AccessDeniedException omitted.
 
@@ -280,13 +403,23 @@ const se_InvokeDataAutomationAsyncRequest = (input: InvokeDataAutomationAsyncReq
 
 // de_InvokeDataAutomationAsyncResponse omitted.
 
+// de_ListTagsForResourceResponse omitted.
+
 // de_OutputConfiguration omitted.
 
 // de_ResourceNotFoundException omitted.
 
 // de_ServiceQuotaExceededException omitted.
 
+// de_Tag omitted.
+
+// de_TagList omitted.
+
+// de_TagResourceResponse omitted.
+
 // de_ThrottlingException omitted.
+
+// de_UntagResourceResponse omitted.
 
 // de_ValidationException omitted.
 

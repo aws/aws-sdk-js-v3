@@ -23,13 +23,13 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `BedrockDataAutomationRuntimeClient` and
-the commands you need, for example `GetDataAutomationStatusCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
 const {
   BedrockDataAutomationRuntimeClient,
-  GetDataAutomationStatusCommand,
+  ListTagsForResourceCommand,
 } = require("@aws-sdk/client-bedrock-data-automation-runtime");
 ```
 
@@ -37,7 +37,7 @@ const {
 // ES6+ example
 import {
   BedrockDataAutomationRuntimeClient,
-  GetDataAutomationStatusCommand,
+  ListTagsForResourceCommand,
 } from "@aws-sdk/client-bedrock-data-automation-runtime";
 ```
 
@@ -57,7 +57,7 @@ const client = new BedrockDataAutomationRuntimeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new GetDataAutomationStatusCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.BedrockDataAutomationRuntime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.getDataAutomationStatus(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .getDataAutomationStatus(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.getDataAutomationStatus(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -223,5 +223,29 @@ InvokeDataAutomationAsync
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-data-automation-runtime/command/InvokeDataAutomationAsyncCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation-runtime/Interface/InvokeDataAutomationAsyncCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation-runtime/Interface/InvokeDataAutomationAsyncCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-data-automation-runtime/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation-runtime/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation-runtime/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-data-automation-runtime/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation-runtime/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation-runtime/Interface/TagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-data-automation-runtime/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation-runtime/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation-runtime/Interface/UntagResourceCommandOutput/)
 
 </details>
