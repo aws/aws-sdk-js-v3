@@ -8,6 +8,7 @@ export * from "./FractionalSecondsCommand";
 export * from "./GreetingWithErrorsCommand";
 export * from "./HostWithPathOperationCommand";
 export * from "./JsonEnumsCommand";
+export * from "./JsonIntEnumsCommand";
 export * from "./JsonUnionsCommand";
 export * from "./KitchenSinkOperationCommand";
 export * from "./NullOperationCommand";

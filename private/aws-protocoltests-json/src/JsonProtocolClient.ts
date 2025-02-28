@@ -78,6 +78,7 @@ import {
   HostWithPathOperationCommandOutput,
 } from "./commands/HostWithPathOperationCommand";
 import { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
+import { JsonIntEnumsCommandInput, JsonIntEnumsCommandOutput } from "./commands/JsonIntEnumsCommand";
 import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/JsonUnionsCommand";
 import {
   KitchenSinkOperationCommandInput,
@@ -122,6 +123,7 @@ export type ServiceInputTypes =
   | GreetingWithErrorsCommandInput
   | HostWithPathOperationCommandInput
   | JsonEnumsCommandInput
+  | JsonIntEnumsCommandInput
   | JsonUnionsCommandInput
   | KitchenSinkOperationCommandInput
   | NullOperationCommandInput
@@ -144,6 +146,7 @@ export type ServiceOutputTypes =
   | GreetingWithErrorsCommandOutput
   | HostWithPathOperationCommandOutput
   | JsonEnumsCommandOutput
+  | JsonIntEnumsCommandOutput
   | JsonUnionsCommandOutput
   | KitchenSinkOperationCommandOutput
   | NullOperationCommandOutput

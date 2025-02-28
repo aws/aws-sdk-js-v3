@@ -891,6 +891,13 @@ export interface MalformedContentTypeWithGenericStringInput {
 /**
  * @public
  */
+export interface MalformedContentTypeWithoutBodyEmptyInputInput {
+  header?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface MalformedContentTypeWithPayloadInput {
   payload?: Uint8Array | undefined;
 }
@@ -1391,6 +1398,18 @@ export interface QueryParamsAsStringListMapInput {
 export interface QueryPrecedenceInput {
   foo?: string | undefined;
   baz?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResponseCodeHttpFallbackInputOutput {}
+
+/**
+ * @public
+ */
+export interface ResponseCodeRequiredOutput {
+  responseCode: number | undefined;
 }
 
 /**

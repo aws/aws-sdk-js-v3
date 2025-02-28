@@ -30,6 +30,12 @@ export const FooEnum = {
  */
 export type FooEnum = (typeof FooEnum)[keyof typeof FooEnum];
 
+export enum IntegerEnum {
+  A = 1,
+  B = 2,
+  C = 3,
+}
+
 /**
  * @public
  */
@@ -192,6 +198,18 @@ export interface JsonEnumsInputOutput {
   fooEnumList?: FooEnum[] | undefined;
   fooEnumSet?: FooEnum[] | undefined;
   fooEnumMap?: Record<string, FooEnum> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface JsonIntEnumsInputOutput {
+  intEnum1?: IntegerEnum | undefined;
+  intEnum2?: IntegerEnum | undefined;
+  intEnum3?: IntegerEnum | undefined;
+  intEnumList?: IntegerEnum[] | undefined;
+  intEnumSet?: IntegerEnum[] | undefined;
+  intEnumMap?: Record<string, IntegerEnum> | undefined;
 }
 
 /**

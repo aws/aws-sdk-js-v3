@@ -214,6 +214,10 @@ import {
   MalformedContentTypeWithoutBodyServerOutput,
 } from "../server/operations/MalformedContentTypeWithoutBody";
 import {
+  MalformedContentTypeWithoutBodyEmptyInputServerInput,
+  MalformedContentTypeWithoutBodyEmptyInputServerOutput,
+} from "../server/operations/MalformedContentTypeWithoutBodyEmptyInput";
+import {
   MalformedContentTypeWithPayloadServerInput,
   MalformedContentTypeWithPayloadServerOutput,
 } from "../server/operations/MalformedContentTypeWithPayload";
@@ -324,6 +328,14 @@ import {
 } from "../server/operations/QueryParamsAsStringListMap";
 import { QueryPrecedenceServerInput, QueryPrecedenceServerOutput } from "../server/operations/QueryPrecedence";
 import { RecursiveShapesServerInput, RecursiveShapesServerOutput } from "../server/operations/RecursiveShapes";
+import {
+  ResponseCodeHttpFallbackServerInput,
+  ResponseCodeHttpFallbackServerOutput,
+} from "../server/operations/ResponseCodeHttpFallback";
+import {
+  ResponseCodeRequiredServerInput,
+  ResponseCodeRequiredServerOutput,
+} from "../server/operations/ResponseCodeRequired";
 import {
   SimpleScalarPropertiesServerInput,
   SimpleScalarPropertiesServerOutput,
@@ -2032,6 +2044,33 @@ export const deserializeMalformedContentTypeWithoutBodyRequest = async (
   return contents;
 };
 
+export const deserializeMalformedContentTypeWithoutBodyEmptyInputRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<MalformedContentTypeWithoutBodyEmptyInputServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({
+    [_h]: [, output.headers[_h]],
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
 export const deserializeMalformedContentTypeWithPayloadRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
@@ -3435,6 +3474,56 @@ export const deserializeRecursiveShapesRequest = async (
     nested: (_) => de_RecursiveShapesInputOutputNested1(_, context),
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+export const deserializeResponseCodeHttpFallbackRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<ResponseCodeHttpFallbackServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  await collectBody(output.body, context);
+  return contents;
+};
+
+export const deserializeResponseCodeRequiredRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<ResponseCodeRequiredServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined) {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -5701,6 +5790,40 @@ export const serializeMalformedContentTypeWithoutBodyResponse = async (
   });
 };
 
+export const serializeMalformedContentTypeWithoutBodyEmptyInputResponse = async (
+  input: MalformedContentTypeWithoutBodyEmptyInputServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {});
+  let body: any;
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
 export const serializeMalformedContentTypeWithPayloadResponse = async (
   input: MalformedContentTypeWithPayloadServerOutput,
   ctx: ServerSerdeContext
@@ -7095,6 +7218,83 @@ export const serializeRecursiveShapesResponse = async (
       nested: (_) => se_RecursiveShapesInputOutputNested1(_, context),
     })
   );
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeResponseCodeHttpFallbackResponse = async (
+  input: ResponseCodeHttpFallbackServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 201;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = "{}";
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeResponseCodeRequiredResponse = async (
+  input: ResponseCodeRequiredServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  let statusCode = 200;
+  if (input.responseCode !== undefined) {
+    statusCode = input.responseCode;
+  }
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = "{}";
   if (
     body &&
     Object.keys(headers)
@@ -9169,6 +9369,7 @@ const _f = "foo";
 const _fIH = "floatInHeader";
 const _fl = "floatinheader";
 const _g = "greeting";
+const _h = "header";
 const _hB = "headerByte";
 const _hBL = "headerBooleanList";
 const _hD = "headerDouble";

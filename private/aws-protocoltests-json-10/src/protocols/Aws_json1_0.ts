@@ -72,6 +72,10 @@ import {
   OperationWithRequiredMembersCommandOutput,
 } from "../commands/OperationWithRequiredMembersCommand";
 import {
+  OperationWithRequiredMembersWithDefaultsCommandInput,
+  OperationWithRequiredMembersWithDefaultsCommandOutput,
+} from "../commands/OperationWithRequiredMembersWithDefaultsCommand";
+import {
   PutWithContentEncodingCommandInput,
   PutWithContentEncodingCommandOutput,
 } from "../commands/PutWithContentEncodingCommand";
@@ -101,6 +105,7 @@ import {
   OperationWithDefaultsOutput,
   OperationWithNestedStructureInput,
   OperationWithRequiredMembersOutput,
+  OperationWithRequiredMembersWithDefaultsOutput,
   PutWithContentEncodingInput,
   SimpleScalarPropertiesInput,
   SimpleScalarPropertiesOutput,
@@ -272,6 +277,18 @@ export const se_OperationWithRequiredMembersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("OperationWithRequiredMembers");
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0OperationWithRequiredMembersWithDefaultsCommand
+ */
+export const se_OperationWithRequiredMembersWithDefaultsCommand = async (
+  input: OperationWithRequiredMembersWithDefaultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("OperationWithRequiredMembersWithDefaults");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -524,6 +541,26 @@ export const de_OperationWithRequiredMembersCommand = async (
   let contents: any = {};
   contents = de_OperationWithRequiredMembersOutput(data, context);
   const response: OperationWithRequiredMembersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0OperationWithRequiredMembersWithDefaultsCommand
+ */
+export const de_OperationWithRequiredMembersWithDefaultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<OperationWithRequiredMembersWithDefaultsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_OperationWithRequiredMembersWithDefaultsOutput(data, context);
+  const response: OperationWithRequiredMembersWithDefaultsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -908,6 +945,31 @@ const de_OperationWithRequiredMembersOutput = (
     requiredByte: __expectByte,
     requiredDouble: __limitedParseDouble,
     requiredFloat: __limitedParseFloat32,
+    requiredInteger: __expectInt32,
+    requiredList: _json,
+    requiredLong: __expectLong,
+    requiredMap: _json,
+    requiredShort: __expectShort,
+    requiredString: __expectString,
+    requiredTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0OperationWithRequiredMembersWithDefaultsOutput
+ */
+const de_OperationWithRequiredMembersWithDefaultsOutput = (
+  output: any,
+  context: __SerdeContext
+): OperationWithRequiredMembersWithDefaultsOutput => {
+  return take(output, {
+    requiredBlob: context.base64Decoder,
+    requiredBoolean: __expectBoolean,
+    requiredByte: __expectByte,
+    requiredDouble: __limitedParseDouble,
+    requiredEnum: __expectString,
+    requiredFloat: __limitedParseFloat32,
+    requiredIntEnum: __expectInt32,
     requiredInteger: __expectInt32,
     requiredList: _json,
     requiredLong: __expectLong,

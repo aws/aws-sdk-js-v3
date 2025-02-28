@@ -15,6 +15,7 @@ import { NoInputAndOutputCommand } from "../../src/commands/NoInputAndOutputComm
 import { OperationWithDefaultsCommand } from "../../src/commands/OperationWithDefaultsCommand";
 import { OperationWithNestedStructureCommand } from "../../src/commands/OperationWithNestedStructureCommand";
 import { OperationWithRequiredMembersCommand } from "../../src/commands/OperationWithRequiredMembersCommand";
+import { OperationWithRequiredMembersWithDefaultsCommand } from "../../src/commands/OperationWithRequiredMembersWithDefaultsCommand";
 import { PutWithContentEncodingCommand } from "../../src/commands/PutWithContentEncodingCommand";
 import { SimpleScalarPropertiesCommand } from "../../src/commands/SimpleScalarPropertiesCommand";
 import { JSONRPC10Client } from "../../src/JSONRPC10Client";
@@ -2740,6 +2741,57 @@ it.skip("AwsJson10ClientErrorCorrectsWhenServerFailsToSerializeRequiredValues:Re
       requiredFloat: 0.0,
       requiredDouble: 0.0,
       requiredMap: {},
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
+  });
+});
+
+/**
+ * Client error corrects with default values when server fails to serialize required values.
+ */
+it.skip("AwsJson10ClientErrorCorrectsWithDefaultValuesWhenServerFailsToSerializeRequiredValues:Response", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.0",
+      },
+      `{}`
+    ),
+  });
+
+  const params: any = {};
+  const command = new OperationWithRequiredMembersWithDefaultsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      requiredString: "hi",
+      requiredBoolean: true,
+      requiredList: [],
+      requiredTimestamp: new Date(1 * 1000),
+      requiredBlob: Uint8Array.from("blob", (c) => c.charCodeAt(0)),
+      requiredByte: 1,
+      requiredShort: 1,
+      requiredInteger: 10,
+      requiredLong: 100,
+      requiredFloat: 1.0,
+      requiredDouble: 1.0,
+      requiredMap: {},
+      requiredEnum: "FOO",
+      requiredIntEnum: 1,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

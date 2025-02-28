@@ -94,6 +94,10 @@ import {
   OperationWithRequiredMembersCommandOutput,
 } from "./commands/OperationWithRequiredMembersCommand";
 import {
+  OperationWithRequiredMembersWithDefaultsCommandInput,
+  OperationWithRequiredMembersWithDefaultsCommandOutput,
+} from "./commands/OperationWithRequiredMembersWithDefaultsCommand";
+import {
   PutWithContentEncodingCommandInput,
   PutWithContentEncodingCommandOutput,
 } from "./commands/PutWithContentEncodingCommand";
@@ -122,6 +126,7 @@ export type ServiceInputTypes =
   | OperationWithDefaultsCommandInput
   | OperationWithNestedStructureCommandInput
   | OperationWithRequiredMembersCommandInput
+  | OperationWithRequiredMembersWithDefaultsCommandInput
   | PutWithContentEncodingCommandInput
   | SimpleScalarPropertiesCommandInput;
 
@@ -141,6 +146,7 @@ export type ServiceOutputTypes =
   | OperationWithDefaultsCommandOutput
   | OperationWithNestedStructureCommandOutput
   | OperationWithRequiredMembersCommandOutput
+  | OperationWithRequiredMembersWithDefaultsCommandOutput
   | PutWithContentEncodingCommandOutput
   | SimpleScalarPropertiesCommandOutput;
 

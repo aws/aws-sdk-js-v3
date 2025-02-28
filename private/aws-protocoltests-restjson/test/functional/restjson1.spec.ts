@@ -2804,8 +2804,8 @@ it("RestJsonHttpPrefixHeadersArePresent:Request", async () => {
   const command = new HttpPrefixHeadersCommand({
     foo: "Foo",
     fooMap: {
-      Abc: "Abc value",
-      Def: "Def value",
+      abc: "Abc value",
+      def: "Def value",
     } as any,
   } as any);
   try {
@@ -2876,7 +2876,7 @@ it("RestJsonHttpPrefixEmptyHeaders:Request", async () => {
 
   const command = new HttpPrefixHeadersCommand({
     fooMap: {
-      Abc: "",
+      abc: "",
     } as any,
   } as any);
   try {

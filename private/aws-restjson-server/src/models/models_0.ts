@@ -3358,6 +3358,38 @@ export namespace MalformedContentTypeWithGenericStringInput {
 /**
  * @public
  */
+export interface MalformedContentTypeWithoutBodyEmptyInputInput {
+  header?: string | undefined;
+}
+
+export namespace MalformedContentTypeWithoutBodyEmptyInputInput {
+  const memberValidators: {
+    header?: __MultiConstraintValidator<string>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: MalformedContentTypeWithoutBodyEmptyInputInput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "header": {
+            memberValidators["header"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("header").validate(obj.header, `${path}/header`)];
+  };
+}
+
+/**
+ * @public
+ */
 export interface MalformedContentTypeWithPayloadInput {
   payload?: Uint8Array | undefined;
 }
@@ -5543,6 +5575,62 @@ export namespace QueryPrecedenceInput {
       ...getMemberValidator("foo").validate(obj.foo, `${path}/foo`),
       ...getMemberValidator("baz").validate(obj.baz, `${path}/baz`),
     ];
+  };
+}
+
+/**
+ * @public
+ */
+export interface ResponseCodeHttpFallbackInputOutput {}
+
+export namespace ResponseCodeHttpFallbackInputOutput {
+  const memberValidators: {} = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: ResponseCodeHttpFallbackInputOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [];
+  };
+}
+
+/**
+ * @public
+ */
+export interface ResponseCodeRequiredOutput {
+  responseCode: number | undefined;
+}
+
+export namespace ResponseCodeRequiredOutput {
+  const memberValidators: {
+    responseCode?: __MultiConstraintValidator<number>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: ResponseCodeRequiredOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "responseCode": {
+            memberValidators["responseCode"] = new __CompositeValidator<number>([new __RequiredValidator()]);
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("responseCode").validate(obj.responseCode, `${path}/responseCode`)];
   };
 }
 

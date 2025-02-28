@@ -124,6 +124,7 @@ import { MalformedBoolean } from "../../src/server/operations/MalformedBoolean";
 import { MalformedByte } from "../../src/server/operations/MalformedByte";
 import { MalformedContentTypeWithBody } from "../../src/server/operations/MalformedContentTypeWithBody";
 import { MalformedContentTypeWithoutBody } from "../../src/server/operations/MalformedContentTypeWithoutBody";
+import { MalformedContentTypeWithoutBodyEmptyInput } from "../../src/server/operations/MalformedContentTypeWithoutBodyEmptyInput";
 import { MalformedContentTypeWithPayload } from "../../src/server/operations/MalformedContentTypeWithPayload";
 import { MalformedDouble } from "../../src/server/operations/MalformedDouble";
 import { MalformedFloat } from "../../src/server/operations/MalformedFloat";
@@ -195,6 +196,14 @@ import {
   RecursiveShapesSerializer,
   RecursiveShapesServerOutput,
 } from "../../src/server/operations/RecursiveShapes";
+import {
+  ResponseCodeHttpFallbackSerializer,
+  ResponseCodeHttpFallbackServerOutput,
+} from "../../src/server/operations/ResponseCodeHttpFallback";
+import {
+  ResponseCodeRequiredSerializer,
+  ResponseCodeRequiredServerOutput,
+} from "../../src/server/operations/ResponseCodeRequired";
 import {
   SimpleScalarProperties,
   SimpleScalarPropertiesSerializer,
@@ -3289,8 +3298,8 @@ it("RestJsonHttpPrefixHeadersArePresent:ServerResponse", async () => {
       const response = {
         foo: "Foo",
         fooMap: {
-          Abc: "Abc value",
-          Def: "Def value",
+          abc: "Abc value",
+          def: "Def value",
         } as any,
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -3346,8 +3355,8 @@ it("HttpPrefixHeadersResponse:ServerResponse", async () => {
     HttpPrefixHeadersInResponse(input: any, ctx: {}): Promise<HttpPrefixHeadersInResponseServerOutput> {
       const response = {
         prefixHeaders: {
-          "X-Foo": "Foo",
-          Hello: "Hello",
+          "x-foo": "Foo",
+          hello: "Hello",
         } as any,
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -14546,6 +14555,44 @@ it("RestJsonWithoutBodyExpectsEmptyContentType:MalformedRequest", async () => {
     method: "POST",
     hostname: "foo.example.com",
     path: "/MalformedContentTypeWithoutBody",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(["{}"]),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(415);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("UnsupportedMediaTypeException");
+});
+
+/**
+ * When there is no modeled body input, content type must not be set and the body must be empty.
+ */
+it.skip("RestJsonWithoutBodyEmptyInputExpectsEmptyContentType:MalformedRequest", async () => {
+  const testFunction = vi.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonService<{}>> = {
+    MalformedContentTypeWithoutBodyEmptyInput: testFunction as MalformedContentTypeWithoutBodyEmptyInput<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedContentTypeWithoutBodyEmptyInput",
     query: {},
     headers: {
       "content-type": "application/json",
@@ -27857,7 +27904,7 @@ it("RestJsonNoInputAndOutputWithJson:ServerResponse", async () => {
 });
 
 /**
- * Do not send null or empty headers
+ * Do not send null values, but do send empty strings and empty lists over the wire in headers
  */
 it.skip("RestJsonNullAndEmptyHeaders:ServerResponse", async () => {
   class TestService implements Partial<RestJsonService<{}>> {
@@ -27905,8 +27952,11 @@ it.skip("RestJsonNullAndEmptyHeaders:ServerResponse", async () => {
   expect(r.statusCode).toBe(200);
 
   expect(r.headers["x-a"]).toBeUndefined();
-  expect(r.headers["x-b"]).toBeUndefined();
-  expect(r.headers["x-c"]).toBeUndefined();
+
+  expect(r.headers["x-b"]).toBeDefined();
+  expect(r.headers["x-b"]).toBe("");
+  expect(r.headers["x-c"]).toBeDefined();
+  expect(r.headers["x-c"]).toBe("");
 });
 
 /**
@@ -29123,6 +29173,117 @@ it("RestJsonRecursiveShapes:ServerResponse", async () => {
 });
 
 /**
+ * This test ensures that servers fall back to the code set
+ * by @http if @httpResponseCode is not set.
+ */
+it("RestJsonHttpResponseCodeNotSetFallsBackToHttpCode:ServerResponse", async () => {
+  class TestService implements Partial<RestJsonService<{}>> {
+    ResponseCodeHttpFallback(input: any, ctx: {}): Promise<ResponseCodeHttpFallbackServerOutput> {
+      const response = {} as any;
+      return Promise.resolve({ ...response, $metadata: {} });
+    }
+  }
+  const service: any = new TestService();
+  const testMux = new httpbinding.HttpBindingMux<"RestJson", keyof RestJsonService<{}>>([
+    new httpbinding.UriSpec<"RestJson", "ResponseCodeHttpFallback">("POST", [], [], {
+      service: "RestJson",
+      operation: "ResponseCodeHttpFallback",
+    }),
+  ]);
+  class TestSerializer extends ResponseCodeHttpFallbackSerializer {
+    deserialize = (output: any, context: any): Promise<any> => {
+      return Promise.resolve({});
+    };
+  }
+  const request = new HttpRequest({ method: "POST", hostname: "example.com" });
+  const serFn: (
+    op: RestJsonServiceOperations
+  ) => __OperationSerializer<RestJsonService<{}>, RestJsonServiceOperations, __ServiceException> = (op) => {
+    return new TestSerializer();
+  };
+  const handler = new RestJsonServiceHandler(
+    service,
+    testMux,
+    serFn,
+    serializeFrameworkException,
+    (ctx: {}, f: __ValidationFailure[]) => {
+      if (f) {
+        throw f;
+      }
+      return undefined;
+    }
+  );
+  const r = await handler.handle(request, {});
+
+  expect(r.statusCode).toBe(201);
+
+  expect(r.headers["content-type"]).toBeDefined();
+  expect(r.headers["content-type"]).toBe("application/json");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * This test ensures that servers handle @httpResponseCode being @required.
+ */
+it("RestJsonHttpResponseCodeRequired:ServerResponse", async () => {
+  class TestService implements Partial<RestJsonService<{}>> {
+    ResponseCodeRequired(input: any, ctx: {}): Promise<ResponseCodeRequiredServerOutput> {
+      const response = {
+        responseCode: 201,
+      } as any;
+      return Promise.resolve({ ...response, $metadata: {} });
+    }
+  }
+  const service: any = new TestService();
+  const testMux = new httpbinding.HttpBindingMux<"RestJson", keyof RestJsonService<{}>>([
+    new httpbinding.UriSpec<"RestJson", "ResponseCodeRequired">("POST", [], [], {
+      service: "RestJson",
+      operation: "ResponseCodeRequired",
+    }),
+  ]);
+  class TestSerializer extends ResponseCodeRequiredSerializer {
+    deserialize = (output: any, context: any): Promise<any> => {
+      return Promise.resolve({});
+    };
+  }
+  const request = new HttpRequest({ method: "POST", hostname: "example.com" });
+  const serFn: (
+    op: RestJsonServiceOperations
+  ) => __OperationSerializer<RestJsonService<{}>, RestJsonServiceOperations, __ServiceException> = (op) => {
+    return new TestSerializer();
+  };
+  const handler = new RestJsonServiceHandler(
+    service,
+    testMux,
+    serFn,
+    serializeFrameworkException,
+    (ctx: {}, f: __ValidationFailure[]) => {
+      if (f) {
+        throw f;
+      }
+      return undefined;
+    }
+  );
+  const r = await handler.handle(request, {});
+
+  expect(r.statusCode).toBe(201);
+
+  expect(r.headers["content-type"]).toBeDefined();
+  expect(r.headers["content-type"]).toBe("application/json");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
  * Serializes simple scalar properties
  */
 it("RestJsonSimpleScalarProperties:ServerRequest", async () => {
@@ -29410,16 +29571,16 @@ it("RestJsonSimpleScalarProperties:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                      \"stringValue\": \"string\",
-                                                                                                                                                      \"trueBooleanValue\": true,
-                                                                                                                                                      \"falseBooleanValue\": false,
-                                                                                                                                                      \"byteValue\": 1,
-                                                                                                                                                      \"shortValue\": 2,
-                                                                                                                                                      \"integerValue\": 3,
-                                                                                                                                                      \"longValue\": 4,
-                                                                                                                                                      \"floatValue\": 5.5,
-                                                                                                                                                      \"DoubleDribble\": 6.5
-                                                                                                                                                  }`;
+                                                                                                                                                          \"stringValue\": \"string\",
+                                                                                                                                                          \"trueBooleanValue\": true,
+                                                                                                                                                          \"falseBooleanValue\": false,
+                                                                                                                                                          \"byteValue\": 1,
+                                                                                                                                                          \"shortValue\": 2,
+                                                                                                                                                          \"integerValue\": 3,
+                                                                                                                                                          \"longValue\": 4,
+                                                                                                                                                          \"floatValue\": 5.5,
+                                                                                                                                                          \"DoubleDribble\": 6.5
+                                                                                                                                                      }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29533,9 +29694,9 @@ it("RestJsonSupportsNaNFloatInputs:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                          \"floatValue\": \"NaN\",
-                                                                                                                                                          \"DoubleDribble\": \"NaN\"
-                                                                                                                                                      }`;
+                                                                                                                                                              \"floatValue\": \"NaN\",
+                                                                                                                                                              \"DoubleDribble\": \"NaN\"
+                                                                                                                                                          }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29593,9 +29754,9 @@ it("RestJsonSupportsInfinityFloatInputs:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                            \"floatValue\": \"Infinity\",
-                                                                                                                                                            \"DoubleDribble\": \"Infinity\"
-                                                                                                                                                        }`;
+                                                                                                                                                                \"floatValue\": \"Infinity\",
+                                                                                                                                                                \"DoubleDribble\": \"Infinity\"
+                                                                                                                                                            }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29653,9 +29814,9 @@ it("RestJsonSupportsNegativeInfinityFloatInputs:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                              \"floatValue\": \"-Infinity\",
-                                                                                                                                                              \"DoubleDribble\": \"-Infinity\"
-                                                                                                                                                          }`;
+                                                                                                                                                                  \"floatValue\": \"-Infinity\",
+                                                                                                                                                                  \"DoubleDribble\": \"-Infinity\"
+                                                                                                                                                              }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29760,15 +29921,15 @@ it("RestJsonSparseListsSerializeNull:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                \"sparseStringList\": [
-                                                                                                                                                                    null,
-                                                                                                                                                                    \"hi\"
-                                                                                                                                                                ],
-                                                                                                                                                                \"sparseShortList\": [
-                                                                                                                                                                    null,
-                                                                                                                                                                    2
-                                                                                                                                                                ]
-                                                                                                                                                            }`;
+                                                                                                                                                                    \"sparseStringList\": [
+                                                                                                                                                                        null,
+                                                                                                                                                                        \"hi\"
+                                                                                                                                                                    ],
+                                                                                                                                                                    \"sparseShortList\": [
+                                                                                                                                                                        null,
+                                                                                                                                                                        2
+                                                                                                                                                                    ]
+                                                                                                                                                                }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -30090,15 +30251,15 @@ it("RestJsonSparseJsonMaps:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                  \"sparseStructMap\": {
-                                                                                                                                                                      \"foo\": {
-                                                                                                                                                                          \"hi\": \"there\"
-                                                                                                                                                                      },
-                                                                                                                                                                      \"baz\": {
-                                                                                                                                                                          \"hi\": \"bye\"
-                                                                                                                                                                      }
-                                                                                                                                                                 }
-                                                                                                                                                              }`;
+                                                                                                                                                                      \"sparseStructMap\": {
+                                                                                                                                                                          \"foo\": {
+                                                                                                                                                                              \"hi\": \"there\"
+                                                                                                                                                                          },
+                                                                                                                                                                          \"baz\": {
+                                                                                                                                                                              \"hi\": \"bye\"
+                                                                                                                                                                          }
+                                                                                                                                                                     }
+                                                                                                                                                                  }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -30166,19 +30327,19 @@ it("RestJsonDeserializesSparseNullMapValues:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                    \"sparseBooleanMap\": {
-                                                                                                                                                                        \"x\": null
-                                                                                                                                                                    },
-                                                                                                                                                                    \"sparseNumberMap\": {
-                                                                                                                                                                        \"x\": null
-                                                                                                                                                                    },
-                                                                                                                                                                    \"sparseStringMap\": {
-                                                                                                                                                                        \"x\": null
-                                                                                                                                                                    },
-                                                                                                                                                                    \"sparseStructMap\": {
-                                                                                                                                                                        \"x\": null
-                                                                                                                                                                    }
-                                                                                                                                                                }`;
+                                                                                                                                                                        \"sparseBooleanMap\": {
+                                                                                                                                                                            \"x\": null
+                                                                                                                                                                        },
+                                                                                                                                                                        \"sparseNumberMap\": {
+                                                                                                                                                                            \"x\": null
+                                                                                                                                                                        },
+                                                                                                                                                                        \"sparseStringMap\": {
+                                                                                                                                                                            \"x\": null
+                                                                                                                                                                        },
+                                                                                                                                                                        \"sparseStructMap\": {
+                                                                                                                                                                            \"x\": null
+                                                                                                                                                                        }
+                                                                                                                                                                    }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -30240,13 +30401,13 @@ it("RestJsonDeserializesZeroValuesInSparseMaps:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                      \"sparseNumberMap\": {
-                                                                                                                                                                          \"x\": 0
-                                                                                                                                                                      },
-                                                                                                                                                                      \"sparseBooleanMap\": {
-                                                                                                                                                                          \"x\": false
-                                                                                                                                                                      }
-                                                                                                                                                                  }`;
+                                                                                                                                                                          \"sparseNumberMap\": {
+                                                                                                                                                                              \"x\": 0
+                                                                                                                                                                          },
+                                                                                                                                                                          \"sparseBooleanMap\": {
+                                                                                                                                                                              \"x\": false
+                                                                                                                                                                          }
+                                                                                                                                                                      }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -30306,11 +30467,11 @@ it("RestJsonDeserializesSparseSetMap:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                        \"sparseSetMap\": {
-                                                                                                                                                                            \"x\": [],
-                                                                                                                                                                            \"y\": [\"a\", \"b\"]
-                                                                                                                                                                        }
-                                                                                                                                                                    }`;
+                                                                                                                                                                            \"sparseSetMap\": {
+                                                                                                                                                                                \"x\": [],
+                                                                                                                                                                                \"y\": [\"a\", \"b\"]
+                                                                                                                                                                            }
+                                                                                                                                                                        }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -30371,12 +30532,12 @@ it("RestJsonDeserializesSparseSetMapAndRetainsNull:ServerResponse", async () => 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                          \"sparseSetMap\": {
-                                                                                                                                                                              \"x\": [],
-                                                                                                                                                                              \"y\": [\"a\", \"b\"],
-                                                                                                                                                                              \"z\": null
-                                                                                                                                                                          }
-                                                                                                                                                                      }`;
+                                                                                                                                                                              \"sparseSetMap\": {
+                                                                                                                                                                                  \"x\": [],
+                                                                                                                                                                                  \"y\": [\"a\", \"b\"],
+                                                                                                                                                                                  \"z\": null
+                                                                                                                                                                              }
+                                                                                                                                                                          }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });

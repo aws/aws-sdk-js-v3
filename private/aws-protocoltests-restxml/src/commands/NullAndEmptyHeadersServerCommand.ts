@@ -26,7 +26,7 @@ export interface NullAndEmptyHeadersServerCommandInput extends NullAndEmptyHeade
 export interface NullAndEmptyHeadersServerCommandOutput extends NullAndEmptyHeadersIO, __MetadataBearer {}
 
 /**
- * Null and empty headers are not sent over the wire.
+ * Null headers are not sent over the wire, empty headers are serialized to ""
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
