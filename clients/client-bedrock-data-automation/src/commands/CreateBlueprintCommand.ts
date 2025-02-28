@@ -56,6 +56,12 @@ export interface CreateBlueprintCommandOutput extends CreateBlueprintResponse, _
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateBlueprintCommand(input);
  * const response = await client.send(command);

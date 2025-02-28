@@ -83,7 +83,7 @@ export interface CreateDataAutomationProjectCommandOutput
  *         category: { // ImageExtractionCategory
  *           state: "ENABLED" || "DISABLED", // required
  *           types: [ // ImageExtractionCategoryTypes
- *             "CONTENT_MODERATION" || "TEXT_DETECTION",
+ *             "CONTENT_MODERATION" || "TEXT_DETECTION" || "LOGOS",
  *           ],
  *         },
  *         boundingBox: { // ImageBoundingBox
@@ -102,7 +102,7 @@ export interface CreateDataAutomationProjectCommandOutput
  *         category: { // VideoExtractionCategory
  *           state: "ENABLED" || "DISABLED", // required
  *           types: [ // VideoExtractionCategoryTypes
- *             "CONTENT_MODERATION" || "TEXT_DETECTION" || "TRANSCRIPT",
+ *             "CONTENT_MODERATION" || "TEXT_DETECTION" || "TRANSCRIPT" || "LOGOS",
  *           ],
  *         },
  *         boundingBox: { // VideoBoundingBox
@@ -112,7 +112,7 @@ export interface CreateDataAutomationProjectCommandOutput
  *       generativeField: { // VideoStandardGenerativeField
  *         state: "ENABLED" || "DISABLED", // required
  *         types: [ // VideoStandardGenerativeFieldTypes
- *           "VIDEO_SUMMARY" || "SCENE_SUMMARY" || "IAB",
+ *           "VIDEO_SUMMARY" || "IAB" || "CHAPTER_SUMMARY",
  *         ],
  *       },
  *     },
@@ -121,14 +121,14 @@ export interface CreateDataAutomationProjectCommandOutput
  *         category: { // AudioExtractionCategory
  *           state: "ENABLED" || "DISABLED", // required
  *           types: [ // AudioExtractionCategoryTypes
- *             "AUDIO_CONTENT_MODERATION" || "CHAPTER_CONTENT_MODERATION" || "TRANSCRIPT",
+ *             "AUDIO_CONTENT_MODERATION" || "TRANSCRIPT" || "TOPIC_CONTENT_MODERATION",
  *           ],
  *         },
  *       },
  *       generativeField: { // AudioStandardGenerativeField
  *         state: "ENABLED" || "DISABLED", // required
  *         types: [ // AudioStandardGenerativeFieldTypes
- *           "AUDIO_SUMMARY" || "CHAPTER_SUMMARY" || "IAB",
+ *           "AUDIO_SUMMARY" || "IAB" || "TOPIC_SUMMARY",
  *         ],
  *       },
  *     },
@@ -156,6 +156,12 @@ export interface CreateDataAutomationProjectCommandOutput
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateDataAutomationProjectCommand(input);
  * const response = await client.send(command);

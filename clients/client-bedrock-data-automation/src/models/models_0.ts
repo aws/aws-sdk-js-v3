@@ -76,6 +76,24 @@ export interface EncryptionConfiguration {
 }
 
 /**
+ * Key value pair of a tag
+ * @public
+ */
+export interface Tag {
+  /**
+   * Defines the context of the tag.
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * Defines the value within the context. e.g. <key=reason, value=training>.
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -129,6 +147,12 @@ export interface CreateBlueprintRequest {
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * List of tags
+   * @public
+   */
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -579,6 +603,12 @@ export interface UpdateBlueprintRequest {
    * @public
    */
   blueprintStage?: BlueprintStage | undefined;
+
+  /**
+   * KMS Encryption Configuration
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
 }
 
 /**
@@ -715,7 +745,7 @@ export interface OverrideConfiguration {
  */
 export const AudioExtractionCategoryType = {
   AUDIO_CONTENT_MODERATION: "AUDIO_CONTENT_MODERATION",
-  CHAPTER_CONTENT_MODERATION: "CHAPTER_CONTENT_MODERATION",
+  TOPIC_CONTENT_MODERATION: "TOPIC_CONTENT_MODERATION",
   TRANSCRIPT: "TRANSCRIPT",
 } as const;
 
@@ -761,8 +791,8 @@ export interface AudioStandardExtraction {
  */
 export const AudioStandardGenerativeFieldType = {
   AUDIO_SUMMARY: "AUDIO_SUMMARY",
-  CHAPTER_SUMMARY: "CHAPTER_SUMMARY",
   IAB: "IAB",
+  TOPIC_SUMMARY: "TOPIC_SUMMARY",
 } as const;
 
 /**
@@ -980,6 +1010,7 @@ export interface ImageBoundingBox {
  */
 export const ImageExtractionCategoryType = {
   CONTENT_MODERATION: "CONTENT_MODERATION",
+  LOGOS: "LOGOS",
   TEXT_DETECTION: "TEXT_DETECTION",
 } as const;
 
@@ -1094,6 +1125,7 @@ export interface VideoBoundingBox {
  */
 export const VideoExtractionCategoryType = {
   CONTENT_MODERATION: "CONTENT_MODERATION",
+  LOGOS: "LOGOS",
   TEXT_DETECTION: "TEXT_DETECTION",
   TRANSCRIPT: "TRANSCRIPT",
 } as const;
@@ -1145,8 +1177,8 @@ export interface VideoStandardExtraction {
  * @enum
  */
 export const VideoStandardGenerativeFieldType = {
+  CHAPTER_SUMMARY: "CHAPTER_SUMMARY",
   IAB: "IAB",
-  SCENE_SUMMARY: "SCENE_SUMMARY",
   VIDEO_SUMMARY: "VIDEO_SUMMARY",
 } as const;
 
@@ -1274,6 +1306,12 @@ export interface CreateDataAutomationProjectRequest {
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * List of tags
+   * @public
+   */
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1618,6 +1656,12 @@ export interface UpdateDataAutomationProjectRequest {
    * @public
    */
   overrideConfiguration?: OverrideConfiguration | undefined;
+
+  /**
+   * KMS Encryption Configuration
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
 }
 
 /**
@@ -1643,6 +1687,72 @@ export interface UpdateDataAutomationProjectResponse {
    */
   status?: DataAutomationProjectStatus | undefined;
 }
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * ARN of a taggable resource
+   * @public
+   */
+  resourceARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * List of tags
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * ARN of a taggable resource
+   * @public
+   */
+  resourceARN: string | undefined;
+
+  /**
+   * List of tags
+   * @public
+   */
+  tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * ARN of a taggable resource
+   * @public
+   */
+  resourceARN: string | undefined;
+
+  /**
+   * List of tag keys
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
 
 /**
  * @internal

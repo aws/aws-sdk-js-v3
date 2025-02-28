@@ -8,5 +8,8 @@ export * from "./GetBlueprintCommand";
 export * from "./GetDataAutomationProjectCommand";
 export * from "./ListBlueprintsCommand";
 export * from "./ListDataAutomationProjectsCommand";
+export * from "./ListTagsForResourceCommand";
+export * from "./TagResourceCommand";
+export * from "./UntagResourceCommand";
 export * from "./UpdateBlueprintCommand";
 export * from "./UpdateDataAutomationProjectCommand";

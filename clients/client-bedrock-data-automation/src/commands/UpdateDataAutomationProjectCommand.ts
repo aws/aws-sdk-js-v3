@@ -83,7 +83,7 @@ export interface UpdateDataAutomationProjectCommandOutput
  *         category: { // ImageExtractionCategory
  *           state: "ENABLED" || "DISABLED", // required
  *           types: [ // ImageExtractionCategoryTypes
- *             "CONTENT_MODERATION" || "TEXT_DETECTION",
+ *             "CONTENT_MODERATION" || "TEXT_DETECTION" || "LOGOS",
  *           ],
  *         },
  *         boundingBox: { // ImageBoundingBox
@@ -102,7 +102,7 @@ export interface UpdateDataAutomationProjectCommandOutput
  *         category: { // VideoExtractionCategory
  *           state: "ENABLED" || "DISABLED", // required
  *           types: [ // VideoExtractionCategoryTypes
- *             "CONTENT_MODERATION" || "TEXT_DETECTION" || "TRANSCRIPT",
+ *             "CONTENT_MODERATION" || "TEXT_DETECTION" || "TRANSCRIPT" || "LOGOS",
  *           ],
  *         },
  *         boundingBox: { // VideoBoundingBox
@@ -112,7 +112,7 @@ export interface UpdateDataAutomationProjectCommandOutput
  *       generativeField: { // VideoStandardGenerativeField
  *         state: "ENABLED" || "DISABLED", // required
  *         types: [ // VideoStandardGenerativeFieldTypes
- *           "VIDEO_SUMMARY" || "SCENE_SUMMARY" || "IAB",
+ *           "VIDEO_SUMMARY" || "IAB" || "CHAPTER_SUMMARY",
  *         ],
  *       },
  *     },
@@ -121,14 +121,14 @@ export interface UpdateDataAutomationProjectCommandOutput
  *         category: { // AudioExtractionCategory
  *           state: "ENABLED" || "DISABLED", // required
  *           types: [ // AudioExtractionCategoryTypes
- *             "AUDIO_CONTENT_MODERATION" || "CHAPTER_CONTENT_MODERATION" || "TRANSCRIPT",
+ *             "AUDIO_CONTENT_MODERATION" || "TRANSCRIPT" || "TOPIC_CONTENT_MODERATION",
  *           ],
  *         },
  *       },
  *       generativeField: { // AudioStandardGenerativeField
  *         state: "ENABLED" || "DISABLED", // required
  *         types: [ // AudioStandardGenerativeFieldTypes
- *           "AUDIO_SUMMARY" || "CHAPTER_SUMMARY" || "IAB",
+ *           "AUDIO_SUMMARY" || "IAB" || "TOPIC_SUMMARY",
  *         ],
  *       },
  *     },
@@ -147,6 +147,12 @@ export interface UpdateDataAutomationProjectCommandOutput
  *       splitter: { // SplitterConfiguration
  *         state: "ENABLED" || "DISABLED",
  *       },
+ *     },
+ *   },
+ *   encryptionConfiguration: { // EncryptionConfiguration
+ *     kmsKeyId: "STRING_VALUE", // required
+ *     kmsEncryptionContext: { // KmsEncryptionContext
+ *       "<keys>": "STRING_VALUE",
  *     },
  *   },
  * };
@@ -177,6 +183,9 @@ export interface UpdateDataAutomationProjectCommandOutput
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  This exception is thrown when a resource referenced by the operation does not exist
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  This exception is thrown when a request is made beyond the service quota
  *
  * @throws {@link ThrottlingException} (client fault)
  *  This exception is thrown when the number of requests exceeds the limit

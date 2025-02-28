@@ -47,6 +47,12 @@ import {
   ListDataAutomationProjectsCommandInput,
   ListDataAutomationProjectsCommandOutput,
 } from "../commands/ListDataAutomationProjectsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateBlueprintCommandInput, UpdateBlueprintCommandOutput } from "../commands/UpdateBlueprintCommand";
 import {
   UpdateDataAutomationProjectCommandInput,
@@ -95,6 +101,7 @@ import {
   ServiceQuotaExceededException,
   SplitterConfiguration,
   StandardOutputConfiguration,
+  Tag,
   ThrottlingException,
   ValidationException,
   VideoBoundingBox,
@@ -126,6 +133,7 @@ export const se_CreateBlueprintCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       encryptionConfiguration: (_) => _json(_),
       schema: [],
+      tags: (_) => _json(_),
       type: [],
     })
   );
@@ -179,6 +187,7 @@ export const se_CreateDataAutomationProjectCommand = async (
       projectName: [],
       projectStage: [],
       standardOutputConfiguration: (_) => _json(_),
+      tags: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -321,6 +330,74 @@ export const se_ListDataAutomationProjectsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/listTagsForResource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      resourceARN: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/tagResource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      resourceARN: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/untagResource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      resourceARN: [],
+      tagKeys: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateBlueprintCommand
  */
 export const se_UpdateBlueprintCommand = async (
@@ -337,6 +414,7 @@ export const se_UpdateBlueprintCommand = async (
   body = JSON.stringify(
     take(input, {
       blueprintStage: [],
+      encryptionConfiguration: (_) => _json(_),
       schema: [],
     })
   );
@@ -361,6 +439,7 @@ export const se_UpdateDataAutomationProjectCommand = async (
   body = JSON.stringify(
     take(input, {
       customOutputConfiguration: (_) => _json(_),
+      encryptionConfiguration: (_) => _json(_),
       overrideConfiguration: (_) => _json(_),
       projectDescription: [],
       projectStage: [],
@@ -443,7 +522,7 @@ export const de_DeleteBlueprintCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBlueprintCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 300) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -460,7 +539,7 @@ export const de_DeleteDataAutomationProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDataAutomationProjectCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 300) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -558,6 +637,61 @@ export const de_ListDataAutomationProjectsCommand = async (
     projects: (_) => de_DataAutomationProjectSummaries(_, context),
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -847,6 +981,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_StandardOutputConfiguration omitted.
 
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
 // se_VideoBoundingBox omitted.
 
 // se_VideoExtractionCategory omitted.
@@ -1010,6 +1150,10 @@ const de_DataAutomationProjectSummary = (output: any, context: __SerdeContext): 
 // de_SplitterConfiguration omitted.
 
 // de_StandardOutputConfiguration omitted.
+
+// de_Tag omitted.
+
+// de_TagList omitted.
 
 // de_ValidationExceptionField omitted.
 

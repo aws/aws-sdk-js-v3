@@ -48,6 +48,12 @@ export interface UpdateBlueprintCommandOutput extends UpdateBlueprintResponse, _
  *   blueprintArn: "STRING_VALUE", // required
  *   schema: "STRING_VALUE", // required
  *   blueprintStage: "DEVELOPMENT" || "LIVE",
+ *   encryptionConfiguration: { // EncryptionConfiguration
+ *     kmsKeyId: "STRING_VALUE", // required
+ *     kmsEncryptionContext: { // KmsEncryptionContext
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new UpdateBlueprintCommand(input);
  * const response = await client.send(command);

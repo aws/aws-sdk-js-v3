@@ -77,6 +77,12 @@ import {
   ListDataAutomationProjectsCommandInput,
   ListDataAutomationProjectsCommandOutput,
 } from "./commands/ListDataAutomationProjectsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateBlueprintCommandInput, UpdateBlueprintCommandOutput } from "./commands/UpdateBlueprintCommand";
 import {
   UpdateDataAutomationProjectCommandInput,
@@ -106,6 +112,9 @@ export type ServiceInputTypes =
   | GetDataAutomationProjectCommandInput
   | ListBlueprintsCommandInput
   | ListDataAutomationProjectsCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateBlueprintCommandInput
   | UpdateDataAutomationProjectCommandInput;
 
@@ -122,6 +131,9 @@ export type ServiceOutputTypes =
   | GetDataAutomationProjectCommandOutput
   | ListBlueprintsCommandOutput
   | ListDataAutomationProjectsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateBlueprintCommandOutput
   | UpdateDataAutomationProjectCommandOutput;
 
