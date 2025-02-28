@@ -28,8 +28,7 @@ export interface DeregisterClusterCommandInput extends DeregisterClusterRequest 
 export interface DeregisterClusterCommandOutput extends DeregisterClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Deregisters a connected cluster to remove it from the Amazon EKS control
- *             plane.</p>
+ * <p>Deregisters a connected cluster to remove it from the Amazon EKS control plane.</p>
  *          <p>A connected cluster is a Kubernetes cluster that you've connected to your control plane
  *             using the <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-connector.html">Amazon EKS Connector</a>.</p>
  * @example
@@ -177,10 +176,9 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have permissions to perform the requested operation. The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a>
- *             making the request must have at least one IAM permissions policy attached
- *             that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
- *                 management</a> in the <i>IAM User Guide</i>.
- *         </p>
+ *             making the request must have at least one IAM permissions policy attached that grants
+ *             the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+ *                 management</a> in the <i>IAM User Guide</i>. </p>
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. Actions can include using an
@@ -194,7 +192,7 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  *  <p>The specified resource could not be found. You can view your available clusters with
  *                 <code>ListClusters</code>. You can view your available managed node groups with
  *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
- *                  specific.</p>
+ *             specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>

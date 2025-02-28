@@ -28,8 +28,7 @@ export interface ListClustersCommandInput extends ListClustersRequest {}
 export interface ListClustersCommandOutput extends ListClustersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon EKS clusters in your Amazon Web Services account in the
- *             specified Amazon Web Services Region.</p>
+ * <p>Lists the Amazon EKS clusters in your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

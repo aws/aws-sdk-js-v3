@@ -34,9 +34,9 @@ export interface DeleteEksAnywhereSubscriptionCommandOutput
 
 /**
  * <p>Deletes an expired or inactive subscription. Deleting inactive subscriptions removes
- *             them from the Amazon Web Services Management Console view and from list/describe API responses.
- *             Subscriptions can only be cancelled within 7 days of creation and are cancelled by
- *             creating a ticket in the Amazon Web Services Support Center. </p>
+ *             them from the Amazon Web Services Management Console view and from list/describe API responses. Subscriptions can
+ *             only be cancelled within 7 days of creation and are cancelled by creating a ticket in
+ *             the Amazon Web Services Support Center. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,6 +66,12 @@ export interface DeleteEksAnywhereSubscriptionCommandOutput
  * //     licenseArns: [ // StringList
  * //       "STRING_VALUE",
  * //     ],
+ * //     licenses: [ // LicenseList
+ * //       { // License
+ * //         id: "STRING_VALUE",
+ * //         token: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
@@ -93,7 +99,7 @@ export interface DeleteEksAnywhereSubscriptionCommandOutput
  *  <p>The specified resource could not be found. You can view your available clusters with
  *                 <code>ListClusters</code>. You can view your available managed node groups with
  *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
- *                  specific.</p>
+ *             specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>

@@ -34,9 +34,9 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  *             are deleted properly. Otherwise, you can have orphaned resources in your VPC that
  *             prevent you from being able to delete the VPC. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html">Deleting a
  *                 cluster</a> in the <i>Amazon EKS User Guide</i>.</p>
- *          <p>If you have managed node groups or Fargate profiles attached to the
- *             cluster, you must delete them first. For more information, see
- *                 <code>DeleteNodgroup</code> and <code>DeleteFargateProfile</code>.</p>
+ *          <p>If you have managed node groups or Fargate profiles attached to the cluster, you
+ *             must delete them first. For more information, see <code>DeleteNodgroup</code> and
+ *                 <code>DeleteFargateProfile</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -192,7 +192,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  *  <p>The specified resource could not be found. You can view your available clusters with
  *                 <code>ListClusters</code>. You can view your available managed node groups with
  *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
- *                  specific.</p>
+ *             specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>

@@ -29,45 +29,42 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
 
 /**
  * <p>Creates an Amazon EKS control plane.</p>
- *          <p>The Amazon EKS control plane consists of control plane instances that run the
- *             Kubernetes software, such as <code>etcd</code> and the API server. The control plane runs in
- *             an account managed by Amazon Web Services, and the Kubernetes API is exposed by the Amazon EKS
- *                  API server endpoint. Each Amazon EKS cluster control plane is
- *             single tenant and unique. It runs on its own set of Amazon EC2 instances.</p>
- *          <p>The cluster control plane is provisioned across multiple Availability Zones and
- *             fronted by an Elastic Load Balancing
- *             Network Load Balancer. Amazon EKS also provisions elastic network interfaces in
- *             your VPC subnets to provide connectivity from the control plane instances to the nodes
- *             (for example, to support <code>kubectl exec</code>, <code>logs</code>, and
- *                 <code>proxy</code> data flows).</p>
- *          <p>Amazon EKS nodes run in your Amazon Web Services account and connect to your
- *             cluster's control plane over the Kubernetes API server endpoint and a certificate file that
- *             is created for your cluster.</p>
+ *          <p>The Amazon EKS control plane consists of control plane instances that run the Kubernetes
+ *             software, such as <code>etcd</code> and the API server. The control plane runs in an
+ *             account managed by Amazon Web Services, and the Kubernetes API is exposed by the Amazon EKS API server endpoint.
+ *             Each Amazon EKS cluster control plane is single tenant and unique. It runs on its own set of
+ *             Amazon EC2 instances.</p>
+ *          <p>The cluster control plane is provisioned across multiple Availability Zones and fronted by an Elastic Load Balancing
+ *             Network Load Balancer. Amazon EKS also provisions elastic network interfaces in your VPC subnets to provide
+ *             connectivity from the control plane instances to the nodes (for example, to support
+ *                 <code>kubectl exec</code>, <code>logs</code>, and <code>proxy</code> data
+ *             flows).</p>
+ *          <p>Amazon EKS nodes run in your Amazon Web Services account and connect to your cluster's control plane over
+ *             the Kubernetes API server endpoint and a certificate file that is created for your
+ *             cluster.</p>
  *          <p>You can use the <code>endpointPublicAccess</code> and
  *                 <code>endpointPrivateAccess</code> parameters to enable or disable public and
  *             private access to your cluster's Kubernetes API server endpoint. By default, public access is
- *             enabled, and private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS
- *                      Cluster Endpoint Access Control</a> in the
- *                 <i>
+ *             enabled, and private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
+ *                 Endpoint Access Control</a> in the <i>
  *                <i>Amazon EKS User Guide</i>
  *             </i>. </p>
  *          <p>You can use the <code>logging</code> parameter to enable or disable exporting the
- *             Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster
- *             control plane logs aren't exported to CloudWatch Logs. For more information, see
- *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster Control Plane Logs</a> in the
- *                 <i>
+ *             Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane
+ *             logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS
+ *                 Cluster Control Plane Logs</a> in the
+ *             <i>
  *                <i>Amazon EKS User Guide</i>
  *             </i>.</p>
  *          <note>
- *             <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to
- *                 exported control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch
- *                 Pricing</a>.</p>
+ *             <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported
+ *                 control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</p>
  *          </note>
- *          <p>In most cases, it takes several minutes to create a cluster. After you create an
- *                 Amazon EKS cluster, you must configure your Kubernetes tooling to communicate
- *             with the API server and launch nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-auth.html">Allowing users to
- *                 access your cluster</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching
- *                     Amazon EKS nodes</a> in the <i>Amazon EKS User Guide</i>.</p>
+ *          <p>In most cases, it takes several minutes to create a cluster. After you create an Amazon EKS
+ *             cluster, you must configure your Kubernetes tooling to communicate with the API server and
+ *             launch nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-auth.html">Allowing users to
+ *                 access your cluster</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching Amazon EKS
+ *                 nodes</a> in the <i>Amazon EKS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -321,10 +318,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *  <p>The service is unavailable. Back off and retry the operation.</p>
  *
  * @throws {@link UnsupportedAvailabilityZoneException} (client fault)
- *  <p>At least one of your specified cluster subnets is in an Availability Zone that does
- *             not support Amazon EKS. The exception output specifies the supported
- *             Availability Zones for your account, from which you can choose subnets for your
- *             cluster.</p>
+ *  <p>At least one of your specified cluster subnets is in an Availability Zone that does not support
+ *             Amazon EKS. The exception output specifies the supported Availability Zones for your account, from which
+ *             you can choose subnets for your cluster.</p>
  *
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>

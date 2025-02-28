@@ -68,6 +68,12 @@ export interface ListEksAnywhereSubscriptionsCommandOutput
  * //       licenseArns: [ // StringList
  * //         "STRING_VALUE",
  * //       ],
+ * //       licenses: [ // LicenseList
+ * //         { // License
+ * //           id: "STRING_VALUE",
+ * //           token: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //       tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },

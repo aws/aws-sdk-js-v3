@@ -28,10 +28,9 @@ export interface UpdateClusterVersionCommandInput extends UpdateClusterVersionRe
 export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an Amazon EKS cluster to the specified Kubernetes version. Your cluster
- *             continues to function during the update. The response output includes an update ID that
- *             you can use to track the status of your cluster update with the
- *             <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeUpdate.html">
+ * <p>Updates an Amazon EKS cluster to the specified Kubernetes version. Your cluster continues to
+ *             function during the update. The response output includes an update ID that you can use
+ *             to track the status of your cluster update with the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeUpdate.html">
  *                <code>DescribeUpdate</code>
  *             </a> API operation.</p>
  *          <p>Cluster updates are asynchronous, and they should finish within a few minutes. During
@@ -106,7 +105,7 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  *  <p>The specified resource could not be found. You can view your available clusters with
  *                 <code>ListClusters</code>. You can view your available managed node groups with
  *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
- *                  specific.</p>
+ *             specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>

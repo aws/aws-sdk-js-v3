@@ -32,8 +32,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  *          <p>The API server endpoint and certificate authority data returned by this operation are
  *             required for <code>kubelet</code> and <code>kubectl</code> to communicate with your
  *             Kubernetes API server. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Creating or
- *                 updating a <code>kubeconfig</code> file for an Amazon EKS
- *             cluster</a>.</p>
+ *                 updating a <code>kubeconfig</code> file for an Amazon EKS cluster</a>.</p>
  *          <note>
  *             <p>The API server endpoint and certificate authority data aren't available until the
  *                 cluster reaches the <code>ACTIVE</code> state.</p>
@@ -190,7 +189,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  *  <p>The specified resource could not be found. You can view your available clusters with
  *                 <code>ListClusters</code>. You can view your available managed node groups with
  *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
- *                  specific.</p>
+ *             specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>

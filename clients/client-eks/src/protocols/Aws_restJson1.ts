@@ -3414,6 +3414,7 @@ const de_EksAnywhereSubscription = (output: any, context: __SerdeContext): EksAn
     licenseArns: _json,
     licenseQuantity: __expectInt32,
     licenseType: __expectString,
+    licenses: _json,
     status: __expectString,
     tags: _json,
     term: _json,
@@ -3555,6 +3556,10 @@ const de_InsightSummary = (output: any, context: __SerdeContext): InsightSummary
 // de_labelsMap omitted.
 
 // de_LaunchTemplateSpecification omitted.
+
+// de_License omitted.
+
+// de_LicenseList omitted.
 
 // de_Logging omitted.
 
