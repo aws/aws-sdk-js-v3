@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { XmlMapsXmlNameRequest, XmlMapsXmlNameResponse } from "../models/models_0";
-import { de_XmlMapsXmlNameCommand, se_XmlMapsXmlNameCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import { XmlMapsXmlName } from "../schemas/aws.protocoltests.restxml";
 
 /**
  * @public
@@ -72,13 +71,12 @@ export class XmlMapsXmlNameCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestXml", "XmlMapsXmlName", {})
   .n("RestXmlProtocolClient", "XmlMapsXmlNameCommand")
   .f(void 0, void 0)
-  .ser(se_XmlMapsXmlNameCommand)
-  .de(de_XmlMapsXmlNameCommand)
+  .sc(XmlMapsXmlName)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

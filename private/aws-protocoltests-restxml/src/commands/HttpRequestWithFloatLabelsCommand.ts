@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { HttpRequestWithFloatLabelsInput } from "../models/models_0";
-import { de_HttpRequestWithFloatLabelsCommand, se_HttpRequestWithFloatLabelsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import { HttpRequestWithFloatLabels } from "../schemas/aws.protocoltests.restxml";
 
 /**
  * @public
@@ -63,13 +62,12 @@ export class HttpRequestWithFloatLabelsCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestXml", "HttpRequestWithFloatLabels", {})
   .n("RestXmlProtocolClient", "HttpRequestWithFloatLabelsCommand")
   .f(void 0, void 0)
-  .ser(se_HttpRequestWithFloatLabelsCommand)
-  .de(de_HttpRequestWithFloatLabelsCommand)
+  .sc(HttpRequestWithFloatLabels)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
