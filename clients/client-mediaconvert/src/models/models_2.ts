@@ -325,6 +325,448 @@ export interface Preset {
 }
 
 /**
+ * The input file that needs to be analyzed.
+ * @public
+ */
+export interface ProbeInputFile {
+  /**
+   * The URI to your input file(s) that is stored in Amazon S3 or on an HTTP(S) server.
+   * @public
+   */
+  FileUrl?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Format = {
+  matroska: "matroska",
+  mp4: "mp4",
+  quicktime: "quicktime",
+  webm: "webm",
+} as const;
+
+/**
+ * @public
+ */
+export type Format = (typeof Format)[keyof typeof Format];
+
+/**
+ * the calculated frame rate of the asset.
+ * @public
+ */
+export interface FrameRate {
+  /**
+   * the denominator of the frame rate of the asset.
+   * @public
+   */
+  Denominator?: number | undefined;
+
+  /**
+   * the numerator of the frame rate of the asset.
+   * @public
+   */
+  Numerator?: number | undefined;
+}
+
+/**
+ * Properties specific to audio tracks.
+ * @public
+ */
+export interface AudioProperties {
+  /**
+   * The bit depth of the audio track.
+   * @public
+   */
+  BitDepth?: number | undefined;
+
+  /**
+   * The bit rate of the audio track in bits per second.
+   * @public
+   */
+  BitRate?: number | undefined;
+
+  /**
+   * The number of audio channels.
+   * @public
+   */
+  Channels?: number | undefined;
+
+  /**
+   * the calculated frame rate of the asset.
+   * @public
+   */
+  FrameRate?: FrameRate | undefined;
+
+  /**
+   * the language code of the track
+   * @public
+   */
+  LanguageCode?: string | undefined;
+
+  /**
+   * The sample rate of the audio track.
+   * @public
+   */
+  SampleRate?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Codec = {
+  AAC: "AAC",
+  AC3: "AC3",
+  AV1: "AV1",
+  AVC: "AVC",
+  C608: "C608",
+  C708: "C708",
+  EAC3: "EAC3",
+  FLAC: "FLAC",
+  HEVC: "HEVC",
+  MJPEG: "MJPEG",
+  MP3: "MP3",
+  MP4V: "MP4V",
+  MPEG2: "MPEG2",
+  OPUS: "OPUS",
+  PCM: "PCM",
+  PRORES: "PRORES",
+  THEORA: "THEORA",
+  UNKNOWN: "UNKNOWN",
+  VORBIS: "VORBIS",
+  VP8: "VP8",
+  VP9: "VP9",
+  WEBVTT: "WEBVTT",
+} as const;
+
+/**
+ * @public
+ */
+export type Codec = (typeof Codec)[keyof typeof Codec];
+
+/**
+ * Properties specific to data tracks.
+ * @public
+ */
+export interface DataProperties {
+  /**
+   * the language code of the track
+   * @public
+   */
+  LanguageCode?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TrackType = {
+  audio: "audio",
+  data: "data",
+  video: "video",
+} as const;
+
+/**
+ * @public
+ */
+export type TrackType = (typeof TrackType)[keyof typeof TrackType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ColorPrimaries = {
+  EBU_3213_E: "EBU_3213_E",
+  GENERIC_FILM: "GENERIC_FILM",
+  IPT: "IPT",
+  ITU_2020: "ITU_2020",
+  ITU_470BG: "ITU_470BG",
+  ITU_470M: "ITU_470M",
+  ITU_709: "ITU_709",
+  LAST: "LAST",
+  RESERVED: "RESERVED",
+  SMPTE_170M: "SMPTE_170M",
+  SMPTE_2067XYZ: "SMPTE_2067XYZ",
+  SMPTE_240M: "SMPTE_240M",
+  SMPTE_428_1: "SMPTE_428_1",
+  SMPTE_431_2: "SMPTE_431_2",
+  SMPTE_EG_432_1: "SMPTE_EG_432_1",
+  UNSPECIFIED: "UNSPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type ColorPrimaries = (typeof ColorPrimaries)[keyof typeof ColorPrimaries];
+
+/**
+ * @public
+ * @enum
+ */
+export const MatrixCoefficients = {
+  CD_CL: "CD_CL",
+  CD_NCL: "CD_NCL",
+  EBU3213: "EBU3213",
+  FCC: "FCC",
+  IPT: "IPT",
+  ITU_2020_CL: "ITU_2020_CL",
+  ITU_2020_NCL: "ITU_2020_NCL",
+  ITU_2100ICtCp: "ITU_2100ICtCp",
+  ITU_470BG: "ITU_470BG",
+  ITU_709: "ITU_709",
+  LAST: "LAST",
+  RESERVED: "RESERVED",
+  RGB: "RGB",
+  SMPTE_170M: "SMPTE_170M",
+  SMPTE_2085: "SMPTE_2085",
+  SMPTE_240M: "SMPTE_240M",
+  UNSPECIFIED: "UNSPECIFIED",
+  YCgCo: "YCgCo",
+} as const;
+
+/**
+ * @public
+ */
+export type MatrixCoefficients = (typeof MatrixCoefficients)[keyof typeof MatrixCoefficients];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransferCharacteristics = {
+  ARIB_B67: "ARIB_B67",
+  IEC_61966_2_1: "IEC_61966_2_1",
+  IEC_61966_2_4: "IEC_61966_2_4",
+  ITU_1361: "ITU_1361",
+  ITU_2020_10bit: "ITU_2020_10bit",
+  ITU_2020_12bit: "ITU_2020_12bit",
+  ITU_470BG: "ITU_470BG",
+  ITU_470M: "ITU_470M",
+  ITU_709: "ITU_709",
+  LAST: "LAST",
+  LINEAR: "LINEAR",
+  LOC10_2_5: "LOC10_2_5",
+  LOG10_2: "LOG10_2",
+  RESERVED: "RESERVED",
+  SMPTE_170M: "SMPTE_170M",
+  SMPTE_2084: "SMPTE_2084",
+  SMPTE_240M: "SMPTE_240M",
+  SMPTE_428_1: "SMPTE_428_1",
+  UNSPECIFIED: "UNSPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type TransferCharacteristics = (typeof TransferCharacteristics)[keyof typeof TransferCharacteristics];
+
+/**
+ * Properties specific to video tracks.
+ * @public
+ */
+export interface VideoProperties {
+  /**
+   * The bit depth of the video track.
+   * @public
+   */
+  BitDepth?: number | undefined;
+
+  /**
+   * The bit rate of the video track in bits per second.
+   * @public
+   */
+  BitRate?: number | undefined;
+
+  /**
+   * the color primaries.
+   * @public
+   */
+  ColorPrimaries?: ColorPrimaries | undefined;
+
+  /**
+   * the calculated frame rate of the asset.
+   * @public
+   */
+  FrameRate?: FrameRate | undefined;
+
+  /**
+   * The height of the video track in pixels.
+   * @public
+   */
+  Height?: number | undefined;
+
+  /**
+   * the matrix coefficients.
+   * @public
+   */
+  MatrixCoefficients?: MatrixCoefficients | undefined;
+
+  /**
+   * the transfer characteristics.
+   * @public
+   */
+  TransferCharacteristics?: TransferCharacteristics | undefined;
+
+  /**
+   * The width of the video track in pixels.
+   * @public
+   */
+  Width?: number | undefined;
+}
+
+/**
+ * The track information such as codec, duration, etc.
+ * @public
+ */
+export interface Track {
+  /**
+   * Properties specific to audio tracks.
+   * @public
+   */
+  AudioProperties?: AudioProperties | undefined;
+
+  /**
+   * The codec used for the track.
+   * @public
+   */
+  Codec?: Codec | undefined;
+
+  /**
+   * Properties specific to data tracks.
+   * @public
+   */
+  DataProperties?: DataProperties | undefined;
+
+  /**
+   * The duration of the track in seconds.
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * The index of the track.
+   * @public
+   */
+  Index?: number | undefined;
+
+  /**
+   * The type of the track (video, audio, or data).
+   * @public
+   */
+  TrackType?: TrackType | undefined;
+
+  /**
+   * Properties specific to video tracks.
+   * @public
+   */
+  VideoProperties?: VideoProperties | undefined;
+}
+
+/**
+ * Information about the container format of the media file.
+ * @public
+ */
+export interface Container {
+  /**
+   * The duration of the media file in seconds.
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * The format of the container
+   * @public
+   */
+  Format?: Format | undefined;
+
+  /**
+   * List of Track objects.
+   * @public
+   */
+  Tracks?: Track[] | undefined;
+}
+
+/**
+ * Metadata about the file.
+ * @public
+ */
+export interface Metadata {
+  /**
+   * The ETag of the file.
+   * @public
+   */
+  ETag?: string | undefined;
+
+  /**
+   * The size of the file in bytes.
+   * @public
+   */
+  FileSize?: number | undefined;
+
+  /**
+   * The last modification time of the file.
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * The MIME type of the file.
+   * @public
+   */
+  MimeType?: string | undefined;
+}
+
+/**
+ * Track mapping information.
+ * @public
+ */
+export interface TrackMapping {
+  /**
+   * The indexes of the audio tracks.
+   * @public
+   */
+  AudioTrackIndexes?: number[] | undefined;
+
+  /**
+   * The indexes of the data tracks.
+   * @public
+   */
+  DataTrackIndexes?: number[] | undefined;
+
+  /**
+   * The indexes of the video tracks.
+   * @public
+   */
+  VideoTrackIndexes?: number[] | undefined;
+}
+
+/**
+ * The metadata and analysis results for a media file.
+ * @public
+ */
+export interface ProbeResult {
+  /**
+   * Information about the container format of the media file.
+   * @public
+   */
+  Container?: Container | undefined;
+
+  /**
+   * Metadata about the file.
+   * @public
+   */
+  Metadata?: Metadata | undefined;
+
+  /**
+   * List of Track mapping objects.
+   * @public
+   */
+  TrackMappings?: TrackMapping[] | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1633,6 +2075,28 @@ export interface ListVersionsResponse {
    * @public
    */
   Versions?: JobEngineVersion[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProbeRequest {
+  /**
+   * The list of input media files to be probed.
+   * @public
+   */
+  InputFiles?: ProbeInputFile[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProbeResponse {
+  /**
+   * List of probe results for the input media file(s).
+   * @public
+   */
+  ProbeResults?: ProbeResult[] | undefined;
 }
 
 /**

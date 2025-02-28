@@ -73,6 +73,7 @@ import {
   ListVersionsCommandInput,
   ListVersionsCommandOutput,
 } from "./commands/ListVersionsCommand";
+import { ProbeCommand, ProbeCommandInput, ProbeCommandOutput } from "./commands/ProbeCommand";
 import { PutPolicyCommand, PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
 import { SearchJobsCommand, SearchJobsCommandInput, SearchJobsCommandOutput } from "./commands/SearchJobsCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -118,6 +119,7 @@ const commands = {
   ListQueuesCommand,
   ListTagsForResourceCommand,
   ListVersionsCommand,
+  ProbeCommand,
   PutPolicyCommand,
   SearchJobsCommand,
   TagResourceCommand,
@@ -432,6 +434,18 @@ export interface MediaConvert {
     args: ListVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ProbeCommand}
+   */
+  probe(): Promise<ProbeCommandOutput>;
+  probe(args: ProbeCommandInput, options?: __HttpHandlerOptions): Promise<ProbeCommandOutput>;
+  probe(args: ProbeCommandInput, cb: (err: any, data?: ProbeCommandOutput) => void): void;
+  probe(
+    args: ProbeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ProbeCommandOutput) => void
   ): void;
 
   /**

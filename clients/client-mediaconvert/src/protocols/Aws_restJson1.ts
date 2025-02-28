@@ -7,6 +7,7 @@ import {
   collectBody,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -59,6 +60,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { ListVersionsCommandInput, ListVersionsCommandOutput } from "../commands/ListVersionsCommand";
+import { ProbeCommandInput, ProbeCommandOutput } from "../commands/ProbeCommand";
 import { PutPolicyCommandInput, PutPolicyCommandOutput } from "../commands/PutPolicyCommand";
 import { SearchJobsCommandInput, SearchJobsCommandOutput } from "../commands/SearchJobsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -252,23 +254,33 @@ import {
   XavcSettings,
 } from "../models/models_1";
 import {
+  AudioProperties,
   BadRequestException,
   ConflictException,
+  Container,
+  DataProperties,
   ForbiddenException,
+  FrameRate,
   InternalServerErrorException,
   JobEngineVersion,
   JobTemplate,
   JobTemplateSettings,
+  Metadata,
   NotFoundException,
   Policy,
   Preset,
   PresetSettings,
+  ProbeInputFile,
+  ProbeResult,
   Queue,
   ReservationPlan,
   ReservationPlanSettings,
   ResourceTags,
   ServiceOverride,
   TooManyRequestsException,
+  Track,
+  TrackMapping,
+  VideoProperties,
 } from "../models/models_2";
 
 /**
@@ -727,6 +739,25 @@ export const se_ListVersionsCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ProbeCommand
+ */
+export const se_ProbeCommand = async (input: ProbeCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2017-08-29/probe");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      inputFiles: [, (_) => se___listOfProbeInputFile(_, context), `InputFiles`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1366,6 +1397,24 @@ export const de_ListVersionsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ProbeCommand
+ */
+export const de_ProbeCommand = async (output: __HttpResponse, context: __SerdeContext): Promise<ProbeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ProbeResults: [, (_) => de___listOfProbeResult(_, context), `probeResults`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1PutPolicyCommand
  */
 export const de_PutPolicyCommand = async (
@@ -1911,6 +1960,17 @@ const se___listOfOutputGroup = (input: OutputGroup[], context: __SerdeContext): 
     .filter((e: any) => e != null)
     .map((entry) => {
       return se_OutputGroup(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfProbeInputFile
+ */
+const se___listOfProbeInputFile = (input: ProbeInputFile[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ProbeInputFile(entry, context);
     });
 };
 
@@ -4020,6 +4080,15 @@ const se_PresetSettings = (input: PresetSettings, context: __SerdeContext): any 
 };
 
 /**
+ * serializeAws_restJson1ProbeInputFile
+ */
+const se_ProbeInputFile = (input: ProbeInputFile, context: __SerdeContext): any => {
+  return take(input, {
+    fileUrl: [, , `FileUrl`],
+  });
+};
+
+/**
  * serializeAws_restJson1ProresSettings
  */
 const se_ProresSettings = (input: ProresSettings, context: __SerdeContext): any => {
@@ -4611,6 +4680,8 @@ const de___listOf__doubleMinNegative60Max6 = (output: any, context: __SerdeConte
   return retVal;
 };
 
+// de___listOf__integer omitted.
+
 // de___listOf__integerMin1Max2147483647 omitted.
 
 // de___listOf__integerMin32Max8182 omitted.
@@ -4971,6 +5042,18 @@ const de___listOfPreset = (output: any, context: __SerdeContext): Preset[] => {
 };
 
 /**
+ * deserializeAws_restJson1__listOfProbeResult
+ */
+const de___listOfProbeResult = (output: any, context: __SerdeContext): ProbeResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ProbeResult(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfQueue
  */
 const de___listOfQueue = (output: any, context: __SerdeContext): Queue[] => {
@@ -5007,6 +5090,30 @@ const de___listOfServiceOverride = (output: any, context: __SerdeContext): Servi
 };
 
 // de___listOfTeletextPageType omitted.
+
+/**
+ * deserializeAws_restJson1__listOfTrack
+ */
+const de___listOfTrack = (output: any, context: __SerdeContext): Track[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Track(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfTrackMapping
+ */
+const de___listOfTrackMapping = (output: any, context: __SerdeContext): TrackMapping[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TrackMapping(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1__listOfVideoOverlay
@@ -5262,6 +5369,20 @@ const de_AudioNormalizationSettings = (output: any, context: __SerdeContext): Au
     PeakCalculation: [, __expectString, `peakCalculation`],
     TargetLkfs: [, __limitedParseDouble, `targetLkfs`],
     TruePeakLimiterThreshold: [, __limitedParseDouble, `truePeakLimiterThreshold`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AudioProperties
+ */
+const de_AudioProperties = (output: any, context: __SerdeContext): AudioProperties => {
+  return take(output, {
+    BitDepth: [, __expectInt32, `bitDepth`],
+    BitRate: [, __expectInt32, `bitRate`],
+    Channels: [, __expectInt32, `channels`],
+    FrameRate: [, (_: any) => de_FrameRate(_, context), `frameRate`],
+    LanguageCode: [, __expectString, `languageCode`],
+    SampleRate: [, __expectInt32, `sampleRate`],
   }) as any;
 };
 
@@ -5682,6 +5803,17 @@ const de_ColorCorrector = (output: any, context: __SerdeContext): ColorCorrector
 };
 
 /**
+ * deserializeAws_restJson1Container
+ */
+const de_Container = (output: any, context: __SerdeContext): Container => {
+  return take(output, {
+    Duration: [, __limitedParseDouble, `duration`],
+    Format: [, __expectString, `format`],
+    Tracks: [, (_: any) => de___listOfTrack(_, context), `tracks`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ContainerSettings
  */
 const de_ContainerSettings = (output: any, context: __SerdeContext): ContainerSettings => {
@@ -5766,6 +5898,15 @@ const de_DashIsoImageBasedTrickPlaySettings = (
     ThumbnailWidth: [, __expectInt32, `thumbnailWidth`],
     TileHeight: [, __expectInt32, `tileHeight`],
     TileWidth: [, __expectInt32, `tileWidth`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataProperties
+ */
+const de_DataProperties = (output: any, context: __SerdeContext): DataProperties => {
+  return take(output, {
+    LanguageCode: [, __expectString, `languageCode`],
   }) as any;
 };
 
@@ -6116,6 +6257,16 @@ const de_FrameCaptureSettings = (output: any, context: __SerdeContext): FrameCap
     FramerateNumerator: [, __expectInt32, `framerateNumerator`],
     MaxCaptures: [, __expectInt32, `maxCaptures`],
     Quality: [, __expectInt32, `quality`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FrameRate
+ */
+const de_FrameRate = (output: any, context: __SerdeContext): FrameRate => {
+  return take(output, {
+    Denominator: [, __expectInt32, `denominator`],
+    Numerator: [, __expectInt32, `numerator`],
   }) as any;
 };
 
@@ -6828,6 +6979,18 @@ const de_M3u8Settings = (output: any, context: __SerdeContext): M3u8Settings => 
 };
 
 /**
+ * deserializeAws_restJson1Metadata
+ */
+const de_Metadata = (output: any, context: __SerdeContext): Metadata => {
+  return take(output, {
+    ETag: [, __expectString, `eTag`],
+    FileSize: [, __expectLong, `fileSize`],
+    LastModified: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastModified`],
+    MimeType: [, __expectString, `mimeType`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1MinBottomRenditionSize
  */
 const de_MinBottomRenditionSize = (output: any, context: __SerdeContext): MinBottomRenditionSize => {
@@ -7284,6 +7447,17 @@ const de_PresetSettings = (output: any, context: __SerdeContext): PresetSettings
 };
 
 /**
+ * deserializeAws_restJson1ProbeResult
+ */
+const de_ProbeResult = (output: any, context: __SerdeContext): ProbeResult => {
+  return take(output, {
+    Container: [, (_: any) => de_Container(_, context), `container`],
+    Metadata: [, (_: any) => de_Metadata(_, context), `metadata`],
+    TrackMappings: [, (_: any) => de___listOfTrackMapping(_, context), `trackMappings`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ProresSettings
  */
 const de_ProresSettings = (output: any, context: __SerdeContext): ProresSettings => {
@@ -7556,6 +7730,32 @@ const de_Timing = (output: any, context: __SerdeContext): Timing => {
 };
 
 /**
+ * deserializeAws_restJson1Track
+ */
+const de_Track = (output: any, context: __SerdeContext): Track => {
+  return take(output, {
+    AudioProperties: [, (_: any) => de_AudioProperties(_, context), `audioProperties`],
+    Codec: [, __expectString, `codec`],
+    DataProperties: [, (_: any) => de_DataProperties(_, context), `dataProperties`],
+    Duration: [, __limitedParseDouble, `duration`],
+    Index: [, __expectInt32, `index`],
+    TrackType: [, __expectString, `trackType`],
+    VideoProperties: [, (_: any) => de_VideoProperties(_, context), `videoProperties`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TrackMapping
+ */
+const de_TrackMapping = (output: any, context: __SerdeContext): TrackMapping => {
+  return take(output, {
+    AudioTrackIndexes: [, _json, `audioTrackIndexes`],
+    DataTrackIndexes: [, _json, `dataTrackIndexes`],
+    VideoTrackIndexes: [, _json, `videoTrackIndexes`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1TrackSourceSettings
  */
 const de_TrackSourceSettings = (output: any, context: __SerdeContext): TrackSourceSettings => {
@@ -7737,6 +7937,22 @@ const de_VideoPreprocessor = (output: any, context: __SerdeContext): VideoPrepro
     NoiseReducer: [, (_: any) => de_NoiseReducer(_, context), `noiseReducer`],
     PartnerWatermarking: [, (_: any) => de_PartnerWatermarking(_, context), `partnerWatermarking`],
     TimecodeBurnin: [, (_: any) => de_TimecodeBurnin(_, context), `timecodeBurnin`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VideoProperties
+ */
+const de_VideoProperties = (output: any, context: __SerdeContext): VideoProperties => {
+  return take(output, {
+    BitDepth: [, __expectInt32, `bitDepth`],
+    BitRate: [, __expectInt32, `bitRate`],
+    ColorPrimaries: [, __expectString, `colorPrimaries`],
+    FrameRate: [, (_: any) => de_FrameRate(_, context), `frameRate`],
+    Height: [, __expectInt32, `height`],
+    MatrixCoefficients: [, __expectString, `matrixCoefficients`],
+    TransferCharacteristics: [, __expectString, `transferCharacteristics`],
+    Width: [, __expectInt32, `width`],
   }) as any;
 };
 
