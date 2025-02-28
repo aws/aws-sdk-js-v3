@@ -156,6 +156,11 @@ export interface ReplicationTaskIndividualAssessment {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>"skipped"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>"running"</code>
    *                </p>
    *             </li>
@@ -2205,7 +2210,7 @@ export interface StartReplicationMessage {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ResultLocationFinder</code>: The folder within an Amazon Amazon S3 bucket where
+   *                   <code>ResultLocationFolder</code>: The folder within an Amazon S3 bucket where
    *                you want DMS to store the results of this assessment run.</p>
    *             </li>
    *             <li>
@@ -2213,7 +2218,7 @@ export interface StartReplicationMessage {
    *                   <code>ResultEncryptionMode</code>: The supported values are <code>SSE_KMS</code>
    *                and <code>SSE_S3</code>. If these values are not provided, then the files are not
    *                encrypted at rest. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.KMSKeys">Creating
-   *                   Amazon Web Services KMS keys to encrypt Amazon Amazon S3 target objects</a>.</p>
+   *                   Amazon Web Services KMS keys to encrypt Amazon S3 target objects</a>.</p>
    *             </li>
    *             <li>
    *                <p>

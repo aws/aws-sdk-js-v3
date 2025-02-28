@@ -79,6 +79,7 @@ export interface CancelReplicationTaskAssessmentRunCommandOutput
  * //       Error: Number("int"),
  * //       Warning: Number("int"),
  * //       Cancelled: Number("int"),
+ * //       Skipped: Number("int"),
  * //     },
  * //   },
  * // };

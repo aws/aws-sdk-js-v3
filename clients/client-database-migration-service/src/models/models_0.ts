@@ -455,6 +455,12 @@ export interface ReplicationTaskAssessmentRunResultStatistic {
    * @public
    */
   Cancelled?: number | undefined;
+
+  /**
+   * <p>The number of individual assessments that were skipped during the assessment run.</p>
+   * @public
+   */
+  Skipped?: number | undefined;
 }
 
 /**
@@ -532,8 +538,7 @@ export interface ReplicationTaskAssessmentRun {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>"warning"</code> – At least one individual assessment completed with
-   *                a <code>warning</code> status.</p>
+   *                   <code>"warning"</code> – At least one individual assessment completed with a <code>warning</code> status or all individual assessments were skipped (completed with a <code>skipped</code> status).</p>
    *             </li>
    *          </ul>
    * @public

@@ -93,6 +93,7 @@ export interface DescribeReplicationsCommandOutput extends DescribeReplicationsR
  * //             Error: Number("int"),
  * //             Warning: Number("int"),
  * //             Cancelled: Number("int"),
+ * //             Skipped: Number("int"),
  * //           },
  * //         },
  * //       ],

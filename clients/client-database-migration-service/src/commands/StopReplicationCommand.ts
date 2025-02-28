@@ -83,6 +83,7 @@ export interface StopReplicationCommandOutput extends StopReplicationResponse, _
  * //           Error: Number("int"),
  * //           Warning: Number("int"),
  * //           Cancelled: Number("int"),
+ * //           Skipped: Number("int"),
  * //         },
  * //       },
  * //     ],
