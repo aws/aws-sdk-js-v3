@@ -5,7 +5,6 @@ import { TypeRegistry } from "@smithy/core/schema";
 
 export const smithy_apiRegistry = TypeRegistry.for("smithy.api");
 smithy_apiRegistry.startCapture();
-export var Unit = "unit";
+export var Unit = "unit" as const;
 
-smithy_apiRegistry.registerSimpleTypes({});
 smithy_apiRegistry.stopCapture();

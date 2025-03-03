@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchGetItemInput, BatchGetItemOutput } from "../models/models_0";
-import { de_BatchGetItemCommand, se_BatchGetItemCommand } from "../protocols/Aws_json1_0";
+import { BatchGetItem } from "../schemas/com.amazonaws.dynamodb";
 
 /**
  * @public
@@ -351,16 +350,12 @@ export class BatchGetItemCommand extends $Command
     ResourceArnList: { type: "operationContextParams", get: (input?: any) => Object.keys(input?.RequestItems ?? {}) },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DynamoDB_20120810", "BatchGetItem", {})
   .n("DynamoDBClient", "BatchGetItemCommand")
   .f(void 0, void 0)
-  .ser(se_BatchGetItemCommand)
-  .de(de_BatchGetItemCommand)
+  .sc(BatchGetItem)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

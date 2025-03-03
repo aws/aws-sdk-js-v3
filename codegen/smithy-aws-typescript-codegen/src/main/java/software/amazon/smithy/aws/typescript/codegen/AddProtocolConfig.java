@@ -31,6 +31,8 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
     public AddProtocolConfig() {
         SchemaGenerationAllowlist.allow("aws.protocoltests.restxml#RestXml");
         SchemaGenerationAllowlist.allow("com.amazonaws.s3#AmazonS3");
+        SchemaGenerationAllowlist.allow("com.amazonaws.dynamodb#DynamoDB_20120810");
+        SchemaGenerationAllowlist.allow("com.amazonaws.lambda#AWSGirApiService");
         // SchemaGenerationAllowlist.allow("aws.protocoltests.restjson#RestJson");
         // SchemaGenerationAllowlist.allow("aws.protocoltests.json#JsonProtocol");
     }
