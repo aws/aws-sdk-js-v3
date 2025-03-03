@@ -27,6 +27,11 @@ export type DefaultProviderInit = FromIniInit &
 let multipleCredentialSourceWarningEmitted = false;
 
 /**
+ * @internal
+ */
+const credentialCache = new WeakMap<() => Promise<AwsCredentialIdentity>, AwsCredentialIdentity>();
+
+/**
  * Creates a credential provider that will attempt to find credentials from the
  * following sources (listed in order of precedence):
  *   * Environment variables exposed via `process.env`
@@ -60,19 +65,18 @@ let multipleCredentialSourceWarningEmitted = false;
  * @see {@link fromContainerMetadata}   The function used to source credentials from the
  *                                      ECS Container Metadata Service.
  */
-export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvider<AwsCredentialIdentity> =>
-  memoize(
-    chain(
-      async () => {
-        const profile = init.profile ?? process.env[ENV_PROFILE];
-        if (profile) {
-          const envStaticCredentialsAreSet = process.env[ENV_KEY] && process.env[ENV_SECRET];
-          if (envStaticCredentialsAreSet) {
-            if (!multipleCredentialSourceWarningEmitted) {
-              const warnFn =
-                init.logger?.warn && init.logger?.constructor?.name !== "NoOpLogger" ? init.logger.warn : console.warn;
-              warnFn(
-                `@aws-sdk/credential-provider-node - defaultProvider::fromEnv WARNING:
+export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvider<AwsCredentialIdentity> => {
+  const providerChain = chain(
+    async () => {
+      const profile = init.profile ?? process.env[ENV_PROFILE];
+      if (profile) {
+        const envStaticCredentialsAreSet = process.env[ENV_KEY] && process.env[ENV_SECRET];
+        if (envStaticCredentialsAreSet) {
+          if (!multipleCredentialSourceWarningEmitted) {
+            const warnFn =
+              init.logger?.warn && init.logger?.constructor?.name !== "NoOpLogger" ? init.logger.warn : console.warn;
+            warnFn(
+              `@aws-sdk/credential-provider-node - defaultProvider::fromEnv WARNING:
     Multiple credential sources detected: 
     Both AWS_PROFILE and the pair AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY static credentials are set.
     This SDK will proceed with the AWS_PROFILE value.
@@ -81,59 +85,75 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvide
     Please ensure that your environment only sets either the AWS_PROFILE or the
     AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY pair.
 `
-              );
-              multipleCredentialSourceWarningEmitted = true;
-            }
+            );
+            multipleCredentialSourceWarningEmitted = true;
           }
-          throw new CredentialsProviderError("AWS_PROFILE is set, skipping fromEnv provider.", {
-            logger: init.logger,
-            tryNextLink: true,
-          });
         }
-        init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromEnv");
-        return fromEnv(init)();
-      },
-      async () => {
-        init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromSSO");
-        const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoSession } = init;
-        if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
-          throw new CredentialsProviderError(
-            "Skipping SSO provider in default chain (inputs do not include SSO fields).",
-            { logger: init.logger }
-          );
-        }
-        const { fromSSO } = await import("@aws-sdk/credential-provider-sso");
-        return fromSSO(init)();
-      },
-      async () => {
-        init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
-        const { fromIni } = await import("@aws-sdk/credential-provider-ini");
-        return fromIni(init)();
-      },
-      async () => {
-        init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
-        const { fromProcess } = await import("@aws-sdk/credential-provider-process");
-        return fromProcess(init)();
-      },
-      async () => {
-        init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
-        const { fromTokenFile } = await import("@aws-sdk/credential-provider-web-identity");
-        return fromTokenFile(init)();
-      },
-      async () => {
-        init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::remoteProvider");
-        return (await remoteProvider(init))();
-      },
-      async () => {
-        throw new CredentialsProviderError("Could not load credentials from any providers", {
-          tryNextLink: false,
+        throw new CredentialsProviderError("AWS_PROFILE is set, skipping fromEnv provider.", {
           logger: init.logger,
+          tryNextLink: true,
         });
       }
-    ),
-    credentialsTreatedAsExpired,
-    credentialsWillNeedRefresh
+      init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromEnv");
+      return fromEnv(init)();
+    },
+    async () => {
+      init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromSSO");
+      const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoSession } = init;
+      if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
+        throw new CredentialsProviderError(
+          "Skipping SSO provider in default chain (inputs do not include SSO fields).",
+          { logger: init.logger }
+        );
+      }
+      const { fromSSO } = await import("@aws-sdk/credential-provider-sso");
+      return fromSSO(init)();
+    },
+    async () => {
+      init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
+      const { fromIni } = await import("@aws-sdk/credential-provider-ini");
+      return fromIni(init)();
+    },
+    async () => {
+      init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
+      const { fromProcess } = await import("@aws-sdk/credential-provider-process");
+      return fromProcess(init)();
+    },
+    async () => {
+      init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
+      const { fromTokenFile } = await import("@aws-sdk/credential-provider-web-identity");
+      return fromTokenFile(init)();
+    },
+    async () => {
+      init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::remoteProvider");
+      return (await remoteProvider(init))();
+    },
+    async () => {
+      throw new CredentialsProviderError("Could not load credentials from any providers", {
+        tryNextLink: false,
+        logger: init.logger,
+      });
+    }
   );
+
+  return memoize(
+    providerChain,
+    (credentials) => {
+      const cached = credentialCache.get(providerChain);
+      if (cached && !credentialsTreatedAsExpired(cached)) {
+        return true;
+      }
+      return credentialsTreatedAsExpired(credentials);
+    },
+    (credentials) => {
+      const needsRefresh = credentialsWillNeedRefresh(credentials);
+      if (!needsRefresh) {
+        credentialCache.set(providerChain, credentials);
+      }
+      return needsRefresh;
+    }
+  );
+};
 
 /**
  * @internal
