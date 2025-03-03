@@ -65,7 +65,7 @@ export class XmlShapeDeserializer implements ShapeDeserializer<Uint8Array | stri
       const sparse = !!traits.sparse;
       if (Array.isArray(value)) {
         // list
-        const memberNs = ns.getMemberSchema();
+        const memberNs = ns.getValueSchema();
         const buffer = [] as any[];
         for (const v of value) {
           if (v != null || sparse) {
@@ -77,7 +77,7 @@ export class XmlShapeDeserializer implements ShapeDeserializer<Uint8Array | stri
       const buffer = {} as any;
       if (ns.isMapSchema()) {
         // map
-        const memberNs = ns.getMemberSchema();
+        const memberNs = ns.getValueSchema();
         for (const key of Object.keys(value)) {
           if (value[key] != null || sparse) {
             buffer[key] = this.readSchema(memberNs.getSchema(), value[key]);
@@ -98,6 +98,9 @@ export class XmlShapeDeserializer implements ShapeDeserializer<Uint8Array | stri
         for (const key of Object.keys(value)) {
           const assignToKey = xmlNameToMemberName[key] ?? key;
           const memberNs = ns.getMemberSchema(assignToKey);
+          if (memberNs === undefined) {
+            continue;
+          }
 
           if (value[key] != null) {
             buffer[assignToKey] = this.readSchema(memberNs, value[key]);
