@@ -10,9 +10,12 @@ const _CAVQS = "ConstantAndVariableQueryString";
 const _CAVQSI = "ConstantAndVariableQueryStringInput";
 const _CE = "ComplexError";
 const _CE_ = "Content-Encoding";
+const _CNED = "ComplexNestedErrorData";
 const _CQS = "ConstantQueryString";
 const _CQSI = "ConstantQueryStringInput";
 const _CTP = "ContentTypeParameters";
+const _CTPI = "ContentTypeParametersInput";
+const _CTPO = "ContentTypeParametersOutput";
 const _D = "Double";
 const _DD = "DoubleDribble";
 const _DL = "DoubleList";
@@ -20,6 +23,8 @@ const _DO = "DatetimeOffsets";
 const _DOO = "DatetimeOffsetsOutput";
 const _E = "Enum";
 const _EIAEO = "EmptyInputAndEmptyOutput";
+const _EIAEOI = "EmptyInputAndEmptyOutputInput";
+const _EIAEOO = "EmptyInputAndEmptyOutputOutput";
 const _EL = "EnumList";
 const _EO = "EndpointOperation";
 const _EPI = "EnumPayloadInput";
@@ -28,6 +33,7 @@ const _EWHLO = "EndpointWithHostLabelOperation";
 const _EWHLOR = "EndpointWithHostLabelOperationRequest";
 const _Em = "Empty";
 const _F = "Float";
+const _FPH = "FooPrefixHeaders";
 const _FS = "FractionalSeconds";
 const _FSO = "FractionalSecondsOutput";
 const _FXM = "FlattenedXmlMap";
@@ -40,6 +46,7 @@ const _FXMWXNOM = "FlattenedXmlMapWithXmlNamespaceOutputMap";
 const _FXMWXNR = "FlattenedXmlMapWithXmlNameRequest";
 const _FXMWXNRl = "FlattenedXmlMapWithXmlNameResponse";
 const _FXMWXNl = "FlattenedXmlMapWithXmlNamespace";
+const _Fo = "Foo";
 const _GWE = "GreetingWithErrors";
 const _GWEO = "GreetingWithErrorsOutput";
 const _H = "Header";
@@ -89,12 +96,18 @@ const _IS = "IntegerSet";
 const _IV = "InnerValue";
 const _KVP = "KVP";
 const _L = "Long";
-const _N = "Null";
+const _LWMN = "ListWithMemberNamespace";
+const _LWN = "ListWithNamespace";
+const _M = "Message";
+const _N = "Nested";
 const _NAEHC = "NullAndEmptyHeadersClient";
 const _NAEHIO = "NullAndEmptyHeadersIO";
 const _NAEHS = "NullAndEmptyHeadersServer";
 const _NIANO = "NoInputAndNoOutput";
 const _NIAO = "NoInputAndOutput";
+const _NIAOO = "NoInputAndOutputOutput";
+const _NM = "NestedMap";
+const _NP = "NestedPayload";
 const _NXM = "NestedXmlMaps";
 const _NXMR = "NestedXmlMapsRequest";
 const _NXMRe = "NestedXmlMapsResponse";
@@ -102,11 +115,14 @@ const _NXMWXN = "NestedXmlMapWithXmlName";
 const _NXMWXNIM = "NestedXmlMapWithXmlNameInnerMap";
 const _NXMWXNIO = "NestedXmlMapWithXmlNameInputOutput";
 const _NXMWXNM = "NestedXmlMapWithXmlNameMap";
+const _Nu = "Null";
 const _ONSES = "OmitsNullSerializesEmptyString";
 const _ONSESI = "OmitsNullSerializesEmptyStringInput";
 const _PWCE = "PutWithContentEncoding";
 const _PWCEI = "PutWithContentEncodingInput";
 const _PWXN = "PayloadWithXmlName";
+const _PWXNAP = "PayloadWithXmlNamespaceAndPrefix";
+const _PWXNa = "PayloadWithXmlNamespace";
 const _QITAF = "QueryIdempotencyTokenAutoFill";
 const _QITAFI = "QueryIdempotencyTokenAutoFillInput";
 const _QP = "QueryPrecedence";
@@ -120,9 +136,10 @@ const _RSIONe = "RecursiveShapesInputOutputNested2";
 const _RSR = "RecursiveShapesRequest";
 const _RSRe = "RecursiveShapesResponse";
 const _S = "String";
-const _SL = "StructureList";
+const _SE = "StringEnum";
+const _SL = "StringList";
 const _SLM = "StructureListMember";
-const _SLt = "StringList";
+const _SLt = "StructureList";
 const _SPI = "StringPayloadInput";
 const _SS = "StringSet";
 const _SSP = "SimpleScalarProperties";
@@ -135,6 +152,8 @@ const _T = "Timestamp";
 const _TFH = "TimestampFormatHeaders";
 const _TFHIO = "TimestampFormatHeadersIO";
 const _TL = "TimestampList";
+const _TLo = "TopLevel";
+const _UP = "UnionPayload";
 const _V = "V";
 const _XA = "X-A";
 const _XAAI = "X-Amz-Account-Id";
@@ -164,7 +183,13 @@ const _XEL = "XmlEmptyLists";
 const _XELR = "XmlEmptyListsRequest";
 const _XELRm = "XmlEmptyListsResponse";
 const _XEM = "XmlEmptyMaps";
+const _XEMR = "XmlEmptyMapsRequest";
+const _XEMRm = "XmlEmptyMapsResponse";
+const _XER = "XmlEnumsRequest";
+const _XERm = "XmlEnumsResponse";
 const _XES = "XmlEmptyStrings";
+const _XESR = "XmlEmptyStringsRequest";
+const _XESRm = "XmlEmptyStringsResponse";
 const _XE_ = "X-EnumList";
 const _XEm = "XmlEnums";
 const _XF = "X-Foo";
@@ -174,12 +199,17 @@ const _XG = "X-Greeting";
 const _XH = "X-Header";
 const _XI = "X-Integer";
 const _XIE = "XmlIntEnums";
+const _XIER = "XmlIntEnumsRequest";
+const _XIERm = "XmlIntEnumsResponse";
 const _XI_ = "X-IntegerList";
 const _XL = "X-Long";
 const _XLR = "XmlListsRequest";
 const _XLRm = "XmlListsResponse";
 const _XLm = "XmlLists";
 const _XM = "XmlMaps";
+const _XMIOM = "XmlMapsInputOutputMap";
+const _XMR = "XmlMapsRequest";
+const _XMRm = "XmlMapsResponse";
 const _XMWXN = "XmlMapWithXmlNamespace";
 const _XMWXNIOM = "XmlMapWithXmlNamespaceInputOutputMap";
 const _XMWXNR = "XmlMapWithXmlNamespaceRequest";
@@ -189,6 +219,11 @@ const _XMXNIOM = "XmlMapsXmlNameInputOutputMap";
 const _XMXNR = "XmlMapsXmlNameRequest";
 const _XMXNRm = "XmlMapsXmlNameResponse";
 const _XN = "XmlNamespaces";
+const _XNL = "XmlNamespacedList";
+const _XNN = "XmlNamespaceNested";
+const _XNR = "XmlNamespacesRequest";
+const _XNRm = "XmlNamespacesResponse";
+const _XNUS = "XmlNestedUnionStruct";
 const _XS = "X-String";
 const _XS_ = "X-Short";
 const _XS__ = "X-StringList";
@@ -212,8 +247,9 @@ const _a = "a";
 const _aI = "accountId";
 const _at = "attr";
 const _b = "baz";
-const _bV = "booleanValue";
-const _bVy = "byteValue";
+const _bL = "booleanList";
+const _bV = "byteValue";
+const _bVo = "booleanValue";
 const _b_ = "b";
 const _ba = "bar";
 const _bl = "blob";
@@ -230,11 +266,19 @@ const _dV = "doubleValue";
 const _da = "data";
 const _do = "double";
 const _e = "error";
+const _eL = "enumList";
 const _eS = "emptyString";
 const _eSOT = "epochSecondsOnTarget";
 const _eSp = "epochSeconds";
 const _en = "encoding";
 const _f = "foo";
+const _fBV = "falseBooleanValue";
+const _fE = "fooEnum1";
+const _fEL = "fooEnumList";
+const _fEM = "fooEnumMap";
+const _fES = "fooEnumSet";
+const _fEo = "fooEnum2";
+const _fEoo = "fooEnum3";
 const _fL = "flattenedList";
 const _fLWMN = "flattenedListWithMemberNamespace";
 const _fLWN = "flattenedListWithNamespace";
@@ -275,6 +319,13 @@ const _hTB = "headerTrueBool";
 const _hTL = "headerTimestampList";
 const _ht = "http";
 const _i = "integer";
+const _iE = "intEnum1";
+const _iEL = "intEnumList";
+const _iEM = "intEnumMap";
+const _iES = "intEnumSet";
+const _iEn = "intEnum2";
+const _iEnt = "intEnum3";
+const _iL = "integerList";
 const _iT = "idempotencyToken";
 const _iV = "integerValue";
 const _it = "item";
@@ -288,8 +339,11 @@ const _mM = "myMap";
 const _mS = "maybeSet";
 const _mSL = "myStructureList";
 const _n = "nested";
+const _nM = "nestedMap";
+const _nSL = "nestedStringList";
 const _nV = "nullValue";
 const _nXMWXNM = "nestedXmlMapWithXmlNameMap";
+const _na = "name";
 const _no = "normal";
 const _o = "other";
 const _p = "payload";
@@ -319,12 +373,15 @@ const _r = "renamed";
 const _rLM = "renamedListMembers";
 const _rM = "recursiveMember";
 const _s = "string";
-const _sL = "structureList";
+const _sL = "stringList";
+const _sLt = "structureList";
+const _sS = "stringSet";
 const _sV = "stringValue";
 const _sVh = "shortValue";
 const _sVt = "structValue";
 const _sh = "short";
 const _t = "timestamp";
+const _tBV = "trueBooleanValue";
 const _tDT = "targetDateTime";
 const _tES = "targetEpochSeconds";
 const _tHD = "targetHttpDate";
@@ -333,6 +390,7 @@ const _te = "test";
 const _to = "token";
 const _uV = "unionValue";
 const _v = "value";
+const _va = "values";
 const _xA = "xmlAttribute";
 const _xF = "xmlFlattened";
 const _xN = "xmlName";
@@ -354,10 +412,14 @@ import {
   DoubleList,
   FooEnumList,
   FooEnumMap,
+  FooEnumSet,
   GreetingStruct,
   IntegerEnumList,
+  IntegerEnumMap,
+  IntegerEnumSet,
   IntegerList,
   IntegerSet,
+  NestedStringList,
   StringList,
   StringListMap,
   StringMap,
@@ -373,143 +435,165 @@ aws_protocoltests_restxmlRegistry.startCapture();
 export var AllQueryStringTypesInput = __struct(
   _AQSTI,
   {},
-  {
-    [_qS]: [
-      ,
+  [
+    _qS,
+    _qSL,
+    _qSS,
+    _qB,
+    _qSu,
+    _qI,
+    _qIL,
+    _qIS,
+    _qL,
+    _qF,
+    _qD,
+    _qDL,
+    _qBu,
+    _qBL,
+    _qT,
+    _qTL,
+    _qE,
+    _qEL,
+    _qIE,
+    _qIEL,
+    _qPMOS,
+  ],
+  [
+    [
+      0,
       {
         [_hQ]: _S,
       },
     ],
-    [_qSL]: [
-      () => StringList,
+    [
+      64 | 0,
       {
-        [_hQ]: _SLt,
+        [_hQ]: _SL,
       },
     ],
-    [_qSS]: [
-      () => StringSet,
+    [
+      64 | 0,
       {
         [_hQ]: _SS,
       },
     ],
-    [_qB]: [
-      ,
+    [
+      1,
       {
         [_hQ]: _B,
       },
     ],
-    [_qSu]: [
-      ,
+    [
+      1,
       {
         [_hQ]: _Sh,
       },
     ],
-    [_qI]: [
-      ,
+    [
+      1,
       {
         [_hQ]: _I,
       },
     ],
-    [_qIL]: [
-      () => IntegerList,
+    [
+      64 | 1,
       {
         [_hQ]: _IL,
       },
     ],
-    [_qIS]: [
-      () => IntegerSet,
+    [
+      64 | 1,
       {
         [_hQ]: _IS,
       },
     ],
-    [_qL]: [
-      ,
+    [
+      1,
       {
         [_hQ]: _L,
       },
     ],
-    [_qF]: [
-      ,
+    [
+      1,
       {
         [_hQ]: _F,
       },
     ],
-    [_qD]: [
-      ,
+    [
+      1,
       {
         [_hQ]: _D,
       },
     ],
-    [_qDL]: [
-      () => DoubleList,
+    [
+      64 | 1,
       {
         [_hQ]: _DL,
       },
     ],
-    [_qBu]: [
-      ,
+    [
+      2,
       {
         [_hQ]: _Bo,
       },
     ],
-    [_qBL]: [
-      () => BooleanList,
+    [
+      64 | 2,
       {
         [_hQ]: _BL,
       },
     ],
-    [_qT]: [
-      () => "time",
+    [
+      4,
       {
         [_hQ]: _T,
       },
     ],
-    [_qTL]: [
-      () => TimestampList,
+    [
+      64 | 4,
       {
         [_hQ]: _TL,
       },
     ],
-    [_qE]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _E,
       },
     ],
-    [_qEL]: [
-      () => FooEnumList,
+    [
+      64 | 0,
       {
         [_hQ]: _EL,
       },
     ],
-    [_qIE]: [
-      ,
+    [
+      1,
       {
         [_hQ]: _IE,
       },
     ],
-    [_qIEL]: [
-      () => IntegerEnumList,
+    [
+      64 | 1,
       {
         [_hQ]: _IEL,
       },
     ],
-    [_qPMOS]: [
-      () => StringMap,
+    [
+      128 | 0,
       {
         [_hQP]: 1,
       },
     ],
-  }
+  ]
 );
 export var BodyWithXmlNameInputOutput = __struct(
   _BWXNIO,
   {
     [_xN]: _A,
   },
-  {
-    [_n]: [() => PayloadWithXmlName, {}],
-  }
+  [_n],
+  [[() => PayloadWithXmlName, {}]]
 );
 export var ComplexError = __error(
   _CE,
@@ -517,573 +601,586 @@ export var ComplexError = __error(
     [_e]: _c,
     [_hE]: 403,
   },
-  {
-    [_H]: [
-      ,
+  [_H, _TLo, _N],
+  [
+    [
+      0,
       {
         [_hH]: _XH,
       },
     ],
-  },
+    0,
+    () => ComplexNestedErrorData,
+  ],
 
   __ComplexError
 );
-export var ComplexNestedErrorData = 8 as const;
-
+export var ComplexNestedErrorData = __struct(_CNED, {}, [_Fo], [0]);
 export var ConstantAndVariableQueryStringInput = __struct(
   _CAVQSI,
   {},
-  {
-    [_b]: [
-      ,
+  [_b, _mS],
+  [
+    [
+      0,
       {
         [_hQ]: _b,
       },
     ],
-    [_mS]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _mS,
       },
     ],
-  }
+  ]
 );
 export var ConstantQueryStringInput = __struct(
   _CQSI,
   {},
-  {
-    [_h]: [
-      ,
+  [_h],
+  [
+    [
+      0,
       {
         [_hL]: 1,
       },
     ],
-  }
+  ]
 );
-export var ContentTypeParametersInput = 8 as const;
-
-export var ContentTypeParametersOutput = 8 as const;
-
-export var DatetimeOffsetsOutput = __struct(
-  _DOO,
-  {},
-  {
-    [_d]: [() => "date-time", {}],
-  }
-);
-export var EmptyInputAndEmptyOutputInput = 8 as const;
-
-export var EmptyInputAndEmptyOutputOutput = 8 as const;
-
+export var ContentTypeParametersInput = __struct(_CTPI, {}, [_v], [1]);
+export var ContentTypeParametersOutput = __struct(_CTPO, {}, [], []);
+export var DatetimeOffsetsOutput = __struct(_DOO, {}, [_d], [5]);
+export var EmptyInputAndEmptyOutputInput = __struct(_EIAEOI, {}, [], []);
+export var EmptyInputAndEmptyOutputOutput = __struct(_EIAEOO, {}, [], []);
 export var EndpointWithHostLabelOperationRequest = __struct(
   _EWHLOR,
   {},
-  {
-    [_l]: [
-      ,
+  [_l],
+  [
+    [
+      0,
       {
         [_hLo]: 1,
       },
     ],
-  }
+  ]
 );
 export var EnumPayloadInput = __struct(
   _EPI,
   {},
-  {
-    [_p]: [
-      ,
+  [_p],
+  [
+    [
+      0,
       {
         [_hP]: 1,
       },
     ],
-  }
+  ]
 );
 export var FlattenedXmlMapRequest = __struct(
   _FXMR,
   {},
-  {
-    [_mM]: [
-      () => FooEnumMap,
+  [_mM],
+  [
+    [
+      128 | 0,
       {
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var FlattenedXmlMapResponse = __struct(
   _FXMRl,
   {},
-  {
-    [_mM]: [
-      () => FooEnumMap,
+  [_mM],
+  [
+    [
+      128 | 0,
       {
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var FlattenedXmlMapWithXmlNameRequest = __struct(
   _FXMWXNR,
   {},
-  {
-    [_mM]: [
+  [_mM],
+  [
+    [
       () => FlattenedXmlMapWithXmlNameInputOutputMap,
       {
         [_xN]: _KVP,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var FlattenedXmlMapWithXmlNameResponse = __struct(
   _FXMWXNRl,
   {},
-  {
-    [_mM]: [
+  [_mM],
+  [
+    [
       () => FlattenedXmlMapWithXmlNameInputOutputMap,
       {
         [_xN]: _KVP,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var FlattenedXmlMapWithXmlNamespaceOutput = __struct(
   _FXMWXNO,
   {},
-  {
-    [_mM]: [
+  [_mM],
+  [
+    [
       () => FlattenedXmlMapWithXmlNamespaceOutputMap,
       {
         [_xN]: _KVP,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
-export var FractionalSecondsOutput = __struct(
-  _FSO,
-  {},
-  {
-    [_d]: [() => "date-time", {}],
-  }
-);
+export var FractionalSecondsOutput = __struct(_FSO, {}, [_d], [5]);
 export var GreetingWithErrorsOutput = __struct(
   _GWEO,
   {},
-  {
-    [_g]: [
-      ,
+  [_g],
+  [
+    [
+      0,
       {
         [_hH]: _XG,
       },
     ],
-  }
+  ]
 );
 export var HostLabelHeaderInput = __struct(
   _HLHI,
   {},
-  {
-    [_aI]: [
-      ,
+  [_aI],
+  [
+    [
+      0,
       {
         [_hLo]: 1,
         [_hH]: _XAAI,
       },
     ],
-  }
+  ]
 );
 export var HttpPayloadTraitsInputOutput = __struct(
   _HPTIO,
   {},
-  {
-    [_f]: [
-      ,
+  [_f, _bl],
+  [
+    [
+      0,
       {
         [_hH]: _XF,
       },
     ],
-    [_bl]: [
-      () => "blob",
+    [
+      21,
       {
         [_hP]: 1,
       },
     ],
-  }
+  ]
 );
 export var HttpPayloadTraitsWithMediaTypeInputOutput = __struct(
   _HPTWMTIO,
   {},
-  {
-    [_f]: [
-      ,
+  [_f, _bl],
+  [
+    [
+      0,
       {
         [_hH]: _XF,
       },
     ],
-    [_bl]: [
-      () => "blob",
+    [
+      () => TextPlainBlob,
       {
         [_hP]: 1,
       },
     ],
-  }
+  ]
 );
 export var HttpPayloadWithMemberXmlNameInputOutput = __struct(
   _HPWMXNIO,
   {},
-  {
-    [_n]: [
+  [_n],
+  [
+    [
       () => PayloadWithXmlName,
       {
         [_hP]: 1,
         [_xN]: _Ho,
       },
     ],
-  }
+  ]
 );
 export var HttpPayloadWithStructureInputOutput = __struct(
   _HPWSIO,
   {},
-  {
-    [_n]: [
+  [_n],
+  [
+    [
       () => NestedPayload,
       {
         [_hP]: 1,
       },
     ],
-  }
+  ]
 );
 export var HttpPayloadWithUnionInputOutput = __struct(
   _HPWUIO,
   {},
-  {
-    [_n]: [
+  [_n],
+  [
+    [
       () => UnionPayload,
       {
         [_hP]: 1,
       },
     ],
-  }
+  ]
 );
 export var HttpPayloadWithXmlNameInputOutput = __struct(
   _HPWXNIO,
   {},
-  {
-    [_n]: [
+  [_n],
+  [
+    [
       () => PayloadWithXmlName,
       {
         [_hP]: 1,
       },
     ],
-  }
+  ]
 );
 export var HttpPayloadWithXmlNamespaceAndPrefixInputOutput = __struct(
   _HPWXNAPIO,
   {},
-  {
-    [_n]: [
+  [_n],
+  [
+    [
       () => PayloadWithXmlNamespaceAndPrefix,
       {
         [_hP]: 1,
       },
     ],
-  }
+  ]
 );
 export var HttpPayloadWithXmlNamespaceInputOutput = __struct(
   _HPWXNIOt,
   {},
-  {
-    [_n]: [
+  [_n],
+  [
+    [
       () => PayloadWithXmlNamespace,
       {
         [_hP]: 1,
       },
     ],
-  }
+  ]
 );
 export var HttpPrefixHeadersInputOutput = __struct(
   _HPHIO,
   {},
-  {
-    [_f]: [
-      ,
+  [_f, _fM],
+  [
+    [
+      0,
       {
         [_hH]: _XF,
       },
     ],
-    [_fM]: [
-      () => FooPrefixHeaders,
+    [
+      128 | 0,
       {
         [_hPH]: _XF_,
       },
     ],
-  }
+  ]
 );
 export var HttpRequestWithFloatLabelsInput = __struct(
   _HRWFLI,
   {},
-  {
-    [_fl]: [
-      ,
+  [_fl, _do],
+  [
+    [
+      1,
       {
         [_hL]: 1,
       },
     ],
-    [_do]: [
-      ,
+    [
+      1,
       {
         [_hL]: 1,
       },
     ],
-  }
+  ]
 );
 export var HttpRequestWithGreedyLabelInPathInput = __struct(
   _HRWGLIPI,
   {},
-  {
-    [_f]: [
-      ,
+  [_f, _b],
+  [
+    [
+      0,
       {
         [_hL]: 1,
       },
     ],
-    [_b]: [
-      ,
+    [
+      0,
       {
         [_hL]: 1,
       },
     ],
-  }
+  ]
 );
 export var HttpRequestWithLabelsAndTimestampFormatInput = __struct(
   _HRWLATFI,
   {},
-  {
-    [_mES]: [
-      () => "time",
+  [_mES, _mHD, _mDT, _dF, _tES, _tHD, _tDT],
+  [
+    [
+      7,
       {
         [_hL]: 1,
       },
     ],
-    [_mHD]: [
-      () => "time",
+    [
+      6,
       {
         [_hL]: 1,
       },
     ],
-    [_mDT]: [
-      () => "time",
+    [
+      5,
       {
         [_hL]: 1,
       },
     ],
-    [_dF]: [
-      () => "time",
+    [
+      4,
       {
         [_hL]: 1,
       },
     ],
-    [_tES]: [
-      () => "epoch-seconds",
+    [
+      7,
       {
         [_hL]: 1,
       },
     ],
-    [_tHD]: [
-      () => "http-date",
+    [
+      6,
       {
         [_hL]: 1,
       },
     ],
-    [_tDT]: [
-      () => "date-time",
+    [
+      5,
       {
         [_hL]: 1,
       },
     ],
-  }
+  ]
 );
 export var HttpRequestWithLabelsInput = __struct(
   _HRWLI,
   {},
-  {
-    [_s]: [
-      ,
+  [_s, _sh, _i, _lo, _fl, _do, _bo, _t],
+  [
+    [
+      0,
       {
         [_hL]: 1,
       },
     ],
-    [_sh]: [
-      ,
+    [
+      1,
       {
         [_hL]: 1,
       },
     ],
-    [_i]: [
-      ,
+    [
+      1,
       {
         [_hL]: 1,
       },
     ],
-    [_lo]: [
-      ,
+    [
+      1,
       {
         [_hL]: 1,
       },
     ],
-    [_fl]: [
-      ,
+    [
+      1,
       {
         [_hL]: 1,
       },
     ],
-    [_do]: [
-      ,
+    [
+      1,
       {
         [_hL]: 1,
       },
     ],
-    [_bo]: [
-      ,
+    [
+      2,
       {
         [_hL]: 1,
       },
     ],
-    [_t]: [
-      () => "time",
+    [
+      4,
       {
         [_hL]: 1,
       },
     ],
-  }
+  ]
 );
 export var HttpResponseCodeOutput = __struct(
   _HRCO,
   {},
-  {
-    [_St]: [
-      ,
+  [_St],
+  [
+    [
+      1,
       {
         [_hRC]: 1,
       },
     ],
-  }
+  ]
 );
 export var IgnoreQueryParamsInResponseOutput = __struct(
   _IQPIRO,
   {},
-  {
-    [_b]: [
-      ,
+  [_b],
+  [
+    [
+      0,
       {
         [_hQ]: _b,
       },
     ],
-  }
+  ]
 );
 export var InputAndOutputWithHeadersIO = __struct(
   _IAOWHIO,
   {},
-  {
-    [_hS]: [
-      ,
+  [_hS, _hB, _hSe, _hI, _hLe, _hF, _hD, _hTB, _hFB, _hSL, _hSS, _hIL, _hBL, _hTL, _hEe, _hEL],
+  [
+    [
+      0,
       {
         [_hH]: _XS,
       },
     ],
-    [_hB]: [
-      ,
+    [
+      1,
       {
         [_hH]: _XB,
       },
     ],
-    [_hSe]: [
-      ,
+    [
+      1,
       {
         [_hH]: _XS_,
       },
     ],
-    [_hI]: [
-      ,
+    [
+      1,
       {
         [_hH]: _XI,
       },
     ],
-    [_hLe]: [
-      ,
+    [
+      1,
       {
         [_hH]: _XL,
       },
     ],
-    [_hF]: [
-      ,
+    [
+      1,
       {
         [_hH]: _XF__,
       },
     ],
-    [_hD]: [
-      ,
+    [
+      1,
       {
         [_hH]: _XD,
       },
     ],
-    [_hTB]: [
-      ,
+    [
+      2,
       {
         [_hH]: _XB_,
       },
     ],
-    [_hFB]: [
-      ,
+    [
+      2,
       {
         [_hH]: _XB__,
       },
     ],
-    [_hSL]: [
-      () => StringList,
+    [
+      64 | 0,
       {
         [_hH]: _XS__,
       },
     ],
-    [_hSS]: [
-      () => StringSet,
+    [
+      64 | 0,
       {
         [_hH]: _XS___,
       },
     ],
-    [_hIL]: [
-      () => IntegerList,
+    [
+      64 | 1,
       {
         [_hH]: _XI_,
       },
     ],
-    [_hBL]: [
-      () => BooleanList,
+    [
+      64 | 2,
       {
         [_hH]: _XB___,
       },
     ],
-    [_hTL]: [
-      () => TimestampList,
+    [
+      64 | 4,
       {
         [_hH]: _XT,
       },
     ],
-    [_hEe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _XE,
       },
     ],
-    [_hEL]: [
-      () => FooEnumList,
+    [
+      64 | 0,
       {
         [_hH]: _XE_,
       },
     ],
-  }
+  ]
 );
 export var InvalidGreeting = __error(
   _IG,
@@ -1091,754 +1188,760 @@ export var InvalidGreeting = __error(
     [_e]: _c,
     [_hE]: 400,
   },
-  {},
+  [_M],
+  [0],
 
   __InvalidGreeting
 );
-export var NestedPayload = 8 as const;
-
+export var NestedPayload = __struct(_NP, {}, [_g, _na], [0, 0]);
 export var NestedXmlMapsRequest = __struct(
   _NXMR,
   {},
-  {
-    [_fNM]: [
+  [_nM, _fNM],
+  [
+    () => NestedMap,
+    [
       () => NestedMap,
       {
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var NestedXmlMapsResponse = __struct(
   _NXMRe,
   {},
-  {
-    [_fNM]: [
+  [_nM, _fNM],
+  [
+    () => NestedMap,
+    [
       () => NestedMap,
       {
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var NestedXmlMapWithXmlNameInputOutput = __struct(
   _NXMWXNIO,
   {},
-  {
-    [_nXMWXNM]: [() => NestedXmlMapWithXmlNameMap, {}],
-  }
+  [_nXMWXNM],
+  [[() => NestedXmlMapWithXmlNameMap, {}]]
 );
-export var NoInputAndOutputOutput = 8 as const;
-
+export var NoInputAndOutputOutput = __struct(_NIAOO, {}, [], []);
 export var NullAndEmptyHeadersIO = __struct(
   _NAEHIO,
   {},
-  {
-    [_a]: [
-      ,
+  [_a, _b_, _c_],
+  [
+    [
+      0,
       {
         [_hH]: _XA,
       },
     ],
-    [_b_]: [
-      ,
+    [
+      0,
       {
         [_hH]: _XB____,
       },
     ],
-    [_c_]: [
-      () => StringList,
+    [
+      64 | 0,
       {
         [_hH]: _XC,
       },
     ],
-  }
+  ]
 );
 export var OmitsNullSerializesEmptyStringInput = __struct(
   _ONSESI,
   {},
-  {
-    [_nV]: [
-      ,
+  [_nV, _eS],
+  [
+    [
+      0,
       {
-        [_hQ]: _N,
+        [_hQ]: _Nu,
       },
     ],
-    [_eS]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _Em,
       },
     ],
-  }
+  ]
 );
 export var PayloadWithXmlName = __struct(
   _PWXN,
   {
     [_xN]: _He,
   },
-  {}
+  [_na],
+  [0]
 );
-export var PayloadWithXmlNamespace = 8 as const;
-
-export var PayloadWithXmlNamespaceAndPrefix = 8 as const;
-
+export var PayloadWithXmlNamespace = __struct(_PWXNa, {}, [_na], [0]);
+export var PayloadWithXmlNamespaceAndPrefix = __struct(_PWXNAP, {}, [_na], [0]);
 export var PutWithContentEncodingInput = __struct(
   _PWCEI,
   {},
-  {
-    [_en]: [
-      ,
+  [_en, _da],
+  [
+    [
+      0,
       {
         [_hH]: _CE_,
       },
     ],
-  }
+    0,
+  ]
 );
 export var QueryIdempotencyTokenAutoFillInput = __struct(
   _QITAFI,
   {},
-  {
-    [_to]: [
-      ,
+  [_to],
+  [
+    [
+      0,
       {
         [_iT]: 1,
         [_hQ]: _to,
       },
     ],
-  }
+  ]
 );
 export var QueryParamsAsStringListMapInput = __struct(
   _QPASLMI,
   {},
-  {
-    [_q]: [
-      ,
+  [_q, _f],
+  [
+    [
+      0,
       {
         [_hQ]: _co,
       },
     ],
-    [_f]: [
+    [
       () => StringListMap,
       {
         [_hQP]: 1,
       },
     ],
-  }
+  ]
 );
 export var QueryPrecedenceInput = __struct(
   _QPI,
   {},
-  {
-    [_f]: [
-      ,
+  [_f, _b],
+  [
+    [
+      0,
       {
         [_hQ]: _ba,
       },
     ],
-    [_b]: [
-      () => StringMap,
+    [
+      128 | 0,
       {
         [_hQP]: 1,
       },
     ],
-  }
+  ]
 );
 export var RecursiveShapesInputOutputNested1 = __struct(
   _RSION,
   {},
-  {
-    [_n]: [() => RecursiveShapesInputOutputNested2, {}],
-  }
+  [_f, _n],
+  [0, () => RecursiveShapesInputOutputNested2]
 );
 export var RecursiveShapesInputOutputNested2 = __struct(
   _RSIONe,
   {},
-  {
-    [_rM]: [() => RecursiveShapesInputOutputNested1, {}],
-  }
+  [_ba, _rM],
+  [0, () => RecursiveShapesInputOutputNested1]
 );
-export var RecursiveShapesRequest = __struct(
-  _RSR,
-  {},
-  {
-    [_n]: [() => RecursiveShapesInputOutputNested1, {}],
-  }
-);
-export var RecursiveShapesResponse = __struct(
-  _RSRe,
-  {},
-  {
-    [_n]: [() => RecursiveShapesInputOutputNested1, {}],
-  }
-);
+export var RecursiveShapesRequest = __struct(_RSR, {}, [_n], [() => RecursiveShapesInputOutputNested1]);
+export var RecursiveShapesResponse = __struct(_RSRe, {}, [_n], [() => RecursiveShapesInputOutputNested1]);
 export var SimpleScalarPropertiesRequest = __struct(
   _SSPR,
   {},
-  {
-    [_f]: [
-      ,
+  [_f, _sV, _tBV, _fBV, _bV, _sVh, _iV, _lV, _fV, _dV],
+  [
+    [
+      0,
       {
         [_hH]: _XF,
       },
     ],
-    [_dV]: [
-      ,
+    0,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    [
+      1,
       {
         [_xN]: _DD,
       },
     ],
-  }
+  ]
 );
 export var SimpleScalarPropertiesResponse = __struct(
   _SSPRi,
   {},
-  {
-    [_f]: [
-      ,
+  [_f, _sV, _tBV, _fBV, _bV, _sVh, _iV, _lV, _fV, _dV],
+  [
+    [
+      0,
       {
         [_hH]: _XF,
       },
     ],
-    [_dV]: [
-      ,
+    0,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    [
+      1,
       {
         [_xN]: _DD,
       },
     ],
-  }
+  ]
 );
 export var StringPayloadInput = __struct(
   _SPI,
   {},
-  {
-    [_p]: [
-      ,
+  [_p],
+  [
+    [
+      0,
       {
         [_hP]: 1,
       },
     ],
-  }
+  ]
 );
 export var StructureListMember = __struct(
   _SLM,
   {},
-  {
-    [_a]: [
-      ,
+  [_a, _b_],
+  [
+    [
+      0,
       {
         [_xN]: _v,
       },
     ],
-    [_b_]: [
-      ,
+    [
+      0,
       {
         [_xN]: _o,
       },
     ],
-  }
+  ]
 );
 export var TimestampFormatHeadersIO = __struct(
   _TFHIO,
   {},
-  {
-    [_mES]: [
-      () => "time",
+  [_mES, _mHD, _mDT, _dF, _tES, _tHD, _tDT],
+  [
+    [
+      7,
       {
         [_hH]: _Xm,
       },
     ],
-    [_mHD]: [
-      () => "time",
+    [
+      6,
       {
         [_hH]: _Xm_,
       },
     ],
-    [_mDT]: [
-      () => "time",
+    [
+      5,
       {
         [_hH]: _Xm__,
       },
     ],
-    [_dF]: [
-      () => "time",
+    [
+      4,
       {
         [_hH]: _Xd,
       },
     ],
-    [_tES]: [
-      () => "epoch-seconds",
+    [
+      7,
       {
         [_hH]: _Xt,
       },
     ],
-    [_tHD]: [
-      () => "http-date",
+    [
+      6,
       {
         [_hH]: _Xt_,
       },
     ],
-    [_tDT]: [
-      () => "date-time",
+    [
+      5,
       {
         [_hH]: _Xt__,
       },
     ],
-  }
+  ]
 );
 export var XmlAttributesOnPayloadRequest = __struct(
   _XAOPR,
   {},
-  {
-    [_p]: [
+  [_p],
+  [
+    [
       () => XmlAttributesPayloadRequest,
       {
         [_hP]: 1,
       },
     ],
-  }
+  ]
 );
 export var XmlAttributesOnPayloadResponse = __struct(
   _XAOPRm,
   {},
-  {
-    [_p]: [
+  [_p],
+  [
+    [
       () => XmlAttributesPayloadResponse,
       {
         [_hP]: 1,
       },
     ],
-  }
+  ]
 );
 export var XmlAttributesPayloadRequest = __struct(
   _XAPR,
   {},
-  {
-    [_at]: [
-      ,
+  [_f, _at],
+  [
+    0,
+    [
+      0,
       {
         [_xN]: _te,
         [_xA]: 1,
       },
     ],
-  }
+  ]
 );
 export var XmlAttributesPayloadResponse = __struct(
   _XAPRm,
   {},
-  {
-    [_at]: [
-      ,
+  [_f, _at],
+  [
+    0,
+    [
+      0,
       {
         [_xN]: _te,
         [_xA]: 1,
       },
     ],
-  }
+  ]
 );
 export var XmlAttributesRequest = __struct(
   _XAR,
   {},
-  {
-    [_at]: [
-      ,
+  [_f, _at],
+  [
+    0,
+    [
+      0,
       {
         [_xN]: _te,
         [_xA]: 1,
       },
     ],
-  }
+  ]
 );
 export var XmlAttributesResponse = __struct(
   _XARm,
   {},
-  {
-    [_at]: [
-      ,
+  [_f, _at],
+  [
+    0,
+    [
+      0,
       {
         [_xN]: _te,
         [_xA]: 1,
       },
     ],
-  }
+  ]
 );
-export var XmlBlobsRequest = __struct(
-  _XBR,
-  {},
-  {
-    [_da]: [() => "blob", {}],
-  }
-);
-export var XmlBlobsResponse = __struct(
-  _XBRm,
-  {},
-  {
-    [_da]: [() => "blob", {}],
-  }
-);
-export var XmlEmptyBlobsRequest = __struct(
-  _XEBR,
-  {},
-  {
-    [_da]: [() => "blob", {}],
-  }
-);
-export var XmlEmptyBlobsResponse = __struct(
-  _XEBRm,
-  {},
-  {
-    [_da]: [() => "blob", {}],
-  }
-);
+export var XmlBlobsRequest = __struct(_XBR, {}, [_da], [21]);
+export var XmlBlobsResponse = __struct(_XBRm, {}, [_da], [21]);
+export var XmlEmptyBlobsRequest = __struct(_XEBR, {}, [_da], [21]);
+export var XmlEmptyBlobsResponse = __struct(_XEBRm, {}, [_da], [21]);
 export var XmlEmptyListsRequest = __struct(
   _XELR,
   {},
-  {
-    [_tL]: [() => TimestampList, {}],
-    [_rLM]: [
+  [_sL, _sS, _iL, _bL, _tL, _eL, _iEL, _nSL, _rLM, _fL, _fLl, _fLWMN, _fLWN, _sLt, _fSL],
+  [
+    64 | 0,
+    64 | 0,
+    64 | 1,
+    64 | 2,
+    64 | 4,
+    64 | 0,
+    64 | 1,
+    () => NestedStringList,
+    [
       () => RenamedListMembers,
       {
         [_xN]: _r,
       },
     ],
-    [_fL]: [
+    [
       () => RenamedListMembers,
       {
         [_xF]: 1,
       },
     ],
-    [_fLl]: [
+    [
       () => RenamedListMembers,
       {
         [_xN]: _cN,
         [_xF]: 1,
       },
     ],
-    [_fLWMN]: [
-      () => ListWithMemberNamespace,
+    [
+      64 | 0,
       {
         [_xF]: 1,
       },
     ],
-    [_fLWN]: [
-      () => ListWithNamespace,
+    [
+      64 | 0,
       {
         [_xF]: 1,
       },
     ],
-    [_sL]: [
+    [
       () => StructureList,
       {
         [_xN]: _mSL,
       },
     ],
-    [_fSL]: [
+    [
       () => StructureList,
       {
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var XmlEmptyListsResponse = __struct(
   _XELRm,
   {},
-  {
-    [_tL]: [() => TimestampList, {}],
-    [_rLM]: [
+  [_sL, _sS, _iL, _bL, _tL, _eL, _iEL, _nSL, _rLM, _fL, _fLl, _fLWMN, _fLWN, _sLt, _fSL],
+  [
+    64 | 0,
+    64 | 0,
+    64 | 1,
+    64 | 2,
+    64 | 4,
+    64 | 0,
+    64 | 1,
+    () => NestedStringList,
+    [
       () => RenamedListMembers,
       {
         [_xN]: _r,
       },
     ],
-    [_fL]: [
+    [
       () => RenamedListMembers,
       {
         [_xF]: 1,
       },
     ],
-    [_fLl]: [
+    [
       () => RenamedListMembers,
       {
         [_xN]: _cN,
         [_xF]: 1,
       },
     ],
-    [_fLWMN]: [
-      () => ListWithMemberNamespace,
+    [
+      64 | 0,
       {
         [_xF]: 1,
       },
     ],
-    [_fLWN]: [
-      () => ListWithNamespace,
+    [
+      64 | 0,
       {
         [_xF]: 1,
       },
     ],
-    [_sL]: [
+    [
       () => StructureList,
       {
         [_xN]: _mSL,
       },
     ],
-    [_fSL]: [
+    [
       () => StructureList,
       {
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
-export var XmlEmptyMapsRequest = 8 as const;
-
-export var XmlEmptyMapsResponse = 8 as const;
-
-export var XmlEmptyStringsRequest = 8 as const;
-
-export var XmlEmptyStringsResponse = 8 as const;
-
-export var XmlEnumsRequest = 8 as const;
-
-export var XmlEnumsResponse = 8 as const;
-
-export var XmlIntEnumsRequest = 8 as const;
-
-export var XmlIntEnumsResponse = 8 as const;
-
+export var XmlEmptyMapsRequest = __struct(_XEMR, {}, [_mM], [() => XmlMapsInputOutputMap]);
+export var XmlEmptyMapsResponse = __struct(_XEMRm, {}, [_mM], [() => XmlMapsInputOutputMap]);
+export var XmlEmptyStringsRequest = __struct(_XESR, {}, [_eS], [0]);
+export var XmlEmptyStringsResponse = __struct(_XESRm, {}, [_eS], [0]);
+export var XmlEnumsRequest = __struct(
+  _XER,
+  {},
+  [_fE, _fEo, _fEoo, _fEL, _fES, _fEM],
+  [0, 0, 0, 64 | 0, 64 | 0, 128 | 0]
+);
+export var XmlEnumsResponse = __struct(
+  _XERm,
+  {},
+  [_fE, _fEo, _fEoo, _fEL, _fES, _fEM],
+  [0, 0, 0, 64 | 0, 64 | 0, 128 | 0]
+);
+export var XmlIntEnumsRequest = __struct(
+  _XIER,
+  {},
+  [_iE, _iEn, _iEnt, _iEL, _iES, _iEM],
+  [1, 1, 1, 64 | 1, 64 | 1, 128 | 1]
+);
+export var XmlIntEnumsResponse = __struct(
+  _XIERm,
+  {},
+  [_iE, _iEn, _iEnt, _iEL, _iES, _iEM],
+  [1, 1, 1, 64 | 1, 64 | 1, 128 | 1]
+);
 export var XmlListsRequest = __struct(
   _XLR,
   {},
-  {
-    [_tL]: [() => TimestampList, {}],
-    [_rLM]: [
+  [_sL, _sS, _iL, _bL, _tL, _eL, _iEL, _nSL, _rLM, _fL, _fLl, _fLWMN, _fLWN, _sLt, _fSL],
+  [
+    64 | 0,
+    64 | 0,
+    64 | 1,
+    64 | 2,
+    64 | 4,
+    64 | 0,
+    64 | 1,
+    () => NestedStringList,
+    [
       () => RenamedListMembers,
       {
         [_xN]: _r,
       },
     ],
-    [_fL]: [
+    [
       () => RenamedListMembers,
       {
         [_xF]: 1,
       },
     ],
-    [_fLl]: [
+    [
       () => RenamedListMembers,
       {
         [_xN]: _cN,
         [_xF]: 1,
       },
     ],
-    [_fLWMN]: [
-      () => ListWithMemberNamespace,
+    [
+      64 | 0,
       {
         [_xF]: 1,
       },
     ],
-    [_fLWN]: [
-      () => ListWithNamespace,
+    [
+      64 | 0,
       {
         [_xF]: 1,
       },
     ],
-    [_sL]: [
+    [
       () => StructureList,
       {
         [_xN]: _mSL,
       },
     ],
-    [_fSL]: [
+    [
       () => StructureList,
       {
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var XmlListsResponse = __struct(
   _XLRm,
   {},
-  {
-    [_tL]: [() => TimestampList, {}],
-    [_rLM]: [
+  [_sL, _sS, _iL, _bL, _tL, _eL, _iEL, _nSL, _rLM, _fL, _fLl, _fLWMN, _fLWN, _sLt, _fSL],
+  [
+    64 | 0,
+    64 | 0,
+    64 | 1,
+    64 | 2,
+    64 | 4,
+    64 | 0,
+    64 | 1,
+    () => NestedStringList,
+    [
       () => RenamedListMembers,
       {
         [_xN]: _r,
       },
     ],
-    [_fL]: [
+    [
       () => RenamedListMembers,
       {
         [_xF]: 1,
       },
     ],
-    [_fLl]: [
+    [
       () => RenamedListMembers,
       {
         [_xN]: _cN,
         [_xF]: 1,
       },
     ],
-    [_fLWMN]: [
-      () => ListWithMemberNamespace,
+    [
+      64 | 0,
       {
         [_xF]: 1,
       },
     ],
-    [_fLWN]: [
-      () => ListWithNamespace,
+    [
+      64 | 0,
       {
         [_xF]: 1,
       },
     ],
-    [_sL]: [
+    [
       () => StructureList,
       {
         [_xN]: _mSL,
       },
     ],
-    [_fSL]: [
+    [
       () => StructureList,
       {
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
-export var XmlMapsRequest = 8 as const;
-
-export var XmlMapsResponse = 8 as const;
-
-export var XmlMapsXmlNameRequest = __struct(
-  _XMXNR,
-  {},
-  {
-    [_mM]: [() => XmlMapsXmlNameInputOutputMap, {}],
-  }
-);
-export var XmlMapsXmlNameResponse = __struct(
-  _XMXNRm,
-  {},
-  {
-    [_mM]: [() => XmlMapsXmlNameInputOutputMap, {}],
-  }
-);
+export var XmlMapsRequest = __struct(_XMR, {}, [_mM], [() => XmlMapsInputOutputMap]);
+export var XmlMapsResponse = __struct(_XMRm, {}, [_mM], [() => XmlMapsInputOutputMap]);
+export var XmlMapsXmlNameRequest = __struct(_XMXNR, {}, [_mM], [[() => XmlMapsXmlNameInputOutputMap, {}]]);
+export var XmlMapsXmlNameResponse = __struct(_XMXNRm, {}, [_mM], [[() => XmlMapsXmlNameInputOutputMap, {}]]);
 export var XmlMapWithXmlNamespaceRequest = __struct(
   _XMWXNR,
   {},
-  {
-    [_mM]: [
+  [_mM],
+  [
+    [
       () => XmlMapWithXmlNamespaceInputOutputMap,
       {
         [_xN]: _KVP,
       },
     ],
-  }
+  ]
 );
 export var XmlMapWithXmlNamespaceResponse = __struct(
   _XMWXNRm,
   {},
-  {
-    [_mM]: [
+  [_mM],
+  [
+    [
       () => XmlMapWithXmlNamespaceInputOutputMap,
       {
         [_xN]: _KVP,
       },
     ],
-  }
+  ]
 );
-export var XmlNamespaceNested = 8 as const;
-
-export var XmlNamespacesRequest = 8 as const;
-
-export var XmlNamespacesResponse = 8 as const;
-
-export var XmlNestedUnionStruct = 8 as const;
-
+export var XmlNamespaceNested = __struct(_XNN, {}, [_f, _va], [0, 64 | 0]);
+export var XmlNamespacesRequest = __struct(_XNR, {}, [_n], [() => XmlNamespaceNested]);
+export var XmlNamespacesResponse = __struct(_XNRm, {}, [_n], [() => XmlNamespaceNested]);
+export var XmlNestedUnionStruct = __struct(
+  _XNUS,
+  {},
+  [_sV, _bVo, _bV, _sVh, _iV, _lV, _fV, _dV],
+  [0, 2, 1, 1, 1, 1, 1, 1]
+);
 export var XmlTimestampsRequest = __struct(
   _XTR,
   {},
-  {
-    [_no]: [() => "time", {}],
-    [_dT]: [() => "time", {}],
-    [_dTOT]: [() => "date-time", {}],
-    [_eSp]: [() => "time", {}],
-    [_eSOT]: [() => "epoch-seconds", {}],
-    [_hDt]: [() => "time", {}],
-    [_hDOT]: [() => "http-date", {}],
-  }
+  [_no, _dT, _dTOT, _eSp, _eSOT, _hDt, _hDOT],
+  [4, 5, 5, 7, 7, 6, 6]
 );
 export var XmlTimestampsResponse = __struct(
   _XTRm,
   {},
-  {
-    [_no]: [() => "time", {}],
-    [_dT]: [() => "time", {}],
-    [_dTOT]: [() => "date-time", {}],
-    [_eSp]: [() => "time", {}],
-    [_eSOT]: [() => "epoch-seconds", {}],
-    [_hDt]: [() => "time", {}],
-    [_hDOT]: [() => "http-date", {}],
-  }
+  [_no, _dT, _dTOT, _eSp, _eSOT, _hDt, _hDOT],
+  [4, 5, 5, 7, 7, 6, 6]
 );
-export var XmlUnionsRequest = __struct(
-  _XUR,
-  {},
-  {
-    [_uV]: [() => XmlUnionShape, {}],
-  }
-);
-export var XmlUnionsResponse = __struct(
-  _XURm,
-  {},
-  {
-    [_uV]: [() => XmlUnionShape, {}],
-  }
-);
-export var ListWithMemberNamespace = 2 as const;
+export var XmlUnionsRequest = __struct(_XUR, {}, [_uV], [() => XmlUnionShape]);
+export var XmlUnionsResponse = __struct(_XURm, {}, [_uV], [() => XmlUnionShape]);
+export var ListWithMemberNamespace = 64 | 0;
 
-export var ListWithNamespace = 2 as const;
+export var ListWithNamespace = 64 | 0;
 
 export var RenamedListMembers = __list(_RLM, {}, [
-  ,
+  0,
   {
     [_xN]: _it,
   },
 ]);
-export var StructureList = __list(_SL, {}, [
+export var StructureList = __list(_SLt, {}, [
   () => StructureListMember,
   {
     [_xN]: _it,
   },
 ]);
-export var XmlNamespacedList = 2 as const;
+export var XmlNamespacedList = 64 | 0;
 
 export var FlattenedXmlMapWithXmlNameInputOutputMap = __map(_FXMWXNIOM, {}, [
-  ,
+  0,
   {
     [_xN]: _V,
   },
 ]);
 export var FlattenedXmlMapWithXmlNamespaceOutputMap = __map(_FXMWXNOM, {}, [
-  ,
+  0,
   {
     [_xN]: _V,
   },
 ]);
-export var FooPrefixHeaders = 4 as const;
+export var FooPrefixHeaders = 128 | 0;
 
-export var NestedMap = 4 as const;
-
+export var NestedMap = __map(_NM, {}, 128 | 0);
 export var NestedXmlMapWithXmlNameInnerMap = __map(_NXMWXNIM, {}, [
-  ,
+  0,
   {
     [_xN]: _IV,
   },
 ]);
 export var NestedXmlMapWithXmlNameMap = __map(_NXMWXNM, {}, [() => NestedXmlMapWithXmlNameInnerMap, {}]);
-export var XmlMapsInputOutputMap = 4 as const;
-
+export var XmlMapsInputOutputMap = __map(_XMIOM, {}, () => GreetingStruct);
 export var XmlMapsXmlNameInputOutputMap = __map(_XMXNIOM, {}, [
   () => GreetingStruct,
   {
@@ -1846,28 +1949,17 @@ export var XmlMapsXmlNameInputOutputMap = __map(_XMXNIOM, {}, [
   },
 ]);
 export var XmlMapWithXmlNamespaceInputOutputMap = __map(_XMWXNIOM, {}, [
-  ,
+  0,
   {
     [_xN]: _V,
   },
 ]);
-export var UnionPayload = 8 as const;
-
+export var UnionPayload = __uni(_UP, {}, [_g], [0]);
 export var XmlUnionShape = __uni(
   _XUS,
   {},
-  {
-    [_sV]: [, {}],
-    [_bV]: [, {}],
-    [_bVy]: [, {}],
-    [_sVh]: [, {}],
-    [_iV]: [, {}],
-    [_lV]: [, {}],
-    [_fV]: [, {}],
-    [_dV]: [, {}],
-    [_uV]: [() => XmlUnionShape, {}],
-    [_sVt]: [() => XmlNestedUnionStruct, {}],
-  }
+  [_sV, _bVo, _bV, _sVh, _iV, _lV, _fV, _dV, _uV, _sVt],
+  [0, 2, 1, 1, 1, 1, 1, 1, () => XmlUnionShape, () => XmlNestedUnionStruct]
 );
 export var AllQueryStringTypes = __op(
   _AQST,
@@ -2381,5 +2473,4 @@ export var XmlUnions = __op(
   () => XmlUnionsRequest,
   () => XmlUnionsResponse
 );
-aws_protocoltests_restxmlRegistry.registerSimpleTypes({});
 aws_protocoltests_restxmlRegistry.stopCapture();

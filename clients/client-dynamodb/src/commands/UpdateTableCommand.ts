@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateTableInput, UpdateTableOutput } from "../models/models_0";
-import { de_UpdateTableCommand, se_UpdateTableCommand } from "../protocols/Aws_json1_0";
+import { UpdateTable } from "../schemas/com.amazonaws.dynamodb";
 
 /**
  * @public
@@ -487,16 +486,12 @@ export class UpdateTableCommand extends $Command
     ResourceArn: { type: "contextParams", name: "TableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DynamoDB_20120810", "UpdateTable", {})
   .n("DynamoDBClient", "UpdateTableCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateTableCommand)
-  .de(de_UpdateTableCommand)
+  .sc(UpdateTable)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

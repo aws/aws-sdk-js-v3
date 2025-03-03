@@ -1,16 +1,22 @@
-const _A = "And";
+const _A = "Account";
 const _AAO = "AnalyticsAndOperator";
-const _AC = "AnalyticsConfiguration";
-const _ACL = "AnalyticsConfigurationList";
+const _AC = "AccelerateConfiguration";
+const _ACL = "AccessControlList";
 const _ACL_ = "ACL";
-const _ACLc = "AccessControlList";
+const _ACLn = "AnalyticsConfigurationList";
 const _ACP = "AccessControlPolicy";
-const _ACc = "AccelerateConfiguration";
+const _ACT = "AccessControlTranslation";
+const _ACn = "AnalyticsConfiguration";
 const _AD = "AbortDate";
+const _AED = "AnalyticsExportDestination";
 const _AF = "AnalyticsFilter";
 const _AH = "AllowedHeaders";
 const _AHl = "AllowedHeader";
+const _AI = "AccountId";
+const _AIMU = "AbortIncompleteMultipartUpload";
+const _AIn = "AnalyticsId";
 const _AKI = "AccessKeyId";
+const _AKIV = "AccessKeyIdValue";
 const _AM = "AllowedMethods";
 const _AMU = "AbortMultipartUpload";
 const _AMUO = "AbortMultipartUploadOutput";
@@ -18,32 +24,47 @@ const _AMUR = "AbortMultipartUploadRequest";
 const _AMl = "AllowedMethod";
 const _AO = "AllowedOrigins";
 const _AOl = "AllowedOrigin";
-const _APA = "AccessPointAlias";
-const _APAc = "AccessPointArn";
+const _APA = "AccessPointArn";
+const _APAc = "AccessPointAlias";
 const _AQRD = "AllowQuotedRecordDelimiter";
 const _AR = "AcceptRanges";
 const _ARI = "AbortRuleId";
 const _AS = "ArchiveStatus";
+const _ASBD = "AnalyticsS3BucketDestination";
+const _ASEFF = "AnalyticsS3ExportFileFormat";
 const _ASSEBD = "ApplyServerSideEncryptionByDefault";
-const _B = "Buckets";
+const _AT = "AccessTier";
+const _An = "And";
+const _B = "Body";
 const _BAE = "BucketAlreadyExists";
+const _BAI = "BucketAccountId";
 const _BAOBY = "BucketAlreadyOwnedByYou";
+const _BAS = "BucketAccelerateStatus";
+const _BCACL = "BucketCannedACL";
 const _BGR = "BypassGovernanceRetention";
+const _BI = "BucketInfo";
 const _BKE = "BucketKeyEnabled";
-const _BLC = "BucketLifecycleConfiguration";
+const _BLC = "BucketLocationConstraint";
+const _BLCu = "BucketLifecycleConfiguration";
 const _BLN = "BucketLocationName";
+const _BLP = "BucketLogsPermission";
 const _BLS = "BucketLoggingStatus";
 const _BLT = "BucketLocationType";
+const _BN = "BucketName";
 const _BP = "BytesProcessed";
 const _BPA = "BlockPublicAcls";
 const _BPP = "BlockPublicPolicy";
 const _BR = "BucketRegion";
 const _BRy = "BytesReturned";
 const _BS = "BytesScanned";
-const _Bo = "Body";
+const _BT = "BucketType";
+const _BVS = "BucketVersioningStatus";
 const _Bu = "Bucket";
-const _C = "Credentials";
+const _Buc = "Buckets";
+const _C = "Code";
 const _CA = "ChecksumAlgorithm";
+const _CACL = "CannedACL";
+const _CAL = "ChecksumAlgorithmList";
 const _CB = "CreateBucket";
 const _CBC = "CreateBucketConfiguration";
 const _CBMTC = "CreateBucketMetadataTableConfiguration";
@@ -55,63 +76,76 @@ const _CCRC = "ChecksumCRC32";
 const _CCRCC = "ChecksumCRC32C";
 const _CCRCNVME = "ChecksumCRC64NVME";
 const _CC_ = "Cache-Control";
-const _CD = "CreationDate";
+const _CD = "ContentDisposition";
 const _CD_ = "Content-Disposition";
-const _CDo = "ContentDisposition";
+const _CDr = "CreationDate";
 const _CE = "ContentEncoding";
 const _CE_ = "Content-Encoding";
+const _CEo = "ContinuationEvent";
 const _CF = "CloudFunction";
 const _CFC = "CloudFunctionConfiguration";
 const _CL = "ContentLanguage";
 const _CL_ = "Content-Language";
 const _CL__ = "Content-Length";
 const _CLo = "ContentLength";
-const _CM = "Content-MD5";
+const _CM = "ChecksumMode";
 const _CMD = "ContentMD5";
 const _CMU = "CompletedMultipartUpload";
 const _CMUO = "CompleteMultipartUploadOutput";
 const _CMUOr = "CreateMultipartUploadOutput";
-const _CMUR = "CompleteMultipartUploadRequest";
-const _CMURo = "CompleteMultipartUploadResult";
+const _CMUR = "CompleteMultipartUploadResult";
+const _CMURo = "CompleteMultipartUploadRequest";
 const _CMURr = "CreateMultipartUploadRequest";
 const _CMUo = "CompleteMultipartUpload";
 const _CMUr = "CreateMultipartUpload";
-const _CMh = "ChecksumMode";
+const _CM_ = "Content-MD5";
 const _CO = "CopyObject";
 const _COO = "CopyObjectOutput";
-const _COR = "CopyObjectRequest";
+const _COR = "CopyObjectResult";
 const _CORSC = "CORSConfiguration";
 const _CORSR = "CORSRules";
 const _CORSRu = "CORSRule";
-const _CORo = "CopyObjectResult";
-const _CP = "CommonPrefixes";
+const _CORo = "CopyObjectRequest";
+const _CP = "CommonPrefix";
+const _CPL = "CommonPrefixList";
+const _CPLo = "CompletedPartList";
 const _CPR = "CopyPartResult";
+const _CPo = "CompletedPart";
+const _CPom = "CommonPrefixes";
 const _CR = "ContentRange";
 const _CRSBA = "ConfirmRemoveSelfBucketAccess";
 const _CR_ = "Content-Range";
 const _CS = "CopySource";
-const _CSHA = "ChecksumSHA1";
-const _CSHAh = "ChecksumSHA256";
+const _CSHA = "ChecksumSHA256";
+const _CSHAh = "ChecksumSHA1";
 const _CSIM = "CopySourceIfMatch";
 const _CSIMS = "CopySourceIfModifiedSince";
 const _CSINM = "CopySourceIfNoneMatch";
 const _CSIUS = "CopySourceIfUnmodifiedSince";
 const _CSO = "CreateSessionOutput";
-const _CSR = "CreateSessionRequest";
-const _CSRo = "CopySourceRange";
+const _CSR = "CopySourceRange";
 const _CSRr = "CreateSessionResult";
+const _CSRre = "CreateSessionRequest";
 const _CSSSECA = "CopySourceSSECustomerAlgorithm";
 const _CSSSECK = "CopySourceSSECustomerKey";
 const _CSSSECKMD = "CopySourceSSECustomerKeyMD5";
+const _CSV = "CSV";
 const _CSVI = "CopySourceVersionId";
+const _CSVIn = "CSVInput";
+const _CSVO = "CSVOutput";
 const _CSr = "CreateSession";
 const _CT = "ChecksumType";
 const _CT_ = "Content-Type";
 const _CTo = "ContentType";
+const _CTom = "CompressionType";
 const _CTon = "ContinuationToken";
-const _Co = "Contents";
-const _Con = "Cont";
-const _D = "Delete";
+const _Ch = "Checksum";
+const _Co = "Comments";
+const _Con = "Condition";
+const _Cont = "Contents";
+const _Cont_ = "Cont";
+const _Cr = "Credentials";
+const _D = "Date";
 const _DAI = "DaysAfterInitiation";
 const _DB = "DeleteBucket";
 const _DBAC = "DeleteBucketAnalyticsConfiguration";
@@ -137,14 +171,20 @@ const _DBPR = "DeleteBucketPolicyRequest";
 const _DBR = "DeleteBucketRequest";
 const _DBRR = "DeleteBucketReplicationRequest";
 const _DBRe = "DeleteBucketReplication";
-const _DBT = "DeleteBucketTagging";
+const _DBT = "DirectoryBucketToken";
 const _DBTR = "DeleteBucketTaggingRequest";
+const _DBTe = "DeleteBucketTagging";
 const _DBW = "DeleteBucketWebsite";
 const _DBWR = "DeleteBucketWebsiteRequest";
-const _DM = "DeleteMarkers";
+const _DE = "DataExport";
+const _DM = "DeleteMarker";
 const _DME = "DeleteMarkerEntry";
-const _DMe = "DeleteMarker";
-const _DO = "DeleteObject";
+const _DMR = "DeleteMarkerReplication";
+const _DMRS = "DeleteMarkerReplicationStatus";
+const _DMVI = "DeleteMarkerVersionId";
+const _DMe = "DeleteMarkers";
+const _DN = "DisplayName";
+const _DO = "DeletedObject";
 const _DOO = "DeleteObjectOutput";
 const _DOOe = "DeleteObjectsOutput";
 const _DOR = "DeleteObjectRequest";
@@ -152,41 +192,68 @@ const _DORe = "DeleteObjectsRequest";
 const _DOT = "DeleteObjectTagging";
 const _DOTO = "DeleteObjectTaggingOutput";
 const _DOTR = "DeleteObjectTaggingRequest";
-const _DOe = "DeleteObjects";
+const _DOe = "DeletedObjects";
+const _DOel = "DeleteObject";
+const _DOele = "DeleteObjects";
 const _DPAB = "DeletePublicAccessBlock";
 const _DPABR = "DeletePublicAccessBlockRequest";
-const _DR = "DeleteResult";
-const _Da = "Date";
-const _Day = "Days";
-const _De = "Deleted";
-const _Del = "Delimiter";
-const _Des = "Destination";
+const _DR = "DataRedundancy";
+const _DRe = "DefaultRetention";
+const _DRel = "DeleteResult";
+const _Da = "Days";
+const _De = "Delimiter";
+const _Del = "Delete";
+const _Dele = "Deleted";
+const _Des = "Description";
+const _Dest = "Destination";
 const _Det = "Details";
-const _E = "Expires";
+const _E = "Expiration";
+const _EA = "EmailAddress";
+const _EBC = "EventBridgeConfiguration";
 const _EBO = "ExpectedBucketOwner";
 const _EC = "ErrorCode";
+const _ECn = "EncryptionConfiguration";
+const _ED = "ErrorDetails";
+const _EDr = "ErrorDocument";
+const _EE = "EndEvent";
 const _EH = "ExposeHeaders";
 const _EHx = "ExposeHeader";
+const _EL = "EventList";
 const _EM = "ErrorMessage";
 const _EODM = "ExpiredObjectDeleteMarker";
+const _EOR = "ExistingObjectReplication";
+const _EORS = "ExistingObjectReplicationStatus";
 const _ERP = "EnableRequestProgress";
-const _ES = "ExpiresString";
+const _ES = "ExpirationStatus";
 const _ESBO = "ExpectedSourceBucketOwner";
+const _ESx = "ExpiresString";
 const _ET = "ETag";
 const _ETM = "EncryptionTypeMismatch";
 const _ETn = "EncodingType";
-const _En = "Encryption";
-const _End = "End";
+const _ETnc = "EncryptionType";
+const _ETv = "EventThreshold";
+const _ETx = "ExpressionType";
+const _En = "End";
+const _Ena = "Enabled";
+const _Enc = "Encryption";
 const _Er = "Errors";
 const _Err = "Error";
-const _Ev = "Events";
-const _Eve = "Event";
-const _Ex = "Expiration";
+const _Ev = "Event";
+const _Eve = "Events";
+const _Ex = "Expires";
+const _Exp = "Expression";
 const _F = "Filter";
+const _FD = "FieldDelimiter";
+const _FHI = "FileHeaderInfo";
 const _FO = "FetchOwner";
-const _FR = "FilterRules";
-const _FRi = "FilterRule";
+const _FR = "FilterRule";
+const _FRL = "FilterRuleList";
+const _FRN = "FilterRuleName";
+const _FRV = "FilterRuleValue";
+const _FRi = "FilterRules";
 const _Fi = "Field";
+const _Fo = "Format";
+const _Fr = "Frequency";
 const _G = "Grants";
 const _GBA = "GetBucketAcl";
 const _GBAC = "GetBucketAccelerateConfiguration";
@@ -223,8 +290,8 @@ const _GBMCO = "GetBucketMetricsConfigurationOutput";
 const _GBMCR = "GetBucketMetricsConfigurationRequest";
 const _GBMTC = "GetBucketMetadataTableConfiguration";
 const _GBMTCO = "GetBucketMetadataTableConfigurationOutput";
-const _GBMTCR = "GetBucketMetadataTableConfigurationRequest";
-const _GBMTCRe = "GetBucketMetadataTableConfigurationResult";
+const _GBMTCR = "GetBucketMetadataTableConfigurationResult";
+const _GBMTCRe = "GetBucketMetadataTableConfigurationRequest";
 const _GBNC = "GetBucketNotificationConfiguration";
 const _GBNCR = "GetBucketNotificationConfigurationRequest";
 const _GBOC = "GetBucketOwnershipControls";
@@ -252,14 +319,15 @@ const _GBW = "GetBucketWebsite";
 const _GBWO = "GetBucketWebsiteOutput";
 const _GBWR = "GetBucketWebsiteRequest";
 const _GFC = "GrantFullControl";
+const _GJP = "GlacierJobParameters";
 const _GO = "GetObject";
 const _GOA = "GetObjectAcl";
 const _GOAO = "GetObjectAclOutput";
 const _GOAOe = "GetObjectAttributesOutput";
 const _GOAP = "GetObjectAttributesParts";
 const _GOAR = "GetObjectAclRequest";
-const _GOARe = "GetObjectAttributesRequest";
-const _GOARet = "GetObjectAttributesResponse";
+const _GOARe = "GetObjectAttributesResponse";
+const _GOARet = "GetObjectAttributesRequest";
 const _GOAe = "GetObjectAttributes";
 const _GOLC = "GetObjectLockConfiguration";
 const _GOLCO = "GetObjectLockConfigurationOutput";
@@ -291,57 +359,81 @@ const _Gra = "Grantee";
 const _HB = "HeadBucket";
 const _HBO = "HeadBucketOutput";
 const _HBR = "HeadBucketRequest";
+const _HECRE = "HttpErrorCodeReturnedEquals";
+const _HN = "HostName";
 const _HO = "HeadObject";
 const _HOO = "HeadObjectOutput";
 const _HOR = "HeadObjectRequest";
+const _HRC = "HttpRedirectCode";
 const _I = "Initiated";
 const _IC = "InventoryConfiguration";
 const _ICL = "InventoryConfigurationList";
-const _ID = "InventoryDestination";
-const _IE = "InventoryEncryption";
-const _IEs = "IsEnabled";
+const _ID = "ID";
+const _IDn = "IndexDocument";
+const _IDnv = "InventoryDestination";
+const _IE = "IsEnabled";
+const _IEn = "InventoryEncryption";
+const _IF = "InventoryFrequency";
+const _IFn = "InventoryFormat";
+const _IFnv = "InventoryFilter";
+const _II = "InventoryId";
+const _IIOV = "InventoryIncludedObjectVersions";
 const _IL = "IsLatest";
 const _IM = "IfMatch";
 const _IMIT = "IfMatchInitiatedTime";
 const _IMLMT = "IfMatchLastModifiedTime";
-const _IMS = "IfModifiedSince";
+const _IMS = "IfMatchSize";
 const _IMS_ = "If-Modified-Since";
-const _IMSf = "IfMatchSize";
+const _IMSf = "IfModifiedSince";
 const _IMUR = "InitiateMultipartUploadResult";
 const _IM_ = "If-Match";
 const _INM = "IfNoneMatch";
 const _INM_ = "If-None-Match";
 const _IOF = "InventoryOptionalFields";
+const _IOFn = "InventoryOptionalField";
 const _IOS = "InvalidObjectState";
+const _IOV = "IncludedObjectVersions";
 const _IP = "IsPublic";
 const _IPA = "IgnorePublicAcls";
 const _IR = "InvalidRequest";
 const _IRIP = "IsRestoreInProgress";
+const _IS = "InputSerialization";
 const _ISBD = "InventoryS3BucketDestination";
+const _ISn = "InventorySchedule";
 const _IT = "IsTruncated";
 const _ITAO = "IntelligentTieringAndOperator";
+const _ITAT = "IntelligentTieringAccessTier";
 const _ITC = "IntelligentTieringConfiguration";
 const _ITCL = "IntelligentTieringConfigurationList";
 const _ITD = "IntelligentTieringDays";
 const _ITF = "IntelligentTieringFilter";
+const _ITI = "IntelligentTieringId";
+const _ITS = "IntelligentTieringStatus";
 const _IUS = "IfUnmodifiedSince";
 const _IUS_ = "If-Unmodified-Since";
 const _IWO = "InvalidWriteOffset";
 const _Id = "Id";
+const _In = "Initiator";
+const _JSON = "JSON";
+const _JSONI = "JSONInput";
+const _JSONO = "JSONOutput";
+const _JSONT = "JSONType";
 const _K = "Key";
 const _KC = "KeyCount";
 const _KI = "KeyId";
 const _KM = "KeyMarker";
+const _KMSC = "KMSContext";
 const _KMSKI = "KMSKeyId";
 const _KMSMKID = "KMSMasterKeyID";
+const _KPE = "KeyPrefixEquals";
 const _L = "Location";
 const _LAMBR = "ListAllMyBucketsResult";
 const _LAMDBR = "ListAllMyDirectoryBucketsResult";
 const _LB = "ListBuckets";
 const _LBAC = "ListBucketAnalyticsConfigurations";
 const _LBACO = "ListBucketAnalyticsConfigurationsOutput";
-const _LBACR = "ListBucketAnalyticsConfigurationsRequest";
-const _LBACRi = "ListBucketAnalyticsConfigurationResult";
+const _LBACR = "ListBucketAnalyticsConfigurationResult";
+const _LBACRi = "ListBucketAnalyticsConfigurationsRequest";
 const _LBIC = "ListBucketInventoryConfigurations";
 const _LBICO = "ListBucketInventoryConfigurationsOutput";
 const _LBICR = "ListBucketInventoryConfigurationsRequest";
@@ -354,27 +446,29 @@ const _LBMCR = "ListBucketMetricsConfigurationsRequest";
 const _LBO = "ListBucketsOutput";
 const _LBR = "ListBucketsRequest";
 const _LBRi = "ListBucketResult";
-const _LC = "LifecycleConfiguration";
-const _LCo = "LocationConstraint";
+const _LC = "LocationConstraint";
+const _LCi = "LifecycleConfiguration";
 const _LDB = "ListDirectoryBuckets";
 const _LDBO = "ListDirectoryBucketsOutput";
 const _LDBR = "ListDirectoryBucketsRequest";
-const _LE = "LifecycleExpiration";
-const _LEo = "LoggingEnabled";
+const _LE = "LoggingEnabled";
+const _LEi = "LifecycleExpiration";
 const _LFA = "LambdaFunctionArn";
 const _LFC = "LambdaFunctionConfiguration";
 const _LFCL = "LambdaFunctionConfigurationList";
 const _LFCa = "LambdaFunctionConfigurations";
 const _LH = "LegalHold";
+const _LI = "LocationInfo";
 const _LICR = "ListInventoryConfigurationsResult";
 const _LM = "LastModified";
 const _LMCR = "ListMetricsConfigurationsResult";
 const _LMT = "LastModifiedTime";
 const _LMU = "ListMultipartUploads";
 const _LMUO = "ListMultipartUploadsOutput";
-const _LMUR = "ListMultipartUploadsRequest";
-const _LMURi = "ListMultipartUploadsResult";
+const _LMUR = "ListMultipartUploadsResult";
+const _LMURi = "ListMultipartUploadsRequest";
 const _LM_ = "Last-Modified";
+const _LNAS = "LocationNameAsString";
 const _LO = "ListObjects";
 const _LOO = "ListObjectsOutput";
 const _LOR = "ListObjectsRequest";
@@ -384,14 +478,16 @@ const _LOVOi = "ListObjectVersionsOutput";
 const _LOVR = "ListObjectsV2Request";
 const _LOVRi = "ListObjectVersionsRequest";
 const _LOVi = "ListObjectVersions";
-const _LP = "ListParts";
+const _LP = "LocationPrefix";
 const _LPO = "ListPartsOutput";
-const _LPR = "ListPartsRequest";
-const _LPRi = "ListPartsResult";
-const _LR = "LifecycleRules";
+const _LPR = "ListPartsResult";
+const _LPRi = "ListPartsRequest";
+const _LPi = "ListParts";
+const _LR = "LifecycleRule";
 const _LRAO = "LifecycleRuleAndOperator";
 const _LRF = "LifecycleRuleFilter";
-const _LRi = "LifecycleRule";
+const _LRi = "LifecycleRules";
+const _LT = "LocationType";
 const _LVR = "ListVersionsResult";
 const _M = "Metadata";
 const _MAO = "MetricsAndOperator";
@@ -406,50 +502,95 @@ const _ME = "MetadataEntry";
 const _MF = "MetricsFilter";
 const _MFA = "MFA";
 const _MFAD = "MFADelete";
-const _MK = "MaxKeys";
+const _MFADS = "MFADeleteStatus";
+const _MI = "MetricsId";
+const _MK = "MetadataKey";
+const _MKa = "MaxKeys";
 const _MM = "MissingMeta";
 const _MOS = "MpuObjectSize";
 const _MP = "MaxParts";
+const _MS = "MetricsStatus";
 const _MTC = "MetadataTableConfiguration";
-const _MU = "MultipartUpload";
+const _MTCR = "MetadataTableConfigurationResult";
+const _MTS = "MetadataTableStatus";
+const _MU = "MaxUploads";
+const _MUI = "MultipartUploadId";
 const _MUL = "MultipartUploadList";
-const _MUa = "MaxUploads";
+const _MUu = "MultipartUpload";
+const _MV = "MetadataValue";
 const _Ma = "Marker";
+const _Me = "Message";
+const _Met = "Metrics";
 const _Mi = "Minutes";
+const _Mo = "Mode";
+const _N = "Name";
 const _NC = "NotificationConfiguration";
 const _NCF = "NotificationConfigurationFilter";
+const _NCT = "NextContinuationToken";
+const _ND = "NoncurrentDays";
 const _NF = "NotFound";
+const _NI = "NotificationId";
+const _NKM = "NextKeyMarker";
+const _NM = "NextMarker";
+const _NNV = "NewerNoncurrentVersions";
+const _NPNM = "NextPartNumberMarker";
 const _NSB = "NoSuchBucket";
 const _NSK = "NoSuchKey";
 const _NSU = "NoSuchUpload";
+const _NT = "NextToken";
+const _NUIM = "NextUploadIdMarker";
+const _NVE = "NoncurrentVersionExpiration";
+const _NVIM = "NextVersionIdMarker";
 const _NVT = "NoncurrentVersionTransitions";
+const _NVTL = "NoncurrentVersionTransitionList";
 const _NVTo = "NoncurrentVersionTransition";
-const _O = "Object";
+const _O = "Owner";
 const _OA = "ObjectAttributes";
 const _OAIATE = "ObjectAlreadyInActiveTierError";
+const _OAL = "ObjectAttributesList";
 const _OC = "OwnershipControls";
+const _OCACL = "ObjectCannedACL";
+const _OCR = "OwnershipControlsRule";
+const _OCRw = "OwnershipControlsRules";
 const _OF = "OptionalFields";
 const _OI = "ObjectIdentifier";
 const _OIL = "ObjectIdentifierList";
-const _OL = "ObjectList";
+const _OK = "ObjectKey";
+const _OL = "OutputLocation";
 const _OLC = "ObjectLockConfiguration";
+const _OLE = "ObjectLockEnabled";
 const _OLEFB = "ObjectLockEnabledForBucket";
+const _OLLH = "ObjectLockLegalHold";
 const _OLLHS = "ObjectLockLegalHoldStatus";
 const _OLM = "ObjectLockMode";
 const _OLR = "ObjectLockRetention";
+const _OLRM = "ObjectLockRetentionMode";
 const _OLRUD = "ObjectLockRetainUntilDate";
-const _OLu = "OutputLocation";
+const _OLRb = "ObjectLockRule";
+const _OLT = "ObjectLockToken";
+const _OLb = "ObjectList";
 const _ONIATE = "ObjectNotInActiveTierError";
 const _OO = "ObjectOwnership";
 const _OOA = "OptionalObjectAttributes";
+const _OOAL = "OptionalObjectAttributesList";
+const _OOw = "OwnerOverride";
 const _OP = "ObjectParts";
+const _OPb = "ObjectPart";
 const _OS = "ObjectSize";
+const _OSC = "ObjectStorageClass";
+const _OSGT = "ObjectSizeGreaterThan";
 const _OSGTB = "ObjectSizeGreaterThanBytes";
+const _OSLT = "ObjectSizeLessThan";
 const _OSLTB = "ObjectSizeLessThanBytes";
+const _OSV = "OutputSchemaVersion";
+const _OSu = "OutputSerialization";
 const _OV = "ObjectVersion";
+const _OVI = "ObjectVersionId";
 const _OVL = "ObjectVersionList";
+const _OVSC = "ObjectVersionStorageClass";
 const _Ob = "Objects";
-const _P = "Parts";
+const _Obj = "Object";
+const _P = "Permission";
 const _PABC = "PublicAccessBlockConfiguration";
 const _PBA = "PutBucketAcl";
 const _PBAC = "PutBucketAccelerateConfiguration";
@@ -489,7 +630,10 @@ const _PBVR = "PutBucketVersioningRequest";
 const _PBW = "PutBucketWebsite";
 const _PBWR = "PutBucketWebsiteRequest";
 const _PC = "PartsCount";
+const _PDS = "PartitionDateSource";
 const _PE = "ProgressEvent";
+const _PI = "ParquetInput";
+const _PL = "PartsList";
 const _PN = "PartNumber";
 const _PNM = "PartNumberMarker";
 const _PO = "PutObject";
@@ -514,29 +658,43 @@ const _PP = "PartitionedPrefix";
 const _PPAB = "PutPublicAccessBlock";
 const _PPABR = "PutPublicAccessBlockRequest";
 const _PS = "PolicyStatus";
-const _Pa = "Part";
+const _Pa = "Payer";
+const _Par = "Parts";
+const _Parq = "Parquet";
+const _Part = "Part";
 const _Pay = "Payload";
 const _Po = "Policy";
 const _Pr = "Prefix";
 const _Pri = "Priority";
-const _Pro = "Progress";
-const _Q = "Queue";
+const _Pro = "Protocol";
+const _Prog = "Progress";
+const _Q = "Quiet";
 const _QA = "QueueArn";
-const _QC = "QueueConfiguration";
+const _QC = "QuoteCharacter";
 const _QCL = "QueueConfigurationList";
 const _QCu = "QueueConfigurations";
-const _Qu = "Quiet";
-const _R = "Rules";
-const _RC = "ReplicationConfiguration";
+const _QCue = "QueueConfiguration";
+const _QEC = "QuoteEscapeCharacter";
+const _QF = "QuoteFields";
+const _Qu = "Queue";
+const _R = "Role";
+const _RART = "RedirectAllRequestsTo";
+const _RC = "RequestCharged";
 const _RCC = "ResponseCacheControl";
 const _RCD = "ResponseContentDisposition";
 const _RCE = "ResponseContentEncoding";
 const _RCL = "ResponseContentLanguage";
 const _RCT = "ResponseContentType";
-const _RCe = "RequestCharged";
+const _RCe = "ReplicationConfiguration";
+const _RD = "RecordDelimiter";
 const _RE = "ResponseExpires";
 const _RED = "RestoreExpiryDate";
 const _REe = "RecordsEvent";
+const _RKKID = "ReplicaKmsKeyID";
+const _RKPW = "ReplaceKeyPrefixWith";
+const _RKW = "ReplaceKeyWith";
+const _RM = "ReplicaModifications";
+const _RMS = "ReplicaModificationsStatus";
 const _RO = "RestoreObject";
 const _ROO = "RestoreObjectOutput";
 const _ROP = "RestoreOutputPath";
@@ -544,36 +702,50 @@ const _ROR = "RestoreObjectRequest";
 const _RP = "RequestPayer";
 const _RPB = "RestrictPublicBuckets";
 const _RPC = "RequestPaymentConfiguration";
-const _RR = "ReplicationRules";
+const _RPe = "RequestProgress";
+const _RR = "RequestRoute";
 const _RRAO = "ReplicationRuleAndOperator";
 const _RRF = "ReplicationRuleFilter";
+const _RRS = "ReplicationRuleStatus";
+const _RRT = "RestoreRequestType";
 const _RRe = "ReplicationRule";
-const _RReq = "RequestRoute";
+const _RRep = "ReplicationRules";
 const _RRes = "RestoreRequest";
 const _RRo = "RoutingRules";
 const _RRou = "RoutingRule";
-const _RS = "RestoreStatus";
-const _RSe = "ReplicationStatus";
+const _RS = "ReplicationStatus";
+const _RSe = "RestoreStatus";
 const _RT = "RequestToken";
+const _RTS = "ReplicationTimeStatus";
+const _RTV = "ReplicationTimeValue";
+const _RTe = "ReplicationTime";
 const _RUD = "RetainUntilDate";
 const _Ra = "Range";
 const _Re = "Restore";
 const _Rec = "Records";
+const _Red = "Redirect";
+const _Reg = "Region";
 const _Ret = "Retention";
-const _Ru = "Rule";
-const _S = "S3";
+const _Ru = "Rules";
+const _Rul = "Rule";
+const _S = "Size";
 const _SA = "StartAfter";
 const _SAK = "SecretAccessKey";
 const _SB = "StreamingBlob";
 const _SBD = "S3BucketDestination";
-const _SC = "SessionCredentials";
+const _SC = "StorageClass";
+const _SCA = "StorageClassAnalysis";
+const _SCADE = "StorageClassAnalysisDataExport";
+const _SCASV = "StorageClassAnalysisSchemaVersion";
 const _SCV = "SessionCredentialValue";
-const _SCt = "StorageClass";
-const _SCta = "StatusCode";
+const _SCe = "SessionCredentials";
+const _SCt = "StatusCode";
 const _SDV = "SkipDestinationValidation";
 const _SE = "SessionExpiration";
 const _SEt = "StatsEvent";
 const _SK = "SSE-KMS";
+const _SKEO = "SseKmsEncryptedObjects";
+const _SKEOS = "SseKmsEncryptedObjectsStatus";
 const _SKF = "S3KeyFilter";
 const _SKe = "S3Key";
 const _SL = "S3Location";
@@ -582,9 +754,13 @@ const _SOC = "SelectObjectContent";
 const _SOCES = "SelectObjectContentEventStream";
 const _SOCO = "SelectObjectContentOutput";
 const _SOCR = "SelectObjectContentRequest";
-const _SP = "SimplePrefix";
+const _SP = "SelectParameters";
+const _SPi = "SimplePrefix";
+const _SR = "ScanRange";
 const _SS = "SSE-S3";
+const _SSC = "SourceSelectionCriteria";
 const _SSE = "ServerSideEncryption";
+const _SSEA = "SSEAlgorithm";
 const _SSEBD = "ServerSideEncryptionByDefault";
 const _SSEC = "ServerSideEncryptionConfiguration";
 const _SSECA = "SSECustomerAlgorithm";
@@ -593,39 +769,59 @@ const _SSECKMD = "SSECustomerKeyMD5";
 const _SSEKMS = "SSEKMS";
 const _SSEKMSEC = "SSEKMSEncryptionContext";
 const _SSEKMSKI = "SSEKMSKeyId";
-const _SSER = "ServerSideEncryptionRules";
-const _SSERe = "ServerSideEncryptionRule";
+const _SSER = "ServerSideEncryptionRule";
+const _SSERe = "ServerSideEncryptionRules";
 const _SSES = "SSES3";
 const _ST = "SessionToken";
+const _STA = "S3TablesArn";
+const _STBA = "S3TablesBucketArn";
+const _STD = "S3TablesDestination";
+const _STDR = "S3TablesDestinationResult";
+const _STN = "S3TablesName";
+const _STNa = "S3TablesNamespace";
 const _SV = "SkipValidation";
+const _S_ = "S3";
+const _Sc = "Schedule";
 const _Se = "Setting";
-const _Si = "Size";
-const _St = "Stats";
-const _Sta = "Start";
-const _T = "Transition";
+const _St = "Start";
+const _Sta = "Status";
+const _Stat = "Stats";
+const _Su = "Suffix";
+const _T = "Type";
 const _TA = "TopicArn";
-const _TC = "TopicConfiguration";
+const _TAa = "TableArn";
+const _TB = "TargetBucket";
+const _TBA = "TableBucketArn";
+const _TC = "TagCount";
 const _TCL = "TopicConfigurationList";
-const _TCa = "TagCount";
 const _TCo = "TopicConfigurations";
+const _TCop = "TopicConfiguration";
 const _TD = "TaggingDirective";
 const _TDMOS = "TransitionDefaultMinimumObjectSize";
 const _TG = "TargetGrants";
 const _TGa = "TargetGrant";
-const _TL = "TransitionList";
+const _TH = "TaggingHeader";
+const _TL = "TieringList";
+const _TLr = "TransitionList";
 const _TMP = "TooManyParts";
+const _TN = "TableName";
+const _TNa = "TableNamespace";
 const _TOKF = "TargetObjectKeyFormat";
+const _TP = "TargetPrefix";
 const _TPC = "TotalPartsCount";
 const _TS = "TagSet";
-const _Ta = "Tagging";
-const _Tag = "Tags";
-const _Tag_ = "Tag";
-const _Ti = "Tierings";
-const _Tie = "Tiering";
+const _TSC = "TransitionStorageClass";
+const _Ta = "Tags";
+const _Tag = "Tag";
+const _Tagg = "Tagging";
+const _Ti = "Tier";
+const _Tie = "Tierings";
+const _Tier = "Tiering";
+const _Tim = "Time";
 const _To = "Token";
 const _Top = "Topic";
 const _Tr = "Transitions";
-const _Ty = "Type";
+const _Tra = "Transition";
 const _U = "Uploads";
 const _UI = "UploadId";
 const _UIM = "UploadIdMarker";
@@ -636,13 +832,15 @@ const _UPCO = "UploadPartCopyOutput";
 const _UPCR = "UploadPartCopyRequest";
 const _UPO = "UploadPartOutput";
 const _UPR = "UploadPartRequest";
+const _URI = "URI";
 const _Up = "Upload";
-const _V = "Versions";
-const _VC = "VersioningConfiguration";
-const _VCe = "VersionCount";
+const _V = "Value";
+const _VC = "VersionCount";
+const _VCe = "VersioningConfiguration";
 const _VI = "VersionId";
 const _VIM = "VersionIdMarker";
-const _Ve = "Version";
+const _Ve = "Versions";
+const _Ver = "Version";
 const _WC = "WebsiteConfiguration";
 const _WGOR = "WriteGetObjectResponse";
 const _WGORR = "WriteGetObjectResponseRequest";
@@ -650,7 +848,6 @@ const _WOB = "WriteOffsetBytes";
 const _WRL = "WebsiteRedirectLocation";
 const _Y = "Years";
 const _ar = "accept-ranges";
-const _b = "boolean";
 const _br = "bucket-region";
 const _c = "client";
 const _ct = "continuation-token";
@@ -662,8 +859,7 @@ const _fo = "fetch-owner";
 const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
-const _hL = "httpLabel";
-const _hLo = "hostLabel";
+const _hL = "hostLabel";
 const _hP = "httpPayload";
 const _hPH = "httpPrefixHeaders";
 const _hQ = "httpQuery";
@@ -675,7 +871,6 @@ const _mdb = "max-directory-buckets";
 const _mk = "max-keys";
 const _mp = "max-parts";
 const _mu = "max-uploads";
-const _n = "number";
 const _p = "prefix";
 const _pN = "partNumber";
 const _pnm = "part-number-marker";
@@ -819,6 +1014,7 @@ import {
   error as __error,
   list as __list,
   op as __op,
+  sim as __sim,
   struct as __struct,
   struct as __uni,
   TypeRegistry,
@@ -845,116 +1041,109 @@ import { Unit } from "./smithy.api";
 
 export const com_amazonaws_s3Registry = TypeRegistry.for("com.amazonaws.s3");
 com_amazonaws_s3Registry.startCapture();
-export var AbortIncompleteMultipartUpload = 8 as const;
-
+export var CopySourceSSECustomerKey = __sim(_CSSSECK, 0, 8);
+export var SessionCredentialValue = __sim(_SCV, 0, 8);
+export var SSECustomerKey = __sim(_SSECK, 0, 8);
+export var SSEKMSEncryptionContext = __sim(_SSEKMSEC, 0, 8);
+export var SSEKMSKeyId = __sim(_SSEKMSKI, 0, 8);
+export var StreamingBlob = __sim(_SB, 42, {
+  [_s]: 1,
+});
+export var AbortIncompleteMultipartUpload = __struct(_AIMU, 0, [_DAI], [1]);
 export var AbortMultipartUploadOutput = __struct(
   _AMUO,
-  {},
-  {
-    [_RCe]: [
-      ,
+  0,
+  [_RC],
+  [
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var AbortMultipartUploadRequest = __struct(
   _AMUR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_UI]: [
-      ,
+  0,
+  [_Bu, _K, _UI, _RP, _EBO, _IMIT],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _uI,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_IMIT]: [
-      () => "http-date",
+    [
+      6,
       {
         [_hH]: _xaimit,
       },
     ],
-  }
+  ]
 );
-export var AccelerateConfiguration = 8 as const;
-
+export var AccelerateConfiguration = __struct(_AC, 0, [_Sta], [0]);
 export var AccessControlPolicy = __struct(
   _ACP,
-  {},
-  {
-    [_G]: [
+  0,
+  [_G, _O],
+  [
+    [
       () => Grants,
       {
-        [_xN]: _ACLc,
+        [_xN]: _ACL,
       },
     ],
-  }
+    () => Owner,
+  ]
 );
-export var AccessControlTranslation = 8 as const;
-
+export var AccessControlTranslation = __struct(_ACT, 0, [_O], [0]);
 export var AnalyticsAndOperator = __struct(
   _AAO,
-  {},
-  {
-    [_Tag]: [
+  0,
+  [_Pr, _Ta],
+  [
+    0,
+    [
       () => TagSet,
       {
-        [_xN]: _Tag_,
+        [_xN]: _Tag,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var AnalyticsConfiguration = __struct(
-  _AC,
-  {},
-  {
-    [_F]: [() => AnalyticsFilter, {}],
-  }
+  _ACn,
+  0,
+  [_Id, _F, _SCA],
+  [0, [() => AnalyticsFilter, 0], () => StorageClassAnalysis]
 );
-export var AnalyticsExportDestination = 8 as const;
-
-export var AnalyticsS3BucketDestination = 8 as const;
-
-export var Bucket = __struct(
-  _Bu,
-  {},
-  {
-    [_CD]: [() => "time", {}],
-  }
-);
+export var AnalyticsExportDestination = __struct(_AED, 0, [_SBD], [() => AnalyticsS3BucketDestination]);
+export var AnalyticsS3BucketDestination = __struct(_ASBD, 0, [_Fo, _BAI, _Bu, _Pr], [0, 0, 0, 0]);
+export var Bucket = __struct(_Bu, 0, [_N, _CDr, _BR], [0, 4, 0]);
 export var BucketAlreadyExists = __error(
   _BAE,
   {
     [_e]: _c,
     [_hE]: 409,
   },
-  {},
+  [],
+  [],
 
   __BucketAlreadyExists
 );
@@ -964,3557 +1153,3380 @@ export var BucketAlreadyOwnedByYou = __error(
     [_e]: _c,
     [_hE]: 409,
   },
-  {},
+  [],
+  [],
 
   __BucketAlreadyOwnedByYou
 );
-export var BucketInfo = 8 as const;
-
+export var BucketInfo = __struct(_BI, 0, [_DR, _T], [0, 0]);
 export var BucketLifecycleConfiguration = __struct(
-  _BLC,
-  {},
-  {
-    [_R]: [
+  _BLCu,
+  0,
+  [_Ru],
+  [
+    [
       () => LifecycleRules,
       {
-        [_xN]: _Ru,
+        [_xN]: _Rul,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
-export var BucketLoggingStatus = __struct(
-  _BLS,
-  {},
-  {
-    [_LEo]: [() => LoggingEnabled, {}],
-  }
-);
-export var Checksum = 8 as const;
-
-export var CommonPrefix = 8 as const;
-
+export var BucketLoggingStatus = __struct(_BLS, 0, [_LE], [[() => LoggingEnabled, 0]]);
+export var Checksum = __struct(_Ch, 0, [_CCRC, _CCRCC, _CCRCNVME, _CSHAh, _CSHA, _CT], [0, 0, 0, 0, 0, 0]);
+export var CommonPrefix = __struct(_CP, 0, [_Pr], [0]);
 export var CompletedMultipartUpload = __struct(
   _CMU,
-  {},
-  {
-    [_P]: [
+  0,
+  [_Par],
+  [
+    [
       () => CompletedPartList,
       {
-        [_xN]: _Pa,
+        [_xN]: _Part,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
-export var CompletedPart = 8 as const;
-
+export var CompletedPart = __struct(
+  _CPo,
+  0,
+  [_ET, _CCRC, _CCRCC, _CCRCNVME, _CSHAh, _CSHA, _PN],
+  [0, 0, 0, 0, 0, 0, 1]
+);
 export var CompleteMultipartUploadOutput = __struct(
   _CMUO,
   {
-    [_xN]: _CMURo,
+    [_xN]: _CMUR,
   },
-  {
-    [_Ex]: [
-      ,
+  [_L, _Bu, _K, _E, _ET, _CCRC, _CCRCC, _CCRCNVME, _CSHAh, _CSHA, _CT, _SSE, _VI, _SSEKMSKI, _BKE, _RC],
+  [
+    0,
+    0,
+    0,
+    [
+      0,
       {
         [_hH]: _xae,
       },
     ],
-    [_SSE]: [
-      ,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    [
+      0,
       {
         [_hH]: _xasse,
       },
     ],
-    [_VI]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xavi,
       },
     ],
-    [_SSEKMSKI]: [
-      ,
+    [
+      () => SSEKMSKeyId,
       {
         [_hH]: _xasseakki,
       },
     ],
-    [_BKE]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xassebke,
       },
     ],
-    [_RCe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var CompleteMultipartUploadRequest = __struct(
-  _CMUR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_MU]: [
+  _CMURo,
+  0,
+  [
+    _Bu,
+    _K,
+    _MUu,
+    _UI,
+    _CCRC,
+    _CCRCC,
+    _CCRCNVME,
+    _CSHAh,
+    _CSHA,
+    _CT,
+    _MOS,
+    _RP,
+    _EBO,
+    _IM,
+    _INM,
+    _SSECA,
+    _SSECK,
+    _SSECKMD,
+  ],
+  [
+    [0, 1],
+    [0, 1],
+    [
       () => CompletedMultipartUpload,
       {
         [_xN]: _CMUo,
         [_hP]: 1,
       },
     ],
-    [_UI]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _uI,
       },
     ],
-    [_CCRC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc,
       },
     ],
-    [_CCRCC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc_,
       },
     ],
-    [_CCRCNVME]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc__,
       },
     ],
-    [_CSHA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacs,
       },
     ],
-    [_CSHAh]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacs_,
       },
     ],
-    [_CT]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xact,
       },
     ],
-    [_MOS]: [
-      ,
+    [
+      1,
       {
         [_hH]: _xamos,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_IM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _IM_,
       },
     ],
-    [_INM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _INM_,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECK]: [
-      ,
+    [
+      () => SSECustomerKey,
       {
         [_hH]: _xasseck,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-  }
+  ]
 );
-export var Condition = 8 as const;
-
-export var ContinuationEvent = 8 as const;
-
+export var Condition = __struct(_Con, 0, [_HECRE, _KPE], [0, 0]);
+export var ContinuationEvent = __struct(_CEo, 0, [], []);
 export var CopyObjectOutput = __struct(
   _COO,
-  {},
-  {
-    [_CORo]: [
-      () => CopyObjectResult,
-      {
-        [_hP]: 1,
-      },
-    ],
-    [_Ex]: [
-      ,
+  0,
+  [_COR, _E, _CSVI, _VI, _SSE, _SSECA, _SSECKMD, _SSEKMSKI, _SSEKMSEC, _BKE, _RC],
+  [
+    [() => CopyObjectResult, 16],
+    [
+      0,
       {
         [_hH]: _xae,
       },
     ],
-    [_CSVI]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacsvi,
       },
     ],
-    [_VI]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xavi,
       },
     ],
-    [_SSE]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasse,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-    [_SSEKMSKI]: [
-      ,
+    [
+      () => SSEKMSKeyId,
       {
         [_hH]: _xasseakki,
       },
     ],
-    [_SSEKMSEC]: [
-      ,
+    [
+      () => SSEKMSEncryptionContext,
       {
         [_hH]: _xassec,
       },
     ],
-    [_BKE]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xassebke,
       },
     ],
-    [_RCe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var CopyObjectRequest = __struct(
-  _COR,
-  {},
-  {
-    [_ACL_]: [
-      ,
+  _CORo,
+  0,
+  [
+    _ACL_,
+    _Bu,
+    _CC,
+    _CA,
+    _CD,
+    _CE,
+    _CL,
+    _CTo,
+    _CS,
+    _CSIM,
+    _CSIMS,
+    _CSINM,
+    _CSIUS,
+    _Ex,
+    _GFC,
+    _GR,
+    _GRACP,
+    _GWACP,
+    _K,
+    _M,
+    _MD,
+    _TD,
+    _SSE,
+    _SC,
+    _WRL,
+    _SSECA,
+    _SSECK,
+    _SSECKMD,
+    _SSEKMSKI,
+    _SSEKMSEC,
+    _BKE,
+    _CSSSECA,
+    _CSSSECK,
+    _CSSSECKMD,
+    _RP,
+    _Tagg,
+    _OLM,
+    _OLRUD,
+    _OLLHS,
+    _EBO,
+    _ESBO,
+  ],
+  [
+    [
+      0,
       {
         [_hH]: _xaa,
       },
     ],
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_CC]: [
-      ,
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _CC_,
       },
     ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaca,
       },
     ],
-    [_CDo]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CD_,
       },
     ],
-    [_CE]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CE_,
       },
     ],
-    [_CL]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CL_,
       },
     ],
-    [_CTo]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CT_,
       },
     ],
-    [_CS]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacs__,
       },
     ],
-    [_CSIM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacsim,
       },
     ],
-    [_CSIMS]: [
-      () => "time",
+    [
+      4,
       {
         [_hH]: _xacsims,
       },
     ],
-    [_CSINM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacsinm,
       },
     ],
-    [_CSIUS]: [
-      () => "time",
+    [
+      4,
       {
         [_hH]: _xacsius,
       },
     ],
-    [_E]: [
-      () => "time",
+    [
+      4,
       {
-        [_hH]: _E,
+        [_hH]: _Ex,
       },
     ],
-    [_GFC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagfc,
       },
     ],
-    [_GR]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagr,
       },
     ],
-    [_GRACP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagra,
       },
     ],
-    [_GWACP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagwa,
       },
     ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_M]: [
-      () => Metadata,
+    [0, 1],
+    [
+      128 | 0,
       {
         [_hPH]: _xam,
       },
     ],
-    [_MD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xamd,
       },
     ],
-    [_TD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xatd,
       },
     ],
-    [_SSE]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasse,
       },
     ],
-    [_SCt]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasc,
       },
     ],
-    [_WRL]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xawrl,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECK]: [
-      ,
+    [
+      () => SSECustomerKey,
       {
         [_hH]: _xasseck,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-    [_SSEKMSKI]: [
-      ,
+    [
+      () => SSEKMSKeyId,
       {
         [_hH]: _xasseakki,
       },
     ],
-    [_SSEKMSEC]: [
-      ,
+    [
+      () => SSEKMSEncryptionContext,
       {
         [_hH]: _xassec,
       },
     ],
-    [_BKE]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xassebke,
       },
     ],
-    [_CSSSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacssseca,
       },
     ],
-    [_CSSSECK]: [
-      ,
+    [
+      () => CopySourceSSECustomerKey,
       {
         [_hH]: _xacssseck,
       },
     ],
-    [_CSSSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacssseckM,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_Ta]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xat,
       },
     ],
-    [_OLM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaolm,
       },
     ],
-    [_OLRUD]: [
-      () => "date-time",
+    [
+      5,
       {
         [_hH]: _xaolrud,
       },
     ],
-    [_OLLHS]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaollh,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_ESBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasebo,
       },
     ],
-  }
+  ]
 );
 export var CopyObjectResult = __struct(
-  _CORo,
-  {},
-  {
-    [_LM]: [() => "time", {}],
-  }
+  _COR,
+  0,
+  [_ET, _LM, _CT, _CCRC, _CCRCC, _CCRCNVME, _CSHAh, _CSHA],
+  [0, 4, 0, 0, 0, 0, 0, 0]
 );
 export var CopyPartResult = __struct(
   _CPR,
-  {},
-  {
-    [_LM]: [() => "time", {}],
-  }
+  0,
+  [_ET, _LM, _CCRC, _CCRCC, _CCRCNVME, _CSHAh, _CSHA],
+  [0, 4, 0, 0, 0, 0, 0]
 );
 export var CORSConfiguration = __struct(
   _CORSC,
-  {},
-  {
-    [_CORSR]: [
+  0,
+  [_CORSR],
+  [
+    [
       () => CORSRules,
       {
         [_xN]: _CORSRu,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var CORSRule = __struct(
   _CORSRu,
-  {},
-  {
-    [_AH]: [
-      () => AllowedHeaders,
+  0,
+  [_ID, _AH, _AM, _AO, _EH, _MAS],
+  [
+    0,
+    [
+      64 | 0,
       {
         [_xN]: _AHl,
         [_xF]: 1,
       },
     ],
-    [_AM]: [
-      () => AllowedMethods,
+    [
+      64 | 0,
       {
         [_xN]: _AMl,
         [_xF]: 1,
       },
     ],
-    [_AO]: [
-      () => AllowedOrigins,
+    [
+      64 | 0,
       {
         [_xN]: _AOl,
         [_xF]: 1,
       },
     ],
-    [_EH]: [
-      () => ExposeHeaders,
+    [
+      64 | 0,
       {
         [_xN]: _EHx,
         [_xF]: 1,
       },
     ],
-  }
+    1,
+  ]
 );
-export var CreateBucketConfiguration = 8 as const;
-
+export var CreateBucketConfiguration = __struct(_CBC, 0, [_LC, _L, _Bu], [0, () => LocationInfo, () => BucketInfo]);
 export var CreateBucketMetadataTableConfigurationRequest = __struct(
   _CBMTCR,
-  {},
-  {
-    [_Bu]: [
-      ,
+  0,
+  [_Bu, _CMD, _CA, _MTC, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
-        [_hL]: 1,
+        [_hH]: _CM_,
       },
     ],
-    [_CMD]: [
-      ,
-      {
-        [_hH]: _CM,
-      },
-    ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_MTC]: [
+    [
       () => MetadataTableConfiguration,
       {
         [_xN]: _MTC,
         [_hP]: 1,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var CreateBucketOutput = __struct(
   _CBO,
-  {},
-  {
-    [_L]: [
-      ,
+  0,
+  [_L],
+  [
+    [
+      0,
       {
         [_hH]: _L,
       },
     ],
-  }
+  ]
 );
 export var CreateBucketRequest = __struct(
   _CBR,
-  {},
-  {
-    [_ACL_]: [
-      ,
+  0,
+  [_ACL_, _Bu, _CBC, _GFC, _GR, _GRACP, _GW, _GWACP, _OLEFB, _OO],
+  [
+    [
+      0,
       {
         [_hH]: _xaa,
       },
     ],
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_CBC]: [
+    [0, 1],
+    [
       () => CreateBucketConfiguration,
       {
         [_xN]: _CBC,
         [_hP]: 1,
       },
     ],
-    [_GFC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagfc,
       },
     ],
-    [_GR]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagr,
       },
     ],
-    [_GRACP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagra,
       },
     ],
-    [_GW]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagw,
       },
     ],
-    [_GWACP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagwa,
       },
     ],
-    [_OLEFB]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xabole,
       },
     ],
-    [_OO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaoo,
       },
     ],
-  }
+  ]
 );
 export var CreateMultipartUploadOutput = __struct(
   _CMUOr,
   {
     [_xN]: _IMUR,
   },
-  {
-    [_AD]: [
-      () => "time",
+  [_AD, _ARI, _Bu, _K, _UI, _SSE, _SSECA, _SSECKMD, _SSEKMSKI, _SSEKMSEC, _BKE, _RC, _CA, _CT],
+  [
+    [
+      4,
       {
         [_hH]: _xaad,
       },
     ],
-    [_ARI]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaari,
       },
     ],
-    [_Bu]: [
-      ,
+    [
+      0,
       {
         [_xN]: _Bu,
       },
     ],
-    [_SSE]: [
-      ,
+    0,
+    0,
+    [
+      0,
       {
         [_hH]: _xasse,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-    [_SSEKMSKI]: [
-      ,
+    [
+      () => SSEKMSKeyId,
       {
         [_hH]: _xasseakki,
       },
     ],
-    [_SSEKMSEC]: [
-      ,
+    [
+      () => SSEKMSEncryptionContext,
       {
         [_hH]: _xassec,
       },
     ],
-    [_BKE]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xassebke,
       },
     ],
-    [_RCe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaca,
       },
     ],
-    [_CT]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xact,
       },
     ],
-  }
+  ]
 );
 export var CreateMultipartUploadRequest = __struct(
   _CMURr,
-  {},
-  {
-    [_ACL_]: [
-      ,
+  0,
+  [
+    _ACL_,
+    _Bu,
+    _CC,
+    _CD,
+    _CE,
+    _CL,
+    _CTo,
+    _Ex,
+    _GFC,
+    _GR,
+    _GRACP,
+    _GWACP,
+    _K,
+    _M,
+    _SSE,
+    _SC,
+    _WRL,
+    _SSECA,
+    _SSECK,
+    _SSECKMD,
+    _SSEKMSKI,
+    _SSEKMSEC,
+    _BKE,
+    _RP,
+    _Tagg,
+    _OLM,
+    _OLRUD,
+    _OLLHS,
+    _EBO,
+    _CA,
+    _CT,
+  ],
+  [
+    [
+      0,
       {
         [_hH]: _xaa,
       },
     ],
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_CC]: [
-      ,
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _CC_,
       },
     ],
-    [_CDo]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CD_,
       },
     ],
-    [_CE]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CE_,
       },
     ],
-    [_CL]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CL_,
       },
     ],
-    [_CTo]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CT_,
       },
     ],
-    [_E]: [
-      () => "time",
+    [
+      4,
       {
-        [_hH]: _E,
+        [_hH]: _Ex,
       },
     ],
-    [_GFC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagfc,
       },
     ],
-    [_GR]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagr,
       },
     ],
-    [_GRACP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagra,
       },
     ],
-    [_GWACP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagwa,
       },
     ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_M]: [
-      () => Metadata,
+    [0, 1],
+    [
+      128 | 0,
       {
         [_hPH]: _xam,
       },
     ],
-    [_SSE]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasse,
       },
     ],
-    [_SCt]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasc,
       },
     ],
-    [_WRL]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xawrl,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECK]: [
-      ,
+    [
+      () => SSECustomerKey,
       {
         [_hH]: _xasseck,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-    [_SSEKMSKI]: [
-      ,
+    [
+      () => SSEKMSKeyId,
       {
         [_hH]: _xasseakki,
       },
     ],
-    [_SSEKMSEC]: [
-      ,
+    [
+      () => SSEKMSEncryptionContext,
       {
         [_hH]: _xassec,
       },
     ],
-    [_BKE]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xassebke,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_Ta]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xat,
       },
     ],
-    [_OLM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaolm,
       },
     ],
-    [_OLRUD]: [
-      () => "date-time",
+    [
+      5,
       {
         [_hH]: _xaolrud,
       },
     ],
-    [_OLLHS]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaollh,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaca,
       },
     ],
-    [_CT]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xact,
       },
     ],
-  }
+  ]
 );
 export var CreateSessionOutput = __struct(
   _CSO,
   {
     [_xN]: _CSRr,
   },
-  {
-    [_SSE]: [
-      ,
+  [_SSE, _SSEKMSKI, _SSEKMSEC, _BKE, _Cr],
+  [
+    [
+      0,
       {
         [_hH]: _xasse,
       },
     ],
-    [_SSEKMSKI]: [
-      ,
+    [
+      () => SSEKMSKeyId,
       {
         [_hH]: _xasseakki,
       },
     ],
-    [_SSEKMSEC]: [
-      ,
+    [
+      () => SSEKMSEncryptionContext,
       {
         [_hH]: _xassec,
       },
     ],
-    [_BKE]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xassebke,
       },
     ],
-    [_C]: [
+    [
       () => SessionCredentials,
       {
-        [_xN]: _C,
+        [_xN]: _Cr,
       },
     ],
-  }
+  ]
 );
 export var CreateSessionRequest = __struct(
-  _CSR,
-  {},
-  {
-    [_SM]: [
-      ,
+  _CSRre,
+  0,
+  [_SM, _Bu, _SSE, _SSEKMSKI, _SSEKMSEC, _BKE],
+  [
+    [
+      0,
       {
         [_hH]: _xacsm,
       },
     ],
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_SSE]: [
-      ,
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xasse,
       },
     ],
-    [_SSEKMSKI]: [
-      ,
+    [
+      () => SSEKMSKeyId,
       {
         [_hH]: _xasseakki,
       },
     ],
-    [_SSEKMSEC]: [
-      ,
+    [
+      () => SSEKMSEncryptionContext,
       {
         [_hH]: _xassec,
       },
     ],
-    [_BKE]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xassebke,
       },
     ],
-  }
+  ]
 );
-export var CSVInput = 8 as const;
-
-export var CSVOutput = 8 as const;
-
-export var DefaultRetention = 8 as const;
-
+export var CSVInput = __struct(_CSVIn, 0, [_FHI, _Co, _QEC, _RD, _FD, _QC, _AQRD], [0, 0, 0, 0, 0, 0, 2]);
+export var CSVOutput = __struct(_CSVO, 0, [_QF, _QEC, _RD, _FD, _QC], [0, 0, 0, 0, 0]);
+export var DefaultRetention = __struct(_DRe, 0, [_Mo, _Da, _Y], [0, 1, 1]);
 export var Delete = __struct(
-  _D,
-  {},
-  {
-    [_Ob]: [
+  _Del,
+  0,
+  [_Ob, _Q],
+  [
+    [
       () => ObjectIdentifierList,
       {
-        [_xN]: _O,
+        [_xN]: _Obj,
         [_xF]: 1,
       },
     ],
-  }
+    2,
+  ]
 );
 export var DeleteBucketAnalyticsConfigurationRequest = __struct(
   _DBACR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Id]: [
-      ,
+  0,
+  [_Bu, _Id, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _i,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var DeleteBucketCorsRequest = __struct(
   _DBCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var DeleteBucketEncryptionRequest = __struct(
   _DBER,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var DeleteBucketIntelligentTieringConfigurationRequest = __struct(
   _DBITCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Id]: [
-      ,
+  0,
+  [_Bu, _Id],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _i,
       },
     ],
-  }
+  ]
 );
 export var DeleteBucketInventoryConfigurationRequest = __struct(
   _DBICR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Id]: [
-      ,
+  0,
+  [_Bu, _Id, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _i,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var DeleteBucketLifecycleRequest = __struct(
   _DBLR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var DeleteBucketMetadataTableConfigurationRequest = __struct(
   _DBMTCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var DeleteBucketMetricsConfigurationRequest = __struct(
   _DBMCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Id]: [
-      ,
+  0,
+  [_Bu, _Id, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _i,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var DeleteBucketOwnershipControlsRequest = __struct(
   _DBOCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var DeleteBucketPolicyRequest = __struct(
   _DBPR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var DeleteBucketReplicationRequest = __struct(
   _DBRR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var DeleteBucketRequest = __struct(
   _DBR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var DeleteBucketTaggingRequest = __struct(
   _DBTR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var DeleteBucketWebsiteRequest = __struct(
   _DBWR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
-export var DeletedObject = 8 as const;
-
-export var DeleteMarkerEntry = __struct(
-  _DME,
-  {},
-  {
-    [_LM]: [() => "time", {}],
-  }
-);
-export var DeleteMarkerReplication = 8 as const;
-
+export var DeletedObject = __struct(_DO, 0, [_K, _VI, _DM, _DMVI], [0, 0, 2, 0]);
+export var DeleteMarkerEntry = __struct(_DME, 0, [_O, _K, _VI, _IL, _LM], [() => Owner, 0, 0, 2, 4]);
+export var DeleteMarkerReplication = __struct(_DMR, 0, [_Sta], [0]);
 export var DeleteObjectOutput = __struct(
   _DOO,
-  {},
-  {
-    [_DMe]: [
-      ,
+  0,
+  [_DM, _VI, _RC],
+  [
+    [
+      2,
       {
         [_hH]: _xadm,
       },
     ],
-    [_VI]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xavi,
       },
     ],
-    [_RCe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var DeleteObjectRequest = __struct(
   _DOR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_MFA]: [
-      ,
+  0,
+  [_Bu, _K, _MFA, _VI, _RP, _BGR, _EBO, _IM, _IMLMT, _IMS],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xam_,
       },
     ],
-    [_VI]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _vI,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_BGR]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xabgr,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_IM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _IM_,
       },
     ],
-    [_IMLMT]: [
-      () => "http-date",
+    [
+      6,
       {
         [_hH]: _xaimlmt,
       },
     ],
-    [_IMSf]: [
-      ,
+    [
+      1,
       {
         [_hH]: _xaims,
       },
     ],
-  }
+  ]
 );
 export var DeleteObjectsOutput = __struct(
   _DOOe,
   {
-    [_xN]: _DR,
+    [_xN]: _DRel,
   },
-  {
-    [_De]: [
+  [_Dele, _RC, _Er],
+  [
+    [
       () => DeletedObjects,
       {
         [_xF]: 1,
       },
     ],
-    [_RCe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-    [_Er]: [
+    [
       () => Errors,
       {
         [_xN]: _Err,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var DeleteObjectsRequest = __struct(
   _DORe,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_D]: [
+  0,
+  [_Bu, _Del, _MFA, _RP, _BGR, _EBO, _CA],
+  [
+    [0, 1],
+    [
       () => Delete,
       {
-        [_xN]: _D,
+        [_xN]: _Del,
         [_hP]: 1,
       },
     ],
-    [_MFA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xam_,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_BGR]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xabgr,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-  }
+  ]
 );
 export var DeleteObjectTaggingOutput = __struct(
   _DOTO,
-  {},
-  {
-    [_VI]: [
-      ,
+  0,
+  [_VI],
+  [
+    [
+      0,
       {
         [_hH]: _xavi,
       },
     ],
-  }
+  ]
 );
 export var DeleteObjectTaggingRequest = __struct(
   _DOTR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_VI]: [
-      ,
+  0,
+  [_Bu, _K, _VI, _EBO],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _vI,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var DeletePublicAccessBlockRequest = __struct(
   _DPABR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
-export var Destination = 8 as const;
-
-export var Encryption = __struct(
-  _En,
-  {},
-  {
-    [_KMSKI]: [, {}],
-  }
+export var Destination = __struct(
+  _Dest,
+  0,
+  [_Bu, _A, _SC, _ACT, _ECn, _RTe, _Met],
+  [0, 0, 0, () => AccessControlTranslation, () => EncryptionConfiguration, () => ReplicationTime, () => Metrics]
 );
-export var EncryptionConfiguration = 8 as const;
-
+export var Encryption = __struct(_Enc, 0, [_ETnc, _KMSKI, _KMSC], [0, [() => SSEKMSKeyId, 0], 0]);
+export var EncryptionConfiguration = __struct(_ECn, 0, [_RKKID], [0]);
 export var EncryptionTypeMismatch = __error(
   _ETM,
   {
     [_e]: _c,
     [_hE]: 400,
   },
-  {},
+  [],
+  [],
 
   __EncryptionTypeMismatch
 );
-export var EndEvent = 8 as const;
-
-export var _Error = 8 as const;
-
-export var ErrorDetails = 8 as const;
-
-export var ErrorDocument = 8 as const;
-
-export var EventBridgeConfiguration = 8 as const;
-
-export var ExistingObjectReplication = 8 as const;
-
-export var FilterRule = 8 as const;
-
+export var EndEvent = __struct(_EE, 0, [], []);
+export var _Error = __struct(_Err, 0, [_K, _VI, _C, _Me], [0, 0, 0, 0]);
+export var ErrorDetails = __struct(_ED, 0, [_EC, _EM], [0, 0]);
+export var ErrorDocument = __struct(_EDr, 0, [_K], [0]);
+export var EventBridgeConfiguration = __struct(_EBC, 0, [], []);
+export var ExistingObjectReplication = __struct(_EOR, 0, [_Sta], [0]);
+export var FilterRule = __struct(_FR, 0, [_N, _V], [0, 0]);
 export var GetBucketAccelerateConfigurationOutput = __struct(
   _GBACO,
   {
-    [_xN]: _ACc,
+    [_xN]: _AC,
   },
-  {
-    [_RCe]: [
-      ,
+  [_Sta, _RC],
+  [
+    0,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var GetBucketAccelerateConfigurationRequest = __struct(
   _GBACR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO, _RP],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-  }
+  ]
 );
 export var GetBucketAclOutput = __struct(
   _GBAO,
   {
     [_xN]: _ACP,
   },
-  {
-    [_G]: [
+  [_O, _G],
+  [
+    () => Owner,
+    [
       () => Grants,
       {
-        [_xN]: _ACLc,
+        [_xN]: _ACL,
       },
     ],
-  }
+  ]
 );
 export var GetBucketAclRequest = __struct(
   _GBAR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
-export var GetBucketAnalyticsConfigurationOutput = __struct(
-  _GBACOe,
-  {},
-  {
-    [_AC]: [
-      () => AnalyticsConfiguration,
-      {
-        [_hP]: 1,
-      },
-    ],
-  }
-);
+export var GetBucketAnalyticsConfigurationOutput = __struct(_GBACOe, 0, [_ACn], [[() => AnalyticsConfiguration, 16]]);
 export var GetBucketAnalyticsConfigurationRequest = __struct(
   _GBACRe,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Id]: [
-      ,
+  0,
+  [_Bu, _Id, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _i,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var GetBucketCorsOutput = __struct(
   _GBCO,
   {
     [_xN]: _CORSC,
   },
-  {
-    [_CORSR]: [
+  [_CORSR],
+  [
+    [
       () => CORSRules,
       {
         [_xN]: _CORSRu,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var GetBucketCorsRequest = __struct(
   _GBCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
-export var GetBucketEncryptionOutput = __struct(
-  _GBEO,
-  {},
-  {
-    [_SSEC]: [
-      () => ServerSideEncryptionConfiguration,
-      {
-        [_hP]: 1,
-      },
-    ],
-  }
-);
+export var GetBucketEncryptionOutput = __struct(_GBEO, 0, [_SSEC], [[() => ServerSideEncryptionConfiguration, 16]]);
 export var GetBucketEncryptionRequest = __struct(
   _GBER,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var GetBucketIntelligentTieringConfigurationOutput = __struct(
   _GBITCO,
-  {},
-  {
-    [_ITC]: [
-      () => IntelligentTieringConfiguration,
-      {
-        [_hP]: 1,
-      },
-    ],
-  }
+  0,
+  [_ITC],
+  [[() => IntelligentTieringConfiguration, 16]]
 );
 export var GetBucketIntelligentTieringConfigurationRequest = __struct(
   _GBITCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Id]: [
-      ,
+  0,
+  [_Bu, _Id],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _i,
       },
     ],
-  }
+  ]
 );
-export var GetBucketInventoryConfigurationOutput = __struct(
-  _GBICO,
-  {},
-  {
-    [_IC]: [
-      () => InventoryConfiguration,
-      {
-        [_hP]: 1,
-      },
-    ],
-  }
-);
+export var GetBucketInventoryConfigurationOutput = __struct(_GBICO, 0, [_IC], [[() => InventoryConfiguration, 16]]);
 export var GetBucketInventoryConfigurationRequest = __struct(
   _GBICR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Id]: [
-      ,
+  0,
+  [_Bu, _Id, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _i,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var GetBucketLifecycleConfigurationOutput = __struct(
   _GBLCO,
   {
-    [_xN]: _LC,
+    [_xN]: _LCi,
   },
-  {
-    [_R]: [
+  [_Ru, _TDMOS],
+  [
+    [
       () => LifecycleRules,
       {
-        [_xN]: _Ru,
+        [_xN]: _Rul,
         [_xF]: 1,
       },
     ],
-    [_TDMOS]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xatdmos,
       },
     ],
-  }
+  ]
 );
 export var GetBucketLifecycleConfigurationRequest = __struct(
   _GBLCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var GetBucketLocationOutput = __struct(
   _GBLO,
   {
-    [_xN]: _LCo,
+    [_xN]: _LC,
   },
-  {}
+  [_LC],
+  [0]
 );
 export var GetBucketLocationRequest = __struct(
   _GBLR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var GetBucketLoggingOutput = __struct(
   _GBLOe,
   {
     [_xN]: _BLS,
   },
-  {
-    [_LEo]: [() => LoggingEnabled, {}],
-  }
+  [_LE],
+  [[() => LoggingEnabled, 0]]
 );
 export var GetBucketLoggingRequest = __struct(
   _GBLRe,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var GetBucketMetadataTableConfigurationOutput = __struct(
   _GBMTCO,
-  {},
-  {
-    [_GBMTCRe]: [
-      () => GetBucketMetadataTableConfigurationResult,
-      {
-        [_hP]: 1,
-      },
-    ],
-  }
+  0,
+  [_GBMTCR],
+  [[() => GetBucketMetadataTableConfigurationResult, 16]]
 );
 export var GetBucketMetadataTableConfigurationRequest = __struct(
-  _GBMTCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  _GBMTCRe,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
-export var GetBucketMetadataTableConfigurationResult = 8 as const;
-
-export var GetBucketMetricsConfigurationOutput = __struct(
-  _GBMCO,
-  {},
-  {
-    [_MC]: [
-      () => MetricsConfiguration,
-      {
-        [_hP]: 1,
-      },
-    ],
-  }
+export var GetBucketMetadataTableConfigurationResult = __struct(
+  _GBMTCR,
+  0,
+  [_MTCR, _Sta, _Err],
+  [() => MetadataTableConfigurationResult, 0, () => ErrorDetails]
 );
+export var GetBucketMetricsConfigurationOutput = __struct(_GBMCO, 0, [_MC], [[() => MetricsConfiguration, 16]]);
 export var GetBucketMetricsConfigurationRequest = __struct(
   _GBMCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Id]: [
-      ,
+  0,
+  [_Bu, _Id, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _i,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var GetBucketNotificationConfigurationRequest = __struct(
   _GBNCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
-export var GetBucketOwnershipControlsOutput = __struct(
-  _GBOCO,
-  {},
-  {
-    [_OC]: [
-      () => OwnershipControls,
-      {
-        [_hP]: 1,
-      },
-    ],
-  }
-);
+export var GetBucketOwnershipControlsOutput = __struct(_GBOCO, 0, [_OC], [[() => OwnershipControls, 16]]);
 export var GetBucketOwnershipControlsRequest = __struct(
   _GBOCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
-export var GetBucketPolicyOutput = __struct(
-  _GBPO,
-  {},
-  {
-    [_Po]: [
-      ,
-      {
-        [_hP]: 1,
-      },
-    ],
-  }
-);
+export var GetBucketPolicyOutput = __struct(_GBPO, 0, [_Po], [[0, 16]]);
 export var GetBucketPolicyRequest = __struct(
   _GBPR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
-export var GetBucketPolicyStatusOutput = __struct(
-  _GBPSO,
-  {},
-  {
-    [_PS]: [
-      () => PolicyStatus,
-      {
-        [_hP]: 1,
-      },
-    ],
-  }
-);
+export var GetBucketPolicyStatusOutput = __struct(_GBPSO, 0, [_PS], [[() => PolicyStatus, 16]]);
 export var GetBucketPolicyStatusRequest = __struct(
   _GBPSR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
-export var GetBucketReplicationOutput = __struct(
-  _GBRO,
-  {},
-  {
-    [_RC]: [
-      () => ReplicationConfiguration,
-      {
-        [_hP]: 1,
-      },
-    ],
-  }
-);
+export var GetBucketReplicationOutput = __struct(_GBRO, 0, [_RCe], [[() => ReplicationConfiguration, 16]]);
 export var GetBucketReplicationRequest = __struct(
   _GBRR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var GetBucketRequestPaymentOutput = __struct(
   _GBRPO,
   {
     [_xN]: _RPC,
   },
-  {}
+  [_Pa],
+  [0]
 );
 export var GetBucketRequestPaymentRequest = __struct(
   _GBRPR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var GetBucketTaggingOutput = __struct(
   _GBTO,
   {
-    [_xN]: _Ta,
+    [_xN]: _Tagg,
   },
-  {
-    [_TS]: [() => TagSet, {}],
-  }
+  [_TS],
+  [[() => TagSet, 0]]
 );
 export var GetBucketTaggingRequest = __struct(
   _GBTR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var GetBucketVersioningOutput = __struct(
   _GBVO,
   {
-    [_xN]: _VC,
+    [_xN]: _VCe,
   },
-  {
-    [_MFAD]: [
-      ,
+  [_Sta, _MFAD],
+  [
+    0,
+    [
+      0,
       {
         [_xN]: _MDf,
       },
     ],
-  }
+  ]
 );
 export var GetBucketVersioningRequest = __struct(
   _GBVR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var GetBucketWebsiteOutput = __struct(
   _GBWO,
   {
     [_xN]: _WC,
   },
-  {
-    [_RRo]: [() => RoutingRules, {}],
-  }
+  [_RART, _IDn, _EDr, _RRo],
+  [() => RedirectAllRequestsTo, () => IndexDocument, () => ErrorDocument, [() => RoutingRules, 0]]
 );
 export var GetBucketWebsiteRequest = __struct(
   _GBWR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var GetObjectAclOutput = __struct(
   _GOAO,
   {
     [_xN]: _ACP,
   },
-  {
-    [_G]: [
+  [_O, _G, _RC],
+  [
+    () => Owner,
+    [
       () => Grants,
       {
-        [_xN]: _ACLc,
+        [_xN]: _ACL,
       },
     ],
-    [_RCe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var GetObjectAclRequest = __struct(
   _GOAR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_VI]: [
-      ,
+  0,
+  [_Bu, _K, _VI, _RP, _EBO],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _vI,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var GetObjectAttributesOutput = __struct(
   _GOAOe,
   {
-    [_xN]: _GOARet,
+    [_xN]: _GOARe,
   },
-  {
-    [_DMe]: [
-      ,
+  [_DM, _LM, _VI, _RC, _ET, _Ch, _OP, _SC, _OS],
+  [
+    [
+      2,
       {
         [_hH]: _xadm,
       },
     ],
-    [_LM]: [
-      () => "time",
+    [
+      4,
       {
         [_hH]: _LM_,
       },
     ],
-    [_VI]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xavi,
       },
     ],
-    [_RCe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-    [_OP]: [() => GetObjectAttributesParts, {}],
-  }
+    0,
+    () => Checksum,
+    [() => GetObjectAttributesParts, 0],
+    0,
+    1,
+  ]
 );
 export var GetObjectAttributesParts = __struct(
   _GOAP,
-  {},
-  {
-    [_TPC]: [
-      ,
+  0,
+  [_TPC, _PNM, _NPNM, _MP, _IT, _Par],
+  [
+    [
+      1,
       {
         [_xN]: _PC,
       },
     ],
-    [_P]: [
+    0,
+    0,
+    1,
+    2,
+    [
       () => PartsList,
       {
-        [_xN]: _Pa,
+        [_xN]: _Part,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var GetObjectAttributesRequest = __struct(
-  _GOARe,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_VI]: [
-      ,
+  _GOARet,
+  0,
+  [_Bu, _K, _VI, _MP, _PNM, _SSECA, _SSECK, _SSECKMD, _RP, _EBO, _OA],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _vI,
       },
     ],
-    [_MP]: [
-      ,
+    [
+      1,
       {
         [_hH]: _xamp,
       },
     ],
-    [_PNM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xapnm,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECK]: [
-      ,
+    [
+      () => SSECustomerKey,
       {
         [_hH]: _xasseck,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_OA]: [
-      () => ObjectAttributesList,
+    [
+      64 | 0,
       {
         [_hH]: _xaoa,
       },
     ],
-  }
+  ]
 );
 export var GetObjectLegalHoldOutput = __struct(
   _GOLHO,
-  {},
-  {
-    [_LH]: [
+  0,
+  [_LH],
+  [
+    [
       () => ObjectLockLegalHold,
       {
         [_xN]: _LH,
         [_hP]: 1,
       },
     ],
-  }
+  ]
 );
 export var GetObjectLegalHoldRequest = __struct(
   _GOLHR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_VI]: [
-      ,
+  0,
+  [_Bu, _K, _VI, _RP, _EBO],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _vI,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
-export var GetObjectLockConfigurationOutput = __struct(
-  _GOLCO,
-  {},
-  {
-    [_OLC]: [
-      () => ObjectLockConfiguration,
-      {
-        [_hP]: 1,
-      },
-    ],
-  }
-);
+export var GetObjectLockConfigurationOutput = __struct(_GOLCO, 0, [_OLC], [[() => ObjectLockConfiguration, 16]]);
 export var GetObjectLockConfigurationRequest = __struct(
   _GOLCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var GetObjectOutput = __struct(
   _GOO,
-  {},
-  {
-    [_Bo]: [
-      () => "streaming-blob",
-      {
-        [_hP]: 1,
-      },
-    ],
-    [_DMe]: [
-      ,
+  0,
+  [
+    _B,
+    _DM,
+    _AR,
+    _E,
+    _Re,
+    _LM,
+    _CLo,
+    _ET,
+    _CCRC,
+    _CCRCC,
+    _CCRCNVME,
+    _CSHAh,
+    _CSHA,
+    _CT,
+    _MM,
+    _VI,
+    _CC,
+    _CD,
+    _CE,
+    _CL,
+    _CR,
+    _CTo,
+    _Ex,
+    _ESx,
+    _WRL,
+    _SSE,
+    _M,
+    _SSECA,
+    _SSECKMD,
+    _SSEKMSKI,
+    _BKE,
+    _SC,
+    _RC,
+    _RS,
+    _PC,
+    _TC,
+    _OLM,
+    _OLRUD,
+    _OLLHS,
+  ],
+  [
+    [() => StreamingBlob, 16],
+    [
+      2,
       {
         [_hH]: _xadm,
       },
     ],
-    [_AR]: [
-      ,
+    [
+      0,
       {
         [_hH]: _ar,
       },
     ],
-    [_Ex]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xae,
       },
     ],
-    [_Re]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xar,
       },
     ],
-    [_LM]: [
-      () => "time",
+    [
+      4,
       {
         [_hH]: _LM_,
       },
     ],
-    [_CLo]: [
-      ,
+    [
+      1,
       {
         [_hH]: _CL__,
       },
     ],
-    [_ET]: [
-      ,
+    [
+      0,
       {
         [_hH]: _ET,
       },
     ],
-    [_CCRC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc,
       },
     ],
-    [_CCRCC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc_,
       },
     ],
-    [_CCRCNVME]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc__,
       },
     ],
-    [_CSHA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacs,
       },
     ],
-    [_CSHAh]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacs_,
       },
     ],
-    [_CT]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xact,
       },
     ],
-    [_MM]: [
-      ,
+    [
+      1,
       {
         [_hH]: _xamm,
       },
     ],
-    [_VI]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xavi,
       },
     ],
-    [_CC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CC_,
       },
     ],
-    [_CDo]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CD_,
       },
     ],
-    [_CE]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CE_,
       },
     ],
-    [_CL]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CL_,
       },
     ],
-    [_CR]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CR_,
       },
     ],
-    [_CTo]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CT_,
       },
     ],
-    [_E]: [
-      () => "time",
+    [
+      4,
       {
-        [_hH]: _E,
+        [_hH]: _Ex,
       },
     ],
-    [_ES]: [
-      ,
+    [
+      0,
       {
-        [_hH]: _ES,
+        [_hH]: _ESx,
       },
     ],
-    [_WRL]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xawrl,
       },
     ],
-    [_SSE]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasse,
       },
     ],
-    [_M]: [
-      () => Metadata,
+    [
+      128 | 0,
       {
         [_hPH]: _xam,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-    [_SSEKMSKI]: [
-      ,
+    [
+      () => SSEKMSKeyId,
       {
         [_hH]: _xasseakki,
       },
     ],
-    [_BKE]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xassebke,
       },
     ],
-    [_SCt]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasc,
       },
     ],
-    [_RCe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-    [_RSe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xars,
       },
     ],
-    [_PC]: [
-      ,
+    [
+      1,
       {
         [_hH]: _xampc,
       },
     ],
-    [_TCa]: [
-      ,
+    [
+      1,
       {
         [_hH]: _xatc,
       },
     ],
-    [_OLM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaolm,
       },
     ],
-    [_OLRUD]: [
-      () => "date-time",
+    [
+      5,
       {
         [_hH]: _xaolrud,
       },
     ],
-    [_OLLHS]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaollh,
       },
     ],
-  }
+  ]
 );
 export var GetObjectRequest = __struct(
   _GOR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_IM]: [
-      ,
+  0,
+  [
+    _Bu,
+    _IM,
+    _IMSf,
+    _INM,
+    _IUS,
+    _K,
+    _Ra,
+    _RCC,
+    _RCD,
+    _RCE,
+    _RCL,
+    _RCT,
+    _RE,
+    _VI,
+    _SSECA,
+    _SSECK,
+    _SSECKMD,
+    _RP,
+    _PN,
+    _EBO,
+    _CM,
+  ],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _IM_,
       },
     ],
-    [_IMS]: [
-      () => "time",
+    [
+      4,
       {
         [_hH]: _IMS_,
       },
     ],
-    [_INM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _INM_,
       },
     ],
-    [_IUS]: [
-      () => "time",
+    [
+      4,
       {
         [_hH]: _IUS_,
       },
     ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Ra]: [
-      ,
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _Ra,
       },
     ],
-    [_RCC]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _rcc,
       },
     ],
-    [_RCD]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _rcd,
       },
     ],
-    [_RCE]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _rce,
       },
     ],
-    [_RCL]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _rcl,
       },
     ],
-    [_RCT]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _rct,
       },
     ],
-    [_RE]: [
-      () => "http-date",
+    [
+      6,
       {
         [_hQ]: _re,
       },
     ],
-    [_VI]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _vI,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECK]: [
-      ,
+    [
+      () => SSECustomerKey,
       {
         [_hH]: _xasseck,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_PN]: [
-      ,
+    [
+      1,
       {
         [_hQ]: _pN,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_CMh]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacm,
       },
     ],
-  }
+  ]
 );
 export var GetObjectRetentionOutput = __struct(
   _GORO,
-  {},
-  {
-    [_Ret]: [
+  0,
+  [_Ret],
+  [
+    [
       () => ObjectLockRetention,
       {
         [_xN]: _Ret,
         [_hP]: 1,
       },
     ],
-  }
+  ]
 );
 export var GetObjectRetentionRequest = __struct(
   _GORR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_VI]: [
-      ,
+  0,
+  [_Bu, _K, _VI, _RP, _EBO],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _vI,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var GetObjectTaggingOutput = __struct(
   _GOTO,
   {
-    [_xN]: _Ta,
+    [_xN]: _Tagg,
   },
-  {
-    [_VI]: [
-      ,
+  [_VI, _TS],
+  [
+    [
+      0,
       {
         [_hH]: _xavi,
       },
     ],
-    [_TS]: [() => TagSet, {}],
-  }
+    [() => TagSet, 0],
+  ]
 );
 export var GetObjectTaggingRequest = __struct(
   _GOTR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_VI]: [
-      ,
+  0,
+  [_Bu, _K, _VI, _EBO, _RP],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _vI,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-  }
+  ]
 );
 export var GetObjectTorrentOutput = __struct(
   _GOTOe,
-  {},
-  {
-    [_Bo]: [
-      () => "streaming-blob",
-      {
-        [_hP]: 1,
-      },
-    ],
-    [_RCe]: [
-      ,
+  0,
+  [_B, _RC],
+  [
+    [() => StreamingBlob, 16],
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var GetObjectTorrentRequest = __struct(
   _GOTRe,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_RP]: [
-      ,
+  0,
+  [_Bu, _K, _RP, _EBO],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
-export var GetPublicAccessBlockOutput = __struct(
-  _GPABO,
-  {},
-  {
-    [_PABC]: [
-      () => PublicAccessBlockConfiguration,
-      {
-        [_hP]: 1,
-      },
-    ],
-  }
-);
+export var GetPublicAccessBlockOutput = __struct(_GPABO, 0, [_PABC], [[() => PublicAccessBlockConfiguration, 16]]);
 export var GetPublicAccessBlockRequest = __struct(
   _GPABR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
-export var GlacierJobParameters = 8 as const;
-
-export var Grant = __struct(
-  _Gr,
-  {},
-  {
-    [_Gra]: [() => Grantee, {}],
-  }
-);
+export var GlacierJobParameters = __struct(_GJP, 0, [_Ti], [0]);
+export var Grant = __struct(_Gr, 0, [_Gra, _P], [[() => Grantee, 0], 0]);
 export var Grantee = __struct(
   _Gra,
-  {},
-  {
-    [_Ty]: [
-      ,
+  0,
+  [_DN, _EA, _ID, _URI, _T],
+  [
+    0,
+    0,
+    0,
+    0,
+    [
+      0,
       {
         [_xN]: _x,
         [_xA]: 1,
       },
     ],
-  }
+  ]
 );
 export var HeadBucketOutput = __struct(
   _HBO,
-  {},
-  {
-    [_BLT]: [
-      ,
+  0,
+  [_BLT, _BLN, _BR, _APAc],
+  [
+    [
+      0,
       {
         [_hH]: _xablt,
       },
     ],
-    [_BLN]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xabln,
       },
     ],
-    [_BR]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xabr,
       },
     ],
-    [_APA]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xaapa,
       },
     ],
-  }
+  ]
 );
 export var HeadBucketRequest = __struct(
   _HBR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+  0,
+  [_Bu, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var HeadObjectOutput = __struct(
   _HOO,
-  {},
-  {
-    [_DMe]: [
-      ,
+  0,
+  [
+    _DM,
+    _AR,
+    _E,
+    _Re,
+    _AS,
+    _LM,
+    _CLo,
+    _CCRC,
+    _CCRCC,
+    _CCRCNVME,
+    _CSHAh,
+    _CSHA,
+    _CT,
+    _ET,
+    _MM,
+    _VI,
+    _CC,
+    _CD,
+    _CE,
+    _CL,
+    _CTo,
+    _CR,
+    _Ex,
+    _ESx,
+    _WRL,
+    _SSE,
+    _M,
+    _SSECA,
+    _SSECKMD,
+    _SSEKMSKI,
+    _BKE,
+    _SC,
+    _RC,
+    _RS,
+    _PC,
+    _OLM,
+    _OLRUD,
+    _OLLHS,
+  ],
+  [
+    [
+      2,
       {
         [_hH]: _xadm,
       },
     ],
-    [_AR]: [
-      ,
+    [
+      0,
       {
         [_hH]: _ar,
       },
     ],
-    [_Ex]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xae,
       },
     ],
-    [_Re]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xar,
       },
     ],
-    [_AS]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaas,
       },
     ],
-    [_LM]: [
-      () => "time",
+    [
+      4,
       {
         [_hH]: _LM_,
       },
     ],
-    [_CLo]: [
-      ,
+    [
+      1,
       {
         [_hH]: _CL__,
       },
     ],
-    [_CCRC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc,
       },
     ],
-    [_CCRCC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc_,
       },
     ],
-    [_CCRCNVME]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc__,
       },
     ],
-    [_CSHA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacs,
       },
     ],
-    [_CSHAh]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacs_,
       },
     ],
-    [_CT]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xact,
       },
     ],
-    [_ET]: [
-      ,
+    [
+      0,
       {
         [_hH]: _ET,
       },
     ],
-    [_MM]: [
-      ,
+    [
+      1,
       {
         [_hH]: _xamm,
       },
     ],
-    [_VI]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xavi,
       },
     ],
-    [_CC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CC_,
       },
     ],
-    [_CDo]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CD_,
       },
     ],
-    [_CE]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CE_,
       },
     ],
-    [_CL]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CL_,
       },
     ],
-    [_CTo]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CT_,
       },
     ],
-    [_CR]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CR_,
       },
     ],
-    [_E]: [
-      () => "time",
+    [
+      4,
       {
-        [_hH]: _E,
+        [_hH]: _Ex,
       },
     ],
-    [_ES]: [
-      ,
+    [
+      0,
       {
-        [_hH]: _ES,
+        [_hH]: _ESx,
       },
     ],
-    [_WRL]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xawrl,
       },
     ],
-    [_SSE]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasse,
       },
     ],
-    [_M]: [
-      () => Metadata,
+    [
+      128 | 0,
       {
         [_hPH]: _xam,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-    [_SSEKMSKI]: [
-      ,
+    [
+      () => SSEKMSKeyId,
       {
         [_hH]: _xasseakki,
       },
     ],
-    [_BKE]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xassebke,
       },
     ],
-    [_SCt]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasc,
       },
     ],
-    [_RCe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-    [_RSe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xars,
       },
     ],
-    [_PC]: [
-      ,
+    [
+      1,
       {
         [_hH]: _xampc,
       },
     ],
-    [_OLM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaolm,
       },
     ],
-    [_OLRUD]: [
-      () => "date-time",
+    [
+      5,
       {
         [_hH]: _xaolrud,
       },
     ],
-    [_OLLHS]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaollh,
       },
     ],
-  }
+  ]
 );
 export var HeadObjectRequest = __struct(
   _HOR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_IM]: [
-      ,
+  0,
+  [
+    _Bu,
+    _IM,
+    _IMSf,
+    _INM,
+    _IUS,
+    _K,
+    _Ra,
+    _RCC,
+    _RCD,
+    _RCE,
+    _RCL,
+    _RCT,
+    _RE,
+    _VI,
+    _SSECA,
+    _SSECK,
+    _SSECKMD,
+    _RP,
+    _PN,
+    _EBO,
+    _CM,
+  ],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _IM_,
       },
     ],
-    [_IMS]: [
-      () => "time",
+    [
+      4,
       {
         [_hH]: _IMS_,
       },
     ],
-    [_INM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _INM_,
       },
     ],
-    [_IUS]: [
-      () => "time",
+    [
+      4,
       {
         [_hH]: _IUS_,
       },
     ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Ra]: [
-      ,
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _Ra,
       },
     ],
-    [_RCC]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _rcc,
       },
     ],
-    [_RCD]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _rcd,
       },
     ],
-    [_RCE]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _rce,
       },
     ],
-    [_RCL]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _rcl,
       },
     ],
-    [_RCT]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _rct,
       },
     ],
-    [_RE]: [
-      () => "http-date",
+    [
+      6,
       {
         [_hQ]: _re,
       },
     ],
-    [_VI]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _vI,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECK]: [
-      ,
+    [
+      () => SSECustomerKey,
       {
         [_hH]: _xasseck,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_PN]: [
-      ,
+    [
+      1,
       {
         [_hQ]: _pN,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_CMh]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacm,
       },
     ],
-  }
+  ]
 );
-export var IndexDocument = 8 as const;
-
-export var Initiator = 8 as const;
-
-export var InputSerialization = 8 as const;
-
+export var IndexDocument = __struct(_IDn, 0, [_Su], [0]);
+export var Initiator = __struct(_In, 0, [_ID, _DN], [0, 0]);
+export var InputSerialization = __struct(
+  _IS,
+  0,
+  [_CSV, _CTom, _JSON, _Parq],
+  [() => CSVInput, 0, () => JSONInput, () => ParquetInput]
+);
 export var IntelligentTieringAndOperator = __struct(
   _ITAO,
-  {},
-  {
-    [_Tag]: [
+  0,
+  [_Pr, _Ta],
+  [
+    0,
+    [
       () => TagSet,
       {
-        [_xN]: _Tag_,
+        [_xN]: _Tag,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var IntelligentTieringConfiguration = __struct(
   _ITC,
-  {},
-  {
-    [_F]: [() => IntelligentTieringFilter, {}],
-    [_Ti]: [
+  0,
+  [_Id, _F, _Sta, _Tie],
+  [
+    0,
+    [() => IntelligentTieringFilter, 0],
+    0,
+    [
       () => TieringList,
       {
-        [_xN]: _Tie,
+        [_xN]: _Tier,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var IntelligentTieringFilter = __struct(
   _ITF,
-  {},
-  {
-    [_A]: [() => IntelligentTieringAndOperator, {}],
-  }
+  0,
+  [_Pr, _Tag, _An],
+  [0, () => Tag, [() => IntelligentTieringAndOperator, 0]]
 );
 export var InvalidObjectState = __error(
   _IOS,
@@ -4522,7 +4534,8 @@ export var InvalidObjectState = __error(
     [_e]: _c,
     [_hE]: 403,
   },
-  {},
+  [_SC, _AT],
+  [0, 0],
 
   __InvalidObjectState
 );
@@ -4532,7 +4545,8 @@ export var InvalidRequest = __error(
     [_e]: _c,
     [_hE]: 400,
   },
-  {},
+  [],
+  [],
 
   __InvalidRequest
 );
@@ -4542,867 +4556,887 @@ export var InvalidWriteOffset = __error(
     [_e]: _c,
     [_hE]: 400,
   },
-  {},
+  [],
+  [],
 
   __InvalidWriteOffset
 );
 export var InventoryConfiguration = __struct(
   _IC,
-  {},
-  {
-    [_Des]: [() => InventoryDestination, {}],
-    [_OF]: [() => InventoryOptionalFields, {}],
-  }
+  0,
+  [_Dest, _IE, _F, _Id, _IOV, _OF, _Sc],
+  [
+    [() => InventoryDestination, 0],
+    2,
+    () => InventoryFilter,
+    0,
+    0,
+    [() => InventoryOptionalFields, 0],
+    () => InventorySchedule,
+  ]
 );
-export var InventoryDestination = __struct(
-  _ID,
-  {},
-  {
-    [_SBD]: [() => InventoryS3BucketDestination, {}],
-  }
-);
+export var InventoryDestination = __struct(_IDnv, 0, [_SBD], [[() => InventoryS3BucketDestination, 0]]);
 export var InventoryEncryption = __struct(
-  _IE,
-  {},
-  {
-    [_SSES]: [
+  _IEn,
+  0,
+  [_SSES, _SSEKMS],
+  [
+    [
       () => SSES3,
       {
         [_xN]: _SS,
       },
     ],
-    [_SSEKMS]: [
+    [
       () => SSEKMS,
       {
         [_xN]: _SK,
       },
     ],
-  }
+  ]
 );
-export var InventoryFilter = 8 as const;
-
+export var InventoryFilter = __struct(_IFnv, 0, [_Pr], [0]);
 export var InventoryS3BucketDestination = __struct(
   _ISBD,
-  {},
-  {
-    [_En]: [() => InventoryEncryption, {}],
-  }
+  0,
+  [_AI, _Bu, _Fo, _Pr, _Enc],
+  [0, 0, 0, 0, [() => InventoryEncryption, 0]]
 );
-export var InventorySchedule = 8 as const;
-
-export var JSONInput = 8 as const;
-
-export var JSONOutput = 8 as const;
-
+export var InventorySchedule = __struct(_ISn, 0, [_Fr], [0]);
+export var JSONInput = __struct(_JSONI, 0, [_T], [0]);
+export var JSONOutput = __struct(_JSONO, 0, [_RD], [0]);
 export var LambdaFunctionConfiguration = __struct(
   _LFC,
-  {},
-  {
-    [_LFA]: [
-      ,
+  0,
+  [_Id, _LFA, _Eve, _F],
+  [
+    0,
+    [
+      0,
       {
         [_xN]: _CF,
       },
     ],
-    [_Ev]: [
-      () => EventList,
+    [
+      64 | 0,
       {
-        [_xN]: _Eve,
+        [_xN]: _Ev,
         [_xF]: 1,
       },
     ],
-    [_F]: [() => NotificationConfigurationFilter, {}],
-  }
+    [() => NotificationConfigurationFilter, 0],
+  ]
 );
-export var LifecycleExpiration = __struct(
-  _LE,
-  {},
-  {
-    [_Da]: [() => "date-time", {}],
-  }
-);
+export var LifecycleExpiration = __struct(_LEi, 0, [_D, _Da, _EODM], [5, 1, 2]);
 export var LifecycleRule = __struct(
-  _LRi,
-  {},
-  {
-    [_Ex]: [() => LifecycleExpiration, {}],
-    [_F]: [() => LifecycleRuleFilter, {}],
-    [_Tr]: [
+  _LR,
+  0,
+  [_E, _ID, _Pr, _F, _Sta, _Tr, _NVT, _NVE, _AIMU],
+  [
+    () => LifecycleExpiration,
+    0,
+    0,
+    [() => LifecycleRuleFilter, 0],
+    0,
+    [
       () => TransitionList,
       {
-        [_xN]: _T,
+        [_xN]: _Tra,
         [_xF]: 1,
       },
     ],
-    [_NVT]: [
+    [
       () => NoncurrentVersionTransitionList,
       {
         [_xN]: _NVTo,
         [_xF]: 1,
       },
     ],
-  }
+    () => NoncurrentVersionExpiration,
+    () => AbortIncompleteMultipartUpload,
+  ]
 );
 export var LifecycleRuleAndOperator = __struct(
   _LRAO,
-  {},
-  {
-    [_Tag]: [
+  0,
+  [_Pr, _Ta, _OSGT, _OSLT],
+  [
+    0,
+    [
       () => TagSet,
       {
-        [_xN]: _Tag_,
+        [_xN]: _Tag,
         [_xF]: 1,
       },
     ],
-  }
+    1,
+    1,
+  ]
 );
 export var LifecycleRuleFilter = __struct(
   _LRF,
-  {},
-  {
-    [_A]: [() => LifecycleRuleAndOperator, {}],
-  }
+  0,
+  [_Pr, _Tag, _OSGT, _OSLT, _An],
+  [0, () => Tag, 1, 1, [() => LifecycleRuleAndOperator, 0]]
 );
 export var ListBucketAnalyticsConfigurationsOutput = __struct(
   _LBACO,
   {
-    [_xN]: _LBACRi,
+    [_xN]: _LBACR,
   },
-  {
-    [_ACL]: [
+  [_IT, _CTon, _NCT, _ACLn],
+  [
+    2,
+    0,
+    0,
+    [
       () => AnalyticsConfigurationList,
       {
-        [_xN]: _AC,
+        [_xN]: _ACn,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var ListBucketAnalyticsConfigurationsRequest = __struct(
-  _LBACR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_CTon]: [
-      ,
+  _LBACRi,
+  0,
+  [_Bu, _CTon, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _ct,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var ListBucketIntelligentTieringConfigurationsOutput = __struct(
   _LBITCO,
-  {},
-  {
-    [_ITCL]: [
+  0,
+  [_IT, _CTon, _NCT, _ITCL],
+  [
+    2,
+    0,
+    0,
+    [
       () => IntelligentTieringConfigurationList,
       {
         [_xN]: _ITC,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var ListBucketIntelligentTieringConfigurationsRequest = __struct(
   _LBITCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_CTon]: [
-      ,
+  0,
+  [_Bu, _CTon],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _ct,
       },
     ],
-  }
+  ]
 );
 export var ListBucketInventoryConfigurationsOutput = __struct(
   _LBICO,
   {
     [_xN]: _LICR,
   },
-  {
-    [_ICL]: [
+  [_CTon, _ICL, _IT, _NCT],
+  [
+    0,
+    [
       () => InventoryConfigurationList,
       {
         [_xN]: _IC,
         [_xF]: 1,
       },
     ],
-  }
+    2,
+    0,
+  ]
 );
 export var ListBucketInventoryConfigurationsRequest = __struct(
   _LBICR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_CTon]: [
-      ,
+  0,
+  [_Bu, _CTon, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _ct,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var ListBucketMetricsConfigurationsOutput = __struct(
   _LBMCO,
   {
     [_xN]: _LMCR,
   },
-  {
-    [_MCL]: [
+  [_IT, _CTon, _NCT, _MCL],
+  [
+    2,
+    0,
+    0,
+    [
       () => MetricsConfigurationList,
       {
         [_xN]: _MC,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var ListBucketMetricsConfigurationsRequest = __struct(
   _LBMCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_CTon]: [
-      ,
+  0,
+  [_Bu, _CTon, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _ct,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var ListBucketsOutput = __struct(
   _LBO,
   {
     [_xN]: _LAMBR,
   },
-  {
-    [_B]: [() => Buckets, {}],
-  }
+  [_Buc, _O, _CTon, _Pr],
+  [[() => Buckets, 0], () => Owner, 0, 0]
 );
 export var ListBucketsRequest = __struct(
   _LBR,
-  {},
-  {
-    [_MB]: [
-      ,
+  0,
+  [_MB, _CTon, _Pr, _BR],
+  [
+    [
+      1,
       {
         [_hQ]: _mb,
       },
     ],
-    [_CTon]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _ct,
       },
     ],
-    [_Pr]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _p,
       },
     ],
-    [_BR]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _br,
       },
     ],
-  }
+  ]
 );
 export var ListDirectoryBucketsOutput = __struct(
   _LDBO,
   {
     [_xN]: _LAMDBR,
   },
-  {
-    [_B]: [() => Buckets, {}],
-  }
+  [_Buc, _CTon],
+  [[() => Buckets, 0], 0]
 );
 export var ListDirectoryBucketsRequest = __struct(
   _LDBR,
-  {},
-  {
-    [_CTon]: [
-      ,
+  0,
+  [_CTon, _MDB],
+  [
+    [
+      0,
       {
         [_hQ]: _ct,
       },
     ],
-    [_MDB]: [
-      ,
+    [
+      1,
       {
         [_hQ]: _mdb,
       },
     ],
-  }
+  ]
 );
 export var ListMultipartUploadsOutput = __struct(
   _LMUO,
   {
-    [_xN]: _LMURi,
+    [_xN]: _LMUR,
   },
-  {
-    [_U]: [
+  [_Bu, _KM, _UIM, _NKM, _Pr, _De, _NUIM, _MU, _IT, _U, _CPom, _ETn, _RC],
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    [
       () => MultipartUploadList,
       {
         [_xN]: _Up,
         [_xF]: 1,
       },
     ],
-    [_CP]: [
+    [
       () => CommonPrefixList,
       {
         [_xF]: 1,
       },
     ],
-    [_RCe]: [
-      ,
+    0,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var ListMultipartUploadsRequest = __struct(
-  _LMUR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Del]: [
-      ,
+  _LMURi,
+  0,
+  [_Bu, _De, _ETn, _KM, _MU, _Pr, _UIM, _EBO, _RP],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _d,
       },
     ],
-    [_ETn]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _et,
       },
     ],
-    [_KM]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _km,
       },
     ],
-    [_MUa]: [
-      ,
+    [
+      1,
       {
         [_hQ]: _mu,
       },
     ],
-    [_Pr]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _p,
       },
     ],
-    [_UIM]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _uim,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-  }
+  ]
 );
 export var ListObjectsOutput = __struct(
   _LOO,
   {
     [_xN]: _LBRi,
   },
-  {
-    [_Co]: [
+  [_IT, _Ma, _NM, _Cont, _N, _Pr, _De, _MKa, _CPom, _ETn, _RC],
+  [
+    2,
+    0,
+    0,
+    [
       () => ObjectList,
       {
         [_xF]: 1,
       },
     ],
-    [_CP]: [
+    0,
+    0,
+    0,
+    1,
+    [
       () => CommonPrefixList,
       {
         [_xF]: 1,
       },
     ],
-    [_RCe]: [
-      ,
+    0,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var ListObjectsRequest = __struct(
   _LOR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Del]: [
-      ,
+  0,
+  [_Bu, _De, _ETn, _Ma, _MKa, _Pr, _RP, _EBO, _OOA],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _d,
       },
     ],
-    [_ETn]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _et,
       },
     ],
-    [_Ma]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _m,
       },
     ],
-    [_MK]: [
-      ,
+    [
+      1,
       {
         [_hQ]: _mk,
       },
     ],
-    [_Pr]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _p,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_OOA]: [
-      () => OptionalObjectAttributesList,
+    [
+      64 | 0,
       {
         [_hH]: _xaooa,
       },
     ],
-  }
+  ]
 );
 export var ListObjectsV2Output = __struct(
   _LOVO,
   {
     [_xN]: _LBRi,
   },
-  {
-    [_Co]: [
+  [_IT, _Cont, _N, _Pr, _De, _MKa, _CPom, _ETn, _KC, _CTon, _NCT, _SA, _RC],
+  [
+    2,
+    [
       () => ObjectList,
       {
         [_xF]: 1,
       },
     ],
-    [_CP]: [
+    0,
+    0,
+    0,
+    1,
+    [
       () => CommonPrefixList,
       {
         [_xF]: 1,
       },
     ],
-    [_RCe]: [
-      ,
+    0,
+    1,
+    0,
+    0,
+    0,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var ListObjectsV2Request = __struct(
   _LOVR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Del]: [
-      ,
+  0,
+  [_Bu, _De, _ETn, _MKa, _Pr, _CTon, _FO, _SA, _RP, _EBO, _OOA],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _d,
       },
     ],
-    [_ETn]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _et,
       },
     ],
-    [_MK]: [
-      ,
+    [
+      1,
       {
         [_hQ]: _mk,
       },
     ],
-    [_Pr]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _p,
       },
     ],
-    [_CTon]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _ct,
       },
     ],
-    [_FO]: [
-      ,
+    [
+      2,
       {
         [_hQ]: _fo,
       },
     ],
-    [_SA]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _sa,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_OOA]: [
-      () => OptionalObjectAttributesList,
+    [
+      64 | 0,
       {
         [_hH]: _xaooa,
       },
     ],
-  }
+  ]
 );
 export var ListObjectVersionsOutput = __struct(
   _LOVOi,
   {
     [_xN]: _LVR,
   },
-  {
-    [_V]: [
+  [_IT, _KM, _VIM, _NKM, _NVIM, _Ve, _DMe, _N, _Pr, _De, _MKa, _CPom, _ETn, _RC],
+  [
+    2,
+    0,
+    0,
+    0,
+    0,
+    [
       () => ObjectVersionList,
       {
-        [_xN]: _Ve,
+        [_xN]: _Ver,
         [_xF]: 1,
       },
     ],
-    [_DM]: [
+    [
       () => DeleteMarkers,
       {
-        [_xN]: _DMe,
+        [_xN]: _DM,
         [_xF]: 1,
       },
     ],
-    [_CP]: [
+    0,
+    0,
+    0,
+    1,
+    [
       () => CommonPrefixList,
       {
         [_xF]: 1,
       },
     ],
-    [_RCe]: [
-      ,
+    0,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var ListObjectVersionsRequest = __struct(
   _LOVRi,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Del]: [
-      ,
+  0,
+  [_Bu, _De, _ETn, _KM, _MKa, _Pr, _VIM, _EBO, _RP, _OOA],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _d,
       },
     ],
-    [_ETn]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _et,
       },
     ],
-    [_KM]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _km,
       },
     ],
-    [_MK]: [
-      ,
+    [
+      1,
       {
         [_hQ]: _mk,
       },
     ],
-    [_Pr]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _p,
       },
     ],
-    [_VIM]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _vim,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_OOA]: [
-      () => OptionalObjectAttributesList,
+    [
+      64 | 0,
       {
         [_hH]: _xaooa,
       },
     ],
-  }
+  ]
 );
 export var ListPartsOutput = __struct(
   _LPO,
   {
-    [_xN]: _LPRi,
+    [_xN]: _LPR,
   },
-  {
-    [_AD]: [
-      () => "time",
+  [_AD, _ARI, _Bu, _K, _UI, _PNM, _NPNM, _MP, _IT, _Par, _In, _O, _SC, _RC, _CA, _CT],
+  [
+    [
+      4,
       {
         [_hH]: _xaad,
       },
     ],
-    [_ARI]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaari,
       },
     ],
-    [_P]: [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    [
       () => Parts,
       {
-        [_xN]: _Pa,
+        [_xN]: _Part,
         [_xF]: 1,
       },
     ],
-    [_RCe]: [
-      ,
+    () => Initiator,
+    () => Owner,
+    0,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+    0,
+    0,
+  ]
 );
 export var ListPartsRequest = __struct(
-  _LPR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_MP]: [
-      ,
+  _LPRi,
+  0,
+  [_Bu, _K, _MP, _PNM, _UI, _RP, _EBO, _SSECA, _SSECK, _SSECKMD],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      1,
       {
         [_hQ]: _mp,
       },
     ],
-    [_PNM]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _pnm,
       },
     ],
-    [_UI]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _uI,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECK]: [
-      ,
+    [
+      () => SSECustomerKey,
       {
         [_hH]: _xasseck,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-  }
+  ]
 );
-export var LocationInfo = 8 as const;
-
+export var LocationInfo = __struct(_LI, 0, [_T, _N], [0, 0]);
 export var LoggingEnabled = __struct(
-  _LEo,
-  {},
-  {
-    [_TG]: [() => TargetGrants, {}],
-    [_TOKF]: [() => TargetObjectKeyFormat, {}],
-  }
+  _LE,
+  0,
+  [_TB, _TG, _TP, _TOKF],
+  [0, [() => TargetGrants, 0], 0, [() => TargetObjectKeyFormat, 0]]
 );
-export var MetadataEntry = 8 as const;
-
-export var MetadataTableConfiguration = 8 as const;
-
-export var MetadataTableConfigurationResult = 8 as const;
-
-export var Metrics = 8 as const;
-
+export var MetadataEntry = __struct(_ME, 0, [_N, _V], [0, 0]);
+export var MetadataTableConfiguration = __struct(_MTC, 0, [_STD], [() => S3TablesDestination]);
+export var MetadataTableConfigurationResult = __struct(_MTCR, 0, [_STDR], [() => S3TablesDestinationResult]);
+export var Metrics = __struct(_Met, 0, [_Sta, _ETv], [0, () => ReplicationTimeValue]);
 export var MetricsAndOperator = __struct(
   _MAO,
-  {},
-  {
-    [_Tag]: [
+  0,
+  [_Pr, _Ta, _APA],
+  [
+    0,
+    [
       () => TagSet,
       {
-        [_xN]: _Tag_,
+        [_xN]: _Tag,
         [_xF]: 1,
       },
     ],
-  }
+    0,
+  ]
 );
-export var MetricsConfiguration = __struct(
-  _MC,
-  {},
-  {
-    [_F]: [() => MetricsFilter, {}],
-  }
-);
+export var MetricsConfiguration = __struct(_MC, 0, [_Id, _F], [0, [() => MetricsFilter, 0]]);
 export var MultipartUpload = __struct(
-  _MU,
-  {},
-  {
-    [_I]: [() => "time", {}],
-  }
+  _MUu,
+  0,
+  [_UI, _K, _I, _SC, _O, _In, _CA, _CT],
+  [0, 0, 4, 0, () => Owner, () => Initiator, 0, 0]
 );
-export var NoncurrentVersionExpiration = 8 as const;
-
-export var NoncurrentVersionTransition = 8 as const;
-
+export var NoncurrentVersionExpiration = __struct(_NVE, 0, [_ND, _NNV], [1, 1]);
+export var NoncurrentVersionTransition = __struct(_NVTo, 0, [_ND, _SC, _NNV], [1, 0, 1]);
 export var NoSuchBucket = __error(
   _NSB,
   {
     [_e]: _c,
     [_hE]: 404,
   },
-  {},
+  [],
+  [],
 
   __NoSuchBucket
 );
@@ -5412,7 +5446,8 @@ export var NoSuchKey = __error(
     [_e]: _c,
     [_hE]: 404,
   },
-  {},
+  [],
+  [],
 
   __NoSuchKey
 );
@@ -5422,7 +5457,8 @@ export var NoSuchUpload = __error(
     [_e]: _c,
     [_hE]: 404,
   },
-  {},
+  [],
+  [],
 
   __NoSuchUpload
 );
@@ -5431,62 +5467,73 @@ export var NotFound = __error(
   {
     [_e]: _c,
   },
-  {},
+  [],
+  [],
 
   __NotFound
 );
 export var NotificationConfiguration = __struct(
   _NC,
-  {},
-  {
-    [_TCo]: [
+  0,
+  [_TCo, _QCu, _LFCa, _EBC],
+  [
+    [
       () => TopicConfigurationList,
       {
-        [_xN]: _TC,
+        [_xN]: _TCop,
         [_xF]: 1,
       },
     ],
-    [_QCu]: [
+    [
       () => QueueConfigurationList,
       {
-        [_xN]: _QC,
+        [_xN]: _QCue,
         [_xF]: 1,
       },
     ],
-    [_LFCa]: [
+    [
       () => LambdaFunctionConfigurationList,
       {
         [_xN]: _CFC,
         [_xF]: 1,
       },
     ],
-  }
+    () => EventBridgeConfiguration,
+  ]
 );
 export var NotificationConfigurationFilter = __struct(
   _NCF,
-  {},
-  {
-    [_K]: [
+  0,
+  [_K],
+  [
+    [
       () => S3KeyFilter,
       {
         [_xN]: _SKe,
       },
     ],
-  }
+  ]
 );
 export var _Object = __struct(
-  _O,
-  {},
-  {
-    [_LM]: [() => "time", {}],
-    [_CA]: [
-      () => ChecksumAlgorithmList,
+  _Obj,
+  0,
+  [_K, _LM, _ET, _CA, _CT, _S, _SC, _O, _RSe],
+  [
+    0,
+    4,
+    0,
+    [
+      64 | 0,
       {
         [_xF]: 1,
       },
     ],
-    [_RS]: [() => RestoreStatus, {}],
-  }
+    0,
+    1,
+    0,
+    () => Owner,
+    () => RestoreStatus,
+  ]
 );
 export var ObjectAlreadyInActiveTierError = __error(
   _OAIATE,
@@ -5494,2799 +5541,2697 @@ export var ObjectAlreadyInActiveTierError = __error(
     [_e]: _c,
     [_hE]: 403,
   },
-  {},
+  [],
+  [],
 
   __ObjectAlreadyInActiveTierError
 );
-export var ObjectIdentifier = __struct(
-  _OI,
-  {},
-  {
-    [_LMT]: [() => "http-date", {}],
-  }
-);
-export var ObjectLockConfiguration = 8 as const;
-
-export var ObjectLockLegalHold = 8 as const;
-
-export var ObjectLockRetention = __struct(
-  _OLR,
-  {},
-  {
-    [_RUD]: [() => "date-time", {}],
-  }
-);
-export var ObjectLockRule = 8 as const;
-
+export var ObjectIdentifier = __struct(_OI, 0, [_K, _VI, _ET, _LMT, _S], [0, 0, 0, 6, 1]);
+export var ObjectLockConfiguration = __struct(_OLC, 0, [_OLE, _Rul], [0, () => ObjectLockRule]);
+export var ObjectLockLegalHold = __struct(_OLLH, 0, [_Sta], [0]);
+export var ObjectLockRetention = __struct(_OLR, 0, [_Mo, _RUD], [0, 5]);
+export var ObjectLockRule = __struct(_OLRb, 0, [_DRe], [() => DefaultRetention]);
 export var ObjectNotInActiveTierError = __error(
   _ONIATE,
   {
     [_e]: _c,
     [_hE]: 403,
   },
-  {},
+  [],
+  [],
 
   __ObjectNotInActiveTierError
 );
-export var ObjectPart = 8 as const;
-
+export var ObjectPart = __struct(_OPb, 0, [_PN, _S, _CCRC, _CCRCC, _CCRCNVME, _CSHAh, _CSHA], [1, 1, 0, 0, 0, 0, 0]);
 export var ObjectVersion = __struct(
   _OV,
-  {},
-  {
-    [_CA]: [
-      () => ChecksumAlgorithmList,
+  0,
+  [_ET, _CA, _CT, _S, _SC, _K, _VI, _IL, _LM, _O, _RSe],
+  [
+    0,
+    [
+      64 | 0,
       {
         [_xF]: 1,
       },
     ],
-    [_LM]: [() => "time", {}],
-    [_RS]: [() => RestoreStatus, {}],
-  }
+    0,
+    1,
+    0,
+    0,
+    0,
+    2,
+    4,
+    () => Owner,
+    () => RestoreStatus,
+  ]
 );
-export var OutputLocation = __struct(
-  _OLu,
-  {},
-  {
-    [_S]: [() => S3Location, {}],
-  }
-);
-export var OutputSerialization = 8 as const;
-
-export var Owner = 8 as const;
-
+export var OutputLocation = __struct(_OL, 0, [_S_], [[() => S3Location, 0]]);
+export var OutputSerialization = __struct(_OSu, 0, [_CSV, _JSON], [() => CSVOutput, () => JSONOutput]);
+export var Owner = __struct(_O, 0, [_DN, _ID], [0, 0]);
 export var OwnershipControls = __struct(
   _OC,
-  {},
-  {
-    [_R]: [
+  0,
+  [_Ru],
+  [
+    [
       () => OwnershipControlsRules,
       {
-        [_xN]: _Ru,
+        [_xN]: _Rul,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
-export var OwnershipControlsRule = 8 as const;
-
-export var ParquetInput = 8 as const;
-
+export var OwnershipControlsRule = __struct(_OCR, 0, [_OO], [0]);
+export var ParquetInput = __struct(_PI, 0, [], []);
 export var Part = __struct(
-  _Pa,
-  {},
-  {
-    [_LM]: [() => "time", {}],
-  }
+  _Part,
+  0,
+  [_PN, _LM, _ET, _S, _CCRC, _CCRCC, _CCRCNVME, _CSHAh, _CSHA],
+  [1, 4, 0, 1, 0, 0, 0, 0, 0]
 );
 export var PartitionedPrefix = __struct(
   _PP,
   {
     [_xN]: _PP,
   },
-  {}
+  [_PDS],
+  [0]
 );
 export var PolicyStatus = __struct(
   _PS,
-  {},
-  {
-    [_IP]: [
-      ,
+  0,
+  [_IP],
+  [
+    [
+      2,
       {
         [_xN]: _IP,
       },
     ],
-  }
+  ]
 );
-export var Progress = 8 as const;
-
+export var Progress = __struct(_Prog, 0, [_BS, _BP, _BRy], [1, 1, 1]);
 export var ProgressEvent = __struct(
   _PE,
-  {},
-  {
-    [_Det]: [
+  0,
+  [_Det],
+  [
+    [
       () => Progress,
       {
         [_eP]: 1,
       },
     ],
-  }
+  ]
 );
 export var PublicAccessBlockConfiguration = __struct(
   _PABC,
-  {},
-  {
-    [_BPA]: [
-      ,
+  0,
+  [_BPA, _IPA, _BPP, _RPB],
+  [
+    [
+      2,
       {
         [_xN]: _BPA,
       },
     ],
-    [_IPA]: [
-      ,
+    [
+      2,
       {
         [_xN]: _IPA,
       },
     ],
-    [_BPP]: [
-      ,
+    [
+      2,
       {
         [_xN]: _BPP,
       },
     ],
-    [_RPB]: [
-      ,
+    [
+      2,
       {
         [_xN]: _RPB,
       },
     ],
-  }
+  ]
 );
 export var PutBucketAccelerateConfigurationRequest = __struct(
   _PBACR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_ACc]: [
+  0,
+  [_Bu, _AC, _EBO, _CA],
+  [
+    [0, 1],
+    [
       () => AccelerateConfiguration,
       {
-        [_xN]: _ACc,
+        [_xN]: _AC,
         [_hP]: 1,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-  }
+  ]
 );
 export var PutBucketAclRequest = __struct(
   _PBAR,
-  {},
-  {
-    [_ACL_]: [
-      ,
+  0,
+  [_ACL_, _ACP, _Bu, _CMD, _CA, _GFC, _GR, _GRACP, _GW, _GWACP, _EBO],
+  [
+    [
+      0,
       {
         [_hH]: _xaa,
       },
     ],
-    [_ACP]: [
+    [
       () => AccessControlPolicy,
       {
         [_xN]: _ACP,
         [_hP]: 1,
       },
     ],
-    [_Bu]: [
-      ,
+    [0, 1],
+    [
+      0,
       {
-        [_hL]: 1,
+        [_hH]: _CM_,
       },
     ],
-    [_CMD]: [
-      ,
-      {
-        [_hH]: _CM,
-      },
-    ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_GFC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagfc,
       },
     ],
-    [_GR]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagr,
       },
     ],
-    [_GRACP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagra,
       },
     ],
-    [_GW]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagw,
       },
     ],
-    [_GWACP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagwa,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutBucketAnalyticsConfigurationRequest = __struct(
   _PBACRu,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Id]: [
-      ,
+  0,
+  [_Bu, _Id, _ACn, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _i,
       },
     ],
-    [_AC]: [
+    [
       () => AnalyticsConfiguration,
       {
-        [_xN]: _AC,
+        [_xN]: _ACn,
         [_hP]: 1,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutBucketCorsRequest = __struct(
   _PBCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_CORSC]: [
+  0,
+  [_Bu, _CORSC, _CMD, _CA, _EBO],
+  [
+    [0, 1],
+    [
       () => CORSConfiguration,
       {
         [_xN]: _CORSC,
         [_hP]: 1,
       },
     ],
-    [_CMD]: [
-      ,
+    [
+      0,
       {
-        [_hH]: _CM,
+        [_hH]: _CM_,
       },
     ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutBucketEncryptionRequest = __struct(
   _PBER,
-  {},
-  {
-    [_Bu]: [
-      ,
+  0,
+  [_Bu, _CMD, _CA, _SSEC, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
-        [_hL]: 1,
+        [_hH]: _CM_,
       },
     ],
-    [_CMD]: [
-      ,
-      {
-        [_hH]: _CM,
-      },
-    ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_SSEC]: [
+    [
       () => ServerSideEncryptionConfiguration,
       {
         [_xN]: _SSEC,
         [_hP]: 1,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutBucketIntelligentTieringConfigurationRequest = __struct(
   _PBITCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Id]: [
-      ,
+  0,
+  [_Bu, _Id, _ITC],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _i,
       },
     ],
-    [_ITC]: [
+    [
       () => IntelligentTieringConfiguration,
       {
         [_xN]: _ITC,
         [_hP]: 1,
       },
     ],
-  }
+  ]
 );
 export var PutBucketInventoryConfigurationRequest = __struct(
   _PBICR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Id]: [
-      ,
+  0,
+  [_Bu, _Id, _IC, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _i,
       },
     ],
-    [_IC]: [
+    [
       () => InventoryConfiguration,
       {
         [_xN]: _IC,
         [_hP]: 1,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutBucketLifecycleConfigurationOutput = __struct(
   _PBLCO,
-  {},
-  {
-    [_TDMOS]: [
-      ,
+  0,
+  [_TDMOS],
+  [
+    [
+      0,
       {
         [_hH]: _xatdmos,
       },
     ],
-  }
+  ]
 );
 export var PutBucketLifecycleConfigurationRequest = __struct(
   _PBLCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_CA]: [
-      ,
+  0,
+  [_Bu, _CA, _LCi, _EBO, _TDMOS],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_LC]: [
+    [
       () => BucketLifecycleConfiguration,
       {
-        [_xN]: _LC,
+        [_xN]: _LCi,
         [_hP]: 1,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_TDMOS]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xatdmos,
       },
     ],
-  }
+  ]
 );
 export var PutBucketLoggingRequest = __struct(
   _PBLR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_BLS]: [
+  0,
+  [_Bu, _BLS, _CMD, _CA, _EBO],
+  [
+    [0, 1],
+    [
       () => BucketLoggingStatus,
       {
         [_xN]: _BLS,
         [_hP]: 1,
       },
     ],
-    [_CMD]: [
-      ,
+    [
+      0,
       {
-        [_hH]: _CM,
+        [_hH]: _CM_,
       },
     ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutBucketMetricsConfigurationRequest = __struct(
   _PBMCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Id]: [
-      ,
+  0,
+  [_Bu, _Id, _MC, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _i,
       },
     ],
-    [_MC]: [
+    [
       () => MetricsConfiguration,
       {
         [_xN]: _MC,
         [_hP]: 1,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutBucketNotificationConfigurationRequest = __struct(
   _PBNCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_NC]: [
+  0,
+  [_Bu, _NC, _EBO, _SDV],
+  [
+    [0, 1],
+    [
       () => NotificationConfiguration,
       {
         [_xN]: _NC,
         [_hP]: 1,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_SDV]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xasdv,
       },
     ],
-  }
+  ]
 );
 export var PutBucketOwnershipControlsRequest = __struct(
   _PBOCR,
-  {},
-  {
-    [_Bu]: [
-      ,
+  0,
+  [_Bu, _CMD, _EBO, _OC],
+  [
+    [0, 1],
+    [
+      0,
       {
-        [_hL]: 1,
+        [_hH]: _CM_,
       },
     ],
-    [_CMD]: [
-      ,
-      {
-        [_hH]: _CM,
-      },
-    ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_OC]: [
+    [
       () => OwnershipControls,
       {
         [_xN]: _OC,
         [_hP]: 1,
       },
     ],
-  }
+  ]
 );
 export var PutBucketPolicyRequest = __struct(
   _PBPR,
-  {},
-  {
-    [_Bu]: [
-      ,
+  0,
+  [_Bu, _CMD, _CA, _CRSBA, _Po, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
-        [_hL]: 1,
+        [_hH]: _CM_,
       },
     ],
-    [_CMD]: [
-      ,
-      {
-        [_hH]: _CM,
-      },
-    ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_CRSBA]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xacrsba,
       },
     ],
-    [_Po]: [
-      ,
-      {
-        [_hP]: 1,
-      },
-    ],
-    [_EBO]: [
-      ,
+    [0, 16],
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutBucketReplicationRequest = __struct(
   _PBRR,
-  {},
-  {
-    [_Bu]: [
-      ,
+  0,
+  [_Bu, _CMD, _CA, _RCe, _To, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
-        [_hL]: 1,
+        [_hH]: _CM_,
       },
     ],
-    [_CMD]: [
-      ,
-      {
-        [_hH]: _CM,
-      },
-    ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_RC]: [
+    [
       () => ReplicationConfiguration,
       {
-        [_xN]: _RC,
+        [_xN]: _RCe,
         [_hP]: 1,
       },
     ],
-    [_To]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xabolt,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutBucketRequestPaymentRequest = __struct(
   _PBRPR,
-  {},
-  {
-    [_Bu]: [
-      ,
+  0,
+  [_Bu, _CMD, _CA, _RPC, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
-        [_hL]: 1,
+        [_hH]: _CM_,
       },
     ],
-    [_CMD]: [
-      ,
-      {
-        [_hH]: _CM,
-      },
-    ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_RPC]: [
+    [
       () => RequestPaymentConfiguration,
       {
         [_xN]: _RPC,
         [_hP]: 1,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutBucketTaggingRequest = __struct(
   _PBTR,
-  {},
-  {
-    [_Bu]: [
-      ,
+  0,
+  [_Bu, _CMD, _CA, _Tagg, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
-        [_hL]: 1,
+        [_hH]: _CM_,
       },
     ],
-    [_CMD]: [
-      ,
-      {
-        [_hH]: _CM,
-      },
-    ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_Ta]: [
+    [
       () => Tagging,
       {
-        [_xN]: _Ta,
+        [_xN]: _Tagg,
         [_hP]: 1,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutBucketVersioningRequest = __struct(
   _PBVR,
-  {},
-  {
-    [_Bu]: [
-      ,
+  0,
+  [_Bu, _CMD, _CA, _MFA, _VCe, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
-        [_hL]: 1,
+        [_hH]: _CM_,
       },
     ],
-    [_CMD]: [
-      ,
-      {
-        [_hH]: _CM,
-      },
-    ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_MFA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xam_,
       },
     ],
-    [_VC]: [
+    [
       () => VersioningConfiguration,
       {
-        [_xN]: _VC,
+        [_xN]: _VCe,
         [_hP]: 1,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutBucketWebsiteRequest = __struct(
   _PBWR,
-  {},
-  {
-    [_Bu]: [
-      ,
+  0,
+  [_Bu, _CMD, _CA, _WC, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
-        [_hL]: 1,
+        [_hH]: _CM_,
       },
     ],
-    [_CMD]: [
-      ,
-      {
-        [_hH]: _CM,
-      },
-    ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_WC]: [
+    [
       () => WebsiteConfiguration,
       {
         [_xN]: _WC,
         [_hP]: 1,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutObjectAclOutput = __struct(
   _POAO,
-  {},
-  {
-    [_RCe]: [
-      ,
+  0,
+  [_RC],
+  [
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var PutObjectAclRequest = __struct(
   _POAR,
-  {},
-  {
-    [_ACL_]: [
-      ,
+  0,
+  [_ACL_, _ACP, _Bu, _CMD, _CA, _GFC, _GR, _GRACP, _GW, _GWACP, _K, _RP, _VI, _EBO],
+  [
+    [
+      0,
       {
         [_hH]: _xaa,
       },
     ],
-    [_ACP]: [
+    [
       () => AccessControlPolicy,
       {
         [_xN]: _ACP,
         [_hP]: 1,
       },
     ],
-    [_Bu]: [
-      ,
+    [0, 1],
+    [
+      0,
       {
-        [_hL]: 1,
+        [_hH]: _CM_,
       },
     ],
-    [_CMD]: [
-      ,
-      {
-        [_hH]: _CM,
-      },
-    ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_GFC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagfc,
       },
     ],
-    [_GR]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagr,
       },
     ],
-    [_GRACP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagra,
       },
     ],
-    [_GW]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagw,
       },
     ],
-    [_GWACP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagwa,
       },
     ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_RP]: [
-      ,
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_VI]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _vI,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutObjectLegalHoldOutput = __struct(
   _POLHO,
-  {},
-  {
-    [_RCe]: [
-      ,
+  0,
+  [_RC],
+  [
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var PutObjectLegalHoldRequest = __struct(
   _POLHR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_LH]: [
+  0,
+  [_Bu, _K, _LH, _RP, _VI, _CMD, _CA, _EBO],
+  [
+    [0, 1],
+    [0, 1],
+    [
       () => ObjectLockLegalHold,
       {
         [_xN]: _LH,
         [_hP]: 1,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_VI]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _vI,
       },
     ],
-    [_CMD]: [
-      ,
+    [
+      0,
       {
-        [_hH]: _CM,
+        [_hH]: _CM_,
       },
     ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutObjectLockConfigurationOutput = __struct(
   _POLCO,
-  {},
-  {
-    [_RCe]: [
-      ,
+  0,
+  [_RC],
+  [
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var PutObjectLockConfigurationRequest = __struct(
   _POLCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_OLC]: [
+  0,
+  [_Bu, _OLC, _RP, _To, _CMD, _CA, _EBO],
+  [
+    [0, 1],
+    [
       () => ObjectLockConfiguration,
       {
         [_xN]: _OLC,
         [_hP]: 1,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_To]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xabolt,
       },
     ],
-    [_CMD]: [
-      ,
+    [
+      0,
       {
-        [_hH]: _CM,
+        [_hH]: _CM_,
       },
     ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutObjectOutput = __struct(
   _POO,
-  {},
-  {
-    [_Ex]: [
-      ,
+  0,
+  [
+    _E,
+    _ET,
+    _CCRC,
+    _CCRCC,
+    _CCRCNVME,
+    _CSHAh,
+    _CSHA,
+    _CT,
+    _SSE,
+    _VI,
+    _SSECA,
+    _SSECKMD,
+    _SSEKMSKI,
+    _SSEKMSEC,
+    _BKE,
+    _S,
+    _RC,
+  ],
+  [
+    [
+      0,
       {
         [_hH]: _xae,
       },
     ],
-    [_ET]: [
-      ,
+    [
+      0,
       {
         [_hH]: _ET,
       },
     ],
-    [_CCRC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc,
       },
     ],
-    [_CCRCC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc_,
       },
     ],
-    [_CCRCNVME]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc__,
       },
     ],
-    [_CSHA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacs,
       },
     ],
-    [_CSHAh]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacs_,
       },
     ],
-    [_CT]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xact,
       },
     ],
-    [_SSE]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasse,
       },
     ],
-    [_VI]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xavi,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-    [_SSEKMSKI]: [
-      ,
+    [
+      () => SSEKMSKeyId,
       {
         [_hH]: _xasseakki,
       },
     ],
-    [_SSEKMSEC]: [
-      ,
+    [
+      () => SSEKMSEncryptionContext,
       {
         [_hH]: _xassec,
       },
     ],
-    [_BKE]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xassebke,
       },
     ],
-    [_Si]: [
-      ,
+    [
+      1,
       {
         [_hH]: _xaos,
       },
     ],
-    [_RCe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var PutObjectRequest = __struct(
   _POR,
-  {},
-  {
-    [_ACL_]: [
-      ,
+  0,
+  [
+    _ACL_,
+    _B,
+    _Bu,
+    _CC,
+    _CD,
+    _CE,
+    _CL,
+    _CLo,
+    _CMD,
+    _CTo,
+    _CA,
+    _CCRC,
+    _CCRCC,
+    _CCRCNVME,
+    _CSHAh,
+    _CSHA,
+    _Ex,
+    _IM,
+    _INM,
+    _GFC,
+    _GR,
+    _GRACP,
+    _GWACP,
+    _K,
+    _WOB,
+    _M,
+    _SSE,
+    _SC,
+    _WRL,
+    _SSECA,
+    _SSECK,
+    _SSECKMD,
+    _SSEKMSKI,
+    _SSEKMSEC,
+    _BKE,
+    _RP,
+    _Tagg,
+    _OLM,
+    _OLRUD,
+    _OLLHS,
+    _EBO,
+  ],
+  [
+    [
+      0,
       {
         [_hH]: _xaa,
       },
     ],
-    [_Bo]: [
-      () => "streaming-blob",
-      {
-        [_hP]: 1,
-      },
-    ],
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_CC]: [
-      ,
+    [() => StreamingBlob, 16],
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _CC_,
       },
     ],
-    [_CDo]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CD_,
       },
     ],
-    [_CE]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CE_,
       },
     ],
-    [_CL]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CL_,
       },
     ],
-    [_CLo]: [
-      ,
+    [
+      1,
       {
         [_hH]: _CL__,
       },
     ],
-    [_CMD]: [
-      ,
+    [
+      0,
       {
-        [_hH]: _CM,
+        [_hH]: _CM_,
       },
     ],
-    [_CTo]: [
-      ,
+    [
+      0,
       {
         [_hH]: _CT_,
       },
     ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_CCRC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc,
       },
     ],
-    [_CCRCC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc_,
       },
     ],
-    [_CCRCNVME]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc__,
       },
     ],
-    [_CSHA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacs,
       },
     ],
-    [_CSHAh]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacs_,
       },
     ],
-    [_E]: [
-      () => "time",
+    [
+      4,
       {
-        [_hH]: _E,
+        [_hH]: _Ex,
       },
     ],
-    [_IM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _IM_,
       },
     ],
-    [_INM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _INM_,
       },
     ],
-    [_GFC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagfc,
       },
     ],
-    [_GR]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagr,
       },
     ],
-    [_GRACP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagra,
       },
     ],
-    [_GWACP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xagwa,
       },
     ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_WOB]: [
-      ,
+    [0, 1],
+    [
+      1,
       {
         [_hH]: _xawob,
       },
     ],
-    [_M]: [
-      () => Metadata,
+    [
+      128 | 0,
       {
         [_hPH]: _xam,
       },
     ],
-    [_SSE]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasse,
       },
     ],
-    [_SCt]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasc,
       },
     ],
-    [_WRL]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xawrl,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECK]: [
-      ,
+    [
+      () => SSECustomerKey,
       {
         [_hH]: _xasseck,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-    [_SSEKMSKI]: [
-      ,
+    [
+      () => SSEKMSKeyId,
       {
         [_hH]: _xasseakki,
       },
     ],
-    [_SSEKMSEC]: [
-      ,
+    [
+      () => SSEKMSEncryptionContext,
       {
         [_hH]: _xassec,
       },
     ],
-    [_BKE]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xassebke,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_Ta]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xat,
       },
     ],
-    [_OLM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaolm,
       },
     ],
-    [_OLRUD]: [
-      () => "date-time",
+    [
+      5,
       {
         [_hH]: _xaolrud,
       },
     ],
-    [_OLLHS]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaollh,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutObjectRetentionOutput = __struct(
   _PORO,
-  {},
-  {
-    [_RCe]: [
-      ,
+  0,
+  [_RC],
+  [
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var PutObjectRetentionRequest = __struct(
   _PORR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_Ret]: [
+  0,
+  [_Bu, _K, _Ret, _RP, _VI, _BGR, _CMD, _CA, _EBO],
+  [
+    [0, 1],
+    [0, 1],
+    [
       () => ObjectLockRetention,
       {
         [_xN]: _Ret,
         [_hP]: 1,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_VI]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _vI,
       },
     ],
-    [_BGR]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xabgr,
       },
     ],
-    [_CMD]: [
-      ,
+    [
+      0,
       {
-        [_hH]: _CM,
+        [_hH]: _CM_,
       },
     ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var PutObjectTaggingOutput = __struct(
   _POTO,
-  {},
-  {
-    [_VI]: [
-      ,
+  0,
+  [_VI],
+  [
+    [
+      0,
       {
         [_hH]: _xavi,
       },
     ],
-  }
+  ]
 );
 export var PutObjectTaggingRequest = __struct(
   _POTR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_VI]: [
-      ,
+  0,
+  [_Bu, _K, _VI, _CMD, _CA, _Tagg, _EBO, _RP],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _vI,
       },
     ],
-    [_CMD]: [
-      ,
+    [
+      0,
       {
-        [_hH]: _CM,
+        [_hH]: _CM_,
       },
     ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_Ta]: [
+    [
       () => Tagging,
       {
-        [_xN]: _Ta,
+        [_xN]: _Tagg,
         [_hP]: 1,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-  }
+  ]
 );
 export var PutPublicAccessBlockRequest = __struct(
   _PPABR,
-  {},
-  {
-    [_Bu]: [
-      ,
+  0,
+  [_Bu, _CMD, _CA, _PABC, _EBO],
+  [
+    [0, 1],
+    [
+      0,
       {
-        [_hL]: 1,
+        [_hH]: _CM_,
       },
     ],
-    [_CMD]: [
-      ,
-      {
-        [_hH]: _CM,
-      },
-    ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_PABC]: [
+    [
       () => PublicAccessBlockConfiguration,
       {
         [_xN]: _PABC,
         [_hP]: 1,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var QueueConfiguration = __struct(
-  _QC,
-  {},
-  {
-    [_QA]: [
-      ,
+  _QCue,
+  0,
+  [_Id, _QA, _Eve, _F],
+  [
+    0,
+    [
+      0,
       {
-        [_xN]: _Q,
+        [_xN]: _Qu,
       },
     ],
-    [_Ev]: [
-      () => EventList,
+    [
+      64 | 0,
       {
-        [_xN]: _Eve,
+        [_xN]: _Ev,
         [_xF]: 1,
       },
     ],
-    [_F]: [() => NotificationConfigurationFilter, {}],
-  }
+    [() => NotificationConfigurationFilter, 0],
+  ]
 );
 export var RecordsEvent = __struct(
   _REe,
-  {},
-  {
-    [_Pay]: [
-      () => "blob",
+  0,
+  [_Pay],
+  [
+    [
+      21,
       {
         [_eP]: 1,
       },
     ],
-  }
+  ]
 );
-export var Redirect = 8 as const;
-
-export var RedirectAllRequestsTo = 8 as const;
-
-export var ReplicaModifications = 8 as const;
-
+export var Redirect = __struct(_Red, 0, [_HN, _HRC, _Pro, _RKPW, _RKW], [0, 0, 0, 0, 0]);
+export var RedirectAllRequestsTo = __struct(_RART, 0, [_HN, _Pro], [0, 0]);
+export var ReplicaModifications = __struct(_RM, 0, [_Sta], [0]);
 export var ReplicationConfiguration = __struct(
-  _RC,
-  {},
-  {
-    [_R]: [
+  _RCe,
+  0,
+  [_R, _Ru],
+  [
+    0,
+    [
       () => ReplicationRules,
       {
-        [_xN]: _Ru,
+        [_xN]: _Rul,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var ReplicationRule = __struct(
   _RRe,
-  {},
-  {
-    [_F]: [() => ReplicationRuleFilter, {}],
-  }
+  0,
+  [_ID, _Pri, _Pr, _F, _Sta, _SSC, _EOR, _Dest, _DMR],
+  [
+    0,
+    1,
+    0,
+    [() => ReplicationRuleFilter, 0],
+    0,
+    () => SourceSelectionCriteria,
+    () => ExistingObjectReplication,
+    () => Destination,
+    () => DeleteMarkerReplication,
+  ]
 );
 export var ReplicationRuleAndOperator = __struct(
   _RRAO,
-  {},
-  {
-    [_Tag]: [
+  0,
+  [_Pr, _Ta],
+  [
+    0,
+    [
       () => TagSet,
       {
-        [_xN]: _Tag_,
+        [_xN]: _Tag,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var ReplicationRuleFilter = __struct(
   _RRF,
-  {},
-  {
-    [_A]: [() => ReplicationRuleAndOperator, {}],
-  }
+  0,
+  [_Pr, _Tag, _An],
+  [0, () => Tag, [() => ReplicationRuleAndOperator, 0]]
 );
-export var ReplicationTime = 8 as const;
-
-export var ReplicationTimeValue = 8 as const;
-
-export var RequestPaymentConfiguration = 8 as const;
-
-export var RequestProgress = 8 as const;
-
+export var ReplicationTime = __struct(_RTe, 0, [_Sta, _Tim], [0, () => ReplicationTimeValue]);
+export var ReplicationTimeValue = __struct(_RTV, 0, [_Mi], [1]);
+export var RequestPaymentConfiguration = __struct(_RPC, 0, [_Pa], [0]);
+export var RequestProgress = __struct(_RPe, 0, [_Ena], [2]);
 export var RestoreObjectOutput = __struct(
   _ROO,
-  {},
-  {
-    [_RCe]: [
-      ,
+  0,
+  [_RC, _ROP],
+  [
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-    [_ROP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarop,
       },
     ],
-  }
+  ]
 );
 export var RestoreObjectRequest = __struct(
   _ROR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_VI]: [
-      ,
+  0,
+  [_Bu, _K, _VI, _RRes, _RP, _CA, _EBO],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      0,
       {
         [_hQ]: _vI,
       },
     ],
-    [_RRes]: [
+    [
       () => RestoreRequest,
       {
         [_hP]: 1,
         [_xN]: _RRes,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var RestoreRequest = __struct(
   _RRes,
-  {},
-  {
-    [_OLu]: [() => OutputLocation, {}],
-  }
+  0,
+  [_Da, _GJP, _T, _Ti, _Des, _SP, _OL],
+  [1, () => GlacierJobParameters, 0, 0, 0, () => SelectParameters, [() => OutputLocation, 0]]
 );
-export var RestoreStatus = __struct(
-  _RS,
-  {},
-  {
-    [_RED]: [() => "time", {}],
-  }
-);
-export var RoutingRule = 8 as const;
-
+export var RestoreStatus = __struct(_RSe, 0, [_IRIP, _RED], [2, 4]);
+export var RoutingRule = __struct(_RRou, 0, [_Con, _Red], [() => Condition, () => Redirect]);
 export var S3KeyFilter = __struct(
   _SKF,
-  {},
-  {
-    [_FR]: [
+  0,
+  [_FRi],
+  [
+    [
       () => FilterRuleList,
       {
-        [_xN]: _FRi,
+        [_xN]: _FR,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var S3Location = __struct(
   _SL,
-  {},
-  {
-    [_En]: [() => Encryption, {}],
-    [_ACLc]: [() => Grants, {}],
-    [_Ta]: [() => Tagging, {}],
-    [_UM]: [() => UserMetadata, {}],
-  }
+  0,
+  [_BN, _Pr, _Enc, _CACL, _ACL, _Tagg, _UM, _SC],
+  [0, 0, [() => Encryption, 0], 0, [() => Grants, 0], [() => Tagging, 0], [() => UserMetadata, 0], 0]
 );
-export var S3TablesDestination = 8 as const;
-
-export var S3TablesDestinationResult = 8 as const;
-
-export var ScanRange = 8 as const;
-
-export var SelectObjectContentOutput = __struct(
-  _SOCO,
-  {},
-  {
-    [_Pay]: [
-      () => SelectObjectContentEventStream,
-      {
-        [_hP]: 1,
-      },
-    ],
-  }
-);
+export var S3TablesDestination = __struct(_STD, 0, [_TBA, _TN], [0, 0]);
+export var S3TablesDestinationResult = __struct(_STDR, 0, [_TBA, _TN, _TAa, _TNa], [0, 0, 0, 0]);
+export var ScanRange = __struct(_SR, 0, [_St, _En], [1, 1]);
+export var SelectObjectContentOutput = __struct(_SOCO, 0, [_Pay], [[() => SelectObjectContentEventStream, 16]]);
 export var SelectObjectContentRequest = __struct(
   _SOCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_SSECA]: [
-      ,
+  0,
+  [_Bu, _K, _SSECA, _SSECK, _SSECKMD, _Exp, _ETx, _RPe, _IS, _OSu, _SR, _EBO],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECK]: [
-      ,
+    [
+      () => SSECustomerKey,
       {
         [_hH]: _xasseck,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-    [_EBO]: [
-      ,
+    0,
+    0,
+    () => RequestProgress,
+    () => InputSerialization,
+    () => OutputSerialization,
+    () => ScanRange,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
-export var SelectParameters = 8 as const;
-
-export var ServerSideEncryptionByDefault = __struct(
-  _SSEBD,
-  {},
-  {
-    [_KMSMKID]: [, {}],
-  }
+export var SelectParameters = __struct(
+  _SP,
+  0,
+  [_IS, _ETx, _Exp, _OSu],
+  [() => InputSerialization, 0, 0, () => OutputSerialization]
 );
+export var ServerSideEncryptionByDefault = __struct(_SSEBD, 0, [_SSEA, _KMSMKID], [0, [() => SSEKMSKeyId, 0]]);
 export var ServerSideEncryptionConfiguration = __struct(
   _SSEC,
-  {},
-  {
-    [_R]: [
+  0,
+  [_Ru],
+  [
+    [
       () => ServerSideEncryptionRules,
       {
-        [_xN]: _Ru,
+        [_xN]: _Rul,
         [_xF]: 1,
       },
     ],
-  }
+  ]
 );
 export var ServerSideEncryptionRule = __struct(
-  _SSERe,
-  {},
-  {
-    [_ASSEBD]: [() => ServerSideEncryptionByDefault, {}],
-  }
+  _SSER,
+  0,
+  [_ASSEBD, _BKE],
+  [[() => ServerSideEncryptionByDefault, 0], 2]
 );
 export var SessionCredentials = __struct(
-  _SC,
-  {},
-  {
-    [_AKI]: [
-      ,
+  _SCe,
+  0,
+  [_AKI, _SAK, _ST, _E],
+  [
+    [
+      0,
       {
         [_xN]: _AKI,
       },
     ],
-    [_SAK]: [
-      ,
+    [
+      () => SessionCredentialValue,
       {
         [_xN]: _SAK,
       },
     ],
-    [_ST]: [
-      ,
+    [
+      () => SessionCredentialValue,
       {
         [_xN]: _ST,
       },
     ],
-    [_Ex]: [
-      () => "time",
+    [
+      4,
       {
-        [_xN]: _Ex,
+        [_xN]: _E,
       },
     ],
-  }
+  ]
 );
 export var SimplePrefix = __struct(
-  _SP,
+  _SPi,
   {
-    [_xN]: _SP,
+    [_xN]: _SPi,
   },
-  {}
+  [],
+  []
 );
-export var SourceSelectionCriteria = 8 as const;
-
+export var SourceSelectionCriteria = __struct(
+  _SSC,
+  0,
+  [_SKEO, _RM],
+  [() => SseKmsEncryptedObjects, () => ReplicaModifications]
+);
 export var SSEKMS = __struct(
   _SSEKMS,
   {
     [_xN]: _SK,
   },
-  {
-    [_KI]: [, {}],
-  }
+  [_KI],
+  [[() => SSEKMSKeyId, 0]]
 );
-export var SseKmsEncryptedObjects = 8 as const;
-
+export var SseKmsEncryptedObjects = __struct(_SKEO, 0, [_Sta], [0]);
 export var SSES3 = __struct(
   _SSES,
   {
     [_xN]: _SS,
   },
-  {}
+  [],
+  []
 );
-export var Stats = 8 as const;
-
+export var Stats = __struct(_Stat, 0, [_BS, _BP, _BRy], [1, 1, 1]);
 export var StatsEvent = __struct(
   _SEt,
-  {},
-  {
-    [_Det]: [
+  0,
+  [_Det],
+  [
+    [
       () => Stats,
       {
         [_eP]: 1,
       },
     ],
-  }
+  ]
 );
-export var StorageClassAnalysis = 8 as const;
-
-export var StorageClassAnalysisDataExport = 8 as const;
-
-export var Tag = 8 as const;
-
-export var Tagging = __struct(
-  _Ta,
-  {},
-  {
-    [_TS]: [() => TagSet, {}],
-  }
-);
-export var TargetGrant = __struct(
-  _TGa,
-  {},
-  {
-    [_Gra]: [() => Grantee, {}],
-  }
-);
+export var StorageClassAnalysis = __struct(_SCA, 0, [_DE], [() => StorageClassAnalysisDataExport]);
+export var StorageClassAnalysisDataExport = __struct(_SCADE, 0, [_OSV, _Dest], [0, () => AnalyticsExportDestination]);
+export var Tag = __struct(_Tag, 0, [_K, _V], [0, 0]);
+export var Tagging = __struct(_Tagg, 0, [_TS], [[() => TagSet, 0]]);
+export var TargetGrant = __struct(_TGa, 0, [_Gra, _P], [[() => Grantee, 0], 0]);
 export var TargetObjectKeyFormat = __struct(
   _TOKF,
-  {},
-  {
-    [_SP]: [
+  0,
+  [_SPi, _PP],
+  [
+    [
       () => SimplePrefix,
       {
-        [_xN]: _SP,
+        [_xN]: _SPi,
       },
     ],
-    [_PP]: [
+    [
       () => PartitionedPrefix,
       {
         [_xN]: _PP,
       },
     ],
-  }
+  ]
 );
-export var Tiering = 8 as const;
-
+export var Tiering = __struct(_Tier, 0, [_Da, _AT], [1, 0]);
 export var TooManyParts = __error(
   _TMP,
   {
     [_e]: _c,
     [_hE]: 400,
   },
-  {},
+  [],
+  [],
 
   __TooManyParts
 );
 export var TopicConfiguration = __struct(
-  _TC,
-  {},
-  {
-    [_TA]: [
-      ,
+  _TCop,
+  0,
+  [_Id, _TA, _Eve, _F],
+  [
+    0,
+    [
+      0,
       {
         [_xN]: _Top,
       },
     ],
-    [_Ev]: [
-      () => EventList,
+    [
+      64 | 0,
       {
-        [_xN]: _Eve,
+        [_xN]: _Ev,
         [_xF]: 1,
       },
     ],
-    [_F]: [() => NotificationConfigurationFilter, {}],
-  }
+    [() => NotificationConfigurationFilter, 0],
+  ]
 );
-export var Transition = __struct(
-  _T,
-  {},
-  {
-    [_Da]: [() => "date-time", {}],
-  }
-);
+export var Transition = __struct(_Tra, 0, [_D, _Da, _SC], [5, 1, 0]);
 export var UploadPartCopyOutput = __struct(
   _UPCO,
-  {},
-  {
-    [_CSVI]: [
-      ,
+  0,
+  [_CSVI, _CPR, _SSE, _SSECA, _SSECKMD, _SSEKMSKI, _BKE, _RC],
+  [
+    [
+      0,
       {
         [_hH]: _xacsvi,
       },
     ],
-    [_CPR]: [
-      () => CopyPartResult,
-      {
-        [_hP]: 1,
-      },
-    ],
-    [_SSE]: [
-      ,
+    [() => CopyPartResult, 16],
+    [
+      0,
       {
         [_hH]: _xasse,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-    [_SSEKMSKI]: [
-      ,
+    [
+      () => SSEKMSKeyId,
       {
         [_hH]: _xasseakki,
       },
     ],
-    [_BKE]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xassebke,
       },
     ],
-    [_RCe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var UploadPartCopyRequest = __struct(
   _UPCR,
-  {},
-  {
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_CS]: [
-      ,
+  0,
+  [
+    _Bu,
+    _CS,
+    _CSIM,
+    _CSIMS,
+    _CSINM,
+    _CSIUS,
+    _CSR,
+    _K,
+    _PN,
+    _UI,
+    _SSECA,
+    _SSECK,
+    _SSECKMD,
+    _CSSSECA,
+    _CSSSECK,
+    _CSSSECKMD,
+    _RP,
+    _EBO,
+    _ESBO,
+  ],
+  [
+    [0, 1],
+    [
+      0,
       {
         [_hH]: _xacs__,
       },
     ],
-    [_CSIM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacsim,
       },
     ],
-    [_CSIMS]: [
-      () => "time",
+    [
+      4,
       {
         [_hH]: _xacsims,
       },
     ],
-    [_CSINM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacsinm,
       },
     ],
-    [_CSIUS]: [
-      () => "time",
+    [
+      4,
       {
         [_hH]: _xacsius,
       },
     ],
-    [_CSRo]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacsr,
       },
     ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_PN]: [
-      ,
+    [0, 1],
+    [
+      1,
       {
         [_hQ]: _pN,
       },
     ],
-    [_UI]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _uI,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECK]: [
-      ,
+    [
+      () => SSECustomerKey,
       {
         [_hH]: _xasseck,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-    [_CSSSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacssseca,
       },
     ],
-    [_CSSSECK]: [
-      ,
+    [
+      () => CopySourceSSECustomerKey,
       {
         [_hH]: _xacssseck,
       },
     ],
-    [_CSSSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacssseckM,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-    [_ESBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasebo,
       },
     ],
-  }
+  ]
 );
 export var UploadPartOutput = __struct(
   _UPO,
-  {},
-  {
-    [_SSE]: [
-      ,
+  0,
+  [_SSE, _ET, _CCRC, _CCRCC, _CCRCNVME, _CSHAh, _CSHA, _SSECA, _SSECKMD, _SSEKMSKI, _BKE, _RC],
+  [
+    [
+      0,
       {
         [_hH]: _xasse,
       },
     ],
-    [_ET]: [
-      ,
+    [
+      0,
       {
         [_hH]: _ET,
       },
     ],
-    [_CCRC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc,
       },
     ],
-    [_CCRCC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc_,
       },
     ],
-    [_CCRCNVME]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc__,
       },
     ],
-    [_CSHA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacs,
       },
     ],
-    [_CSHAh]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacs_,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-    [_SSEKMSKI]: [
-      ,
+    [
+      () => SSEKMSKeyId,
       {
         [_hH]: _xasseakki,
       },
     ],
-    [_BKE]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xassebke,
       },
     ],
-    [_RCe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarc,
       },
     ],
-  }
+  ]
 );
 export var UploadPartRequest = __struct(
   _UPR,
-  {},
-  {
-    [_Bo]: [
-      () => "streaming-blob",
-      {
-        [_hP]: 1,
-      },
-    ],
-    [_Bu]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_CLo]: [
-      ,
+  0,
+  [
+    _B,
+    _Bu,
+    _CLo,
+    _CMD,
+    _CA,
+    _CCRC,
+    _CCRCC,
+    _CCRCNVME,
+    _CSHAh,
+    _CSHA,
+    _K,
+    _PN,
+    _UI,
+    _SSECA,
+    _SSECK,
+    _SSECKMD,
+    _RP,
+    _EBO,
+  ],
+  [
+    [() => StreamingBlob, 16],
+    [0, 1],
+    [
+      1,
       {
         [_hH]: _CL__,
       },
     ],
-    [_CMD]: [
-      ,
+    [
+      0,
       {
-        [_hH]: _CM,
+        [_hH]: _CM_,
       },
     ],
-    [_CA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasca,
       },
     ],
-    [_CCRC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc,
       },
     ],
-    [_CCRCC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc_,
       },
     ],
-    [_CCRCNVME]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacc__,
       },
     ],
-    [_CSHA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacs,
       },
     ],
-    [_CSHAh]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xacs_,
       },
     ],
-    [_K]: [
-      ,
-      {
-        [_hL]: 1,
-      },
-    ],
-    [_PN]: [
-      ,
+    [0, 1],
+    [
+      1,
       {
         [_hQ]: _pN,
       },
     ],
-    [_UI]: [
-      ,
+    [
+      0,
       {
         [_hQ]: _uI,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseca,
       },
     ],
-    [_SSECK]: [
-      ,
+    [
+      () => SSECustomerKey,
       {
         [_hH]: _xasseck,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xasseckM,
       },
     ],
-    [_RP]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xarp,
       },
     ],
-    [_EBO]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xaebo,
       },
     ],
-  }
+  ]
 );
 export var VersioningConfiguration = __struct(
-  _VC,
-  {},
-  {
-    [_MFAD]: [
-      ,
+  _VCe,
+  0,
+  [_MFAD, _Sta],
+  [
+    [
+      0,
       {
         [_xN]: _MDf,
       },
     ],
-  }
+    0,
+  ]
 );
 export var WebsiteConfiguration = __struct(
   _WC,
-  {},
-  {
-    [_RRo]: [() => RoutingRules, {}],
-  }
+  0,
+  [_EDr, _IDn, _RART, _RRo],
+  [() => ErrorDocument, () => IndexDocument, () => RedirectAllRequestsTo, [() => RoutingRules, 0]]
 );
 export var WriteGetObjectResponseRequest = __struct(
   _WGORR,
-  {},
-  {
-    [_RReq]: [
-      ,
+  0,
+  [
+    _RR,
+    _RT,
+    _B,
+    _SCt,
+    _EC,
+    _EM,
+    _AR,
+    _CC,
+    _CD,
+    _CE,
+    _CL,
+    _CLo,
+    _CR,
+    _CTo,
+    _CCRC,
+    _CCRCC,
+    _CCRCNVME,
+    _CSHAh,
+    _CSHA,
+    _DM,
+    _ET,
+    _Ex,
+    _E,
+    _LM,
+    _MM,
+    _M,
+    _OLM,
+    _OLLHS,
+    _OLRUD,
+    _PC,
+    _RS,
+    _RC,
+    _Re,
+    _SSE,
+    _SSECA,
+    _SSEKMSKI,
+    _SSECKMD,
+    _SC,
+    _TC,
+    _VI,
+    _BKE,
+  ],
+  [
+    [
+      0,
       {
-        [_hLo]: 1,
+        [_hL]: 1,
         [_hH]: _xarr,
       },
     ],
-    [_RT]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xart,
       },
     ],
-    [_Bo]: [
-      () => "streaming-blob",
-      {
-        [_hP]: 1,
-      },
-    ],
-    [_SCta]: [
-      ,
+    [() => StreamingBlob, 16],
+    [
+      1,
       {
         [_hH]: _xafs,
       },
     ],
-    [_EC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafec,
       },
     ],
-    [_EM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafem,
       },
     ],
-    [_AR]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhar,
       },
     ],
-    [_CC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhCC,
       },
     ],
-    [_CDo]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhCD,
       },
     ],
-    [_CE]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhCE,
       },
     ],
-    [_CL]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhCL,
       },
     ],
-    [_CLo]: [
-      ,
+    [
+      1,
       {
         [_hH]: _CL__,
       },
     ],
-    [_CR]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhCR,
       },
     ],
-    [_CTo]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhCT,
       },
     ],
-    [_CCRC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhxacc,
       },
     ],
-    [_CCRCC]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhxacc_,
       },
     ],
-    [_CCRCNVME]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhxacc__,
       },
     ],
-    [_CSHA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhxacs,
       },
     ],
-    [_CSHAh]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhxacs_,
       },
     ],
-    [_DMe]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xafhxadm,
       },
     ],
-    [_ET]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhE,
       },
     ],
-    [_E]: [
-      () => "time",
+    [
+      4,
       {
         [_hH]: _xafhE_,
       },
     ],
-    [_Ex]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhxae,
       },
     ],
-    [_LM]: [
-      () => "time",
+    [
+      4,
       {
         [_hH]: _xafhLM,
       },
     ],
-    [_MM]: [
-      ,
+    [
+      1,
       {
         [_hH]: _xafhxamm,
       },
     ],
-    [_M]: [
-      () => Metadata,
+    [
+      128 | 0,
       {
         [_hPH]: _xam,
       },
     ],
-    [_OLM]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhxaolm,
       },
     ],
-    [_OLLHS]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhxaollh,
       },
     ],
-    [_OLRUD]: [
-      () => "date-time",
+    [
+      5,
       {
         [_hH]: _xafhxaolrud,
       },
     ],
-    [_PC]: [
-      ,
+    [
+      1,
       {
         [_hH]: _xafhxampc,
       },
     ],
-    [_RSe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhxars,
       },
     ],
-    [_RCe]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhxarc,
       },
     ],
-    [_Re]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhxar,
       },
     ],
-    [_SSE]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhxasse,
       },
     ],
-    [_SSECA]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhxasseca,
       },
     ],
-    [_SSEKMSKI]: [
-      ,
+    [
+      () => SSEKMSKeyId,
       {
         [_hH]: _xafhxasseakki,
       },
     ],
-    [_SSECKMD]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhxasseckM,
       },
     ],
-    [_SCt]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhxasc,
       },
     ],
-    [_TCa]: [
-      ,
+    [
+      1,
       {
         [_hH]: _xafhxatc,
       },
     ],
-    [_VI]: [
-      ,
+    [
+      0,
       {
         [_hH]: _xafhxavi,
       },
     ],
-    [_BKE]: [
-      ,
+    [
+      2,
       {
         [_hH]: _xafhxassebke,
       },
     ],
-  }
+  ]
 );
-export var AllowedHeaders = 2 as const;
+export var AllowedHeaders = 64 | 0;
 
-export var AllowedMethods = 2 as const;
+export var AllowedMethods = 64 | 0;
 
-export var AllowedOrigins = 2 as const;
+export var AllowedOrigins = 64 | 0;
 
-export var AnalyticsConfigurationList = __list(_ACL, {}, [() => AnalyticsConfiguration, {}]);
-export var Buckets = __list(_B, {}, [
+export var AnalyticsConfigurationList = __list(_ACLn, 0, [() => AnalyticsConfiguration, 0]);
+export var Buckets = __list(_Buc, 0, [
   () => Bucket,
   {
     [_xN]: _Bu,
   },
 ]);
-export var ChecksumAlgorithmList = 2 as const;
+export var ChecksumAlgorithmList = 64 | 0;
 
-export var CommonPrefixList = 2 as const;
+export var CommonPrefixList = __list(_CPL, 0, () => CommonPrefix);
+export var CompletedPartList = __list(_CPLo, 0, () => CompletedPart);
+export var CORSRules = __list(_CORSR, 0, [() => CORSRule, 0]);
+export var DeletedObjects = __list(_DOe, 0, () => DeletedObject);
+export var DeleteMarkers = __list(_DMe, 0, () => DeleteMarkerEntry);
+export var Errors = __list(_Er, 0, () => _Error);
+export var EventList = 64 | 0;
 
-export var CompletedPartList = 2 as const;
+export var ExposeHeaders = 64 | 0;
 
-export var CORSRules = __list(_CORSR, {}, [() => CORSRule, {}]);
-export var DeletedObjects = 2 as const;
-
-export var DeleteMarkers = __list(_DM, {}, [() => DeleteMarkerEntry, {}]);
-export var Errors = 2 as const;
-
-export var EventList = 2 as const;
-
-export var ExposeHeaders = 2 as const;
-
-export var FilterRuleList = 2 as const;
-
-export var Grants = __list(_G, {}, [
+export var FilterRuleList = __list(_FRL, 0, () => FilterRule);
+export var Grants = __list(_G, 0, [
   () => Grant,
   {
     [_xN]: _Gr,
   },
 ]);
-export var IntelligentTieringConfigurationList = __list(_ITCL, {}, [() => IntelligentTieringConfiguration, {}]);
-export var InventoryConfigurationList = __list(_ICL, {}, [() => InventoryConfiguration, {}]);
-export var InventoryOptionalFields = __list(_IOF, {}, [
-  ,
+export var IntelligentTieringConfigurationList = __list(_ITCL, 0, [() => IntelligentTieringConfiguration, 0]);
+export var InventoryConfigurationList = __list(_ICL, 0, [() => InventoryConfiguration, 0]);
+export var InventoryOptionalFields = __list(_IOF, 0, [
+  0,
   {
     [_xN]: _Fi,
   },
 ]);
-export var LambdaFunctionConfigurationList = __list(_LFCL, {}, [() => LambdaFunctionConfiguration, {}]);
-export var LifecycleRules = __list(_LR, {}, [() => LifecycleRule, {}]);
-export var MetricsConfigurationList = __list(_MCL, {}, [() => MetricsConfiguration, {}]);
-export var MultipartUploadList = __list(_MUL, {}, [() => MultipartUpload, {}]);
-export var NoncurrentVersionTransitionList = 2 as const;
+export var LambdaFunctionConfigurationList = __list(_LFCL, 0, [() => LambdaFunctionConfiguration, 0]);
+export var LifecycleRules = __list(_LRi, 0, [() => LifecycleRule, 0]);
+export var MetricsConfigurationList = __list(_MCL, 0, [() => MetricsConfiguration, 0]);
+export var MultipartUploadList = __list(_MUL, 0, () => MultipartUpload);
+export var NoncurrentVersionTransitionList = __list(_NVTL, 0, () => NoncurrentVersionTransition);
+export var ObjectAttributesList = 64 | 0;
 
-export var ObjectAttributesList = 2 as const;
+export var ObjectIdentifierList = __list(_OIL, 0, () => ObjectIdentifier);
+export var ObjectList = __list(_OLb, 0, [() => _Object, 0]);
+export var ObjectVersionList = __list(_OVL, 0, [() => ObjectVersion, 0]);
+export var OptionalObjectAttributesList = 64 | 0;
 
-export var ObjectIdentifierList = __list(_OIL, {}, [() => ObjectIdentifier, {}]);
-export var ObjectList = __list(_OL, {}, [() => _Object, {}]);
-export var ObjectVersionList = __list(_OVL, {}, [() => ObjectVersion, {}]);
-export var OptionalObjectAttributesList = 2 as const;
-
-export var OwnershipControlsRules = 2 as const;
-
-export var Parts = __list(_P, {}, [() => Part, {}]);
-export var PartsList = 2 as const;
-
-export var QueueConfigurationList = __list(_QCL, {}, [() => QueueConfiguration, {}]);
-export var ReplicationRules = __list(_RR, {}, [() => ReplicationRule, {}]);
-export var RoutingRules = __list(_RRo, {}, [
+export var OwnershipControlsRules = __list(_OCRw, 0, () => OwnershipControlsRule);
+export var Parts = __list(_Par, 0, () => Part);
+export var PartsList = __list(_PL, 0, () => ObjectPart);
+export var QueueConfigurationList = __list(_QCL, 0, [() => QueueConfiguration, 0]);
+export var ReplicationRules = __list(_RRep, 0, [() => ReplicationRule, 0]);
+export var RoutingRules = __list(_RRo, 0, [
   () => RoutingRule,
   {
     [_xN]: _RRou,
   },
 ]);
-export var ServerSideEncryptionRules = __list(_SSER, {}, [() => ServerSideEncryptionRule, {}]);
-export var TagSet = __list(_TS, {}, [
+export var ServerSideEncryptionRules = __list(_SSERe, 0, [() => ServerSideEncryptionRule, 0]);
+export var TagSet = __list(_TS, 0, [
   () => Tag,
   {
-    [_xN]: _Tag_,
+    [_xN]: _Tag,
   },
 ]);
-export var TargetGrants = __list(_TG, {}, [
+export var TargetGrants = __list(_TG, 0, [
   () => TargetGrant,
   {
     [_xN]: _Gr,
   },
 ]);
-export var TieringList = 2 as const;
-
-export var TopicConfigurationList = __list(_TCL, {}, [() => TopicConfiguration, {}]);
-export var TransitionList = __list(_TL, {}, [() => Transition, {}]);
-export var UserMetadata = __list(_UM, {}, [
+export var TieringList = __list(_TL, 0, () => Tiering);
+export var TopicConfigurationList = __list(_TCL, 0, [() => TopicConfiguration, 0]);
+export var TransitionList = __list(_TLr, 0, () => Transition);
+export var UserMetadata = __list(_UM, 0, [
   () => MetadataEntry,
   {
     [_xN]: _ME,
   },
 ]);
-export var Metadata = 4 as const;
+export var Metadata = 128 | 0;
 
-export var AnalyticsFilter = __uni(
-  _AF,
-  {},
-  {
-    [_Pr]: [, {}],
-    [_Tag_]: [() => Tag, {}],
-    [_A]: [() => AnalyticsAndOperator, {}],
-  }
-);
-export var MetricsFilter = __uni(
-  _MF,
-  {},
-  {
-    [_Pr]: [, {}],
-    [_Tag_]: [() => Tag, {}],
-    [_APAc]: [, {}],
-    [_A]: [() => MetricsAndOperator, {}],
-  }
-);
+export var AnalyticsFilter = __uni(_AF, 0, [_Pr, _Tag, _An], [0, () => Tag, [() => AnalyticsAndOperator, 0]]);
+export var MetricsFilter = __uni(_MF, 0, [_Pr, _Tag, _APA, _An], [0, () => Tag, 0, [() => MetricsAndOperator, 0]]);
 export var SelectObjectContentEventStream = __uni(
   _SOCES,
   {
     [_s]: 1,
   },
-  {
-    [_Rec]: [() => RecordsEvent, {}],
-    [_St]: [() => StatsEvent, {}],
-    [_Pro]: [() => ProgressEvent, {}],
-    [_Con]: [() => ContinuationEvent, {}],
-    [_End]: [() => EndEvent, {}],
-  }
+  [_Rec, _Stat, _Prog, _Cont_, _En],
+  [[() => RecordsEvent, 0], [() => StatsEvent, 0], [() => ProgressEvent, 0], () => ContinuationEvent, () => EndEvent]
 );
 export var AbortMultipartUpload = __op(
   _AMU,
@@ -8441,7 +8386,7 @@ export var DeleteBucketReplication = __op(
   () => Unit
 );
 export var DeleteBucketTagging = __op(
-  _DBT,
+  _DBTe,
   {
     [_h]: ["DELETE", "/{Bucket}?tagging", 204],
   },
@@ -8457,7 +8402,7 @@ export var DeleteBucketWebsite = __op(
   () => Unit
 );
 export var DeleteObject = __op(
-  _DO,
+  _DOel,
   {
     [_h]: ["DELETE", "/{Bucket}/{Key+}?x-id=DeleteObject", 204],
   },
@@ -8465,7 +8410,7 @@ export var DeleteObject = __op(
   () => DeleteObjectOutput
 );
 export var DeleteObjects = __op(
-  _DOe,
+  _DOele,
   {
     [_h]: ["POST", "/{Bucket}?delete", 200],
   },
@@ -8825,7 +8770,7 @@ export var ListObjectVersions = __op(
   () => ListObjectVersionsOutput
 );
 export var ListParts = __op(
-  _LP,
+  _LPi,
   {
     [_h]: ["GET", "/{Bucket}/{Key+}?x-id=ListParts", 200],
   },
@@ -9072,105 +9017,4 @@ export var WriteGetObjectResponse = __op(
   () => WriteGetObjectResponseRequest,
   () => Unit
 );
-com_amazonaws_s3Registry.registerSimpleTypes({
-  [_APA]: _b,
-
-  [_AQRD]: _b,
-
-  [_BKE]: _b,
-
-  [_BGR]: _b,
-
-  [_BP]: _n,
-
-  [_BRy]: _n,
-
-  [_BS]: _n,
-
-  [_CRSBA]: _b,
-
-  [_CLo]: _n,
-
-  [_Day]: _n,
-
-  [_DAI]: _n,
-
-  [_DMe]: _b,
-
-  [_ERP]: _b,
-
-  [_End]: _n,
-
-  [_EODM]: _b,
-
-  [_FO]: _b,
-
-  [_GORSC]: _n,
-
-  [_IMSf]: _n,
-
-  [_ITD]: _n,
-
-  [_IEs]: _b,
-
-  [_IL]: _b,
-
-  [_IP]: _b,
-
-  [_IRIP]: _b,
-
-  [_IT]: _b,
-
-  [_KC]: _n,
-
-  [_MAS]: _n,
-
-  [_MB]: _n,
-
-  [_MDB]: _n,
-
-  [_MK]: _n,
-
-  [_MP]: _n,
-
-  [_MUa]: _n,
-
-  [_Mi]: _n,
-
-  [_MM]: _n,
-
-  [_MOS]: _n,
-
-  [_OLEFB]: _b,
-
-  [_OS]: _n,
-
-  [_OSGTB]: _n,
-
-  [_OSLTB]: _n,
-
-  [_PN]: _n,
-
-  [_PC]: _n,
-
-  [_Pri]: _n,
-
-  [_Qu]: _b,
-
-  [_Se]: _b,
-
-  [_Si]: _n,
-
-  [_SV]: _b,
-
-  [_Sta]: _n,
-
-  [_TCa]: _n,
-
-  [_VCe]: _n,
-
-  [_WOB]: _n,
-
-  [_Y]: _n,
-});
 com_amazonaws_s3Registry.stopCapture();
