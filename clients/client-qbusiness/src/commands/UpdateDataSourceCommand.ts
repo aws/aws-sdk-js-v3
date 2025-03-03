@@ -121,6 +121,12 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *     imageExtractionConfiguration: { // ImageExtractionConfiguration
  *       imageExtractionStatus: "ENABLED" || "DISABLED", // required
  *     },
+ *     audioExtractionConfiguration: { // AudioExtractionConfiguration
+ *       audioExtractionStatus: "ENABLED" || "DISABLED", // required
+ *     },
+ *     videoExtractionConfiguration: { // VideoExtractionConfiguration
+ *       videoExtractionStatus: "ENABLED" || "DISABLED", // required
+ *     },
  *   },
  * };
  * const command = new UpdateDataSourceCommand(input);

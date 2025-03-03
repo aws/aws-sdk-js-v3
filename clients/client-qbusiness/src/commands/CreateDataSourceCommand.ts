@@ -130,6 +130,12 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *     imageExtractionConfiguration: { // ImageExtractionConfiguration
  *       imageExtractionStatus: "ENABLED" || "DISABLED", // required
  *     },
+ *     audioExtractionConfiguration: { // AudioExtractionConfiguration
+ *       audioExtractionStatus: "ENABLED" || "DISABLED", // required
+ *     },
+ *     videoExtractionConfiguration: { // VideoExtractionConfiguration
+ *       videoExtractionStatus: "ENABLED" || "DISABLED", // required
+ *     },
  *   },
  * };
  * const command = new CreateDataSourceCommand(input);

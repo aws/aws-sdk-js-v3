@@ -209,6 +209,26 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  * //           },
  * //           mediaId: "STRING_VALUE",
  * //           mediaMimeType: "STRING_VALUE",
+ * //           sourceDetails: { // SourceDetails Union: only one key present
+ * //             imageSourceDetails: { // ImageSourceDetails
+ * //               mediaId: "STRING_VALUE",
+ * //               mediaMimeType: "STRING_VALUE",
+ * //             },
+ * //             audioSourceDetails: { // AudioSourceDetails
+ * //               mediaId: "STRING_VALUE",
+ * //               mediaMimeType: "STRING_VALUE",
+ * //               startTimeMilliseconds: Number("long"),
+ * //               endTimeMilliseconds: Number("long"),
+ * //               audioExtractionType: "TRANSCRIPT" || "SUMMARY",
+ * //             },
+ * //             videoSourceDetails: { // VideoSourceDetails
+ * //               mediaId: "STRING_VALUE",
+ * //               mediaMimeType: "STRING_VALUE",
+ * //               startTimeMilliseconds: Number("long"),
+ * //               endTimeMilliseconds: Number("long"),
+ * //               videoExtractionType: "TRANSCRIPT" || "SUMMARY",
+ * //             },
+ * //           },
  * //         },
  * //       ],
  * //     },

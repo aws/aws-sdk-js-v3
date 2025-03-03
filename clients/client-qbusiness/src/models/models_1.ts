@@ -16,17 +16,231 @@ import {
   DocumentAttribute,
   EndOfInputEvent,
   MembershipType,
-  MessageUsefulnessReason,
   OrchestrationControl,
+  PluginType,
   ResponseScope,
   S3,
   SubscriptionDetails,
+  SubscriptionPrincipal,
   SubscriptionType,
   Tag,
   TextInputEvent,
   TopicConfiguration,
   UserAlias,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListPluginTypeMetadataRequest {
+  /**
+   * <p>If the metadata returned exceeds <code>maxResults</code>, Amazon Q Business
+   *             returns a next token as a pagination token to retrieve the next set of metadata.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of plugin metadata items to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PluginTypeCategory = {
+  COMMUNICATION: "Communication",
+  CRM: "Customer relationship management (CRM)",
+  PRODUCTIVITY: "Productivity",
+  PROJECT_MANAGEMENT: "Project management",
+  TICKETING_MANAGEMENT: "Ticketing and incident management",
+} as const;
+
+/**
+ * @public
+ */
+export type PluginTypeCategory = (typeof PluginTypeCategory)[keyof typeof PluginTypeCategory];
+
+/**
+ * <p>Summary metadata information for a Amazon Q Business plugin.</p>
+ * @public
+ */
+export interface PluginTypeMetadataSummary {
+  /**
+   * <p>The type of the plugin.</p>
+   * @public
+   */
+  type?: PluginType | undefined;
+
+  /**
+   * <p>The category of the plugin type.</p>
+   * @public
+   */
+  category?: PluginTypeCategory | undefined;
+
+  /**
+   * <p>The description assigned by Amazon Q Business to a plugin. You can't
+   *             modify this value.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPluginTypeMetadataResponse {
+  /**
+   * <p>If the response is truncated, Amazon Q Business returns this token, which you
+   *             can use in a later request to list the next set of plugin metadata.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of information on plugin metadata.</p>
+   * @public
+   */
+  items?: PluginTypeMetadataSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSubscriptionsRequest {
+  /**
+   * <p>The identifier of the Amazon Q Business application linked to the subscription.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>If the <code>maxResults</code> response was incomplete because there is more data to
+   *             retrieve, Amazon Q Business returns a pagination token in the response. You can use this
+   *             pagination token to retrieve the next set of Amazon Q Business subscriptions.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of Amazon Q Business subscriptions to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Information about an Amazon Q Business subscription.</p>
+ *          <p>Subscriptions are used to provide access for an IAM Identity Center user or a group to
+ *             an Amazon Q Business application.</p>
+ *          <p>Amazon Q Business offers two subscription tiers: <code>Q_LITE</code> and
+ *                 <code>Q_BUSINESS</code>. Subscription tier determines feature access for the user.
+ *             For more information on subscriptions and pricing tiers, see <a href="https://aws.amazon.com/q/business/pricing/">Amazon Q Business
+ *             pricing</a>.</p>
+ * @public
+ */
+export interface Subscription {
+  /**
+   * <p>The identifier of the Amazon Q Business subscription to be updated.</p>
+   * @public
+   */
+  subscriptionId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business subscription that was
+   *             updated.</p>
+   * @public
+   */
+  subscriptionArn?: string | undefined;
+
+  /**
+   * <p>The IAM Identity Center <code>UserId</code> or <code>GroupId</code> of a user or group
+   *             in the IAM Identity Center instance connected to the Amazon Q Business application.</p>
+   * @public
+   */
+  principal?: SubscriptionPrincipal | undefined;
+
+  /**
+   * <p>The type of your current Amazon Q Business subscription.</p>
+   * @public
+   */
+  currentSubscription?: SubscriptionDetails | undefined;
+
+  /**
+   * <p>The type of the Amazon Q Business subscription for the next month.</p>
+   * @public
+   */
+  nextSubscription?: SubscriptionDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSubscriptionsResponse {
+  /**
+   * <p>If the response is truncated, Amazon Q Business returns this token. You can use this token
+   *             in a subsequent request to retrieve the next set of subscriptions.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of summary information on the subscriptions configured for an Amazon Q Business
+   *             application.</p>
+   * @public
+   */
+  subscriptions?: Subscription[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business application or data source to get
+   *             a list of tags for.</p>
+   * @public
+   */
+  resourceARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>A list of tags associated with the Amazon Q Business application or data source.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MessageUsefulnessReason = {
+  COMPLETE: "COMPLETE",
+  FACTUALLY_CORRECT: "FACTUALLY_CORRECT",
+  HARMFUL_OR_UNSAFE: "HARMFUL_OR_UNSAFE",
+  HELPFUL: "HELPFUL",
+  INCORRECT_OR_MISSING_SOURCES: "INCORRECT_OR_MISSING_SOURCES",
+  NOT_BASED_ON_DOCUMENTS: "NOT_BASED_ON_DOCUMENTS",
+  NOT_COMPLETE: "NOT_COMPLETE",
+  NOT_CONCISE: "NOT_CONCISE",
+  NOT_FACTUALLY_CORRECT: "NOT_FACTUALLY_CORRECT",
+  NOT_HELPFUL: "NOT_HELPFUL",
+  OTHER: "OTHER",
+  RELEVANT_SOURCES: "RELEVANT_SOURCES",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageUsefulnessReason = (typeof MessageUsefulnessReason)[keyof typeof MessageUsefulnessReason];
 
 /**
  * @public

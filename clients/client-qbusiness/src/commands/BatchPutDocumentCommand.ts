@@ -156,6 +156,12 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  *         imageExtractionConfiguration: { // ImageExtractionConfiguration
  *           imageExtractionStatus: "ENABLED" || "DISABLED", // required
  *         },
+ *         audioExtractionConfiguration: { // AudioExtractionConfiguration
+ *           audioExtractionStatus: "ENABLED" || "DISABLED", // required
+ *         },
+ *         videoExtractionConfiguration: { // VideoExtractionConfiguration
+ *           videoExtractionStatus: "ENABLED" || "DISABLED", // required
+ *         },
  *       },
  *     },
  *   ],

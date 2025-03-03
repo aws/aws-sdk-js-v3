@@ -177,6 +177,7 @@ import {
   AttachmentInput,
   AttachmentInputEvent,
   AttachmentsConfiguration,
+  AudioExtractionConfiguration,
   AuthChallengeRequestEvent,
   AuthChallengeResponse,
   AuthChallengeResponseEvent,
@@ -269,6 +270,7 @@ import {
   UserAlias,
   UsersAndGroups,
   ValidationException,
+  VideoExtractionConfiguration,
   WebExperience,
   WebExperienceAuthConfiguration,
 } from "../models/models_0";
@@ -4129,6 +4131,8 @@ const se_AttributeFilters = (input: AttributeFilter[], context: __SerdeContext):
     });
 };
 
+// se_AudioExtractionConfiguration omitted.
+
 // se_AuthChallengeResponse omitted.
 
 // se_AuthChallengeResponseEvent omitted.
@@ -4472,6 +4476,8 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 
 // se_UsersAndGroups omitted.
 
+// se_VideoExtractionConfiguration omitted.
+
 // se_WebExperienceAuthConfiguration omitted.
 
 // se_WebExperienceOrigins omitted.
@@ -4747,6 +4753,10 @@ const de_AttributeFilters = (output: any, context: __SerdeContext): AttributeFil
     });
   return retVal;
 };
+
+// de_AudioExtractionConfiguration omitted.
+
+// de_AudioSourceDetails omitted.
 
 // de_AuthChallengeRequest omitted.
 
@@ -5068,6 +5078,8 @@ const de_HookConfiguration = (output: any, context: __SerdeContext): HookConfigu
 
 // de_ImageExtractionConfiguration omitted.
 
+// de_ImageSourceDetails omitted.
+
 /**
  * deserializeAws_restJson1Index
  */
@@ -5298,6 +5310,8 @@ const de_SourceAttributions = (output: any, context: __SerdeContext): SourceAttr
   return retVal;
 };
 
+// de_SourceDetails omitted.
+
 // de_StringAttributeBoostingConfiguration omitted.
 
 // de_StringAttributeValueBoosting omitted.
@@ -5343,6 +5357,10 @@ const de_SourceAttributions = (output: any, context: __SerdeContext): SourceAttr
 // de_ValidationExceptionField omitted.
 
 // de_ValidationExceptionFields omitted.
+
+// de_VideoExtractionConfiguration omitted.
+
+// de_VideoSourceDetails omitted.
 
 /**
  * deserializeAws_restJson1WebExperience
