@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.760.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.759.0...v3.760.0) (2025-03-03)
+
+
+### Features
+
+* **client-qbusiness:** Adds support for the ingestion of audio and video files by Q Business, which can be configured with the mediaExtractionConfiguration parameter. ([f279962](https://github.com/aws/aws-sdk-js-v3/commit/f279962e45e7554eac3aae267ff15fc698822e51))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 

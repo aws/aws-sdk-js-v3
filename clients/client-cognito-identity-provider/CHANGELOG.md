@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.760.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.759.0...v3.760.0) (2025-03-03)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Added the capacity to return available challenges in admin authentication and to set version 3 of the pre token generation event for M2M ATC. ([6a117ca](https://github.com/aws/aws-sdk-js-v3/commit/6a117ca212fb363a87945fdd537efa5b6c3c0c8a))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

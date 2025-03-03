@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.760.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.759.0...v3.760.0) (2025-03-03)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Added the capacity to return available challenges in admin authentication and to set version 3 of the pre token generation event for M2M ATC. ([6a117ca](https://github.com/aws/aws-sdk-js-v3/commit/6a117ca212fb363a87945fdd537efa5b6c3c0c8a))
+* **client-ec2:** Update the DescribeVpcs response ([893a566](https://github.com/aws/aws-sdk-js-v3/commit/893a566d2191831ef8508f8344b34365525f68a7))
+* **client-qbusiness:** Adds support for the ingestion of audio and video files by Q Business, which can be configured with the mediaExtractionConfiguration parameter. ([f279962](https://github.com/aws/aws-sdk-js-v3/commit/f279962e45e7554eac3aae267ff15fc698822e51))
+* **client-rum:** Add support for PutResourcePolicy, GetResourcePolicy and DeleteResourcePolicy to support resource based policies for AWS CloudWatch RUM ([5b37a10](https://github.com/aws/aws-sdk-js-v3/commit/5b37a10f9c276d1e3b6ad63622bf099996c2a79b))
+* **client-sagemaker:** Add DomainId to CreateDomainResponse ([49499b1](https://github.com/aws/aws-sdk-js-v3/commit/49499b1a563f60e6b79a6a876b948d678d73e797))
+* **clients:** update client endpoints as of 2025-03-03 ([0f72d52](https://github.com/aws/aws-sdk-js-v3/commit/0f72d52c49aeab69991ad594c2378e759ae5bc66))
+
+
+
+
+
 # [3.759.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.758.0...v3.759.0) (2025-02-28)
 
 
