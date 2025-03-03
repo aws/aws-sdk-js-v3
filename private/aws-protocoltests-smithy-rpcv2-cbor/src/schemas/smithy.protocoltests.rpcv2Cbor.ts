@@ -24,8 +24,8 @@ const _SBM = "SparseBooleanMap";
 const _SNM = "SparseNumberMap";
 const _SNO = "SparseNullsOperation";
 const _SNOIO = "SparseNullsOperationInputOutput";
-const _SSM = "SparseSetMap";
-const _SSMp = "SparseStructMap";
+const _SSM = "SparseStructMap";
+const _SSMp = "SparseSetMap";
 const _SSP = "SimpleScalarProperties";
 const _SSS = "SimpleScalarStructure";
 const _TIE = "TestIntEnum";
@@ -209,13 +209,13 @@ export var SparseNumberMap = __map(
   } /* Integer */
 );
 export var SparseSetMap = __map(
-  _SSM,
+  _SSMp,
   {
     [_s]: 1,
   } /* StringSet */
 );
 export var SparseStructMap = __map(
-  _SSMp,
+  _SSM,
   {
     [_s]: 1,
   } /* GreetingStruct */

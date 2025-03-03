@@ -7,5 +7,4 @@ export const smithy_apiRegistry = TypeRegistry.for("smithy.api");
 smithy_apiRegistry.startCapture();
 export var Unit = "unit";
 
-smithy_apiRegistry.registerSimpleTypes({});
 smithy_apiRegistry.stopCapture();
