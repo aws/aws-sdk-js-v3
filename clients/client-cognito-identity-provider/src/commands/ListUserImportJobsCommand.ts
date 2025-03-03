@@ -32,7 +32,9 @@ export interface ListUserImportJobsCommandInput extends ListUserImportJobsReques
 export interface ListUserImportJobsCommandOutput extends ListUserImportJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists user import jobs for a user pool.</p>
+ * <p>Given a user pool ID, returns user import jobs and their details. Import jobs are
+ *             retained in user pool configuration so that you can stage, stop, start, review, and
+ *             delete them. For more information about user import, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html">Importing users from a CSV file</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

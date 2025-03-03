@@ -37,8 +37,8 @@ export interface SignUpCommandInput extends SignUpRequest {}
 export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
 
 /**
- * <p>Registers the user in the specified user pool and creates a user name, password, and
- *             user attributes.</p>
+ * <p>Registers a user with an app client and requests a user name, password, and user
+ *             attributes in the user pool.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -66,9 +66,7 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  *             if you have exceeded a rate quota for email or SMS messages, and if your user pool
  *             automatically verifies email addresses or phone numbers. When you get this exception in
  *             the response, the user is successfully created and is in an <code>UNCONFIRMED</code>
- *             state. You can send a new code with the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ResendConfirmationCode.html"> ResendConfirmationCode</a> request, or confirm the user as an administrator
- *             with an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminConfirmSignUp.html">
- *                 AdminConfirmSignUp</a> request.</p>
+ *             state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

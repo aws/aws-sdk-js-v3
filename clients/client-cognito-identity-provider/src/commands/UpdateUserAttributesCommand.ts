@@ -36,11 +36,10 @@ export interface UpdateUserAttributesCommandInput extends UpdateUserAttributesRe
 export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>With this operation, your users can update one or more of their attributes with their
- *             own credentials. You authorize this API request with the user's access token. To delete
- *             an attribute from your user, submit the attribute in your API request with a blank
- *             value. Custom attribute values in this request must include the <code>custom:</code>
- *             prefix.</p>
+ * <p>Updates the currently signed-in user's attributes. To delete an attribute from
+ *             the user, submit the attribute in your API request with a blank value.</p>
+ *          <p>For custom attributes, you must add a <code>custom:</code> prefix to the attribute
+ *             name, for example <code>custom:department</code>.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For

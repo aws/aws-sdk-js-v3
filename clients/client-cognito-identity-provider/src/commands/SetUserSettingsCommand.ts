@@ -39,7 +39,7 @@ export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, _
  * <p>
  *             <i>This action is no longer supported.</i> You can use it to configure
  *             only SMS MFA. You can't use it to configure time-based one-time password (TOTP) software
- *             token MFA. To configure either type of MFA, use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html">SetUserMFAPreference</a> instead.</p>
+ *             token or email MFA.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For

@@ -37,7 +37,7 @@ export interface GetUserCommandInput extends GetUserRequest {}
 export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the user attributes and metadata for a user.</p>
+ * <p>Gets user attributes and and MFA settings for the currently signed-in user.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For

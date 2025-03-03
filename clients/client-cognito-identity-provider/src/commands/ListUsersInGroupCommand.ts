@@ -36,7 +36,8 @@ export interface ListUsersInGroupCommandInput extends ListUsersInGroupRequest {}
 export interface ListUsersInGroupCommandOutput extends ListUsersInGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the users in the specified group.</p>
+ * <p>Given a user pool ID and a group name, returns a list of users in the group. For more
+ *             information about user pool groups, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html">Adding groups to a user pool</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

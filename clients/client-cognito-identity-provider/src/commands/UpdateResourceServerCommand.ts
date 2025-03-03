@@ -32,7 +32,8 @@ export interface UpdateResourceServerCommandInput extends UpdateResourceServerRe
 export interface UpdateResourceServerCommandOutput extends UpdateResourceServerResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the name and scopes of resource server. All other fields are read-only.</p>
+ * <p>Updates the name and scopes of a resource server. All other fields are read-only. For
+ *             more information about resource servers, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html">Access control with resource servers</a>.</p>
  *          <important>
  *             <p>If you don't provide a value for an attribute, it is set to the default
  *                 value.</p>

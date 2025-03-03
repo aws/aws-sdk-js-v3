@@ -41,9 +41,8 @@ export interface GetUserAttributeVerificationCodeCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Generates a user attribute verification code for the specified attribute name. Sends a
- *             message to a user with a code that they must return in a VerifyUserAttribute
- *             request.</p>
+ * <p>Given an attribute name, sends a user attribute verification code for the specified
+ *             attribute name to the currently signed-in user.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For

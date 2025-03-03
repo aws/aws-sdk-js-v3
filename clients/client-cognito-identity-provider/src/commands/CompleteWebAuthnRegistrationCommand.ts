@@ -41,9 +41,8 @@ export interface CompleteWebAuthnRegistrationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Completes registration of a passkey authenticator for the current user. Your
- *             application provides data from a successful registration request with the data from the
- *             output of a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_StartWebAuthnRegistration.html"> StartWebAuthnRegistration</a>.</p>
+ * <p>Completes registration of a passkey authenticator for the currently signed-in
+ *             user.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

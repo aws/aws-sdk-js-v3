@@ -36,18 +36,13 @@ export interface ForgotPasswordCommandInput extends ForgotPasswordRequest {}
 export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __MetadataBearer {}
 
 /**
- * <p>Calling this API causes a message to be sent to the end user with a confirmation code
- *             that is required to change the user's password. For the <code>Username</code> parameter,
- *             you can use the username or user alias. The method used to send the confirmation code is
- *             sent according to the specified AccountRecoverySetting. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-recover-a-user-account.html">Recovering
- *                 User Accounts</a> in the <i>Amazon Cognito Developer Guide</i>. To
- *             use the confirmation code for resetting the password, call <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html">ConfirmForgotPassword</a>. </p>
- *          <p>If neither a verified phone number nor a verified email exists, this API returns
- *                 <code>InvalidParameterException</code>. If your app client has a client secret and
- *             you don't provide a <code>SECRET_HASH</code> parameter, this API returns
+ * <p>Sends a password-reset confirmation code for the currently signed-in user.</p>
+ *          <p>For the <code>Username</code> parameter, you can use the username or user
+ *             alias.</p>
+ *          <p>If neither a verified phone number nor a verified email exists, Amazon Cognito responds with an
+ *                 <code>InvalidParameterException</code> error . If your app client has a client
+ *             secret and you don't provide a <code>SECRET_HASH</code> parameter, this API returns
  *                 <code>NotAuthorizedException</code>.</p>
- *          <p>To use this API operation, your user pool must have self-service account recovery
- *             configured. Use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserPassword.html">AdminSetUserPassword</a> if you manage passwords as an administrator.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you can't use IAM credentials to authorize requests, and you can't

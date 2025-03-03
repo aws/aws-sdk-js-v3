@@ -32,7 +32,12 @@ export interface CreateUserPoolCommandInput extends CreateUserPoolRequest {}
 export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __MetadataBearer {}
 
 /**
- * <note>
+ * <p>Creates a new Amazon Cognito user pool. This operation sets basic and advanced configuration
+ *             options.</p>
+ *          <important>
+ *             <p>If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p>
+ *          </important>
+ *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *             require you to register an origination phone number before you can send SMS messages
  *             to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
@@ -49,13 +54,6 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  *             of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
  *                 Developer Guide</i>.</p>
  *          </note>
- *          <p>Creates a new Amazon Cognito user pool. This operation sets basic and advanced configuration
- *             options. You can create a user pool in the Amazon Cognito console to your preferences and use the
- *             output of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a> to generate requests from that
- *             baseline.</p>
- *          <important>
- *             <p>If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p>
- *          </important>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -113,7 +111,7 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  *     PreTokenGeneration: "STRING_VALUE",
  *     UserMigration: "STRING_VALUE",
  *     PreTokenGenerationConfig: { // PreTokenGenerationVersionConfigType
- *       LambdaVersion: "V1_0" || "V2_0", // required
+ *       LambdaVersion: "V1_0" || "V2_0" || "V3_0", // required
  *       LambdaArn: "STRING_VALUE", // required
  *     },
  *     CustomSMSSender: { // CustomSMSLambdaVersionConfigType
@@ -252,7 +250,7 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  * //       PreTokenGeneration: "STRING_VALUE",
  * //       UserMigration: "STRING_VALUE",
  * //       PreTokenGenerationConfig: { // PreTokenGenerationVersionConfigType
- * //         LambdaVersion: "V1_0" || "V2_0", // required
+ * //         LambdaVersion: "V1_0" || "V2_0" || "V3_0", // required
  * //         LambdaArn: "STRING_VALUE", // required
  * //       },
  * //       CustomSMSSender: { // CustomSMSLambdaVersionConfigType

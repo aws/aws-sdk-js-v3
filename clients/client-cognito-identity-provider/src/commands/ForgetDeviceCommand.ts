@@ -32,8 +32,8 @@ export interface ForgetDeviceCommandInput extends ForgetDeviceRequest {}
 export interface ForgetDeviceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Forgets the specified device. For more information about device authentication, see
- *                 <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
+ * <p>Given a device key, deletes a remembered device as the currently signed-in user. For
+ *             more information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For

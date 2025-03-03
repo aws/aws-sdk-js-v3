@@ -32,8 +32,32 @@ export interface GetCSVHeaderCommandInput extends GetCSVHeaderRequest {}
 export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the header information for the comma-separated value (CSV) file to be used as
- *             input for the user import job.</p>
+ * <p>Given a user pool ID, generates a comma-separated value (CSV) list populated with
+ *             available user attributes in the user pool. This list is the header for the CSV file
+ *             that determines the users in a user import job. Save the content of
+ *                 <code>CSVHeader</code> in the response as a <code>.csv</code> file and populate it
+ *             with the usernames and attributes of users that you want to import. For more information
+ *             about CSV user import, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html">Importing users from a CSV file</a>.</p>
+ *          <note>
+ *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ *     this operation, you must use IAM credentials to authorize requests, and you must
+ *     grant yourself the corresponding IAM permission in a policy.</p>
+ *             <p class="title">
+ *                <b>Learn more</b>
+ *             </p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

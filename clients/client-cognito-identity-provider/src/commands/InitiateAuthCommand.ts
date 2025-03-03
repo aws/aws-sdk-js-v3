@@ -37,8 +37,11 @@ export interface InitiateAuthCommandInput extends InitiateAuthRequest {}
 export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates sign-in for a user in the Amazon Cognito user directory. You can't sign in a user
- *             with a federated IdP with <code>InitiateAuth</code>. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html"> Adding user pool sign-in through a third party</a>.</p>
+ * <p>Declares an authentication flow and initiates sign-in for a user in the Amazon Cognito user
+ *             directory. Amazon Cognito might respond with an additional challenge or an
+ *                 <code>AuthenticationResult</code> that contains the outcome of a successful
+ *             authentication. You can't sign in a user with a federated IdP with
+ *                 <code>InitiateAuth</code>. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication.html">Authentication</a>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you can't use IAM credentials to authorize requests, and you can't
