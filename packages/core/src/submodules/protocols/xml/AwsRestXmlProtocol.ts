@@ -66,6 +66,9 @@ export class AwsRestXmlProtocol extends HttpProtocol {
 
     for (const memberName of Object.keys(input ?? {})) {
       const memberNs = ns.getMemberSchema(memberName);
+      if (memberNs === undefined) {
+        continue;
+      }
       const memberTraits = memberNs.getMemberTraits();
       if (memberTraits.httpLabel) {
         request.path = request.path.replace(

@@ -58,6 +58,9 @@ export class XmlShapeSerializer implements ShapeSerializer<string> {
     } else {
       for (const [key, val] of Object.entries(value as object)) {
         const memberSchema = ns.getMemberSchema(key);
+        if (memberSchema === undefined) {
+          continue;
+        }
         const memberSchemaTraits = memberSchema.getMergedTraits();
         const itemName = memberSchemaTraits.xmlName ?? memberSchema.getName() ?? key ?? "UnknownItem";
 
@@ -77,7 +80,7 @@ export class XmlShapeSerializer implements ShapeSerializer<string> {
 
   private writeMap(ns: NormalizedSchema, map: Record<string, any>, container: XmlNode): void {
     const mapTraits = ns.getMergedTraits();
-    const memberSchema = ns.getMemberSchema();
+    const memberSchema = ns.getValueSchema();
     const memberSchemaTraits = memberSchema.getMergedTraits();
     const itemName = mapTraits.xmlName ?? memberSchemaTraits.xmlName ?? memberSchema.getName() ?? "UnknownMapItem";
     const sparse = !!memberSchemaTraits.sparse;
@@ -105,7 +108,7 @@ export class XmlShapeSerializer implements ShapeSerializer<string> {
 
   private writeList(ns: NormalizedSchema, array: unknown[], container: XmlNode): void {
     const listTraits = ns.getMergedTraits();
-    const memberSchema = ns.getMemberSchema();
+    const memberSchema = ns.getValueSchema();
     const memberSchemaTraits = memberSchema.getMergedTraits();
     const itemName = listTraits.xmlName ?? memberSchemaTraits.xmlName ?? memberSchema.getName() ?? "UnknownListItem";
     const sparse = !!memberSchemaTraits.sparse;

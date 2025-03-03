@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -12,7 +11,7 @@ import {
   InvokeWithResponseStreamResponse,
   InvokeWithResponseStreamResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { de_InvokeWithResponseStreamCommand, se_InvokeWithResponseStreamCommand } from "../protocols/Aws_restJson1";
+import { InvokeWithResponseStream } from "../schemas/com.amazonaws.lambda";
 
 /**
  * @public
@@ -202,10 +201,7 @@ export class InvokeWithResponseStreamCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGirApiService", "InvokeWithResponseStream", {
     /**
@@ -217,8 +213,7 @@ export class InvokeWithResponseStreamCommand extends $Command
   })
   .n("LambdaClient", "InvokeWithResponseStreamCommand")
   .f(InvokeWithResponseStreamRequestFilterSensitiveLog, InvokeWithResponseStreamResponseFilterSensitiveLog)
-  .ser(se_InvokeWithResponseStreamCommand)
-  .de(de_InvokeWithResponseStreamCommand)
+  .sc(InvokeWithResponseStream)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
