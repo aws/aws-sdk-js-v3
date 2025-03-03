@@ -16,12 +16,14 @@ import {
   ClientVpnAuthorizationRuleStatus,
   InstanceEventWindowState,
   Tag,
+  TagSpecification,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
   VerifiedAccessTrustProviderFilterSensitiveLog,
+  VpcAttachment,
 } from "./models_0";
 
 import {
@@ -42,6 +44,7 @@ import {
   FleetCapacityReservation,
   FleetCapacityReservationTenancy,
   FleetInstanceMatchCriteria,
+  GatewayType,
   Ipam,
   IpamExternalResourceVerificationToken,
   IpamPool,
@@ -49,13 +52,14 @@ import {
   IpamScope,
   LaunchTemplate,
   LocalGatewayRoute,
-  LocalGatewayRouteTable,
   PlatformValues,
   TransportProtocol,
 } from "./models_1";
 
 import {
+  GatewayAssociationState,
   GroupIdentifier,
+  LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
@@ -71,8 +75,248 @@ import {
   TransitGatewayRouteTableAnnouncement,
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
+  VgwTelemetry,
   VpcBlockPublicAccessExclusion,
+  VpnConnectionOptions,
+  VpnConnectionOptionsFilterSensitiveLog,
+  VpnState,
+  VpnStaticRoute,
 } from "./models_2";
+
+/**
+ * <p>Describes a VPN connection.</p>
+ * @public
+ */
+export interface VpnConnection {
+  /**
+   * <p>The category of the VPN connection. A value of <code>VPN</code> indicates an Amazon Web Services VPN connection. A value of <code>VPN-Classic</code> indicates an Amazon Web Services Classic VPN connection.</p>
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * <p>The ID of the transit gateway associated with the VPN connection.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The ARN of the core network.</p>
+   * @public
+   */
+  CoreNetworkArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the core network attachment.</p>
+   * @public
+   */
+  CoreNetworkAttachmentArn?: string | undefined;
+
+  /**
+   * <p>The current state of the gateway association.</p>
+   * @public
+   */
+  GatewayAssociationState?: GatewayAssociationState | undefined;
+
+  /**
+   * <p>The VPN connection options.</p>
+   * @public
+   */
+  Options?: VpnConnectionOptions | undefined;
+
+  /**
+   * <p>The static routes associated with the VPN connection.</p>
+   * @public
+   */
+  Routes?: VpnStaticRoute[] | undefined;
+
+  /**
+   * <p>Any tags assigned to the VPN connection.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Information about the VPN tunnel.</p>
+   * @public
+   */
+  VgwTelemetry?: VgwTelemetry[] | undefined;
+
+  /**
+   * <p>The ID of the VPN connection.</p>
+   * @public
+   */
+  VpnConnectionId?: string | undefined;
+
+  /**
+   * <p>The current state of the VPN connection.</p>
+   * @public
+   */
+  State?: VpnState | undefined;
+
+  /**
+   * <p>The configuration information for the VPN connection's customer gateway (in the native
+   *             XML format). This element is always present in the <a>CreateVpnConnection</a>
+   *             response; however, it's present in the <a>DescribeVpnConnections</a> response
+   *             only if the VPN connection is in the <code>pending</code> or <code>available</code>
+   *             state.</p>
+   * @public
+   */
+  CustomerGatewayConfiguration?: string | undefined;
+
+  /**
+   * <p>The type of VPN connection.</p>
+   * @public
+   */
+  Type?: GatewayType | undefined;
+
+  /**
+   * <p>The ID of the customer gateway at your end of the VPN connection.</p>
+   * @public
+   */
+  CustomerGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the virtual private gateway at the Amazon Web Services side of the VPN
+   *             connection.</p>
+   * @public
+   */
+  VpnGatewayId?: string | undefined;
+}
+
+/**
+ * <p>Contains the output of CreateVpnConnection.</p>
+ * @public
+ */
+export interface CreateVpnConnectionResult {
+  /**
+   * <p>Information about the VPN connection.</p>
+   * @public
+   */
+  VpnConnection?: VpnConnection | undefined;
+}
+
+/**
+ * <p>Contains the parameters for CreateVpnConnectionRoute.</p>
+ * @public
+ */
+export interface CreateVpnConnectionRouteRequest {
+  /**
+   * <p>The CIDR block associated with the local subnet of the customer network.</p>
+   * @public
+   */
+  DestinationCidrBlock: string | undefined;
+
+  /**
+   * <p>The ID of the VPN connection.</p>
+   * @public
+   */
+  VpnConnectionId: string | undefined;
+}
+
+/**
+ * <p>Contains the parameters for CreateVpnGateway.</p>
+ * @public
+ */
+export interface CreateVpnGatewayRequest {
+  /**
+   * <p>The Availability Zone for the virtual private gateway.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The type of VPN connection this virtual private gateway supports.</p>
+   * @public
+   */
+  Type: GatewayType | undefined;
+
+  /**
+   * <p>The tags to apply to the virtual private gateway.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If
+   *             you're using a 16-bit ASN, it must be in the 64512 to 65534 range. If you're using a
+   *             32-bit ASN, it must be in the 4200000000 to 4294967294 range.</p>
+   *          <p>Default: 64512</p>
+   * @public
+   */
+  AmazonSideAsn?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a virtual private gateway.</p>
+ * @public
+ */
+export interface VpnGateway {
+  /**
+   * <p>The private Autonomous System Number (ASN) for the Amazon side of a BGP
+   *             session.</p>
+   * @public
+   */
+  AmazonSideAsn?: number | undefined;
+
+  /**
+   * <p>Any tags assigned to the virtual private gateway.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The ID of the virtual private gateway.</p>
+   * @public
+   */
+  VpnGatewayId?: string | undefined;
+
+  /**
+   * <p>The current state of the virtual private gateway.</p>
+   * @public
+   */
+  State?: VpnState | undefined;
+
+  /**
+   * <p>The type of VPN connection the virtual private gateway supports.</p>
+   * @public
+   */
+  Type?: GatewayType | undefined;
+
+  /**
+   * <p>The Availability Zone where the virtual private gateway was created, if applicable.
+   *             This field may be empty or not returned.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>Any VPCs attached to the virtual private gateway.</p>
+   * @public
+   */
+  VpcAttachments?: VpcAttachment[] | undefined;
+}
+
+/**
+ * <p>Contains the output of CreateVpnGateway.</p>
+ * @public
+ */
+export interface CreateVpnGatewayResult {
+  /**
+   * <p>Information about the virtual private gateway.</p>
+   * @public
+   */
+  VpnGateway?: VpnGateway | undefined;
+}
 
 /**
  * @public
@@ -7436,266 +7680,21 @@ export interface FastLaunchSnapshotConfigurationResponse {
 }
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const FastLaunchStateCode = {
-  disabling: "disabling",
-  disabling_failed: "disabling-failed",
-  enabled: "enabled",
-  enabled_failed: "enabled-failed",
-  enabling: "enabling",
-  enabling_failed: "enabling-failed",
-} as const;
+export const VpnConnectionFilterSensitiveLog = (obj: VpnConnection): any => ({
+  ...obj,
+  ...(obj.Options && { Options: VpnConnectionOptionsFilterSensitiveLog(obj.Options) }),
+  ...(obj.CustomerGatewayConfiguration && { CustomerGatewayConfiguration: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export type FastLaunchStateCode = (typeof FastLaunchStateCode)[keyof typeof FastLaunchStateCode];
-
-/**
- * <p>Describe details about a Windows image with Windows fast launch enabled that meets the
- *       requested criteria. Criteria are defined by the <code>DescribeFastLaunchImages</code> action
- *       filters.</p>
- * @public
- */
-export interface DescribeFastLaunchImagesSuccessItem {
-  /**
-   * <p>The image ID that identifies the Windows fast launch enabled image.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The resource type that Amazon EC2 uses for pre-provisioning the Windows AMI. Supported values
-   *       include: <code>snapshot</code>.</p>
-   * @public
-   */
-  ResourceType?: FastLaunchResourceType | undefined;
-
-  /**
-   * <p>A group of parameters that are used for pre-provisioning the associated Windows AMI using
-   *       snapshots.</p>
-   * @public
-   */
-  SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse | undefined;
-
-  /**
-   * <p>The launch template that the Windows fast launch enabled AMI uses when it launches Windows
-   *       instances from pre-provisioned snapshots.</p>
-   * @public
-   */
-  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse | undefined;
-
-  /**
-   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
-   *       pre-provisioned snapshots for Windows fast launch.</p>
-   * @public
-   */
-  MaxParallelLaunches?: number | undefined;
-
-  /**
-   * <p>The owner ID for the Windows fast launch enabled AMI.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The current state of Windows fast launch for the specified Windows AMI.</p>
-   * @public
-   */
-  State?: FastLaunchStateCode | undefined;
-
-  /**
-   * <p>The reason that Windows fast launch for the AMI changed to the current state.</p>
-   * @public
-   */
-  StateTransitionReason?: string | undefined;
-
-  /**
-   * <p>The time that Windows fast launch for the AMI changed to the current state.</p>
-   * @public
-   */
-  StateTransitionTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFastLaunchImagesResult {
-  /**
-   * <p>A collection of details about the fast-launch enabled Windows images that meet the
-   *       requested criteria.</p>
-   * @public
-   */
-  FastLaunchImages?: DescribeFastLaunchImagesSuccessItem[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFastSnapshotRestoresRequest {
-  /**
-   * <p>The filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code>: The Availability Zone of the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code>: The ID of the Amazon Web Services account that enabled fast snapshot restore on the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>snapshot-id</code>: The ID of the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code>: The state of fast snapshot restores for the snapshot
-   *          (<code>enabling</code> |
-   *           <code>optimizing</code> |
-   *           <code>enabled</code> |
-   *           <code>disabling</code> |
-   *           <code>disabled</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *   Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FastSnapshotRestoreStateCode = {
-  disabled: "disabled",
-  disabling: "disabling",
-  enabled: "enabled",
-  enabling: "enabling",
-  optimizing: "optimizing",
-} as const;
-
-/**
- * @public
- */
-export type FastSnapshotRestoreStateCode =
-  (typeof FastSnapshotRestoreStateCode)[keyof typeof FastSnapshotRestoreStateCode];
-
-/**
- * <p>Describes fast snapshot restores for a snapshot.</p>
- * @public
- */
-export interface DescribeFastSnapshotRestoreSuccessItem {
-  /**
-   * <p>The ID of the snapshot.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>The Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The state of fast snapshot restores.</p>
-   * @public
-   */
-  State?: FastSnapshotRestoreStateCode | undefined;
-
-  /**
-   * <p>The reason for the state transition. The possible values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Client.UserInitiated</code> - The state successfully transitioned to <code>enabling</code> or
-   *           <code>disabling</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.UserInitiated - Lifecycle state transition</code> - The state successfully transitioned
-   *           to <code>optimizing</code>, <code>enabled</code>, or <code>disabled</code>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  StateTransitionReason?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that enabled fast snapshot restores on the snapshot.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
-   * @public
-   */
-  OwnerAlias?: string | undefined;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>enabling</code> state.</p>
-   * @public
-   */
-  EnablingTime?: Date | undefined;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>optimizing</code> state.</p>
-   * @public
-   */
-  OptimizingTime?: Date | undefined;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>enabled</code> state.</p>
-   * @public
-   */
-  EnabledTime?: Date | undefined;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>disabling</code> state.</p>
-   * @public
-   */
-  DisablingTime?: Date | undefined;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>disabled</code> state.</p>
-   * @public
-   */
-  DisabledTime?: Date | undefined;
-}
+export const CreateVpnConnectionResultFilterSensitiveLog = (obj: CreateVpnConnectionResult): any => ({
+  ...obj,
+  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
+});
 
 /**
  * @internal

@@ -52,20 +52,19 @@ import {
   LaunchTemplateAndOverridesResponse,
   LaunchTemplateVersion,
   LaunchTemplateVersionFilterSensitiveLog,
-  LocalGatewayRouteTable,
   LogDestinationType,
   OperatorResponse,
   Placement,
   PlatformValues,
   SpotAllocationStrategy,
   SpotInstanceInterruptionBehavior,
-  StateReason,
   TargetCapacityUnitType,
   TrafficType,
 } from "./models_1";
 
 import {
   GroupIdentifier,
+  LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
@@ -78,16 +77,281 @@ import {
   NetworkInterfacePermission,
   NetworkInterfaceStatus,
   PlacementGroup,
+  StateReason,
 } from "./models_2";
 
 import {
   Byoasn,
-  DescribeFastSnapshotRestoreSuccessItem,
+  FastLaunchLaunchTemplateSpecificationResponse,
+  FastLaunchResourceType,
+  FastLaunchSnapshotConfigurationResponse,
   Filter,
   FleetStateCode,
   IdFormat,
   InstanceTagNotificationAttribute,
 } from "./models_3";
+
+/**
+ * @public
+ * @enum
+ */
+export const FastLaunchStateCode = {
+  disabling: "disabling",
+  disabling_failed: "disabling-failed",
+  enabled: "enabled",
+  enabled_failed: "enabled-failed",
+  enabling: "enabling",
+  enabling_failed: "enabling-failed",
+} as const;
+
+/**
+ * @public
+ */
+export type FastLaunchStateCode = (typeof FastLaunchStateCode)[keyof typeof FastLaunchStateCode];
+
+/**
+ * <p>Describe details about a Windows image with Windows fast launch enabled that meets the
+ *       requested criteria. Criteria are defined by the <code>DescribeFastLaunchImages</code> action
+ *       filters.</p>
+ * @public
+ */
+export interface DescribeFastLaunchImagesSuccessItem {
+  /**
+   * <p>The image ID that identifies the Windows fast launch enabled image.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The resource type that Amazon EC2 uses for pre-provisioning the Windows AMI. Supported values
+   *       include: <code>snapshot</code>.</p>
+   * @public
+   */
+  ResourceType?: FastLaunchResourceType | undefined;
+
+  /**
+   * <p>A group of parameters that are used for pre-provisioning the associated Windows AMI using
+   *       snapshots.</p>
+   * @public
+   */
+  SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse | undefined;
+
+  /**
+   * <p>The launch template that the Windows fast launch enabled AMI uses when it launches Windows
+   *       instances from pre-provisioned snapshots.</p>
+   * @public
+   */
+  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse | undefined;
+
+  /**
+   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
+   *       pre-provisioned snapshots for Windows fast launch.</p>
+   * @public
+   */
+  MaxParallelLaunches?: number | undefined;
+
+  /**
+   * <p>The owner ID for the Windows fast launch enabled AMI.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The current state of Windows fast launch for the specified Windows AMI.</p>
+   * @public
+   */
+  State?: FastLaunchStateCode | undefined;
+
+  /**
+   * <p>The reason that Windows fast launch for the AMI changed to the current state.</p>
+   * @public
+   */
+  StateTransitionReason?: string | undefined;
+
+  /**
+   * <p>The time that Windows fast launch for the AMI changed to the current state.</p>
+   * @public
+   */
+  StateTransitionTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFastLaunchImagesResult {
+  /**
+   * <p>A collection of details about the fast-launch enabled Windows images that meet the
+   *       requested criteria.</p>
+   * @public
+   */
+  FastLaunchImages?: DescribeFastLaunchImagesSuccessItem[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFastSnapshotRestoresRequest {
+  /**
+   * <p>The filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code>: The Availability Zone of the snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code>: The ID of the Amazon Web Services account that enabled fast snapshot restore on the snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>snapshot-id</code>: The ID of the snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code>: The state of fast snapshot restores for the snapshot
+   *          (<code>enabling</code> |
+   *           <code>optimizing</code> |
+   *           <code>enabled</code> |
+   *           <code>disabling</code> |
+   *           <code>disabled</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FastSnapshotRestoreStateCode = {
+  disabled: "disabled",
+  disabling: "disabling",
+  enabled: "enabled",
+  enabling: "enabling",
+  optimizing: "optimizing",
+} as const;
+
+/**
+ * @public
+ */
+export type FastSnapshotRestoreStateCode =
+  (typeof FastSnapshotRestoreStateCode)[keyof typeof FastSnapshotRestoreStateCode];
+
+/**
+ * <p>Describes fast snapshot restores for a snapshot.</p>
+ * @public
+ */
+export interface DescribeFastSnapshotRestoreSuccessItem {
+  /**
+   * <p>The ID of the snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The state of fast snapshot restores.</p>
+   * @public
+   */
+  State?: FastSnapshotRestoreStateCode | undefined;
+
+  /**
+   * <p>The reason for the state transition. The possible values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Client.UserInitiated</code> - The state successfully transitioned to <code>enabling</code> or
+   *           <code>disabling</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Client.UserInitiated - Lifecycle state transition</code> - The state successfully transitioned
+   *           to <code>optimizing</code>, <code>enabled</code>, or <code>disabled</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  StateTransitionReason?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that enabled fast snapshot restores on the snapshot.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
+   * @public
+   */
+  OwnerAlias?: string | undefined;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>enabling</code> state.</p>
+   * @public
+   */
+  EnablingTime?: Date | undefined;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>optimizing</code> state.</p>
+   * @public
+   */
+  OptimizingTime?: Date | undefined;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>enabled</code> state.</p>
+   * @public
+   */
+  EnabledTime?: Date | undefined;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>disabling</code> state.</p>
+   * @public
+   */
+  DisablingTime?: Date | undefined;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>disabled</code> state.</p>
+   * @public
+   */
+  DisabledTime?: Date | undefined;
+}
 
 /**
  * @public
@@ -12413,207 +12677,6 @@ export interface PrincipalIdFormat {
    * @public
    */
   Statuses?: IdFormat[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePrincipalIdFormatResult {
-  /**
-   * <p>Information about the ID format settings for the ARN.</p>
-   * @public
-   */
-  Principals?: PrincipalIdFormat[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePublicIpv4PoolsRequest {
-  /**
-   * <p>The IDs of the address pools.</p>
-   * @public
-   */
-  PoolIds?: string[] | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Describes an address range of an IPv4 address pool.</p>
- * @public
- */
-export interface PublicIpv4PoolRange {
-  /**
-   * <p>The first IP address in the range.</p>
-   * @public
-   */
-  FirstAddress?: string | undefined;
-
-  /**
-   * <p>The last IP address in the range.</p>
-   * @public
-   */
-  LastAddress?: string | undefined;
-
-  /**
-   * <p>The number of addresses in the range.</p>
-   * @public
-   */
-  AddressCount?: number | undefined;
-
-  /**
-   * <p>The number of available addresses in the range.</p>
-   * @public
-   */
-  AvailableAddressCount?: number | undefined;
-}
-
-/**
- * <p>Describes an IPv4 address pool.</p>
- * @public
- */
-export interface PublicIpv4Pool {
-  /**
-   * <p>The ID of the address pool.</p>
-   * @public
-   */
-  PoolId?: string | undefined;
-
-  /**
-   * <p>A description of the address pool.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The address ranges.</p>
-   * @public
-   */
-  PoolAddressRanges?: PublicIpv4PoolRange[] | undefined;
-
-  /**
-   * <p>The total number of addresses.</p>
-   * @public
-   */
-  TotalAddressCount?: number | undefined;
-
-  /**
-   * <p>The total number of available addresses.</p>
-   * @public
-   */
-  TotalAvailableAddressCount?: number | undefined;
-
-  /**
-   * <p>The name of the location from which the address pool is advertised.
-   *             A network border group is a unique set of Availability Zones or Local Zones
-   *             from where Amazon Web Services advertises public IP addresses.</p>
-   * @public
-   */
-  NetworkBorderGroup?: string | undefined;
-
-  /**
-   * <p>Any tags for the address pool.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePublicIpv4PoolsResult {
-  /**
-   * <p>Information about the address pools.</p>
-   * @public
-   */
-  PublicIpv4Pools?: PublicIpv4Pool[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeRegionsRequest {
-  /**
-   * <p>The names of the Regions. You can specify any Regions, whether they are enabled and disabled for your account.</p>
-   * @public
-   */
-  RegionNames?: string[] | undefined;
-
-  /**
-   * <p>Indicates whether to display all Regions, including Regions that are disabled for your account.</p>
-   * @public
-   */
-  AllRegions?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>endpoint</code> - The endpoint of the Region (for example, <code>ec2.us-east-1.amazonaws.com</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>opt-in-status</code> - The opt-in status of the Region (<code>opt-in-not-required</code> | <code>opted-in</code> |
-   *                  <code>not-opted-in</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>region-name</code> - The name of the Region (for example, <code>us-east-1</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
 }
 
 /**

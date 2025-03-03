@@ -25,13 +25,10 @@ import {
   SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
-  TransitGatewayAssociation,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
-  TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
-  TransitGatewayPolicyTableAssociation,
   TransitGatewayVpcAttachment,
   TrunkInterfaceAssociation,
   UserIdGroupPair,
@@ -96,23 +93,230 @@ import {
   Volume,
   VpcBlockPublicAccessExclusion,
   VpcEndpoint,
-  VpnConnection,
-  VpnConnectionFilterSensitiveLog,
-  VpnGateway,
 } from "./models_2";
 
 import {
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchResourceType,
   FastLaunchSnapshotConfigurationResponse,
-  FastLaunchStateCode,
-  FastSnapshotRestoreStateCode,
   Filter,
   MetricType,
   StatisticType,
+  VpnConnection,
+  VpnConnectionFilterSensitiveLog,
+  VpnGateway,
 } from "./models_3";
 
-import { AttributeBooleanValue, EventInformation, PermissionGroup, ProductCode } from "./models_4";
+import {
+  AttributeBooleanValue,
+  EventInformation,
+  FastLaunchStateCode,
+  FastSnapshotRestoreStateCode,
+  PermissionGroup,
+  PrincipalIdFormat,
+  ProductCode,
+} from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribePrincipalIdFormatResult {
+  /**
+   * <p>Information about the ID format settings for the ARN.</p>
+   * @public
+   */
+  Principals?: PrincipalIdFormat[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePublicIpv4PoolsRequest {
+  /**
+   * <p>The IDs of the address pools.</p>
+   * @public
+   */
+  PoolIds?: string[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Describes an address range of an IPv4 address pool.</p>
+ * @public
+ */
+export interface PublicIpv4PoolRange {
+  /**
+   * <p>The first IP address in the range.</p>
+   * @public
+   */
+  FirstAddress?: string | undefined;
+
+  /**
+   * <p>The last IP address in the range.</p>
+   * @public
+   */
+  LastAddress?: string | undefined;
+
+  /**
+   * <p>The number of addresses in the range.</p>
+   * @public
+   */
+  AddressCount?: number | undefined;
+
+  /**
+   * <p>The number of available addresses in the range.</p>
+   * @public
+   */
+  AvailableAddressCount?: number | undefined;
+}
+
+/**
+ * <p>Describes an IPv4 address pool.</p>
+ * @public
+ */
+export interface PublicIpv4Pool {
+  /**
+   * <p>The ID of the address pool.</p>
+   * @public
+   */
+  PoolId?: string | undefined;
+
+  /**
+   * <p>A description of the address pool.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The address ranges.</p>
+   * @public
+   */
+  PoolAddressRanges?: PublicIpv4PoolRange[] | undefined;
+
+  /**
+   * <p>The total number of addresses.</p>
+   * @public
+   */
+  TotalAddressCount?: number | undefined;
+
+  /**
+   * <p>The total number of available addresses.</p>
+   * @public
+   */
+  TotalAvailableAddressCount?: number | undefined;
+
+  /**
+   * <p>The name of the location from which the address pool is advertised.
+   *             A network border group is a unique set of Availability Zones or Local Zones
+   *             from where Amazon Web Services advertises public IP addresses.</p>
+   * @public
+   */
+  NetworkBorderGroup?: string | undefined;
+
+  /**
+   * <p>Any tags for the address pool.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePublicIpv4PoolsResult {
+  /**
+   * <p>Information about the address pools.</p>
+   * @public
+   */
+  PublicIpv4Pools?: PublicIpv4Pool[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegionsRequest {
+  /**
+   * <p>The names of the Regions. You can specify any Regions, whether they are enabled and disabled for your account.</p>
+   * @public
+   */
+  RegionNames?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether to display all Regions, including Regions that are disabled for your account.</p>
+   * @public
+   */
+  AllRegions?: boolean | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>endpoint</code> - The endpoint of the Region (for example, <code>ec2.us-east-1.amazonaws.com</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>opt-in-status</code> - The opt-in status of the Region (<code>opt-in-not-required</code> | <code>opted-in</code> |
+   *                  <code>not-opted-in</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>region-name</code> - The name of the Region (for example, <code>us-east-1</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
 
 /**
  * <p>Describes a Region.</p>
@@ -10973,120 +11177,6 @@ export interface DisassociateSubnetCidrBlockResult {
    * @public
    */
   SubnetId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTransitGatewayMulticastDomainRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId: string | undefined;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>The IDs of the subnets;</p>
-   * @public
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTransitGatewayMulticastDomainResult {
-  /**
-   * <p>Information about the association.</p>
-   * @public
-   */
-  Associations?: TransitGatewayMulticastDomainAssociations | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTransitGatewayPolicyTableRequest {
-  /**
-   * <p>The ID of the disassociated policy table.</p>
-   * @public
-   */
-  TransitGatewayPolicyTableId: string | undefined;
-
-  /**
-   * <p>The ID of the transit gateway attachment to disassociate from the policy table.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTransitGatewayPolicyTableResult {
-  /**
-   * <p>Returns details about the transit gateway policy table disassociation.</p>
-   * @public
-   */
-  Association?: TransitGatewayPolicyTableAssociation | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTransitGatewayRouteTableRequest {
-  /**
-   * <p>The ID of the transit gateway route table.</p>
-   * @public
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTransitGatewayRouteTableResult {
-  /**
-   * <p>Information about the association.</p>
-   * @public
-   */
-  Association?: TransitGatewayAssociation | undefined;
 }
 
 /**

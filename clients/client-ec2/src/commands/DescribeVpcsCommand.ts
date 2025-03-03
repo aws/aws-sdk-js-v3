@@ -86,8 +86,43 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  * //         },
  * //       ],
  * //       IsDefault: true || false,
- * //       Tags: [ // TagList
- * //         { // Tag
+ * //       EncryptionControl: { // VpcEncryptionControl
+ * //         VpcId: "STRING_VALUE",
+ * //         VpcEncryptionControlId: "STRING_VALUE",
+ * //         Mode: "monitor" || "enforce",
+ * //         State: "enforce-in-progress" || "monitor-in-progress" || "enforce-failed" || "monitor-failed" || "deleting" || "deleted" || "available",
+ * //         StateMessage: "STRING_VALUE",
+ * //         ResourceExclusions: { // VpcEncryptionControlExclusions
+ * //           InternetGateway: { // VpcEncryptionControlExclusion
+ * //             State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //             StateMessage: "STRING_VALUE",
+ * //           },
+ * //           EgressOnlyInternetGateway: {
+ * //             State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //             StateMessage: "STRING_VALUE",
+ * //           },
+ * //           NatGateway: {
+ * //             State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //             StateMessage: "STRING_VALUE",
+ * //           },
+ * //           VirtualPrivateGateway: {
+ * //             State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //             StateMessage: "STRING_VALUE",
+ * //           },
+ * //           VpcPeering: {
+ * //             State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //             StateMessage: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         Tags: [ // TagList
+ * //           { // Tag
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       Tags: [
+ * //         {
  * //           Key: "STRING_VALUE",
  * //           Value: "STRING_VALUE",
  * //         },

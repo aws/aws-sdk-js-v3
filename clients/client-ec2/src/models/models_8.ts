@@ -1,7 +1,129 @@
 // smithy-typescript generated code
 import { ByoipCidr, IpPermission, NatGatewayAddress } from "./models_0";
 
-import { InstanceMonitoring } from "./models_7";
+import { ClientVpnConnectionStatus } from "./models_3";
+
+import { InstanceMonitoring, InstanceStateChange } from "./models_7";
+
+/**
+ * @public
+ */
+export interface StopInstancesResult {
+  /**
+   * <p>Information about the stopped instances.</p>
+   * @public
+   */
+  StoppingInstances?: InstanceStateChange[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TerminateClientVpnConnectionsRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint to which the client is connected.</p>
+   * @public
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>The ID of the client connection to be terminated.</p>
+   * @public
+   */
+  ConnectionId?: string | undefined;
+
+  /**
+   * <p>The name of the user who initiated the connection. Use this option to terminate all active connections for
+   * 			the specified user. This option can only be used if the user has established up to five connections.</p>
+   * @public
+   */
+  Username?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Information about a terminated Client VPN endpoint client connection.</p>
+ * @public
+ */
+export interface TerminateConnectionStatus {
+  /**
+   * <p>The ID of the client connection.</p>
+   * @public
+   */
+  ConnectionId?: string | undefined;
+
+  /**
+   * <p>The state of the client connection.</p>
+   * @public
+   */
+  PreviousStatus?: ClientVpnConnectionStatus | undefined;
+
+  /**
+   * <p>A message about the status of the client connection, if applicable.</p>
+   * @public
+   */
+  CurrentStatus?: ClientVpnConnectionStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TerminateClientVpnConnectionsResult {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   * @public
+   */
+  ClientVpnEndpointId?: string | undefined;
+
+  /**
+   * <p>The user who established the terminated client connections.</p>
+   * @public
+   */
+  Username?: string | undefined;
+
+  /**
+   * <p>The current state of the client connections.</p>
+   * @public
+   */
+  ConnectionStatuses?: TerminateConnectionStatus[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TerminateInstancesRequest {
+  /**
+   * <p>The IDs of the instances.</p>
+   *          <p>Constraints: Up to 1000 instance IDs. We recommend breaking up this request into
+   *             smaller batches.</p>
+   * @public
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TerminateInstancesResult {
+  /**
+   * <p>Information about the terminated instances.</p>
+   * @public
+   */
+  TerminatingInstances?: InstanceStateChange[] | undefined;
+}
 
 /**
  * @public

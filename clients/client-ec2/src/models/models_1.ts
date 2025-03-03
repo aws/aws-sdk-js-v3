@@ -3254,6 +3254,88 @@ export interface CreateDefaultVpcRequest {
  * @public
  * @enum
  */
+export const VpcEncryptionControlMode = {
+  enforce: "enforce",
+  monitor: "monitor",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcEncryptionControlMode = (typeof VpcEncryptionControlMode)[keyof typeof VpcEncryptionControlMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcEncryptionControlExclusionState = {
+  disabled: "disabled",
+  disabling: "disabling",
+  enabled: "enabled",
+  enabling: "enabling",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcEncryptionControlExclusionState =
+  (typeof VpcEncryptionControlExclusionState)[keyof typeof VpcEncryptionControlExclusionState];
+
+/**
+ * @public
+ */
+export interface VpcEncryptionControlExclusion {
+  State?: VpcEncryptionControlExclusionState | undefined;
+  StateMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface VpcEncryptionControlExclusions {
+  InternetGateway?: VpcEncryptionControlExclusion | undefined;
+  EgressOnlyInternetGateway?: VpcEncryptionControlExclusion | undefined;
+  NatGateway?: VpcEncryptionControlExclusion | undefined;
+  VirtualPrivateGateway?: VpcEncryptionControlExclusion | undefined;
+  VpcPeering?: VpcEncryptionControlExclusion | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcEncryptionControlState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  enforce_failed: "enforce-failed",
+  enforce_in_progress: "enforce-in-progress",
+  monitor_failed: "monitor-failed",
+  monitor_in_progress: "monitor-in-progress",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcEncryptionControlState = (typeof VpcEncryptionControlState)[keyof typeof VpcEncryptionControlState];
+
+/**
+ * @public
+ */
+export interface VpcEncryptionControl {
+  VpcId?: string | undefined;
+  VpcEncryptionControlId?: string | undefined;
+  Mode?: VpcEncryptionControlMode | undefined;
+  State?: VpcEncryptionControlState | undefined;
+  StateMessage?: string | undefined;
+  ResourceExclusions?: VpcEncryptionControlExclusions | undefined;
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const Tenancy = {
   dedicated: "dedicated",
   default: "default",
@@ -3314,6 +3396,7 @@ export interface Vpc {
    */
   IsDefault?: boolean | undefined;
 
+  EncryptionControl?: VpcEncryptionControl | undefined;
   /**
    * <p>Any tags assigned to the VPC.</p>
    * @public
@@ -12407,250 +12490,6 @@ export interface CreateLocalGatewayRouteResult {
    * @public
    */
   Route?: LocalGatewayRoute | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const LocalGatewayRouteTableMode = {
-  coip: "coip",
-  direct_vpc_routing: "direct-vpc-routing",
-} as const;
-
-/**
- * @public
- */
-export type LocalGatewayRouteTableMode = (typeof LocalGatewayRouteTableMode)[keyof typeof LocalGatewayRouteTableMode];
-
-/**
- * @public
- */
-export interface CreateLocalGatewayRouteTableRequest {
-  /**
-   * <p>
-   *       The ID of the local gateway.
-   *       </p>
-   * @public
-   */
-  LocalGatewayId: string | undefined;
-
-  /**
-   * <p>
-   *       The mode of the local gateway route table.
-   *       </p>
-   * @public
-   */
-  Mode?: LocalGatewayRouteTableMode | undefined;
-
-  /**
-   * <p>
-   *       The tags assigned to the local gateway route table.
-   *       </p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes a state change.</p>
- * @public
- */
-export interface StateReason {
-  /**
-   * <p>The reason code for the state change.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>The message for the state change.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Server.InsufficientInstanceCapacity</code>: There was insufficient
-   *                     capacity available to satisfy the launch request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Server.InternalError</code>: An internal error caused the instance to
-   *                     terminate during launch.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Server.ScheduledStop</code>: The instance was stopped due to a scheduled
-   *                     retirement.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Server.SpotInstanceShutdown</code>: The instance was stopped because the
-   *                     number of Spot requests with a maximum price equal to or higher than the Spot
-   *                     price exceeded available capacity or because of an increase in the Spot
-   *                     price.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Server.SpotInstanceTermination</code>: The instance was terminated
-   *                     because the number of Spot requests with a maximum price equal to or higher than
-   *                     the Spot price exceeded available capacity or because of an increase in the Spot
-   *                     price.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.InstanceInitiatedShutdown</code>: The instance was shut down
-   *                     from the operating system of the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.InstanceTerminated</code>: The instance was terminated or
-   *                     rebooted during AMI creation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.InternalError</code>: A client error caused the instance to
-   *                     terminate during launch.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.InvalidSnapshot.NotFound</code>: The specified snapshot was not
-   *                     found.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.UserInitiatedHibernate</code>: Hibernation was initiated on the
-   *                     instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.UserInitiatedShutdown</code>: The instance was shut down using
-   *                     the Amazon EC2 API.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.VolumeLimitExceeded</code>: The limit on the number of EBS
-   *                     volumes or total storage was exceeded. Decrease usage or request an increase in
-   *                     your account limits.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>Describes a local gateway route table.</p>
- * @public
- */
-export interface LocalGatewayRouteTable {
-  /**
-   * <p>The ID of the local gateway route table.</p>
-   * @public
-   */
-  LocalGatewayRouteTableId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the local gateway route table.</p>
-   * @public
-   */
-  LocalGatewayRouteTableArn?: string | undefined;
-
-  /**
-   * <p>The ID of the local gateway.</p>
-   * @public
-   */
-  LocalGatewayId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   * @public
-   */
-  OutpostArn?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the local gateway route table.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The state of the local gateway route table.</p>
-   * @public
-   */
-  State?: string | undefined;
-
-  /**
-   * <p>The tags assigned to the local gateway route table.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The mode of the local gateway route table.</p>
-   * @public
-   */
-  Mode?: LocalGatewayRouteTableMode | undefined;
-
-  /**
-   * <p>Information about the state change.</p>
-   * @public
-   */
-  StateReason?: StateReason | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateLocalGatewayRouteTableResult {
-  /**
-   * <p>Information about the local gateway route table.</p>
-   * @public
-   */
-  LocalGatewayRouteTable?: LocalGatewayRouteTable | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {
-  /**
-   * <p>
-   *       The ID of the local gateway route table.
-   *       </p>
-   * @public
-   */
-  LocalGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>
-   *       The ID of the local gateway route table virtual interface group association.
-   *       </p>
-   * @public
-   */
-  LocalGatewayVirtualInterfaceGroupId: string | undefined;
-
-  /**
-   * <p>
-   *       The tags assigned to the local gateway route table virtual interface group association.
-   *       </p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**
