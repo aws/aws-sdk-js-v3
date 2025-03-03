@@ -417,6 +417,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * const response = await client.send(command);
  * // { // CreateDomainResponse
  * //   DomainArn: "STRING_VALUE",
+ * //   DomainId: "STRING_VALUE",
  * //   Url: "STRING_VALUE",
  * // };
  *
