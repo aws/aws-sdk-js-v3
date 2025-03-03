@@ -45,11 +45,16 @@ import {
 import { CreateAppMonitorCommandInput, CreateAppMonitorCommandOutput } from "../commands/CreateAppMonitorCommand";
 import { DeleteAppMonitorCommandInput, DeleteAppMonitorCommandOutput } from "../commands/DeleteAppMonitorCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
+import {
   DeleteRumMetricsDestinationCommandInput,
   DeleteRumMetricsDestinationCommandOutput,
 } from "../commands/DeleteRumMetricsDestinationCommand";
 import { GetAppMonitorCommandInput, GetAppMonitorCommandOutput } from "../commands/GetAppMonitorCommand";
 import { GetAppMonitorDataCommandInput, GetAppMonitorDataCommandOutput } from "../commands/GetAppMonitorDataCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import { ListAppMonitorsCommandInput, ListAppMonitorsCommandOutput } from "../commands/ListAppMonitorsCommand";
 import {
   ListRumMetricsDestinationsCommandInput,
@@ -59,6 +64,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { PutRumEventsCommandInput, PutRumEventsCommandOutput } from "../commands/PutRumEventsCommand";
 import {
   PutRumMetricsDestinationCommandInput,
@@ -79,7 +85,11 @@ import {
   ConflictException,
   CustomEvents,
   InternalServerException,
+  InvalidPolicyRevisionIdException,
+  MalformedPolicyDocumentException,
   MetricDefinitionRequest,
+  PolicyNotFoundException,
+  PolicySizeLimitExceededException,
   QueryFilter,
   ResourceNotFoundException,
   RumEvent,
@@ -204,6 +214,25 @@ export const se_DeleteAppMonitorCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/appmonitor/{Name}/policy");
+  b.p("Name", () => input.Name!, "{Name}", false);
+  const query: any = map({
+    [_pRI]: [, input[_PRI]!],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteRumMetricsDestinationCommand
  */
 export const se_DeleteRumMetricsDestinationCommand = async (
@@ -266,6 +295,22 @@ export const se_GetAppMonitorDataCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetResourcePolicyCommand
+ */
+export const se_GetResourcePolicyCommand = async (
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/appmonitor/{Name}/policy");
+  b.p("Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListAppMonitorsCommand
  */
 export const se_ListAppMonitorsCommand = async (
@@ -321,6 +366,30 @@ export const se_ListTagsForResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1PutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/appmonitor/{Name}/policy");
+  b.p("Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      PolicyDocument: [],
+      PolicyRevisionId: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1PutRumEventsCommand
  */
 export const se_PutRumEventsCommand = async (
@@ -336,6 +405,7 @@ export const se_PutRumEventsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      Alias: [],
       AppMonitorDetails: (_) => _json(_),
       BatchId: [],
       RumEvents: (_) => se_RumEventList(_, context),
@@ -578,6 +648,27 @@ export const de_DeleteAppMonitorCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    PolicyRevisionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteRumMetricsDestinationCommand
  */
 export const de_DeleteRumMetricsDestinationCommand = async (
@@ -632,6 +723,28 @@ export const de_GetAppMonitorDataCommand = async (
   const doc = take(data, {
     Events: _json,
     NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetResourcePolicyCommand
+ */
+export const de_GetResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    PolicyDocument: __expectString,
+    PolicyRevisionId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -698,6 +811,28 @@ export const de_ListTagsForResourceCommand = async (
   const doc = take(data, {
     ResourceArn: __expectString,
     Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    PolicyDocument: __expectString,
+    PolicyRevisionId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -836,6 +971,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.rum#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "InvalidPolicyRevisionIdException":
+    case "com.amazonaws.rum#InvalidPolicyRevisionIdException":
+      throw await de_InvalidPolicyRevisionIdExceptionRes(parsedOutput, context);
+    case "PolicyNotFoundException":
+    case "com.amazonaws.rum#PolicyNotFoundException":
+      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
+    case "MalformedPolicyDocumentException":
+    case "com.amazonaws.rum#MalformedPolicyDocumentException":
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
+    case "PolicySizeLimitExceededException":
+    case "com.amazonaws.rum#PolicySizeLimitExceededException":
+      throw await de_PolicySizeLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -902,6 +1049,86 @@ const de_InternalServerExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new InternalServerException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1InvalidPolicyRevisionIdExceptionRes
+ */
+const de_InvalidPolicyRevisionIdExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidPolicyRevisionIdException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidPolicyRevisionIdException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1MalformedPolicyDocumentExceptionRes
+ */
+const de_MalformedPolicyDocumentExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MalformedPolicyDocumentException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new MalformedPolicyDocumentException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1PolicyNotFoundExceptionRes
+ */
+const de_PolicyNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PolicyNotFoundException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new PolicyNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1PolicySizeLimitExceededExceptionRes
+ */
+const de_PolicySizeLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PolicySizeLimitExceededException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new PolicySizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -1151,12 +1378,14 @@ const _DA = "DestinationArn";
 const _MDI = "MetricDefinitionIds";
 const _MR = "MaxResults";
 const _NT = "NextToken";
+const _PRI = "PolicyRevisionId";
 const _TK = "TagKeys";
 const _d = "destination";
 const _dA = "destinationArn";
 const _mDI = "metricDefinitionIds";
 const _mR = "maxResults";
 const _nT = "nextToken";
+const _pRI = "policyRevisionId";
 const _rAS = "retryAfterSeconds";
 const _ra = "retry-after";
 const _tK = "tagKeys";

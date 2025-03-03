@@ -28,6 +28,11 @@ import {
   DeleteAppMonitorCommandOutput,
 } from "./commands/DeleteAppMonitorCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeleteRumMetricsDestinationCommand,
   DeleteRumMetricsDestinationCommandInput,
   DeleteRumMetricsDestinationCommandOutput,
@@ -43,6 +48,11 @@ import {
   GetAppMonitorDataCommandOutput,
 } from "./commands/GetAppMonitorDataCommand";
 import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import {
   ListAppMonitorsCommand,
   ListAppMonitorsCommandInput,
   ListAppMonitorsCommandOutput,
@@ -57,6 +67,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import {
   PutRumEventsCommand,
   PutRumEventsCommandInput,
@@ -91,12 +106,15 @@ const commands = {
   BatchGetRumMetricDefinitionsCommand,
   CreateAppMonitorCommand,
   DeleteAppMonitorCommand,
+  DeleteResourcePolicyCommand,
   DeleteRumMetricsDestinationCommand,
   GetAppMonitorCommand,
   GetAppMonitorDataCommand,
+  GetResourcePolicyCommand,
   ListAppMonitorsCommand,
   ListRumMetricsDestinationsCommand,
   ListTagsForResourceCommand,
+  PutResourcePolicyCommand,
   PutRumEventsCommand,
   PutRumMetricsDestinationCommand,
   TagResourceCommand,
@@ -192,6 +210,23 @@ export interface RUM {
   ): void;
 
   /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteRumMetricsDestinationCommand}
    */
   deleteRumMetricsDestination(
@@ -234,6 +269,23 @@ export interface RUM {
     args: GetAppMonitorDataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAppMonitorDataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -283,6 +335,23 @@ export interface RUM {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
   /**

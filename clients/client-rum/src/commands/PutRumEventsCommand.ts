@@ -59,6 +59,7 @@ export interface PutRumEventsCommandOutput extends PutRumEventsResponse, __Metad
  *       details: "STRING_VALUE", // required
  *     },
  *   ],
+ *   Alias: "STRING_VALUE",
  * };
  * const command = new PutRumEventsCommand(input);
  * const response = await client.send(command);
