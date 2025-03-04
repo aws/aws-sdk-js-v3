@@ -875,6 +875,7 @@ export const se_CreateGatewayCommand = async (
     take(input, {
       gatewayName: [],
       gatewayPlatform: (_) => _json(_),
+      gatewayVersion: [],
       tags: (_) => _json(_),
     })
   );
@@ -4011,6 +4012,7 @@ export const de_DescribeGatewayCommand = async (
     gatewayId: __expectString,
     gatewayName: __expectString,
     gatewayPlatform: _json,
+    gatewayVersion: __expectString,
     lastUpdateDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   });
   Object.assign(contents, doc);
@@ -6560,6 +6562,7 @@ const de_GatewaySummary = (output: any, context: __SerdeContext): GatewaySummary
     gatewayId: __expectString,
     gatewayName: __expectString,
     gatewayPlatform: _json,
+    gatewayVersion: __expectString,
     lastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
