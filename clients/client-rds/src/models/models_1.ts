@@ -7673,19 +7673,19 @@ export interface ModifyDBClusterMessage {
    *          <p>The following values are valid for each DB engine:</p>
    *          <ul>
    *             <li>
-   *                <p>Aurora MySQL - <code>audit | error | general | instance | slowquery</code>
+   *                <p>Aurora MySQL - <code>audit | error | general | instance | slowquery | iam-db-auth-error</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Aurora PostgreSQL - <code>instance | postgresql</code>
+   *                <p>Aurora PostgreSQL - <code>instance | postgresql | iam-db-auth-error</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>RDS for MySQL - <code>error | general | slowquery</code>
+   *                <p>RDS for MySQL - <code>error | general | slowquery | iam-db-auth-error</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>RDS for PostgreSQL - <code>postgresql | upgrade</code>
+   *                <p>RDS for PostgreSQL - <code>postgresql | upgrade | iam-db-auth-error</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -9192,19 +9192,19 @@ export interface ModifyDBInstanceMessage {
    *          <p>The following values are valid for each DB engine:</p>
    *          <ul>
    *             <li>
-   *                <p>Aurora MySQL - <code>audit | error | general | slowquery</code>
+   *                <p>Aurora MySQL - <code>audit | error | general | slowquery | iam-db-auth-error</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Aurora PostgreSQL - <code>postgresql</code>
+   *                <p>Aurora PostgreSQL - <code>postgresql | iam-db-auth-error</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>RDS for MySQL - <code>error | general | slowquery</code>
+   *                <p>RDS for MySQL - <code>error | general | slowquery | iam-db-auth-error</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>RDS for PostgreSQL - <code>postgresql | upgrade</code>
+   *                <p>RDS for PostgreSQL - <code>postgresql | upgrade | iam-db-auth-error</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -9738,11 +9738,15 @@ export interface ConnectionPoolConfiguration {
   SessionPinningFilters?: string[] | undefined;
 
   /**
-   * <p>One or more SQL statements for the proxy to run when opening each new database connection.
-   *         Typically used with <code>SET</code> statements to make sure that each connection has identical
-   *         settings such as time zone and character set. For multiple statements, use semicolons as the separator.
-   *         You can also include multiple variables in a single <code>SET</code> statement, such as
-   *         <code>SET x=1, y=2</code>.</p>
+   * <p>Add an initialization query, or modify the current one. You can specify one or more SQL statements for
+   *             the proxy to run when opening each new database connection. The setting is
+   *             typically used with <code>SET</code> statements to make sure that each
+   *             connection has identical settings. Make sure that the query you add is valid. To
+   *             include multiple variables in a single <code>SET</code> statement, use comma
+   *             separators.</p>
+   *          <p>For example: <code>SET variable1=value1, variable2=value2</code>
+   *          </p>
+   *          <p>For multiple statements, use semicolons as the separator.</p>
    *          <p>Default: no initialization query</p>
    * @public
    */
@@ -11424,11 +11428,11 @@ export interface RestoreDBClusterFromS3Message {
    *          <p>
    *             <b>Aurora MySQL</b>
    *          </p>
-   *          <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, <code>instance</code>, and <code>slowquery</code>.</p>
+   *          <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, <code>instance</code>, <code>slowquery</code>, and <code>iam-db-auth-error</code>.</p>
    *          <p>
    *             <b>Aurora PostgreSQL</b>
    *          </p>
-   *          <p>Possible value are <code>instance</code> and <code>postgresql</code>.</p>
+   *          <p>Possible value are <code>instance</code>, <code>postgresql</code>, and <code>iam-db-auth-error</code>.</p>
    *          <p>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
    * @public
@@ -11857,19 +11861,19 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          <p>
    *             <b>RDS for MySQL</b>
    *          </p>
-   *          <p>Possible values are <code>error</code>, <code>general</code>, and <code>slowquery</code>.</p>
+   *          <p>Possible values are <code>error</code>, <code>general</code>, <code>slowquery</code>, and <code>iam-db-auth-error</code>.</p>
    *          <p>
    *             <b>RDS for PostgreSQL</b>
    *          </p>
-   *          <p>Possible values are <code>postgresql</code> and <code>upgrade</code>.</p>
+   *          <p>Possible values are <code>postgresql</code>, <code>upgrade</code>, and <code>iam-db-auth-error</code>.</p>
    *          <p>
    *             <b>Aurora MySQL</b>
    *          </p>
-   *          <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, <code>instance</code>, and <code>slowquery</code>.</p>
+   *          <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, <code>instance</code>, <code>slowquery</code>, and <code>iam-db-auth-error</code>.</p>
    *          <p>
    *             <b>Aurora PostgreSQL</b>
    *          </p>
-   *          <p>Possible value are <code>instance</code> and <code>postgresql</code>.</p>
+   *          <p>Possible value are <code>instance</code>, <code>postgresql</code>, and <code>iam-db-auth-error</code>.</p>
    *          <p>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
@@ -12369,19 +12373,19 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *          <p>
    *             <b>RDS for MySQL</b>
    *          </p>
-   *          <p>Possible values are <code>error</code>, <code>general</code>, and <code>slowquery</code>.</p>
+   *          <p>Possible values are <code>error</code>, <code>general</code>, <code>slowquery</code>, and <code>iam-db-auth-error</code>.</p>
    *          <p>
    *             <b>RDS for PostgreSQL</b>
    *          </p>
-   *          <p>Possible values are <code>postgresql</code> and <code>upgrade</code>.</p>
+   *          <p>Possible values are <code>postgresql</code>, <code>upgrade</code>, and <code>iam-db-auth-error</code>.</p>
    *          <p>
    *             <b>Aurora MySQL</b>
    *          </p>
-   *          <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, <code>instance</code>, and <code>slowquery</code>.</p>
+   *          <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, <code>instance</code>, <code>slowquery</code>, and <code>iam-db-auth-error</code>.</p>
    *          <p>
    *             <b>Aurora PostgreSQL</b>
    *          </p>
-   *          <p>Possible value are <code>instance</code> and <code>postgresql</code>.</p>
+   *          <p>Possible value are <code>instance</code>, <code>postgresql</code>, and <code>iam-db-auth-error</code>.</p>
    *          <p>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
@@ -12984,8 +12988,8 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *          </p>
    *          <p>If you specify <code>io1</code>, <code>io2</code>, or <code>gp3</code>, you must also include a value for the
    *             <code>Iops</code> parameter.</p>
-   *          <p>Default: <code>io1</code> if the <code>Iops</code> parameter
-   *             is specified, otherwise <code>gp2</code>
+   *          <p>Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
+   *                 <code>gp3</code>
    *          </p>
    * @public
    */
@@ -14349,8 +14353,8 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    * <p>The storage type to associate with the DB instance.</p>
    *          <p>Valid Values: <code>gp2 | gp3 | io1 | io2 | standard</code>
    *          </p>
-   *          <p>Default: <code>io1</code>, if the <code>Iops</code> parameter
-   *             is specified. Otherwise, <code>gp2</code>.</p>
+   *          <p>Default: <code>io1</code>, if the <code>Iops</code> parameter is specified. Otherwise,
+   *                 <code>gp3</code>.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
