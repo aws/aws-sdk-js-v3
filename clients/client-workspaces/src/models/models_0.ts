@@ -4952,6 +4952,12 @@ export interface WorkspaceAccessProperties {
    * @public
    */
   DeviceTypeLinux?: AccessPropertyValue | undefined;
+
+  /**
+   * <p>Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.</p>
+   * @public
+   */
+  DeviceTypeWorkSpacesThinClient?: AccessPropertyValue | undefined;
 }
 
 /**

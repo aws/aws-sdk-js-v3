@@ -99,6 +99,7 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //         DeviceTypeChromeOs: "ALLOW" || "DENY",
  * //         DeviceTypeZeroClient: "ALLOW" || "DENY",
  * //         DeviceTypeLinux: "ALLOW" || "DENY",
+ * //         DeviceTypeWorkSpacesThinClient: "ALLOW" || "DENY",
  * //       },
  * //       Tenancy: "DEDICATED" || "SHARED",
  * //       SelfservicePermissions: { // SelfservicePermissions

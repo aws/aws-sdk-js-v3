@@ -53,6 +53,7 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput
  *     DeviceTypeChromeOs: "ALLOW" || "DENY",
  *     DeviceTypeZeroClient: "ALLOW" || "DENY",
  *     DeviceTypeLinux: "ALLOW" || "DENY",
+ *     DeviceTypeWorkSpacesThinClient: "ALLOW" || "DENY",
  *   },
  * };
  * const command = new ModifyWorkspaceAccessPropertiesCommand(input);
