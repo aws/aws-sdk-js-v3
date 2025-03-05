@@ -40,6 +40,7 @@ export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsRespons
  * const input = { // UpdateLocationNfsRequest
  *   LocationArn: "STRING_VALUE", // required
  *   Subdirectory: "STRING_VALUE",
+ *   ServerHostname: "STRING_VALUE",
  *   OnPremConfig: { // OnPremConfig
  *     AgentArns: [ // AgentArnList // required
  *       "STRING_VALUE",
