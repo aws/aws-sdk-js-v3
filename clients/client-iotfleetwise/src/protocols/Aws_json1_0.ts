@@ -2477,6 +2477,7 @@ const se_CanSignal = (input: CanSignal, context: __SerdeContext): any => {
     messageId: [],
     name: [],
     offset: __serializeFloat,
+    signalValueType: [],
     startBit: [],
   });
 };
@@ -2754,11 +2755,13 @@ const se_ObdSignal = (input: ObdSignal, context: __SerdeContext): any => {
     bitMaskLength: [],
     bitRightShift: [],
     byteLength: [],
+    isSigned: [],
     offset: __serializeFloat,
     pid: [],
     pidResponseLength: [],
     scaling: __serializeFloat,
     serviceMode: [],
+    signalValueType: [],
     startByte: [],
   });
 };
@@ -3087,6 +3090,7 @@ const de_CanSignal = (output: any, context: __SerdeContext): CanSignal => {
     messageId: __expectInt32,
     name: __expectString,
     offset: __limitedParseDouble,
+    signalValueType: __expectString,
     startBit: __expectInt32,
   }) as any;
 };
@@ -3635,11 +3639,13 @@ const de_ObdSignal = (output: any, context: __SerdeContext): ObdSignal => {
     bitMaskLength: __expectInt32,
     bitRightShift: __expectInt32,
     byteLength: __expectInt32,
+    isSigned: __expectBoolean,
     offset: __limitedParseDouble,
     pid: __expectInt32,
     pidResponseLength: __expectInt32,
     scaling: __limitedParseDouble,
     serviceMode: __expectInt32,
+    signalValueType: __expectString,
     startByte: __expectInt32,
   }) as any;
 };

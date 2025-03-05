@@ -54,6 +54,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *         factor: Number("double"), // required
  *         length: Number("int"), // required
  *         name: "STRING_VALUE",
+ *         signalValueType: "INTEGER" || "FLOATING_POINT",
  *       },
  *       obdSignal: { // ObdSignal
  *         pidResponseLength: Number("int"), // required
@@ -65,6 +66,8 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *         byteLength: Number("int"), // required
  *         bitRightShift: Number("int"),
  *         bitMaskLength: Number("int"),
+ *         isSigned: true || false,
+ *         signalValueType: "INTEGER" || "FLOATING_POINT",
  *       },
  *       messageSignal: { // MessageSignal
  *         topicName: "STRING_VALUE", // required
@@ -131,6 +134,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *         factor: Number("double"), // required
  *         length: Number("int"), // required
  *         name: "STRING_VALUE",
+ *         signalValueType: "INTEGER" || "FLOATING_POINT",
  *       },
  *       obdSignal: {
  *         pidResponseLength: Number("int"), // required
@@ -142,6 +146,8 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *         byteLength: Number("int"), // required
  *         bitRightShift: Number("int"),
  *         bitMaskLength: Number("int"),
+ *         isSigned: true || false,
+ *         signalValueType: "INTEGER" || "FLOATING_POINT",
  *       },
  *       messageSignal: {
  *         topicName: "STRING_VALUE", // required
