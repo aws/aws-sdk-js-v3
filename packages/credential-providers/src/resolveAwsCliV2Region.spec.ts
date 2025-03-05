@@ -12,7 +12,7 @@ vi.mock("@smithy/shared-ini-file-loader", () => ({
 
 describe("AWS Region Resolution", () => {
   // Store original environment variables to restore them later
-  const originalEnv = process.env;
+  const originalEnv = { ...process.env };
 
   beforeEach(() => {
     // Reset environment variables before each test
@@ -23,7 +23,7 @@ describe("AWS Region Resolution", () => {
 
   afterEach(() => {
     // Restore environment variables after each test
-    process.env = originalEnv;
+    process.env = { ...originalEnv };
   });
 
   describe("resolveAwsCliV2Region", () => {
