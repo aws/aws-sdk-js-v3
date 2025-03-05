@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.762.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.761.0...v3.762.0) (2025-03-05)
+
+
+### Features
+
+* **client-bedrock-runtime:** This releases adds support for Custom Prompt Router ARN ([67aaaad](https://github.com/aws/aws-sdk-js-v3/commit/67aaaadc7798136822307380db8e58d534799eac))
+* **client-datasync:** AWS DataSync now supports modifying ServerHostname while updating locations SMB, NFS, and ObjectStorage. ([fdaf7bc](https://github.com/aws/aws-sdk-js-v3/commit/fdaf7bc9222a456d484568d0bd2edfc366346a2a))
+* **client-gameliftstreams:** New Service: Amazon GameLift Streams delivers low-latency game streaming from AWS global infrastructure to virtually any device with a browser at up to 1080p resolution and 60 fps. ([59e62d7](https://github.com/aws/aws-sdk-js-v3/commit/59e62d79d84419e1a78f1e800254931c5b36b45b))
+* **client-iotfleetwise:** This release adds floating point support for CAN/OBD signals and adds support for signed OBD signals. ([aa1be0d](https://github.com/aws/aws-sdk-js-v3/commit/aa1be0d733dbc9f306fb320183f815ce92a7fc01))
+* **client-workspaces:** Added DeviceTypeWorkSpacesThinClient type to allow users to access their WorkSpaces through a WorkSpaces Thin Client. ([0c829af](https://github.com/aws/aws-sdk-js-v3/commit/0c829af4957337ebf07c97373d5d22cd942b3222))
+* **clients:** update client endpoints as of 2025-03-05 ([a48501e](https://github.com/aws/aws-sdk-js-v3/commit/a48501e7379803f9a0ca1233408a55062aa84d40))
+
+
+
+
+
 # [3.761.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.760.0...v3.761.0) (2025-03-04)
 
 

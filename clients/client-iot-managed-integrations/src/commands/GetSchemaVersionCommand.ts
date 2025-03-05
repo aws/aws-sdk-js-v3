@@ -90,6 +90,103 @@ export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse,
  * <p>Base exception class for all service exceptions from IoTManagedIntegrations service.</p>
  *
  * @public
+ * @example GetSchemaVersion happy path for an example schema version.
+ * ```javascript
+ * //
+ * const input = {
+ *   "SchemaVersionedId": "matter.ColorControl@$latest",
+ *   "Type": "capability"
+ * };
+ * const command = new GetSchemaVersionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Description": "The Color Control cluster defined as Harmony Capability.",
+ *   "Namespace": "matter",
+ *   "Schema": {
+ *     "name": "Color Control",
+ *     "$defs": {},
+ *     "$id": "matter.ColorControl@1.3",
+ *     "$ref": "aws.capability@1.0",
+ *     "actions": [
+ *       {
+ *         "$ref": "aws.action.ReadState@1.0"
+ *       },
+ *       {
+ *         "$ref": "aws.action.UpdateState@1.0"
+ *       },
+ *       {
+ *         "name": "MoveToHue",
+ *         "extrinsicId": "0x00",
+ *         "request": {
+ *           "parameters": {
+ *             "Hue": {
+ *               "value": {
+ *                 "$ref": "aws.integer@1.0"
+ *               },
+ *               "extrinsicId": "0"
+ *             }
+ *           }
+ *         }
+ *       }
+ *     ],
+ *     "description": "The Color Control cluster defined as Harmony Capability.",
+ *     "events": [],
+ *     "extrinsicId": "0x0300",
+ *     "extrinsicVersion": "14",
+ *     "properties": {
+ *       "CurrentHue": {
+ *         "value": {
+ *           "$ref": "aws.integer@1.0"
+ *         },
+ *         "mutable": false
+ *       }
+ *     },
+ *     "title": "Color Control Cluster"
+ *   },
+ *   "SchemaId": "matter.ColorControl",
+ *   "SemanticVersion": "1.3",
+ *   "Type": "capability"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
+ * @example GetSchemaVersion happy path for an example schema version.
+ * ```javascript
+ * //
+ * const input = {
+ *   "Format": "ZCL",
+ *   "SchemaVersionedId": "matter.ColorControl@1.3",
+ *   "Type": "capability"
+ * };
+ * const command = new GetSchemaVersionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Description": "The Color Control cluster defined as Harmony Capability.",
+ *   "Namespace": "matter",
+ *   "Schema": {},
+ *   "SchemaId": "matter.ColorControl",
+ *   "SemanticVersion": "1.3",
+ *   "Type": "capability"
+ * }
+ * *\/
+ * // example id: example-2
+ * ```
+ *
+ * @example GetSchemaVersion error path for an example schema version that does not exist.
+ * ```javascript
+ * //
+ * const input = {
+ *   "SchemaVersionedId": "matter.ColorControl@$latest",
+ *   "Type": "capability"
+ * };
+ * const command = new GetSchemaVersionCommand(input);
+ * await client.send(command);
+ * // example id: example-3
+ * ```
+ *
  */
 export class GetSchemaVersionCommand extends $Command
   .classBuilder<
