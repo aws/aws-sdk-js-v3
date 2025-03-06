@@ -12402,6 +12402,9 @@
             "ap-east-1": {
               "hostname": "gameliftstreams.ap-east-1.api.aws"
             },
+            "ap-northeast-1": {
+              "hostname": "gameliftstreams.ap-northeast-1.api.aws"
+            },
             "ap-northeast-2": {
               "hostname": "gameliftstreams.ap-northeast-2.api.aws"
             },
@@ -12437,6 +12440,9 @@
             },
             "ca-west-1": {
               "hostname": "gameliftstreams.ca-west-1.api.aws"
+            },
+            "eu-central-1": {
+              "hostname": "gameliftstreams.eu-central-1.api.aws"
             },
             "eu-central-2": {
               "hostname": "gameliftstreams.eu-central-2.api.aws"
@@ -12477,8 +12483,14 @@
             "us-east-1": {
               "hostname": "gameliftstreams.us-east-1.api.aws"
             },
+            "us-east-2": {
+              "hostname": "gameliftstreams.us-east-2.api.aws"
+            },
             "us-west-1": {
               "hostname": "gameliftstreams.us-west-1.api.aws"
+            },
+            "us-west-2": {
+              "hostname": "gameliftstreams.us-west-2.api.aws"
             }
           }
         },
@@ -40153,8 +40165,26 @@
         },
         "secretsmanager": {
           "endpoints": {
-            "us-iso-east-1": {},
-            "us-iso-west-1": {}
+            "us-iso-east-1": {
+              "variants": [
+                {
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-iso-east-1-fips": {
+              "deprecated": true
+            },
+            "us-iso-west-1": {
+              "variants": [
+                {
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-iso-west-1-fips": {
+              "deprecated": true
+            }
           }
         },
         "snowball": {
@@ -40962,7 +40992,16 @@
         },
         "secretsmanager": {
           "endpoints": {
-            "us-isob-east-1": {}
+            "us-isob-east-1": {
+              "variants": [
+                {
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-isob-east-1-fips": {
+              "deprecated": true
+            }
           }
         },
         "snowball": {
