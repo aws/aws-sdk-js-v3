@@ -6123,17 +6123,6 @@ export interface ListFoundationModelsResponse {
 }
 
 /**
- * @public
- */
-export interface GetPromptRouterRequest {
-  /**
-   * <p>The prompt router's ARN</p>
-   * @public
-   */
-  promptRouterArn: string | undefined;
-}
-
-/**
  * <p>The target model for a prompt router.</p>
  * @public
  */
@@ -6142,7 +6131,7 @@ export interface PromptRouterTargetModel {
    * <p>The target model's ARN.</p>
    * @public
    */
-  modelArn?: string | undefined;
+  modelArn: string | undefined;
 }
 
 /**
@@ -6155,6 +6144,92 @@ export interface RoutingCriteria {
    * @public
    */
   responseQualityDifference: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePromptRouterRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of your requests. If not specified, the Amazon Web Services SDK
+   *             automatically generates one for you.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+
+  /**
+   * <p>The name of the prompt router. The name must be unique within your Amazon Web Services account in the current region.</p>
+   * @public
+   */
+  promptRouterName: string | undefined;
+
+  /**
+   * <p>A list of foundation models that the prompt router can route requests to. At least one model must be specified.</p>
+   * @public
+   */
+  models: PromptRouterTargetModel[] | undefined;
+
+  /**
+   * <p>An optional description of the prompt router to help identify its purpose.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The criteria, which is the response quality difference, used to determine how incoming requests are routed to different models.</p>
+   * @public
+   */
+  routingCriteria: RoutingCriteria | undefined;
+
+  /**
+   * <p>The default model to use when the routing criteria is not met.</p>
+   * @public
+   */
+  fallbackModel: PromptRouterTargetModel | undefined;
+
+  /**
+   * <p>An array of key-value pairs to apply to this resource as tags. You can use tags to categorize and manage your Amazon Web Services resources.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePromptRouterResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the prompt router.</p>
+   * @public
+   */
+  promptRouterArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePromptRouterRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the prompt router to delete.</p>
+   * @public
+   */
+  promptRouterArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePromptRouterResponse {}
+
+/**
+ * @public
+ */
+export interface GetPromptRouterRequest {
+  /**
+   * <p>The prompt router's ARN</p>
+   * @public
+   */
+  promptRouterArn: string | undefined;
 }
 
 /**
@@ -6264,6 +6339,12 @@ export interface ListPromptRoutersRequest {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p>The type of the prompt routers, such as whether it's default or custom.</p>
+   * @public
+   */
+  type?: PromptRouterType | undefined;
 }
 
 /**
@@ -8577,6 +8658,14 @@ export const GetCustomModelResponseFilterSensitiveLog = (obj: GetCustomModelResp
   ...obj,
   ...(obj.trainingDataConfig && { trainingDataConfig: TrainingDataConfigFilterSensitiveLog(obj.trainingDataConfig) }),
   ...(obj.customizationConfig && { customizationConfig: obj.customizationConfig }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePromptRouterRequestFilterSensitiveLog = (obj: CreatePromptRouterRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
 });
 
 /**

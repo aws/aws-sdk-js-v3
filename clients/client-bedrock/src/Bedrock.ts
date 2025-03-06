@@ -54,6 +54,11 @@ import {
   CreateModelInvocationJobCommandOutput,
 } from "./commands/CreateModelInvocationJobCommand";
 import {
+  CreatePromptRouterCommand,
+  CreatePromptRouterCommandInput,
+  CreatePromptRouterCommandOutput,
+} from "./commands/CreatePromptRouterCommand";
+import {
   CreateProvisionedModelThroughputCommand,
   CreateProvisionedModelThroughputCommandInput,
   CreateProvisionedModelThroughputCommandOutput,
@@ -88,6 +93,11 @@ import {
   DeleteModelInvocationLoggingConfigurationCommandInput,
   DeleteModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/DeleteModelInvocationLoggingConfigurationCommand";
+import {
+  DeletePromptRouterCommand,
+  DeletePromptRouterCommandInput,
+  DeletePromptRouterCommandOutput,
+} from "./commands/DeletePromptRouterCommand";
 import {
   DeleteProvisionedModelThroughputCommand,
   DeleteProvisionedModelThroughputCommandInput,
@@ -296,6 +306,7 @@ const commands = {
   CreateModelCustomizationJobCommand,
   CreateModelImportJobCommand,
   CreateModelInvocationJobCommand,
+  CreatePromptRouterCommand,
   CreateProvisionedModelThroughputCommand,
   DeleteCustomModelCommand,
   DeleteGuardrailCommand,
@@ -303,6 +314,7 @@ const commands = {
   DeleteInferenceProfileCommand,
   DeleteMarketplaceModelEndpointCommand,
   DeleteModelInvocationLoggingConfigurationCommand,
+  DeletePromptRouterCommand,
   DeleteProvisionedModelThroughputCommand,
   DeregisterMarketplaceModelEndpointCommand,
   GetCustomModelCommand,
@@ -514,6 +526,23 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link CreatePromptRouterCommand}
+   */
+  createPromptRouter(
+    args: CreatePromptRouterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePromptRouterCommandOutput>;
+  createPromptRouter(
+    args: CreatePromptRouterCommandInput,
+    cb: (err: any, data?: CreatePromptRouterCommandOutput) => void
+  ): void;
+  createPromptRouter(
+    args: CreatePromptRouterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePromptRouterCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateProvisionedModelThroughputCommand}
    */
   createProvisionedModelThroughput(
@@ -628,6 +657,23 @@ export interface Bedrock {
     args: DeleteModelInvocationLoggingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteModelInvocationLoggingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePromptRouterCommand}
+   */
+  deletePromptRouter(
+    args: DeletePromptRouterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePromptRouterCommandOutput>;
+  deletePromptRouter(
+    args: DeletePromptRouterCommandInput,
+    cb: (err: any, data?: DeletePromptRouterCommandOutput) => void
+  ): void;
+  deletePromptRouter(
+    args: DeletePromptRouterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePromptRouterCommandOutput) => void
   ): void;
 
   /**

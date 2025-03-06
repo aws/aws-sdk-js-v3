@@ -87,6 +87,7 @@ import {
   CreateModelInvocationJobCommandInput,
   CreateModelInvocationJobCommandOutput,
 } from "./commands/CreateModelInvocationJobCommand";
+import { CreatePromptRouterCommandInput, CreatePromptRouterCommandOutput } from "./commands/CreatePromptRouterCommand";
 import {
   CreateProvisionedModelThroughputCommandInput,
   CreateProvisionedModelThroughputCommandOutput,
@@ -109,6 +110,7 @@ import {
   DeleteModelInvocationLoggingConfigurationCommandInput,
   DeleteModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/DeleteModelInvocationLoggingConfigurationCommand";
+import { DeletePromptRouterCommandInput, DeletePromptRouterCommandOutput } from "./commands/DeletePromptRouterCommand";
 import {
   DeleteProvisionedModelThroughputCommandInput,
   DeleteProvisionedModelThroughputCommandOutput,
@@ -240,6 +242,7 @@ export type ServiceInputTypes =
   | CreateModelCustomizationJobCommandInput
   | CreateModelImportJobCommandInput
   | CreateModelInvocationJobCommandInput
+  | CreatePromptRouterCommandInput
   | CreateProvisionedModelThroughputCommandInput
   | DeleteCustomModelCommandInput
   | DeleteGuardrailCommandInput
@@ -247,6 +250,7 @@ export type ServiceInputTypes =
   | DeleteInferenceProfileCommandInput
   | DeleteMarketplaceModelEndpointCommandInput
   | DeleteModelInvocationLoggingConfigurationCommandInput
+  | DeletePromptRouterCommandInput
   | DeleteProvisionedModelThroughputCommandInput
   | DeregisterMarketplaceModelEndpointCommandInput
   | GetCustomModelCommandInput
@@ -302,6 +306,7 @@ export type ServiceOutputTypes =
   | CreateModelCustomizationJobCommandOutput
   | CreateModelImportJobCommandOutput
   | CreateModelInvocationJobCommandOutput
+  | CreatePromptRouterCommandOutput
   | CreateProvisionedModelThroughputCommandOutput
   | DeleteCustomModelCommandOutput
   | DeleteGuardrailCommandOutput
@@ -309,6 +314,7 @@ export type ServiceOutputTypes =
   | DeleteInferenceProfileCommandOutput
   | DeleteMarketplaceModelEndpointCommandOutput
   | DeleteModelInvocationLoggingConfigurationCommandOutput
+  | DeletePromptRouterCommandOutput
   | DeleteProvisionedModelThroughputCommandOutput
   | DeregisterMarketplaceModelEndpointCommandOutput
   | GetCustomModelCommandOutput
