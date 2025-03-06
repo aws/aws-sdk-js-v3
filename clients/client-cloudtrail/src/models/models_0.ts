@@ -2227,7 +2227,7 @@ export interface CreateTrailRequest {
   S3KeyPrefix?: string | undefined;
 
   /**
-   * <p>Specifies the name of the Amazon SNS topic defined for notification of log file
+   * <p>Specifies the name or ARN of the Amazon SNS topic defined for notification of log file
    *          delivery. The maximum length is 256 characters.</p>
    * @public
    */
@@ -7821,7 +7821,7 @@ export interface UpdateTrailRequest {
   S3KeyPrefix?: string | undefined;
 
   /**
-   * <p>Specifies the name of the Amazon SNS topic defined for notification of log file
+   * <p>Specifies the name or ARN of the Amazon SNS topic defined for notification of log file
    *          delivery. The maximum length is 256 characters.</p>
    * @public
    */
