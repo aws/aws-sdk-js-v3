@@ -50,6 +50,7 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  *       ],
  *       recordingMode: "INTERVAL" || "DISABLED",
  *     },
+ *     recordingReconnectWindowSeconds: Number("int"),
  *   },
  * };
  * const command = new UpdateStageCommand(input);
@@ -74,6 +75,7 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * //         ],
  * //         recordingMode: "INTERVAL" || "DISABLED",
  * //       },
+ * //       recordingReconnectWindowSeconds: Number("int"),
  * //     },
  * //     endpoints: { // StageEndpoints
  * //       events: "STRING_VALUE",

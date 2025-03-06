@@ -60,6 +60,7 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * //         ],
  * //         recordingMode: "INTERVAL" || "DISABLED",
  * //       },
+ * //       recordingReconnectWindowSeconds: Number("int"),
  * //     },
  * //     endpoints: { // StageEndpoints
  * //       events: "STRING_VALUE",
