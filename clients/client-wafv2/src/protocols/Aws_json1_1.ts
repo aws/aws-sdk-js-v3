@@ -244,6 +244,7 @@ import {
   IPSetForwardedIPConfig,
   IPSetReferenceStatement,
   JA3Fingerprint,
+  JA4Fingerprint,
   JsonBody,
   JsonMatchPattern,
   Label,
@@ -290,6 +291,8 @@ import {
   RateLimitHeader,
   RateLimitHTTPMethod,
   RateLimitIP,
+  RateLimitJA3Fingerprint,
+  RateLimitJA4Fingerprint,
   RateLimitLabelNamespace,
   RateLimitQueryArgument,
   RateLimitQueryString,
@@ -2762,6 +2765,8 @@ const se_GetSampledRequestsRequest = (input: GetSampledRequestsRequest, context:
 
 // se_JA3Fingerprint omitted.
 
+// se_JA4Fingerprint omitted.
+
 // se_JsonBody omitted.
 
 // se_JsonMatchPattern omitted.
@@ -2890,6 +2895,10 @@ const se_RateBasedStatement = (input: RateBasedStatement, context: __SerdeContex
 // se_RateLimitHTTPMethod omitted.
 
 // se_RateLimitIP omitted.
+
+// se_RateLimitJA3Fingerprint omitted.
+
+// se_RateLimitJA4Fingerprint omitted.
 
 // se_RateLimitLabelNamespace omitted.
 
@@ -3438,6 +3447,8 @@ const de_GetWebACLResponse = (output: any, context: __SerdeContext): GetWebACLRe
 
 // de_JA3Fingerprint omitted.
 
+// de_JA4Fingerprint omitted.
+
 // de_JsonBody omitted.
 
 // de_JsonMatchPattern omitted.
@@ -3691,6 +3702,10 @@ const de_RateBasedStatement = (output: any, context: __SerdeContext): RateBasedS
 // de_RateLimitHTTPMethod omitted.
 
 // de_RateLimitIP omitted.
+
+// de_RateLimitJA3Fingerprint omitted.
+
+// de_RateLimitJA4Fingerprint omitted.
 
 // de_RateLimitLabelNamespace omitted.
 

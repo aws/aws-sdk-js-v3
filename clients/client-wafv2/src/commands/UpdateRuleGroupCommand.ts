@@ -140,6 +140,9 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *             JA3Fingerprint: { // JA3Fingerprint
  *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *             },
+ *             JA4Fingerprint: { // JA4Fingerprint
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
  *           },
  *           TextTransformations: [ // TextTransformations // required
  *             { // TextTransformation
@@ -207,6 +210,9 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *             JA3Fingerprint: {
  *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *             },
+ *             JA4Fingerprint: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
  *           },
  *           TextTransformations: [ // required
  *             {
@@ -270,6 +276,9 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *             JA3Fingerprint: {
  *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *             },
+ *             JA4Fingerprint: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
  *           },
  *           TextTransformations: [ // required
  *             {
@@ -326,6 +335,9 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  *             },
  *             JA3Fingerprint: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
+ *             JA4Fingerprint: {
  *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *             },
  *           },
@@ -473,6 +485,9 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *             JA3Fingerprint: {
  *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *             },
+ *             JA4Fingerprint: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
  *           },
  *           TextTransformations: [ // required
  *             {
@@ -599,6 +614,12 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *                   },
  *                   UriPath: { // RateLimitUriPath
  *                     TextTransformations: "<TextTransformations>", // required
+ *                   },
+ *                   JA3Fingerprint: { // RateLimitJA3Fingerprint
+ *                     FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *                   },
+ *                   JA4Fingerprint: { // RateLimitJA4Fingerprint
+ *                     FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *                   },
  *                 },
  *               ],
@@ -820,6 +841,12 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *               },
  *               UriPath: {
  *                 TextTransformations: "<TextTransformations>", // required
+ *               },
+ *               JA3Fingerprint: {
+ *                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *               },
+ *               JA4Fingerprint: {
+ *                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *               },
  *             },
  *           ],
