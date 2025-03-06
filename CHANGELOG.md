@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.763.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.762.0...v3.763.0) (2025-03-06)
+
+
+### Features
+
+* **client-bedrock:** This releases adds support for Custom Prompt Router ([4adb0c3](https://github.com/aws/aws-sdk-js-v3/commit/4adb0c3900ee5c1bd549e0e13fc25ce0735e9c3b))
+* **client-ivs-realtime:** IVS Real-Time now offers customers the ability to merge fragmented recordings in the event of a participant disconnect. ([ad76edc](https://github.com/aws/aws-sdk-js-v3/commit/ad76edc0539dd0938145aa6cc9e1bb31b557fbad))
+* **client-networkflowmonitor:** This release contains 2 changes. 1: DeleteScope/GetScope/UpdateScope operations now return 404 instead of 500 when the resource does not exist. 2: Expected string format for clientToken fields of CreateMonitorInput/CreateScopeInput/UpdateMonitorInput have been updated to be an UUID based string. ([b81cdfe](https://github.com/aws/aws-sdk-js-v3/commit/b81cdfe5e6106cc10474822dbaafa6c2d53b2545))
+* **client-redshift-data:** This release adds support for ListStatements API to filter statements by ClusterIdentifier, WorkgroupName, and Database. ([251c015](https://github.com/aws/aws-sdk-js-v3/commit/251c015f76be2a84dd5f2da47e97cc4e3a139ab3))
+* **client-wafv2:** You can now perform an exact match or rate limit aggregation against the web request's JA4 fingerprint. ([3f8e54d](https://github.com/aws/aws-sdk-js-v3/commit/3f8e54d2c51fb014e4186044961ba528a1464742))
+* **client-workspaces:** Added a new ModifyEndpointEncryptionMode API for managing endpoint encryption settings. ([84a664c](https://github.com/aws/aws-sdk-js-v3/commit/84a664ccfa9c45d1fb9ffdb4d5e6aeace6b7543a))
+* **clients:** update client endpoints as of 2025-03-06 ([352d1d9](https://github.com/aws/aws-sdk-js-v3/commit/352d1d9a1475676097de15d5b1945bb02ba3dc02))
+
+
+
+
+
 # [3.762.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.761.0...v3.762.0) (2025-03-05)
 
 

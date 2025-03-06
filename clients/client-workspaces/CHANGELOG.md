@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.763.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.762.0...v3.763.0) (2025-03-06)
+
+
+### Features
+
+* **client-workspaces:** Added a new ModifyEndpointEncryptionMode API for managing endpoint encryption settings. ([84a664c](https://github.com/aws/aws-sdk-js-v3/commit/84a664ccfa9c45d1fb9ffdb4d5e6aeace6b7543a))
+
+
+
+
+
 # [3.762.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.761.0...v3.762.0) (2025-03-05)
 
 

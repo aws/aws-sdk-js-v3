@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.763.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.762.0...v3.763.0) (2025-03-06)
+
+
+### Features
+
+* **client-bedrock:** This releases adds support for Custom Prompt Router ([4adb0c3](https://github.com/aws/aws-sdk-js-v3/commit/4adb0c3900ee5c1bd549e0e13fc25ce0735e9c3b))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock

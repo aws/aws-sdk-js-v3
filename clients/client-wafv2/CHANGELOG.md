@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.763.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.762.0...v3.763.0) (2025-03-06)
+
+
+### Features
+
+* **client-wafv2:** You can now perform an exact match or rate limit aggregation against the web request's JA4 fingerprint. ([3f8e54d](https://github.com/aws/aws-sdk-js-v3/commit/3f8e54d2c51fb014e4186044961ba528a1464742))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-wafv2
