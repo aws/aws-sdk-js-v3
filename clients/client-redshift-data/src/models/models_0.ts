@@ -1526,6 +1526,27 @@ export interface ListStatementsRequest {
    * @public
    */
   RoleLevel?: boolean | undefined;
+
+  /**
+   * <p>The name of the database when listing statements run against a <code>ClusterIdentifier</code> or <code>WorkgroupName</code>.
+   *        </p>
+   * @public
+   */
+  Database?: string | undefined;
+
+  /**
+   * <p>The cluster identifier. Only statements that ran on this cluster are returned.
+   *       When providing <code>ClusterIdentifier</code>, then <code>WorkgroupName</code> can't be specified.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The serverless workgroup name or Amazon Resource Name (ARN). Only statements that ran on this workgroup are returned.
+   *       When providing <code>WorkgroupName</code>, then <code>ClusterIdentifier</code> can't be specified.</p>
+   * @public
+   */
+  WorkgroupName?: string | undefined;
 }
 
 /**
@@ -1596,16 +1617,16 @@ export interface StatementData {
   IsBatchStatement?: boolean | undefined;
 
   /**
-   * <p>The session identifier of the query.</p>
-   * @public
-   */
-  SessionId?: string | undefined;
-
-  /**
    * <p>The data format of the result of the SQL statement.</p>
    * @public
    */
   ResultFormat?: ResultFormatString | undefined;
+
+  /**
+   * <p>The session identifier of the query.</p>
+   * @public
+   */
+  SessionId?: string | undefined;
 }
 
 /**
