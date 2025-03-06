@@ -305,6 +305,11 @@ import {
   ModifyClientPropertiesCommandOutput,
 } from "./commands/ModifyClientPropertiesCommand";
 import {
+  ModifyEndpointEncryptionModeCommand,
+  ModifyEndpointEncryptionModeCommandInput,
+  ModifyEndpointEncryptionModeCommandOutput,
+} from "./commands/ModifyEndpointEncryptionModeCommand";
+import {
   ModifySamlPropertiesCommand,
   ModifySamlPropertiesCommandInput,
   ModifySamlPropertiesCommandOutput,
@@ -499,6 +504,7 @@ const commands = {
   ModifyAccountCommand,
   ModifyCertificateBasedAuthPropertiesCommand,
   ModifyClientPropertiesCommand,
+  ModifyEndpointEncryptionModeCommand,
   ModifySamlPropertiesCommand,
   ModifySelfservicePermissionsCommand,
   ModifyStreamingPropertiesCommand,
@@ -1553,6 +1559,23 @@ export interface WorkSpaces {
     args: ModifyClientPropertiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyClientPropertiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyEndpointEncryptionModeCommand}
+   */
+  modifyEndpointEncryptionMode(
+    args: ModifyEndpointEncryptionModeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyEndpointEncryptionModeCommandOutput>;
+  modifyEndpointEncryptionMode(
+    args: ModifyEndpointEncryptionModeCommandInput,
+    cb: (err: any, data?: ModifyEndpointEncryptionModeCommandOutput) => void
+  ): void;
+  modifyEndpointEncryptionMode(
+    args: ModifyEndpointEncryptionModeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyEndpointEncryptionModeCommandOutput) => void
   ): void;
 
   /**
