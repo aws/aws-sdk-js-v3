@@ -36,4 +36,16 @@ const adjacentSmithyPkgs = fs.readdirSync(smithyPackages);
     }
     process.stdout.write(".");
   }
+
+  const smithyCoreRoot = path.join(smithyPackages, "core");
+  const destination = path.join(node_modules, "@smithy", "core");
+  for (const file of fs.readdirSync(smithyCoreRoot)) {
+    if (file.endsWith(".js")) {
+      fs.cpSync(path.join(smithyCoreRoot, file), path.join(destination, file));
+      fs.cpSync(
+        path.join(smithyCoreRoot, file.replace(".js", ".d.ts")),
+        path.join(destination, file.replace(".js", ".d.ts"))
+      );
+    }
+  }
 })();
