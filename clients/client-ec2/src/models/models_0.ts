@@ -2854,6 +2854,20 @@ export const DomainType = {
 export type DomainType = (typeof DomainType)[keyof typeof DomainType];
 
 /**
+ * @public
+ * @enum
+ */
+export const ServiceManaged = {
+  alb: "alb",
+  nlb: "nlb",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceManaged = (typeof ServiceManaged)[keyof typeof ServiceManaged];
+
+/**
  * <p>Describes an Elastic IP address, or a carrier IP address.</p>
  * @public
  */
@@ -2931,6 +2945,15 @@ export interface Address {
    * @public
    */
   CarrierIp?: string | undefined;
+
+  /**
+   * <p>The service that manages the elastic IP address.</p>
+   *          <note>
+   *             <p>The only option supported today is <code>alb</code>.</p>
+   *          </note>
+   * @public
+   */
+  ServiceManaged?: ServiceManaged | undefined;
 
   /**
    * <p>The ID of the instance that the address is associated with (if any).</p>
@@ -8550,21 +8573,6 @@ export interface CopySnapshotResult {
    */
   SnapshotId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CapacityReservationDeliveryPreference = {
-  FIXED: "fixed",
-  INCREMENTAL: "incremental",
-} as const;
-
-/**
- * @public
- */
-export type CapacityReservationDeliveryPreference =
-  (typeof CapacityReservationDeliveryPreference)[keyof typeof CapacityReservationDeliveryPreference];
 
 /**
  * @internal

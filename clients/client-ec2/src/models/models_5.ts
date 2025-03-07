@@ -22,7 +22,6 @@ import {
   ResourceType,
   SecurityGroupRule,
   SecurityGroupVpcAssociationState,
-  SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
   TransitGatewayAssociationState,
@@ -98,8 +97,8 @@ import {
 import {
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchResourceType,
-  FastLaunchSnapshotConfigurationResponse,
   Filter,
+  IdFormat,
   MetricType,
   StatisticType,
   VpnConnection,
@@ -110,12 +109,30 @@ import {
 import {
   AttributeBooleanValue,
   EventInformation,
+  FastLaunchSnapshotConfigurationResponse,
   FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
   PermissionGroup,
-  PrincipalIdFormat,
   ProductCode,
 } from "./models_4";
+
+/**
+ * <p>PrincipalIdFormat description</p>
+ * @public
+ */
+export interface PrincipalIdFormat {
+  /**
+   * <p>PrincipalIdFormatARN description</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>PrincipalIdFormatStatuses description</p>
+   * @public
+   */
+  Statuses?: IdFormat[] | undefined;
+}
 
 /**
  * @public
@@ -11160,23 +11177,6 @@ export interface DisassociateSubnetCidrBlockRequest {
    * @public
    */
   AssociationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateSubnetCidrBlockResult {
-  /**
-   * <p>Information about the IPv6 CIDR block association.</p>
-   * @public
-   */
-  Ipv6CidrBlockAssociation?: SubnetIpv6CidrBlockAssociation | undefined;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
 }
 
 /**

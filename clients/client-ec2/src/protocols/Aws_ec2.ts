@@ -2607,7 +2607,6 @@ import {
   CreateLaunchTemplateVersionRequest,
   CreateLaunchTemplateVersionResult,
   CreateLocalGatewayRouteRequest,
-  CreateLocalGatewayRouteResult,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
@@ -2750,6 +2749,7 @@ import {
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
   ConnectionTrackingConfiguration,
+  CreateLocalGatewayRouteResult,
   CreateLocalGatewayRouteTableRequest,
   CreateLocalGatewayRouteTableResult,
   CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
@@ -2965,7 +2965,6 @@ import {
   VerifiedAccessEndpointStatus,
   VerifiedAccessGroup,
   VerifiedAccessSseSpecificationRequest,
-  VgwTelemetry,
   Volume,
   VpcBlockPublicAccessExclusion,
   VpcEndpoint,
@@ -3234,7 +3233,6 @@ import {
   ExportTaskS3Location,
   FailedQueuedPurchaseDeletion,
   FastLaunchLaunchTemplateSpecificationResponse,
-  FastLaunchSnapshotConfigurationResponse,
   FederatedAuthentication,
   Filter,
   IdFormat,
@@ -3251,6 +3249,7 @@ import {
   TargetNetwork,
   TransitGatewayMulticastDeregisteredGroupMembers,
   TransitGatewayMulticastDeregisteredGroupSources,
+  VgwTelemetry,
   VpnConnection,
   VpnGateway,
 } from "../models/models_3";
@@ -3402,6 +3401,7 @@ import {
   ElasticInferenceAcceleratorAssociation,
   EnclaveOptions,
   EventInformation,
+  FastLaunchSnapshotConfigurationResponse,
   FleetData,
   FleetLaunchTemplateConfig,
   FleetSpotCapacityRebalance,
@@ -3489,7 +3489,6 @@ import {
   PlacementGroupStrategy,
   PoolCidrBlock,
   PrefixList,
-  PrincipalIdFormat,
   PrivateDnsNameOptionsResponse,
   ProcessorInfo,
   ProductCode,
@@ -3711,7 +3710,6 @@ import {
   DisassociateSecurityGroupVpcRequest,
   DisassociateSecurityGroupVpcResult,
   DisassociateSubnetCidrBlockRequest,
-  DisassociateSubnetCidrBlockResult,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceNetworkInterfaceSpecification,
@@ -3720,6 +3718,7 @@ import {
   LaunchTemplateOverrides,
   LoadBalancersConfig,
   PricingDetail,
+  PrincipalIdFormat,
   PrivateDnsDetails,
   PublicIpv4Pool,
   PublicIpv4PoolRange,
@@ -3793,6 +3792,7 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DisassociateSubnetCidrBlockResult,
   DisassociateTransitGatewayMulticastDomainRequest,
   DisassociateTransitGatewayMulticastDomainResult,
   DisassociateTransitGatewayPolicyTableRequest,
@@ -4034,7 +4034,6 @@ import {
   ModifyImageAttributeRequest,
   ModifyInstanceAttributeRequest,
   ModifyInstanceCapacityReservationAttributesRequest,
-  ModifyInstanceCapacityReservationAttributesResult,
   PrefixListAssociation,
   PrefixListEntry,
   Purchase,
@@ -4082,6 +4081,7 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyInstanceCapacityReservationAttributesResult,
   ModifyInstanceCpuOptionsRequest,
   ModifyInstanceCpuOptionsResult,
   ModifyInstanceCreditSpecificationRequest,
@@ -4338,7 +4338,6 @@ import {
   StartNetworkInsightsAnalysisResult,
   StartVpcEndpointServicePrivateDnsVerificationRequest,
   StartVpcEndpointServicePrivateDnsVerificationResult,
-  StopInstancesRequest,
   SuccessfulInstanceCreditSpecificationItem,
   TrafficMirrorFilterRuleField,
   TrafficMirrorSessionField,
@@ -4354,6 +4353,7 @@ import {
 } from "../models/models_7";
 import {
   SecurityGroupRuleDescription,
+  StopInstancesRequest,
   StopInstancesResult,
   TerminateClientVpnConnectionsRequest,
   TerminateClientVpnConnectionsResult,
@@ -57662,6 +57662,9 @@ const de_Address = (output: any, context: __SerdeContext): Address => {
   if (output[_cI] != null) {
     contents[_CIa] = __expectString(output[_cI]);
   }
+  if (output[_sM] != null) {
+    contents[_SM] = __expectString(output[_sM]);
+  }
   if (output[_iI] != null) {
     contents[_IIn] = __expectString(output[_iI]);
   }
@@ -58133,8 +58136,8 @@ const de_AsnAssociation = (output: any, context: __SerdeContext): AsnAssociation
   if (output[_ci] != null) {
     contents[_C] = __expectString(output[_ci]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
@@ -59079,8 +59082,8 @@ const de_Byoasn = (output: any, context: __SerdeContext): Byoasn => {
   if (output[_iIp] != null) {
     contents[_IIp] = __expectString(output[_iIp]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
@@ -59115,8 +59118,8 @@ const de_ByoipCidr = (output: any, context: __SerdeContext): ByoipCidr => {
   } else if (output[_aAS] != null && output[_aAS][_i] != null) {
     contents[_AAsns] = de_AsnAssociationSet(__getArrayIfSingleItem(output[_aAS][_i]), context);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
@@ -59712,8 +59715,8 @@ const de_CapacityReservationBillingRequest = (
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_cRIa] != null) {
     contents[_CRIap] = de_CapacityReservationInfo(output[_cRIa], context);
@@ -60742,8 +60745,8 @@ const de_ConversionTask = (output: any, context: __SerdeContext): ConversionTask
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -67289,8 +67292,8 @@ const de_Ec2InstanceConnectEndpoint = (output: any, context: __SerdeContext): Ec
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sMt] != null) {
-    contents[_SMt] = __expectString(output[_sMt]);
+  if (output[_sMta] != null) {
+    contents[_SMta] = __expectString(output[_sMta]);
   }
   if (output[_dNn] != null) {
     contents[_DNn] = __expectString(output[_dNn]);
@@ -68248,8 +68251,8 @@ const de_ExportImageResult = (output: any, context: __SerdeContext): ExportImage
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -68282,8 +68285,8 @@ const de_ExportImageTask = (output: any, context: __SerdeContext): ExportImageTa
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -68324,8 +68327,8 @@ const de_ExportTask = (output: any, context: __SerdeContext): ExportTask => {
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -71035,8 +71038,8 @@ const de_ImportImageResult = (output: any, context: __SerdeContext): ImportImage
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output.licenseSpecifications === "") {
     contents[_LSi] = [];
@@ -71097,8 +71100,8 @@ const de_ImportImageTask = (output: any, context: __SerdeContext): ImportImageTa
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -71183,8 +71186,8 @@ const de_ImportInstanceVolumeDetailItem = (output: any, context: __SerdeContext)
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_vol] != null) {
     contents[_Vo] = de_DiskImageVolumeDescription(output[_vol], context);
@@ -73183,8 +73186,8 @@ const de_Ipam = (output: any, context: __SerdeContext): Ipam => {
   if (output[_rDAC] != null) {
     contents[_RDAC] = __strictParseInt32(output[_rDAC]) as number;
   }
-  if (output[_sMt] != null) {
-    contents[_SMt] = __expectString(output[_sMt]);
+  if (output[_sMta] != null) {
+    contents[_SMta] = __expectString(output[_sMta]);
   }
   if (output[_tie] != null) {
     contents[_Ti] = __expectString(output[_tie]);
@@ -73584,8 +73587,8 @@ const de_IpamPool = (output: any, context: __SerdeContext): IpamPool => {
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sMt] != null) {
-    contents[_SMt] = __expectString(output[_sMt]);
+  if (output[_sMta] != null) {
+    contents[_SMta] = __expectString(output[_sMta]);
   }
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
@@ -75909,8 +75912,8 @@ const de_ManagedPrefixList = (output: any, context: __SerdeContext): ManagedPref
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sMt] != null) {
-    contents[_SMt] = __expectString(output[_sMt]);
+  if (output[_sMta] != null) {
+    contents[_SMta] = __expectString(output[_sMta]);
   }
   if (output[_pLA] != null) {
     contents[_PLAr] = __expectString(output[_pLA]);
@@ -77374,8 +77377,8 @@ const de_NetworkInsightsAccessScopeAnalysis = (
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_wM] != null) {
     contents[_WM] = __expectString(output[_wM]);
@@ -77479,8 +77482,8 @@ const de_NetworkInsightsAnalysis = (output: any, context: __SerdeContext): Netwo
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_wM] != null) {
     contents[_WM] = __expectString(output[_wM]);
@@ -77869,8 +77872,8 @@ const de_NetworkInterfacePermissionState = (output: any, context: __SerdeContext
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   return contents;
 };
@@ -80024,8 +80027,8 @@ const de_ReservedInstancesListing = (output: any, context: __SerdeContext): Rese
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -80079,8 +80082,8 @@ const de_ReservedInstancesModification = (output: any, context: __SerdeContext):
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_uDpd] != null) {
     contents[_UDpd] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_uDpd]));
@@ -80802,8 +80805,8 @@ const de_RouteTableAssociationState = (output: any, context: __SerdeContext): Ro
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   return contents;
 };
@@ -81648,8 +81651,8 @@ const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   if (output[_sta] != null) {
     contents[_Stat] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SMt] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMta] = __expectString(output[_sMt]);
   }
   if (output[_sT] != null) {
     contents[_STt] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_sT]));
@@ -81704,8 +81707,8 @@ const de_SnapshotDetail = (output: any, context: __SerdeContext): SnapshotDetail
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_ur] != null) {
     contents[_U] = __expectString(output[_ur]);
@@ -81861,8 +81864,8 @@ const de_SnapshotTaskDetail = (output: any, context: __SerdeContext): SnapshotTa
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_ur] != null) {
     contents[_U] = __expectString(output[_ur]);
@@ -82793,8 +82796,8 @@ const de_SubnetCidrBlockState = (output: any, context: __SerdeContext): SubnetCi
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   return contents;
 };
@@ -86178,8 +86181,8 @@ const de_VgwTelemetry = (output: any, context: __SerdeContext): VgwTelemetry => 
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_cAe] != null) {
     contents[_CA] = __expectString(output[_cAe]);
@@ -86340,8 +86343,8 @@ const de_VolumeModification = (output: any, context: __SerdeContext): VolumeModi
   if (output[_mSod] != null) {
     contents[_MSod] = __expectString(output[_mSod]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_tSar] != null) {
     contents[_TSar] = __strictParseInt32(output[_tSar]) as number;
@@ -86770,8 +86773,8 @@ const de_VpcCidrBlockState = (output: any, context: __SerdeContext): VpcCidrBloc
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   return contents;
 };
@@ -86823,8 +86826,8 @@ const de_VpcEncryptionControl = (output: any, context: __SerdeContext): VpcEncry
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sMt] != null) {
-    contents[_SMt] = __expectString(output[_sMt]);
+  if (output[_sMta] != null) {
+    contents[_SMta] = __expectString(output[_sMta]);
   }
   if (output[_rEes] != null) {
     contents[_REeso] = de_VpcEncryptionControlExclusions(output[_rEes], context);
@@ -86845,8 +86848,8 @@ const de_VpcEncryptionControlExclusion = (output: any, context: __SerdeContext):
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sMt] != null) {
-    contents[_SMt] = __expectString(output[_sMt]);
+  if (output[_sMta] != null) {
+    contents[_SMta] = __expectString(output[_sMta]);
   }
   return contents;
 };
@@ -89842,11 +89845,12 @@ const _SKo = "S3objectKey";
 const _SL = "SpreadLevel";
 const _SLGR = "SearchLocalGatewayRoutes";
 const _SLo = "S3Location";
-const _SM = "StatusMessage";
+const _SM = "ServiceManaged";
 const _SMPPOLP = "SpotMaxPricePercentageOverLowestPrice";
 const _SMS = "SpotMaintenanceStrategies";
 const _SMTP = "SpotMaxTotalPrice";
-const _SMt = "StateMessage";
+const _SMt = "StatusMessage";
+const _SMta = "StateMessage";
 const _SN = "SessionNumber";
 const _SNA = "ServiceNetworkArn";
 const _SNIA = "StartNetworkInsightsAnalysis";
@@ -91666,11 +91670,12 @@ const _sK = "s3Key";
 const _sKo = "s3objectKey";
 const _sL = "s3Location";
 const _sLp = "spreadLevel";
-const _sM = "statusMessage";
+const _sM = "serviceManaged";
 const _sMPPOLP = "spotMaxPricePercentageOverLowestPrice";
 const _sMS = "spotMaintenanceStrategies";
 const _sMTP = "spotMaxTotalPrice";
-const _sMt = "stateMessage";
+const _sMt = "statusMessage";
+const _sMta = "stateMessage";
 const _sN = "serviceName";
 const _sNA = "serviceNetworkArn";
 const _sNN = "serviceNetworkName";

@@ -84,12 +84,25 @@ import {
   Byoasn,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchResourceType,
-  FastLaunchSnapshotConfigurationResponse,
   Filter,
   FleetStateCode,
   IdFormat,
   InstanceTagNotificationAttribute,
 } from "./models_3";
+
+/**
+ * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows
+ *       fast launch enabled Windows AMI.</p>
+ * @public
+ */
+export interface FastLaunchSnapshotConfigurationResponse {
+  /**
+   * <p>The number of pre-provisioned snapshots requested to keep on hand for a Windows fast
+   *       launch enabled AMI.</p>
+   * @public
+   */
+  TargetResourceCount?: number | undefined;
+}
 
 /**
  * @public
@@ -12659,24 +12672,6 @@ export interface DescribePrincipalIdFormatRequest {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>PrincipalIdFormat description</p>
- * @public
- */
-export interface PrincipalIdFormat {
-  /**
-   * <p>PrincipalIdFormatARN description</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>PrincipalIdFormatStatuses description</p>
-   * @public
-   */
-  Statuses?: IdFormat[] | undefined;
 }
 
 /**

@@ -64,6 +64,7 @@ import {
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
   SubnetCidrReservation,
+  TelemetryStatus,
   TransitGateway,
   TransitGatewayConnect,
   TransitGatewayConnectPeer,
@@ -75,13 +76,55 @@ import {
   TransitGatewayRouteTableAnnouncement,
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
-  VgwTelemetry,
   VpcBlockPublicAccessExclusion,
   VpnConnectionOptions,
   VpnConnectionOptionsFilterSensitiveLog,
   VpnState,
   VpnStaticRoute,
 } from "./models_2";
+
+/**
+ * <p>Describes telemetry for a VPN tunnel.</p>
+ * @public
+ */
+export interface VgwTelemetry {
+  /**
+   * <p>The number of accepted routes.</p>
+   * @public
+   */
+  AcceptedRouteCount?: number | undefined;
+
+  /**
+   * <p>The date and time of the last change in status. This field is updated when changes in IKE (Phase 1), IPSec (Phase 2), or BGP status are detected.</p>
+   * @public
+   */
+  LastStatusChange?: Date | undefined;
+
+  /**
+   * <p>The Internet-routable IP address of the virtual private gateway's outside
+   *             interface.</p>
+   * @public
+   */
+  OutsideIpAddress?: string | undefined;
+
+  /**
+   * <p>The status of the VPN tunnel.</p>
+   * @public
+   */
+  Status?: TelemetryStatus | undefined;
+
+  /**
+   * <p>If an error occurs, a description of the error.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.</p>
+   * @public
+   */
+  CertificateArn?: string | undefined;
+}
 
 /**
  * <p>Describes a VPN connection.</p>
@@ -7664,20 +7707,6 @@ export const FastLaunchResourceType = {
  * @public
  */
 export type FastLaunchResourceType = (typeof FastLaunchResourceType)[keyof typeof FastLaunchResourceType];
-
-/**
- * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows
- *       fast launch enabled Windows AMI.</p>
- * @public
- */
-export interface FastLaunchSnapshotConfigurationResponse {
-  /**
-   * <p>The number of pre-provisioned snapshots requested to keep on hand for a Windows fast
-   *       launch enabled AMI.</p>
-   * @public
-   */
-  TargetResourceCount?: number | undefined;
-}
 
 /**
  * @internal

@@ -13,6 +13,7 @@ import {
   HostRecovery,
   IpamPoolAllocation,
   SubnetAssociation,
+  SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
   TargetConfigurationRequest,
@@ -67,7 +68,6 @@ import {
   ExportTaskS3Location,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchResourceType,
-  FastLaunchSnapshotConfigurationResponse,
   Filter,
   IpamPoolCidr,
   MetricType,
@@ -81,6 +81,7 @@ import {
   ArchitectureValues,
   AttributeBooleanValue,
   BootModeValues,
+  FastLaunchSnapshotConfigurationResponse,
   FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
   FpgaImageAttribute,
@@ -107,6 +108,23 @@ import {
   TransitGatewayPropagation,
   TransitGatewayPropagationState,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface DisassociateSubnetCidrBlockResult {
+  /**
+   * <p>Information about the IPv6 CIDR block association.</p>
+   * @public
+   */
+  Ipv6CidrBlockAssociation?: SubnetIpv6CidrBlockAssociation | undefined;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+}
 
 /**
  * @public
@@ -8961,17 +8979,6 @@ export interface ModifyInstanceCapacityReservationAttributesRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyInstanceCapacityReservationAttributesResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
 }
 
 /**

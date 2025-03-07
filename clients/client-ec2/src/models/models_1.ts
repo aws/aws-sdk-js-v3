@@ -13,7 +13,6 @@ import {
   AddressFamily,
   AllocationType,
   AttachmentStatus,
-  CapacityReservationDeliveryPreference,
   CapacityReservationFleetState,
   InstanceEventWindow,
   ResourceType,
@@ -25,6 +24,21 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationDeliveryPreference = {
+  FIXED: "fixed",
+  INCREMENTAL: "incremental",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationDeliveryPreference =
+  (typeof CapacityReservationDeliveryPreference)[keyof typeof CapacityReservationDeliveryPreference];
 
 /**
  * @public
@@ -12479,17 +12493,6 @@ export interface LocalGatewayRoute {
    * @public
    */
   DestinationPrefixListId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateLocalGatewayRouteResult {
-  /**
-   * <p>Information about the route.</p>
-   * @public
-   */
-  Route?: LocalGatewayRoute | undefined;
 }
 
 /**

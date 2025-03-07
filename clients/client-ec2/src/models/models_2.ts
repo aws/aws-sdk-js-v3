@@ -40,6 +40,7 @@ import {
   InstanceIpv6Address,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
+  LocalGatewayRoute,
   OperatorRequest,
   OperatorResponse,
   PrivateIpAddressSpecification,
@@ -48,6 +49,17 @@ import {
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateLocalGatewayRouteResult {
+  /**
+   * <p>Information about the route.</p>
+   * @public
+   */
+  Route?: LocalGatewayRoute | undefined;
+}
 
 /**
  * @public
@@ -3352,8 +3364,8 @@ export interface CreateSecurityGroupRequest {
   Description: string | undefined;
 
   /**
-   * <p>The name of the security group.</p>
-   *          <p>Constraints: Up to 255 characters in length. Cannot start with <code>sg-</code>.</p>
+   * <p>The name of the security group. Names are case-insensitive and must be unique within the VPC.</p>
+   *          <p>Constraints: Up to 255 characters in length. Can't start with <code>sg-</code>.</p>
    *          <p>Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;\{\}!$*</p>
    * @public
    */
@@ -10410,49 +10422,6 @@ export const TelemetryStatus = {
  * @public
  */
 export type TelemetryStatus = (typeof TelemetryStatus)[keyof typeof TelemetryStatus];
-
-/**
- * <p>Describes telemetry for a VPN tunnel.</p>
- * @public
- */
-export interface VgwTelemetry {
-  /**
-   * <p>The number of accepted routes.</p>
-   * @public
-   */
-  AcceptedRouteCount?: number | undefined;
-
-  /**
-   * <p>The date and time of the last change in status. This field is updated when changes in IKE (Phase 1), IPSec (Phase 2), or BGP status are detected.</p>
-   * @public
-   */
-  LastStatusChange?: Date | undefined;
-
-  /**
-   * <p>The Internet-routable IP address of the virtual private gateway's outside
-   *             interface.</p>
-   * @public
-   */
-  OutsideIpAddress?: string | undefined;
-
-  /**
-   * <p>The status of the VPN tunnel.</p>
-   * @public
-   */
-  Status?: TelemetryStatus | undefined;
-
-  /**
-   * <p>If an error occurs, a description of the error.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.</p>
-   * @public
-   */
-  CertificateArn?: string | undefined;
-}
 
 /**
  * @internal

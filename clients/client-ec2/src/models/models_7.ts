@@ -162,6 +162,17 @@ import { CapacityReservationSpecification, IpamResourceCidr, OperationType, Purc
 /**
  * @public
  */
+export interface ModifyInstanceCapacityReservationAttributesResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ModifyInstanceCpuOptionsRequest {
   /**
    * <p>The ID of the instance to update.</p>
@@ -9495,47 +9506,6 @@ export interface StartVpcEndpointServicePrivateDnsVerificationResult {
    * @public
    */
   ReturnValue?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface StopInstancesRequest {
-  /**
-   * <p>The IDs of the instances.</p>
-   * @public
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Hibernates the instance if the instance was enabled for hibernation at launch. If the
-   *             instance cannot hibernate successfully, a normal shutdown occurs. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
-   *                 your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <p> Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  Hibernate?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Forces the instances to stop. The instances do not have an opportunity to flush file
-   *             system caches or file system metadata. If you use this option, you must perform file
-   *             system check and repair procedures. This option is not recommended for Windows
-   *             instances.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  Force?: boolean | undefined;
 }
 
 /**
