@@ -114,6 +114,7 @@ import {
   ModifyCapacityReservationCommandInput,
   ModifyCapacityReservationCommandOutput,
 } from "../commands/ModifyCapacityReservationCommand";
+import { ModifyIpPoolsCommandInput, ModifyIpPoolsCommandOutput } from "../commands/ModifyIpPoolsCommand";
 import {
   ModifyListenerAttributesCommandInput,
   ModifyListenerAttributesCommandOutput,
@@ -255,6 +256,7 @@ import {
   InvalidSecurityGroupException,
   InvalidSubnetException,
   InvalidTargetException,
+  IpamPools,
   Limit,
   Listener,
   ListenerAttribute,
@@ -268,6 +270,8 @@ import {
   MinimumLoadBalancerCapacity,
   ModifyCapacityReservationInput,
   ModifyCapacityReservationOutput,
+  ModifyIpPoolsInput,
+  ModifyIpPoolsOutput,
   ModifyListenerAttributesInput,
   ModifyListenerAttributesOutput,
   ModifyListenerInput,
@@ -292,6 +296,7 @@ import {
   RedirectActionConfig,
   RegisterTargetsInput,
   RegisterTargetsOutput,
+  RemoveIpamPoolEnum,
   RemoveListenerCertificatesInput,
   RemoveListenerCertificatesOutput,
   RemoveTagsInput,
@@ -944,6 +949,23 @@ export const se_ModifyCapacityReservationCommand = async (
   body = buildFormUrlencodedString({
     ...se_ModifyCapacityReservationInput(input, context),
     [_A]: _MCR,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryModifyIpPoolsCommand
+ */
+export const se_ModifyIpPoolsCommand = async (
+  input: ModifyIpPoolsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyIpPoolsInput(input, context),
+    [_A]: _MIP,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1898,6 +1920,26 @@ export const de_ModifyCapacityReservationCommand = async (
   let contents: any = {};
   contents = de_ModifyCapacityReservationOutput(data.ModifyCapacityReservationResult, context);
   const response: ModifyCapacityReservationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyIpPoolsCommand
+ */
+export const de_ModifyIpPoolsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyIpPoolsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyIpPoolsOutput(data.ModifyIpPoolsResult, context);
+  const response: ModifyIpPoolsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3730,6 +3772,13 @@ const se_CreateLoadBalancerInput = (input: CreateLoadBalancerInput, context: __S
   if (input[_EPFISN] != null) {
     entries[_EPFISN] = input[_EPFISN];
   }
+  if (input[_IP] != null) {
+    const memberEntries = se_IpamPools(input[_IP], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `IpamPools.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -4481,6 +4530,17 @@ const se_HttpRequestMethodConditionConfig = (input: HttpRequestMethodConditionCo
 };
 
 /**
+ * serializeAws_queryIpamPools
+ */
+const se_IpamPools = (input: IpamPools, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_IIPI] != null) {
+    entries[_IIPI] = input[_IIPI];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryListenerArns
  */
 const se_ListenerArns = (input: string[], context: __SerdeContext): any => {
@@ -4671,6 +4731,34 @@ const se_ModifyCapacityReservationInput = (input: ModifyCapacityReservationInput
   }
   if (input[_RCR] != null) {
     entries[_RCR] = input[_RCR];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryModifyIpPoolsInput
+ */
+const se_ModifyIpPoolsInput = (input: ModifyIpPoolsInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_LBA] != null) {
+    entries[_LBA] = input[_LBA];
+  }
+  if (input[_IP] != null) {
+    const memberEntries = se_IpamPools(input[_IP], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `IpamPools.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_RIP] != null) {
+    const memberEntries = se_RemoveIpamPools(input[_RIP], context);
+    if (input[_RIP]?.length === 0) {
+      entries.RemoveIpamPools = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RemoveIpamPools.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -5026,6 +5114,22 @@ const se_RegisterTargetsInput = (input: RegisterTargetsInput, context: __SerdeCo
       const loc = `Targets.${key}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryRemoveIpamPools
+ */
+const se_RemoveIpamPools = (input: RemoveIpamPoolEnum[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
   }
   return entries;
 };
@@ -6929,6 +7033,17 @@ const de_InvalidTargetException = (output: any, context: __SerdeContext): Invali
 };
 
 /**
+ * deserializeAws_queryIpamPools
+ */
+const de_IpamPools = (output: any, context: __SerdeContext): IpamPools => {
+  const contents: any = {};
+  if (output[_IIPI] != null) {
+    contents[_IIPI] = __expectString(output[_IIPI]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryLimit
  */
 const de_Limit = (output: any, context: __SerdeContext): Limit => {
@@ -7106,6 +7221,9 @@ const de_LoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => 
   if (output[_EPFISN] != null) {
     contents[_EPFISN] = __expectString(output[_EPFISN]);
   }
+  if (output[_IP] != null) {
+    contents[_IP] = de_IpamPools(output[_IP], context);
+  }
   return contents;
 };
 
@@ -7255,6 +7373,17 @@ const de_ModifyCapacityReservationOutput = (output: any, context: __SerdeContext
     contents[_CRS] = [];
   } else if (output[_CRS] != null && output[_CRS][_m] != null) {
     contents[_CRS] = de_ZonalCapacityReservationStates(__getArrayIfSingleItem(output[_CRS][_m]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryModifyIpPoolsOutput
+ */
+const de_ModifyIpPoolsOutput = (output: any, context: __SerdeContext): ModifyIpPoolsOutput => {
+  const contents: any = {};
+  if (output[_IP] != null) {
+    contents[_IP] = de_IpamPools(output[_IP], context);
   }
   return contents;
 };
@@ -8570,6 +8699,8 @@ const _IA = "IpAddress";
 const _IAT = "IpAddressType";
 const _ICCE = "IgnoreClientCertificateExpiry";
 const _ID = "IsDefault";
+const _IIPI = "Ipv4IpamPoolId";
+const _IP = "IpamPools";
 const _IPA = "IPv6Address";
 const _Id = "Id";
 const _In = "Include";
@@ -8591,6 +8722,7 @@ const _MA = "MutualAuthentication";
 const _MB = "MessageBody";
 const _MCR = "ModifyCapacityReservation";
 const _MIE = "MitigationInEffect";
+const _MIP = "ModifyIpPools";
 const _ML = "ModifyListener";
 const _MLA = "ModifyListenerAttributes";
 const _MLBA = "ModifyLoadBalancerAttributes";
@@ -8631,6 +8763,7 @@ const _RC = "RedirectConfig";
 const _RCR = "ResetCapacityReservation";
 const _RCe = "RevocationContents";
 const _RI = "RevocationIds";
+const _RIP = "RemoveIpamPools";
 const _RIe = "RevocationId";
 const _RLC = "RemoveListenerCertificates";
 const _RP = "RulePriorities";

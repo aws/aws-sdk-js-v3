@@ -145,6 +145,7 @@ import {
   ModifyCapacityReservationCommandInput,
   ModifyCapacityReservationCommandOutput,
 } from "./commands/ModifyCapacityReservationCommand";
+import { ModifyIpPoolsCommandInput, ModifyIpPoolsCommandOutput } from "./commands/ModifyIpPoolsCommand";
 import {
   ModifyListenerAttributesCommandInput,
   ModifyListenerAttributesCommandOutput,
@@ -225,6 +226,7 @@ export type ServiceInputTypes =
   | GetTrustStoreCaCertificatesBundleCommandInput
   | GetTrustStoreRevocationContentCommandInput
   | ModifyCapacityReservationCommandInput
+  | ModifyIpPoolsCommandInput
   | ModifyListenerAttributesCommandInput
   | ModifyListenerCommandInput
   | ModifyLoadBalancerAttributesCommandInput
@@ -280,6 +282,7 @@ export type ServiceOutputTypes =
   | GetTrustStoreCaCertificatesBundleCommandOutput
   | GetTrustStoreRevocationContentCommandOutput
   | ModifyCapacityReservationCommandOutput
+  | ModifyIpPoolsCommandOutput
   | ModifyListenerAttributesCommandOutput
   | ModifyListenerCommandOutput
   | ModifyLoadBalancerAttributesCommandOutput

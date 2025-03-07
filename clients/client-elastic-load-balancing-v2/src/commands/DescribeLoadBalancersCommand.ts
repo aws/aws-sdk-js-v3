@@ -91,6 +91,9 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * //       CustomerOwnedIpv4Pool: "STRING_VALUE",
  * //       EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: "STRING_VALUE",
  * //       EnablePrefixForIpv6SourceNat: "on" || "off",
+ * //       IpamPools: { // IpamPools
+ * //         Ipv4IpamPoolId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextMarker: "STRING_VALUE",
