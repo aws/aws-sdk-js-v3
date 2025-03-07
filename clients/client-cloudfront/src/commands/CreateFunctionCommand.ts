@@ -120,7 +120,7 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
