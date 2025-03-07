@@ -5760,6 +5760,14 @@
                 }
               ]
             },
+            "ap-southeast-5": {
+              "variants": [
+                {
+                  "hostname": "cognito-identity.ap-southeast-5.amazonaws.com",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "ca-central-1": {
               "variants": [
                 {
@@ -6052,6 +6060,14 @@
               "variants": [
                 {
                   "hostname": "cognito-idp.ap-southeast-4.amazonaws.com",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "ap-southeast-5": {
+              "variants": [
+                {
+                  "hostname": "cognito-idp.ap-southeast-5.amazonaws.com",
                   "tags": ["dualstack"]
                 }
               ]
@@ -34178,6 +34194,14 @@
               "deprecated": true,
               "hostname": "cognito-identity-fips.us-gov-west-1.amazonaws.com"
             },
+            "us-gov-east-1": {
+              "variants": [
+                {
+                  "hostname": "cognito-identity.us-gov-east-1.amazonaws.com",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "us-gov-west-1": {
               "variants": [
                 {
@@ -34204,6 +34228,14 @@
               },
               "deprecated": true,
               "hostname": "cognito-idp-fips.us-gov-west-1.amazonaws.com"
+            },
+            "us-gov-east-1": {
+              "variants": [
+                {
+                  "hostname": "cognito-idp.us-gov-east-1.amazonaws.com",
+                  "tags": ["dualstack"]
+                }
+              ]
             },
             "us-gov-west-1": {
               "variants": [
