@@ -151,7 +151,7 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  *     },
  *   },
  *   storageConfiguration: { // StorageConfiguration
- *     type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS" || "MONGO_DB_ATLAS", // required
+ *     type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS" || "MONGO_DB_ATLAS" || "NEPTUNE_ANALYTICS", // required
  *     opensearchServerlessConfiguration: { // OpenSearchServerlessConfiguration
  *       collectionArn: "STRING_VALUE", // required
  *       vectorIndexName: "STRING_VALUE", // required
@@ -204,6 +204,13 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  *         metadataField: "STRING_VALUE", // required
  *       },
  *       endpointServiceName: "STRING_VALUE",
+ *     },
+ *     neptuneAnalyticsConfiguration: { // NeptuneAnalyticsConfiguration
+ *       graphArn: "STRING_VALUE", // required
+ *       fieldMapping: { // NeptuneAnalyticsFieldMapping
+ *         textField: "STRING_VALUE", // required
+ *         metadataField: "STRING_VALUE", // required
+ *       },
  *     },
  *   },
  * };
@@ -303,7 +310,7 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  * //       },
  * //     },
  * //     storageConfiguration: { // StorageConfiguration
- * //       type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS" || "MONGO_DB_ATLAS", // required
+ * //       type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS" || "MONGO_DB_ATLAS" || "NEPTUNE_ANALYTICS", // required
  * //       opensearchServerlessConfiguration: { // OpenSearchServerlessConfiguration
  * //         collectionArn: "STRING_VALUE", // required
  * //         vectorIndexName: "STRING_VALUE", // required
@@ -356,6 +363,13 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  * //           metadataField: "STRING_VALUE", // required
  * //         },
  * //         endpointServiceName: "STRING_VALUE",
+ * //       },
+ * //       neptuneAnalyticsConfiguration: { // NeptuneAnalyticsConfiguration
+ * //         graphArn: "STRING_VALUE", // required
+ * //         fieldMapping: { // NeptuneAnalyticsFieldMapping
+ * //           textField: "STRING_VALUE", // required
+ * //           metadataField: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     },
  * //     status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "FAILED" || "DELETE_UNSUCCESSFUL", // required

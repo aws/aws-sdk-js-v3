@@ -3753,6 +3753,82 @@ export interface ChunkingConfiguration {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const EnrichmentStrategyMethod = {
+  CHUNK_ENTITY_EXTRACTION: "CHUNK_ENTITY_EXTRACTION",
+} as const;
+
+/**
+ * @public
+ */
+export type EnrichmentStrategyMethod = (typeof EnrichmentStrategyMethod)[keyof typeof EnrichmentStrategyMethod];
+
+/**
+ * <p>The strategy used for performing context enrichment.</p>
+ * @public
+ */
+export interface EnrichmentStrategyConfiguration {
+  /**
+   * <p>The method used for the context enrichment strategy.</p>
+   * @public
+   */
+  method: EnrichmentStrategyMethod | undefined;
+}
+
+/**
+ * <p>Context enrichment configuration is used to provide additional context to the RAG application
+ *       using Amazon Bedrock foundation models.</p>
+ * @public
+ */
+export interface BedrockFoundationModelContextEnrichmentConfiguration {
+  /**
+   * <p>The enrichment stategy used to provide additional context. For example, Neptune GraphRAG uses
+   *       Amazon Bedrock foundation models to perform chunk entity extraction.</p>
+   * @public
+   */
+  enrichmentStrategyConfiguration: EnrichmentStrategyConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the foundation model used for context enrichment.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ContextEnrichmentType = {
+  BEDROCK_FOUNDATION_MODEL: "BEDROCK_FOUNDATION_MODEL",
+} as const;
+
+/**
+ * @public
+ */
+export type ContextEnrichmentType = (typeof ContextEnrichmentType)[keyof typeof ContextEnrichmentType];
+
+/**
+ * <p>Context enrichment configuration is used to provide additional context to the RAG application.</p>
+ * @public
+ */
+export interface ContextEnrichmentConfiguration {
+  /**
+   * <p>The method used for context enrichment. It must be Amazon Bedrock foundation models.</p>
+   * @public
+   */
+  type: ContextEnrichmentType | undefined;
+
+  /**
+   * <p>The configuration of the Amazon Bedrock foundation model used for context enrichment.</p>
+   * @public
+   */
+  bedrockFoundationModelConfiguration?: BedrockFoundationModelContextEnrichmentConfiguration | undefined;
+}
+
+/**
  * <p>An Amazon S3 location.</p>
  * @public
  */
@@ -3985,6 +4061,13 @@ export interface VectorIngestionConfiguration {
    * @public
    */
   parsingConfiguration?: ParsingConfiguration | undefined;
+
+  /**
+   * <p>The context enrichment configuration used for ingestion of the data into the vector
+   *       store.</p>
+   * @public
+   */
+  contextEnrichmentConfiguration?: ContextEnrichmentConfiguration | undefined;
 }
 
 /**
@@ -9197,178 +9280,6 @@ export interface CustomDocumentIdentifier {
    * @public
    */
   id: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ContentDataSourceType = {
-  CUSTOM: "CUSTOM",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type ContentDataSourceType = (typeof ContentDataSourceType)[keyof typeof ContentDataSourceType];
-
-/**
- * <p>Contains information that identifies the document.</p>
- * @public
- */
-export interface DocumentIdentifier {
-  /**
-   * <p>The type of data source connected to the knowledge base that contains the document.</p>
-   * @public
-   */
-  dataSourceType: ContentDataSourceType | undefined;
-
-  /**
-   * <p>Contains information that identifies the document in an S3 data source.</p>
-   * @public
-   */
-  s3?: S3Location | undefined;
-
-  /**
-   * <p>Contains information that identifies the document in a custom data source.</p>
-   * @public
-   */
-  custom?: CustomDocumentIdentifier | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteKnowledgeBaseDocumentsRequest {
-  /**
-   * <p>The unique identifier of the knowledge base that is connected to the data source.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the data source that contains the documents.</p>
-   * @public
-   */
-  dataSourceId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
-   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>A list of objects, each of which contains information to identify a document to delete.</p>
-   * @public
-   */
-  documentIdentifiers: DocumentIdentifier[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DocumentStatus = {
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  IGNORED: "IGNORED",
-  INDEXED: "INDEXED",
-  IN_PROGRESS: "IN_PROGRESS",
-  METADATA_PARTIALLY_INDEXED: "METADATA_PARTIALLY_INDEXED",
-  METADATA_UPDATE_FAILED: "METADATA_UPDATE_FAILED",
-  NOT_FOUND: "NOT_FOUND",
-  PARTIALLY_INDEXED: "PARTIALLY_INDEXED",
-  PENDING: "PENDING",
-  STARTING: "STARTING",
-} as const;
-
-/**
- * @public
- */
-export type DocumentStatus = (typeof DocumentStatus)[keyof typeof DocumentStatus];
-
-/**
- * <p>Contains the details for a document that was ingested or deleted.</p>
- * @public
- */
-export interface KnowledgeBaseDocumentDetail {
-  /**
-   * <p>The identifier of the knowledge base that the document was ingested into or deleted from.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the data source connected to the knowledge base that the document was ingested into or deleted from.</p>
-   * @public
-   */
-  dataSourceId: string | undefined;
-
-  /**
-   * <p>The ingestion status of the document. The following statuses are possible:</p>
-   *          <ul>
-   *             <li>
-   *                <p>STARTED – You submitted the ingestion job containing the document.</p>
-   *             </li>
-   *             <li>
-   *                <p>PENDING – The document is waiting to be ingested.</p>
-   *             </li>
-   *             <li>
-   *                <p>IN_PROGRESS – The document is being ingested.</p>
-   *             </li>
-   *             <li>
-   *                <p>INDEXED – The document was successfully indexed.</p>
-   *             </li>
-   *             <li>
-   *                <p>PARTIALLY_INDEXED – The document was partially indexed.</p>
-   *             </li>
-   *             <li>
-   *                <p>METADATA_PARTIALLY_INDEXED – You submitted metadata for an existing document and it was partially indexed.</p>
-   *             </li>
-   *             <li>
-   *                <p>METADATA_UPDATE_FAILED – You submitted a metadata update for an existing document but it failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>FAILED – The document failed to be ingested.</p>
-   *             </li>
-   *             <li>
-   *                <p>NOT_FOUND – The document wasn't found.</p>
-   *             </li>
-   *             <li>
-   *                <p>IGNORED – The document was ignored during ingestion.</p>
-   *             </li>
-   *             <li>
-   *                <p>DELETING – You submitted the delete job containing the document.</p>
-   *             </li>
-   *             <li>
-   *                <p>DELETE_IN_PROGRESS – The document is being deleted.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  status: DocumentStatus | undefined;
-
-  /**
-   * <p>Contains information that identifies the document.</p>
-   * @public
-   */
-  identifier: DocumentIdentifier | undefined;
-
-  /**
-   * <p>The reason for the status. Appears alongside the status <code>IGNORED</code>.</p>
-   * @public
-   */
-  statusReason?: string | undefined;
-
-  /**
-   * <p>The date and time at which the document was last updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
 }
 
 /**

@@ -10,13 +10,10 @@ import {
   AgentVersion,
   AgentVersionFilterSensitiveLog,
   AgentVersionSummary,
-  ContentDataSourceType,
   CustomDocumentIdentifier,
-  DocumentIdentifier,
   FlowDefinition,
   FlowValidation,
   FlowValidationFilterSensitiveLog,
-  KnowledgeBaseDocumentDetail,
   KnowledgeBaseState,
   PromptInferenceConfiguration,
   PromptTemplateConfiguration,
@@ -24,6 +21,178 @@ import {
   PromptTemplateType,
   S3Location,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentDataSourceType = {
+  CUSTOM: "CUSTOM",
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentDataSourceType = (typeof ContentDataSourceType)[keyof typeof ContentDataSourceType];
+
+/**
+ * <p>Contains information that identifies the document.</p>
+ * @public
+ */
+export interface DocumentIdentifier {
+  /**
+   * <p>The type of data source connected to the knowledge base that contains the document.</p>
+   * @public
+   */
+  dataSourceType: ContentDataSourceType | undefined;
+
+  /**
+   * <p>Contains information that identifies the document in an S3 data source.</p>
+   * @public
+   */
+  s3?: S3Location | undefined;
+
+  /**
+   * <p>Contains information that identifies the document in a custom data source.</p>
+   * @public
+   */
+  custom?: CustomDocumentIdentifier | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseDocumentsRequest {
+  /**
+   * <p>The unique identifier of the knowledge base that is connected to the data source.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source that contains the documents.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A list of objects, each of which contains information to identify a document to delete.</p>
+   * @public
+   */
+  documentIdentifiers: DocumentIdentifier[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DocumentStatus = {
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  IGNORED: "IGNORED",
+  INDEXED: "INDEXED",
+  IN_PROGRESS: "IN_PROGRESS",
+  METADATA_PARTIALLY_INDEXED: "METADATA_PARTIALLY_INDEXED",
+  METADATA_UPDATE_FAILED: "METADATA_UPDATE_FAILED",
+  NOT_FOUND: "NOT_FOUND",
+  PARTIALLY_INDEXED: "PARTIALLY_INDEXED",
+  PENDING: "PENDING",
+  STARTING: "STARTING",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentStatus = (typeof DocumentStatus)[keyof typeof DocumentStatus];
+
+/**
+ * <p>Contains the details for a document that was ingested or deleted.</p>
+ * @public
+ */
+export interface KnowledgeBaseDocumentDetail {
+  /**
+   * <p>The identifier of the knowledge base that the document was ingested into or deleted from.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the data source connected to the knowledge base that the document was ingested into or deleted from.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>The ingestion status of the document. The following statuses are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>STARTED – You submitted the ingestion job containing the document.</p>
+   *             </li>
+   *             <li>
+   *                <p>PENDING – The document is waiting to be ingested.</p>
+   *             </li>
+   *             <li>
+   *                <p>IN_PROGRESS – The document is being ingested.</p>
+   *             </li>
+   *             <li>
+   *                <p>INDEXED – The document was successfully indexed.</p>
+   *             </li>
+   *             <li>
+   *                <p>PARTIALLY_INDEXED – The document was partially indexed.</p>
+   *             </li>
+   *             <li>
+   *                <p>METADATA_PARTIALLY_INDEXED – You submitted metadata for an existing document and it was partially indexed.</p>
+   *             </li>
+   *             <li>
+   *                <p>METADATA_UPDATE_FAILED – You submitted a metadata update for an existing document but it failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>FAILED – The document failed to be ingested.</p>
+   *             </li>
+   *             <li>
+   *                <p>NOT_FOUND – The document wasn't found.</p>
+   *             </li>
+   *             <li>
+   *                <p>IGNORED – The document was ignored during ingestion.</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETING – You submitted the delete job containing the document.</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETE_IN_PROGRESS – The document is being deleted.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  status: DocumentStatus | undefined;
+
+  /**
+   * <p>Contains information that identifies the document.</p>
+   * @public
+   */
+  identifier: DocumentIdentifier | undefined;
+
+  /**
+   * <p>The reason for the status. Appears alongside the status <code>IGNORED</code>.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The date and time at which the document was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
 
 /**
  * @public
@@ -1192,6 +1361,45 @@ export interface MongoDbAtlasConfiguration {
  * <p>Contains the names of the fields to which to map information about the vector store.</p>
  * @public
  */
+export interface NeptuneAnalyticsFieldMapping {
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text
+   *      is split according to the chunking strategy you choose.</p>
+   * @public
+   */
+  textField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
+   * @public
+   */
+  metadataField: string | undefined;
+}
+
+/**
+ * <p>Contains details about the storage configuration of the knowledge base in
+ *       Amazon Neptune Analytics. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html">Create a vector index
+ *       in Amazon Neptune Analytics</a>.</p>
+ * @public
+ */
+export interface NeptuneAnalyticsConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Neptune Analytics vector store.</p>
+   * @public
+   */
+  graphArn: string | undefined;
+
+  /**
+   * <p>Contains the names of the fields to which to map information about the vector store.</p>
+   * @public
+   */
+  fieldMapping: NeptuneAnalyticsFieldMapping | undefined;
+}
+
+/**
+ * <p>Contains the names of the fields to which to map information about the vector store.</p>
+ * @public
+ */
 export interface OpenSearchServerlessFieldMapping {
   /**
    * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
@@ -1410,6 +1618,7 @@ export interface RedisEnterpriseCloudConfiguration {
  */
 export const KnowledgeBaseStorageType = {
   MONGO_DB_ATLAS: "MONGO_DB_ATLAS",
+  NEPTUNE_ANALYTICS: "NEPTUNE_ANALYTICS",
   OPENSEARCH_SERVERLESS: "OPENSEARCH_SERVERLESS",
   PINECONE: "PINECONE",
   RDS: "RDS",
@@ -1461,6 +1670,14 @@ export interface StorageConfiguration {
    * @public
    */
   mongoDbAtlasConfiguration?: MongoDbAtlasConfiguration | undefined;
+
+  /**
+   * <p>Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information,
+   *     see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html">Create a
+   *     vector index in Amazon Neptune Analytics.</a>.</p>
+   * @public
+   */
+  neptuneAnalyticsConfiguration?: NeptuneAnalyticsConfiguration | undefined;
 }
 
 /**
@@ -2942,10 +3159,31 @@ export const KnowledgeBaseConfigurationFilterSensitiveLog = (obj: KnowledgeBaseC
 /**
  * @internal
  */
+export const NeptuneAnalyticsConfigurationFilterSensitiveLog = (obj: NeptuneAnalyticsConfiguration): any => ({
+  ...obj,
+  ...(obj.graphArn && { graphArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StorageConfigurationFilterSensitiveLog = (obj: StorageConfiguration): any => ({
+  ...obj,
+  ...(obj.neptuneAnalyticsConfiguration && {
+    neptuneAnalyticsConfiguration: NeptuneAnalyticsConfigurationFilterSensitiveLog(obj.neptuneAnalyticsConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const CreateKnowledgeBaseRequestFilterSensitiveLog = (obj: CreateKnowledgeBaseRequest): any => ({
   ...obj,
   ...(obj.knowledgeBaseConfiguration && {
     knowledgeBaseConfiguration: KnowledgeBaseConfigurationFilterSensitiveLog(obj.knowledgeBaseConfiguration),
+  }),
+  ...(obj.storageConfiguration && {
+    storageConfiguration: StorageConfigurationFilterSensitiveLog(obj.storageConfiguration),
   }),
 });
 
@@ -2956,6 +3194,9 @@ export const KnowledgeBaseFilterSensitiveLog = (obj: KnowledgeBase): any => ({
   ...obj,
   ...(obj.knowledgeBaseConfiguration && {
     knowledgeBaseConfiguration: KnowledgeBaseConfigurationFilterSensitiveLog(obj.knowledgeBaseConfiguration),
+  }),
+  ...(obj.storageConfiguration && {
+    storageConfiguration: StorageConfigurationFilterSensitiveLog(obj.storageConfiguration),
   }),
 });
 
@@ -2982,6 +3223,9 @@ export const UpdateKnowledgeBaseRequestFilterSensitiveLog = (obj: UpdateKnowledg
   ...obj,
   ...(obj.knowledgeBaseConfiguration && {
     knowledgeBaseConfiguration: KnowledgeBaseConfigurationFilterSensitiveLog(obj.knowledgeBaseConfiguration),
+  }),
+  ...(obj.storageConfiguration && {
+    storageConfiguration: StorageConfigurationFilterSensitiveLog(obj.storageConfiguration),
   }),
 });
 

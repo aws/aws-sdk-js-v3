@@ -217,6 +217,15 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
  * //           parsingModality: "MULTIMODAL",
  * //         },
  * //       },
+ * //       contextEnrichmentConfiguration: { // ContextEnrichmentConfiguration
+ * //         type: "BEDROCK_FOUNDATION_MODEL", // required
+ * //         bedrockFoundationModelConfiguration: { // BedrockFoundationModelContextEnrichmentConfiguration
+ * //           enrichmentStrategyConfiguration: { // EnrichmentStrategyConfiguration
+ * //             method: "CHUNK_ENTITY_EXTRACTION", // required
+ * //           },
+ * //           modelArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
  * //     },
  * //     dataDeletionPolicy: "RETAIN" || "DELETE",
  * //     createdAt: new Date("TIMESTAMP"), // required
