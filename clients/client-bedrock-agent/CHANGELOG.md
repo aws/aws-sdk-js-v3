@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.764.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.763.0...v3.764.0) (2025-03-07)
+
+
+### Features
+
+* **client-bedrock-agent:** Introduces support for Neptune Analytics as a vector data store and adds Context Enrichment Configurations, enabling use cases such as GraphRAG. ([e77d1e3](https://github.com/aws/aws-sdk-js-v3/commit/e77d1e39f41aae258bf4b737eb32f689f1a7ee56))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent

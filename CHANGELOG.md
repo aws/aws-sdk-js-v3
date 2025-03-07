@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.764.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.763.0...v3.764.0) (2025-03-07)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Support Multi Agent Collaboration within Inline Agents ([28c9d3b](https://github.com/aws/aws-sdk-js-v3/commit/28c9d3b4c538655c9501f594f9e139569faea84f))
+* **client-bedrock-agent:** Introduces support for Neptune Analytics as a vector data store and adds Context Enrichment Configurations, enabling use cases such as GraphRAG. ([e77d1e3](https://github.com/aws/aws-sdk-js-v3/commit/e77d1e39f41aae258bf4b737eb32f689f1a7ee56))
+* **client-ec2:** Add serviceManaged field to DescribeAddresses API response. ([23d9c73](https://github.com/aws/aws-sdk-js-v3/commit/23d9c730a344af79e6be0073b1d7736e68200087))
+* **client-elastic-load-balancing-v2:** This release adds support for assigning IP addresses to Application Load Balancers from VPC IP Address Manager pools. ([a57cb5b](https://github.com/aws/aws-sdk-js-v3/commit/a57cb5be7e79f5a18feef5baabbb8ca9148019c1))
+* **clients:** update client endpoints as of 2025-03-07 ([c07785d](https://github.com/aws/aws-sdk-js-v3/commit/c07785d7715d76ab5bd0be006293023af3258eb2))
+
+
+
+
+
 # [3.763.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.762.0...v3.763.0) (2025-03-06)
 
 

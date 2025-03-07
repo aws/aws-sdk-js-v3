@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.764.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.763.0...v3.764.0) (2025-03-07)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Support Multi Agent Collaboration within Inline Agents ([28c9d3b](https://github.com/aws/aws-sdk-js-v3/commit/28c9d3b4c538655c9501f594f9e139569faea84f))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 

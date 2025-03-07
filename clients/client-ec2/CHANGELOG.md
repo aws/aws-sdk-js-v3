@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.764.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.763.0...v3.764.0) (2025-03-07)
+
+
+### Features
+
+* **client-ec2:** Add serviceManaged field to DescribeAddresses API response. ([23d9c73](https://github.com/aws/aws-sdk-js-v3/commit/23d9c730a344af79e6be0073b1d7736e68200087))
+
+
+
+
+
 # [3.760.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.759.0...v3.760.0) (2025-03-03)
 
 
