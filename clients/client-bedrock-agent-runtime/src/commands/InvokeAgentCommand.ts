@@ -1039,6 +1039,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //           agentAliasArn: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       eventTime: new Date("TIMESTAMP"),
  * //       collaboratorName: "STRING_VALUE",
  * //     },
  * //     returnControl: {

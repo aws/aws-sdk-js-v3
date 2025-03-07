@@ -540,6 +540,21 @@ export interface AgentActionGroup {
  * @public
  * @enum
  */
+export const AgentCollaboration = {
+  DISABLED: "DISABLED",
+  SUPERVISOR: "SUPERVISOR",
+  SUPERVISOR_ROUTER: "SUPERVISOR_ROUTER",
+} as const;
+
+/**
+ * @public
+ */
+export type AgentCollaboration = (typeof AgentCollaboration)[keyof typeof AgentCollaboration];
+
+/**
+ * @public
+ * @enum
+ */
 export const ConfirmationState = {
   CONFIRM: "CONFIRM",
   DENY: "DENY",
@@ -5336,6 +5351,14 @@ export interface TracePart {
   callerChain?: Caller[] | undefined;
 
   /**
+   * <p>
+   *             The time of the trace.
+   *         </p>
+   * @public
+   */
+  eventTime?: Date | undefined;
+
+  /**
    * <p>The part's collaborator name.</p>
    * @public
    */
@@ -5784,6 +5807,60 @@ export interface InlineBedrockModelConfigurations {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const RelayConversationHistory = {
+  DISABLED: "DISABLED",
+  TO_COLLABORATOR: "TO_COLLABORATOR",
+} as const;
+
+/**
+ * @public
+ */
+export type RelayConversationHistory = (typeof RelayConversationHistory)[keyof typeof RelayConversationHistory];
+
+/**
+ * <p>
+ *             Settings of an inline collaborator agent.
+ *         </p>
+ * @public
+ */
+export interface CollaboratorConfiguration {
+  /**
+   * <p>
+   *             Name of the inline collaborator agent which must be the same name as specified for <code>agentName</code>.
+   *         </p>
+   * @public
+   */
+  collaboratorName: string | undefined;
+
+  /**
+   * <p>
+   *             Instructions that tell the inline collaborator agent what it should do and how it should interact with users.
+   *         </p>
+   * @public
+   */
+  collaboratorInstruction: string | undefined;
+
+  /**
+   * <p>
+   *             The Amazon Resource Name (ARN) of the inline collaborator agent.
+   *         </p>
+   * @public
+   */
+  agentAliasArn?: string | undefined;
+
+  /**
+   * <p>
+   *             A relay conversation history for the inline collaborator agent.
+   *         </p>
+   * @public
+   */
+  relayConversationHistory?: RelayConversationHistory | undefined;
+}
+
+/**
  * <p>
  *             The configuration details for the guardrail.
  *         </p>
@@ -5805,61 +5882,6 @@ export interface GuardrailConfigurationWithArn {
    * @public
    */
   guardrailVersion: string | undefined;
-}
-
-/**
- * <p>
- *             Contains parameters that specify various attributes that persist across a session or prompt. You can define session state
- *             attributes as key-value pairs when writing a <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-lambda.html">Lambda function</a> for an action group or pass them when making an <code>InvokeInlineAgent</code> request.
- *             Use session state attributes to control and provide conversational context for your inline agent and to help customize your agent's behavior.
- *             For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>
- *          </p>
- * @public
- */
-export interface InlineSessionState {
-  /**
-   * <p>
-   *             Contains attributes that persist across a session and the values of those attributes.
-   *         </p>
-   * @public
-   */
-  sessionAttributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>
-   *             Contains attributes that persist across a session and the values of those attributes.
-   *         </p>
-   * @public
-   */
-  promptSessionAttributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>
-   *             Contains information about the results from the action group invocation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a>.
-   *         </p>
-   *          <note>
-   *             <p>If you include this field in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
-   *          </note>
-   * @public
-   */
-  returnControlInvocationResults?: InvocationResultMember[] | undefined;
-
-  /**
-   * <p>
-   *             The identifier of the invocation of an action. This value must match the <code>invocationId</code> returned in the <code>InvokeInlineAgent</code> response for the action
-   *             whose results are provided in the <code>returnControlInvocationResults</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a>.
-   *         </p>
-   * @public
-   */
-  invocationId?: string | undefined;
-
-  /**
-   * <p>
-   *             Contains information about the files used by code interpreter.
-   *         </p>
-   * @public
-   */
-  files?: InputFile[] | undefined;
 }
 
 /**
@@ -5944,6 +5966,14 @@ export interface PromptConfiguration {
   parserMode?: CreationMode | undefined;
 
   /**
+   * <p>
+   *             The foundation model to use.
+   *         </p>
+   * @public
+   */
+  foundationModel?: string | undefined;
+
+  /**
    * <p>If the Converse or ConverseStream operations support the model,
    *             <code>additionalModelRequestFields</code> contains additional inference parameters,
    *             beyond the base set of inference parameters in the <code>inferenceConfiguration</code>
@@ -5975,6 +6005,69 @@ export interface PromptOverrideConfiguration {
    * @public
    */
   overrideLambda?: string | undefined;
+}
+
+/**
+ * <p>
+ *             Contains parameters that specify various attributes that persist across a session or prompt. You can define session state
+ *             attributes as key-value pairs when writing a <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-lambda.html">Lambda function</a> for an action group or pass them when making an <code>InvokeInlineAgent</code> request.
+ *             Use session state attributes to control and provide conversational context for your inline agent and to help customize your agent's behavior.
+ *             For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>
+ *          </p>
+ * @public
+ */
+export interface InlineSessionState {
+  /**
+   * <p>
+   *             Contains attributes that persist across a session and the values of those attributes.
+   *         </p>
+   * @public
+   */
+  sessionAttributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>
+   *             Contains attributes that persist across a session and the values of those attributes.
+   *         </p>
+   * @public
+   */
+  promptSessionAttributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>
+   *             Contains information about the results from the action group invocation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a>.
+   *         </p>
+   *          <note>
+   *             <p>If you include this field in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
+   *          </note>
+   * @public
+   */
+  returnControlInvocationResults?: InvocationResultMember[] | undefined;
+
+  /**
+   * <p>
+   *             The identifier of the invocation of an action. This value must match the <code>invocationId</code> returned in the <code>InvokeInlineAgent</code> response for the action
+   *             whose results are provided in the <code>returnControlInvocationResults</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a>.
+   *         </p>
+   * @public
+   */
+  invocationId?: string | undefined;
+
+  /**
+   * <p>
+   *             Contains information about the files used by code interpreter.
+   *         </p>
+   * @public
+   */
+  files?: InputFile[] | undefined;
+
+  /**
+   * <p>
+   *             Contains the conversation history that persist across sessions.
+   *         </p>
+   * @public
+   */
+  conversationHistory?: ConversationHistory | undefined;
 }
 
 /**
@@ -8979,33 +9072,6 @@ export interface TagResourceRequest {
 }
 
 /**
- * @public
- */
-export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource from which to remove tags.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>A list of keys of the tags to remove from the resource.</p>
-   * @public
-   */
-  tagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResponse {}
-
-/**
  * @internal
  */
 export const ActionGroupInvocationInputFilterSensitiveLog = (obj: ActionGroupInvocationInput): any => ({
@@ -9954,14 +10020,10 @@ export const InvokeAgentResponseFilterSensitiveLog = (obj: InvokeAgentResponse):
 /**
  * @internal
  */
-export const InlineSessionStateFilterSensitiveLog = (obj: InlineSessionState): any => ({
+export const CollaboratorConfigurationFilterSensitiveLog = (obj: CollaboratorConfiguration): any => ({
   ...obj,
-  ...(obj.returnControlInvocationResults && {
-    returnControlInvocationResults: obj.returnControlInvocationResults.map((item) =>
-      InvocationResultMemberFilterSensitiveLog(item)
-    ),
-  }),
-  ...(obj.files && { files: obj.files.map((item) => InputFileFilterSensitiveLog(item)) }),
+  ...(obj.collaboratorName && { collaboratorName: SENSITIVE_STRING }),
+  ...(obj.collaboratorInstruction && { collaboratorInstruction: SENSITIVE_STRING }),
 });
 
 /**
@@ -9979,6 +10041,22 @@ export const PromptOverrideConfigurationFilterSensitiveLog = (obj: PromptOverrid
   ...obj,
   ...(obj.promptConfigurations && {
     promptConfigurations: obj.promptConfigurations.map((item) => PromptConfigurationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const InlineSessionStateFilterSensitiveLog = (obj: InlineSessionState): any => ({
+  ...obj,
+  ...(obj.returnControlInvocationResults && {
+    returnControlInvocationResults: obj.returnControlInvocationResults.map((item) =>
+      InvocationResultMemberFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.files && { files: obj.files.map((item) => InputFileFilterSensitiveLog(item)) }),
+  ...(obj.conversationHistory && {
+    conversationHistory: ConversationHistoryFilterSensitiveLog(obj.conversationHistory),
   }),
 });
 

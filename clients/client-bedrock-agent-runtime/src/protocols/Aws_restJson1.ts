@@ -91,6 +91,7 @@ import {
   ByteContentFile,
   Citation,
   CitationEvent,
+  CollaboratorConfiguration,
   ConflictException,
   ContentBlock,
   ContentBody,
@@ -215,6 +216,7 @@ import {
   VectorSearchRerankingConfiguration,
 } from "../models/models_0";
 import {
+  Collaborator,
   KnowledgeBase,
   KnowledgeBaseConfiguration,
   KnowledgeBaseRetrievalConfiguration,
@@ -488,7 +490,10 @@ export const se_InvokeInlineAgentCommand = async (
   body = JSON.stringify(
     take(input, {
       actionGroups: (_) => _json(_),
+      agentCollaboration: [],
       bedrockModelConfigurations: (_) => _json(_),
+      collaboratorConfigurations: (_) => _json(_),
+      collaborators: (_) => se_Collaborators(_, context),
       customerEncryptionKeyArn: [],
       enableTrace: [],
       endSession: [],
@@ -2265,6 +2270,40 @@ const se_ByteContentFile = (input: ByteContentFile, context: __SerdeContext): an
   });
 };
 
+/**
+ * serializeAws_restJson1Collaborator
+ */
+const se_Collaborator = (input: Collaborator, context: __SerdeContext): any => {
+  return take(input, {
+    actionGroups: _json,
+    agentCollaboration: [],
+    agentName: [],
+    collaboratorConfigurations: _json,
+    customerEncryptionKeyArn: [],
+    foundationModel: [],
+    guardrailConfiguration: _json,
+    idleSessionTTLInSeconds: [],
+    instruction: [],
+    knowledgeBases: (_) => se_KnowledgeBases(_, context),
+    promptOverrideConfiguration: (_) => se_PromptOverrideConfiguration(_, context),
+  });
+};
+
+// se_CollaboratorConfiguration omitted.
+
+// se_CollaboratorConfigurations omitted.
+
+/**
+ * serializeAws_restJson1Collaborators
+ */
+const se_Collaborators = (input: Collaborator[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_Collaborator(entry, context);
+    });
+};
+
 // se_ContentBlock omitted.
 
 // se_ContentBlocks omitted.
@@ -2467,6 +2506,7 @@ const se_InferenceConfiguration = (input: InferenceConfiguration, context: __Ser
  */
 const se_InlineSessionState = (input: InlineSessionState, context: __SerdeContext): any => {
   return take(input, {
+    conversationHistory: _json,
     files: (_) => se_InputFiles(_, context),
     invocationId: [],
     promptSessionAttributes: _json,
@@ -2638,6 +2678,7 @@ const se_PromptConfiguration = (input: PromptConfiguration, context: __SerdeCont
   return take(input, {
     additionalModelRequestFields: (_) => se_Document(_, context),
     basePromptTemplate: [],
+    foundationModel: [],
     inferenceConfiguration: (_) => se_InferenceConfiguration(_, context),
     parserMode: [],
     promptCreationMode: [],
@@ -3939,6 +3980,7 @@ const de_TracePart = (output: any, context: __SerdeContext): TracePart => {
     agentVersion: __expectString,
     callerChain: _json,
     collaboratorName: __expectString,
+    eventTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     sessionId: __expectString,
     trace: (_: any) => de_Trace(__expectUnion(_), context),
   }) as any;

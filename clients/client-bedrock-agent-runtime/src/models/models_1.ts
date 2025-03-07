@@ -4,7 +4,10 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 import {
   AgentActionGroup,
   AgentActionGroupFilterSensitiveLog,
+  AgentCollaboration,
   BedrockModelConfigurations,
+  CollaboratorConfiguration,
+  CollaboratorConfigurationFilterSensitiveLog,
   ConversationHistory,
   ConversationHistoryFilterSensitiveLog,
   ExternalSourcesRetrieveAndGenerateConfiguration,
@@ -35,6 +38,33 @@ import {
   VectorSearchRerankingConfiguration,
   VectorSearchRerankingConfigurationFilterSensitiveLog,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource from which to remove tags.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A list of keys of the tags to remove from the resource.</p>
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
 
 /**
  * <p>Specifies the filters to use on the metadata attributes in the knowledge base data sources before returning results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>. See the examples below to see how to use these filters.</p>
@@ -688,20 +718,15 @@ export interface RetrieveAndGenerateConfiguration {
 }
 
 /**
+ * <p>
+ *            List of inline collaborators.
+ *         </p>
  * @public
  */
-export interface InvokeInlineAgentRequest {
+export interface Collaborator {
   /**
    * <p>
-   *             The unique identifier of the session. Use the same value across requests to continue the same conversation.
-   *         </p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the Amazon Web Services KMS key to use to encrypt your inline agent.
+   *             The Amazon Resource Name (ARN) of the AWS KMS key that encrypts the inline collaborator.
    *         </p>
    * @public
    */
@@ -709,47 +734,7 @@ export interface InvokeInlineAgentRequest {
 
   /**
    * <p>
-   *             Specifies whether to end the session with the inline agent or not.
-   *         </p>
-   * @public
-   */
-  endSession?: boolean | undefined;
-
-  /**
-   * <p>
-   *             Specifies whether to turn on the trace or not to track the agent's reasoning process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">Using trace</a>.
-   *
-   *         </p>
-   * @public
-   */
-  enableTrace?: boolean | undefined;
-
-  /**
-   * <p>
-   *             The prompt text to send to the agent.
-   *         </p>
-   *          <note>
-   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
-   *          </note>
-   * @public
-   */
-  inputText?: string | undefined;
-
-  /**
-   * <p>
-   *             Parameters that specify the various attributes of a sessions. You can include attributes for the session or prompt or, if you configured an
-   *             action group to return control, results from invocation of the action group. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.
-   *         </p>
-   *          <note>
-   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
-   *          </note>
-   * @public
-   */
-  inlineSessionState?: InlineSessionState | undefined;
-
-  /**
-   * <p>
-   *             The <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">model identifier (ID)</a> of the model to use for orchestration by the inline agent. For example, <code>meta.llama3-1-70b-instruct-v1:0</code>.
+   *             The foundation model used by the inline collaborator agent.
    *         </p>
    * @public
    */
@@ -757,7 +742,7 @@ export interface InvokeInlineAgentRequest {
 
   /**
    * <p>
-   *             The instructions that tell the inline agent what it should do and how it should interact with users.
+   *             Instruction that tell the inline collaborator agent what it should do and how it should interact with users.
    *         </p>
    * @public
    */
@@ -765,16 +750,16 @@ export interface InvokeInlineAgentRequest {
 
   /**
    * <p>
-   *             The number of seconds for which the inline agent should maintain session information. After this time expires, the subsequent <code>InvokeInlineAgent</code> request begins a new session.
+   *             The number of seconds for which the Amazon Bedrock keeps information about the user's conversation with the inline collaborator agent.</p>
+   *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
    *         </p>
-   *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and the data provided before the timeout is deleted.</p>
    * @public
    */
   idleSessionTTLInSeconds?: number | undefined;
 
   /**
    * <p>
-   *             A list of action groups with each action group defining the action the inline agent needs to carry out.
+   *             List of action groups with each action group defining tasks the inline collaborator agent needs to carry out.
    *         </p>
    * @public
    */
@@ -782,7 +767,7 @@ export interface InvokeInlineAgentRequest {
 
   /**
    * <p>
-   *           Contains information of the knowledge bases to associate with.
+   *             Knowledge base associated with the inline collaborator agent.
    *         </p>
    * @public
    */
@@ -790,7 +775,7 @@ export interface InvokeInlineAgentRequest {
 
   /**
    * <p>
-   *             The <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">guardrails</a> to assign to the inline agent.
+   *             Details of the guardwrail associated with the inline collaborator.
    *         </p>
    * @public
    */
@@ -798,28 +783,35 @@ export interface InvokeInlineAgentRequest {
 
   /**
    * <p>
-   *            Configurations for advanced prompts used to override the default prompts to enhance the accuracy of the inline agent.
+   *             Contains configurations to override prompt templates in different parts of an inline collaborator sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.
    *         </p>
    * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration | undefined;
 
   /**
-   * <p>Model settings for the request.</p>
+   * <p>
+   *             Defines how the inline supervisor agent handles information across multiple collaborator agents to coordinate a final response.
+   *         </p>
    * @public
    */
-  bedrockModelConfigurations?: InlineBedrockModelConfigurations | undefined;
+  agentCollaboration?: AgentCollaboration | undefined;
 
   /**
    * <p>
-   *            Specifies the configurations for streaming.
+   *             Settings of the collaborator agent.
    *         </p>
-   *          <note>
-   *             <p>To use agent streaming, you need permissions to perform the <code>bedrock:InvokeModelWithResponseStream</code> action.</p>
-   *          </note>
    * @public
    */
-  streamingConfigurations?: StreamingConfigurations | undefined;
+  collaboratorConfigurations?: CollaboratorConfiguration[] | undefined;
+
+  /**
+   * <p>
+   *             Name of the inline collaborator agent which must be the same name as specified for <code>collaboratorName</code>.
+   *         </p>
+   * @public
+   */
+  agentName?: string | undefined;
 }
 
 /**
@@ -1014,6 +1006,165 @@ export interface InvokeAgentRequest {
 }
 
 /**
+ * @public
+ */
+export interface InvokeInlineAgentRequest {
+  /**
+   * <p>
+   *             The Amazon Resource Name (ARN) of the Amazon Web Services KMS key to use to encrypt your inline agent.
+   *         </p>
+   * @public
+   */
+  customerEncryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>
+   *             The <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">model identifier (ID)</a> of the model to use for orchestration by the inline agent. For example, <code>meta.llama3-1-70b-instruct-v1:0</code>.
+   *         </p>
+   * @public
+   */
+  foundationModel: string | undefined;
+
+  /**
+   * <p>
+   *             The instructions that tell the inline agent what it should do and how it should interact with users.
+   *         </p>
+   * @public
+   */
+  instruction: string | undefined;
+
+  /**
+   * <p>
+   *             The number of seconds for which the inline agent should maintain session information. After this time expires, the subsequent <code>InvokeInlineAgent</code> request begins a new session.
+   *         </p>
+   *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and the data provided before the timeout is deleted.</p>
+   * @public
+   */
+  idleSessionTTLInSeconds?: number | undefined;
+
+  /**
+   * <p>
+   *             A list of action groups with each action group defining the action the inline agent needs to carry out.
+   *         </p>
+   * @public
+   */
+  actionGroups?: AgentActionGroup[] | undefined;
+
+  /**
+   * <p>
+   *           Contains information of the knowledge bases to associate with.
+   *         </p>
+   * @public
+   */
+  knowledgeBases?: KnowledgeBase[] | undefined;
+
+  /**
+   * <p>
+   *             The <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">guardrails</a> to assign to the inline agent.
+   *         </p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfigurationWithArn | undefined;
+
+  /**
+   * <p>
+   *            Configurations for advanced prompts used to override the default prompts to enhance the accuracy of the inline agent.
+   *         </p>
+   * @public
+   */
+  promptOverrideConfiguration?: PromptOverrideConfiguration | undefined;
+
+  /**
+   * <p>
+   *             Defines how the inline collaborator agent handles information across multiple collaborator agents to coordinate a final response. The inline collaborator agent can also be the supervisor.
+   *         </p>
+   * @public
+   */
+  agentCollaboration?: AgentCollaboration | undefined;
+
+  /**
+   * <p>
+   *             Settings for an inline agent collaborator called with <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeInlineAgent.html">InvokeInlineAgent</a>.
+   *         </p>
+   * @public
+   */
+  collaboratorConfigurations?: CollaboratorConfiguration[] | undefined;
+
+  /**
+   * <p>
+   *             The unique identifier of the session. Use the same value across requests to continue the same conversation.
+   *         </p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>
+   *             Specifies whether to end the session with the inline agent or not.
+   *         </p>
+   * @public
+   */
+  endSession?: boolean | undefined;
+
+  /**
+   * <p>
+   *             Specifies whether to turn on the trace or not to track the agent's reasoning process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">Using trace</a>.
+   *
+   *         </p>
+   * @public
+   */
+  enableTrace?: boolean | undefined;
+
+  /**
+   * <p>
+   *             The prompt text to send to the agent.
+   *         </p>
+   *          <note>
+   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
+   *          </note>
+   * @public
+   */
+  inputText?: string | undefined;
+
+  /**
+   * <p>
+   *            Specifies the configurations for streaming.
+   *         </p>
+   *          <note>
+   *             <p>To use agent streaming, you need permissions to perform the <code>bedrock:InvokeModelWithResponseStream</code> action.</p>
+   *          </note>
+   * @public
+   */
+  streamingConfigurations?: StreamingConfigurations | undefined;
+
+  /**
+   * <p>
+   *             Parameters that specify the various attributes of a sessions. You can include attributes for the session or prompt or, if you configured an
+   *             action group to return control, results from invocation of the action group. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.
+   *         </p>
+   *          <note>
+   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
+   *          </note>
+   * @public
+   */
+  inlineSessionState?: InlineSessionState | undefined;
+
+  /**
+   * <p>
+   *             List of collaborator inline agents.
+   *         </p>
+   * @public
+   */
+  collaborators?: Collaborator[] | undefined;
+
+  /**
+   * <p>Model settings for the request.</p>
+   * @public
+   */
+  bedrockModelConfigurations?: InlineBedrockModelConfigurations | undefined;
+}
+
+/**
  * @internal
  */
 export const RetrievalFilterFilterSensitiveLog = (obj: RetrievalFilter): any => {
@@ -1131,16 +1282,20 @@ export const RetrieveAndGenerateConfigurationFilterSensitiveLog = (obj: Retrieve
 /**
  * @internal
  */
-export const InvokeInlineAgentRequestFilterSensitiveLog = (obj: InvokeInlineAgentRequest): any => ({
+export const CollaboratorFilterSensitiveLog = (obj: Collaborator): any => ({
   ...obj,
-  ...(obj.inputText && { inputText: SENSITIVE_STRING }),
-  ...(obj.inlineSessionState && { inlineSessionState: InlineSessionStateFilterSensitiveLog(obj.inlineSessionState) }),
   ...(obj.instruction && { instruction: SENSITIVE_STRING }),
   ...(obj.actionGroups && { actionGroups: obj.actionGroups.map((item) => AgentActionGroupFilterSensitiveLog(item)) }),
   ...(obj.knowledgeBases && {
     knowledgeBases: obj.knowledgeBases.map((item) => KnowledgeBaseFilterSensitiveLog(item)),
   }),
   ...(obj.promptOverrideConfiguration && { promptOverrideConfiguration: SENSITIVE_STRING }),
+  ...(obj.collaboratorConfigurations && {
+    collaboratorConfigurations: obj.collaboratorConfigurations.map((item) =>
+      CollaboratorConfigurationFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.agentName && { agentName: SENSITIVE_STRING }),
 });
 
 /**
@@ -1197,4 +1352,25 @@ export const InvokeAgentRequestFilterSensitiveLog = (obj: InvokeAgentRequest): a
   ...obj,
   ...(obj.sessionState && { sessionState: SessionStateFilterSensitiveLog(obj.sessionState) }),
   ...(obj.inputText && { inputText: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeInlineAgentRequestFilterSensitiveLog = (obj: InvokeInlineAgentRequest): any => ({
+  ...obj,
+  ...(obj.instruction && { instruction: SENSITIVE_STRING }),
+  ...(obj.actionGroups && { actionGroups: obj.actionGroups.map((item) => AgentActionGroupFilterSensitiveLog(item)) }),
+  ...(obj.knowledgeBases && {
+    knowledgeBases: obj.knowledgeBases.map((item) => KnowledgeBaseFilterSensitiveLog(item)),
+  }),
+  ...(obj.promptOverrideConfiguration && { promptOverrideConfiguration: SENSITIVE_STRING }),
+  ...(obj.collaboratorConfigurations && {
+    collaboratorConfigurations: obj.collaboratorConfigurations.map((item) =>
+      CollaboratorConfigurationFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.inputText && { inputText: SENSITIVE_STRING }),
+  ...(obj.inlineSessionState && { inlineSessionState: InlineSessionStateFilterSensitiveLog(obj.inlineSessionState) }),
+  ...(obj.collaborators && { collaborators: obj.collaborators.map((item) => CollaboratorFilterSensitiveLog(item)) }),
 });
