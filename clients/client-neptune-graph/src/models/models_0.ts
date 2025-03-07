@@ -616,7 +616,7 @@ export interface CreateGraphInput {
    * <p>A name for the new Neptune Analytics graph to be created.</p>
    *          <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its
    *       first character must be a letter. It cannot end with a hyphen or contain two
-   *       consecutive hyphens. </p>
+   *       consecutive hyphens. Only lowercase letters are allowed.</p>
    * @public
    */
   graphName: string | undefined;
@@ -667,7 +667,7 @@ export interface CreateGraphInput {
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Min = 128</p>
+   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Min = 16</p>
    * @public
    */
   provisionedMemory: number | undefined;
@@ -707,7 +707,7 @@ export interface CreateGraphOutput {
    * <p>The graph name. For example: <code>my-graph-1</code>.</p>
    *          <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its
    *       first character must be a letter. It cannot end with a hyphen or contain two
-   *       consecutive hyphens. </p>
+   *       consecutive hyphens. Only lowercase letters are allowed.</p>
    * @public
    */
   name: string | undefined;
@@ -738,7 +738,7 @@ export interface CreateGraphOutput {
 
   /**
    * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</p>
-   *          <p>Min = 128</p>
+   *          <p>Min = 16</p>
    * @public
    */
   provisionedMemory?: number | undefined;
@@ -1305,14 +1305,14 @@ export interface RestoreGraphFromSnapshotInput {
    * <p>A name for the new Neptune Analytics graph to be created from the snapshot.</p>
    *          <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its
    *       first character must be a letter. It cannot end with a hyphen or contain two
-   *       consecutive hyphens. </p>
+   *       consecutive hyphens. Only lowercase letters are allowed.</p>
    * @public
    */
   graphName: string | undefined;
 
   /**
    * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</p>
-   *          <p>Min = 128</p>
+   *          <p>Min = 16</p>
    * @public
    */
   provisionedMemory?: number | undefined;
@@ -1464,7 +1464,7 @@ export interface UpdateGraphInput {
 
   /**
    * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</p>
-   *          <p>Min = 128</p>
+   *          <p>Min = 16</p>
    * @public
    */
   provisionedMemory?: number | undefined;
@@ -1941,7 +1941,7 @@ export interface CreateGraphSnapshotInput {
    * <p>The snapshot name. For example: <code>my-snapshot-1</code>.</p>
    *          <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its
    *       first character must be a letter. It cannot end with a hyphen or contain two
-   *       consecutive hyphens.</p>
+   *       consecutive hyphens. Only lowercase letters are allowed.</p>
    * @public
    */
   snapshotName: string | undefined;
@@ -2042,7 +2042,7 @@ export interface DeleteGraphSnapshotOutput {
    * <p>The snapshot name. For example: <code>my-snapshot-1</code>.</p>
    *          <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its
    *       first character must be a letter. It cannot end with a hyphen or contain two
-   *       consecutive hyphens.</p>
+   *       consecutive hyphens. Only lowercase letters are allowed.</p>
    * @public
    */
   name: string | undefined;
@@ -2103,7 +2103,7 @@ export interface GetGraphSnapshotOutput {
    * <p>The snapshot name. For example: <code>my-snapshot-1</code>.</p>
    *          <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its
    *       first character must be a letter. It cannot end with a hyphen or contain two
-   *       consecutive hyphens.</p>
+   *       consecutive hyphens. Only lowercase letters are allowed.</p>
    * @public
    */
   name: string | undefined;
@@ -2185,7 +2185,7 @@ export interface GraphSnapshotSummary {
    * <p>The snapshot name. For example: <code>my-snapshot-1</code>.</p>
    *          <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its
    *       first character must be a letter. It cannot end with a hyphen or contain two
-   *       consecutive hyphens.</p>
+   *       consecutive hyphens. Only lowercase letters are allowed.</p>
    * @public
    */
   name: string | undefined;
@@ -2592,7 +2592,7 @@ export interface CreateGraphUsingImportTaskInput {
    * <p>A name for the new Neptune Analytics graph to be created.</p>
    *          <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its
    *       first character must be a letter. It cannot end with a hyphen or contain two
-   *       consecutive hyphens. </p>
+   *       consecutive hyphens. Only lowercase letters are allowed.</p>
    * @public
    */
   graphName: string | undefined;
@@ -2662,7 +2662,7 @@ export interface CreateGraphUsingImportTaskInput {
   maxProvisionedMemory?: number | undefined;
 
   /**
-   * <p>The minimum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 128</p>
+   * <p>The minimum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 16</p>
    * @public
    */
   minProvisionedMemory?: number | undefined;
