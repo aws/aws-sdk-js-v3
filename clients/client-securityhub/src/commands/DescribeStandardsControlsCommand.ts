@@ -31,6 +31,7 @@ export interface DescribeStandardsControlsCommandOutput extends DescribeStandard
  * <p>Returns a list of security standards controls.</p>
  *          <p>For each control, the results include information about whether it is currently enabled,
  *          the severity, and a link to remediation information.</p>
+ *          <p>This operation returns an empty list for standard subscriptions where <code>StandardsControlsUpdatable</code> has value <code>NOT_READY_FOR_UPDATES</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

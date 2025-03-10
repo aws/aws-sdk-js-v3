@@ -39,6 +39,9 @@ export interface BatchGetStandardsControlAssociationsCommandOutput
  * <p>
  *          For a batch of security controls and standards, identifies whether each control is currently enabled or disabled in a standard.
  *       </p>
+ *          <p>
+ *          Calls to this operation return a <code>RESOURCE_NOT_FOUND_EXCEPTION</code> error when the standard subscription for the association has a <code>NOT_READY_FOR_UPDATES</code> value for <code>StandardsControlsUpdatable</code>.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

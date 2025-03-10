@@ -4352,6 +4352,20 @@ export interface BatchDisableStandardsRequest {
  * @public
  * @enum
  */
+export const StandardsControlsUpdatable = {
+  NOT_READY_FOR_UPDATES: "NOT_READY_FOR_UPDATES",
+  READY_FOR_UPDATES: "READY_FOR_UPDATES",
+} as const;
+
+/**
+ * @public
+ */
+export type StandardsControlsUpdatable = (typeof StandardsControlsUpdatable)[keyof typeof StandardsControlsUpdatable];
+
+/**
+ * @public
+ * @enum
+ */
 export const StandardsStatus = {
   DELETING: "DELETING",
   FAILED: "FAILED",
@@ -4371,6 +4385,7 @@ export type StandardsStatus = (typeof StandardsStatus)[keyof typeof StandardsSta
  */
 export const StatusReasonCode = {
   INTERNAL_ERROR: "INTERNAL_ERROR",
+  MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED: "MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED",
   NO_AVAILABLE_CONFIGURATION_RECORDER: "NO_AVAILABLE_CONFIGURATION_RECORDER",
 } as const;
 
@@ -4442,6 +4457,23 @@ export interface StandardsSubscription {
    * @public
    */
   StandardsStatus: StandardsStatus | undefined;
+
+  /**
+   * <p>Indicates whether the controls associated with this standards subscription can be viewed and updated.</p>
+   *          <p>The values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>READY_FOR_UPDATES</code> - Controls associated with this standards subscription can be viewed and updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_READY_FOR_UPDATES</code> - Controls associated with this standards subscription cannot be retrieved or updated yet. Security Hub is still processing a request to create the controls.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  StandardsControlsUpdatable?: StandardsControlsUpdatable | undefined;
 
   /**
    * <p>The reason for the current status.</p>
@@ -5879,6 +5911,9 @@ export interface BatchUpdateStandardsControlAssociationsRequest {
   /**
    * <p>
    *          Updates the enablement status of a security control in a specified standard.
+   *       </p>
+   *          <p>
+   *          Calls to this operation return a <code>RESOURCE_NOT_FOUND_EXCEPTION</code> error when the standard subscription for the control has <code>StandardsControlsUpdatable</code> value <code>NOT_READY_FOR_UPDATES</code>.
    *       </p>
    * @public
    */
