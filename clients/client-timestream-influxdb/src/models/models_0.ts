@@ -174,13 +174,15 @@ export interface CreateDbClusterInput {
   name: string | undefined;
 
   /**
-   * <p>The username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. For example, my-user1. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a secret created in Amazon Web Services Secrets Manager in your account.</p>
+   * <p>The username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. For example, my-user1. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a secret created in Secrets Manager in your account.</p>
    * @public
    */
   username?: string | undefined;
 
   /**
-   * <p>The password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a secret created in Amazon Web Services Secrets Manager in your account.</p>
+   * <p>The password of the initial admin user created in InfluxDB. This password will allow
+   *             you to access the InfluxDB UI to perform various administrative tasks and also use the
+   *             InfluxDB CLI to create an operator token. These attributes will be stored in a secret created in Secrets Manager in your account.</p>
    * @public
    */
   password: string | undefined;
@@ -598,7 +600,7 @@ export interface GetDbClusterOutput {
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
@@ -973,7 +975,10 @@ export interface CreateDbInstanceInput {
   username?: string | undefined;
 
   /**
-   * <p>The password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a Secret created in Amazon Web Services SecretManager in your account.</p>
+   * <p>The password of the initial admin user created in InfluxDB. This password will allow
+   *             you to access the InfluxDB UI to perform various administrative tasks and also use the
+   *             InfluxDB CLI to create an operator token. These attributes will be stored in a Secret
+   *             created in Secrets Manager in your account.</p>
    * @public
    */
   password: string | undefined;
@@ -1191,7 +1196,7 @@ export interface CreateDbInstanceOutput {
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
@@ -1333,7 +1338,7 @@ export interface DeleteDbInstanceOutput {
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
@@ -1475,7 +1480,7 @@ export interface GetDbInstanceOutput {
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
@@ -1522,7 +1527,8 @@ export interface DbInstanceSummary {
   id: string | undefined;
 
   /**
-   * <p>This customer-supplied name uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and Amazon Web Services CLI commands.</p>
+   * <p>This customer-supplied name uniquely identifies the DB instance when interacting with
+   *             the Amazon Timestream for InfluxDB API and CLI commands.</p>
    * @public
    */
   name: string | undefined;
@@ -1668,7 +1674,8 @@ export interface UpdateDbInstanceOutput {
   id: string | undefined;
 
   /**
-   * <p>This customer-supplied name uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and Amazon Web Services CLI commands.</p>
+   * <p>This customer-supplied name uniquely identifies the DB instance when interacting with
+   *             the Amazon Timestream for InfluxDB API and CLI commands.</p>
    * @public
    */
   name: string | undefined;
@@ -1770,7 +1777,7 @@ export interface UpdateDbInstanceOutput {
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
@@ -1955,7 +1962,7 @@ export interface InfluxDBv2Parameters {
 
   /**
    * <p>Disable the /debug/pprof HTTP endpoint. This endpoint provides runtime profiling data and can be helpful when debugging.</p>
-   *          <p>Default: false</p>
+   *          <p>Default: true</p>
    * @public
    */
   pprofDisabled?: boolean | undefined;
