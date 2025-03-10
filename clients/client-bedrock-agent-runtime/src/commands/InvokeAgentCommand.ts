@@ -111,6 +111,14 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *           responseBody: { // ResponseBody
  *             "<keys>": { // ContentBody
  *               body: "STRING_VALUE",
+ *               images: [ // ImageInputs
+ *                 { // ImageInput
+ *                   format: "png" || "jpeg" || "gif" || "webp", // required
+ *                   source: { // ImageInputSource Union: only one key present
+ *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *                   },
+ *                 },
+ *               ],
  *             },
  *           },
  *           agentId: "STRING_VALUE",
@@ -122,6 +130,14 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *           responseBody: {
  *             "<keys>": {
  *               body: "STRING_VALUE",
+ *               images: [
+ *                 {
+ *                   format: "png" || "jpeg" || "gif" || "webp", // required
+ *                   source: {//  Union: only one key present
+ *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *                   },
+ *                 },
+ *               ],
  *             },
  *           },
  *           responseState: "FAILURE" || "REPROMPT",
@@ -567,6 +583,14 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                         responseBody: { // ResponseBody
  * //                           "<keys>": { // ContentBody
  * //                             body: "STRING_VALUE",
+ * //                             images: [ // ImageInputs
+ * //                               { // ImageInput
+ * //                                 format: "png" || "jpeg" || "gif" || "webp", // required
+ * //                                 source: { // ImageInputSource Union: only one key present
+ * //                                   bytes: new Uint8Array(),
+ * //                                 },
+ * //                               },
+ * //                             ],
  * //                           },
  * //                         },
  * //                         agentId: "STRING_VALUE",
@@ -578,6 +602,14 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                         responseBody: {
  * //                           "<keys>": {
  * //                             body: "STRING_VALUE",
+ * //                             images: [
+ * //                               {
+ * //                                 format: "png" || "jpeg" || "gif" || "webp", // required
+ * //                                 source: {//  Union: only one key present
+ * //                                   bytes: new Uint8Array(),
+ * //                                 },
+ * //                               },
+ * //                             ],
  * //                           },
  * //                         },
  * //                         responseState: "FAILURE" || "REPROMPT",
@@ -844,6 +876,14 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                         responseBody: {
  * //                           "<keys>": {
  * //                             body: "STRING_VALUE",
+ * //                             images: [
+ * //                               {
+ * //                                 format: "png" || "jpeg" || "gif" || "webp", // required
+ * //                                 source: {//  Union: only one key present
+ * //                                   bytes: new Uint8Array(),
+ * //                                 },
+ * //                               },
+ * //                             ],
  * //                           },
  * //                         },
  * //                         agentId: "STRING_VALUE",
@@ -855,6 +895,14 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                         responseBody: {
  * //                           "<keys>": {
  * //                             body: "STRING_VALUE",
+ * //                             images: [
+ * //                               {
+ * //                                 format: "png" || "jpeg" || "gif" || "webp", // required
+ * //                                 source: {//  Union: only one key present
+ * //                                   bytes: new Uint8Array(),
+ * //                                 },
+ * //                               },
+ * //                             ],
  * //                           },
  * //                         },
  * //                         responseState: "FAILURE" || "REPROMPT",

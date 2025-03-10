@@ -223,6 +223,9 @@ export interface ActionGroupInvocationOutput {
 export const ActionGroupSignature = {
   AMAZON_CODEINTERPRETER: "AMAZON.CodeInterpreter",
   AMAZON_USERINPUT: "AMAZON.UserInput",
+  ANTHROPIC_BASH: "ANTHROPIC.Bash",
+  ANTHROPIC_COMPUTER: "ANTHROPIC.Computer",
+  ANTHROPIC_TEXTEDITOR: "ANTHROPIC.TextEditor",
 } as const;
 
 /**
@@ -497,14 +500,41 @@ export interface AgentActionGroup {
   description?: string | undefined;
 
   /**
-   * <p>
-   *             To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>.
-   *             You must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields blank for this action group.
-   *         </p>
-   *          <p>To allow your agent to generate, run, and troubleshoot code when trying to complete a task, set this field to <code>AMAZON.CodeInterpreter</code>. You must
-   *             leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields blank for this action group.</p>
-   *          <p>During orchestration, if your agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request,
-   *             it will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a> reprompting the user for more information.</p>
+   * <p>Specify a built-in or computer use action for this action group. If you specify a value, you must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields empty for this action group. </p>
+   *          <ul>
+   *             <li>
+   *                <p>To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>To allow your agent to generate, run, and troubleshoot code when trying to complete a task, set this field to <code>AMAZON.CodeInterpreter</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To allow your agent to use an Anthropic computer use tool, specify one of the following values. </p>
+   *                <important>
+   *                   <p>
+   *             Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only.
+   *             When operating computer use functionality, we recommend taking additional security precautions,
+   *             such as executing computer actions in virtual environments with restricted data access and limited internet connectivity.
+   *              For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *           </p>
+   *                </important>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>ANTHROPIC.Computer</code> - Gives the agent permission to use the mouse and keyboard and
+   *               take screenshots.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>ANTHROPIC.TextEditor</code> - Gives the agent permission to view, create and edit files.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>ANTHROPIC.Bash</code> - Gives the agent permission to run commands in a bash shell.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
    * @public
    */
   parentActionGroupSignature?: ActionGroupSignature | undefined;
@@ -534,6 +564,17 @@ export interface AgentActionGroup {
    * @public
    */
   functionSchema?: FunctionSchema | undefined;
+
+  /**
+   * <p>
+   *             The configuration settings for a computer use action.
+   *         </p>
+   *          <important>
+   *             <p>Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.</p>
+   *          </important>
+   * @public
+   */
+  parentActionGroupSignatureParams?: Record<string, string> | undefined;
 }
 
 /**
@@ -566,6 +607,79 @@ export const ConfirmationState = {
 export type ConfirmationState = (typeof ConfirmationState)[keyof typeof ConfirmationState];
 
 /**
+ * @public
+ * @enum
+ */
+export const ImageInputFormat = {
+  GIF: "gif",
+  JPEG: "jpeg",
+  PNG: "png",
+  WEBP: "webp",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageInputFormat = (typeof ImageInputFormat)[keyof typeof ImageInputFormat];
+
+/**
+ * <p>Details about the source of an input image in the result from a function in the action group invocation.</p>
+ * @public
+ */
+export type ImageInputSource = ImageInputSource.BytesMember | ImageInputSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ImageInputSource {
+  /**
+   * <p> The raw image bytes for the image. If you use an Amazon Web Services SDK, you don't need to encode the image bytes in base64.</p>
+   * @public
+   */
+  export interface BytesMember {
+    bytes: Uint8Array;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    bytes?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    bytes: (value: Uint8Array) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ImageInputSource, visitor: Visitor<T>): T => {
+    if (value.bytes !== undefined) return visitor.bytes(value.bytes);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Details about an image in the result from a function in the action group invocation. You can specify images only when the function
+ *       is a computer use action. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.</p>
+ * @public
+ */
+export interface ImageInput {
+  /**
+   * <p>The type of image in the result.</p>
+   * @public
+   */
+  format: ImageInputFormat | undefined;
+
+  /**
+   * <p>The source of the image in the result.</p>
+   * @public
+   */
+  source: ImageInputSource | undefined;
+}
+
+/**
  * <p>Contains the body of the API response.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
@@ -582,6 +696,15 @@ export interface ContentBody {
    * @public
    */
   body?: string | undefined;
+
+  /**
+   * <p>Lists details, including format and source, for the image in the response from the function call. You can specify only one image and the function in the <code>returnControlInvocationResults</code>
+   *       must be a computer use action.
+   *       For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *     </p>
+   * @public
+   */
+  images?: ImageInput[] | undefined;
 }
 
 /**
@@ -690,7 +813,10 @@ export interface FunctionResult {
   function?: string | undefined;
 
   /**
-   * <p>The response from the function call using the parameters. The key of the object is the content type (currently, only <code>TEXT</code> is supported). The response may be returned directly or from the Lambda function.</p>
+   * <p>The response from the function call using the parameters. The response might be returned directly or from the Lambda function.
+   *       Specify <code>TEXT</code> or <code>IMAGES</code>. The key of the object is the content type. You can only specify one type. If you
+   *       specify <code>IMAGES</code>, you can specify only one image. You can specify images only when the function in the <code>returnControlInvocationResults</code>
+   *       is a computer use action. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.</p>
    * @public
    */
   responseBody?: Record<string, ContentBody> | undefined;
@@ -9033,45 +9159,6 @@ export interface UpdateSessionResponse {
 }
 
 /**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which to list tags.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>The key-value pairs for the tags associated with the resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>An object containing key-value pairs that define the tags to attach to the resource.</p>
-   * @public
-   */
-  tags: Record<string, string> | undefined;
-}
-
-/**
  * @internal
  */
 export const ActionGroupInvocationInputFilterSensitiveLog = (obj: ActionGroupInvocationInput): any => ({
@@ -9134,6 +9221,12 @@ export const AgentActionGroupFilterSensitiveLog = (obj: AgentActionGroup): any =
 export const ApiResultFilterSensitiveLog = (obj: ApiResult): any => ({
   ...obj,
   ...(obj.apiPath && { apiPath: SENSITIVE_STRING }),
+  ...(obj.responseBody && {
+    responseBody: Object.entries(obj.responseBody).reduce(
+      (acc: any, [key, value]: [string, ContentBody]) => ((acc[key] = value), acc),
+      {}
+    ),
+  }),
 });
 
 /**

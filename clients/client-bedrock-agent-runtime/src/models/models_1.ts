@@ -42,6 +42,45 @@ import {
 /**
  * @public
  */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource for which to list tags.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The key-value pairs for the tags associated with the resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>An object containing key-value pairs that define the tags to attach to the resource.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
@@ -127,7 +166,16 @@ export namespace RetrievalFilter {
   }
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value doesn't match the <code>value</code> in this object are returned.</p>
+   * <p>Knowledge base data sources are returned when:</p>
+   *          <ul>
+   *             <li>
+   *                <p>It contains a metadata attribute whose name matches the <code>key</code> and whose value doesn't match the <code>value</code>
+   *                     in this object.</p>
+   *             </li>
+   *             <li>
+   *                <p>The key is not present in the document.</p>
+   *             </li>
+   *          </ul>
    *          <p>The following example would return data sources that don't contain an <code>animal</code> attribute whose value is <code>cat</code>.</p>
    *          <p>
    *             <code>"notEquals": \{ "key": "animal", "value": "cat" \}</code>
@@ -699,7 +747,9 @@ export interface RetrieveRequest {
 export interface RetrieveAndGenerateConfiguration {
   /**
    * <p>The type of resource that contains your data for retrieving information and generating responses.</p>
-   *          <p>If you choose to use <code>EXTERNAL_SOURCES</code>, then currently only Anthropic Claude 3 Sonnet models for knowledge bases are supported.</p>
+   *          <note>
+   *             <p>If you choose to use <code>EXTERNAL_SOURCES</code>, then currently only Anthropic Claude 3 Sonnet models for knowledge bases are supported.</p>
+   *          </note>
    * @public
    */
   type: RetrieveAndGenerateType | undefined;
@@ -878,13 +928,21 @@ export interface RetrieveAndGenerateStreamRequest {
  */
 export interface SessionState {
   /**
-   * <p>Contains attributes that persist across a session and the values of those attributes.</p>
+   * <p>Contains attributes that persist across a session and the values of those attributes. If <code>sessionAttributes</code> are passed to a supervisor agent in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html">multi-agent collaboration</a>, it will be forwarded to all agent collaborators.</p>
    * @public
    */
   sessionAttributes?: Record<string, string> | undefined;
 
   /**
-   * <p>Contains attributes that persist across a prompt and the values of those attributes. These attributes replace the $prompt_session_attributes$ placeholder variable in the orchestration prompt template. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt template placeholder variables</a>.</p>
+   * <p>Contains attributes that persist across a prompt and the values of those attributes. </p>
+   *          <ul>
+   *             <li>
+   *                <p>In orchestration prompt template, these attributes replace the $prompt_session_attributes$ placeholder variable.  For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt template placeholder variables</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>In <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html">multi-agent collaboration</a>, the <code>promptSessionAttributes</code> will only be used by supervisor agent when $prompt_session_attributes$ is present in prompt template. </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   promptSessionAttributes?: Record<string, string> | undefined;
