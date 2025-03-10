@@ -37,7 +37,12 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Provides a list of analysis segments for a real-time analysis session. </p>
+ * <p>Provides a list of analysis segments for a real-time chat analysis session. This API
+ *    supports CHAT channels only. </p>
+ *          <important>
+ *             <p>This API does not support VOICE. If you attempt to use it for VOICE, an
+ *      <code>InvalidRequestException</code> occurs.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

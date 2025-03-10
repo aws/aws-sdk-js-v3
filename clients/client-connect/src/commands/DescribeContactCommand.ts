@@ -35,12 +35,13 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  *             <ul>
  *                <li>
  *                   <p>
- *                      <code>CustomerEndpoint</code> and <code>SystemEndpoint</code> are only populated for EMAIL contacts. </p>
+ *                      <code>CustomerEndpoint</code> and <code>SystemEndpoint</code> are only populated for
+ *       EMAIL contacts. </p>
  *                </li>
  *                <li>
  *                   <p>Contact information remains available in Amazon Connect for 24 months from the
- *      <code>InitiationTimestamp</code>, and then it is deleted. Only contact information that is available in
- *      Amazon Connect is returned by this API.</p>
+ *        <code>InitiationTimestamp</code>, and then it is deleted. Only contact information that is
+ *       available in Amazon Connect is returned by this API.</p>
  *                </li>
  *             </ul>
  *          </important>

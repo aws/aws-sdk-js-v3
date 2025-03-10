@@ -1725,6 +1725,7 @@ export const se_CreateContactCommand = async (
       InitiationMethod: [],
       InstanceId: [],
       Name: [],
+      PreviousContactId: [],
       References: (_) => _json(_),
       RelatedContactId: [],
       SegmentAttributes: (_) => se_SegmentAttributes(_, context),
