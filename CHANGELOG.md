@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.765.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.764.0...v3.765.0) (2025-03-10)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Add support for computer use tools ([4f44684](https://github.com/aws/aws-sdk-js-v3/commit/4f44684a12bf0a793150cd68174a11d296d9afe3))
+* **client-bedrock-agent:** Add support for computer use tools ([f66d9c4](https://github.com/aws/aws-sdk-js-v3/commit/f66d9c42d704d571c485a8e958bc184d563e869a))
+* **client-connect:** Add support for contact transfers in external voice systems. ([528d060](https://github.com/aws/aws-sdk-js-v3/commit/528d0601f6cf9a9310543785c3856a797244c962))
+* **client-cost-explorer:** Releasing minor partition endpoint updates. ([353f3fc](https://github.com/aws/aws-sdk-js-v3/commit/353f3fc8239613734a69bf26a8b5bae2a4de719d))
+* **client-medialive:** Adds defaultFontSize and defaultLineHeight as options in the EbuTtDDestinationSettings within the caption descriptions for an output stream. ([3466124](https://github.com/aws/aws-sdk-js-v3/commit/3466124484ed19aad5447a83d3052da2df8ecd44))
+* **client-pca-connector-ad:** PrivateCA Connector for Active Directory now supports dual stack endpoints. This release adds the IpAddressType option to the VpcInformation on a Connector which determines whether the endpoint supports IPv4 only or IPv4 and IPv6 traffic. ([96cc346](https://github.com/aws/aws-sdk-js-v3/commit/96cc346c188d9d6068d9379bc67f3eb53dc73146))
+* **client-securityhub:** This release adds new StandardsControlsUpdatable field to the StandardsSubscription resource ([6548ac4](https://github.com/aws/aws-sdk-js-v3/commit/6548ac421ea294da4db27afd92b4cea058660b66))
+* **clients:** update client endpoints as of 2025-03-10 ([b1fe69f](https://github.com/aws/aws-sdk-js-v3/commit/b1fe69ff0148b5f5d30253a92039e78a6a9f6548))
+
+
+
+
+
 # [3.764.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.763.0...v3.764.0) (2025-03-07)
 
 

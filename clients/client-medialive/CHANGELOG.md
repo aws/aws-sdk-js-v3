@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.765.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.764.0...v3.765.0) (2025-03-10)
+
+
+### Features
+
+* **client-medialive:** Adds defaultFontSize and defaultLineHeight as options in the EbuTtDDestinationSettings within the caption descriptions for an output stream. ([3466124](https://github.com/aws/aws-sdk-js-v3/commit/3466124484ed19aad5447a83d3052da2df8ecd44))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive

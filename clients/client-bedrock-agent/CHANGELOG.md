@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.765.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.764.0...v3.765.0) (2025-03-10)
+
+
+### Features
+
+* **client-bedrock-agent:** Add support for computer use tools ([f66d9c4](https://github.com/aws/aws-sdk-js-v3/commit/f66d9c42d704d571c485a8e958bc184d563e869a))
+
+
+
+
+
 # [3.764.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.763.0...v3.764.0) (2025-03-07)
 
 
