@@ -301,6 +301,8 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * //             FillLineGap: "DISABLED" || "ENABLED",
  * //             FontFamily: "STRING_VALUE",
  * //             StyleControl: "EXCLUDE" || "INCLUDE",
+ * //             DefaultFontSize: Number("int"),
+ * //             DefaultLineHeight: Number("int"),
  * //           },
  * //           EmbeddedDestinationSettings: {},
  * //           EmbeddedPlusScte20DestinationSettings: {},
