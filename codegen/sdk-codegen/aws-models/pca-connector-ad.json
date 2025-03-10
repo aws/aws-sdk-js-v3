@@ -915,6 +915,12 @@
     "com.amazonaws.pcaconnectorad#ConnectorStatusReason": {
       "type": "enum",
       "members": {
+        "CA_CERTIFICATE_REGISTRATION_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CA_CERTIFICATE_REGISTRATION_FAILED"
+          }
+        },
         "DIRECTORY_ACCESS_DENIED": {
           "target": "smithy.api#Unit",
           "traits": {
@@ -925,6 +931,18 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "INTERNAL_FAILURE"
+          }
+        },
+        "INSUFFICIENT_FREE_ADDRESSES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INSUFFICIENT_FREE_ADDRESSES"
+          }
+        },
+        "INVALID_SUBNET_IP_PROTOCOL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INVALID_SUBNET_IP_PROTOCOL"
           }
         },
         "PRIVATECA_ACCESS_DENIED": {
@@ -1087,7 +1105,7 @@
         "VpcInformation": {
           "target": "com.amazonaws.pcaconnectorad#VpcInformation",
           "traits": {
-            "smithy.api#documentation": "<p>Security group IDs that describe the inbound and outbound rules.</p>",
+            "smithy.api#documentation": "<p>Information about your VPC and security groups used with the connector.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2610,6 +2628,23 @@
         "smithy.api#error": "server",
         "smithy.api#httpError": 500,
         "smithy.api#retryable": {}
+      }
+    },
+    "com.amazonaws.pcaconnectorad#IpAddressType": {
+      "type": "enum",
+      "members": {
+        "IPV4": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IPV4"
+          }
+        },
+        "DUALSTACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DUALSTACK"
+          }
+        }
       }
     },
     "com.amazonaws.pcaconnectorad#KeySpec": {
@@ -4426,6 +4461,12 @@
             "smithy.api#enumValue": "SPN_EXISTS_ON_DIFFERENT_AD_OBJECT"
           }
         },
+        "SPN_LIMIT_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SPN_LIMIT_EXCEEDED"
+          }
+        },
         "INTERNAL_FAILURE": {
           "target": "smithy.api#Unit",
           "traits": {
@@ -5558,6 +5599,12 @@
             "smithy.api#enumValue": "FIELD_VALIDATION_FAILED"
           }
         },
+        "INVALID_CA_SUBJECT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INVALID_CA_SUBJECT"
+          }
+        },
         "INVALID_PERMISSION": {
           "target": "smithy.api#Unit",
           "traits": {
@@ -5666,6 +5713,12 @@
     "com.amazonaws.pcaconnectorad#VpcInformation": {
       "type": "structure",
       "members": {
+        "IpAddressType": {
+          "target": "com.amazonaws.pcaconnectorad#IpAddressType",
+          "traits": {
+            "smithy.api#documentation": "<p>The VPC IP address type.</p>"
+          }
+        },
         "SecurityGroupIds": {
           "target": "com.amazonaws.pcaconnectorad#SecurityGroupIdList",
           "traits": {
