@@ -490,6 +490,7 @@ export const se_CreateAgentActionGroupCommand = async (
       description: [],
       functionSchema: (_) => _json(_),
       parentActionGroupSignature: [],
+      parentActionGroupSignatureParams: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -1748,6 +1749,7 @@ export const se_UpdateAgentActionGroupCommand = async (
       description: [],
       functionSchema: (_) => _json(_),
       parentActionGroupSignature: [],
+      parentActionGroupSignatureParams: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -3795,6 +3797,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ActionGroupExecutor omitted.
 
+// se_ActionGroupSignatureParams omitted.
+
 // se_AgentAliasRoutingConfiguration omitted.
 
 // se_AgentAliasRoutingConfigurationListItem omitted.
@@ -4515,6 +4519,8 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 
 // de_ActionGroupExecutor omitted.
 
+// de_ActionGroupSignatureParams omitted.
+
 /**
  * deserializeAws_restJson1ActionGroupSummaries
  */
@@ -4587,6 +4593,7 @@ const de_AgentActionGroup = (output: any, context: __SerdeContext): AgentActionG
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
     functionSchema: (_: any) => _json(__expectUnion(_)),
+    parentActionGroupSignatureParams: _json,
     parentActionSignature: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;

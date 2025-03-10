@@ -56,7 +56,10 @@ export interface GetAgentActionGroupCommandOutput extends GetAgentActionGroupRes
  * //     description: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
- * //     parentActionSignature: "AMAZON.UserInput" || "AMAZON.CodeInterpreter",
+ * //     parentActionSignature: "AMAZON.UserInput" || "AMAZON.CodeInterpreter" || "ANTHROPIC.Computer" || "ANTHROPIC.Bash" || "ANTHROPIC.TextEditor",
+ * //     parentActionGroupSignatureParams: { // ActionGroupSignatureParams
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //     actionGroupExecutor: { // ActionGroupExecutor Union: only one key present
  * //       lambda: "STRING_VALUE",
  * //       customControl: "RETURN_CONTROL",
