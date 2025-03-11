@@ -58817,6 +58817,9 @@ const de_AvailabilityZone = (output: any, context: __SerdeContext): Availability
   if (output[_pZI] != null) {
     contents[_PZI] = __expectString(output[_pZI]);
   }
+  if (output[_gLN] != null) {
+    contents[_GLN] = __expectString(output[_gLN]);
+  }
   if (output[_zS] != null) {
     contents[_Stat] = __expectString(output[_zS]);
   }
@@ -88704,6 +88707,7 @@ const _GIro = "GroupIds";
 const _GK = "GreKey";
 const _GLBA = "GatewayLoadBalancerArns";
 const _GLBEI = "GatewayLoadBalancerEndpointId";
+const _GLN = "GroupLongName";
 const _GLTD = "GetLaunchTemplateData";
 const _GM = "GroupMember";
 const _GMPLA = "GetManagedPrefixListAssociations";
@@ -90834,6 +90838,7 @@ const _gIr = "groupId";
 const _gK = "greKey";
 const _gLBAS = "gatewayLoadBalancerArnSet";
 const _gLBEI = "gatewayLoadBalancerEndpointId";
+const _gLN = "groupLongName";
 const _gM = "groupMember";
 const _gN = "groupName";
 const _gOI = "groupOwnerId";

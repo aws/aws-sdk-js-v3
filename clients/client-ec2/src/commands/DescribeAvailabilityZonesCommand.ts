@@ -82,6 +82,7 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * //       ZoneType: "STRING_VALUE",
  * //       ParentZoneName: "STRING_VALUE",
  * //       ParentZoneId: "STRING_VALUE",
+ * //       GroupLongName: "STRING_VALUE",
  * //       State: "available" || "information" || "impaired" || "unavailable" || "constrained",
  * //     },
  * //   ],

@@ -3831,8 +3831,7 @@ export interface FleetEbsBlockDeviceRequest {
    * <p>Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key
    *          to use for EBS encryption.</p>
    *          <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by
-   *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>,
-   *          and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.html">CreateFleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
    * @public
    */
   KmsKeyId?: string | undefined;
@@ -4910,30 +4909,6 @@ export interface FleetLaunchTemplateOverridesRequest {
    *          attach to the instance at launch. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block device mappings
    *             for volumes on Amazon EC2 instances</a> in the <i>Amazon EC2 User
    *          Guide</i>.</p>
-   *          <p>To override a block device mapping specified in the launch template:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Specify the exact same <code>DeviceName</code> here as specified in the launch
-   *                template.</p>
-   *             </li>
-   *             <li>
-   *                <p>Only specify the parameters you want to change.</p>
-   *             </li>
-   *             <li>
-   *                <p>Any parameters you don't specify here will keep their original launch template
-   *                values.</p>
-   *             </li>
-   *          </ul>
-   *          <p>To add a new block device mapping:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Specify a <code>DeviceName</code> that doesn't exist in the launch
-   *                template.</p>
-   *             </li>
-   *             <li>
-   *                <p>Specify all desired parameters here.</p>
-   *             </li>
-   *          </ul>
    * @public
    */
   BlockDeviceMappings?: FleetBlockDeviceMappingRequest[] | undefined;
@@ -6297,9 +6272,6 @@ export interface InstanceRequirements {
    *             </li>
    *             <li>
    *                <p>For instance types with GPU accelerators, specify <code>gpu</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Inference accelerators, specify <code>inference</code>.</p>
    *             </li>
    *             <li>
    *                <p>For instance types with Inference accelerators, specify <code>inference</code>.</p>
@@ -7678,15 +7650,15 @@ export interface CreateInstanceEventWindowRequest {
   Name?: string | undefined;
 
   /**
-   * <p>The time range for the event window. If you specify a time range, you can't specify a cron
-   *          expression.</p>
+   * <p>The time range for the event window. If you specify a time range, you can't specify a
+   *          cron expression.</p>
    * @public
    */
   TimeRanges?: InstanceEventWindowTimeRangeRequest[] | undefined;
 
   /**
-   * <p>The cron expression for the event window, for example, <code>* 0-4,20-23 * * 1,5</code>. If
-   *          you specify a cron expression, you can't specify a time range.</p>
+   * <p>The cron expression for the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.
+   *          If you specify a cron expression, you can't specify a time range.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -7702,11 +7674,11 @@ export interface CreateInstanceEventWindowRequest {
    *             </li>
    *             <li>
    *                <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or
-   *             <code>0-4,20-23</code>.</p>
+   *                   <code>0-4,20-23</code>.</p>
    *             </li>
    *             <li>
    *                <p>Each hour range must be >= 2 hours, for example, <code>0-2</code> or
-   *             <code>20-23</code>.</p>
+   *                   <code>20-23</code>.</p>
    *             </li>
    *             <li>
    *                <p>The event window must be >= 4 hours. The combined total time ranges in the event
@@ -10950,13 +10922,13 @@ export interface CreateLaunchTemplateRequest {
 }
 
 /**
- * <p>Describes whether the resource is managed by an service provider and, if so, describes
+ * <p>Describes whether the resource is managed by a service provider and, if so, describes
  *             the service provider that manages it.</p>
  * @public
  */
 export interface OperatorResponse {
   /**
-   * <p>If <code>true</code>, the resource is managed by an service provider.</p>
+   * <p>If <code>true</code>, the resource is managed by a service provider.</p>
    * @public
    */
   Managed?: boolean | undefined;
