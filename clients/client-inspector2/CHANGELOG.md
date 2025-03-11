@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.766.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.765.0...v3.766.0) (2025-03-11)
+
+
+### Features
+
+* **client-inspector2:** Adding componentArn to network reachability details ([8b994b4](https://github.com/aws/aws-sdk-js-v3/commit/8b994b47c79ecd092e2c84954a366ce30eab5614))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-inspector2

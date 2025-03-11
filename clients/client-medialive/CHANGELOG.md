@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.766.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.765.0...v3.766.0) (2025-03-11)
+
+
+### Features
+
+* **client-medialive:** Add an enum option DISABLED for Output Locking Mode under Global Configuration. ([f868479](https://github.com/aws/aws-sdk-js-v3/commit/f86847919b612511546507c3d1255304457be12a))
+
+
+
+
+
 # [3.765.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.764.0...v3.765.0) (2025-03-10)
 
 

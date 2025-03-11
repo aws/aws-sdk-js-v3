@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.766.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.765.0...v3.766.0) (2025-03-11)
+
+
+### Features
+
+* **client-ecr:** This release adds Amazon ECR to Amazon ECR pull through cache rules support. ([e04cd1f](https://github.com/aws/aws-sdk-js-v3/commit/e04cd1f74b11d69fc97c22ba558a3bcbc697a7e0))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-ecr

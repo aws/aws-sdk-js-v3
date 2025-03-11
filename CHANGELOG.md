@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.766.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.765.0...v3.766.0) (2025-03-11)
+
+
+### Features
+
+* **client-ec2:** This release adds the GroupLongName field to the response of the DescribeAvailabilityZones API. ([c2ccb07](https://github.com/aws/aws-sdk-js-v3/commit/c2ccb07c2282b37c49a0438bf41d028663d1e659))
+* **client-ecr:** This release adds Amazon ECR to Amazon ECR pull through cache rules support. ([e04cd1f](https://github.com/aws/aws-sdk-js-v3/commit/e04cd1f74b11d69fc97c22ba558a3bcbc697a7e0))
+* **client-inspector2:** Adding componentArn to network reachability details ([8b994b4](https://github.com/aws/aws-sdk-js-v3/commit/8b994b47c79ecd092e2c84954a366ce30eab5614))
+* **client-medialive:** Add an enum option DISABLED for Output Locking Mode under Global Configuration. ([f868479](https://github.com/aws/aws-sdk-js-v3/commit/f86847919b612511546507c3d1255304457be12a))
+* **clients:** update client endpoints as of 2025-03-11 ([dbd5306](https://github.com/aws/aws-sdk-js-v3/commit/dbd5306c46597d8edfaf9615c67c0aac02a99199))
+
+
+
+
+
 # [3.765.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.764.0...v3.765.0) (2025-03-10)
 
 

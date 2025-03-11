@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.766.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.765.0...v3.766.0) (2025-03-11)
+
+
+### Features
+
+* **client-ec2:** This release adds the GroupLongName field to the response of the DescribeAvailabilityZones API. ([c2ccb07](https://github.com/aws/aws-sdk-js-v3/commit/c2ccb07c2282b37c49a0438bf41d028663d1e659))
+
+
+
+
+
 # [3.764.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.763.0...v3.764.0) (2025-03-07)
 
 
