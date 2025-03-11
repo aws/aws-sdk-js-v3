@@ -140,5 +140,9 @@
     ],
     "**/*.{ts,js,md,json}": "prettier --write"
   },
-  "packageManager": "yarn@4.5.3"
+  "packageManager": "yarn@4.5.3",
+  "dependencies": {
+    "@aws-sdk/credential-providers": "workspace:^",
+    "@aws-sdk/ec2-metadata-service": "workspace:^"
+  }
 }
