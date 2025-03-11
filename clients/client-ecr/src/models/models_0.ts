@@ -801,6 +801,7 @@ export class UploadNotFoundException extends __BaseException {
 export const UpstreamRegistry = {
   AzureContainerRegistry: "azure-container-registry",
   DockerHub: "docker-hub",
+  Ecr: "ecr",
   EcrPublic: "ecr-public",
   GitHubContainerRegistry: "github-container-registry",
   GitLabContainerRegistry: "gitlab-container-registry",
@@ -819,6 +820,11 @@ export type UpstreamRegistry = (typeof UpstreamRegistry)[keyof typeof UpstreamRe
 export interface CreatePullThroughCacheRuleRequest {
   /**
    * <p>The repository name prefix to use when caching images from the source registry.</p>
+   *          <important>
+   *             <p>There is always an assumed <code>/</code> applied to the end of the prefix. If you
+   *                 specify <code>ecr-public</code> as the prefix, Amazon ECR treats that as
+   *                     <code>ecr-public/</code>.</p>
+   *          </important>
    * @public
    */
   ecrRepositoryPrefix: string | undefined;
@@ -829,30 +835,40 @@ export interface CreatePullThroughCacheRuleRequest {
    *             registry.</p>
    *          <ul>
    *             <li>
-   *                <p>Amazon ECR Public (<code>ecr-public</code>) - <code>public.ecr.aws</code>
+   *                <p>Amazon ECR (<code>ecr</code>) –
+   *                     <code>dkr.ecr.<region>.amazonaws.com</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Docker Hub (<code>docker-hub</code>) -
+   *                <p>Amazon ECR Public (<code>ecr-public</code>) – <code>public.ecr.aws</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Docker Hub (<code>docker-hub</code>) –
    *                     <code>registry-1.docker.io</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Quay (<code>quay</code>) - <code>quay.io</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Kubernetes (<code>k8s</code>) - <code>registry.k8s.io</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>GitHub Container Registry (<code>github-container-registry</code>) -
+   *                <p>GitHub Container Registry (<code>github-container-registry</code>) –
    *                         <code>ghcr.io</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Microsoft Azure Container Registry (<code>azure-container-registry</code>) -
+   *                <p>GitLab Container Registry (<code>gitlab-container-registry</code>) –
+   *                         <code>registry.gitlab.com</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Kubernetes (<code>k8s</code>) – <code>registry.k8s.io</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft Azure Container Registry (<code>azure-container-registry</code>) –
    *                         <code><custom>.azurecr.io</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Quay (<code>quay</code>) – <code>quay.io</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -879,6 +895,22 @@ export interface CreatePullThroughCacheRuleRequest {
    * @public
    */
   credentialArn?: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the IAM role to be assumed by Amazon ECR to authenticate to
+   *             the ECR upstream registry. This role must be in the same account as the registry that
+   *             you are configuring.</p>
+   * @public
+   */
+  customRoleArn?: string | undefined;
+
+  /**
+   * <p>The repository name prefix of the upstream registry to match with the upstream
+   *             repository name. When this field isn't specified, Amazon ECR will use the
+   *             <code>ROOT</code>.</p>
+   * @public
+   */
+  upstreamRepositoryPrefix?: string | undefined;
 }
 
 /**
@@ -922,6 +954,18 @@ export interface CreatePullThroughCacheRuleResponse {
    * @public
    */
   credentialArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role associated with the pull through cache rule.</p>
+   * @public
+   */
+  customRoleArn?: string | undefined;
+
+  /**
+   * <p>The upstream repository prefix associated with the pull through cache rule.</p>
+   * @public
+   */
+  upstreamRepositoryPrefix?: string | undefined;
 }
 
 /**
@@ -1498,8 +1542,8 @@ export interface RepositoryCreationTemplate {
   imageTagMutability?: ImageTagMutability | undefined;
 
   /**
-   * <p>he repository policy to apply to repositories created using the template. A repository
-   *             policy is a permissions policy associated with a repository to control access
+   * <p>The repository policy to apply to repositories created using the template. A
+   *             repository policy is a permissions policy associated with a repository to control access
    *             permissions. </p>
    * @public
    */
@@ -1701,6 +1745,18 @@ export interface DeletePullThroughCacheRuleResponse {
    * @public
    */
   credentialArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role associated with the pull through cache rule.</p>
+   * @public
+   */
+  customRoleArn?: string | undefined;
+
+  /**
+   * <p>The upstream repository prefix associated with the pull through cache rule.</p>
+   * @public
+   */
+  upstreamRepositoryPrefix?: string | undefined;
 }
 
 /**
@@ -2249,10 +2305,10 @@ export interface ImageDetail {
    *          <p>If the image is a manifest list, this will be the max size of all manifests in the
    *             list.</p>
    *          <note>
-   *             <p>Beginning with Docker version 1.9, the Docker client compresses image layers
-   *                 before pushing them to a V2 Docker registry. The output of the <code>docker
-   *                     images</code> command shows the uncompressed image size, so it may return a
-   *                 larger image size than the image sizes returned by <a>DescribeImages</a>.</p>
+   *             <p>Starting with Docker version 1.9, the Docker client compresses image layers before
+   *                 pushing them to a V2 Docker registry. The output of the <code>docker images</code>
+   *                 command shows the uncompressed image size. Therefore, Docker might return a larger
+   *                 image than the image sizes returned by <a>DescribeImages</a>.</p>
    *          </note>
    * @public
    */
@@ -3076,6 +3132,18 @@ export interface PullThroughCacheRule {
   credentialArn?: string | undefined;
 
   /**
+   * <p>The ARN of the IAM role associated with the pull through cache rule.</p>
+   * @public
+   */
+  customRoleArn?: string | undefined;
+
+  /**
+   * <p>The upstream repository prefix associated with the pull through cache rule.</p>
+   * @public
+   */
+  upstreamRepositoryPrefix?: string | undefined;
+
+  /**
    * <p>The name of the upstream source registry associated with the pull through cache
    *             rule.</p>
    * @public
@@ -3389,10 +3457,10 @@ export interface GetAccountSettingResponse {
   name?: string | undefined;
 
   /**
-   * <p>The setting value for the setting name. The following are valid values for the basic scan
-   *             type being used: <code>AWS_NATIVE</code> or <code>CLAIR</code>. The following are valid
-   *             values for the registry policy scope being used: <code>V1</code> or
-   *             <code>V2</code>.</p>
+   * <p>The setting value for the setting name. The following are valid values for the basic
+   *             scan type being used: <code>AWS_NATIVE</code> or <code>CLAIR</code>. The following are
+   *             valid values for the registry policy scope being used: <code>V1</code> or
+   *                 <code>V2</code>.</p>
    * @public
    */
   value?: string | undefined;
@@ -4816,7 +4884,15 @@ export interface UpdatePullThroughCacheRuleRequest {
    *             to the upstream registry.</p>
    * @public
    */
-  credentialArn: string | undefined;
+  credentialArn?: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the IAM role to be assumed by Amazon ECR to authenticate to the
+   *             ECR upstream registry. This role must be in the same account as the registry that you
+   *             are configuring.</p>
+   * @public
+   */
+  customRoleArn?: string | undefined;
 }
 
 /**
@@ -4848,6 +4924,18 @@ export interface UpdatePullThroughCacheRuleResponse {
    * @public
    */
   credentialArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role associated with the pull through cache rule.</p>
+   * @public
+   */
+  customRoleArn?: string | undefined;
+
+  /**
+   * <p>The upstream repository prefix associated with the pull through cache rule.</p>
+   * @public
+   */
+  upstreamRepositoryPrefix?: string | undefined;
 }
 
 /**
@@ -5115,6 +5203,18 @@ export interface ValidatePullThroughCacheRuleResponse {
    * @public
    */
   credentialArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role associated with the pull through cache rule.</p>
+   * @public
+   */
+  customRoleArn?: string | undefined;
+
+  /**
+   * <p>The upstream repository prefix associated with the pull through cache rule.</p>
+   * @public
+   */
+  upstreamRepositoryPrefix?: string | undefined;
 
   /**
    * <p>Whether or not the pull through cache rule was validated. If <code>true</code>, Amazon ECR

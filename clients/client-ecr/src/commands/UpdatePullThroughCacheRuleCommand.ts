@@ -38,7 +38,8 @@ export interface UpdatePullThroughCacheRuleCommandOutput extends UpdatePullThrou
  * const input = { // UpdatePullThroughCacheRuleRequest
  *   registryId: "STRING_VALUE",
  *   ecrRepositoryPrefix: "STRING_VALUE", // required
- *   credentialArn: "STRING_VALUE", // required
+ *   credentialArn: "STRING_VALUE",
+ *   customRoleArn: "STRING_VALUE",
  * };
  * const command = new UpdatePullThroughCacheRuleCommand(input);
  * const response = await client.send(command);
@@ -47,6 +48,8 @@ export interface UpdatePullThroughCacheRuleCommandOutput extends UpdatePullThrou
  * //   registryId: "STRING_VALUE",
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   credentialArn: "STRING_VALUE",
+ * //   customRoleArn: "STRING_VALUE",
+ * //   upstreamRepositoryPrefix: "STRING_VALUE",
  * // };
  *
  * ```

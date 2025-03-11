@@ -54,6 +54,8 @@ export interface ValidatePullThroughCacheRuleCommandOutput
  * //   registryId: "STRING_VALUE",
  * //   upstreamRegistryUrl: "STRING_VALUE",
  * //   credentialArn: "STRING_VALUE",
+ * //   customRoleArn: "STRING_VALUE",
+ * //   upstreamRepositoryPrefix: "STRING_VALUE",
  * //   isValid: true || false,
  * //   failure: "STRING_VALUE",
  * // };

@@ -2928,10 +2928,12 @@ const de_CreatePullThroughCacheRuleResponse = (
   return take(output, {
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     credentialArn: __expectString,
+    customRoleArn: __expectString,
     ecrRepositoryPrefix: __expectString,
     registryId: __expectString,
     upstreamRegistry: __expectString,
     upstreamRegistryUrl: __expectString,
+    upstreamRepositoryPrefix: __expectString,
   }) as any;
 };
 
@@ -3020,9 +3022,11 @@ const de_DeletePullThroughCacheRuleResponse = (
   return take(output, {
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     credentialArn: __expectString,
+    customRoleArn: __expectString,
     ecrRepositoryPrefix: __expectString,
     registryId: __expectString,
     upstreamRegistryUrl: __expectString,
+    upstreamRepositoryPrefix: __expectString,
   }) as any;
 };
 
@@ -3399,11 +3403,13 @@ const de_PullThroughCacheRule = (output: any, context: __SerdeContext): PullThro
   return take(output, {
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     credentialArn: __expectString,
+    customRoleArn: __expectString,
     ecrRepositoryPrefix: __expectString,
     registryId: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     upstreamRegistry: __expectString,
     upstreamRegistryUrl: __expectString,
+    upstreamRepositoryPrefix: __expectString,
   }) as any;
 };
 
@@ -3643,9 +3649,11 @@ const de_UpdatePullThroughCacheRuleResponse = (
 ): UpdatePullThroughCacheRuleResponse => {
   return take(output, {
     credentialArn: __expectString,
+    customRoleArn: __expectString,
     ecrRepositoryPrefix: __expectString,
     registryId: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    upstreamRepositoryPrefix: __expectString,
   }) as any;
 };
 
