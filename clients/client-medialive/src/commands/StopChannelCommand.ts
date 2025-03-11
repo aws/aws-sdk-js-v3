@@ -341,7 +341,7 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * //         InputLossImageType: "COLOR" || "SLATE",
  * //         RepeatFrameMsec: Number("int"),
  * //       },
- * //       OutputLockingMode: "EPOCH_LOCKING" || "PIPELINE_LOCKING",
+ * //       OutputLockingMode: "EPOCH_LOCKING" || "PIPELINE_LOCKING" || "DISABLED",
  * //       OutputTimingSource: "INPUT_CLOCK" || "SYSTEM_CLOCK",
  * //       SupportLowFramerateInputs: "DISABLED" || "ENABLED",
  * //       OutputLockingSettings: { // OutputLockingSettings
