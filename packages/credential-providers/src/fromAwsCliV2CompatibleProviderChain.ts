@@ -4,11 +4,12 @@ import { remoteProvider } from "@aws-sdk/credential-provider-node/src/remoteProv
 import type { FromProcessInit } from "@aws-sdk/credential-provider-process";
 import type { FromSSOInit } from "@aws-sdk/credential-provider-sso";
 import type { FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
-import { createCredentialChain } from "@aws-sdk/credential-providers";
 import type { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import type { RemoteProviderInit } from "@smithy/credential-provider-imds";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import type { AwsCredentialIdentity, Logger } from "@smithy/types";
+
+import { createCredentialChain } from "./createCredentialChain";
 
 /**
  * @public
