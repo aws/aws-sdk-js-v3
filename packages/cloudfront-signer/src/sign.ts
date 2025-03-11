@@ -363,8 +363,13 @@ class CloudfrontSignBuilder {
     if (!date) {
       return undefined;
     }
-    const parsedDate = Date.parse(date);
-    return isNaN(parsedDate) ? undefined : this.epochTime(new Date(parsedDate));
+    let parsedDate: Date;
+    if (/^\d+$/.test(date)) {
+      parsedDate = new Date(Number(date));
+    } else {
+      parsedDate = new Date(date);
+    }
+    return isNaN(parsedDate.getTime()) ? undefined : this.epochTime(parsedDate);
   }
 
   private parseDateWindow(expiration: string, start?: string): PolicyDates {

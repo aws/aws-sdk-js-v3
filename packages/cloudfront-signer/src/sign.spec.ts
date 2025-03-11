@@ -7,9 +7,18 @@ import { getSignedCookies, getSignedUrl } from "./index";
 const url = "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg";
 const keyPairId = "APKAEIBAERJR2EXAMPLE";
 const dateLessThan = "2020-01-01";
-const epochDateLessThan = Math.round(new Date(dateLessThan).getTime() / 1000);
+const epochDateLessThan = Math.round(
+  (typeof dateLessThan === "string" && /^\d+$/.test(dateLessThan)
+    ? Number(dateLessThan)
+    : new Date(dateLessThan).getTime()) / 1000
+);
 const dateGreaterThan = "2019-12-01";
-const epochDateGreaterThan = Math.round(new Date(dateGreaterThan).getTime() / 1000);
+const epochDateGreaterThan = Math.round(
+  (typeof dateGreaterThan === "string" && /^\d+$/.test(dateGreaterThan)
+    ? Number(dateGreaterThan)
+    : new Date(dateGreaterThan).getTime()) / 1000
+);
+
 const ipAddress = "10.0.0.0";
 const privateKey = Buffer.from(`
 -----BEGIN RSA PRIVATE KEY-----
