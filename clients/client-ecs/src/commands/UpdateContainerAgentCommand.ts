@@ -171,6 +171,7 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  *
  * @throws {@link MissingVersionException} (client fault)
  *  <p>Amazon ECS can't determine the current version of the Amazon ECS container agent on the
