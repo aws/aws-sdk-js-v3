@@ -286,6 +286,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * //             { // Step
  * //               componentId: "STRING_VALUE", // required
  * //               componentType: "STRING_VALUE", // required
+ * //               componentArn: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },

@@ -6657,6 +6657,12 @@ export interface Step {
    * @public
    */
   componentType: string | undefined;
+
+  /**
+   * <p>The component ARN. The ARN can be null and is not displayed in the Amazon Web Services console.</p>
+   * @public
+   */
+  componentArn?: string | undefined;
 }
 
 /**
