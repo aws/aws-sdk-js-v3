@@ -41,6 +41,11 @@ describe("AWS Region Resolution", () => {
     });
 
     it("should use defaultRegion when no other source is available", async () => {
+      // Mock loadSharedConfigFiles to return empty configuration
+      vi.mocked(loadSharedConfigFiles).mockResolvedValue({
+        configFile: {},
+        credentialsFile: {},
+      });
       const consoleSpy = vi.spyOn(console, "warn");
       const region = await resolveAwsCliV2Region({ defaultRegion: "ap-southeast-1" });
       expect(region).toBe("ap-southeast-1");
@@ -48,6 +53,11 @@ describe("AWS Region Resolution", () => {
     });
 
     it("should return undefined when no region is available and no default region is provided", async () => {
+      // Mock loadSharedConfigFiles to return empty configuration
+      vi.mocked(loadSharedConfigFiles).mockResolvedValue({
+        configFile: {},
+        credentialsFile: {},
+      });
       const consoleSpy = vi.spyOn(console, "warn");
       const region = await resolveAwsCliV2Region({});
       expect(region).toBeUndefined();
