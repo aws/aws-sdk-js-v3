@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BodyWithXmlNameInputOutput } from "../models/models_0";
-import { de_BodyWithXmlNameCommand, se_BodyWithXmlNameCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import { BodyWithXmlName } from "../schemas/aws.protocoltests.restxml";
 
 /**
  * @public
@@ -69,13 +68,12 @@ export class BodyWithXmlNameCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestXml", "BodyWithXmlName", {})
   .n("RestXmlProtocolClient", "BodyWithXmlNameCommand")
   .f(void 0, void 0)
-  .ser(se_BodyWithXmlNameCommand)
-  .de(de_BodyWithXmlNameCommand)
+  .sc(BodyWithXmlName)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

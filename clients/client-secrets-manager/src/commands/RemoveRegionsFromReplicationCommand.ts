@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RemoveRegionsFromReplicationRequest, RemoveRegionsFromReplicationResponse } from "../models/models_0";
-import {
-  de_RemoveRegionsFromReplicationCommand,
-  se_RemoveRegionsFromReplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { RemoveRegionsFromReplication } from "../schemas/com.amazonaws.secretsmanager";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -118,16 +114,12 @@ export class RemoveRegionsFromReplicationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("secretsmanager", "RemoveRegionsFromReplication", {})
   .n("SecretsManagerClient", "RemoveRegionsFromReplicationCommand")
   .f(void 0, void 0)
-  .ser(se_RemoveRegionsFromReplicationCommand)
-  .de(de_RemoveRegionsFromReplicationCommand)
+  .sc(RemoveRegionsFromReplication)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
