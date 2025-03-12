@@ -2,8 +2,8 @@
 
 ## Background
 
-In AWS SDK for JavaScript v3.729.0, we
-shipped a feature that changed default object integrity in S3.
+In AWS SDK for JavaScript [v3.729.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.729.0), we
+shipped a feature that [changed default object integrity in S3](https://github.com/aws/aws-sdk-js-v3/issues/6810).
 The SDKs now default to using more modern checksums (like CRC32) to ensure object integrity, whereas
 previously MD5 checksums were being used. Some third-party S3-compatible services currently do not
 support these checksums and require MD5 checksums. Furthermore, the [DeleteObjects operation in S3
