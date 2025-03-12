@@ -10,7 +10,7 @@ support these checksums and require MD5 checksums. Furthermore, the [DeleteObjec
 requires a Content-MD5 request header](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjects.html)
 in which case too, you should use the MD5 fallback as noted below.
 If you wish to fallback to the old behavior of sending MD5 checksums, for operations like
-DeleteObjectsCommand this is how you can do it in AWS SDK for JavaScript v3:
+`DeleteObjectsCommand` this is how you can do it in AWS SDK for JavaScript v3:
 
 ## MD5 fallback
 
