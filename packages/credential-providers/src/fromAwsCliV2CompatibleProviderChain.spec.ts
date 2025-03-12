@@ -9,7 +9,7 @@ describe("fromAwsCliV2CompatibleProviderChain", () => {
   let mockFromTokenFile: any;
   let mockFromSSO: any;
   let mockFromProcess: any;
-  let mockRemoteProvider: any;
+  let mockFromInstanceMetadata: any;
 
   const mockLogger = {
     debug: vi.fn(),
@@ -79,14 +79,14 @@ describe("fromAwsCliV2CompatibleProviderChain", () => {
       fromProcess: () => mockFromProcess,
     }));
 
-    mockRemoteProvider = vi.fn(async () => {
+    mockFromInstanceMetadata = vi.fn(async () => {
       return {
         accessKeyId: "REMOTE_ACCESS_KEY",
         secretAccessKey: "REMOTE_SECRET_KEY",
       };
     });
-    vi.doMock("@aws-sdk/credential-provider-node/src/remoteProvider", () => ({
-      remoteProvider: () => mockRemoteProvider,
+    vi.doMock("@smithy/credential-provider-imds", () => ({
+      fromInstanceMetadata: () => mockFromInstanceMetadata,
     }));
   });
 
@@ -190,8 +190,8 @@ describe("fromAwsCliV2CompatibleProviderChain", () => {
       fromProcess: () => mockFromProcess,
     }));
 
-    vi.doMock("@aws-sdk/credential-provider-node/src/remoteProvider", () => ({
-      remoteProvider: () => () => Promise.reject(new CredentialsProviderError("No remote credentials")),
+    vi.doMock("@smithy/credential-provider-imds", () => ({
+      fromInstanceMetadata: () => mockFromInstanceMetadata,
     }));
 
     const { fromAwsCliV2CompatibleProviderChain } = await import("./fromAwsCliV2CompatibleProviderChain");
@@ -229,13 +229,13 @@ describe("fromAwsCliV2CompatibleProviderChain", () => {
       fromProcess: () => () => Promise.reject(new CredentialsProviderError("No process credentials")),
     }));
 
-    mockRemoteProvider = vi.fn().mockResolvedValue({
+    mockFromInstanceMetadata = vi.fn().mockResolvedValue({
       accessKeyId: "REMOTE_ACCESS_KEY",
       secretAccessKey: "REMOTE_SECRET_KEY",
     });
 
-    vi.doMock("@aws-sdk/credential-provider-node/src/remoteProvider", () => ({
-      remoteProvider: () => mockRemoteProvider,
+    vi.doMock("@smithy/credential-provider-imds", () => ({
+      fromInstanceMetadata: () => mockFromInstanceMetadata,
     }));
 
     const { fromAwsCliV2CompatibleProviderChain } = await import("./fromAwsCliV2CompatibleProviderChain");
@@ -249,7 +249,7 @@ describe("fromAwsCliV2CompatibleProviderChain", () => {
       accessKeyId: "REMOTE_ACCESS_KEY",
       secretAccessKey: "REMOTE_SECRET_KEY",
     });
-    expect(mockRemoteProvider).toHaveBeenCalled();
+    expect(mockFromInstanceMetadata).toHaveBeenCalled();
   });
 
   it("should throw error when no credentials are found", async () => {
