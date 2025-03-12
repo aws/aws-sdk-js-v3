@@ -10,7 +10,7 @@ export const getWorkspacePaths = () => {
   const packageJson = JSON.parse(readFileSync(packageJsonPath).toString());
 
   return packageJson.workspaces.packages
-    .map((dir) => dir.replace("/*", ""))
+    .map((dir) => dir.replace("/*", "").replace("!(all-in-one)", ""))
     .flatMap((workspacesDir) =>
       readdirSync(join(rootDir, workspacesDir), { withFileTypes: true })
         .filter((dirent) => dirent.isDirectory())
