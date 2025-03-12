@@ -1,4 +1,5 @@
 export * from "./createCredentialChain";
+export * from "./fromAwsCliV2CompatibleProviderChain";
 export * from "./fromCognitoIdentity";
 export * from "./fromCognitoIdentityPool";
 export * from "./fromContainerMetadata";
@@ -12,3 +13,4 @@ export * from "./fromSSO";
 export * from "./fromTemporaryCredentials";
 export * from "./fromTokenFile";
 export * from "./fromWebToken";
+export * from "./resolveAwsCliV2Region";

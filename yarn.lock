@@ -22620,7 +22620,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/credential-providers@npm:*, @aws-sdk/credential-providers@workspace:^, @aws-sdk/credential-providers@workspace:packages/credential-providers":
+"@aws-sdk/credential-providers@npm:*, @aws-sdk/credential-providers@workspace:packages/credential-providers":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/credential-providers@workspace:packages/credential-providers"
   dependencies:
@@ -29814,8 +29814,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "aws-sdk-js-v3@workspace:."
   dependencies:
-    "@aws-sdk/credential-providers": "workspace:^"
-    "@aws-sdk/ec2-metadata-service": "workspace:^"
     "@commitlint/cli": "npm:17.0.2"
     "@commitlint/config-conventional": "npm:17.0.2"
     "@cucumber/cucumber": "npm:8.5.3"
