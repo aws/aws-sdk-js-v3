@@ -22695,7 +22695,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/ec2-metadata-service@workspace:packages/ec2-metadata-service"
   dependencies:
-    "@aws-sdk/credential-providers": "npm:*"
     "@aws-sdk/types": "npm:*"
     "@smithy/node-config-provider": "npm:^4.0.1"
     "@smithy/node-http-handler": "npm:^4.0.3"

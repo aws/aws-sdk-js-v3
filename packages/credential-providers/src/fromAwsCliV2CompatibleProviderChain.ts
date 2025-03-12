@@ -1,11 +1,10 @@
 import type { FromEnvInit } from "@aws-sdk/credential-provider-env";
 import type { FromIniInit } from "@aws-sdk/credential-provider-ini";
-import { remoteProvider } from "@aws-sdk/credential-provider-node/src/remoteProvider";
 import type { FromProcessInit } from "@aws-sdk/credential-provider-process";
 import type { FromSSOInit } from "@aws-sdk/credential-provider-sso";
 import type { FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
 import type { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
-import type { RemoteProviderInit } from "@smithy/credential-provider-imds";
+import { type RemoteProviderInit, fromInstanceMetadata } from "@smithy/credential-provider-imds";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import type { AwsCredentialIdentity, Logger } from "@smithy/types";
 
@@ -119,7 +118,7 @@ export const fromAwsCliV2CompatibleProviderChain =
       },
       async () => {
         logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::remoteProvider");
-        return (await remoteProvider(init))();
+        return fromInstanceMetadata(init)();
       },
       async () => {
         throw new CredentialsProviderError("Could not load credentials from any providers", {
