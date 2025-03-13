@@ -48,6 +48,7 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  *   stage: "PRODUCTION" || "BETA" || "DEVELOPMENT" || "EXPERIMENTAL" || "PULL_REQUEST",
  *   enableNotification: true || false,
  *   enableAutoBuild: true || false,
+ *   enableSkewProtection: true || false,
  *   environmentVariables: { // EnvironmentVariables
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -84,6 +85,7 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     enableAutoBuild: true || false, // required
+ * //     enableSkewProtection: true || false,
  * //     customDomains: [ // CustomDomains // required
  * //       "STRING_VALUE",
  * //     ],
