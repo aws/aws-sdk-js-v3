@@ -1,3 +1,4 @@
+import { fromInstanceMetadata } from "@smithy/credential-provider-imds";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -265,10 +266,10 @@ describe("fromAwsCliV2CompatibleProviderChain", () => {
     vi.doMock("@aws-sdk/credential-provider-process", () => ({
       fromProcess: () => () => Promise.reject(new CredentialsProviderError("No process credentials")),
     }));
-    vi.doMock("@aws-sdk/credential-provider-node/src/remoteProvider", () => ({
-      remoteProvider: () => () => Promise.reject(new CredentialsProviderError("No remote credentials")),
+    vi.doMock("@smithy/credential-provider-imds", () => ({
+      fromInstanceMetadata: () => () => Promise.reject(new CredentialsProviderError("No remote credentials")),
     }));
-
+    const { fromAwsCliV2CompatibleProviderChain } = await import("./fromAwsCliV2CompatibleProviderChain");
     const provider = fromAwsCliV2CompatibleProviderChain({ logger: mockLogger });
 
     await expect(provider()).rejects.toThrow(CredentialsProviderError);
