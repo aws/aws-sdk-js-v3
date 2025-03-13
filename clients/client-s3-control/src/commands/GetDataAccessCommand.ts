@@ -65,6 +65,10 @@ export interface GetDataAccessCommandOutput extends GetDataAccessResult, __Metad
  * //     Expiration: new Date("TIMESTAMP"),
  * //   },
  * //   MatchedGrantTarget: "STRING_VALUE",
+ * //   Grantee: { // Grantee
+ * //     GranteeType: "DIRECTORY_USER" || "DIRECTORY_GROUP" || "IAM",
+ * //     GranteeIdentifier: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
