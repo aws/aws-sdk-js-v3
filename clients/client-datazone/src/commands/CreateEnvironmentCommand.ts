@@ -132,6 +132,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * //     endTimeoutMinutes: Number("int"),
  * //   },
  * //   environmentBlueprintId: "STRING_VALUE",
+ * //   environmentConfigurationId: "STRING_VALUE",
  * // };
  *
  * ```

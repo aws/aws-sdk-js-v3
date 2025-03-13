@@ -70,6 +70,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  * //       awsAccountRegion: "STRING_VALUE",
  * //       provider: "STRING_VALUE", // required
  * //       status: "ACTIVE" || "CREATING" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED" || "VALIDATION_FAILED" || "SUSPENDED" || "DISABLED" || "EXPIRED" || "DELETED" || "INACCESSIBLE",
+ * //       environmentConfigurationId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

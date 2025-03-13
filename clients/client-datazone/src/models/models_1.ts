@@ -3614,7 +3614,7 @@ export interface GetEnvironmentBlueprintConfigurationInput {
 export interface LakeFormationConfiguration {
   /**
    * <p>The role that is used to manage read/write access to the chosen Amazon S3 bucket(s) for
-   *          Data Lake using AWS Lake Formation hybrid access mode.</p>
+   *          Data Lake using Amazon Web Services Lake Formation hybrid access mode.</p>
    * @public
    */
   locationRegistrationRole?: string | undefined;
@@ -4386,6 +4386,12 @@ export interface GetEnvironmentOutput {
    * @public
    */
   environmentBlueprintId?: string | undefined;
+
+  /**
+   * <p>The configuration ID that is used to create the environment.</p>
+   * @public
+   */
+  environmentConfigurationId?: string | undefined;
 }
 
 /**
@@ -4791,7 +4797,8 @@ export interface LineageSqlQueryRunDetails {
   totalQueriesProcessed?: number | undefined;
 
   /**
-   * <p>The number of queries that failed in the SQL query run details of a data lineage run.</p>
+   * <p>The number of queries that failed in the SQL query run details of a data lineage
+   *          run.</p>
    * @public
    */
   numQueriesFailed?: number | undefined;
@@ -7434,6 +7441,12 @@ export interface EnvironmentSummary {
    * @public
    */
   status?: EnvironmentStatus | undefined;
+
+  /**
+   * <p>The configuration ID with which the environment is created.</p>
+   * @public
+   */
+  environmentConfigurationId?: string | undefined;
 }
 
 /**
@@ -11523,6 +11536,7 @@ export const GetEnvironmentOutputFilterSensitiveLog = (obj: GetEnvironmentOutput
     userParameters: obj.userParameters.map((item) => CustomParameterFilterSensitiveLog(item)),
   }),
   ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
+  ...(obj.environmentConfigurationId && { environmentConfigurationId: SENSITIVE_STRING }),
 });
 
 /**
@@ -11781,6 +11795,7 @@ export const EnvironmentSummaryFilterSensitiveLog = (obj: EnvironmentSummary): a
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.environmentConfigurationId && { environmentConfigurationId: SENSITIVE_STRING }),
 });
 
 /**

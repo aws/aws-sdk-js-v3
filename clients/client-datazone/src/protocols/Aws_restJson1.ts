@@ -3870,9 +3870,11 @@ export const se_UpdateEnvironmentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      blueprintVersion: [],
       description: [],
       glossaryTerms: (_) => _json(_),
       name: [],
+      userParameters: (_) => _json(_),
     })
   );
   b.m("PATCH").h(headers).b(body);
@@ -4035,6 +4037,8 @@ export const se_UpdateProjectCommand = async (
       environmentDeploymentDetails: (_) => _json(_),
       glossaryTerms: (_) => _json(_),
       name: [],
+      projectProfileVersion: [],
+      userParameters: (_) => _json(_),
     })
   );
   b.m("PATCH").h(headers).b(body);
@@ -4725,6 +4729,7 @@ export const de_CreateEnvironmentCommand = async (
     domainId: __expectString,
     environmentActions: _json,
     environmentBlueprintId: __expectString,
+    environmentConfigurationId: __expectString,
     environmentProfileId: __expectString,
     glossaryTerms: _json,
     id: __expectString,
@@ -5970,6 +5975,7 @@ export const de_GetEnvironmentCommand = async (
     domainId: __expectString,
     environmentActions: _json,
     environmentBlueprintId: __expectString,
+    environmentConfigurationId: __expectString,
     environmentProfileId: __expectString,
     glossaryTerms: _json,
     id: __expectString,
@@ -7970,6 +7976,7 @@ export const de_UpdateEnvironmentCommand = async (
     domainId: __expectString,
     environmentActions: _json,
     environmentBlueprintId: __expectString,
+    environmentConfigurationId: __expectString,
     environmentProfileId: __expectString,
     glossaryTerms: _json,
     id: __expectString,
@@ -9733,6 +9740,7 @@ const de_EnvironmentSummary = (output: any, context: __SerdeContext): Environmen
     createdBy: __expectString,
     description: __expectString,
     domainId: __expectString,
+    environmentConfigurationId: __expectString,
     environmentProfileId: __expectString,
     id: __expectString,
     name: __expectString,

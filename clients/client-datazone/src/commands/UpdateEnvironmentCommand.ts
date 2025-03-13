@@ -47,6 +47,13 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  *   glossaryTerms: [ // GlossaryTerms
  *     "STRING_VALUE",
  *   ],
+ *   blueprintVersion: "STRING_VALUE",
+ *   userParameters: [ // EnvironmentParametersList
+ *     { // EnvironmentParameter
+ *       name: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
@@ -120,6 +127,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * //     endTimeoutMinutes: Number("int"),
  * //   },
  * //   environmentBlueprintId: "STRING_VALUE",
+ * //   environmentConfigurationId: "STRING_VALUE",
  * // };
  *
  * ```
