@@ -935,46 +935,6 @@ export type EnvironmentType = (typeof EnvironmentType)[keyof typeof EnvironmentT
 export interface ProjectEnvironment {
   /**
    * <p>The type of build environment to use for related builds.</p>
-   *          <ul>
-   *             <li>
-   *                <p>The environment type <code>ARM_CONTAINER</code> is available only in regions
-   *                     US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),
-   *                     Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Sydney), and
-   *                     EU (Frankfurt).</p>
-   *             </li>
-   *             <li>
-   *                <p>The environment type <code>LINUX_CONTAINER</code> is available only in regions
-   *                     US East (N. Virginia), US East (Ohio), US West (Oregon),
-   *                     Canada (Central), EU (Ireland), EU (London),
-   *                     EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul),
-   *                     Asia Pacific (Singapore), Asia Pacific (Sydney), China (Beijing), and
-   *                     China (Ningxia).</p>
-   *             </li>
-   *             <li>
-   *                <p>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in
-   *                     regions US East (N. Virginia), US East (Ohio), US West (Oregon),
-   *                     Canada (Central), EU (Ireland), EU (London),
-   *                     EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul),
-   *                     Asia Pacific (Singapore), Asia Pacific (Sydney) , China (Beijing), and
-   *                     China (Ningxia).</p>
-   *             </li>
-   *          </ul>
-   *          <ul>
-   *             <li>
-   *                <p>The environment types <code>ARM_LAMBDA_CONTAINER</code> and
-   *                     <code>LINUX_LAMBDA_CONTAINER</code> are available only in regions
-   *                     US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Mumbai), Asia Pacific (Singapore),
-   *                     Asia Pacific (Sydney), Asia Pacific (Tokyo), EU (Frankfurt), EU (Ireland), and South America (São Paulo).</p>
-   *             </li>
-   *          </ul>
-   *          <ul>
-   *             <li>
-   *                <p>The environment types <code>WINDOWS_CONTAINER</code> and
-   *                         <code>WINDOWS_SERVER_2019_CONTAINER</code> are available only in regions
-   *                     US East (N. Virginia), US East (Ohio), US West (Oregon), and
-   *                     EU (Ireland).</p>
-   *             </li>
-   *          </ul>
    *          <note>
    *             <p>If you're using compute fleets during project creation, <code>type</code> will be ignored.</p>
    *          </note>
@@ -3765,6 +3725,7 @@ export const WebhookFilterType = {
   EVENT: "EVENT",
   FILE_PATH: "FILE_PATH",
   HEAD_REF: "HEAD_REF",
+  ORGANIZATION_NAME: "ORGANIZATION_NAME",
   RELEASE_NAME: "RELEASE_NAME",
   REPOSITORY_NAME: "REPOSITORY_NAME",
   TAG_NAME: "TAG_NAME",
@@ -3782,9 +3743,10 @@ export type WebhookFilterType = (typeof WebhookFilterType)[keyof typeof WebhookF
  */
 export interface WebhookFilter {
   /**
-   * <p> The type of webhook filter. There are nine webhook filter types: <code>EVENT</code>,
+   * <p> The type of webhook filter. There are 11 webhook filter types: <code>EVENT</code>,
    *                 <code>ACTOR_ACCOUNT_ID</code>, <code>HEAD_REF</code>, <code>BASE_REF</code>,
    *             <code>FILE_PATH</code>, <code>COMMIT_MESSAGE</code>, <code>TAG_NAME</code>, <code>RELEASE_NAME</code>,
+   *             <code>REPOSITORY_NAME</code>, <code>ORGANIZATION_NAME</code>,
    *             and <code>WORKFLOW_NAME</code>. </p>
    *          <ul>
    *             <li>
@@ -3854,9 +3816,7 @@ export interface WebhookFilter {
    *                      <p> A webhook triggers a build when the path of a changed file matches the
    *                             regular expression <code>pattern</code>. </p>
    *                      <note>
-   *                         <p> Works with GitHub and Bitbucket events push and pull requests events.
-   *                                 Also works with GitHub Enterprise push events, but does not work with
-   *                                 GitHub Enterprise pull request events. </p>
+   *                         <p> Works with push and pull request events only. </p>
    *                      </note>
    *                   </li>
    *                </ul>
@@ -3868,9 +3828,7 @@ export interface WebhookFilter {
    *                      <p>A webhook triggers a build when the head commit message matches the
    *                             regular expression <code>pattern</code>.</p>
    *                      <note>
-   *                         <p> Works with GitHub and Bitbucket events push and pull requests events.
-   *                                 Also works with GitHub Enterprise push events, but does not work with
-   *                                 GitHub Enterprise pull request events. </p>
+   *                         <p> Works with push and pull request events only. </p>
    *                      </note>
    *                   </li>
    *                </ul>
@@ -3904,9 +3862,21 @@ export interface WebhookFilter {
    *                <ul>
    *                   <li>
    *                      <p>A webhook triggers a build when the repository name matches the
-   *                                 regular expression pattern.</p>
+   *                                 regular expression <code>pattern</code>.</p>
    *                      <note>
    *                         <p> Works with GitHub global or organization webhooks only. </p>
+   *                      </note>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>ORGANIZATION_NAME</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>A webhook triggers a build when the organization name matches the
+   *                                 regular expression <code>pattern</code>.</p>
+   *                      <note>
+   *                         <p> Works with GitHub global webhooks only. </p>
    *                      </note>
    *                   </li>
    *                </ul>
