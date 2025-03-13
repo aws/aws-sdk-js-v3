@@ -41,6 +41,8 @@ describe("AWS Region Resolution", () => {
     });
 
     it("should use defaultRegion when no other source is available", async () => {
+      delete process.env.AWS_REGION;
+      delete process.env.AWS_DEFAULT_REGION;
       // Mock loadSharedConfigFiles to return empty configuration
       vi.mocked(loadSharedConfigFiles).mockResolvedValue({
         configFile: {},
@@ -53,6 +55,8 @@ describe("AWS Region Resolution", () => {
     });
 
     it("should return undefined when no region is available and no default region is provided", async () => {
+      delete process.env.AWS_REGION;
+      delete process.env.AWS_DEFAULT_REGION;
       // Mock loadSharedConfigFiles to return empty configuration
       vi.mocked(loadSharedConfigFiles).mockResolvedValue({
         configFile: {},
@@ -65,6 +69,8 @@ describe("AWS Region Resolution", () => {
     });
 
     it("should use specified profile", async () => {
+      delete process.env.AWS_REGION;
+      delete process.env.AWS_DEFAULT_REGION;
       vi.mocked(loadSharedConfigFiles).mockResolvedValue({
         configFile: {
           "custom-profile": {
