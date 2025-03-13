@@ -30,8 +30,8 @@ export interface AssociateInstanceEventWindowCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Associates one or more targets with an event window. Only one type of target (instance
- *          IDs, Dedicated Host IDs, or tags) can be specified with an event window.</p>
+ * <p>Associates one or more targets with an event window. Only one type of target (instance IDs,
+ *          Dedicated Host IDs, or tags) can be specified with an event window.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
  *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example

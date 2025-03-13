@@ -37,8 +37,8 @@ export interface DescribeInstanceEventNotificationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the tag keys that are registered to appear in scheduled event notifications
- *          for resources in the current Region.</p>
+ * <p>Describes the tag keys that are registered to appear in scheduled event notifications for
+ *       	resources in the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

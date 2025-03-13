@@ -436,8 +436,7 @@ export interface ModifyInstanceEventWindowRequest {
   TimeRanges?: InstanceEventWindowTimeRangeRequest[] | undefined;
 
   /**
-   * <p>The cron expression of the event window, for example, <code>* 0-4,20-23 * *
-   *          1,5</code>.</p>
+   * <p>The cron expression of the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -1291,8 +1290,9 @@ export interface ModifyLaunchTemplateRequest {
 
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency
-   *                 in Amazon EC2 API requests</a>.</p>
+   *             request. If a client token isn't specified, a randomly generated token is used in the request to ensure idempotency.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *                 idempotency</a>.</p>
    *          <p>Constraint: Maximum 128 ASCII characters.</p>
    * @public
    */
@@ -5527,16 +5527,15 @@ export interface RegisterImageResult {
 }
 
 /**
- * <p>Information about the tag keys to register for the current Region. You can either
- *          specify individual tag keys or register all tag keys in the current Region. You must
- *          specify either <code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the
- *          request</p>
+ * <p>Information about the tag keys to register for the current Region. You can either specify
+ *       	individual tag keys or register all tag keys in the current Region. You must specify either
+ *       	<code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
  * @public
  */
 export interface RegisterInstanceTagAttributeRequest {
   /**
-   * <p>Indicates whether to register all tag keys in the current Region. Specify
-   *             <code>true</code> to register all tag keys.</p>
+   * <p>Indicates whether to register all tag keys in the current Region. Specify <code>true</code>
+   *       	to register all tag keys.</p>
    * @public
    */
   IncludeAllTagsOfInstance?: boolean | undefined;

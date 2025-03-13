@@ -32197,6 +32197,9 @@ const se_CreateLaunchTemplateRequest = (input: CreateLaunchTemplateRequest, cont
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
   if (input[_CTl] != null) {
     entries[_CTl] = input[_CTl];
   }
@@ -32240,6 +32243,9 @@ const se_CreateLaunchTemplateVersionRequest = (
   const entries: any = {};
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
   }
   if (input[_CTl] != null) {
     entries[_CTl] = input[_CTl];
@@ -48818,6 +48824,9 @@ const se_ModifyLaunchTemplateRequest = (input: ModifyLaunchTemplateRequest, cont
   const entries: any = {};
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
   }
   if (input[_CTl] != null) {
     entries[_CTl] = input[_CTl];

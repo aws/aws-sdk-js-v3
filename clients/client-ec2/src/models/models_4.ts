@@ -4691,32 +4691,32 @@ export interface DescribeInstanceEventWindowsRequest {
    *             <li>
    *                <p>
    *                   <code>dedicated-host-id</code> - The event windows associated with the specified
-   *                Dedicated Host ID.</p>
+   *             Dedicated Host ID.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>event-window-name</code> - The event windows associated with the specified
-   *                names. </p>
+   *             names. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-id</code> - The event windows associated with the specified
-   *                instance ID.</p>
+   *                   <code>instance-id</code> - The event windows associated with the specified instance
+   *                ID.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-tag</code> - The event windows associated with the specified tag
-   *                and value.</p>
+   *                   <code>instance-tag</code> - The event windows associated with the specified tag and
+   *                value.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-tag-key</code> - The event windows associated with the specified
-   *                tag key, regardless of the value.</p>
+   *                   <code>instance-tag-key</code> - The event windows associated with the specified tag
+   *                key, regardless of the value.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-tag-value</code> - The event windows associated with the specified
-   *                tag value, regardless of the key.</p>
+   *                   <code>instance-tag-value</code> - The event windows associated with the specified tag
+   *                value, regardless of the key.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4728,9 +4728,9 @@ export interface DescribeInstanceEventWindowsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the event window. Use this
-   *                filter to find all event windows that have a tag with a specific key, regardless of
-   *                the tag value. </p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the event window. Use this filter
+   *                to find all event windows that have a tag with a specific key, regardless of the tag
+   *                value. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -4770,8 +4770,7 @@ export interface DescribeInstanceEventWindowsResult {
   InstanceEventWindows?: InstanceEventWindow[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *          when there are no more results to return. </p>
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. </p>
    * @public
    */
   NextToken?: string | undefined;
