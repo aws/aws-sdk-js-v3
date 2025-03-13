@@ -22,6 +22,8 @@ export * from "./ListOriginEndpointsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./PutChannelPolicyCommand";
 export * from "./PutOriginEndpointPolicyCommand";
+export * from "./ResetChannelStateCommand";
+export * from "./ResetOriginEndpointStateCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateChannelCommand";

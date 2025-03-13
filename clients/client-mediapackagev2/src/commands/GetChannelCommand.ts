@@ -47,6 +47,7 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * //   ChannelGroupName: "STRING_VALUE", // required
  * //   CreatedAt: new Date("TIMESTAMP"), // required
  * //   ModifiedAt: new Date("TIMESTAMP"), // required
+ * //   ResetAt: new Date("TIMESTAMP"),
  * //   Description: "STRING_VALUE",
  * //   IngestEndpoints: [ // IngestEndpointList
  * //     { // IngestEndpoint

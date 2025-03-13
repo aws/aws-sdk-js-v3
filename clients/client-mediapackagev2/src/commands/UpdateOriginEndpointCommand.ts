@@ -95,6 +95,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         TimeDelaySeconds: Number("int"),
  *         ClipStartTime: new Date("TIMESTAMP"),
  *       },
+ *       UrlEncodeChildManifest: true || false,
  *     },
  *   ],
  *   LowLatencyHlsManifests: [ // CreateLowLatencyHlsManifests
@@ -117,6 +118,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         TimeDelaySeconds: Number("int"),
  *         ClipStartTime: new Date("TIMESTAMP"),
  *       },
+ *       UrlEncodeChildManifest: true || false,
  *     },
  *   ],
  *   DashManifests: [ // CreateDashManifests
@@ -219,6 +221,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //         TimeOffset: Number("float"), // required
  * //         Precise: true || false,
  * //       },
+ * //       UrlEncodeChildManifest: true || false,
  * //     },
  * //   ],
  * //   LowLatencyHlsManifests: [ // GetLowLatencyHlsManifests
@@ -242,6 +245,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //         TimeOffset: Number("float"), // required
  * //         Precise: true || false,
  * //       },
+ * //       UrlEncodeChildManifest: true || false,
  * //     },
  * //   ],
  * //   ForceEndpointErrorConfiguration: { // ForceEndpointErrorConfiguration

@@ -760,6 +760,12 @@ export interface GetChannelResponse {
   ModifiedAt: Date | undefined;
 
   /**
+   * <p>The time that the channel was last reset.</p>
+   * @public
+   */
+  ResetAt?: Date | undefined;
+
+  /**
    * <p>The description for your channel.</p>
    * @public
    */
@@ -1274,6 +1280,13 @@ export interface CreateHlsManifestConfiguration {
    * @public
    */
   FilterConfiguration?: FilterConfiguration | undefined;
+
+  /**
+   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+   *          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+   * @public
+   */
+  UrlEncodeChildManifest?: boolean | undefined;
 }
 
 /**
@@ -1325,6 +1338,13 @@ export interface CreateLowLatencyHlsManifestConfiguration {
    * @public
    */
   FilterConfiguration?: FilterConfiguration | undefined;
+
+  /**
+   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+   *          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+   * @public
+   */
+  UrlEncodeChildManifest?: boolean | undefined;
 }
 
 /**
@@ -1908,6 +1928,13 @@ export interface GetHlsManifestConfiguration {
    * @public
    */
   StartTag?: StartTag | undefined;
+
+  /**
+   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+   *          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+   * @public
+   */
+  UrlEncodeChildManifest?: boolean | undefined;
 }
 
 /**
@@ -1965,6 +1992,13 @@ export interface GetLowLatencyHlsManifestConfiguration {
    * @public
    */
   StartTag?: StartTag | undefined;
+
+  /**
+   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+   *          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+   * @public
+   */
+  UrlEncodeChildManifest?: boolean | undefined;
 }
 
 /**
@@ -2170,6 +2204,12 @@ export interface GetOriginEndpointResponse {
    * @public
    */
   ModifiedAt: Date | undefined;
+
+  /**
+   * <p>The time that the origin endpoint was last reset.</p>
+   * @public
+   */
+  ResetAt?: Date | undefined;
 
   /**
    * <p>The description for your origin endpoint.</p>
@@ -2527,6 +2567,64 @@ export interface PutOriginEndpointPolicyResponse {}
 /**
  * @public
  */
+export interface ResetOriginEndpointStateRequest {
+  /**
+   * <p>The name of the channel group that contains the channel with the origin endpoint that you are resetting.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel with the origin endpoint that you are resetting.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The name of the origin endpoint that you are resetting.</p>
+   * @public
+   */
+  OriginEndpointName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetOriginEndpointStateResponse {
+  /**
+   * <p>The name of the channel group that contains the channel with the origin endpoint that you just reset.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel with the origin endpoint that you just reset.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The name of the origin endpoint that you just reset.</p>
+   * @public
+   */
+  OriginEndpointName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the endpoint that you just reset.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The time that the origin endpoint was last reset.</p>
+   * @public
+   */
+  ResetAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateOriginEndpointRequest {
   /**
    * <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>
@@ -2700,6 +2798,52 @@ export interface UpdateOriginEndpointResponse {
    * @public
    */
   DashManifests?: GetDashManifestConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetChannelStateRequest {
+  /**
+   * <p>The name of the channel group that contains the channel that you are resetting.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel that you are resetting.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetChannelStateResponse {
+  /**
+   * <p>The name of the channel group that contains the channel that you just reset.</p>
+   * @public
+   */
+  ChannelGroupName: string | undefined;
+
+  /**
+   * <p>The name of the channel that you just reset.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the channel that you just reset.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The time that the channel was last reset.</p>
+   * @public
+   */
+  ResetAt: Date | undefined;
 }
 
 /**

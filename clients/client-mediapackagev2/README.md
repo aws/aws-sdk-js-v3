@@ -400,6 +400,22 @@ PutOriginEndpointPolicy
 </details>
 <details>
 <summary>
+ResetChannelState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackagev2/command/ResetChannelStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/ResetChannelStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/ResetChannelStateCommandOutput/)
+
+</details>
+<details>
+<summary>
+ResetOriginEndpointState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackagev2/command/ResetOriginEndpointStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/ResetOriginEndpointStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/ResetOriginEndpointStateCommandOutput/)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 
