@@ -40,7 +40,7 @@
     "@aws-sdk/credential-provider-process": "*",
     "@aws-sdk/credential-provider-sso": "*",
     "@aws-sdk/credential-provider-web-identity": "*",
-    "@aws-sdk/ec2-metadata-service": "workspace:^",
+    "@aws-sdk/ec2-metadata-service": "*",
     "@aws-sdk/nested-clients": "*",
     "@aws-sdk/types": "*",
     "@smithy/core": "^3.1.5",
