@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.767.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.766.0...v3.767.0) (2025-03-13)
+
+
+### Features
+
+* **client-ivs-realtime:** IVS Real-Time now offers customers the ability to adjust the participant & composition recording segment duration ([22ff2bf](https://github.com/aws/aws-sdk-js-v3/commit/22ff2bfd073861182437c730fe794841bdbc7d20))
+
+
+
+
+
 # [3.763.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.762.0...v3.763.0) (2025-03-06)
 
 

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.767.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.766.0...v3.767.0) (2025-03-13)
+
+
+### Features
+
+* **client-acm-pca:** Private Certificate Authority service now supports P521 and RSA3072 key algorithms. ([615a9d9](https://github.com/aws/aws-sdk-js-v3/commit/615a9d986ca7403f9b529da5c44442f30da868c4))
+* **client-amplify:** Introduced support for Skew Protection. Added enableSkewProtection field to createBranch and updateBranch API. ([d50c022](https://github.com/aws/aws-sdk-js-v3/commit/d50c02271ed57faddc668eb10b09b83bead6c8c6))
+* **client-cloudwatch-logs:** Updated CreateLogAnomalyDetector to accept only kms key arn ([a27f1b4](https://github.com/aws/aws-sdk-js-v3/commit/a27f1b41e3774f5ebba769badc1623ae2f086d81))
+* **client-codebuild:** AWS CodeBuild now supports webhook filtering by organization name ([0712dd4](https://github.com/aws/aws-sdk-js-v3/commit/0712dd4e7a345c581f02620268b7fdb4708bb2ad))
+* **client-datazone:** This release adds support to update projects and environments ([ed38017](https://github.com/aws/aws-sdk-js-v3/commit/ed380170a6ac4e785b42376f28af4fa36967521e))
+* **client-dynamodb:** Generate account endpoints for DynamoDB requests using ARN-sourced account ID when available ([d2c9f5d](https://github.com/aws/aws-sdk-js-v3/commit/d2c9f5d8676971df8885de46d09a805e54952c1d))
+* **client-ec2:** This release changes the CreateLaunchTemplate, CreateLaunchTemplateVersion, ModifyLaunchTemplate CLI and SDKs such that if you do not specify a client token, a randomly generated token is used for the request to ensure idempotency. ([60c47be](https://github.com/aws/aws-sdk-js-v3/commit/60c47be9bdd6320cb5a3f827ed647cff034dfed8))
+* **client-ivs-realtime:** IVS Real-Time now offers customers the ability to adjust the participant & composition recording segment duration ([22ff2bf](https://github.com/aws/aws-sdk-js-v3/commit/22ff2bfd073861182437c730fe794841bdbc7d20))
+* **client-mediapackagev2:** This release adds the ResetChannelState and ResetOriginEndpointState operation to reset MediaPackage V2 channel and origin endpoint. This release also adds a new field, UrlEncodeChildManifest, for HLS/LL-HLS to allow URL-encoding child manifest query string based on the requirements of AWS SigV4. ([31f8273](https://github.com/aws/aws-sdk-js-v3/commit/31f82731a6c6c332d5027348ba4654f5664a9694))
+* **client-s3-control:** Updating GetDataAccess response for S3 Access Grants to include the matched Grantee for the requested prefix ([89baba5](https://github.com/aws/aws-sdk-js-v3/commit/89baba56cbac4ba57132cd9258c0296189f92396))
+* **clients:** update client endpoints as of 2025-03-13 ([acfb492](https://github.com/aws/aws-sdk-js-v3/commit/acfb492f8b27f2854ca9a252528ced01fbe7e86d))
+
+
+
+
+
 # [3.766.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.765.0...v3.766.0) (2025-03-11)
 
 
