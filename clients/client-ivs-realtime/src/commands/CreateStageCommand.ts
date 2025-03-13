@@ -65,6 +65,9 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  *       recordingMode: "INTERVAL" || "DISABLED",
  *     },
  *     recordingReconnectWindowSeconds: Number("int"),
+ *     hlsConfiguration: { // ParticipantRecordingHlsConfiguration
+ *       targetSegmentDurationSeconds: Number("int"),
+ *     },
  *   },
  * };
  * const command = new CreateStageCommand(input);
@@ -90,6 +93,9 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * //         recordingMode: "INTERVAL" || "DISABLED",
  * //       },
  * //       recordingReconnectWindowSeconds: Number("int"),
+ * //       hlsConfiguration: { // ParticipantRecordingHlsConfiguration
+ * //         targetSegmentDurationSeconds: Number("int"),
+ * //       },
  * //     },
  * //     endpoints: { // StageEndpoints
  * //       events: "STRING_VALUE",

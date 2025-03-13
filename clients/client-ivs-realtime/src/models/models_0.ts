@@ -989,6 +989,20 @@ export interface CreateParticipantTokenResponse {
 }
 
 /**
+ * <p>An object representing a configuration of participant HLS recordings for individual participant recording.</p>
+ * @public
+ */
+export interface ParticipantRecordingHlsConfiguration {
+  /**
+   * <p>Defines the target duration for recorded segments generated when recording a stage participant.
+   * 	  Segments may have durations longer than the specified value when needed to ensure each segment begins with a keyframe.
+   * 	  Default: 6.</p>
+   * @public
+   */
+  targetSegmentDurationSeconds?: number | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1100,6 +1114,12 @@ export interface AutoParticipantRecordingConfiguration {
    * @public
    */
   recordingReconnectWindowSeconds?: number | undefined;
+
+  /**
+   * <p>HLS configuration object for individual participant recording.</p>
+   * @public
+   */
+  hlsConfiguration?: ParticipantRecordingHlsConfiguration | undefined;
 }
 
 /**
@@ -1518,10 +1538,30 @@ export type RecordingConfigurationFormat =
   (typeof RecordingConfigurationFormat)[keyof typeof RecordingConfigurationFormat];
 
 /**
+ * <p>An object representing a configuration of HLS recordings for server-side composition.</p>
+ * @public
+ */
+export interface CompositionRecordingHlsConfiguration {
+  /**
+   * <p>Defines the target duration for recorded segments generated when using composite recording.
+   * 	  Segments may have durations shorter than the specified value when needed to ensure each segment
+   * 	  begins with a keyframe. Default: 2.</p>
+   * @public
+   */
+  targetSegmentDurationSeconds?: number | undefined;
+}
+
+/**
  * <p>An object representing a configuration to record a stage stream.</p>
  * @public
  */
 export interface RecordingConfiguration {
+  /**
+   * <p>An HLS configuration object to return information about how the recording will be configured.</p>
+   * @public
+   */
+  hlsConfiguration?: CompositionRecordingHlsConfiguration | undefined;
+
   /**
    * <p>The recording format for storing a recording in Amazon S3.</p>
    * @public
@@ -2209,11 +2249,7 @@ export interface Participant {
   /**
    * <p>S3 prefix of the S3 bucket where the participant is being recorded, if individual
    *          participant recording is enabled, or <code>""</code> (empty string), if recording is not
-   *          enabled. If individual participant recording merge is enabled, and if a stage publisher
-   * 		 disconnects from a stage and then reconnects, IVS tries to record to the same S3 prefix as
-   * 		 the previous session. See
-   * 		 <a href="/ivs/latest/RealTimeUserGuide/rt-individual-participant-recording.html#ind-part-rec-merge-frag">
-   * 		 Merge Fragmented Individual Participant Recordings</a>.</p>
+   *          enabled.</p>
    * @public
    */
   recordingS3Prefix?: string | undefined;

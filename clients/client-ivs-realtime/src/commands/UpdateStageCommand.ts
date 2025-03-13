@@ -51,6 +51,9 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  *       recordingMode: "INTERVAL" || "DISABLED",
  *     },
  *     recordingReconnectWindowSeconds: Number("int"),
+ *     hlsConfiguration: { // ParticipantRecordingHlsConfiguration
+ *       targetSegmentDurationSeconds: Number("int"),
+ *     },
  *   },
  * };
  * const command = new UpdateStageCommand(input);
@@ -76,6 +79,9 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * //         recordingMode: "INTERVAL" || "DISABLED",
  * //       },
  * //       recordingReconnectWindowSeconds: Number("int"),
+ * //       hlsConfiguration: { // ParticipantRecordingHlsConfiguration
+ * //         targetSegmentDurationSeconds: Number("int"),
+ * //       },
  * //     },
  * //     endpoints: { // StageEndpoints
  * //       events: "STRING_VALUE",

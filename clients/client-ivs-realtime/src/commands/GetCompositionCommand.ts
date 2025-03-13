@@ -84,6 +84,9 @@ export interface GetCompositionCommandOutput extends GetCompositionResponse, __M
  * //               "STRING_VALUE",
  * //             ],
  * //             recordingConfiguration: { // RecordingConfiguration
+ * //               hlsConfiguration: { // CompositionRecordingHlsConfiguration
+ * //                 targetSegmentDurationSeconds: Number("int"),
+ * //               },
  * //               format: "STRING_VALUE",
  * //             },
  * //             thumbnailConfigurations: [ // CompositionThumbnailConfigurationList

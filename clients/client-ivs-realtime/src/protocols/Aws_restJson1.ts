@@ -120,6 +120,7 @@ import {
   AutoParticipantRecordingConfiguration,
   ChannelDestinationConfiguration,
   Composition,
+  CompositionRecordingHlsConfiguration,
   CompositionSummary,
   CompositionThumbnailConfiguration,
   ConflictException,
@@ -132,6 +133,7 @@ import {
   InternalServerException,
   LayoutConfiguration,
   Participant,
+  ParticipantRecordingHlsConfiguration,
   ParticipantRecordingMediaType,
   ParticipantSummary,
   ParticipantThumbnailConfiguration,
@@ -1961,6 +1963,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ChannelDestinationConfiguration omitted.
 
+// se_CompositionRecordingHlsConfiguration omitted.
+
 // se_CompositionThumbnailConfiguration omitted.
 
 // se_CompositionThumbnailConfigurationList omitted.
@@ -1976,6 +1980,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_LayoutConfiguration omitted.
 
 // se_ParticipantAttributes omitted.
+
+// se_ParticipantRecordingHlsConfiguration omitted.
 
 // se_ParticipantRecordingMediaTypeList omitted.
 
@@ -2032,6 +2038,8 @@ const de_Composition = (output: any, context: __SerdeContext): Composition => {
     tags: _json,
   }) as any;
 };
+
+// de_CompositionRecordingHlsConfiguration omitted.
 
 /**
  * deserializeAws_restJson1CompositionSummary
@@ -2208,6 +2216,8 @@ const de_ParticipantList = (output: any, context: __SerdeContext): ParticipantSu
     });
   return retVal;
 };
+
+// de_ParticipantRecordingHlsConfiguration omitted.
 
 // de_ParticipantRecordingMediaTypeList omitted.
 
