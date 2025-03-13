@@ -27,6 +27,8 @@ A collection of all credential providers.
    1. [Sample Files](#sample-files-2)
 1. [From Node.js default credentials provider chain](#fromnodeproviderchain)
 1. [Creating a custom credentials chain](#createcredentialchain)
+1. [Aws CliV2 Region resolution order](#resolveAwsCliV2Region)
+1. [From AwsCliV2 compatible provider chain](#fromAwsCliV2CompatibleProviderChain)
 
 ## Terminology
 
@@ -945,6 +947,77 @@ const init = { logger: console };
 
 new S3({
   credentials: createCredentialChain(fromEnv(init), fromIni(init)),
+});
+```
+
+## `resolveAwsCliV2Region()`
+
+The region is resolved using the following order of precedence (highest to lowest) in the cli v2.
+
+1. Environment Variables
+   - AWS_REGION
+   - AWS_DEFAULT_REGION
+2. AWS Configuration Files
+   - Profile specific region from ~/.aws/config or ~/.aws/credentials
+   - Profile selection order:
+     1. Explicitly provided profile
+     2. AWS_PROFILE environment variable
+     3. AWS_DEFAULT_PROFILE environment variable
+     4. "default" profile
+3. EC2/ECS Instance Metadata Service
+   - Region from instance identity document
+   - Automatically falls back if metadata service is unavailable
+4. Default Region
+   - Uses provided default region if specified
+   - Returns undefined if no region can be determined
+
+Basic Usage
+
+```
+import { resolveAwsCliV2Region } from "@aws-sdk/credential-providers";
+import { S3Client } from "@aws-sdk/client-s3";
+
+const client = new S3Client({
+  region: await resolveAwsCliV2Region({})
+});
+
+```
+
+## `fromAwsCliV2CompatibleProviderChain()`
+
+A credential provider that follows the same priority chain as AWS CLI v2 for credential resolution.
+This credential provider will attempt to find credentials from the following sources (listed in
+order of precedence):
+
+- Static credentials
+- [Shared credentials and config ini files](#fromini) when a profile is specified
+- [Environment variables exposed via `process.env`](#fromenv)
+- [Web identity token credentials](#fromtokenfile)
+- [SSO credentials from token cache](#fromsso)
+- [From Credential Process](#fromprocess)
+- [From Instance and Container Metadata Service](#fromcontainermetadata-and-frominstancemetadata)
+
+Example:
+
+```
+Import {
+  fromAwsCliV2CompatibleProviderChain,
+  resolveAwsCliV2Region
+} from "@aws-sdk/credential-providers";
+import { S3Client } from "@aws-sdk/client-s3";
+
+const s3Client = new S3Client({
+  profile: 'application-profile',
+
+  // Implements AWS CLI-compatible credential resolution and proxy settings.
+  credentials: fromAwsCliV2CompatibleProviderChain({
+    proxyUrl: "http://localhost:8080", // Optional: Uses proxy settings.
+    certificateBundle: "/home/user/certificate.pem", // Optional: Custom CA bundle.
+  }),
+
+  // Implements AWS CLI region resolution logic.
+  region: resolveAwsCliV2Region(),
+  // Other configurations like retry strategy, logging, etc.
 });
 ```
 
