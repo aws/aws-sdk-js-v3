@@ -359,16 +359,11 @@ class CloudfrontSignBuilder {
     return Math.round(date.getTime() / 1000);
   }
 
-  private parseDate(date?: string): number | undefined {
+  private parseDate(date?: string | number | Date): number | undefined {
     if (!date) {
       return undefined;
     }
-    let parsedDate: Date;
-    if (/^\d+$/.test(date)) {
-      parsedDate = new Date(Number(date));
-    } else {
-      parsedDate = new Date(date);
-    }
+    const parsedDate = new Date(date);
     return isNaN(parsedDate.getTime()) ? undefined : this.epochTime(parsedDate);
   }
 
