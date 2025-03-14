@@ -80,6 +80,7 @@ export interface CreateCatalogCommandOutput extends CreateCatalogResponse, __Met
  *         ],
  *       },
  *     ],
+ *     AllowFullTableExternalDataAccess: "True" || "False",
  *   },
  *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",

@@ -938,7 +938,6 @@ import {
   DescribeIntegrationsResponse,
   DoubleColumnStatisticsData,
   EncryptionConfiguration,
-  ExecutionAttempt,
   FederatedCatalog,
   FederatedDatabase,
   FederatedResourceAlreadyExistsException,
@@ -1042,6 +1041,7 @@ import {
   DataQualityRulesetListDetails,
   EncryptionAtRest,
   EvaluationMetrics,
+  ExecutionAttempt,
   FindMatchesMetrics,
   GetColumnStatisticsTaskSettingsResponse,
   GetConnectionRequest,
@@ -1195,7 +1195,6 @@ import {
   ModifyIntegrationResponse,
   PermissionType,
   PermissionTypeMismatchException,
-  PropertyPredicate,
   PutDataCatalogEncryptionSettingsRequest,
   PutDataQualityProfileAnnotationRequest,
   PutResourcePolicyRequest,
@@ -1252,6 +1251,7 @@ import {
   Mapping,
   MLTransformNotReadyException,
   NoScheduleException,
+  PropertyPredicate,
   SchedulerNotRunningException,
   SchedulerRunningException,
   SearchTablesRequest,
@@ -13173,6 +13173,7 @@ const de_Blueprints = (output: any, context: __SerdeContext): Blueprint[] => {
  */
 const de_Catalog = (output: any, context: __SerdeContext): Catalog => {
   return take(output, {
+    AllowFullTableExternalDataAccess: __expectString,
     CatalogId: __expectString,
     CatalogProperties: _json,
     CreateDatabaseDefaultPermissions: _json,

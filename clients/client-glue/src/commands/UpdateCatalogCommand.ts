@@ -80,6 +80,7 @@ export interface UpdateCatalogCommandOutput extends UpdateCatalogResponse, __Met
  *         ],
  *       },
  *     ],
+ *     AllowFullTableExternalDataAccess: "True" || "False",
  *   },
  * };
  * const command = new UpdateCatalogCommand(input);

@@ -5,11 +5,11 @@ import { GlueServiceException as __BaseException } from "./GlueServiceException"
 
 import {
   Action,
+  AllowFullTableExternalDataAccessEnum,
   AuthConfiguration,
   AuthenticationConfigurationInput,
   AuthenticationConfigurationInputFilterSensitiveLog,
   AuthenticationType,
-  BatchStopJobRunError,
   Blueprint,
   Column,
   ConnectionsList,
@@ -32,6 +32,31 @@ import {
   TriggerType,
   WorkerType,
 } from "./models_0";
+
+/**
+ * <p>Records an error that occurred when attempting to stop a
+ *       specified job run.</p>
+ * @public
+ */
+export interface BatchStopJobRunError {
+  /**
+   * <p>The name of the job definition that is used in the job run in question.</p>
+   * @public
+   */
+  JobName?: string | undefined;
+
+  /**
+   * <p>The <code>JobRunId</code> of the job run in question.</p>
+   * @public
+   */
+  JobRunId?: string | undefined;
+
+  /**
+   * <p>Specifies details about the error that was encountered.</p>
+   * @public
+   */
+  ErrorDetail?: ErrorDetail | undefined;
+}
 
 /**
  * <p>Records a successful request to stop a specified <code>JobRun</code>.</p>
@@ -583,6 +608,14 @@ export interface CatalogInput {
    * @public
    */
   CreateDatabaseDefaultPermissions?: PrincipalPermissions[] | undefined;
+
+  /**
+   * <p>
+   *       Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+   *     </p>
+   * @public
+   */
+  AllowFullTableExternalDataAccess?: AllowFullTableExternalDataAccessEnum | undefined;
 }
 
 /**
@@ -6778,6 +6811,14 @@ export interface Catalog {
    * @public
    */
   CreateDatabaseDefaultPermissions?: PrincipalPermissions[] | undefined;
+
+  /**
+   * <p>
+   *       Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+   *     </p>
+   * @public
+   */
+  AllowFullTableExternalDataAccess?: AllowFullTableExternalDataAccessEnum | undefined;
 }
 
 /**
@@ -7896,36 +7937,6 @@ export const ExecutionStatus = {
  * @public
  */
 export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
-
-/**
- * <p>A run attempt for a column statistics task run.</p>
- * @public
- */
-export interface ExecutionAttempt {
-  /**
-   * <p>The status of the last column statistics task run.</p>
-   * @public
-   */
-  Status?: ExecutionStatus | undefined;
-
-  /**
-   * <p>A task run ID for the last column statistics task run.</p>
-   * @public
-   */
-  ColumnStatisticsTaskRunId?: string | undefined;
-
-  /**
-   * <p>A timestamp when the last column statistics task run occurred.</p>
-   * @public
-   */
-  ExecutionTimestamp?: Date | undefined;
-
-  /**
-   * <p>An error message associated with the last column statistics task run.</p>
-   * @public
-   */
-  ErrorMessage?: string | undefined;
-}
 
 /**
  * @internal

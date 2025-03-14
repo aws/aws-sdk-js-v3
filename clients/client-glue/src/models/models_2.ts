@@ -51,7 +51,7 @@ import {
   DataFormat,
   DataQualityTargetTable,
   EncryptionConfiguration,
-  ExecutionAttempt,
+  ExecutionStatus,
   FederatedDatabase,
   IntegrationError,
   IntegrationStatus,
@@ -78,6 +78,36 @@ import {
   TransformType,
   ViewDialect,
 } from "./models_1";
+
+/**
+ * <p>A run attempt for a column statistics task run.</p>
+ * @public
+ */
+export interface ExecutionAttempt {
+  /**
+   * <p>The status of the last column statistics task run.</p>
+   * @public
+   */
+  Status?: ExecutionStatus | undefined;
+
+  /**
+   * <p>A task run ID for the last column statistics task run.</p>
+   * @public
+   */
+  ColumnStatisticsTaskRunId?: string | undefined;
+
+  /**
+   * <p>A timestamp when the last column statistics task run occurred.</p>
+   * @public
+   */
+  ExecutionTimestamp?: Date | undefined;
+
+  /**
+   * <p>An error message associated with the last column statistics task run.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+}
 
 /**
  * @public
@@ -8561,30 +8591,6 @@ export const Comparator = {
  * @public
  */
 export type Comparator = (typeof Comparator)[keyof typeof Comparator];
-
-/**
- * <p>Defines a property predicate.</p>
- * @public
- */
-export interface PropertyPredicate {
-  /**
-   * <p>The key of the property.</p>
-   * @public
-   */
-  Key?: string | undefined;
-
-  /**
-   * <p>The value of the property.</p>
-   * @public
-   */
-  Value?: string | undefined;
-
-  /**
-   * <p>The comparator used to compare this property to others.</p>
-   * @public
-   */
-  Comparator?: Comparator | undefined;
-}
 
 /**
  * @internal

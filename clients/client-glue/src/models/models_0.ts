@@ -204,6 +204,21 @@ export interface AllowedValue {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AllowFullTableExternalDataAccessEnum = {
+  False: "False",
+  True: "True",
+} as const;
+
+/**
+ * @public
+ */
+export type AllowFullTableExternalDataAccessEnum =
+  (typeof AllowFullTableExternalDataAccessEnum)[keyof typeof AllowFullTableExternalDataAccessEnum];
+
+/**
  * <p>A resource to be created or added already exists.</p>
  * @public
  */
@@ -9345,31 +9360,6 @@ export interface BatchStopJobRunRequest {
    * @public
    */
   JobRunIds: string[] | undefined;
-}
-
-/**
- * <p>Records an error that occurred when attempting to stop a
- *       specified job run.</p>
- * @public
- */
-export interface BatchStopJobRunError {
-  /**
-   * <p>The name of the job definition that is used in the job run in question.</p>
-   * @public
-   */
-  JobName?: string | undefined;
-
-  /**
-   * <p>The <code>JobRunId</code> of the job run in question.</p>
-   * @public
-   */
-  JobRunId?: string | undefined;
-
-  /**
-   * <p>Specifies details about the error that was encountered.</p>
-   * @public
-   */
-  ErrorDetail?: ErrorDetail | undefined;
 }
 
 /**
