@@ -81,6 +81,28 @@ export interface ResetOriginEndpointStateCommandOutput extends ResetOriginEndpoi
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
  * @public
+ * @example Reset an OriginEndpoint
+ * ```javascript
+ * //
+ * const input = {
+ *   "ChannelGroupName": "exampleChannelGroup",
+ *   "ChannelName": "exampleChannel",
+ *   "OriginEndpointName": "exampleOriginEndpoint"
+ * };
+ * const command = new ResetOriginEndpointStateCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel/originEndpoint/exampleOriginEndpoint",
+ *   "ChannelGroupName": "exampleChannelGroup",
+ *   "ChannelName": "exampleChannel",
+ *   "OriginEndpointName": "exampleOriginEndpoint",
+ *   "ResetAt": "2024-10-09T09:36:00.00Z"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class ResetOriginEndpointStateCommand extends $Command
   .classBuilder<

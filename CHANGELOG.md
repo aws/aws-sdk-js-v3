@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.768.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.767.0...v3.768.0) (2025-03-14)
+
+
+### Features
+
+* **client-glue:** This release added AllowFullTableExternalDataAccess to glue catalog resource. ([5e8eea6](https://github.com/aws/aws-sdk-js-v3/commit/5e8eea6d6ab6be4a624ba2e19705cdd4b22d4171))
+* **client-lakeformation:** This release added "condition" to LakeFormation OptIn APIs, also added WithPrivilegedAccess flag to RegisterResource and DescribeResource. ([a409809](https://github.com/aws/aws-sdk-js-v3/commit/a409809f9e3ed598ca2d4020a823a40e350729cd))
+* **clients:** update client endpoints as of 2025-03-14 ([bf71422](https://github.com/aws/aws-sdk-js-v3/commit/bf71422bf99a7007d15483a6048bf1752ba9f6d1))
+
+
+
+
+
 # [3.767.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.766.0...v3.767.0) (2025-03-13)
 
 

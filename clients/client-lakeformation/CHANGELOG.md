@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.768.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.767.0...v3.768.0) (2025-03-14)
+
+
+### Features
+
+* **client-lakeformation:** This release added "condition" to LakeFormation OptIn APIs, also added WithPrivilegedAccess flag to RegisterResource and DescribeResource. ([a409809](https://github.com/aws/aws-sdk-js-v3/commit/a409809f9e3ed598ca2d4020a823a40e350729cd))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-lakeformation
