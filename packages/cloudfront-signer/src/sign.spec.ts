@@ -634,14 +634,14 @@ describe("getSignedUrl- when signing a URL with a date range", () => {
     const resultUrl = getSignedUrl({
       url,
       keyPairId,
-      dateLessThan: dateNumber,
+      dateLessThan: dateNumber as unknown as string,
       privateKey,
       passphrase,
     });
     const resultCookies = getSignedCookies({
       url,
       keyPairId,
-      dateLessThan: dateNumber,
+      dateLessThan: dateNumber as unknown as string,
       privateKey,
       passphrase,
     });
