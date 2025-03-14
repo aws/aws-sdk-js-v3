@@ -4102,6 +4102,18 @@
               },
               "hostname": "bedrock.eu-north-1.amazonaws.com"
             },
+            "bedrock-eu-south-1": {
+              "credentialScope": {
+                "region": "eu-south-1"
+              },
+              "hostname": "bedrock.eu-south-1.amazonaws.com"
+            },
+            "bedrock-eu-south-2": {
+              "credentialScope": {
+                "region": "eu-south-2"
+              },
+              "hostname": "bedrock.eu-south-2.amazonaws.com"
+            },
             "bedrock-eu-west-1": {
               "credentialScope": {
                 "region": "eu-west-1"
@@ -4210,6 +4222,18 @@
               },
               "hostname": "bedrock-runtime.eu-north-1.amazonaws.com"
             },
+            "bedrock-runtime-eu-south-1": {
+              "credentialScope": {
+                "region": "eu-south-1"
+              },
+              "hostname": "bedrock-runtime.eu-south-1.amazonaws.com"
+            },
+            "bedrock-runtime-eu-south-2": {
+              "credentialScope": {
+                "region": "eu-south-2"
+              },
+              "hostname": "bedrock-runtime.eu-south-2.amazonaws.com"
+            },
             "bedrock-runtime-eu-west-1": {
               "credentialScope": {
                 "region": "eu-west-1"
@@ -4304,6 +4328,8 @@
             "eu-central-1": {},
             "eu-central-2": {},
             "eu-north-1": {},
+            "eu-south-1": {},
+            "eu-south-2": {},
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
@@ -5948,6 +5974,7 @@
             "ap-southeast-2": {},
             "ap-southeast-3": {},
             "ap-southeast-4": {},
+            "ap-southeast-5": {},
             "ca-central-1": {
               "variants": [
                 {
@@ -16957,6 +16984,7 @@
             "ap-southeast-3": {},
             "ap-southeast-4": {},
             "ap-southeast-5": {},
+            "ap-southeast-7": {},
             "ca-central-1": {},
             "ca-west-1": {},
             "eu-central-1": {},
@@ -32938,6 +32966,16 @@
         "memory-db": {
           "endpoints": {
             "cn-north-1": {},
+            "cn-northwest-1": {}
+          }
+        },
+        "metering.marketplace": {
+          "defaults": {
+            "credentialScope": {
+              "service": "aws-marketplace"
+            }
+          },
+          "endpoints": {
             "cn-northwest-1": {}
           }
         },
