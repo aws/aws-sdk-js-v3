@@ -101,6 +101,9 @@ export interface DeleteLakeFormationOptInCommandOutput extends DeleteLakeFormati
  *       Name: "STRING_VALUE", // required
  *     },
  *   },
+ *   Condition: { // Condition
+ *     Expression: "STRING_VALUE",
+ *   },
  * };
  * const command = new DeleteLakeFormationOptInCommand(input);
  * const response = await client.send(command);

@@ -58,6 +58,7 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * //       LastModified: new Date("TIMESTAMP"),
  * //       WithFederation: true || false,
  * //       HybridAccessEnabled: true || false,
+ * //       WithPrivilegedAccess: true || false,
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -29,7 +29,7 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
 
 /**
  * <p>Registers the resource as managed by the Data Catalog.</p>
- *          <p>To add or update data, Lake Formation needs read/write access to the chosen Amazon S3 path. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.</p>
+ *          <p>To add or update data, Lake Formation needs read/write access to the chosen data location. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register the first Amazon S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.</p>
  *          <p>The following request registers a new location and gives Lake Formation permission to use the service-linked role to access that location.</p>
  *          <p>
  *             <code>ResourceArn = arn:aws:s3:::my-bucket/
@@ -51,6 +51,7 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  *   RoleArn: "STRING_VALUE",
  *   WithFederation: true || false,
  *   HybridAccessEnabled: true || false,
+ *   WithPrivilegedAccess: true || false,
  * };
  * const command = new RegisterResourceCommand(input);
  * const response = await client.send(command);

@@ -47,6 +47,7 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  * //     LastModified: new Date("TIMESTAMP"),
  * //     WithFederation: true || false,
  * //     HybridAccessEnabled: true || false,
+ * //     WithPrivilegedAccess: true || false,
  * //   },
  * // };
  *

@@ -195,6 +195,7 @@ import {
   CatalogResource,
   ColumnWildcard,
   ConcurrentModificationException,
+  Condition,
   DatabaseResource,
   DataCellsFilter,
   DataCellsFilterResource,
@@ -445,6 +446,7 @@ export const se_CreateLakeFormationOptInCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      Condition: (_) => _json(_),
       Principal: (_) => _json(_),
       Resource: (_) => _json(_),
     })
@@ -564,6 +566,7 @@ export const se_DeleteLakeFormationOptInCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      Condition: (_) => _json(_),
       Principal: (_) => _json(_),
       Resource: (_) => _json(_),
     })
@@ -1135,6 +1138,7 @@ export const se_GrantPermissionsCommand = async (
   body = JSON.stringify(
     take(input, {
       CatalogId: [],
+      Condition: (_) => _json(_),
       Permissions: (_) => _json(_),
       PermissionsWithGrantOption: (_) => _json(_),
       Principal: (_) => _json(_),
@@ -1390,6 +1394,7 @@ export const se_RegisterResourceCommand = async (
       RoleArn: [],
       UseServiceLinkedRole: [],
       WithFederation: [],
+      WithPrivilegedAccess: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1436,6 +1441,7 @@ export const se_RevokePermissionsCommand = async (
   body = JSON.stringify(
     take(input, {
       CatalogId: [],
+      Condition: (_) => _json(_),
       Permissions: (_) => _json(_),
       PermissionsWithGrantOption: (_) => _json(_),
       Principal: (_) => _json(_),
@@ -3376,6 +3382,8 @@ const de_WorkUnitsNotReadyYetExceptionRes = async (
 
 // se_ColumnWildcard omitted.
 
+// se_Condition omitted.
+
 // se_DatabaseResource omitted.
 
 // se_DataCellsFilter omitted.
@@ -3639,6 +3647,7 @@ const de_ResourceInfo = (output: any, context: __SerdeContext): ResourceInfo => 
     ResourceArn: __expectString,
     RoleArn: __expectString,
     WithFederation: __expectBoolean,
+    WithPrivilegedAccess: __expectBoolean,
   }) as any;
 };
 
