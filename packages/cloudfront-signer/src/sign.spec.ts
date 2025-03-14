@@ -604,3 +604,49 @@ describe("getSignedCookies", () => {
     expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policy)).toBeTruthy();
   });
 });
+
+describe("getSignedUrl- when signing a URL with a date range", () => {
+  const dateString = "2024-05-17";
+  const dateNumber = 1125674245900;
+  it("allows string input compatible with Date constructor", () => {
+    const epochDateLessThan = Math.round(new Date(dateString).getTime() / 1000);
+    const resultUrl = getSignedUrl({
+      url,
+      keyPairId,
+      dateLessThan: dateString,
+      privateKey,
+      passphrase,
+    });
+    const resultCookies = getSignedCookies({
+      url,
+      keyPairId,
+      dateLessThan: dateString,
+      privateKey,
+      passphrase,
+    });
+
+    expect(resultUrl).toContain(`Expires=${epochDateLessThan}`);
+    expect(resultCookies["CloudFront-Expires"]).toBe(epochDateLessThan);
+  });
+
+  it("allows number input in milliseconds compatible with Date constructor", () => {
+    const epochDateLessThan = Math.round(new Date(dateNumber).getTime() / 1000);
+    const resultUrl = getSignedUrl({
+      url,
+      keyPairId,
+      dateLessThan: dateNumber,
+      privateKey,
+      passphrase,
+    });
+    const resultCookies = getSignedCookies({
+      url,
+      keyPairId,
+      dateLessThan: dateNumber,
+      privateKey,
+      passphrase,
+    });
+
+    expect(resultUrl).toContain(`Expires=${epochDateLessThan}`);
+    expect(resultCookies["CloudFront-Expires"]).toBe(epochDateLessThan);
+  });
+});
