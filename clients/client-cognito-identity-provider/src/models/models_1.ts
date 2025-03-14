@@ -2192,8 +2192,9 @@ export interface SetUserMFAPreferenceRequest {
 
   /**
    * <p>User preferences for time-based one-time password (TOTP) MFA. Activates or deactivates
-   *             TOTP MFA and sets it as the preferred MFA method when multiple methods are
-   *             available.</p>
+   *             TOTP MFA and sets it as the preferred MFA method when multiple methods are available.
+   *             Users must register a TOTP authenticator before they set this as their preferred MFA
+   *             method.</p>
    * @public
    */
   SoftwareTokenMfaSettings?: SoftwareTokenMfaSettingsType | undefined;
@@ -3268,7 +3269,7 @@ export interface UpdateUserPoolRequest {
    *             you have deactivated device remembering in your user pool.</p>
    *          <note>
    *             <p>When you provide a value for any <code>DeviceConfiguration</code> field, you
-   *                 activate the Amazon Cognito device-remembering feature. For more infor</p>
+   *                 activate the Amazon Cognito device-remembering feature. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with devices</a>.</p>
    *          </note>
    * @public
    */

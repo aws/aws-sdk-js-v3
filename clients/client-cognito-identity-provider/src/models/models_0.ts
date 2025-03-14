@@ -911,18 +911,18 @@ export interface AdminCreateUserRequest {
    *             <dt>email</dt>
    *             <dd>
    *                <p>The email address where you want the user to receive their confirmation
-   *                         code and username. You must provide a value for the <code>email</code> when
-   *                         you want to set <code>email_verified</code> to <code>true</code>, or if you
-   *                         set <code>EMAIL</code> in the <code>DesiredDeliveryMediums</code>
+   *                         code and username. You must provide a value for <code>email</code> when you
+   *                         want to set <code>email_verified</code> to <code>true</code>, or if you set
+   *                             <code>EMAIL</code> in the <code>DesiredDeliveryMediums</code>
    *                         parameter.</p>
    *             </dd>
    *             <dt>phone_number</dt>
    *             <dd>
    *                <p>The phone number where you want the user to receive their confirmation
-   *                         code and username. You must provide a value for the <code>email</code> when
-   *                         you want to set <code>phone_number</code> to <code>true</code>, or if you
-   *                         set <code>SMS</code> in the <code>DesiredDeliveryMediums</code>
-   *                         parameter.</p>
+   *                         code and username. You must provide a value for <code>phone_number</code>
+   *                         when you want to set <code>phone_number_verified</code> to
+   *                         <code>true</code>, or if you set <code>SMS</code> in the
+   *                             <code>DesiredDeliveryMediums</code> parameter.</p>
    *             </dd>
    *          </dl>
    * @public
@@ -1115,27 +1115,31 @@ export interface UserType {
    * <p>The user status. This can be one of the following:</p>
    *          <ul>
    *             <li>
-   *                <p>UNCONFIRMED - User has been created but not confirmed.</p>
+   *                <p>
+   *                   <code>UNCONFIRMED</code>: User has been created but not confirmed.</p>
    *             </li>
    *             <li>
-   *                <p>CONFIRMED - User has been confirmed.</p>
+   *                <p>
+   *                   <code>CONFIRMED</code>: User has been confirmed.</p>
    *             </li>
    *             <li>
-   *                <p>EXTERNAL_PROVIDER - User signed in with a third-party IdP.</p>
+   *                <p>
+   *                   <code>EXTERNAL_PROVIDER</code>: User signed in with a third-party IdP.</p>
    *             </li>
    *             <li>
-   *                <p>UNKNOWN - User status isn't known.</p>
+   *                <p>
+   *                   <code>RESET_REQUIRED</code>: User is confirmed, but the user must request a
+   *                     code and reset their password before they can sign in.</p>
    *             </li>
    *             <li>
-   *                <p>RESET_REQUIRED - User is confirmed, but the user must request a code and reset
-   *                     their password before they can sign in.</p>
-   *             </li>
-   *             <li>
-   *                <p>FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign in using a
-   *                     temporary password, but on first sign-in, the user must change their password to
-   *                     a new value before doing anything else. </p>
+   *                <p>
+   *                   <code>FORCE_CHANGE_PASSWORD</code>: The user is confirmed and the user can
+   *                     sign in using a temporary password, but on first sign-in, the user must change
+   *                     their password to a new value before doing anything else. </p>
    *             </li>
    *          </ul>
+   *          <p>The statuses <code>ARCHIVED</code>, <code>UNKNOWN</code>, and <code>COMPROMISED</code>
+   *             are no longer used.</p>
    * @public
    */
   UserStatus?: UserStatusType | undefined;
@@ -4045,8 +4049,9 @@ export interface AdminSetUserMFAPreferenceRequest {
 
   /**
    * <p>User preferences for time-based one-time password (TOTP) MFA. Activates or deactivates
-   *             TOTP MFA and sets it as the preferred MFA method when multiple methods are
-   *             available.</p>
+   *             TOTP MFA and sets it as the preferred MFA method when multiple methods are available.
+   *             This operation can set TOTP as a user's preferred MFA method before they register a
+   *             TOTP authenticator.</p>
    * @public
    */
   SoftwareTokenMfaSettings?: SoftwareTokenMfaSettingsType | undefined;
@@ -7013,7 +7018,7 @@ export interface CreateUserPoolRequest {
    *             you have deactivated device remembering in your user pool.</p>
    *          <note>
    *             <p>When you provide a value for any <code>DeviceConfiguration</code> field, you
-   *                 activate the Amazon Cognito device-remembering feature. For more infor</p>
+   *                 activate the Amazon Cognito device-remembering feature. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with devices</a>.</p>
    *          </note>
    * @public
    */
@@ -8477,7 +8482,7 @@ export interface CreateUserPoolDomainRequest {
    * <p>The configuration for a custom domain. Configures your domain with an Certificate Manager
    *             certificate in the <code>us-east-1</code> Region.</p>
    *          <p>Provide this parameter only if you want to use a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">custom domain</a> for your user pool. Otherwise, you can
-   *             omit this parameter and use a <a href="cognito/latest/developerguide/cognito-user-pools-assign-domain-prefix.html">prefix domain</a> instead.</p>
+   *             omit this parameter and use a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain-prefix.html">prefix domain</a> instead.</p>
    *          <p>When you create a custom domain, the passkey RP ID defaults to the custom domain. If
    *             you had a prefix domain active, this will cause passkey integration for your prefix
    *             domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey
