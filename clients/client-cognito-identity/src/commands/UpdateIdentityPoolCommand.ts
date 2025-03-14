@@ -28,8 +28,13 @@ export interface UpdateIdentityPoolCommandInput extends IdentityPool {}
 export interface UpdateIdentityPoolCommandOutput extends IdentityPool, __MetadataBearer {}
 
 /**
- * <p>Updates an identity pool.</p>
- *          <p>You must use AWS Developer credentials to call this API.</p>
+ * <p>Updates the configuration of an identity pool.</p>
+ *          <important>
+ *             <p>If you don't provide a value for a parameter, Amazon Cognito sets it to its default value.
+ *       </p>
+ *          </important>
+ *          <p>You must use Amazon Web Services developer credentials to call this
+ *          operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

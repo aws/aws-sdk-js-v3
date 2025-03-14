@@ -38,9 +38,10 @@ export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIde
  *          thrown.</p>
  *          <p>The number of linked logins is limited to 20. So, the number of linked logins for the
  *          source user, <code>SourceUserIdentifier</code>, and the destination user,
- *          <code>DestinationUserIdentifier</code>, together should not be larger than 20.
+ *             <code>DestinationUserIdentifier</code>, together should not be larger than 20.
  *          Otherwise, an exception will be thrown.</p>
- *          <p>You must use AWS Developer credentials to call this API.</p>
+ *          <p>You must use Amazon Web Services developer credentials to call this
+ *          operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

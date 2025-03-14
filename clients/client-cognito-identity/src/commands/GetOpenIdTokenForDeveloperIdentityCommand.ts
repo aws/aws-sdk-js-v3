@@ -50,7 +50,8 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
  *          existing authenticated/unauthenticated identity, you can do so by providing the existing
  *             <code>IdentityId</code>. This API will create the identity in the specified
  *             <code>IdentityPoolId</code>.</p>
- *          <p>You must use AWS Developer credentials to call this API.</p>
+ *          <p>You must use Amazon Web Services developer credentials to call this
+ *          operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

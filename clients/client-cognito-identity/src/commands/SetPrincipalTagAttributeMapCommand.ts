@@ -30,7 +30,8 @@ export interface SetPrincipalTagAttributeMapCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>You can use this operation to use default (username and clientID) attribute or custom attribute mappings.</p>
+ * <p>You can use this operation to use default (username and clientID) attribute or custom
+ *          attribute mappings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
