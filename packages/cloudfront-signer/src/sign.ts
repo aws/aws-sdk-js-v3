@@ -359,12 +359,12 @@ class CloudfrontSignBuilder {
     return Math.round(date.getTime() / 1000);
   }
 
-  private parseDate(date?: string): number | undefined {
+  private parseDate(date?: string | number | Date): number | undefined {
     if (!date) {
       return undefined;
     }
-    const parsedDate = Date.parse(date);
-    return isNaN(parsedDate) ? undefined : this.epochTime(new Date(parsedDate));
+    const parsedDate = new Date(date);
+    return isNaN(parsedDate.getTime()) ? undefined : this.epochTime(parsedDate);
   }
 
   private parseDateWindow(expiration: string, start?: string): PolicyDates {
