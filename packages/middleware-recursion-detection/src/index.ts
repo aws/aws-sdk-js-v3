@@ -30,7 +30,9 @@ export const recursionDetectionMiddleware =
     if (
       !HttpRequest.isInstance(request) ||
       options.runtime !== "node" ||
-      request.headers.hasOwnProperty(TRACE_ID_HEADER_NAME)
+      Object.keys(request.headers).some(
+        (key) => key.toLowerCase() === TRACE_ID_HEADER_NAME.toLowerCase()
+      )
     ) {
       return next(args);
     }
