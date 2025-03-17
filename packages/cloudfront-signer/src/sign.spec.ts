@@ -606,8 +606,9 @@ describe("getSignedCookies", () => {
 });
 
 describe("getSignedUrl- when signing a URL with a date range", () => {
-  const dateString = "2024-05-17";
+  const dateString = "2024-05-17T12:30:45.000Z";
   const dateNumber = 1125674245900;
+  const dateObject = new Date(dateString);
   it("allows string input compatible with Date constructor", () => {
     const epochDateLessThan = Math.round(new Date(dateString).getTime() / 1000);
     const resultUrl = getSignedUrl({
@@ -642,6 +643,26 @@ describe("getSignedUrl- when signing a URL with a date range", () => {
       url,
       keyPairId,
       dateLessThan: dateNumber as unknown as string,
+      privateKey,
+      passphrase,
+    });
+
+    expect(resultUrl).toContain(`Expires=${epochDateLessThan}`);
+    expect(resultCookies["CloudFront-Expires"]).toBe(epochDateLessThan);
+  });
+  it("allows Date object input", () => {
+    const epochDateLessThan = Math.round(dateObject.getTime() / 1000);
+    const resultUrl = getSignedUrl({
+      url,
+      keyPairId,
+      dateLessThan: dateObject as unknown as string,
+      privateKey,
+      passphrase,
+    });
+    const resultCookies = getSignedCookies({
+      url,
+      keyPairId,
+      dateLessThan: dateObject as unknown as string,
       privateKey,
       passphrase,
     });
