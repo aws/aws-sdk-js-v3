@@ -5,7 +5,8 @@
 Several AWS Lambda runtimes, including those for Node.js, include the AWS SDK at various versions.
 
 The SDK is provided as a convenience for development. For greater control of the SDK version and its runtime characteristics such as
-JavaScript bundling, upload your selection of the AWS SDK as part of your function code.
+JavaScript bundling, create an AWS Lambda layer containing your AWS SDK dependencies or
+upload your selection of the AWS SDK as part of your function code.
 
 To check the version of the SDK that is installed, you can log the package.json metadata of a package that you are using.
 
@@ -17,6 +18,106 @@ exports.handler = function (event) {
   console.log(pkgJson);
   return JSON.stringify(pkgJson);
 };
+```
+
+## Creating an AWS Lambda layer
+
+This information was taken from https://docs.aws.amazon.com/lambda/latest/dg/nodejs-layers.html.
+
+### Create the content for your Layer
+
+In a clean folder, create a `package.json` with your required dependencies.
+
+```json5
+// package.json
+{
+  "dependencies": {
+    "@aws-sdk/client-s3": "<=3.750.0",
+    "@aws-sdk/client-dynamodb": "<=3.750.0",
+    "@aws-sdk/lib-dynamodb": "<=3.750.0",
+    "@aws-sdk/client-lambda": "<=3.750.0"
+  }
+}
+```
+
+In this example we've used the `<=` version range to ensure the AWS SDK dependencies use the same transitive dependency, 
+i.e., core package versions. Run `npm install` or equivalent to create the `node_modules` folder, and then zip the contents
+into the following structure:
+
+```
+layer_content.zip
+└ nodejs
+  └ node_modules
+    └ @aws-sdk/etc.
+```
+
+### Deploying the AWS Lambda layer to your account
+
+```js
+// example: deploying the AWS Lambda layer.
+import { Lambda } from "@aws-sdk/client-lambda";
+import fs from "node:fs";
+
+const lambda = new Lambda({
+  region: "us-west-2",
+});
+
+await lambda.publishLayerVersion({
+  LayerName: "MyAwsSdkDependencies-layer",
+  Description: "Contains AWS SDK dependencies to use in my AWS Lambda functions",
+  Content: {
+    // read the layer zip file as a buffer.
+    ZipFile: fs.readFileSync("./path/to/layer_content.zip"),
+  },
+  CompatibleRuntimes: ["nodejs18.x", "nodejs20.x", "nodejs22.x"],
+  CompatibleArchitectures: [
+    "x86_64",
+    "arm64",
+  ],
+});
+```
+
+### Using the AWS Lambda layer in your functions
+
+If you have a lot of layers, you may need to paginate the `listLayers` request or
+find the ARN another way.
+
+```js
+// example: looking up the layer's ARN by using its name from earlier.
+import { Lambda } from "@aws-sdk/client-lambda";
+
+const lambda = new Lambda({
+  region: "us-west-2",
+});
+
+const listLayers = await lambda.listLayers({});
+const layerArn = listLayers.Layers.find(
+  (l) => l.LayerName === "MyAwsSdkDependencies-layer"
+).LatestMatchingVersion.LayerVersionArn;
+```
+
+Adding the layer to an existing function or creating a new function with the layer:
+
+```js
+await lambda.updateFunctionConfiguration({
+  FunctionName: "FUNCTION_NAME",
+  Layers: [layerArn],
+});
+
+// or:
+
+await lambda.createFunction({
+  FunctionName: "FUNCTION_NAME",
+  Role: "Role.Arn",
+  Code: {
+    ZipFile: Buffer.from("..."),
+  },
+  Runtime: Runtime.nodejs22x,
+  Description: `my new function using a layer`,
+  Timeout: 45,
+  Layers: [layerArn],
+  Handler: `./index.handler`,
+});
 ```
 
 ## Best practices for initializing AWS SDK Clients in AWS Lambda
