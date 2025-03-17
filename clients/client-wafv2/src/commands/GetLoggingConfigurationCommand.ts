@@ -109,6 +109,9 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * //         JA4Fingerprint: { // JA4Fingerprint
  * //           FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //         },
+ * //         UriFragment: { // UriFragment
+ * //           FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //         },
  * //       },
  * //     ],
  * //     ManagedByFirewallManager: true || false,

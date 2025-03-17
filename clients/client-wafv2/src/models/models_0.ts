@@ -747,6 +747,54 @@ export interface SingleQueryArgument {
 }
 
 /**
+ * <p>Inspect fragments of the request URI. You can specify the parts of the URI fragment to
+ *          inspect and you can narrow the set of URI fragments to inspect by including or excluding specific
+ *          keys.
+ *       </p>
+ *          <p>This is used to indicate the web request component to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *          <p>Example JSON: <code>"UriFragment": \{ "MatchPattern": \{ "All": \{\} \}, "MatchScope": "KEY",
+ *                "OversizeHandling": "MATCH" \}</code>
+ *          </p>
+ * @public
+ */
+export interface UriFragment {
+  /**
+   * <p>What WAF should do if it fails to completely parse the JSON body. The options are
+   *             the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EVALUATE_AS_STRING</code> - Inspect the body as plain text. WAF
+   *                   applies the text transformations and inspection criteria that you defined for the
+   *                   JSON inspection to the body text string.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MATCH</code> - Treat the web request as matching the rule statement.
+   *                   WAF applies the rule action to the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_MATCH</code> - Treat the web request as not matching the rule
+   *                   statement.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't provide this setting, WAF parses and evaluates the content only up to the
+   *             first parsing failure that it encounters. </p>
+   *          <p>Example JSON: <code>\{ "UriFragment": \{ "FallbackBehavior": "MATCH"\} \}</code>
+   *          </p>
+   *          <note>
+   *             <p>WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When
+   *                parsing succeeds, WAF doesn't apply the fallback behavior. For more information,
+   *                see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body">JSON body</a>
+   *                in the <i>WAF Developer Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  FallbackBehavior?: FallbackBehavior | undefined;
+}
+
+/**
  * <p>Inspect the path component of the URI of the web request. This is the part of the web
  *          request that identifies a resource. For example, <code>/images/daily-ad.jpg</code>.</p>
  *          <p>This is used in the <a>FieldToMatch</a> specification for some web request component types. </p>
@@ -961,6 +1009,18 @@ export interface FieldToMatch {
    * @public
    */
   JA4Fingerprint?: JA4Fingerprint | undefined;
+
+  /**
+   * <p>Inspect fragments of the request URI. You must configure scope and pattern matching filters in
+   *          the <code>UriFragment</code> object, to define the fragment of a URI that WAF inspects. </p>
+   *          <p>Only the first 8 KB (8192 bytes) of a request's URI fragments and only the first 200 URI fragments
+   *          are forwarded to WAF for inspection by the underlying host service. You must
+   *          configure how to handle any oversize URI fragment content in the <code>UriFragment</code> object.
+   *          WAF applies the pattern matching filters to the cookies that it receives from the
+   *          underlying host service. </p>
+   * @public
+   */
+  UriFragment?: UriFragment | undefined;
 }
 
 /**

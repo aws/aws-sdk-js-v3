@@ -331,6 +331,7 @@ import {
   UpdateRegexPatternSetRequest,
   UpdateRuleGroupRequest,
   UpdateWebACLRequest,
+  UriFragment,
   UriPath,
   UsernameField,
   VersionToPublish,
@@ -3115,6 +3116,8 @@ const se_UpdateWebACLRequest = (input: UpdateWebACLRequest, context: __SerdeCont
   });
 };
 
+// se_UriFragment omitted.
+
 // se_UriPath omitted.
 
 // se_UsernameField omitted.
@@ -3974,6 +3977,8 @@ const de_UpdateManagedRuleSetVersionExpiryDateResponse = (
 // de_UpdateRuleGroupResponse omitted.
 
 // de_UpdateWebACLResponse omitted.
+
+// de_UriFragment omitted.
 
 // de_UriPath omitted.
 

@@ -145,6 +145,9 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  *         JA4Fingerprint: { // JA4Fingerprint
  *           FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *         },
+ *         UriFragment: { // UriFragment
+ *           FallbackBehavior: "MATCH" || "NO_MATCH",
+ *         },
  *       },
  *     ],
  *     ManagedByFirewallManager: true || false,
@@ -239,6 +242,9 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * //         },
  * //         JA4Fingerprint: { // JA4Fingerprint
  * //           FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //         },
+ * //         UriFragment: { // UriFragment
+ * //           FallbackBehavior: "MATCH" || "NO_MATCH",
  * //         },
  * //       },
  * //     ],

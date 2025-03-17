@@ -143,6 +143,9 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *             JA4Fingerprint: { // JA4Fingerprint
  *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *             },
+ *             UriFragment: { // UriFragment
+ *               FallbackBehavior: "MATCH" || "NO_MATCH",
+ *             },
  *           },
  *           TextTransformations: [ // TextTransformations // required
  *             { // TextTransformation
@@ -213,6 +216,9 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *             JA4Fingerprint: {
  *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *             },
+ *             UriFragment: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH",
+ *             },
  *           },
  *           TextTransformations: [ // required
  *             {
@@ -279,6 +285,9 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *             JA4Fingerprint: {
  *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *             },
+ *             UriFragment: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH",
+ *             },
  *           },
  *           TextTransformations: [ // required
  *             {
@@ -339,6 +348,9 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *             },
  *             JA4Fingerprint: {
  *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
+ *             UriFragment: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH",
  *             },
  *           },
  *           ComparisonOperator: "EQ" || "NE" || "LE" || "LT" || "GE" || "GT", // required
@@ -487,6 +499,9 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *             },
  *             JA4Fingerprint: {
  *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
+ *             UriFragment: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH",
  *             },
  *           },
  *           TextTransformations: [ // required
