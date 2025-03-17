@@ -607,8 +607,11 @@ describe("getSignedCookies", () => {
 
 describe("getSignedUrl- when signing a URL with a date range", () => {
   const dateString = "2024-05-17T12:30:45.000Z";
+  const dateGreaterThanString = "2024-05-16T12:30:45.000Z";
   const dateNumber = 1125674245900;
+  const dateGreaterThanNumber = 1716034245000;
   const dateObject = new Date(dateString);
+  const dateGreaterThanObject = new Date(dateGreaterThanString);
   it("allows string input compatible with Date constructor", () => {
     const epochDateLessThan = Math.round(new Date(dateString).getTime() / 1000);
     const resultUrl = getSignedUrl({
@@ -669,5 +672,99 @@ describe("getSignedUrl- when signing a URL with a date range", () => {
 
     expect(resultUrl).toContain(`Expires=${epochDateLessThan}`);
     expect(resultCookies["CloudFront-Expires"]).toBe(epochDateLessThan);
+  });
+  it("allows string input for date range", () => {
+    const result = getSignedUrl({
+      url,
+      keyPairId,
+      dateLessThan: dateString,
+      dateGreaterThan: dateGreaterThanString,
+      privateKey,
+      passphrase,
+    });
+
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: url,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": Math.round(new Date(dateString).getTime() / 1000),
+            },
+            DateGreaterThan: {
+              "AWS:EpochTime": Math.round(new Date(dateGreaterThanString).getTime() / 1000),
+            },
+          },
+        },
+      ],
+    });
+
+    const parsedUrl = parseUrl(result);
+    expect(parsedUrl).toBeDefined();
+    const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
+    expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
+  });
+
+  it("allows number input for date range", () => {
+    const result = getSignedUrl({
+      url,
+      keyPairId,
+      dateLessThan: dateNumber as unknown as string,
+      dateGreaterThan: dateGreaterThanNumber as unknown as string,
+      privateKey,
+      passphrase,
+    });
+
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: url,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": Math.round(dateNumber / 1000),
+            },
+            DateGreaterThan: {
+              "AWS:EpochTime": Math.round(dateGreaterThanNumber / 1000),
+            },
+          },
+        },
+      ],
+    });
+
+    const parsedUrl = parseUrl(result);
+    expect(parsedUrl).toBeDefined();
+    const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
+    expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
+  });
+  it("allows Date object input for date range", () => {
+    const result = getSignedUrl({
+      url,
+      keyPairId,
+      dateLessThan: dateObject as unknown as string,
+      dateGreaterThan: dateGreaterThanObject as unknown as string,
+      privateKey,
+      passphrase,
+    });
+
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: url,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": Math.round(dateObject.getTime() / 1000),
+            },
+            DateGreaterThan: {
+              "AWS:EpochTime": Math.round(dateGreaterThanObject.getTime() / 1000),
+            },
+          },
+        },
+      ],
+    });
+
+    const parsedUrl = parseUrl(result);
+    expect(parsedUrl).toBeDefined();
+    const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
+    expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
 });
