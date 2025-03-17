@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.769.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.768.0...v3.769.0) (2025-03-17)
+
+
+### Features
+
+* **client-application-signals:** This release adds support for adding, removing, and listing SLO time exclusion windows with the BatchUpdateExclusionWindows and ListServiceLevelObjectiveExclusionWindows APIs. ([d530758](https://github.com/aws/aws-sdk-js-v3/commit/d5307585bd255f5d14bf8f8ca79eb1cb4136ac5d))
+* **client-geo-maps:** Provide support for vector map styles in the GetStaticMap operation. ([b1a3440](https://github.com/aws/aws-sdk-js-v3/commit/b1a34406f0cf3681b9f07a8d14644cefebf3464c))
+* **client-rum:** CloudWatch RUM now supports unminification of JS error stack traces. ([f1401ff](https://github.com/aws/aws-sdk-js-v3/commit/f1401ff270c560863cc1f69897dee1d4be6bf07f))
+* **client-taxsettings:** Adjust Vietnam PaymentVoucherNumber regex and minor API change. ([53a981a](https://github.com/aws/aws-sdk-js-v3/commit/53a981aec9d14602f833f36342a278013e85dc98))
+* **client-wafv2:** AWS WAF now lets you inspect fragments of request URIs. You can specify the scope of the URI to inspect and narrow the set of URI fragments. ([ebfb59b](https://github.com/aws/aws-sdk-js-v3/commit/ebfb59bab149e89c65ffc2423f1850c875d3ebfc))
+* **clients:** update client endpoints as of 2025-03-17 ([61ce036](https://github.com/aws/aws-sdk-js-v3/commit/61ce036991c704eba4e7c2d5bc2b258ad53b7f14))
+
+
+
+
+
 # [3.768.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.767.0...v3.768.0) (2025-03-14)
 
 

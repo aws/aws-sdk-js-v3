@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.769.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.768.0...v3.769.0) (2025-03-17)
+
+
+### Features
+
+* **client-geo-maps:** Provide support for vector map styles in the GetStaticMap operation. ([b1a3440](https://github.com/aws/aws-sdk-js-v3/commit/b1a34406f0cf3681b9f07a8d14644cefebf3464c))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-geo-maps

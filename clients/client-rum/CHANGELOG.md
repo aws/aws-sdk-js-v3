@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.769.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.768.0...v3.769.0) (2025-03-17)
+
+
+### Features
+
+* **client-rum:** CloudWatch RUM now supports unminification of JS error stack traces. ([f1401ff](https://github.com/aws/aws-sdk-js-v3/commit/f1401ff270c560863cc1f69897dee1d4be6bf07f))
+
+
+
+
+
 # [3.760.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.759.0...v3.760.0) (2025-03-03)
 
 
