@@ -227,6 +227,60 @@ export interface DataStorage {
  * @public
  * @enum
  */
+export const DeobfuscationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DeobfuscationStatus = (typeof DeobfuscationStatus)[keyof typeof DeobfuscationStatus];
+
+/**
+ * <p>
+ *          A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+ *       </p>
+ * @public
+ */
+export interface JavaScriptSourceMaps {
+  /**
+   * <p>
+   *          Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be <code>DISABLED</code>.
+   *       </p>
+   * @public
+   */
+  Status: DeobfuscationStatus | undefined;
+
+  /**
+   * <p>
+   *          The S3Uri of the bucket or folder that stores the source map files. It is required if status is ENABLED.
+   *       </p>
+   * @public
+   */
+  S3Uri?: string | undefined;
+}
+
+/**
+ * <p>
+ *          A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+ *       </p>
+ * @public
+ */
+export interface DeobfuscationConfiguration {
+  /**
+   * <p>
+   *          A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+   *       </p>
+   * @public
+   */
+  JavaScriptSourceMaps?: JavaScriptSourceMaps | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const StateEnum = {
   ACTIVE: "ACTIVE",
   CREATED: "CREATED",
@@ -256,6 +310,14 @@ export interface AppMonitor {
    * @public
    */
   Domain?: string | undefined;
+
+  /**
+   * <p>
+   *          List the domain names for which your application has administrative authority.
+   *       </p>
+   * @public
+   */
+  DomainList?: string[] | undefined;
 
   /**
    * <p>The unique ID of this app monitor.</p>
@@ -308,6 +370,14 @@ export interface AppMonitor {
    * @public
    */
   CustomEvents?: CustomEvents | undefined;
+
+  /**
+   * <p>
+   *          A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+   *       </p>
+   * @public
+   */
+  DeobfuscationConfiguration?: DeobfuscationConfiguration | undefined;
 }
 
 /**
@@ -1251,7 +1321,15 @@ export interface CreateAppMonitorRequest {
    * <p>The top-level internet domain name for which your application has administrative authority.</p>
    * @public
    */
-  Domain: string | undefined;
+  Domain?: string | undefined;
+
+  /**
+   * <p>
+   *          List the domain names for which your application has administrative authority. The <code>CreateAppMonitor</code> requires either the domain or the domain list.
+   *       </p>
+   * @public
+   */
+  DomainList?: string[] | undefined;
 
   /**
    * <p>Assigns one or more tags (key-value pairs) to the app monitor.</p>
@@ -1295,6 +1373,14 @@ export interface CreateAppMonitorRequest {
    * @public
    */
   CustomEvents?: CustomEvents | undefined;
+
+  /**
+   * <p>
+   *          A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+   *       </p>
+   * @public
+   */
+  DeobfuscationConfiguration?: DeobfuscationConfiguration | undefined;
 }
 
 /**
@@ -1871,6 +1957,14 @@ export interface UpdateAppMonitorRequest {
   Domain?: string | undefined;
 
   /**
+   * <p>
+   *          List the domain names for which your application has administrative authority. The <code>UpdateAppMonitor</code> allows either the domain or the domain list.
+   *       </p>
+   * @public
+   */
+  DomainList?: string[] | undefined;
+
+  /**
    * <p>A structure that contains much of the configuration data for the app monitor. If you are using
    *          Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the
    *          Amazon Cognito identity pool to use for authorization. If you don't include <code>AppMonitorConfiguration</code>, you must set up your own
@@ -1898,6 +1992,14 @@ export interface UpdateAppMonitorRequest {
    * @public
    */
   CustomEvents?: CustomEvents | undefined;
+
+  /**
+   * <p>
+   *          A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+   *       </p>
+   * @public
+   */
+  DeobfuscationConfiguration?: DeobfuscationConfiguration | undefined;
 }
 
 /**

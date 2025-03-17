@@ -84,8 +84,10 @@ import {
   AppMonitorDetails,
   ConflictException,
   CustomEvents,
+  DeobfuscationConfiguration,
   InternalServerException,
   InvalidPolicyRevisionIdException,
+  JavaScriptSourceMaps,
   MalformedPolicyDocumentException,
   MetricDefinitionRequest,
   PolicyNotFoundException,
@@ -188,7 +190,9 @@ export const se_CreateAppMonitorCommand = async (
       AppMonitorConfiguration: (_) => se_AppMonitorConfiguration(_, context),
       CustomEvents: (_) => _json(_),
       CwLogEnabled: [],
+      DeobfuscationConfiguration: (_) => _json(_),
       Domain: [],
+      DomainList: (_) => _json(_),
       Name: [],
       Tags: (_) => _json(_),
     })
@@ -510,7 +514,9 @@ export const se_UpdateAppMonitorCommand = async (
       AppMonitorConfiguration: (_) => se_AppMonitorConfiguration(_, context),
       CustomEvents: (_) => _json(_),
       CwLogEnabled: [],
+      DeobfuscationConfiguration: (_) => _json(_),
       Domain: [],
+      DomainList: (_) => _json(_),
     })
   );
   b.m("PATCH").h(headers).b(body);
@@ -1234,11 +1240,17 @@ const se_AppMonitorConfiguration = (input: AppMonitorConfiguration, context: __S
 
 // se_AppMonitorDetails omitted.
 
+// se_AppMonitorDomainList omitted.
+
 // se_CustomEvents omitted.
+
+// se_DeobfuscationConfiguration omitted.
 
 // se_DimensionKeysMap omitted.
 
 // se_FavoritePages omitted.
+
+// se_JavaScriptSourceMaps omitted.
 
 // se_MetricDefinitionRequest omitted.
 
@@ -1293,7 +1305,9 @@ const de_AppMonitor = (output: any, context: __SerdeContext): AppMonitor => {
     Created: __expectString,
     CustomEvents: _json,
     DataStorage: _json,
+    DeobfuscationConfiguration: _json,
     Domain: __expectString,
+    DomainList: _json,
     Id: __expectString,
     LastModified: __expectString,
     Name: __expectString,
@@ -1319,6 +1333,8 @@ const de_AppMonitorConfiguration = (output: any, context: __SerdeContext): AppMo
   }) as any;
 };
 
+// de_AppMonitorDomainList omitted.
+
 // de_AppMonitorSummary omitted.
 
 // de_AppMonitorSummaryList omitted.
@@ -1337,11 +1353,15 @@ const de_AppMonitorConfiguration = (output: any, context: __SerdeContext): AppMo
 
 // de_DataStorage omitted.
 
+// de_DeobfuscationConfiguration omitted.
+
 // de_DimensionKeysMap omitted.
 
 // de_EventDataList omitted.
 
 // de_FavoritePages omitted.
+
+// de_JavaScriptSourceMaps omitted.
 
 // de_MetricDefinition omitted.
 

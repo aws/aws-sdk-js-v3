@@ -48,6 +48,9 @@ export interface UpdateAppMonitorCommandOutput extends UpdateAppMonitorResponse,
  * const input = { // UpdateAppMonitorRequest
  *   Name: "STRING_VALUE", // required
  *   Domain: "STRING_VALUE",
+ *   DomainList: [ // AppMonitorDomainList
+ *     "STRING_VALUE",
+ *   ],
  *   AppMonitorConfiguration: { // AppMonitorConfiguration
  *     IdentityPoolId: "STRING_VALUE",
  *     ExcludedPages: [ // Pages
@@ -70,6 +73,12 @@ export interface UpdateAppMonitorCommandOutput extends UpdateAppMonitorResponse,
  *   CwLogEnabled: true || false,
  *   CustomEvents: { // CustomEvents
  *     Status: "STRING_VALUE",
+ *   },
+ *   DeobfuscationConfiguration: { // DeobfuscationConfiguration
+ *     JavaScriptSourceMaps: { // JavaScriptSourceMaps
+ *       Status: "STRING_VALUE", // required
+ *       S3Uri: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new UpdateAppMonitorCommand(input);

@@ -44,6 +44,9 @@ export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __Met
  * //   AppMonitor: { // AppMonitor
  * //     Name: "STRING_VALUE",
  * //     Domain: "STRING_VALUE",
+ * //     DomainList: [ // AppMonitorDomainList
+ * //       "STRING_VALUE",
+ * //     ],
  * //     Id: "STRING_VALUE",
  * //     Created: "STRING_VALUE",
  * //     LastModified: "STRING_VALUE",
@@ -78,6 +81,12 @@ export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __Met
  * //     },
  * //     CustomEvents: { // CustomEvents
  * //       Status: "STRING_VALUE",
+ * //     },
+ * //     DeobfuscationConfiguration: { // DeobfuscationConfiguration
+ * //       JavaScriptSourceMaps: { // JavaScriptSourceMaps
+ * //         Status: "STRING_VALUE", // required
+ * //         S3Uri: "STRING_VALUE",
+ * //       },
  * //     },
  * //   },
  * // };

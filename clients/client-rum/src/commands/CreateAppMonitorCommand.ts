@@ -45,7 +45,10 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  * const client = new RUMClient(config);
  * const input = { // CreateAppMonitorRequest
  *   Name: "STRING_VALUE", // required
- *   Domain: "STRING_VALUE", // required
+ *   Domain: "STRING_VALUE",
+ *   DomainList: [ // AppMonitorDomainList
+ *     "STRING_VALUE",
+ *   ],
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -71,6 +74,12 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  *   CwLogEnabled: true || false,
  *   CustomEvents: { // CustomEvents
  *     Status: "STRING_VALUE",
+ *   },
+ *   DeobfuscationConfiguration: { // DeobfuscationConfiguration
+ *     JavaScriptSourceMaps: { // JavaScriptSourceMaps
+ *       Status: "STRING_VALUE", // required
+ *       S3Uri: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new CreateAppMonitorCommand(input);
