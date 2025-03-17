@@ -22,6 +22,12 @@ exports.handler = function (event) {
 
 ## Creating an AWS Lambda layer
 
+With layers, you can create a shared set of dependencies for your AWS Lambda functions that can be imported
+as if they were included in the functions themselves. 
+
+The benefits of doing this include finer control over the version of the AWS SDK you are using, and not
+having to upload the AWS SDK as part of your individual functions' code.
+
 This information was taken from https://docs.aws.amazon.com/lambda/latest/dg/nodejs-layers.html.
 
 ### Create the content for your Layer
