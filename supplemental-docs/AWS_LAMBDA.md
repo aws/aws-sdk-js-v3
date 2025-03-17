@@ -67,7 +67,7 @@ import fs from "node:fs";
 const lambda = new Lambda();
 
 await lambda.publishLayerVersion({
-  LayerName: "MyAwsSdkDependencies-layer",
+  LayerName: "AWS-SDK-JavaScript-v3.750.0-layer",
   Description: "Contains AWS SDK dependencies to use in my AWS Lambda functions",
   Content: {
     // read the layer zip file as a buffer.
@@ -89,13 +89,11 @@ find the ARN another way.
 // example: looking up the layer's ARN by using its name from earlier.
 import { Lambda } from "@aws-sdk/client-lambda";
 
-const lambda = new Lambda({
-  region: "us-west-2",
-});
+const lambda = new Lambda();
 
 const listLayers = await lambda.listLayers({});
 const layerArn = listLayers.Layers.find(
-  (l) => l.LayerName === "MyAwsSdkDependencies-layer"
+  (l) => l.LayerName === "AWS-SDK-JavaScript-v3.750.0-layer"
 ).LatestMatchingVersion.LayerVersionArn;
 ```
 
