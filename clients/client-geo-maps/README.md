@@ -6,19 +6,19 @@
 
 AWS SDK for JavaScript GeoMaps Client for Node.js, Browser and React Native.
 
-<p>
-Integrate high-quality base map data into your applications using
-<a href="https://maplibre.org">MapLibre</a>. Capabilities include:
-</p>
+<p> Integrate high-quality base map data into your applications using <a href="https://maplibre.org">MapLibre</a>. Capabilities include: </p>
 <ul>
 <li>
-<p>Access to comprehensive base map data, allowing you to tailor the map display to your specific needs.</p>
+<p>Access to comprehensive base map data, allowing you to tailor the map display to
+your specific needs.</p>
 </li>
 <li>
-<p>Multiple pre-designed map styles suited for various application types, such as navigation, logistics, or data visualization.</p>
+<p>Multiple pre-designed map styles suited for various application types, such as
+navigation, logistics, or data visualization.</p>
 </li>
 <li>
-<p>Generation of static map images for scenarios where interactive maps aren't suitable, such as:</p>
+<p>Generation of static map images for scenarios where interactive maps aren't
+suitable, such as:</p>
 <ul>
 <li>
 <p>Embedding in emails or documents</p>

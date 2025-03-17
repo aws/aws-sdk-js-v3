@@ -85,11 +85,17 @@ export const se_GetStaticMapCommand = async (
     [_bb]: [, input[_BB]!],
     [_bp]: [, input[_BP]!],
     [_c]: [, input[_C]!],
+    [_cs]: [, input[_CS]!],
     [_co]: [, input[_CO]!],
+    [_cl]: [() => input.CropLabels !== void 0, () => input[_CL]!.toString()],
     [_go]: [, input[_GJO]!],
     [_h]: [__expectNonNull(input.Height, `Height`) != null, () => input[_H]!.toString()],
     [_k]: [, input[_K]!],
+    [_ls]: [, input[_LS]!],
+    [_l]: [, input[_L]!],
     [_p]: [() => input.Padding !== void 0, () => input[_P]!.toString()],
+    [_pv]: [, input[_PV]!],
+    [_po]: [, input[_POI]!],
     [_r]: [() => input.Radius !== void 0, () => input[_R]!.toString()],
     [_su]: [, input[_SBU]!],
     [_s]: [, input[_S]!],
@@ -398,6 +404,7 @@ const _BB = "BoundingBox";
 const _BP = "BoundedPositions";
 const _C = "Center";
 const _CC = "CacheControl";
+const _CL = "CropLabels";
 const _CO = "CompactOverlay";
 const _CS = "ColorScheme";
 const _CT = "ContentType";
@@ -405,8 +412,11 @@ const _ET = "ETag";
 const _GJO = "GeoJsonOverlay";
 const _H = "Height";
 const _K = "Key";
+const _L = "Language";
+const _LS = "LabelSize";
 const _P = "Padding";
 const _PB = "PricingBucket";
+const _POI = "PointsOfInterests";
 const _PV = "PoliticalView";
 const _R = "Radius";
 const _S = "Style";
@@ -417,6 +427,7 @@ const _bb = "bounding-box";
 const _bp = "bounded-positions";
 const _c = "center";
 const _cc = "cache-control";
+const _cl = "crop-labels";
 const _co = "compact-overlay";
 const _cs = "color-scheme";
 const _ct = "content-type";
@@ -424,7 +435,10 @@ const _e = "etag";
 const _go = "geojson-overlay";
 const _h = "height";
 const _k = "key";
+const _l = "lang";
+const _ls = "label-size";
 const _p = "padding";
+const _po = "pois";
 const _pv = "political-view";
 const _r = "radius";
 const _s = "style";

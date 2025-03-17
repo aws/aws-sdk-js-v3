@@ -4,7 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { GeoMapsServiceException as __BaseException } from "./GeoMapsServiceException";
 
 /**
- * <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+ * <p>The request was denied because of insufficient access or permissions. Check with an
+ *          administrator to verify your permissions.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -73,7 +74,8 @@ export interface GetGlyphsRequest {
    *                <p>Amazon Ember Condensed RC Bold,Noto Sans Bold</p>
    *             </li>
    *             <li>
-   *                <p>Amazon Ember Condensed RC Bold,Noto Sans Bold,Noto Sans Arabic Condensed Bold</p>
+   *                <p>Amazon Ember Condensed RC Bold,Noto Sans Bold,Noto Sans Arabic Condensed
+   *                Bold</p>
    *             </li>
    *             <li>
    *                <p>Amazon Ember Condensed RC Light</p>
@@ -94,7 +96,8 @@ export interface GetGlyphsRequest {
    *                <p>Amazon Ember Condensed RC Regular,Noto Sans Regular</p>
    *             </li>
    *             <li>
-   *                <p>Amazon Ember Condensed RC Regular,Noto Sans Regular,Noto Sans Arabic Condensed Regular</p>
+   *                <p>Amazon Ember Condensed RC Regular,Noto Sans Regular,Noto Sans Arabic Condensed
+   *                Regular</p>
    *             </li>
    *             <li>
    *                <p>Amazon Ember Condensed RC RgItalic</p>
@@ -311,7 +314,8 @@ export interface GetGlyphsResponse {
   Blob?: Uint8Array | undefined;
 
   /**
-   * <p>Header that represents the format of the response. The response returns the following as the HTTP body.</p>
+   * <p>Header that represents the format of the response. The response returns the following as
+   *          the HTTP body.</p>
    * @public
    */
   ContentType?: string | undefined;
@@ -379,7 +383,8 @@ export interface GetSpritesRequest {
   Style: MapStyle | undefined;
 
   /**
-   * <p>Sets color tone for map such as dark and light for specific map styles. It applies to only vector map styles such as Standard and Monochrome.</p>
+   * <p>Sets color tone for map such as dark and light for specific map styles. It applies to
+   *          only vector map styles such as Standard and Monochrome.</p>
    *          <p>Example: <code>Light</code>
    *          </p>
    *          <p>Default value: <code>Light</code>
@@ -392,7 +397,8 @@ export interface GetSpritesRequest {
   ColorScheme: ColorScheme | undefined;
 
   /**
-   * <p>Optimizes map styles for specific use case or industry. You can choose allowed variant only with Standard map style.</p>
+   * <p>Optimizes map styles for specific use case or industry. You can choose allowed variant
+   *          only with Standard map style.</p>
    *          <p>Example: <code>Default</code>
    *          </p>
    *          <note>
@@ -415,7 +421,8 @@ export interface GetSpritesResponse {
   Blob?: Uint8Array | undefined;
 
   /**
-   * <p>Header that represents the format of the response. The response returns the following as the HTTP body.</p>
+   * <p>Header that represents the format of the response. The response returns the following as
+   *          the HTTP body.</p>
    * @public
    */
   ContentType?: string | undefined;
@@ -432,6 +439,34 @@ export interface GetSpritesResponse {
    */
   ETag?: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const LabelSize = {
+  LARGE: "Large",
+  SMALL: "Small",
+} as const;
+
+/**
+ * @public
+ */
+export type LabelSize = (typeof LabelSize)[keyof typeof LabelSize];
+
+/**
+ * @public
+ * @enum
+ */
+export const MapFeatureMode = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type MapFeatureMode = (typeof MapFeatureMode)[keyof typeof MapFeatureMode];
 
 /**
  * @public
@@ -455,6 +490,7 @@ export type ScaleBarUnit = (typeof ScaleBarUnit)[keyof typeof ScaleBarUnit];
  */
 export const StaticMapStyle = {
   SATELLITE: "Satellite",
+  STANDARD: "Standard",
 } as const;
 
 /**
@@ -499,24 +535,48 @@ export interface GetStaticMapRequest {
   Center?: string | undefined;
 
   /**
-   * <p>Takes in a string to draw geometries on the image. The input is a comma separated format as follows format:
-   *          <code>[Lon, Lat]</code>
+   * <p>Sets color tone for map, such as dark and light for specific map styles. It only applies to vector map styles, such as Standard.</p>
+   *          <p>Example: <code>Light</code>
    *          </p>
-   *          <p>Example:
-   *          <code>line:-122.407653,37.798557,-122.413291,37.802443;color=%23DD0000;width=7;outline-color=#00DD00;outline-width=5yd|point:-122.40572,37.80004;label=Fog Hill Market;size=large;text-color=%23DD0000;color=#EE4B2B</code>
+   *          <p>Default value: <code>Light</code>
    *          </p>
    *          <note>
-   *             <p>Currently it supports the following geometry types: point, line and polygon. It does not support multiPoint , multiLine and multiPolgyon.</p>
+   *             <p>Valid values for <code>ColorScheme</code> are case sensitive.</p>
+   *          </note>
+   * @public
+   */
+  ColorScheme?: ColorScheme | undefined;
+
+  /**
+   * <p>Takes in a string to draw geometries on the image. The input is a comma separated format
+   *          as follows format: <code>[Lon, Lat]</code>
+   *          </p>
+   *          <p>Example:
+   *             <code>line:-122.407653,37.798557,-122.413291,37.802443;color=%23DD0000;width=7;outline-color=#00DD00;outline-width=5yd|point:-122.40572,37.80004;label=Fog
+   *             Hill Market;size=large;text-color=%23DD0000;color=#EE4B2B</code>
+   *          </p>
+   *          <note>
+   *             <p>Currently it supports the following geometry types: point, line and polygon. It does
+   *             not support multiPoint , multiLine and multiPolgyon.</p>
    *          </note>
    * @public
    */
   CompactOverlay?: string | undefined;
 
   /**
+   * <p>It is a flag that takes in true or false. It prevents the labels that are on the edge of
+   *          the image from being cut or obscured.</p>
+   * @public
+   */
+  CropLabels?: boolean | undefined;
+
+  /**
    * <p>Takes in a string to draw geometries on the image. The input is a valid GeoJSON
    *          collection object. </p>
-   *          <p>Example:
-   *             <code>\{"type":"FeatureCollection","features": [\{"type":"Feature","geometry":\{"type":"MultiPoint","coordinates": [[-90.076345,51.504107],[-0.074451,51.506892]]\},"properties": \{"color":"#00DD00"\}\}]\}</code>
+   *          <p>Example: <code>\{"type":"FeatureCollection","features":
+   *             [\{"type":"Feature","geometry":\{"type":"MultiPoint","coordinates":
+   *             [[-90.076345,51.504107],[-0.074451,51.506892]]\},"properties":
+   *             \{"color":"#00DD00"\}\}]\}</code>
    *          </p>
    * @public
    */
@@ -536,6 +596,364 @@ export interface GetStaticMapRequest {
   Key?: string | undefined;
 
   /**
+   * <p>Overrides the label size auto-calculated by <code>FileName</code>. Takes in one of the
+   *          values - <code>Small</code> or <code>Large</code>.</p>
+   * @public
+   */
+  LabelSize?: LabelSize | undefined;
+
+  /**
+   * <p>Specifies the language on the map labels using the BCP 47 language tag, limited to ISO
+   *          639-1 two-letter language codes. If the specified language data isn't available for the map
+   *          image, the labels will default to the regional primary language.</p>
+   *          <p>Supported codes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ar</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>as</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>az</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>be</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bg</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bn</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bs</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ca</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cs</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cy</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>da</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>de</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>el</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>en</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>es</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>et</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>eu</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fi</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fo</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fr</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ga</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>gl</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>gn</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>gu</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>he</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hi</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hr</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hu</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hy</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>id</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>is</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>it</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ja</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ka</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kk</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>km</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kn</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ko</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ky</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>lt</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>lv</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mk</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ml</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mr</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ms</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mt</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>my</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nl</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>no</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>or</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pa</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pl</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pt</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ro</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ru</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sk</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sl</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sq</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sr</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sv</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ta</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>te</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>th</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tr</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>uk</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>uz</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vi</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>zh</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Language?: string | undefined;
+
+  /**
    * <p>Applies additional space (in pixels) around overlay feature to prevent them from being
    *          cut or obscured.</p>
    *          <note>
@@ -550,6 +968,80 @@ export interface GetStaticMapRequest {
    * @public
    */
   Padding?: number | undefined;
+
+  /**
+   * <p>Specifies the political view, using ISO 3166-2 or ISO 3166-3 country code format.</p>
+   *          <p>The following political views are currently supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ARG</code>: Argentina's view on the Southern Patagonian Ice Field and Tierra
+   *                Del Fuego, including the Falkland Islands, South Georgia, and South Sandwich
+   *                Islands</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EGY</code>: Egypt's view on Bir Tawil</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IND</code>: India's view on Gilgit-Baltistan</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KEN</code>: Kenya's view on the Ilemi Triangle</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MAR</code>: Morocco's view on Western Sahara</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RUS</code>: Russia's view on Crimea</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SDN</code>: Sudan's view on the Halaib Triangle</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SRB</code>: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUR</code>: Suriname's view on the Courantyne Headwaters and Lawa
+   *                Headwaters</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SYR</code>: Syria's view on the Golan Heights</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TUR</code>: Turkey's view on Cyprus and Northern Cyprus</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TZA</code>: Tanzania's view on Lake Malawi</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>URY</code>: Uruguay's view on Rincon de Artigas</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VNM</code>: Vietnam's view on the Paracel Islands and Spratly Islands</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PoliticalView?: string | undefined;
+
+  /**
+   * <p>Determines if the result image will display icons representing points of interest on the map.</p>
+   * @public
+   */
+  PointsOfInterests?: MapFeatureMode | undefined;
 
   /**
    * <p>Used with center parameter, it specifies the zoom of the image where you can control it
@@ -586,7 +1078,8 @@ export interface GetStaticMapRequest {
   ScaleBarUnit?: ScaleBarUnit | undefined;
 
   /**
-   * <p>Style specifies the desired map style for the <code>Style</code> APIs.</p>
+   * <p>
+   *             <code>Style</code> specifies the desired map style.</p>
    * @public
    */
   Style?: StaticMapStyle | undefined;
@@ -612,14 +1105,15 @@ export interface GetStaticMapRequest {
  */
 export interface GetStaticMapResponse {
   /**
-   * <p>The blob represents a map image as a <code>jpeg</code> for
-   *          the <code>GetStaticMap</code> API.</p>
+   * <p>The blob represents a map image as a <code>jpeg</code> for the <code>GetStaticMap</code>
+   *          API.</p>
    * @public
    */
   Blob?: Uint8Array | undefined;
 
   /**
-   * <p>Header that represents the format of the response. The response returns the following as the HTTP body.</p>
+   * <p>Header that represents the format of the response. The response returns the following as
+   *          the HTTP body.</p>
    * @public
    */
   ContentType?: string | undefined;
@@ -644,7 +1138,8 @@ export interface GetStaticMapResponse {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ * <p>The request processing has failed because of an unknown error, exception or
+ *          failure.</p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -690,7 +1185,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by the Amazon Location service.</p>
+ * <p>The input fails to satisfy the constraints specified by the Amazon Location
+ *          service.</p>
  * @public
  */
 export interface ValidationExceptionField {
@@ -756,7 +1252,7 @@ export class ValidationException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
-   * <p>The field where thebb invalid entry was detected.</p>
+   * <p>The field where the invalid entry was detected.</p>
    * @public
    */
   Reason: ValidationExceptionReason | undefined;
@@ -793,7 +1289,8 @@ export interface GetStyleDescriptorRequest {
   Style: MapStyle | undefined;
 
   /**
-   * <p>Sets color tone for map such as dark and light for specific map styles. It applies to only vector map styles such as Standard and Monochrome.</p>
+   * <p>Sets color tone for map such as dark and light for specific map styles. It applies to
+   *          only vector map styles such as Standard and Monochrome.</p>
    *          <p>Example: <code>Light</code>
    *          </p>
    *          <p>Default value: <code>Light</code>
@@ -811,7 +1308,9 @@ export interface GetStyleDescriptorRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ARG</code>: Argentina's view on the Southern Patagonian Ice Field and Tierra Del Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands</p>
+   *                   <code>ARG</code>: Argentina's view on the Southern Patagonian Ice Field and Tierra
+   *                Del Fuego, including the Falkland Islands, South Georgia, and South Sandwich
+   *                Islands</p>
    *             </li>
    *             <li>
    *                <p>
@@ -831,10 +1330,6 @@ export interface GetStyleDescriptorRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PAK</code>: Pakistan's view on Jammu and Kashmir and the Junagadh Area</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>RUS</code>: Russia's view on Crimea</p>
    *             </li>
    *             <li>
@@ -847,7 +1342,8 @@ export interface GetStyleDescriptorRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUR</code>: Suriname's view on the Courantyne Headwaters and Lawa Headwaters</p>
+   *                   <code>SUR</code>: Suriname's view on the Courantyne Headwaters and Lawa
+   *                Headwaters</p>
    *             </li>
    *             <li>
    *                <p>
@@ -887,13 +1383,15 @@ export interface GetStyleDescriptorRequest {
  */
 export interface GetStyleDescriptorResponse {
   /**
-   * <p>This Blob contains the body of the style descriptor which is in application/json format.</p>
+   * <p>This Blob contains the body of the style descriptor which is in application/json
+   *          format.</p>
    * @public
    */
   Blob?: Uint8Array | undefined;
 
   /**
-   * <p>Header that represents the format of the response. The response returns the following as the HTTP body.</p>
+   * <p>Header that represents the format of the response. The response returns the following as
+   *          the HTTP body.</p>
    * @public
    */
   ContentType?: string | undefined;
@@ -954,14 +1452,15 @@ export interface GetTileRequest {
  */
 export interface GetTileResponse {
   /**
-   * <p>The blob represents a vector tile in <code>mvt</code> format for the
-   *             <code>GetTile</code> API.</p>
+   * <p>The blob represents a vector tile in <code>mvt</code> or a raster tile in an image
+   *          format.</p>
    * @public
    */
   Blob?: Uint8Array | undefined;
 
   /**
-   * <p>Header that represents the format of the response. The response returns the following as the HTTP body.</p>
+   * <p>Header that represents the format of the response. The response returns the following as
+   *          the HTTP body.</p>
    * @public
    */
   ContentType?: string | undefined;
