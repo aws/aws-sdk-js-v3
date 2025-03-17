@@ -75,6 +75,8 @@ await lambda.publishLayerVersion({
     // read the layer zip file as a buffer.
     ZipFile: fs.readFileSync("./path/to/layer_content.zip"),
   },
+  // Confirm from SDK package.json engines field that version supports each runtime.
+  // It usually does, if Lambda hasn't blocked function create for the runtime.
   CompatibleRuntimes: ["nodejs18.x", "nodejs20.x", "nodejs22.x"],
   CompatibleArchitectures: ["x86_64", "arm64"],
 });
