@@ -64,9 +64,7 @@ layer_content.zip
 import { Lambda } from "@aws-sdk/client-lambda";
 import fs from "node:fs";
 
-const lambda = new Lambda({
-  region: "us-west-2",
-});
+const lambda = new Lambda();
 
 await lambda.publishLayerVersion({
   LayerName: "MyAwsSdkDependencies-layer",
