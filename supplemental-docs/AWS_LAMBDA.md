@@ -76,10 +76,7 @@ await lambda.publishLayerVersion({
     ZipFile: fs.readFileSync("./path/to/layer_content.zip"),
   },
   CompatibleRuntimes: ["nodejs18.x", "nodejs20.x", "nodejs22.x"],
-  CompatibleArchitectures: [
-    "x86_64",
-    "arm64",
-  ],
+  CompatibleArchitectures: ["x86_64", "arm64"],
 });
 ```
 
