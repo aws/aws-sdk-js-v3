@@ -37,6 +37,10 @@ import {
   BatchGetServiceLevelObjectiveBudgetReportCommandOutput,
 } from "../commands/BatchGetServiceLevelObjectiveBudgetReportCommand";
 import {
+  BatchUpdateExclusionWindowsCommandInput,
+  BatchUpdateExclusionWindowsCommandOutput,
+} from "../commands/BatchUpdateExclusionWindowsCommand";
+import {
   CreateServiceLevelObjectiveCommandInput,
   CreateServiceLevelObjectiveCommandOutput,
 } from "../commands/CreateServiceLevelObjectiveCommand";
@@ -57,6 +61,10 @@ import {
   ListServiceDependentsCommandInput,
   ListServiceDependentsCommandOutput,
 } from "../commands/ListServiceDependentsCommand";
+import {
+  ListServiceLevelObjectiveExclusionWindowsCommandInput,
+  ListServiceLevelObjectiveExclusionWindowsCommandOutput,
+} from "../commands/ListServiceLevelObjectiveExclusionWindowsCommand";
 import {
   ListServiceLevelObjectivesCommandInput,
   ListServiceLevelObjectivesCommandOutput,
@@ -84,12 +92,14 @@ import {
   CalendarInterval,
   ConflictException,
   Dimension,
+  ExclusionWindow,
   Goal,
   Interval,
   Metric,
   MetricDataQuery,
   MetricStat,
   MonitoredRequestCountMetricDataQueries,
+  RecurrenceRule,
   RequestBasedServiceLevelIndicator,
   RequestBasedServiceLevelIndicatorConfig,
   RequestBasedServiceLevelIndicatorMetricConfig,
@@ -105,6 +115,7 @@ import {
   Tag,
   ThrottlingException,
   ValidationException,
+  Window,
 } from "../models/models_0";
 
 /**
@@ -127,6 +138,30 @@ export const se_BatchGetServiceLevelObjectiveBudgetReportCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchUpdateExclusionWindowsCommand
+ */
+export const se_BatchUpdateExclusionWindowsCommand = async (
+  input: BatchUpdateExclusionWindowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/exclusion-windows");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AddExclusionWindows: (_) => se_ExclusionWindows(_, context),
+      RemoveExclusionWindows: (_) => se_ExclusionWindows(_, context),
+      SloIds: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
   return b.build();
 };
 
@@ -269,6 +304,26 @@ export const se_ListServiceDependentsCommand = async (
     })
   );
   b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListServiceLevelObjectiveExclusionWindowsCommand
+ */
+export const se_ListServiceLevelObjectiveExclusionWindowsCommand = async (
+  input: ListServiceLevelObjectiveExclusionWindowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/slo/{Id}/exclusion-windows");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  const query: any = map({
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -482,6 +537,28 @@ export const de_BatchGetServiceLevelObjectiveBudgetReportCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1BatchUpdateExclusionWindowsCommand
+ */
+export const de_BatchUpdateExclusionWindowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateExclusionWindowsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Errors: _json,
+    SloIds: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateServiceLevelObjectiveCommand
  */
 export const de_CreateServiceLevelObjectiveCommand = async (
@@ -607,6 +684,28 @@ export const de_ListServiceDependentsCommand = async (
     NextToken: __expectString,
     ServiceDependents: _json,
     StartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListServiceLevelObjectiveExclusionWindowsCommand
+ */
+export const de_ListServiceLevelObjectiveExclusionWindowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServiceLevelObjectiveExclusionWindowsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ExclusionWindows: (_) => de_ExclusionWindows(_, context),
+    NextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -791,6 +890,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.applicationsignals#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.applicationsignals#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.applicationsignals#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
@@ -800,9 +902,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ServiceQuotaExceededException":
     case "com.amazonaws.applicationsignals#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationsignals#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -949,6 +1048,29 @@ const se_CalendarInterval = (input: CalendarInterval, context: __SerdeContext): 
 // se_Dimensions omitted.
 
 /**
+ * serializeAws_restJson1ExclusionWindow
+ */
+const se_ExclusionWindow = (input: ExclusionWindow, context: __SerdeContext): any => {
+  return take(input, {
+    Reason: [],
+    RecurrenceRule: _json,
+    StartTime: (_) => _.getTime() / 1_000,
+    Window: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1ExclusionWindows
+ */
+const se_ExclusionWindows = (input: ExclusionWindow[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ExclusionWindow(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1Goal
  */
 const se_Goal = (input: Goal, context: __SerdeContext): any => {
@@ -979,6 +1101,8 @@ const se_Interval = (input: Interval, context: __SerdeContext): any => {
 // se_MetricStat omitted.
 
 // se_MonitoredRequestCountMetricDataQueries omitted.
+
+// se_RecurrenceRule omitted.
 
 /**
  * serializeAws_restJson1RequestBasedServiceLevelIndicatorConfig
@@ -1019,11 +1143,17 @@ const se_ServiceLevelIndicatorConfig = (input: ServiceLevelIndicatorConfig, cont
 
 // se_TagList omitted.
 
+// se_Window omitted.
+
 // de_AttributeMap omitted.
 
 // de_AttributeMaps omitted.
 
 // de_Attributes omitted.
+
+// de_BatchUpdateExclusionWindowsError omitted.
+
+// de_BatchUpdateExclusionWindowsErrors omitted.
 
 // de_BurnRateConfiguration omitted.
 
@@ -1043,6 +1173,30 @@ const de_CalendarInterval = (output: any, context: __SerdeContext): CalendarInte
 // de_Dimension omitted.
 
 // de_Dimensions omitted.
+
+/**
+ * deserializeAws_restJson1ExclusionWindow
+ */
+const de_ExclusionWindow = (output: any, context: __SerdeContext): ExclusionWindow => {
+  return take(output, {
+    Reason: __expectString,
+    RecurrenceRule: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Window: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ExclusionWindows
+ */
+const de_ExclusionWindows = (output: any, context: __SerdeContext): ExclusionWindow[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ExclusionWindow(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1Goal
@@ -1087,6 +1241,8 @@ const de_Interval = (output: any, context: __SerdeContext): Interval => {
 // de_MetricStat omitted.
 
 // de_MonitoredRequestCountMetricDataQueries omitted.
+
+// de_RecurrenceRule omitted.
 
 /**
  * deserializeAws_restJson1RequestBasedServiceLevelIndicator
@@ -1189,6 +1345,8 @@ const de_ServiceLevelObjectiveBudgetReports = (
   return retVal;
 };
 
+// de_ServiceLevelObjectiveIds omitted.
+
 /**
  * deserializeAws_restJson1ServiceLevelObjectiveSummaries
  */
@@ -1225,6 +1383,8 @@ const de_ServiceLevelObjectiveSummary = (output: any, context: __SerdeContext): 
 // de_Tag omitted.
 
 // de_TagList omitted.
+
+// de_Window omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

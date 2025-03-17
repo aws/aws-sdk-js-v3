@@ -946,6 +946,166 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * <p>The recurrence rule for the SLO time window exclusion .</p>
+ * @public
+ */
+export interface RecurrenceRule {
+  /**
+   * <p>A cron or rate expression that specifies the schedule for the exclusion window.</p>
+   * @public
+   */
+  Expression: string | undefined;
+}
+
+/**
+ * <p>The object that defines the time length of an exclusion window.</p>
+ * @public
+ */
+export interface Window {
+  /**
+   * <p>The unit of time for the exclusion window duration. Valid values: MINUTE, HOUR, DAY, MONTH.</p>
+   * @public
+   */
+  DurationUnit: DurationUnit | undefined;
+
+  /**
+   * <p>The number of time units for the exclusion window length.</p>
+   * @public
+   */
+  Duration: number | undefined;
+}
+
+/**
+ * <p>The core SLO time window exclusion object that includes Window, StartTime, RecurrenceRule, and Reason.</p>
+ * @public
+ */
+export interface ExclusionWindow {
+  /**
+   * <p>The SLO time window exclusion .</p>
+   * @public
+   */
+  Window: Window | undefined;
+
+  /**
+   * <p>The start of the SLO time window exclusion. Defaults to current time if not specified.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The recurrence rule for the SLO time window exclusion. Supports both cron and rate expressions.</p>
+   * @public
+   */
+  RecurrenceRule?: RecurrenceRule | undefined;
+
+  /**
+   * <p>A description explaining why this time period should be excluded from SLO calculations.</p>
+   * @public
+   */
+  Reason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateExclusionWindowsInput {
+  /**
+   * <p>The list of SLO IDs to add or remove exclusion windows from.</p>
+   * @public
+   */
+  SloIds: string[] | undefined;
+
+  /**
+   * <p>A list of exclusion windows to add to the specified SLOs. You can add up to 10 exclusion windows per SLO.</p>
+   * @public
+   */
+  AddExclusionWindows?: ExclusionWindow[] | undefined;
+
+  /**
+   * <p>A list of exclusion windows to remove from the specified SLOs. The window configuration must match an existing exclusion window.</p>
+   * @public
+   */
+  RemoveExclusionWindows?: ExclusionWindow[] | undefined;
+}
+
+/**
+ * <p>An array of structures, where each structure includes an error indicating that one of the requests in the array was not valid.</p>
+ * @public
+ */
+export interface BatchUpdateExclusionWindowsError {
+  /**
+   * <p>The SLO ID in the error.</p>
+   * @public
+   */
+  SloId: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  ErrorMessage: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateExclusionWindowsOutput {
+  /**
+   * <p>The list of SLO IDs that were successfully processed.</p>
+   * @public
+   */
+  SloIds: string[] | undefined;
+
+  /**
+   * <p>A list of errors that occurred while processing the request.</p>
+   * @public
+   */
+  Errors: BatchUpdateExclusionWindowsError[] | undefined;
+}
+
+/**
+ * <p>Resource not found.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The resource type is not valid.</p>
+   * @public
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>Can't find the resource id.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.ResourceType = opts.ResourceType;
+    this.ResourceId = opts.ResourceId;
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * @public
  */
 export interface GetServiceInput {
@@ -1584,6 +1744,52 @@ export interface ListServiceDependentsOutput {
 /**
  * @public
  */
+export interface ListServiceLevelObjectiveExclusionWindowsInput {
+  /**
+   * <p>The ID of the SLO to list exclusion windows for.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.
+   *
+   *       </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Include this value, if it was returned by the previous operation, to get the next set of service level objectives.
+   *
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListServiceLevelObjectiveExclusionWindowsOutput {
+  /**
+   * <p>A list of exclusion windows configured for the SLO.</p>
+   * @public
+   */
+  ExclusionWindows: ExclusionWindow[] | undefined;
+
+  /**
+   * <p>Include this value, if it was returned by the previous operation, to get the next set of service level objectives.
+   *
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListServiceOperationsInput {
   /**
    * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
@@ -1976,42 +2182,6 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>Resource not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The resource type is not valid.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-
-  /**
-   * <p>Can't find the resource id.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.ResourceType = opts.ResourceType;
-    this.ResourceId = opts.ResourceId;
-    this.Message = opts.Message;
-  }
 }
 
 /**
