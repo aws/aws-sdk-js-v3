@@ -827,7 +827,7 @@ Successfully signed out of all SSO profiles.
 ### Sample files
 
 This credential provider is only applicable if the profile specified in shared configuration and
-credentials files contain ALL of the following entries.
+credentials files contain ALL the following entries.
 
 #### `~/.aws/credentials`
 
@@ -950,7 +950,47 @@ new S3({
 });
 ```
 
-## `resolveAwsCliV2Region()`
+## `fromAwsCliV2CompatibleProviderChain()`
+
+- Not available in browsers & native apps.
+
+A credential provider that follows the same priority order as the AWS CLI v2 credential resolution.
+This credential provider will attempt to find credentials from the following sources (listed in
+order of precedence):
+
+- Inline code static credentials
+- **when a profile is specified**:
+  - Same resolution as the [fromIni](#fromini) provider.
+- **when a profile is not specified**:
+  - [Environment variables exposed via `process.env`](#fromenv)
+  - [Web identity token credentials](#fromtokenfile)
+  - [SSO credentials from token cache](#fromsso)
+  - [From Credential Process](#fromprocess)
+  - [From Instance and Container Metadata Service](#fromcontainermetadata-and-frominstancemetadata)
+
+```js
+import { fromAwsCliV2CompatibleProviderChain, resolveAwsCliV2Region } from "@aws-sdk/credential-providers";
+import { S3Client } from "@aws-sdk/client-s3";
+
+const s3Client = new S3Client({
+  profile: "my-profile",
+
+  // Implements AWS CLI v2-compatible credential resolution and proxy settings.
+  credentials: fromAwsCliV2CompatibleProviderChain({}),
+
+  // Implements AWS CLI v2 region resolution logic.
+  region: resolveAwsCliV2Region({
+    // (!) this duplication is required if not using the "default" profile.
+    profile: "my-profile",
+    defaultRegion: "us-east-1", // optional
+  }),
+});
+```
+
+### `resolveAwsCliV2Region()`
+
+- This is not a credential resolver. It is a region resolver included here for ease of access.
+- Not available in browsers & native apps.
 
 The region is resolved using the following order of precedence (highest to lowest) in the cli v2.
 
@@ -970,56 +1010,6 @@ The region is resolved using the following order of precedence (highest to lowes
 4. Default Region
    - Uses provided default region if specified
    - Returns undefined if no region can be determined
-
-Basic Usage
-
-```
-import { resolveAwsCliV2Region } from "@aws-sdk/credential-providers";
-import { S3Client } from "@aws-sdk/client-s3";
-
-const client = new S3Client({
-  region: await resolveAwsCliV2Region({})
-});
-
-```
-
-## `fromAwsCliV2CompatibleProviderChain()`
-
-A credential provider that follows the same priority chain as AWS CLI v2 for credential resolution.
-This credential provider will attempt to find credentials from the following sources (listed in
-order of precedence):
-
-- Static credentials
-- [Shared credentials and config ini files](#fromini) when a profile is specified
-- [Environment variables exposed via `process.env`](#fromenv)
-- [Web identity token credentials](#fromtokenfile)
-- [SSO credentials from token cache](#fromsso)
-- [From Credential Process](#fromprocess)
-- [From Instance and Container Metadata Service](#fromcontainermetadata-and-frominstancemetadata)
-
-Example:
-
-```
-Import {
-  fromAwsCliV2CompatibleProviderChain,
-  resolveAwsCliV2Region
-} from "@aws-sdk/credential-providers";
-import { S3Client } from "@aws-sdk/client-s3";
-
-const s3Client = new S3Client({
-  profile: 'application-profile',
-
-  // Implements AWS CLI-compatible credential resolution and proxy settings.
-  credentials: fromAwsCliV2CompatibleProviderChain({
-    proxyUrl: "http://localhost:8080", // Optional: Uses proxy settings.
-    certificateBundle: "/home/user/certificate.pem", // Optional: Custom CA bundle.
-  }),
-
-  // Implements AWS CLI region resolution logic.
-  region: resolveAwsCliV2Region(),
-  // Other configurations like retry strategy, logging, etc.
-});
-```
 
 ## Add Custom Headers to STS assume-role calls
 

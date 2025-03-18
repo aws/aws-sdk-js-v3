@@ -1,47 +1,52 @@
-import { MetadataService } from "@aws-sdk/ec2-metadata-service";
 import { loadSharedConfigFiles } from "@smithy/shared-ini-file-loader";
+import type { Provider } from "@smithy/types";
 
-interface ResolveRegionOptions {
+/**
+ * @public
+ */
+export interface ResolveRegionOptions {
   defaultRegion?: string;
   profile?: string;
 }
 
 /**
  * Resolves the AWS region following AWS CLI V2 precedence order.
+ *
+ * Please note that unlike with credential providers, if this region
+ * provider is used in the context of a client, the client's profile
+ * will not be passed to this provider at runtime.
+ *
+ * @public
  */
-export const resolveAwsCliV2Region = async ({
+export const resolveAwsCliV2Region = ({
   defaultRegion,
   profile,
-}: ResolveRegionOptions): Promise<string | undefined> => {
-  const resolvedProfile = profile ?? process.env.AWS_PROFILE ?? process.env.AWS_DEFAULT_PROFILE ?? "default";
+}: ResolveRegionOptions): Provider<string | undefined> => {
+  return async () => {
+    const resolvedProfile = profile ?? process.env.AWS_PROFILE ?? process.env.AWS_DEFAULT_PROFILE ?? "default";
 
-  const region =
-    process.env.AWS_REGION ||
-    process.env.AWS_DEFAULT_REGION ||
-    (await getRegionFromIni(resolvedProfile)) ||
-    (await regionFromMetadataService());
+    const region =
+      process.env.AWS_REGION ||
+      process.env.AWS_DEFAULT_REGION ||
+      (await getRegionFromIni(resolvedProfile)) ||
+      (await regionFromMetadataService());
 
-  if (!region) {
-    const usedProfile = resolvedProfile ? ` (profile: "${resolvedProfile}")` : "";
-
-    if (defaultRegion) {
+    if (!region) {
+      const usedProfile = resolvedProfile ? ` (profile: "${resolvedProfile}")` : "";
       console.warn(
-        `Unable to determine AWS region from environment or AWS configuration${usedProfile}, defaulting to '${defaultRegion}'`
+        `@aws-sdk/credential-providers::resolveAwsCliV2Region - ` +
+          `Unable to determine AWS region from environment or AWS profile=${usedProfile}. Returning ${defaultRegion}.`
       );
-      return defaultRegion;
+      return defaultRegion ?? undefined;
     }
 
-    console.warn(
-      `Unable to determine AWS region from environment or AWS configuration${usedProfile}. Returning undefined.`
-    );
-    return undefined;
-  }
-
-  return region;
+    return region;
+  };
 };
 
 /**
  * Fetches the region from the AWS shared config files.
+ * @private
  */
 export async function getRegionFromIni(profile: string): Promise<string | undefined> {
   const sharedFiles = await loadSharedConfigFiles({ ignoreCache: true });
@@ -50,9 +55,11 @@ export async function getRegionFromIni(profile: string): Promise<string | undefi
 
 /**
  * Retrieves the AWS region from the EC2 Instance Metadata Service (IMDS).
+ * @private
  */
 export async function regionFromMetadataService(): Promise<string | undefined> {
   try {
+    const { MetadataService } = await import("@aws-sdk/ec2-metadata-service");
     const metadataService = new MetadataService();
     const document = await metadataService.request("/latest/dynamic/instance-identity/document", {});
     return JSON.parse(document).region;

@@ -4,7 +4,6 @@ import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest"
 
 import { getRegionFromIni, regionFromMetadataService, resolveAwsCliV2Region } from "./resolveAwsCliV2Region";
 
-//Mock the dependencies
 vi.mock("@aws-sdk/ec2-metadata-service");
 vi.mock("@smithy/shared-ini-file-loader", () => ({
   loadSharedConfigFiles: vi.fn(),
@@ -29,14 +28,14 @@ describe("AWS Region Resolution", () => {
   describe("resolveAwsCliV2Region", () => {
     it("should use AWS_REGION from environment variables", async () => {
       process.env.AWS_REGION = "us-west-2";
-      const region = await resolveAwsCliV2Region({});
+      const region = await resolveAwsCliV2Region({})();
       expect(region).toBe("us-west-2");
     });
 
     it("should fall back to AWS_DEFAULT_REGION if AWS_REGION is empty", async () => {
       process.env.AWS_REGION = "";
       process.env.AWS_DEFAULT_REGION = "eu-west-1";
-      const region = await resolveAwsCliV2Region({});
+      const region = await resolveAwsCliV2Region({})();
       expect(region).toBe("eu-west-1");
     });
 
@@ -49,7 +48,7 @@ describe("AWS Region Resolution", () => {
         credentialsFile: {},
       });
       const consoleSpy = vi.spyOn(console, "warn");
-      const region = await resolveAwsCliV2Region({ defaultRegion: "ap-southeast-1" });
+      const region = await resolveAwsCliV2Region({ defaultRegion: "ap-southeast-1" })();
       expect(region).toBe("ap-southeast-1");
       expect(consoleSpy).toHaveBeenCalled();
     });
@@ -63,7 +62,7 @@ describe("AWS Region Resolution", () => {
         credentialsFile: {},
       });
       const consoleSpy = vi.spyOn(console, "warn");
-      const region = await resolveAwsCliV2Region({});
+      const region = await resolveAwsCliV2Region({})();
       expect(region).toBeUndefined();
       expect(consoleSpy).toHaveBeenCalled();
     });
@@ -80,7 +79,7 @@ describe("AWS Region Resolution", () => {
         credentialsFile: {},
       });
 
-      const region = await resolveAwsCliV2Region({ profile: "custom-profile" });
+      const region = await resolveAwsCliV2Region({ profile: "custom-profile" })();
       expect(region).toBe("us-east-1");
     });
   });

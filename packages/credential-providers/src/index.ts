@@ -13,4 +13,4 @@ export * from "./fromSSO";
 export * from "./fromTemporaryCredentials";
 export * from "./fromTokenFile";
 export * from "./fromWebToken";
-export * from "./resolveAwsCliV2Region";
+export { resolveAwsCliV2Region } from "./resolveAwsCliV2Region";

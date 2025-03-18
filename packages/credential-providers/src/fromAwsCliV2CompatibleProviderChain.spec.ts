@@ -1,16 +1,19 @@
-import { fromInstanceMetadata } from "@smithy/credential-provider-imds";
-import { CredentialsProviderError } from "@smithy/property-provider";
+import type { Exact } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { fromAwsCliV2CompatibleProviderChain } from "./fromAwsCliV2CompatibleProviderChain";
+import {
+  AwsCliV2CompatibleProviderOptions,
+  fromAwsCliV2CompatibleProviderChain,
+} from "./fromAwsCliV2CompatibleProviderChain";
+
+// the options type should have no required fields.
+type Assert = Exact<AwsCliV2CompatibleProviderOptions, Partial<AwsCliV2CompatibleProviderOptions>>;
+const typeAssertion: Assert = true as const;
+void typeAssertion;
 
 describe("fromAwsCliV2CompatibleProviderChain", () => {
   let mockFromIni: any;
-  let mockFromEnv: any;
-  let mockFromTokenFile: any;
-  let mockFromSSO: any;
-  let mockFromProcess: any;
-  let mockFromInstanceMetadata: any;
+  let mockFromNodeProviderChain: any;
 
   const mockLogger = {
     debug: vi.fn(),
@@ -33,61 +36,14 @@ describe("fromAwsCliV2CompatibleProviderChain", () => {
       fromIni: mockFromIni,
     }));
 
-    mockFromEnv = vi.fn(async () => ({
-      accessKeyId: "ENV_ACCESS_KEY",
-      secretAccessKey: "ENV_SECRET_KEY",
-    }));
-    vi.doMock("@aws-sdk/credential-provider-env", () => ({
-      fromEnv: () => mockFromEnv,
-    }));
-    mockFromEnv = vi.fn(async () => {
-      return {
-        accessKeyId: "ENV_ACCESS_KEY",
-        secretAccessKey: "ENV_SECRET_KEY",
-      };
-    });
-    vi.doMock("@aws-sdk/credential-provider-env", () => ({
-      fromEnv: () => mockFromEnv,
-    }));
-
-    mockFromTokenFile = vi.fn(async () => {
-      return {
-        accessKeyId: "TOKEN_ACCESS_KEY",
-        secretAccessKey: "TOKEN_SECRET_KEY",
-      };
-    });
-    vi.doMock("@aws-sdk/credential-provider-web-identity", () => ({
-      fromTokenFile: () => mockFromTokenFile,
-    }));
-
-    mockFromSSO = vi.fn(async () => {
-      return {
-        accessKeyId: "SSO_ACCESS_KEY",
-        secretAccessKey: "SSO_SECRET_KEY",
-      };
-    });
-    vi.doMock("@aws-sdk/credential-provider-sso", () => ({
-      fromSSO: () => mockFromSSO,
-    }));
-
-    mockFromProcess = vi.fn(async () => {
-      return {
-        accessKeyId: "PROCESS_ACCESS_KEY",
-        secretAccessKey: "PROCESS_SECRET_KEY",
-      };
-    });
-    vi.doMock("@aws-sdk/credential-provider-process", () => ({
-      fromProcess: () => mockFromProcess,
-    }));
-
-    mockFromInstanceMetadata = vi.fn(async () => {
-      return {
-        accessKeyId: "REMOTE_ACCESS_KEY",
-        secretAccessKey: "REMOTE_SECRET_KEY",
-      };
-    });
-    vi.doMock("@smithy/credential-provider-imds", () => ({
-      fromInstanceMetadata: () => mockFromInstanceMetadata,
+    mockFromNodeProviderChain = vi.fn(() =>
+      vi.fn(async () => ({
+        accessKeyId: "AWS_SDK_CHAIN_AK",
+        secretAccessKey: "AWS_SDK_CHAIN_SK",
+      }))
+    );
+    vi.doMock("@aws-sdk/credential-provider-node", () => ({
+      defaultProvider: mockFromNodeProviderChain,
     }));
   });
 
@@ -109,170 +65,22 @@ describe("fromAwsCliV2CompatibleProviderChain", () => {
     });
 
     expect(mockFromIni).toHaveBeenCalled();
-    expect(mockLogger.debug).toHaveBeenCalledWith(expect.stringContaining("Using fromIni with profile:test-profile"));
+    expect(mockLogger.debug).toHaveBeenCalledWith(
+      `@aws-sdk/credential-providers - fromAwsCliV2CompatibleProviderChain - Using fromIni with profile: test-profile`
+    );
   });
 
-  it("should fall back to environment variables if no profile is provided", async () => {
+  it.only("should fall back to fromNodeProviderChain when no profile is specified", async () => {
     const provider = fromAwsCliV2CompatibleProviderChain({
-      logger: mockLogger,
+      logger: console,
     });
 
     const result = await provider();
 
     expect(result).toEqual({
-      accessKeyId: "ENV_ACCESS_KEY",
-      secretAccessKey: "ENV_SECRET_KEY",
+      accessKeyId: "AWS_SDK_CHAIN_AK",
+      secretAccessKey: "AWS_SDK_CHAIN_SK",
     });
-
-    expect(mockFromEnv).toHaveBeenCalled();
-    expect(mockLogger.debug).toHaveBeenCalledWith(expect.stringContaining("Using from custom credential chain"));
-  });
-
-  it("should fall back to web identity credentials when environment variables are unavailable", async () => {
-    vi.doMock("@aws-sdk/credential-provider-env", () => ({
-      fromEnv: () => () => Promise.reject(new CredentialsProviderError("No env credentials")),
-    }));
-
-    const provider = fromAwsCliV2CompatibleProviderChain({ logger: mockLogger });
-
-    const result = await provider();
-
-    expect(result).toEqual({
-      accessKeyId: "TOKEN_ACCESS_KEY",
-      secretAccessKey: "TOKEN_SECRET_KEY",
-    });
-
-    expect(mockFromTokenFile).toHaveBeenCalled();
-  });
-
-  it("should fall back to SSO credentials when web identity is unavailable", async () => {
-    vi.doMock("@aws-sdk/credential-provider-env", () => ({
-      fromEnv: () => () => Promise.reject(new CredentialsProviderError("No env credentials")),
-    }));
-    vi.doMock("@aws-sdk/credential-provider-web-identity", () => ({
-      fromTokenFile: () => () => Promise.reject(new CredentialsProviderError("No token file")),
-    }));
-
-    const provider = fromAwsCliV2CompatibleProviderChain({ logger: mockLogger });
-
-    const result = await provider();
-
-    expect(result).toEqual({
-      accessKeyId: "SSO_ACCESS_KEY",
-      secretAccessKey: "SSO_SECRET_KEY",
-    });
-
-    expect(mockFromSSO).toHaveBeenCalled();
-  });
-
-  it("should fall back to process credentials when SSO is unavailable", async () => {
-    vi.doMock("@aws-sdk/credential-provider-env", () => ({
-      fromEnv: () => () => Promise.reject(new CredentialsProviderError("No env credentials")),
-    }));
-
-    vi.doMock("@aws-sdk/credential-provider-ini", () => ({
-      fromIni: () => () => Promise.reject(new CredentialsProviderError("No ini credentials")),
-    }));
-
-    vi.doMock("@aws-sdk/credential-provider-web-identity", () => ({
-      fromTokenFile: () => () => Promise.reject(new CredentialsProviderError("No token file")),
-    }));
-
-    vi.doMock("@aws-sdk/credential-provider-sso", () => ({
-      fromSSO: () => () => Promise.reject(new CredentialsProviderError("No SSO credentials")),
-    }));
-
-    mockFromProcess = vi.fn().mockResolvedValue({
-      accessKeyId: "PROCESS_ACCESS_KEY",
-      secretAccessKey: "PROCESS_SECRET_KEY",
-    });
-
-    vi.doMock("@aws-sdk/credential-provider-process", () => ({
-      fromProcess: () => mockFromProcess,
-    }));
-
-    vi.doMock("@smithy/credential-provider-imds", () => ({
-      fromInstanceMetadata: () => mockFromInstanceMetadata,
-    }));
-
-    const { fromAwsCliV2CompatibleProviderChain } = await import("./fromAwsCliV2CompatibleProviderChain");
-    const provider = fromAwsCliV2CompatibleProviderChain({
-      logger: mockLogger,
-    });
-
-    const result = await provider();
-
-    expect(result).toEqual({
-      accessKeyId: "PROCESS_ACCESS_KEY",
-      secretAccessKey: "PROCESS_SECRET_KEY",
-    });
-    expect(mockFromProcess).toHaveBeenCalled();
-  });
-
-  it("should fall back to remote credentials when process credentials are unavailable", async () => {
-    vi.doMock("@aws-sdk/credential-provider-env", () => ({
-      fromEnv: () => () => Promise.reject(new CredentialsProviderError("No env credentials")),
-    }));
-
-    vi.doMock("@aws-sdk/credential-provider-ini", () => ({
-      fromIni: () => () => Promise.reject(new CredentialsProviderError("No ini credentials")),
-    }));
-
-    vi.doMock("@aws-sdk/credential-provider-web-identity", () => ({
-      fromTokenFile: () => () => Promise.reject(new CredentialsProviderError("No token file")),
-    }));
-
-    vi.doMock("@aws-sdk/credential-provider-sso", () => ({
-      fromSSO: () => () => Promise.reject(new CredentialsProviderError("No SSO credentials")),
-    }));
-
-    vi.doMock("@aws-sdk/credential-provider-process", () => ({
-      fromProcess: () => () => Promise.reject(new CredentialsProviderError("No process credentials")),
-    }));
-
-    mockFromInstanceMetadata = vi.fn().mockResolvedValue({
-      accessKeyId: "REMOTE_ACCESS_KEY",
-      secretAccessKey: "REMOTE_SECRET_KEY",
-    });
-
-    vi.doMock("@smithy/credential-provider-imds", () => ({
-      fromInstanceMetadata: () => mockFromInstanceMetadata,
-    }));
-
-    const { fromAwsCliV2CompatibleProviderChain } = await import("./fromAwsCliV2CompatibleProviderChain");
-    const provider = fromAwsCliV2CompatibleProviderChain({
-      logger: mockLogger,
-    });
-
-    const result = await provider();
-
-    expect(result).toEqual({
-      accessKeyId: "REMOTE_ACCESS_KEY",
-      secretAccessKey: "REMOTE_SECRET_KEY",
-    });
-    expect(mockFromInstanceMetadata).toHaveBeenCalled();
-  });
-
-  it("should throw error when no credentials are found", async () => {
-    vi.doMock("@aws-sdk/credential-provider-env", () => ({
-      fromEnv: () => () => Promise.reject(new CredentialsProviderError("No env credentials")),
-    }));
-    vi.doMock("@aws-sdk/credential-provider-web-identity", () => ({
-      fromTokenFile: () => () => Promise.reject(new CredentialsProviderError("No token file")),
-    }));
-    vi.doMock("@aws-sdk/credential-provider-sso", () => ({
-      fromSSO: () => () => Promise.reject(new CredentialsProviderError("No SSO credentials")),
-    }));
-    vi.doMock("@aws-sdk/credential-provider-process", () => ({
-      fromProcess: () => () => Promise.reject(new CredentialsProviderError("No process credentials")),
-    }));
-    vi.doMock("@smithy/credential-provider-imds", () => ({
-      fromInstanceMetadata: () => () => Promise.reject(new CredentialsProviderError("No remote credentials")),
-    }));
-    const { fromAwsCliV2CompatibleProviderChain } = await import("./fromAwsCliV2CompatibleProviderChain");
-    const provider = fromAwsCliV2CompatibleProviderChain({ logger: mockLogger });
-
-    await expect(provider()).rejects.toThrow(CredentialsProviderError);
-    await expect(provider()).rejects.toThrow("Could not load credentials from any providers");
+    expect(mockFromNodeProviderChain).toHaveBeenCalled();
   });
 });
