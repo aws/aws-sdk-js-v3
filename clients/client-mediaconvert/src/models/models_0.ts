@@ -5886,7 +5886,7 @@ export interface SpekeKeyProviderCmaf {
   EncryptionContractConfiguration?: EncryptionContractConfiguration | undefined;
 
   /**
-   * Specify the DRM system ID that you want signaled in the HLS manifest that MediaConvert creates as part of this CMAF package. The HLS manifest can currently signal only one system ID. For more information, see https://dashif.org/identifiers/content_protection/.
+   * Specify up to 3 DRM system IDs that you want signaled in the HLS manifest that MediaConvert creates as part of this CMAF package. For more information, see https://dashif.org/identifiers/content_protection/.
    * @public
    */
   HlsSignaledSystemIds?: string[] | undefined;
@@ -6155,6 +6155,7 @@ export type CmafSegmentControl = (typeof CmafSegmentControl)[keyof typeof CmafSe
 export const CmafSegmentLengthControl = {
   EXACT: "EXACT",
   GOP_MULTIPLE: "GOP_MULTIPLE",
+  MATCH: "MATCH",
 } as const;
 
 /**
@@ -6381,7 +6382,7 @@ export interface CmafGroupSettings {
   SegmentLength?: number | undefined;
 
   /**
-   * Specify how you want MediaConvert to determine the segment length. Choose Exact to have the encoder use the exact length that you specify with the setting Segment length. This might result in extra I-frames. Choose Multiple of GOP to have the encoder round up the segment lengths to match the next GOP boundary.
+   * Specify how you want MediaConvert to determine segment lengths in this output group. To use the exact value that you specify under Segment length: Choose Exact. Note that this might result in additional I-frames in the output GOP. To create segment lengths that are a multiple of the GOP: Choose Multiple of GOP. MediaConvert will round up the segment lengths to match the next GOP boundary. To have MediaConvert automatically determine a segment duration that is a multiple of both the audio packets and the frame rates: Choose Match. When you do, also specify a target segment duration under Segment length. This is useful for some ad-insertion or segment replacement workflows. Note that Match has the following requirements: - Output containers: Include at least one video output and at least one audio output. Audio-only outputs are not supported. - Output frame rate: Follow source is not supported. - Multiple output frame rates: When you specify multiple outputs, we recommend they share a similar frame rate (as in X/3, X/2, X, or 2X). For example: 5, 15, 30 and 60. Or: 25 and 50. (Outputs must share an integer multiple.) - Output audio codec: Specify Advanced Audio Coding (AAC). - Output sample rate: Choose 48kHz.
    * @public
    */
   SegmentLengthControl?: CmafSegmentLengthControl | undefined;
@@ -6477,8 +6478,7 @@ export interface SpekeKeyProvider {
   ResourceId?: string | undefined;
 
   /**
-   * Relates to SPEKE implementation. DRM system identifiers. DASH output groups support a max of two system ids. Other group types support one system id. See
-   *  https://dashif.org/identifiers/content_protection/ for more details.
+   * Relates to SPEKE implementation. DRM system identifiers. DASH output groups support a max of two system ids. HLS output groups support a max of 3 system ids. Other group types support one system id. See https://dashif.org/identifiers/content_protection/ for more details.
    * @public
    */
   SystemIds?: string[] | undefined;
@@ -6659,6 +6659,7 @@ export type DashIsoSegmentControl = (typeof DashIsoSegmentControl)[keyof typeof 
 export const DashIsoSegmentLengthControl = {
   EXACT: "EXACT",
   GOP_MULTIPLE: "GOP_MULTIPLE",
+  MATCH: "MATCH",
 } as const;
 
 /**
@@ -6817,7 +6818,7 @@ export interface DashIsoGroupSettings {
   SegmentLength?: number | undefined;
 
   /**
-   * Specify how you want MediaConvert to determine the segment length. Choose Exact to have the encoder use the exact length that you specify with the setting Segment length. This might result in extra I-frames. Choose Multiple of GOP to have the encoder round up the segment lengths to match the next GOP boundary.
+   * Specify how you want MediaConvert to determine segment lengths in this output group. To use the exact value that you specify under Segment length: Choose Exact. Note that this might result in additional I-frames in the output GOP. To create segment lengths that are a multiple of the GOP: Choose Multiple of GOP. MediaConvert will round up the segment lengths to match the next GOP boundary. To have MediaConvert automatically determine a segment duration that is a multiple of both the audio packets and the frame rates: Choose Match. When you do, also specify a target segment duration under Segment length. This is useful for some ad-insertion or segment replacement workflows. Note that Match has the following requirements: - Output containers: Include at least one video output and at least one audio output. Audio-only outputs are not supported. - Output frame rate: Follow source is not supported. - Multiple output frame rates: When you specify multiple outputs, we recommend they share a similar frame rate (as in X/3, X/2, X, or 2X). For example: 5, 15, 30 and 60. Or: 25 and 50. (Outputs must share an integer multiple.) - Output audio codec: Specify Advanced Audio Coding (AAC). - Output sample rate: Choose 48kHz.
    * @public
    */
   SegmentLengthControl?: DashIsoSegmentLengthControl | undefined;
@@ -7208,6 +7209,7 @@ export type HlsSegmentControl = (typeof HlsSegmentControl)[keyof typeof HlsSegme
 export const HlsSegmentLengthControl = {
   EXACT: "EXACT",
   GOP_MULTIPLE: "GOP_MULTIPLE",
+  MATCH: "MATCH",
 } as const;
 
 /**
@@ -7415,7 +7417,7 @@ export interface HlsGroupSettings {
   SegmentLength?: number | undefined;
 
   /**
-   * Specify how you want MediaConvert to determine the segment length. Choose Exact to have the encoder use the exact length that you specify with the setting Segment length. This might result in extra I-frames. Choose Multiple of GOP to have the encoder round up the segment lengths to match the next GOP boundary.
+   * Specify how you want MediaConvert to determine segment lengths in this output group. To use the exact value that you specify under Segment length: Choose Exact. Note that this might result in additional I-frames in the output GOP. To create segment lengths that are a multiple of the GOP: Choose Multiple of GOP. MediaConvert will round up the segment lengths to match the next GOP boundary. To have MediaConvert automatically determine a segment duration that is a multiple of both the audio packets and the frame rates: Choose Match. When you do, also specify a target segment duration under Segment length. This is useful for some ad-insertion or segment replacement workflows. Note that Match has the following requirements: - Output containers: Include at least one video output and at least one audio output. Audio-only outputs are not supported. - Output frame rate: Follow source is not supported. - Multiple output frame rates: When you specify multiple outputs, we recommend they share a similar frame rate (as in X/3, X/2, X, or 2X). For example: 5, 15, 30 and 60. Or: 25 and 50. (Outputs must share an integer multiple.) - Output audio codec: Specify Advanced Audio Coding (AAC). - Output sample rate: Choose 48kHz.
    * @public
    */
   SegmentLengthControl?: HlsSegmentLengthControl | undefined;
