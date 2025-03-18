@@ -315,6 +315,8 @@ export const CloudWatchRegion = {
   us_iso_east_1: "us-iso-east-1",
   us_iso_west_1: "us-iso-west-1",
   us_isob_east_1: "us-isob-east-1",
+  us_isof_east_1: "us-isof-east-1",
+  us_isof_south_1: "us-isof-south-1",
   us_west_1: "us-west-1",
   us_west_2: "us-west-2",
 } as const;
@@ -836,6 +838,8 @@ export const VPCRegion = {
   us_iso_east_1: "us-iso-east-1",
   us_iso_west_1: "us-iso-west-1",
   us_isob_east_1: "us-isob-east-1",
+  us_isof_east_1: "us-isof-east-1",
+  us_isof_south_1: "us-isof-south-1",
   us_west_1: "us-west-1",
   us_west_2: "us-west-2",
 } as const;
