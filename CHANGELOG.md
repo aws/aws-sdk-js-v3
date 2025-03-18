@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.770.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.769.0...v3.770.0) (2025-03-18)
+
+
+### Features
+
+* **client-appsync:** Providing Tagging support for DomainName in AppSync ([ab2c6bb](https://github.com/aws/aws-sdk-js-v3/commit/ab2c6bb81a136214a8df5f0ce2a704bb0c427ead))
+* **client-cleanrooms:** This release adds support for PySpark jobs. Customers can now analyze data by running jobs using approved PySpark analysis templates. ([06fd603](https://github.com/aws/aws-sdk-js-v3/commit/06fd603624a5a59a6044568f74cda8e603cf6077))
+* **client-mediaconvert:** This release adds support for AVC passthrough, the ability to specify PTS offset without padding, and an A/V segment matching feature. ([46f3ed9](https://github.com/aws/aws-sdk-js-v3/commit/46f3ed9a0bb7d81ef25bdbcd7e603dfd22df5b99))
+* **client-route-53:** Amazon Route 53 now supports the iso-f regions for private DNS Amazon VPCs and cloudwatch healthchecks. ([431c0eb](https://github.com/aws/aws-sdk-js-v3/commit/431c0eb5ea014bfd067f9b5abd425f7af80ea293))
+* **clients:** update client endpoints as of 2025-03-18 ([9bf6f41](https://github.com/aws/aws-sdk-js-v3/commit/9bf6f41f1f7505ff6b95110330ac86c3ad615eca))
+
+
+
+
+
 # [3.769.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.768.0...v3.769.0) (2025-03-17)
 
 

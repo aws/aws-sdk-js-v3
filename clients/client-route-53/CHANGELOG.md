@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.770.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.769.0...v3.770.0) (2025-03-18)
+
+
+### Features
+
+* **client-route-53:** Amazon Route 53 now supports the iso-f regions for private DNS Amazon VPCs and cloudwatch healthchecks. ([431c0eb](https://github.com/aws/aws-sdk-js-v3/commit/431c0eb5ea014bfd067f9b5abd425f7af80ea293))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-route-53
