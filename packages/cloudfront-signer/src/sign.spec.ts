@@ -638,14 +638,14 @@ describe("getSignedUrl- when signing a URL with a date range", () => {
     const resultUrl = getSignedUrl({
       url,
       keyPairId,
-      dateLessThan: dateNumber as unknown as string,
+      dateLessThan: dateNumber,
       privateKey,
       passphrase,
     });
     const resultCookies = getSignedCookies({
       url,
       keyPairId,
-      dateLessThan: dateNumber as unknown as string,
+      dateLessThan: dateNumber,
       privateKey,
       passphrase,
     });
@@ -658,14 +658,14 @@ describe("getSignedUrl- when signing a URL with a date range", () => {
     const resultUrl = getSignedUrl({
       url,
       keyPairId,
-      dateLessThan: dateObject as unknown as string,
+      dateLessThan: dateObject,
       privateKey,
       passphrase,
     });
     const resultCookies = getSignedCookies({
       url,
       keyPairId,
-      dateLessThan: dateObject as unknown as string,
+      dateLessThan: dateObject,
       privateKey,
       passphrase,
     });
@@ -709,8 +709,8 @@ describe("getSignedUrl- when signing a URL with a date range", () => {
     const result = getSignedUrl({
       url,
       keyPairId,
-      dateLessThan: dateNumber as unknown as string,
-      dateGreaterThan: dateGreaterThanNumber as unknown as string,
+      dateLessThan: dateNumber,
+      dateGreaterThan: dateGreaterThanNumber,
       privateKey,
       passphrase,
     });
@@ -740,8 +740,8 @@ describe("getSignedUrl- when signing a URL with a date range", () => {
     const result = getSignedUrl({
       url,
       keyPairId,
-      dateLessThan: dateObject as unknown as string,
-      dateGreaterThan: dateGreaterThanObject as unknown as string,
+      dateLessThan: dateObject,
+      dateGreaterThan: dateGreaterThanObject,
       privateKey,
       passphrase,
     });
