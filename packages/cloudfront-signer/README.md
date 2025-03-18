@@ -17,7 +17,7 @@ const s3ObjectKey = "private-content/private.jpeg";
 const url = `${cloudfrontDistributionDomain}/${s3ObjectKey}`;
 const privateKey = "CONTENTS-OF-PRIVATE-KEY";
 const keyPairId = "PUBLIC-KEY-ID-OF-CLOUDFRONT-KEY-PAIR";
-const dateLessThan = "2022-01-01"; //  accepts string (Date constructor compatible), number (milliseconds since epoch)
+const dateLessThan = "2022-01-01"; // any Date constructor compatible
 
 const signedUrl = getSignedUrl({
   url,
