@@ -38,7 +38,8 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * const client = new CleanRoomsClient(config);
  * const input = { // CreateMembershipInput
  *   collaborationIdentifier: "STRING_VALUE", // required
- *   queryLogStatus: "STRING_VALUE", // required
+ *   queryLogStatus: "ENABLED" || "DISABLED", // required
+ *   jobLogStatus: "ENABLED" || "DISABLED",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -53,6 +54,15 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  *     },
  *     roleArn: "STRING_VALUE",
  *   },
+ *   defaultJobResultConfiguration: { // MembershipProtectedJobResultConfiguration
+ *     outputConfiguration: { // MembershipProtectedJobOutputConfiguration Union: only one key present
+ *       s3: { // ProtectedJobS3OutputConfigurationInput
+ *         bucket: "STRING_VALUE", // required
+ *         keyPrefix: "STRING_VALUE",
+ *       },
+ *     },
+ *     roleArn: "STRING_VALUE", // required
+ *   },
  *   paymentConfiguration: { // MembershipPaymentConfiguration
  *     queryCompute: { // MembershipQueryComputePaymentConfig
  *       isResponsible: true || false, // required
@@ -64,6 +74,9 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  *       modelInference: { // MembershipModelInferencePaymentConfig
  *         isResponsible: true || false, // required
  *       },
+ *     },
+ *     jobCompute: { // MembershipJobComputePaymentConfig
+ *       isResponsible: true || false, // required
  *     },
  *   },
  * };
@@ -82,14 +95,15 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * //     updateTime: new Date("TIMESTAMP"), // required
  * //     status: "STRING_VALUE", // required
  * //     memberAbilities: [ // MemberAbilities // required
- * //       "CAN_QUERY" || "CAN_RECEIVE_RESULTS",
+ * //       "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
  * //     ],
  * //     mlMemberAbilities: { // MLMemberAbilities
  * //       customMLMemberAbilities: [ // CustomMLMemberAbilities // required
  * //         "CAN_RECEIVE_MODEL_OUTPUT" || "CAN_RECEIVE_INFERENCE_OUTPUT",
  * //       ],
  * //     },
- * //     queryLogStatus: "STRING_VALUE", // required
+ * //     queryLogStatus: "ENABLED" || "DISABLED", // required
+ * //     jobLogStatus: "ENABLED" || "DISABLED",
  * //     defaultResultConfiguration: { // MembershipProtectedQueryResultConfiguration
  * //       outputConfiguration: { // MembershipProtectedQueryOutputConfiguration Union: only one key present
  * //         s3: { // ProtectedQueryS3OutputConfiguration
@@ -100,6 +114,15 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * //         },
  * //       },
  * //       roleArn: "STRING_VALUE",
+ * //     },
+ * //     defaultJobResultConfiguration: { // MembershipProtectedJobResultConfiguration
+ * //       outputConfiguration: { // MembershipProtectedJobOutputConfiguration Union: only one key present
+ * //         s3: { // ProtectedJobS3OutputConfigurationInput
+ * //           bucket: "STRING_VALUE", // required
+ * //           keyPrefix: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       roleArn: "STRING_VALUE", // required
  * //     },
  * //     paymentConfiguration: { // MembershipPaymentConfiguration
  * //       queryCompute: { // MembershipQueryComputePaymentConfig
@@ -112,6 +135,9 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * //         modelInference: { // MembershipModelInferencePaymentConfig
  * //           isResponsible: true || false, // required
  * //         },
+ * //       },
+ * //       jobCompute: { // MembershipJobComputePaymentConfig
+ * //         isResponsible: true || false, // required
  * //       },
  * //     },
  * //   },

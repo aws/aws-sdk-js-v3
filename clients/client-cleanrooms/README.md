@@ -9,7 +9,7 @@ AWS SDK for JavaScript CleanRooms Client for Node.js, Browser and React Native.
 <p>Welcome to the <i>Clean Rooms API Reference</i>.</p>
 <p>Clean Rooms is an Amazon Web Services service that helps multiple parties to join
 their data together in a secure collaboration workspace. In the collaboration, members who
-can query and receive results can get insights into the collective datasets without either
+can run queries and jobs and receive results can get insights into the collective datasets without either
 party getting access to the other party's raw data.</p>
 <p>To learn more about Clean Rooms concepts, procedures, and best practices, see the
 <a href="https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html">Clean Rooms User Guide</a>.</p>
@@ -541,6 +541,14 @@ GetPrivacyBudgetTemplate
 </details>
 <details>
 <summary>
+GetProtectedJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/GetProtectedJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/GetProtectedJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/GetProtectedJobCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetProtectedQuery
 </summary>
 
@@ -693,6 +701,14 @@ ListPrivacyBudgetTemplates
 </details>
 <details>
 <summary>
+ListProtectedJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/ListProtectedJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListProtectedJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/ListProtectedJobsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListProtectedQueries
 </summary>
 
@@ -729,6 +745,14 @@ PreviewPrivacyImpact
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/PreviewPrivacyImpactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/PreviewPrivacyImpactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/PreviewPrivacyImpactCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartProtectedJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/StartProtectedJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/StartProtectedJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/StartProtectedJobCommandOutput/)
 
 </details>
 <details>
@@ -841,6 +865,14 @@ UpdatePrivacyBudgetTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/UpdatePrivacyBudgetTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/UpdatePrivacyBudgetTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/UpdatePrivacyBudgetTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateProtectedJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/UpdateProtectedJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/UpdateProtectedJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/UpdateProtectedJobCommandOutput/)
 
 </details>
 <details>

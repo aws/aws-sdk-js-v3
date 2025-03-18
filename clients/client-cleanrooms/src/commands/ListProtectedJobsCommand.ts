@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListProtectedQueriesInput, ListProtectedQueriesOutput } from "../models/models_1";
-import { de_ListProtectedQueriesCommand, se_ListProtectedQueriesCommand } from "../protocols/Aws_restJson1";
+import { ListProtectedJobsInput, ListProtectedJobsOutput } from "../models/models_1";
+import { de_ListProtectedJobsCommand, se_ListProtectedJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,47 +17,47 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListProtectedQueriesCommand}.
+ * The input for {@link ListProtectedJobsCommand}.
  */
-export interface ListProtectedQueriesCommandInput extends ListProtectedQueriesInput {}
+export interface ListProtectedJobsCommandInput extends ListProtectedJobsInput {}
 /**
  * @public
  *
- * The output of {@link ListProtectedQueriesCommand}.
+ * The output of {@link ListProtectedJobsCommand}.
  */
-export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesOutput, __MetadataBearer {}
+export interface ListProtectedJobsCommandOutput extends ListProtectedJobsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists protected queries, sorted by the most recent query.</p>
+ * <p>Lists protected jobs, sorted by most recent job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, ListProtectedQueriesCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, ListProtectedQueriesCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, ListProtectedJobsCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
+ * // const { CleanRoomsClient, ListProtectedJobsCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = { // ListProtectedQueriesInput
+ * const input = { // ListProtectedJobsInput
  *   membershipIdentifier: "STRING_VALUE", // required
- *   status: "STRING_VALUE",
+ *   status: "SUBMITTED" || "STARTED" || "CANCELLED" || "CANCELLING" || "FAILED" || "SUCCESS",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
- * const command = new ListProtectedQueriesCommand(input);
+ * const command = new ListProtectedJobsCommand(input);
  * const response = await client.send(command);
- * // { // ListProtectedQueriesOutput
+ * // { // ListProtectedJobsOutput
  * //   nextToken: "STRING_VALUE",
- * //   protectedQueries: [ // ProtectedQuerySummaryList // required
- * //     { // ProtectedQuerySummary
+ * //   protectedJobs: [ // ProtectedJobSummaryList // required
+ * //     { // ProtectedJobSummary
  * //       id: "STRING_VALUE", // required
  * //       membershipId: "STRING_VALUE", // required
  * //       membershipArn: "STRING_VALUE", // required
  * //       createTime: new Date("TIMESTAMP"), // required
- * //       status: "STRING_VALUE", // required
- * //       receiverConfigurations: [ // ReceiverConfigurationsList // required
- * //         { // ReceiverConfiguration
- * //           analysisType: "DIRECT_ANALYSIS" || "ADDITIONAL_ANALYSIS", // required
- * //           configurationDetails: { // ConfigurationDetails Union: only one key present
- * //             directAnalysisConfigurationDetails: { // DirectAnalysisConfigurationDetails
- * //               receiverAccountIds: [ // ReceiverAccountIds
+ * //       status: "SUBMITTED" || "STARTED" || "CANCELLED" || "CANCELLING" || "FAILED" || "SUCCESS", // required
+ * //       receiverConfigurations: [ // ProtectedJobReceiverConfigurations // required
+ * //         { // ProtectedJobReceiverConfiguration
+ * //           analysisType: "DIRECT_ANALYSIS", // required
+ * //           configurationDetails: { // ProtectedJobConfigurationDetails Union: only one key present
+ * //             directAnalysisConfigurationDetails: { // ProtectedJobDirectAnalysisConfigurationDetails
+ * //               receiverAccountIds: [ // ProtectedJobReceiverAccountIds
  * //                 "STRING_VALUE",
  * //               ],
  * //             },
@@ -70,10 +70,10 @@ export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesO
  *
  * ```
  *
- * @param ListProtectedQueriesCommandInput - {@link ListProtectedQueriesCommandInput}
- * @returns {@link ListProtectedQueriesCommandOutput}
- * @see {@link ListProtectedQueriesCommandInput} for command's `input` shape.
- * @see {@link ListProtectedQueriesCommandOutput} for command's `response` shape.
+ * @param ListProtectedJobsCommandInput - {@link ListProtectedJobsCommandInput}
+ * @returns {@link ListProtectedJobsCommandOutput}
+ * @see {@link ListProtectedJobsCommandInput} for command's `input` shape.
+ * @see {@link ListProtectedJobsCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -96,10 +96,10 @@ export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesO
  *
  * @public
  */
-export class ListProtectedQueriesCommand extends $Command
+export class ListProtectedJobsCommand extends $Command
   .classBuilder<
-    ListProtectedQueriesCommandInput,
-    ListProtectedQueriesCommandOutput,
+    ListProtectedJobsCommandInput,
+    ListProtectedJobsCommandOutput,
     CleanRoomsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -111,21 +111,21 @@ export class ListProtectedQueriesCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSBastionControlPlaneServiceLambda", "ListProtectedQueries", {})
-  .n("CleanRoomsClient", "ListProtectedQueriesCommand")
+  .s("AWSBastionControlPlaneServiceLambda", "ListProtectedJobs", {})
+  .n("CleanRoomsClient", "ListProtectedJobsCommand")
   .f(void 0, void 0)
-  .ser(se_ListProtectedQueriesCommand)
-  .de(de_ListProtectedQueriesCommand)
+  .ser(se_ListProtectedJobsCommand)
+  .de(de_ListProtectedJobsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListProtectedQueriesInput;
-      output: ListProtectedQueriesOutput;
+      input: ListProtectedJobsInput;
+      output: ListProtectedJobsOutput;
     };
     sdk: {
-      input: ListProtectedQueriesCommandInput;
-      output: ListProtectedQueriesCommandOutput;
+      input: ListProtectedJobsCommandInput;
+      output: ListProtectedJobsCommandOutput;
     };
   };
 }

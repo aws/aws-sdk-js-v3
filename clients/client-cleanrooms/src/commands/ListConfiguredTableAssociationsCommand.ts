@@ -58,6 +58,9 @@ export interface ListConfiguredTableAssociationsCommandOutput
  * //       updateTime: new Date("TIMESTAMP"), // required
  * //       id: "STRING_VALUE", // required
  * //       arn: "STRING_VALUE", // required
+ * //       analysisRuleTypes: [ // ConfiguredTableAssociationAnalysisRuleTypeList
+ * //         "AGGREGATION" || "LIST" || "CUSTOM",
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

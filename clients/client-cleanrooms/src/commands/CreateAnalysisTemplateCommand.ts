@@ -44,9 +44,26 @@ export interface CreateAnalysisTemplateCommandOutput extends CreateAnalysisTempl
  *   description: "STRING_VALUE",
  *   membershipIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
- *   format: "SQL", // required
+ *   format: "SQL" || "PYSPARK_1_0", // required
  *   source: { // AnalysisSource Union: only one key present
  *     text: "STRING_VALUE",
+ *     artifacts: { // AnalysisTemplateArtifacts
+ *       entryPoint: { // AnalysisTemplateArtifact
+ *         location: { // S3Location
+ *           bucket: "STRING_VALUE", // required
+ *           key: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       additionalArtifacts: [ // AnalysisTemplateArtifactList
+ *         {
+ *           location: {
+ *             bucket: "STRING_VALUE", // required
+ *             key: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       ],
+ *       roleArn: "STRING_VALUE", // required
+ *     },
  *   },
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
@@ -58,6 +75,11 @@ export interface CreateAnalysisTemplateCommandOutput extends CreateAnalysisTempl
  *       defaultValue: "STRING_VALUE",
  *     },
  *   ],
+ *   schema: { // AnalysisSchema
+ *     referencedTables: [ // QueryTables
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new CreateAnalysisTemplateCommand(input);
  * const response = await client.send(command);
@@ -78,9 +100,38 @@ export interface CreateAnalysisTemplateCommandOutput extends CreateAnalysisTempl
  * //         "STRING_VALUE",
  * //       ],
  * //     },
- * //     format: "SQL", // required
+ * //     format: "SQL" || "PYSPARK_1_0", // required
  * //     source: { // AnalysisSource Union: only one key present
  * //       text: "STRING_VALUE",
+ * //       artifacts: { // AnalysisTemplateArtifacts
+ * //         entryPoint: { // AnalysisTemplateArtifact
+ * //           location: { // S3Location
+ * //             bucket: "STRING_VALUE", // required
+ * //             key: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //         additionalArtifacts: [ // AnalysisTemplateArtifactList
+ * //           {
+ * //             location: {
+ * //               bucket: "STRING_VALUE", // required
+ * //               key: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         ],
+ * //         roleArn: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     sourceMetadata: { // AnalysisSourceMetadata Union: only one key present
+ * //       artifacts: { // AnalysisTemplateArtifactMetadata
+ * //         entryPointHash: { // Hash
+ * //           sha256: "STRING_VALUE",
+ * //         },
+ * //         additionalArtifactHashes: [ // HashList
+ * //           {
+ * //             sha256: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //     analysisParameters: [ // AnalysisParameterList
  * //       { // AnalysisParameter

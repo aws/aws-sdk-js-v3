@@ -40,7 +40,7 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *     { // MemberSpecification
  *       accountId: "STRING_VALUE", // required
  *       memberAbilities: [ // MemberAbilities // required
- *         "CAN_QUERY" || "CAN_RECEIVE_RESULTS",
+ *         "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
  *       ],
  *       mlMemberAbilities: { // MLMemberAbilities
  *         customMLMemberAbilities: [ // CustomMLMemberAbilities // required
@@ -60,13 +60,16 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *             isResponsible: true || false, // required
  *           },
  *         },
+ *         jobCompute: { // JobComputePaymentConfig
+ *           isResponsible: true || false, // required
+ *         },
  *       },
  *     },
  *   ],
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE", // required
  *   creatorMemberAbilities: [ // required
- *     "CAN_QUERY" || "CAN_RECEIVE_RESULTS",
+ *     "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
  *   ],
  *   creatorMLMemberAbilities: {
  *     customMLMemberAbilities: [ // required
@@ -81,6 +84,7 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *     preserveNulls: true || false, // required
  *   },
  *   queryLogStatus: "ENABLED" || "DISABLED", // required
+ *   jobLogStatus: "ENABLED" || "DISABLED",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -95,6 +99,9 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *       modelInference: {
  *         isResponsible: true || false, // required
  *       },
+ *     },
+ *     jobCompute: {
+ *       isResponsible: true || false, // required
  *     },
  *   },
  *   analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
@@ -121,6 +128,7 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  * //       preserveNulls: true || false, // required
  * //     },
  * //     queryLogStatus: "ENABLED" || "DISABLED", // required
+ * //     jobLogStatus: "ENABLED" || "DISABLED",
  * //     analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
  * //   },
  * // };

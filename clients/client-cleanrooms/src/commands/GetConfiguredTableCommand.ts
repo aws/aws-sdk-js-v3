@@ -78,9 +78,12 @@ export interface GetConfiguredTableCommandOutput extends GetConfiguredTableOutpu
  * //     analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
  * //       "AGGREGATION" || "LIST" || "CUSTOM",
  * //     ],
- * //     analysisMethod: "DIRECT_QUERY", // required
+ * //     analysisMethod: "DIRECT_QUERY" || "DIRECT_JOB" || "MULTIPLE", // required
  * //     allowedColumns: [ // AllowedColumnList // required
  * //       "STRING_VALUE",
+ * //     ],
+ * //     selectedAnalysisMethods: [ // SelectedAnalysisMethods
+ * //       "DIRECT_QUERY" || "DIRECT_JOB",
  * //     ],
  * //   },
  * // };

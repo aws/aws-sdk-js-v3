@@ -209,6 +209,9 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource which does not exist.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Request denied because service quota has been exceeded.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Request was denied due to request throttling.</p>
  *

@@ -60,6 +60,7 @@ export interface GetCollaborationCommandOutput extends GetCollaborationOutput, _
  * //       preserveNulls: true || false, // required
  * //     },
  * //     queryLogStatus: "ENABLED" || "DISABLED", // required
+ * //     jobLogStatus: "ENABLED" || "DISABLED",
  * //     analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
  * //   },
  * // };

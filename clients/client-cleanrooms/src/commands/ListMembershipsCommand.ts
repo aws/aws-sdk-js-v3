@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListMembershipsInput, ListMembershipsOutput } from "../models/models_0";
+import { ListMembershipsInput, ListMembershipsOutput } from "../models/models_1";
 import { de_ListMembershipsCommand, se_ListMembershipsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -57,7 +57,7 @@ export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __M
  * //       updateTime: new Date("TIMESTAMP"), // required
  * //       status: "STRING_VALUE", // required
  * //       memberAbilities: [ // MemberAbilities // required
- * //         "CAN_QUERY" || "CAN_RECEIVE_RESULTS",
+ * //         "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
  * //       ],
  * //       mlMemberAbilities: { // MLMemberAbilities
  * //         customMLMemberAbilities: [ // CustomMLMemberAbilities // required
@@ -75,6 +75,9 @@ export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __M
  * //           modelInference: { // MembershipModelInferencePaymentConfig
  * //             isResponsible: true || false, // required
  * //           },
+ * //         },
+ * //         jobCompute: { // MembershipJobComputePaymentConfig
+ * //           isResponsible: true || false, // required
  * //         },
  * //       },
  * //     },

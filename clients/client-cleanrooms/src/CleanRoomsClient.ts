@@ -193,6 +193,7 @@ import {
   GetPrivacyBudgetTemplateCommandInput,
   GetPrivacyBudgetTemplateCommandOutput,
 } from "./commands/GetPrivacyBudgetTemplateCommand";
+import { GetProtectedJobCommandInput, GetProtectedJobCommandOutput } from "./commands/GetProtectedJobCommand";
 import { GetProtectedQueryCommandInput, GetProtectedQueryCommandOutput } from "./commands/GetProtectedQueryCommand";
 import {
   GetSchemaAnalysisRuleCommandInput,
@@ -251,6 +252,7 @@ import {
   ListPrivacyBudgetTemplatesCommandInput,
   ListPrivacyBudgetTemplatesCommandOutput,
 } from "./commands/ListPrivacyBudgetTemplatesCommand";
+import { ListProtectedJobsCommandInput, ListProtectedJobsCommandOutput } from "./commands/ListProtectedJobsCommand";
 import {
   ListProtectedQueriesCommandInput,
   ListProtectedQueriesCommandOutput,
@@ -268,6 +270,7 @@ import {
   PreviewPrivacyImpactCommandInput,
   PreviewPrivacyImpactCommandOutput,
 } from "./commands/PreviewPrivacyImpactCommand";
+import { StartProtectedJobCommandInput, StartProtectedJobCommandOutput } from "./commands/StartProtectedJobCommand";
 import {
   StartProtectedQueryCommandInput,
   StartProtectedQueryCommandOutput,
@@ -315,6 +318,7 @@ import {
   UpdatePrivacyBudgetTemplateCommandInput,
   UpdatePrivacyBudgetTemplateCommandOutput,
 } from "./commands/UpdatePrivacyBudgetTemplateCommand";
+import { UpdateProtectedJobCommandInput, UpdateProtectedJobCommandOutput } from "./commands/UpdateProtectedJobCommand";
 import {
   UpdateProtectedQueryCommandInput,
   UpdateProtectedQueryCommandOutput,
@@ -375,6 +379,7 @@ export type ServiceInputTypes =
   | GetIdNamespaceAssociationCommandInput
   | GetMembershipCommandInput
   | GetPrivacyBudgetTemplateCommandInput
+  | GetProtectedJobCommandInput
   | GetProtectedQueryCommandInput
   | GetSchemaAnalysisRuleCommandInput
   | GetSchemaCommandInput
@@ -394,11 +399,13 @@ export type ServiceInputTypes =
   | ListMembershipsCommandInput
   | ListPrivacyBudgetTemplatesCommandInput
   | ListPrivacyBudgetsCommandInput
+  | ListProtectedJobsCommandInput
   | ListProtectedQueriesCommandInput
   | ListSchemasCommandInput
   | ListTagsForResourceCommandInput
   | PopulateIdMappingTableCommandInput
   | PreviewPrivacyImpactCommandInput
+  | StartProtectedJobCommandInput
   | StartProtectedQueryCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -413,6 +420,7 @@ export type ServiceInputTypes =
   | UpdateIdNamespaceAssociationCommandInput
   | UpdateMembershipCommandInput
   | UpdatePrivacyBudgetTemplateCommandInput
+  | UpdateProtectedJobCommandInput
   | UpdateProtectedQueryCommandInput;
 
 /**
@@ -460,6 +468,7 @@ export type ServiceOutputTypes =
   | GetIdNamespaceAssociationCommandOutput
   | GetMembershipCommandOutput
   | GetPrivacyBudgetTemplateCommandOutput
+  | GetProtectedJobCommandOutput
   | GetProtectedQueryCommandOutput
   | GetSchemaAnalysisRuleCommandOutput
   | GetSchemaCommandOutput
@@ -479,11 +488,13 @@ export type ServiceOutputTypes =
   | ListMembershipsCommandOutput
   | ListPrivacyBudgetTemplatesCommandOutput
   | ListPrivacyBudgetsCommandOutput
+  | ListProtectedJobsCommandOutput
   | ListProtectedQueriesCommandOutput
   | ListSchemasCommandOutput
   | ListTagsForResourceCommandOutput
   | PopulateIdMappingTableCommandOutput
   | PreviewPrivacyImpactCommandOutput
+  | StartProtectedJobCommandOutput
   | StartProtectedQueryCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -498,6 +509,7 @@ export type ServiceOutputTypes =
   | UpdateIdNamespaceAssociationCommandOutput
   | UpdateMembershipCommandOutput
   | UpdatePrivacyBudgetTemplateCommandOutput
+  | UpdateProtectedJobCommandOutput
   | UpdateProtectedQueryCommandOutput;
 
 /**
@@ -694,7 +706,7 @@ export interface CleanRoomsClientResolvedConfig extends CleanRoomsClientResolved
  * <p>Welcome to the <i>Clean Rooms API Reference</i>.</p>
  *          <p>Clean Rooms is an Amazon Web Services service that helps multiple parties to join
  *          their data together in a secure collaboration workspace. In the collaboration, members who
- *          can query and receive results can get insights into the collective datasets without either
+ *          can run queries and jobs and receive results can get insights into the collective datasets without either
  *          party getting access to the other party's raw data.</p>
  *          <p>To learn more about Clean Rooms concepts, procedures, and best practices, see the
  *             <a href="https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html">Clean Rooms User Guide</a>.</p>

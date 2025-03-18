@@ -68,7 +68,10 @@ export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTabl
  *   allowedColumns: [ // AllowedColumnList // required
  *     "STRING_VALUE",
  *   ],
- *   analysisMethod: "DIRECT_QUERY", // required
+ *   analysisMethod: "DIRECT_QUERY" || "DIRECT_JOB" || "MULTIPLE", // required
+ *   selectedAnalysisMethods: [ // SelectedAnalysisMethods
+ *     "DIRECT_QUERY" || "DIRECT_JOB",
+ *   ],
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -113,9 +116,12 @@ export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTabl
  * //     analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
  * //       "AGGREGATION" || "LIST" || "CUSTOM",
  * //     ],
- * //     analysisMethod: "DIRECT_QUERY", // required
+ * //     analysisMethod: "DIRECT_QUERY" || "DIRECT_JOB" || "MULTIPLE", // required
  * //     allowedColumns: [ // AllowedColumnList // required
  * //       "STRING_VALUE",
+ * //     ],
+ * //     selectedAnalysisMethods: [ // SelectedAnalysisMethods
+ * //       "DIRECT_QUERY" || "DIRECT_JOB",
  * //     ],
  * //   },
  * // };

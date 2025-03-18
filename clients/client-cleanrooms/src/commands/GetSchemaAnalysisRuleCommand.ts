@@ -126,6 +126,104 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * //         },
  * //       },
  * //     },
+ * //     collaborationPolicy: { // ConfiguredTableAssociationAnalysisRulePolicy Union: only one key present
+ * //       v1: { // ConfiguredTableAssociationAnalysisRulePolicyV1 Union: only one key present
+ * //         list: { // ConfiguredTableAssociationAnalysisRuleList
+ * //           allowedResultReceivers: [ // AllowedResultReceivers
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAdditionalAnalyses: [ // AllowedAdditionalAnalyses
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         aggregation: { // ConfiguredTableAssociationAnalysisRuleAggregation
+ * //           allowedResultReceivers: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAdditionalAnalyses: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         custom: { // ConfiguredTableAssociationAnalysisRuleCustom
+ * //           allowedResultReceivers: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAdditionalAnalyses: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //     consolidatedPolicy: { // ConsolidatedPolicy Union: only one key present
+ * //       v1: { // ConsolidatedPolicyV1 Union: only one key present
+ * //         list: { // ConsolidatedPolicyList
+ * //           joinColumns: "<AnalysisRuleColumnList>", // required
+ * //           allowedJoinOperators: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           listColumns: "<AnalysisRuleColumnList>", // required
+ * //           additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
+ * //           allowedResultReceivers: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAdditionalAnalyses: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         aggregation: { // ConsolidatedPolicyAggregation
+ * //           aggregateColumns: [ // required
+ * //             {
+ * //               columnNames: [ // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               function: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           joinColumns: "<AnalysisRuleColumnList>", // required
+ * //           joinRequired: "STRING_VALUE",
+ * //           allowedJoinOperators: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           dimensionColumns: "<AnalysisRuleColumnList>", // required
+ * //           scalarFunctions: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           outputConstraints: [ // required
+ * //             {
+ * //               columnName: "STRING_VALUE", // required
+ * //               minimum: Number("int"), // required
+ * //               type: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
+ * //           allowedResultReceivers: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAdditionalAnalyses: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         custom: { // ConsolidatedPolicyCustom
+ * //           allowedAnalyses: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAnalysisProviders: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
+ * //           disallowedOutputColumns: "<AnalysisRuleColumnList>",
+ * //           differentialPrivacy: {
+ * //             columns: [ // required
+ * //               {
+ * //                 name: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //           allowedResultReceivers: "<AllowedResultReceivers>",
+ * //           allowedAdditionalAnalyses: "<AllowedAdditionalAnalyses>",
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * // };
  *
