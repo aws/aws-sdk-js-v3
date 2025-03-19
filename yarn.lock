@@ -22933,6 +22933,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/middleware-http-debug-log@workspace:packages/middleware-http-debug-log":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/middleware-http-debug-log@workspace:packages/middleware-http-debug-log"
+  dependencies:
+    "@smithy/protocol-http": "npm:^5.0.1"
+    "@smithy/types": "npm:^4.1.0"
+    "@smithy/util-stream": "npm:^4.1.2"
+    "@smithy/util-utf8": "npm:^4.0.0"
+    "@tsconfig/recommended": "npm:1.0.1"
+    "@types/node": "npm:^18.19.69"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    rimraf: "npm:3.0.2"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.2.2"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/middleware-location-constraint@npm:*, @aws-sdk/middleware-location-constraint@workspace:packages/middleware-location-constraint":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-location-constraint@workspace:packages/middleware-location-constraint"
